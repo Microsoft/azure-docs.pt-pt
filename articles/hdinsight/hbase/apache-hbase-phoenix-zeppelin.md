@@ -1,6 +1,6 @@
 ---
-title: Executar consultas do Apache base no Azure HDInsight com o Apache Phoenix
-description: Saiba como usar o Apache Zeppelin para executar consultas do Apache base com o Phoenix.
+title: Executar consultas da Base Apache em Azure HDInsight com Apache Phoenix
+description: Aprenda a usar Apache Zeppelin para executar consultas da Base Apache com Phoenix.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,44 +9,44 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 28eeb446e55213f1ffa0a638878f6432fd15a05a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72392244"
 ---
-# <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Usar o Apache Zeppelin para executar consultas de Apache Phoenix sobre o Apache HBase no Azure HDInsight
+# <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Use Apache Zeppelin para executar consultas Apache Phoenix sobre Apache HBase em Azure HDInsight
 
-Apache Phoenix é uma camada de banco de dados relacional de software livre, massivamente paralela, criada no HBase. O Phoenix permite que você use consultas SQL como no HBase. O Phoenix usa drivers JDBC abaixo para permitir que você crie, exclua, altere tabelas SQL, índices, exibições e sequências.  Você também pode usar Phoenix para atualizar linhas individualmente e em massa. O Phoenix usa uma compilação nativa NOSQL em vez de usar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre o HBase.
+Apache Phoenix é uma camada de base de dados relacional massivamente paralela construída em HBase. A Phoenix permite-lhe usar sQL como consultas sobre HBase. A Phoenix utiliza os condutores JDBC por baixo para permitir criar, eliminar, alterar tabelas, índices, visualizações e sequências de SQL.  Também pode utilizar a Phoenix para atualizar linhas individualmente e a granel. Phoenix usa uma compilação nativa NOSQL em vez de usar mapReduce para compilar consultas, permitindo a criação de aplicações de baixa latência em cima de HBase.
 
-O Apache Zeppelin é um notebook baseado na Web de software livre que permite que você crie documentos colaborativos controlados por dados usando análises de dados interativas e linguagens como SQL e escala. Ele ajuda os desenvolvedores de dados & cientistas de dados a desenvolver, organizar, executar e compartilhar código para manipulação de dados. Ele permite visualizar os resultados sem referir-se à linha de comando ou precisar dos detalhes do cluster.
+O Apache Zeppelin é um portátil baseado na web de código aberto que lhe permite criar documentos colaborativos baseados em dados usando análises de dados interativos e idiomas como SQL e Scala. Ajuda os desenvolvedores de dados & os cientistas de dados desenvolverem, organizarem, executarem e partilharem código para manipulação de dados. Permite visualizar resultados sem se referir à linha de comando ou precisar dos detalhes do cluster.
 
-Os usuários do HDInsight podem usar o Apache Zeppelin para consultar tabelas Phoenix. O Apache Zeppelin é integrado ao cluster HDInsight e não há etapas adicionais para usá-lo. Basta criar um notebook Zeppelin com o intérprete JDBC e começar a gravar suas consultas SQL Phoenix
+Os utilizadores do HDInsight podem usar o Apache Zeppelin para consultar as tabelas Phoenix. O Apache Zeppelin está integrado com o cluster HDInsight e não existem passos adicionais para usá-lo. Basta criar um Caderno Zeppelin com intérprete JDBC e começar a escrever as suas consultas Phoenix SQL
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um cluster do Apache HBase no HDInsight. Consulte [introdução ao Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
+Um cluster Apache HBase no HDInsight. Ver [Começar com Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="create-an-apache-zeppelin-note"></a>Criar uma nota do Apache Zeppelin
+## <a name="create-an-apache-zeppelin-note"></a>Crie uma Nota Apache Zeppelin
 
-1. Substitua `CLUSTERNAME` pelo nome do cluster na URL a seguir `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Em seguida, insira a URL em um navegador da Web. Insira o nome de usuário e a senha de logon do cluster.
+1. Substitua-a `CLUSTERNAME` com o nome `https://CLUSTERNAME.azurehdinsight.net/zeppelin`do seu cluster no seguinte URL . Em seguida, introduza o URL num navegador web. Introduza o nome de utilizador e a palavra-passe do seu cluster.
 
-1. Na página Zeppelin, selecione **criar nova anotação**.
+1. A partir da página Zeppelin, selecione **Criar nova nota**.
 
-    ![Zeppelin de consulta interativa do HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
+    ![HDInsight Interactive Query Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
-1. Na caixa de diálogo **criar nova anotação** , digite ou selecione os seguintes valores:
+1. A partir do novo diálogo de **nota Criar,** digitar ou selecionar os seguintes valores:
 
-    - Nome da observação: Insira um nome para a nota.
-    - Intérprete padrão: selecione **JDBC** na lista suspensa.
+    - Nota Nome: Introduza um nome para a nota.
+    - Intérprete predefinido: Selecione **jdbc** da lista de lançamentos.
 
-    Em seguida, selecione **criar anotação**.
+    Em seguida, selecione **Criar Nota**.
 
-1. Verifique se o cabeçalho do bloco de anotações mostra um status conectado. Ele é indicado por um ponto verde no canto superior direito.
+1. Certifique-se de que o cabeçalho do caderno mostra um estado ligado. É denotado por um ponto verde no canto superior direito.
 
-    ![Status do Zeppelin Notebook](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Status do Zeppelin Notebook")
+    ![Estatuto do caderno Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Estatuto do caderno Zeppelin")
 
-1. Crie uma tabela do HBase. Insira o comando a seguir e pressione **Shift + Enter**:
+1. Crie uma tabela HBase. Introduza o seguinte comando e, em seguida, prima **Shift + Enter**:
 
     ```sql
     %jdbc(phoenix)
@@ -56,9 +56,9 @@ Um cluster do Apache HBase no HDInsight. Consulte [introdução ao Apache HBase]
     );
     ```
 
-    A instrução **% JDBC (Phoenix)** na primeira linha informa ao bloco de anotações para usar o intérprete JDBC do Phoenix.
+    A declaração **%jdbc (phoenix)** na primeira linha diz ao caderno para utilizar o intérprete Phoenix JDBC.
 
-1. Exibir tabelas criadas.
+1. Ver tabelas criadas.
 
     ```sql
     %jdbc(phoenix)
@@ -67,7 +67,7 @@ Um cluster do Apache HBase no HDInsight. Consulte [introdução ao Apache HBase]
     WHERE table_schem is null or table_schem <> 'SYSTEM';
     ```
 
-1. Inserir valores na tabela.
+1. Insira os valores na tabela.
 
     ```sql
     %jdbc(phoenix)
@@ -75,21 +75,21 @@ Um cluster do Apache HBase no HDInsight. Consulte [introdução ao Apache HBase]
     UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
     ```
 
-1. Consulte a tabela.
+1. Consulta a mesa.
 
     ```sql
     %jdbc(phoenix)
     SELECT * FROM dbo.Company;
     ```
 
-1. Excluir um registro.
+1. Apagar um disco.
 
     ```sql
     %jdbc(phoenix)
     DELETE FROM dbo.Company WHERE COMPANY_ID=1;
     ```
 
-1. Descarte a tabela.
+1. Larga a mesa.
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ Um cluster do Apache HBase no HDInsight. Consulte [introdução ao Apache HBase]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Apache Phoenix agora dá suporte a Zeppelin no Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
-- [Apache Phoenix gramática](https://phoenix.apache.org/language/index.html)
+- [Apache Phoenix agora suporta Zeppelin em Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Gramática Apache Phoenix](https://phoenix.apache.org/language/index.html)

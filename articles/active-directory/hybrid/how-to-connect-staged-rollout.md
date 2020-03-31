@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: autenticação na nuvem por meio de distribuição em etapas | Microsoft Docs'
-description: Este artigo explica como migrar da autenticação federada para a autenticação de nuvem usando uma distribuição em etapas.
+title: 'Azure AD Connect: Autenticação em nuvem através de lançamento encenado Microsoft Docs'
+description: Este artigo explica como migrar da autenticação federada para a autenticação em nuvem usando um lançamento encenado.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,23 +11,23 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3044ebdd716eb85dc63d3a77089912d0d51d8b6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74915221"
 ---
-# <a name="migrate-to-cloud-authentication-by-using-staged-rollout-preview"></a>Migrar para a autenticação na nuvem usando a distribuição em etapas (versão prévia)
+# <a name="migrate-to-cloud-authentication-by-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem utilizando o rollout encenado (pré-visualização)
 
-Usando uma abordagem de distribuição em etapas, você pode migrar da autenticação federada para a autenticação na nuvem. Este artigo discute como fazer a mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
+Ao utilizar uma abordagem de lançamento encenada, pode migrar da autenticação federada para a autenticação em nuvem. Este artigo discute como fazer a troca. No entanto, antes de iniciar o lançamento encenado, deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
     
--  No momento, você está usando um servidor de autenticação multifator local. 
--  Você está usando cartões inteligentes para autenticação. 
--  O servidor atual oferece determinados recursos somente de Federação.
+-  Está a utilizar um servidor de autenticação multifactor no local. 
+-  Estás a usar cartões inteligentes para autenticação. 
+-  O seu servidor atual oferece certas funcionalidades apenas da federação.
 
-Antes de experimentar esse recurso, sugerimos que você examine nosso guia sobre como escolher o método de autenticação certo. Para obter mais informações, consulte a tabela "métodos de comparação" em [escolher o método de autenticação certo para sua solução de identidade híbrida Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Antes de experimentar esta funcionalidade, sugerimos que reveja o nosso guia sobre a escolha do método de autenticação certo. Para mais informações, consulte a tabela "Comparar métodos" em [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
 
-Para obter uma visão geral do recurso, veja "Azure Active Directory: o que é distribuição em etapas?" monitor
+Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What is staged rollout?" vídeo:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
 
@@ -35,205 +35,205 @@ Para obter uma visão geral do recurso, veja "Azure Active Directory: o que é d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Você tem um locatário do Azure Active Directory (Azure AD) com domínios federados.
+-   Você tem um inquilino azure Ative Directory (Azure AD) com domínios federados.
 
--   Você decidiu mover para uma das duas opções:
-    - **Opção A** - *sincronização de hash de senha (sincronização)*  + *logon único contínuo (SSO)*
-    - **Opção B** - *autenticação de passagem* + *SSO contínuo*
+-   Decidiu mudar-se para qualquer uma das duas opções:
+    - **Opção Uma** - *palavra-passe sincronização de hash (sincronização)* + *sem emenda única (SSO)*
+    - **Opção B** - *de autenticação* + pass-through*sem emenda SSO*
     
-    Embora o *SSO contínuo* seja opcional, é recomendável permitir que ele obtenha uma experiência de entrada silenciosa para usuários que estão executando computadores ingressados no domínio de dentro de uma rede corporativa.
+    Embora o *SSO sem emenda* seja opcional, recomendamos que lhe permita obter uma experiência de entrada silenciosa para utilizadores que estejam a executar máquinas unidas ao domínio a partir de dentro de uma rede corporativa.
 
--   Você configurou todas as políticas apropriadas de identidade visual do locatário e de acesso condicional necessárias para os usuários que estão sendo migrados para a autenticação na nuvem.
+-   Configurou todas as políticas adequadas de marca de inquilinos e de acesso condicional que necessita para os utilizadores que estão a ser migrados para a autenticação na nuvem.
 
--   Se você planeja usar a autenticação multifator do Azure, é recomendável usar o [registro convergido para redefinição de senha de autoatendimento (SSPR) e autenticação multifator](../authentication/concept-registration-mfa-sspr-combined.md) para que os usuários registrem seus métodos de autenticação uma vez.
+-   Se planeia utilizar a Autenticação Multifactor Azure, recomendamos que utilize [o registo convergente para redefinir a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez.
 
--   Para usar o recurso de distribuição em etapas, você precisa ser um administrador global em seu locatário.
+-   Para utilizar a funcionalidade de lançamento encenada, precisa de ser administrador global do seu inquilino.
 
--   Para habilitar o *SSO contínuo* em uma floresta de Active Directory específica, você precisa ser um administrador de domínio.
+-   Para permitir um *SSO sem emenda* numa floresta específica de Diretório Ativo, você precisa ser um administrador de domínio.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-Os cenários a seguir têm suporte para distribuição em etapas. O recurso funciona apenas para:
+Os seguintes cenários são suportados para o lançamento encenado. A funcionalidade funciona apenas para:
 
-- Usuários que são provisionados no Azure AD usando Azure AD Connect. Ele não se aplica a usuários somente de nuvem.
+- Utilizadores que são provisionados para AD Azure utilizando o Azure AD Connect. Não se aplica autilizadores apenas à nuvem.
 
-- Tráfego de entrada do usuário em navegadores e clientes de *autenticação modernos* . Aplicativos ou serviços de nuvem que usam autenticação herdada voltarão para fluxos de autenticação federada. Um exemplo pode ser o Exchange Online com autenticação moderna desativada ou o Outlook 2010, que não oferece suporte à autenticação moderna.
+- Tráfego de login do utilizador nos navegadores e clientes de *autenticação moderna.* Aplicações ou serviços na nuvem que utilizem autenticação legado regem-se aos fluxos de autenticação federados. Um exemplo pode ser o Exchange online com a autenticação moderna desligada, ou o Outlook 2010, que não suporta a autenticação moderna.
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
-Os cenários a seguir não têm suporte para a distribuição em etapas:
+Os seguintes cenários não são suportados para o lançamento encenado:
 
-- Determinados aplicativos enviam o parâmetro de consulta "domain_hint" para o Azure AD durante a autenticação. Esses fluxos continuarão e os usuários que estiverem habilitados para distribuição em etapas continuarão a usar a Federação para autenticação.
+- Algumas aplicações enviam o parâmetro de consulta "domain_hint" para a AD Azure durante a autenticação. Estes fluxos continuarão e os utilizadores que estiverem habilitados para o lançamento encenado continuarão a utilizar a federação para autenticação.
 
 <!-- -->
 
-- Os administradores podem distribuir a autenticação de nuvem usando grupos de segurança. Para evitar a latência de sincronização quando você estiver usando grupos de segurança Active Directory locais, recomendamos que você use grupos de segurança de nuvem. As seguintes condições se aplicam:
+- Os administradores podem lançar a autenticação em nuvem usando grupos de segurança. Para evitar a latência sincronizada quando estiver a utilizar grupos de segurança ative diretórios, recomendamos que utilize grupos de segurança na nuvem. Aplicam-se as seguintes condições:
 
-    - Você pode usar um máximo de 10 grupos por recurso. Ou seja, você pode usar 10 grupos cada para *sincronização de hash de senha*, *autenticação de passagem*e *SSO contínuo*.
-    - *Não há suporte para*grupos aninhados. Esse escopo também se aplica à visualização pública.
-    - *Não há suporte* para grupos dinâmicos para distribuição em etapas.
-    - Os objetos de contato dentro do grupo bloquearão a adição do grupo.
+    - Pode utilizar um máximo de 10 grupos por recurso. Ou seja, pode utilizar 10 grupos cada um para sincronização de *hash password,* *autenticação pass-through*e *SSO sem emenda.*
+    - Os grupos aninhados não são *apoiados.* Este âmbito aplica-se também à pré-visualização pública.
+    - Os grupos dinâmicos não são apoiados para o lançamento *encenado.*
+    - Os objetos de contacto dentro do grupo impedirão que o grupo seja adicionado.
 
-- Você ainda precisa fazer a transferência final do federado para a autenticação na nuvem usando Azure AD Connect ou o PowerShell. A distribuição em etapas não alterna domínios de federados para gerenciado.
+- Ainda precisa de fazer o corte final da autenticação federada para a nuvem utilizando o Azure AD Connect ou o PowerShell. O lançamento encenado não muda os domínios de federados para geridos.
 
-- Ao adicionar um grupo de segurança pela primeira vez para distribuição em etapas, você está limitado a 200 usuários para evitar um tempo limite de UX. Depois de adicionar o grupo, você pode adicionar mais usuários diretamente a ele, conforme necessário.
+- Quando adiciona um grupo de segurança para lançamento encenado, está limitado a 200 utilizadores para evitar um intervalo de ux. Depois de adicionar o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
 
-## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas
+## <a name="get-started-with-staged-rollout"></a>Começar com o lançamento encenado
 
-Para testar a entrada de *sincronização de hash de senha* usando a distribuição em etapas, siga as instruções de pré-trabalho na próxima seção.
+Para testar o *sincronia* de hash de palavra-passe utilizando o rollout encenado, siga as instruções de pré-trabalho na secção seguinte.
 
-Para obter informações sobre quais cmdlets do PowerShell usar, consulte [visualização do Azure AD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Para obter informações sobre quais os cmdlets PowerShell a utilizar, consulte a [pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pré-trabalho para sincronização de hash de senha
 
-1. Habilite a *sincronização de hash de senha* da página [recursos opcionais](how-to-connect-install-custom.md#optional-features) no Azure ad Connect. 
+1. Ative o sincronização de hash de *palavra-passe*na página [de funcionalidades](how-to-connect-install-custom.md#optional-features) Opcional no Azure AD Connect. 
 
-   ![Captura de tela da página "recursos opcionais" no Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
+   ![Screenshot da página "Funcionalidades Opcionais" no Azure Ative Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Verifique se um ciclo de *sincronização de hash de senha* completo foi executado para que todos os hashes de senha dos usuários tenham sido sincronizados com o Azure AD. Para verificar o status da *sincronização de hash de senha*, você pode usar o diagnóstico do PowerShell em [solucionar problemas de sincronização de hash de senha com Azure ad Connect sincronização](tshoot-connect-password-hash-synchronization.md).
+1. Certifique-se de que um ciclo completo de sincronização de *hash* foi executado de modo a que todas as hashes de senha dos utilizadores tenham sido sincronizadas para a AD Azure. Para verificar o estado da sincronização de hash de *palavra-passe,* pode utilizar os diagnósticos powerShell em [sync de hash de palavra-passe de Troubleshoot com sincronização azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
-   ![Captura de tela do log de solução de problemas do AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
+   ![Screenshot do registo de resolução de problemas DaADConnect](./media/how-to-connect-staged-rollout/sr2.png)
 
-Se você quiser testar a entrada de *autenticação de passagem* usando a distribuição em etapas, habilite-a seguindo as instruções de trabalho na próxima seção.
+Se pretender testar o sinal de *autenticação pass-through* utilizando o rollout encenado, ative-o seguindo as instruções de pré-trabalho na secção seguinte.
 
-## <a name="pre-work-for-pass-through-authentication"></a>Pré-trabalho para autenticação de passagem
+## <a name="pre-work-for-pass-through-authentication"></a>Pré-trabalho para autenticação pass-through
 
-1. Identifique um servidor que esteja executando o Windows Server 2012 R2 ou posterior no qual você deseja que o agente de *autenticação de passagem* seja executado. 
+1. Identifique um servidor que esteja a executar o Windows Server 2012 R2 ou mais tarde onde pretende que o agente de *autenticação pass-through* seja executado. 
 
-   *Não* escolha o servidor de Azure ad Connect. Certifique-se de que o servidor está ingressado no domínio, pode autenticar usuários selecionados com Active Directory e pode se comunicar com o Azure AD em URLs e portas de saída. Para obter mais informações, consulte a seção "etapa 1: verificar os pré-requisitos" do [início rápido: logon único contínuo do Azure ad](how-to-connect-sso-quick-start.md).
+   *Não* escolha o servidor Azure AD Connect.Certifique-se de que o servidor está unido ao domínio, pode autenticar utilizadores selecionados com Diretório Ativo e comunicar com a Azure AD em portas de saída e URLs. Para mais informações, consulte a secção "Passo 1: Verifique os pré-requisitos" de [Quickstart: Azure AD seamless single sign-on](how-to-connect-sso-quick-start.md).
 
-1. [Baixe o agente de autenticação Azure ad Connect](https://aka.ms/getauthagent)e instale-o no servidor. 
+1. [Descarregue o agente de autenticação Azure AD Connect](https://aka.ms/getauthagent)e instale-o no servidor. 
 
-1. Para habilitar a [alta disponibilidade](how-to-connect-sso-quick-start.md), instale agentes de autenticação adicionais em outros servidores.
+1. Para permitir [uma alta disponibilidade,](how-to-connect-sso-quick-start.md)instale agentes de autenticação adicionais noutros servidores.
 
-1. Verifique se você definiu [as configurações de bloqueio inteligente](../authentication/howto-password-smart-lockout.md) adequadamente. Isso ajuda a garantir que as contas de Active Directory locais dos usuários não sejam bloqueadas por atores ruins.
+1. Certifique-se de que configura as [definições de Smart Lockout](../authentication/howto-password-smart-lockout.md) de forma adequada. Fazê-lo ajuda a garantir que as contas de Diretório Ativo dos seus utilizadores não são bloqueadas por maus atores.
 
-É recomendável habilitar o *SSO contínuo* , independentemente do método de entrada (*sincronização de hash de senha* ou autenticação de *passagem*) selecionado para distribuição em etapas. Para habilitar o *SSO contínuo*, siga as instruções de pré-trabalho na próxima seção.
+Recomendamos que permita o *SSO sem emenda,* independentemente do método de entrada *(sincronização* de hash password ou *autenticação pass-through*) selecione para o lançamento encenado. Para ativar *o SSO sem emenda,* siga as instruções de pré-trabalho na secção seguinte.
 
-## <a name="pre-work-for-seamless-sso"></a>Pré-trabalho para SSO contínuo
+## <a name="pre-work-for-seamless-sso"></a>Pré-trabalho para SSO sem emenda
 
-Habilite o *SSO contínuo* nas florestas de Active Directory usando o PowerShell. Se você tiver mais de uma floresta Active Directory, habilite-a para cada floresta individualmente. O  *SSO contínuo* é disparado somente para usuários selecionados para distribuição em etapas. Ele não afeta sua configuração de Federação existente.
+Ative *sSO* sem emenda nas florestas de Diretório Ativo utilizando powerShell. Se tiver mais do que uma floresta de Diretório Ativo, ative-a individualmente para cada floresta.  *O SSO sem emenda* é acionado apenas para utilizadores selecionados para lançamento sem emenda. Não afeta a sua atual instalação da federação.
 
-Habilite o *SSO contínuo* fazendo o seguinte:
+Habilitar *o SSO sem emenda* fazendo o seguinte:
 
-1. Entre no Azure AD Connect Server.
+1. Inscreva-se no Azure AD Connect Server.
 
-2. Vá para a pasta *% ProgramFiles%\\Microsoft Azure Active Directory Connect* .
+2. Vá à pasta  *%programfiles%\\Microsoft Azure Ative Directory Connect.*
 
-3. Importe o módulo do PowerShell do *SSO contínuo* executando o seguinte comando: 
+3. Importar o módulo *SSO* PowerShell sem costura executando o seguinte comando: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Execute o PowerShell como um administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando abre um painel onde você pode inserir as credenciais de administrador global do seu locatário.
+4. Execute o PowerShell como um administrador. Na PowerShell, `New-AzureADSSOAuthenticationContext`ligue. Este comando abre um painel onde pode introduzir as credenciais de administrador global do seu inquilino.
 
-5. Chame `Get-AzureADSSOStatus | ConvertFrom-Json`. Esse comando exibe uma lista de florestas de Active Directory (consulte a lista "domínios") na qual esse recurso foi habilitado. Por padrão, ele é definido como false no nível do locatário.
+5. Ligue. `Get-AzureADSSOStatus | ConvertFrom-Json` Este comando apresenta uma lista de florestas de Diretório Ativo (ver a lista "Domínios") na qual esta funcionalidade foi ativada. Por padrão, está definido para falso ao nível do inquilino.
 
-   ![Exemplo de saída do Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
+   ![Exemplo da saída do Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Chame `$creds = Get-Credential`. No prompt, insira as credenciais de administrador de domínio para a floresta Active Directory pretendida.
+6. Ligue. `$creds = Get-Credential` No momento, introduza as credenciais do administrador de domínio para a floresta de Diretório Ativo pretendida.
 
-7. Chame `Enable-AzureADSSOForest -OnPremCredentials $creds`. Esse comando cria a conta de computador AZUREADSSOACC do controlador de domínio local para a floresta Active Directory necessária para o *SSO contínuo*.
+7. Ligue. `Enable-AzureADSSOForest -OnPremCredentials $creds` Este comando cria a conta de computador AZUREADSSOACC a partir do controlador de domínio no local para a floresta de Diretório Ativo que é necessária para *sso sem emenda*.
 
-8. O *SSO contínuo* exige que as URLs estejam na zona da intranet. Para implantar essas URLs usando políticas de grupo, consulte [início rápido: logon único contínuo do Azure ad](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
+8. *SSO sem emenda* requer URLs para estar na zona intranet. Para implementar esses URLs utilizando políticas de grupo, consulte [Quickstart: Azure AD seamless single sign-on](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
 
-9. Para obter uma explicação completa, você também pode baixar nossos [planos de implantação](https://aka.ms/SeamlessSSODPDownload) para o *SSO contínuo*.
+9. Para uma passagem completa, também pode descarregar os nossos planos de [implementação](https://aka.ms/SeamlessSSODPDownload) para *SSO sem emenda.*
 
-## <a name="enable-staged-rollout"></a>Habilitar distribuição em etapas
+## <a name="enable-staged-rollout"></a>Ativar o lançamento encenado
 
-Para distribuir um recurso específico (*autenticação de passagem*, sincronização de *hash de senha*ou *SSO contínuo*) para um conjunto selecionado de usuários em um grupo, siga as instruções nas próximas seções.
+Para lançar uma funcionalidade específica *(autenticação pass-through,* sincronização de *hash password*, ou *SSO sem emenda*) para um conjunto selecionado de utilizadores em um grupo, siga as instruções nas secções seguintes.
 
-### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Habilitar uma distribuição em etapas de um recurso específico em seu locatário
+### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Ativar um lançamento encenado de uma característica específica no seu inquilino
 
-Você pode distribuir uma destas opções:
+Pode lançar uma destas opções:
 
-- **Opção A** - *sincronização de hash de senha* + *SSO contínuo*
-- **Opção B** - *autenticação de passagem* + *SSO contínuo*
-- **Sem suporte** - *sincronização de hash de senha* + *autenticação de passagem* + *SSO contínuo*
+- **Opção Uma** - *palavra-passe hash sync* + *sem emenda SSO*
+- **Opção B** - *de autenticação* + pass-through*sem emenda SSO*
+- **Not supported** - *pass-through authentication* + *SSO sem* emenda de sem + fim de passe de*palavra-passe*não suportada
 
 Faça o seguinte:
 
-1. Para acessar o UX de visualização, entre no [portal do AD do Azure](https://aka.ms/stagedrolloutux).
+1. Para aceder à pré-visualização UX, inscreva-se no [portal Azure AD](https://aka.ms/stagedrolloutux).
 
-2. Selecione o link **habilitar a distribuição em etapas para entrada do usuário gerenciado (versão prévia)** .
+2. Selecione o **'''''Preview' do link de receção (Pré-visualização)** do utilizador.
 
-   Por exemplo, se você quiser habilitar a *opção a*, deslize os controles **sincronização de hash de senha** e **logon único contínuo** para **ativado**, conforme mostrado nas imagens a seguir.
+   Por exemplo, se pretender ativar a *Opção A,* deslize os controlos de inscrição single password **Hash Sync** e **Seamless single-on** para **On**, como mostra as seguintes imagens.
 
    ![A página Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
-   ![A página "habilitar recursos de distribuição em etapas (visualização)"](./media/how-to-connect-staged-rollout/sr5.png)
+   ![A página "Ativar funcionalidades de lançamento encenado (Pré-visualização)"](./media/how-to-connect-staged-rollout/sr5.png)
 
-3. Adicione os grupos ao recurso para habilitar a *autenticação de passagem* e o *SSO contínuo*. Para evitar um tempo limite de UX, verifique se os grupos de segurança contêm no máximo 200 membros inicialmente.
+3. Adicione os grupos à funcionalidade para permitir a *autenticação pass-through* e *o SSO sem emenda*. Para evitar uma saída de UX, certifique-se de que os grupos de segurança não contêm mais de 200 membros inicialmente.
 
-   ![A página "gerenciar grupos para sincronização de hash de senha (visualização)"](./media/how-to-connect-staged-rollout/sr6.png)
+   ![A página "Gerir grupos para Password Hash Sync (Pré-visualização)"](./media/how-to-connect-staged-rollout/sr6.png)
 
    >[!NOTE]
-   >Os membros de um grupo são habilitados automaticamente para distribuição em etapas. Não há suporte para grupos aninhados e dinâmicos para distribuição em etapas.
+   >Os membros de um grupo estão automaticamente habilitados para o lançamento encenado. Grupos aninhados e dinâmicos não são apoiados para o lançamento encenado.
 
 ## <a name="auditing"></a>Auditoria
 
-Habilitamos eventos de auditoria para as várias ações que executamos para a distribuição em etapas:
+Permitimos eventos de auditoria para as várias ações que executamos para o lançamento encenado:
 
-- Evento de auditoria quando você habilita uma distribuição em etapas para *sincronização de hash de senha*, autenticação de *passagem*ou *SSO contínuo*.
-
-  >[!NOTE]
-  >Um evento de auditoria é registrado quando o *SSO contínuo* é ativado usando a distribuição em etapas.
-
-  ![O painel "criar política de distribuição para recurso" – guia atividade](./media/how-to-connect-staged-rollout/sr7.png)
-
-  ![O painel "criar política de distribuição para recurso" – guia Propriedades modificadas](./media/how-to-connect-staged-rollout/sr8.png)
-
-- Evento de auditoria quando um grupo é adicionado à *sincronização de hash de senha*, à autenticação de *passagem*ou ao *SSO contínuo*.
+- Evento de auditoria quando ativa um lançamento encenado para sincronização de *hash de palavra-passe,* *autenticação pass-through*, ou *SSO sem emenda*.
 
   >[!NOTE]
-  >Um evento de auditoria é registrado quando um grupo é adicionado à *sincronização de hash de senha* para distribuição em etapas.
+  >Um evento de auditoria é registado quando *o SSO sem emenda* é ligado utilizando o lançamento encenado.
 
-  ![O painel "adicionar um grupo ao recurso de distribuição" – guia atividade](./media/how-to-connect-staged-rollout/sr9.png)
+  ![O painel "Criar rollout para recurso" - Separador de atividade](./media/how-to-connect-staged-rollout/sr7.png)
 
-  ![O painel "adicionar um grupo ao desenvolvimento de recursos" – guia Propriedades modificadas](./media/how-to-connect-staged-rollout/sr10.png)
+  ![O painel "Criar a política de rollout para recurso" - Separador Propriedades Modificadas](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Evento de auditoria quando um usuário que foi adicionado ao grupo é habilitado para distribuição em etapas.
+- Evento de auditoria quando um grupo é adicionado à sincronização de *hash password,* *autenticação pass-through*, ou *SSO sem emenda*.
 
-  ![O painel "Adicionar usuário ao recurso de distribuição" – guia atividade](media/how-to-connect-staged-rollout/sr11.png)
+  >[!NOTE]
+  >Um evento de auditoria é registado quando um grupo é adicionado à sincronização de *hash de senha* para lançamento encenado.
 
-  ![O painel "Adicionar usuário ao recurso de distribuição de recursos" – guia destino (s)](./media/how-to-connect-staged-rollout/sr12.png)
+  ![O painel "Adicionar um grupo para apresentar rollout" - Separador de atividade](./media/how-to-connect-staged-rollout/sr9.png)
+
+  ![O painel "Adicionar um grupo para apresentar o rollout" - separador Propriedades Modificadas](./media/how-to-connect-staged-rollout/sr10.png)
+
+- Evento de auditoria quando um utilizador que foi adicionado ao grupo está habilitado para o lançamento encenado.
+
+  ![O painel "Adicionar utilizador a função rollout" - Separador de atividade](media/how-to-connect-staged-rollout/sr11.png)
+
+  ![O painel "Adicionar o utilizador ao lançamento da função" - separador target(s)](./media/how-to-connect-staged-rollout/sr12.png)
 
 ## <a name="validation"></a>Validação
 
-Para testar a entrada com a *sincronização de hash de senha* ou *a autenticação de passagem* (logon de usuário e senha), faça o seguinte:
+Para testar o sessão com sincronização de hash de *palavra-passe* ou *autenticação pass-through* (nome de utilizador e entrada de password), faça o seguinte:
 
-1. Na extranet, vá para a [página de aplicativos](https://myapps.microsoft.com) em uma sessão de navegador privada e, em seguida, insira o USERPRINCIPALNAME (UPN) da conta de usuário selecionada para distribuição em etapas.
+1. Na extranet, vá à página de [Apps](https://myapps.microsoft.com) numa sessão de navegador privado e, em seguida, introduza o UserPrincipalName (UPN) da conta de utilizador que é selecionada para lançamento encenado.
 
-   Os usuários que foram direcionados para a distribuição em etapas não são redirecionados para sua página de logon federada. Em vez disso, eles são solicitados a entrar na página de entrada com identidade visual do locatário do Azure AD.
+   Os utilizadores que foram visados para o lançamento encenado não são redirecionados para a sua página de login federado. Em vez disso, é-lhes pedido que inscrevam-se na página de inscrição da marca Azure AD.
 
-1. Verifique se a entrada é exibida com êxito no relatório de [atividade de entrada do Azure ad](../reports-monitoring/concept-sign-ins.md) filtrando com o userPrincipalName.
+1. Certifique-se de que o início de sessão aparece com sucesso no relatório de atividade de entrada da [AD Azure](../reports-monitoring/concept-sign-ins.md) filtrando com o UserPrincipalName.
 
-Para testar a entrada com o *SSO contínuo*:
+Para testar o sign-in com *SSO sem emenda:*
 
-1. Na intranet, vá para a [página aplicativos](https://myapps.microsoft.com) em uma sessão privada do navegador e insira o USERPRINCIPALNAME (UPN) da conta de usuário selecionada para distribuição em etapas.
+1. Na intranet, vá à página de [Apps](https://myapps.microsoft.com) numa sessão de navegador privado e, em seguida, introduza o UserPrincipalName (UPN) da conta de utilizador que é selecionada para lançamento encenado.
 
-   Os usuários que foram direcionados para a distribuição em etapas de *SSO contínuo* são apresentados com uma "tentativa de conectá-lo..." antes que eles sejam conectados silenciosamente.
+   Os utilizadores que foram alvo de lançamento encenado de *SSO sem costura* são apresentados com um "Tentando inscrevê-lo em ..." mensagem antes de serem silenciosamente assinados.
 
-1. Verifique se a entrada é exibida com êxito no relatório de [atividade de entrada do Azure ad](../reports-monitoring/concept-sign-ins.md) filtrando com o userPrincipalName.
+1. Certifique-se de que o início de sessão aparece com sucesso no relatório de atividade de entrada da [AD Azure](../reports-monitoring/concept-sign-ins.md) filtrando com o UserPrincipalName.
 
-   Para acompanhar as entradas de usuário que ainda ocorrem em Serviços de Federação do Active Directory (AD FS) (AD FS) para usuários de distribuição em etapas selecionadas, siga as instruções em [AD FS solução de problemas: eventos e log](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte a documentação do fornecedor sobre como verificar isso em provedores de Federação de terceiros.
+   Para acompanhar os registos dos utilizadores que ainda ocorram nos Serviços da Federação de Diretórios Ativos (AD FS) para utilizadores de lançamento seletos selecionados, siga as instruções em [AD FS troubleshooting: Eventos e registos .](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events) Verifique a documentação do fornecedor sobre como verificar isso em fornecedores de federações de terceiros.
 
-## <a name="remove-a-user-from-staged-rollout"></a>Remover um usuário da distribuição em etapas
+## <a name="remove-a-user-from-staged-rollout"></a>Remova um utilizador do lançamento encenado
 
-A remoção de um usuário do grupo desabilita a distribuição em etapas para esse usuário. Para desabilitar o recurso de distribuição em etapas, deslize o controle de volta para **desativado**.
+A remoção de um utilizador do grupo desativa o lançamento faseado para esse utilizador. Para desativar a função de lançamento encenada, deslize o controlo de volta para **Off**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**P: posso usar esse recurso em produção?**
+**P: Posso usar esta capacidade na produção?**
 
-R: Sim, você pode usar esse recurso em seu locatário de produção, mas é recomendável primeiro experimentá-lo em seu locatário de teste.
+R: Sim, você pode usar esta funcionalidade no seu inquilino de produção, mas recomendamos que experimente primeiro no seu inquilino de teste.
 
-**P: esse recurso pode ser usado para manter uma "coexistência" permanente, em que alguns usuários usam a autenticação federada e outros usam a autenticação de nuvem?**
+**P: Esta funcionalidade pode ser utilizada para manter uma "coexistência" permanente, onde alguns utilizadores usam autenticação federada e outros utilizam a autenticação em nuvem?**
 
-R: não, esse recurso foi projetado para migrar da autenticação federada para a nuvem em estágios e, em seguida, para, eventualmente, para a autenticação na nuvem. Não recomendamos o uso de um estado misto permanente, pois essa abordagem pode levar a fluxos de autenticação inesperados.
+R: Não, esta funcionalidade foi concebida para migrar de autenticação federada para cloud por etapas e depois para eventualmente cortar para a autenticação em nuvem. Não recomendamos a utilização de um estado misto permanente, porque esta abordagem pode levar a fluxos de autenticação inesperados.
 
-**P: posso usar o PowerShell para executar a distribuição em etapas?**
+**P: Posso usar a PowerShell para realizar o lançamento encenado?**
 
-R: Sim. Para saber como usar o PowerShell para executar a distribuição em etapas, consulte [visualização do Azure ad](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+R: Sim. Para aprender a usar o PowerShell para realizar o lançamento encenado, consulte [a Pré-visualização do AD Azure](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Versão prévia do Azure AD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: 3c6a5e011a536cc9c34565d4f72a9bee6c6a5254
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945170"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux
@@ -78,17 +78,17 @@ Existem requisitos de comprimento de senha variados, dependendo da ferramenta qu
 
 As palavras-passe também devem satisfazer 3 dos seguintes 4 requisitos de complexidade:
 
-* Ter caracteres mais baixos
-* Ter caracteres superiores
-* Tenha um dígito
-* Tenha um caráter especial (regex match [\W_])
+* Ter carateres em minúscula
+* Ter carateres em maiúscula
+* Ter um dígito
+* Ter um caráter especial (Expressão regular [\W_])
 
 As seguintes palavras-passe não são permitidas:
 
 <table>
     <tr>
         <td style="text-align:center">abc@123</td>
-        <td style="text-align:center">P@$$w0rd</td>
+        <td style="text-align:center">P@$$w0</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
         <td style="text-align:center">Pa$$word</td>
@@ -97,7 +97,7 @@ As seguintes palavras-passe não são permitidas:
         <td style="text-align:center">pass@word1</td>
         <td style="text-align:center">Senha!</td>
         <td style="text-align:center">Senha1</td>
-        <td style="text-align:center">Password22</td>
+        <td style="text-align:center">Senha22</td>
         <td style="text-align:center">Iloveyou!</td>
     </tr>
 </table>

@@ -1,6 +1,6 @@
 ---
-title: Tipos de resolução de conflito e políticas de resolução no Azure Cosmos DB
-description: Este artigo descreve as categorias de conflito e as políticas de resolução de conflitos no Azure Cosmos DB.
+title: Tipos de resolução de conflitos e políticas de resolução em Azure Cosmos DB
+description: Este artigo descreve as categorias de conflitos e as políticas de resolução de conflitos em Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,48 +8,48 @@ ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: a8ee72f46e1789088e779c10a0824262469ffde8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441991"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflito e políticas de resolução
 
-Os conflitos e as políticas de resolução de conflitos serão aplicáveis se sua conta de Azure Cosmos DB estiver configurada com várias regiões de gravação.
+As políticas de conflitos e resolução de conflitos são aplicáveis se a sua conta Azure Cosmos DB estiver configurada com várias regiões de escrita.
 
-Para contas do Azure Cosmos configuradas com várias regiões de gravação, podem ocorrer conflitos de atualização quando gravadores atualizam simultaneamente o mesmo item em várias regiões. Os conflitos de atualização podem ser dos três tipos a seguir:
+Para as contas da Azure Cosmos configuradas com várias regiões de escrita, os conflitos de atualização podem ocorrer quando os escritores atualizam simultaneamente o mesmo item em várias regiões. Os conflitos de atualização podem ser dos seguintes três tipos:
 
-* **Conflitos de inserção**: esses conflitos podem ocorrer quando um aplicativo insere simultaneamente dois ou mais itens com o mesmo índice exclusivo em duas ou mais regiões. Por exemplo, esse conflito pode ocorrer com uma propriedade de ID.
+* **Insira conflitos**: Estes conflitos podem ocorrer quando uma aplicação insere simultaneamente dois ou mais itens com o mesmo índice único em duas ou mais regiões. Por exemplo, este conflito pode ocorrer com uma propriedade de identificação.
 
-* **Substituir conflitos**: esses conflitos podem ocorrer quando um aplicativo atualiza o mesmo item simultaneamente em duas ou mais regiões.
+* **Substituição de conflitos**: Estes conflitos podem ocorrer quando uma aplicação atualiza o mesmo item simultaneamente em duas ou mais regiões.
 
-* **Excluir conflitos**: esses conflitos podem ocorrer quando um aplicativo exclui simultaneamente um item em uma região e o atualiza em outra região.
+* **Eliminar conflitos**: Estes conflitos podem ocorrer quando uma aplicação simultaneamente elimina um item numa região e o atualiza noutra região.
 
 ## <a name="conflict-resolution-policies"></a>Políticas de resolução de conflitos
 
-O Azure Cosmos DB oferece um mecanismo flexível orientado por políticas para resolver conflitos de gravação. Você pode selecionar entre duas políticas de resolução de conflitos em um contêiner Cosmos do Azure:
+A Azure Cosmos DB oferece um mecanismo flexível orientado para a política para resolver conflitos de escrita. Pode selecionar entre duas políticas de resolução de conflitos num contentor Azure Cosmos:
 
-* **Última gravação vence (LWW)** : essa política de resolução, por padrão, usa uma propriedade Timestamp definida pelo sistema. Ele é baseado no protocolo de relógio de sincronização de tempo. Se você usar a API do SQL, poderá especificar qualquer outra propriedade numérica personalizada (por exemplo, sua própria noção de um carimbo de data/hora) a ser usada na resolução de conflitos. Uma propriedade numérica personalizada também é conhecida como o caminho de *resolução de conflito*. 
+* **Last Write Wins (LWW)**: Esta política de resolução, por padrão, utiliza uma propriedade de carimbo de tempo definido pelo sistema. Baseia-se no protocolo do relógio de sincronização do tempo. Se utilizar a API SQL, pode especificar qualquer outra propriedade numérica personalizada (por exemplo, a sua própria noção de carimbo de tempo) para ser usada para resolução de conflitos. Uma propriedade numérica personalizada também é referida como o caminho de resolução de *conflitos.* 
 
-  Se dois ou mais itens entrarem em conflito nas operações de inserção ou substituição, o item com o valor mais alto para o caminho de resolução de conflitos se tornará o vencedor. O sistema determinará o vencedor se vários itens tiverem o mesmo valor numérico para o caminho de resolução de conflitos. Todas as regiões têm garantia de convergência para um único vencedor e terminam com a mesma versão do item confirmado. Quando são envolvidos conflitos de exclusão, a versão excluída sempre vence em conflitos de inserção ou substituição. Esse resultado ocorre independentemente do valor do caminho de resolução de conflito.
-
-  > [!NOTE]
-  > A última gravação vence é a política de resolução de conflitos padrão e usa o carimbo de data/hora `_ts` para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. A propriedade numérica personalizada está disponível somente para a API do SQL.
-
-  Para saber mais, veja [exemplos que usam políticas de resolução de conflitos do LWW](how-to-manage-conflicts.md).
-
-* **Personalizado**: essa política de resolução é projetada para semântica definida pelo aplicativo para a reconciliação de conflitos. Ao definir essa política no contêiner Cosmos do Azure, você também precisará registrar um *procedimento armazenado de mesclagem*. Esse procedimento é invocado automaticamente quando os conflitos são detectados em uma transação de banco de dados no servidor. O sistema fornece exatamente garantir uma vez para a execução de um procedimento de mesclagem como parte do protocolo de compromisso.  
-
-  Se você configurar o contêiner com a opção de resolução personalizada e não conseguir registrar um procedimento de mesclagem no contêiner ou o procedimento de mesclagem lançar uma exceção em tempo de execução, os conflitos serão gravados no *feed de conflitos*. Em seguida, seu aplicativo precisa resolver manualmente os conflitos no feed de conflitos. Para saber mais, consulte [exemplos de como usar a política de resolução personalizada e como usar o feed de conflitos](how-to-manage-conflicts.md).
+  Se dois ou mais itens entram em conflito na inserção ou substituição de operações, o item com o valor mais elevado para a trajetória de resolução de conflitos torna-se o vencedor. O sistema determina o vencedor se vários itens têm o mesmo valor numérico para o caminho da resolução de conflitos. Todas as regiões têm a garantia de convergir para um único vencedor e acabar com a mesma versão do item comprometido. Quando se trata de eliminar conflitos, a versão eliminada ganha sempre por inserir ou substituir conflitos. Este resultado ocorre independentemente do valor da trajetória de resolução de conflitos.
 
   > [!NOTE]
-  > A política de resolução de conflito personalizada está disponível somente para contas da API do SQL.
+  > Last Write Wins é a política de `_ts` resolução de conflitos padrão e usa o carimbo de tempo para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. A propriedade numérica personalizada está disponível apenas para SQL API.
+
+  Para saber mais, consulte exemplos que utilizam políticas de [resolução de conflitos LWW](how-to-manage-conflicts.md).
+
+* **Costume**: Esta política de resolução destina-se a uma semântica definida pela aplicação para a reconciliação de conflitos. Quando definir esta política no seu recipiente Azure Cosmos, também precisa de registar um *procedimento de fusão armazenado.* Este procedimento é automaticamente invocado quando os conflitos são detetados no âmbito de uma transação de base de dados no servidor. O sistema fornece exatamente uma vez garantia para a execução de um procedimento de fusão como parte do protocolo de compromisso.  
+
+  Se configurar o seu recipiente com a opção de resolução personalizada, e não registar um procedimento de fusão no recipiente ou o procedimento de fusão lançar uma exceção no tempo de execução, os conflitos são escritos para a alimentação de *conflitos*. A sua aplicação precisa então de resolver manualmente os conflitos nos conflitos que se alimentam. Para saber mais, consulte exemplos de como utilizar a política de [resolução personalizada e como utilizar os alimentos para conflitos](how-to-manage-conflicts.md).
+
+  > [!NOTE]
+  > A política de resolução de conflitos personalizada está disponível apenas para contas SQL API.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar políticas de resolução de conflitos:
 
-* [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
-* [Como gerenciar políticas de resolução de conflitos](how-to-manage-conflicts.md)
-* [Como ler a partir do feed de conflitos](how-to-manage-conflicts.md#read-from-conflict-feed)
+* [Como configurar o multi-master nas suas aplicações](how-to-multi-master.md)
+* [Como gerir políticas de resolução de conflitos](how-to-manage-conflicts.md)
+* [Como ler a partir dos conflitos alimentam-se](how-to-manage-conflicts.md#read-from-conflict-feed)

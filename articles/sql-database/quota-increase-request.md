@@ -9,17 +9,17 @@ ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
 ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586160"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Aumento das quotas de pedidos para base de dados Azure SQL
 
 Este artigo explica como solicitar um aumento de quota para a Base de Dados Azure SQL para bases de dados únicas, servidores e instâncias geridas. Também explica como permitir o acesso por subscrição a uma região.
 
-## <a id="newquota"></a>Criar um novo pedido de apoio
+## <a name="create-a-new-support-request"></a><a id="newquota"></a>Criar um novo pedido de apoio
 
 Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure para a Base de Dados SQL.
 
@@ -31,7 +31,7 @@ Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure
 
     ![Criar um novo pedido de apoio](./media/quota-increase-request/new-support-request.png)
 
-1. Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)** .
+1. Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)**.
 
    ![Selecione um tipo de problema](./media/quota-increase-request/select-quota-issue-type.png)
 
@@ -44,7 +44,7 @@ Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure
    - **Base de Dados SQL** para base de dados única e quotas elásticas de piscina.
    - **SQL Database Managed Instance** para casos geridos.
 
-   Em seguida, selecione **Seguinte: Soluções >>** .
+   Em seguida, selecione **Seguinte: Soluções >>**.
 
    ![Selecione um tipo de quota](./media/quota-increase-request/select-quota-type.png)
 
@@ -54,7 +54,7 @@ Utilize os seguintes passos para criar um novo pedido de suporte do portal Azure
 
 Clique **em Fornecer detalhes** mostra a janela de **detalhes da Quota** que lhe permite adicionar informações adicionais. As seguintes secções descrevem as diferentes opções para os tipos de quotas de instância geridas pela Base de **Dados SQL** e pela Base de **Dados SQL.**
 
-## <a id="sqldbquota"></a>Tipos de quotas de base de dados SQL
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>Tipos de quotas de base de dados SQL
 
 As seguintes secções descrevem três opções de aumento de quota para os tipos de quotas da Base de **Dados SQL:**
 
@@ -90,7 +90,7 @@ Utilize os seguintes passos para solicitar um aumento do número de servidores p
 
 Para mais informações, consulte os limites de recursos da Base de [Dados SQL e a governação dos recursos.](sql-database-resource-limits-database-server.md)
 
-### <a id="other"></a>Permitir o acesso por subscrição a uma região
+### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a>Permitir o acesso por subscrição a uma região
 
 Alguns tipos de ofertas não estão disponíveis em todas as regiões. Pode ver um erro como o seguinte:
 
@@ -100,7 +100,7 @@ Se a sua subscrição necessitar de acesso numa determinada região, utilize a o
 
 ![Outros detalhes da quota](./media/quota-increase-request/quota-details-whitelisting.png)
 
-## <a id="sqlmiquota"></a>Tipo de quota de instância gerida
+## <a name="managed-instance-quota-type"></a><a id="sqlmiquota"></a>Tipo de quota de instância gerida
 
 Para o tipo de quota **SQL Server Managed Instance,** utilize os seguintes passos:
 
@@ -114,7 +114,7 @@ Para mais informações, consulte a Base de [Dados Overview Azure SQL gerida pel
 
 ## <a name="submit-your-request"></a>Submeta o seu pedido
 
-O passo final é preencher os detalhes restantes do seu pedido de quota de base de dados SQL. Em seguida, selecione **Next: Review + create>>** e depois de rever os detalhes do pedido, clique **em Criar** para submeter o pedido.
+O passo final é preencher os detalhes restantes do seu pedido de quota de base de dados SQL. Em seguida, selecione **Next: Revê + criar>>**, e depois de rever os detalhes do pedido, clique em **Criar** para submeter o pedido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

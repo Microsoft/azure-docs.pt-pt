@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
 ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208547"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações de proteção de pontos finais no Centro de Segurança Azure
@@ -102,7 +102,7 @@ Ou
 
 O Security Center recomenda que **"Resolva problemas de saúde de proteção de pontos finais nas suas máquinas"** quando qualquer uma das seguintes verificações não for em adotada:
 
-* Consulte a versão Symantec >= 12: Localização do registo: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Verifique a versão Symantec >= 12: Localização do registo: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
 * Verifique o estado da proteção em tempo real: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 
@@ -143,13 +143,13 @@ O Security Center recomenda **que "Instale soluções de proteção de pontos fi
 
 - File **/opt/isec/ens/threatprevention/bin/isecav** saídas 
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --version"** é: **Nome McAfee = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
+- **"/opt/isec/ens/threatprevention/bin/isecav --version"** é: **nome McAfee = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
 
 O Security Center recomenda que **"Resolva problemas de saúde de proteção de pontos finais nas suas máquinas"** quando qualquer uma das seguintes verificações não for em adotada:
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** devolve **sondagem rápida, digitalização completa** e ambos os exames <= 7 dias
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** devolve **sondagens rápidas, digitalização completa** e ambos os exames <= 7 dias
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** devolve o TEMPO de Atualização do **DAT e** do motor e ambos <= 7 dias
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** devolve **o DAT e** o tempo de atualização do motor e ambos <= 7 dias
 
 - **"/opt/isec/ens/threatprevention/bin/isecav -getoasconfig --resumo"** devoluções no estado do **acesso**
 
@@ -159,21 +159,21 @@ O Security Center recomenda **que "Instale soluções de proteção de pontos fi
 
 - File **/opt/sophos-av/bin/savdstatus** exits ou search for customd location **"readlink $(que savscan)"**
 
-- **"/opt/sophos-av/bin/savdstatus --versão"** devolve o nome Sophos = **Sophos Anti-Virus e Sophos versão >= 9**
+- **"/opt/sophos-av/bin/savdstatus --versão"** devolve o nome Sophos = **Versão Sophos Anti-Vírus e Sophos >= 9**
 
 O Security Center recomenda que **"Resolva problemas de saúde de proteção de pontos finais nas suas máquinas"** quando qualquer uma das seguintes verificações não for em adotada:
 
-- **"/opt/sophos-av/bin/savlog --maxage=7  grep -i "Scan agendado .\* concluído" / cauda -1",** devolve um valor
+- **"/opt/sophos-av/bin/savlog --maxage=7 ] grep -i "Scan agendado . \* concluído" [ cauda -1",** devolve um valor
 
 - **"/opt/sophos-av/bin/savlog --maxage=7 ] grep "scan terminado"** [ cauda -1", devolve um valor
 
-- **"/opt/sophos-av/bin/savdstatus --última atualização"** regressa no último Update, que deve ser <= 7 dias 
+- **"/opt/sophos-av/bin/savdstatus --última atualização"** devoluções no último Update, que deve ser <= 7 dias 
 
 - **"/opt/sophos-av/bin/savdstatus -v"** é igual a **"A digitalização no acesso está em execução"** 
 
 - **Devoluções "/opt/sophos-av/bin/savconfig get LiveProtection"**
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 

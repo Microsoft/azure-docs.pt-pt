@@ -9,10 +9,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161941"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação regional de desastres para clusters de Databricks Azure
@@ -54,7 +54,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
    ```
 
    > [!NOTE]
-   > Espera-se que quaisquer scripts python fornecidos neste artigo funcionem com Python 2.7+ < 3.x.
+   > Espera-se que quaisquer scripts de python fornecidos neste artigo funcionem com Python 2.7+ < 3.x.
 
 2. **Configure dois perfis.**
 
@@ -225,7 +225,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
 
    A configuração do trabalho requer configurações para um novo ou um cluster existente. Se utilizar o cluster existente, o script/código abaixo tentará substituir o id do cluster antigo por um novo ID de cluster.
 
-   Copie e guarde o seguinte guião python para um ficheiro. Substitua o valor para `old_cluster_id` e `new_cluster_id`, com a produção da migração do cluster feita em etapas anteriores. Execute-o na sua linha de comando databricks-cli, por exemplo, `python scriptname.py`.
+   Copie e guarde o seguinte guião python para um ficheiro. Substitua o `old_cluster_id` `new_cluster_id`valor para e, com a saída da migração do cluster feita em etapas anteriores. Execute-o na sua linha de comando databricks-cli, por exemplo, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -290,7 +290,7 @@ Para criar a sua própria topologia regional de recuperação de desastres, siga
 
 9. **Migrar cluster init scripts**
 
-   Quaisquer scripts de inicialização de cluster podem ser migrados de antigos para novos espaços de trabalho usando o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Em primeiro lugar, copie os scripts necessários do `dbfs:/dat abricks/init/..` para o seu ambiente de trabalho local ou máquina virtual. Em seguida, copie esses scripts para o novo espaço de trabalho no mesmo caminho.
+   Quaisquer scripts de inicialização de cluster podem ser migrados de antigos para novos espaços de trabalho usando o [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Em primeiro lugar, copie os scripts necessários para `dbfs:/dat abricks/init/..` o seu ambiente de trabalho local ou máquina virtual. Em seguida, copie esses scripts para o novo espaço de trabalho no mesmo caminho.
 
    ```bash
    // Primary to local

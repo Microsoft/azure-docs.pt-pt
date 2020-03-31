@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc912c2df435f9b7e591d7c5475e126e6b0aeb7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062834"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configure a folga para o fornecimento automático de utilizadores
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar em
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
 * Um inquilino Slack com o [plano Plus](https://aadsyncfabric.slack.com/pricing) ou melhor habilitado
@@ -46,7 +46,7 @@ Antes de configurar e ativar o serviço de provisionamento, terá de decidir qua
 
 ### <a name="important-tips-for-assigning-users-to-slack"></a>Dicas importantes para atribuir utilizadores à Slack
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à Slack para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à Slack para testar a configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 * Ao atribuir um utilizador à Slack, deve selecionar a função **Utilizador** ou "Grupo" no diálogo de atribuição. A função "Acesso Predefinido" não funciona para o provisionamento.
 
@@ -58,7 +58,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador à Slack em Azure AD:
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > todas as aplicações.**
 
 2. Se já configurou o Slack para um único sinal, procure a sua instância de Slack utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **Por Slack** na galeria de aplicações. Selecione A folga dos resultados da pesquisa e adicione-a à sua lista de aplicações.
 
@@ -82,7 +82,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 10. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to Slack**.
 
-11. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que serão sincronizados de Azure AD para Slack. Note que os atributos selecionados como propriedades **correspondentes** serão usados para combinar as contas de utilizador em Slack para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+11. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que serão sincronizados de Azure AD para Slack. Note que os atributos selecionados como propriedades **correspondentes** serão usados para combinar as contas de utilizador em Slack para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
 12. Para ativar o serviço de provisionamento de AD Azure para a Folga, altere o Estado de **Provisionamento** para **On** na secção **Definições**
 

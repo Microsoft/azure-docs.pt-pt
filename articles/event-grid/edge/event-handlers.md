@@ -1,5 +1,5 @@
 ---
-title: Manipuladores e destinos de eventos - Azure Event Grid IoT Edge  Microsoft Docs
+title: Manipuladores e destinos de eventos - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Manipuladores de eventos e destinos em Event Grid on Edge
 author: banisadr
 ms.author: babanisa
@@ -9,10 +9,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76849750"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Manipuladores de eventos e destinos em Event Grid on Edge
@@ -23,7 +23,7 @@ Este artigo fornece informações sobre como configurar cada um.
 
 ## <a name="webhook"></a>WebHook
 
-Para publicar num ponto final do WebHook, detete te `endpointType` para `WebHook` e fornecer:
+Para publicar num ponto final do `endpointType` `WebHook` WebHook, detete o para e fornecer:
 
 * endpointUrl: O URL final do webhook
 
@@ -42,7 +42,7 @@ Para publicar num ponto final do WebHook, detete te `endpointType` para `WebHook
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Para publicar num ponto final da Rede de Eventos Azure, detete a `endpointType` para `eventGrid` e fornecer:
+Para publicar num ponto final de nuvem `endpointType` azure Event Grid, detete o para `eventGrid` e fornecer:
 
 * endpointUrl: URL tópico da grelha de eventos na nuvem
 * sasKey: Chave SAS do Tópico da Grelha de Eventos
@@ -65,7 +65,7 @@ Para publicar num ponto final da Rede de Eventos Azure, detete a `endpointType` 
 
 ## <a name="iot-edge-hub"></a>IoT Edge Hub
 
-Para publicar num módulo Edge Hub, detete a `endpointType` para `edgeHub` e fornecer:
+Para publicar num módulo Edge `endpointType` Hub, detete o para `edgeHub` e fornecer:
 
 * nome de saída: A saída em que o módulo Event Grid irá encaminhar eventos que correspondam a esta subscrição ao EdgeHub. Por exemplo, os eventos que correspondam à subscrição abaixo serão escritos para /mensagens/módulos/eventgridmodule/outputs/sampleSub4.
 
@@ -84,7 +84,7 @@ Para publicar num módulo Edge Hub, detete a `endpointType` para `edgeHub` e for
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Para publicar num Event Hub, detete a `endpointType` para `eventHub` e fornecer:
+Para publicar num Event Hub, detete o `endpointType` para `eventHub` e fornecer:
 
 * conexãoString: Linha de ligação para o Hub de Evento específico que você está a visar gerado através de uma Política de Acesso Partilhado.
 
@@ -104,9 +104,9 @@ Para publicar num Event Hub, detete a `endpointType` para `eventHub` e fornecer:
         }
     ```
 
-## <a name="service-bus-queues"></a>Filas do Service Bus
+## <a name="service-bus-queues"></a>Filas de Service Bus
 
-Para publicar numa fila de ônibus de serviço, detete a `endpointType` para `serviceBusQueue` e fornecer:
+Para publicar numa fila de `endpointType` ônibus de serviço, detete o para `serviceBusQueue` e fornecer:
 
 * ligaçãoString: Linha de ligação para a fila específica do ônibus de serviço que você está a visar gerada através de uma Política de Acesso Partilhado.
 
@@ -126,9 +126,9 @@ Para publicar numa fila de ônibus de serviço, detete a `endpointType` para `se
         }
     ```
 
-## <a name="service-bus-topics"></a>Tópicos do Service Bus
+## <a name="service-bus-topics"></a>Tópicos de Service Bus
 
-Para publicar num Tópico de Autocarro de Serviço, detete a `endpointType` para `serviceBusTopic` e fornecer:
+Para publicar num Tópico de `endpointType` Autocarro `serviceBusTopic` de Serviço, detete o para e fornecer:
 
 * conexãoString: Linha de ligação para o tópico específico do ônibus de serviço que você está a visar gerado através de uma Política de Acesso Partilhado.
 
@@ -148,9 +148,9 @@ Para publicar num Tópico de Autocarro de Serviço, detete a `endpointType` para
         }
     ```
 
-## <a name="storage-queues"></a>Filas de armazenamento
+## <a name="storage-queues"></a>Filas de Armazenamento
 
-Para publicar numa fila de armazenamento, delineie a `endpointType` para `storageQueue` e fornecer:
+Para publicar numa fila de `endpointType` `storageQueue` armazenamento, delineie o para e fornecer:
 
 * nome da fila de armazenamento para a qual está a publicar.
 * ligaçãoString: Fio de ligação para a conta de armazenamento em que a fila de armazenamento está dentro.

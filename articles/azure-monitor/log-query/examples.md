@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
-ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.date: 03/16/2020
+ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480288"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log Do Monitor Azure
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) usando a [linguagem de consulta Kusto](/azure/kusto/query/) para recuperar diferentes tipos de dados de registo do Azure Monitor. Diferentes métodos são usados para consolidar e analisar dados, para que você possa usar estas amostras para identificar diferentes estratégias que você pode usar para os seus próprios requisitos.  
@@ -72,7 +72,7 @@ Heartbeat
 ### <a name="match-protected-status-records-with-heartbeat-records"></a>Combine registos de estado protegidos com registos de batimentos cardíacos
 
 Este exemplo encontra registos de estado de proteção relacionados e registos de batimentos cardíacos, combinados tanto no Computador como no tempo.
-Note que o campo de tempo é arredondado para o minuto mais próximo. Usámos o cálculo do caixote do tempo de execução para o fazer: `round_time=bin(TimeGenerated, 1m)`.
+Note que o campo de tempo é arredondado para o minuto mais próximo. Usámos o cálculo do caixote `round_time=bin(TimeGenerated, 1m)`do tempo de execução para o fazer: .
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -134,7 +134,7 @@ AzureDiagnostics
 ```
 
 ### <a name="get-a-random-record-for-each-unique-category"></a>Obtenha um recorde aleatório para cada categoria única
-Este exemplo obtém um único registo de diagnóstico do Azure para cada categoria única.
+Este exemplo obtém um único registo de diagnóstico sacana do Azure para cada categoria única.
 
 ```Kusto
 AzureDiagnostics
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contagem de eventos de segurança por ID de atividade
 
 
-Este exemplo baseia-se na estrutura fixa da coluna **atividade:** \<id\>-\<Nome\>.
+Este exemplo baseia-se na estrutura fixa \<\>-\<da\>coluna **Atividade:** Id Name .
 Analisa o valor da **Atividade** em duas novas colunas, e conta a ocorrência de cada **id de atividade**.
 
 ```Kusto
@@ -241,7 +241,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Contar eventos de segurança relacionados com permissões
-Este exemplo mostra o número de registos **de segurançaEvento,** em que a coluna **Atividade** contém todo o termo _Permissões_. A consulta aplica-se a registos criados nos últimos 30 minutos.
+Este exemplo mostra o número de registos **de segurançaEvento,** em que a coluna **Atividade** contém todo o termo _Permissões_. A consulta aplica-se aos registos criados nos últimos 30 minutos.
 
 ```Kusto
 SecurityEvent
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Nome e ID da atividade parse
-Os dois exemplos abaixo dependem da estrutura fixa da coluna **Atividade:** \<ID\>-\<Nome\>. O primeiro exemplo utiliza o operador **de parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
+Os dois exemplos abaixo dependem da estrutura \<fixa\>-\<\>da coluna **Atividade:** Nome de identificação . O primeiro exemplo utiliza o operador **de parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -375,40 +375,47 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Utilização
 
-### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calcular o tamanho médio dos relatórios de utilização perf por computador
+O `Usage` tipo de dados pode ser utilizado para rastrear o volume de dados ingerido por solução ou tipo de dados. Existem outras técnicas para estudar volumes de dados ingeridos por [subscrição](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) por computador ou [Azure, grupo de recursos ou recursos.](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)
 
-Este exemplo calcula o tamanho médio dos relatórios de utilização perf por computador, nas últimas 3 horas.
-Os resultados são mostrados num gráfico de barras.
-```Kusto
+#### <a name="data-volume-by-solution"></a>Volume de dados por solução
+
+A consulta utilizada para visualizar o volume de dados faturado por solução ao longo do último mês (excluindo o último dia parcial) é:
+
+```kusto
 Usage 
-| where TimeGenerated > ago(3h)
-| where DataType == "Perf" 
-| where QuantityUnit == "MBytes" 
-| summarize avg(Quantity) by Computer
-| sort by avg_Quantity desc nulls last
-| render barchart
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-### <a name="timechart-latency-percentiles-50-and-95"></a>Percentilde de latência do timechart 50 e 95
+Note que `where IsBillable = true` a cláusula filtra os tipos de dados de determinadas soluções para as quais não existe qualquer taxa de ingestão.  Também a `TimeGenerated` cláusula é apenas para garantir que a experiência de consulta no portal Azure olhará para trás para além das 24 horas padrão. Ao utilizar o tipo `StartTime` `EndTime` de dados de utilização e represente os baldes de tempo para os quais os resultados são apresentados. 
 
-Este exemplo calcula e regista os percentículos 50 e 95 de **avgLatency** reportados por hora nas últimas 24 horas.
+#### <a name="data-volume-by-type"></a>Volume de dados por tipo
 
-```Kusto
-Usage
-| where TimeGenerated > ago(24h)
-| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
-| render timechart
+Pode perfurar mais para ver as tendências de dados por tipo de dados:
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-### <a name="usage-of-specific-computers-today"></a>Utilização de computadores específicos hoje em dia
-Este exemplo recupera dados de **utilização** do último dia para nomes de computador que contêm a corda _ContosoFile_. Os resultados são classificados pela **TimeGenerated**.
+Ou ver uma tabela por solução e tipo para o último mês,
 
-```Kusto
-Usage
-| where TimeGenerated > ago(1d)
-| where  Computer contains "ContosoFile" 
-| sort by TimeGenerated desc nulls last
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
+
+> [!NOTE]
+> Alguns dos campos do tipo de dados de utilização, ainda que ainda no esquema, foram depreciados e os seus valores deixarão de ser povoados. Estes são **computadores,** bem como campos relacionados com ingestão **(TotalBatches,** **BatchesWithinSla,** **BatchesOutsideSla,** **BatchesCapped** e **AverageProcessingTimeMs**.
 
 ## <a name="updates"></a>Atualizações
 

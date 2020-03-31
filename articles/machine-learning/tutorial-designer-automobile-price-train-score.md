@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 8b471dd509dca02ab2a66d70dbc7fac9988f1afe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472242"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389431"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever o preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -103,7 +103,7 @@ Pode visualizar os dados para compreender o conjunto de dados que irá utilizar.
 
 1. Selecione o módulo de dados de **preços do Automóvel (Raw).**
 
-1. No módulo os detalhes espem à direita da tela, selecione **Saídas**.
+1. No módulo os detalhes painelem à direita da tela, selecione **Saídas + log**.
 
 1. Selecione o ícone do gráfico para visualizar os dados.
 
@@ -269,7 +269,7 @@ Utilize o módulo **'Avaliar modelo'** para avaliar a forma como o seu modelo ob
 
 ## <a name="submit-the-pipeline"></a>Submeter o gasoduto
 
-Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de gasodutos para treinar o seu modelo de aprendizagem automática. Você pode submeter um pipeline executado em qualquer ponto enquanto constrói oleodutos no designer. Pode fazer isto para verificar o seu trabalho à medida que vai verificar se o seu oleoduto funciona como esperado.
+Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de gasodutos para treinar o seu modelo de aprendizagem automática. Pode submeter um pipeline válido em qualquer ponto, que pode ser usado para rever alterações no seu pipeline durante o desenvolvimento.
 
 1. Na parte superior da tela, selecione **Submeter**.
 
@@ -283,6 +283,8 @@ Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de ga
     1. Selecione **Submeter**.
     
     Pode ver o estado de execução e os detalhes na parte superior direita da tela.
+    
+    Se for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas corridas de gasodutos demorarão menos tempo, uma vez que os recursos da computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 ### <a name="view-scored-labels"></a>Ver etiquetas pontuadas
 
@@ -290,7 +292,7 @@ Após a execução, pode ver os resultados da execução do gasoduto. Primeiro, 
 
 1. Selecione o módulo **'Modelo de Pontuação'** para visualizar a sua saída.
 
-1. No módulo os detalhes painelam à direita da tela, ![selecione **Saídas** > ícone de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, selecione **Outputs + logs** > ícone ![de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
@@ -302,7 +304,7 @@ Utilize o **Modelo de Avaliação** para ver se o modelo treinado foi executado 
 
 1. Selecione o módulo **'Avaliar Modelo'** para visualizar a sua saída.
 
-1. No módulo os detalhes painelem à direita da tela, selecione **Output** > ícone ![de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, selecione **Outputs + logs** > ícone ![de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
 
 As seguintes estatísticas são mostradas para o seu modelo:
 

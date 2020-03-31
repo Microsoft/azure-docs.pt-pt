@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
 ms.openlocfilehash: 4a9ccaff0e3425c365a64ecb4fbadf3c7aa8dcfb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595183"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicações com helm no Serviço Azure Kubernetes (AKS)
@@ -30,7 +30,7 @@ Também precisa do Helm CLI instalado, que é o cliente que funciona no seu sist
 
 ## <a name="verify-your-version-of-helm"></a>Verifique a sua versão de Helm
 
-Utilize o comando `helm version` para verificar a versão do Helm que instalou:
+Utilize `helm version` o comando para verificar a versão do Helm que instalou:
 
 ```console
 helm version
@@ -154,7 +154,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ...
 ```
 
-Utilize o comando `kubectl get services` para obter o *EXTERNAL-IP* do seu serviço. Por exemplo, o comando abaixo mostra o *IP EXTERNO* para o serviço de *controlador my-nginx-ingress:*
+Utilize `kubectl get services` o comando para obter o *EXTERNAL-IP* do seu serviço. Por exemplo, o comando abaixo mostra o *IP EXTERNO* para o serviço de *controlador my-nginx-ingress:*
 
 ```console
 $ kubectl --namespace default get services -o wide -w my-nginx-ingress-controller
@@ -165,7 +165,7 @@ my-nginx-ingress-controller   LoadBalancer   10.0.123.1     <EXTERNAL-IP>   80:3
 
 ### <a name="list-releases"></a>Lançamentos de listas
 
-Para ver uma lista de lançamentos instalados no seu cluster, utilize o comando `helm list`.
+Para ver uma lista de lançamentos instalados `helm list` no seu cluster, utilize o comando.
 
 ```console
 helm list
@@ -182,7 +182,7 @@ my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se implanta um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, utilize o [comando desinstalação][helm-cleanup] do leme e especifique o seu nome de libertação, conforme encontrado no comando `helm list` anterior.
+Quando se implanta um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, utilize o comando desinstalação do [leme][helm-cleanup] e especifique o seu nome de lançamento, conforme encontrado no comando anterior. `helm list`
 
 ```console
 helm uninstall my-nginx-ingress
@@ -202,7 +202,7 @@ release "my-nginx-ingress" uninstalled
 
 Antes de poder implantar o Helm num cluster AKS ativado pelo RBAC, precisa de uma conta de serviço e de uma ligação de funções para o serviço Tiller. Para obter mais informações sobre a segurança do Leme / Tiller num cluster ativado por RBAC, consulte [Tiller, Namespaces e RBAC][tiller-rbac]. Se o seu cluster AKS não estiver ativado por RBAC, ignore este passo.
 
-Crie um ficheiro chamado `helm-rbac.yaml` e copie no seguinte YAML:
+Criar um `helm-rbac.yaml` ficheiro nomeado e copiar no seguinte YAML:
 
 ```yaml
 apiVersion: v1
@@ -225,7 +225,7 @@ subjects:
     namespace: kube-system
 ```
 
-Criar a conta de serviço e a vinculação de funções com o comando `kubectl apply`:
+Criar a conta de serviço `kubectl apply` e a vinculação de funções com o comando:
 
 ```console
 kubectl apply -f helm-rbac.yaml
@@ -239,15 +239,15 @@ Com um cluster Kubernetes ativado por RBAC, pode controlar o nível de acesso qu
 
 ### <a name="configure-helm"></a>Configure Helm
 
-Para implantar um Tiller básico num aglomerado AKS, use o comando de entrada do [leme.][helm2-init] Se o seu cluster não estiver ativado, remova o argumento e o valor `--service-account`. Os exemplos que se seguem também definiram o [histórico-max][helm2-history-max] para 200.
+Para implantar um Tiller básico num aglomerado AKS, use o comando de entrada do [leme.][helm2-init] Se o seu cluster não estiver `--service-account` ativado, remova o argumento e o valor. Os exemplos que se seguem também definiram o [histórico-max][helm2-history-max] para 200.
 
-Se configurar TLS/SSL para Tiller e Helm, ignore este passo básico de inicialização e, em vez disso, forneça o `--tiller-tls-` necessário, como mostrado no exemplo seguinte.
+Se configurar TLS/SSL para Tiller e Helm, ignore este passo `--tiller-tls-` básico de inicialização e, em vez disso, forneça o necessário como mostrado no exemplo seguinte.
 
 ```console
 helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
-Se configurar tLS/SSL entre Helm e Tiller fornecer os parâmetros e nomes `--tiller-tls-*` dos seus próprios certificados, como mostra o seguinte exemplo:
+Se configurar TLS/SSL entre Helm e `--tiller-tls-*` Tiller fornecer os parâmetros e nomes dos seus próprios certificados, como mostra o seguinte exemplo:
 
 ```console
 helm init \
@@ -317,7 +317,7 @@ Update Complete.
 
 ### <a name="run-helm-charts"></a>Executar gráficos helm
 
-Para instalar gráficos com o Helm, utilize o comando de [instalação][helm2-install-command] do leme e especifique o nome do gráfico para instalar. Para ver a instalação de um gráfico Helm em ação, vamos instalar uma implementação básica de nginx usando um gráfico Helm. Se configurar tLS/SSL, adicione o parâmetro `--tls` para utilizar o certificado de cliente Helm.
+Para instalar gráficos com o Helm, utilize o comando de [instalação][helm2-install-command] do leme e especifique o nome do gráfico para instalar. Para ver a instalação de um gráfico Helm em ação, vamos instalar uma implementação básica de nginx usando um gráfico Helm. Se configurar tLS/SSL, `--tls` adicione o parâmetro para utilizar o certificado de cliente Helm.
 
 ```console
 helm install stable/nginx-ingress \
@@ -356,7 +356,7 @@ Demora um minuto ou dois para que o endereço *EXTERNO-IP* do serviço de contro
 
 ### <a name="list-helm-releases"></a>Lançamentos da Lista Helm
 
-Para ver uma lista de lançamentos instalados no seu cluster, utilize o comando da [lista de leme.][helm2-list] O exemplo seguinte mostra a libertação nginx-ingress implantada no passo anterior. Se configurar tLS/SSL, adicione o parâmetro `--tls` para utilizar o certificado de cliente Helm.
+Para ver uma lista de lançamentos instalados no seu cluster, utilize o comando da [lista de leme.][helm2-list] O exemplo seguinte mostra a libertação nginx-ingress implantada no passo anterior. Se configurar tLS/SSL, `--tls` adicione o parâmetro para utilizar o certificado de cliente Helm.
 
 ```console
 $ helm list
@@ -367,7 +367,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se implanta um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, utilize o comando `helm delete` e especifique o seu nome de libertação, conforme encontrado no comando `helm list` anterior. O exemplo seguinte elimina a versão denominada *flailing-alpaca:*
+Quando se implanta um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, `helm delete` use o comando e especifique o seu nome de libertação, conforme encontrado no comando anterior. `helm list` O exemplo seguinte elimina a versão denominada *flailing-alpaca:*
 
 ```console
 $ helm delete flailing-alpaca

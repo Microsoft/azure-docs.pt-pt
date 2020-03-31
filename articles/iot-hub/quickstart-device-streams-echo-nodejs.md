@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 0757c5eb8639e4a864b049adc92c97a7cf69adba
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675498"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação de dispositivo no Node.js através de streams de dispositivos IoT Hub (pré-visualização)
@@ -24,7 +24,7 @@ Neste arranque rápido, executa uma aplicação do lado do serviço e configura 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão da Comunicação para aplicações de dispositivos em C através de fluxos de [dispositivos IoT Hub](./quickstart-device-streams-echo-c.md) ou Comunicar para dispositivos aplicações através [ C# de streams de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md).
+* Conclusão da Comunicação para aplicações de dispositivos em C através de fluxos de [dispositivos IoT Hub](./quickstart-device-streams-echo-c.md) ou Comunicar [para aplicações de dispositivoem C# através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md).
 
 * Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
@@ -62,13 +62,13 @@ az extension add --name azure-iot
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
@@ -104,7 +104,7 @@ Como mencionado anteriormente, o IoT Hub Node.js SDK apenas suporta fluxos de di
 
 * [Comunicar com aplicações de dispositivos em C através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-c.md)
 
-* [Comunicar com aplicações de dispositivos através C# de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md)
+* [Comunicar para aplicações de dispositivos em C# através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md)
 
 Certifique-se de que a aplicação do lado do dispositivo está em execução antes de passar para o próximo passo.
 
@@ -133,7 +133,7 @@ Assumindo que a aplicação do lado do dispositivo está em execução, siga os 
   
    Altere o espaço reservado ServiceConnectionString para combinar com a sua cadeia de ligação de serviço e **o MyDevice** para combinar com o ID do seu dispositivo se tiver dado um nome diferente ao seu.
 
-* Navegue para `Quickstarts/device-streams-service` na pasta do projeto desapertado e execute a amostra utilizando o nó.
+* Navegue `Quickstarts/device-streams-service` na pasta do projeto desapertado e execute a amostra utilizando o nó.
 
    ```cmd/sh
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -145,7 +145,7 @@ Assumindo que a aplicação do lado do dispositivo está em execução, siga os 
    node echo.js
    ```
 
-No final do último passo, o programa do lado do serviço iniciará um fluxo para o seu dispositivo e uma vez estabelecido enviará um tampão de cadeia para o serviço através do fluxo. Nesta amostra, o programa do lado do serviço simplesmente lê o `stdin` no terminal e envia-o para o dispositivo, que depois irá ecoá-lo de volta. Isto demonstra uma comunicação bidirecional bem sucedida entre as duas aplicações.
+No final do último passo, o programa do lado do serviço iniciará um fluxo para o seu dispositivo e uma vez estabelecido enviará um tampão de cadeia para o serviço através do fluxo. Nesta amostra, o programa do lado `stdin` do serviço simplesmente lê o no terminal e envia-o para o dispositivo, que depois irá ecoá-lo de volta. Isto demonstra uma comunicação bidirecional bem sucedida entre as duas aplicações.
 
 ![Saída de consola do lado do serviço](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 

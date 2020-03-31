@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure DocuSign para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o DocuSign.
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88b65c8e8962ad8420ded47da1a343672123c589
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058183"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configure DocuSign para fornecimento automático de utilizadores
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar-lhe os passos necessários para executar no
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 *   Um inquilino de diretório Azure Ative.
 *   Uma subscrição ativada por um único sinal do DocuSign.
@@ -62,7 +62,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 O objetivo desta secção é delinear como permitir o fornecimento de contas de utilizadores do Diretório Ativo ao DocuSign.
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > todas as aplicações.**
 
 1. Se já configurou o DocuSign para um único sinal, procure a sua instância de DocuSign utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **DocuSign** na galeria de aplicações. Selecione DocuSign a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -86,13 +86,13 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 1. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to DocuSign.**
 
-1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para DocuSign. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no DocuSign para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para DocuSign. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador no DocuSign para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
 1. Para ativar o serviço de provisionamento de AD Azure para docuSign, altere o Estado de **Provisionamento** para **On** na secção Definições
 
 1. Clique em **Guardar.**
 
-Inicia a sincronização inicial de quaisquer utilizadores atribuídos ao DocuSign na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação DocuSign.
+Inicia a sincronização inicial de quaisquer utilizadores atribuídos ao DocuSign na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação DocuSign.
 
 Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 

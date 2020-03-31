@@ -1,63 +1,63 @@
 ---
 title: Controlos de segurança
-description: Encontre uma lista de verificação de controles de segurança para avaliar Azure App serviço para sua organização.
+description: Encontre uma lista de controlos de segurança para avaliar o Serviço de Aplicações Azure para a sua organização.
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671440"
 ---
-# <a name="security-controls-for-azure-app-service"></a>Controles de segurança para o serviço Azure App
+# <a name="security-controls-for-azure-app-service"></a>Controlos de segurança para o Serviço de Aplicações Azure
 
-Este artigo documenta os controles de segurança incorporados ao serviço Azure App.
+Este artigo documenta os controlos de segurança incorporados no Serviço de Aplicações Azure.
 
 [!INCLUDE [Security controls header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas | Documentação
+| Controlo de segurança | Sim/Não | Notas | Documentação
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| Sim | Disponível para o serviço de aplicativo.| [Azure App restrições de acesso de serviço](app-service-ip-restrictions.md)
-| Suporte à injeção de VNet| Sim | Os ambientes de serviço de aplicativo são implementações privadas do serviço de aplicativo dedicado a um único cliente injetado na rede virtual de um cliente. | [Introdução aos ambientes do serviço de aplicativo](environment/intro.md)
-| Isolamento de rede e suporte de firewall| Sim | Para a variação pública de vários locatários do serviço de aplicativo, os clientes podem configurar ACLs de rede (restrições de IP) para bloquear o tráfego de entrada permitido.  Os ambientes do serviço de aplicativo são implantados diretamente em redes virtuais e, portanto, podem ser protegidos com o NSGs. | [Azure App restrições de acesso de serviço](app-service-ip-restrictions.md)
-| Suporte a túnel forçado| Sim | Os ambientes do serviço de aplicativo podem ser implantados na rede virtual do cliente em que o túnel forçado está configurado. | [Configurar o Ambiente de Serviço de Aplicações com túnel forçado](environment/forced-tunnel-support.md)
+| Suporte final de serviço| Sim | Disponível para Serviço de Aplicações.| [Restrições de acesso ao serviço de aplicações Azure](app-service-ip-restrictions.md)
+| Suporte à injeção VNet| Sim | Os Ambientes de Serviço de Aplicações são implementações privadas do App Service dedicadoa a um único cliente injetado na rede virtual de um cliente. | [Introdução aos Ambientes de Serviço de Aplicações](environment/intro.md)
+| Suporte de isolamento de rede e firewalling| Sim | Para a variação pública multi-inquilino do App Service, os clientes podem configurar acLs de rede (restrições IP) para bloquear o tráfego de entrada permitido.  Os Ambientes de Serviço de Aplicações são implantados diretamente em redes virtuais e, portanto, podem ser protegidos com NSGs. | [Restrições de acesso ao serviço de aplicações Azure](app-service-ip-restrictions.md)
+| Apoio de túnel forçado| Sim | Os ambientes de serviço de aplicações podem ser implantados na rede virtual de um cliente onde o túnel forçado é configurado. | [Configurar o Ambiente de Serviço de Aplicações com túnel forçado](environment/forced-tunnel-support.md)
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas | Documentação
+| Controlo de segurança | Sim/Não | Notas | Documentação
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | O serviço de aplicativo integra-se com Application Insights para idiomas que dão suporte a Application Insights (completo .NET Framework, .NET Core, Java e node. JS).  Consulte [monitorar o desempenho do serviço Azure app](../azure-monitor/app/azure-web-apps.md). O serviço de aplicativo também envia métricas de aplicativo para Azure Monitor. | [Monitorar aplicativos no serviço Azure App](web-sites-monitor.md)
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as operações de gerenciamento executadas nos objetos do serviço de aplicativo ocorrem por meio de [Azure Resource Manager](../azure-resource-manager/index.yml). Os logs históricos dessas operações estão disponíveis no portal e por meio da CLI. | [Azure Resource Manager operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftweb), [AZ monitor Activity-log](/cli/azure/monitor/activity-log)
-| Log e auditoria do plano de dados | Não | O plano de dados para o serviço de aplicativo é um compartilhamento de arquivo remoto que contém o conteúdo do site implantado de um cliente.  Não há auditoria do compartilhamento de arquivos remoto. |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | O Serviço de Aplicações integra-se com insights de aplicação para idiomas que suportam insights de aplicação (Full .NET Framework, .NET Core, Java e Node.JS).  Consulte o desempenho do [Monitor Azure App Service](../azure-monitor/app/azure-web-apps.md). O Serviço de Aplicações também envia métricas de aplicação para o Monitor Azure. | [Monitorize aplicações no Serviço de Aplicações Azure](web-sites-monitor.md)
+| Registo e auditoria de planos de controlo e gestão| Sim | Todas as operações de gestão realizadas em objetos do Serviço de Aplicações ocorrem através do Gestor de [Recursos Azure.](../azure-resource-manager/index.yml) Os registos históricos destas operações estão disponíveis tanto no portal como através do CLI. | [Operações](../role-based-access-control/resource-provider-operations.md#microsoftweb)de fornecedor de recursos do Gestor de Recursos Azure , [az monitor de atividade-log](/cli/azure/monitor/activity-log)
+| Registo e auditoria de planos de dados | Não | O plano de dados do Serviço de Aplicações é uma partilha remota de ficheiros contendo o conteúdo do site implantado por um cliente.  Não existe auditoria da parte remota do ficheiro. |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas |  Documentação
+| Controlo de segurança | Sim/Não | Notas |  Documentação
 |---|---|--|
-| Autenticação| Sim | Os clientes podem criar aplicativos no serviço de aplicativo que se integram automaticamente com o [Azure Active Directory (AD do Azure)](../active-directory/index.yml) , bem como outros provedores de identidade compatíveis com OAuth para o acesso de gerenciamento aos ativos do serviço de aplicativo, todo o acesso é controlado por uma combinação de entidade de segurança autenticada do Azure AD e Azure Resource Manager funções RBAC. | [Autenticação e autorização no Serviço de Aplicações do Azure](overview-authentication-authorization.md)
-| Autorização| Sim | Para o acesso de gerenciamento aos ativos do serviço de aplicativo, todo o acesso é controlado por uma combinação de entidade de segurança autenticada do Azure AD e Azure Resource Manager funções RBAC.  | [Autenticação e autorização no Serviço de Aplicações do Azure](overview-authentication-authorization.md)
+| Autenticação| Sim | Os clientes podem construir aplicações no Serviço de Aplicações que se integrem automaticamente com o [Azure Ative Directory (Azure AD),](../active-directory/index.yml) bem como outros fornecedores de identidade compatíveis com a OAuth Para acesso à gestão aos ativos do App Service, todo o acesso é controlado por uma combinação de funções de diretor audato azure AD e DoT DBAC do Gestor de Recursos Azure. | [Autenticação e autorização no Serviço de Aplicações do Azure](overview-authentication-authorization.md)
+| Autorização| Sim | Para acesso à gestão aos ativos do Serviço app, todo o acesso é controlado por uma combinação de funções de RBAC autenticados da Azure AD e do Gestor de Recursos Azure.  | [Autenticação e autorização no Serviço de Aplicações do Azure](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas | Documentação
+| Controlo de segurança | Sim/Não | Notas | Documentação
 |---|---|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | O conteúdo do arquivo do site é armazenado no armazenamento do Azure, que criptografa automaticamente o conteúdo em repouso. <br><br>Os segredos fornecidos pelo cliente são criptografados em repouso. Os segredos são criptografados em repouso enquanto estão armazenados nos bancos de dados de configuração do serviço de aplicativo.<br><br>Os discos anexados localmente podem, opcionalmente, ser usados como armazenamento temporário por sites (D:\Local e% TMP%). Os discos anexados localmente não são criptografados em repouso. | [Criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | Os clientes podem optar por armazenar os segredos do aplicativo no Key Vault e recuperá-los em tempo de execução. | [Usar referências de Key Vault para o serviço de aplicativo e Azure Functions (visualização)](app-service-key-vault-references.md)
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Os clientes podem configurar sites para exigir e usar HTTPS para tráfego de entrada.  | [Como tornar um serviço Azure app somente HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (postagem de blog)
-| Chamadas de API criptografadas| Sim | As chamadas de gerenciamento para configurar o serviço de aplicativo ocorrem por meio de chamadas [Azure Resource Manager](../azure-resource-manager/index.yml) por HTTPS. |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | O conteúdo do ficheiro do site é armazenado no Armazenamento Azure, que encripta automaticamente o conteúdo em repouso. <br><br>Os segredos fornecidos pelo cliente são encriptados em repouso. Os segredos são encriptados em repouso enquanto armazenados nas bases de dados de configuração do Serviço de Aplicações.<br><br>Os discos ligados localmente podem ser utilizados opcionalmente como armazenamento temporário por websites (D:\local e %TMP%). Os discos ligados localmente não são encriptados em repouso. | [Encriptação azure storage para dados em repouso](../storage/common/storage-service-encryption.md)
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Sim | Os clientes podem optar por armazenar segredos de aplicação no Key Vault e recuperá-los em tempo de funcionamento. | [Utilize referências chave vault para serviço de aplicações e funções azure (pré-visualização)](app-service-key-vault-references.md)
+| Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |
+| Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Sim | Os clientes podem configurar web sites para exigir e usar HTTPS para tráfego de entrada.  | [Como fazer um Serviço de Aplicações Azure HTTPS apenas](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (post de blog)
+| Chamadas api encriptadas| Sim | As chamadas de gestão para configurar o Serviço de Aplicações ocorrem através de chamadas do [Gestor de Recursos Do Azure](../azure-resource-manager/index.yml) através de HTTPS. |
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas | Documentação
+| Controlo de segurança | Sim/Não | Notas | Documentação
 |---|---|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Para operações de gerenciamento, o estado de uma configuração de serviço de aplicativo pode ser exportado como um modelo de Azure Resource Manager e com controle de versão ao longo do tempo. Para operações de tempo de execução, os clientes podem manter várias versões dinâmicas diferentes de um aplicativo usando o recurso de Slots de implantação do serviço de aplicativo. | 
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim | Para operações de gestão, o estado de uma configuração do Serviço de Aplicações pode ser exportado como um modelo de Gestor de Recursos Azure e versão ao longo do tempo. Para operações de tempo de execução, os clientes podem manter várias versões ao vivo diferentes de uma aplicação utilizando a funcionalidade de slots de implementação do Serviço de Aplicações. | 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)

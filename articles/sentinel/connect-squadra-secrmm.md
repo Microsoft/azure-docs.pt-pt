@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: d904e51321870fb4b61a237c23e425034b76dc0b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588115"
 ---
 # <a name="connect-your-squadra-technologies-secrmm-data-to-azure-sentinel"></a>Conecte os dados secRMM da Squadra Technologies ao Azure Sentinel 
 
 > [!IMPORTANT]
 > O conector de dados Squadra Technologies Security Remoble Media Manager (secRMM) em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 
 O conector SecRMM da Squadra Technologies permite-lhe ligar facilmente os seus registos de solução de segurança Squadra Technologies secRMM com o Azure Sentinel. Permite-lhe ver dashboards, criar alertas personalizados e melhorar a investigação. Este conector dá-lhe informações sobre eventos de armazenamento amovíveis USB. A integração entre a Squadra Technologies secRMM e a Azure Sentinel utiliza a API REST.

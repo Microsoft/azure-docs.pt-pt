@@ -9,24 +9,24 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d06bda1826964b019edb156375885c7f389ca6ec
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184908"
 ---
-Utilize o procedimento seguinte para ver e atualizar a versão de runtime atualmente a ser utilizada por uma aplicação de funções.
+Utilize o seguinte procedimento para visualizar e atualizar a versão runtime atualmente utilizada por uma aplicação de função.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue para a aplicação de funções.
+1. No [portal Azure,](https://portal.azure.com)navegue para a sua aplicação de funções.
 
-1. Sob **recursos configurado**, escolha **as definições da aplicação de função**.
+1. Em **funções configuradas,** escolha as definições da **aplicação Função**.
 
-    ![Selecione as definições de aplicação de função](./media/functions-view-update-version-portal/add-update-app-setting.png)
+    ![Selecione as definições de aplicativo de função](./media/functions-view-update-version-portal/add-update-app-setting.png)
 
-1. Na **as definições da aplicação de função** separador, localize a **versão de Runtime**. Tenha em atenção que a versão de runtime específica e a versão principal pedida. No exemplo abaixo, a versão é definida como `~2`.
+1. No separador de definições da **aplicação Fun,** localize a **versão Runtime**. Note a versão específica do tempo de execução e a versão principal solicitada. No exemplo abaixo, a versão `~2`está definida para .
 
-   ![Selecione as definições de aplicação de função](./media/functions-view-update-version-portal/function-app-view-version.png)
+   ![Selecione as definições de aplicativo de função](./media/functions-view-update-version-portal/function-app-view-version.png)
 
-1. Para afixar a sua aplicação de funções para o tempo de execução do versão 1.x, escolha **~ 1** sob **versão de Runtime**. Este comutador é desativado quando tem funções na sua aplicação.
+1. Para fixar a sua aplicação de função na versão 1.x runtime, escolha **~1** na **versão Runtime**. Este interruptor é desativado quando tiver funções na sua aplicação.
 
-1. Quando alterar a versão de runtime, volte para o **descrição geral** separador e escolha **reiniciar** para reiniciar a aplicação.  A aplicação de função reiniciar em execução o tempo de execução do versão 1.x e os modelos da versão 1.x são utilizados quando criar funções.
+1. Quando alterar a versão 'tempo de execução', volte ao separador **Overview** e escolha **reiniciar** a aplicação.  A aplicação de funções reinicia a execução na versão 1.x e os modelos da versão 1.x são usados quando cria funções.

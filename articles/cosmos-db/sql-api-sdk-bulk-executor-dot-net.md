@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API .NET do executor em massa, recursos de & do SDK'
-description: Saiba tudo sobre o SDK e a API .NET do executor em massa, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do Azure Cosmos DB o SDK do .NET do executor em massa.
+title: 'Azure Cosmos DB: Executor a granel .NET API, SDK & recursos'
+description: Saiba tudo sobre o executor a granel .NET API e SDK, incluindo datas de lançamento, datas de reforma e alterações efetuadas entre cada versão do executor a granel Do Azure Cosmos DB .NET SDK.
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,152 +9,152 @@ ms.topic: reference
 ms.date: 01/16/2020
 ms.author: ramkris
 ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169405"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor em massa do .NET: informações de download 
+# <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor a granel .NET: Descarregamento de informações 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
+> * [Nó.js](sql-api-sdk-node.md)
+> * [Java assíncrono](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
-> * [Python](sql-api-sdk-python.md)
+> * [Pitão](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-| **Descrição**| A biblioteca de executores em massa do .net permite que aplicativos cliente executem operações em massa em contas de Azure Cosmos DB. Essa biblioteca fornece os namespaces BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode ingerir documentos em massa de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida em sua extensão máxima. O módulo BulkUpdate pode atualizar dados existentes em massa em contêineres Cosmos do Azure como patches. O módulo BulkDelete pode excluir documentos em massa de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida em sua extensão máxima.|
-|**Transferência de SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
-| **Biblioteca de executor em massa no GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Documentação da API**|[Documentação de referência da .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Introdução**|[Introdução ao SDK do .NET da biblioteca de executores em massa](bulk-executor-dot-net.md)|
-| **Estrutura de suporte atual**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2,0 |
+| **Descrição**| A biblioteca de executores a granel .Net permite que as aplicações dos clientes realizem operações a granel nas contas da Azure Cosmos DB. Esta biblioteca fornece espaços de nomeBulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode ingerir a granel documentos de forma otimizada, de modo a que o serviço de entrada previsto para uma recolha seja consumido na sua extensão máxima. O módulo BulkUpdate pode atualizar em massa os dados existentes nos contentores Do Cosmos azure como patches. O módulo BulkDelete pode eliminar em massa documentos de forma otimizada, de modo a que a entrada prevista para uma recolha seja consumida na sua máxima extensão.|
+|**Download sDK**| [Nuget](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+| **Biblioteca executora a granel em GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+|**Documentação da API**|[.NET Documentação de referência da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Começar**|[Começar com a biblioteca de executor a granel .NET SDK](bulk-executor-dot-net.md)|
+| **Quadro apoiado atual**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
 
 > [!NOTE]
-> Se você estiver usando o executor em massa, consulte a versão mais recente 3. x do [SDK do .net](tutorial-sql-api-dotnet-bulk-import.md), que tem o executor em massa incorporado ao SDK. 
+> Se estiver a utilizar o executor a granel, consulte a versão mais recente 3.x do [.NET SDK,](tutorial-sql-api-dotnet-bulk-import.md)que tem executor a granel incorporado no SDK. 
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name241-preview241-preview"></a><a name="2.4.1-preview"/>2.4.1-Preview
+### <a name="241-preview"></a><a name="2.4.1-preview"/>2.4.1-pré-visualização
 
-* TotalElapsedTime corrigidos na resposta de BulkDelete para medir corretamente o tempo total, incluindo quaisquer repetições.
+* TotalElapsed Fixed Na resposta do BulkDelete para medir corretamente o tempo total, incluindo quaisquer repetições.
 
-### <a name="a-name240-preview240-preview"></a><a name="2.4.0-preview"/>2.4.0-Preview
+### <a name="240-preview"></a><a name="2.4.0-preview"/>2.4.0 pré-visualização
 
-* Dependência do SDK alterada para > = 2.5.1
+* Alteração da dependência do SDK para >= 2,5.1
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+### <a name="230-preview2"></a><a name="2.3.0-preview2"/>2.3.0 pré-visualização2
 
-* Suporte adicionado para executor em massa de grafo para aceitar TTL em vértices e bordas
+* Suporte adicional para executor a granel de gráfico para aceitar ttl em vértices e bordas
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+### <a name="220-preview2"></a><a name="2.2.0-preview2"/>2.2.0 pré-visualização2
 
-* Correção de um problema, que causou exceções durante o dimensionamento elástico de Azure Cosmos DB ao ser executado no modo de gateway. Essa correção torna funcionalmente equivalente à versão 1.4.1.
+* Corrigiu um problema, que causou exceções durante a escala elástica do Azure Cosmos DB ao funcionar no modo Gateway. Esta correção torna-a funcionalmente equivalente a 1.4.1 de slançamento.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+### <a name="210-preview2"></a><a name="2.1.0-preview2"/>2.1.0 pré-visualização2
 
-* Adicionado suporte BulkDelete para contas da API do SQL para aceitar chave de partição, tuplas de ID de documento a serem excluídas. Essa alteração o torna funcionalmente equivalente à versão do 1.4.0.
+* Suporte a granelDelete adicionado para contas SQL API para aceitar chave de partição, documentar tuples id para eliminar. Esta alteração torna-a funcionalmente equivalente a 1.4.0 de lançamento.
 
-### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+### <a name="200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-pré-visualização2
 
-* Incluindo MongoBulkExecutor para dar suporte ao .NET Standard 2,0. Esse recurso o torna funcionalmente equivalente à versão 1.3.0, com a adição de suporte a .NET Standard 2,0 como estrutura de destino.
+* Incluindo o MongoBulkExecutor para suportar .NET Standard 2.0. Esta função torna-a funcionalmente equivalente à versão 1.3.0, com a adição de suporte .NET Standard 2.0 como o quadro-alvo.
 
-### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0-pré-visualização
 
-* Adicionado .NET Standard 2,0 como uma das estruturas de destino com suporte para fazer com que a biblioteca de executores em massa funcione com aplicativos .NET Core.
+* Adicionado .NET Standard 2.0 como um dos quadros-alvo suportados para fazer com que a biblioteca executor a granel funcione com aplicações .NET Core.
 
-### <a name="a-name188188"></a><a name="1.8.8"/>1.8.8
+### <a name="188"></a><a name="1.8.8"/>1.8.8
 
-* Correção de um problema em MongoBulkExecutor que estava aumentando o tamanho do documento inesperadamente, adicionando o preenchimento e, em alguns casos, passando o limite de tamanho máximo do documento.
+* Corrigiu um problema no MongoBulkExecuteor que estava a aumentar inesperadamente o tamanho do documento adicionando estofos e, em alguns casos, ultrapassando o limite máximo de tamanho do documento.
 
-### <a name="a-name187187"></a><a name="1.8.7"/>1.8.7
+### <a name="187"></a><a name="1.8.7"/>1.8.7
 
-* Foi corrigido um problema com BulkDeleteAsync quando a coleção tem caminhos de chave de partição aninhados.
+* Corrigiu um problema com o BulkDeleteAsync quando a Coleção tiver os caminhos-chave da divisória.
 
-### <a name="a-name186186"></a><a name="1.8.6"/>1.8.6
+### <a name="186"></a><a name="1.8.6"/>1.8.6
 
-* O MongoBulkExecutor agora implementa IDisposable e espera-se que seja descartado depois de usado.
+* MongoBulkExecutor agora implementa IDescartável e espera-se que seja eliminado após a sua utilizada.
 
-### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5
+### <a name="185"></a><a name="1.8.5"/>1.8.5
 
-* Bloqueio removido na versão do SDK. O pacote agora depende do SDK > = 2.5.1.
+* Bloqueio removido na versão SDK. O pacote está agora dependente de SDK >= 2,5.1.
 
-### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
+### <a name="184"></a><a name="1.8.4"/>1.8.4
 
-* Manipulação fixa de identificadores ao chamar BulkImport com uma lista de objetos POCO com valores numéricos.
+* Manuseamento fixo dos identificadores ao chamar GranelImport com uma lista de objetos POCO com valores numéricos.
 
-### <a name="a-name183183"></a><a name="1.8.3"/>1.8.3
+### <a name="183"></a><a name="1.8.3"/>1.8.3
 
-* TotalElapsedTime corrigidos na resposta de BulkDelete para medir corretamente o tempo total, incluindo quaisquer repetições.
+* TotalElapsed Fixed Na resposta do BulkDelete para medir corretamente o tempo total, incluindo quaisquer repetições.
 
-### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+### <a name="182"></a><a name="1.8.2"/>1.8.2
 
-* Foi corrigido o alto consumo de CPU em determinados cenários.
-* O rastreamento agora usa o rastreamento. Os usuários podem definir ouvintes para a fonte de `BulkExecutorTrace`.
-* Correção de um cenário raro que poderia causar um bloqueio ao enviar documentos perto de 2 MB de tamanho.
+* Consumo elevado de CPU fixo em determinados cenários.
+* O rastreio agora usa traceSource. Os utilizadores podem `BulkExecutorTrace` definir os ouvintes para a fonte.
+* Fixou um cenário raro que poderia causar um bloqueio ao enviar documentos perto de 2Mb de tamanho.
 
-### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+### <a name="160"></a><a name="1.6.0"/>1.6.0
 
-* Atualizado o executor em massa para agora usar a versão mais recente do SDK do .NET Azure Cosmos DB (2.4.0)
+* Atualizado o executor a granel para agora usar a versão mais recente do Azure Cosmos DB .NET SDK (2.4.0)
 
-### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+### <a name="150"></a><a name="1.5.0"/>1.5.0
 
-* Suporte adicionado para executor em massa de grafo para aceitar TTL em vértices e bordas
+* Suporte adicional para executor a granel de gráfico para aceitar ttl em vértices e bordas
 
-### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+### <a name="141"></a><a name="1.4.1"/>1.4.1
 
-* Correção de um problema, que causou exceções durante o dimensionamento elástico de Azure Cosmos DB ao ser executado no modo de gateway.
+* Corrigiu um problema, que causou exceções durante a escala elástica do Azure Cosmos DB ao funcionar no modo Gateway.
 
-### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+### <a name="140"></a><a name="1.4.0"/>1.4.0
 
-* Adicionado suporte BulkDelete para contas da API do SQL para aceitar chave de partição, tuplas de ID de documento a serem excluídas.
+* Suporte a granelDelete adicionado para contas SQL API para aceitar chave de partição, documentar tuples id para eliminar.
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="130"></a><a name="1.3.0"/>1.3.0
 
-* Correção de um problema, que causou um problema de formatação no agente do usuário usado pelo executor em massa.
+* Corrigiu um problema, que causou um problema de formatação no agente utilizador utilizado pelo executor a granel.
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+### <a name="120"></a><a name="1.2.0"/>1.2.0
 
-* Fez a melhoria nas APIs de importação e atualização de executor em massa para adaptar-se de forma transparente ao dimensionamento elástico do contêiner Cosmos quando o armazenamento excede a capacidade atual sem lançar exceções.
+* Melhorou a importação de executores a granel e atualizou as APIs para se adaptar transparentemente à escala elástica do contentor Cosmos quando o armazenamento excede a capacidade atual sem lançar exceções.
 
-### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
+### <a name="112"></a><a name="1.1.2"/>1.1.2
 
-* Foi relevo a dependência do SDK do .NET do DocumentDB para a versão 2.1.3.
+* Aumentou a dependência do DocumentoDB .NET SDK para a versão 2.1.3.
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"/>1.1.1
 
-* Corrigido um problema, que causou o executor em massa a gerar um erro JSRT ao importar para coleções fixas.
+* Corrigiu um problema, que fez com que o executor a granel atirasse o erro jSRT enquanto importava para cobranças fixas.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"/>1.1.0
 
-* Adicionado suporte para a operação BulkDelete para Azure Cosmos DB contas da API do SQL.
-* Adicionado suporte para a operação BulkImport para contas com a API do Azure Cosmos DB para MongoDB.
-* Foi relevo a dependência do SDK do .NET do DocumentDB para a versão 2.0.0. 
+* Suporte adicional para a operação BulkDelete para contas API Azure Cosmos DB SQL.
+* Apoio adicional à operação BulkImport para contas com a API da Azure Cosmos DB para o MongoDB.
+* Aumentou a dependência do DocumentoDB .NET SDK para a versão 2.0.0. 
 
-### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+### <a name="102"></a><a name="1.0.2"/>1.0.2
 
-* Suporte adicionado para a operação BulkImport para contas de API do Gremlin Azure Cosmos DB.
+* Suporte adicional para a operação BulkImport para contas API Azure Cosmos DB Gremlin.
 
-### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+### <a name="101"></a><a name="1.0.1"/>1.0.1
 
-* Correção de bug secundária para a operação BulkImport para Azure Cosmos DB contas da API do SQL.
+* Correção de erros menores na operação BulkImport para contas API Da Azure Cosmos DB SQL.
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 
-* Adição de suporte para operações BulkImport e BulkUpdate para Azure Cosmos DB contas da API do SQL.
+* Suporte adicional para operações bulkImport e BulkUpdate para contas API Da Azure Cosmos DB SQL.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a biblioteca Java do executor em massa, consulte o seguinte artigo:
+Para saber sobre a biblioteca java executor a granel, consulte o seguinte artigo:
 
-[SDK da biblioteca de executor em massa do Java e informações de versão](sql-api-sdk-bulk-executor-java.md)
+[Biblioteca SDK de executor a granel de Java e divulgação de informações](sql-api-sdk-bulk-executor-java.md)

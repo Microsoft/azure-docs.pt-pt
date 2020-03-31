@@ -1,5 +1,5 @@
 ---
-title: ClaimsProviders - Diretório Ativo Azure B2C  Microsoft Docs
+title: ClaimsProviders - Diretório Ativo Azure B2C [ Microsoft Docs
 description: Especifique o elemento ClaimsProvider de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189774"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
@@ -43,9 +43,9 @@ O elemento **ClaimsProviders** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsProvider | 1:n | Um fornecedor de sinistros acreditado que pode ser alavancado em várias viagens de utilizador. |
+| ReclamaçõesProvedor | 1:n | Um fornecedor de sinistros acreditado que pode ser alavancado em várias viagens de utilizador. |
 
-## <a name="claimsprovider"></a>ClaimsProvider
+## <a name="claimsprovider"></a>ReclamaçõesProvedor
 
 O elemento **ClaimsProvider** contém os seguintes elementos infantis:
 
@@ -53,7 +53,7 @@ O elemento **ClaimsProvider** contém os seguintes elementos infantis:
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Uma cadeia que contém o nome de domínio para o fornecedor de reclamações. Por exemplo, se o seu fornecedor de reclamações incluir o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de sinistros, a menos que seja ultrapassado pelo perfil técnico. O nome de domínio também pode ser referenciado num **domain_hint**. Para mais informações, consulte o **redirecionamento para uma** secção de prestador social de configuração de entrada direta utilizando o [Diretório Ativo Azure B2C](direct-signin.md). |
 | DisplayName | 1:1 | Uma cadeia que contém o nome do fornecedor de sinistros. |
-| [Perfis Técnicos](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportados pelo prestador de sinistros |
+| [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportados pelo prestador de sinistros |
 
 **A ClaimsProvider** organiza a forma como os seus perfis técnicos se relacionam com o prestador de sinistros. O exemplo seguinte mostra o fornecedor de sinistros Azure Ative Directory com os perfis técnicos do Diretório Ativo Azure:
 

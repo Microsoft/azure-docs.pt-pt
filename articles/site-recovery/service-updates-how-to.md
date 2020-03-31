@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257826"
 ---
 # <a name="service-updates-in-site-recovery"></a>Atualizações de serviço na Recuperação do Site
@@ -30,7 +30,7 @@ Recomendamos sempre a atualização para as versões mais recentes dos component
 **Com cada nova versão 'N' de um componente azure de recuperação de sites que é lançado, todas as versões abaixo de 'N-4' são consideradas fora de suporte**. 
 
 > [!IMPORTANT]
-> O suporte oficial é para upgrade da versão > N-4 para n. Por exemplo, se estiver a correr está no N-6, precisa primeiro de fazer upgrade para N-4 e, em seguida, fazer upgrade para N.
+> O suporte oficial destina-se a atualizar da versão N-4 > para n. Por exemplo, se estiver a correr está no N-6, precisa primeiro de fazer upgrade para N-4 e, em seguida, fazer upgrade para N.
 
 
 ### <a name="links-to-currently-supported-update-rollups"></a>Links para rollups de atualização atualmente suportados
@@ -113,7 +113,7 @@ Um reboot não é obrigatório, a menos que a diferença entre a versão do agen
 
 O exemplo na tabela mostra como isto funciona.
 
-|**Versão do agente (última reinicialização)** | **Upgrade para** | **Reinicialização obrigatória?**|
+|**Versão do agente (última reinicialização)** | **Atualizar para o** | **Reinicialização obrigatória?**|
 |---------|---------|---------|
 |9.16 |  9.18 | Não obrigatório|
 |9.16 | 9.19 | Não obrigatório|

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
 ms.openlocfilehash: f335b0fb3396103c321d740bcf6d125e60e95086
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274817"
 ---
 # <a name="preview-automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Pré-visualização: Reparações automáticas de instâncias para conjuntos de escala de máquinas virtuais Azure
@@ -72,7 +72,7 @@ GET on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2015-12-01'
 ```
 
-Com o Azure PowerShell
+Utilizar o Azure PowerShell
 
 1. Registe-se na funcionalidade utilizando cmdlet [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) seguido do [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)
 
@@ -95,9 +95,9 @@ Get-AzureRmProviderFeature `
 
  A resposta deve ser a seguinte.
 
-| Nome de características                           | Nome do provedor            | Estado de Registos       |
+| Nome de características                           | ProviderName            | Estado de Registos       |
 |---------------------------------------|-------------------------|-------------------------|
-| ReparaçãoVMScaleSetInstancesPreview      | Microsoft.Compute       | Registada              |
+| ReparaçãoVMScaleSetInstancesPreview      | Microsoft.Compute       | Registado              |
 
 3. Uma vez que o *Estado de Registo* para mudar para *Registro,* em seguida, executar o seguinte cmdlet.
 
@@ -144,7 +144,7 @@ A função automática de reparação por exemplo baseia-se na monitorização d
 
 As operações automáticas de reparação de instâncias são realizadas em lotes. A qualquer momento, não mais de 5% das ocorrências no conjunto de escalas são reparadas através da política de reparações automáticas. Isto ajuda a evitar a supressão simultânea e a recriação de um grande número de casos se forem considerados insalubres ao mesmo tempo.
 
-### <a name="grace-period"></a>Período de graça
+### <a name="grace-period"></a>Período de tolerância
 
 Quando uma instância passa por uma operação de mudança de estado por causa de uma ação DE PUT, PATCH ou POST realizada na balança definida (por exemplo, reimagem, reimplantação, atualização, etc.), então qualquer ação de reparação nessa instância só é realizada após a espera do período de carência. O período de graça é a quantidade de tempo para permitir que a instância regresse a um estado saudável. O período de carência começa após a mudança de estado ter terminado. Isto ajuda a evitar quaisquer operações de reparação prematuras ou acidentais. O período de carência é honrado por qualquer instância recém-criada no conjunto de escala (incluindo o criado em resultado da operação de reparação). O período de graça é especificado em minutos no formato ISO 8601 e pode ser definido utilizando a propriedade *automáticaRepairsPolicy.gracePeriod*. O período de graça pode variar entre 30 minutos e 90 minutos, e tem um valor padrão de 30 minutos.
 

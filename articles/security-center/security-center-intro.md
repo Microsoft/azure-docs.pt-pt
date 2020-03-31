@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
 ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77918762"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
@@ -27,15 +27,15 @@ O Azure Security Center é um sistema unificado de gestão de segurança de infr
 
 Manter os seus recursos seguros é um esforço conjunto entre o seu fornecedor de nuvem, o Azure, e você, o cliente. Tem de se certificar de que as suas cargas de trabalho estão seguras à medida que se desloca para a nuvem, e ao mesmo tempo, quando se muda para o IaaS (infraestrutura como serviço) há mais responsabilidade do cliente do que havia no PaaS (plataforma como serviço) e no SaaS (software como serviço). O Azure Security Center fornece-lhe as ferramentas necessárias para endurecer a sua rede, proteger os seus serviços e certificar-se de que está em cima da sua postura de segurança.
 
-O Azure Security Center aborda os três desafios de segurança mais urgentes:
+O Centro de Segurança do Azure aborda os três desafios de segurança mais urgentes:
 
--   **Trabalhos** de trabalho em rápida mudança – É simultaneamente uma força e um desafio da nuvem. Por um lado, os utilizadores finais têm poderes para fazer mais. Por outro lado, como garantir que os serviços em constante mudança que as pessoas estão a usar e criar estão à altura dos seus padrões de segurança e a seguir as melhores práticas de segurança?
+-   **Cargas de trabalho em mudança constante** – é uma vantagem e um desafio da cloud. Por um lado, os utilizadores finais podem realizar mais ações. Por outro lado, como garante que os serviços em constante mudança que as pessoas utilizam e criam estão de acordo com os seus padrões de segurança e seguem as melhores práticas de segurança?
 
--   **Ataques cada vez mais sofisticados** - Onde quer que faças as tuas cargas de trabalho, os ataques continuam a tornar-se mais sofisticados. Você tem que garantir as suas cargas de trabalho em nuvem pública, que são, na verdade, uma carga de trabalho virada para a Internet que pode deixá-lo ainda mais vulnerável se não seguir as melhores práticas de segurança.
+-   **Ataques cada vez mais sofisticados** – onde quer que execute as suas cargas de trabalho, os ataques ficam cada vez mais sofisticados. Tem de proteger as suas cargas de trabalho de cloud pública, que são na verdade uma carga de trabalho com acesso à Internet que pode deixá-lo ainda mais vulnerável se não seguir as melhores práticas de segurança.
 
--   **As competências** de segurança são escassas - O número de alertas de segurança e sistemas de alerta supera em muito o número de administradores com o passado e experiência necessários para garantir que os seus ambientes estão protegidos. Manter-se atualizado com os ataques mais recentes é um desafio constante, tornando impossível manter-se no lugar enquanto o mundo da segurança é uma frente em constante mudança.
+-   **As competências de segurança são escassas** – o número de alertas de segurança e sistemas de alerta ultrapassa o número de administradores com a experiência e conhecimentos necessários para garantir que os seus ambientes estão protegidos. Manter-se atualizado em relação aos ataques mais recentes é um desafio constante, o que torna impossível permanecer no mesmo lugar enquanto o mundo da segurança está em constante mudança.
 
-Para ajudá-lo a proteger-se contra estes desafios, o Security Center fornece-lhe as ferramentas para:
+Para o ajudar a proteger-se contra estes desafios, o Centro de Segurança fornece as ferramentas para:
 
 -   **Fortalecer**a postura de segurança : O Security Center avalia o seu ambiente e permite-lhe compreender o estado dos seus recursos e se estão seguros.
 

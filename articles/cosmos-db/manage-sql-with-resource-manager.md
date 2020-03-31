@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
 ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251846"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gerir os recursos da API Azure Cosmos DB SQL (Core) com modelos de Gestor de Recursos Azure
@@ -31,7 +31,7 @@ O seguinte modelo de Gestor de Recursos Azure cria uma conta Azure Cosmos com:
 Para criar os recursos DB Azure Cosmos, copie o seguinte modelo de exemplo e implemente-o conforme descrito, seja através [do PowerShell](#deploy-via-powershell) ou [do Azure CLI](#deploy-via-azure-cli).
 
 * Opcionalmente, pode visitar a [Galeria Azure Quickstart](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e implementar o modelo a partir do portal Azure.
-* Também pode descarregar o modelo para o seu computador local ou criar um novo modelo e especificar o caminho local com o parâmetro `--template-file`.
+* Também pode descarregar o modelo para o seu computador local ou `--template-file` criar um novo modelo e especificar o caminho local com o parâmetro.
 
 > [!IMPORTANT]
 >
@@ -42,7 +42,7 @@ Para criar os recursos DB Azure Cosmos, copie o seguinte modelo de exemplo e imp
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
-> Para criar um recipiente com grande chave de partição, modifique o modelo anterior para incluir a propriedade `"version":2` dentro do objeto `partitionKey`.
+> Para criar um recipiente com grande chave de `"version":2` partição, modifique o modelo anterior para incluir a propriedade dentro do `partitionKey` objeto.
 
 ### <a name="deploy-via-powershell"></a>Implantação via PowerShell
 
@@ -84,7 +84,7 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Pode optar por implementar o modelo com uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell. Terá de [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Executar `Get-Module -ListAvailable Az` para encontrar a versão necessária.
+Pode optar por implementar o modelo com uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell. Terá de [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Corra `Get-Module -ListAvailable Az` para encontrar a versão necessária.
 
 ### <a name="deploy-via-azure-cli"></a>Implantação via Azure CLI
 
@@ -123,7 +123,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-O comando `az cosmosdb show` mostra a recém-criada conta Azure Cosmos depois de ser provisionada. Pode optar por implementar o modelo com uma versão instalada localmente do Azure CLI em vez de Azure Cloud Shell. Para mais informações, consulte o artigo Interface [de Linha de Comando Azure (CLI).](/cli/azure/)
+O `az cosmosdb show` comando mostra a recém-criada conta Azure Cosmos depois de ser provisionada. Pode optar por implementar o modelo com uma versão instalada localmente do Azure CLI em vez de Azure Cloud Shell. Para mais informações, consulte o artigo Interface [de Linha de Comando Azure (CLI).](/cli/azure/)
 
 <a id="create-sproc"></a>
 
@@ -134,7 +134,7 @@ Pode utilizar um modelo de Gestor de Recursos Azure para criar um recipiente Azu
 Copie o seguinte modelo de exemplo e desimplante-o conforme descrito, quer com [powerShell](#deploy-with-powershell) quer [Azure CLI](#deploy-with-azure-cli).
 
 * Opcionalmente, pode visitar a [Galeria Azure Quickstart](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) e implementar o modelo a partir do portal Azure.
-* Também pode descarregar o modelo para o seu computador local ou criar um novo modelo e especificar o caminho local com o parâmetro `--template-file`.
+* Também pode descarregar o modelo para o seu computador local ou `--template-file` criar um novo modelo e especificar o caminho local com o parâmetro.
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
@@ -170,7 +170,7 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Pode optar por implementar o modelo com uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell. Terá de [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Executar `Get-Module -ListAvailable Az` para encontrar a versão necessária.
+Pode optar por implementar o modelo com uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell. Terá de [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Corra `Get-Module -ListAvailable Az` para encontrar a versão necessária.
 
 ### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
@@ -200,7 +200,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão alguns recursos adicionais:
+Seguem-se alguns recursos adicionais:
 
 * [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/)
 * [Esquema de fornecedor de recursos Da Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)

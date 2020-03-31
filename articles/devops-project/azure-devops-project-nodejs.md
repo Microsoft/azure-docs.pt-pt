@@ -17,10 +17,10 @@ ms.author: angrobe
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 508a61d6bbb00692855e09601aed67ab3be9cc8d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78209072"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Quickstart: Criar um oleoduto CI/CD em Pipelines Azure para Node.js com projetos Azure DevOps
@@ -33,7 +33,7 @@ Neste arranque rápido, cria-se uma aplicação web progressiva noNodeJS (PWA) u
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. Projetos de DevOps também cria os recursos do Azure na subscrição do Azure à sua escolha.
+A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. A DevOps Projects também cria recursos Azure na subscrição Azure à sua escolha.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com), e no painel esquerdo, selecione **Criar um recurso**. 
 
@@ -43,9 +43,9 @@ A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar um
 
  ![Criar um Projeto DevOps](_img/azure-devops-project-nodejs/create-devops-project.png) 
 
-## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e o serviço do Azure
+## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e serviço do Azure
 
-1. Selecione a aplicação da amostra Node.js.   
+1. Selecione o exemplo de aplicação Node.js.   
 
  ![Selecione a amostra Nó.js](_img/azure-devops-project-nodejs/select-nodejs-devops-project.png) 
 
@@ -107,7 +107,7 @@ cp .\Application\Dockerfile .
 rmdir Application
 ```
 
-5. Utilize o ClI Gatsby para gerar uma amostra de PWA. Execute `gatsby new` a partir do terminal para iniciar o assistente PWA e selecione `gatsby-starter-blog` para o seu modelo de arranque. Deve assemelhar-se a esta amostra:
+5. Utilize o ClI Gatsby para gerar uma amostra de PWA. Corra `gatsby new` a partir do terminal para `gatsby-starter-blog` iniciar o assistente PWA e selecione para o seu modelo de arranque. Deve assemelhar-se a esta amostra:
 ```powershell
 c:\myproject> gatsby new
 √ What is your project called? ... my-gatsby-project
@@ -118,15 +118,15 @@ c:\myproject> gatsby new
     (Use a different starter)
 ```
 
-6. Agora tem uma pasta chamada `my-gatsby-project`. Mude o nome para `Application` e copie o `Dockerfile` nele.
+6. Agora tem uma `my-gatsby-project`pasta chamada. Mude o `Application` nome para `Dockerfile` e copie o que está nele.
 ```powershell
 mv my-gatsby-project Application
 mv Dockerfile Application
 ```
 
-7. No seu editor favorito, abra o Dockerfile e mude a primeira linha de `FROM node:8` para `FROM node:12`. Esta alteração garante que o seu recipiente está a utilizar a versão Nó.js 12.x em vez da versão 8.x. GatsbyJS requer versões mais modernas de Node.js.
+7. No seu editor favorito, abra o Dockerfile `FROM node:8` `FROM node:12`e mude a primeira linha de . Esta alteração garante que o seu recipiente está a utilizar a versão Nó.js 12.x em vez da versão 8.x. GatsbyJS requer versões mais modernas de Node.js.
 
-8. Em seguida, abra o ficheiro package.json na pasta Aplicação e edite o campo de [scripts](https://docs.npmjs.com/files/package.json#scripts) para garantir que os seus servidores de desenvolvimento e produção ouçam todas as interfaces de rede disponíveis (por exemplo, 0.0.0) e porta 80. Sem estas definições, o serviço de aplicações de contentores não pode encaminhar o tráfego para a sua aplicação Node.js que funciona dentro do seu contentor. O campo `scripts` deve assemelhar-se ao que está abaixo. Especificamente, pretende alterar os `develop`, `serve`e `start` alvos dos seus incumprimentos.
+8. Em seguida, abra o ficheiro package.json na pasta Aplicação e edite o campo de [scripts](https://docs.npmjs.com/files/package.json#scripts) para garantir que os seus servidores de desenvolvimento e produção ouçam todas as interfaces de rede disponíveis (por exemplo, 0.0.0) e porta 80. Sem estas definições, o serviço de aplicações de contentores não pode encaminhar o tráfego para a sua aplicação Node.js que funciona dentro do seu contentor. O `scripts` campo deve assemelhar-se ao que está abaixo. Especificamente, quer alterar `develop` `serve`os `start` alvos e os alvos dos seus incumprimentos.
 ```json
   "scripts": {
     "build": "gatsby build",
@@ -142,14 +142,14 @@ mv Dockerfile Application
 ## <a name="edit-your-cicd-pipelines"></a>Editar os seus oleodutos CI/CD
 
 1. Antes de comprometer o código na secção anterior, faça algumas alterações nos seus oleodutos de construção e lançamento. Edite o seu 'Build Pipeline' e atualize a tarefa nó para utilizar a versão Nó.js 12.x. Detete o campo de **versão Task** para 1.x e o campo **versão** para 12.x.
-![Update Node.js a 12.x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+![Atualizar Nóde.js a 12.x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
 2. Neste arranque rápido, não estamos a criar testes unitários e estamos a desativar esses passos no nosso oleoduto de construção. Quando escreve saques, pode reativar estes passos. Clique à direita para selecionar as tarefas rotuladas **Instalar dependências** de teste e **executar testes** de unidade e desativá-las.
 
 ![Desativar testes de construção](_img/azure-devops-project-nodejs/disable-build-unittests.png)
 
 3. Edite o seu oleoduto de libertação.
-![Editar o](_img/azure-devops-project-nodejs/edit-release-pipeline.png) do gasoduto de lançamento
+![Editar o Pipeline de Lançamento](_img/azure-devops-project-nodejs/edit-release-pipeline.png)
 
 4. Tal como acontece com o gasoduto de construção, altere a tarefa do Nó para utilizar 12.x e desative as duas tarefas de teste. A sua libertação deve assemelhar-se a esta imagem.
 
@@ -176,7 +176,7 @@ git commit -m "My first Gatsby PWA"
 git push
 ```
 
-2. Uma construção começa assim que `git push` completa. Pode acompanhar o progresso do **Painel DevOps Azure**.
+2. Uma construção começa `git push` assim que termina. Pode acompanhar o progresso do **Painel DevOps Azure**.
 
 ![Painel de Instrumentos Azure DevOps na Lista de Recursos](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
 

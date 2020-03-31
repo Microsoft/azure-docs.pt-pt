@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 23efda2793ef5d323089ee5b72fb1ea873de6b20
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310990"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como escalar o seu ambiente Time Series Insights
@@ -36,7 +36,7 @@ No entanto, não é permitida a alteração do nível de preços SKU. Por exempl
 
 1. No menu para o ambiente Time Series Insights, selecione **Configuração de Armazenamento**.
 
-   [![Configure a sua capacidade de Insights da Série De Tempo](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+   [![Configure a sua capacidade de Insights da Série Temporal](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Ajuste o slider **de capacidade** para selecionar a capacidade que satisfaz os requisitos para as suas taxas de ingresso e capacidade de armazenamento. Note a **taxa Ingress,** capacidade de **armazenamento**e atualização **de custos estimada** dinamicamente para mostrar o impacto da mudança.
 
@@ -50,8 +50,8 @@ No entanto, não é permitida a alteração do nível de preços SKU. Por exempl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).
+- Para mais informações, reveja [a retenção compreensiva em Insights](time-series-insights-concepts-retention.md)da Série Time .
 
 - Saiba sobre a configuração da retenção de dados em Insights da [Série De Tempo Azure](time-series-insights-how-to-configure-retention.md).
 
-- Saiba mais sobre como [planejar o seu ambiente](time-series-insights-environment-planning.md).
+- Saiba mais sobre [como planear o seu ambiente.](time-series-insights-environment-planning.md)

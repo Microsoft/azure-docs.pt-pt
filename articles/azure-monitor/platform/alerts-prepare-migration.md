@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665597"
 ---
-# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Prepare as suas aplicações lógicas e livros de corridas para a migração de regras clássicas de alerta
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar as suas aplicações lógicas e runbooks para a migração de regras de alerta clássicas
 
 Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal Azure para clientes que usam regras clássicas de alerta e que querem desencadear a migração por si mesmas.
 
@@ -24,7 +24,7 @@ Se optar por migrar voluntariamente as suas regras clássicas de alerta para nov
 
 ## <a name="api-changes"></a>Alterações da API
 
-As APIs que criam e gerem as regras clássicas de alerta (`microsoft.insights/alertrules`) são diferentes das APIs que criam e gerem novos alertas métricos (`microsoft.insights/metricalerts`). Se criar e gerir programaticamente as regras clássicas de alerta hoje, atualize os seus scripts de implementação para trabalhar com as novas APIs.
+As APIs que criam e`microsoft.insights/alertrules`gerem as regras clássicas de alerta são`microsoft.insights/metricalerts`diferentes das APIs que criam e gerem novos alertas métricos . Se criar e gerir programaticamente as regras clássicas de alerta hoje, atualize os seus scripts de implementação para trabalhar com as novas APIs.
 
 A tabela a seguir é uma referência às interfaces programáticas para alertas clássicos e novos:
 
@@ -43,11 +43,11 @@ Utilize a tabela seguinte para mapear os campos de carga útil do webhook do for
 
 |  |Alertas clássicos  |Novos alertas métricos |
 |---------|---------|---------|
-|O alerta foi ativado ou resolvido?    | **estado**       | **data.status** |
+|O alerta foi ativado ou resolvido?    | **status**       | **data.status** |
 |Informação contextual sobre o alerta     | **contexto**        | **dados.contexto**        |
 |Carimbo de tempo em que o alerta foi ativado ou resolvido     | **contexto.carimbo de tempo**       | **data.context.timestamp**        |
 | Id da regra de alerta | **context.id** | **data.context.id** |
-| Nome da regra do alerta | **context.name** | **data.context.name** |
+| Nome da regra de alerta | **context.name** | **data.context.name** |
 | Descrição da regra do alerta | **contexto.descrição** | **data.context.description** |
 | Condição da regra do alerta | **contexto.condição** | **dados.contexto.condição** |
 | Nome da métrica | **contexto.condição.metricName** | **data.context.condition.allOf[0].metricName** |

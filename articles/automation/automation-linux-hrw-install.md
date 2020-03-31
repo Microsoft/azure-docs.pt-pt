@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278769"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implante um trabalhador de runbook híbrido Linux
@@ -45,10 +45,10 @@ Os requisitos mínimos para um Trabalhador do Livro De Execução Híbrido Linux
 | **Pacote obrigatório** | **Descrição** | **Versão mínima**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |Biblioteca GNU C| 2.5-12 |
-|Abre-nis| Bibliotecas openssl | 1.0 (TLS 1.1 e TLS 1.2 são suportados|
-|Caracol | cURL web cliente | 7.15.5|
+|Openssl| Bibliotecas openssl | 1.0 (TLS 1.1 e TLS 1.2 são suportados|
+|Curl | cURL web cliente | 7.15.5|
 |Python-ctypes | Python 2.x é necessário |
-|PAM | Módulos de autenticação pluggable|
+|PAM | Módulos de Autenticação Incorporável|
 | **Pacote opcional** | **Descrição** | **Versão mínima**|
 | PowerShell Core | Para executar os livros de execução powerShell, o PowerShell precisa de ser instalado, consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.  | 6.0.0 |
 
@@ -65,7 +65,7 @@ Antes de proceder, note o espaço de trabalho log Analytics a que a sua conta De
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. Instale o agente Log Analytics para o Linux executando o seguinte comando. Substitua \<workspaceID\> e \<WorkspaceKey\> com os valores apropriados do seu espaço de trabalho.
+1. Instale o agente Log Analytics para o Linux executando o seguinte comando. Substitua \<o\> \<WorkspaceID\> e o WorkspaceKey com os valores apropriados do seu espaço de trabalho.
 
    [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
@@ -82,7 +82,7 @@ Antes de proceder, note o espaço de trabalho log Analytics a que a sua conta De
 1. Após a conclusão do comando, a página dos **Grupos de Trabalhadores Híbridos** no portal Azure mostra o novo grupo e o número de membros. Se este é um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página grupo seletiva de grupos de **trabalhadores híbridos** e selecionar o azulejo **Híbrido Workers.** Na página dos **Trabalhadores Híbridos,** vê-se cada membro do grupo listado.
 
 > [!NOTE]
-> Se estiver a utilizar a extensão da máquina virtual Azure Monitor para o Linux para um VM Azure, recomendamos que `autoUpgradeMinorVersion` falsas, uma vez que versões de atualização automática podem causar problemas ao Hybrid Runbook Worker. Para aprender a atualizar a extensão manualmente, consulte a [implementação do Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Se estiver a utilizar a extensão da máquina virtual Azure Monitor `autoUpgradeMinorVersion` para o Linux para um VM Azure, recomendamos que se ajuste a versões falsas, uma vez que versões de atualização automática podem causar problemas ao Hybrid Runbook Worker. Para aprender a atualizar a extensão manualmente, consulte a [implementação do Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Desativação da validação de assinaturas
 
@@ -106,8 +106,8 @@ Os seguintes tipos de livro funcionam num Linux Hybrid Worker:
 
 Os seguintes tipos de livros não funcionam num Linux Hybrid Worker:
 
-* Fluxo de trabalho do PowerShell
-* Gráfico
+* Fluxo de Trabalho do PowerShell
+* Gráficos
 * Fluxo de trabalho de PowerShell Graphical PowerShell
 
 ## <a name="next-steps"></a>Passos seguintes

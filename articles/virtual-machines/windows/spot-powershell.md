@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 17186d1d7b50ea872dc47eca8c2c4491787d2a38
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77158949"
 ---
 # <a name="preview-deploy-spot-vms-using-azure-powershell"></a>Pré-visualização: Implemente VMs spot utilizando O PowerShell Azure
@@ -23,19 +23,19 @@ A utilização de [VMs spot](spot-vms.md) permite-lhe tirar partido da nossa cap
 
 Os preços dos VMs spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços vm para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
 
-Tem opção de definir um preço máximo que está disposto a pagar, por hora, para o VM. O preço máximo de um Spot VM pode ser fixado em dólares americanos (USD), utilizando até 5 lugares decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo a `-1`, o VM não será despejado com base no preço. O preço do VM será o preço atual para o local ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
+Tem opção de definir um preço máximo que está disposto a pagar, por hora, para o VM. O preço máximo de um Spot VM pode ser fixado em dólares americanos (USD), utilizando até 5 lugares decimais. Por exemplo, `0.98765`o valor seria um preço máximo de $0.98765 USD por hora. Se fixar o preço `-1`máximo para ser, o VM não será despejado com base no preço. O preço do VM será o preço atual para o local ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
 
 > [!IMPORTANT]
 > Os casos de spot estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 >
 
 
 
 ## <a name="create-the-vm"></a>Crie a VM
 
-Crie um spotVM utilizando [o New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) para criar a configuração. Inclua `-Priority Spot` e `-MaxPrice` definida para qualquer um:
-- `-1` para que o VM não seja despejado com base no preço.
+Crie um spotVM utilizando [o New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) para criar a configuração. Incluir `-Priority Spot` e `-MaxPrice` definir para qualquer um:
+- `-1`para que o VM não seja despejado com base no preço.
 - uma quantia em dólares, até 5 dígitos. Por exemplo, `-MaxPrice .98765` significa que o VM será transferido uma vez que o preço de um spotVM seja de $98765 por hora.
 
 

@@ -78,6 +78,16 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: Recursos
   items:
+    - name: Suporte
+      items:
+        - name: Obter suporte
+          href: 'https://aka.ms/adsupport'
+        - name: Stack Overflow
+          href: 'https://aka.ms/adso'
+        - name: MSDN
+          href: 'https://aka.ms/admsdn'
+        - name: Voz do utilizador
+          href: 'https://aka.ms/aduservoice'
     - name: Preços
       href: 'https://aka.ms/adpricing'
     - name: Disponibilidade regional
@@ -90,13 +100,3 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-- name: Suporte
-  items:
-    - name: Obter suporte
-      href: 'https://aka.ms/adsupport'
-    - name: Stack Overflow
-      href: 'https://aka.ms/adso'
-    - name: MSDN
-      href: 'https://aka.ms/admsdn'
-    - name: Voz do utilizador
-      href: 'https://aka.ms/aduservoice'

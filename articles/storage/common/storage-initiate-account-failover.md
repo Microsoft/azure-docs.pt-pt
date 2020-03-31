@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 0c619224201d6225d5e5c127b342f71f2f7fced9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128340"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535357"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar uma falha na conta de armazenamento (pré-visualização)
 
@@ -37,7 +37,7 @@ Antes de poder executar uma falha na conta de armazenamento, certifique-se de qu
 
 Quando inicia uma falha na conta para a sua conta de armazenamento, os registos dNS para o ponto final secundário são atualizados de modo a que o ponto final secundário se torne o ponto final primário. Certifique-se de que compreende o impacto potencial na sua conta de armazenamento antes de iniciar uma falha.
 
-Para estimar a extensão da provável perda de dados antes de iniciar uma falha, verifique a propriedade **Last Sync Time** utilizando o `Get-AzStorageAccount` cmdlet PowerShell e inclua o parâmetro `-IncludeGeoReplicationStats`. Em seguida, verifique a propriedade `GeoReplicationStats` para a sua conta. \
+Para estimar a extensão da provável perda de dados antes de `Get-AzStorageAccount` iniciar uma falha, verifique `-IncludeGeoReplicationStats` a propriedade Last **Sync Time** utilizando o cmdlet PowerShell e inclua o parâmetro. Em seguida, verifique a `GeoReplicationStats` propriedade para a sua conta. \
 
 Após o failover, o seu tipo de conta de armazenamento é automaticamente convertido para armazenamento localmente redundante (LRS) na nova região primária. Pode reativar o armazenamento geo-redundante (GRS) ou o armazenamento geo-redundante de acesso de leitura (RA-GRS) para a conta. Note que a conversão de LRS para GRS ou RA-GRS incorre num custo adicional. Para obter informações adicionais, consulte os detalhes de preços da [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -54,7 +54,7 @@ Para iniciar uma falha de conta no portal Azure, siga estes passos:
 
 3. Verifique se a sua conta de armazenamento está configurada para armazenamento geo-redundante (GRS) ou armazenamento geo-redundante de acesso de leitura (RA-GRS). Caso contrário, selecione **Configuração** em **Definições** para atualizar a sua conta para ser geo-redundante. 
 4. A propriedade **Do Último Tempo sincronizado** indica a distância que o secundário está atrás das primárias. **O Último Tempo de Sincronização** fornece uma estimativa da extensão da perda de dados que irá experimentar após a conclusão da falha.
-5. **Selecione Preparar para a falha (pré-visualização)** . 
+5. **Selecione Preparar para a falha (pré-visualização)**. 
 6. Reveja o diálogo de confirmação. Quando estiver pronto, insira **Sim** para confirmar e iniciar a falha.
 
     ![Screenshot mostrando diálogo de confirmação para uma falha de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
@@ -65,8 +65,8 @@ Para utilizar o PowerShell para iniciar uma falha na conta, tem primeiro de inst
 
 1. Desinstale quaisquer instalações anteriores da Azure PowerShell:
 
-    - Remova quaisquer instalações anteriores do Azure PowerShell do Windows utilizando as definições de **Apps &** em definições em **Definições**.
-    - Retire todos os módulos **Azure** da `%Program Files%\WindowsPowerShell\Modules`.
+    - Remova quaisquer instalações anteriores do Azure PowerShell do Windows utilizando as **aplicações & definição** de definições em **Definições**.
+    - Retire todos os módulos **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
@@ -96,11 +96,11 @@ Para iniciar uma falha de conta a partir da PowerShell, execute o seguinte coman
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para utilizar o Azure CLI para iniciar uma falha de conta, execute os seguintes comandos:
 
-```cli
+```azurecli
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```

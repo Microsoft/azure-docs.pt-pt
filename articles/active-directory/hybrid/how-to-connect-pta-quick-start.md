@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be6a6e9231b13c47d1421543464c720f6283b5f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6fc45033cdf1bdaa6d4ecd6ab58cc7f90ff9c1ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261245"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331416"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação pass-through do Diretório Ativo Azure: Início rápido
 
@@ -61,14 +61,14 @@ Certifique-se de que estão em vigor os seguintes pré-requisitos.
 
      | Número da porta | Como é usado |
      | --- | --- |
-     | **80** | Descarrega as listas de revogação do certificado (CRLs) enquanto valida o certificado SSL |
+     | **80** | Descarrega as listas de revogação do certificado (CRLs) enquanto valida o certificado TLS/SSL |
      | **443** | Lida com toda a comunicação de saída com o serviço |
      | **8080** (opcional) | Os agentes de autenticação reportam o seu estado a cada dez minutos sobre a porta 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal Azure AD. A porta 8080 _não_ é utilizada para os sessão de inscrição do utilizador. |
      
      Se a sua firewall aplicar regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
-   - Se a sua firewall ou proxy permitir a listagem de dNS, as ligações whitelist para **\*.msappproxy.net** e **\*.servicebus.windows.net**. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
+   - Se a sua firewall ou proxy permitir a listagem de dNS, as ligações whitelist para ** \*.msappproxy.net** e ** \*.servicebus.windows.net**. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
    - Os seus Agentes de Autenticação precisam de acesso a **login.windows.net** e **login.microsoftonline.com** para registo inicial. Abra a sua firewall para os URLs também.
-   - Para validação de certificados, desbloqueie os seguintes URLs: **mscrl.microsoft.com:80,** **crl.microsoft.com:80,** **ocsp.msocsp.com:80**e **www\.microsoft.com:80.** Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
+   - Para validação de certificados, desbloqueie os seguintes URLs: **mscrl.microsoft.com:80,** **crl.microsoft.com:80,** **ocsp.msocsp.com:80**e **\.www microsoft.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 
@@ -124,7 +124,7 @@ Para começar, siga estas instruções para descarregar o software do Agente de 
 1. Para descarregar a versão mais recente do Agente de Autenticação (versão 1.5.193.0 ou posterior), inscreva-se no centro de administração do [Azure Ative Directory](https://aad.portal.azure.com) com as credenciais de administrador global do seu inquilino.
 2. Selecione **Azure Ative Directory** no painel esquerdo.
 3. Selecione **Azure AD Connect,** selecione a **autenticação pass-through**e, em seguida, selecione **Download Agent**.
-4. Selecione os **termos aceitar e descarregar** botão.
+4. Selecione os termos Aceitar & botão **de descarregamento.**
 
 ![Centro de administração de diretório ativo Azure: Botão de agente de autenticação de descarregamento](./media/how-to-connect-pta-quick-start/pta9.png)
 
@@ -139,14 +139,14 @@ Em primeiro lugar, pode fazê-lo interativamente executando o Agente de Autentic
 
 Segundo, pode criar e executar um roteiro de implantação sem supervisão. Isto é útil quando pretende implementar vários Agentes de Autenticação ao mesmo tempo, ou instalar Agentes de Autenticação em servidores Windows que não tenham interface de utilizador ativado ou que não possa aceder com o Remote Desktop. Aqui estão as instruções sobre como usar esta abordagem:
 
-1. Executar o seguinte comando para instalar um Agente de Autenticação: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Pode registar o Agente de Autenticação com o nosso serviço utilizando o Windows PowerShell. Crie um objeto de credenciais PowerShell `$cred` que contenha um nome de utilizador e senha de administrador global para o seu inquilino. Executar o seguinte comando, substituindo *\<nome de utilizador\>* e\<*palavra-passe\>:*
+1. Executar o seguinte comando para instalar `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`um Agente de Autenticação: .
+2. Pode registar o Agente de Autenticação com o nosso serviço utilizando o Windows PowerShell. Crie um objeto `$cred` powerShell credenciais que contenha um nome de utilizador e senha de administrador global para o seu inquilino. Executar o seguinte comando, substituindo * \<o nome\> * de utilizador e * \<a palavra-passe:\>*
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
-3. Vá ao **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** e execute o seguinte script usando o objeto `$cred` que criou:
+3. Vá ao **C:\Program Files\Microsoft Azure AD Connect Authentication** `$cred` Agent e execute o seguinte script usando o objeto que criou:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 

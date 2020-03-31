@@ -1,5 +1,5 @@
 ---
-title: Configure pontos finais  Microsoft Docs
+title: Configure pontos finais [ Microsoft Docs
 description: Como encontrar os pontos finais de autenticação para uma aplicação personalizada que está a desenvolver ou a registar-se com a Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 5dbe9d6eed6c546af0ed2cb35a0a62e9943503a9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702798"
 ---
 # <a name="how-to-configure-endpoints"></a>Como configurar pontos finais
 
 Pode encontrar os pontos finais de autenticação para a sua aplicação no [portal Azure](https://portal.azure.com).
 
--   Navegue para o [portal do Azure](https://portal.azure.com).
+-   Navegue para o [portal Azure.](https://portal.azure.com)
 
 -   A partir do painel de navegação esquerdo, clique no **Diretório Ativo Azure**.
 

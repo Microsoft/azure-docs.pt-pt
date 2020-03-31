@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256812"
 ---
-# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastres de máquinas virtuais VMware no local ou servidores físicos para um site secundário
+# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar recuperação após desastre de máquinas virtuais do VMware ou servidores físicos no local para um site secundário
 
 O InMage Scout in [Azure Site Recovery](site-recovery-overview.md) fornece replicação em tempo real entre sites VMware no local. O InMage Scout está incluído nas subscrições do serviço azure site recovery.
 
-## <a name="end-of-support-announcement"></a>Anúncio de fim de apoio
+## <a name="end-of-support-announcement"></a>Anúncio do fim do suporte
 
 O cenário de recuperação do site Azure para replicação entre VMware no local ou datacenters físicos está a atingir o fim do suporte.
 
@@ -36,8 +36,8 @@ Após a Atualização 8, não serão lançadas mais atualizações. Haverá um s
 
 A Azure Site Recovery continua a inovar fornecendo aos clientes VMware e Hyper-V uma solução DRaaS perfeita e de melhor classe com o Azure como local de recuperação de desastres. A Microsoft recomenda que os clientes existentes da InMage /ASR Scout considerem usar o cenário VMware da Azure Site Recovery para o Azure para as suas necessidades de continuidade de negócio. O cenário VMware da Azure Site Recovery para Azure é uma solução DR de classe empresarial para aplicações VMware, que oferece RPO e RTO de minutos, suporte para replicação e recuperação de aplicações multi-VM, embarque sem emenda, monitorização abrangente, e vantagem significativa da TCO.
 
-### <a name="scenario-migration"></a>Migração de cenários
-Como alternativa, recomendamos a criação de uma recuperação de desastres para VMware VMware no local e máquinas físicas replicando-as para Azure. Faça isto da seguinte forma:
+### <a name="scenario-migration"></a>Migração de cenário
+Como alternativa, recomendamos a criação de uma recuperação de desastres para VMware VMware no local e máquinas físicas replicando-as para Azure. Proceda da seguinte forma:
 
 1.  Reveja a comparação rápida abaixo. Antes de poder replicar as máquinas no local, precisa de verificar se cumprem [os requisitos](./vmware-physical-azure-support-matrix.md#replicated-machines) de replicação ao Azure. Se estiver a replicar VMs VMware, recomendamos que reveja [as diretrizes](./site-recovery-plan-capacity-vmware.md)de planeamento da capacidade e execute a [ferramenta de Planificador](./site-recovery-deployment-planner.md) de Implementação para requisitos de capacidade de identidade e verifique a conformidade.
 2.  Depois de executar o Planificador de Implantação, pode configurar a replicação: o VMware VMware VMs, seguir estes tutoriais para [preparar o Azure,](./tutorial-prepare-azure.md) [preparar o seu ambiente VMware no local](./vmware-azure-tutorial-prepare-on-premises.md)e [configurar a recuperação de desastres.](./vmware-azure-tutorial-prepare-on-premises.md)
@@ -46,13 +46,13 @@ o Para máquinas físicas, siga este [tutorial.](./physical-azure-disaster-recov
 
 ### <a name="quick-comparison"></a>Comparação rápida
 
-**Funcionalidade** | **Replicação a Azure** |**Replicação entre centros de dados VMware**
+**Funcionalidade** | **Replicação para o Azure** |**Replicação entre centros de dados VMware**
 --|--|--
 **Componentes necessários** |Serviço de mobilidade em máquinas replicadas. Servidor de configuração no local, servidor de processos, servidor de alvo principal. Servidor de processo temporário em Azure para falha.|Serviço de mobilidade, servidor de processos, servidor de configuração e alvo principal
 **Configuração e orquestração** |Cofre de Serviços de Recuperação no portal Azure | Usando vContinuum 
-**Replicado** |Disco (Windows e Linux) |Janelas de volume<br> Disk-Linux
-**Cluster de disco partilhado** |Não suportado|Suportadas
-**Limites de churn de dados (média)** |10 dados MB/s por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 dados MB/s por disco  <br> > 25 dados MB/s por VM
+**Replicada** |Disco (Windows e Linux) |Janelas de volume<br> Disco-Linux
+**Cluster de disco partilhado** |Não suportado|Suportado
+**Limites de churn de dados (média)** |10 dados MB/s por disco<br> Dados de 25MB/s por VM<br> [Mais informações](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > dados de 10 MB/s por disco  <br> > dados de 25 MB/s por VM
 **Monitorização** |Do portal Azure|A partir de CX (Servidor de Configuração)
 **Matriz de Suporte** | [Clique aqui para mais detalhes](./vmware-physical-azure-support-matrix.md)|[Descarregue a matriz compatível com a ASR Scout](https://aka.ms/asr-scout-cm)
 
@@ -146,7 +146,7 @@ Descarregue o ficheiro de [atualização](https://aka.ms/asr-scout-update7) .zip
 Atualizado: 31 de dezembro de 2018 Download [Scout update 7](https://aka.ms/asr-scout-update7).
 Scout Update 7 é um instalador completo que pode ser usado para instalação fresca, bem como para atualizar agentes/MT existentes que estão em atualizações anteriores (de Update 1 a Update 6). Contém todas as correções do Update 1 para o Update 6 mais as novas correções e melhorias descritas abaixo.
  
-#### <a name="new-features"></a>Novos recursos
+#### <a name="new-features"></a>Novas funcionalidades
 * Conformidade com o PCI
 * Suporte TLS v1.2
 
@@ -204,7 +204,7 @@ Descarregue o ficheiro [.zip.](https://aka.ms/asr-scout-update6) O ficheiro cont
 
 > [!NOTE]
 > * O instalador de Agente Unificado base (UA) para windows foi atualizado para suportar o Windows Server 2016. O novo instalador **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** é embalado com o pacote base Scout GA **(InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). O mesmo instalador será utilizado para toda a versão suportada do Windows. 
-> * O instalador Base Windows vContinuum & Master Target foi atualizado para suportar o Windows Server 2016. O novo instalador **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** é embalado com o pacote base Scout GA **(InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). O mesmo instalador será utilizado para implementar o Windows 2016 Master Target e o Windows 2012R2 Master Target.
+> * O central do Windows vContinuum & Master Target foi atualizado para suportar o Windows Server 2016. O novo instalador **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** é embalado com o pacote base Scout GA **(InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). O mesmo instalador será utilizado para implementar o Windows 2016 Master Target e o Windows 2012R2 Master Target.
 > * O servidor windows 2016 no servidor físico não é suportado pelo Scout ASR. Suporta apenas o VMware VMdo Do Windows Server 2016. 
 >
 
@@ -236,7 +236,7 @@ Scout Update 5 é uma atualização cumulativa. Contém todas as correções do 
 > [!NOTE]
 > * As correções do cluster P2V aplicam-se apenas aos clusters físicos de MSCS que estão recentemente protegidos com a Atualização 5 do Scout de Recuperação do Local. Para instalar as correções do cluster em clusters P2V MSCS protegidos com atualizações mais antigas, siga as etapas de atualização mencionadas na secção 12 das Notas de Lançamento do Escuteiro de [Recuperação](https://aka.ms/asr-scout-release-notes)do Local .
 > * se no momento da reprotecção, o mesmo conjunto de discos estiver ativo em cada um dos nós do cluster como estavam quando inicialmente protegidos, então a reprotecção de um cluster físico de MSCS só pode reutilizar os discos-alvo existentes. Caso contrário, utilize os passos manuais na secção 12 das Notas de Lançamento do Escuteiro de Recuperação do [Local,](https://aka.ms/asr-scout-release-notes)para mover os discos laterais-alvo para o caminho correto da loja de dados, para reutilizar durante a reproteção. Se reproteger o cluster MSCS no modo P2V sem seguir os passos de atualização, cria um novo disco no servidor ESXi alvo. Terá de eliminar manualmente os discos antigos da loja de dados.
-> * Quando um servidor SLES11 ou SLES11 (com qualquer pacote de serviço) for reiniciado graciosamente, marque manualmente os pares de replicação do disco **radicular** para a resincronização. Não há notificação na interface CX. Se não marcar o disco de raiz para ressincronização, poderá notar problemas de integridade de dados.
+> * Quando um servidor SLES11 ou SLES11 (com qualquer pacote de serviço) for reiniciado graciosamente, marque manualmente os pares de replicação do disco **radicular** para a resincronização. Não há notificação na interface CX.Se não marcar o disco de raiz para ressincronização, poderá notar problemas de integridade de dados.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Scout de recuperação do site Azure 8.0.1 Atualização 4

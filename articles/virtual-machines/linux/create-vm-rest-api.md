@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970278"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
@@ -25,9 +25,9 @@ Este artigo mostra-lhe como usar a API REST para criar um Linux VM executando Ub
 
 Antes de criar e submeter o pedido, necessitará:
 
-* O `{subscription-id}` para a sua subscrição
+* Para `{subscription-id}` a sua subscrição
   * Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
-* Um `{resourceGroupName}` que criaste com antecedência.
+* A `{resourceGroupName}` que criaste antes do tempo
 * Uma [interface de rede virtual](../../virtual-network/virtual-network-network-interface.md) no mesmo grupo de recursos
 * Um par de chaves SSH (pode [gerar um novo](mac-create-ssh-keys.md) se não tiver um)
 
@@ -39,14 +39,14 @@ Para criar ou atualizar uma máquina virtual, utilize a seguinte operação *PUT
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-Além dos parâmetros `{subscription-id}` e `{resourceGroupName}`, terá de especificar o `{vmName}` (`api-version` é opcional, mas este artigo foi testado com `api-version=2017-12-01`)
+Além dos `{subscription-id}` `{resourceGroupName}` parâmetros e parâmetros, terá `{vmName}` `api-version` de especificar o ( é `api-version=2017-12-01`opcional, mas este artigo foi testado com)
 
 Os seguintes cabeçalhos são obrigatórios:
 
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
-| *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Authorization:* | Necessário. Definido como um `Bearer`token de acesso [ ](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+| *Tipo de conteúdo:*  | Necessário. Definido como `application/json`. |
+| *Authorization:* | Necessário. Definido como um  [token de acesso `Bearer`](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter informações gerais sobre o trabalho com pedidos da API REST, consulte [Componentes de um pedido/resposta REST API](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -56,14 +56,14 @@ As seguintes definições comuns são utilizadas para construir um organismo de 
 
 | Nome                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| localização                   | Verdadeiro     | string                                                                              | Localização do recurso. |
+| localização                   | Verdadeiro     | string                                                                              | Localização de recursos. |
 | nome                       |          | string                                                                              | Nome para a máquina virtual. |
-| properties.hardwareProfile |          | [HardwarePerfil](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
-| properties.storageProfile  |          | [Perfil de armazenamento](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento dos discos de máquina virtual. |
-| properties.osProfile       |          | [Perfil osso](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições do sistema operativo para a máquina virtual. |
+| propriedades.hardwarePerfil |          | [HardwarePerfil](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
+| propriedades.storagePerfil  |          | [Perfil de armazenamento](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento dos discos de máquina virtual. |
+| propriedades.osPerfil       |          | [Perfil osso](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições do sistema operativo para a máquina virtual. |
 | properties.networkProfile  |          | [Perfil de rede](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Especifica as interfaces de rede da máquina virtual. |
 
-Um corpo de pedido de exemplo está abaixo. Certifique-se de especificar o nome VM nos parâmetros `{computerName}` e `{name}`, o nome da interface de rede que criou sob `networkInterfaces`, o seu nome de utilizador em `adminUsername` e `path`, e a parte *pública* do seu par de chaves SSH (localizado, por exemplo, em `~/.ssh/id_rsa.pub`) em `keyData`. Outros parâmetros que você deseja modificar incluem `location` e `vmSize`.  
+Um corpo de pedido de exemplo está abaixo. Certifique-se de especificar o `{computerName}` nome `{name}` VM nos e parâmetros, o `networkInterfaces`nome da interface `adminUsername` `path`de rede que criou, o seu nome de utilizador `~/.ssh/id_rsa.pub`e, `keyData`e a parte *pública* do seu teclado SSH (localizado, por exemplo, ) em . Outros parâmetros que você `location` pode `vmSize`querer modificar incluem e .  
 
 ```json
 {
@@ -150,5 +150,5 @@ Para obter mais informações sobre as APIs do Azure REST ou outras ferramentas 
 
 - [Fornecedor de computação Azure REST API](/rest/api/compute/)
 - [Introdução à API REST do Azure](/rest/api/azure/)
-- [CLI do Azure](/cli/azure/)
-- [Módulo Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/)
+- [Módulo do Azure PowerShell](/powershell/azure/overview)

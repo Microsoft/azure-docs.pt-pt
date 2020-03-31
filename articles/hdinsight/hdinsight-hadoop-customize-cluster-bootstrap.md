@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272529"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalize os clusters HDInsight usando bootstrap
@@ -85,8 +85,8 @@ Um script powerShell completo de trabalho pode ser encontrado no [Apêndice](#ap
 
 **Para verificar a alteração:**
 
-1. Navegue para `https://CLUSTERNAME.azurehdinsight.net/` onde `CLUSTERNAME` é o nome do seu aglomerado.
-1. Do menu esquerdo, navegue até **à Hive** > **Configs** > **Advanced.**
+1. Navegue `https://CLUSTERNAME.azurehdinsight.net/` `CLUSTERNAME` para onde está o nome do seu aglomerado.
+1. Do menu esquerdo, navegue até **hive** > **Configs** > **Advanced**.
 1. Expandir **o site de colmeia avançada.**
 1. Localize **a hive.metastore.client.socket.socket.timeout** e confirme que o valor é **de 90 .**
 
@@ -110,7 +110,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 Consulte [o Azure HDInsight SDK para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
 
-## <a name="use-resource-manager-template"></a>Utilizar modelo do Resource Manager
+## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
 
 Você pode usar bootstrap no modelo De Gestor de Recursos:
 
@@ -135,7 +135,7 @@ Você pode usar bootstrap no modelo De Gestor de Recursos:
 
 ## <a name="appendix-powershell-sample"></a>Apêndice: Amostra PowerShell
 
-Este script PowerShell cria um cluster HDInsight e personaliza uma definição de Colmeia. Certifique-se de introduzir valores para `$nameToken`, `$httpPassword`e `$sshPassword`.
+Este script PowerShell cria um cluster HDInsight e personaliza uma definição de Colmeia. Certifique-se de `$nameToken`introduzir `$httpPassword`valores para, e `$sshPassword`.
 
 ```powershell
 ####################################

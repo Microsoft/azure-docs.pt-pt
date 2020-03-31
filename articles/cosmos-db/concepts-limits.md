@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 9e5b3e633bf35a25a68eb513d0ec691c3254bde4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/27/2020
+ms.openlocfilehash: bd384f2b4dd879c30fafd2b765dd9ba0efb12447
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246919"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348397"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -23,14 +23,14 @@ Depois de criar uma conta Azure Cosmos sob a sua subscrição, pode gerir dados 
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| RUs máximos por recipiente[(modo de fornecimento de entrada dedicado)](databases-containers-items.md#azure-cosmos-containers) | 1\.000.000 por defeito. Você pode aumentá-lo [apresentando um bilhete](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) de apoio Azure |
-| RUs máximopor base de dados[(modo de fornecimento de entrada partilhada)](databases-containers-items.md#azure-cosmos-containers) | 1\.000.000 por defeito. Você pode aumentá-lo [apresentando um bilhete](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) de apoio Azure |
+| RUs máximos por recipiente[(modo de fornecimento de entrada dedicado)](databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [apresentando um bilhete](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) de apoio Azure |
+| RUs máximopor base de dados[(modo de fornecimento de entrada partilhada)](databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [apresentando um bilhete](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) de apoio Azure |
 | RUs máximos por chave (lógica) de partição | 10,000 |
 | Armazenamento máximo em todos os itens por chave de partição (lógica)| 20 GB |
 | Número máximo de chaves de partição distintas (lógicas) | Ilimitado |
 | Armazenamento máximo por recipiente | Ilimitado |
 | Armazenamento máximo por base de dados | Ilimitado |
-| Tamanho máximo do anexo por Conta (função de anexo está a ser amortizado) | 2 GB |
+| Tamanho máximo do anexo por Conta (função de anexo está a ser amortizado) | 2GB |
 | RUs mínimos exigidos por 1 GB | 10 RU/s |
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Pode [fornecer e gerir a sua conta Azure Cosmos](how-to-manage-database-account.
 > [!NOTE]
 > As falhas regionais aplicam-se apenas a uma única região, escreve contas. As contas escritas multi-regiões não requerem ou têm quaisquer limites para a alteração da região de escrita.
 
-Cosmos DB recebe automaticamente cópias de segurança dos seus dados em intervalos regulares. Para mais detalhes sobre intervalos de retenção de backup e janelas, consulte a cópia de segurança online e os dados a [pedido restaurados em Azure Cosmos DB](online-backup-and-restore.md).
+Cosmos DB recebe automaticamente cópias de segurança dos seus dados em intervalos regulares. Para mais detalhes sobre intervalos de retenção de backup e janelas, consulte a cópia de segurança online e os dados a [pedido restaurados em Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limites por conta
 
@@ -88,13 +88,13 @@ Dependendo da API que você usa, um recipiente Azure Cosmos pode representar uma
 | Recurso | Limite predefinido |
 | --- | --- |
 | Comprimento máximo da base de dados ou nome do contentor | 255 |
-| Procedimentos máximos armazenados por recipiente | 100 <sup>*</sup>|
-| UDFs máximos por recipiente | 25 <sup>*</sup>|
-| Número máximo de caminhos na política de indexação| 100 <sup>*</sup>|
-| Número máximo de chaves únicas por recipiente|10 <sup>*</sup>|
-| Número máximo de caminhos por restrição de chave única|16 <sup>*</sup>|
+| Procedimentos máximos armazenados por recipiente | 100<sup>*</sup>|
+| UDFs máximos por recipiente | 25<sup>*</sup>|
+| Número máximo de caminhos na política de indexação| 100<sup>*</sup>|
+| Número máximo de chaves únicas por recipiente|10<sup>*</sup>|
+| Número máximo de caminhos por restrição de chave única|16<sup>*</sup>|
 
-<sup>*</sup> Pode aumentar qualquer um destes limites por contentor contactando o Suporte Azure.
+<sup>*</sup>Pode aumentar qualquer um destes limites por contentor contactando o Suporte Azure.
 
 ## <a name="per-item-limits"></a>Limites por item
 
@@ -121,7 +121,7 @@ A Azure Cosmos DB apoia [operações de CRUD e consultas](https://docs.microsoft
 | Recurso | Limite predefinido |
 | --- | --- |
 | Tempo máximo de execução para uma única operação (como uma execução de procedimento armazenado ou uma única recolha de páginas de consulta)| 5 seg |
-| Tamanho máximo do pedido (por exemplo, procedimento armazenado, CRUD)| 2 MB |
+| Tamanho máximo do pedido (por exemplo, procedimento armazenado, CRUD)| 2 MB |
 | Tamanho máximo da resposta (por exemplo, consulta paginada) | 4 MB |
 | Número máximo de operações num lote transacional | 100 |
 
@@ -148,15 +148,12 @@ Cosmos DB suporta itens de consulta usando [SQL](how-to-sql-query.md). O quadro 
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| Comprimento máximo da consulta SQL| 256 <sup>KB*</sup>|
-| Máximo joins por consulta| 5 <sup>*</sup>|
-| AnDs máximos por consulta| 2000 <sup>*</sup>|
-| ORs máximos por consulta| 2000 <sup>*</sup>|
-| UDFs máximos por consulta| 10 <sup>*</sup>|
-| Argumentos máximos por expressão IN| 6000 <sup>*</sup>|
-| Pontos máximos por polígono| 4096 <sup>*</sup>|
+| Comprimento máximo da consulta SQL| 256 KB |
+| Máximo joins por consulta| 5<sup>*</sup>|
+| UDFs máximos por consulta| 10<sup>*</sup>|
+| Pontos máximos por polígono| 4096 |
 
-<sup>*</sup> Pode aumentar qualquer um destes limites de consulta SQL contactando o Suporte Azure.
+<sup>*</sup>Pode aumentar estes limites de consulta SQL contactando o Suporte Azure.
 
 ## <a name="mongodb-api-specific-limits"></a>Limites específicos da API mongoDB
 
@@ -170,7 +167,7 @@ A tabela seguinte enumera os limites específicos do suporte à funcionalidade M
 | Tempo máximo de execução para operações da MongoDB| 30 anos |
 | Tempo limite de ligação inativo para o fecho da ligação lateral do servidor* | 30 minutos |
 
-\* Recomendamos que as aplicações do cliente estabeleçam o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para o Azure LoadBalancer é](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)de 4 minutos .  Este prazo irá garantir que as ligações inativas não sejam fechadas por um equilibrador de carga intermédio entre a máquina cliente e a Azure Cosmos DB.
+\*Recomendamos que as aplicações do cliente estabeleçam o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para o Azure LoadBalancer é](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)de 4 minutos .  Este prazo irá garantir que as ligações inativas não sejam fechadas por um equilibrador de carga intermédio entre a máquina cliente e a Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Experimente os limites livres cosmos DB
 
@@ -182,7 +179,7 @@ A tabela seguinte enumera os limites para o [teste Try Azure Cosmos DB para test
 | Recipientes máximos por subscrição (SQL, Gremlin, Tabela API) | 1 |
 | Recipientes máximos por subscrição (API MongoDB) | 3 |
 | Potência máxima por recipiente | 5000 |
-| O máximo de entrada por base de dados de entrada partilhada | 20000 |
+| O máximo de entrada por base de dados de entrada partilhada | 20 000 |
 | Armazenamento total máximo por conta | 10 GB |
 
 A Try Cosmos DB apoia a distribuição global apenas nas regiões centro dos EUA, Norte da Europa e Sudeste Asiático. Os bilhetes de apoio Azure não podem ser criados para as contas Do Try Azure Cosmos DB. No entanto, é prestado apoio aos assinantes com planos de apoio existentes.
@@ -214,4 +211,4 @@ Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)

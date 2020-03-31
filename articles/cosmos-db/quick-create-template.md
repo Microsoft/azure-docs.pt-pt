@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.date: 02/27/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: 7c02cdf772b06f7070071aa7ba35c59b019187cc
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78301731"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Quickstart: Crie um Azure Cosmos DB e um recipiente utilizando o modelo de Gestor de Recursos Azure
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode utilizar o Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos. Este quickstart centra-se no processo de implementação de um modelo de Gestor de Recursos para criar uma base de dados Azure Cosmos e um recipiente dentro dessa base de dados. Mais tarde, pode armazenar dados neste recipiente.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode utilizar o Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos. Este quickstart centra-se no processo de implementação de um modelo de Gestor de Recursos para criar uma base de dados Azure Cosmos e um recipiente dentro dessa base de dados. Mais tarde, pode armazenar dados neste recipiente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +47,7 @@ Três recursos Azure são definidos no modelo:
 
 * [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create a Azure Cosmos container.
 
-Mais amostras de modelo séc. [](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb)
+Mais amostras de modelo séc. [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb)
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 

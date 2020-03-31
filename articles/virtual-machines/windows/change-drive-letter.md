@@ -1,6 +1,6 @@
 ---
-title: 'Tornar a unidade D: de uma VM um disco de dados '
-description: 'Descreve como alterar as letras das unidades de uma VM do Windows para que você possa usar a unidade D: como uma unidade de dados.'
+title: 'Faça o D: unidade de um VM um disco de dados '
+description: 'Descreve como alterar as letras de condução para um VM do Windows para que possa utilizar o D: conduzir como uma unidade de dados.'
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,53 +15,53 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033660"
 ---
-# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usar a unidade D: como uma unidade de dados em uma VM do Windows
-Se seu aplicativo precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma letra de unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar dados que você precisa manter.
+# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Use o D: dirija como uma unidade de dados num VM do Windows
+Se a sua aplicação necessitar de utilizar a unidade D para armazenar dados, siga estas instruções para utilizar uma letra de unidade diferente para o disco temporário. Nunca utilize o disco temporário para armazenar os dados que precisa de guardar.
 
-Se você redimensionar ou **parar (desalocar)** uma máquina virtual, isso poderá disparar o posicionamento da máquina virtual em um novo hipervisor. Um evento de manutenção planejado ou não planejado também pode disparar esse posicionamento. Nesse cenário, o disco temporário será reatribuído à primeira letra da unidade disponível. Se você tiver um aplicativo que exige especificamente a unidade D:, será necessário seguir estas etapas para mover temporariamente o arquivo pagefile. sys, anexar um novo disco de dados e atribuir a ele a letra D e, em seguida, mover o pagefile. sys de volta para a unidade temporária. Depois de concluído, o Azure não retirará o D: se a VM for movida para um hipervisor diferente.
+Se redimensionar ou **parar (Dealocar)** uma máquina virtual, isto pode desencadear a colocação da máquina virtual num novo hipervisor. Um evento de manutenção planeado ou não planeado também pode desencadear esta colocação. Neste cenário, o disco temporário será transferido para a primeira letra disponível. Se tiver uma aplicação que exija especificamente o D: unidade, precisa seguir estes passos para mover temporariamente o pagefile.sys, anexar um novo disco de dados e atribuí-lo a letra D e, em seguida, mover o ficheiro de página.sys de volta para a unidade temporária. Uma vez concluído, Azure não retomará o D: se o VM se mover para um hipervisor diferente.
 
-Para obter mais informações sobre como o Azure usa o disco temporário, consulte [noções básicas sobre a unidade temporária no máquinas virtuais do Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Para obter mais informações sobre como o Azure utiliza o disco temporário, consulte [Compreender a unidade temporária nas Máquinas Virtuais Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="attach-the-data-disk"></a>Anexar o disco de dados
-Primeiro, você precisará anexar o disco de dados à máquina virtual. Para fazer isso usando o portal, consulte [como anexar um disco de dados gerenciado na portal do Azure](attach-managed-disk-portal.md).
+Primeiro, terá de anexar o disco de dados à máquina virtual. Para isso utilizando o portal, consulte como anexar um disco de [dados gerido no portal Azure](attach-managed-disk-portal.md).
 
-## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Mover temporariamente o pagefile. sys para a unidade C
+## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Mover temporariamente pagefile.sys para unidade C
 1. Ligue à máquina virtual. 
-2. Clique com o botão direito do mouse no menu **Iniciar** e selecione **sistema**.
-3. No menu à esquerda, selecione **Configurações avançadas do sistema**.
-4. Na seção **desempenho** , selecione **configurações**.
-5. Selecione a guia **avançado** .
-6. Na seção **memória virtual** , selecione **alterar**.
-7. Selecione a unidade **C** e clique em **tamanho gerenciado pelo sistema** e, em seguida, clique em **definir**.
-8. Selecione a unidade **D** e clique em **nenhum arquivo de paginação** e, em seguida, clique em **definir**.
-9. Clique em aplicar. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
-10. Reinicie a máquina virtual.
+2. Clique no menu **Iniciar** e selecione **Sistema**.
+3. No menu à esquerda, selecione **definições avançadas do sistema**.
+4. Na secção **Performance,** selecione **Definições**.
+5. Selecione o separador **Avançadas**.
+6. Na secção **de memória Virtual,** selecione **Mudar**.
+7. Selecione a unidade **C** e, em seguida, clique no **tamanho gerido pelo Sistema** e, em seguida, clique em **Definir**.
+8. Selecione a unidade **D** e, em seguida, clique **em Não veriver ficheiro** e, em seguida, clique em **Definir**.
+9. Clique em Aplicar. Receberá um aviso de que o computador precisa de ser reiniciado para que as alterações afetem.
+10. Reiniciar a máquina virtual.
 
-## <a name="change-the-drive-letters"></a>Alterar as letras da unidade
-1. Depois que a VM for reiniciada, faça logon novamente na VM.
-2. Clique no menu **Iniciar** e digite **diskmgmt. msc** e pressione Enter. O gerenciamento de disco será iniciado.
-3. Clique com o botão direito do mouse em **D**, a unidade de armazenamento temporário e selecione **alterar a letra da unidade e os caminhos**.
-4. Em letra da unidade, selecione uma nova unidade, como **T** , e clique em **OK**. 
-5. Clique com o botão direito do mouse no disco de dados e selecione **alterar a letra da unidade e os caminhos**.
-6. Em letra da unidade, selecione a unidade **D** e clique em **OK**. 
+## <a name="change-the-drive-letters"></a>Mude as letras de unidade
+1. Assim que o VM recomeçar, volte a entrar no VM.
+2. Clique no menu **Iniciar** e digite **diskmgmt.msc** e clique em Enter. A Gestão do Disco vai começar.
+3. Clique à direita em **D,** na unidade de armazenamento temporário e selecione **Change Drive Letter and Paths**.
+4. Sob a letra Drive, selecione uma nova unidade como **T** e, em seguida, clique em **OK**. 
+5. Clique à direita no disco de dados e selecione **Change Drive Letter and Paths**.
+6. Sob a letra Drive, selecione a unidade **D** e, em seguida, clique em **OK**. 
 
-## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Mover o pagefile. sys de volta para a unidade de armazenamento temporário
-1. Clique com o botão direito do mouse no menu **Iniciar** e selecione **sistema**
-2. No menu à esquerda, selecione **Configurações avançadas do sistema**.
-3. Na seção **desempenho** , selecione **configurações**.
-4. Selecione a guia **avançado** .
-5. Na seção **memória virtual** , selecione **alterar**.
-6. Selecione a unidade do sistema operacional **C** e clique em **nenhum arquivo de paginação** e clique em **definir**.
-7. Selecione a unidade de armazenamento temporário **T** e clique em **tamanho gerenciado pelo sistema** e, em seguida, clique em **definir**.
-8. Clique em **Aplicar**. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
-9. Reinicie a máquina virtual.
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Mova o pagefile.sys de volta para a unidade de armazenamento temporário
+1. Clique no menu **Iniciar** e selecione **Sistema**
+2. No menu à esquerda, selecione **definições avançadas do sistema**.
+3. Na secção **Performance,** selecione **Definições**.
+4. Selecione o separador **Avançadas**.
+5. Na secção **de memória Virtual,** selecione **Mudar**.
+6. Selecione a unidade OS **C** e clique **em Não ver o ficheiro de paging** e, em seguida, clique em **Definir**.
+7. Selecione a unidade de armazenamento temporária **T** e, em seguida, clique no **tamanho gerido pelo Sistema** e, em seguida, clique em **Definir**.
+8. Clique em **Aplicar**. Receberá um aviso de que o computador precisa de ser reiniciado para que as alterações afetem.
+9. Reiniciar a máquina virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Você pode aumentar o armazenamento disponível para sua máquina virtual [anexando um disco de dados adicional](attach-managed-disk-portal.md).
+* Pode aumentar o armazenamento disponível na sua máquina [virtual, anexando um disco](attach-managed-disk-portal.md)de dados adicional .
 

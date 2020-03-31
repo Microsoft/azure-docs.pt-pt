@@ -1,6 +1,6 @@
 ---
-title: Provisionar aplicativo Web com o cache do Azure para Redis
-description: Use Azure Resource Manager modelo para implantar o aplicativo Web com o cache do Azure para Redis.
+title: App Web de provisionamento com Cache Azure para Redis
+description: Utilize o modelo do Gestor de Recursos Azure para implementar a aplicação web com o Azure Cache para Redis.
 services: app-service
 author: yegu-ms
 ms.service: app-service
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433386"
 ---
-# <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar um aplicativo Web mais o cache do Azure para Redis usando um modelo
+# <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Crie uma Web App mais Cache Azure para Redis usando um modelo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Neste tópico, você aprenderá a criar um modelo de Azure Resource Manager que implanta um aplicativo Web do Azure com o cache do Azure para Redis. Você aprenderá como definir quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
+Neste tópico, você aprenderá a criar um modelo de Gestor de Recursos Azure que implementa uma Web App Azure com Azure Cache para Redis. Aprenderá a definir quais os recursos que são implantados e como definir parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
-Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos de cache, consulte [tipos de recurso Microsoft. cache](/azure/templates/microsoft.cache/allversions).
+Para obter mais informações sobre a criação de modelos, consulte os modelos de gestor de [recursos do Azure.](../azure-resource-manager/templates/template-syntax.md) Para saber mais sobre a sintaxe jSON e propriedades para tipos de recursos de cache, consulte os tipos de [recursos Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
-Para obter o modelo completo, consulte o [aplicativo Web com o cache do Azure para o modelo Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+Para obter o modelo completo, consulte [a Web App com o modelo Azure Cache para redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
-## <a name="what-you-will-deploy"></a>O que você vai implantar
-Neste modelo, você implantará:
+## <a name="what-you-will-deploy"></a>O que vai implementar
+Neste modelo, irá implementar:
 
 * Aplicação Web do Azure
 * Cache do Azure para Redis
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
-[![Implementar no Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+[![Desdobre para Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters-to-specify"></a>Parâmetros a serem especificados
+## <a name="parameters-to-specify"></a>Parâmetros para especificar
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variáveis para nomes
-Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniquestring](../azure-resource-manager/templates/template-functions-string.md#uniquestring) para construir um valor com base na ID do grupo de recursos.
+Este modelo utiliza variáveis para construir nomes para os recursos. Utiliza a função [String única](../azure-resource-manager/templates/template-functions-string.md#uniquestring) para construir um valor baseado no id do grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -53,9 +53,9 @@ Este modelo usa variáveis para construir nomes para os recursos. Ele usa a fun�
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
-Cria o cache do Azure para Redis que é usado com o aplicativo Web. O nome do cache é especificado na variável **CacheName** .
+Cria o Azure Cache para Redis que é usado com a aplicação web. O nome da cache é especificado na variável **cacheName.**
 
-O modelo cria o cache no mesmo local que o grupo de recursos.
+O modelo cria a cache no mesmo local que o grupo de recursos.
 
     {
       "name": "[variables('cacheName')]",
@@ -77,9 +77,9 @@ O modelo cria o cache no mesmo local que o grupo de recursos.
 
 
 ### <a name="web-app"></a>Aplicação Web
-Cria o aplicativo Web com o nome especificado na variável **WebSiteName** .
+Cria a aplicação web com nome especificado na variável **webSiteName.**
 
-Observe que o aplicativo Web está configurado com propriedades de configuração de aplicativo que o habilitam a trabalhar com o cache do Azure para Redis. Essas configurações de aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
+Note que a aplicação web está configurada com propriedades de definição de aplicações que lhe permitem trabalhar com o Azure Cache para Redis. Estas definições de aplicações são criadas dinamicamente com base nos valores fornecidos durante a implementação.
 
     {
       "apiVersion": "2015-08-01",

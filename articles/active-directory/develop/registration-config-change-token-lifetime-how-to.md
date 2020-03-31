@@ -1,5 +1,5 @@
 ---
-title: Alterar incumprimentos de vida simbólicos para aplicações personalizadas do Azure AD  Microsoft Docs
+title: Alterar incumprimentos de vida simbólicos para aplicações personalizadas do Azure AD [ Microsoft Docs
 description: Como atualizar as políticas token Lifetime para a sua aplicação que está a desenvolver no Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 431f18b9babb52b5000d3bf4cca75a0f5e29bb93
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702815"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os incumprimentos de vida simbólicos para uma aplicação desenvolvida sob medida
@@ -29,7 +29,7 @@ Este artigo mostra como usar o Azure AD PowerShell para definir uma política de
 1. Para definir uma política simbólica de vida, precisa de descarregar o Módulo PowerShell Da [AD Azure](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Executar o comando **Connect-AzureAD -Confirmar.**
 
-    Aqui está uma política de exemplo que define a idade máxima single fator refresh token. Criar a política: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+    Aqui está uma política de exemplo que define a idade máxima single fator refresh token. Criar a política:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
 ## <a name="next-steps"></a>Passos seguintes
 

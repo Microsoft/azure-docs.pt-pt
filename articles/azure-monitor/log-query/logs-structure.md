@@ -1,5 +1,5 @@
 ---
-title: Estrutura dos Registos do Monitor Azure  Microsoft Docs
+title: Estrutura dos Registos do Monitor Azure [ Microsoft Docs
 description: É necessário uma consulta de registo para recuperar dados de registo do Monitor Azure.  Este artigo descreve como novas consultas de registo são usadas no Monitor Azure e fornece conceitos que precisa entender antes de criar um.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
 ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662081"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura dos registos do Monitor Azure
@@ -54,7 +54,7 @@ Ao contrário de um espaço de trabalho log analytics, uma aplicação Applicati
 
 | Tabela | Descrição | 
 |:---|:---|
-| availabilityResults | Resumo dos dados dos testes de disponibilidade. |
+| disponibilidadeResultados | Resumo dos dados dos testes de disponibilidade. |
 | browserTimings      | Dados sobre o desempenho do cliente, como o tempo que se demorou a processar os dados que chegam. |
 | eventos personalizados        | Eventos personalizados criados pela sua aplicação. |
 | métricas personalizadas       | Métricas personalizadas criadas pela sua aplicação. |
@@ -63,7 +63,7 @@ Ao contrário de um espaço de trabalho log analytics, uma aplicação Applicati
 | pageViews           | Dados sobre cada visualização do site com informações do navegador. |
 | performanceCounters | Medições de desempenho dos recursos computacionais que suportam a aplicação. |
 | pedidos            | Detalhes de cada pedido de candidatura.  |
-| Vestígios              | Resultados do rastreio distribuído. |
+| vestígios              | Resultados do rastreio distribuído. |
 
 Pode ver o esquema para cada tabela no separador **Schema** no Log Analytics para a aplicação.
 
@@ -75,7 +75,7 @@ Enquanto cada mesa em Registos de Monitores Azure tem o seu próprio esquema, ex
 | Área de trabalho do Log Analytics | Aplicação de Insights de Aplicação | Descrição |
 |:---|:---|:---|
 | TimeGenerated | carimbo de data/hora  | Data e hora em que o disco foi criado. |
-| Tipo          | ItemType   | Nome da mesa de onde o disco foi recuperado. |
+| Tipo          | artigoType   | Nome da mesa de onde o disco foi recuperado. |
 | _ResourceId   |            | Identificador único para o recurso com o que o registo está associado. |
 | _IsBillable   |            | Especifica se os dados ingeridos são faturados. |
 | _BilledSize   |            | Especifica o tamanho em bytes de dados que serão cobrados. |

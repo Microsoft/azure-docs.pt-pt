@@ -1,22 +1,22 @@
 ---
 title: Crie e carregue um Ubuntu Linux VHD em Azure
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Ubuntu Linux.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: mimckitt
-ms.openlocfilehash: cbb10d544cb299e15022ae47f00d3887d03619c0
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 5fa3415d8663f358bf0ae48be46ac52b8f8b4b06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970292"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066737"
 ---
-# <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Prepare uma máquina virtual Ubuntu para O Azure
+# <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Prepare an Ubuntu virtual machine for Azure (Preparar uma máquina virtual Ubuntu para o Azure)
 
 
-Ubuntu agora publica VHDs oficiais Azure para download em [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Se precisar de construir a sua própria imagem ubuntu especializada para o Azure, em vez de utilizar o procedimento manual abaixo, recomenda-se começar com estes VHDs de trabalho conhecidos e personalizar conforme necessário. As mais recentes versões de imagem podem ser sempre encontradas nos seguintes locais:
+Ubuntu agora publica VHDs oficiais [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/)Azure para download em . Se precisar de construir a sua própria imagem ubuntu especializada para o Azure, em vez de utilizar o procedimento manual abaixo, recomenda-se começar com estes VHDs de trabalho conhecidos e personalizar conforme necessário. As mais recentes versões de imagem podem ser sempre encontradas nos seguintes locais:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -37,7 +37,7 @@ Este artigo assume que já instalou um sistema operativo Ubuntu Linux num disco 
 
 ## <a name="manual-steps"></a>Passos manuais
 > [!NOTE]
-> Antes de tentar criar a sua própria imagem ubuntu personalizada para o Azure, por favor considere usar as imagens pré-construídas e testadas de [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) em vez disso.
+> Antes de tentar criar a sua própria imagem ubuntu personalizada para o Azure, por favor considere usar as imagens pré-construídas e testadas a partir de [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) vez disso.
 > 
 > 
 
@@ -47,7 +47,7 @@ Este artigo assume que já instalou um sistema operativo Ubuntu Linux num disco 
 
 3. Substitua os repositórios atuais na imagem para utilizar o repositório Azure de Ubuntu. Os passos variam ligeiramente dependendo da versão Ubuntu.
    
-    Antes de editar `/etc/apt/sources.list`, recomenda-se fazer uma cópia de segurança:
+    Antes da `/etc/apt/sources.list`edição, recomenda-se fazer uma cópia de segurança:
    
         # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -108,11 +108,11 @@ Este artigo assume que já instalou um sistema operativo Ubuntu Linux num disco 
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
-5. Modifique a linha de arranque do núcleo para a Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isto `/etc/default/grub` aberto num editor de texto, encontre a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a se necessário) e edite-a para incluir os seguintes parâmetros:
+5. Modifique a linha de arranque do núcleo para a Grub para incluir parâmetros adicionais de kernel para o Azure. Para isso `/etc/default/grub` aberto num editor de texto, encontre a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a se necessário) e edite-a para incluir os seguintes parâmetros:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
-    Guarde e feche este ficheiro e, em seguida, faça `sudo update-grub`. Isto garantirá que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte técnico do Azure com problemas de depuração.
+    Guarde e feche este `sudo update-grub`ficheiro e, em seguida, executar . Isto garantirá que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte técnico do Azure com problemas de depuração.
 
 6. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento do arranque.  Este é geralmente o padrão.
 
@@ -122,7 +122,7 @@ Este artigo assume que já instalou um sistema operativo Ubuntu Linux num disco 
         # sudo apt-get install walinuxagent
 
    > [!Note]
-   >  A embalagem `walinuxagent` pode remover as embalagens de `NetworkManager` e `NetworkManager-gnome`, se forem instaladas.
+   >  A `walinuxagent` embalagem pode `NetworkManager` `NetworkManager-gnome` remover as e as embalagens, se forem instaladas.
 
 
 1. Executar os seguintes comandos para desprovisionar a máquina virtual e prepará-la para o fornecimento em Azure:
@@ -131,7 +131,7 @@ Este artigo assume que já instalou um sistema operativo Ubuntu Linux num disco 
         # export HISTSIZE=0
         # logout
 
-1. Clique em **Ação -> Desligue** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
+1. Clique em **Ação -> desligar** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
 
 ## <a name="references"></a>Referências
 [Núcleo de capacitação de hardware Ubuntu (HWE)](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: zarhoads
 ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622048"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Pré-visualização - Adicione uma piscina de nó spot a um cluster azure Kubernetes Service (AKS)
@@ -28,7 +28,7 @@ Este artigo assume uma compreensão básica dos conceitos Kubernetes e Azure Loa
 
 Esta funcionalidade encontra-se em pré-visualização.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -111,7 +111,7 @@ az aks nodepool add \
 
 Por padrão, você cria um conjunto de nós com uma *prioridade* do *Regular* no seu cluster AKS quando você cria um cluster com várias piscinas de nós. O comando acima adiciona uma piscina auxiliar de nó a um aglomerado AKS existente com uma *prioridade* do *Spot*. A *prioridade* do *Spot* faz da piscina do nó uma piscina de nó spot. O parâmetro *de política de despejo* está definido para *apagar* no exemplo acima, que é o valor padrão. Quando você define a política de [despejo][eviction-policy] para *Apagar*, nós no conjunto de escala subjacente da piscina do nó são eliminados quando são despejados. Também pode definir a política de despejo para *Deallocate.* Quando se define a política de despejo para *Deallocate,* os nós na escala subjacente estão definidos para o estado de parado após o despejo. Os nós na contagem de estado sem acordo contra a sua quota de cálculo podem causar problemas com a escala de cluster ou upgrade. Os valores *prioritários* e *de política de despejo* só podem ser definidos durante a criação de piscinas de nó. Estes valores não podem ser atualizados mais tarde.
 
-O comando também permite o [autoescalador][cluster-autoscaler]do cluster, que é recomendado para usar com piscinas de nó de mancha. Com base nas cargas de trabalho em funcionamento no seu cluster, o autoscaler cluster escala e escala para baixo o número de nós na piscina do nó. Para piscinas de nó spot, o autoscaler cluster irá aumentar o número de nós após um despejo se ainda forem necessários nós adicionais. Se alterar o número máximo de nós que um nó pode ter, também precisa de ajustar o valor `maxCount` associado ao autoscaler do cluster. Se não utilizar um autoescalador de cluster, após o despejo, o pool spot acabará por diminuir para zero e exigirá uma operação manual para receber quaisquer nós de spot adicionais.
+O comando também permite o [autoescalador][cluster-autoscaler]do cluster, que é recomendado para usar com piscinas de nó de mancha. Com base nas cargas de trabalho em funcionamento no seu cluster, o autoscaler cluster escala e escala para baixo o número de nós na piscina do nó. Para piscinas de nó spot, o autoscaler cluster irá aumentar o número de nós após um despejo se ainda forem necessários nós adicionais. Se alterar o número máximo de nós que um nó pode ter, também precisa de ajustar o `maxCount` valor associado ao autoscaler do cluster. Se não utilizar um autoescalador de cluster, após o despejo, o pool spot acabará por diminuir para zero e exigirá uma operação manual para receber quaisquer nós de spot adicionais.
 
 > [!Important]
 > Apenas programar cargas de trabalho em piscinas de nósojos pontuais que possam lidar com interrupções, tais como trabalhos de processamento de lotes e ambientes de teste. Recomenda-se que instale [manchas e tolerações][taints-tolerations] na sua piscina de nó spot para garantir que apenas as cargas de trabalho que podem lidar com os despejos do nó estão programadas numa piscina de nó spot. Por exemplo, o padrão de nº de comando acima adiciona uma mancha de *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* por isso apenas as cápsulas com uma tolerância correspondente estão programadas neste nó.

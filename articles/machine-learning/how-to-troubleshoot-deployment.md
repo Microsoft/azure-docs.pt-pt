@@ -12,10 +12,10 @@ ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399678"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Resolução de problemas Azure Machine Learning Azure Kubernetes Service e implantação de instâncias de contentores Azure
@@ -26,7 +26,7 @@ Ao implementar um modelo em Azure Machine Learning, o sistema executa uma série
 
 A abordagem recomendada e mais atualizada para a implementação do modelo é através da API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) utilizando um objeto [Ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como parâmetro de entrada. Neste caso, o nosso serviço criará uma imagem base de estivador para si durante a fase de implantação e montará os modelos necessários, todos numa única chamada. As tarefas básicas de implantação são:
 
-1. Registe o modelo no registo do modelo de área de trabalho.
+1. Registe o modelo no registo do modelo workspace.
 
 2. Definir Configuração de Inferência:
     1. Crie um objeto [Ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) baseado nas dependências que especifica no ficheiro iaml ambiente ou utilize um dos nossos ambientes adquiridos.
@@ -48,11 +48,11 @@ Saiba mais sobre este processo na introdução da Gestão de [Modelos.](concept-
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Caso se depare com algum problema, a primeira coisa a fazer é dividir a tarefa de implementação (descrito anterior) em etapas individuais para isolar o problema.
+Se tiver algum problema, a primeira coisa a fazer é decompor a tarefa de implantação (descrita anteriormente) em passos individuais para isolar o problema.
 
 Assumindo que está a utilizar o novo/recomendado método de implementação através do [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API com um objeto [Ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como parâmetro de entrada, o seu código pode ser desfeito em três passos principais:
 
-1. Registe o modelo. Aqui está um código de amostra:
+1. Registar o modelo. Aqui está um código de amostra:
 
     ```python
     from azureml.core.model import Model
@@ -93,7 +93,7 @@ Assumindo que está a utilizar o novo/recomendado método de implementação atr
     aci_service.wait_for_deployment(show_output=True)
     ```
 
-Assim que já dividiu o processo de implantação em tarefas individuais, podemos ver alguns dos erros mais comuns.
+Uma vez que você tenha dividido o processo de implantação em tarefas individuais, podemos olhar para alguns dos erros mais comuns.
 
 ## <a name="debug-locally"></a>Depuração local
 
@@ -102,7 +102,7 @@ Se encontrar problemas em implementar um modelo para ACI ou AKS, tente implement
 > [!WARNING]
 > As implementações de serviços web locais não são suportadas para cenários de produção.
 
-Para implementar localmente, modifique o seu código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implementação. Em seguida, use `Model.deploy()` para implementar o serviço. O exemplo seguinte implementa um modelo (contido na variável modelo) como um serviço web local:
+Para implementar localmente, modifique o seu código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implementação. Em `Model.deploy()` seguida, use para implementar o serviço. O exemplo seguinte implementa um modelo (contido na variável modelo) como um serviço web local:
 
 ```python
 from azureml.core.environment import Environment
@@ -124,7 +124,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Por favor, note que se estiver a definir a sua própria especificação de conda YAML, deve listar os incumprimentos em azul com a versão >= 1.0.45 como dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
+Por favor, note que se estiver a definir a sua própria especificação de conda YAML, deve listar os incumprimentos em azul com a versão >= 1.0,45 como dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 Neste momento, pode trabalhar com o serviço normalmente. Por exemplo, o seguinte código demonstra o envio de dados para o serviço:
 
@@ -146,10 +146,10 @@ Para obter mais informações sobre a personalização do seu ambiente Python, c
 
 ### <a name="update-the-service"></a>Atualizar o serviço
 
-Durante os testes locais, poderá ter de atualizar o ficheiro `score.py` para adicionar registo ou tentar resolver quaisquer problemas que tenha descoberto. Para recarregar alterações no ficheiro `score.py`, utilize `reload()`. Por exemplo, o código seguinte recarrega o script para o serviço e, em seguida, envia dados para o mesmo. Os dados são obtidos utilizando o ficheiro `score.py` atualizado:
+Durante os testes locais, `score.py` poderá ter de atualizar o ficheiro para adicionar registo ou tentar resolver quaisquer problemas que tenha descoberto. Para recarregar alterações `score.py` no `reload()`ficheiro, utilize . Por exemplo, o código seguinte recarrega o script para o serviço e, em seguida, envia dados para o mesmo. Os dados são obtidos utilizando o ficheiro atualizado: `score.py`
 
 > [!IMPORTANT]
-> O método `reload` só está disponível para implantações locais. Para obter informações sobre a atualização de uma implementação para outro alvo de cálculo, consulte a secção de atualização dos [modelos Deploy](how-to-deploy-and-where.md#update).
+> O `reload` método só está disponível para destacamentos locais. Para obter informações sobre a atualização de uma implementação para outro alvo de cálculo, consulte a secção de atualização dos [modelos Deploy](how-to-deploy-and-where.md#update).
 
 ```python
 service.reload()
@@ -157,7 +157,7 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> O script é recarregado a partir do local especificado pelo `InferenceConfig` objeto utilizado pelo serviço.
+> O script é recarregado a partir `InferenceConfig` do local especificado pelo objeto utilizado pelo serviço.
 
 Para alterar o modelo, dependências da Conda ou configuração de implementação, utilize [a atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). O exemplo seguinte atualiza o modelo utilizado pelo serviço:
 
@@ -169,9 +169,9 @@ service.update([different_model], inference_config, deployment_config)
 
 Para eliminar o serviço, utilize [a eliminação()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
 
-### <a id="dockerlog"></a>Inspecione o registo do Docker
+### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a>Inspecione o registo do Docker
 
-Pode imprimir mensagens de registo do Docker motor detalhadas do objeto de serviço. Pode visualizar o registo para implementações ACI, AKS e Locais. O exemplo que se segue demonstra como imprimir os registos.
+Pode imprimir mensagens detalhadas do motor Docker do objeto de serviço. Pode visualizar o registo para implementações ACI, AKS e Locais. O exemplo que se segue demonstra como imprimir os registos.
 
 ```python
 # if you already have the service object handy
@@ -181,15 +181,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-## <a name="service-launch-fails"></a>Falha de inicialização de serviço
+## <a name="service-launch-fails"></a>Lançamento de serviço falha
 
-Depois de a imagem ser construída com sucesso, o sistema tenta iniciar um recipiente utilizando a sua configuração de implantação. Como parte do processo de arranque do recipiente, a função `init()` no seu script de pontuação é invocada pelo sistema. Se houver exceções não capturadas na função `init()`, poderá ver o erro **crashLoopBackOff** na mensagem de erro.
+Depois de a imagem ser construída com sucesso, o sistema tenta iniciar um recipiente utilizando a sua configuração de implantação. Como parte do processo de arranque `init()` do recipiente, a função no seu script de pontuação é invocada pelo sistema. Se houver exceções não `init()` apanhadas na função, poderá ver o erro **crashLoopBackOff** na mensagem de erro.
 
 Utilize a informação na secção [de registo Supor a secção de registo supor](#dockerlog) os registos.
 
-## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
+## <a name="function-fails-get_model_path"></a>Falha na função: get_model_path()
 
-Muitas vezes, na função `init()` no script de pontuação, a função [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um ficheiro modelo ou uma pasta de ficheiros de modelos no recipiente. Se o ficheiro ou pasta do modelo não puder ser encontrado, a função falha. A maneira mais fácil para depurar este erro é executar o abaixo o código de Python no shell do contentor:
+Muitas vezes, na `init()` função no script de pontuação, a função [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um ficheiro modelo ou uma pasta de ficheiros de modelo sintetizado no recipiente. Se o ficheiro ou pasta do modelo não puder ser encontrado, a função falha. A maneira mais fácil de depurar este erro é executar o código Python abaixo na concha do recipiente:
 
 ```python
 from azureml.core.model import Model
@@ -198,13 +198,13 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Este exemplo imprime o caminho local (relativo a `/var/azureml-app`) no recipiente onde o seu script de pontuação espera encontrar o ficheiro ou pasta do modelo. Em seguida, pode verificar se o ficheiro ou pasta está, de fato, onde é esperado que seja.
+Este exemplo imprime o caminho `/var/azureml-app`local (em relação a) no recipiente onde o seu script de pontuação espera encontrar o ficheiro ou pasta do modelo. Em seguida, pode verificar se o ficheiro ou pasta está de facto onde se espera que esteja.
 
 A definição do nível de registo para O DEBUG pode provocar o registo de informações adicionais, o que pode ser útil para identificar a falha.
 
-## <a name="function-fails-runinput_data"></a>Falha de função: run(input_data)
+## <a name="function-fails-runinput_data"></a>Falha na função: executar(input_data)
 
-Se o serviço for implementado com sucesso, mas falhar quando publica dados no ponto final da pontuação, pode adicionar uma declaração de captura de erros na sua função `run(input_data)` de modo a devolver uma mensagem de erro detalhada. Por exemplo:
+Se o serviço for implementado com sucesso, mas falhar quando publica dados no ponto final `run(input_data)` da pontuação, pode adicionar uma declaração de captura de erros na sua função de modo a que dereta uma mensagem de erro detalhada. Por exemplo:
 
 ```python
 def run(input_data):
@@ -219,11 +219,11 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Nota**: A devolução de mensagens de erro da `run(input_data)` chamada deve ser feita apenas para fins de depuração. Por razões de segurança, não deve devolver mensagens de erro desta forma num ambiente de produção.
+**Nota**: A devolução das mensagens de erro da `run(input_data)` chamada deve ser feita apenas para fins de depuração. Por razões de segurança, não deve devolver mensagens de erro desta forma num ambiente de produção.
 
 ## <a name="http-status-code-502"></a>Código de estado HTTP 502
 
-Um código de estado 502 indica que o serviço lançou uma exceção ou se despenhou no método `run()` do ficheiro score.py. Utilize as informações deste artigo para depurar o ficheiro.
+Um código de estado 502 indica que o serviço `run()` lançou uma exceção ou se despenhou no método do ficheiro score.py. Utilize as informações deste artigo para depurar o ficheiro.
 
 ## <a name="http-status-code-503"></a>Código de estado HTTP 503
 
@@ -233,16 +233,16 @@ Há duas coisas que podem ajudar a prevenir 503 códigos de estado:
 
 * Altere o nível de utilização ao qual a autoscalcificação cria novas réplicas.
     
-    Por padrão, a utilização do alvo de autoscalcificação está fixada em 70%, o que significa que o serviço pode lidar com picos em pedidos por segundo (RPS) até 30%. Pode ajustar o alvo de utilização definindo o `autoscale_target_utilization` para um valor mais baixo.
+    Por padrão, a utilização do alvo de autoscalcificação está fixada em 70%, o que significa que o serviço pode lidar com picos em pedidos por segundo (RPS) até 30%. Pode ajustar o alvo de `autoscale_target_utilization` utilização definindo o alvo para um valor mais baixo.
 
     > [!IMPORTANT]
     > Esta mudança não faz com que as réplicas sejam criadas *mais rapidamente*. Em vez disso, são criados num limiar de utilização mais baixo. Em vez de esperar até que o serviço seja 70% utilizado, mudar o valor para 30% faz com que as réplicas sejam criadas quando ocorre uma utilização de 30%.
     
-    Se o serviço web já estiver a utilizar as réplicas max atuais e ainda estiver a ver 503 códigos de estado, aumente o valor `autoscale_max_replicas` para aumentar o número máximo de réplicas.
+    Se o serviço web já estiver a utilizar as réplicas max atuais `autoscale_max_replicas` e ainda estiver a ver 503 códigos de estado, aumente o valor para aumentar o número máximo de réplicas.
 
 * Mude o número mínimo de réplicas. O aumento das réplicas mínimas proporciona uma piscina maior para lidar com os picos de entrada.
 
-    Para aumentar o número mínimo de réplicas, `autoscale_min_replicas` para um valor mais elevado. Pode calcular as réplicas necessárias utilizando o seguinte código, substituindo valores por valores específicos do seu projeto:
+    Para aumentar o número mínimo `autoscale_min_replicas` de réplicas, definida para um valor mais elevado. Pode calcular as réplicas necessárias utilizando o seguinte código, substituindo valores por valores específicos do seu projeto:
 
     ```python
     from math import ceil
@@ -264,7 +264,7 @@ Há duas coisas que podem ajudar a prevenir 503 códigos de estado:
     > [!NOTE]
     > Se receber picos de pedido maiores do que as novas réplicas mínimas podem suportar, poderá voltar a receber 503s. Por exemplo, à medida que o tráfego para o seu serviço aumenta, poderá ter de aumentar as réplicas mínimas.
 
-Para obter mais informações sobre a definição de `autoscale_target_utilization`, `autoscale_max_replicas`e `autoscale_min_replicas` para, consulte a referência do módulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)
+Para obter mais `autoscale_target_utilization` `autoscale_max_replicas`informações `autoscale_min_replicas` sobre a definição , e para, consulte a referência do módulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)
 
 ## <a name="http-status-code-504"></a>Código de estado HTTP 504
 
@@ -277,7 +277,7 @@ Pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.p
 Em alguns casos, poderá ser necessário depurar interativamente o código Python contido na implementação do seu modelo. Por exemplo, se o script de entrada estiver a falhar e a razão não puder ser determinada por registo saqueado adicional. Utilizando o Código do Estúdio Visual e as Ferramentas Python para Estúdio Visual (PTVSD), pode anexar-se ao código que funciona dentro do recipiente Docker.
 
 > [!IMPORTANT]
-> Este método de depuração não funciona quando se utiliza `Model.deploy()` e `LocalWebservice.deploy_configuration` para implementar um modelo localmente. Em vez disso, deve criar uma imagem utilizando o método [Model.package().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)
+> Este método de depuração não `Model.deploy()` `LocalWebservice.deploy_configuration` funciona quando se utiliza e implementa um modelo localmente. Em vez disso, deve criar uma imagem utilizando o método [Model.package().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)
 
 As implementações locais do serviço web requerem uma instalação de Docker em funcionamento no seu sistema local. Para obter mais informações sobre a utilização do Docker, consulte a [Documentação do Docker](https://docs.docker.com/).
 
@@ -295,7 +295,7 @@ As implementações locais do serviço web requerem uma instalação de Docker e
 
     1. A partir do Código VS, selecione o menu __Debug__ e, em seguida, __selecione configurações abertas__. Um ficheiro chamado __Launch.json__ abre.
 
-    1. No ficheiro __launch.json,__ encontre a linha que contém `"configurations": [`, e insira o seguinte texto após o mesmo:
+    1. No ficheiro __launch.json,__ encontre a `"configurations": [`linha que contém , e insira o seguinte texto após a sua:
 
         ```json
         {
@@ -322,7 +322,7 @@ As implementações locais do serviço web requerem uma instalação de Docker e
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>Criar uma imagem que inclua PTVSD
 
-1. Modifique o ambiente de condomínio para a sua implementação de modo a que inclua PTVSD. O exemplo que se segue demonstra adicioná-lo utilizando o parâmetro `pip_packages`:
+1. Modifique o ambiente de condomínio para a sua implementação de modo a que inclua PTVSD. O exemplo que se segue `pip_packages` demonstra adicioná-lo utilizando o parâmetro:
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -338,7 +338,7 @@ As implementações locais do serviço web requerem uma instalação de Docker e
         f.write(myenv.serialize_to_string())
     ```
 
-1. Para iniciar o PTVSD e esperar por uma ligação quando o serviço começar, adicione o seguinte ao topo do seu ficheiro `score.py`:
+1. Para iniciar o PTVSD e esperar por uma ligação quando `score.py` o serviço começar, adicione o seguinte à parte superior do seu ficheiro:
 
     ```python
     import ptvsd
@@ -349,10 +349,10 @@ As implementações locais do serviço web requerem uma instalação de Docker e
     print("Debugger attached...")
     ```
 
-1. Crie uma imagem baseada na definição ambiental e puxe a imagem para o registo local. Durante a depuração, é melhor efazer alterações nos ficheiros da imagem sem ter de o recriar. Para instalar um editor de texto (vim) na imagem do Docker, utilize as propriedades `Environment.docker.base_image` e `Environment.docker.base_dockerfile`:
+1. Crie uma imagem baseada na definição ambiental e puxe a imagem para o registo local. Durante a depuração, é melhor efazer alterações nos ficheiros da imagem sem ter de o recriar. Para instalar um editor de texto (vim) `Environment.docker.base_image` `Environment.docker.base_dockerfile` na imagem do Docker, utilize as propriedades e propriedades:
 
     > [!NOTE]
-    > Este exemplo pressupõe que `ws` aponta para o seu espaço de trabalho azure Machine Learning, e que `model` é o modelo que está a ser implementado. O ficheiro `myenv.yml` contém as dependências da conda criadas no passo 1.
+    > Este exemplo pressupõe que `ws` aponta para o seu `model` espaço de trabalho azure Machine Learning, e que é o modelo que está a ser implementado. O `myenv.yml` ficheiro contém as dependências da conda criadas no passo 1.
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies
@@ -375,18 +375,18 @@ As implementações locais do serviço web requerem uma instalação de Docker e
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Para facilitar o funcionao com a imagem, utilize o seguinte comando para adicionar uma etiqueta. Substitua `myimagepath` pelo valor de localização do passo anterior.
+1. Para facilitar o funcionao com a imagem, utilize o seguinte comando para adicionar uma etiqueta. Substitua-a `myimagepath` pelo valor de localização do passo anterior.
 
     ```bash
     docker tag myimagepath debug:1
     ```
 
-    Para o resto dos passos, pode consultar a imagem local como `debug:1` em vez do valor total do caminho da imagem.
+    Para o resto dos passos, pode consultar `debug:1` a imagem local como em vez do valor total do caminho da imagem.
 
 ### <a name="debug-the-service"></a>Depurar o serviço
 
 > [!TIP]
-> Se definir um prazo para a ligação PTVSD no ficheiro `score.py`, deve ligar o Código VS à sessão de depuração antes de expirar o prazo. Inicie o Código VS, abra a cópia local de `score.py`, detete um ponto de rutura e prepare-o antes de utilizar os passos nesta secção.
+> Se definir um prazo para a ligação `score.py` PTVSD no ficheiro, deve ligar o Código VS à sessão de depuração antes que o prazo expire. Inicie o Código VS, `score.py`abra a cópia local de , despolete um ponto de rutura e prepare-o antes de utilizar os passos nesta secção.
 >
 > Para obter mais informações sobre depuração e definição de pontos de rutura, consulte [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -415,13 +415,13 @@ Para efazer alterações nos ficheiros na imagem, pode anexar-se ao recipiente d
     docker exec -it debug /bin/bash
     ```
 
-1. Para encontrar os ficheiros utilizados pelo serviço, utilize o seguinte comando da concha de batida no recipiente se o diretório predefinido for diferente do `/var/azureml-app`:
+1. Para encontrar os ficheiros utilizados pelo serviço, utilize o seguinte comando da concha `/var/azureml-app`de batida no recipiente se o diretório predefinido for diferente de:
 
     ```bash
     cd /var/azureml-app
     ```
 
-    A partir daqui, pode usar vim para editar o ficheiro `score.py`. Para obter mais informações sobre o uso do vim, consulte [O editor da Vim.](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)
+    A partir daqui, pode usar `score.py` vim para editar o ficheiro. Para obter mais informações sobre o uso do vim, consulte [O editor da Vim.](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)
 
 1. Normalmente, as alterações num recipiente não são persistidas. Para evitar quaisquer alterações que faça, utilize o seguinte comando, antes de sair da concha começou no degrau acima (isto é, em outra concha):
 
@@ -429,14 +429,14 @@ Para efazer alterações nos ficheiros na imagem, pode anexar-se ao recipiente d
     docker commit debug debug:2
     ```
 
-    Este comando cria uma nova imagem chamada `debug:2` que contém as suas edidas.
+    Este comando cria uma `debug:2` nova imagem chamada que contém as suas edidas.
 
     > [!TIP]
     > Terá de parar o recipiente atual e começar a utilizar a nova versão antes de as alterações entrarem em vigor.
 
 1. Certifique-se de manter as alterações que efaz em ficheiros no recipiente em sincronização com os ficheiros locais que o Código VS utiliza. Caso contrário, a experiência de desbugger não funcionará como esperado.
 
-### <a name="stop-the-container"></a>Pare o recipiente
+### <a name="stop-the-container"></a>Parar o contentor
 
 Para parar o recipiente, utilize o seguinte comando:
 
@@ -449,4 +449,4 @@ docker stop debug
 Saiba mais sobre a implementação:
 
 * [Como implantar e onde](how-to-deploy-and-where.md)
-* [Tutorial: Modelos de comboio e de implantação](tutorial-train-models-with-aml.md)
+* [Tutorial: & de treino implementar modelos](tutorial-train-models-with-aml.md)

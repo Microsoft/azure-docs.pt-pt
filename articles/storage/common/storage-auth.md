@@ -11,25 +11,25 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: b0f2ad7566d0204871a9c6441315d6201662d92b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616295"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizar o acesso a dados no Armazenamento Do Azure
 
-Cada vez que acede a dados na sua conta de armazenamento, o seu cliente faz um pedido sobre HTTP/HTTPS para o Armazenamento Azure. Todos os pedidos a um recurso seguro devem ser autorizados, de modo a que o serviço garanta que o cliente tem as permissões necessárias para aceder aos dados.
+Cada vez que acede a dados na sua conta de armazenamento, o seu cliente faz um pedido sobre HTTP/HTTPS para o Armazenamento Azure. Cada pedido a um recurso seguro tem de ser autorizado, para que o serviço garanta que o cliente tem as permissões necessárias para aceder aos dados.
 
 O quadro seguinte descreve as opções que o Azure Storage oferece para autorizar o acesso aos recursos:
 
 |  |Chave Partilhada (chave da conta de armazenamento)  |Assinatura de acesso partilhado (SAS)  |Azure Active Directory (Azure AD)  |Diretório Ativo (pré-visualização) |Acesso anónimo ao público de leitura  |
 |---------|---------|---------|---------|---------|---------|
-|Blobs do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |Não suportado|[Suportado](../blobs/storage-manage-access-to-resources.md)         |
-|Ficheiros Azure (SMB)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |Não suportado         |[Suportado, apenas com Serviços de Domínio AAD](../files/storage-files-active-directory-overview.md)         |[Suportadas, credenciais devem ser sincronizadas com a Azure AD](../files/storage-files-active-directory-overview.md)|Não suportado         |
-|Ficheiros Azure (REST)     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |Não suportado         |Não suportado |Não suportado         |
-|Filas do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |[Suportado](storage-auth-aad.md)         |Não Suportado | Não suportado         |
-|Tabelas do Azure     |[Suportado](/rest/api/storageservices/authorize-with-shared-key/)         |[Suportado](storage-sas-overview.md)         |Não suportado         |Não suportado| Não suportado         |
+|Blobs do Azure     |[Apoiado](/rest/api/storageservices/authorize-with-shared-key/)         |[Apoiado](storage-sas-overview.md)         |[Apoiado](storage-auth-aad.md)         |Não suportado|[Apoiado](../blobs/storage-manage-access-to-resources.md)         |
+|Ficheiros Azure (SMB)     |[Apoiado](/rest/api/storageservices/authorize-with-shared-key/)         |Não suportado         |[Suportado, apenas com Serviços de Domínio AAD](../files/storage-files-active-directory-overview.md)         |[Suportadas, credenciais devem ser sincronizadas com a Azure AD](../files/storage-files-active-directory-overview.md)|Não suportado         |
+|Ficheiros Azure (REST)     |[Apoiado](/rest/api/storageservices/authorize-with-shared-key/)         |[Apoiado](storage-sas-overview.md)         |Não suportado         |Não suportado |Não suportado         |
+|Filas do Azure     |[Apoiado](/rest/api/storageservices/authorize-with-shared-key/)         |[Apoiado](storage-sas-overview.md)         |[Apoiado](storage-auth-aad.md)         |Não suportado | Não suportado         |
+|Tabelas do Azure     |[Apoiado](/rest/api/storageservices/authorize-with-shared-key/)         |[Apoiado](storage-sas-overview.md)         |Não suportado         |Não suportado| Não suportado         |
 
 Cada opção de autorização é brevemente descrita abaixo:
 
@@ -48,5 +48,5 @@ Por predefinição, todos os recursos em Armazenamento Azure estão seguros, e e
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Autorizar acesso a blobs e filas Azure utilizando o Diretório Ativo Azure](storage-auth-aad.md)
-- [Autorizar com chave partilhada](/rest/api/storageservices/authorize-with-shared-key/)
+- [Autorizar com a Chave Partilhada](/rest/api/storageservices/authorize-with-shared-key/)
 - [Conceder acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](storage-sas-overview.md)

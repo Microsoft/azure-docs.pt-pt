@@ -1,19 +1,19 @@
 ---
-title: Utilização da solução de Mapa de Serviço solução em Azure  Microsoft Docs
-description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-lo numa variedade de cenários.
+title: Utilização da solução de Mapa de Serviço solução em Azure [ Microsoft Docs
+description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para a implementação do Mapa de Serviços no seu ambiente e usá-lo em vários cenários.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275246"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480917"
 ---
-# <a name="using-service-map-solution-in-azure"></a>Usando a solução do mapa de serviço em Azure
+# <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
 
@@ -26,18 +26,18 @@ Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviço.
 * O agente Dependency instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas no Monitor Azure para VMs, que inclui funcionalidades adicionais para monitorizar a saúde e desempenho da VM. Para saber mais, consulte [o Monitor Azure para visualização geral dos VMs.](../../azure-monitor/insights/vminsights-overview.md) Para saber mais sobre as diferenças entre a solução do Mapa de Serviços e a funcionalidade Do Mapa do Monitor de VMs, consulte as seguintes [FAQ](../faq.md#azure-monitor-for-vms-preview).
+>Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas no Monitor Azure para VMs, que inclui funcionalidades adicionais para monitorizar a saúde e desempenho da VM. Para saber mais, consulte [o Monitor Azure para visualização geral dos VMs.](../../azure-monitor/insights/vminsights-overview.md) Para saber mais sobre as diferenças entre a solução do Mapa de Serviços e a funcionalidade Do Mapa do Monitor de VMs, consulte as seguintes [FAQ](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="enable-service-map"></a>Ativar o mapa de serviço
 
 1. Ative a solução Service Map do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou utilizando o processo descrito em [Adicionar soluções de monitorização a partir da Galeria soluções.](solutions.md)
 1. [Instale o agente Dependency no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [instale o agente dependency no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador onde pretende obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
 
-Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho Log Analytics e selecione as **soluções** de opção a partir do painel esquerdo.<br><br> ![Selecione Soluções no espaço de trabalho](./media/service-map/select-solution-from-workspace.png).<br> A partir da lista de soluções, selecione **ServiceMap (workspaceName)** e na página de visão geral da solução do Mapa de Serviço clique no resumo do mapa de serviço.<br><br> ![mapa de serviço sumário](./media/service-map/service-map-summary-tile.png).
+Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho Log Analytics e selecione as **soluções** de opção a partir do painel esquerdo.<br><br> ![Selecione a opção Soluções no espaço de](./media/service-map/select-solution-from-workspace.png)trabalho.<br> A partir da lista de soluções, selecione **ServiceMap (workspaceName)** e na página de visão geral da solução do Mapa de Serviço clique no resumo do mapa de serviço.<br><br> ![Azulejo resumo do mapa](./media/service-map/service-map-summary-tile.png)de serviço.
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Utilizar casos: Sensibilizar a dependência dos seus processos de TI
 
@@ -45,7 +45,7 @@ Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho L
 
 O Service Map constrói automaticamente um mapa de referência comum de dependências em todos os seus servidores, processos e serviços de terceiros. Descobre e mapeia todas as dependências de TCP, identificando ligações surpresa, sistemas remotos de terceiros de que depende, e dependências de áreas escuras tradicionais da sua rede, como o Ative Directory. O Service Map descobre ligações de rede falhadas que os seus sistemas geridos estão a tentar fazer, ajudando-o a identificar potenciais problemas de configuração do servidor, falha de serviço e problemas de rede.
 
-### <a name="incident-management"></a>gestão de incidentes
+### <a name="incident-management"></a>Gestão de Incidentes
 
 O Service Map ajuda a eliminar a adivinhação do isolamento de problemas, mostrando-lhe como os sistemas estão conectados e afetando uns aos outros. Além de identificar ligações falhadas, ajuda a identificar equilibradores de carga mal configurados, carga surpreendente ou excessiva em serviços críticos, e clientes fraudulentos, como máquinas de desenvolvimento que falam com sistemas de produção. Ao utilizar fluxos de trabalho integrados com O Rastreio de Mudanças, também pode ver se um evento de mudança numa máquina ou serviço de back-end explica a causa principal de um incidente.
 
@@ -113,7 +113,7 @@ Depois de criar alguns grupos, pode vê-los escolhendo o separador Grupos.
 ![Separador de grupos](media/service-map/machine-groups-tab.png)
 
 Em seguida, selecione o nome de grupo para visualizar o mapa para esse Grupo máquina.
-![Grupo máquina](media/service-map/machine-group.png) As máquinas que pertencem ao grupo estão delineadas em branco no mapa.
+![Grupo](media/service-map/machine-group.png) máquina As máquinas que pertencem ao grupo estão delineadas em branco no mapa.
 
 A expansão do Grupo listará as máquinas que compõem o Grupo máquina.
 
@@ -154,10 +154,10 @@ Clique no menu de elipse ao lado do nome de grupo na Lista de Grupos.
 
 Certos processos servem papéis particulares em máquinas: servidores web, servidores de aplicações, base de dados, e assim por diante. O Mapa de Serviço anota caixas de processo e máquinas com ícones de funções para ajudar a identificar num ápice a função que um processo ou servidor desempenha.
 
-| Ícone de função | Descrição |
+| Ícone de papel | Descrição |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
-| ![Servidor de aplicativos](media/service-map/role-application-server.png) | Servidor de aplicações |
+| ![Servidor de aplicações](media/service-map/role-application-server.png) | Servidor de aplicações |
 | ![Servidor de base de dados](media/service-map/role-database.png) | Servidor de base de dados |
 | ![Servidor LDAP](media/service-map/role-ldap.png) | Servidor LDAP |
 | ![Servidor SMB](media/service-map/role-smb.png) | Servidor SMB |
@@ -273,13 +273,13 @@ O painel **de desempenho** da máquina apresenta métricas de desempenho padrão
 Para ver os dados de desempenho, poderá ser necessário [ativar os contadores](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)de desempenho adequados do Log Analytics .  Os contadores que pretende ativar:
 
 Windows:
-- Processador(*)\\% Tempo do processador
-- Memória\\% Bytes Comprometidos em Uso
+- Processador (*)\\% Tempo do processador
+- Memória\\% Bytes Comprometidos Em Uso
 - Adaptador de rede(*)\\Bytes Enviado/seg
 - Adaptador de rede(*)\\Bytes Recebidos/seg
 
 Linux:
-- Processador(*)\\% Tempo do processador
+- Processador (*)\\% Tempo do processador
 - Memória(*)\\% Memória Usada
 - Adaptador de rede(*)\\Bytes Enviado/seg
 - Adaptador de rede(*)\\Bytes Recebidos/seg
@@ -316,7 +316,7 @@ Existem propriedades geradas internamente que pode usar para identificar process
 - Computador: Utilize o *ResourceId* ou *ResourceName_s* para identificar de forma única um computador dentro de um espaço de trabalho de Log Analytics.
 - Processo: Utilize o *ResourceId* para identificar de forma única um processo dentro de um espaço de trabalho de Log Analytics. *ResourceName_s* é único no contexto da máquina em que o processo está a decorrer (MachineResourceName_s) 
 
-Como vários registos podem existir para um processo e computador especificados numa faixa de tempo especificada, as consultas podem devolver mais do que um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione " dedup ResourceId " para a consulta.
+Como vários registos podem existir para um processo e computador especificados numa faixa de tempo especificada, as consultas podem devolver mais do que um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione "[ dedup ResourceId " para a consulta.
 
 ### <a name="connections"></a>Ligações
 
@@ -403,7 +403,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra 
 
 ### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL registos
 
-Os registos com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa de Serviço. Estes registos têm as propriedades na tabela a seguir:
+Os registos com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa de Serviço. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -429,7 +429,7 @@ Os registos com um tipo de *ServiceMapComputer_CL* têm dados de inventário par
 
 ### <a name="servicemapprocess_cl-type-records"></a>Registos do tipo ServiceMapProcess_CL
 
-Os registos com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos ligados ao TCP em servidores com agentes do Mapa de Serviço. Estes registos têm as propriedades na tabela a seguir:
+Os registos com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos ligados ao TCP em servidores com agentes do Mapa de Serviço. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -461,23 +461,23 @@ ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) por ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumera rita a capacidade física de memória de todos os computadores geridos.
 
-ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId  projeto PhysicalMemory_d, ComputerName_s
+ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId [ projeto PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Lista de nomes de computador, DNS, IP e OS.
 
-ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId  ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId [ ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Encontre todos os processos com "sql" na linha de comando
 
-ServiceMapProcess_CL onde CommandLine_s contains_cs "sql"  sql'  resumir arg_max (TimeGenerated, *) por ResourceId
+ServiceMapProcess_CL onde CommandLine_s contains_cs "sql" [ sql' [ resumir arg_max (TimeGenerated, *) por ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Encontre uma máquina (registo mais recente) pelo nome de recurso
 
-pesquisa em (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b"  resumir arg_max (TimeGenerated, *) por ResourceId
+pesquisa em (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" [ resumir arg_max (TimeGenerated, *) por ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Encontre uma máquina (registo mais recente) por endereço IP
 
-pesquisa em (ServiceMapComputer_CL) "10.229.243.232"  resumir arg_max (TimeGenerated, *) por ResourceId
+pesquisa em (ServiceMapComputer_CL) "10.229.243.232" [ resumir arg_max (TimeGenerated, *) por ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Enumerar todos os processos conhecidos numa máquina especificada
 
@@ -485,15 +485,15 @@ ServiceMapProcess_CL onde MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f6
 
 ### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam o SQL
 
-ServiceMapComputer_CL onde ResourceName_s ((pesquisa em (ServiceMapProcess_CL) "\*sql\*"  MachineResourceName_s distinta)) / ComputerName_s distinta
+ServiceMapComputer_CL onde ResourceName_s em (((ServiceMapProcess_CL)\*"\*sql " [ MachineResourceName_s distinto)) [ ComputerName_s distinta
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumere todas as versões únicas de produto de caracol no meu datacenter
 
-ServiceMapProcess_CL onde ExecutableName_s == "curl"  ProductVersion_s distinto
+ServiceMapProcess_CL onde ExecutableName_s == "curl" [ ProductVersion_s distinto
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computador de todos os computadores que executam o CentOS
 
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+ServiceMapComputer_CL onde OperatingSystemFullName_s contains_cs "CentOS" [ ComputerName_s distinta
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as ligações de saída de um grupo de máquinas
 
@@ -542,9 +542,9 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 Todos os dados do servidor, processo e dependência no Mapa de Serviços estão disponíveis através do Mapa de [Serviço REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
+## <a name="diagnostic-and-usage-data"></a>Dados de diagnóstico e utilização
 
-A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço do mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Para fornecer capacidades precisas e eficientes de resolução de problemas, os dados incluem informações sobre a configuração do seu software, tais como sistema operativo e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não recolhe nomes, moradas ou outras informações de contacto.
+A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço Service Map. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço Service Map. Para fornecer capacidades precisas e eficientes de resolução de problemas, os dados incluem informações sobre a configuração do seu software, tais como sistema operativo e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não recolhe nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a recolha e utilização de dados, consulte a Declaração de [Privacidade dos Serviços Online](https://go.microsoft.com/fwlink/?LinkId=512132)da Microsoft .
 
@@ -554,33 +554,33 @@ Saiba mais sobre pesquisas de [log](../../azure-monitor/log-query/log-query-over
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se tiver quaisquer problemas de instalação ou execução de mapa de serviço, nesta secção pode ajudar. Se ainda não é possível resolver o problema, entre em contato com Support da Microsoft.
+Se tiver algum problema em instalar ou executar o Mapa de Serviço, esta secção pode ajudá-lo. Se ainda não conseguir resolver o seu problema, contacte o Microsoft Support.
 
-### <a name="dependency-agent-installation-problems"></a>Problemas de instalação do agente de dependência
+### <a name="dependency-agent-installation-problems"></a>Problemas de instalação de agentes de dependência
 
-#### <a name="installer-prompts-for-a-reboot"></a>Pedidos de instalador de um reinício
-O agente de dependência *geralmente* não necessita de um reboot após a instalação ou remoção. No entanto, em certos casos raros, Windows Server exige uma reinicialização para continuar com uma instalação. Isto acontece quando uma dependência, C++ normalmente a biblioteca redistribuível visual da Microsoft requer um reboot por causa de um ficheiro bloqueado.
+#### <a name="installer-prompts-for-a-reboot"></a>Solicitações do instalador para um reboot
+O agente de dependência *geralmente* não necessita de um reboot após a instalação ou remoção. No entanto, em certos casos raros, o Windows Server necessita de um reboot para continuar com uma instalação. Isto acontece quando uma dependência, normalmente a biblioteca redistribuível Microsoft Visual C++ requer um reboot por causa de um ficheiro bloqueado.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Mensagem "não é possível instalar o agente de dependência: não foi possível instalar as bibliotecas de Runtime do Visual Studio (código = [code_number])" é apresentada
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Mensagem "Incapaz de instalar agente de dependência: As bibliotecas de execução do estúdio visual não foram instaladas (código = [code_number]" aparece
 
-O agente do Microsoft Dependency baseia-se as bibliotecas de tempo de execução do Microsoft Visual Studio. Obterá uma mensagem se existe um problema durante a instalação das bibliotecas. 
+O agente Microsoft Dependency é construído nas bibliotecas de tempo de execução do Microsoft Visual Studio. Receberá uma mensagem se houver algum problema durante a instalação das bibliotecas. 
 
-Os programas de instalação de biblioteca de tempo de execução criam registos na pasta %LOCALAPPDATA%\temp. O ficheiro é `dd_vcredist_arch_yyyymmddhhmmss.log`, onde o *arco* é `x86` ou `amd64` e *yyymmddhhmmssé* a data e hora (relógio 24 horas) quando o tronco foi criado. O registo fornece detalhes sobre o problema que está a bloquear a instalação.
+Os instaladores da biblioteca de tempo de execução criam registos na pasta %LOCALAPPDATA%\temp. O ficheiro `dd_vcredist_arch_yyyymmddhhmmss.log`é onde `x86` `amd64` o *arco* é ou *yyymmddhhmmssé* a data e hora (relógio 24 horas) quando o tronco foi criado. O registo fornece detalhes sobre o problema que está bloqueando a instalação.
 
 Pode ser útil instalar as [últimas bibliotecas](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) em tempo de execução primeiro.
 
-A tabela seguinte apresenta uma lista de números de código e resoluções sugeridas.
+A tabela que se segue lista os números de código e as resoluções sugeridas.
 
 | Código | Descrição | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador de biblioteca exige uma atualização do Windows que não foi instalada. | Procure no registo do instalador mais recente da biblioteca.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` não tiver os pré-requisitos para instalar o KB2999226. Siga as instruções na secção de pré-requisitos no universal [C Runtime no](https://support.microsoft.com/kb/2999226) artigo Windows. Poderá ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do agente Microsoft Dependency novamente. |
+| 0x17 | O instalador da biblioteca requer uma atualização do Windows que não tenha sido instalada. | Veja o mais recente registo de instalação da biblioteca.<br><br>Se uma `Windows8.1-KB2999226-x64.msu` referência for seguida `Error 0x80240017: Failed to execute MSU package,` por uma linha, não tem os pré-requisitos para instalar o KB2999226. Siga as instruções na secção de pré-requisitos no universal [C Runtime no](https://support.microsoft.com/kb/2999226) artigo Windows. Poderá ser necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Volte a executar o instalador do agente Microsoft Dependency. |
 
 ### <a name="post-installation-issues"></a>Problemas de pós-instalação
 
-#### <a name="server-doesnt-appear-in-service-map"></a>Servidor não aparece no mapa de serviço
+#### <a name="server-doesnt-appear-in-service-map"></a>Servidor não aparece no Mapa de Serviços
 
 Se a instalação do seu agente dependency tiver sucesso, mas não vê a sua máquina na solução Service Map:
-* O agente de dependência é instalado com êxito? Pode confirmar isto, verificando se o serviço está instalado e em execução.<br><br>
+* O agente da Dependência está instalado com sucesso? Pode validar isto verificando se o serviço está instalado e em funcionamento.<br><br>
 **Windows**: Procure o serviço chamado **Microsoft Dependency agent**.
 **Linux**: Procure o processo de execução do **agente de dependência**da Microsoft .
 
@@ -592,13 +592,13 @@ Se a instalação do seu agente dependency tiver sucesso, mas não vê a sua má
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Obteve uma variedade de eventos nos resultados? Os dados são recentes? Em caso afirmativo, o seu agente Log Analytics está a funcionar corretamente e a comunicar com o espaço de trabalho. Caso contrário, verifique o agente na sua máquina: [Agente de Log Analytics para resolução](../platform/agent-windows-troubleshoot.md) de problemas do Windows ou agente Delog Analytics para resolução de [problemas do Linux](../platform/agent-linux-troubleshoot.md).
+Teve uma variedade de eventos nos resultados? Os dados são recentes? Em caso afirmativo, o seu agente Log Analytics está a funcionar corretamente e a comunicar com o espaço de trabalho. Caso contrário, verifique o agente na sua máquina: [Agente de Log Analytics para resolução](../platform/agent-windows-troubleshoot.md) de problemas do Windows ou agente Delog Analytics para resolução de [problemas do Linux](../platform/agent-linux-troubleshoot.md).
 
-#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor é apresentado no mapa de serviço, mas não tem nenhum processo
+#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor aparece no Mapa de Serviços mas não tem processos
 
 Se vir a sua máquina no Mapa de Serviço, mas não tiver dados de processo ou de ligação, isso indica que o agente Dependency está instalado e em funcionamento, mas o controlador de kernel não carregou. 
 
-Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As última linhas do ficheiro devem indicar por que não carregou o kernel. Por exemplo, o kernel poderá não ser suportado no Linux, se atualizou o kernel.
+Verifique `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` o (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As últimas linhas do ficheiro devem indicar porque é que o núcleo não carregou. Por exemplo, o núcleo pode não ser suportado no Linux se atualizar o seu núcleo.
 
 ## <a name="feedback"></a>Comentários
 

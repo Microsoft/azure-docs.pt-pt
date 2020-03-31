@@ -1,6 +1,6 @@
 ---
-title: Conceder acesso para gerenciar PIM-Azure Active Directory | Microsoft Docs
-description: Saiba como conceder acesso a outras administrações para gerenciar Azure AD Privileged Identity Management (PIM).
+title: Conceder acesso à gestão da PIM - Diretório Ativo Azure [ Microsoft Docs
+description: Saiba como conceder acesso a outras administrações para gerir a Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,77 +15,77 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022117"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Conceder acesso a outros administradores para gerenciar Privileged Identity Management
+# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada
 
-O administrador global que habilita Privileged Identity Management (PIM) para uma organização obtém automaticamente atribuições de função e acesso a Privileged Identity Management. Ninguém mais em sua organização do Azure Active Directory (Azure AD) obtém acesso de gravação por padrão, porém, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso somente leitura ao Privileged Identity Management. Para conceder acesso ao Privileged Identity Management, o primeiro usuário pode atribuir outras pessoas à função de **administrador de função com privilégios** .
+O administrador global que permite a Gestão de Identidade Privilegiada (PIM) para uma organização obtém automaticamente atribuições de funções e acesso à Gestão de Identidade Privilegiada. No entanto, mais ninguém na sua organização Azure Ative Directory (Azure AD) obtém acesso por escrito por defeito, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso apenas a Gestão de Identidade Privilegiada. Para conceder acesso à Gestão de Identidade Privilegiada, o primeiro utilizador pode atribuir outros ao papel de Administrador de **Funções Privilegiadas.**
 
 > [!NOTE]
-> O gerenciamento de Privileged Identity Management requer a autenticação multifator do Azure. Como as contas da Microsoft não podem se registrar para a autenticação multifator do Azure, um usuário que entra com um conta Microsoft não pode acessar Privileged Identity Management.
+> Gerir a Gestão de Identidade Privilegiada requer autenticação multi-factor Azure. Uma vez que as contas da Microsoft não podem registar-se para a Autenticação Multi-Factor Do Azure, um utilizador que se inscreva numa conta microsoft não pode aceder à Gestão de Identidade Privilegiada.
 
-Verifique se há sempre pelo menos dois usuários em uma função de administrador de função com privilégios, caso um usuário esteja bloqueado ou sua conta seja excluída.
+Certifique-se de que existem sempre pelo menos dois utilizadores numa função de Administrador de Funções Privilegiadas, caso um utilizador esteja bloqueado ou a sua conta seja eliminada.
 
-## <a name="grant-access-to-manage-pim"></a>Conceder acesso para gerenciar o PIM
+## <a name="grant-access-to-manage-pim"></a>Conceder acesso à gestão da PIM
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. No Azure AD, abra **Privileged Identity Management**.
+1. Em Azure AD, abra **a Gestão de Identidade Privilegiada.**
 
-1. Selecione **funções do Azure ad**.
+1. Selecione **funções Azure AD**.
 
-1. Selecione **funções**.
+1. Selecione **Funções**.
 
-    ![Privileged Identity Management funções do Azure AD – funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![Funções privilegiadas de Gestão de Identidade Azure AD - Funções](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
-1. Selecione a função de **administrador de função com privilégios** para abrir a página Membros.
+1. Selecione a função **de Administrador de Funções Privilegiadas** para abrir a página dos membros.
 
-    ![Administrador de função com privilégios-Membros](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
+    ![Administrador de Funções Privilegiadas - Membros](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Selecione **Adicionar membro** para abrir o painel Adicionar Membros gerenciados.
+1. **Selecione Adicionar membro** para abrir o painel de membros geridos Add.
 
-1. Selecione **selecionar Membros** para abrir o painel Selecionar Membros.
+1. Selecione **selecione os membros** para abrir o painel de membros Select.
 
-    ![Administrador de função com privilégios-selecionar membros](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+    ![Administrador de Funções Privilegiadas - Selecione membros](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 
-1. Selecione um membro e clique em **selecionar**.
+1. Selecione um membro e, em seguida, clique em **Selecionar**.
 
-1. Selecione **OK** para tornar o membro qualificado para a função de **administrador de função com privilégios** .
+1. Selecione **OK** para tornar o membro elegível para o papel de **Administrador de Funções Privilegiadas.**
 
-    Quando você atribui uma nova função a alguém em Privileged Identity Management, elas são configuradas automaticamente como **qualificadas** para ativar a função.
+    Quando atribui um novo papel a alguém na Gestão de Identidade Privilegiada, são automaticamente configurados como **Elegíveis** para ativar o papel.
 
-1. Para tornar o membro permanente, selecione o usuário na lista de membros de administrador da função com privilégios.
+1. Para tornar o membro permanente, selecione o utilizador na lista de membros do Administrador de Funções Privilegiadas.
 
-1. Selecione **mais** e **torne permanente** para tornar a atribuição permanente.
+1. Selecione **Mais** e, em seguida, Tornar permanente para tornar a atribuição **permanente.**
 
-    ![Administrador de função com privilégios-tornar permanente](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+    ![Administrador de Funções Privilegiadas - Tornar permanente](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
 
-1. Enviar ao usuário um link para [começar a usar Privileged Identity Management](pim-getting-started.md).
+1. Envie ao utilizador um link para [começar a utilizar a Gestão de Identidade Privilegiada.](pim-getting-started.md)
 
-## <a name="remove-access-to-manage-pim"></a>Remover o acesso para gerenciar o PIM
+## <a name="remove-access-to-manage-pim"></a>Remover acesso para gerir pim
 
-Antes de remover alguém da função de administrador de função com privilégios, sempre verifique se ainda haverá pelo menos dois usuários atribuídos a ele.
+Antes de remover alguém do papel de Administrador de Funções Privilegiadas, certifique-se sempre de que ainda haverá pelo menos dois utilizadores atribuídos ao mesmo.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **funções do Azure ad**.
+1. Selecione **funções Azure AD**.
 
-1. Selecione **funções**.
+1. Selecione **Funções**.
 
-1. Selecione a função de **administrador de função com privilégios** para abrir a página Membros.
+1. Selecione a função **de Administrador de Funções Privilegiadas** para abrir a página dos membros.
 
-1. Marque a caixa de seleção ao lado do usuário que você deseja remover e, em seguida, selecione **Remover membro**.
+1. Selecione a caixa de verificação ao lado do utilizador que pretende remover e, em seguida, **selecione Remover membro**.
 
-    ![Administrador de função com privilégios-remover membro](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+    ![Administrador de Funções Privilegiada - Remover membro](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
 
-1. Quando for solicitado que você confirme que deseja remover o membro da função, selecione **Sim**.
+1. Quando lhe for solicitado que confirme que pretende retirar o membro do papel, selecione **Sim**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar a usar o Privileged Identity Management](pim-getting-started.md)
+- [Começar a utilizar o Privileged Identity Management](pim-getting-started.md)

@@ -4,10 +4,10 @@ description: Saiba como montar um volume vazio do Dir para partilhar dados entre
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77117751"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Monte um volume dir vazio em instâncias de contentores azure
@@ -35,7 +35,7 @@ O tamanho máximo de um volume *DeDir vazio* linux é de 50 GB.
 
 Para montar um volume Dir vazio numa instância de contentores, pode ser implantado utilizando um modelo de Gestor de [Recursos Azure,](/azure/templates/microsoft.containerinstance/containergroups)um [ficheiro YAML](container-instances-reference-yaml.md)ou outros métodos programáticos para implantar um grupo de contentores.
 
-Primeiro, povoe a matriz `volumes` no grupo de contentores `properties` secção do ficheiro. Em seguida, para cada recipiente do grupo de contentores em que você gostaria de montar o volume *vazio Dir,* povoar a matriz `volumeMounts` na secção `properties` da definição do recipiente.
+Primeiro, povoe a `volumes` matriz na secção do grupo `properties` de contentores do ficheiro. Em seguida, para cada recipiente do grupo de contentores em que `volumeMounts` deseja `properties` montar o volume vazio *do Dir,* povoe a matriz na secção da definição do recipiente.
 
 Por exemplo, o seguinte modelo de Gestor de Recursos cria um grupo de contentores composto por dois contentores, cada um dos quais monta o volume *vazio do Dir:*
 

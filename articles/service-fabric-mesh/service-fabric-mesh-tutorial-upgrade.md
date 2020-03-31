@@ -1,32 +1,32 @@
 ---
-title: Tutorial – atualizar um aplicativo de malha de Service Fabric do Azure
-description: Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo de malha de Service Fabric do Azure diretamente do Visual Studio.
+title: Tutorial- Atualizar uma aplicação de malha de tecido de serviço Azure
+description: Este tutorial é parte quatro de uma série e mostra-lhe como atualizar uma aplicação de Malha de Tecido de Serviço Azure diretamente do Estúdio Visual.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75351724"
 ---
-# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: saiba como atualizar um aplicativo Service Fabric usando o Visual Studio
+# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda a atualizar uma aplicação de Tecido de Serviço usando o Estúdio Visual
 
-Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo de malha de Service Fabric do Azure diretamente do Visual Studio. A atualização incluirá uma atualização de código e uma atualização de configuração. Você verá que as etapas para atualizar e publicar de dentro do Visual Studio são as mesmas.
+Este tutorial é parte quatro de uma série e mostra-lhe como atualizar uma aplicação de Malha de Tecido de Serviço Azure diretamente do Estúdio Visual. A atualização incluirá uma atualização de código e uma atualização de config. Verá que os passos para a modernização e publicação de dentro do Estúdio Visual são os mesmos.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Atualizar um serviço de malha Service Fabric usando o Visual Studio
+> * Atualize um serviço de malha de tecido de serviço utilizando o Estúdio Visual
 
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * [Criar uma aplicação do Service Fabric Mesh no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Depurar uma aplicação do Azure Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Depurar uma aplicação do Service Fabric Mesh em execução no seu cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Implementar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
-> * Atualizar um aplicativo de malha Service Fabric
+> * Atualizar uma aplicação do Service Fabric Mesh
 > * [Limpar os recursos do Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -37,35 +37,35 @@ Antes de começar este tutorial:
 
 * Se ainda não implementou a aplicação de tarefas pendentes, siga as instruções em [Publicar uma aplicação Web do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualizar um serviço de malha Service Fabric usando o Visual Studio
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Atualize um serviço de malha de tecido de serviço utilizando o Estúdio Visual
 
-Este artigo mostra como atualizar um microserviço em um aplicativo. Neste exemplo, modificaremos o serviço de `WebFrontEnd` para exibir uma categoria de tarefa e aumentar a quantidade de CPU fornecida. Em seguida, atualizaremos o serviço implantado.
+Este artigo mostra como atualizar um microserviço dentro de uma aplicação. Neste exemplo, vamos modificar `WebFrontEnd` o serviço para exibir uma categoria de tarefa e aumentar a quantidade de CPU que é dada. Depois atualizaremos o serviço.
 
-## <a name="modify-the-config"></a>Modificar a configuração
+## <a name="modify-the-config"></a>Modificar o config
 
-Quando você cria um aplicativo de malha Service Fabric, o Visual Studio adiciona um arquivo **Parameters. YAML** para cada ambiente de implantação (nuvem e local). Nesses arquivos, você pode definir parâmetros e seus valores que podem ser referenciados de seus arquivos de malha *. YAML, como Service. YAML ou Network. YAML.  O Visual Studio fornece algumas variáveis para você, como a quantidade de CPU que o serviço pode usar.
+Quando cria uma aplicação de malha de tecido de serviço, o estúdio Visual adiciona um ficheiro **parâmetros.yaml** para cada ambiente de implantação (cloud e local). Nestes ficheiros, pode definir parâmetros e seus valores que podem ser referenciados a partir dos seus ficheiros Mesh *.yaml, tais como service.yaml ou network.yaml.  O Visual Studio fornece algumas variáveis para si, como o cpU que o serviço pode usar.
 
-Atualizaremos o parâmetro `WebFrontEnd_cpu` para atualizar os recursos da CPU para `1.5` de previsão de que o serviço de **WebFrontEnd** será muito usado.
+Atualizaremos o `WebFrontEnd_cpu` parâmetro para atualizar os `1.5` recursos do CPU para antecipar que o serviço **WebFrontEnd** será mais fortemente utilizado.
 
-1. No projeto **apldelistadetarefas** , em **ambientes** > **nuvem**, abra o arquivo **Parameters. YAML** . Modifique o `WebFrontEnd_cpu`, o valor para `1.5`. O nome do parâmetro é precedido pelo nome do serviço `WebFrontEnd_` como uma prática recomendada para distingui-lo dos parâmetros do mesmo nome que se aplicam a diferentes serviços.
+1. **Cloud**No projeto **todolistapp,** no âmbito da Nuvem de **Ambientes,** > abra o ficheiro **parâmetros.yaml.** Modificar `WebFrontEnd_cpu`o valor `1.5`para . O nome do parâmetro é prefaciado com o nome `WebFrontEnd_` do serviço como uma melhor prática para distingui-lo de parâmetros com o mesmo nome que se aplicam a diferentes serviços.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Abra o arquivo **Service. YAML** do projeto de **WebFrontEnd** em **WebFrontEnd** > **recursos do serviço**.
+2. Abra o ficheiro **service.yaml** do projeto **WebFrontEnd** no âmbito dos**Recursos de Serviço** **WebFrontEnd** > .
 
-    Observe que, na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor de `'WebFrontEnd_cpu` será obtido dos **ambientes** > arquivo. YAML do **Cloud** > **parameters** e será `1.5`. Se o projeto estiver sendo criado para ser executado localmente, o valor será obtido dos **ambientes** > arquivo **local** > **Parameters. YAML** e será ' 0,5 '.
+    Note que `resources:` a `cpu:` secção in, está definida para `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver a ser construído `'WebFrontEnd_cpu` para a nuvem, o valor para será retirado do `1.5`arquivo de **parâmetros** > Da**Nuvem** > **ambiente.yaml,** e será . Se o projeto estiver a ser construído para funcionar localmente, > o valor será retirado do arquivo de **parâmetros locais** > **ambientes.yaml,** e será '0,5'.**Local**
 
 > [!Tip]
-> Por padrão, o arquivo de parâmetro que é um par do arquivo Profile. YAML será usado para fornecer os valores para esse arquivo Profile. YAML.
-> Por exemplo, ambientes > parâmetros de > de nuvem. YAML fornece os valores de parâmetro para ambientes > Cloud > Profile. YAML.
+> Por predefinição, o ficheiro de parâmetro sintetizador que é um par do ficheiro perfil.yaml será utilizado para fornecer os valores para esse ficheiro perfil.yaml.
+> Por exemplo, ambientes > cloud > parâmetros.yaml fornece os valores dos parâmetros para Ambientes > Cloud > perfil.yaml.
 >
-> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
+> Pode anular isto adicionando o seguinte ao ficheiro profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 
-Para introduzir uma alteração de código, adicione uma propriedade `Category` à classe `ToDoItem` no arquivo `ToDoItem.cs`.
+Para introduzir uma alteração `Category` de código, adicione uma propriedade à `ToDoItem` classe no `ToDoItem.cs` ficheiro.
 
 ```csharp
 public class ToDoItem
@@ -75,7 +75,7 @@ public class ToDoItem
 }
 ```
 
-Em seguida, atualize o método `Load()`, no mesmo arquivo, para definir a categoria como uma cadeia de caracteres padrão:
+Em seguida, atualize o `Load()` método, no mesmo ficheiro, para definir a categoria para uma cadeia predefinida:
 
 ```csharp
 public static ToDoItem Load(string description, int index, bool completed)
@@ -93,7 +93,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="modify-the-service"></a>Modificar o serviço
 
-O projeto `WebFrontEnd` é um aplicativo ASP.NET Core com uma página da Web que mostra itens de lista de tarefas pendentes. No projeto `WebFrontEnd`, abra `Index.cshtml` e adicione as duas linhas a seguir, indicadas abaixo, para exibir a categoria da tarefa:
+O `WebFrontEnd` projeto é uma aplicação ASP.NET Core com uma página web que mostra itens de lista de afazeres. No `WebFrontEnd` projeto, `Index.cshtml` abra e adicione as seguintes duas linhas, indicadas abaixo, para exibir a categoria da tarefa:
 
 ```HTML
 <div>
@@ -119,43 +119,43 @@ O projeto `WebFrontEnd` é um aplicativo ASP.NET Core com uma página da Web que
 </div>
 ```
 
-Crie e execute o aplicativo para verificar se você vê uma nova coluna de categoria na página da Web que lista as tarefas.
+Construa e execute a aplicação para verificar se vê uma nova coluna de categoria na página web que lista as tarefas.
 
-## <a name="upgrade-the-app-from-visual-studio"></a>Atualizar o aplicativo do Visual Studio
+## <a name="upgrade-the-app-from-visual-studio"></a>Atualize a aplicação do Estúdio Visual
 
-Se você estiver fazendo uma atualização de código ou uma atualização de configuração (neste caso, estamos fazendo as duas), atualize seu aplicativo de malha Service Fabric no Azure clicando com o botão direito do mouse em **apldelistadetarefas** no Visual Studio e, em seguida, selecione **publicar...**
+Quer esteja a fazer uma atualização de código, ou uma atualização de config (neste caso estamos a fazer as duas coisas), atualize a sua aplicação de malha de tecido de serviço no Azure clicando no **todolistapp** no Visual Studio e, em seguida, selecione **Publish...**
 
 Em seguida, verá a caixa de diálogo **Publish Service Fabric Application** (Publicar Aplicação do Service Fabric).
 
-Use o menu suspenso **perfil de destino** para selecionar o arquivo Profile. YAML a ser usado para essa implantação. Estamos atualizando o aplicativo na nuvem, portanto, selecionamos o **Cloud. YAML** na lista suspensa, que usará o valor `WebFrontEnd_cpu` de 1,0 definido nesse arquivo.
+Utilize a queda do **perfil Target** para selecionar o ficheiro profile.yaml para utilizar para esta implementação. Estamos a atualizar a aplicação na nuvem para selecionarmos a **nuvem.yaml** `WebFrontEnd_cpu` no dropdown, que utilizará o valor de 1.0 definido nesse ficheiro.
 
 ![Caixa de diálogo de publicação do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Selecione a conta e a subscrição do Azure. Defina o **local** para o local que você usou quando publicou originalmente o aplicativo de tarefas pendentes no Azure. Este artigo usou o **leste dos EUA**.
+Selecione a conta e a subscrição do Azure. Detete a **Localização** para o local que usou quando publicou originalmente a app de afazer para o Azure. Este artigo usou **os EUA Orientais.**
 
-Defina o **grupo de recursos** para o grupo de recursos que você usou quando publicou originalmente o aplicativo de tarefas pendentes no Azure.
+Desloque o **grupo de recursos** para o grupo de recursos que usou quando publicou originalmente a app de fazer para o Azure.
 
-Defina o **registro de contêiner do Azure** para o nome do registro de contêiner do Azure que você criou quando publicou originalmente o aplicativo de tarefas pendentes no Azure.
+Dete tese de registo de **contentores Azure** para o nome de registo de contentores azul que criou quando publicou originalmente a app de fazer para o Azure.
 
-Na caixa de diálogo publicar, pressione o botão **publicar** para atualizar o aplicativo de tarefas pendentes no Azure.
+No diálogo de publicação, prima o botão **Publicar** para atualizar a aplicação a fazer no Azure.
 
-Monitore o progresso da atualização selecionando o painel de **Ferramentas do Service Fabric** na janela de **saída** do Visual Studio. 
+Monitorize o progresso da atualização selecionando o painel de **ferramentas** de tecido de serviço na janela **De saída** do Estúdio Visual. 
 
-Depois que a imagem for criada e enviada por push ao registro de contêiner do Azure, um link **para status** será exibido na saída na qual você pode clicar para monitorar a implantação no portal do Azure.
+Depois de a imagem ser construída e empurrada para **For status** o Registo de Contentores Azure, aparecerá na saída a saída que pode clicar para monitorizar a implantação no portal Azure.
 
-Depois que a atualização for concluída, o **Ferramentas do Service Fabric** saída exibirá o endereço IP e a porta do seu aplicativo na forma de uma URL.
+Uma vez concluída a atualização, a saída de **Ferramentas** de Tecido de Serviço apresentará o endereço IP e a porta da sua aplicação sob a forma de um URL.
 
 ```json
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
-Abra um browser e navegue para o URL para ver o site em execução no Azure. Agora você deve ver uma página da Web que contém uma coluna de categoria.
+Abra um browser e navegue para o URL para ver o site em execução no Azure. Deve agora ver uma página web que contenha uma coluna de categoria.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]
-> * Como atualizar um aplicativo de malha Service Fabric usando o Visual Studio
+> * Como atualizar uma aplicação de malha de tecido de serviço utilizando o Visual Studio
 
 Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]

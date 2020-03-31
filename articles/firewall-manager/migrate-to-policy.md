@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443113"
 ---
 # <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>As configurações da Firewall Migrate Azure para a política de Firewall Azure (pré-visualização) utilizando powershell
@@ -20,7 +20,7 @@ ms.locfileid: "77443113"
 
 Pode utilizar um script Azure PowerShell para migrar as configurações existentes do Azure Firewall para um recurso de política Azure Firewall. Em seguida, pode utilizar o Azure Firewall Manager para implementar a apólice.
 
-O `AZFWMigrationScript.ps1` script cria uma FirewallPolicy com três objetos RuleCollectionGroup para ApplicationRuleCollections, NetworkRuleCollections e NatRuleCollections respectivamente. 
+O `AZFWMigrationScript.ps1` script cria uma FirewallPolicy com três objetos RuleCollectionGroup para ApplicationRuleCollections, NetworkRuleCollections e NatRuleCollections, respectivamente. 
 
 Um RuleCollectionGroup é um novo agrupamento de alto nível para coleções de regras para futuras extensibilitys. Recomenda-se a utilização dos predefinições acima referidos e é feito automaticamente a partir do Portal.
 

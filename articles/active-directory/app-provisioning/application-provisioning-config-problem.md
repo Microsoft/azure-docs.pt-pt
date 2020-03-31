@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3955b96e4a7edfc79a229d927523bdd4473409d4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522769"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração do fornecimento de utilizadores a uma aplicação da Galeria AD Azure
@@ -33,9 +33,9 @@ Deve sempre começar por encontrar o tutorial de configuração específico para
 
 Uma vez configurado o serviço, a maioria dos conhecimentos sobre o funcionamento do serviço podem ser retirados de dois locais:
 
--   **Registos de fornecimento (pré-visualização)** – Os [registos](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de fornecimento registam todas as operações efetuadas pelo serviço de provisionamento, incluindo a consulta da Azure AD para utilizadores designados que estejam no âmbito do provisionamento. Consultar a aplicação-alvo para a existência desses utilizadores, comparando os objetos de utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema alvo com base na comparação. Pode aceder aos registos de fornecimento no portal Azure selecionando o **Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.**
+-   **Registos de fornecimento (pré-visualização)** – Os [registos](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de fornecimento registam todas as operações efetuadas pelo serviço de provisionamento, incluindo a consulta da Azure AD para utilizadores designados que estejam no âmbito do provisionamento. Consultar a aplicação-alvo para a existência desses utilizadores, comparando os objetos de utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema alvo com base na comparação. Pode aceder aos registos de fornecimento no portal Azure selecionando registos de provisionamento de &gt; **aplicações** &gt; de **diretório ativo azure** **(pré-visualização)** na secção **Atividade.**
 
--   **Estado atual –** Um resumo da última execução de provisionamento para uma determinada aplicação pode ser visto no **Azure Ative Directory &gt; Enterprise Apps &gt; \[Nome** de aplicação\] &gt;secção de provisionamento, na parte inferior do ecrã sob as definições de serviço. A secção Estado Atual mostra se um ciclo de provisionamento começou a fornecer contas de utilizador. Pode ver o progresso do ciclo, ver quantos utilizadores e grupos foram aprovisionados, e ver quantas funções são criadas. Se houver algum erro, os detalhes podem ser encontrados nos [registos de provisionamento (.. /reports-monitoring/concept-provisioning-logs.md?context=azure/active-directório/manage-apps/context/manage-apps-context/manage-apps-context).
+-   **Estado atual –** Um resumo da última execução de provisionamento para uma determinada aplicação pode ser visto na secção de fornecimento de ** &gt; nomes &gt; \[\] &gt;** de aplicações de aplicações de aplicações de aplicações de aplicações de aplicações de aplicações de diretório ativo azure, na parte inferior do ecrã sob as definições de serviço. A secção Estado Atual mostra se um ciclo de provisionamento começou a fornecer contas de utilizador. Pode ver o progresso do ciclo, ver quantos utilizadores e grupos foram aprovisionados, e ver quantas funções são criadas. Se houver algum erro, os detalhes podem ser encontrados nos [registos de provisionamento (.. /reports-monitoring/concept-provisioning-logs.md?context=azure/active-directório/manage-apps/context/manage-apps-context/manage-apps-context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas problemáticas gerais com disposição a considerar
 
@@ -47,7 +47,7 @@ Abaixo está uma lista das áreas problemáticas gerais que você pode perfurar 
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>O serviço de provisionamento não parece ter começado
 
-Se definir o Estatuto de **Provisionamento** para estar **ligado** no **Diretório Ativo Do Azure &gt; Aplicações empresariais &gt; \[nome** de aplicação\] &gt;secção de provisionamento do portal Azure. No entanto, não são apresentados outros detalhes do estado nessa página após as recargas subsequentes. É provável que o serviço esteja em execução, mas ainda não tenha concluído um ciclo inicial. Verifique os **registos de provisionamento** acima descritos para determinar que operações o serviço está a executar e se existem erros.
+Se definir o Estatuto de **Provisionamento** para estar **ligado** na secção de fornecimento de nomes ** &gt; &gt; \[\] &gt;** de aplicações de aplicações de aplicações de diretório ativo Azure do portal Azure. No entanto, não são apresentados outros detalhes do estado nessa página após as recargas subsequentes. É provável que o serviço esteja em execução, mas ainda não tenha concluído um ciclo inicial. Verifique os **registos de provisionamento** acima descritos para determinar que operações o serviço está a executar e se existem erros.
 
 >[!NOTE]
 >Um ciclo inicial pode demorar entre 20 minutos e várias horas, dependendo da dimensão do diretório Azure AD e do número de utilizadores no âmbito do provisionamento. As sincronizações subsequentes após o ciclo inicial são mais rápidas, uma vez que o serviço de fornecimento armazena marcas de água que representam o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho das sincronizações subsequentes.
@@ -71,4 +71,4 @@ Quando um utilizador aparece como "ignorado" nos registos de fornecimento, é mu
   * **Atribuim mapeamentos para grupos:** Fornecimento do nome do grupo e dos detalhes do grupo, para além dos membros, se apoiados em algumas candidaturas. Pode ativar ou desativar esta funcionalidade, permitindo ou desativando o **Mapeamento** para objetos de grupo mostrados no separador **Provisioning.** Se os grupos de aprovisionamento estiverem ativados, certifique-se de rever os mapeamentos do atributo para garantir que está a ser utilizado um campo adequado para o "ID correspondente". Este pode ser o nome de exibição ou pseudónimo de e-mail), uma vez que o grupo e os seus membros não são provisionados se a propriedade correspondente estiver vazia ou não povoada para um grupo em Azure AD.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
+[Automatizar o fornecimento e o deprovisionamento de utilizadores às aplicações SaaS com diretório ativo Azure](user-provisioning.md)

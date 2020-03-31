@@ -1,23 +1,23 @@
 ---
-title: Recomendações de desempenho-banco de dados do Azure para MariaDB
-description: Este artigo descreve o recurso de recomendação de desempenho no banco de dados do Azure para MariaDB
+title: Recomendações de desempenho - Base de Dados Azure para MariaDB
+description: Este artigo descreve a funcionalidade de Recomendação de Desempenho na Base de Dados Azure para MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 57d801177233c18db6d41d52add0e5ad862b3d87
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 838a4123bd5007f987f27674862409445967a2d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772548"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528103"
 ---
-# <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendações de desempenho no banco de dados do Azure para MariaDB
+# <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendações de Desempenho no Azure Database for MariaDB
 
-**Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
+**Aplica-se a:** Base de Dados Azure para MariaDB 10.2
 
-O recurso de recomendações de desempenho analisa seus bancos de dados para criar sugestões personalizadas para melhorar o desempenho. Para produzir as recomendações, a análise examina várias características do banco de dados, incluindo o esquema. Habilite [repositório de consultas](concepts-query-store.md) no seu servidor para utilizar totalmente o recurso de recomendações de desempenho. Se o esquema de desempenho estiver desativado, ativar Repositório de Consultas habilita performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para o recurso. Depois de implementar qualquer recomendação de desempenho, você deve testar o desempenho para avaliar o impacto dessas alterações.
+A funcionalidade De Recomendações de Desempenho analisa as suas bases de dados para criar sugestões personalizadas para um melhor desempenho. Para produzir as recomendações, a análise analisa várias características da base de dados, incluindo o esquema. Ative a [Consulta Store](concepts-query-store.md) no seu servidor para utilizar totalmente a funcionalidade Desativação de Desempenho. Se o esquema de desempenho estiver DESLIGADO, ligar a Consulta Store permite performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para a funcionalidade. Após a implementação de qualquer recomendação de desempenho, deve testar o desempenho para avaliar o impacto dessas alterações.
 
 ## <a name="permissions"></a>Permissões
 
@@ -27,26 +27,26 @@ As permissões **Proprietário** ou **Contribuidor** necessárias para executar 
 
 A funcionalidade [Recomendações de Desempenho](concepts-performance-recommendations.md) analisa as cargas de trabalho no servidor para identificar índices com o potencial de melhorar o desempenho.
 
-Abra **recomendações de desempenho** na seção de **desempenho inteligente** da barra de menus na página de portal do Azure para seu servidor do MariaDB.
+Open **Performance Recomendações** da secção **de Desempenho Inteligente** da barra de menus na página do portal Azure para o seu servidor MariaDB.
 
 ![Página de destino das Recomendações de Desempenho](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Selecione **analisar** e escolha um banco de dados, que iniciará a análise. Dependendo de sua carga de trabalho, a análise pode levar vários minutos para ser concluída. Quando a análise estiver concluída, será apresentada uma notificação no portal. A análise executa um exame profundo do seu banco de dados. Recomendamos que você execute a análise fora dos períodos de pico.
+Selecione **Analisar** e escolher uma base de dados, que começará a análise. Dependendo da sua carga de trabalho, a análise pode demorar vários minutos a ser concluída. Quando a análise estiver concluída, será apresentada uma notificação no portal. A análise é feita na sua base de dados. Recomendamos que efetue análises durante períodos fora do pico.
 
-A janela **recomendações** mostrará uma lista de recomendações, se forem encontradas e a ID de consulta relacionada que gerou essa recomendação. Com a ID de consulta, você pode usar o modo de exibição [MySQL. query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
+A janela **de recomendações** mostrará uma lista de recomendações se alguma foi encontrada e a identificação de consulta relacionada que gerou esta recomendação. Com a identificação da consulta, você pode usar a visão [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
 
-![Página de recomendações de desempenho nova](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+![Recomendações de Desempenho nova página](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto da consulta e execute-o do seu cliente de sua escolha. Lembre-se de testar e monitorar para avaliar a recomendação.
+As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto de consulta e execute-o a partir do seu cliente de eleição. Lembre-se de testar e monitorizar para avaliar a recomendação.
 
 ## <a name="recommendation-types"></a>Tipos de recomendação
 
-Atualmente, há suporte apenas para criar recomendações de *índice* .
+Atualmente, apenas são apoiadas recomendações do *Create Index.*
 
-### <a name="create-index-recommendations"></a>Criar recomendações de índice
+### <a name="create-index-recommendations"></a>Criar recomendações do Índice
 
-*Criar* recomendações de índice sugerem novos índices para acelerar a execução com mais frequência ou as consultas demoradas na carga de trabalho. Este tipo de recomendação requer que [repositório de consultas](concepts-query-store.md) seja habilitado. Repositório de Consultas coleta informações de consulta e fornece as estatísticas detalhadas de tempo de execução de consulta e frequência que a análise usa para fazer a recomendação.
+*As* recomendações do Create Index sugerem novos índices para acelerar as consultas mais frequentes ou demoradas na carga de trabalho. Este tipo de recomendação requer que a [Consulta Store](concepts-query-store.md) seja ativada. A Consulta Store recolhe informações de consulta e fornece as estatísticas detalhadas de tempo de execução e frequência que a análise utiliza para fazer a recomendação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MariaDB.
+- Saiba mais sobre [monitorização e sintonização](concepts-monitoring.md) na Base de Dados Azure para MariaDB.

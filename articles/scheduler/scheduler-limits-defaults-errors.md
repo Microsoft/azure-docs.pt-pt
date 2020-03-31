@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898533"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites, quotas e limites de aceleração no Programador Azure
@@ -37,7 +37,7 @@ Todos os pedidos feitos contra o serviço Scheduler devolvem um cabeçalho de re
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Planos e faturação para O Scheduler Azure](scheduler-plans-billing.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
-* [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)

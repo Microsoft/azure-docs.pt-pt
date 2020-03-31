@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256799"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para um site secundário
@@ -25,7 +25,7 @@ Este artigo resume o que é suportado quando utiliza o serviço de recuperação
 > [!NOTE]
 > A replicação de VMware VMs no local e servidores físicos é fornecida pela InMage Scout. O InMage Scout está incluído na subscrição do serviço de recuperação do site Azure.
 
-## <a name="end-of-support-announcement"></a>Anúncio de fim de apoio
+## <a name="end-of-support-announcement"></a>Anúncio do fim do suporte
 O cenário de recuperação do site para replicação entre VMware no local ou datacenters físicos está a atingir o fim do suporte.
 
 - A partir de agosto de 2018, o cenário não pode ser configurado no cofre dos Serviços de Recuperação, e o software InMage Scout não pode ser descarregado do cofre. As missões existentes serão apoiadas.
@@ -39,7 +39,7 @@ Os parceiros existentes podem embarcar novos clientes para o cenário até que o
 
 ## <a name="host-servers"></a>Servidores de anfitriões
 
-**Sistema operativo** | **Detalhes**
+**Sistema Operativo** | **Detalhes**
 --- | ---
 vCenter Server | vCenter 5.5, 6.0 e 6.5<br/><br/> Se executar 6.0 ou 6.5, note que apenas 5.5 funcionalidades são suportadas.
 
@@ -48,7 +48,7 @@ vCenter Server | vCenter 5.5, 6.0 e 6.5<br/><br/> Se executar 6.0 ou 6.5, note q
 
 A tabela que se segue resume o suporte do sistema operativo para máquinas replicadas com a Recuperação do Local. Qualquer carga de trabalho pode estar a funcionar no sistema operativo suportado.
 
-**Sistema operativo** | **Detalhes**
+**Sistema Operativo** | **Detalhes**
 --- | ---
 Windows Server | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1.
 Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 executando o kernel compatível com o Chapéu Vermelho, ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
@@ -66,12 +66,12 @@ Só podem ser replicadas máquinas Linux com o seguinte armazenamento:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração da rede - Host/Guest VM
 
-**Configuração** | **Suportado**  
+**Configuração** | **Apoiado**  
 --- | --- 
 Anfitrião - Equipa NIC | Sim 
 Anfitrião - VLAN | Sim 
 Anfitrião - IPv4 | Sim 
-Host - IPv6 | Não 
+Anfitrião - IPv6 | Não 
 Guest VM - EQUIPA NIC | Não
 Guest VM - IPv4 | Sim
 Guest VM - IPv6 | Não
@@ -79,11 +79,11 @@ VM convidado - Windows/Linux - Endereço IP estático | Sim
 VM convidado - Multi-NIC | Sim
 
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Armazenamento de hospedeiro
 
-**Armazenamento (hospedeiro)** | **Suportado** 
+**Armazenamento (hospedeiro)** | **Apoiado** 
 --- | --- 
 NFS | Sim 
 SMB 3.0 | N/D 
@@ -92,7 +92,7 @@ Multi-caminho (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidores de hóspedes ou físicos
 
-**Configuração** | **Suportado** 
+**Configuração** | **Apoiado** 
 --- | --- 
 VMDK | Sim 
 VHD/VHDX | N/D 
@@ -112,7 +112,7 @@ Multi-caminho (MPIO) | N/D
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportado** 
+**Ação** | **Apoiado** 
 --- | --- 
 Mover cofres através de grupos de recursos (dentro ou através de subscrições) | Não 
 Movimentar armazenamento, rede, VMs Azure através de grupos de recursos (dentro ou em todas as subscrições) | Não 
@@ -121,7 +121,7 @@ Movimentar armazenamento, rede, VMs Azure através de grupos de recursos (dentro
 
 O serviço mobility coordena a replicação entre servidores VMware no local ou servidores físicos, e o site secundário. Ao configurar a replicação, deve certificar-se de que tem a versão mais recente do serviço mobility e de outros componentes.
 
-| **Atualizar** | **Detalhes** |
+| **Atualização** | **Detalhes** |
 | --- | --- |
 |Atualizações de escuteiros | As atualizações dos escuteiros são cumulativas. <br/><br/> [Saiba e descarregue](vmware-physical-secondary-disaster-recovery.md#updates) as últimas atualizações de Scout |
 |Atualizações de componentes | As atualizações de scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidor de processos e servidores-alvo principais, servidores vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
@@ -132,4 +132,4 @@ O serviço mobility coordena a replicação entre servidores VMware no local ou 
 Descarregue o guia de [utilizador do InMage Scout](https://aka.ms/asr-scout-user-guide)
 
 - [Replicar VMs hiper-V em nuvens vmm para um local secundário](tutorial-vmm-to-vmm.md)
-- [Replicar VMs VMware e servidores físicos para um site secundário](tutorial-vmware-to-vmware.md)
+- [Replicar VMs do VMware e servidores físicos para um site secundário](tutorial-vmware-to-vmware.md)

@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: d0f96fe758966a435f8fb8e448e75cbb18b85122
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604522"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar encriptação de disco no Centro de Segurança Azure
-O Azure Security Center recomenda que aplique encriptação de disco se tiver discos Windows ou Linux VM que não sejam encriptados utilizando encriptação do disco Azure. A Encriptação do Disco permite-lhe encriptar os discos VM Do Windows e do Linux IaaS.  A encriptação é recomendada para o SO e os volumes de dados na sua VM.
+O Centro de Segurança do Azure recomenda que aplique a encriptação dos discos se possuir discos da VM do Windows ou do Linux que não estão encriptados com o Azure Disk Encryption. O Disk Encryption permite-lhe encriptar os discos da VM IaaS do Windows e do Linux.  A encriptação é recomendada para o SO e os volumes de dados na sua VM.
 
 A Encriptação do Disco utiliza a funcionalidade [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão da indústria do Windows e a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux. Estas funcionalidades fornecem os sistemas operativos e encriptação de dados para ajudar a proteger e salvaguardar os seus dados e cumprir os seus compromissos de segurança organizacional e conformidade. A encriptação do disco está integrada com o [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do Key Vault, garantindo ao mesmo tempo que todos os dados dos discos VM estão encriptados em repouso no seu [Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/).
 
@@ -57,7 +57,7 @@ Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * Definir políticas de segurança no Centro de [Segurança Azure.](tutorial-security-policy.md)
 * [Monitorização](security-center-monitoring.md) de saúde de segurança no Centro de Segurança Azure.- Aprenda a monitorizar a saúde dos seus recursos Azure.
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
+* [Gerir e responder a alertas](security-center-managing-and-responding-alerts.md) de segurança no Centro de Segurança Azure -- Aprenda a gerir e responder a alertas de segurança.
 * [Gerir recomendações](security-center-recommendations.md) de segurança no Azure Security Center -- Saiba como as recomendações ajudam a proteger os seus recursos Azure.
 * [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) -- Encontre posts de blog sobre segurança e conformidade do Azure.
 

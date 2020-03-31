@@ -3,19 +3,20 @@ title: Ativar a autenticação de Diretório Ativo sobre SMB para Ficheiros Azur
 description: Saiba como permitir a autenticação baseada na identidade sobre sMB para ações de ficheiros Azure através do Ative Directory. As máquinas virtuais do Windows (VMs) podem aceder às partilhas de ficheiros Azure utilizando credenciais AD.
 author: roygara
 ms.service: storage
+ms.subservice: files
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/24/2020
 ms.author: rogarana
-ms.openlocfilehash: d9d2e06cc3beae8a7bb8ea1b4eee15fb1641ddd4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: MT
+ms.openlocfilehash: deead728812a34c6f432f59666cd22ba79f5409e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255226"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281294"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure
 
-[O Azure Files](storage-files-introduction.md) suporta a autenticação baseada na identidade através do Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: Serviços de Domínio de Diretório Ativo Azure (Azure AD DS) (GA) e Diretório Ativo (AD) (pré-visualização). Este artigo centra-se no suporte recém-introduzido (pré-visualização) de alavancagem do Ative Directory Domain Service para autenticação em ações de ficheiros Azure. Se estiver interessado em permitir a autenticação azure AD DS (GA) para ações de ficheiros Azure, consulte [o nosso artigo sobre o assunto](storage-files-identity-auth-active-directory-domain-service-enable.md).
+[O Azure Files](storage-files-introduction.md) suporta a autenticação baseada na identidade através do Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: Serviços de Domínio ativo azure (Azure AD DS) (GA) e Ative Directory (AD) (pré-visualização). Este artigo centra-se no suporte recém-introduzido (pré-visualização) de alavancagem do Ative Directory Domain Service para autenticação em ações de ficheiros Azure. Se estiver interessado em permitir a autenticação azure AD DS (GA) para ações de ficheiros Azure, consulte [o nosso artigo sobre o assunto](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 > [!NOTE]
 > As partilhas de ficheiros Azure apenas suportam a autenticação contra um serviço de domínio, quer o Azure Ative Directory Domain Service (Azure AD DS) quer o Ative Directory (AD). 
@@ -69,7 +70,7 @@ A autenticação ad files Azure não está disponível em:
 - E.U.A.Oeste 2
 - E.U.A. Leste
 - E.U.A. Leste 2
-- Europa Ocidental
+- Europa ocidental
 - Europa do Norte
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
@@ -98,9 +99,9 @@ O diagrama que se segue ilustra o fluxo de trabalho de ponta a ponta para permit
 Para permitir a autenticação de AD sobre SMB para ações de ficheiroS Azure, tem de registar primeiro a sua conta de armazenamento com AD e, em seguida, definir as propriedades de domínio exigidas na conta de armazenamento. Quando a funcionalidade está ativada na conta de armazenamento, aplica-se a todas as novas e existentes ações de ficheiros na conta. Utilize `join-AzStorageAccountForAuth` para ativar a funcionalidade. Pode encontrar a descrição detalhada do fluxo de trabalho de ponta a ponta na secção abaixo. 
 
 > [!IMPORTANT]
-> O `join-AzStorageAccountForAuth` cmdlet fará modificações no seu ambiente ad. Leia a seguinte explicação para entender melhor o que está a fazer para garantir que tem as permissões adequadas para executar o comando e que as alterações aplicadas estão alinhadas com as políticas de conformidade e segurança. 
+> O `Join-AzStorageAccountForAuth` cmdlet irá fazer modificações no seu ambiente aD. Leia a seguinte explicação para entender melhor o que está a fazer para garantir que tem as permissões adequadas para executar o comando e que as alterações aplicadas estão alinhadas com as políticas de conformidade e segurança. 
 
-O `join-AzStorageAccountForAuth` cmdlet executará o equivalente a um domínio offline juntar-se-á em nome da conta de armazenamento indicada. Criará uma conta no seu domínio AD, seja uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) ou uma conta de [logon](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)de serviço . A conta AD criada representa a conta de armazenamento no domínio AD. Se a conta AD for criada ao abrigo de uma Unidade Organizacional AD (OU) que aplique a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação ao aceder a ações de ficheiros do Azure. Para saber como atualizar a palavra-passe, consulte a [palavra-passe](#update-ad-account-password)da conta AD atualizada .
+O `Join-AzStorageAccountForAuth` cmdlet realizará o equivalente a um domínio offline em nome da conta de armazenamento indicada. Criará uma conta no seu domínio AD, seja uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) ou uma conta de [logon](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts)de serviço . A conta AD criada representa a conta de armazenamento no domínio AD. Se a conta AD for criada ao abrigo de uma Unidade Organizacional AD (OU) que aplique a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação ao aceder a ações de ficheiros do Azure. Para saber como atualizar a palavra-passe, consulte a [palavra-passe](#update-ad-account-password)da conta AD atualizada .
 
 Pode utilizar o seguinte script para efetuar o registo e ativar a funcionalidade ou, em alternativa, pode executar manualmente as operações que o script faria. Estas operações são descritas na secção que segue o guião. Não precisas de fazer as duas coisas.
 
@@ -110,18 +111,18 @@ Pode utilizar o seguinte script para efetuar o registo e ativar a funcionalidade
 -  Execute o script usando uma credencial de AD que esteja sincronizada com o seu Anúncio Azure. A credencial aD deve ter o proprietário da conta de armazenamento ou as permissões de funções rBAC contributivas.
 - Certifique-se de que a sua conta de armazenamento se encontra numa [região apoiada.](#regional-availability)
 
-### <a name="2-execute-ad-enablement-script"></a>2. Executar script de habilitação aD
+### <a name="2-domain-join-your-storage-account"></a>2. Domínio junte-se à sua conta de armazenamento
 Lembre-se de substituir os valores do espaço reservado por si próprio nos parâmetros abaixo antes de executá-lo no PowerShell.
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Currentuser
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
 #Import AzFilesHybrid module
-Import-Module -name AzFilesHybrid
+Import-Module -Name AzFilesHybrid
 
 #Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
 Connect-AzAccount
@@ -129,15 +130,19 @@ Connect-AzAccount
 #Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
-#Register the target storage account with your active directory environment under the target OU (for example: "OU=ComputersOU,DC=prod,DC=corp,DC=contoso,DC=com")
-#You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
+# Register the target storage account with your active directory environment under the target OU (for example: "OU=ComputersOU,DC=prod,DC=corp,DC=contoso,DC=com")
+# You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+Join-AzStorageAccountForAuth `
+        -ResourceGroupName "<resource-group-name-here>" `
+        -Name "<storage-account-name-here>" `
+        -DomainAccountType "ComputerAccount" `
+        -OrganizationalUnitName "<ou-name-here>"
 ```
 
-A seguinte descrição resume todas as ações realizadas quando o `join-AzStorageAccountForAuth` cmdlet é executado. Pode executar estes passos manualmente, se preferir não utilizar o comando:
+A seguinte descrição resume todas `Join-AzStorageAccountForAuth` as ações realizadas quando o cmdlet é executado. Pode executar estes passos manualmente, se preferir não utilizar o comando:
 
 > [!NOTE]
-> Se já executou o script join-AzStorageAccountForAuth acima com sucesso, vá para a secção seguinte "3. Confirme que a funcionalidade está ativada". Não precisa de realizar as operações abaixo novamente.
+> Se já executou `Join-AzStorageAccountForAuth` o guião acima com sucesso, vá para a secção seguinte "3. Confirme que a funcionalidade está ativada". Não precisa de realizar as operações abaixo novamente.
 
 #### <a name="a-checking-environment"></a>a. Ambiente de verificação
 
@@ -145,7 +150,7 @@ Primeiro, verifica o seu ambiente. Especificamente, verifica se o [Ative Directo
 
 #### <a name="b-creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>b. Criar uma identidade que represente a conta de armazenamento no seu AD manualmente
 
-Para criar esta conta manualmente, crie uma nova chave kerberos para a sua conta de armazenamento utilizando `New-AzStorageAccountKey -KeyName kerb1`. Em seguida, use a chave kerberos como senha para a sua conta. Esta chave só é utilizada durante a configuração e não pode ser utilizada para qualquer controlo ou operações de plano de dados contra a conta de armazenamento.
+Para criar esta conta manualmente, crie uma nova `New-AzStorageAccountKey -KeyName kerb1`chave kerberos para a sua conta de armazenamento utilizando . Em seguida, use a chave kerberos como senha para a sua conta. Esta chave só é utilizada durante a configuração e não pode ser utilizada para qualquer controlo ou operações de plano de dados contra a conta de armazenamento.
 
 Assim que tiver essa chave, crie uma conta de serviço ou de computador sob a sua OU. Utilize a seguinte especificação: SPN: "cifs/your-storage-account-name-here.file.windows.net" Palavra-passe: Tecla Kerberos para a sua conta de armazenamento.
 
@@ -158,9 +163,17 @@ Mantenha o SID da conta recém-criada, vai precisar dele para o próximo passo. 
 O script permitiria então a funcionalidade na sua conta de armazenamento. Para efetuar esta configuração manualmente, forneça alguns detalhes de configuração para as propriedades de domínio no comando seguinte e, em seguida, execute-a. A conta de armazenamento SID necessária no seguinte comando é o SID da identidade que criou em AD (secção b acima).
 
 ```PowerShell
-#Set the feature flag on the target storage account and provide the required AD domain information
-
-Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>" -EnableActiveDirectoryDomainServicesForFile $true -ActiveDirectoryDomainName "<your-domain-name-here>" -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" -ActiveDirectoryForestName "<your-forest-name-here>" -ActiveDirectoryDomainGuid "<your-guid-here>" -ActiveDirectoryDomainsid "<your-domain-sid-here>" -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
+# Set the feature flag on the target storage account and provide the required AD domain information
+Set-AzStorageAccount `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -Name "<your-storage-account-name-here>" `
+        -EnableActiveDirectoryDomainServicesForFile $true `
+        -ActiveDirectoryDomainName "<your-domain-name-here>" `
+        -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" `
+        -ActiveDirectoryForestName "<your-forest-name-here>" `
+        -ActiveDirectoryDomainGuid "<your-guid-here>" `
+        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
+        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
 ```
 
 
@@ -169,13 +182,15 @@ Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name 
 Pode verificar se a funcionalidade está ativada na sua conta de armazenamento, pode utilizar o seguinte script:
 
 ```PowerShell
-#Get the target storage account
-$storageaccount = Get-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>"
+# Get the target storage account
+$storageaccount = Get-AzStorageAccount `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -Name "<your-storage-account-name-here>"
 
-#List the directory service of the selected service account
+# List the directory service of the selected service account
 $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 
-#List the directory domain information if the storage account has enabled AD authentication for file shares
+# List the directory domain information if the storage account has enabled AD authentication for file shares
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
@@ -189,11 +204,14 @@ Agora permitiu a autenticação de AD com sucesso em SMB e atribuiu uma função
 
 Se registou a identidade/conta AD que representa a sua conta de armazenamento num OU que aplique o tempo de validade da palavra-passe, deve rodar a palavra-passe antes da idade máxima da senha. A não atualização da palavra-passe da conta AD resultará em falhas de autenticação no acesso a ações de ficheiros DoIe.  
 
-Para desencadear a rotação da palavra-passe, pode executar o comando `Update-AzStorageAccountADObjectPassword` a partir do módulo AzFilesHybrid. O cmdlet executa ações semelhantes à rotação da chave da conta de armazenamento. Obtém a segunda chave Kerberos da conta de armazenamento e usa-a para atualizar a palavra-passe da conta registada em AD. Em seguida, regenera a chave kerberos alvo da conta de armazenamento e atualiza a palavra-passe da conta registada em AD. Você deve executar este cmdlet em um ambiente adesificado de domínio AD.
+Para desencadear a rotação da `Update-AzStorageAccountADObjectPassword` palavra-passe, pode executar o comando a partir do módulo AzFilesHybrid. O cmdlet executa ações semelhantes à rotação da chave da conta de armazenamento. Obtém a segunda chave Kerberos da conta de armazenamento e usa-a para atualizar a palavra-passe da conta registada em AD. Em seguida, regenera a chave kerberos alvo da conta de armazenamento e atualiza a palavra-passe da conta registada em AD. Você deve executar este cmdlet em um ambiente adesificado de domínio AD.
 
 ```PowerShell
 #Update the password of the AD account registered for the storage account
-Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
+Update-AzStorageAccountADObjectPassword `
+        -RotateToKerbKey kerb2 `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -StorageAccountName "<your-storage-account-name-here>"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

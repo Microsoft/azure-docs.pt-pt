@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
 ms.openlocfilehash: f700b06e6ade0d72178777b67cb734f3120b36dc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240192"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construa uma aplicação .NET Framework ou Core utilizando a conta API Azure Cosmos DB Gremlin
@@ -21,8 +21,8 @@ ms.locfileid: "79240192"
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [python](create-graph-python.md)
+> * [Nó.js](create-graph-nodejs.md)
+> * [Pitão](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
@@ -91,11 +91,11 @@ Os seguintes fragmentos são retirados do ficheiro Program.cs.
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineQueries":::
 
-* Criar uma nova `GremlinServer` e `GremlinClient` objetos de ligação utilizando os parâmetros acima fornecidos:
+* Criar novos `GremlinServer` `GremlinClient` objetos de ligação utilizando os parâmetros acima fornecidos:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* Execute cada consulta de Gremlin utilizando o objeto `GremlinClient` com uma tarefa de sincronização. Pode ler as consultas de Gremlin do dicionário definidas no passo anterior e executá-las. Mais tarde obtenha o resultado e leia os valores, que são formatados como um dicionário, usando a classe `JsonSerializer` do pacote Newtonsoft.Json:
+* Execute cada consulta de Gremlin utilizando o `GremlinClient` objeto com uma tarefa de sincronização. Pode ler as consultas de Gremlin do dicionário definidas no passo anterior e executá-las. Mais tarde obtenha o resultado e leia os valores, `JsonSerializer` que são formatados como um dicionário, usando a classe do pacote Newtonsoft.Json:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -111,11 +111,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Copiar o ponto final](./media/create-graph-dotnet/endpoint.png)
 
-   Para executar esta amostra, copie o valor **Gremlin Endpoint,** elimine o número da porta no final, ou seja, o URI torna-se `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor final deve parecer `testgraphacct.gremlin.cosmosdb.azure.com`
+   Para executar esta amostra, copie o valor **gremlin Endpoint,** elimine `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`o número da porta no final, ou seja, o URI torna-se . O valor final deve parecer`testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Em seguida, navegue para o separador **Keys** e **copie** o valor CHAVE PRIMÁRIO do portal Azure. 
 
-1. Depois de ter copiado a CHAVE URI e PRIMÁRIA da sua conta, guarde-as para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiental, abra uma janela de comando rápida e execute o seguinte comando. Certifique-se de substituir os valores <Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY>
+1. Depois de ter copiado a CHAVE URI e PRIMÁRIA da sua conta, guarde-as para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiental, abra uma janela de comando rápida e execute o seguinte comando. Certifique-se de substituir <Your_Azure_Cosmos_account_URI Your_Azure_Cosmos_account_URI> e <Your_Azure_Cosmos_account_PRIMARY_KEY valores>.
 
    ```console
    setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
@@ -156,7 +156,7 @@ Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer e a executar uma aplicação. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

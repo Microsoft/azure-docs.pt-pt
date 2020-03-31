@@ -9,10 +9,10 @@ ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78945373"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Link privado para Base de Dados EArmazém de Dados Azure SQL
@@ -59,13 +59,13 @@ Uma vez que o administrador de rede cria o Ponto Final Privado (PE), o administr
 
     - (1) Selecione as ligações de ponto final privado no painel esquerdo
     - (2) Apresenta uma lista de todas as ligações de ponto final privado (PECs)
-    - (3) Correspondente ponto final privado (PE) criado ![Screenshot de todos os PECs][3]
+    - (3) Correspondente ponto final privado ![(PE) criado Screenshot de todos os PECs][3]
 
 1. Selecione um PEC individual da lista selecionando-o.
-![Screenshot selecionado][6] PEC
+![Screenshot selecionado PEC][6]
 
 1. O administrador da SQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curta.
-![Screenshot da][4] de aprovação pec
+![Screenshot da aprovação pec][4]
 
 1. Após aprovação ou rejeição, a lista refletirá o estado adequado, juntamente com o texto de resposta.
 ![Screenshot de todos os PECs após aprovação][5]
@@ -127,7 +127,7 @@ A saída mostra que a PSPING poderia pingar o endereço IP privado associado ao 
 
 ### <a name="check-connectivity-using-nmap"></a>Verifique a conectividade usando o Nmap
 
-O Nmap (Mapper de Rede) é uma ferramenta gratuita e de código aberto utilizada para a descoberta da rede e auditoria de segurança. Para mais informações e o link de descarregamento, visite https://nmap.org. Pode utilizar esta ferramenta para garantir que o ponto final privado está a ouvir ligações na porta 1433.
+O Nmap (Mapper de Rede) é uma ferramenta gratuita e de código aberto utilizada para a descoberta da rede e auditoria de segurança. Para mais informações e https://nmap.orgo link de descarregamento, visite . Pode utilizar esta ferramenta para garantir que o ponto final privado está a ouvir ligações na porta 1433.
 
 Executar o Nmap da seguinte forma, fornecendo a gama de endereços da subnet que acolhe o ponto final privado.
 
@@ -170,8 +170,8 @@ Configure a ligação de [gateway VNet-to-VNet VPN](../vpn-gateway/vpn-gateway-h
 
 Para estabelecer a conectividade de um ambiente no local até à Base de Dados SQL, escolha e implemente uma das opções:
 - [Ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Ligação VPN site-to-site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- [Circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+- [Ligação VPN Site a Site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
 ## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Ligação de um Armazém de Dados Azure SQL ao Armazenamento Azure usando a Polybase
@@ -180,7 +180,7 @@ A PolyBase é comumente usada para carregar dados no Armazém de Dados Azure SQL
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral da segurança da Base de Dados Azure SQL, consulte [A segurança da sua base de dados](sql-database-security-overview.md)
 - Para uma visão geral da conectividade Azure SQL Database, consulte [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)

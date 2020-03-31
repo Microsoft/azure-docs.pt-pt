@@ -9,10 +9,10 @@ ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b93f26a6799a50868feb1f3350a3dc4a73a0b2e4
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127846"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
@@ -31,7 +31,7 @@ Este artigo também assume que você tem acesso elevado no VM, seja ele provisio
 A ativação partilhada do computador permite-lhe implementar o Office 365 ProPlus para um computador da sua organização que é acedido por vários utilizadores. Para obter mais informações sobre a ativação de computador partilhado, consulte [a visão geral da ativação do computador partilhado para o Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
 
 Utilize a ferramenta de [implantação](https://www.microsoft.com/download/details.aspx?id=49117) do escritório para instalar o Office. A multi-sessão do Windows 10 Enterprise suporta apenas as seguintes versões do Office:
-- Escritório 365 ProPlus
+- Office 365 ProPlus
 - Office 365 Business que vem com uma subscrição microsoft 365 Business
 
 A Ferramenta de Implantação do Office requer um ficheiro XML de configuração. Para personalizar a seguinte amostra, consulte as Opções de [Configuração para a Ferramenta](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/)de Implementação do Escritório .
@@ -53,7 +53,7 @@ Aqui está o que esta configuração de amostra XML não vai fazer:
 - Instale o OneDrive no modo por utilizador. Para saber mais, consulte [Instalar o OneDrive no modo por máquina](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->A ativação partilhada do computador pode ser configurada através de objetos de política de grupo (GPOs) ou definições de registo. O GPO está localizado na **Configuração de Computadores\\Políticas\\Modelos Administrativos\\Microsoft Office 2016 (Máquina)\\Definições** de Licenciamento
+>A ativação partilhada do computador pode ser configurada através de objetos de política de grupo (GPOs) ou definições de registo. O GPO está localizado em **\\Modelos\\Administrativos\\de Configuração\\de ComputadorEs Microsoft Office 2016 (Máquina) Definições de licenciamento**
 
 A ferramenta de implantação do escritório contém configuração.exe. Para instalar o Office, execute o seguinte comando numa linha de comando:
 
@@ -116,11 +116,11 @@ O OneDrive é normalmente instalado por utilizador. Neste ambiente, deve ser ins
 
 Eis como instalar o OneDrive no modo por máquina:
 
-1. Primeiro, crie um local para encenar o instalador OneDrive. Uma pasta de disco local ou a localização [\\\\unc] (file://unc) está bem.
+1. Primeiro, crie um local para encenar o instalador OneDrive. Uma pasta de\\\\disco local ou a localização [unc] (file://unc) está bem.
 
-2. Baixe OneDriveSetup.exe para a sua localização faseada com este link: <https://aka.ms/OneDriveWVD-Installer>
+2. Baixe OneDriveSetup.exe para a sua localização faseada com este link:<https://aka.ms/OneDriveWVD-Installer>
 
-3. Se instalou o escritório com o OneDrive omitindo **\<Excluir O ID="OneDrive" /\>,** desinstale quaisquer instalações existentes do OneDrive por utilizador a partir de um pedido de comando elevado, executando o seguinte comando:
+3. Se instalou o escritório com o OneDrive omitindo ** \<o Exclusapp\>ID="OneDrive" /**, desinstale quaisquer instalações oneDrive por utilizador existentes a partir de um pedido de comando elevado executando o seguinte comando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302734"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Erros de criação de cluster
@@ -26,7 +26,7 @@ Este artigo descreve resoluções para erros que pode encontrar ao criar cluster
 
 ### <a name="error"></a>Erro
 
-"A localização da Ação de Script não pode ser acedida uri:\<URL de AÇÃO SCRIPT\>"
+"A localização da Ação de\<Script\>não pode ser acedida URI: SCRIPT ACTION URL "
 
 #### <a name="error-message"></a>Mensagem de erro
 
@@ -48,11 +48,11 @@ O serviço HDInsight não pode aceder ao URL de ação de script que forneceu co
 
 ### <a name="error"></a>Erro
 
-"A localização da Ação de Script não pode ser acedida a URI: \<SCRIPT_ACTION_URL\>"
+"A localização da Ação de \<\>Script não pode ser acedida a URI: SCRIPT_ACTION_URL"
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"O roteiro dado URI \<SCRIPT_URI\> está no ADLS, mas este cluster não tem nenhum diretor de armazenamento de dados de lagos"
+"O script \<dado URI SCRIPT_URI\> está no ADLS, mas este cluster não tem nenhum diretor de armazenamento de dados de lagos"
 
 ### <a name="cause"></a>Causa
 
@@ -68,7 +68,7 @@ Adicione a conta de armazenamento de lagos de dados azure correspondente ao clus
 
 ### <a name="error"></a>Erro
 
-"O tamanho do VM '\<CUSTOMER_SPECIFIED_VM_SIZE\>' fornecido no pedido é inválido ou não suportado para o papel '\<ROLE\>'. Valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\>."
+"Tamanho VM\<\>' CUSTOMER_SPECIFIED_VM_SIZE ' fornecido no pedido é inválido ou não suportado para papel '\<ROLE\>'. Os valores \<\>válidos são: VALID_VM_SIZE_FOR_ROLE ."
 
 ### <a name="cause"></a>Causa
 
@@ -84,7 +84,7 @@ A mensagem de erro lista os valores válidos para o tamanho VM. Selecione um des
 
 ### <a name="error"></a>Erro
 
-"O VirtualNetworkId não é válido. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>'*'
+"O VirtualNetworkId não é válido. VirtualNetworkId\<'\>USER_VIRTUALNETWORKID '*'
 
 ### <a name="cause"></a>Causa
 
@@ -108,11 +108,11 @@ Aqui está um exemplo de uma identificação virtual da rede:
 
 ### <a name="error"></a>Erro
 
-"A implementação do cluster falhou devido a um erro na ação do script personalizado. Ações Falhadas: \<SCRIPT_NAME\>, Por favor, vá à Ambari UI para desinbugimar ainda mais o fracasso."
+"A implementação do cluster falhou devido a um erro na ação do script personalizado. Ações \<Falhadas:\>SCRIPT_NAME , Por favor, vá à Ambari UI para desinbugifar ainda mais o fracasso."
 
 ### <a name="cause"></a>Causa
 
-O script personalizado que forneceu durante o pedido create cluster é executado após o cluster ser implementado com sucesso. Este código de erro indica que surgiu um erro durante a execução do script personalizado chamado \<SCRIPT_NAME\>.
+O script personalizado que forneceu durante o pedido create cluster é executado após o cluster ser implementado com sucesso. Este código de erro indica que surgiu um \<\>erro durante a execução do script personalizado denominado SCRIPT_NAME .
 
 ### <a name="resolution"></a>Resolução
 
@@ -124,7 +124,7 @@ Como o script é o seu script personalizado, recomendamos que se desloque o prob
 
 ### <a name="error"></a>Erro
 
-"A \<\> METASTORE_MAJOR_VERSION versão\>de  META_STORE_TYPE META_STORE_TYPE\> Metastore \<na base de dados \<DATABASE_NAME\> é incompatível com a versão de cluster \<CLUSTER_VERSION "
+"A \<\> \<versão de schema\> META_STORE_TYPE \<\> Metastore METASTORE_MAJOR_VERSION na \<base\>de dados DATABASE_NAME é incompatível com a versão cluster CLUSTER_VERSION"
 
 ### <a name="cause"></a>Causa
 
@@ -161,7 +161,7 @@ Se planeia utilizar grupos de segurança de rede para controlar o tráfego da re
 
 ### <a name="error"></a>Erro
 
-"A Identidade Gerida não tem permissões na conta de armazenamento. Verifique se a função 'Storage Blob Data Owner' está atribuída à Identidade Gerida para a conta de armazenamento. Armazenamento: /subscrições/ \<ID de subscrição\> /recursosGroups/\< Nome de grupo de recursos\> /fornecedores/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Identidade Gerida: /subscrições/ \<Id de assinatura\> /recursosGroups/ / /\< Nome de grupo de recursos\> /fornecedores/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
+"A Identidade Gerida não tem permissões na conta de armazenamento. Verifique se a função 'Storage Blob Data Owner' está atribuída à Identidade Gerida para a conta de armazenamento. Armazenamento: \</subscrições/\> ID de\< subscrição\> /recursosGroups/ Resource Group Name /providers/Microsoft.StorageAccounts/ \<Storage \<Accountname\> \>, Identidade\< Gerida: /subscrições/ Id de subscrição /recursosGroups/ / / Nome\> /fornecedores de grupo de recursos/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
 
 ### <a name="cause"></a>Causa
 
@@ -171,7 +171,7 @@ Não forneceu as permissões necessárias para gerir a identidade. A identidade 
 
 1. Abra o portal do Azure.
 1. Vá para a sua conta de armazenamento.
-1. Procure sob controlo de **acesso (IAM)** .
+1. Procure sob controlo de **acesso (IAM)**.
 1. Certifique-se de que o utilizador tem a função de Colaborador de Dados blob de armazenamento ou a função de Proprietário de Dados blob de armazenamento que lhes é atribuída.
 
 Para mais informações, consulte [Configurar permissões para a identidade gerida na conta Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
@@ -182,7 +182,7 @@ Para mais informações, consulte [Configurar permissões para a identidade geri
 
 ### <a name="error"></a>Erro
 
-"As regras de segurança do Grupo de Segurança da Rede /subscrições/\<SubscriçãoID\>/recursosGroups/<Nome do Grupo de Recursos\> padrão/fornecedores/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configurado com subnet /subscrições/\<SubscriçãoID\>/resourceGroups/\<Resource Group\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Nome da rede\>/subnets/\<nome da sub-rede\> não permite a conectividade de entrada e/ou saída necessária. Para mais informações, visite [Plan a plana uma rede virtual para O Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), ou suporte de contato."
+"As regras de segurança do Grupo\<de\>Segurança da Rede /subscrições/ SubscriçãoID /recursosGroups/<\<Nome do\> Grupo\> de Recursos padrão/fornecedores/Microsoft.Network/networkSecurityGroups/ Network Security Group Name configurado com subnet /subscrições/\<\>SubscriçãoID /resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Nome\>de rede\</subredes/ Nome de\> sub-rede não permite a conectividade de entrada e/ou saída necessária. Para mais informações, visite [Plan a plana uma rede virtual para O Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), ou suporte de contato."
 
 ### <a name="cause"></a>Causa
 

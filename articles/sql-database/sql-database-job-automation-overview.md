@@ -11,10 +11,10 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
 ms.openlocfilehash: dcaaf3c2f793e7148e1695cdfaa68c768db5fff6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240542"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
@@ -97,7 +97,7 @@ Um horário pode definir as seguintes condições para o momento em que um traba
 
 O SQL Agent Jobs permite-lhe receber notificações quando o trabalho terminar com sucesso ou falhar. Pode receber notificações por e-mail.
 
-Em primeiro lugar, terá de configurar a conta de e-mail que será utilizada para enviar as notificações de e-mail e atribuir a conta ao perfil de e-mail denominado `AzureManagedInstance_dbmail_profile`, como mostra a seguinte amostra:
+Em primeiro lugar, terá de configurar a conta de e-mail que será utilizada para `AzureManagedInstance_dbmail_profile`enviar as notificações de e-mail e atribuir a conta ao perfil de e-mail chamado , como mostra a seguinte amostra:
 
 ```sql
 -- Create a Database Mail account
@@ -159,7 +159,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Algumas das funcionalidades do Agente SQL que estão disponíveis no Servidor SQL não são suportadas em Caso Gerido:
 
-- As definições do Agente SQL são lidas apenas. O procedimento `sp_set_agent_properties` não é suportado em Instância Gerida.
+- As definições do Agente SQL são lidas apenas. O `sp_set_agent_properties` procedimento não é suportado em Instância Gerida.
 - O agente SQL ativa/incapacitante não é atualmente suportado em Instância Gerida. O Agente SQL está sempre a correr.
 - As notificações são parcialmente suportadas
   - Pager não é suportado.
@@ -187,7 +187,7 @@ A imagem seguinte mostra um agente de tarefa a executar tarefas nos diferentes t
 |[**Agente de Tarefa Elástica**](#elastic-job-agent) | O recurso do Azure que cria para executar e gerir tarefas. |
 |[**Base de dados da tarefa**](#job-database) | Uma base de dados SQL do Azure que o agente de tarefa utiliza para armazenar dados relacionados com a tarefa, definições de tarefas, etc. |
 |[**Grupo de destino**](#target-group) | O conjunto de servidores, conjuntos, bases de dados e mapas de shard no qual executar uma tarefa. |
-|[**Tarefa**](#job) | Um trabalho é uma unidade de trabalho que é composta por um ou mais passos de [trabalho.](#job-step) Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script. |
+|[**Trabalho**](#job) | Um trabalho é uma unidade de trabalho que é composta por um ou mais passos de [trabalho.](#job-step) Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script. |
 
 #### <a name="elastic-job-agent"></a>Agente de Tarefa Elástica
 
@@ -213,7 +213,7 @@ Durante a criação do agente de tarefa, um esquema, tabelas e uma função cham
 
 |Nome da função |permissões de esquema "jobs" |permissões de esquema "jobs_internal" |
 |---------|---------|---------|
-|**jobs_reader** | SELECT | Nenhum |
+|**jobs_reader** | SELECIONAR | Nenhuma |
 
 > [!IMPORTANT]
 > Considere as implicações de segurança antes de conceder acesso à *Base de dados da tarefa* como um administrador da base de dados. Um utilizador mal intencionado com permissões para criar ou editar tarefas podia criar ou editar uma tarefa que utilize uma credencial armazenada para ligar a uma base de dados sob o controlo do utilizador mal intencionado, o que podia permitir que o utilizador mal intencionado determinasse a palavra-passe da credencial.
@@ -281,7 +281,7 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é O Agente servidor SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
 - [Como criar e gerir trabalhos elásticos](elastic-jobs-overview.md)

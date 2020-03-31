@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657372"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envie métricas de OS do Hóspede para a loja métrica Do Monitor Azure usando um modelo de Gestor de Recursos para uma máquina virtual do Windows
@@ -39,7 +39,7 @@ Se você é novo em modelos de Gestor de Recursos, aprenda sobre implementaçõe
 A extensão Azure Diagnostics utiliza uma funcionalidade chamada "data sinks" para encaminhar métricas e registos para diferentes locais. Os seguintes passos mostram como usar um modelo de Gestor de Recursos e PowerShell para implementar um VM utilizando o novo sumidouro de dados "Azure Monitor".
 
 ## <a name="author-resource-manager-template"></a>Modelo de Gestor de Recursos de Autor
-Para este exemplo, pode utilizar um modelo de amostra disponível ao público. Os modelos de partida estão em https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
+Para este exemplo, pode utilizar um modelo de amostra disponível ao público. Os modelos de https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windowspartida estão em .
 
 - **Azuredeploy.json** é um modelo de Gestor de Recursos reconfigurado para a implantação de uma máquina virtual.
 
@@ -54,7 +54,7 @@ Abra o ficheiro *azuredeploy.parameters.json*
 
 1. Crie um nome único para o VM.
 
-### <a name="modify-azuredeployjson"></a>Modify azuredeploy.json
+### <a name="modify-azuredeployjson"></a>Modificar azuredeploy.json
 
 Abra o ficheiro *azuredeploy.json*
 
@@ -125,7 +125,7 @@ Adicione a configuração **de identidade** ao recurso VM para garantir que o Az
     ...
 ```
 
-Adicione a seguinte configuração para ativar a extensão de Diagnóstico numa máquina virtual do Windows. Para uma simples máquina virtual baseada em Recursos, podemos adicionar a configuração de extensão à matriz de recursos para a máquina virtual. A linha "afunda"&mdash; "AzMonSink" e o correspondente "SinksConfig" mais tarde na secção&mdash;permitir a extensão de emitir métricas diretamente para o Monitor Azure. Sinta-se à vontade para adicionar ou remover os contadores de desempenho conforme necessário.
+Adicione a seguinte configuração para ativar a extensão de Diagnóstico numa máquina virtual do Windows. Para uma simples máquina virtual baseada em Recursos, podemos adicionar a configuração de extensão à matriz de recursos para a máquina virtual. A linha "afunda"&mdash; "AzMonSink" e a correspondente "SinksConfig" mais tarde na secção&mdash;permitem a extensão de emitir métricas diretamente para o Monitor Azure. Sinta-se à vontade para adicionar ou remover os contadores de desempenho conforme necessário.
 
 
 ```json
@@ -239,9 +239,9 @@ Guarde e feche os dois ficheiros.
 
 Para implementar o modelo de Gestor de Recursos, aproveitamos o Azure PowerShell.
 
-1. Lançar PowerShell.
-1. Faça login no Azure utilizando `Login-AzAccount`.
-1. Obtenha a sua lista de subscrições utilizando `Get-AzSubscription`.
+1. Inicie o PowerShell.
+1. Faça login no `Login-AzAccount`Azure utilizando .
+1. Obtenha a sua lista `Get-AzSubscription`de subscrições utilizando .
 1. Detete a subscrição que está a usar para criar/atualizar a máquina virtual em:
 
    ```powershell
@@ -284,7 +284,7 @@ Para implementar o modelo de Gestor de Recursos, aproveitamos o Azure PowerShell
 
 6. No menu de lançamento dos espaços de nome, **selecione azure.vm.windows.windows.guest**
 
-7. No menu de descida de métricas, selecione **Memory\%Bytes Comprometidos em Utilização**.
+7. No menu de descida de métricas, selecione **Memory\%Committed Bytes in Use**.
 
 
 ## <a name="next-steps"></a>Passos seguintes

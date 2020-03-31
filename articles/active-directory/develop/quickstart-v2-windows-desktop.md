@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade Microsoft Windows desktop quickstart  Microsoft Docs
+title: Plataforma de identidade Microsoft Windows desktop quickstart [ Microsoft Docs
 description: Saiba como uma aplicação de desktop Windows .NET (XAML) pode obter um token de acesso e chamar um API protegido por um ponto final da plataforma de identidade da Microsoft
 services: active-directory
 author: jmprieur
@@ -12,10 +12,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 34d9af03b42df4a2806e82bb1e1fa376f099ae4c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271068"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
@@ -39,20 +39,20 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://aka.ms/MobileAppReg)
 > 1. Selecione **Novo registo**.
->      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `Win-App-calling-MsGraph`.
->      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)** .
+>      - Na secção **Nome,** introduza um nome de aplicação significativo que `Win-App-calling-MsGraph`será apresentado aos utilizadores da aplicação, por exemplo.
+>      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registar** para criar a aplicação.
 > 1. Na lista de páginas da aplicação, selecione **Autenticação**.
-> 1. Na secção **Redirecionamento** de URIs | **Sugerido Redirecionamento de URIs para clientes públicos (mobile, desktop),** utilize **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> 1. Na secção **Redirecionamento** | **de URIs sugerida para clientes públicos (mobile, desktop)** use **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
-> Para a amostra de código para este arranque rápido, você precisa adicionar um URL de resposta como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> Para a amostra de código para este arranque rápido, **https://login.microsoftonline.com/common/oauth2/nativeclient**é necessário adicionar um URL de resposta como .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -78,7 +78,7 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 > > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Transferir o seu projeto do Visual Studio
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o projeto do Visual Studio
 > 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 > 1. Abra o projeto no Visual Studio.
 > 1. Edite **App.Xaml.cs** e substitua os valores dos campos `ClientId` e `Tenant` com o código seguinte:
@@ -96,7 +96,7 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 >   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -132,7 +132,7 @@ PublicClientApplicationBuilder.Create(ClientId)
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
-### <a name="requesting-tokens"></a>Solicitar tokens
+### <a name="requesting-tokens"></a>Pedir tokens
 
 A MSAL tem dois métodos para comprar tokens: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
@@ -143,7 +143,7 @@ Algumas situações exigem que os utilizadores interajam com o ponto final da pl
 - A primeira vez que os utilizadores iniciam sessão na aplicação
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
 - Quando a aplicação está a pedir acesso a um recurso para o qual o utilizador tem de dar consentimento
-- Quando é precisa a autenticação de dois fatores
+- Quando é necessária autenticação de dois fatores
 
 ```csharp
 authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
@@ -156,7 +156,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-Não vai querer exigir que o utilizador valide as suas credenciais sempre que tiver de aceder a um recurso. Na maioria das vezes, vai querer que as aquisições e renovação de tokens sejam feitas sem qualquer interação do utilizador. Pode utilizar o método `AcquireTokenSilent` para obter tokens para aceder a recursos protegidos após o método `AcquireTokenInteractive` inicial:
+Não vai querer exigir que o utilizador valide as suas credenciais sempre que tiver de aceder a um recurso. A maioria das vezes, vai querer que as aquisições e renovação de tokens sejam feitas sem qualquer interação do utilizador. Pode utilizar o método `AcquireTokenSilent` para obter tokens para aceder a recursos protegidos após o método `AcquireTokenInteractive` inicial:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

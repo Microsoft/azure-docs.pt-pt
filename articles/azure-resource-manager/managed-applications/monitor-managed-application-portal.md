@@ -1,52 +1,52 @@
 ---
-title: Usar portal do Azure para monitorar um aplicativo gerenciado
-description: Mostra como usar o portal do Azure para monitorar a disponibilidade e os alertas de um aplicativo gerenciado.
+title: Utilize o portal Azure para monitorizar uma aplicação gerida
+description: Mostra como usar o portal Azure para monitorizar a disponibilidade e alertas para uma aplicação gerida.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651751"
 ---
-# <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorar uma instância implantada de um aplicativo gerenciado
+# <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorizar uma instância implementada de uma aplicação gerida
 
-Depois de implantar um aplicativo gerenciado em sua assinatura do Azure, talvez você queira verificar o status do aplicativo. Este artigo mostra opções na portal do Azure para verificar o status. Você pode monitorar a disponibilidade dos recursos em seu aplicativo gerenciado. Você também pode configurar e exibir alertas.
+Depois de ter implementado uma aplicação gerida para a sua subscrição Azure, poderá querer verificar o estado da aplicação. Este artigo mostra opções no portal Azure para verificar o estado. Pode monitorizar a disponibilidade dos recursos na sua aplicação gerida. Também pode configurar e ver alertas.
 
 ## <a name="view-resource-health"></a>Ver o estados de funcionamento dos recursos
 
-1. Selecione a instância do aplicativo gerenciado.
+1. Selecione a sua instância de candidatura gerida.
 
-   ![Selecionar aplicativo gerenciado](./media/monitor-managed-application-portal/select-managed-application.png)
+   ![Selecione aplicação gerida](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. Selecione **Resource Health**.
+1. Selecione **Saúde de Recursos**.
 
-   ![Selecionar Resource Health](./media/monitor-managed-application-portal/select-resource-health.png)
+   ![Selecione a saúde dos recursos](./media/monitor-managed-application-portal/select-resource-health.png)
 
-1. Exiba a disponibilidade dos recursos em seu aplicativo gerenciado.
+1. Veja a disponibilidade dos recursos na sua aplicação gerida.
 
    ![Ver o estados de funcionamento dos recursos](./media/monitor-managed-application-portal/view-health.png)
 
 ## <a name="view-alerts"></a>Ver alertas
 
-1. Selecione **alertas**.
+1. Selecione **Alertas**.
 
-   ![Selecionar alertas](./media/monitor-managed-application-portal/select-alerts.png)
+   ![Selecione alertas](./media/monitor-managed-application-portal/select-alerts.png)
 
-1. Se você tiver regras de alerta configuradas, verá informações sobre alertas que foram gerados.
+1. Se tiver regras de alerta configuradas, consulte informações sobre alertas que foram levantados.
 
    ![Ver alertas](./media/monitor-managed-application-portal/view-alerts.png)
 
-1. Para adicionar regras de alerta, selecione **+ nova regra de alerta**.
+1. Para adicionar regras de alerta, **selecione + Nova regra de alerta**.
 
    ![Criar alerta](./media/monitor-managed-application-portal/create-new-alert.png)
 
-Você pode criar alertas para a instância do aplicativo gerenciado ou os recursos no aplicativo gerenciado. Para obter informações sobre como criar alertas, consulte [visão geral de alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Pode criar alertas para a sua instância de candidatura gerida ou para os recursos na aplicação gerida. Para obter informações sobre a criação de alertas, consulte a [visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter exemplos de aplicativos gerenciados, consulte [projetos de exemplo para aplicativos gerenciados do Azure](sample-projects.md).
-* Para implantar um aplicativo gerenciado, consulte [implantar o aplicativo de catálogo de serviços por meio de portal do Azure](deploy-service-catalog-quickstart.md).
+* Para exemplos de aplicações geridas, consulte [projetos de amostra para aplicações geridas pelo Azure.](sample-projects.md)
+* Para implementar uma aplicação gerida, consulte a aplicação de catálogo de [serviços Deploy através do portal Azure](deploy-service-catalog-quickstart.md).

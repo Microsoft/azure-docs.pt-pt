@@ -1,6 +1,6 @@
 ---
-title: Visão geral de Azure Cloud Shell | Microsoft Docs
-description: Visão geral do Azure Cloud Shell.
+title: Visão geral da Nuvem Azure [ Microsoft Docs
+description: Visão geral da Casca de Nuvem Azure.
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -15,85 +15,85 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
 ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75832491"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
-Azure Cloud Shell é um shell interativo, autenticado e acessível por navegador para gerenciar recursos do Azure.
+O Azure Cloud Shell é uma shell interativa, autenticada e compatível com browsers para gerir recursos do Azure.
 Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho, quer seja baseada em Bash ou no PowerShell.
 
-Tente shell.azure.com clicando abaixo.
+Tente a partir de shell.azure.com clicando abaixo.
 
-[![Lançamento de inserção](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+[![Lançamento emcamado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
-Tente portal do Azure usando o ícone de Cloud Shell.
+Experimente a partir do portal Azure usando o ícone Cloud Shell.
 
-![Inicialização do portal](media/overview/portal-launch-icon.png)
+![Lançamento do portal](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Funcionalidades
 
-### <a name="browser-based-shell-experience"></a>Experiência de shell baseada em navegador
-Cloud Shell permite o acesso a uma experiência de linha de comando baseada em navegador criada com as tarefas de gerenciamento do Azure em mente.
-Aproveite Cloud Shell para trabalhar de modo não compartilhamento de máquina local de uma forma que apenas a nuvem possa fornecer.
+### <a name="browser-based-shell-experience"></a>Experiência de concha baseada no navegador
+A Cloud Shell permite o acesso a uma experiência de linha de comando baseada no navegador, construída com tarefas de gestão Azure em mente.
+Aproveite a Cloud Shell para trabalhar sem amarras a partir de uma máquina local de uma forma que só a nuvem pode fornecer.
 
-### <a name="choice-of-preferred-shell-experience"></a>Opção de experiência de shell preferencial
-Os usuários podem escolher entre o bash ou o PowerShell.
+### <a name="choice-of-preferred-shell-experience"></a>Escolha da experiência de concha preferida
+Os utilizadores podem escolher entre Bash ou PowerShell.
 1. Selecione **Cloud Shell**.
 
-    ![Ícone de Cloud Shell](media/overview/overview-cloudshell-icon.png)
+    ![Ícone de casca de nuvem](media/overview/overview-cloudshell-icon.png)
 
-2. Selecione **bash** ou **PowerShell**.
+2. Selecione **Bash** ou **PowerShell**.
 
-    ![Escolha o bash ou o PowerShell](media/overview/overview-choices.png)
+    ![Escolha bash ou PowerShell](media/overview/overview-choices.png)
 
-### <a name="authenticated-and-configured-azure-workstation"></a>Estação de trabalho do Azure autenticada e configurada
-O Cloud Shell é gerenciado pela Microsoft para que ele seja fornecido com ferramentas de linha de comando populares e suporte a idiomas. O Cloud Shell também é autenticado de forma segura automaticamente para acesso instantâneo aos seus recursos por meio dos cmdlets CLI do Azure ou Azure PowerShell.
+### <a name="authenticated-and-configured-azure-workstation"></a>Estação de trabalho Azure autenticada e configurada
+Cloud Shell é gerido pela Microsoft por isso vem com ferramentas populares de linha de comando e suporte linguístico. A Cloud Shell também autentica automaticamente para acesso instantâneo aos seus recursos através dos cmdlets Azure CLI ou Azure PowerShell.
 
-Exiba a [lista completa de ferramentas instaladas no Cloud Shell.](features.md#tools)
+Veja a lista completa [de ferramentas instaladas na Cloud Shell.](features.md#tools)
 
-### <a name="integrated-cloud-shell-editor"></a>Editor de Cloud Shell integrado
-O Cloud Shell oferece um editor de texto gráfico integrado com base no editor de Mônaco de código-fonte aberto. Basta criar e editar arquivos de configuração executando `code .` para implantação direta por meio de CLI do Azure ou Azure PowerShell.
+### <a name="integrated-cloud-shell-editor"></a>Editor integrado da Cloud Shell
+A Cloud Shell oferece um editor de texto gráfico integrado baseado no editor de código aberto do Mónaco. Basta criar e editar `code .` ficheiros de configuração executando para uma implementação sem emenda através do Azure CLI ou do Azure PowerShell.
 
-[Saiba mais sobre o editor de Cloud Shell](using-cloud-shell-editor.md).
+[Saiba mais sobre o editor da Cloud Shell.](using-cloud-shell-editor.md)
 
-### <a name="integrated-with-docsmicrosoftcom"></a>Integrado ao docs.microsoft.com
+### <a name="integrated-with-docsmicrosoftcom"></a>Integrado com docs.microsoft.com
 
-Você pode usar Cloud Shell diretamente da documentação hospedada em [docs.Microsoft.com](https://docs.microsoft.com). Ele está integrado no [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) e [CLI do Azure documentação](https://docs.microsoft.com/cli/azure) -clique no botão "Experimente" em um trecho de código para abrir a experiência de Shell de imersão. 
+Pode utilizar a Cloud Shell diretamente a partir da documentação hospedada na [docs.microsoft.com](https://docs.microsoft.com). Está integrado na documentação [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) e [Azure CLI](https://docs.microsoft.com/cli/azure) - clique no botão "Try It" num código para abrir a experiência imersiva da concha. 
 
-### <a name="multiple-access-points"></a>Vários pontos de acesso
-Cloud Shell é uma ferramenta flexível que pode ser usada em:
+### <a name="multiple-access-points"></a>Múltiplos pontos de acesso
+Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentação do CLI do Azure](https://docs.microsoft.com/cli/azure)
+* [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure)
 * [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Visual Studio Code extensão de conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Aplicação móvel Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Extensão da conta de código do estúdio visual Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-microsoft-azure-files-storage"></a>Conectar o armazenamento de arquivos de Microsoft Azure
-Cloud Shell computadores são temporários, mas os arquivos são persistidos de duas maneiras: por meio de uma imagem de disco e por meio de um compartilhamento de arquivos montado chamado `clouddrive`.  Na primeira execução, o Cloud Shell pede para criar um grupo de recursos, a conta de armazenamento e a partilha de ficheiros do Azure em seu nome. Essa é uma etapa única e será automaticamente anexada a todas as sessões. Um único compartilhamento de arquivos pode ser mapeado e será usado pelo bash e pelo PowerShell em Cloud Shell.
+### <a name="connect-your-microsoft-azure-files-storage"></a>Conecte o armazenamento do Microsoft Azure Files
+As máquinas Cloud Shell são temporárias, mas os seus ficheiros são persistidos `clouddrive`de duas formas: através de uma imagem de disco, e através de uma partilha de ficheiros montada chamada .  Na primeira execução, o Cloud Shell pede para criar um grupo de recursos, a conta de armazenamento e a partilha de ficheiros do Azure em seu nome. Este é um passo único e será automaticamente anexado para todas as sessões. Uma única parte de ficheiro pode ser mapeada e será usada tanto pela Bash como pela PowerShell na Cloud Shell.
 
-Leia mais para saber como montar uma [conta de armazenamento nova ou existente](persisting-shell-storage.md) ou para saber mais sobre os [mecanismos de persistência usados no Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+Leia mais para aprender a montar uma [conta de armazenamento nova ou existente](persisting-shell-storage.md) ou para aprender sobre os mecanismos de persistência [usados na Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 
 > [!NOTE]
-> O Firewall do armazenamento do Azure não tem suporte para contas de armazenamento do Cloud Shell.
+> A firewall de armazenamento Azure não é suportada para contas de armazenamento de conchas em nuvem.
 
 ## <a name="concepts"></a>Conceitos
-* Cloud Shell é executado em um host temporário fornecido em uma base por sessão, por usuário
-* Cloud Shell expira após 20 minutos sem atividade interativa
-* Cloud Shell requer que um compartilhamento de arquivos do Azure seja montado
-* Cloud Shell usa o mesmo compartilhamento de arquivos do Azure para o bash e o PowerShell
-* O Cloud Shell é atribuído a uma máquina por conta de usuário
-* Cloud Shell persiste $HOME usando uma imagem de 5 GB mantida em seu compartilhamento de arquivos
-* As permissões são definidas como um usuário normal do Linux no bash
+* Cloud Shell funciona em um anfitrião temporário fornecido em uma base por sessão, por utilizador
+* Cloud Shell sai após 20 minutos sem atividade interativa
+* Cloud Shell exige que uma partilha de ficheiros Azure seja montada
+* Cloud Shell usa a mesma quota de ficheiroS Azure tanto para a Bash como para a PowerShell
+* Cloud Shell é atribuída uma máquina por conta de utilizador
+* Cloud Shell persiste $HOME usando uma imagem de 5 GB realizada na sua partilha de ficheiros
+* As permissões são definidas como um utilizador regular do Linux em Bash
 
-Saiba mais sobre os recursos do [bash no Cloud Shell](features.md) e [no PowerShell no Cloud Shell](features-powershell.md).
+Saiba mais sobre as funcionalidades em [Bash in Cloud Shell](features.md) e [PowerShell em Cloud Shell](features-powershell.md).
 
 ## <a name="pricing"></a>Preços
-O computador que hospeda o Cloud Shell é gratuito, com um pré-requisito de um compartilhamento de arquivos do Azure montado. Os custos de armazenamento regulares se aplicam.
+A máquina que hospeda a Cloud Shell é gratuita, com um pré-requisito de uma partilha de Ficheiros Azure montados. Aplicam-se os custos regulares de armazenamento.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Bash no guia de início rápido Cloud Shell](quickstart.md) <br>
-[PowerShell no guia de início rápido Cloud Shell](quickstart-powershell.md)
+[Bash in Cloud Shell quickstart](quickstart.md) <br>
+[PowerShell em Cloud Shell quickstart](quickstart-powershell.md)

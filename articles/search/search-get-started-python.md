@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78227108"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva azure em Python usando cadernos Jupyter
@@ -21,14 +21,14 @@ ms.locfileid: "78227108"
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C #](search-create-index-dotnet.md)
 > * [Carteiro (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
 Construa um caderno Jupyter que cria, carrega e consulta um índice de pesquisa cognitiva azure usando Python e o [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como construir um caderno passo a passo. Em alternativa, você pode [baixar e executar um caderno jupyter Python acabado](https://github.com/Azure-Samples/azure-search-python-samples).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+1. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
 ![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
 
@@ -73,7 +73,7 @@ Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-   Se tiver `"Failed to establish a new connection"`ConnectionError, verifique se a chave api é uma chave de administração primária ou secundária e que todos os caracteres principais e de rastos (`?` e `/`) estão no lugar.
+   Se obtém `"Failed to establish a new connection"`o ConnectionError, verifique se a chave api é uma chave de administração`?` primária `/`ou secundária, e que todos os caracteres principais e de rastos estão no lugar.
 
 1. Na terceira célula, formula risa o pedido. Este pedido GET visa a recolha de índices do seu serviço de pesquisa e seleciona a propriedade de nome dos índices existentes.
 
@@ -88,13 +88,13 @@ Nesta tarefa, inicie um caderno Jupyter e verifique se pode ligar-se à Pesquisa
 
    ![Roteiro python em caderno Jupyter com pedidos http para Pesquisa Cognitiva Azure](media/search-get-started-python/connect-azure-search.png "Roteiro python em caderno Jupyter com pedidos http para Pesquisa Cognitiva Azure")
 
-   Em contraste, uma coleção de índice vazio devolve esta resposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Em contraste, uma coleção de índice vazio devolve esta resposta:`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
 A menos que esteja a utilizar o portal, deve existir um índice no serviço antes de poder carregar dados. Este passo utiliza a [API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index) para empurrar um esquema de índice para o serviço.
 
-Os elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A coleção de campos define a estrutura de um *documento.* Cada campo tem um nome, tipo e atributos que determinam como o campo é utilizado (por exemplo, se é pesquisável em texto completo, filtrado ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos de `Edm.String` tipo deve ser designado como a *chave* para a identidade do documento.
+Os elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A coleção de campos define a estrutura de um *documento.* Cada campo tem um nome, tipo e atributos que determinam como o campo é utilizado (por exemplo, se é pesquisável em texto completo, filtrado ou recuperável nos resultados da pesquisa). Dentro de um índice, um `Edm.String` dos campos do tipo deve ser designado como a *chave* para a identidade do documento.
 
 Este índice chama-se "hotéis-quickstart" e tem as definições de campo que você vê abaixo. É um subconjunto de um índice de [hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outros walkthroughs. Aparamo-lo neste início rápido para a brevidade.
 
@@ -277,7 +277,7 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
 
     ![Pesquisar um índice](media/search-get-started-python/search-index.png "Pesquisar um índice")
 
-1. Experimente outros exemplos de consulta para sentir a sintaxe. Pode substituir o `searchstring` pelos seguintes exemplos e, em seguida, reexecutar o pedido de pesquisa. 
+1. Experimente outros exemplos de consulta para sentir a sintaxe. Pode substituir `searchstring` os seguintes exemplos e, em seguida, reexecutar o pedido de pesquisa. 
 
    Aplicar um filtro: 
 
@@ -299,7 +299,7 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
 
 ## <a name="clean-up"></a>Limpeza
 
-Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 

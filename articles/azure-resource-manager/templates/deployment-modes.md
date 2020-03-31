@@ -3,12 +3,12 @@ title: Modos de implementação
 description: Descreve como especificar se deve utilizar um modo de implantação completo ou incremental com o Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 9cc0e8eb20a0375a98906524d4d598ccb473d2a8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460250"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Gestor de Recursos Azure
 
@@ -82,7 +82,7 @@ Quando implantado em modo **completo,** o recurso C é eliminado. O grupo de rec
 
 ## <a name="set-deployment-mode"></a>Definir o modo de implementação
 
-Para definir o modo de implantação ao ser implantado com o PowerShell, utilize o parâmetro `Mode`.
+Para definir o modo de implantação ao `Mode` ser implantado com o PowerShell, utilize o parâmetro.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -92,10 +92,10 @@ New-AzResourceGroupDeployment `
   -TemplateFile c:\MyTemplates\storage.json
 ```
 
-Para definir o modo de implantação ao ser implantado com o Azure CLI, utilize o parâmetro `mode`.
+Para definir o modo de implantação ao ser `mode` implantado com o Azure CLI, utilize o parâmetro.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --mode Complete \
   --resource-group ExampleGroup \

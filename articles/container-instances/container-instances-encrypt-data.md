@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79080365"
 ---
 # <a name="encrypt-deployment-data"></a>Encriptar dados de implementação
@@ -55,17 +55,17 @@ A saída de executar este comando deve mostrar-lhe um diretor de serviço que te
 
 Caso não consiga criar com sucesso o diretor de serviço:
 * confirmar que você tem permissões para fazê-lo em seu inquilino
-* verifique se já existe um diretor de serviço no seu inquilino para ser destacado para o ACI. Pode fazê-lo executando `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` e usar esse diretor de serviço
+* verifique se já existe um diretor de serviço no seu inquilino para ser destacado para o ACI. Pode fazê-lo `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` correndo e usar o diretor de serviço
 
 ### <a name="create-a-key-vault-resource"></a>Criar um recurso key vault
 
 Crie um Cofre de Chave Azure utilizando [o portal Azure,](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli)ou [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
 
 Para as propriedades do seu cofre chave, use as seguintes diretrizes: 
-* Nome: É necessário um nome único. 
-* Subscrição: Escolha uma subscrição.
+* Nome: é necessário um nome exclusivo. 
+* Subscrição: selecione uma subscrição.
 * No Grupo de Recursos, escolha um grupo de recursos existente, ou crie novos e introduza um nome de grupo de recursos.
-* No menu de retirada de localização, escolha um local.
+* No menu pendente Localização, selecione uma localização.
 * Pode deixar as outras opções para os seus incumprimentos ou escolher com base em requisitos adicionais.
 
 > [!IMPORTANT]
@@ -83,7 +83,7 @@ Crie uma nova política de acesso para permitir que o serviço ACI aceda à sua 
 
 * Uma vez gerada a sua chave, de volta à sua lâmina de recurso de cofre chave, em Definições, clique em Políticas de **Acesso**.
 * Na página "Políticas de Acesso" para o seu cofre de chaves, clique em **Adicionar Política**de Acesso .
-* Detete as *permissões chave* para incluir **obter** e **desembrulhar as** ![definir permissões de chave](./media/container-instances-encrypt-data/set-key-permissions.png)
+* Detete as *permissões chave* para **incluir** obter e **desembrulhar** ![as permissões de chave](./media/container-instances-encrypt-data/set-key-permissions.png)
 * Para *selecionar o principal,* selecione Serviço de **Instância de Contentores Azure**
 * Clique em **Adicionar** na parte inferior 
 
@@ -97,12 +97,12 @@ A política de acesso deve agora aparecer nas políticas de acesso do seu cofre 
 > Encriptar dados de implementação com uma chave gerida pelo cliente está disponível na versão Mais recente da API (2019-12-01) que está atualmente a ser lançada. Especifique esta versão API no seu modelo de implementação. Se tiver algum problema com isto, contacte o Azure Support.
 
 Assim que a chave do cofre e a política de acesso estiverem configuradas, adicione as seguintes propriedades ao seu modelo de implementação ACI. Saiba mais sobre a implementação de recursos ACI com um modelo no [Tutorial: Implante um grupo multi-contentor usando um modelo](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)de Gestor de Recursos . 
-* Em `resources`, `apiVersion` definida para `2019-12-01`.
-* Sob a secção de propriedades do grupo de contentores do modelo de implantação, adicione um `encryptionProperties`, que contenha os seguintes valores:
+* Abaixo, `resources` `apiVersion` definido `2019-12-01`para.
+* Sob a secção de propriedades do grupo `encryptionProperties`de contentores do modelo de implantação, adicione um , que contém os seguintes valores:
   * `vaultBaseUrl`: o Nome DNS do seu cofre chave, pode ser encontrado na lâmina geral do recurso do cofre chave no Portal
   * `keyName`: o nome da chave gerada anteriormente
   * `keyVersion`: a versão atual da chave. Isto pode ser encontrado clicando na própria chave (em "Keys" na secção Definições do seu recurso de cofre chave)
-* Sob as propriedades do grupo de contentores, adicione uma propriedade `sku` com valor `Standard`. A propriedade `sku` é exigida na versão API 2019-12-01.
+* Sob as propriedades do `sku` grupo de `Standard`contentores, adicione uma propriedade com valor. O `sku` imóvel é exigido na versão API 2019-12-01.
 
 O seguinte modelo de corte mostra estas propriedades adicionais para encriptar dados de implementação:
 

@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272763"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemas com servidores da região no Azure HDInsight
@@ -22,13 +22,13 @@ Este artigo descreve etapas de resolução de problemas e possíveis resoluçõe
 
 ### <a name="issue"></a>Problema
 
-Ao executar `hbase hbck` comando, vê uma mensagem de erro semelhante a:
+Ao `hbase hbck` executar o comando, vê uma mensagem de erro semelhante a:
 
 ```
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-A partir do Apache HBase Master UI, você pode ver o número de regiões que estão desequilibradas em todos os servidores da região. Depois, pode correr `hbase hbck` comando para ver buracos na cadeia da região.
+A partir do Apache HBase Master UI, você pode ver o número de regiões que estão desequilibradas em todos os servidores da região. Depois, pode `hbase hbck` sabotar o comando para ver buracos na cadeia da região.
 
 ### <a name="cause"></a>Causa
 
@@ -40,15 +40,15 @@ Conserte as tarefas. Siga os passos abaixo para que as regiões não atribuídas
 
 1. Inscreva-se no cluster HDInsight HBase utilizando o SSH.
 
-1. Executar `hbase zkcli` comando para se conectar com a concha zookeeper.
+1. Executar `hbase zkcli` comando para ligar com a concha zookeeper.
 
-1. Executar `rmr /hbase/regions-in-transition` ou `rmr /hbase-unsecure/regions-in-transition` comando.
+1. Correr `rmr /hbase/regions-in-transition` `rmr /hbase-unsecure/regions-in-transition` ou comandar.
 
-1. Saia da concha do zookeeper usando `exit` comando.
+1. Saia da concha `exit` do zookeeper usando o comando.
 
 1. Abra o Apache Ambari UI e, em seguida, reinicie o serviço Ative HBase Master.
 
-1. Volte a executar `hbase hbck` comando (sem mais opções). Verifique a saída e certifique-se de que todas as regiões estão a ser atribuídas.
+1. Executar `hbase hbck` o comando novamente (sem mais opções). Verifique a saída e certifique-se de que todas as regiões estão a ser atribuídas.
 
 ---
 
@@ -62,9 +62,9 @@ Os servidores da região não conseguem arrancar.
 
 Vários diretórios wal spliting.
 
-1. Obtenha a lista dos WALs atuais: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
+1. Obtenha a lista dos `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`WALs atuais: .
 
-1. Inspecione o ficheiro `wals.out`. Se há demasiados diretórios de divisão (começando com a divisão), o servidor da região provavelmente está falhando por causa destes diretórios.
+1. Inspecione `wals.out` o ficheiro. Se há demasiados diretórios de divisão (começando com a divisão), o servidor da região provavelmente está falhando por causa destes diretórios.
 
 ### <a name="resolution"></a>Resolução
 
@@ -72,15 +72,15 @@ Vários diretórios wal spliting.
 
 1. Execute `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` para obter uma nova lista de WALs.
 
-1. Mova os diretórios de divisão para uma pasta temporária, `splitWAL`, e elimine os diretórios de divisão*
+1. Mova os diretórios de divisão para `splitWAL`uma pasta temporária e elimine os diretórios de divisão.
 
-1. Execute `hbase zkcli` comando para se conectar com a concha do zookeeper.
+1. Execute `hbase zkcli` o comando para se conectar com a concha do zookeeper.
 
 1. Executar `rmr /hbase-unsecure/splitWAL`.
 
 1. Reiniciar o serviço HBase.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

@@ -4,13 +4,13 @@ description: Descreve como dividir serviço sição Serviço Serviço serviços 
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258619"
 ---
-# <a name="partition-service-fabric-reliable-services"></a>Serviço de Partição Serviço serviço serviço sintetizado serviços
+# <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo apresenta uma introdução aos conceitos básicos de divisão de serviços fiáveis do Azure Service Fabric. O código fonte utilizado no artigo também está disponível no [GitHub.](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)
 
 ## <a name="partitioning"></a>Criação de partições
@@ -115,7 +115,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
 > 
 > 
 
-1. Open **Visual Studio** > **File** > **New** > **Project**.
+1. Open **Visual Studio** > **File** > **Novo** > **projeto.**
 2. Na caixa de diálogo **New Project,** escolha a aplicação Service Fabric.
 3. Chame o projeto de "Divisórias alfabéticas".
 4. Na caixa de diálogo **Criar um Serviço,** escolha o serviço **Stateful** e chame-o de "Alfabeto.Processamento".
@@ -141,13 +141,13 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     ```
    
     Agora o serviço está configurado para ouvir um ponto final interno com 26 divisórias.
-7. Em seguida, você precisa anular o método `CreateServiceReplicaListeners()` da classe De processamento.
+7. Em seguida, você precisa `CreateServiceReplicaListeners()` anular o método da classe de processamento.
    
    > [!NOTE]
    > Para esta amostra, assumimos que está a utilizar um simples HttpCommunicationListener. Para obter mais informações sobre comunicação de serviço fiável, consulte o modelo de [comunicação De Serviço Fiável](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Um padrão recomendado para o URL que uma réplica ouve é o seguinte formato: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+8. Um padrão recomendado para o URL que uma réplica `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`ouve é o seguinte formato: .
     Por isso, pretende configurar o seu ouvinte de comunicação para ouvir os pontos finais corretos e com este padrão.
    
     Várias réplicas deste serviço podem ser hospedadas no mesmo computador, pelo que este endereço tem de ser único na réplica. É por isso que o ID da divisória + o ID da réplica estão no URL. HttpListener pode ouvir em vários endereços na mesma porta, desde que o prefixo URL seja único.
@@ -224,7 +224,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     }
     ```
    
-    `ProcessInternalRequest` lê os valores do parâmetro de corda de consulta usado para chamar a partição e chama `AddUserAsync` para adicionar o apelido ao `dictionary`fidedigno do dicionário .
+    `ProcessInternalRequest`lê os valores do parâmetro de corda de `AddUserAsync` consulta usado para chamar a `dictionary`partição e chama para adicionar o apelido ao dicionário fiável .
 10. Vamos adicionar um serviço apátrida ao projeto para ver como você pode chamar uma partição particular.
     
     Este serviço serve como uma simples interface web que aceita o apelido como parâmetro de corda de consulta, determina a chave de divisória, e envia-a para o serviço Alphabet.Processing para processamento.
@@ -252,7 +252,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-14. Agora tens de implementar a lógica de processamento. O HttpCommunicationListener chama `ProcessInputRequest` quando um pedido chega. Vamos em frente e adicionar o código abaixo.
+14. Agora tens de implementar a lógica de processamento. O HttpCommunicationListener `ProcessInputRequest` liga quando um pedido chega. Vamos em frente e adicionar o código abaixo.
     
     ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -298,7 +298,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     }
     ```
     
-    Vamos atravessá-la passo a passo. O código lê a primeira letra do parâmetro de corda de consulta `lastname` em um char. Em seguida, determina a chave de partição desta carta subtraindo o valor hexadecimal de `A` do valor hexadecimal da primeira letra dos últimos nomes.
+    Vamos atravessá-la passo a passo. O código lê a primeira letra do `lastname` parâmetro de corda de consulta em um char. Em seguida, determina a chave de partição desta carta subtraindo o valor hexadecimal do `A` valor hexadecimal da primeira letra dos últimos nomes.
     
     ```csharp
     string lastname = context.Request.QueryString["lastname"];
@@ -307,13 +307,13 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     ```
     
     Lembre-se, por exemplo, estamos a usar 26 divisórias com uma chave de partição por divisória.
-    Em seguida, obtemos a `partition` de partilha de serviço para esta chave utilizando o método `ResolveAsync` no objeto `servicePartitionResolver`. `servicePartitionResolver` é definido como
+    Em seguida, obtemos a partição `partition` de serviço para esta chave utilizando o `ResolveAsync` método no `servicePartitionResolver` objeto. `servicePartitionResolver`é definido como
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    O método `ResolveAsync` toma o serviço URI, a chave de partição, e um símbolo de cancelamento como parâmetros. O serviço URI para o serviço de processamento é `fabric:/AlphabetPartitions/Processing`. Em seguida, temos o ponto final da partição.
+    O `ResolveAsync` método leva o serviço URI, a chave de partição, e um símbolo de cancelamento como parâmetros. O serviço URI para `fabric:/AlphabetPartitions/Processing`o serviço de processamento é . Em seguida, temos o ponto final da partição.
     
     ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
@@ -332,7 +332,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     ```
     
     Uma vez feito o processamento, escrevemos a saída de volta.
-15. O último passo é testar o serviço. O Visual Studio utiliza parâmetros de aplicação para implantação local e em nuvem. Para testar o serviço com 26 divisórias localmente, é necessário atualizar o ficheiro `Local.xml` na pasta ApplicationParameters do projeto AlphabetPartitions, como mostrado abaixo:
+15. O último passo é testar o serviço. O Visual Studio utiliza parâmetros de aplicação para implantação local e em nuvem. Para testar o serviço com 26 divisórias localmente, é necessário atualizar o `Local.xml` ficheiro na pasta ApplicationParameters do projeto AlphabetPartitions, como mostrado abaixo:
     
     ```xml
     <Parameters>
@@ -343,7 +343,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
 16. Assim que terminar a implementação, pode verificar o serviço e todas as suas divisórias no Service Fabric Explorer.
     
     ![Screenshot do Explorador de Tecido de Serviço](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. Num browser, pode testar a lógica de partição entrando `http://localhost:8081/?lastname=somename`. Verá que cada apelido que começa com a mesma letra está guardado na mesma divisória.
+17. Num browser, pode testar a lógica de `http://localhost:8081/?lastname=somename`partição entrando . Verá que cada apelido que começa com a mesma letra está guardado na mesma divisória.
     
     ![Screenshot do navegador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 

@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260374"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gerencie os oleodutos Azure Data Factory utilizando a app de monitorização e gestão
@@ -38,7 +38,7 @@ Este artigo descreve como usar a app de Monitorização e Gestão para monitoriz
 >
 
 ## <a name="launch-the-monitoring-and-management-app"></a>Lançar a app de Monitorização e Gestão
-Para lançar a aplicação Monitor and Management, clique no **monitor & Manage** azulejo na lâmina **data Factory** para a sua fábrica de dados.
+Para lançar a aplicação Monitor and Management, clique no **Monitor & Gerir** azulejos na lâmina data **Factory** para a sua fábrica de dados.
 
 ![Telha de monitorização na página inicial da Fábrica de Dados](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -183,11 +183,11 @@ As janelas de atividade podem estar num dos seguintes estados:
 <td>Validação</td><td>A validação ainda não começou.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>A validação está à espera de ser novamente tentada.</td>
+<td>Validação Retry</td><td>A validação está à espera de ser novamente tentada.</td>
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Em curso</td><td>Validação</td><td>A validação está em andamento.</td>
+<td rowspan="2">Inprogress</td><td>Validação</td><td>A validação está em andamento.</td>
 </tr>
 <td>-</td>
 <td>A janela de atividade está a ser processada.</td>
@@ -204,13 +204,13 @@ As janelas de atividade podem estar num dos seguintes estados:
 <tr>
 <td>-</td><td>A janela de atividade não foi gerada ou validada.</td>
 </tr>
-<td>Preparado</td><td>-</td><td>A janela de atividade está pronta para ser reemitada.</td>
+<td>Pronto</td><td>-</td><td>A janela de atividade está pronta para ser reemitada.</td>
 </tr>
 <tr>
 <td>Ignorado</td><td>-</td><td>A janela de atividade não foi processada.</td>
 </tr>
 <tr>
-<td>Nenhum</td><td>-</td><td>Uma janela de atividade costumava existir com um estado diferente, mas foi redefinida.</td>
+<td>Nenhuma</td><td>-</td><td>Uma janela de atividade costumava existir com um estado diferente, mas foi redefinida.</td>
 </tr>
 </table>
 
@@ -270,7 +270,7 @@ Na **lista 'Janelas de**Atividades', clique no nome de uma coluna (por exemplo: 
 
 ![Menu de coluna seleções do Windows de atividade](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-Pode fazer o seguinte:
+Pode realizar as seguintes acções:
 
 * Ordenar em ordem ascendente.
 * Ordenar em ordem descendente.
@@ -286,10 +286,10 @@ Pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os filtro
 
 ## <a name="perform-batch-actions"></a>Realizar ações de lote
 ### <a name="rerun-selected-activity-windows"></a>Reexecutar janelas de atividade selecionadas
-Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão de barra de comando e selecione **Reexecutar** / **Reexecutar com**a montante no gasoduto . Quando seleciona o **Rerun com** opção pipeline a montante, repete todas as janelas de atividade a montante também.
+Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão de barra de comando e selecione **Rerun Rerun** / com o gasoduto a**montante**. Quando seleciona o **Rerun com** opção pipeline a montante, repete todas as janelas de atividade a montante também.
     ![Reexecutar uma janela de atividade](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Também pode selecionar várias janelas de atividade na lista e reexecutá-las ao mesmo tempo. É melhor filtrar as janelas de atividadecom base no estado (por exemplo: Falhou)---- e depois reexecutar as janelas de atividade falhadas após corrigir o problema que faz com que as janelas de atividade falhem. Consulte a secção seguinte para obter detalhes sobre filtrar as janelas de atividade na lista.  
+Também pode selecionar várias janelas de atividade na lista e reexecutá-las ao mesmo tempo. É melhor filtrar as janelas de atividade **Failed**com base no estado (por exemplo: Falhou)---- e depois reexecutar as janelas de atividade falhadas após corrigir o problema que faz com que as janelas de atividade falhem. Consulte a secção seguinte para obter detalhes sobre filtrar as janelas de atividade na lista.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausa/retomar vários oleodutos
 Pode selecionar dois ou mais oleodutos utilizando a tecla CTRL. Pode utilizar os botões da barra de comando (que são realçados no retângulo vermelho na imagem seguinte) para parar/retomá-los.

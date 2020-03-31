@@ -10,30 +10,30 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: bc1f40760c1602d81da042bf6909e44a540d35de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283761"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282686"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na Máquina Virtual de Ciência de Dados Azure
 
-A Máquina Virtual da Ciência dos Dados (DSVM) agrega várias ferramentas populares num ambiente de desenvolvimento integrado altamente produtivo (IDE). Aqui estão algumas ferramentas fornecidas no DSVM.
+A Máquina Virtual da Ciência dos Dados (DSVM) agrega várias ferramentas populares num ambiente de desenvolvimento integrado altamente produtivo (IDE). Aqui estão algumas ferramentas que são fornecidas no DSVM.
 
 ## <a name="visual-studio-community-edition"></a>Edição Comunitária de Estúdio Visual
 
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Objetivo geral IDE      |
-| Versões DSVM suportadas      | Windows: Visual Studio 2017, Windows 2019 (Pré-visualização) : Visual Studio 2019      |
-| Utilizações típicas      | Desenvolvimento de software    |
+| Versões DSVM suportadas      | Windows: Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
+| Usos típicos      | Desenvolvimento de software    |
 | Como é configurado e instalado no DSVM?      | Carga de trabalho da Ciência dos Dados (ferramentas Python e R), carga de trabalho Azure (Hadoop, Data Lake), Node.js, ferramentas SQL Server, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Como usá-lo e executá-lo      | Atalho para desktop (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`). Graficamente, abra o Visual Studio utilizando o ícone do ambiente de trabalho ou o menu **Iniciar.** Procure programas (Windows logo key+S), seguido de **Visual Studio**. A partir daí, você pode C#criar projetos em línguas como Python, R e Node.js.   |
-| Ferramentas relacionadas no DSVM      |     Juno de código, o r Studio, Visual Studio  |
+| Como usá-lo e executá-lo      | Atalho para`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`desktop (). Graficamente, abra o Visual Studio utilizando o ícone do ambiente de trabalho ou o menu **Iniciar.** Procure programas (Windows logo key+S), seguido de **Visual Studio**. A partir daí, você pode criar projetos em línguas como C#, Python, R e Node.js.   |
+| Ferramentas relacionadas no DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 > [!NOTE]
-> Poderá receber uma mensagem que o período de avaliação expirou. Introduza as credenciais da conta Microsoft. Ou crie uma nova conta gratuita para obter acesso ao Visual Studio Community.
+> Pode receber uma mensagem de que o seu período de avaliação expirou. Insira as credenciais da sua conta Microsoft. Ou criar uma nova conta gratuita para ter acesso à Comunidade visual studio.
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
@@ -41,39 +41,39 @@ A Máquina Virtual da Ciência dos Dados (DSVM) agrega várias ferramentas popul
 | ------------- | ------------- |
 | O que é?   | Objetivo geral IDE      |
 | Versões DSVM suportadas      | Windows, Linux     |
-| Utilizações típicas      | Editor de código e integração de Git   |
-| Como usá-lo e executá-lo      | Atalho de secretária (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) no Windows, atalho de secretária ou terminal (`code`) em Linux    |
+| Usos típicos      | Editor de código e integração git   |
+| Como usá-lo e executá-lo      | Atalho de`C:\Program Files (x86)\Microsoft VS Code\Code.exe`secretária () em Windows,`code`atalho de secretária ou terminal () em Linux    |
 | Ferramentas relacionadas no DSVM      |     Estúdio Visual, RStudio, Juno  |
 
-## <a name="rstudio-desktop"></a>Ambiente de trabalho rstudio
+## <a name="rstudio-desktop"></a>RStudio Desktop
 
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Cliente IDE para linguagem R   |
 | Versões DSVM suportadas      | Windows, Linux      |
-| Utilizações típicas      |  Desenvolvimento de R     |
-| Como usá-lo e executá-lo      | Atalho de secretária (`C:\Program Files\RStudio\bin\rstudio.exe`) no Windows, atalho de secretária (`/usr/bin/rstudio`) no Linux      |
+| Usos típicos      |  Desenvolvimento R     |
+| Como usá-lo e executá-lo      | Atalho de`C:\Program Files\RStudio\bin\rstudio.exe`secretária () no`/usr/bin/rstudio`Windows, atalho de secretária () no Linux      |
 | Ferramentas relacionadas no DSVM      |   Estúdio Visual, Código de Estúdio Visual, Juno      |
 
-## <a name="rstudio-server"></a>Servidor RStudio
+## <a name="rstudio-server"></a>RStudio Server
 
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Cliente IDE para linguagem R   |
 | O que é?   | IDE baseado na Web para R    |
 | Versões DSVM suportadas      | Linux      |
-| Utilizações típicas      |  Desenvolvimento de R     |
-| Como usá-lo e executá-lo      | Ative o serviço com _o sistemactl ativar o rstudio-server,_ e, em seguida, iniciar o serviço com _o sistemactl iniciar o rstudio-server_. Em seguida, inscreva-se no RStudio Server em http:\//your-vm-ip:8787.       |
+| Usos típicos      |  Desenvolvimento R     |
+| Como usá-lo e executá-lo      | Ative o serviço com _o sistemactl ativar o rstudio-server,_ e, em seguida, iniciar o serviço com _o sistemactl iniciar o rstudio-server_. Em seguida, inscreva-se no\/RStudio Server em http: /your-vm-ip:8787.       |
 | Ferramentas relacionadas no DSVM      |   Estúdio Visual, Código de Estúdio Visual, RStudio Desktop      |
 
-## <a name="juno"></a>Juno 
+## <a name="juno"></a>Rio Juno 
 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Cliente IDE para a linguagem Julia   |
+| O que é?   | Cliente IDE para a língua julia   |
 | Versões DSVM suportadas      | Windows, Linux      |
-| Utilizações típicas      |  Desenvolvimento de Julia     |
-| Como usá-lo e executá-lo      | Atalho de secretária (`C:\JuliaPro-0.5.1.1\Juno.bat`) no Windows, atalho de secretária (`/opt/JuliaPro-VERSION/Juno`) no Linux      |
+| Usos típicos      |  Desenvolvimento de Júlia     |
+| Como usá-lo e executá-lo      | Atalho de`C:\JuliaPro-0.5.1.1\Juno.bat`secretária () no`/opt/JuliaPro-VERSION/Juno`Windows, atalho de secretária () no Linux      |
 | Ferramentas relacionadas no DSVM      |   Estúdio Visual, Código de Estúdio Visual, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
@@ -81,7 +81,7 @@ A Máquina Virtual da Ciência dos Dados (DSVM) agrega várias ferramentas popul
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Cliente IDE para linguagem Python    |
-| Versões DSVM suportadas      | Windows 2019 (Pré-visualização), Linux      |
-| Utilizações típicas      |  Desenvolvimento de Python     |
-| Como usá-lo e executá-lo      | Atalho de secretária (`C:\Program Files\tk`) no Windows. Atalho de secretária (`/usr/bin/pycharm`) em Linux      |
+| Versões DSVM suportadas      | Windows 2019, Linux      |
+| Usos típicos      |  Desenvolvimento python     |
+| Como usá-lo e executá-lo      | Atalho de`C:\Program Files\tk`ambiente de trabalho () no Windows. Atalho de`/usr/bin/pycharm`secretária () em Linux      |
 | Ferramentas relacionadas no DSVM      |   Estúdio Visual, Código de Estúdio Visual, RStudio      |

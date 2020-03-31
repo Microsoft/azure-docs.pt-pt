@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
 ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614805"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratar os dados blob do nível de arquivo
@@ -29,7 +29,7 @@ Enquanto uma bolha está no nível de acesso ao arquivo, é considerada offline 
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
-## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar uma bolha arquivada para um nível online
+## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar um blob arquivado para uma camada online
 
 Se não quiser reidratar a sua bolha de arquivo, pode optar por fazer uma operação [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) A sua bolha original permanecerá inalterada no arquivo enquanto uma nova bolha é criada no nível quente ou fresco online para que você trabalhe. Na operação Copy Blob, também pode definir a propriedade opcional *x-ms-rehydrate-priority* para Standard ou High (pré-visualização) para especificar a prioridade a que pretende que a sua cópia blob seja criada.
 
@@ -52,7 +52,7 @@ As bolhas no nível de arquivo devem ser armazenadas durante um período mínimo
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidratar uma bolha de arquivo para um nível online
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. No portal Azure, procure e selecione **Todos os Recursos.**
 
@@ -71,7 +71,7 @@ As bolhas no nível de arquivo devem ser armazenadas durante um período mínimo
 ![Alterar o nível da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-O seguinte script PowerShell pode ser usado para alterar o nível de blob de uma bolha de arquivo. A variável `$rgName` deve ser inicializada com o nome do seu grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da sua conta de armazenamento. A variável `$containerName` deve ser inicializada com o nome do recipiente. A variável `$blobName` deve ser inicializada com o seu nome blob. 
+O seguinte script PowerShell pode ser usado para alterar o nível de blob de uma bolha de arquivo. A `$rgName` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento. A `$containerName` variável deve ser inicializada com o nome do recipiente. A `$blobName` variável deve ser inicializada com o seu nome blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -92,7 +92,7 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
 ---
 
 ### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Copie uma bolha de arquivo para uma nova bolha com um nível on-line
-O seguinte script PowerShell pode ser usado para copiar uma bolha de arquivo para uma nova bolha dentro da mesma conta de armazenamento. A variável `$rgName` deve ser inicializada com o nome do seu grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da sua conta de armazenamento. As variáveis `$srcContainerName` e `$destContainerName` devem ser inicializadas com os nomes dos seus contentores. As variáveis `$srcBlobName` e `$destBlobName` devem ser inicializadas com os vossos nomes blob. 
+O seguinte script PowerShell pode ser usado para copiar uma bolha de arquivo para uma nova bolha dentro da mesma conta de armazenamento. A `$rgName` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento. As `$srcContainerName` `$destContainerName` variáveis e variáveis devem ser inicializadas com os nomes dos seus recipientes. As `$srcBlobName` `$destBlobName` variáveis e variáveis devem ser inicializadas com os vossos nomes blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -113,6 +113,6 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -D
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre blob Storage Tiers](storage-blob-storage-tiers.md)
-* [Verificar os preços das camadas de armazenamento frequente, esporádica e de arquivo nas contas de armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
+* [Verifique preços quentes, frescos e de arquivo no armazenamento blob e contas GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
 * [Gerir o ciclo de vida do Armazenamento de blobs do Azure](storage-lifecycle-management-concepts.md)
 * [Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

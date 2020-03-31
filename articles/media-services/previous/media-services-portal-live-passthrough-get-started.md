@@ -1,5 +1,5 @@
 ---
-title: Live stream com codificadores no local usando portal Azure  Microsoft Docs
+title: Live stream com codificadores no local usando portal Azure [ Microsoft Docs
 description: Este tutorial explica os passos para criar um Canal configurado para uma entrega pass-through.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162757"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realizar streaming ao vivo com codificadores no local usando portal Azure
@@ -30,7 +30,7 @@ ms.locfileid: "77162757"
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial explica os passos para criar um **Canal** configurado para uma entrega pass-through através do Portal do Azure. 
 
@@ -47,7 +47,7 @@ O seguinte é necessário para concluir o tutorial:
 * [Overview of Live Streaming using Azure Media Services (Descrição Geral da Transmissão em Fluxo em Direto com os Serviços de Multimédia do Azure)](media-services-manage-channels-overview.md)
 * [Transmissão em fluxo em direto com codificadores no local que criam transmissões com velocidade de transmissão múltipla](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a id="scenario"></a>Cenário comum de transmissão em fluxo em direto
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de transmissão em fluxo em direto
 
 Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações de transmissão em fluxo em direto comuns que utilizam canais que estão configurados para entrega pass-through. Este tutorial mostra como criar e gerir um canal pass-through e eventos em direto.
 

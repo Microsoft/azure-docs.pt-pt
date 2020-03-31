@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135892"
 ---
 # <a name="copy-a-blob-with-net"></a>Copiar uma bolha com .NET
@@ -109,7 +109,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## <a name="abort-a-blob-copy-operation"></a>Abortar uma operação de cópia blob
 
-Abortar uma operação de cópia resulta numa bolha de destino de comprimento zero para bolhas de bloco, bolhas de apêndice e bolhas de página. No entanto, os metadados para a bolha de destino terão os novos valores copiados da bolha de origem ou definidos explicitamente na chamada [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) ou [StartCopyAsync.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) Para manter os metadados originais antes da cópia, faça uma foto da bolha de destino antes de ligar para `StartCopy` ou `StartCopyAsync`.
+Abortar uma operação de cópia resulta numa bolha de destino de comprimento zero para bolhas de bloco, bolhas de apêndice e bolhas de página. No entanto, os metadados para a bolha de destino terão os novos valores copiados da bolha de origem ou definidos explicitamente na chamada [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) ou [StartCopyAsync.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) Para manter os metadados originais antes da cópia, faça `StartCopy` uma `StartCopyAsync`foto da bolha de destino antes de ligar ou .
 
 Quando aborta uma operação de cópia blob em curso, o estado de cópia do destino blob [é](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) definido para [CopyStatus.Abortado](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 

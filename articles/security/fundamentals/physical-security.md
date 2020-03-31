@@ -1,6 +1,6 @@
 ---
-title: Segurança física de data centers do Azure-Microsoft Azure | Microsoft Docs
-description: O artigo descreve o que a Microsoft faz para proteger os data centers do Azure, incluindo ofertas de infraestrutura física, segurança e conformidade.
+title: Segurança física dos centros de dados do Azure - Microsoft Azure Microsoft Docs
+description: O artigo descreve o que a Microsoft faz para proteger os datacenters do Azure, incluindo infraestruturas físicas, segurança e ofertas de conformidade.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,76 +16,76 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726734"
 ---
-# <a name="azure-facilities-premises-and-physical-security"></a>Instalações do Azure, local e segurança física
-Este artigo descreve o que a Microsoft faz para proteger a infraestrutura do Azure.
+# <a name="azure-facilities-premises-and-physical-security"></a>Instalações, instalações e segurança física do Azure
+Este artigo descreve o que a Microsoft faz para garantir a infraestrutura Azure.
 
-## <a name="datacenter-infrastructure"></a>Infraestrutura do datacenter
-O Azure é composto de uma [infraestrutura de datacenter distribuída globalmente](https://azure.microsoft.com/global-infrastructure/), com suporte a milhares de serviços online e abrangendo mais de 100 instalações altamente seguras em todo o mundo.
+## <a name="datacenter-infrastructure"></a>Infraestrutura de datacenter
+O Azure é composto por uma infraestrutura de [datacenter distribuída globalmente,](https://azure.microsoft.com/global-infrastructure/)apoiando milhares de serviços online e abrangendo mais de 100 instalações altamente seguras em todo o mundo.
 
-A infraestrutura foi projetada para trazer os aplicativos mais próximos aos usuários em todo o mundo, preservando a residência de dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. O Azure tem 52 regiões em todo o mundo e está disponível em 140 países/regiões.
+A infraestrutura destina-se a aproximar as aplicações dos utilizadores em todo o mundo, preservando a residência de dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. O Azure tem 52 regiões em todo o mundo e está disponível em 140 países/regiões.
 
-Uma região é um conjunto de data centers que é interconectado por meio de uma rede maciça e resiliente. A rede inclui distribuição de conteúdo, balanceamento de carga, redundância e criptografia por padrão. Com regiões mais globais do que qualquer outro provedor de nuvem, o Azure oferece a flexibilidade para implantar aplicativos onde você precisa deles.
+Uma região é um conjunto de datacenters que está interligado através de uma rede maciça e resiliente. A rede inclui distribuição de conteúdo, equilíbrio de carga, redundância e encriptação por padrão. Com regiões mais globais do que qualquer outro fornecedor de nuvem, o Azure dá-lhe a flexibilidade para implementar aplicações onde você precisa delas.
 
-As regiões do Azure estão organizadas em geografias. Uma geografia do Azure garante que os requisitos de residência, de soberania, de conformidade e de resiliência dos dados são honrados dentro dos limites geográficos.
+As regiões de Azure estão organizadas em geografias. Uma geografia Azure garante que os requisitos de residência de dados, soberania, conformidade e resiliência sejam honrados dentro das fronteiras geográficas.
 
-As geografias permitem aos clientes com necessidades de residência de dados específicos e conformidade aproximarem os seus dados e aplicações. As geografias são tolerantes a falhas para resistir à falha de região completa, por meio de sua conexão à infraestrutura de rede dedicada de alta capacidade.
+As localizações geográficas permitem que os clientes com uma residência de dados e necessidades de conformidade específicas mantenham os respetivos dados e aplicações próximos. As geografias são tolerantes a falhas para suportar a completa falha da região, através da sua ligação à infraestrutura dedicada de rede de alta capacidade.
 
-As zonas de disponibilidade são locais fisicamente separados em uma região do Azure. Cada zona de disponibilidade é composta por um ou mais data centers equipados com energia, resfriamento e rede independentes. As zonas de disponibilidade permitem que você execute aplicativos de missão crítica com alta disponibilidade e replicação de baixa latência.
+As zonas de disponibilidade são locais fisicamente separados dentro de uma região de Azure. Cada zona de disponibilidade é constituída por um ou mais datacenters equipados com energia, refrigeração e redes independentes. As zonas de disponibilidade permitem-lhe executar aplicações críticas de missão com elevada disponibilidade e replicação de baixa latência.
 
-A figura a seguir mostra como a infraestrutura global do Azure emparelha a região e as zonas de disponibilidade dentro do mesmo limite de residência de dados para alta disponibilidade, recuperação de desastre e backup.
+O número seguinte mostra como a infraestrutura global Azure emparelha região e zonas de disponibilidade dentro do mesmo limite de residência de dados para alta disponibilidade, recuperação de desastres e backup.
 
-![Diagrama mostrando o limite de residência de dados](./media/physical-security/data-residency-boundary.png)
+![Diagrama mostrando limite de residência de dados](./media/physical-security/data-residency-boundary.png)
 
-Os data centers distribuídos geograficamente permitem que a Microsoft esteja perto dos clientes, para reduzir a latência da rede e permitir o backup e o failover com redundância geográfica.
+Os centros de dados distribuídos geograficamente permitem que a Microsoft esteja próxima dos clientes, reduza a latência da rede e permita uma cópia de segurança georedundante e failover.
 
 ## <a name="physical-security"></a>Segurança física
-A Microsoft projeta, cria e opera data centers de uma forma que controla estritamente o acesso físico às áreas em que os dados são armazenados. A Microsoft entende a importância de proteger seus dados e está comprometida em ajudar a proteger os data centers que contêm seus dados. Temos uma divisão completa da Microsoft dedicada à criação, à criação e à operação de instalações físicas que dão suporte ao Azure. Essa equipe está investido em manter a segurança física de ponta.
+A Microsoft projeta, constrói e opera datacenters de forma a controlar rigorosamente o acesso físico às áreas onde os seus dados são armazenados. A Microsoft compreende a importância de proteger os seus dados e está empenhada em ajudar a proteger os datacenters que contêm os seus dados. Temos uma divisão inteira na Microsoft dedicada a projetar, construir e operar as instalações físicas de apoio ao Azure. Esta equipa está a investir na manutenção da segurança física de última geração.
 
-A Microsoft usa uma abordagem em camadas para a segurança física, a fim de reduzir o risco de usuários não autorizados obterem acesso físico aos dados e aos recursos do datacenter. Os data centers gerenciados pela Microsoft têm amplas camadas de proteção: aprovação de acesso no perímetro do recurso, no perímetro do prédio, dentro do prédio e no piso do datacenter. As camadas de segurança física são:
+A Microsoft tem uma abordagem em camadas de segurança física, para reduzir o risco de utilizadores não autorizados terem acesso físico aos dados e aos recursos do datacenter. Os datacenters geridos pela Microsoft têm extensas camadas de proteção: aprovação de acesso no perímetro das instalações, no perímetro do edifício, dentro do edifício e no piso do datacenter. Camadas de segurança física são:
 
-- **Solicitação e aprovação de acesso.** Você deve solicitar acesso antes de chegar ao datacenter. Você precisa fornecer uma justificativa de negócios válida para sua visita, como fins de conformidade ou auditoria. Todas as solicitações são aprovadas de acordo com a necessidade de acesso pelos funcionários da Microsoft. Uma base de necessidade de acesso ajuda a manter o número de pessoas necessárias para concluir uma tarefa nos data centers para o mínimo. Depois que a Microsoft concede permissão, uma pessoa só tem acesso à área discreta do datacenter necessária, com base na justificativa de negócios aprovada. As permissões são limitadas a um determinado período de tempo e expiram.
+- **Pedido de acesso e aprovação.** Deve solicitar acesso antes de chegar ao datacenter. É-lhe exigido que forneça uma justificação de negócio válida para a sua visita, como finalidades de conformidade ou auditoria. Todos os pedidos são aprovados numa base de necessidade de acesso pelos colaboradores da Microsoft. Uma base de necessidade de acesso ajuda a manter o número de indivíduos necessários para completar uma tarefa nos datacenters ao mínimo. Após a Microsoft conceder permissão, um indivíduo só tem acesso à área discreta do datacenter necessário, com base na justificação do negócio aprovado. As permissões limitam-se a um determinado período de tempo e, em seguida, expiram.
 
-- **Perímetro do recurso.** Quando chegar a um datacenter, você precisará passar por um ponto de acesso bem definido. Normalmente, os limites altos feitos de aço e concreto abrangem cada polegada do perímetro. Há câmeras em todos os data centers, com uma equipe de segurança monitorando seus vídeos em todos os momentos.
+- **Perímetro das instalações.** Quando chega a um datacenter, é-lhe exigido que passe por um ponto de acesso bem definido. Tipicamente, cercas altas feitas de aço e betão englobam cada centímetro do perímetro. Há câmaras nos centros de dados, com uma equipa de segurança a monitorizar os seus vídeos a todo o momento.
 
-- **Criando entrada.** A entrada do datacenter é uma equipe com responsáveis por profissionais de segurança que sofreram verificações rigorosas de treinamento e em segundo plano. Esses responsáveis pela segurança também patrulham rotineiramente o datacenter e monitoram os vídeos de câmeras dentro do datacenter em todos os momentos.
+- **Entrada do prédio.** A entrada do datacenter está equipada com oficiais de segurança profissional que foram submetidos a rigorosos treinos e verificações de antecedentes. Estes agentes de segurança também patrulham rotineiramente o datacenter, e monitorizam os vídeos das câmaras dentro do datacenter em todos os momentos.
 
-- **Dentro do edifício.** Depois de inserir o edifício, você deve passar a autenticação de dois fatores com a biometria para continuar movendo o datacenter. Se sua identidade for validada, você poderá inserir apenas a parte do datacenter para a qual você aprovou acesso. Você pode permanecer lá somente pela duração do tempo aprovado.
+- **Dentro do edifício.** Depois de entrar no edifício, tem de passar a autenticação de dois fatores com biometria para continuar a mover-se através do datacenter. Se a sua identidade for validada, só pode introduzir a parte do datacenter a que aprovou o acesso. Só pode ficar lá durante o tempo aprovado.
 
-- **Piso do datacenter.** Você só é permitido no chão que você está aprovado para inserir. Você precisa passar por uma triagem de detecção de metal do corpo completo. Para reduzir o risco de dados não autorizados entrarem ou saírem do datacenter sem nosso conhecimento, somente os dispositivos aprovados podem fazer seu caminho no chão do datacenter. Além disso, as câmeras de vídeo monitoram o front e o verso de cada rack do servidor. Ao sair do piso do datacenter, você deve passar novamente pela triagem de detecção de metal do corpo completo. Para sair do datacenter, você precisa passar por uma verificação de segurança adicional.
+- **Piso do datacenter.** Só pode entrar no chão onde está aprovado para entrar. É obrigado a passar por um rastreio de deteção de metais de corpo inteiro. Para reduzir o risco de dados não autorizados entrarem ou sairem do datacenter sem o nosso conhecimento, apenas dispositivos aprovados podem entrar no piso do datacenter. Além disso, as câmaras de vídeo monitorizam a frente e a parte traseira de cada prateleira de servidores. Quando sair do piso do datacenter, deve passar novamente pelo rastreio de deteção de metais de corpo inteiro. Para sair do datacenter, é obrigado a passar por um exame de segurança adicional.
 
-A Microsoft exige que os visitantes retenham selos após a partida de qualquer instalação da Microsoft.
+A Microsoft exige que os visitantes entreguem emblemas à partida de qualquer instalação da Microsoft.
 
-## <a name="physical-security-reviews"></a>Revisões de segurança físicas
-Periodicamente, realizamos revisões de segurança físicas das instalações, para garantir que os data centers atendam adequadamente aos requisitos de segurança do Azure. O pessoal do provedor de hospedagem do datacenter não fornece gerenciamento de serviços do Azure. A equipe não pode entrar em sistemas do Azure e não tem acesso físico à sala e aos compartimentos de colocação do Azure.
+## <a name="physical-security-reviews"></a>Avaliações de segurança física
+Periodicamente, realizamos revisões de segurança física das instalações, para garantir que os datacenters abordam adequadamente os requisitos de segurança do Azure. O pessoal do fornecedor de hospedagem do datacenter não fornece a gestão de serviços Azure. O pessoal não pode entrar nos sistemas Azure e não tem acesso físico à sala de collocalização azure e às gaiolas.
 
-## <a name="data-bearing-devices"></a>Dispositivos que ostentam dados
-A Microsoft usa os procedimentos de práticas recomendadas e uma solução de apagamento que é [compatível com NIST 800-88](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). Para discos rígidos que não podem ser apagados, usamos um processo de destruição que destrói e renderiza a recuperação de informações impossível. Esse processo de destruição pode ser despedaçar, destruir, pulverizar ou incinere. Determinamos o meio de descarte de acordo com o tipo de ativo. Guardamos registros da destruição.  
+## <a name="data-bearing-devices"></a>Dispositivos de suporte de dados
+A Microsoft utiliza procedimentos de boas práticas e uma solução de limpeza que é compatível com [nIST 800-88](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). Para discos rígidos que não podem ser apagados, usamos um processo de destruição que a destrói e torna impossível a recuperação da informação. Este processo de destruição pode ser desintegrar, triturar, pulverizar ou incinerar. Determinamos os meios de eliminação de acordo com o tipo de ativo. Guardamos registos da destruição.  
 
 ## <a name="equipment-disposal"></a>Eliminação de equipamentos
-Após o fim da vida útil do sistema, a equipe operacional da Microsoft segue procedimentos rigorosos de manipulação de dados e disposição de hardware para garantir que o hardware que contém seus dados não seja disponibilizado para partes não confiáveis. Usamos uma abordagem de apagamento seguro para discos rígidos que dão suporte a ele. Para discos rígidos que não podem ser apagados, usamos um processo de destruição que destrói a unidade e renderiza a recuperação de informações impossível. Esse processo de destruição pode ser despedaçar, destruir, pulverizar ou incinere. Determinamos o meio de descarte de acordo com o tipo de ativo. Guardamos registros da destruição. Todos os serviços do Azure usam serviços de gerenciamento de descarte e armazenamento de mídia aprovado.
+Após o fim de vida de um sistema, o pessoal operacional da Microsoft segue rigorosos procedimentos de manipulação de dados e eliminação de hardware para garantir que o hardware que contém os seus dados não é disponibilizado a partes não confiáveis. Usamos uma abordagem de apagamento segura para discos rígidos que o suportam. Para discos rígidos que não podem ser apagados, usamos um processo de destruição que destrói o disco e torna impossível a recuperação da informação. Este processo de destruição pode ser desintegrar, triturar, pulverizar ou incinerar. Determinamos os meios de eliminação de acordo com o tipo de ativo. Guardamos registos da destruição. Todos os serviços Azure utilizam serviços aprovados de armazenamento e gestão de eliminação de mídia.
 
 ## <a name="compliance"></a>Conformidade
-Projetamos e gerenciamos a infraestrutura do Azure para atender a um amplo conjunto de padrões de conformidade internacionais e específicos do setor, como ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Também atendemos a padrões específicos de país ou região, incluindo a Austrália IRAP, o G-Cloud do Reino Unido e o Cingapura MTCS. Auditorias rigorosas de terceiros, como as feitas pelo British Standards Institute, verificam a adesão aos controles de segurança estritos que esses padrões exigem.
+Concebemos e gerimos a infraestrutura Azure para cumprir um vasto conjunto de normas internacionais e específicas de conformidade, tais como ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Também cumprimos normas específicas de país ou região, incluindo Australia IRAP, UK G-Cloud e Singapura MTCS. Auditorias rigorosas de terceiros, como as efetuadas pelo British Standards Institute, verificam a adesão aos rigorosos controlos de segurança destes mandatos de normas.
 
-Para obter uma lista completa dos padrões de conformidade que o Azure segue, consulte as [ofertas de conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+Para obter uma lista completa das normas de conformidade a que o Azure adere, consulte as ofertas de [Conformidade.](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:
+Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura Azure, consulte:
 
-- [Disponibilidade de infraestrutura do Azure](infrastructure-availability.md)
-- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
-- [Arquitetura de rede do Azure](infrastructure-network.md)
-- [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
-- [Operações e gerenciamento de produção do Azure](infrastructure-operations.md)
-- [Monitoramento de infraestrutura do Azure](infrastructure-monitoring.md)
-- [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
-- [Proteção de dados do cliente do Azure](protection-customer-data.md)
+- [Disponibilidade de infraestruturas azure](infrastructure-availability.md)
+- [Componentes e limites do sistema de informação Azure](infrastructure-components.md)
+- [Arquitetura de rede Azure](infrastructure-network.md)
+- [Rede de produção azure](production-network.md)
+- [Funcionalidades de segurança da Base de Dados Azure SQL](infrastructure-sql.md)
+- [Operações e gestão de produção da Azure](infrastructure-operations.md)
+- [Monitorização de infraestruturas Azure](infrastructure-monitoring.md)
+- [Integridade da infraestrutura azure](infrastructure-integrity.md)
+- [Proteção de dados dos clientes azure](protection-customer-data.md)
 
 

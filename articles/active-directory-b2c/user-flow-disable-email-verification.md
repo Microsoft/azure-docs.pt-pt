@@ -12,10 +12,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 369b4e13baa344a71a51b358ef810d1a66b4b6ae
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126742"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Desativar a verificação de e-mail durante a inscrição do cliente no Diretório Ativo Azure B2C
@@ -24,7 +24,7 @@ ms.locfileid: "79126742"
 
 Siga estes passos para desativar a verificação de e-mail:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
 1. Utilize o filtro de **subscrição Diretório +** no menu superior para selecionar o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Selecione **fluxos de utilizador**.

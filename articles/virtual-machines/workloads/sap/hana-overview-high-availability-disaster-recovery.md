@@ -1,5 +1,5 @@
 ---
-title: Elevada disponibilidade e recuperação de desastres da SAP HANA em Azure (Grandes Instâncias)  Microsoft Docs
+title: Elevada disponibilidade e recuperação de desastres da SAP HANA em Azure (Grandes Instâncias) [ Microsoft Docs
 description: Estabelecer alta disponibilidade e plano para a recuperação de desastres do SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0585c1251ba18e1390f3eee28a989edee6eb8591
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616937"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA Grandes Instâncias alta disponibilidade e recuperação de desastres em Azure 
@@ -30,7 +30,7 @@ ms.locfileid: "77616937"
 
 A elevada disponibilidade e recuperação de desastres (DR) são aspetos cruciais para executar o seu sap HANA crítico da missão no servidor Azure (Grandes Instâncias). É importante trabalhar com o SAP, o seu integrador de sistemas ou a Microsoft para arquiteto e implementar as estratégias de alta disponibilidade e recuperação de desastres certas. Também é importante considerar o objetivo do ponto de recuperação (RPO) e o objetivo de tempo de recuperação, que são específicos do seu ambiente.
 
-A Microsoft suporta algumas capacidades de alta disponibilidade sAP HANA com as grandes instâncias HANA. Estas capacidades incluem:
+A Microsoft suporta algumas capacidades de alta disponibilidade sAP HANA com as grandes instâncias HANA. Estas funcionalidades incluem:
 
 - **Replicação de armazenamento**: A capacidade do sistema de armazenamento de replicar todos os dados para outro carimbo HANA Large Instance em outra região de Azure. A SAP HANA opera independentemente deste método. Esta funcionalidade é o mecanismo padrão de recuperação de desastres oferecido para as grandes instâncias HANA.
 - **Replicação**do sistema HANA : A [replicação de todos os dados em SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) para um sistema Separado SAP HANA. O objetivo do tempo de recuperação é minimizado através da replicação de dados em intervalos regulares. O SAP HANA suporta modos assíncronos, sincronizados de memória e sincronizados. O modo sincronizado é utilizado apenas para sistemas SAP HANA que estão dentro do mesmo datacenter ou com menos de 100 km de distância. Com o design atual de selos HANA Large Instance, a replicação do sistema HANA pode ser usada para alta disponibilidade dentro de uma região apenas. A replicação do sistema HANA requer um componente de procuração ou encaminhamento invertido de terceiros para configurações de recuperação de desastres noutra região do Azure. 
@@ -85,7 +85,7 @@ Para além dos requisitos anteriores para uma instalação de recuperação de d
 - Encomende armazenamento adicional no site dr para cada um dos seus SAP HANA em Azure (Grandes Instâncias) SKUs que pretende recuperar no local de recuperação de desastres. Comprar armazenamento adicional permite-lhe alocar os volumes de armazenamento. Você pode alocar os volumes que são alvo da replicação de armazenamento da sua produção da região Azure para a região de recuperação de desastres Azure.
 - No caso, onde tiver configuração hSR nas primárias, e configurar replicação baseada em armazenamento no site DR, deve adquirir armazenamento adicional no site dr para que os dados dos nós primários e secundários sejam replicados para o site DR.
 
-  **Passos seguintes?**
+  **Passos seguintes**
 - Consulte [a Cópia de Segurança e restaure](hana-backup-restore.md).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Compreender o endereço IP do seu hub IoT  Microsoft Docs
+title: Compreender o endereço IP do seu hub IoT [ Microsoft Docs
 description: Entenda como consultar o seu endereço IP do hub IoT e as suas propriedades. O endereço IP do seu hub IoT pode mudar durante certos cenários, tais como recuperação de desastres ou falha regional.
 author: philmea
 ms.author: philmea
@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367572"
 ---
 # <a name="iot-hub-ip-addresses"></a>Endereços IP do IoT Hub
@@ -38,7 +38,7 @@ Pode utilizar estes prefixos de endereço IP para controlar a conectividade entr
 
 * Os prefixos de endereço IP do centro IoT estão sujeitos a alterações. Estas alterações são publicadas periodicamente através de etiquetas de serviço antes de produzir em vigor. Por isso, é importante que desenvolva processos para recuperar e utilizar regularmente as mais recentes etiquetas de serviço. Este processo pode ser automatizado através da descoberta de etiquetas de [serviço API](../virtual-network/service-tags-overview.md#service-tags-on-premises). Note que a descoberta de etiquetas de serviço API ainda está em pré-visualização e em alguns casos pode não produzir a lista completa de tags e endereços IP. Até que a API esteja geralmente disponível, considere utilizar as etiquetas de [serviço no formato JSON descarregado.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 
 
-* Use o *AzureIoTHub. nome da região]* etiqueta para identificar prefixos IP utilizados por pontos finais do hub IoT numa região específica. Para responder à recuperação de desastres do datacenter, ou [falha regional](iot-hub-ha-dr.md) garantir conectividade com prefixos IP da região geo-par do seu IoT Hub também está ativado.
+* Use o *AzureIoTHub.. nome da região]* etiqueta para identificar prefixos IP utilizados por pontos finais do hub IoT numa região específica. Para responder à recuperação de desastres do datacenter, ou [falha regional](iot-hub-ha-dr.md) garantir conectividade com prefixos IP da região geo-par do seu IoT Hub também está ativado.
 
 * A criação de regras de firewall no IoT Hub pode bloquear a conectividade necessária para executar comandos Azure CLI e PowerShell contra o seu Hub IoT. Para evitar isto, pode adicionar regras de ALLOW para os prefixos de endereço IP dos seus clientes para reativar os clientes CLI ou PowerShell para comunicar com o seu Hub IoT.  
 

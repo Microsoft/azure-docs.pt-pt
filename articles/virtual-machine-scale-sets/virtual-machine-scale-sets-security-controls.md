@@ -1,21 +1,21 @@
 ---
-title: Controles de segurança para conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Uma lista de verificação de controles de segurança para avaliar os conjuntos de dimensionamento de máquinas virtuais do Azure
+title: Controlos de segurança para conjuntos de escala de máquinas virtuais azure
+description: Uma lista de controlos de segurança para avaliar conjuntos de escala de máquinas virtuais Azure
 ms.service: virtual-machine-scale-sets
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190612"
 ---
-# <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controles de segurança para conjuntos de dimensionamento de máquinas virtuais do Azure
+# <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controlos de segurança para conjuntos de escala de máquinas virtuais azure
 
-Este artigo documenta os controles de segurança criados nos conjuntos de dimensionamento de máquinas virtuais do Azure.
+Este artigo documenta os controlos de segurança incorporados em conjuntos de escala de máquinas virtuais Azure.
 
 [!INCLUDE [Security controls header](../../includes/security-controls-header.md)]
 
@@ -28,7 +28,7 @@ Este artigo documenta os controles de segurança criados nos conjuntos de dimens
 | Suporte de isolamento de rede e firewalling| Sim |  |
 | Apoio de túnel forçado| Sim | Consulte [a configuração de túneis forçados utilizando o modelo](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm)de implantação do Gestor de Recursos Azure . |
 
-## <a name="monitoring--logging"></a>Monitorização e exploração madeireira
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|

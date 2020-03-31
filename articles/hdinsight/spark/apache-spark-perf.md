@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198876"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar os empregos da Apache Spark no HDInsight
@@ -57,19 +57,19 @@ O melhor formato para o desempenho é o parquet com *compressão snappy*, que é
 
 Quando criar um novo cluster Spark, pode selecionar o Armazenamento de Blob Azure ou o Armazenamento do Lago De dados Azure como armazenamento padrão do seu cluster. Ambas as opções dão-lhe o benefício do armazenamento a longo prazo para clusters transitórios, para que os seus dados não sejam automaticamente eliminados quando apaga o seu cluster. Pode recriar um cluster transitório e ainda aceder aos seus dados.
 
-| Tipo de loja | Sistema de Ficheiros | Velocidade | Transitória | Casos de Utilização |
+| Store Type | Sistema de Ficheiros | Velocidade | Transitória | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb:** //url/ | **Standard** | Sim | Aglomerado transitório |
-| Armazenamento De Blob Azure (seguro) | **wasbs:** //url/ | **Standard** | Sim | Aglomerado transitório |
-| Azure Data Lake Storage Gen2| **abfs:** //url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| Armazenamento de lagos azure data gen 1| **adl:** //url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| HDFS locais | **Hdfs:** //url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
+| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Armazenamento De Blob Azure (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| Armazenamento de lagos azure data gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| HDFS locais | **Hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
 
 Para obter uma descrição completa das opções de armazenamento disponíveis para os clusters HDInsight, consulte Compare opções de [armazenamento para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
 ## <a name="use-the-cache"></a>Use a cache
 
-A Faísca fornece os seus próprios mecanismos nativos de cache, que podem ser usados através de diferentes métodos, como `.persist()`, `.cache()`e `CACHE TABLE`. Este cache nativo é eficaz com pequenos conjuntos de dados, bem como em oleodutos ETL onde você precisa cache resultados intermédios. No entanto, o caching nativo spark atualmente não funciona bem com a divisão, uma vez que uma mesa em cache não mantém os dados de divisão. Uma técnica de cache mais genérica e fiável é o cache da camada de *armazenamento.*
+A faísca fornece os seus próprios mecanismos nativos de `.persist()` `.cache()`cache, `CACHE TABLE`que podem ser usados através de diferentes métodos, tais como, e . Este cache nativo é eficaz com pequenos conjuntos de dados, bem como em oleodutos ETL onde você precisa cache resultados intermédios. No entanto, o caching nativo spark atualmente não funciona bem com a divisão, uma vez que uma mesa em cache não mantém os dados de divisão. Uma técnica de cache mais genérica e fiável é o cache da camada de *armazenamento.*
 
 * Caching de faísca nativa (não recomendado)
     * Bom para pequenos conjuntos de dados.
@@ -80,7 +80,7 @@ A Faísca fornece os seus próprios mecanismos nativos de cache, que podem ser u
     * Usa na memória e caching SSD.
 
 * HDFS local (recomendado)
-    * `hdfs://mycluster` caminho.
+    * `hdfs://mycluster`caminho.
     * Usa o cache de SSD.
     * Os dados em cache perder-se-ão quando eliminar o cluster, exigindo uma reconstrução em cache.
 
@@ -90,7 +90,7 @@ A Spark opera colocando dados na memória, por isso gerir os recursos de memóri
 
 * Prefira divisórias de dados mais pequenas e contabilize o tamanho, tipos e distribuição de dados na sua estratégia de partilha.
 * Considere a mais recente e eficiente serialização de [dados da Kryo,](https://github.com/EsotericSoftware/kryo)em vez da serialização padrão de Java.
-* Prefira usar o ARN, uma vez que separa `spark-submit` por lote.
+* Prefira usar o ARN, `spark-submit` uma vez que se separa por lote.
 * Monitore e sintonize as definições de configuração spark.
 
 Para a sua referência, a estrutura da memória Spark e alguns parâmetros de memória do executor chave são mostrados na imagem seguinte.
@@ -104,8 +104,8 @@ Se estiver a utilizar [o YARN Apache Hadoop,](https://hadoop.apache.org/docs/cur
 Para endereçar mensagens "fora de memória", tente:
 
 * Reveja a GEStão DO DAG Shuffles. Reduza por dados de origem redutor do lado do mapa, pré-partição (ou bucketize), maximize as baralhadas individuais e reduza a quantidade de dados enviados.
-* Prefira `ReduceByKey` com o seu limite de memória fixo para `GroupByKey`, que proporciona agregações, janelas e outras funções, mas tem um limite de memória ilimitado.
-* Prefira `TreeReduce`, que trabalha mais nos executores ou divisórias, para `Reduce`, que faz todo o trabalho no motorista.
+* Prefira `ReduceByKey` com o `GroupByKey`seu limite de memória fixo para , que proporciona agregações, janelas e outras funções, mas tem um limite de memória ilimitado.
+* Prefere, `TreeReduce`que trabalha mais nos executores ou `Reduce`divisórias, para, o que faz todo o trabalho no motorista.
 * Alavancar os DataFrames em vez dos objetos RDD de nível inferior.
 * Criar Tipos Complexos que encapsulam ações, como "Top N", várias agregações ou operações de janela.
 
@@ -134,11 +134,11 @@ Pode usar divisórias e baldes ao mesmo tempo.
 
 Se tiver empregos lentos numa Join ou Shuffle, a causa é provavelmente *de sujeira*de dados , que é assimetria nos dados do seu trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou baralhados leva horas. Para corrigir o enviesamento dos dados, deve salgar toda a chave ou utilizar um *sal isolado* para apenas um subconjunto de teclas. Se estiver a utilizar um sal isolado, deve filtrar ainda mais para isolar o seu subconjunto de chaves salgadas no mapa. Outra opção é introduzir uma coluna de balde e pré-agregar em baldes primeiro.
 
-Outro fator que causa a juntas lentas pode ser o tipo de união. Por predefinição, a Spark utiliza o tipo de `SortMerge` de juntar. Este tipo de adesão é mais adequado para grandes conjuntos de dados, mas é computacionalmente caro porque deve primeiro classificar os lados esquerdo e direito dos dados antes de os fundir.
+Outro fator que causa a juntas lentas pode ser o tipo de união. Por padrão, a `SortMerge` Spark utiliza o tipo de união. Este tipo de adesão é mais adequado para grandes conjuntos de dados, mas é computacionalmente caro porque deve primeiro classificar os lados esquerdo e direito dos dados antes de os fundir.
 
-Uma `Broadcast` juntar é mais adequada para conjuntos de dados menores, ou onde um lado da junta é muito menor do que o outro lado. Este tipo de união transmite um lado para todos os executores, e assim requer mais memória para transmissões em geral.
+Uma `Broadcast` adesão é mais adequada para conjuntos de dados menores, ou onde um lado da junta é muito menor do que o outro lado. Este tipo de união transmite um lado para todos os executores, e assim requer mais memória para transmissões em geral.
 
-Pode alterar o tipo de união na sua configuração definindo `spark.sql.autoBroadcastJoinThreshold`, ou pode definir uma dica de união utilizando as APIs dataFrame (`dataframe.join(broadcast(df2))`).
+Pode alterar o tipo de união na sua configuração definindo, `spark.sql.autoBroadcastJoinThreshold`ou`dataframe.join(broadcast(df2))`pode definir uma dica de união utilizando as APIs dataFrame ().
 
 ```scala
 // Option 1
@@ -153,7 +153,7 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se está a usar mesas baldeadas, então tem um terceiro tipo de adesão, o `Merge` juntar-se. Um conjunto de dados pré-dividido e pré-ordenado salta a fase de classificação cara de um `SortMerge` aderir.
+Se estáa usando mesas baldes, então tem `Merge` um terceiro tipo de adesão, o juntamo. Um conjunto de dados pré-dividido e pré-ordenado salta a `SortMerge` fase de classificação cara de uma adesão.
 
 A ordem de adesão importa, particularmente em consultas mais complexas. Comece com as juntas mais seletivas. Além disso, move-se que aumenta o número de linhas após agregações quando possível.
 
@@ -165,17 +165,17 @@ Dependendo da carga de trabalho do cluster Spark, poderá determinar que uma con
 
 Aqui estão alguns parâmetros comuns que pode ajustar:
 
-* `--num-executors` define o número adequado de executores.
-* `--executor-cores` define o número de núcleos para cada executor. Normalmente deve ter executores de tamanho médio, uma vez que outros processos consomem parte da memória disponível.
-* `--executor-memory` define o tamanho da memória para cada executor, que controla o tamanho da pilha no ARN. Deviadeixar alguma memória para execução.
+* `--num-executors`define o número adequado de executores.
+* `--executor-cores`define o número de núcleos para cada executor. Normalmente deve ter executores de tamanho médio, uma vez que outros processos consomem parte da memória disponível.
+* `--executor-memory`define o tamanho da memória para cada executor, que controla o tamanho da pilha no ARN. Deviadeixar alguma memória para execução.
 
 ### <a name="select-the-correct-executor-size"></a>Selecione o tamanho correto do executor
 
 Ao decidir a configuração do seu executor, considere a sobrecarga da coleção de lixo Java (GC).
 
 * Fatores para reduzir o tamanho do executor:
-    1. Reduza o tamanho da pilha abaixo de 32 GB para manter a sobrecarga gc < 10%.
-    2. Reduza o número de núcleos para manter a sobrecarga gc < 10%.
+    1. Reduza o tamanho da pilha abaixo de 32 GB para manter a sobrecarga de GC < 10%.
+    2. Reduza o número de núcleos para manter a sobrecarga de GC < 10%.
 
 * Fatores para aumentar o tamanho do executor:
     1. Reduza a sobrecarga de comunicação entre executores.
@@ -187,7 +187,7 @@ Ao decidir a configuração do seu executor, considere a sobrecarga da coleção
 Regra geral ao selecionar o tamanho do executor:
 
 1. Comece com 30 GB por executor e distribua os núcleos disponíveis da máquina.
-2. Aumentar o número de núcleos de executores para clusters maiores (> 100 executores).
+2. Aumentar o número de núcleos de executor estoque para clusters maiores (> 100 executores).
 3. Modificar o tamanho com base tanto em ensaios como nos fatores anteriores, tais como a sobrecarga de GC.
 
 Ao executar consultas simultâneas, considere o seguinte:
@@ -201,7 +201,7 @@ Para obter mais informações sobre a utilização de Ambari para configurar exe
 
 Monitorize o seu desempenho de consulta para outliers ou outros problemas de desempenho, olhando para a vista da linha do tempo, gráfico SQL, estatísticas de trabalho, e assim por diante. Para obter informações sobre depuração de trabalhos spark usando O Fio e o servidor Spark History, consulte [os trabalhos de Debug Apache Spark em execução no Azure HDInsight](apache-spark-job-debugging.md). Para obter dicas sobre a utilização do Servidor de Linha do Tempo Do Fio YARN, consulte os registos de [aplicações do Access Apache Hadoop YARN](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Às vezes, um ou alguns dos executores são mais lentos que os outros, e as tarefas demoram muito mais tempo a executar. Isto acontece frequentemente em clusters maiores (> 30 nós). Neste caso, divida o trabalho num maior número de tarefas para que o programador possa compensar tarefas lentas. Por exemplo, ter pelo menos o dobro das tarefas do executor na aplicação. Também pode permitir a execução especulativa de tarefas com `conf: spark.speculation = true`.
+Às vezes, um ou alguns dos executores são mais lentos que os outros, e as tarefas demoram muito mais tempo a executar. Isto acontece frequentemente em aglomerados maiores (> 30 nós). Neste caso, divida o trabalho num maior número de tarefas para que o programador possa compensar tarefas lentas. Por exemplo, ter pelo menos o dobro das tarefas do executor na aplicação. Também pode permitir a execução `conf: spark.speculation = true`especulativa de tarefas com .
 
 ## <a name="optimize-job-execution"></a>Otimizar a execução de emprego
 
@@ -214,7 +214,7 @@ Monitorize regularmente os seus trabalhos de funcionamento para problemas de des
 * [A Ferramenta Intel PAL](https://github.com/intel-hadoop/PAT) monitoriza a utilização de CPU, armazenamento e largura de banda da rede.
 * [Oracle Java 8 Perfis de Controlo](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) de Missão Spark e código executor.
 
-A chave para o desempenho da consulta Spark 2.x é o motor Tungsten, que depende da geração de códigos em toda a fase. Em alguns casos, a geração de códigos em fase inteira pode ser desativada. Por exemplo, se utilizar um tipo não mutável (`string`) na expressão de agregação, aparece `SortAggregate` em vez de `HashAggregate`. Por exemplo, para um melhor desempenho, tente o seguinte e, em seguida, reativar a geração de códigos:
+A chave para o desempenho da consulta Spark 2.x é o motor Tungsten, que depende da geração de códigos em toda a fase. Em alguns casos, a geração de códigos em fase inteira pode ser desativada. Por exemplo, se utilizar um tipo`string`não mutável () na `SortAggregate` expressão de `HashAggregate`agregação, aparece em vez de . Por exemplo, para um melhor desempenho, tente o seguinte e, em seguida, reativar a geração de códigos:
 
 ```sql
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))

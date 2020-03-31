@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Cornerstone OnDemand para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Cornerstone OnDemand para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo azure para fornecer e desfornecer automaticamente contas de utilizadores à Cornerstone OnDemand.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6212e74ecbf8327d3939138de2e92868f29b0f1a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058448"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configure Cornerstone OnDemand para fornecimento automático de utilizadores
@@ -53,11 +53,11 @@ Para adicionar a Cornerstone OnDemand do Marketplace, siga estes passos.
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, introduza a **Cornerstone OnDemand** e selecione **Cornerstone OnDemand** a partir do painel de resultados. Para adicionar a aplicação, selecione **Adicionar**.
 
@@ -81,9 +81,9 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 Para configurar o fornecimento automático de utilizadores para a Cornerstone OnDemand em Azure AD, siga estes passos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Enterprise** > **Todas as aplicações** > **Cornerstone OnDemand**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações** > Enterprise**Todas as aplicações** > **Cornerstone OnDemand**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Cornerstone OnDemand**.
 
@@ -103,7 +103,7 @@ Para configurar o fornecimento automático de utilizadores para a Cornerstone On
 
     * Na caixa **de palavra-passe do Administrador,** preencha a palavra-passe correspondente ao nome de utilizador do administrador.
 
-    * Na caixa **de Domínio,** preencha o URL do serviço web do inquilino Cornerstone OnDemand. Por exemplo, o serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, e para Contoso o domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como recuperar o URL do serviço web, consulte [este pdf](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * Na caixa **de Domínio,** preencha o URL do serviço web do inquilino Cornerstone OnDemand. Por exemplo, o serviço `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`está localizado em, `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`e para Contoso o domínio é . Para obter mais informações sobre como recuperar o URL do serviço web, consulte [este pdf](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Depois de preencher as caixas mostradas no Passo 5, selecione **Test Connection** para se certificar de que o Azure AD pode ligar-se à Cornerstone OnDemand. Se a ligação falhar, certifique-se de que a sua conta Cornerstone OnDemand tem permissões de administração e tente novamente.
 
@@ -145,7 +145,7 @@ Para obter informações sobre como ler os registos de provisionamento da AD Azu
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-O atributo da **Posição** OnDemand da Cornerstone espera um valor que corresponda às funções no portal Cornerstone OnDemand. Para obter uma lista de valores de **Posição** válidos, vá a **Editar User Record > Organization Structure > Position** no portal Cornerstone OnDemand.
+O atributo da **Posição** OnDemand da Cornerstone espera um valor que corresponda às funções no portal Cornerstone OnDemand. Para obter uma lista de valores de **Posição** válidos, vá à **Edição** de Registo de Utilizadores > Estrutura de Organização > posição no portal Cornerstone OnDemand.
 
 ![Cornerstone OnDemand Provisioning Editar Registo de Utilizadores](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
 

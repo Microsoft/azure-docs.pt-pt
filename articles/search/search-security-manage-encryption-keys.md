@@ -1,7 +1,7 @@
 ---
-title: Criptografia em repouso usando chaves gerenciadas pelo cliente
+title: Encriptação em repouso usando chaves geridas pelo cliente
 titleSuffix: Azure Cognitive Search
-description: Complemente a criptografia do lado do servidor sobre índices e mapas de sinônimos no Azure Pesquisa Cognitiva usando chaves que você cria e gerencia no Azure Key Vault.
+description: Complemente a encriptação do lado do servidor sobre índices e mapas de sinónimo em Pesquisa Cognitiva Azure usando chaves que cria e gere no Cofre chave Azure.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
@@ -9,43 +9,43 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76899941"
 ---
-# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia em repouso de conteúdo no Azure Pesquisa Cognitiva usando chaves gerenciadas pelo cliente no Azure Key Vault
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação-no-resto de conteúdo em Pesquisa Cognitiva Azure usando chaves geridas pelo cliente em Cofre chave Azure
 
-Por padrão, o Azure Pesquisa Cognitiva criptografa o conteúdo indexado em repouso com [chaves gerenciadas pelo serviço](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Você pode complementar a criptografia padrão com uma camada de criptografia adicional usando as chaves que você cria e gerencia no Azure Key Vault. Este artigo orienta você pelas etapas.
+Por padrão, a Pesquisa Cognitiva Azure encripta o conteúdo indexado em repouso com [chaves geridas](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models)pelo serviço . Pode complementar a encriptação padrão com uma camada de encriptação adicional utilizando chaves que cria e gere no Cofre de Chaves Azure. Este artigo acompanha-o através dos degraus.
 
-A criptografia do lado do servidor tem suporte por meio da integração com o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Você pode criar suas próprias chaves de criptografia e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves de criptografia. Com Azure Key Vault, você também pode auditar o uso da chave. 
+A encriptação do lado do servidor é suportada através da integração com [o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves de encriptação. Com o Azure Key Vault, também pode auditar o uso da chave. 
 
-A criptografia com chaves gerenciadas pelo cliente é configurada no nível de mapa de índice ou sinônimo quando esses objetos são criados e não no nível de serviço de pesquisa. Você não pode criptografar o conteúdo que já existe. 
+A encriptação com chaves geridas pelo cliente é configurada ao nível do mapa de índice ou sinónimo quando esses objetos são criados, e não no nível do serviço de pesquisa. Não é possível encriptar conteúdos que já existem. 
 
-As chaves nem todas precisam estar na mesma Key Vault. Um único serviço de pesquisa pode hospedar vários índices criptografados ou mapas de sinônimos criptografados com suas próprias chaves de criptografia gerenciadas pelo cliente armazenadas em diferentes cofres de chaves.  Você também pode ter índices e mapas de sinônimos no mesmo serviço que não são criptografados usando chaves gerenciadas pelo cliente. 
+As chaves não precisam de estar todas no mesmo cofre. Um único serviço de pesquisa pode alojar vários índices encriptados ou mapas de sinónimo cada um encriptado com as suas próprias chaves de encriptação geridas pelo cliente armazenadas em diferentes Cofres chave.  Também pode ter índices e mapas de sinónimo no mesmo serviço que não são encriptados usando chaves geridas pelo cliente. 
 
 > [!IMPORTANT] 
-> Esse recurso está disponível na [API REST versão 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Atualmente, não há suporte para configurar chaves de criptografia gerenciadas pelo cliente no portal do Azure. O serviço de pesquisa deve ser criado após janeiro de 2019 e não pode ser um serviço gratuito (compartilhado).
+> Esta funcionalidade está disponível na [versão REST API 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e [na versão 8.0 do SDK .NET .](search-dotnet-sdk-migration-version-9.md) Atualmente não existe suporte para configurar chaves de encriptação geridas pelo cliente no portal Azure. O serviço de pesquisa deve ser criado depois de janeiro de 2019 e não pode ser um serviço Gratuito (partilhado).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os serviços a seguir são usados neste exemplo. 
+Neste exemplo, são utilizados os seguintes serviços. 
 
-+ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. 
++ [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. 
 
-+ [Crie um recurso Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou localize um cofre existente em sua assinatura.
++ [Crie um recurso Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou encontre um cofre existente sob a sua subscrição.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) é usado para tarefas de configuração.
++ [O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) são utilizados para tarefas de configuração.
 
-+ O [postmaster](search-get-started-postman.md), o [Azure PowerShell](search-create-index-rest-api.md) e o [SDK do pesquisa cognitiva do Azure](https://aka.ms/search-sdk-preview) podem ser usados para chamar a API REST. No momento, não há suporte ao portal para criptografia gerenciada pelo cliente.
++ [O Carteiro,](search-get-started-postman.md) [o Azure PowerShell](search-create-index-rest-api.md) e o [Azure Cognitive Search SDK](https://aka.ms/search-sdk-preview) podem ser usados para chamar a API REST. Não existe nenhum suporte de portal para encriptação gerida pelo cliente neste momento.
 
 >[!Note]
-> Devido à natureza do recurso de criptografia com chaves gerenciadas pelo cliente, o Azure Pesquisa Cognitiva não poderá recuperar seus dados se a chave do cofre de chaves do Azure for excluída. Para evitar a perda de dados causada por exclusões acidentais de Key Vault chave, você **deve** habilitar a exclusão reversível e limpar a proteção no Key Vault antes de poder ser usada. Para obter mais informações, consulte [Azure Key Vault reexclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
+> Devido à natureza da encriptação com a funcionalidade de chaves gerida pelo cliente, a Pesquisa Cognitiva Azure não será capaz de recuperar os seus dados se a chave do cofre da Chave Azure for eliminada. Para evitar a perda de dados causada por eliminações acidentais da chave do cofre de chaves, **deve** ativar a proteção soft delete e purga no cofre da chave antes de poder ser utilizada. Para mais informações, consulte [o Cofre chave Azure .](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)   
 
-## <a name="1---enable-key-recovery"></a>1-Habilitar recuperação de chave
+## <a name="1---enable-key-recovery"></a>1 - Permitir a recuperação da chave
 
-Depois de criar o recurso de Azure Key Vault, habilite a **exclusão reversível** e **Limpe a proteção** no cofre de chaves selecionado executando os seguintes comandos do PowerShell ou do CLI do Azure:   
+Depois de criar o recurso Azure Key Vault, ative **a proteção soft delete** e **purga** no cofre chave selecionado executando os seguintes comandos PowerShell ou Azure CLI:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -61,78 +61,78 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
 
-## <a name="2---create-a-new-key"></a>2-criar uma nova chave
+## <a name="2---create-a-new-key"></a>2 - Criar uma nova chave
 
-Se você estiver usando uma chave existente para criptografar o conteúdo de Pesquisa Cognitiva do Azure, ignore esta etapa.
+Se estiver a utilizar uma chave existente para encriptar o conteúdo da Pesquisa Cognitiva Azure, ignore este passo.
 
-1. [Entre no portal do Azure](https://portal.azure.com) e navegue até o painel do Key Vault.
+1. [Inscreva-se no portal Azure](https://portal.azure.com) e navegue para o painel de instrumentos do cofre da chave.
 
-1. Selecione a configuração **chaves** no painel de navegação à esquerda e clique em **+ gerar/importar**.
+1. Selecione a definição de **Teclas** a partir do painel de navegação esquerdo e clique **em + Gerar/Importar**.
 
-1. No painel **criar uma chave** , na lista de **Opções**, escolha o método que você deseja usar para criar uma chave. Você pode **gerar** uma nova chave, **carregar** uma chave existente ou usar **restore backup** para selecionar um backup de uma chave.
+1. No **Painel Criar um painel chave,** a partir da lista de **Opções,** escolha o método que pretende utilizar para criar uma chave. Pode **gerar** uma nova tecla, **carregar** uma chave existente ou utilizar a **Reserva de Apoio restaurar** para selecionar uma cópia de segurança de uma chave.
 
-1. Insira um **nome** para a chave e, opcionalmente, selecione outras propriedades de chave.
+1. Introduza um **Nome** para a sua chave e selecione opcionalmente outras propriedades chave.
 
-1. Clique no botão **criar** para iniciar a implantação.
+1. Clique no botão **Criar** para iniciar a implementação.
 
-Anote o identificador de chave – isso é composto do **URI do valor da chave**, do nome da **chave**e da **versão da chave**. Você precisará delas para definir um índice criptografado no Azure Pesquisa Cognitiva.
+Tome nota do Identificador chave – este é composto pelo **valor-chave Uri,** o **nome chave**, e a **versão chave**. Você precisará destes para definir um índice encriptado em Pesquisa Cognitiva Azure.
  
-![Criar uma nova chave do Key Vault](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Criar uma nova chave do Key Vault")
+![Crie uma nova chave do cofre](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Crie uma nova chave do cofre")
 
-## <a name="3---create-a-service-identity"></a>3-criar uma identidade de serviço
+## <a name="3---create-a-service-identity"></a>3 - Criar uma identidade de serviço
 
-Atribuir uma identidade ao serviço de pesquisa permite que você conceda permissões de acesso de Key Vault ao serviço de pesquisa. Seu serviço de pesquisa usará sua identidade para autenticar com o cofre de chaves do Azure.
+Atribuir uma identidade ao seu serviço de pesquisa permite-lhe conceder permissões de acesso ao Key Vault ao seu serviço de pesquisa. O seu serviço de pesquisa usará a sua identidade para autenticar com cofre Azure Key.
 
-O Azure Pesquisa Cognitiva dá suporte a duas maneiras de atribuir a identidade: uma identidade gerenciada ou um aplicativo de Azure Active Directory gerenciado externamente. 
+A Azure Cognitive Search suporta duas formas de atribuir identidade: uma identidade gerida ou uma aplicação de Diretório Ativo Azure gerida externamente. 
 
-Se possível, use uma identidade gerenciada. É a maneira mais simples de atribuir uma identidade ao serviço de pesquisa e deve funcionar na maioria dos cenários. Se você estiver usando várias chaves para índices e mapas de sinônimos, ou se sua solução estiver em uma arquitetura distribuída que desqualifica a autenticação baseada em identidade, use a abordagem avançada de [Azure Active Directory gerenciada externamente](#aad-app) descrita no final deste artigo.
+Se possível, use uma identidade gerida. É a forma mais simples de atribuir uma identidade ao seu serviço de pesquisa e deve funcionar na maioria dos cenários. Se estiver a usar várias teclas para índices e mapas de sinónimo, ou se a sua solução estiver numa arquitetura distribuída que desqualifica a autenticação baseada na identidade, utilize a abordagem avançada do [Azure Ative Directory, gerida externamente,](#aad-app) descrita no final deste artigo.
 
- Em geral, uma identidade gerenciada permite que o serviço de pesquisa se autentique em Azure Key Vault sem armazenar credenciais no código. O ciclo de vida desse tipo de identidade gerenciada está vinculado ao ciclo de vida do seu serviço de pesquisa, que só pode ter uma identidade gerenciada. [Saiba mais sobre identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+ Em geral, uma identidade gerida permite ao seu serviço de pesquisa autenticar o Cofre chave Azure sem armazenar credenciais em código. O ciclo de vida deste tipo de identidade gerida está ligado ao ciclo de vida do seu serviço de pesquisa, que só pode ter uma identidade gerida. [Saiba mais sobre identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-1. Para criar uma identidade gerenciada, [entre no portal do Azure](https://portal.azure.com) e abra o painel do serviço de pesquisa. 
+1. Para criar uma identidade gerida, [inscreva-se no portal DoAzure](https://portal.azure.com) e abra o seu painel de serviço de pesquisa. 
 
-1. Clique em **identidade** no painel de navegação esquerdo, altere seu status para **ativado**e clique em **salvar**.
+1. Clique em **Identidade** no painel de navegação esquerdo, mude o seu estado para **On**, e clique em **Guardar**.
 
-![Habilitar uma identidade gerenciada](./media/search-enable-msi/enable-identity-portal.png "Habilitar uma identidade gerenciada")
+![Ativar uma identidade gerida](./media/search-enable-msi/enable-identity-portal.png "Permitir uma identidade manhosa")
 
-## <a name="4---grant-key-access-permissions"></a>4-conceder permissões de acesso à chave
+## <a name="4---grant-key-access-permissions"></a>4 - Conceder permissões de acesso chave
 
-Para permitir que o serviço de pesquisa Use sua chave de Key Vault, você precisará conceder permissões de acesso específicas a seu serviço de pesquisa.
+Para permitir que o seu serviço de pesquisa utilize a sua chave Key Vault, terá de conceder ao seu serviço de pesquisa determinadas permissões de acesso.
 
-As permissões de acesso podem ser revogadas em um determinado momento. Depois de revogado, qualquer índice de serviço de pesquisa ou mapa de sinônimos que usa esse cofre de chaves ficará inutilizável. Restaurar as permissões de acesso do cofre de chaves posteriormente irá restaurar o acesso ao mapa do index\synonym. Para obter mais informações, consulte [proteger o acesso a um cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+As permissões de acesso podem ser revogadas a qualquer momento. Uma vez revogado, qualquer índice de serviço de pesquisa ou mapa de sinónimo que use o cofre chave tornar-se-á inutilizável. Restaurar as permissões de acesso ao cofre chave mais tarde irá restaurar o acesso ao mapa index\synonym. Para mais informações, consulte [O acesso seguro a um cofre chave](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
 
-1. [Entre no portal do Azure](https://portal.azure.com) e abra a página Visão geral do cofre de chaves. 
+1. [Inscreva-se no portal Azure](https://portal.azure.com) e abra a sua página de visão geral do cofre. 
 
-1. Selecione a configuração **políticas de acesso** no painel de navegação à esquerda e clique em **+ Adicionar nova**.
+1. Selecione a definição das políticas de **Acesso** a partir do painel de navegação esquerdo e clique em **+Adicionar novo**.
 
-   ![Adicionar nova política de acesso do cofre de chaves](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Adicionar nova política de acesso do cofre de chaves")
+   ![Adicione nova política de acesso ao cofre chave](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Adicione nova política de acesso ao cofre chave")
 
-1. Clique em **selecionar entidade de segurança** e selecione o serviço de pesquisa cognitiva do Azure. Você pode procurá-lo pelo nome ou pela ID de objeto que foi exibida depois de habilitar a identidade gerenciada.
+1. Clique em **Selecionar o principal** e selecione o seu serviço de Pesquisa Cognitiva Azure. Pode procurá-lo pelo nome ou pelo ID do objeto que foi apresentado após permitir a identidade gerida.
 
-   ![Selecionar entidade de segurança de acesso do cofre de chaves](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Selecionar entidade de segurança de acesso do cofre de chaves")
+   ![Selecione principal da política de acesso ao cofre chave](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Selecione principal da política de acesso ao cofre chave")
 
-1. Clique em **permissões de chave** e *selecione obter*, *desencapsular chave* e *encapsular chave*. Você pode usar o *Azure data Lake Storage ou o modelo de armazenamento do Azure* para selecionar rapidamente as permissões necessárias.
+1. Clique em **permissões chave** e selecione *Obter,* *desembrulhar a chave* e a chave de *embrulho*. Pode utilizar o modelo *azure Data Lake Storage ou Azure Storage* para selecionar rapidamente as permissões necessárias.
 
-   O Azure Pesquisa Cognitiva deve ser concedido com as seguintes [permissões de acesso](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations):
+   A Pesquisa Cognitiva Azure deve ser concedida com as [seguintes permissões](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations)de acesso:
 
-   * *Get* – permite que o serviço de pesquisa recupere as partes públicas da sua chave em um Key Vault
-   * *Chave de encapsulamento* – permite que o serviço de pesquisa Use sua chave para proteger a chave de criptografia interna
-   * *Desencapsular chave* – permite que o serviço de pesquisa Use sua chave para desencapsular a chave de criptografia interna
+   * *Get* - permite que o seu serviço de pesquisa recupere as partes públicas da sua chave num Cofre chave
+   * *Chave de embrulho* - permite que o seu serviço de pesquisa use a sua chave para proteger a chave de encriptação interna
+   * *Chave de desembrulhar* - permite que o seu serviço de pesquisa use a chave para desembrulhar a chave de encriptação interna
 
-   ![Selecionar permissões de chave de política de acesso do cofre de chaves](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Selecionar permissões de chave de política de acesso do cofre de chaves")
+   ![Selecione permissões de chave de acesso ao cofre chave](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Selecione permissões de chave de acesso ao cofre chave")
 
-1. Clique em **OK** e **salve** as alterações da política de acesso.
+1. Clique em **OK** e **Guarde** as alterações da política de acesso.
 
 > [!Important]
-> O conteúdo criptografado no Azure Pesquisa Cognitiva está configurado para usar uma chave de Azure Key Vault específica com uma **versão**específica. Se você alterar a chave ou a versão, o mapa de índice ou sinônimo deverá ser atualizado para usar o novo key\version **antes** de excluir o key\version. anterior A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, em você não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.   
+> O conteúdo encriptado em Azure Cognitive Search está configurado para usar uma chave azure key vault específica com uma **versão**específica . Se alterar a chave ou versão, o mapa de indexação ou sinónimo deve ser atualizado para utilizar a nova versão **chave\antes** de apagar a versão chave anterior\. Se não o fizer, o mapa de indexação ou sinónimo será inutilizável, pois não será capaz de desencriptar o conteúdo assim que o acesso chave for perdido.   
 
-## <a name="5---encrypt-content"></a>5-criptografar conteúdo
+## <a name="5---encrypt-content"></a>5 - Encriptar conteúdo
 
-A criação de um índice ou mapa de sinônimos criptografados com a chave gerenciada pelo cliente ainda não é possível usando portal do Azure. Use a API REST do Azure Pesquisa Cognitiva para criar um mapa de índice ou sinônimo.
+A criação de um mapa de indexação ou sinónimo encriptado com a chave gerida pelo cliente ainda não é possível utilizando o portal Azure. Utilize a API de pesquisa cognitiva azure para criar um mapa de tal índice ou sinónimo.
 
-O mapa de índice e sinônimo dá suporte a uma nova propriedade **encryptionKey** de nível superior usada para especificar a chave. 
+Tanto o mapa de indexação como o mapa de sinónimo suportam uma nova propriedade **de encriptação** de topoKey usada para especificar a chave. 
 
-Usando o **URI do Key Vault**, o **nome da chave** e a **versão da chave** da chave do cofre de chaves, podemos criar uma definição de **encryptionKey** :
+Utilizando o **cofre de chaves Uri**, nome **chave** e a **versão chave** da sua chave de cofre chave, podemos criar uma definição **de encriptaçãoChave:**
 
 ```json
 {
@@ -144,9 +144,9 @@ Usando o **URI do Key Vault**, o **nome da chave** e a **versão da chave** da c
 }
 ```
 > [!Note] 
-> Nenhum desses detalhes do cofre de chaves são considerados secretos e podem ser recuperados facilmente navegando até a página de chave Azure Key Vault relevante em portal do Azure.
+> Nenhum destes detalhes do cofre chave é considerado secreto e poderia ser facilmente recuperado navegando para a página chave do Cofre chave Azure relevante no portal Azure.
 
-Se você estiver usando um aplicativo do AAD para Key Vault autenticação em vez de usar uma identidade gerenciada, adicione as **credenciais de acesso** do aplicativo do AAD à sua chave de criptografia: 
+Se estiver a utilizar uma aplicação AAD para autenticação key vault em vez de utilizar uma identidade gerida, adicione as **credenciais** de acesso à aplicação AAD à sua chave de encriptação: 
 ```json
 {
   "encryptionKey": {
@@ -161,8 +161,8 @@ Se você estiver usando um aplicativo do AAD para Key Vault autenticação em ve
 }
 ```
 
-## <a name="example-index-encryption"></a>Exemplo: index Encryption
-Os detalhes da criação de um novo índice por meio da API REST podem ser encontrados em [criar índice (API REST do Azure pesquisa cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-index), em que a única diferença aqui é especificar os detalhes da chave de criptografia como parte da definição do índice: 
+## <a name="example-index-encryption"></a>Exemplo: Encriptação do índice
+Os detalhes da criação de um novo índice através da API REST podem ser encontrados no [Create Index (Azure Cognitive Search REST API),](https://docs.microsoft.com/rest/api/searchservice/create-index)onde a única diferença aqui é especificar os detalhes chave de encriptação como parte da definição de índice: 
 
 ```json
 {
@@ -186,11 +186,11 @@ Os detalhes da criação de um novo índice por meio da API REST podem ser encon
  }
 }
 ```
-Agora você pode enviar a solicitação de criação de índice e começar a usar o índice normalmente.
+Agora pode enviar o pedido de criação de índices e, em seguida, começar a usar o índice normalmente.
 
-## <a name="example-synonym-map-encryption"></a>Exemplo: criptografia de mapa de sinônimos
+## <a name="example-synonym-map-encryption"></a>Exemplo: Encriptação do mapa do sinónimo
 
-Os detalhes da criação de um novo mapa de sinônimos por meio da API REST podem ser encontrados em [criar mapa de sinônimos (API REST do Azure pesquisa cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), em que a única diferença aqui é especificar os detalhes da chave de criptografia como parte da definição do mapa de sinônimos: 
+Os detalhes da criação de um novo mapa de sinónimo através da API REST podem ser encontrados no [Mapa Create Synonym (Azure Cognitive Search REST API),](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)onde a única diferença aqui é especificar os detalhes da chave de encriptação como parte da definição do mapa do sinónimo: 
 
 ```json
 {   
@@ -205,35 +205,35 @@ Os detalhes da criação de um novo mapa de sinônimos por meio da API REST pode
   }
 }
 ```
-Agora você pode enviar a solicitação de criação de mapa de sinônimo e começar a usá-la normalmente.
+Agora pode enviar o pedido de criação de mapas sinónimoe e, em seguida, começar a usá-lo normalmente.
 
 >[!Important] 
-> Embora **encryptionKey** não possa ser adicionado a índices de pesquisa cognitiva do Azure existentes ou mapas de sinônimos, ele pode ser atualizado fornecendo valores diferentes para qualquer um dos três detalhes do Key Vault (por exemplo, atualizar a versão da chave). Ao mudar para uma nova chave de Key Vault ou uma nova versão de chave, qualquer índice de Pesquisa Cognitiva do Azure ou mapa de sinônimos que usa a chave deve primeiro ser atualizado para usar o novo key\version **antes** de excluir o key\version. anterior A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, pois ele não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.   
-> Restaurar as permissões de acesso do cofre de chaves posteriormente irá restaurar o acesso ao conteúdo.
+> Embora a **encriptaçãoKey** não possa ser adicionada aos índices de pesquisa cognitiva do Azure existentes ou mapas de sinónimo, pode ser atualizado fornecendo valores diferentes para qualquer um dos três detalhes chave do cofre (por exemplo, atualizando a versão chave). Ao mudar para uma nova chave Key Vault ou uma nova versão chave, qualquer índice de pesquisa cognitiva azure ou mapa de sinónimo que utilize a chave deve primeiro ser atualizado para usar a nova versão **chave\antes** de apagar a versão chave anterior\. Se não o fizer, o mapa de indexação ou sinónimo será inutilizável, uma vez que não será capaz de desencriptar o conteúdo assim que o acesso chave for perdido.   
+> Restaurar as permissões de acesso ao cofre chave mais tarde irá restaurar o acesso ao conteúdo.
 
-## <a name="aad-app"></a>Avançado: usar um aplicativo de Azure Active Directory gerenciado externamente
+## <a name="advanced-use-an-externally-managed-azure-active-directory-application"></a><a name="aad-app"></a>Avançado: Utilize uma aplicação de Diretório Ativo Azure gerida externamente
 
-Quando uma identidade gerenciada não é possível, você pode criar um aplicativo Azure Active Directory com uma entidade de segurança para o serviço de Pesquisa Cognitiva do Azure. Especificamente, uma identidade gerenciada não é viável sob estas condições:
+Quando uma identidade gerida não é possível, pode criar uma aplicação azure Ative Direy com um diretor de segurança para o seu serviço de Pesquisa Cognitiva Azure. Especificamente, uma identidade gerida não é viável nestas condições:
 
-* Você não pode conceder permissões de acesso de serviço de pesquisa diretamente para o cofre de chaves (por exemplo, se o serviço de pesquisa estiver em um locatário de Active Directory diferente do Azure Key Vault).
+* Não é possível conceder diretamente permissões de acesso ao seu serviço de pesquisa para o cofre Key (por exemplo, se o serviço de pesquisa estiver num inquilino de Diretório Ativo diferente do Cofre chave Azure).
 
-* Um único serviço de pesquisa é necessário para hospedar vários mapas indexes\synonym criptografados, cada um usando uma chave diferente de um cofre de chaves diferente, em que cada cofre de chaves deve usar **uma identidade diferente** para autenticação. Se usar uma identidade diferente para gerenciar diferentes cofres de chaves não for um requisito, considere o uso da opção de identidade gerenciada acima.  
+* Um único serviço de pesquisa é necessário para alojar vários índices encriptados\synonym maps, cada um usando uma chave diferente de um cofre chave diferente, onde cada cofre chave deve usar **uma identidade diferente** para autenticação. Se utilizar uma identidade diferente para gerir diferentes cofres chave não é um requisito, considere usar a opção de identidade gerida acima.  
 
-Para acomodar essas topologias, o Azure Pesquisa Cognitiva dá suporte ao uso de aplicativos Azure Active Directory (AAD) para autenticação entre o serviço de pesquisa e o Key Vault.    
-Para criar um aplicativo do AAD no Portal:
+Para acomodar tais topologas, a Azure Cognitive Search suporta a utilização de aplicações de Diretório Ativo Azure (AAD) para autenticação entre o seu serviço de pesquisa e o Key Vault.    
+Para criar uma aplicação AAD no portal:
 
 1. [Crie uma aplicação no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Obtenha a ID do aplicativo e a chave de autenticação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) , pois elas serão necessárias para criar um índice criptografado. Os valores que você precisará fornecer incluem a **ID do aplicativo** e a **chave de autenticação**.
+1. [Obtenha o ID da aplicação e a chave de autenticação,](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) uma vez que estes serão necessários para criar um índice encriptado. Os valores que terá de fornecer incluem **id de aplicação** e **chave de autenticação.**
 
 >[!Important]
-> Ao decidir usar um aplicativo AAD de autenticação em vez de uma identidade gerenciada, considere o fato de que o Azure Pesquisa Cognitiva não está autorizado a gerenciar seu aplicativo AAD em seu nome, e cabe a você gerenciar seu aplicativo AAD, como periodicamente rotação da chave de autenticação do aplicativo.
-> Ao alterar um aplicativo do AAD ou sua chave de autenticação, qualquer índice de Pesquisa Cognitiva do Azure ou mapa de sinônimos que usa esse aplicativo deve primeiro ser atualizado para usar o novo aplicativo ID\key **antes** de excluir o aplicativo anterior ou sua chave de autorização e antes de revogar o acesso Key Vault a ele.
-> A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, pois ele não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.   
+> Ao decidir utilizar uma aplicação AAD de autenticação em vez de uma identidade gerida, considere que a Pesquisa Cognitiva Azure não está autorizada a gerir a sua aplicação AAD em seu nome, e cabe-lhe a si gerir a sua aplicação AAD, como periódica rotação da chave de autenticação da aplicação.
+> Ao alterar uma aplicação AAD ou a sua chave de autenticação, qualquer índice de pesquisa cognitiva Azure ou mapa de sinónimoque utilize essa aplicação deve primeiro ser atualizado para utilizar a nova chave ID\de aplicação **antes** de apagar a aplicação anterior ou a sua chave de autorização, e antes de revogar o seu acesso ao Cofre Chave.
+> Se não o fizer, o mapa de indexação ou sinónimo será inutilizável, uma vez que não será capaz de desencriptar o conteúdo assim que o acesso chave for perdido.   
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não estiver familiarizado com a arquitetura de segurança do Azure, examine a [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/)e, em particular, este artigo:
+Se não estiver familiarizado com a arquitetura de segurança Azure, reveja a documentação da [Segurança Azure,](https://docs.microsoft.com/azure/security/)e em particular, este artigo:
 
 > [!div class="nextstepaction"]
-> [Encriptação inativa de dados](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+> [Encriptação de dados em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

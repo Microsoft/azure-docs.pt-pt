@@ -1,6 +1,6 @@
 ---
-title: 'Redefinir um circuito com falha-ExpressRoute: PowerShell: Azure | Microsoft Docs'
-description: Este artigo ajuda você a redefinir um circuito do ExpressRoute que está em um estado de falha.
+title: 'Reset um circuito falhado - ExpressRoute: PowerShell: Azure [ Microsoft Docs'
+description: Este artigo ajuda-o a repor um circuito ExpressRoute que se encontra em estado falhado.
 services: expressroute
 author: anzaman
 ms.service: expressroute
@@ -9,15 +9,15 @@ ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
 ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73748104"
 ---
-# <a name="reset-a-failed-expressroute-circuit"></a>Redefinir um circuito de ExpressRoute com falha
+# <a name="reset-a-failed-expressroute-circuit"></a>Reset a failed ExpressRoute circuit (Repor circuitos do ExpressRoute com falha)
 
-Quando uma operação em um circuito do ExpressRoute não é concluída com êxito, o circuito pode entrar em um estado de ' falha '. Este artigo ajuda você a redefinir um circuito do Azure ExpressRoute com falha.
+Quando uma operação num circuito ExpressRoute não estiver concluída com sucesso, o circuito pode entrar num estado "falhado". Este artigo ajuda-o a repor um circuito Azure ExpressRoute falhado.
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
@@ -40,7 +40,7 @@ Quando uma operação em um circuito do ExpressRoute não é concluída com êxi
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
-5. Execute os seguintes comandos para redefinir um circuito que está em um estado de falha:
+5. Executar os seguintes comandos para repor um circuito que se encontra em estado falhado:
 
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -48,8 +48,8 @@ Quando uma operação em um circuito do ExpressRoute não é concluída com êxi
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-O circuito agora deve estar íntegro. Abra um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se o circuito ainda estiver em um estado de falha.
+O circuito deve agora ser saudável. Abra um bilhete de suporte com suporte da [Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se o circuito ainda estiver em estado de falhas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Abra um tíquete de suporte com [o suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você ainda estiver enfrentando problemas.
+Abra um bilhete de suporte com suporte da [Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se ainda estiver com problemas.

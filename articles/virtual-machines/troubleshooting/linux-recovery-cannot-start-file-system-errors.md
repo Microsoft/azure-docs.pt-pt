@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842406"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Problemas de resolução de problemas De Linux VM problemas de partida devido a erros no sistema de ficheiros
@@ -79,7 +79,7 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
 
 ## <a name="use-the-serial-console"></a>Utilizar a consola de série
 
-1. Ligar à consola de série.
+1. Ligue-se à consola em série.
 
    > [!Note]
    > Para obter mais informações sobre a utilização da consola em série para o Linux, consulte:
@@ -132,7 +132,7 @@ Para resolver este problema, insera o VM no modo de emergência utilizando a [co
     Reboot -f
     ```
 
-## <a name="repair-the-vm-offline"></a>Repare a VM offline
+## <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
 1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer VM Linux em funcionamento). Para tal, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os comandos de [reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 

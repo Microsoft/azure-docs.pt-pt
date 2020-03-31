@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77649607"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Questões conhecidas/limitações de migração com utilização do modo híbrido
@@ -95,7 +95,7 @@ As secções abaixo descrevem questões específicas do cenário relacionadas co
 
 ### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Migrações online para a Base de Dados Azure SQL gerida
 
-**Alta utilização de CPU**
+**Elevada utilização da CPU**
 
 **Problema**: Para as migrações on-line para a Base de Dados SQL gerida sql, o computador que executa o trabalhador híbrido encontrará uma alta utilização de CPU se houver demasiadas cópias de segurança ou se as cópias de segurança forem demasiado grandes.
 

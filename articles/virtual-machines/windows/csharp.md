@@ -1,6 +1,6 @@
 ---
-title: Criar e gerir uma máquina virtual azure usandoC#
-description: Use C# e Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de apoio.
+title: 'Criar e gerir uma máquina virtual azure usando C #'
+description: Utilize o C# e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de apoio.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 3930e51f63615abd21a7b04199a0f4767925792a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944502"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs windows em Azure usandoC# #
+# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs windows em Azure usando C # #
 
-Uma [Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos azure de apoio. Este artigo abrange a criação, gestão C#e aeliminar recursos VM utilizando . Saiba como:
+Uma [Máquina Virtual Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) precisa de vários recursos azure de apoio. Este artigo abrange a criação, gestão e aeliminar recursos VM usando C#. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um projeto do Visual Studio
@@ -39,14 +39,14 @@ Leva cerca de 20 minutos para fazer estes passos.
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Se ainda não o fez, instale [o Estúdio Visual.](https://docs.microsoft.com/visualstudio/install/install-visual-studio) Selecione o desenvolvimento do ambiente de **trabalho .NET** na página Workloads e, em seguida, clique em **Instalar**. No resumo, pode ver que as ferramentas de **desenvolvimento .NET Framework 4 - 4.6** são automaticamente selecionadas para si. Se já instalou o Visual Studio, pode adicionar a carga de trabalho .NET utilizando o Visual Studio Launcher.
-2. No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
-3. Em **Modelos** > **C#Visual**, selecione **App consola (.NET Framework)** , introduza *myDotnetProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique EM **OK**.
+2. No Estúdio Visual, clique em **File** > **New** > **Project**.
+3. Em **Modelos** > **Visuais C#**, selecione App consola **(.NET Framework)**, introduza *myDotnetProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique **EM OK**.
 
 ## <a name="install-the-package"></a>Instale o pacote
 
 Os pacotes NuGet são a forma mais fácil de instalar as bibliotecas que precisa para terminar estes passos. Para obter as bibliotecas que precisa no Estúdio Visual, faça estes passos:
 
-1. Clique em **Ferramentas** > **Nuget Package Manager**e, em seguida, clique na consola do Gestor de **Pacotes**.
+1. Clique em **Ferramentas** > **Nuget Package Manager**e, em seguida, clique em Consola de Gestor de **Pacotes**.
 2. Digite este comando na consola:
 
     ```
@@ -59,7 +59,7 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
 
 ### <a name="create-the-authorization-file"></a>Criar o ficheiro de autorização
 
-1. No Solution Explorer, clique no *myDotnetProject* > **Adicionar** > **Novo Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#* . Nomeie o ficheiro *azureauth.properties,* e depois clique em **Adicionar**.
+1. No Solution Explorer, clique no *myDotnetProject* > **Add** > **New Item**, e, em seguida, selecione **Ficheiro de Texto** em Itens *Visuais C#*. Nomeie o ficheiro *azureauth.properties,* e depois clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -73,7 +73,7 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um diretor de ser
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua **&lt;&gt;de identificação de assinatura** seleção pelo seu identificador de assinatura,&lt;&gt;de identificação de **aplicação** com o identificador de aplicação Ative Directory, **&lt;&gt;chave de autenticação** com a chave de aplicação e **&lt;&gt;de identificação de inquilino** com o identificador de inquilino.
+    Substitua ** &lt;o&gt; id de subscrição** pelo seu identificador de subscrição, ** &lt;o id&gt; de aplicação** com o identificador de aplicação Ative Directory, ** &lt;&gt; ** ** &lt;&gt; ** a chave de autenticação com a chave de aplicação e o id do inquilino com o identificador de inquilino.
 
 3. Guarde o ficheiro azureauth.properties. 
 4. Detete uma variável ambiental no Windows com o nome AZURE_AUTH_LOCATION com o caminho completo para o ficheiro de autorização que criou. Por exemplo, pode ser utilizado o seguinte comando PowerShell:
@@ -362,7 +362,7 @@ Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Adicione um disco de dados ao VM
+### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
 Para adicionar um disco de dados à máquina virtual, adicione este código ao método Principal. Este exemplo adiciona um disco de dados de 2 GB de tamanho, han a LUN de 0 e um tipo de cache de ReadWrite:
 
@@ -393,6 +393,6 @@ Deve levar cerca de cinco minutos para que esta aplicação da consola decorra c
 
 2. Antes de pressionar **Enter** para começar a apagar recursos, poderá demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Aproveite a utilização de um modelo para criar uma máquina virtual utilizando a informação em [Implementar uma Máquina Virtual Azure utilizando C# e um modelo](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)de Gestor de Recursos .
 * Saiba mais sobre a utilização das [bibliotecas Azure para .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).

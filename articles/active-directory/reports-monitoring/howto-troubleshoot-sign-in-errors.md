@@ -1,6 +1,6 @@
 ---
-title: Como solucionar problemas de relatórios de erros de entrada | Microsoft Docs
-description: Saiba como solucionar problemas de erros de entrada usando Azure Active Directory relatórios no portal do Azure
+title: Como resolver os erros de registo de sessão relata [ Microsoft Docs
+description: Saiba como resolver erros de entrada usando relatórios do Azure Ative Directory no portal Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,53 +15,53 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec5fe7f62e8537a7f687202d365eb37d43b48b78
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008066"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: solucionar problemas de erros de entrada usando relatórios de Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Problemas de sessão de registo utilizando relatórios do Diretório Ativo do Azure
 
-O [relatório de entradas](concept-sign-ins.md) no Azure Active Directory (Azure AD) permite que você encontre respostas para perguntas sobre o gerenciamento de acesso aos aplicativos em sua organização, incluindo:
+O [relatório de inscrição](concept-sign-ins.md) no Azure Ative Directory (Azure AD) permite-lhe encontrar respostas a questões sobre a gestão do acesso às aplicações na sua organização, incluindo:
 
 - O que é o padrão de início de sessão de um utilizador?
 - Quantos utilizadores iniciaram sessão ao longo de uma semana?
 - Qual é o estado destes inícios de sessão?
 
 
-Além disso, o relatório de entradas também pode ajudá-lo a solucionar problemas de falhas de entrada para usuários em sua organização. Neste guia, você aprende a isolar uma falha de entrada no relatório de entradas e a usá-la para entender a causa raiz da falha.
+Além disso, o relatório de inscrição também pode ajudá-lo a resolver falhas de sessão para utilizadores na sua organização. Neste guia, aprende-se a isolar uma falha de inscrição no relatório de inscrição e a usá-lo para compreender a causa principal da falha.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário:
 
-* Um locatário do Azure AD com uma licença Premium (P1/P2). Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory.
-* Um usuário, que está na função **administrador global**, **administrador de segurança**, **leitor de segurança**ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
+* Um inquilino DaAzure Com licença premium (P1/P2). Ver [Começar com o Azure Ative Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição de Diretório Ativo Azure.
+* Um utilizador, que está no **administrador global**, administrador de **segurança,** leitor de **segurança,** ou **reporta** o papel do leitor para o inquilino. Além disso, qualquer utilizador pode aceder aos seus próprios sign-ins. 
 
-## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Solucionar problemas de erros de conexão usando o relatório de entradas
+## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Erros de sessão de problemas utilizando o relatório de inscrição
 
-1. Navegue até a [portal do Azure](https://portal.azure.com) e selecione seu diretório.
-2. Selecione **Azure Active Directory** e as **entradas** na seção **monitoramento** . 
-3. Use os filtros fornecidos para restringir a falha, seja pelo identificador de nome de usuário ou objeto, nome do aplicativo ou data. Além disso, selecione **falha** na lista suspensa **status** para exibir somente as entradas com falha. 
+1. Navegue para o [portal Azure](https://portal.azure.com) e selecione o seu diretório.
+2. Selecione **Diretório Ativo Azure** e selecione **Sign-ins** da secção **de Monitorização.** 
+3. Utilize os filtros fornecidos para reduzir a falha, quer pelo nome de utilizador quer pelo identificador de objetos, nome da aplicação ou data. Além disso, selecione **Falha** a partir da queda de **Estado** para exibir apenas os insines falhados. 
 
     ![Filtrar os resultados](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifique a entrada com falha que você deseja investigar. Selecione-o para abrir a janela detalhes adicionais com mais informações sobre a entrada com falha. Anote o **código de erro de entrada** e o **motivo da falha**. 
+4. Identifique o sinal falhado que quer investigar. Selecione-a para abrir a janela de detalhes adicionais com mais informações sobre o insessão falhado. Note o **código de erro de entrada** e a **razão**de falha . 
 
-    ![Selecionar registro](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
+    ![Selecione o registo](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
-5. Você também pode encontrar essas informações na guia **solução de problemas e suporte** na janela de detalhes.
+5. Também pode encontrar esta informação no separador De resolução de **problemas e suporte** na janela de detalhes.
 
-    ![Resolução de problemas e suporte](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
+    ![Resolução de problemas e apoio](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. O motivo da falha descreve o erro. Por exemplo, no cenário acima, o motivo da falha é **nome de usuário ou senha inválido ou nome de usuário ou senha local inválido**. A correção é simplesmente entrar novamente com o nome de usuário e a senha corretos.
+6. A razão da falha descreve o erro. Por exemplo, no cenário acima, a razão de falha é **o nome de utilizador ou palavra-passe inválido ou o nome de utilizador ou palavra-passe inválidono no local.** A correção é simplesmente iniciar sessão com o nome de utilizador e senha corretos.
 
-7. Você pode obter informações adicionais, incluindo ideias para correção, pesquisando o código de erro **50126** neste exemplo, na [referência de códigos de erro de entradas](reference-sign-ins-error-codes.md). 
+7. Pode obter informações adicionais, incluindo ideias para a reparação, procurando o código de erro, **50126** neste exemplo, na referência dos [códigos de erro de inscrição](reference-sign-ins-error-codes.md). 
 
-8. Se tudo falhar, ou o problema persistir, apesar de fazer o curso de ação recomendado, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) seguindo as etapas na guia **solução de problemas e suporte** . 
+8. Se tudo o resto falhar, ou o problema persistir, apesar de tomar o curso de ação recomendado, [abra um bilhete](../fundamentals/active-directory-troubleshooting-support-howto.md) de apoio seguindo os passos no separador de resolução de **problemas e suporte.** 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Referência de códigos de erro de entradas](reference-sign-ins-error-codes.md)
-* [Visão geral do relatório de entradas](concept-sign-ins.md)
+* [Referência de códigos de erro de iniciar sessão](reference-sign-ins-error-codes.md)
+* [Visão geral do relatório de inscrição](concept-sign-ins.md)

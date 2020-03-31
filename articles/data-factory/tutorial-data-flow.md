@@ -1,6 +1,6 @@
 ---
-title: Transformar dados usando um fluxo de dados de mapeamento
-description: Este tutorial fornece instruções passo a passo para usar Azure Data Factory para transformar dados com o fluxo de dados de mapeamento
+title: Transforme dados usando um fluxo de dados de mapeamento
+description: Este tutorial fornece instruções passo a passo para usar a Azure Data Factory para transformar dados com fluxo de dados de mapeamento
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -9,45 +9,45 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: e6ca8007a96cc63b51b4f79b69029cbf0799e71c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979185"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
+# <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
 
 Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
 
-Neste tutorial, você usará a interface do usuário do Azure Data Factory (UX) para criar um pipeline que copia e transforma dados de uma fonte de Gen2 de Azure Data Lake Storage (ADLS) para um coletor ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste tutorial pode ser expandido após a transformação de dados usando o fluxo de dados de mapeamento
+Neste tutorial, utilizará a interface de utilizador da Azure Data Factory (UX) para criar um pipeline que copia e transforma dados de uma fonte de Gen2 de Armazenamento de Lagos de Dados Azure (ADLS) para um afundado ADLS Gen2 utilizando o fluxo de dados de mapeamento. O padrão de configuração neste tutorial pode ser expandido ao transformar dados usando fluxo de dados de mapeamento
 
 Neste tutorial, vai executar os seguintes passos:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
-> * Crie um pipeline com uma atividade de fluxo de dados.
-> * Crie um fluxo de dados de mapeamento com quatro transformações.
+> * Criar um pipeline com uma atividade de Fluxo de Dados.
+> * Construa um fluxo de dados de mapeamento com quatro transformações.
 > * Testar a execução do pipeline.
-> * Monitorar uma atividade de fluxo de dados
+> * Monitorizar uma atividade de Fluxo de Dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Subscrição do Azure**. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**. Você usa o armazenamento ADLS como um repositório de dados de *origem* e de *coletor* . Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
+* **Assinatura Azure.** Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**. Usa o armazenamento ADLS como *fonte* e *afunda* lojas de dados. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
 
-O arquivo que estamos transformando neste tutorial é MoviesDB. csv, que pode ser encontrado [aqui](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar o arquivo do GitHub, copie o conteúdo para um editor de texto de sua escolha para salvar localmente como um arquivo. csv. Para carregar o arquivo em sua conta de armazenamento, consulte [carregar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contêiner chamado ' sample-data '.
+O ficheiro que estamos a transformar neste tutorial é moviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como um ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [o Upload blobs com o Portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão a referência a um recipiente chamado "dados de amostra".
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um pipeline no data factory.
+Neste passo, cria-se uma fábrica de dados e abre-se o Data Factory UX para criar um oleoduto na fábrica de dados.
 
-1. Abra **o Microsoft Edge ou o** **Google Chrome**. Atualmente, a interface do usuário Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**:
+1. Abra **o Microsoft Edge** ou o Google **Chrome.** Atualmente, data Factory UI é suportado apenas nos navegadores web Microsoft Edge e Google Chrome.
+2. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory:**
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
-   O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, yournameADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+   O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
      ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
@@ -59,148 +59,148 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
 6. Em **Versão**, selecione **V2**.
-7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (por exemplo, o Armazenamento Azure e a Base de Dados SQL) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem ser noutras regiões.
 8. Selecione **Criar**.
-9. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **ir para o recurso** para navegar até a página data Factory.
+9. Depois de concluída a criação, vê o aviso no Centro de Notificações. Selecione **Ir ao recurso** para navegar na página da fábrica de Dados.
 10. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
 
-## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Criar um pipeline com uma atividade de fluxo de dados
+## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Criar um oleoduto com uma atividade de Fluxo de Dados
 
-Nesta etapa, você criará um pipeline que contém uma atividade de fluxo de dados.
+Neste passo, criará um pipeline que contenha uma atividade de Fluxo de Dados.
 
 1. Na página **Vamos começar**, selecione **Criar pipeline**.
 
    ![Criar pipeline](./media/doc-common-process/get-started-page.png)
 
-1. Na guia **geral** do pipeline, digite **TransformMovies** para o **nome** do pipeline.
-1. Na barra superior da fábrica, deslize o controle deslizante de **depuração do fluxo de dados** em. O modo de depuração permite o teste interativo da lógica de transformação em um cluster do Spark ao vivo. Os clusters de fluxo de dados levam de 5-7 minutos para ser ativados e os usuários são recomendados para ativar a depuração primeiro se planejam realizar o desenvolvimento de fluxo de dados. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
+1. No separador **Geral** para o oleoduto, **introduza TransformMovies** para **nome** do oleoduto.
+1. Na barra superior da fábrica, deslize o deslize de **depurador do Fluxo** de Dados. O modo Debug permite testar interactivamente a lógica de transformação contra um cluster Spark vivo. Os clusters data Flow demoram 5 a 7 minutos a aquecer e recomenda-se que os utilizadores liguem o depuramento primeiro se planeiam fazer o desenvolvimento do Fluxo de Dados. Para mais informações, consulte [debug mode](concepts-data-flow-debug-mode.md).
 
-    ![Atividade de fluxo de dados](media/tutorial-data-flow/dataflow1.png)
-1. No painel **atividades** , expanda o acorde **e a transformação** . Arraste e solte a atividade **fluxo de dados** do painel para a tela do pipeline.
+    ![Atividade de Fluxo de Dados](media/tutorial-data-flow/dataflow1.png)
+1. No painel **de Atividades,** expanda o acordeão **Move and Transform.** Arraste e deixe cair a atividade do Fluxo de **Dados** do painel para a tela do gasoduto.
 
-    ![Atividade de fluxo de dados](media/tutorial-data-flow/activity1.png)
-1. No pop-up **adicionando fluxo de dados** , selecione **criar novo fluxo de dados** e, em seguida, nomeie o fluxo de dados **TransformMovies**. Clique em concluir quando terminar.
+    ![Atividade de Fluxo de Dados](media/tutorial-data-flow/activity1.png)
+1. No pop-up **Add Data Flow,** selecione **Criar um novo Fluxo** de Dados e, em seguida, nomear o seu fluxo de dados **TransformMovies**. Clique em Terminar quando terminar.
 
-    ![Atividade de fluxo de dados](media/tutorial-data-flow/activity2.png)
+    ![Atividade de Fluxo de Dados](media/tutorial-data-flow/activity2.png)
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Criar lógica de transformação na tela de fluxo de dados
+## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Construir lógica de transformação na tela de fluxo de dados
 
-Depois de criar o fluxo de dados, você será enviado automaticamente para a tela fluxo de dados. Nesta etapa, você criará um fluxo de dados que usa o moviesDB. csv no armazenamento ADLS e agrega a classificação média de Comedies de 1910 a 2000. Em seguida, você escreverá esse arquivo de volta para o armazenamento ADLS.
+Assim que criar o seu Fluxo de Dados, será automaticamente enviado para a tela de fluxo de dados. Neste passo, você vai construir um fluxo de dados que leva o moviesDB.csv no armazenamento ADLS e agrega a classificação média de comedas de 1910 a 2000. Em seguida, escreverá este ficheiro de volta para o armazenamento ADLS.
 
-1. Na tela fluxo de dados, adicione uma fonte clicando na caixa **Adicionar origem** .
+1. Na tela de fluxo de dados, adicione uma fonte clicando na caixa **Add Source.**
 
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow2.png)
-1. Nomeie sua fonte **MoviesDB**. Clique em **novo** para criar um novo conjunto de fonte de origem.
+1. Nomeie a sua fonte **MoviesDB**. Clique em **Novo** para criar um novo conjunto de dados de origem.
 
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow3.png)
-1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
+1. Escolha **o Azure Data Lake Storage Gen2**. Clique em Continue (Continuar).
 
     ![Conjunto de dados](media/tutorial-data-flow/dataset1.png)
-1. Escolha **DelimitedText**. Clique em Continuar.
+1. Escolha **Texto Delimitado**. Clique em Continue (Continuar).
 
     ![Conjunto de dados](media/tutorial-data-flow/dataset2.png)
-1. Nomeie seu DataSet **MoviesDB**. Na lista suspensa serviço vinculado, escolha **novo**.
+1. Nomeie o seu conjunto de dados **MoviesDB**. No serviço ligado, escolha **New**.
 
     ![Conjunto de dados](media/tutorial-data-flow/dataset3.png)
-1. Na tela de criação de serviço vinculado, nomeie o serviço vinculado ADLS Gen2 **ADLSGen2** e especifique o método de autenticação. Em seguida, insira suas credenciais de conexão. Neste tutorial, estamos usando a chave de conta para se conectar à nossa conta de armazenamento. Você pode clicar em **testar conexão** para verificar se suas credenciais foram inseridas corretamente. Clique em criar quando terminar.
+1. No ecrã de criação de serviço ligado, nomeie o seu serviço ligado a **ADLS gen2 ADLSGen2** e especifique o seu método de autenticação. Em seguida, introduza as suas credenciais de ligação. Neste tutorial, estamos a usar a chave da Conta para ligar à nossa conta de armazenamento. Pode clicar na **ligação de teste** para verificar se as suas credenciais foram introduzidas corretamente. Clique em Criar quando terminar.
 
-    ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
-1. Depois de voltar à tela de criação do conjunto de arquivos, insira onde o arquivo está localizado no campo **caminho do arquivo** . Neste tutorial, o arquivo moviesDB. csv está localizado em contêiner-dados de exemplo. Como o arquivo tem cabeçalhos, marque **a primeira linha como cabeçalho**. Selecione **do repositório/conexão** para importar o esquema de cabeçalho diretamente do arquivo no armazenamento. Clique em OK quando terminar.
+    ![Serviço Vinculado](media/tutorial-data-flow/ls1.png)
+1. Assim que voltar ao ecrã de criação do conjunto de dados, introduza onde o seu ficheiro está localizado sob o campo de caminho do **Ficheiro.** Neste tutorial, o ficheiro moviesDB.csv está localizado em dados de amostras de contentores. Como o ficheiro tem cabeçalhos, verifique a **primeira fila como cabeçalho**. Selecione **entre ligar/armazenar** para importar o esquema do cabeçalho diretamente do ficheiro armazenado. Clique bem quando estiver pronto.
 
     ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
-1. Se o cluster de depuração for iniciado, vá para a guia **visualização de dados** da transformação origem e clique em **Atualizar** para obter um instantâneo dos dados. Você pode usar a visualização de dados para verificar se a transformação está configurada corretamente.
+1. Se o seu cluster de depuração tiver começado, vá ao separador **'Visualização** de Dados' da transformação de origem e clique em **Refresh** para obter uma foto dos dados. Pode utilizar a pré-visualização de dados para verificar se a sua transformação está configurada corretamente.
 
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow4.png)
-1. Ao lado do nó de origem na tela fluxo de dados, clique no ícone de adição para adicionar uma nova transformação. A primeira transformação que você está adicionando é um **filtro**.
+1. Ao lado do nó de origem na tela de fluxo de dados, clique no ícone plus para adicionar uma nova transformação. A primeira transformação que está a adicionar é um **Filtro.**
 
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow5.png)
-1. Nomeie sua transformação de filtro **FilterYears**. Clique na caixa expressão ao lado de **filtrar em** para abrir o construtor de expressões. Aqui você especificará sua condição de filtragem.
+1. Nomeie o seu filtro de transformação **FilterYears**. Clique na caixa de expressão ao lado do **Filter para** abrir o construtor de expressão. Aqui irá especificar o seu estado de filtragem.
 
-    ![Filtrar](media/tutorial-data-flow/filter1.png)
-1. O construtor de expressões de fluxo de dados permite criar expressões interativamente para usar em várias transformações. As expressões podem incluir funções internas, colunas do esquema de entrada e parâmetros definidos pelo usuário. Para obter mais informações sobre como criar expressões, consulte [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md).
+    ![Filtro](media/tutorial-data-flow/filter1.png)
+1. O construtor de expressão de fluxo de dados permite-lhe construir expressões interativamente para usar em várias transformações. As expressões podem incluir funções incorporadas, colunas do esquema de entrada e parâmetros definidos pelo utilizador. Para obter mais informações sobre como construir expressões, consulte o construtor de [expressão data Flow](concepts-data-flow-expression-builder.md).
 
-    Neste tutorial, você deseja filtrar filmes de gênero comédia que se passaram entre os anos 1910 e 2000. Como ano, atualmente é uma cadeia de caracteres, você precisa convertê-lo em um inteiro usando a função ```toInteger()```. Use os operadores maior que ou igual a (> =) e menor ou igual a (< =) para comparar com os valores de ano literal 1910 e 200-. Union essas expressões junto com o operador and (& &). A expressão é exibida como:
+    Neste tutorial, você quer filtrar filmes de comédia de género que saiu entre os anos de 1910 e 2000. Como o ano é atualmente uma corda, você precisa ```toInteger()``` convertê-lo em um inteiro usando a função. Utilize o maior ou igual a (>=) e inferior ou igual a (<=) operadores para comparar com os valores do ano literal 1910 e 200-. Unir estas expressões juntamente com o operador e (&&). A expressão sai como:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
-    Para descobrir quais filmes são Comedies, você pode usar a função ```rlike()``` para localizar o padrão ' comédia ' nos gêneros de coluna. Union a expressão RLIKE com a comparação de anos para obter:
+    Para descobrir quais filmes são comédias, ```rlike()``` você pode usar a função para encontrar padrão 'Comédia' nos géneros da coluna. Unifique a expressão rlike com a comparação do ano para obter:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
 
-    Se você tiver um cluster de depuração ativo, poderá verificar sua lógica clicando em **Atualizar** para ver a saída da expressão em comparação com as entradas usadas. Há mais de uma resposta certa sobre como você pode realizar essa lógica usando a linguagem de expressão de fluxo de dados.
+    Se tiver um cluster de depuração ativo, pode verificar a sua lógica clicando em **Refresh** para ver a saída de expressão em comparação com as inputs utilizadas. Há mais do que uma resposta certa sobre como pode realizar esta lógica usando a linguagem de expressão de fluxo de dados.
 
-    ![Filtrar](media/tutorial-data-flow/filter2.png)
+    ![Filtro](media/tutorial-data-flow/filter2.png)
 
-    Clique em **salvar e concluir** quando terminar com sua expressão.
+    Clique em **Guardar e Terminar** assim que terminar a sua expressão.
 
-1. Busque uma **visualização de dados** para verificar se o filtro está funcionando corretamente.
+1. Repara numa **Pré-visualização** de dados para verificar se o filtro está a funcionar corretamente.
 
-    ![Filtrar](media/tutorial-data-flow/filter3.png)
-1. A próxima transformação que você adicionará é uma transformação **agregação** em **modificador de esquema**.
+    ![Filtro](media/tutorial-data-flow/filter3.png)
+1. A próxima transformação que irá adicionar é uma transformação **agregada** sob **modificador de Schema.**
 
     ![Agregação](media/tutorial-data-flow/agg1.png)
-1. Nomeie sua transformação agregada **AggregateComedyRatings**. Na guia **Agrupar por** , selecione **ano** na lista suspensa para agrupar as agregações pelo ano em que o filme surgiu.
+1. Nomeie a sua transformação agregada **AggregateComedyRatings**. No **Grupo por** tab, selecione **ano** desde a queda para agrupar as agregações até ao ano em que o filme saiu.
 
     ![Agregação](media/tutorial-data-flow/agg2.png)
-1. Vá para a guia **agregações** . Na caixa de texto à esquerda, nomeie a coluna de agregação **AverageComedyRating**. Clique na caixa de expressão à direita para inserir a expressão de agregação por meio do construtor de expressões.
+1. Vá ao separador **Agregados.** Na caixa de texto esquerda, nomeie a coluna agregada **AverageComedyRating**. Clique na caixa de expressão certa para introduzir a expressão agregada através do construtor de expressão.
 
     ![Agregação](media/tutorial-data-flow/agg3.png)
-1. Para obter a média de **classificação**de coluna, use a função de agregação ```avg()```. Como a **classificação** é uma cadeia de caracteres e ```avg()``` leva em uma entrada numérica, devemos converter o valor em um número por meio da função ```toInteger()```. Essa expressão é semelhante a:
+1. Para obter a média de ```avg()``` **classificação**da coluna, use a função agregada. Como a **Classificação** é uma corda e ```avg()``` recebe uma entrada numérica, ```toInteger()``` temos de converter o valor para um número através da função. Esta é a expressão parece:
 
     ```avg(toInteger(Rating))```
 
-    Clique em **salvar e concluir** quando terminar.
+    Clique em **Guardar e Terminar** quando terminar.
 
     ![Agregação](media/tutorial-data-flow/agg4.png)
-1. Vá para a guia **visualização de dados** para exibir a saída da transformação. Observe que apenas duas colunas estão lá, **year** e **AverageComedyRating**.
+1. Vá ao separador **'Visualização** de Dados' para ver a saída de transformação. Note que apenas duas colunas estão lá, **ano** e **AverageComedyRating**.
 
     ![Agregação](media/tutorial-data-flow/agg3.png)
-1. Em seguida, você deseja adicionar uma transformação de **coletor** em **destino**.
+1. Em seguida, você quer adicionar uma transformação **de Sink** no **Destino**.
 
     ![Sink](media/tutorial-data-flow/sink1.png)
-1. Nomeie o **coletor**do coletor. Clique em **novo** para criar o conjunto de seus conjuntos de coleta.
+1. Diga o nome **da pia.** Clique em **Novo** para criar o seu conjunto de dados de pia.
 
     ![Sink](media/tutorial-data-flow/sink2.png)
-1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
+1. Escolha **o Azure Data Lake Storage Gen2**. Clique em Continue (Continuar).
 
     ![Conjunto de dados](media/tutorial-data-flow/dataset1.png)
-1. Escolha **DelimitedText**. Clique em Continuar.
+1. Escolha **Texto Delimitado**. Clique em Continue (Continuar).
 
     ![Conjunto de dados](media/tutorial-data-flow/dataset2.png)
-1. Nomeie seu conjunto de **MoviesSink**de banco de seu coletor. Para o serviço vinculado, escolha o serviço vinculado ADLS Gen2 que você criou na etapa 6. Insira uma pasta de saída na qual os dados são gravados. Neste tutorial, estamos gravando na pasta ' output ' no contêiner ' sample-data '. A pasta não precisa existir com antecedência e pode ser criada dinamicamente. Defina **a primeira linha como o cabeçalho** como verdadeiro e selecione **nenhum** para o **esquema de importação**. Clique em Concluir.
+1. Nomeie o seu conjunto de dados da pia **MoviesSink**. Para o serviço ligado, escolha o serviço ligado ao ADLS gen2 que criou no passo 6. Introduza uma pasta de saída para escrever os seus dados. Neste tutorial, estamos a escrever para pasta 'output' em 'dados de amostra'. A pasta não precisa de existir previamente e pode ser criada dinamicamente. Coloque a **primeira linha como** verdadeira e selecione **Nenhuma** para **importar esquema**. Clique em Concluir.
 
     ![Sink](media/tutorial-data-flow/sink3.png)
 
-Agora você concluiu a criação do fluxo de dados. Você está pronto para executá-lo em seu pipeline.
+Agora terminou de construir o seu fluxo de dados. Está pronto para executá-lo no seu oleoduto.
 
-## <a name="running-and-monitoring-the-data-flow"></a>Executando e monitorando o fluxo de dados
+## <a name="running-and-monitoring-the-data-flow"></a>Funcionamento e monitorização do Fluxo de Dados
 
-Você pode depurar um pipeline antes de publicá-lo. Nesta etapa, você vai disparar uma execução de depuração do pipeline de fluxo de dados. Embora a visualização de dados não grave dados, uma execução de depuração gravará dados no destino do coletor.
+Pode desinver um oleoduto antes de publicá-lo. Neste passo, vais desencadear uma série de depuração do gasoduto de fluxo de dados. Embora a pré-visualização de dados não escreva dados, uma execução de depuração irá escrever dados para o seu destino de sink.
 
-1. Vá para a tela do pipeline. Clique em **depurar** para disparar uma execução de depuração.
+1. Vai para a tela do oleoduto. Clique em **Debug** para desencadear uma corrida de depuração.
 
     ![Pipeline](media/tutorial-data-flow/pipeline1.png)
-1. A depuração de pipeline de atividades de fluxo de dados usa o cluster de depuração ativo, mas ainda levará pelo menos um minuto para ser inicializado. Você pode acompanhar o progresso por meio da guia **saída** . Quando a execução for bem-sucedida, clique no ícone de óculos para abrir o painel Monitoramento.
+1. O depuramento do gasoduto das atividades do Fluxo de Dados utiliza o cluster de depuração ativo, mas ainda leva pelo menos um minuto para inicializar. Pode acompanhar o progresso através do separador **Output.** Assim que a corrida for bem sucedida, clique no ícone dos óculos para abrir o painel de monitorização.
 
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
-1. No painel Monitoramento, você pode ver o número de linhas e o tempo gasto em cada etapa de transformação.
+1. No painel de monitorização, pode ver o número de linhas e tempo gasto em cada passo de transformação.
 
     ![Monitorização](media/tutorial-data-flow/pipeline3.png)
-1. Clique em uma transformação para obter informações detalhadas sobre as colunas e o particionamento dos dados.
+1. Clique numa transformação para obter informações detalhadas sobre as colunas e a partilha dos dados.
 
     ![Monitorização](media/tutorial-data-flow/pipeline4.png)
 
-Se você seguiu este tutorial corretamente, deve ter escrito 83 linhas e 2 colunas na pasta do coletor. Você pode verificar se os dados estão corretos verificando seu armazenamento de BLOBs.
+Se seguiu corretamente este tutorial, deve ter escrito 83 linhas e 2 colunas na sua pasta de lavatório. Pode verificar se os dados estão corretos verificando o seu armazenamento de blob.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O pipeline neste tutorial executa um fluxo de dados que agrega a classificação média de Comedies de 1910 a 2000 e grava os dados em ADLS. Aprendeu a:
+O pipeline neste tutorial executa um fluxo de dados que agrega a classificação média das ededies de 1910 a 2000 e escreve os dados para a ADLS. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
-> * Crie um pipeline com uma atividade de fluxo de dados.
-> * Crie um fluxo de dados de mapeamento com quatro transformações.
+> * Criar um pipeline com uma atividade de Fluxo de Dados.
+> * Construa um fluxo de dados de mapeamento com quatro transformações.
 > * Testar a execução do pipeline.
-> * Monitorar uma atividade de fluxo de dados
+> * Monitorizar uma atividade de Fluxo de Dados
 
-Saiba mais sobre a [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md).
+Saiba mais sobre a linguagem de expressão do fluxo de [dados.](data-flow-expression-functions.md)

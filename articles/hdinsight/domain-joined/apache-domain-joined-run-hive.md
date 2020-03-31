@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78196931"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
@@ -27,7 +27,7 @@ Aprenda a configurar as políticas do Apache Ranger para a Apache Hive. Neste ar
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Ligar à IU do Apache Ranger Admin
 **Para ligar à IU do Ranger Admin**
 
-1. A partir de um navegador, navegue até à Ranger Admin UI em `https://CLUSTERNAME.azurehdinsight.net/Ranger/` onde clusterNAME é o nome do seu cluster.
+1. A partir de um browser, navegue `https://CLUSTERNAME.azurehdinsight.net/Ranger/` até à Ranger Admin UI em onde clusterNAME é o nome do seu cluster.
 
    > [!NOTE]  
    > Ranger usa credenciais diferentes do aglomerado Apache Hadoop. Para evitar que os navegadores utilizem credenciais Hadoop em cache, use uma nova janela de navegador InPrivate para se conectar ao Ranger Admin UI.
@@ -48,7 +48,7 @@ Nesta secção, cria-se duas políticas ranger para aceder à colmeia. Conceda p
 
 **Para criar políticas do Ranger**
 
-1. Abra a IU do Ranger Admin. Consulte a Ligação à Apache Ranger Admin UI.
+1. Abra a IU do Ranger Admin. Consulte Ligar à IU do Apache Ranger Admin.
 2. Selecione **CLUSTERNAME_Hive,** sob **a Colmeia.** Deverá ver duas políticas de pré-configuração.
 3. Selecione **Adicionar Nova Política**e, em seguida, introduza os seguintes valores:
 
@@ -56,7 +56,7 @@ Nesta secção, cria-se duas políticas ranger para aceder à colmeia. Conceda p
     |---|---|
     |Nome da Política|leitura-hivesampletable-all|
     |Base de Dados da Colmeia|predefinição|
-    |table|hivesampletable|
+    |tabela|hivesampletable|
     |Coluna da Colmeia|*|
     |Selecionar Utilizador|hiveuser1|
     |Permissões|selecionar|
@@ -74,7 +74,7 @@ Nesta secção, cria-se duas políticas ranger para aceder à colmeia. Conceda p
     |---|---|
     |Nome da Política|leitura-hivesampletable-dispositivo|
     |Base de Dados da Colmeia|predefinição|
-    |table|hivesampletable|
+    |tabela|hivesampletable|
     |Coluna da colmeia|clientid, dispositivomake|
     |Selecionar Utilizador|hiveuser2|
     |Permissões|selecionar|
@@ -103,7 +103,7 @@ Na última secção, configuraste duas políticas.  O hiveuser1 tem a permissão
 
 1. Abra um livro novo ou existente no Excel.
 
-1. A partir do separador **Dados,** navegue para **obter dados** > **de outras fontes** > da **ODBC** para lançar a janela **A partir da ODBC.**
+1. A partir do separador **Dados,** navegue para **obter dados** > **de outras fontes** > da**ODBC** para lançar a janela **ODBC.**
 
     ![Assistente de ligação de dados aberto](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 

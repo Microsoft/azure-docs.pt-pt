@@ -1,40 +1,40 @@
 ---
-title: 'Insights de aplicação: línguas, plataformas e integrações  Microsoft Docs'
+title: 'Insights de aplicação: línguas, plataformas e integrações [ Microsoft Docs'
 description: Idiomas, plataformas e integrações disponíveis para Insights de Aplicação
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.openlocfilehash: cbda252fece638393ee7757dc165c4b009a0195e
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136728"
 ---
-# <a name="supported-languages"></a>Idiomas suportados
+# <a name="supported-languages"></a>Linguagens suportadas
 
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
-* [Node.JS](../../azure-monitor/app/nodejs.md)
-* [python](../../azure-monitor/app/opencensus-python.md)
+* [Nó.JS](../../azure-monitor/app/nodejs.md)
+* [Pitão](../../azure-monitor/app/opencensus-python.md)
 
 ## <a name="supported-platforms-and-frameworks"></a>Plataformas e quadros suportados
 
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentação para aplicações já implantadas (sem código, baseada em agentes)
 * [Conjuntos de escala de máquinas virtuais Azure VM e Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [App Service do Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Serviço de Aplicações do Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET – para aplicações que já estão em direto](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Serviços Azure Cloud](../../azure-monitor/app/cloudservices.md), incluindo funções web e trabalhadores
 * [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 ### <a name="instrumentation-through-code-sdks"></a>Instrumentação através de código (SDKs)
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
-* [Node.JS](https://www.npmjs.com/package/applicationinsights)
-* [python](../../azure-monitor/app/opencensus-python.md)
+* [Nó.JS](https://www.npmjs.com/package/applicationinsights)
+* [Pitão](../../azure-monitor/app/opencensus-python.md)
 * [Aplicação Universal do Windows](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Aplicações de ambiente de trabalho, serviços e funções de trabalho do Windows](../../azure-monitor/app/windows-desktop.md)
 

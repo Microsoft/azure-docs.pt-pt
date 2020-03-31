@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: caa79b572d0024b93abd2d32ca99d92cc2a8b4bb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582080"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476020"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Trabalho com vários inquilinos em Azure Sentinel 
 
@@ -27,8 +27,8 @@ Se é um prestador de serviços de segurança gerido (MSSP) e está a usar o [Fa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Farol Azure a bordo](../lighthouse/how-to/onboard-customer.md)
-- Para que isto funcione corretamente, o seu inquilino deve estar registado no Azure Sentinel Resource Provider em pelo menos uma subscrição. Se tiver um Azure Sentinel registado no seu inquilino, está pronto para começar. Caso contrário, no portal Azure, selecione **Subscrições seguidas** por **fornecedores** de Recursos e, em seguida, procure `Microsoft.Security.Insights` e selecione **Register**.
-   ![Verificar os fornecedores de recursos](media/multiple-tenants-service-providers/check-resource-provider.png)
+- Para que isto funcione corretamente, o seu inquilino deve estar registado no Azure Sentinel Resource Provider em pelo menos uma subscrição. Se tiver um Azure Sentinel registado no seu inquilino, está pronto para começar. Caso contrário, selecione **Subscrições** do portal Azure, seguidas por fornecedores de **Recursos.**  Em seguida, a partir do ecrã **SOC - Fornecedores** de recursos, procure e selecione `Microsoft.OperationalInsights` e, `Microsoft.SecurityInsights`e selecione **Register**.
+   ![Verifique os fornecedores de recursos](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Como aceder ao Azure Sentinel de outros inquilinos
 1. No âmbito do **Diretório + subscrição,** selecione os diretórios delegados e as subscrições onde estão localizados os espaços de trabalho do seu cliente Azure Sentinel.
 

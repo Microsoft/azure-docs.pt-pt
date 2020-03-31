@@ -12,10 +12,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183789"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Iniciar sessão utilizando uma aplicação Android no Diretório Ativo Azure B2C
@@ -72,7 +72,7 @@ Pode configurar a comunicação com o Azure AD B2C especificando a descoberta UR
 * ID do inquilino (por exemplo, contoso.onmicrosoft.com)
 * Nome de fluxo do utilizador (por exemplo, B2C\_1\_SignUpIn)
 
-Se optar por descobrir automaticamente a autorização e o token endpoint URIs, terá de recolher informações a partir da descoberta URI. A descoberta URI pode ser gerada substituindo o Inquilino\_ID e o Nome\_Política no seguinte URL:
+Se optar por descobrir automaticamente a autorização e o token endpoint URIs, terá de recolher informações a partir da descoberta URI. A descoberta URI pode ser gerada\_substituindo\_o ID do Inquilino e o Nome de Política no seguinte URL:
 
 ```java
 String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
@@ -99,7 +99,7 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-Em vez de utilizar a descoberta para obter a autorização e o token endpoint URIs, também pode especificá-los explicitamente substituindo o Id\_inquilino e a política\_Nome no URL abaixo:
+Em vez de utilizar a descoberta para obter a autorização e o token endpoint URIs, também pode especificá-los explicitamente substituindo o ID do Inquilino\_e o Nome de Política\_no URL abaixo:
 
 ```java
 String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";

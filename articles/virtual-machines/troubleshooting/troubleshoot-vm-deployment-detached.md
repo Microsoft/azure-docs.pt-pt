@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de implantação de máquina virtual devido a discos desanexados | Microsoft Docs
-description: Solucionar problemas de implantação de máquina virtual devido a discos desanexados
+title: Implantação de máquina virtual de resolução de problemas devido a discos separados / Microsoft Docs
+description: Implantação de máquina virtual de resolução de problemas devido a discos separados
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75486823"
 ---
-# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Solucionar problemas de implantação de máquina virtual devido a discos desanexados
+# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Implantação de máquina virtual de resolução de problemas devido a discos separados
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você estiver tentando atualizar uma máquina virtual cuja desanexação de disco de dados anterior falhou, você pode chegar a esse código de erro.
+Quando estiver a tentar atualizar uma máquina virtual cujo descolamento de disco de dados anterior falhou, pode encontrar este código de erro.
 
 ```
 Code=\"AttachDiskWhileBeingDetached\" 
@@ -32,11 +32,11 @@ Message=\"Cannot attach data disk '{disk ID}' to virtual machine '{vmName}' beca
 
 ## <a name="cause"></a>Causa
 
-Esse erro ocorre quando você tenta reanexar um disco de dados cuja última operação de desanexação falhou. A melhor maneira de sair desse Estado é desanexar o disco com falha.
+Este erro ocorre quando se tenta recolocar um disco de dados cuja última operação de desacopte falhou. A melhor maneira de sair deste estado é separar o disco falhado.
 
-## <a name="solution-1-powershell"></a>Solução 1: PowerShell
+## <a name="solution-1-powershell"></a>Solução 1: Powershell
 
-### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>Etapa 1: obter a máquina virtual e os detalhes do disco
+### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>Passo 1: Obtenha os detalhes da máquina virtual e do disco
 
 ```azurepowershell-interactive
 PS D:> $vm = Get-AzureRmVM -ResourceGroupName "Example Resource Group" -Name "ERGVM999999" 
@@ -51,23 +51,23 @@ diskSizeGB   : 8
 toBeDetached : False 
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Etapa 2: definir o sinalizador para discos com falha como "true".
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passo 2: Coloque a bandeira para os discos falhados como "verdadeiros".
 
-Obtenha o índice de matriz do disco com falha e defina o sinalizador **toBeDetached** para o disco com falha (para o qual ocorreu o erro **AttachDiskWhileBeingDetached** ) como "true". Essa configuração implica desanexar o disco da máquina virtual. O nome do disco com falha pode ser encontrado na **ErrorMessage**.
+Obtenha o índice de matriz do disco em falha e coloque a bandeira **toBeDetached** para o disco em falha (para o qual ocorreu o erro **attachDiskWhileBeingDetached)** para "verdadeiro". Esta definição implica separar o disco da máquina virtual. O nome do disco em falha pode ser encontrado no **erroMensagem**.
 
-> ! Observação: a versão de API especificada para chamadas get e Put precisa ser 2019-03-01 ou maior.
+> ! Nota: A versão API especificada para chamadas Get and Put tem de ser 2019-03-01 ou superior.
 
 ```azurepowershell-interactive
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
 ```
 
-Como alternativa, você também pode desanexar esse disco usando o comando a seguir, que será útil para os usuários que usam versões de API antes de 1º de março de 2019.
+Em alternativa, também pode desmontar este disco utilizando o comando abaixo, o que será útil para os utilizadores que utilizem versões API antes de 01 de março de 2019.
 
 ```azurepowershell-interactive
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>" 
 ```
 
-### <a name="step-3-update-the-virtual-machine"></a>Etapa 3: atualizar a máquina virtual
+### <a name="step-3-update-the-virtual-machine"></a>Passo 3: Atualizar a máquina virtual
 
 ```azurepowershell-interactive
 PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm 
@@ -75,17 +75,17 @@ PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm
 
 ## <a name="solution-2-rest"></a>Solução 2: REST
 
-### <a name="step-1-get-the-virtual-machine-payload"></a>Etapa 1: obter a carga da máquina virtual.
+### <a name="step-1-get-the-virtual-machine-payload"></a>Passo 1: Obtenha a carga útil da máquina virtual.
 
 ```azurepowershell-interactive
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView&api-version=2019-03-01
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Etapa 2: definir o sinalizador para discos com falha como "true".
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passo 2: Coloque a bandeira para os discos falhados como "verdadeiros".
 
-Defina o sinalizador **toBeDetached** para o disco de falha como verdadeiro na carga retornada na etapa 1. Observação: a versão de API especificada para chamadas get e Put precisa ser `2019-03-01` ou maior.
+Detete a bandeira **toBeDetached** para falhar o disco verdadeiro na carga útil devolvida no passo 1. Nota: A versão API especificada para chamadas `2019-03-01` Get and Put tem de ser ou maior.
 
-**Corpo da solicitação de amostra**
+**Corpo de Pedido de Amostra**
 
 ```azurepowershell-interactive
 {
@@ -143,17 +143,17 @@ Defina o sinalizador **toBeDetached** para o disco de falha como verdadeiro na c
 }
 ```
 
-Como alternativa, você também pode remover o disco de dados com falha do conteúdo acima, o que é útil para usuários que usam versões de API antes de 1º de março de 2019.
+Alternadamente também pode remover o disco de dados em falha da carga útil acima, o que é útil para os utilizadores que usam versões API antes de 01 de março de 2019.
 
-### <a name="step-3-update-the-virtual-machine"></a>Etapa 3: atualizar a máquina virtual
+### <a name="step-3-update-the-virtual-machine"></a>Passo 3: Atualizar a máquina virtual
 
-Use a carga do corpo da solicitação definida na etapa 2 e atualize a máquina virtual da seguinte maneira:
+Utilize a carga útil do corpo de pedido definida no passo 2 e atualize a máquina virtual da seguinte forma:
 
 ```azurepowershell-interactive
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2019-03-01
 ```
 
-**Exemplo de resposta:**
+**Resposta da amostra:**
 
 ```azurepowershell-interactive
 {
@@ -230,8 +230,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-Se você estiver tendo problemas para se conectar à sua VM, consulte [solucionar problemas de conexões RDP para uma VM do Azure](troubleshoot-rdp-connection.md).
+Se tiver problemas de ligação ao seu VM, consulte [ligações RDP de Troubleshoot a um VM Azure](troubleshoot-rdp-connection.md).
 
-Para problemas com o acesso a aplicativos em execução na sua VM, consulte [solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md).
+Para problemas com o acesso a aplicações em execução no seu VM, consulte problemas de conectividade da [aplicação Troubleshoot num VM windows](troubleshoot-app-connection.md).

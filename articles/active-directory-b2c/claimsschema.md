@@ -1,5 +1,5 @@
 ---
-title: ClaimsSchema - Diretório Ativo Azure B2C  Microsoft Docs
+title: ClaimsSchema - Diretório Ativo Azure B2C [ Microsoft Docs
 description: Especifique o elemento ClaimsSchema de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78397791"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -51,36 +51,36 @@ O elemento **ClaimType** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é exibido aos utilizadores em vários ecrãs. O valor pode ser [localizado.](localization.md) |
-| Tipo de dados | 1:1 | O tipo de reclamação. |
-| DefaultPartnerClaimTypes | 0:1 | Os tipos de reclamação por defeito do parceiro para utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **'Claimclaim'** ou **OutputClaim.** Utilize este elemento para especificar o nome predefinido para um protocolo.  |
+| DataType | 1:1 | O tipo de reclamação. |
+| Tipos de Reclamação por DefaultPartner | 0:1 | Os tipos de reclamação por defeito do parceiro para utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **'Claimclaim'** ou **OutputClaim.** Utilize este elemento para especificar o nome predefinido para um protocolo.  |
 | Máscara | 0:1 | Uma cadeia opcional de caracteres mascarados que podem ser aplicados ao exibir a alegação. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de reclamação que pode ser útil para os utilizadores entenderem o seu propósito. O valor pode ser [localizado.](localization.md) |
 | UserInputType | 0:1 | O tipo de controlo de entrada que deve estar disponível para o utilizador ao introduzir manualmente os dados de reclamação para o tipo de reclamação. Consulte os tipos de entrada do utilizador definidos mais tarde nesta página. |
 | AdminHelpText | 0:1 | Uma descrição do tipo de reclamação que pode ser útil para os administradores entenderem o seu propósito. |
 | Restrição | 0:1 | As restrições de valor para esta reclamação, tais como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado.](localization.md) |
-PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicadoValidaçõesInputput.** Os elementos **Predicados ValidaçãoDereferência** permitem-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos. Para mais informações, consulte [Predicados](predicates.md). |
+Referência de Validação predicada| 0:1 | Uma referência a um elemento **PredicadoValidaçõesInputput.** Os elementos **Predicados ValidaçãoDereferência** permitem-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos. Para mais informações, consulte [Predicados](predicates.md). |
 
 
 
-### <a name="datatype"></a>Tipo de dados
+### <a name="datatype"></a>DataType
 
 O elemento **DataType** suporta os seguintes valores:
 
 | Tipo | Descrição |
 | ------- | ----------- |
-|boolean|Representa um valor Boolean (`true` ou `false`).|
+|boolean|Representa um valor`true` booleano ( ou) `false`|
 |date| Representa um instante no tempo, tipicamente expresso como uma data de um dia. O valor da data segue a convenção ISO 8601.|
-|DateTime|Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. O valor da data segue a convenção ISO 8601.|
-|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato é `PnYnMnDTnHnMnS`, onde `P` indica positivo, ou `N` para valor negativo. `nY` é o número de anos seguidos de uma `Y`literal. `nMo` é o número de meses seguido de uma `Mo`literal. `nD` é o número de dias seguidos de uma `D`literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
-|phoneNumber|Representa um número de telefone. |
+|dataTempo|Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. O valor da data segue a convenção ISO 8601.|
+|duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato `PnYnMnDTnHnMnS`do `P` é , `N` onde indica positivo, ou para valor negativo. `nY`é o número de anos `Y`seguidos por um literal. `nMo`é o número de meses seguido si. `Mo` `nD`é o número de dias `D`seguidos por um literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo`representa um ano e dois meses. `P1Y2Mo5D`representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S`representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
+|telefoneNúmero|Representa um número de telefone. |
 |int| Representa o número entre -2.147.483.648 e 2.147.483.647|
-|long| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
+|longo| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
 |string| Representa o texto como uma sequência de unidades de código UTF-16.|
-|stringCollection|Representa uma coleção de `string`.|
+|stringCollection|Representa uma coleção `string`de .|
 |userIdentidade| Representa uma identidade de utilizador.|
-|userIdentityCollection|Representa uma coleção de `userIdentity`.|
+|userIdentityCollection|Representa uma coleção `userIdentity`de .|
 
-### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
+### <a name="defaultpartnerclaimtypes"></a>Tipos de Reclamação por DefaultPartner
 
 Os Tipos de **Reclamação por Predefinição** podem conter o seguinte elemento:
 
@@ -95,7 +95,7 @@ O elemento **Protocolo** contém os seguintes atributos:
 | Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | Tipo de reclamação de parceiros | Sim | O nome do tipo de reclamação a utilizar. |
 
-No exemplo seguinte, quando o Quadro de Experiência de Identidade interage com um fornecedor de identidade SAML2 ou uma aplicação de parte dependente, a alegação de **sobrenome** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com openIdConnect e OAuth2, a alegação é mapeada para `family_name`.
+No exemplo seguinte, quando o Quadro de Experiência de Identidade interage com um fornecedor de identidade SAML2 ou uma aplicação de parte dependente, a `family_name`alegação de **sobrenome** é mapeada para, `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`com openIdConnect e OAuth2, a reclamação é mapeada para .
 
 ```XML
 <ClaimType Id="surname">
@@ -109,7 +109,7 @@ No exemplo seguinte, quando o Quadro de Experiência de Identidade interage com 
 </ClaimType>
 ```
 
-Como resultado, o símbolo JWT emitido pelo Azure AD B2C, emite o `family_name` em vez do **apelido**de nome ClaimType .
+Como resultado, o símbolo JWT emitido pelo Azure AD B2C, emite o `family_name` nome em vez de **nome**ClaimType .
 
 ```JSON
 {
@@ -127,10 +127,10 @@ O elemento **Máscara** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| `Type` | Sim | O tipo de máscara de reivindicação. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma simples máscara de texto é aplicada à parte principal de uma reivindicação de cordas. O valor `Regex` indica que uma expressão regular é aplicada à reivindicação da cadeia no seu conjunto.  Se o valor `Regex` for especificado, um atributo opcional também deve ser definido com a expressão regular a utilizar. |
-| `Regex` | Não | Se **`Type`** estiver programado para `Regex`, especifique a expressão regular a utilizar.
+| `Type` | Sim | O tipo de máscara de reivindicação. Valores `Simple` possíveis: ou `Regex`. O `Simple` valor indica que uma simples máscara de texto é aplicada à parte principal de uma reivindicação de cordas. O `Regex` valor indica que uma expressão regular é aplicada à reivindicação da cadeia no seu conjunto.  Se `Regex` o valor for especificado, um atributo opcional também deve ser definido com a expressão regular a utilizar. |
+| `Regex` | Não | Se **`Type`** estiver `Regex`programado para especificar a expressão regular a utilizar.
 
-O exemplo seguinte configura uma alegação **de Número de Telefone** com a máscara `Simple`:
+O exemplo seguinte configura uma alegação **de Número de Telefone** com a `Simple` máscara:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -145,7 +145,7 @@ O Quadro de Experiência de Identidade torna o número de telefone enquanto esco
 
 ![Pedido de número de telefone mostrado no navegador com os primeiros seis dígitos mascarados por Xs](./media/claimsschema/mask.png)
 
-O exemplo seguinte configura uma alegação **de Email Alternativo** com a máscara `Regex`:
+O exemplo seguinte configura uma alegação **de Email Alternativo** com a `Regex` máscara:
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -167,7 +167,7 @@ O elemento **restrição** pode conter o seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Função Função Behavior | Não | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O valor `Append` é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O valor `Prepend` é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O valor `ReplaceAll` é uma recolha de dados especificados na política-mãe que deve ser ignorada. |
+| Função Função Behavior | Não | O método utilizado para fundir valores de enumeração com um ClaimType numa política-mãe com o mesmo identificador. Use este atributo quando substituir uma reclamação especificada na política de base. Valores `Append`possíveis: , `Prepend`ou `ReplaceAll`. O `Append` valor é uma recolha de dados que deve ser anexado ao fim da recolha especificada na política-mãe. O `Prepend` valor é uma recolha de dados que deve ser adicionado antes da recolha especificada na política-mãe. O `ReplaceAll` valor é uma recolha de dados especificados na política-mãe que deve ser ignorado. |
 
 O elemento **restrição** contém os seguintes elementos:
 
@@ -178,7 +178,7 @@ O elemento **restrição** contém os seguintes elementos:
 
 #### <a name="enumeration"></a>Enumeração
 
-O elemento **Enumeração** define as opções disponíveis para o utilizador selecionar para uma reclamação na interface do utilizador, como um valor num `CheckboxMultiSelect`, `DropdownSingleSelect`ou `RadioSingleSelect`. Em alternativa, pode definir e localizar as opções disponíveis com o elemento [LocalizedCollections.](localization.md#localizedcollections) Para procurar um item de uma coleção de **enumeração** de reclamações, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) reivindica a transformação de reivindicações.
+O elemento **Enumeração** define as opções disponíveis para o utilizador selecionar para uma `CheckboxMultiSelect` `DropdownSingleSelect`reclamação `RadioSingleSelect`na interface do utilizador, como um valor em a , ou . Em alternativa, pode definir e localizar as opções disponíveis com o elemento [LocalizedCollections.](localization.md#localizedcollections) Para procurar um item de uma coleção de **enumeração** de reclamações, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) reivindica a transformação de reivindicações.
 
 O elemento **Enumeração** contém os seguintes atributos:
 
@@ -188,7 +188,7 @@ O elemento **Enumeração** contém os seguintes atributos:
 |Valor | Sim | O valor de reclamação que está associado à seleção desta opção. |
 | SelectByDefault | Não | Indica se esta opção deve ou não ser selecionada por defeito na UI. Valores possíveis: Verdadeiro ou Falso. |
 
-O exemplo seguinte configura uma reivindicação de lista de abandono da **cidade** com um valor predefinido definido para `New York`:
+O exemplo seguinte **city** configura uma reivindicação de lista `New York`de abandono da cidade com um valor predefinido definido para:
 
 ```XML
 <ClaimType Id="city">
@@ -249,10 +249,10 @@ Os tipos de entrada do utilizador do elemento **UserInputType** disponíveis:
 |DateTimeDropdown | `date`, `dateTime` |Drop-downs para selecionar um dia, mês e ano. |
 |DropdownSingleSelect |`string` |Única caixa de entrega selecionada. O valor da reclamação é o valor selecionado.|
 |EmailBox | `string` |Campo de entrada de e-mail. |
-|Parágrafo | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`|Um campo que mostra texto apenas numa etiqueta de parágrafo. |
+|Parágrafo | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Um campo que mostra texto apenas numa etiqueta de parágrafo. |
 |Palavra-passe | `string` |Caixa de texto de senha.|
 |RadioSingleSelect |`string` | Coleção de botões de rádio. O valor da reclamação é o valor selecionado.|
-|Leitura apenas | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`| Caixa de texto só de leitura. |
+|Leitura apenas | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Caixa de texto só de leitura. |
 |TextBox |`boolean`, `int`, `string` |Caixa de texto de linha única. |
 
 
@@ -394,7 +394,7 @@ O tipo de entrada do utilizador **Readonly** é utilizado para fornecer um campo
 
 #### <a name="paragraph"></a>Parágrafo
 
-O tipo de entrada do **utilizador do parágrafo** é utilizado para fornecer um campo que apresente texto apenas numa etiqueta de parágrafo.  Por exemplo, &lt;p&gt;texto&lt;/p&gt;. Um tipo de entrada do utilizador **parágrafo** `OutputClaim` de perfil técnico autoafirmado, deve definir o `false` de atributo `Required` (predefinido).
+O tipo de entrada do **utilizador do parágrafo** é utilizado para fornecer um campo que apresente texto apenas numa etiqueta de parágrafo.  Por &lt;exemplo,&gt;&lt;p&gt;texto /p . Um **tipo** de `OutputClaim` inserção do utilizador parágrafo `Required` de `false` perfil técnico autoafirmado, deve definir o atributo (predefinido).
 
 ![Utilização do tipo de reclamação com parágrafo](./media/claimsschema/paragraph.png)
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260868"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Fábrica de Dados Azure
@@ -63,16 +63,16 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Required
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade web | String | Sim
-tipo | Deve ser definido para **WebActivity**. | String | Sim
+nome | Nome da atividade web | Cadeia | Sim
+tipo | Deve ser definido para **WebActivity**. | Cadeia | Sim
 método | Método API de repouso para o ponto final alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
-URL | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá esgotar-se a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
-cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
-corpo | Representa a carga útil que é enviada para o ponto final.  | Corda (ou expressão com resultadoTipo de corda). <br/><br/>Consulte o esquema da carga útil do pedido na secção esquema de [carga útil solicitação.](#request-payload-schema) | Necessário para métodos POST/PUT.
-Directory | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básico, ou Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoTipo de corda) | Não
-datasets | A lista de conjuntos de dados passou para o ponto final. | Conjunto de referências de conjuntos de dados. Pode ser uma matriz vazia. | Sim
+url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá esgotar-se a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
+cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`e escrever num pedido: . | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
+body | Representa a carga útil que é enviada para o ponto final.  | Corda (ou expressão com resultadoTipo de corda). <br/><br/>Consulte o esquema da carga útil do pedido na secção esquema de [carga útil solicitação.](#request-payload-schema) | Necessário para métodos POST/PUT.
+autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básico, ou Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoTipo de corda) | Não
+conjuntos de dados | A lista de conjuntos de dados passou para o ponto final. | Conjunto de referências de conjuntos de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | A lista de serviços ligados passou para o ponto final. | Conjunto de referências de serviço ligadas. Pode ser uma matriz vazia. | Sim
 
 > [!NOTE]
@@ -80,11 +80,11 @@ linkedServices | A lista de serviços ligados passou para o ponto final. | Conju
 
 O quadro seguinte mostra os requisitos para o conteúdo da JSON:
 
-| Tipo de valor | Corpo do pedido | Corpo de resposta |
+| Tipo de valor | Corpo do pedido | Corpo da resposta |
 |---|---|---|
-|Objeto JSON | Suportadas | Suportadas |
-|Matriz JSON | Suportadas <br/>(Atualmente, as matrizes JSON não funcionam como resultado de um inseto. Uma correção está em andamento.) | Não suportado |
-| Valor JSON | Suportadas | Não suportado |
+|Objeto JSON | Suportado | Suportado |
+|Matriz JSON | Suportado <br/>(Atualmente, as matrizes JSON não funcionam como resultado de um inseto. Uma correção está em andamento.) | Não suportado |
+| Valor JSON | Suportado | Não suportado |
 | Tipo não-JSON | Não suportado | Não suportado |
 ||||
 
@@ -92,11 +92,11 @@ O quadro seguinte mostra os requisitos para o conteúdo da JSON:
 
 Abaixo estão os tipos de autenticação suportados na atividade web.
 
-### <a name="none"></a>Nenhum
+### <a name="none"></a>Nenhuma
 
 Se não for necessária a autenticação, não inclua o imóvel de "autenticação".
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Especifique o nome do utilizador e a palavra-passe para usar com a autenticação básica.
 
@@ -122,7 +122,7 @@ Especifique o conteúdo codificado base64 de um ficheiro PFX e a palavra-passe.
 
 ### <a name="managed-identity"></a>Identidade Gerida
 
-Especifique o uri de recurso para o qual o token de acesso será solicitado utilizando a identidade gerida para a fábrica de dados. Para ligar para a API de Gestão de Recursos Azure, use `https://management.azure.com/`. Para obter mais informações sobre como funcionam as identidades geridas, consulte as identidades geridas para a página geral dos [recursos do Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
+Especifique o uri de recurso para o qual o token de acesso será solicitado utilizando a identidade gerida para a fábrica de dados. Para ligar para a API `https://management.azure.com/`de Gestão de Recursos Azure, utilize. Para obter mais informações sobre como funcionam as identidades geridas, consulte as identidades geridas para a página geral dos [recursos do Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ```json
 "authentication": {
@@ -251,10 +251,10 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
-- [Para cada Atividade](control-flow-for-each-activity.md)
+- [Para Cada Atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)

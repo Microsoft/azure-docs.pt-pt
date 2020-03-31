@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062307"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicione contas pessoais da Microsoft à aplicação Microsoft Authenticator
@@ -24,10 +24,10 @@ Adicione as suas contas pessoais da Microsoft, como para Outlook.com e Xbox LIVE
 
 - **Método padrão de verificação de dois fatores.** Digite o seu nome de utilizador e palavra-passe no dispositivo para o qual está a iniciar sessão e, em seguida, escolha se a aplicação Microsoft Authenticator envia uma notificação ou se prefere copiar o código de verificação associado a partir do ecrã de **Contas** da aplicação Microsoft Authenticator.
 
-- **Método de entrada sem palavras-passe.** Digite o seu nome de utilizador no dispositivo em que está a iniciar sessão para a sua conta pessoal da Microsoft e, em seguida, use o seu dispositivo móvel para verificar se é você usando a sua impressão digital, rosto ou PIN. Para esse método, você não precisa inserir sua senha.
+- **Método de entrada sem palavras-passe.** Digite o seu nome de utilizador no dispositivo em que está a iniciar sessão para a sua conta pessoal da Microsoft e, em seguida, use o seu dispositivo móvel para verificar se é você usando a sua impressão digital, rosto ou PIN. Para este método, não precisa de introduzir a sua palavra-passe.
 
 >[!Important]
->Para poder adicionar sua conta, você deve baixar e instalar o aplicativo Microsoft Authenticator. Se ainda não o fez, siga os passos no Download e instale o artigo [da aplicação.](user-help-auth-app-download-install.md)
+>Antes de poder adicionar a sua conta, tem de descarregar e instalar a aplicação Microsoft Authenticator. Se ainda não o fez, siga os passos no Download e instale o artigo [da aplicação.](user-help-auth-app-download-install.md)
 
 ## <a name="add-your-personal-microsoft-account"></a>Adicione a sua conta pessoal da Microsoft
 
@@ -56,7 +56,7 @@ Pode adicionar a sua conta pessoal da Microsoft, ligando primeiro a verificaçã
 
 3. Na página **Adicionar,** escolha **conta Pessoal**.
 
-4. Inscreva-se na sua conta pessoal, utilizando o endereço de e-mail apropriado (como alain@outlook.com), e depois escolha **A Seguinte**.
+4. Inscreva-se na sua conta pessoal, utilizando alain@outlook.como endereço de e-mail apropriado (como), e depois escolha **A Seguinte**.
 
     >[!Note]
     >Se não tiver uma conta pessoal da Microsoft, pode criar uma aqui.
@@ -67,8 +67,8 @@ Pode adicionar a sua conta pessoal da Microsoft, ligando primeiro a verificaçã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Depois de adicionar suas contas ao aplicativo, você pode entrar usando o aplicativo autenticador em seu dispositivo. Para mais informações, consulte [O Sign in usando a aplicação](user-help-auth-app-sign-in.md).
+- Depois de adicionar as suas contas à aplicação, pode iniciar sessão utilizando a aplicação Autenticadora no seu dispositivo. Para mais informações, consulte [O Sign in usando a aplicação](user-help-auth-app-sign-in.md).
 
-- Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de **problemas** de código de verificação de resolução de problemas do artigo de [informações e códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) da conta da Microsoft.
+- Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de códigos de [verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
-- Para dispositivos que executam o iOS, você também pode fazer backup de suas credenciais de conta e configurações de aplicativo relacionadas, como a ordem de suas contas, para a nuvem. Para mais informações, consulte [Backup e recupere com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).
+- Para dispositivos que executam o iOS, também pode fazer o back up as credenciais da sua conta e configurações de aplicações relacionadas, como a ordem das suas contas, para a nuvem. Para mais informações, consulte [Backup e recupere com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

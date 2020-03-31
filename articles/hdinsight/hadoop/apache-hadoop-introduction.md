@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
 ms.openlocfilehash: 7e8dd69b7c58e090c30ea1aa59feddab610dd3c5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78244879"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é Apache Hadoop em Azure HDInsight?
@@ -21,7 +21,7 @@ O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código abert
 
 O Azure HDInsight é um serviço de análise de código aberto totalmente gerido, de todo o espectro, na nuvem para as empresas. O tipo de cluster Apache Hadoop em Azure HDInsight permite-lhe utilizar hDFS, gestão de recursos YARN e um modelo de programação simples MapReduce para processar e analisar dados de lote em paralelo.
 
-Para ver os componentes disponíveis da pilha de tecnologia Hadoop no HDInsight, consulte [Componentes e versões disponíveis com o HDInsight](../hdinsight-component-versioning.md). Para ler mais sobre o Hadoop no HDInsight, veja a [página de funcionalidades do Azure para o HDInsight](https://azure.microsoft.com/services/hdinsight/).
+Para ver os componentes da pilha tecnológica do Hadoop disponíveis no HDInsight, veja [Componentes e versões disponíveis com o HDInsight](../hdinsight-component-versioning.md). Para ler mais sobre o Hadoop no HDInsight, veja a [página de funcionalidades do Azure para o HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 ## <a name="what-is-mapreduce"></a>O que é MapReduce
 
@@ -33,7 +33,7 @@ Apache Hadoop MapReduce é um quadro de software para escrever trabalhos que pro
 
 Uma contagem de palavras básica MapReduce exemplo de trabalho é ilustrado no seguinte diagrama:
 
- ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
+ ![O HDI. Diagrama wordcount](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 A saída deste trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto.
 
@@ -44,7 +44,7 @@ MapReduce pode ser implementado em várias línguas. Java é a implementação m
 
 ## <a name="development-languages"></a>Línguas de desenvolvimento
 
-As línguas ou quadros que são baseados em Java e na Máquina Virtual Java podem ser dirigidos diretamente como um trabalho MapReduce. O exemplo usado neste documento é uma aplicação Java MapReduce. As línguas não java, tais como, C#Python, ou executáveis autónomos, devem utilizar o streaming **Hadoop**.
+As línguas ou quadros que são baseados em Java e na Máquina Virtual Java podem ser dirigidos diretamente como um trabalho MapReduce. O exemplo usado neste documento é uma aplicação Java MapReduce. As línguas não java, tais como C#, Python ou executáveis autónomos, devem utilizar o **streaming Hadoop**.
 
 O streaming de hadoop comunica com o mapper e redutor sobre STDIN e STDOUT. O mapper e o redutor lêm dados de uma linha de cada vez a partir de STDIN, e escrevem a saída para o STDOUT. Cada linha lida ou emitida pelo mapeador e redutor deve estar no formato de um par chave/valor, delimitado por um caracteres de separador:
 
@@ -54,7 +54,7 @@ Para mais informações, consulte [Hadoop Streaming](https://hadoop.apache.org/d
 
 Por exemplo, utilizando o streaming Hadoop com o HDInsight, consulte o seguinte documento:
 
-* [Desenvolver C# mapReduzir empregos](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Desenvolver C# MapReduzir empregos](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

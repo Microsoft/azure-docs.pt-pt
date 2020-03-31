@@ -15,10 +15,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad26a4d619a7984f08a8decc87f9339adae47cdd
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132602"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema Xamarin Android para usar MSAL.NET
@@ -45,30 +45,30 @@ A tabela seguinte lista os dispositivos e navegadores que foram testados para co
 
 | Dispositivo | Browser     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One+ | \* cromado | Passá|
-| Huawei/One+ | \* de borda | Passá|
-| Huawei/One+ | \* firefox | Passá|
-| Huawei/One+ | \* corajosa | Passá|
-| Um+ | Ecosia\* | Passá|
-| Um+ | \* de Kiwi | Passá|
-| Huawei/One+ | Opera | Passá|
-| Huawei | OperaMini | Passá|
-| Huawei/One+ | InBrowser | Passá|
-| Um+ | Maxthon | Passá|
+| Huawei/One+ | Chrome\* | Passe|
+| Huawei/One+ | Edge\* | Passe|
+| Huawei/One+ | Firefox\* | Passe|
+| Huawei/One+ | Corajoso\* | Passe|
+| Um+ | Ecosia\* | Passe|
+| Um+ | Rio Kiwi\* | Passe|
+| Huawei/One+ | Ópera | Passe|
+| Huawei | ÓperaMini | Passe|
+| Huawei/One+ | InBrowser | Passe|
+| Um+ | Maxthon | Passe|
 | Huawei/One+ | DuckDuckGo | Autenticação cancelada do utilizador|
 | Huawei/One+ | UC Browser | Autenticação cancelada do utilizador|
 | Um+ | Golfinho | Autenticação cancelada do utilizador|
 | Um+ | Navegador CM | Autenticação cancelada do utilizador|
-| Huawei/One+ | nenhum instalado | AndroidActivityNotFound exceção|
+| Huawei/One+ | Nenhum instalado | AndroidActivityNotFound exceção|
 
-\* suporta separadores personalizados
+\*Suporta separadores personalizados
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Se o utilizador não tiver navegador ativado no dispositivo, MSAL.NET irá lançar uma exceção `AndroidActivityNotFound`.  
+Se o utilizador não tiver navegador ativado no `AndroidActivityNotFound` dispositivo, MSAL.NET lançará uma exceção.  
   - **Mitigação**: Peça ao utilizador que ative um navegador no seu dispositivo. Recomende um navegador que suporte separadores personalizados.
 
-Se a autenticação falhar (por exemplo, se a autenticação for lançada com duckDuckGo), MSAL.NET devolverá `AuthenticationCanceled MsalClientException`. 
+Se a autenticação falhar (por exemplo, se a autenticação `AuthenticationCanceled MsalClientException`for lançada com duckDuckGo), MSAL.NET regressará . 
   - **Problema de raiz**: Um navegador que suporta separadores personalizados não estava ativado no dispositivo. A autenticação foi lançada com um navegador que não conseguiu completar a autenticação. 
   - **Mitigação**: Peça ao utilizador que ative um navegador no seu dispositivo. Recomende um navegador que suporte separadores personalizados.
 

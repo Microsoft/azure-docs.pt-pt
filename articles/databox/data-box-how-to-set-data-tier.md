@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 31178284313ad7dafb094b109a75d4550cabd39c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560376"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilize a Caixa de Dados Azure ou a Caixa de Dados Azure Heavy para enviar dados para o nível de blob de armazenamento azure apropriado
@@ -48,7 +48,7 @@ Em alternativa, cria-se primeiro uma conta de armazenamento com o atributo do n�
 Uma vez que os dados do dispositivo Data Box sejam enviados para o nível predefinido, poderá querer mover os dados para um nível não predefinido. Existem duas formas de mover estes dados para um nível não padrão.
 
 - Gestão do ciclo de vida do **armazenamento Azure Blob** - Pode utilizar uma abordagem baseada em políticas para escalonar automaticamente dados ou expirar no final do seu ciclo de vida. Para mais informações, vá à Gestão do ciclo de [vida de armazenamento De Armazenamento Azure Blob.](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
-- **Scripting** - Você poderia usar uma abordagem scripted via Azure PowerShell para permitir o nivelamento de nível de blob. Pode ligar para a operação `SetBlobTier` para definir o nível na bolha.
+- **Scripting** - Você poderia usar uma abordagem scripted via Azure PowerShell para permitir o nivelamento de nível de blob. Pode ligar `SetBlobTier` para a operação para definir o nível na bolha.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Use o Azure PowerShell para definir o nível de bolha
 

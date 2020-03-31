@@ -1,6 +1,6 @@
 ---
-title: CLI do Azure exemplo de script – balancear a carga de vários sites com o CLI do Azure | Microsoft Docs
-description: CLI do Azure exemplo de script – balancear a carga de vários sites para a mesma máquina virtual
+title: Amostra de script Azure CLI - Balance vários websites com o Azure CLI [ Microsoft Docs
+description: Amostra de script Azure CLI - Balance vários websites para a mesma máquina virtual
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
 ms.openlocfilehash: 568934d6b5ecc2fbb3b6fc6588ecfd48c8306490
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889461"
 ---
-# <a name="load-balance-multiple-websites"></a>Balancear a carga de vários sites
+# <a name="load-balance-multiple-websites"></a>Balanço de carga vários websites
 
-Este exemplo de script cria uma rede virtual com duas máquinas virtuais (VM) que são membros de um conjunto de disponibilidade. Um balanceador de carga direciona o tráfego de dois endereços IP separados para as duas VMs. Depois de executar o script, pode implementar o software de servidor Web para as VMs e alojar múltiplos sites, cada um com o seu próprio endereço IP.
+Esta amostra de script cria uma rede virtual com duas máquinas virtuais (VM) que são membros de um conjunto de disponibilidade. Um balanceador de carga direciona o tráfego de dois endereços IP separados para as duas VMs. Depois de executar o script, pode implementar o software de servidor Web para as VMs e alojar múltiplos sites, cada um com o seu próprio endereço IP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) | Cria um conjunto de endereços de back-end. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Cria a placa da rede virtual e liga-a à rede virtual e à sub-rede. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
-| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config) | Cria uma configuração de IP. Tem de ter a funcionalidade Microsoft.Network/AllowMultipleIpConfigurationsPerNic ativada na sua subscrição. Apenas uma configuração pode ser designada como a configuração de IP principal por NIC ao utilizar o sinalizador make-primary. |
+| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config) | Cria uma configuração IP. Tem de ter a funcionalidade Microsoft.Network/AllowMultipleIpConfigurationsPerNic ativada na sua subscrição. Apenas uma configuração pode ser designada como a configuração de IP principal por NIC ao utilizar o sinalizador make-primary. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 

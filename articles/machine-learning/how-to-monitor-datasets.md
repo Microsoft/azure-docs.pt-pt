@@ -11,10 +11,10 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
 ms.openlocfilehash: 401019c537cb0eb51fa6002637e170a79210f7d2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617643"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
@@ -57,7 +57,7 @@ Com os monitores de conjunto de dados Azure Machine Learning, pode configurar al
 
 ### <a name="dataset-monitors"></a>Monitores de conjunto de dados 
 
-Pode criar um monitor de conjunto de dados para detetar e alertar para a deriva de dados em novos dados num conjunto de dados, analisar dados históricos para deriva e perfilar novos dados ao longo do tempo. O algoritmo de deriva de dados fornece uma medida global de alteração de dados e indicação de quais as funcionalidades que são responsáveis por uma investigação mais aprofundada. Os monitores dataset produzem uma série de outras métricas através do perfil de novos dados no conjunto de dados `timeseries`. O alerta personalizado pode ser configurado em todas as métricas geradas pelo monitor através do [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Os monitores de conjuntos de dados podem ser usados para capturar rapidamente problemas de dados e reduzir o tempo para depurar o problema identificando causas prováveis.  
+Pode criar um monitor de conjunto de dados para detetar e alertar para a deriva de dados em novos dados num conjunto de dados, analisar dados históricos para deriva e perfilar novos dados ao longo do tempo. O algoritmo de deriva de dados fornece uma medida global de alteração de dados e indicação de quais as funcionalidades que são responsáveis por uma investigação mais aprofundada. Os monitores dataset produzem uma série de outras métricas através do perfil de novos dados no conjunto de `timeseries` dados. O alerta personalizado pode ser configurado em todas as métricas geradas pelo monitor através do [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Os monitores de conjuntos de dados podem ser usados para capturar rapidamente problemas de dados e reduzir o tempo para depurar o problema identificando causas prováveis.  
 
 Conceptualmente, existem três cenários primários para a criação de monitores de conjuntode dados no Azure Machine Learning.
 
@@ -71,13 +71,13 @@ A fazer análises sobre dados passados. | Este cenário pode ser usado para comp
 
 Utilizando o Azure Machine Learning, a deriva de dados é monitorizada através de conjuntos de dados. Para monitorizar a deriva de dados, é especificado um conjunto de dados de base - geralmente o conjunto de dados de treino para um modelo - é especificado. Um conjunto de dados-alvo - geralmente dados de entrada de modelo - é comparado ao longo do tempo com o seu conjunto de dados de base. Esta comparação significa que o seu conjunto de dados alvo deve ter uma coluna de carimbo de tempo especificada.
 
-### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Desloque o traço `timeseries` no conjunto de dados-alvo
+### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Desloque o `timeseries` traço no conjunto de dados-alvo
 
-O conjunto de dados-alvo precisa de ter o traço `timeseries` definido sobre ele, especificando a coluna de carimbos de tempo, quer a partir de uma coluna nos dados, quer de uma coluna virtual derivada do padrão de trajetória dos ficheiros. Isto pode ser feito através do estúdio Python SDK ou Azure Machine Learning. Deve especificar-se uma coluna que represente uma marca de tempo "grão fino" para adicionar `timeseries` traço ao conjunto de dados. Se os seus dados forem divididos na estrutura das pastas com informações de tempo, tais como '{yyyy/MM/dd}', pode criar uma coluna virtual através da definição do padrão do caminho e defini-lo como o carimbo de tempo "grão grosso" para melhorar a importância da funcionalidade da série temporal. 
+O conjunto de dados-alvo precisa de ter o `timeseries` traço definido sobre ele, especificando a coluna de carimbos de tempo, quer a partir de uma coluna nos dados, quer de uma coluna virtual derivada do padrão de trajetória dos ficheiros. Isto pode ser feito através do estúdio Python SDK ou Azure Machine Learning. Deve especificar-se uma coluna que represente uma `timeseries` marca de tempo "grão fino" para adicionar traço ao conjunto de dados. Se os seus dados forem divididos na estrutura das pastas com informações de tempo, tais como '{yyyy/MM/dd}', pode criar uma coluna virtual através da definição do padrão do caminho e defini-lo como o carimbo de tempo "grão grosso" para melhorar a importância da funcionalidade da série temporal. 
 
 #### <a name="python-sdk"></a>SDK Python
 
-O método [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) classe define a coluna de carimbos de tempo para o conjunto de dados. 
+O [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) método [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) da classe define a coluna de carimbos de tempo para o conjunto de dados. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -104,7 +104,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Para um exemplo completo de utilização do traço `timeseries` dos conjuntos de dados, consulte o [caderno de exemplo](https://aka.ms/azureml-tsd-notebook) ou a [documentação SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-)dos conjuntos de dados .
+Para um exemplo completo `timeseries` de utilização do traço dos conjuntos de dados, consulte o [caderno de exemplo](https://aka.ms/azureml-tsd-notebook) ou a [documentação SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-)dos conjuntos de dados .
 
 #### <a name="azure-machine-learning-studio"></a>Azure Machine Learning studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
@@ -113,7 +113,7 @@ Se criar o seu conjunto de dados utilizando o estúdio Azure Machine Learning, c
 
 No exemplo seguinte, todos os dados sob a subpasta *NoaaIsdFlorida/2019* são tomados, e o formato de partição especifica o ano, mês e dia do carimbo. 
 
-[formato de partição ![](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
+[![Formato de partição](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
 Nas definições **de Schema,** especifique a coluna de carimbos de tempo de uma coluna virtual ou real no conjunto de dados especificado:
 
@@ -133,7 +133,7 @@ Esta tabela contém definições básicas utilizadas para o monitor de conjunto 
 | ------- | ----------- | ---- | ------- | 
 | Nome | Nome do monitor de conjunto de dados. | | Não |
 | Conjunto de dados de base | Conjunto de dados tabular que será usado como base para comparação do conjunto de dados alvo ao longo do tempo. | O conjunto de dados de base deve ter características em comum com o conjunto de dados-alvo. Geralmente, a linha de base deve ser definida para o conjunto de dados de formação de um modelo ou uma fatia do conjunto de dados-alvo. | Não |
-| Conjunto de dados-alvo | Conjunto de dados tabular com coluna de carimbo de tempo especificada que será analisado para deriva de dados. | O conjunto de dados-alvo deve ter funcionalidades em comum com o conjunto de dados de base, e deve ser um conjunto de dados `timeseries`, ao qual novos dados são anexados. Os dados históricos no conjunto de dados-alvo podem ser analisados ou novos dados podem ser monitorizados. | Não | 
+| Conjunto de dados-alvo | Conjunto de dados tabular com coluna de carimbo de tempo especificada que será analisado para deriva de dados. | O conjunto de dados-alvo deve ter funcionalidades em `timeseries` comum com o conjunto de dados de base, e deve ser um conjunto de dados, ao qual novos dados são anexados. Os dados históricos no conjunto de dados-alvo podem ser analisados ou novos dados podem ser monitorizados. | Não | 
 | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar uma recarga de backfill. As opções incluem diariamente, semanalmente ou mensalmente. | Ajuste esta definição para incluir uma dimensão comparável de dados à linha de base. | Não | 
 | Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para as características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente derivam ao longo do tempo (mês, ano, índice, etc.). Pode reabastecer e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Sim | 
 | Destino de computação | O objetivo da computação azure Machine Learning visa executar os trabalhos de monitorização do conjunto de dados. | | Sim | 
@@ -173,7 +173,7 @@ Depois de confirmada a funcionalidade do espaço de trabalho, navegue para a pá
 
 Clique no botão **+Criar** monitorizar e continue através do assistente clicando **em Seguinte**.
 
-![Monitorização](./media/how-to-monitor-datasets/wizard.png)
+![Feiticeiro](./media/how-to-monitor-datasets/wizard.png)
 
 O monitor de conjunto de dados resultante aparecerá na lista. Selecione-o para ir à página de detalhes do monitor.
 
@@ -227,7 +227,7 @@ monitor = monitor.disable_schedule()
 monitor = monitor.enable_schedule()
 ```
 
-Para um exemplo completo de configuração de um conjunto de dados `timeseries` e detetor de dados à deriva, consulte o nosso [caderno de exemplo](https://aka.ms/datadrift-notebook).
+Para um exemplo completo `timeseries` de configuração de um conjunto de dados e detetor de dados de deriva, consulte o nosso [caderno de exemplo](https://aka.ms/datadrift-notebook).
 
 ## <a name="understanding-data-drift-results"></a>Compreender os resultados da deriva dos dados
 
@@ -244,7 +244,7 @@ A secção **de visão geral drift** contém insights de alto nível sobre a mag
 | Magnitude da deriva de dados | Dada em percentagem entre a linha de base e o conjunto de dados-alvo ao longo do tempo. Variando de 0 a 100 onde 0 indica conjuntos de dados idênticos e 100 indica que a capacidade de deriva de dados de Aprendizagem automática Azure pode distinguir completamente os dois conjuntos de dados. | Espera-se ruído na percentagem precisa medida devido à atenção que as técnicas de aprendizagem automática são usadas para gerar esta magnitude. | 
 | Contribuição de deriva por recurso | A contribuição de cada característica no conjunto de dados-alvo para a magnitude de deriva medida. |  Devido à mudança de covariado, a distribuição subjacente de uma funcionalidade não precisa necessariamente de mudar para ter uma importância relativamente elevada. | 
 
-A imagem que se segue é um exemplo de gráficos vistos na **visão geral da Drift** resulta no estúdio Azure Machine Learning, resultante de um recheio de Dados de Superfície [Integrados NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Os dados foram recolhidos para `stationName contains 'FLORIDA'`, com janeiro de 2019 a ser usado como conjunto de dados de base e todos os dados de 2019 usados como alvo.
+A imagem que se segue é um exemplo de gráficos vistos na **visão geral da Drift** resulta no estúdio Azure Machine Learning, resultante de um recheio de Dados de Superfície [Integrados NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Os dados foram `stationName contains 'FLORIDA'`recolhidos para, com janeiro de 2019 a ser usado como conjunto de dados de base e todos os dados de 2019 usados como alvo.
  
 ![Visão geral da deriva](./media/how-to-monitor-datasets/drift-overview.png)
 
@@ -256,7 +256,7 @@ O conjunto de dados alvo também é perfilado ao longo do tempo. A distância es
 
 No estúdio Azure Machine Learning, se clicar num ponto de dados no gráfico, a distribuição da funcionalidade que está a ser mostrada ajustar-se-á em conformidade. Por padrão, mostra a distribuição do conjunto de dados de base e a distribuição mais recente da mesma funcionalidade. 
 
-Estas métricas também podem ser recuperadas no SDK Python através do método `get_metrics()` num objeto `DataDriftDetector`. 
+Estas métricas também podem ser recuperadas no `get_metrics()` SDK `DataDriftDetector` Python através do método de um objeto. 
 
 #### <a name="numeric-features"></a>Características numéricas 
 
@@ -266,7 +266,7 @@ As funcionalidades numéricas são perfiladas em cada execução do monitor de c
 | ------ | ----------- |  
 | Distância de Wasserstein | Quantidade mínima de trabalho para transformar a distribuição de base na distribuição do alvo. |
 | Valor médio | Valor médio da funcionalidade. |
-| Valor do min | Valor mínimo da funcionalidade. |
+| Valor mínimo | Valor mínimo da funcionalidade. |
 | Valor máximo | Valor máximo da funcionalidade. |
 
 ![Detalhes da funcionalidade numéricos](./media/how-to-monitor-datasets/feature-details.png)
@@ -289,15 +289,15 @@ As métricas podem ser consultadas no recurso [Azure Application Insights](https
 
 Para começar, navegue para o portal Azure e selecione a página **de visão geral** do seu espaço de trabalho.  O recurso de Insights de Aplicação associado é de extrema-direita:
 
-[visão geral do portal ![Azure](./media/how-to-monitor-datasets/ap-overview.png)](media/how-to-monitor-datasets/ap-overview-expanded.png)
+[![Descrição geral do portal do Azure](./media/how-to-monitor-datasets/ap-overview.png)](media/how-to-monitor-datasets/ap-overview-expanded.png)
 
 Selecione Registos (Analytics) sob monitorização no painel esquerdo:
 
 ![Visão geral dos insights da aplicação](./media/how-to-monitor-datasets/ai-overview.png)
 
-As métricas do monitor de conjunto de dados são armazenadas como `customMetrics`. Pode escrever e executar uma consulta depois de criar um monitor de conjunto de dados para os ver:
+As métricas do monitor de `customMetrics`conjunto de dados são armazenadas como . Pode escrever e executar uma consulta depois de criar um monitor de conjunto de dados para os ver:
 
-[consulta de análise de registo de ![](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
+[![Consulta de análise de registo](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 
 Depois de identificar métricas para estabelecer regras de alerta, crie uma nova regra de alerta:
 
@@ -317,12 +317,12 @@ Limitações e questões conhecidas:
 * Certifique-se de que o seu conjunto de dados tem dados dentro da data de início e fim para uma determinada execução do monitor.
 * Os monitores de dataset só funcionarão em conjuntos de dados que contenham 50 linhas ou mais. 
 
-As colunas ou características do conjunto de dados são classificadas como categóricas ou numéricas com base nas condições da tabela seguinte. Se a funcionalidade não corresponder a estas condições - por exemplo, uma coluna de cadeia de tipo com valores únicos >100 - a funcionalidade é retirada do nosso algoritmo de deriva de dados, mas ainda está perfilada. 
+As colunas ou características do conjunto de dados são classificadas como categóricas ou numéricas com base nas condições da tabela seguinte. Se a funcionalidade não cumprir estas condições - por exemplo, uma coluna de cadeia de tipo com >100 valores únicos - a funcionalidade é retirada do nosso algoritmo de deriva de dados, mas ainda está perfilada. 
 
 | Tipo de recurso | Tipo de dados | Condição | Limitações | 
 | ------------ | --------- | --------- | ----------- |
 | Categórico | corda, bool, int, flutuar | O número de valores únicos na funcionalidade é inferior a 100 e menos de 5% do número de linhas. | O nulo é tratado como a sua própria categoria. | 
-| Numérica | int, flutuar | Os valores da funcionalidade são de um tipo de dados numéricos e não satisfazem a condição de uma característica categórica. | A funcionalidade caiu se >15% dos valores forem nulos. | 
+| Numérico | int, flutuar | Os valores da funcionalidade são de um tipo de dados numéricos e não satisfazem a condição de uma característica categórica. | A funcionalidade caiu se >15% dos valores forem nulos. | 
 
 ## <a name="next-steps"></a>Passos seguintes
 

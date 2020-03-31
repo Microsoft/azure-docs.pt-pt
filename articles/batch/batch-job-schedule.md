@@ -13,10 +13,10 @@ ms.date: 02/20/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 55ea8fb4cc0e65deaa89d718c4a46513716dcf54
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672436"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Agendar empregos para a eficiência

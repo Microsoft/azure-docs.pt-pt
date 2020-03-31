@@ -4,10 +4,10 @@ description: Saiba como encontrar endereços IP de entrada e saída para aplica�
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276494"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP em Funções Azure
@@ -25,23 +25,23 @@ Os endereços IP estão associados a aplicações de funções, não a funções
 
 Cada aplicação de função tem um único endereço IP de entrada. Para encontrar o endereço IP:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue para a aplicação de funções.
-3. Selecione **funcionalidades da Plataforma**.
+3. Selecione **Funcionalidades de plataforma**.
 4. Selecione **Propriedades**, e o endereço IP de entrada aparece no **endereço IP virtual**.
 
-## <a name="find-outbound-ip-addresses"></a>Endereços IP de saída da aplicação de função
+## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Endereços IP de saída da aplicação de função
 
 Cada aplicação de função tem um conjunto de endereços IP de saída disponíveis. Qualquer ligação de saída de uma função, como uma base de dados de back-end, utiliza um dos endereços IP de saída disponíveis como endereço IP de origem. Não é possível saber previamente qual o endereço IP que uma determinada ligação irá utilizar. Por esta razão, o seu serviço back-end deve abrir a sua firewall a todos os endereços IP de saída da aplicação de função.
 
 Para encontrar os endereços IP de saída disponíveis para uma aplicação de função:
 
 1. Inscreva-se no Explorador de [Recursos Azure.](https://resources.azure.com)
-2. Selecione **subscrições > {a sua subscrição} > fornecedores > Microsoft.Web > sites**.
-3. No painel JSON, encontre o site com uma propriedade `id` que termina em nome da sua app de funções.
-4. Consulte `outboundIpAddresses` e `possibleOutboundIpAddresses`. 
+2. **Selecione subscrições > {a sua subscrição} > fornecedores > sites de > Microsoft.Web**.
+3. No painel JSON, encontre o `id` site com uma propriedade que termina em nome da sua aplicação de funções.
+4. Ver `outboundIpAddresses` `possibleOutboundIpAddresses`e. 
 
-O conjunto de `outboundIpAddresses` está atualmente disponível para a aplicação de funções. O conjunto de `possibleOutboundIpAddresses` inclui endereços IP que só estarão disponíveis se a aplicação de funções [se dimensionar para outros níveis](#outbound-ip-address-changes)de preços.
+O conjunto `outboundIpAddresses` de está atualmente disponível para a aplicação de funções. O conjunto `possibleOutboundIpAddresses` de endereços IP que só estarão disponíveis se a aplicação de função [se dimensionar para outros níveis](#outbound-ip-address-changes)de preços .
 
 Uma forma alternativa de encontrar os endereços IP de saída disponíveis é utilizando a [Cloud Shell:](../cloud-shell/quickstart.md)
 
@@ -50,7 +50,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
 > [!NOTE]
-> Quando uma aplicação de função que funciona no [plano de consumo](functions-scale.md#consumption-plan) for dimensionada, pode ser atribuída uma nova gama de endereços IP de saída. Quando em execução no plano de consumo, poderá ter lista aprovada integral do Datacenter.
+> Quando uma aplicação de função que funciona no [plano de consumo](functions-scale.md#consumption-plan) for dimensionada, pode ser atribuída uma nova gama de endereços IP de saída. Ao executar o plano de consumo, poderá ser necessário branquear todo o centro de dados.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do centro de dados
 
@@ -80,7 +80,7 @@ Por exemplo, é assim que o fragmento jSON da Europa Ocidental pode parecer:
 
  Para obter informações sobre quando este ficheiro é atualizado e quando os endereços IP mudarem, expanda a secção **Detalhes** da [página do Centro de Descarregamento](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## <a name="inbound-ip-address-changes"></a>Alterações no endereço IP de entrada
+## <a name="inbound-ip-address-changes"></a><a name="inbound-ip-address-changes"></a>Alterações no endereço IP de entrada
 
 O endereço IP de entrada **pode** mudar quando:
 
@@ -95,7 +95,7 @@ Quando a sua aplicação de funções funciona num plano de [consumo,](functions
 O conjunto de endereços IP de saída disponíveis para uma aplicação de função pode mudar quando:
 
 * Tome qualquer medida que possa alterar o endereço IP de entrada.
-* Altere o seu nível de preços do plano de app service. A lista de todos os possíveis endereços IP de saída que a sua aplicação pode utilizar, para todos os níveis de preços, está na propriedade `possibleOutboundIPAddresses`. Ver [Localizar IPs de saída](#find-outbound-ip-addresses).
+* Altere o seu nível de preços do plano de app service. A lista de todos os possíveis endereços IP de saída que a `possibleOutboundIPAddresses` sua aplicação pode usar, para todos os níveis de preços, está na propriedade. Ver [Localizar IPs de saída](#find-outbound-ip-addresses).
 
 Quando a sua aplicação de funções funciona num plano de [consumo,](functions-scale.md#consumption-plan)o endereço IP de saída também pode mudar mesmo quando não tomou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
@@ -105,7 +105,7 @@ Para forçar deliberadamente uma alteração de endereço IP de saída:
 2. Espere 10 minutos.
 3. Escala de volta para onde começou.
 
-## <a name="ip-address-restrictions"></a>Restrições de endereçoIP
+## <a name="ip-address-restrictions"></a>restrições de endereços IP
 
 Pode configurar uma lista de endereços IP que pretende permitir ou negar o acesso a uma aplicação de função. Para mais informações, consulte [as restrições de IP estáticas do Serviço de Aplicação Azure.](../app-service/app-service-ip-restrictions.md)
 
@@ -115,9 +115,9 @@ Se necessitar de endereços IP estáticos e dedicados, recomendamos [ambientes](
 
 Para saber se a sua aplicação de função funciona num Ambiente de Serviço de Aplicações:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue para a aplicação de funções.
-3. Selecione o separador **Overview.**
+3. Selecione o separador **Descrição Geral**.
 4. O nível de plano de serviço de aplicações aparece no **âmbito do plano/nível**de preços do App Service . O nível de preços do ambiente do serviço de aplicações é **isolado.**
  
 Como alternativa, pode utilizar a [Cloud Shell:](../cloud-shell/quickstart.md)
@@ -126,7 +126,7 @@ Como alternativa, pode utilizar a [Cloud Shell:](../cloud-shell/quickstart.md)
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
 
-O `sku` ambiente do serviço de aplicações é `Isolated`.
+O Ambiente `sku` do `Isolated`Serviço de Aplicações é .
 
 ## <a name="next-steps"></a>Passos seguintes
 

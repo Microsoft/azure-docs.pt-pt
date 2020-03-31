@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 4ff9aeaa7e1b6e7f3762db4e983b299a517df3da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184897"
 ---
-A chave de ativação que utiliza:
+A tecla de ativação que utiliza:
 
-- É a que chave de autenticação com base de um Azure Active Directory (Azure AD).
+- É uma chave de autenticação baseada em Azure Ative (Azure AD).
 - Expira após três dias.
-- Não é utilizado após a ativação do dispositivo.
+- Não é usado após a ativação do dispositivo.
 
-Depois de ativar um dispositivo, ele usa tokens para comunicar com o Azure.
+Depois de ativar um dispositivo, utiliza fichas para comunicar com o Azure.

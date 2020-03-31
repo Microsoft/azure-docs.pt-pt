@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f7c73d7d07bdfaa4fbbd7eeca4f00895c5add354
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2766ea87544f2a21fb654f687eb62dee3c0714ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548228"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334992"
 ---
-**HDD Standard discos gerenciados**  
+**Discos geridos por HDD padrão**  
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**SSD Standard discos gerenciados**  
+**Discos geridos por SSD padrão**  
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**SSD Premium discos gerenciados: limites por disco**  
+**Discos geridos premium SSD: limites por disco**  
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**SSD Premium discos gerenciados: limites por VM**
+**Discos geridos premium SSD: limites Per-VM**
 
-| Recurso | Limite predefinido |
+| Recurso | Limite |
 | --- | --- |
-| IOPS máximo por VM |IOPS de 80.000 com VM GS5 |
-| Taxa de transferência máxima por VM |2\.000 MB/s com VM GS5 |
+| IOPS máximos por VM |80.000 IOPS com GS5 VM |
+| Potência máxima por VM |2.000 MB/s com GS5 VM |

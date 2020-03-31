@@ -5,22 +5,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 78625707bfa296eeb7ad8cc658657f46da1dc495
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333513"
 ---
-# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como resolver problemas com o agente Log Analytics para Windows 
+# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como resolver problemas com o agente do Log Analytics para Windows 
 
 Este artigo fornece erros de resolução de problemas que poderá experimentar com o agente Log Analytics para windows in Azure Monitor e sugere possíveis soluções para os resolver.
 
-Se nenhum destes passos resolver, também estão disponíveis os seguintes canais de suporte:
+Se nenhuma destas etapas funcionar para si, também estão disponíveis os seguintes canais de apoio:
 
 * Os clientes com benefícios de suporte Premier podem abrir um pedido de apoio com a [Premier.](https://premier.microsoft.com/)
 * Os clientes com contratos de apoio Azure podem abrir um pedido de apoio [no portal Azure.](https://manage.windowsazure.com/?getsupport=true)
-* Visite a página de Feedback do Log Analytics para rever as ideias e bugs enviados [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou arquivar uma nova. 
+* Visite a página de Feedback do Log [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) Analytics para rever as ideias e bugs enviados ou arquivar um novo. 
 
 ## <a name="important-troubleshooting-sources"></a>Fontes importantes de resolução de problemas
 
@@ -34,9 +34,9 @@ Verifique duas vezes se a firewall ou proxy está configurada para permitir as s
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porta 443 |Saída|Sim |  
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Saída|Sim |  
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte a [gestão do Governo azure.](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs) Se planeia utilizar o Trabalhador do Livro Híbrido Azure Automation para se ligar e registar-se no serviço automationpara utilizar livros de execução ou soluções de gestão no seu ambiente, deve ter acesso ao número de porta e aos URLs descritos na Configuração da sua rede para o Trabalhador do [Livro de Execução Híbrido.](../../automation/automation-hybrid-runbook-worker.md#network-planning) 
 
@@ -44,7 +44,7 @@ Existem várias formas de verificar se o agente está a comunicar com sucesso co
 
 - Ative a avaliação do Agente de [Saúde do Agente de Análise](../insights/solution-agenthealth.md) de Log Azure no espaço de trabalho. Do painel de saúde do agente, veja a **coluna de agentes sem resposta** para ver rapidamente se o agente está listado.  
 
-- Execute a seguinte consulta para confirmar que o agente está enviando um batimento cardíaco para o espaço de trabalho a que está configurado para reportar. Substitua `<ComputerName>` com o nome real da máquina.
+- Execute a seguinte consulta para confirmar que o agente está enviando um batimento cardíaco para o espaço de trabalho a que está configurado para reportar. Substitua-o `<ComputerName>` pelo nome real da máquina.
 
     ```
     Heartbeat 
@@ -58,17 +58,17 @@ Existem várias formas de verificar se o agente está a comunicar com sucesso co
 
     ![Resultados de execução da ferramenta TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtre o registo do evento do Gestor de *Operações* por **fontes** do evento - Módulos de Serviço de *Saúde,* *Serviço de Saúde*e *Conector* de Serviço e filtro por *Aviso* de **Nível de Evento** e *Erro* para confirmar se tem eventos escritos a partir da tabela seguinte. Se forem, reveja os passos de resolução incluídos para cada evento possível.
+- Filtre o registo do evento Do Gestor de *Operações* por **fontes** - de evento Módulos de Serviço de*Saúde,* *Serviço de Saúde*e *Conector* de Serviço e filtro por *Aviso* de **Nível de Evento** e *Erro* para confirmar se tem eventos escritos a partir da tabela seguinte. Se forem, reveja os passos de resolução incluídos para cada evento possível.
 
     |ID do Evento |Origem |Descrição |Resolução |
     |---------|-------|------------|-----------|
-    |2133 e 2129 |Serviço de Estado de Funcionamento |Ligação ao serviço do agente falhou |Este erro pode ocorrer quando o agente não pode comunicar diretamente ou através de um servidor firewall/proxy ao serviço Azure Monitor. Verifique as definições de procuração do agente ou se a firewall/proxy de rede permite o tráfego de TCP do computador para o serviço.|
+    |2133 & 2129 |Serviço de Estado de Funcionamento |Ligação ao serviço do agente falhou |Este erro pode ocorrer quando o agente não pode comunicar diretamente ou através de um servidor firewall/proxy ao serviço Azure Monitor. Verifique as definições de procuração do agente ou se a firewall/proxy de rede permite o tráfego de TCP do computador para o serviço.|
     |2138 |Módulos de Serviço de Saúde |Proxy requer autenticação |Configure as definições de procuração do agente e especifique o nome de utilizador/senha necessário para autenticar com o servidor proxy. |
-    |2129 |Módulos de Serviço de Saúde |Ligação falhada/negociação ssl falhada |Verifique as definições do adaptador de rede TCP/IP e as definições de procuração do agente.|
+    |2129 |Módulos de Serviço de Saúde |Ligação falhada/negociação tLS falhada |Verifique as definições do adaptador de rede TCP/IP e as definições de procuração do agente.|
     |2127 |Módulos de Serviço de Saúde |Falha no envio de dados recebidocódigo de erro |Se acontecer periodicamente durante o dia, pode ser apenas uma anomalia aleatória que pode ser ignorada. Monitorize para entender com que frequência acontece. Se acontecer com frequência ao longo do dia, verifique primeiro a configuração da sua rede e as definições de procuração. Se a descrição incluir o código de erro HTTP 404 e for a primeira vez que o agente tenta enviar dados para o serviço, incluirá um erro de 500 com um código de erro interior 404. 404 significa não ser encontrada, o que indica que a área de armazenamento do novo espaço de trabalho ainda está a ser disponibilizada. Na próxima retentativa, os dados escreverão com sucesso para o espaço de trabalho como esperado. Um erro HTTP 403 pode indicar uma questão de permissão ou credenciais. Há mais informações incluídas com o erro 403 para ajudar a resolver o problema.|
     |4000 |Conector de serviço |Resolução de nome dNS falhou |A máquina não conseguiu resolver o endereço de Internet utilizado no envio de dados para o serviço. Isto pode ser definições de dns resolver na sua máquina, configurações de procuração incorretas ou talvez um problema temporário de DNS com o seu fornecedor. Se acontecer periodicamente, pode ser causado por um problema transitório relacionado com a rede.|
     |4001 |Conector de serviço |A ligação ao serviço falhou. |Este erro pode ocorrer quando o agente não pode comunicar diretamente ou através de um servidor firewall/proxy ao serviço Azure Monitor. Verifique as definições de procuração do agente ou se a firewall/proxy de rede permite o tráfego de TCP do computador para o serviço.|
-    |4002 |Conector de serviço |O serviço devolveu o código de estado HTTP 403 em resposta a uma consulta. Consulte o administrador de serviço para a saúde do serviço. A consulta será novamente julgada mais tarde. |Este erro é escrito durante a fase inicial de registo do agente e verá um URL semelhante ao seguinte: *https://\<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Um código de erro 403 significa proibido e pode ser causado por um ID ou chave do espaço de trabalho enevoado, ou os dados e o tempo estão incorretos no computador. Se o tempo é + /-15 minutos da hora atual, em seguida, integração falha. Para corrigir isto, atualize a data e/ou o fuso horário do seu computador Windows.|
+    |4002 |Conector de serviço |O serviço devolveu o código de estado HTTP 403 em resposta a uma consulta. Consulte o administrador de serviço para a saúde do serviço. A consulta será novamente julgada mais tarde. |Este erro é escrito durante a fase inicial de registo do agente e verá um URL semelhante ao seguinte: *https://\<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Um código de erro 403 significa proibido e pode ser causado por um ID ou chave do espaço de trabalho enevoado, ou os dados e o tempo estão incorretos no computador. Se o tempo for de +/- 15 minutos a partir do tempo atual, então o embarque falha. Para corrigir isto, atualize a data e/ou o fuso horário do seu computador Windows.|
 
 ## <a name="data-collection-issues"></a>Questões de recolha de dados
 
@@ -91,7 +91,7 @@ Heartbeat
 
 Se a consulta devolver os resultados, então terá de determinar se um determinado tipo de dados não é recolhido e encaminhado para o serviço. Isto pode ser causado pelo agente não receber a configuração atualizada do serviço, ou algum outro sintoma que impeça o agente de funcionar normalmente. Execute os seguintes passos para mais problemas.
 
-1. Abra um pedido de comando elevado no computador e reinicie o serviço do agente digitando `net stop healthservice && net start healthservice`.
+1. Abra um pedido de comando elevado no computador `net stop healthservice && net start healthservice`e reinicie o serviço do agente digitando .
 2. Abra o registo de eventos do Gestor de *Operações* e procure **iDs** *7023, 7024, 7025, 7028* e *1210* da fonte do **evento** *HealthService.*  Estes eventos indicam que o agente está a receber com sucesso a configuração do Monitor Azure e estão a monitorizar ativamente o computador. A descrição do evento para o id 1210 do evento também especificará na última linha todas as soluções e Insights que estão incluídos no âmbito de monitorização do agente.  
 
     ![Descrição do ID do evento 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
@@ -100,7 +100,7 @@ Se a consulta devolver os resultados, então terá de determinar se um determina
 
     |ID do Evento |Origem |Descrição |Resolução |
     |---------|-------|------------|
-    |8000 |HealthService |Este evento especificará se um fluxo de trabalho relacionado com desempenho, evento ou outro tipo de dados recolhido não é capaz de encaminhar para o serviço para ingestão para o espaço de trabalho. | O Id de evento 2136 da fonte HealthService é escrito juntamente com este evento e pode indicar que o agente não pode comunicar com o serviço, possivelmente devido a configurações de proxy e autenticação, falha de rede ou a firewall/proxy de rede não permite o tráfego de TCP do computador para o serviço.| 
+    |8000 |Serviço de Saúde |Este evento especificará se um fluxo de trabalho relacionado com desempenho, evento ou outro tipo de dados recolhido não é capaz de encaminhar para o serviço para ingestão para o espaço de trabalho. | O Id de evento 2136 da fonte HealthService é escrito juntamente com este evento e pode indicar que o agente não pode comunicar com o serviço, possivelmente devido a configurações de proxy e autenticação, falha de rede ou a firewall/proxy de rede não permite o tráfego de TCP do computador para o serviço.| 
     |10102 e 10103 |Módulos de Serviço de Saúde |O fluxo de trabalho não conseguiu resolver a fonte de dados. |Isto pode ocorrer se o contador ou instância de desempenho especificado não existir no computador ou estiver incorretamente definido nas definições de dados do espaço de trabalho. Se este for um [contador](data-sources-performance-counters.md#configuring-performance-counters)de desempenho especificado pelo utilizador, verifique se as informações especificadas estão a seguir o formato correto e existem nos computadores-alvo. |
     |26002 |Módulos de Serviço de Saúde |O fluxo de trabalho não conseguiu resolver a fonte de dados. |Isto pode ocorrer se o registo de eventos do Windows especificado não existir no computador. Este erro pode ser ignorado com segurança se não se espera que o computador tenha este registo de registo de eventos, caso contrário se se trata de um registo de [evento](data-sources-windows-events.md#configuring-windows-event-logs)especificado pelo utilizador, verifique se as informações especificadas estão corretas. |
 

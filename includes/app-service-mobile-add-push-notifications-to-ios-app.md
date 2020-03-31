@@ -5,22 +5,22 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: a53d2b259bc4ece12c4ccb1cf47409cd2f0af86f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184944"
 ---
-**Objective-C**:
+**Objetivo C:**
 
-1. Na **QSAppDelegate.m**, importar o SDK do iOS e **QSTodoService.h**:
+1. No **QSAppDelegate.m,** importe o iOS SDK e **o QSTodoService.h:**
 
     ```objc
     #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
     #import "QSTodoService.h"
     ```
 
-2. Na `didFinishLaunchingWithOptions` no **QSAppDelegate.m**, as seguintes linhas antes de inserir `return YES;`:
+2. Em `didFinishLaunchingWithOptions` **QSAppDelegate.m,** insira as `return YES;`seguintes linhas antes de :
 
     ```objc
     UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -28,7 +28,7 @@ ms.locfileid: "67184944"
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     ```
 
-3. Na **QSAppDelegate.m**, adicione os seguintes métodos de manipulador. A aplicação foi atualizada para suportar notificações push. 
+3. No **QSAppDelegate.m,** adicione os seguintes métodos de manipulador. A sua aplicação está agora atualizada para suportar notificações push. 
 
     ```objc
     // Registration with APNs is successful
@@ -97,9 +97,9 @@ ms.locfileid: "67184944"
     }
     ```
 
-**Swift**:
+**Swift:**
 
-1. Adicionar ficheiro **ClientManager.swift** com o seguinte conteúdo. Substitua *% AppUrl %* com o URL de back-end da aplicação móvel do Azure.
+1. Adicione ficheiro **ClientManager.swift** com o seguinte conteúdo. Substitua *%AppUrl%* pelo URL do backend da App Móvel Azure.
 
     ```swift
     class ClientManager {
@@ -107,13 +107,13 @@ ms.locfileid: "67184944"
     }
     ```
 
-2. Na **ToDoTableViewController.swift**, substitua a `let client` linha inicializa um `MSClient` com esta linha:
+2. Em **ToDoTableViewController.swift,** `let client` substitua a linha `MSClient` que inicializa uma com esta linha:
 
     ```swift
     let client = ClientManager.sharedClient
     ```
 
-3. Na **Appdelegate**, substitua o corpo do `func application` da seguinte forma:
+3. Em **AppDelegate.swift,** substitua `func application` o corpo do seguinte:
 
     ```swift
     func application(application: UIApplication,
@@ -126,7 +126,7 @@ ms.locfileid: "67184944"
     }
     ```
 
-4. Na **Appdelegate**, adicione os seguintes métodos de manipulador. A aplicação foi atualizada para suportar notificações push.
+4. Em **AppDelegate.swift**, adicione os seguintes métodos de manipulador. A sua aplicação está agora atualizada para suportar notificações push.
 
     ```swift
     func application(application: UIApplication,

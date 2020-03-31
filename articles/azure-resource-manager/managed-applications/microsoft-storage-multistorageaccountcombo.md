@@ -1,22 +1,22 @@
 ---
-title: Elemento de interface do usuário MultiStorageAccountCombo
-description: Descreve o elemento de interface do usuário Microsoft. Storage. MultiStorageAccountCombo para portal do Azure.
+title: Elemento UI MultiStorageAccountCombo
+description: Descreve o elemento Microsoft.Storage.MultiStorageAccountCombo UI para o portal Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 06412a1f08f1f242a3f3bd9be17b795ee09fcf9d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651881"
 ---
-# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de interface do usuário Microsoft. Storage. MultiStorageAccountCombo
+# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI
 
-Um grupo de controles para criar várias contas de armazenamento com nomes que começam com um prefixo comum.
+Um grupo de controlos para a criação de várias contas de armazenamento com nomes que começam com um prefixo comum.
 
-## <a name="ui-sample"></a>Exemplo de interface do usuário
+## <a name="ui-sample"></a>Amostra de UI
 
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
@@ -60,13 +60,13 @@ Um grupo de controles para criar várias contas de armazenamento com nomes que c
 
 ## <a name="remarks"></a>Observações
 
-- O valor de `defaultValue.prefix` é concatenado com um ou mais inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` for **SA** e `count` for **2**, os nomes de conta de armazenamento **SA1** e **SA2** serão gerados. Os nomes de conta de armazenamento gerados são validados para exclusividade automaticamente.
-- Os nomes de conta de armazenamento são gerados modo lexicográfico com base em `count`. Por exemplo, se `count` for 10, os nomes de conta de armazenamento terminarão com inteiros de dois dígitos (01, 02, 03).
-- O valor padrão para `defaultValue.prefix` é **NULL**e para `defaultValue.type` é **Premium_LRS**.
-- Qualquer tipo não especificado em `constraints.allowedTypes` é ocultado e qualquer tipo não especificado em `constraints.excludedTypes` é mostrado. `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser usados simultaneamente.
-- Além de gerar nomes de conta de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]`. O valor padrão é **1**.
+- O valor `defaultValue.prefix` para é concatenado com um ou mais inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, `defaultValue.prefix` se for `count` **sa** e for **2**, então os nomes da conta de armazenamento **sa1** e **sa2** são gerados. Os nomes de conta de armazenamento gerados são validados automaticamente para a singularidade.
+- Os nomes da conta de armazenamento `count`são gerados lexicograficamente com base em . Por exemplo, `count` se for 10, os nomes da conta de armazenamento terminam com inteiros de dois dígitos (01, 02, 03).
+- O valor `defaultValue.prefix` predefinido é `defaultValue.type` **nulo,** e para é **Premium_LRS**.
+- Qualquer tipo não `constraints.allowedTypes` especificado está escondido, e `constraints.excludedTypes` qualquer tipo não especificado é mostrado. `constraints.allowedTypes`e `constraints.excludedTypes` são ambos opcionais, mas não podem ser usados simultaneamente.
+- Além de gerar nomes `count` de conta de armazenamento, é utilizado para definir o multiplicador apropriado para o elemento. Suporta um valor estático, como **2,** ou um `[steps('step1').storageAccountCount]`valor dinâmico de outro elemento, como . O valor predefinido é **de 1**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+* Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

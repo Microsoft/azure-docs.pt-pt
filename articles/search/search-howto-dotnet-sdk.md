@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283072"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como utilizar a Pesquisa Cognitiva Azure a partir de uma aplicação .NET
@@ -23,22 +23,22 @@ Este artigo é um walkthrough para fazê-lo funcionar com a [Pesquisa Cognitiva 
 ## <a name="whats-in-the-azure-cognitive-search-sdk"></a>O que está no SDK de Pesquisa Cognitiva Azure
 O SDK é composto por algumas bibliotecas de clientes que lhe permitem gerir os seus índices, fontes de dados, indexadores e mapas de sinónimo, bem como carregar e gerir documentos, e executar consultas, tudo sem ter que lidar com os detalhes de HTTP e JSON. Estas bibliotecas de clientes estão todas distribuídas como pacotes NuGet.
 
-O pacote principal nuGet é `Microsoft.Azure.Search`, que é um meta-pacote que inclui todos os outros pacotes como dependências. Utilize este pacote se estiver apenas a começar ou se souber que a sua aplicação necessitará de todas as funcionalidades da Pesquisa Cognitiva Azure.
+O pacote principal `Microsoft.Azure.Search`nuGet é , que é um meta-pacote que inclui todos os outros pacotes como dependências. Utilize este pacote se estiver apenas a começar ou se souber que a sua aplicação necessitará de todas as funcionalidades da Pesquisa Cognitiva Azure.
 
 Os outros pacotes NuGet no SDK são:
  
-  - `Microsoft.Azure.Search.Data`: Utilize este pacote se estiver a desenvolver uma aplicação .NET utilizando a Pesquisa Cognitiva Azure, e só precisa de consultar ou atualizar documentos nos seus índices. Se também precisar de criar ou atualizar índices, mapas de sinónimos ou outros recursos ao nível do serviço, utilize o pacote `Microsoft.Azure.Search` em vez disso.
-  - `Microsoft.Azure.Search.Service`: Utilize este pacote se estiver a desenvolver automação em .NET para gerir índices de Pesquisa Cognitiva Azure, mapas de sinónimo, indexadores, fontes de dados ou outros recursos ao nível do serviço. Se necessitar apenas de consultar ou atualizar documentos nos seus índices, utilize o pacote `Microsoft.Azure.Search.Data` em vez disso. Se necessitar de toda a funcionalidade de Pesquisa Cognitiva Azure, utilize o pacote `Microsoft.Azure.Search` em vez disso.
+  - `Microsoft.Azure.Search.Data`: Utilize este pacote se estiver a desenvolver uma aplicação .NET utilizando a Pesquisa Cognitiva Azure, e só precisa de consultar ou atualizar documentos nos seus índices. Se também precisar de criar ou atualizar índices, mapas sinónimos ou outros `Microsoft.Azure.Search` recursos ao nível do serviço, utilize o pacote em vez disso.
+  - `Microsoft.Azure.Search.Service`: Utilize este pacote se estiver a desenvolver automação em .NET para gerir índices de Pesquisa Cognitiva Azure, mapas de sinónimo, indexadores, fontes de dados ou outros recursos ao nível do serviço. Se necessitar apenas de consultar ou atualizar documentos `Microsoft.Azure.Search.Data` nos seus índices, utilize o pacote em vez disso. Se necessitar de toda a funcionalidade de `Microsoft.Azure.Search` Pesquisa Cognitiva Azure, utilize o pacote em vez disso.
   - `Microsoft.Azure.Search.Common`: Tipos comuns necessários pelas bibliotecas Azure Cognitive Search .NET. Não precisa de utilizar este pacote diretamente na sua aplicação. Destina-se apenas a ser usado como uma dependência.
 
-As várias bibliotecas de clientes definem aulas como `Index`, `Field`e `Document`, bem como operações como `Indexes.Create` e `Documents.Search` nas aulas de `SearchServiceClient` e `SearchIndexClient`. Estas aulas são organizadas nos seguintes espaços de nome:
+As várias bibliotecas `Index` `Field`de `Document`clientes definem classes `Indexes.Create` `Documents.Search` como, `SearchServiceClient` `SearchIndexClient` e, bem como operações como e nas classes e e classes. Estas aulas são organizadas nos seguintes espaços de nome:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 Se quiser fornecer feedback para uma futura atualização do SDK, consulte a nossa página de [feedback](https://feedback.azure.com/forums/263029-azure-search/) ou crie um problema no [GitHub](https://github.com/azure/azure-sdk-for-net/issues) e mencione "Azure Cognitive Search" no título da emissão.
 
-O SDK .NET suporta versão `2019-05-06` da API de [Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui suporte para [tipos complexos](search-howto-complex-data-types.md), enriquecimento de [IA,](cognitive-search-concept-intro.md) [autocompleto,](https://docs.microsoft.com/rest/api/searchservice/autocomplete)e [jsonLines modo de parsing](search-howto-index-json-blobs.md) ao indexar Blobs Azure. 
+O SDK .NET `2019-05-06` suporta a versão da API de [Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui suporte para [tipos complexos](search-howto-complex-data-types.md), enriquecimento de [IA,](cognitive-search-concept-intro.md) [autocompleto,](https://docs.microsoft.com/rest/api/searchservice/autocomplete)e [jsonLines modo de parsing](search-howto-index-json-blobs.md) ao indexar Blobs Azure. 
 
 Este SDK não suporta operações de [gestão](https://docs.microsoft.com/rest/api/searchmanagement/) como a criação e dimensionamento de serviços de pesquisa e a gestão de chaves API. Se necessitar de gerir os seus recursos de Pesquisa a partir de uma aplicação .NET, pode utilizar o [Azure Cognitive Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
@@ -48,7 +48,7 @@ Se já está a utilizar uma versão mais antiga do Azure Cognitive Search .NET S
 ## <a name="requirements-for-the-sdk"></a>Requisitos para o SDK
 1. Estúdio Visual 2017 ou mais tarde.
 2. O seu próprio serviço de pesquisa cognitiva Azure. Para utilizar o SDK, necessitará do nome do seu serviço e de uma ou mais teclas API. [Criar um serviço no portal](search-create-service-portal.md) irá ajudá-lo a ultrapassar estes passos.
-3. Descarregue o pacote Azure Cognitive Search .NET SDK [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) utilizando "Manage NuGet Packages" no Estúdio Visual. Basta pesquisar o nome do pacote `Microsoft.Azure.Search` em NuGet.org (ou um dos outros nomes de pacote acima se necessitar apenas de um subconjunto da funcionalidade).
+3. Descarregue o pacote Azure Cognitive Search .NET SDK [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) utilizando "Manage NuGet Packages" no Estúdio Visual. Basta pesquisar o `Microsoft.Azure.Search` nome do pacote em NuGet.org (ou um dos outros nomes de pacote acima se necessitar apenas de um subconjunto da funcionalidade).
 
 O Azure Cognitive Search .NET SDK suporta aplicações direcionadas para a .NET Framework 4.5.2 e superior, bem como .NET Core 2.0 e superior.
 
@@ -100,7 +100,7 @@ static void Main(string[] args)
 > 
 >
 
-Vamos passar por este passo a passo. Primeiro, temos de criar um novo `SearchServiceClient`. Este objeto permite-lhe gerir os índices. Para construir um, você precisa fornecer o seu nome de serviço de Pesquisa Cognitiva Azure, bem como uma chave API administradora. Pode introduzir estas informações no ficheiro `appsettings.json` da aplicação da [amostra.](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)
+Vamos passar por este passo a passo. Primeiro, temos de `SearchServiceClient`criar um novo. Este objeto permite-lhe gerir os índices. Para construir um, você precisa fornecer o seu nome de serviço de Pesquisa Cognitiva Azure, bem como uma chave API administradora. Pode introduzir estas informações no `appsettings.json` ficheiro da [aplicação](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)da amostra .
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -114,7 +114,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 ```
 
 > [!NOTE]
-> Se fornecer uma chave incorreta (por exemplo, uma chave de consulta onde foi necessária uma chave de administração), o `SearchServiceClient` lançará um `CloudException` com a mensagem de erro "Forbidden" na primeira vez que chamar um método de operação, como `Indexes.Create`. Se isto lhe acontecer, verifique duas vezes a nossa chave API.
+> Se fornecer uma tecla incorreta (por exemplo, uma chave de consulta `SearchServiceClient` onde `CloudException` foi necessária uma chave de administração), a será lançada com `Indexes.Create`a mensagem de erro "Forbidden" na primeira vez que chamar um método de operação, como . Se isto lhe acontecer, verifique duas vezes a nossa chave API.
 > 
 > 
 
@@ -128,25 +128,25 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateIndex(indexName, serviceClient);
 ```
 
-Em seguida, o índice precisa de ser povoado. Para povoar o índice, precisaremos de uma `SearchIndexClient`. Há duas formas de obter uma: construindo-a, ou chamando `Indexes.GetClient` na `SearchServiceClient`. Usamos este último para conveniência.
+Em seguida, o índice precisa de ser povoado. Para povoar o índice, `SearchIndexClient`vamos precisar de um . Há duas formas de obter uma: construindo-a, ou apelando `Indexes.GetClient` ao `SearchServiceClient`. Usamos este último para conveniência.
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> Numa aplicação típica de pesquisa, a gestão de índices e a população podem ser manuseadas por um componente separado das consultas de pesquisa. `Indexes.GetClient` é conveniente para a população de um índice porque lhe poupa o trabalho de fornecer `SearchCredentials`adicionais. Este é realizado através da transferência da chave de administração que utilizou para criar o `SearchServiceClient` para o novo `SearchIndexClient`. No entanto, na parte da sua aplicação que executa consultas, é melhor criar o `SearchIndexClient` diretamente para que possa passar numa chave de consulta, que só lhe permite ler dados, em vez de uma chave de administração. Isto é consistente com o princípio do menor privilégio e ajudará a tornar a sua aplicação mais segura. Pode saber mais sobre chaves de administração e chaves de consulta [aqui.](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization)
+> Numa aplicação típica de pesquisa, a gestão de índices e a população podem ser manuseadas por um componente separado das consultas de pesquisa. `Indexes.GetClient`é conveniente para a povoação de um índice porque `SearchCredentials`lhe poupa o trabalho de fornecer adicional . Este é realizado através da transferência da chave de administração que utilizou para criar o `SearchServiceClient` para o novo `SearchIndexClient`. No entanto, na parte da sua aplicação que executa consultas, é melhor criar o `SearchIndexClient` diretamente para que possa passar numa chave de consulta, que só lhe permite ler dados, em vez de uma chave de administração. Este processo é consistente com o princípio do menor privilégio e irá ajudá-lo a tornar a sua aplicação mais segura. Pode saber mais sobre chaves de administração e chaves de consulta [aqui.](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization)
 > 
 > 
 
-Agora que temos uma `SearchIndexClient`, podemos povoar o índice. A população indexada é feita por outro método que iremos percorrer mais tarde.
+Agora que temos `SearchIndexClient`um, podemos povoar o índice. A população indexada é feita por outro método que iremos percorrer mais tarde.
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
 UploadDocuments(indexClient);
 ```
 
-Finalmente, executamos algumas consultas de pesquisa e exibimos os resultados. Desta vez usamos um `SearchIndexClient`diferente:
+Finalmente, executamos algumas consultas de pesquisa e exibimos os resultados. Desta vez usamos `SearchIndexClient`um diferente:
 
 ```csharp
 ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
@@ -154,7 +154,7 @@ ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, co
 RunQueries(indexClientForQueries);
 ```
 
-Vamos analisar mais de perto o método `RunQueries` mais tarde. Aqui está o código para criar o novo `SearchIndexClient`:
+Vamos ver mais de `RunQueries` perto o método mais tarde. Aqui está o código `SearchIndexClient`para criar o novo:
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
@@ -167,7 +167,7 @@ private static SearchIndexClient CreateSearchIndexClient(string indexName, IConf
 }
 ```
 
-Desta vez usamos uma chave de consulta, uma vez que não precisamos de acesso escrito ao índice. Pode introduzir estas informações no ficheiro `appsettings.json` da aplicação da [amostra.](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)
+Desta vez usamos uma chave de consulta, uma vez que não precisamos de acesso escrito ao índice. Pode introduzir estas informações no `appsettings.json` ficheiro da [aplicação](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)da amostra .
 
 Se executar esta aplicação com um nome de serviço válido e teclas API, a saída deve parecer este exemplo: (Alguma saída de consola foi substituída por "..." para fins de ilustração.)
 
@@ -214,10 +214,10 @@ Se executar esta aplicação com um nome de serviço válido e teclas API, a sa�
 
 O código fonte completo do pedido é fornecido no final deste artigo.
 
-Em seguida, vamos analisar mais de perto cada um dos métodos chamados por `Main`.
+Em seguida, vamos analisar mais de perto `Main`cada um dos métodos chamados por .
 
 ### <a name="creating-an-index"></a>Criar um índice
-Depois de criar um `SearchServiceClient`, `Main` elimina o índice de "hotéis" se já existir. Esta eliminação é feita pelo seguinte método:
+Depois de `SearchServiceClient` `Main` criar um , elimina o índice de "hotéis" se já existir. Esta eliminação é feita pelo seguinte método:
 
 ```csharp
 private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
@@ -229,14 +229,14 @@ private static void DeleteIndexIfExists(string indexName, SearchServiceClient se
 }
 ```
 
-Este método utiliza o `SearchServiceClient` dado para verificar se o índice existe e, em caso afirmativo, eliminá-lo.
+Este método utiliza `SearchServiceClient` o dado para verificar se o índice existe e, em caso afirmativo, eliminá-lo.
 
 > [!NOTE]
-> O código de exemplo neste artigo utiliza os métodos sincronizados da Pesquisa Cognitiva Azure .NET SDK para a simplicidade. Recomendamos que utilize os métodos assíncronos nas suas próprias aplicações para mantê-las escaláveis e responsivas. Por exemplo, no método acima poderia utilizar `ExistsAsync` e `DeleteAsync` em vez de `Exists` e `Delete`.
+> O código de exemplo neste artigo utiliza os métodos sincronizados da Pesquisa Cognitiva Azure .NET SDK para a simplicidade. Recomendamos que utilize os métodos assíncronos nas suas próprias aplicações para mantê-las escaláveis e responsivas. Por exemplo, no método acima `ExistsAsync` `DeleteAsync` poderia `Exists` utilizar `Delete`e em vez de e .
 > 
 > 
 
-Em seguida, `Main` cria um novo índice de "hotéis", chamando este método:
+Em `Main` seguida, cria um novo índice de "hotéis", chamando este método:
 
 ```csharp
 private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
@@ -251,17 +251,17 @@ private static void CreateIndex(string indexName, SearchServiceClient serviceCli
 }
 ```
 
-Este método cria um novo objeto `Index` com uma lista de objetos `Field` que define o esquema do novo índice. Cada campo tem um nome, tipo de dados e vários atributos que definem o seu comportamento de pesquisa. A classe `FieldBuilder` usa a reflexão para criar uma lista de objetos `Field` para o índice, examinando as propriedades públicas e atributos da classe modelo `Hotel` dada. Vamos ver mais de perto a aula `Hotel` mais tarde.
+Este método cria `Index` um novo `Field` objeto com uma lista de objetos que define o esquema do novo índice. Cada campo tem um nome, tipo de dados e vários atributos que definem o seu comportamento de pesquisa. A `FieldBuilder` classe usa a reflexão para criar uma lista de `Field` objetos `Hotel` para o índice examinando as propriedades públicas e atributos da classe modelo dada. Vamos ver mais de perto `Hotel` a aula mais tarde.
 
 > [!NOTE]
-> Pode sempre criar a lista de objetos `Field` diretamente em vez de utilizar `FieldBuilder` se necessário. Por exemplo, pode não querer usar uma classe modelo ou pode precisar de usar uma classe modelo existente que não quer modificar adicionando atributos.
+> Pode sempre criar a `Field` lista de objetos diretamente em vez de utilizar, `FieldBuilder` se necessário. Por exemplo, pode não querer usar uma classe modelo ou pode precisar de usar uma classe modelo existente que não quer modificar adicionando atributos.
 >
 > 
 
 Além dos campos, também pode adicionar perfis de pontuação, sugestões ou opções CORS ao Índice (estes parâmetros são omitidos da amostra para brevidade). Pode encontrar mais informações sobre o objeto Index e as suas partes constituintes na [referência SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index)bem como na referência API de [Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Povoar o índice
-O próximo passo na `Main` povoa o índice recém-criado. Esta população indexada é feita no seguinte método: (Algum código substituído por "..." para fins de ilustração.  Consulte a solução completa da amostra para o código de população de dados completo.)
+O próximo `Main` passo na povoação do índice recém-criado. Esta população indexada é feita no seguinte método: (Algum código substituído por "..." para fins de ilustração.  Consulte a solução completa da amostra para o código de população de dados completo.)
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -377,28 +377,28 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-Este método tem quatro partes. O primeiro cria uma matriz de 3 `Hotel` objetos cada um com 3 `Room` objetos que servirão como nossos dados de entrada para carregar para o índice. Estes dados são codificados para a simplicidade. Na sua própria aplicação, os seus dados provavelmente virão de uma fonte de dados externa, como uma base de dados SQL.
+Este método tem quatro partes. O primeiro cria uma `Hotel` matriz `Room` de 3 objetos cada um com 3 objetos que servirão como nossos dados de entrada para carregar para o índice. Estes dados são codificados para a simplicidade. Na sua própria aplicação, os seus dados provavelmente virão de uma fonte de dados externa, como uma base de dados SQL.
 
-A segunda parte cria um `IndexBatch` contendo os documentos. Especifica a operação que pretende aplicar ao lote no momento em que o cria, neste caso, ligando para `IndexBatch.Upload`. O lote é então enviado para o índice de pesquisa cognitiva Azure pelo método `Documents.Index`.
+A segunda parte `IndexBatch` cria uma contendo os documentos. Especifica a operação que pretende aplicar ao lote no momento em que `IndexBatch.Upload`o cria, neste caso, ligando . O lote é então enviado para o `Documents.Index` índice de pesquisa cognitiva Azure pelo método.
 
 > [!NOTE]
-> Neste exemplo, estamos apenas a enviar documentos. Se quiser fundir alterações nos documentos existentes ou apagar documentos, pode criar lotes ligando para `IndexBatch.Merge`, `IndexBatch.MergeOrUpload`ou `IndexBatch.Delete` em vez disso. Também pode misturar diferentes operações num único lote, chamando `IndexBatch.New`, que leva uma coleção de objetos `IndexAction`, cada um dos quais diz ao Azure Cognitive Search para realizar uma determinada operação num documento. Pode criar-se entre `IndexAction` com o seu próprio funcionamento, chamando o método correspondente, como `IndexAction.Merge`, `IndexAction.Upload`, e assim por diante.
+> Neste exemplo, estamos apenas a enviar documentos. Se quiser fundir alterações nos documentos existentes ou apagar `IndexBatch.Merge`documentos, pode criar lotes ligando, `IndexBatch.MergeOrUpload`ou `IndexBatch.Delete` em vez disso. Também pode misturar diferentes operações `IndexBatch.New`num único lote, `IndexAction` ligando, que requer uma coleção de objetos, cada um dos quais diz ao Azure Cognitive Search para realizar uma determinada operação num documento. Pode criar `IndexAction` cada um com o seu próprio `IndexAction.Merge` `IndexAction.Upload`funcionamento, chamando o método correspondente, como, e assim por diante.
 > 
 > 
 
 A terceira parte deste método é um bloco de captura que lida com um caso de erro importante para a indexação. Se o seu serviço de Pesquisa Cognitiva Azure não indexar alguns dos documentos do lote, um `IndexBatchException` é lançado por `Documents.Index`. Esta exceção pode acontecer se estiver a indexar documentos enquanto o seu serviço estiver sob carga pesada. **Recomendamos vivamente que processe explicitamente este caso no seu código.** Pode atrasar e, em seguida, repetir a indexação dos documentos que falharam, pode iniciar sessão e continuar como no exemplo ou pode fazer algo diferente dependendo dos requisitos de consistência de dados da aplicação.
 
 > [!NOTE]
-> Pode utilizar o método [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) para construir um novo lote contendo apenas as ações que falharam numa chamada anterior para `Index`. Há uma discussão sobre como usá-lo corretamente [no StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
+> Pode utilizar [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) o método para construir um novo lote contendo apenas `Index`as ações que falharam numa chamada anterior para . Há uma discussão sobre como usá-lo corretamente [no StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
 >
 >
 
-Finalmente, o método `UploadDocuments` se atrasa por dois segundos. A indexação acontece de forma assíncrona no seu serviço de Pesquisa Cognitiva Azure, pelo que a aplicação da amostra precisa de esperar um pouco para garantir que os documentos estão disponíveis para pesquisa. Este género de atrasos são normalmente necessários apenas para demonstrações gratuitas, testes e aplicações de exemplo.
+Finalmente, `UploadDocuments` o método atrasa-se por dois segundos. A indexação acontece de forma assíncrona no seu serviço de Pesquisa Cognitiva Azure, pelo que a aplicação da amostra precisa de esperar um pouco para garantir que os documentos estão disponíveis para pesquisa. Este género de atrasos são normalmente necessários apenas para demonstrações gratuitas, testes e aplicações de exemplo.
 
 <a name="how-dotnet-handles-documents"></a>
 
 #### <a name="how-the-net-sdk-handles-documents"></a>Como o SDK .NET processa documentos
-Pode estar a perguntar-se como é que o Azure Cognitive Search .NET SDK é capaz de carregar instâncias de uma classe definida pelo utilizador como `Hotel` para o índice. Para ajudar a responder a esta pergunta, vamos olhar para a aula de `Hotel`:
+Pode estar a perguntar-se como é que o Azure Cognitive Search .NET `Hotel` SDK é capaz de carregar instâncias de uma classe definida pelo utilizador como o índice. Para ajudar a responder a esta `Hotel` pergunta, vamos olhar para a aula:
 
 ```csharp
 using System;
@@ -455,29 +455,29 @@ public partial class Hotel
 }
 ```
 
-A primeira coisa a notar é que o nome de cada propriedade pública na classe `Hotel` irá mapear para um campo com o mesmo nome na definição de índice. Se quiser que cada campo comece com uma letra minúscula ("caso de camelo"), pode dizer ao SDK para mapear automaticamente os nomes de propriedade para o caso de camelo com o atributo `[SerializePropertyNamesAsCamelCase]` na classe. Este cenário é comum em aplicações .NET que realizam a ligação de dados quando o esquema alvo está fora do controlo do desenvolvedor de aplicações sem ter que violar as diretrizes de nomeação do "caso Pascal" em .NET.
+A primeira coisa a notar é que o `Hotel` nome de cada propriedade pública na classe irá mapear para um campo com o mesmo nome na definição de índice. Se quiser que cada campo comece com uma letra minúscula ("caso de camelo"), pode dizer ao SDK `[SerializePropertyNamesAsCamelCase]` para mapear automaticamente os nomes de propriedade para o caso camelo com o atributo da classe. Este cenário é comum em aplicações .NET que realizam a ligação de dados quando o esquema alvo está fora do controlo do desenvolvedor de aplicações sem ter que violar as diretrizes de nomeação do "caso Pascal" em .NET.
 
 > [!NOTE]
 > O Azure Cognitive Search .NET SDK utiliza a biblioteca [JSON.NET NewtonSoft](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e desserializar os seus objetos de modelo personalizados de e para a JSON. Se necessário, pode personalizar esta serialização. Para mais informações, consulte [Personal Serialization com JSON.NET](#JsonDotNet).
 > 
 > 
 
-A segunda coisa a notar é que cada imóvel é decorado com atributos como `IsFilterable`, `IsSearchable`, `Key`e `Analyzer`. Estes atributos mapeiam diretamente para os [atributos de campo correspondentes num índice](/rest/api/searchservice/create-index)de Pesquisa Cognitiva Azure . A classe `FieldBuilder` usa estas propriedades para construir definições de campo para o índice.
+A segunda coisa a notar é que cada `IsFilterable` `IsSearchable`imóvel é decorado com atributos como, , `Key`e `Analyzer`. Estes atributos mapeiam diretamente para os [atributos de campo correspondentes num índice](/rest/api/searchservice/create-index)de Pesquisa Cognitiva Azure . A `FieldBuilder` classe usa estas propriedades para construir definições de campo para o índice.
 
-A terceira coisa importante sobre a aula de `Hotel` são os tipos de dados das propriedades públicas. Os tipos .NET destas propriedades mapeiam para os tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade da cadeia `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Existem mapeamentos de tipo semelhantes entre `bool?`, `Edm.Boolean`, `DateTimeOffset?`, e `Edm.DateTimeOffset` e assim por diante. As regras específicas para o mapeamento de tipo são documentadas com o método `Documents.Get` na [referência Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). A `FieldBuilder` aula cuida deste mapeamento para si, mas ainda pode ser útil entender no caso de precisar de resolver problemas de serialização.
+A terceira coisa `Hotel` importante sobre a classe são os tipos de dados das propriedades públicas. Os tipos .NET destas propriedades mapeiam para os tipos de campo equivalentes na definição do índice. Por exemplo, a propriedade da cadeia `Category` mapeia para o campo `category`, que é do tipo `Edm.String`. Existem mapeamentos `bool?`de `Edm.Boolean` `DateTimeOffset?`tipo `Edm.DateTimeOffset` semelhanteentre, , e assim por diante. As regras específicas para o mapeamento de tipo são documentadas com o `Documents.Get` método na referência [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). A `FieldBuilder` aula cuida deste mapeamento para si, mas ainda pode ser útil entender caso precise de resolver problemas de serialização.
 
-Por acaso reparou na propriedade `SmokingAllowed`?
+Por acaso reparou na `SmokingAllowed` propriedade?
 
 ```csharp
 [JsonIgnore]
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 ```
 
-O atributo `JsonIgnore` nesta propriedade diz ao `FieldBuilder` para não serializá-lo para o índice como um campo.  Esta é uma ótima maneira de criar propriedades calculadas do lado do cliente que você pode usar como ajudantes na sua aplicação.  Neste caso, a propriedade `SmokingAllowed` reflete se qualquer `Room` na coleção `Rooms` permite fumar.  Se todos são falsos, indica que todo o hotel não permite fumar.
+O `JsonIgnore` atributo nesta propriedade `FieldBuilder` diz ao não serializá-lo para o índice como um campo.  Esta é uma ótima maneira de criar propriedades calculadas do lado do cliente que você pode usar como ajudantes na sua aplicação.  Neste caso, `SmokingAllowed` a propriedade reflete `Room` se `Rooms` algum na coleção permite fumar.  Se todos são falsos, indica que todo o hotel não permite fumar.
 
-Algumas propriedades como `Address` e `Rooms` são casos de classes .NET.  Estas propriedades representam estruturas de dados mais complexas e, como resultado, requerem campos com um [tipo de dados complexo](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) no índice.
+Algumas propriedades, como `Address` e `Rooms` são casos de classes .NET.  Estas propriedades representam estruturas de dados mais complexas e, como resultado, requerem campos com um [tipo de dados complexo](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) no índice.
 
-A propriedade `Address` representa um conjunto de múltiplos valores na classe `Address`, definido abaixo:
+A `Address` propriedade representa um conjunto de `Address` múltiplos valores na classe, definido abaixo:
 
 ```csharp
 using System;
@@ -509,7 +509,7 @@ namespace AzureSearch.SDKHowTo
 
 Esta classe contém os valores padrão usados para descrever endereços nos Estados Unidos ou no Canadá. Você pode usar tipos como este para agrupar campos lógicos juntos no índice.
 
-A propriedade `Rooms` representa uma variedade de objetos `Room`:
+A `Rooms` propriedade representa uma `Room` variedade de objetos:
 
 ```csharp
 using System;
@@ -556,13 +556,13 @@ O seu modelo de dados em .NET e o seu esquema de índice correspondente devem se
 Esta capacidade de usar as suas próprias classes para interagir com documentos no índice funciona em ambas as direções; Também pode recuperar os resultados da pesquisa e fazer com que o SDK os desserialize automaticamente para um tipo de escolha, como veremos na secção seguinte.
 
 > [!NOTE]
-> O Azure Cognitive Search .NET SDK também suporta documentos dinicamente dactilografados utilizando a classe `Document`, que é um mapeamento chave/valor de nomes de campo para valores de campo. Isto é útil em cenários onde não sabe qual o esquema de índice no momento da conceção, nem onde seria inconveniente discretizar as classes do modelo específico. Todos os métodos no SDK que lidam com documentos têm sobrecargas que funcionam com a classe `Document`, bem como as sobrecargas de tipo seguro que assumem um parâmetro do tipo genérico. Apenas estes últimos são utilizados no código da amostra neste tutorial. A [classe`Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) herda de `Dictionary<string, object>`.
+> O Azure Cognitive Search .NET SDK também suporta documentos dinicamente dactilografados usando a `Document` classe, que é um mapeamento chave/valor de nomes de campo para valores de campo. Isto é útil em cenários onde não sabe qual o esquema de índice no momento da conceção, nem onde seria inconveniente discretizar as classes do modelo específico. Todos os métodos no SDK que lidam com documentos têm sobrecargas que funcionam com a classe `Document`, bem como as sobrecargas de tipo seguro que assumem um parâmetro do tipo genérico. Apenas estes últimos são utilizados no código da amostra neste tutorial. A [ `Document` classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) herda de. `Dictionary<string, object>`
 > 
 >
 
 **Por que deve utilizar tipos de dados anuláveis**
 
-Ao conceber as suas próprias classes de modelos para mapear para um índice de Pesquisa Cognitiva Azure, recomendamos declarar propriedades de tipos de valor como `bool` e `int` a serem nuníveis (por exemplo, `bool?` em vez de `bool`). Se utilizar uma propriedade não anulável, terá de **garantir** que não existem documentos no seu índice de contenham um valor nulo para o campo correspondente. Nem o SDK nem o serviço de Pesquisa Cognitiva Azure irão ajudá-lo a impor isto.
+Ao conceber as suas próprias classes de modelos para mapear para um índice `bool` `int` de Pesquisa Cognitiva Azure, recomendamos declarar propriedades de tipos de valor como e ser nulidade (por exemplo, `bool?` em vez de). `bool` Se utilizar uma propriedade não anulável, terá de **garantir** que não existem documentos no seu índice de contenham um valor nulo para o campo correspondente. Nem o SDK nem o serviço de Pesquisa Cognitiva Azure irão ajudá-lo a impor isto.
 
 Esta não é apenas uma preocupação hipotética: imagine um cenário onde adiciona um novo campo a um índice existente do tipo `Edm.Int32`. Após a atualização da definição de índice, todos os documentos terão um valor nulo para esse novo campo (uma vez que todos os tipos são anulados na Pesquisa Cognitiva Azure). Se, em seguida, utilizar uma classe de modelo com uma propriedade `int` não anulável para esse campo, obterá uma `JsonSerializationException` assim ao tentar obter documentos:
 
@@ -573,7 +573,7 @@ Por este motivo, recomendamos que utilize tipos anuláveis nas suas classes de m
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Serialização personalizada com JSON.NET
-O SDK usa JSON.NET para serializar e desserializar documentos. Pode personalizar a serialização e a desserialização se necessário, definindo o seu próprio `JsonConverter` ou `IContractResolver`. Para mais informações, consulte a [documentação JSON.NET.](https://www.newtonsoft.com/json/help/html/Introduction.htm) Isto pode ser útil quando pretende adaptar uma classe modelo existente a partir da sua aplicação para utilização com a Pesquisa Cognitiva Azure, e outros cenários mais avançados. Por exemplo, com a serialização personalizada pode:
+O SDK usa JSON.NET para serializar e desserializar documentos. Pode personalizar a serialização e a desserialização se necessário definindo o seu próprio `JsonConverter` ou `IContractResolver`. Para mais informações, consulte a [documentação JSON.NET.](https://www.newtonsoft.com/json/help/html/Introduction.htm) Isto pode ser útil quando pretende adaptar uma classe modelo existente a partir da sua aplicação para utilização com a Pesquisa Cognitiva Azure, e outros cenários mais avançados. Por exemplo, com a serialização personalizada pode:
 
 * Inclua ou exclua certas propriedades da sua classe modelo de serem armazenadas como campos de documentos.
 * Mapeie entre nomes de propriedade no seu código e nomes de campo no seu índice.
@@ -641,9 +641,9 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-Cada vez que executa uma consulta, este método cria primeiro um novo objeto `SearchParameters`. Este objeto é utilizado para especificar opções adicionais para a consulta, tais como triagem, filtragem, paging e faceting. Neste método, estamos a definir a `Filter`, `Select`, `OrderBy`e `Top` imóvel para diferentes consultas. Todas as propriedades `SearchParameters` estão documentadas [aqui.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters)
+Cada vez que executa uma consulta, este `SearchParameters` método cria primeiro um novo objeto. Este objeto é utilizado para especificar opções adicionais para a consulta, tais como triagem, filtragem, paging e faceting. Neste método, estamos a `Filter`definir `Select` `OrderBy`a, `Top` e propriedade para diferentes consultas. Todas `SearchParameters` as propriedades estão documentadas [aqui.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters)
 
-O próximo passo é executar a consulta de pesquisa. A execução da pesquisa é feita utilizando o método `Documents.Search`. Para cada consulta, passamos o texto de pesquisa para usar como uma corda (ou `"*"` se não houver texto de pesquisa), além dos parâmetros de pesquisa criados anteriormente. Também especificamos `Hotel` como parâmetro de tipo para `Documents.Search`, que indica ao SDK para desserializar documentos nos resultados da pesquisa em objetos de tipo `Hotel`.
+O próximo passo é executar a consulta de pesquisa. Executar a procura é `Documents.Search` feito usando o método. Para cada consulta, passamos o texto de pesquisa `"*"` para usar como uma cadeia (ou se não há texto de pesquisa), além dos parâmetros de pesquisa criados anteriormente. Também especificamos `Hotel` como parâmetro `Documents.Search`de tipo para , que indica ao SDK para `Hotel`desserializar documentos nos resultados de pesquisa em objetos de tipo .
 
 > [!NOTE]
 > Pode encontrar mais informações sobre a sintaxe de expressão de consulta de pesquisa [aqui](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
@@ -678,7 +678,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-Neste caso, estamos procurando todo o índice para a palavra "motel" em qualquer campo pesquisável e só queremos recuperar os nomes do hotel, conforme especificado pelo parâmetro `Select`. Aqui estão os resultados:
+Neste caso, estamos procurando todo o índice para a palavra "motel" em qualquer campo pesquisável `Select` e só queremos recuperar os nomes do hotel, conforme especificado pelo parâmetro. Aqui estão os resultados:
 
     Name: Secret Point Motel
 
@@ -699,7 +699,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Esta consulta utiliza uma expressão `$filter` OData, `Rooms/any(r: r/BaseRate lt 100)`, para filtrar os documentos no índice. Isto utiliza qualquer [operador](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) para aplicar a 'BaseRate lt 100' a todos os artigos da coleção de quartos. Pode saber mais sobre a sintaxe OData que a Azure Cognitive Search suporta [aqui](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
+Esta consulta utiliza uma `$filter` expressão `Rooms/any(r: r/BaseRate lt 100)`OData, para filtrar os documentos no índice. Isto utiliza qualquer [operador](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) para aplicar a 'BaseRate lt 100' a todos os artigos da coleção de quartos. Pode saber mais sobre a sintaxe OData que a Azure Cognitive Search suporta [aqui](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
 
 Aqui estão os resultados da consulta:
 
@@ -725,7 +725,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Neste caso, voltamos a utilizar a sintaxe OData para especificar o parâmetro `OrderBy` como `lastRenovationDate desc`. Também definimos `Top` a 2 para garantir que só recebemos os dois melhores documentos. Como antes, definimos `Select` para especificar quais os campos que devem ser devolvidos.
+Neste caso, voltamos a usar a sintaxe OData para especificar o `OrderBy` parâmetro como `lastRenovationDate desc`. Também definimos `Top` para 2 para garantir que só recebemos os dois melhores documentos. Como antes, `Select` definimos para especificar quais os campos que devem ser devolvidos.
 
 Aqui estão os resultados:
 
@@ -744,7 +744,7 @@ results = indexClient.Documents.Search<Hotel>("hotel", parameters);
 WriteDocuments(results);
 ```
 
-E aqui estão os resultados, que incluem todos os campos, uma vez que não especificámos a propriedade `Select`:
+E aqui estão os resultados, que incluem todos os campos, uma vez que não especificámos a `Select` propriedade:
 
     HotelId: 3
     Name: Triple Landscape Hotel

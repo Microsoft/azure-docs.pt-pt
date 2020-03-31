@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 01/29/2020
 ms.openlocfilehash: 21279b2b4735a25210e8373d76d0d63f9c711bfc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77472371"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Quickstart: Criar uma loja de conhecimentos de pesquisa cognitiva Azure no portal Azure
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . 
 
 A knowledge store é uma característica da Pesquisa Cognitiva Azure que persiste a produção de um pipeline de habilidades cognitivas para análises subsequentes ou processamento a jusante. 
 
@@ -26,7 +26,7 @@ Um pipeline aceita texto e imagens não estruturados como conteúdo bruto, aplic
 
 Neste arranque rápido, irá combinar serviços e dados na nuvem Azure para criar uma loja de conhecimento. Uma vez que tudo esteja no lugar, você executará o assistente de **dados de importação** no portal para juntar tudo. O resultado final é conteúdo de texto original mais conteúdo gerado por IA que pode ver no portal ( Explorador de[Armazenamento).](knowledge-store-view-storage-explorer.md)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-services-and-load-data"></a>Criar serviços e dados de carga
 
@@ -50,7 +50,7 @@ Como a carga de trabalho é tão pequena, os Serviços Cognitivos são aproveita
 
     ![Crie o recipiente Azure Blob](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Crie o recipiente Azure Blob")
 
-1. Está quase a acabar com este recurso, mas antes de sair destas páginas, use um link no painel de navegação esquerdo para abrir a página **Access Keys.** Obtenha uma cadeia de ligação para recuperar dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Está quase a acabar com este recurso, mas antes de sair destas páginas, use um link no painel de navegação esquerdo para abrir a página **Access Keys.** Obtenha uma cadeia de ligação para recuperar dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 1. Ainda no portal, mude para A Pesquisa Cognitiva Azure. [Crie um novo serviço](search-create-service-portal.md) ou [encontre um serviço existente.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) Pode utilizar um serviço gratuito para este arranque rápido.
 
@@ -82,7 +82,7 @@ Neste passo de feiticeiro, criará sintetacom enriquecimentos cognitivos. Os dad
 
 1. Expandir **anexar serviços cognitivos**. **Os enriquecimentos gratuitos (enriquecimentos limitados)** são selecionados por defeito. Você pode usar este recurso porque o número de registos em HotelReviews-Free.csv é de 19 e este recurso gratuito permite até 20 transações por dia.
 1. Expandir **Adicionar enriquecimentos**.
-1. Para **o nome Skillset,** insira `hotel-reviews-ss`.
+1. Para o nome `hotel-reviews-ss` **Skillset,** introduza .
 1. Para **o campo de dados Fonte,** selecione **reviews_text**.
 1. Para o nível de **granularidade**de enriquecimento, selecione **Páginas (5000 caracteres)**
 1. Selecione estas habilidades cognitivas:
@@ -90,7 +90,7 @@ Neste passo de feiticeiro, criará sintetacom enriquecimentos cognitivos. Os dad
     + **Traduzir texto**
     + **Detetar sentimento**
 
-      ![Criar uma habilidade](media/knowledge-store-create-portal/hotel-reviews-ss.png "Criar um conjunto de competências")
+      ![Criar um conjunto de competências](media/knowledge-store-create-portal/hotel-reviews-ss.png "Criar um conjunto de competências")
 
 1. Expandir **os enriquecimentos Save para a loja**de conhecimento.
 1. Selecione estas projeções da **tabela Azure:**
@@ -109,7 +109,7 @@ Neste passo de feiticeiro, criará sintetacom enriquecimentos cognitivos. Os dad
 
 Neste passo de assistente, irá configurar um índice para consultas opcionais de pesquisa de texto completo. O assistente irá provar a sua fonte de dados para inferir campos e tipos de dados. Só precisa selecionar os atributos para o seu comportamento desejado. Por exemplo, o atributo **Recuperável** permitirá que o serviço de pesquisa devolva um valor de campo enquanto o **Searchable** permitirá a pesquisa completa de texto no campo.
 
-1. Para **o nome do Índice,** insira `hotel-reviews-idx`.
+1. Para o nome `hotel-reviews-idx`do **índice,** insira .
 1. Para atributos, aceite as seleções padrão: **Recuperável** e **Pesquisável** para os novos campos que o pipeline está a criar.
 
     O seu índice deve ser semelhante à seguinte imagem. Porque a lista é longa, nem todos os campos são visíveis na imagem.
@@ -139,8 +139,8 @@ Agora que enriqueceu os seus dados usando serviços cognitivos e projetou os res
 Pode ver conteúdos no Storage Explorer ou dar um passo mais além com o Power BI para obter insights através da visualização.
 
 > [!div class="nextstepaction"]
-> [Vista com explorador de armazenamento](knowledge-store-view-storage-explorer.md)
-> [Conecte-se com Power BI](knowledge-store-connect-power-bi.md)
+> [Vista com Storage Explorer](knowledge-store-view-storage-explorer.md)
+> [Connect with Power BI](knowledge-store-connect-power-bi.md)
 
 > [!Tip]
 > Se quiser repetir este exercício ou experimentar um ultra-enriquecimento de IA diferente, elimine o indexador de comentários *de hotel-idxr.* A desapagamento do indexante repõe o contador de transações diário gratuito de volta a zero para o processamento de Serviços Cognitivos.

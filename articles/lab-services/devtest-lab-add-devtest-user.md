@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284281"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicione proprietários e utilizadores em Azure DevTest Labs
@@ -37,7 +37,7 @@ Existem três funções principais que pode atribuir a um utilizador:
 
 A tabela que se segue ilustra as ações que podem ser executadas pelos utilizadores em cada uma destas funções:
 
-| **Ações que os utilizadores nesta função podem executar** | **Utilizador de Laboratórios DevTest** | **Proprietário** | **Contribuidor** |
+| **Ações que os utilizadores nesta função podem executar** | **Utilizador de Laboratórios DevTest** | **Proprietário** | **Contribuinte** |
 | --- | --- | --- | --- |
 | **Tarefas de laboratório** | | | |
 | Adicione utilizadores a um laboratório |Não |Sim |Não |
@@ -64,7 +64,7 @@ A tabela que se segue ilustra as ações que podem ser executadas pelos utilizad
 Proprietários e utilizadores podem ser adicionados ao nível do laboratório através do portal Azure. Um utilizador pode ser um utilizador externo com uma conta Microsoft válida [(MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 Os seguintes passos guiam-no através do processo de adição de um proprietário ou utilizador a um laboratório em Azure DevTest Labs:
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Da lista de laboratórios, selecione o laboratório desejado.
 4. Na lâmina do laboratório, selecione **Configuração e políticas**. 
@@ -81,7 +81,7 @@ Os seguintes passos guiam-no através do processo de adição de um proprietári
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Além de adicionar utilizadores no portal Azure, pode adicionar um utilizador externo ao seu laboratório usando um script PowerShell. No exemplo seguinte, modifique os valores do parâmetro sob os **Valores para alterar** comentários.
-Pode recuperar os valores `subscriptionId`, `labResourceGroup`e `labName` da lâmina de laboratório no portal Azure.
+Você pode `subscriptionId`recuperar `labResourceGroup`o `labName` , e valores da lâmina de laboratório no portal Azure.
 
 > [!NOTE]
 > O script da amostra pressupõe que o utilizador especificado foi adicionado como convidado ao Diretório Ativo, e falhará se não for esse o caso. Para adicionar um utilizador que não se incomode no Diretório Ativo a um laboratório, utilize o portal Azure para atribuir ao utilizador uma função ilustrada na secção, [Adicionar um proprietário ou utilizador ao nível do laboratório](#add-an-owner-or-user-at-the-lab-level).   
@@ -119,7 +119,7 @@ Você pode adicionar proprietários adicionais a um laboratório através da lâ
 
 Para adicionar um proprietário a uma subscrição Azure, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços**e, em seguida, selecione **Subscrições** da lista.
 3. Selecione a subscrição desejada.
 4. Selecione ícone **de acesso.** 
@@ -131,7 +131,7 @@ Para adicionar um proprietário a uma subscrição Azure, siga estes passos:
 6. Na **lâmina Selecione uma** lâmina de função, selecione **Proprietário**.
 7. Na lâmina adicionar **utilizadores,** introduza o endereço de e-mail ou o nome do utilizador que pretende adicionar como proprietário. Se o utilizador não puder ser encontrado, obtém-se uma mensagem de erro explicando o problema. Se o utilizador for encontrado, esse utilizador está listado na caixa de texto **do Utilizador.**
 8. Selecione o nome de utilizador localizado.
-9. Selecione **Selecione**.
+9. Selecione **Selecionar**.
 10. Selecione **OK** para fechar a lâmina **de acesso Adicionar.**
 11. Quando regressa à lâmina **dos Utilizadores,** o utilizador foi adicionado como proprietário. Este utilizador é agora proprietário de quaisquer laboratórios criados ao abrigo desta subscrição, e assim é capaz de executar tarefas do proprietário. 
 

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250217"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialize a telemetria usando buffers protocolar
@@ -63,14 +63,14 @@ Descarregue e desaperte o microserviço de [simulação](https://github.com/Azur
 
 No Visual Studio Code, abra a pasta de **monitorização remota-serviços-dotnet-master\storage-adapter.** Clique em botões **restaurar** para corrigir dependências não resolvidas.
 
-Abra o ficheiro **.vscode/launch.json** e atribua a sua cadeia de ligação Cosmos DB à variável ambiental **DOCUMENTDB\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING.**
+Abra o ficheiro **.vscode/launch.json** e atribua a sua cadeia de ligação Cosmos DB à variável ambiente **DOCUMENTDB\_\_CONNSTRING do PCS STORAGEADAPTER.\_**
 
 > [!NOTE]
 > Quando executa o microserviço localmente na sua máquina, ainda requer uma instância Cosmos DB em Azure para funcionar corretamente.
 
-Para executar o microserviço do adaptador de armazenamento localmente, clique em **Debug \> Iniciar depuração**.
+Para executar o microserviço do adaptador de armazenamento localmente, clique em **Debug \> Start Debugging**.
 
-A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço em execução, incluindo um URL para a verificação de saúde do serviço web: <http://127.0.0.1:9022/v1/status>. Quando navegar para este endereço, o estado deve ser "OK: Vivo e bem".
+A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço <http://127.0.0.1:9022/v1/status>em execução, incluindo um URL para a verificação de saúde do serviço web: . Quando navegar para este endereço, o estado deve ser "OK: Vivo e bem".
 
 Deixe o microserviço adaptador de armazenamento em funcionamento neste caso de Visual Studio Code enquanto completa os seguintes passos.
 
@@ -145,7 +145,7 @@ Escreva o guião de comportamento que define como o seu dispositivo se comporta.
 
 Quando tiver um modelo de dispositivo e tiver determinado o formato de mensagem, pode criar um ficheiro **proto.** No ficheiro **proto,** adiciona:
 
-* Um `csharp_namespace` que corresponde à propriedade **ClassName** no seu modelo de dispositivo.
+* A `csharp_namespace` que corresponda à propriedade **ClassName** no seu modelo de dispositivo.
 * Uma mensagem para cada estrutura de dados para serializar.
 * Um nome e um tipo para cada campo na mensagem.
 
@@ -166,7 +166,7 @@ Quando tiver um modelo de dispositivo e tiver determinado o formato de mensagem,
     }
     ```
 
-Os `=1`, `=2` marcadores em cada elemento especificam uma etiqueta única que o campo utiliza na codificação binária. Os números 1-15 exigem um byte a menos para codificar do que números mais altos.
+Os `=1` `=2` marcadores de cada elemento especificam uma etiqueta única que o campo utiliza na codificação binária. Os números 1-15 exigem um byte a menos para codificar do que números mais altos.
 
 ## <a name="generate-the-protobuf-class"></a>Gerar a classe Protobuf
 
@@ -190,15 +190,15 @@ Nesta secção, testa o dispositivo de rastreador de ativos que criou nas secç�
 
 Abra o ficheiro **.vscode/launch.json** e atribua o seu:
 
-* A cadeia de ligação IoT Hub à variável ambiente **pcS\_IOTHUB\_CONNSTRING.**
-* Cadeia de ligação à conta de armazenamento da variável ambiente de armazenamento **\_AZURE\_ARMAZENAMENTO\_CONTA.**
-* A cadeia de ligação Cosmos DB à cadeia de ligação **PCS\_STORAGEADAPTER\_documentdb\_connstring** variável ambiente.
+* Cadeia de ligação IoT Hub à variável ambiente **PCS\_\_IOTHUB CONNSTRING.**
+* Cadeia de ligação à conta de **armazenamento\_\_do PCS AZURE\_**
+* Cadeia de ligação Cosmos DB à variável ambiente **DOCUMENTDB\_\_\_CONNSTRING do PCS STORAGEADAPT.**
 
 Abra o ficheiro **WebService/Properties/launchSettings.json** e atribua o seu:
 
-* A cadeia de ligação IoT Hub à variável ambiente **pcS\_IOTHUB\_CONNSTRING.**
-* Cadeia de ligação à conta de armazenamento da variável ambiente de armazenamento **\_AZURE\_ARMAZENAMENTO\_CONTA.**
-* A cadeia de ligação Cosmos DB à cadeia de ligação **PCS\_STORAGEADAPTER\_documentdb\_connstring** variável ambiente.
+* Cadeia de ligação IoT Hub à variável ambiente **PCS\_\_IOTHUB CONNSTRING.**
+* Cadeia de ligação à conta de **armazenamento\_\_do PCS AZURE\_**
+* Cadeia de ligação Cosmos DB à variável ambiente **DOCUMENTDB\_\_\_CONNSTRING do PCS STORAGEADAPT.**
 
 Abra o ficheiro **WebService\appsettings.ini** e modifique as definições da seguinte forma:
 
@@ -217,7 +217,7 @@ Adicione uma entrada no ficheiro **services\services.csproj** para cada ficheiro
 </None>
 ```
 
-Para executar o microserviço localmente, clique em **Debug \> Começar depuração**.
+Para executar o microserviço localmente, clique em **Debug \> Start Debugging**.
 
 A janela **Terminal** em Código de Estúdio Visual mostra saída do microserviço em execução.
 
@@ -247,9 +247,9 @@ Para criar o Carteiro:
 
 1. Abre o Carteiro na tua máquina local.
 
-1. Clique em **File \> Import**. Em seguida, clique em **Escolher Ficheiros**.
+1. Clique na **importação de ficheiros \> **. Em seguida, clique em **Escolher Ficheiros**.
 
-1. Selecione Acelerador de simulação de **dispositivo Azure IoT.postman\_recolha** e solução de simulação de dispositivo **Solução Azure IoT\_ambiente** e clique em **Open**.
+1. Selecione **Azure IoT Device Simulation\_Solution accelerator.postman collection** and **Azure\_IoT Device Simulation accelerator.postman environment** and click **Open**.
 
 1. Expanda o acelerador de simulação de **dispositivo Solução Azure IoT** para visualizar os pedidos que pode enviar.
 
@@ -267,7 +267,7 @@ Para parar a simulação, selecione o pedido de **simulação Stop** no Carteiro
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Pode parar os dois microserviços de funcionamento local nas suas instâncias de Código de Estúdio Visual (**Debug \> Stop Debugging).**
+Pode parar os dois microserviços de funcionamento local nas suas instâncias de Código de Estúdio Visual **(Debug \> Stop Debugging).**
 
 Se já não necessitar dos casos IoT Hub e Cosmos DB, elimine-os da subscrição do Azure para evitar quaisquer encargos desnecessários.
 

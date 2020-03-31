@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
 ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303227"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server com partilha de ficheiropremium em máquinas virtuais Azure
@@ -145,11 +145,11 @@ Com estes pré-requisitos no lugar, você pode começar a construir o seu cluste
    1. Selecione a instância predefinida.
    1. Remova todas as funcionalidades em **Serviços**de Motor de Base de Dados . Não remova **as funcionalidades partilhadas.** Verá algo como a seguinte imagem:
 
-        ![Selecionar Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Selecione Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selecione **Next**, e, em seguida, selecione **Remover**.
 
-1. <span id="ports"></span> Abra as portas de firewall.  
+1. <span id="ports"> </span> Abra as portas de firewall.  
 
    Em cada máquina virtual, abra estas portas na Firewall do Windows:
 
@@ -176,7 +176,7 @@ Depois de criar e configurar as máquinas virtuais, pode configurar a parte de f
 1. Utilize RDP para ligar ao VM do Servidor SQL com a conta que o seu SQL Server FCI utilizará para a conta de serviço.
 1. Abra uma consola de comando powerShell administrativa.
 1. Execute os comandos que guardou mais cedo quando estava a trabalhar no portal.
-1. Aceda à partilha utilizando o File Explorer ou a caixa de diálogo **Executar** (tecla de logotipo do Windows + r). Utilize o caminho da rede `\\storageaccountname.file.core.windows.net\filesharename`. Por exemplo, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Aceda à partilha utilizando o File Explorer ou a caixa de diálogo **Executar** (tecla de logotipo do Windows + r). Utilize o `\\storageaccountname.file.core.windows.net\filesharename`caminho da rede . Por exemplo, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Crie pelo menos uma pasta na partilha de ficheiros recentemente ligada para colocar os seus ficheiros SQL Data.
 1. Repita estes passos em cada VM do Servidor SQL que participará no cluster.
@@ -222,14 +222,14 @@ Para validar o cluster utilizando a UI, dê os seguintes passos numa das máquin
 
 1. Sob **o Gestor do Servidor,** selecione **Ferramentas**e, em seguida, selecione **Failover Cluster Manager**.
 1. Em **Failover Cluster Manager,** selecione **Action**, e, em seguida, selecione **Validate Configuration**.
-1. Selecione **Seguinte**.
+1. Selecione **Next**.
 1. Em **Servidores Selecionados ou num Cluster,** introduza os nomes de ambas as máquinas virtuais.
-1. Em **opções**de teste, selecione **apenas testes de execução que selecionei**. Selecione **Seguinte**.
+1. Em **opções**de teste, selecione **apenas testes de execução que selecionei**. Selecione **Next**.
 1. Em **seleção**de testes, selecione todos os testes, exceto para **espaços** de armazenamento e **armazenamento diretos,** como mostrado aqui:
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/cluster-validation.png" alt-text="Selecione testes de validação de clusters":::
 
-1. Selecione **Seguinte**.
+1. Selecione **Next**.
 1. Sob **confirmação,** selecione **Seguinte**.
 
 O **Validar um Assistente de Configuração** executa os testes de validação.
@@ -242,7 +242,7 @@ Para validar o cluster utilizando o PowerShell, execute o seguinte script a part
 
 Depois de validar o cluster, crie o cluster failover.
 
-### <a name="create-the-failover-cluster"></a>Criar o cluster failover
+### <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
 Para criar o cluster failover, você precisa:
 - Os nomes das máquinas virtuais que se tornarão os nós do cluster.
@@ -285,7 +285,7 @@ Para o Windows Server 2012 R2 ou mais antigo, siga os mesmos passos na [Configur
 
 ## <a name="step-4-test-cluster-failover"></a>Passo 4: Falha do cluster de teste
 
-Teste falha do seu cluster. No **Failover Cluster Manager,** clique no seu cluster e selecione **Mais Ações** > Mover o Recurso de **Cluster** > **Selecione**o nó e, em seguida, selecione o outro nó do cluster. Mova o recurso do cluster central para cada nó do cluster e, em seguida, mova-o de volta para o nó primário. Se conseguir mover o cluster com sucesso para cada nó, está pronto para instalar o SQL Server.  
+Teste falha do seu cluster. No **Failover Cluster Manager,** clique no seu cluster e selecione **Mais Ações** > Move o cluster**de recursos** > **selecionados**e, em seguida, selecione o outro nó do cluster. Mova o recurso do cluster central para cada nó do cluster e, em seguida, mova-o de volta para o nó primário. Se conseguir mover o cluster com sucesso para cada nó, está pronto para instalar o SQL Server.  
 
 :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/test-cluster-failover.png" alt-text="Falha no cluster de teste movendo o recurso principal para os outros nós":::
 
@@ -297,13 +297,13 @@ Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
 1. No **Failover Cluster Manager,** certifique-se de que todos os Recursos core cluster estão na primeira máquina virtual. Se precisar, mova todos os recursos para esta máquina virtual.
 
-1. Localize os meios de instalação. Se a máquina virtual utilizar uma das imagens do Azure Marketplace, os meios de comunicação estão localizados em `C:\SQLServer_<version number>_Full`. **Selecione Configuração**.
+1. Localize os meios de instalação. Se a máquina virtual utilizar uma das imagens do `C:\SQLServer_<version number>_Full`Azure Marketplace, os meios de comunicação estão localizados em . **Selecione Configuração**.
 
 1. No Centro de Instalação do **Servidor SQL,** selecione **Instalação**.
 
 1. Selecione nova instalação de **cluster de falha do Servidor SQL**. Siga as instruções no assistente para instalar o SQL Server FCI.
 
-   Os diretórios de dados da FCI têm de estar na parte do ficheiro premium. Insira o caminho completo da parte, desta forma: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá um aviso, dizendo-lhe que especificou um servidor de ficheiros como o diretório de dados. Este aviso é esperado. Certifique-se de que a conta de utilizador com a qual o RDP'd entra no VM quando insistiu que a parte do ficheiro é a mesma conta que o serviço SQL Server utiliza para evitar possíveis falhas.
+   Os diretórios de dados da FCI têm de estar na parte do ficheiro premium. Insira o caminho completo da `\\storageaccountname.file.core.windows.net\filesharename\foldername`parte, desta forma: . Aparecerá um aviso, dizendo-lhe que especificou um servidor de ficheiros como o diretório de dados. Este aviso é esperado. Certifique-se de que a conta de utilizador com a qual o RDP'd entra no VM quando insistiu que a parte do ficheiro é a mesma conta que o serviço SQL Server utiliza para evitar possíveis falhas.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Utilize a partilha de ficheiros como diretórios de dados SQL":::
 
@@ -363,17 +363,17 @@ Para criar o equilibrador de carga:
 
 1. Selecione **OK** para criar a piscina de backend.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Configure uma sonda de saúde de equilíbrio de carga
+### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma sonda de estado de funcionamento do balanceador de carga
 
 1. Na lâmina do equilíbrio de carga, selecione **sondas de saúde**.
 
 1. Selecione **Adicionar**.
 
-1. Na lâmina da sonda <span id="probe"></span> de **saúde Add,** defina os seguintes parâmetros da sonda de saúde.
+1. Na lâmina da sonda <span id="probe"> </span> de **saúde Add,** defina os seguintes parâmetros da sonda de saúde.
 
    - **Nome**: Um nome para a sonda de saúde.
    - **Protocolo**: TCP.
-   - **Porta**: A porta que criou na firewall para a sonda de saúde [neste passo](#ports). Neste artigo, o exemplo utiliza a porta TCP `59999`.
+   - **Porta**: A porta que criou na firewall para a sonda de saúde [neste passo](#ports). Neste artigo, o exemplo utiliza `59999`a porta TCP .
    - **Intervalo:** 5 segundos.
    - **Limiar pouco saudável:** 2 falhas consecutivas.
 
@@ -390,12 +390,12 @@ Para criar o equilibrador de carga:
    - **Nome**: Um nome para as regras de equilíbrio de carga.
    - **Endereço IP frontend**: O endereço IP para o recurso de rede de cluster SQL Server FCI.
    - **Porta**: Porta SQL Server FCI TCP. A porta de instância padrão é 1433.
-   - **Porta de backend**: Utiliza a mesma porta que o valor da **porta** quando ativa o **IP flutuante (devolução do servidor direto)** .
+   - **Porta de backend**: Utiliza a mesma porta que o valor da **porta** quando ativa o **IP flutuante (devolução do servidor direto)**.
    - **Piscina de backend**: O nome da piscina de backend que configurau anteriormente.
    - **Sonda de saúde**: A sonda de saúde que configuraste anteriormente.
    - **Persistência da sessão**: Nenhuma.
-   - **Tempo limite (minutos)** : 4.
-   - **IP flutuante (devolução do servidor direto)** : Ativado.
+   - **Tempo limite (minutos)**: 4.
+   - **IP flutuante (devolução do servidor direto)**: Ativado.
 
 1. Selecione **OK**.
 
@@ -403,7 +403,7 @@ Para criar o equilibrador de carga:
 
 Defina o parâmetro da porta da sonda cluster no PowerShell.
 
-Para definir o parâmetro da porta da sonda cluster, atualize as variáveis no seguinte script com valores do seu ambiente. Retire os suportes angulares (`<` e `>`) do script.
+Para definir o parâmetro da porta da sonda cluster, atualize as variáveis no seguinte script com valores do seu ambiente. Retire os suportes`<` `>`angulares (e) do script.
 
    ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
@@ -418,16 +418,16 @@ Para definir o parâmetro da porta da sonda cluster, atualize as variáveis no s
 
 A lista que se segue descreve os valores que precisa de atualizar:
 
-   - `<Cluster Network Name>`: O nome do Cluster Failover do Windows Server para a rede. No **Failover Cluster Manager** > **Networks,** clique à direita na rede e selecione **Propriedades**. O valor correto está em **nome** no separador **Geral.**
+   - `<Cluster Network Name>`: O nome do Cluster Failover do Windows Server para a rede. Nas > **Redes**de Gestor de **Cluster Failover,** clique à direita na rede e selecione **Propriedades**. O valor correto está em **nome** no separador **Geral.**
 
-   - `<SQL Server FCI IP Address Resource Name>`: O nome do recurso de endereço IP do Servidor SQL FCI. No **Failover Cluster Manager** > **Roles**, sob a função SQL Server FCI, sob o Nome **do Servidor,** clique no recurso de endereço IP e selecione **Propriedades**. O valor correto está em **nome** no separador **Geral.**
+   - `<SQL Server FCI IP Address Resource Name>`: O nome do recurso de endereço IP do Servidor SQL FCI. Nas > **funções**de Gestor de **Cluster failover,** sob a função SQL Server FCI, sob **o nome do servidor,** clique no recurso de endereço IP e selecione **Propriedades**. O valor correto está em **nome** no separador **Geral.**
 
-   - `<ILBIP>`: O endereço IP ILB. Este endereço está configurado no portal Azure como o endereço frontal ILB. Este é também o endereço IP Do Servidor SQL FCI. Pode encontrá-lo no **Failover Cluster Manager** na mesma página de propriedades onde localizou o `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: O endereço IP ILB. Este endereço está configurado no portal Azure como o endereço frontal ILB. Este é também o endereço IP Do Servidor SQL FCI. Pode encontrá-lo no **Failover Cluster Manager** na mesma `<SQL Server FCI IP Address Resource Name>`página de propriedades onde localizou o .  
 
-   - `<nnnnn>`: A porta de sonda que configuraste na sonda de saúde do equilibrador de carga. Qualquer porta TCP não utilizada é válida.
+   - `<nnnnn>`: A porta de sonda que configurana na sonda de saúde do equilibrador de carga. Qualquer porta TCP não utilizada é válida.
 
 >[!IMPORTANT]
->A máscara de sub-rede para o parâmetro do cluster deve ser o endereço de transmissão IP do TCP: `255.255.255.255`.
+>A máscara de sub-rede para o parâmetro do `255.255.255.255`cluster deve ser o endereço de transmissão IP do TCP: .
 
 Depois de definir a sonda de cluster, pode ver todos os parâmetros do cluster no PowerShell. Execute este guião:
 
@@ -437,7 +437,7 @@ Depois de definir a sonda de cluster, pode ver todos os parâmetros do cluster n
 
 ## <a name="step-8-test-fci-failover"></a>Passo 8: Falha do Teste FCI
 
-Teste falha do FCI para validar a funcionalidade do cluster. Tome os seguintes passos:
+Teste falha do FCI para validar a funcionalidade do cluster. Siga estes passos:
 
 1. Ligue-se a um dos nós de cluster SQL Server FCI utilizando RDP.
 

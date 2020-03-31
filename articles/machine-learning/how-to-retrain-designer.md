@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368167"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389040"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -54,14 +54,14 @@ Para retreinar um modelo, precisa de um modelo inicial. Nesta secção, aprende-
    Para este exemplo, os dados são armazenados numa loja de [dados Azure.](how-to-access-data.md) Se ainda não tiver uma datastore, pode criar uma agora selecionando **a New datastore**.
 
 1. Especifique o caminho para os seus dados. Também pode selecionar o **caminho do Browse** para navegar na sua loja de dados. 
-1. Selecione **Executar** na parte superior da tela.
+1. Selecione **Submeter** na parte superior da tela.
     
    > [!NOTE]
    > Se já definiu uma computação predefinida para este projeto de gasoduto, o gasoduto funcionará automaticamente. Caso contrário, pode seguir as instruções no painel de definições para definir uma agora.
 
 ### <a name="find-your-trained-model"></a>Encontre o seu modelo treinado
 
-O designer guarda todas as saídas de gasoduto, incluindo modelos treinados, para a conta de armazenamento padrão. Também pode aceder ao modelo treinado diretamente no designer:
+O designer guarda todas as saídas de gasoduto, incluindo modelos treinados, para a conta de armazenamento padrão. No entanto, também pode aceder a modelos treinados diretamente no designer:
 
 1. Espere que o oleoduto termine de funcionar.
 1. Selecione o módulo **Modelo de Comboio.**

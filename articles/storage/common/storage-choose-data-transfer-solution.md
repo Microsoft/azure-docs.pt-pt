@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303091"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução Azure para transferência de dados
@@ -34,7 +34,7 @@ O movimento de dados pode ser dos seguintes tipos:
 - **Transferência de Rede** - Transfere os seus dados para o Azure sobre a sua ligação de rede. Isto pode ser feito de muitas maneiras.
 
     - **Interface gráfica** - Se ocasionalmente transferir apenas alguns ficheiros e não precisar automatizar a transferência de dados, pode escolher uma ferramenta de interface gráfica, como o Azure Storage Explorer ou uma ferramenta de exploração baseada na Web no portal Azure.
-    - **Transferência scriptada ou programática** - Pode utilizar ferramentas de software otimizadas que fornecemos ou chamamos diretamente aos nossos APIs/SDKs REST. As ferramentas scriptable disponíveis são AzCopy, Azure PowerShell e Azure CLI. Para interface programática, utilize um dos SDKs para .NET, Java, C++Python, Node/JS, Go, PHP ou Ruby.
+    - **Transferência scriptada ou programática** - Pode utilizar ferramentas de software otimizadas que fornecemos ou chamamos diretamente aos nossos APIs/SDKs REST. As ferramentas scriptable disponíveis são AzCopy, Azure PowerShell e Azure CLI. Para interface programática, utilize um dos SDKs para .NET, Java, Python, Node/JS, C++, Go, PHP ou Ruby.
     - **Dispositivos no local** - Fornecemos-lhe um dispositivo físico ou virtual que reside no seu datacenter e otimiza a transferência de dados pela rede. Estes dispositivos também fornecem uma cache local de ficheiros frequentemente usados. O dispositivo físico é o Data Box Edge e o dispositivo virtual é o Portal da Caixa de Dados. Ambos correm permanentemente nas suas instalações e ligam-se ao Azure sobre a rede.
     - **Gasoduto** de dados gerido - Pode configurar um gasoduto em nuvem para transferir regularmente ficheiros entre vários serviços Azure, no local ou uma combinação de dois. Utilize a Azure Data Factory para configurar e gerir os gasodutos de dados e mover e transformar dados para análise.
 

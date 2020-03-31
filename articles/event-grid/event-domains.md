@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898871"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios do evento para gerir tópicos da Grelha de Eventos
@@ -47,7 +47,7 @@ O RBAC em domínios de eventos funciona da mesma forma que os trabalhos de [cont
 
 ### <a name="built-in-roles"></a>Construído em papéis
 
-A Event Grid tem duas definições de função incorporadas para facilitar o RBAC ao trabalho com domínios de eventos. Estas funções são **EventGrid EventSubscription Contributor (Preview)** e **EventGrid EventGrid EventSubscription Reader (Pré-visualização)** . Atribui estas funções a utilizadores que necessitem de subscrever tópicos no domínio do seu evento. Você scopea a atribuição de funções apenas para o tópico que os utilizadores precisam subscrever.
+A Event Grid tem duas definições de função incorporadas para facilitar o RBAC ao trabalho com domínios de eventos. Estas funções são **EventGrid EventSubscription Contributor (Preview)** e **EventGrid EventGrid EventSubscription Reader (Pré-visualização)**. Atribui estas funções a utilizadores que necessitem de subscrever tópicos no domínio do seu evento. Você scopea a atribuição de funções apenas para o tópico que os utilizadores precisam subscrever.
 
 Para obter informações sobre estas funções, consulte [as funções incorporadas para a Grelha de Eventos.](security-authorization.md#built-in-roles)
 
@@ -65,7 +65,7 @@ Quando crias um domínio de evento, recebes um ponto final de publicação semel
 
 Para publicar eventos para qualquer tópico num Domínio de Evento, empurre os eventos para o ponto final do domínio da [mesma forma que faria para um tópico personalizado](./post-to-custom-topic.md). A única diferença é que deve especificar o tópico a que gostaria que o evento fosse entregue.
 
-Por exemplo, a publicação do seguinte conjunto de eventos enviaria evento com `"id": "1111"` para tópico `foo` enquanto o evento com `"id": "2222"` seria enviado para tópico `bar`:
+Por exemplo, a publicação do seguinte conjunto `"id": "1111"` de `foo` eventos `"id": "2222"` enviaria evento `bar`com tópico, enquanto o evento seria enviado para tópico:
 
 ```json
 [{
@@ -103,9 +103,9 @@ Aqui estão os limites e quotas relacionados com os domínios do evento:
 - 100 domínios de eventos por subscrição do Azure 
 - 500 subscrições de eventos por tópico num domínio de evento
 - 50 assinaturas de âmbito de domínio 
-- 5\.000 eventos por segunda taxa de ingestão (num domínio)
+- 5.000 eventos por segunda taxa de ingestão (num domínio)
 
-Se estes limites não lhe servirem, contacte a equipa de produtos abrindo um bilhete de apoio ou enviando um e-mail para [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
+Se estes limites não lhe servirem, contacte a equipa de produtos [askgrid@microsoft.com](mailto:askgrid@microsoft.com)abrindo um bilhete de apoio ou enviando um e-mail para . 
 
 ## <a name="pricing"></a>Preços
 Os domínios do evento utilizam os [mesmos preços](https://azure.microsoft.com/pricing/details/event-grid/) de operações que todas as outras funcionalidades na utilização da Rede de Eventos.

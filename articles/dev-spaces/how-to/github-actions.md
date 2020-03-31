@@ -1,5 +1,5 @@
 ---
-title: Serviço GitHub Actions & Azure Kubernetes (pré-visualização)
+title: Ações GitHub & Serviço Azure Kubernetes (pré-visualização)
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
@@ -7,13 +7,13 @@ description: Alterações de revisão e teste de um pedido de pull diretamente n
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, GitHub Actions, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252382"
 ---
-# <a name="github-actions--azure-kubernetes-service-preview"></a>Serviço GitHub Actions & Azure Kubernetes (pré-visualização)
+# <a name="github-actions--azure-kubernetes-service-preview"></a>Ações GitHub & Serviço Azure Kubernetes (pré-visualização)
 
 A Azure Dev Spaces fornece um fluxo de trabalho utilizando as Ações GitHub que lhe permite testar alterações a partir de um pedido de pull diretamente no AKS antes que o pedido de pull seja fundido no ramo principal do seu repositório. Ter uma aplicação em execução para rever alterações de um pedido de puxão pode aumentar a confiança tanto do desenvolvedor como dos membros da equipa. Esta aplicação de execução também pode ajudar os membros da equipa, tais como, gestores de produtos e designers, a tornarem-se parte do processo de revisão durante as fases iniciais de desenvolvimento.
 
@@ -25,11 +25,11 @@ Neste guia, vai aprender a:
 * Teste um único microserviço num espaço de v isolado no contexto da aplicação completa.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 * A [CLI do Azure instalada][azure-cli-installed].
 * [Leme 3 instalado.][helm-installed]
 * Uma conta GitHub com [ações GitHub ativadas][github-actions-beta-signup].
@@ -91,7 +91,7 @@ Navegue para o seu repositório bifurcado e clique em *Definições*. Clique em 
 1. *RESOURCE_GROUP*: o grupo de recursos para o seu cluster AKS, que neste exemplo é *o MyResourceGroup*.
 1. *CLUSTER_NAME:* o nome do seu cluster AKS, que neste exemplo é *MyAKS*.
 1. *CONTAINER_REGISTRY:* o *loginServer* para o ACR.
-1. *HOST*: o anfitrião do seu Dev Space, que toma o formulário *<MASTER_SPACE><APP_NAME>.<HOST_SUFFIX>* que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+1. *ANFITRIÃO*: o anfitrião do seu Espaço Dev, que assume a forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>, *que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 1. *IMAGE_PULL_SECRET:* o nome do segredo que deseja utilizar, por exemplo, *demo-secreto*.
 1. *MASTER_SPACE:* o nome do seu progenitor Dev Space, que neste exemplo é *dev*.
 1. *REGISTRY_USERNAME*: o *clienteId* da saída JSON da criação principal do serviço.
@@ -100,11 +100,11 @@ Navegue para o seu repositório bifurcado e clique em *Definições*. Clique em 
 > [!NOTE]
 > Todos estes segredos são usados pela ação GitHub e estão configurados em [.github/workflows/bikes.yml][github-action-yaml].
 
-Opcionalmente, se quiser atualizar o espaço principal após a fusão do seu PR, adicione o *GATEWAY_HOST* segredo, que assume o formulário *<MASTER_SPACE>.gateway.<HOST_SUFFIX>* que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundir as suas alterações no ramo principal do garfo, outra ação correrá para reconstruir e executar toda a sua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev*. Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Opcionalmente, se quiser atualizar o espaço principal após a fusão do seu PR, adicione o *GATEWAY_HOST* segredo, que assume o formulário *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundir as suas alterações no ramo principal do garfo, outra ação correrá para reconstruir e executar toda a sua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev*. Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Criar um novo ramo para alterações de código
 
-Navegue para `BikeSharingApp/` e crie um novo ramo chamado *bike-images*.
+Navegue `BikeSharingApp/` e crie um novo ramo chamado *bike-images*.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
@@ -126,7 +126,7 @@ A secção deve agora parecer:
     delete theBike._id;
 ```
 
-Guarde o ficheiro e utilize `git add` e `git commit` para encenar as suas alterações.
+Guarde o `git add` ficheiro `git commit` e, em seguida, utilize e faça as alterações.
 
 ```cmd
 git add Bikes/server.js 
@@ -150,7 +150,7 @@ Depois de aberto o seu pedido de puxão, navegue para o separador *Ações.* Ver
 Depois de concluída a ação, verá um comentário com uma URL para o seu novo espaço infantil baseado nas alterações no pedido de puxão.
 
 > [!div class="mx-imgBorder"]
-> ![Url de Ação GitHub](../media/github-actions/github-action-url.png)
+> ![Url de ação gitHub](../media/github-actions/github-action-url.png)
 
 Navegue para o serviço *bikesharingweb* abrindo o URL a partir do comentário. Selecione *Aurelia Briggs (cliente)* como utilizador e, em seguida, selecione uma bicicleta para alugar. Verifique se já não vê a imagem do espaço reservado para a bicicleta.
 

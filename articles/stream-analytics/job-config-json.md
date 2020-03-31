@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 27ed553035ce9d7abf57ffe93078df9c17b8408c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617960"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>Campos Azure Stream Analytics JobConfig.json
@@ -57,5 +57,5 @@ Os seguintes campos são suportados no ficheiro *JobConfig.json* usado para [cri
 
 * [Crie um trabalho azure Stream Analytics no Código do Estúdio Visual](quick-create-vs-code.md)
 * [Teste Stream Analytics consulta localmente com dados de amostra usando código de estúdio visual](visual-studio-code-local-run.md)
-* [Test Stream Analytics consulta localmente contra entrada](visual-studio-code-local-run-live-input.md) de fluxo ao vivo usando Código de Estúdio Visual
-*[implementar um trabalho azure Stream Analytics usando pacote de npm CI/CD](setup-cicd-vs-code.md)
+* [Test Stream Analytics consulta localmente contra entrada](visual-studio-code-local-run-live-input.md)
+*de fluxo ao vivo usando código de estúdio visual[Implementar um trabalho Azure Stream Analytics usando pacote de npm CI/CD](setup-cicd-vs-code.md)

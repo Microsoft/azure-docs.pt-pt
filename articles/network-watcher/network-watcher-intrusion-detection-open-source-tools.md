@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845028"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realizar a deteção de intrusão de rede com o Observador de Rede e ferramentas de código aberto
 
 As capturas de pacotes são um componente chave para implementar sistemas de deteção de intrusões de rede (IDS) e realizar monitorização de segurança de rede (NSM). Existem várias ferramentas IDS de código aberto que processam capturas de pacotes e procuram assinaturas de possíveis intrusões de rede e atividade maliciosa. Utilizando as capturas de pacotes fornecidas pelo Network Watcher, pode analisar a sua rede para eventuais intrusões ou vulnerabilidades nocivas.
 
-Uma dessas ferramentas de código aberto é a Suricata, um motor IDS que usa conjuntos de regras para monitorizar o tráfego da rede e dispara alertas sempre que ocorrerem eventos suspeitos. A Suricata oferece um motor multi-roscado, o que significa que pode realizar análises de tráfego de rede com maior rapidez e eficiência. Para mais detalhes sobre a Suricata e as suas capacidades, visite o seu website em https://suricata-ids.org/.
+Uma dessas ferramentas de código aberto é a Suricata, um motor IDS que usa conjuntos de regras para monitorizar o tráfego da rede e dispara alertas sempre que ocorrerem eventos suspeitos. A Suricata oferece um motor multi-roscado, o que significa que pode realizar análises de tráfego de rede com maior rapidez e eficiência. Para mais detalhes sobre a Suricata e https://suricata-ids.org/as suas capacidades, visite o seu website em .
 
 ## <a name="scenario"></a>Cenário
 
@@ -38,7 +38,7 @@ Ambas as ferramentas de código aberto podem ser configuradas num VM Azure, perm
 
 ### <a name="install-suricata"></a>Instalar Suricata
 
-Para todos os outros métodos de instalação, visite https://suricata.readthedocs.io/en/latest/install.html
+Para todos os outros métodos de instalação, visitehttps://suricata.readthedocs.io/en/latest/install.html
 
 1. No terminal de linha de comando do seu VM executar os seguintes comandos:
 
@@ -48,7 +48,7 @@ Para todos os outros métodos de instalação, visite https://suricata.readthedo
     sudo sudo apt-get install suricata
     ```
 
-1. Para verificar a sua instalação, execute o comando `suricata -h` para ver a lista completa de comandos.
+1. Para verificar a sua `suricata -h` instalação, execute o comando para ver a lista completa de comandos.
 
 ### <a name="download-the-emerging-threats-ruleset"></a>Descarregue as regras das Ameaças Emergentes
 
@@ -80,7 +80,7 @@ Enquanto os registos que a Suricata produz contêm informações valiosas sobre 
 
 #### <a name="install-elasticsearch"></a>Instalar pesquisa elástica
 
-1. A Stack Elástica da versão 5.0 e acima requer Java 8. Execute o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suppored Azure](https://aka.ms/azure-jdks).
+1. A Stack Elástica da versão 5.0 e acima requer Java 8. Execute `java -version` o comando para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suppored Azure](https://aka.ms/azure-jdks).
 
 1. Descarregue o pacote binário correto para o seu sistema:
 
@@ -233,7 +233,7 @@ Para mais instruções sobre a instalação de Logstash, consulte a [documentaç
     ./bin/kibana
     ```
 
-1. Para ver a sua interface web kibana, navegue para `http://localhost:5601`
+1. Para ver a sua interface web Kibana, navegue para`http://localhost:5601`
 1. Para este cenário, o padrão de índice utilizado para os troncos suricata é "logstash-*"
 
 1. Se quiser ver o dashboard kibana remotamente, crie uma regra NSG de entrada que permita o acesso à **porta 5601**.

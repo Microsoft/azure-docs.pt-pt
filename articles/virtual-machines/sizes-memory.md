@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
 ms.openlocfilehash: 26a44cdf3e57508cebb070669a8c1f473a59df8a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77493530"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos otimizados da memória
@@ -30,7 +30,7 @@ Os tamanhos de VM otimizados pela memória oferecem uma elevada relação memór
 
     As séries Dv2 e DSv2 são ideais para aplicações que exigem vCPUs mais rápidos, melhor desempenho temporário de armazenamento ou têm maiores exigências de memória. Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
 
-- As [séries Eav4 e Easv4](eav4-easv4-series.md) utilizam o processador EPYC<sup>TM</sup> 7452 da AMD em uma configuração multi-roscada com até 256MB de cache L3, aumentando as opções para executar a maioria das cargas de trabalho otimizadas pela memória. As séries Eav4 e Easv4 têm as mesmas configurações de memória e disco que as séries Ev3 & Esv3.
+- As [séries Eav4 e Easv4](eav4-easv4-series.md) utilizam o processador EPYC<sup>TM</sup> 7452 da AMD em uma configuração multi-roscada com até 256MB de cache L3, aumentando as opções para executar a maioria das cargas de trabalho otimizadas pela memória. As séries Eav4 e Easv4 têm as mesmas configurações de memória e disco que o Ev3 & série Esv3.
 
 - O processador Intel® Xeon, [série Ev3 e Esv3,](ev3-esv3-series.md) ® 8171M 2,1 GHz (Skylake) ou o processador Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) numa configuração hiper-roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho para fins gerais, e colocando o Ev3 em alinhamento com o propósito geral VMs da maioria das outras nuvens. A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites do disco e da rede foram ajustados numa base de núcleo para alinhar com a mudança para hiper-rosca. O Ev3 é o seguimento dos tamanhos vm de alta memória das famílias D/Dv2.
 

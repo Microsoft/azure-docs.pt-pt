@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: 67206f36d5c9f08a2110b02f1d3681684cda8a66
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77605429"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e fornecer um dispositivo TPM simulado utilizando o dispositivo Python SDK para o Serviço de Provisionamento de Dispositivos IoT Hub
@@ -27,9 +27,9 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 - Revisão dos [conceitos de fornecimento automático.](concepts-auto-provisioning.md)
 - Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) com C++desenvolvimento desktop com .
+- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) com desenvolvimento desktop com C++.
 - [CMake sistema](https://cmake.org/download/)de construção .
-- [Git](https://git-scm.com/download/).
+- [Git.](https://git-scm.com/download/)
 
 > [!IMPORTANT]
 > Este artigo aplica-se apenas ao SDK Desprecated V1 Python. Os clientes de dispositivos e serviços do Serviço de Provisionamento de Dispositivos Iot Hub ainda não estão disponíveis no V2. A equipa está neste momento a trabalhar arduamente para trazer o V2 para a paridade.
@@ -38,7 +38,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
-1. Certifique-se de que instalou o [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 C++ou mais tarde, com o desenvolvimento do 'Desktop com ' carga de trabalho habilitada para a instalação do Seu Estúdio Visual.
+1. Certifique-se de que instalou o [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou mais tarde, com a carga de trabalho 'Desktop com C++' ativada para a instalação do Estúdio Visual.
 
 1. Transfira e instale o [sistema de compilação CMake](https://cmake.org/download/).
 
@@ -125,7 +125,7 @@ Este artigo demonstra inscrições individuais.
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Através do IDE Python, edite o script python com o nome **provisioning\_device\_client\_sample.py**. Modifique as variáveis *GLOBAL\_PROV\_URI* e *ID\_SCOPE* para os valores anotados previamente. Verifique também se *SECURITY\_DEVICE\_TYPE* está definido como `ProvisioningSecurityDeviceType.TPM`
+1. Através do IDE Python, edite o script python com o nome **provisioning\_device\_client\_sample.py**. Modificar as variáveis *\_GLOBAL PROV\_URI* e ID *\_SCOPE* para os valores anteriormente anotados. Verifique também se *SECURITY\_DEVICE\_TYPE* está definido como `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -159,7 +159,7 @@ Se pretende continuar a trabalhar e a explorar a amostra do cliente do dispositi
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. Feche a janela do simulador TPM no seu computador.
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de fornecimento de dispositivos. Abra a lâmina **'Gerir as Matrículas'** para o seu serviço e, em seguida, selecione o separador Individual **Registration.** 
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de fornecimento de dispositivos. Abra a lâmina **'Gerir as Matrículas'** para o seu serviço e, *REGISTRATION ID* em seguida, selecione o separador Individual **Delete** **Registration.** 
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra a lâmina dos **dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *DISPOSITIVO ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Apagar** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes

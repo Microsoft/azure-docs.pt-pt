@@ -1,5 +1,5 @@
 ---
-title: Detete face e emoção com Azure Media Analytics  Microsoft Docs
+title: Detete face e emoção com Azure Media Analytics [ Microsoft Docs
 description: Este tópico demonstra como detetar rostos e emoções com a Azure Media Analytics.
 services: media-services
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919316"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detete face e emoção com Azure Media Analytics
@@ -31,7 +31,7 @@ ms.locfileid: "77919316"
 
 O processador de mídia **Azure Media Face Detetor** (MP) permite-lhe contar, rastrear movimentos e até avaliar a participação e a reação do público através de expressões faciais. Este serviço contém duas funcionalidades: 
 
-* **Deteção facial**
+* **Deteção de rostos**
   
     A deteção facial encontra e rastreia rostos humanos dentro de um vídeo. Várias faces podem ser detetadas e posteriormente rastreadas à medida que se deslocam, com a hora e os metadados de localização devolvidos num ficheiro JSON. Durante o rastreio, tenta dar um ID consistente ao mesmo rosto enquanto a pessoa se move no ecrã, mesmo que esteja obstruída ou deixe brevemente a moldura.
   
@@ -55,7 +55,7 @@ A API de deteção e rastreio facial fornece deteção e rastreamento de localiz
 
 Os rostos detetados e rastreados são devolvidos com coordenadas (esquerda, superior, largura e altura) indicando a localização dos rostos na imagem em pixels, bem como um número de identificação facial indicando o rastreio desse indivíduo. Os números de ID do rosto são propensos a repor em circunstâncias em que o rosto frontal é perdido ou sobreposto na moldura, resultando em alguns indivíduos que recebem vários IDs.
 
-## <a id="output_elements"></a>Elementos do ficheiro JSON de saída
+## <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do ficheiro JSON de saída
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
@@ -160,15 +160,15 @@ Ao criar uma tarefa com **o Detetor de Rosto Azure Media,** deve especificar um 
 | --- | --- |
 | Modo |Rostos: Apenas deteção facial.<br/>PerFaceEmotion: Devolva a emoção de forma independente para cada deteção facial.<br/>AggregateEmotion: Retorno valores médios de emoção para todos os rostos no quadro. |
 | AggregateEmotionWindowMs |Utilize se o modo AggregateEmotion for selecionado. Especifica o comprimento do vídeo utilizado para produzir cada resultado agregado, em milissegundos. |
-| AggregateEmotionIntervalMs |Utilize se o modo AggregateEmotion for selecionado. Especifica com que frequência produzir resultados agregados. |
+| AgregadoEmotionIntervalMs |Utilize se o modo AggregateEmotion for selecionado. Especifica com que frequência produzir resultados agregados. |
 
 #### <a name="aggregate-defaults"></a>Incumprimentos agregados
 Abaixo estão os valores recomendados para as definições de janela e intervalo agregados. AgregaçõesEmotionWindowMs devem ser mais compridas do que as AggregateEmotionIntervalMs.
 
 || Incumprimentos(s) | Max(s) | Min(s) |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |0.25|
-| AggregateEmotionIntervalMs |0,5 |1 |0.25|
+| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AgregadoEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Saída JSON
 Saída JSON para emoção agregada (truncado):

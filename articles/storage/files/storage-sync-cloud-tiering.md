@@ -1,18 +1,18 @@
 ---
-title: Compreender o Tiering de Nuvem de Sincronização de Ficheiros Azure  Microsoft Docs
+title: Compreender o Tiering de Nuvem de Sincronização de Ficheiros Azure [ Microsoft Docs
 description: Conheça a funcionalidade cloud tiering do Azure File Sync
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 11f9097fc4875f0a4300ac56dafe7af9a0b00c97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268096"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454623"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são protegidos localmente no servidor, enquanto todos os outros ficheiros são tiered para Ficheiros Azure com base em definições de política. Quando um ficheiro é nivelado, o filtro de ficheiroS De ficheiros Azure Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem tanto o atributo "offline" como o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS atributo definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -20,10 +20,8 @@ O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os
 Quando um utilizador abre um ficheiro hierárquico, o Azure File Sync recorda sem problemas os dados de ficheiros do Azure Files sem que o utilizador precise de saber que o ficheiro está armazenado no Azure. 
  
  > [!Important]  
- > O tiering em nuvem não é suportado para pontos finais do servidor nos volumes do sistema Windows, e apenas ficheiros superiores a 64 KiB em tamanho podem ser tiered para Ficheiros Azure.
+ > O tiering em nuvem não é suportado no volume do sistema Windows.
     
-O Azure File Sync não suporta ficheiros de tiering inferiores a 64 KiB, uma vez que o desempenho do tiering e a recordação de ficheiros tão pequenos superariam a poupança de espaço.
-
  > [!Important]  
  > Para recordar os ficheiros que foram nividados, a largura de banda da rede deve ser de pelo menos 1 Mbps. Se a largura de banda da rede for inferior a 1 Mbps, os ficheiros podem não conseguir recuperar com um erro de tempo limite.
 
@@ -35,26 +33,30 @@ O filtro De sincronização de ficheiros Azure constrói um "mapa de calor" do s
 
 Nas versões 4.0 e acima do agente Dosindo de Ficheiros Azure, pode especificar adicionalmente uma política de data em cada ponto final do servidor que irá indicar quaisquer ficheiros não acedidos ou modificados dentro de um número determinado de dias.
 
+<a id="tiering-minimum-file-size"></a>
+### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo de ficheiro para um ficheiro tier?
+Para as versões 9.x e mais recentes do agente, o tamanho mínimo de ficheiro para um ficheiro a nível baseia-se no tamanho do cluster do sistema de ficheiros (o dobro do tamanho do cluster do sistema de ficheiros). Por exemplo, se o tamanho do cluster do sistema de ficheiros NTFS for 4KB, o tamanho mínimo de ficheiro resultante para um ficheiro a nível é de 8KB. Para as versões 8.x e mais antigas do agente, o tamanho mínimo de ficheiro para um ficheiro a nível é de 64KB.
+
 <a id="afs-volume-free-space"></a>
-### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Como funciona a política de tiering de espaço livre de volume?
+### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Como funciona a política de arrumo de espaço livre no volume?
 Espaço livre de volume é a quantidade de espaço livre que deseja reservar no volume em que está localizado um ponto final do servidor. Por exemplo, se o espaço livre de volume for definido para 20% num volume que tenha um ponto final do servidor, até 80% do espaço de volume será ocupado pelos ficheiros mais recentemente acedidos, com quaisquer ficheiros restantes que não se encaixem neste espaço tiered até Azure. O espaço livre de volume aplica-se ao nível do volume e não ao nível de diretórios individuais ou grupos de sincronização. 
 
 <a id="volume-free-space-fastdr"></a>
-### <a name="how-does-the-volume-free-space-tiering-policy-work-with-regards-to-new-server-endpoints"></a>Como funciona a política de tiering de espaço livre de volume no que diz respeito a novos pontos finais do servidor?
+### <a name="how-does-the-volume-free-space-tiering-policy-work-with-regards-to-new-server-endpoints"></a>Como funciona a política de arrumo de espaço livre no volume no que se refere a novos pontos finais do servidor?
 Quando um ponto final do servidor for recentemente aprovisionado e ligado a uma partilha de ficheiros Azure, o servidor irá primeiro puxar para baixo o espaço de nome e, em seguida, puxaros para baixo os ficheiros reais até atingir o seu limiar de espaço livre de volume. Este processo também é conhecido como rápida recuperação de desastres ou restauro rápido do espaço de nome.
 
 <a id="afs-effective-vfs"></a>
-### <a name="how-is-volume-free-space-interpreted-when-i-have-multiple-server-endpoints-on-a-volume"></a>Como é interpretado o espaço livre de volume quando tenho vários pontos finais do servidor num volume?
+### <a name="how-is-volume-free-space-interpreted-when-i-have-multiple-server-endpoints-on-a-volume"></a>Como é que o espaço livre de volume é interpretado quando tenho vários pontos finais do servidor num volume?
 Quando há mais de um ponto final do servidor num volume, o limiar de espaço livre de volume eficaz é o maior espaço livre de volume especificado em qualquer ponto final do servidor nesse volume. Os ficheiros serão nividamente de acordo com os seus padrões de utilização, independentemente do ponto final do servidor a que pertencem. Por exemplo, se tiver dois pontos finais do servidor num volume, Endpoint1 e Endpoint2, onde endpoint1 tem um limiar de espaço livre de volume de 25% e Endpoint2 tem um limiar de espaço livre de volume de 50%, o limiar de espaço livre de volume para ambos os pontos finais do servidor será de 50%. 
 
 <a id="date-tiering-policy"></a>
-### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Como funciona a política de tiering de datas em conjunto com a política de tiering de espaço livre de volume? 
+### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Como funciona a política de camadas de dados em conjunto com a política de arrumo de espaço livre no volume? 
 Ao ativar o tiering da nuvem num ponto final do servidor, definiu uma política de espaço livre de volume. Tem sempre precedência sobre quaisquer outras políticas, incluindo a política de datas. Opcionalmente, pode ativar uma política de data para cada ponto final do servidor nesse volume, o que significa que apenas os ficheiros acedidos (isto é, lidos ou escritos) dentro do intervalo de dias que esta política descreve serão mantidos locais, com quaisquer ficheiros mais estalados nidificados. Tenha em mente que a política de espaço livre de volume sempre tem precedência, e quando não há espaço livre suficiente no volume para reter tantos dias de ficheiros como descrito pela política de data, o Azure File Sync continuará a tiering os ficheiros mais frios até que o volume seja livre a percentagem de espaço é cumprida.
 
 Por exemplo, digamos que tem uma política de tiering baseada em datas de 60 dias e uma política de espaço livre de volume de 20%. Se, após a aplicação da política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre de volume sairá em vigor e anulará a política de data. Isto resultará na sua enumeração de mais ficheiros, de modo a que a quantidade de dados mantidos no servidor possa ser reduzida de 60 dias de dados para 45 dias. Inversamente, esta política vai forçar o tiering de ficheiros que caem fora do seu intervalo de tempo, mesmo que não tenha atingido o seu limite de espaço livre – por isso, um ficheiro com 61 dias será nivelado mesmo que o seu volume esteja vazio.
 
 <a id="volume-free-space-guidelines"></a>
-### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Como determino a quantidade adequada de espaço livre de volume?
+### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Como posso determinar a quantidade adequada de espaço livre no volume?
 A quantidade de dados que deve manter local é determinada por alguns fatores: a largura de banda, o padrão de acesso do seu conjunto de dados e o seu orçamento. Se tiver uma ligação de baixa largura de banda, poderá querer manter mais dos seus dados locais para garantir que há um mínimo de atraso para os seus utilizadores. Caso contrário, pode baseá-lo na taxa de churn durante um determinado período. Por exemplo, se souber que cerca de 10% dos seus 1 TB altera mato de dados ou é ativamente acedido todos os meses, então pode querer manter 100 GB locais para que não esteja a recordar frequentemente ficheiros. Se o seu volume for de 2TB, então você vai querer manter 5% (ou 100 GB) local, o que significa que os restantes 95% são a sua percentagem de espaço livre de volume. No entanto, recomendamos que adicione um tampão para explicar períodos de maior agitação – ou seja, começando com uma percentagem de espaço livre de menor volume e, em seguida, ajustando-o se necessário mais tarde. 
 
 Manter mais dados locais significa custos de saída mais baixos, uma vez que menos ficheiros serão recolhidos do Azure, mas também exige que mantenha uma maior quantidade de armazenamento no local, o que vem a seu custo próprio. Uma vez implementado um exemplo de Sincronização de Ficheiros Azure, pode ver a saída da sua conta de armazenamento para avaliar aproximadamente se as definições de espaço sem volume são adequadas para a sua utilização. Assumindo que a conta de armazenamento contém apenas o seu Ponto Final de Nuvem de Sincronização de Ficheiros Azure (isto é, a sua parte de sincronização), então a alta saída significa que muitos ficheiros estão a ser recolhidos da nuvem, e deve considerar aumentar a sua cache local.
@@ -75,15 +77,15 @@ Existem várias formas de verificar se um ficheiro foi tiered para a sua parte d
         | A | Arquivo | Indica que o ficheiro deve ser apoiado por um software de reserva. Este atributo é sempre definido, independentemente de o ficheiro estar nivelado ou armazenado totalmente no disco. |
         | P | Arquivo escasso | Indica que o ficheiro é um ficheiro escasso. Um ficheiro escasso é um tipo de ficheiro especializado que a NTFS oferece para uma utilização eficiente quando o ficheiro no fluxo de disco está praticamente vazio. O Azure File Sync utiliza ficheiros escassos porque um ficheiro é totalmente hierárquico ou parcialmente recuperado. Num ficheiro totalmente niveado, o fluxo de ficheiros é armazenado na nuvem. Num ficheiro parcialmente recordado, essa parte do ficheiro já está no disco. Se um ficheiro for totalmente recolhido para o disco, o Azure File Sync converte-o de um ficheiro escasso para um ficheiro regular. Este atributo só está definido no Windows Server 2016 e mais antigo.|
         | M | Recolha no acesso aos dados | Indica que os dados do ficheiro não estão totalmente presentes no armazenamento local. Ler o ficheiro fará com que pelo menos parte do conteúdo do ficheiro seja recolhido a partir de uma partilha de ficheiros Azure à qual o ponto final do servidor está ligado. Este atributo está apenas definido no Windows Server 2019. |
-        | L | Ponto reparse | Indica que o ficheiro tem um ponto de reparse. Um ponto de reparse é um ponteiro especial para ser usado por um filtro de sistema de ficheiros. O Azure File Sync utiliza pontos reparse para definir para o filtro de ficheiros Do Ficheiro Azure Sync (StorageSync.sys) a localização da nuvem onde o ficheiro está armazenado. Isto suporta um acesso perfeito. Os utilizadores não precisarão de saber que o Azure File Sync está a ser utilizado ou como aceder ao ficheiro na sua partilha de ficheiros Azure. Quando um ficheiro é totalmente recuperado, o Azure File Sync remove o ponto de reparse do ficheiro. |
-        | O | Banda | Indica que parte ou a toda a conteúdo do ficheiro não está armazenado no disco. Quando um ficheiro é totalmente recolhido, o Azure File Sync remove este atributo. |
+        | L | Ponto de reanálise | Indica que o ficheiro tem um ponto de reparse. Um ponto de reparse é um ponteiro especial para ser usado por um filtro de sistema de ficheiros. O Azure File Sync utiliza pontos reparse para definir para o filtro de ficheiros Do Ficheiro Azure Sync (StorageSync.sys) a localização da nuvem onde o ficheiro está armazenado. Isto suporta um acesso perfeito. Os utilizadores não precisarão de saber que o Azure File Sync está a ser utilizado ou como aceder ao ficheiro na sua partilha de ficheiros Azure. Quando um ficheiro é totalmente recuperado, o Azure File Sync remove o ponto de reparse do ficheiro. |
+        | O | Offline | Indica que parte ou a toda a conteúdo do ficheiro não está armazenado no disco. Quando um ficheiro é totalmente recolhido, o Azure File Sync remove este atributo. |
 
         ![A caixa de diálogo Properties para um ficheiro, com o separador Detalhes selecionado](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
         Pode ver os atributos de todos os ficheiros numa pasta adicionando o campo **Atributos** ao ecrã da tabela do File Explorer. Para isso, clique à direita numa coluna existente (por exemplo, **Tamanho),** selecione **Mais**, e, em seguida, selecione **Atributos** da lista de drop-down.
         
    * **Utilize `fsutil` para verificar se há pontos de reparse num ficheiro.**
-       Tal como descrito na opção anterior, um ficheiro hierárquico tem sempre um conjunto de pontos reparso. Um ponteiro reparse é um ponteiro especial para o filtro de ficheiros Do Ficheiro Sincron (StorageSync.sys). Para verificar se um ficheiro tem um ponto de reparso, numa janela elevada de Comando Prompt ou PowerShell, executar o utilitário `fsutil`:
+       Tal como descrito na opção anterior, um ficheiro hierárquico tem sempre um conjunto de pontos reparso. Um ponteiro reparse é um ponteiro especial para o filtro de ficheiros Do Ficheiro Sincron (StorageSync.sys). Para verificar se um ficheiro tem um ponto de reparso, numa `fsutil` janela elevada de Comando Prompt ou PowerShell, execute o utilitário:
     
         ```powershell
         fsutil reparsepoint query <your-file-name>
@@ -92,7 +94,7 @@ Existem várias formas de verificar se um ficheiro foi tiered para a sua parte d
         Se o ficheiro tiver um ponto de reparse, pode esperar ver **Reparse Tag Value: 0x80000001e**. Este valor hexadecimal é o valor de ponto reparse que é propriedade da Azure File Sync. A saída também contém os dados reparsos que representam o caminho para o seu ficheiro na sua partilha de ficheiros Azure.
 
         > [!WARNING]  
-        > O comando de utilidade `fsutil reparsepoint` também tem a capacidade de apagar um ponto de reparse. Não execute este comando a menos que a equipa de engenharia Azure File Sync lhe peça. Executar este comando pode resultar em perda de dados. 
+        > O `fsutil reparsepoint` comando utilitário também tem a capacidade de eliminar um ponto de reparse. Não execute este comando a menos que a equipa de engenharia Azure File Sync lhe peça. Executar este comando pode resultar em perda de dados. 
 
 <a id="afs-recall-file"></a>
 
@@ -106,13 +108,13 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parâmetros opcionais:
-* `-Order CloudTieringPolicy` recordará primeiro os ficheiros mais recentemente modificados.  
-* `-ThreadCount` determina quantos ficheiros podem ser recolhidos em paralelo.
-* `-PerFileRetryCount`determina com que frequência será tentada uma retirada de um ficheiro que está atualmente bloqueado.
+* `-Order CloudTieringPolicy`recordará primeiro os ficheiros mais recentemente modificados.  
+* `-ThreadCount`determina quantos ficheiros podem ser recolhidos em paralelo.
+* `-PerFileRetryCount`determina com que frequência uma retirada será tentada de um ficheiro que está atualmente bloqueado.
 * `-PerFileRetryDelaySeconds`determina o tempo em segundos entre a tentativa de relembrar as tentativas e deve ser sempre utilizado em combinação com o parâmetro anterior.
 
 > [!Note]  
-> Se o volume local que hospeda o servidor não tiver espaço livre suficiente para recordar todos os dados hierárquicos, o `Invoke-StorageSyncFileRecall` cmdlet falha.  
+> Se o volume local que hospeda o servidor não tiver espaço `Invoke-StorageSyncFileRecall` livre suficiente para recordar todos os dados hierárquicos, o cmdlet falha.  
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Porque é que o tamanho na propriedade *do disco* para um ficheiro corresponde à propriedade *Size* depois de usar o Azure File Sync? 
@@ -131,7 +133,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Porque é que os meus ficheiros hierárquicos não mostram miniaturas ou pré-visualizações no Windows Explorer?
 Para ficheiros, miniaturas e pré-visualizações não serão visíveis no ponto final do servidor. Este comportamento é esperado uma vez que a funcionalidade de cache de miniatura no Windows ignora intencionalmente ficheiros de leitura com o atributo offline. Com o Cloud Tiering ativado, a leitura através de ficheiros hierárquicos faria com que fossem descarregados (recordados).
 
-Este comportamento não é específico do Azure File Sync, o Windows Explorer apresenta um "X cinzento" para quaisquer ficheiros que tenham o conjunto de atributooffline. Verá o ícone X ao aceder a ficheiros sobre SMB. Para uma explicação detalhada deste comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+Este comportamento não é específico do Azure File Sync, o Windows Explorer apresenta um "X cinzento" para quaisquer ficheiros que tenham o conjunto de atributooffline. Verá o ícone X ao aceder a ficheiros sobre SMB. Para uma explicação detalhada deste comportamento, consulte[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

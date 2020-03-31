@@ -1,6 +1,6 @@
 ---
-title: Analisar logs do site com bibliotecas do Python no Spark – Azure
-description: Este notebook demonstra como analisar dados de log usando uma biblioteca personalizada com o Spark no Azure HDInsight.
+title: Analisar registos de websites com bibliotecas Python em Spark - Azure
+description: Este caderno demonstra como analisar dados de registo usando uma biblioteca personalizada com Spark no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,56 +9,56 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552717"
 ---
-# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analisar logs do site usando uma biblioteca do Python personalizada com cluster Apache Spark no HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise os registos do site usando uma biblioteca python personalizada com cluster Apache Spark no HDInsight
 
-Este bloco de anotações demonstra como analisar dados de log usando uma biblioteca personalizada com Apache Spark no HDInsight. A biblioteca personalizada que usamos é uma biblioteca do Python chamada **iislogparser.py**.
+Este caderno demonstra como analisar dados de registo usando uma biblioteca personalizada com Apache Spark no HDInsight. A biblioteca personalizada que usamos é uma biblioteca Python chamada **iislogparser.py.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="save-raw-data-as-an-rdd"></a>Salvar dados brutos como um RDD
+## <a name="save-raw-data-as-an-rdd"></a>Guardar dados brutos como RDD
 
-Nesta seção, usamos o notebook [Jupyter](https://jupyter.org) associado a um cluster apache Spark no HDInsight para executar trabalhos que processam seus dados brutos de exemplo e salvá-los como uma tabela do hive. Os dados de exemplo são um arquivo. csv (HVAC. csv) disponível em todos os clusters por padrão.
+Nesta secção, utilizamos o caderno [Jupyter](https://jupyter.org) associado a um cluster Apache Spark no HDInsight para executar trabalhos que processam os seus dados de amostra saqueada e os guardamos como uma tabela da Colmeia. Os dados da amostra são um ficheiro .csv (vac.csv) disponível em todos os clusters por padrão.
 
-Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seção, vamos nos conectar à tabela Hive usando ferramentas de BI, como Power BI e tableau.
+Assim que os seus dados forem guardados como uma tabela Apache Hive, na próxima secção vamos ligar-nos à tabela Hive utilizando ferramentas BI como Power BI e Tableau.
 
-1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter`, em que `CLUSTERNAME` é o nome do cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net/jupyter`onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Crie um novo bloco de notas. Selecione **novo**e, em seguida, **PySpark**.
+1. Crie um novo bloco de notas. Selecione **Novo,** e depois **PySpark**.
 
-    ![Criar um novo notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de notas do Jupyter")
+    ![Crie um novo caderno Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de notas do Jupyter")
 
-1. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Selecione o nome do bloco de anotações na parte superior e insira um nome amigável.
+1. É criado e aberto um novo bloco de notas com o nome Untitled.pynb. Selecione o nome do caderno na parte superior e introduza um nome amigável.
 
-    ![Forneça um nome para o bloco de anotações](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Fornecer um nome para o bloco de notas")
+    ![Fornecer um nome para o bloco de notas](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Fornecer um nome para o bloco de notas")
 
-1. Como você criou um bloco de anotações usando o kernel PySpark, não precisa criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Você pode começar importando os tipos necessários para esse cenário. Cole o trecho a seguir em uma célula vazia e pressione **Shift + Enter**.
+1. Como criou um caderno usando o kernel PySpark, não precisa de criar contextos explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Pode começar por importar os tipos que são necessários para este cenário. Colar o seguinte corte numa célula vazia e, em seguida, prima **Shift + Enter**.
 
     ```pyspark
     from pyspark.sql import Row
     from pyspark.sql.types import *
     ```
 
-1. Crie um RDD usando os dados de log de exemplo já disponíveis no cluster. Você pode acessar os dados na conta de armazenamento padrão associada ao cluster em `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`. Execute o seguinte código:
+1. Crie um DDr utilizando os dados de registo de amostrajá disponíveis no cluster. Pode aceder aos dados na conta de armazenamento `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`predefinida associada ao cluster em . Execute o seguinte código:
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
     ```
 
-1. Recupere um conjunto de logs de exemplo para verificar se a etapa anterior foi concluída com êxito.
+1. Recupere um conjunto de registos de amostras para verificar se o passo anterior foi concluído com sucesso.
 
     ```pyspark
     logs.take(5)
     ```
 
-    Você deverá ver uma saída semelhante ao texto a seguir:
+    Deve ver uma saída semelhante ao seguinte texto:
 
     ```output
     [u'#Software: Microsoft Internet Information Services 8.0',
@@ -68,17 +68,17 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
     ```
 
-## <a name="analyze-log-data-using-a-custom-python-library"></a>Analisar dados de log usando uma biblioteca do Python personalizada
+## <a name="analyze-log-data-using-a-custom-python-library"></a>Analise os dados de registo usando uma biblioteca python personalizada
 
-1. Na saída acima, as primeiras linhas incluem as informações de cabeçalho e cada linha restante corresponde ao esquema descrito nesse cabeçalho. A análise desses logs poderia ser complicada. Portanto, usamos uma biblioteca Python personalizada (**iislogparser.py**) que torna muito mais fácil a análise desses logs. Por padrão, essa biblioteca é incluída com o cluster Spark no HDInsight em `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`.
+1. Na saída acima, as primeiras linhas incluem a informação do cabeçalho e cada linha restante corresponde ao esquema descrito nesse cabeceamento. Analisar estes troncos pode ser complicado. Assim, usamos uma biblioteca python personalizada (**iislogparser.py)** que torna a análise de tais troncos muito mais fácil. Por padrão, esta biblioteca está incluída com o `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`seu cluster Spark no HDInsight em .
 
-    No entanto, essa biblioteca não está na `PYTHONPATH`, portanto, não podemos usá-la usando uma instrução de importação como `import iislogparser`. Para usar essa biblioteca, devemos distribuí-la a todos os nós de trabalho. Execute o trecho a seguir.
+    No entanto, esta biblioteca `PYTHONPATH` não está na então não podemos `import iislogparser`usá-la usando uma declaração de importação como . Para usar esta biblioteca, devemos distribuí-la a todos os nós operários. Executar o seguinte corte.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
     ```
 
-1. `iislogparser` fornece uma função `parse_log_line` que retorna `None` se uma linha de log é uma linha de cabeçalho e retorna uma instância da classe `LogLine` se encontrar uma linha de log. Use a classe `LogLine` para extrair apenas as linhas de log do RDD:
+1. `iislogparser`fornece uma `parse_log_line` função `None` que retorna se uma linha de registo `LogLine` for uma linha de cabeçalho, e devolve uma instância da classe se encontrar uma linha de registo. Utilize `LogLine` a classe para extrair apenas as linhas de registo do RDD:
 
     ```pyspark
     def parse_line(l):
@@ -87,7 +87,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
     ```
 
-1. Recupere algumas linhas de log extraídas para verificar se a etapa foi concluída com êxito.
+1. Recupere algumas linhas de registo extraídas para verificar se o passo foi concluído com sucesso.
 
     ```pyspark
     logLines.take(2)
@@ -100,7 +100,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
     ```
 
-1. A classe `LogLine`, por sua vez, tem alguns métodos úteis, como `is_error()`, que retorna se uma entrada de log tem um código de erro. Use essa classe para calcular o número de erros nas linhas de log extraídas e registrar em log todos os erros em um arquivo diferente.
+1. A `LogLine` classe, por sua vez, `is_error()`tem alguns métodos úteis, como, que devolve se uma entrada de registo tem um código de erro. Utilize esta classe para calcular o número de erros nas linhas de registo extraídas e, em seguida, registar todos os erros num ficheiro diferente.
 
     ```pyspark
     errors = logLines.filter(lambda p: p.is_error())
@@ -110,9 +110,9 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    A saída deve indicar `There are 30 errors and 646 log entries`.
+    A saída `There are 30 errors and 646 log entries`deve indicar.
 
-1. Você também pode usar o **matplotlib** para construir uma visualização dos dados. Por exemplo, se você quiser isolar a causa de solicitações executadas por um longo tempo, talvez queira encontrar os arquivos que levam mais tempo para atender em média. O trecho de código a seguir recupera os 25 principais recursos que levaram mais tempo para atender a uma solicitação.
+1. Também pode usar **o Matplotlib** para construir uma visualização dos dados. Por exemplo, se quiser isolar a causa dos pedidos que duram muito tempo, é melhor encontrar os ficheiros que demoram mais tempo a servir em média. O corte abaixo recupera os 25 melhores recursos que demorou mais tempo a servir um pedido.
 
     ```pyspark
     def avgTimeTakenByKey(rdd):
@@ -124,7 +124,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
     ```
 
-   Você deverá ver uma saída semelhante ao texto a seguir:
+   Deve ver uma saída como o seguinte texto:
 
     ```output
     [(u'/blogposts/mvc4/step13.png', 197.5),
@@ -154,7 +154,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     (u'/blogposts/mvc4/step1.png', 98.0)]
     ```
 
-1. Você também pode apresentar essas informações na forma de plotagem. Como uma primeira etapa para criar uma plotagem, vamos criar primeiro uma tabela de **média**temporária. A tabela agrupa os logs por tempo para ver se houve picos de latência incomuns em um determinado momento.
+1. Também pode apresentar esta informação sob a forma de enredo. Como primeiro passo para criar um enredo, vamos primeiro criar uma tabela temporária **AverageTime**. A mesa agrupa os troncos a tempo para ver se havia picos incomuns de latência em algum momento particular.
 
     ```pyspark
     avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
@@ -165,22 +165,22 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
     ```
 
-1. Em seguida, você pode executar a seguinte consulta SQL para obter todos os registros na tabela **averagetime** .
+1. Em seguida, pode executar a seguinte consulta SQL para obter todos os registos na tabela **AverageTime.**
 
     ```pyspark
     %%sql -o averagetime
     SELECT * FROM AverageTime
     ```
 
-   A `%%sql` mágica seguida por `-o averagetime` garante que a saída da consulta seja persistida localmente no servidor Jupyter (normalmente, o cabeçalho do cluster). A saída é persistida como um dataframe do [pandas](https://pandas.pydata.org/) com a **média**de nome especificada.
+   A `%%sql` magia `-o averagetime` seguida garante que a saída da consulta é permanecida localmente no servidor Jupyter (tipicamente o headnode do cluster). A saída é persistida como um quadro de dados [pandas](https://pandas.pydata.org/) com o **tempo médio**de nome especificado .
 
-   Você deverá ver uma saída semelhante à imagem a seguir:
+   Deve ver uma saída como a seguinte imagem:
 
-   ![saída de consulta SQL do hdinsight jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Saída da consulta SQL")
+   ![hdinsight jupyter sql quese saída](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Saída de consulta SQL")
 
-   Para obter mais informações sobre a mágica `%%sql`, consulte [parâmetros com suporte com a mágica%% SQL](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Para obter mais `%%sql` informações sobre a magia, consulte [parâmetros suportados com a magia %%sql.](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)
 
-1. Agora você pode usar matplotlib, uma biblioteca usada para construir a visualização de dados, para criar uma plotagem. Como o gráfico deve ser criado a partir do dataframe de **médiatime** persistente, o trecho de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor Jupyter.
+1. Agora pode usar o Matplotlib, uma biblioteca usada para construir visualização de dados, para criar um enredo. Como o enredo deve ser criado a partir do prazo **médio** local, `%%local` o código deve começar com a magia. Isto garante que o código é executado localmente no servidor Jupyter.
 
     ```pyspark
     %%local
@@ -192,11 +192,11 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
     plt.ylabel('Average time taken for request (ms)')
     ```
 
-   Você deverá ver uma saída semelhante à imagem a seguir:
+   Deve ver uma saída como a seguinte imagem:
 
-   ![gráfico de análise de log da Web do Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Saída de matplotlib")
+   ![apache faísca web log análise enredo](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Saída de Matplotlib")
 
-1. Depois de concluir a execução do aplicativo, você deve desligar o bloco de anotações para liberar os recursos. Para tal, no menu **File** (Ficheiro) do bloco de notas, selecione **Close and Halt** (Fechar e Parar). Esta ação será desligada e fechará o bloco de anotações.
+1. Depois de ter terminado a execução da aplicação, deve encerrar o caderno para libertar os recursos. Para tal, no menu **File** (Ficheiro) do bloco de notas, selecione **Close and Halt** (Fechar e Parar). Esta ação vai encerrar e fechar o caderno.
 
 ## <a name="next-steps"></a>Passos seguintes
 

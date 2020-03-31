@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade da Microsoft e fluxo de afirmação do portador da SAML / Azure
+title: A plataforma de identidade da Microsoft & fluxo de afirmação do portador saml / Azure
 description: Aprenda a recolher dados do Microsoft Graph sem pedir ao utilizador credenciais utilizando o fluxo de afirmação do portador SAML.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76700214"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de afirmação do portador OAuth 2.0 SAML
@@ -46,14 +46,14 @@ Estabelecer uma relação de confiança entre o servidor/ambiente de autorizaç�
 
 Registe a aplicação no [portal:](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 1. Inscreva-se na [lâmina de registo da aplicação do portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (por favor, note que estamos a utilizar os pontos finais v2.0 para a API graph e, portanto, precisamos de registar a aplicação neste portal. Caso contrário, poderíamos ter usado as inscrições no diretório ativo azure). 
-1. Selecione **novo registro**.
+1. Selecione **Novo registo**.
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação: 
     1. **Nome** - Introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação.
     1. **Tipos de conta suportados** - Selecione as contas que quer que a sua aplicação suporte.
-    1. **Redirecione o URI (opcional)** - Selecione o tipo de aplicação que está a construir, Web ou cliente público (mobile & desktop) e, em seguida, introduza o URI redirecionamento (ou URL de resposta) para a sua aplicação.
+    1. **Redirecione o URI (opcional)** - Selecione o tipo de aplicação que está a construir, Web ou cliente público (ambiente de trabalho mobile &) e, em seguida, introduza o URI redirecionamento (ou URL de resposta) para a sua aplicação.
     1. Quando terminar, selecione **Registar**.
 1. Tome nota da identificação da aplicação (cliente).
-1. No painel esquerdo, selecione **Certificados e segredos.** Clique em **novo segredo** de cliente na secção de segredos do **Cliente.** Copie o novo segredo do cliente, não poderá recuperar quando deixar a lâmina.
+1. No painel esquerdo, selecione **Certificados & segredos.** Clique em **novo segredo** de cliente na secção de segredos do **Cliente.** Copie o novo segredo do cliente, não poderá recuperar quando deixar a lâmina.
 1. No painel esquerdo, selecione **permissões API** e, em seguida, **adicione uma permissão**. Selecione **Microsoft Graph**, em seguida, **permissões delegadas**, e, em seguida, selecione **Tasks.read** já que pretendemos usar o Outlook Graph API. 
 
 Instale o [Carteiro,](https://www.getpostman.com/)uma ferramenta necessária para testar os pedidos da amostra.  Mais tarde, pode converter os pedidos em código.

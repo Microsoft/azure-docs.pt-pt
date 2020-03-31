@@ -1,5 +1,5 @@
 ---
-title: Personalizando as predefinições padrão do media encoder  Microsoft Docs
+title: Personalizando as predefinições padrão do media encoder [ Microsoft Docs
 description: Este tópico mostra como realizar codificação avançada personalizando predefinições de tarefa sintetizadas de Media Encoder Standard. O tópico mostra como usar os Media Services .NET SDK para criar uma tarefa e trabalho de codificação. Também mostra como fornecer predefinições personalizadas para o trabalho de codificação.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251248"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando predefinições padrão de codificador de mídia  
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como personalizar um preset tomando o preset [De Bitrate 
 > [!NOTE]
 > As predefinições personalizadas descritas neste artigo não podem ser utilizadas em transformações de [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos CLI. Consulte a [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
 
-## <a id="customizing_presets"></a>Personalizar um predefinição MES
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Personalizar um predefinição MES
 
 ### <a name="original-preset"></a>Predefinido original
 
@@ -113,7 +113,7 @@ Abra o ficheiro **CustomPreset_JSON.json** e remova as três primeiras camadas d
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Codificação com Serviços de Media .NET SDK
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com Serviços de Media .NET SDK
 
 O exemplo de código que se segue utiliza media services .NET SDK para executar as seguintes tarefas:
 
@@ -267,7 +267,7 @@ namespace CustomizeMESPresests
 ## <a name="see-also"></a>Consulte também
 
 - [Como codificar com uma transformação personalizada usando cli](../latest/custom-preset-cli-howto.md)
-- [Encoding with Media Services v3](../latest/encoding-concept.md) (Codificar com os Serviços de Multimédia v3)
+- [Codificação com os Serviços de Multimédia do Azure v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -9,24 +9,24 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
 ms.openlocfilehash: de79ea50d12ab322d1e28d0ad650df30ecc0c222
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806592"
 ---
-## <a name="install-client-library-packages"></a>Instalar pacotes de biblioteca de cliente
+## <a name="install-client-library-packages"></a>Instalar pacotes de biblioteca de clientes
 
 > [!NOTE]
-> Os exemplos mostrados aqui usam a biblioteca de cliente de armazenamento do Azure versão 12. A biblioteca de cliente da versão 12 faz parte do SDK do Azure. Para obter mais informações sobre o SDK do Azure, consulte o repositório do SDK do Azure no [GitHub](https://github.com/Azure/azure-sdk).
+> Os exemplos aqui mostrados utilizam a versão 12 da biblioteca do cliente Azure Storage. A biblioteca de clientes da versão 12 faz parte do Azure SDK. Para obter mais informações sobre o Azure SDK, consulte o repositório Azure SDK no [GitHub](https://github.com/Azure/azure-sdk).
 
-Para instalar o pacote de armazenamento de BLOBs, execute o seguinte comando no console do Gerenciador de pacotes NuGet:
+Para instalar o pacote de armazenamento Blob, execute o seguinte comando da consola nuGet gestor de pacotes:
 
 ```powershell
 Install-Package Azure.Storage.Blobs
 ```
 
-Os exemplos mostrados aqui também usam a versão mais recente da [biblioteca de cliente de identidade do Azure para .net](https://www.nuget.org/packages/Azure.Identity/) para autenticar com as credenciais do Azure AD. Para instalar o pacote, execute o seguinte comando no console do Gerenciador de pacotes NuGet:
+Os exemplos aqui apresentados também usam a versão mais recente da biblioteca de [clientes Azure Identity para .NET](https://www.nuget.org/packages/Azure.Identity/) autenticar com credenciais Azure AD. Para instalar o pacote, execute o seguinte comando da consola do gestor de pacotes NuGet:
 
 ```powershell
 Install-Package Azure.Identity

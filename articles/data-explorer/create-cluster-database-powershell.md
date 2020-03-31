@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster e DB do Explorer de Dados Azure usando powershell
+title: Criar um cluster Azure Data Explorer & DB usando powershell
 description: Saiba como criar um cluster e base de dados do Azure Data Explorer utilizando o PowerShell
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 690c3e281e65f54f240c70f7a6e5038f54102c99
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560597"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster e base de dados Azure Data Explorer utilizando o PowerShell
@@ -20,17 +20,17 @@ ms.locfileid: "77560597"
 > * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
-> * [python](create-cluster-database-python.md)
-> * [Modelo ARM](create-cluster-database-resource-manager.md)  
+> * [C #](create-cluster-database-csharp.md)
+> * [Pitão](create-cluster-database-python.md)
+> * [Modelo de BRAÇO](create-cluster-database-resource-manager.md)  
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, cria-se primeiro um cluster e cria-se uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa base de dados para que possa fazer perguntas contra ele. Neste artigo, cria-se um cluster e uma base de dados utilizando o Powershell. Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters e bases de dados do Azure Data Explorer.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, primeiro crie um cluster e crie uma ou mais bases de dados nesse cluster. Em seguida, ingira (carregue) os dados para uma base de dados, de modo a poder executar consultas neles. Neste artigo, cria-se um cluster e uma base de dados utilizando o Powershell. Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters e bases de dados do Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +38,7 @@ Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer a ve
 
 ## <a name="configure-parameters"></a>Configurar parâmetros
 
-Os seguintes passos não são necessários se estiver a comandar comandos em Azure Cloud Shell. Se estiver a executar o CLI localmente, siga os passos 1 e 2 para iniciar sessão no Azure e definir a sua subscrição atual:
+Os seguintes passos não são necessários se estiver a comandar comandos em Azure Cloud Shell. Se estiver a executar o CLI localmente, siga os passos 1 & 2 para iniciar sessão no Azure e definir a sua subscrição atual:
 
 1. Execute o seguinte comando para iniciar sessão no Azure:
 
@@ -79,7 +79,7 @@ Os seguintes passos não são necessários se estiver a comandar comandos em Azu
     Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
-Se o resultado contiver `provisioningState` com o valor `Succeeded`, então o cluster foi criado com sucesso.
+Se o `provisioningState` resultado `Succeeded` contiver o valor, então o cluster foi criado com sucesso.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar a base de dados no cluster Azure Data Explorer
 

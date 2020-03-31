@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265002"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes do evento na Grelha de Eventos Azure
@@ -61,7 +61,7 @@ Subscreva tópicos personalizados para responder a eventos de candidatura.
 | [Modelo de Gestor de Recursos: tópico personalizado e ponto final do Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo de Gestor de Recursos que cria uma subscrição para um tópico personalizado. Envia eventos para um Azure Event Hubs. |
 | [Esquema do evento](event-schema.md) | Mostra campos em eventos personalizados. |
 
-## <a name="event-hubs"></a>Hubs de Eventos
+## <a name="event-hubs"></a>Event Hubs
 
 Subscreva os eventos do Event Hubs para responder a eventos de ficheiros De captura. Os Hubs de Eventos podem funcionar como uma fonte de eventoou manipulador de eventos. Os seguintes artigos mostram como usar os Centros de Eventos como fonte.
 
@@ -78,7 +78,7 @@ Subscreva os eventos IoT Hub para responder a eventos criados, apagados, conecta
 
 |Título  |Descrição  |
 |---------|---------|
-| [Envie notificações por e-mail sobre eventos do Hub Azure IoT usando aplicações lógicas](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu IoT Hub. |
+| [Enviar notificações por e-mail sobre eventos do Hub IoT do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu IoT Hub. |
 | [Reagir aos eventos do IoT Hub usando a Grelha de Eventos para desencadear ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração do IoT Hub com a Grelha de Eventos. |
 | [Esquema do evento](event-schema-iot-hub.md) | Mostra campos em eventos do IoT Hub. |
 | [Encomendar dispositivo conectado e dispositivo eventos desligados](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Mostra como encomendar eventos estatais de ligação do dispositivo. |
@@ -129,7 +129,7 @@ Subscreva os eventos da Service Bus para responder a mensagens sem um ouvinte at
 | [Visão geral: Ônibus de serviço Azure para integração da Rede de Eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do ônibus de serviço com grelha de eventos. |
 | [Esquema do evento](event-schema-service-bus.md) | Mostra campos em eventos de ônibus de serviço. |
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 Subscreva os eventos blob Storage para responder a eventos blob criados e apagados.
 

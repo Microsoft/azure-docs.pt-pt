@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60691103"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
@@ -33,9 +33,9 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
 ## <a name="steps"></a>Passos 
 
-1. Aceda ao painel de gestão para a sua conta de NetApp e, em seguida, no painel de navegação, clique em **conjuntos de capacidade**.  
+1. Vá à lâmina de gestão da sua conta NetApp e, em seguida, a partir do painel de navegação, clique em **piscinas de capacidade**.  
     
-    ![Navegue para o conjunto de capacidade](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
+    ![Navegar para piscina de capacidade](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
 2. Clique em **+ Adicionar conjuntos** para criar um novo conjunto de capacidade.   
     É apresentada a janela Novo Conjunto de Capacidade.
@@ -47,7 +47,7 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
    * **Nível de serviço**   
      Este campo mostra o objetivo de desempenho do conjunto de capacidade.  
-     Especifica o nível de serviço para o conjunto de capacidade: [**Premium** ](azure-netapp-files-service-levels.md#Premium) ou [ **padrão**](azure-netapp-files-service-levels.md#Standard).
+     Especifique o nível de serviço para o conjunto de capacidades: [**Premium**](azure-netapp-files-service-levels.md#Premium) ou [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
    * **Tamanho**     
      Especifique o tamanho do conjunto de capacidade que está a comprar.        
@@ -57,8 +57,8 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
 4. Clique em **OK**.
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
-- [Níveis de serviço para os ficheiros do Azure NetApp](azure-netapp-files-service-levels.md)
-- Consulte a [ficheiros do Azure NetApp página de preços](https://azure.microsoft.com/pricing/details/storage/netapp/) pelo preço de níveis de serviço diferentes
-- [Delegar uma sub-rede para ficheiros do Azure NetApp](azure-netapp-files-delegate-subnet.md)
+- [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
+- Consulte a página de preços dos [Ficheiros Azure NetApp](https://azure.microsoft.com/pricing/details/storage/netapp/) para o preço dos diferentes níveis de serviço
+- [Delegar uma sub-rede para os Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

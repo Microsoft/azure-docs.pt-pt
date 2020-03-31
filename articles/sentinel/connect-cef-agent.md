@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
 ms.openlocfilehash: b0c9335357cb793ea76e1dbe68575f716a50372a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588472"
 ---
 # <a name="step-1-deploy-the-agent"></a>Passo 1: Implementar o agente
@@ -36,7 +36,7 @@ Neste passo, você precisa selecionar a máquina Linux que funcionará como um p
 1. Em **instalação e configurar o agente Syslog,** selecione o seu tipo de máquina, seja Azure, outra nuvem ou no local. 
    > [!NOTE]
    > Uma vez que o script no próximo passo instala o agente Log Analytics e liga a máquina ao seu espaço de trabalho Azure Sentinel, certifique-se de que esta máquina não está ligada a qualquer outro espaço de trabalho.
-1. Deve ter permissões elevadas (sudo) na sua máquina. Certifique-se de que tem Python na sua máquina utilizando o seguinte comando: `python –version`
+1. Deve ter permissões elevadas (sudo) na sua máquina. Certifique-se de que tem python na sua máquina utilizando o seguinte comando:`python –version`
 
 1. Execute o seguinte guião na sua máquina de procuração.
    `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`

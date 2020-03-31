@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 59c1b6e6c281a736a79d110bd7d943344bcd5130
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840983"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar auditoria da NSG com visão do grupo De segurança do Observador da Rede Azure
@@ -32,13 +32,13 @@ Se não estiver familiarizado com os Grupos de Segurança da Rede, consulte a [v
 
 Neste cenário, compara-se uma boa linha de base conhecida com os resultados de visualização do grupo de segurança devolvidos para uma máquina virtual.
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede. O cenário também pressupõe que existe um Grupo de Recursos com uma máquina virtual válida para ser utilizado.
+Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que existe um Grupo de Recursos com uma máquina virtual válida para ser utilizado.
 
 ## <a name="scenario"></a>Cenário
 
 O cenário abordado neste artigo obtém a visão do grupo de segurança para uma máquina virtual.
 
-Nesse cenário, você irá:
+Neste cenário, irá:
 
 - Recuperar um conjunto de regras de boa regra conhecido
 - Recupere uma máquina virtual com API de descanso
@@ -47,7 +47,7 @@ Nesse cenário, você irá:
 
 ## <a name="retrieve-rule-set"></a>Recuperar conjunto de regras
 
-O primeiro passo neste exemplo é trabalhar com uma linha de base existente. O exemplo seguinte é um json extraído de um grupo de segurança de rede existente usando o `Get-AzNetworkSecurityGroup` cmdlet que é usado como base para este exemplo.
+O primeiro passo neste exemplo é trabalhar com uma linha de base existente. O exemplo seguinte é um json extraído de um `Get-AzNetworkSecurityGroup` grupo de segurança de rede existente usando o cmdlet que é usado como base para este exemplo.
 
 ```json
 [
@@ -124,7 +124,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Observador de rede de recuperação
 
-O próximo passo é recuperar a instância do Observador da Rede. A variável `$networkWatcher` é passada para o `AzNetworkWatcherSecurityGroupView` cmdlet.
+O próximo passo é recuperar a instância do Observador da Rede. A `$networkWatcher` variável é `AzNetworkWatcherSecurityGroupView` passada para o cmdlet.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -132,7 +132,7 @@ $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network
 
 ## <a name="get-a-vm"></a>Obter um VM
 
-É necessária uma máquina virtual para executar a `Get-AzNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo que se segue recebe um objeto VM.
+É necessária uma máquina virtual `Get-AzNetworkWatcherSecurityGroupView` para passar o cmdlet contra. O exemplo que se segue recebe um objeto VM.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
@@ -150,7 +150,7 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 A resposta é agrunada por interfaces de rede. Os diferentes tipos de regras devolvidas são regras de segurança eficazes e predefinidas. O resultado é ainda desfeito pela forma como é aplicado, seja numa subneta ou num NIC virtual.
 
-O seguinte script PowerShell compara os resultados da Visão de Grupo de Segurança a uma saída existente de um NSG. O exemplo que se segue é um simples exemplo de como os resultados podem ser comparados com `Compare-Object` cmdlet.
+O seguinte script PowerShell compara os resultados da Visão de Grupo de Segurança a uma saída existente de um NSG. O exemplo que se segue é um simples `Compare-Object` exemplo de como os resultados podem ser comparados com cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `

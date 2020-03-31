@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987027"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar com ferramentas de base de dados elásticas
@@ -72,7 +72,7 @@ Para adicionar a biblioteca de clientes ao seu próprio projeto Maven, adicione 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Estúdio Visual 2012 C#ou mais tarde com . Faça o download de uma versão gratuita no [Visual Studio Downloads.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* Estúdio Visual 2012 ou mais tarde com C#. Faça o download de uma versão gratuita no [Visual Studio Downloads.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * NuGet 2.7 ou mais tarde. Para obter a versão mais recente, consulte [Instalar nuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Descarregue e execute a aplicação de amostra
@@ -83,11 +83,11 @@ Para descarregar e executar a amostra, siga estes passos:
 
 1. Descarregue as [ferramentas ELÁSTICAS DB para Azure SQL - Começar](https://github.com/Azure/elastic-db-tools)a amostra . Desaperte a amostra para um local que escolher.
 
-2. Para criar um projeto, abra a solução *ElasticScaleStarterStarter.sln* a *C#* partir do diretório.
+2. Para criar um projeto, abra a solução *ElasticScaleStarterStarter.sln* a partir do diretório *C#.*
 
 3. Na solução para o projeto da amostra, abra o ficheiro *app.config.* Em seguida, siga as instruções no ficheiro para adicionar o nome do seu servidor de base de dados Azure SQL e as suas informações de início de sessão (nome de utilizador e palavra-passe).
 
-4. Construa e execute a aplicação. Quando for solicitado, ative o Visual Studio a restaurar os pacotes NuGet da solução. Esta ação descarrega a versão mais recente da biblioteca de clientes de base de dados elástica da NuGet.
+4. Compile e execute a aplicação. Quando for solicitado, ative o Visual Studio a restaurar os pacotes NuGet da solução. Esta ação descarrega a versão mais recente da biblioteca de clientes de base de dados elástica da NuGet.
 
 5. Para saber mais sobre as capacidades da biblioteca do cliente, experimente as várias opções. Note os passos que a aplicação toma na saída da consola e sinta-se livre para explorar o código nos bastidores.
    
