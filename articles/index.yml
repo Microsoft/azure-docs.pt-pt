@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: e3d9f63d2f365d5f91f205dc57b1d28e42711403
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 015631efc0077bdaab9a335b4a38fbf4f927e22d
+  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "80129808"
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80286018"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -32,7 +32,7 @@ highlightedContent:
     url: https://docs.microsoft.com/azure/cloud-adoption-framework/
   - title: Desenvolva as suas competências com o Microsoft Learn
     itemType: learn
-    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
+    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
 productDirectory:
   title: Procurar produtos do Azure
   items:
@@ -1173,7 +1173,7 @@ productDirectory:
     azureCategories:
     - storage
     url: azure-netapp-files/index.yml
-  - title: Armazenamento de Blobs
+  - title: Blob Storage
     summary: Armazenamento de objetos baseados em REST para dados não estruturados
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:
@@ -1185,7 +1185,7 @@ productDirectory:
     azureCategories:
     - storage
     url: virtual-machines/windows/managed-disks-overview.md
-  - title: File Storage
+  - title: Armazenamento de Ficheiros
     summary: Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:

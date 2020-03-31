@@ -11,14 +11,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 03/04/2020
+  ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: 0071d4da31e4739ccf53e9570bc7d0ed61c01bc4
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: f047af5d14ed6b18c559f814b35d730ba7ce0f6a
+  ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943324"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80244329"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -37,15 +37,15 @@ conceptualContent:
   items:
   - title: Conversão de voz em texto
     links:
+    - itemType: how-to-guide
+      text: Noções básicas do reconhecimento de voz
+      url: speech-to-text-basics.md
     - itemType: quickstart
       text: Reconhecer voz a partir de um microfone
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
-      text: Reconhecer voz no modo de lote
-      url: batch-transcription.md
-    - itemType: how-to-guide
-      text: Personalizar o reconhecimento de voz para as suas aplicações
-      url: how-to-custom-speech.md
+      text: Reconhecer a voz a partir de um ficheiro de áudio
+      url: quickstarts/speech-to-text-from-file.md
     footerLink:
       text: Ver mais
       url: index-speech-to-text.yml
@@ -94,10 +94,10 @@ conceptualContent:
   - title: Cenários de conversas
     links:
     - itemType: overview
-      text: Sobre Transcrição de Conversas
+      text: Sobre a Transcrição de Conversas (reuniões)
       url: conversation-transcription.md
     - itemType: overview
-      text: Sobre conversas em vários dispositivos
+      text: Sobre as conversas em vários dispositivos (reuniões)
       url: multi-device-conversation.md
     - itemType: how-to-guide
       text: Transcrição de centros de atendimento telefónico
@@ -152,9 +152,6 @@ conceptualContent:
     - itemType: how-to-guide
       text: Migrar da Voz do Bing
       url: how-to-migrate-from-bing-speech.md
-    - itemType: how-to-guide
-      text: Migrar do serviço de Discurso Personalizado
-      url: how-to-migrate-from-custom-speech-service.md
     - itemType: how-to-guide
       text: Migrar da API de Tradução de Voz
       url: how-to-migrate-from-translator-speech-api.md

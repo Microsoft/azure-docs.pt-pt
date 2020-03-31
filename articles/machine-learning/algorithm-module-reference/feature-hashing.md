@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456255"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência do módulo hashing de recurso
 
@@ -94,7 +94,7 @@ As saídas numéricas também tornam possível a utilização de métodos comuns
 
     Por exemplo, se introduzir 3, unigramas, bigrams e trigramas serão criados.
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
 ## <a name="results"></a>Resultados
 

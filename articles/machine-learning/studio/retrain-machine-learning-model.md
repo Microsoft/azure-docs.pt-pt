@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
 ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217942"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retree e implante um modelo de aprendizagem automática
@@ -33,7 +33,7 @@ Seguirá estes passos para retreinar e implementar um novo serviço web de apren
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="deploy-the-retraining-web-service"></a>Implementar o serviço web reparametrização
+## <a name="deploy-the-retraining-web-service"></a>Implementar o serviço web de reconversão
 
 Um serviço web de reconversão permite-lhe retreinar o seu modelo com um novo conjunto de parâmetros, como novos dados, e guardá-lo para mais tarde. Quando liga uma saída de **serviço web** a um modelo de **comboio,** a experiência de treino produz um novo modelo para utilizar.
 
@@ -51,22 +51,22 @@ Utilize os seguintes passos para implementar um serviço web de reconversão:
     Agora, você implementa a experiência de treino como um serviço web de reconversão que produz um modelo treinado e resultados de avaliação de modelos.
 
 1. Na parte inferior da tela de experiência, clique em **Configurar o Serviço Web**
-1. Selecione **implementar o Serviço Web [Novo]** . O portal Azure Machine Learning Web Services abre para a página **de Serviço Web de implantação.**
+1. Selecione **implementar o Serviço Web [Novo]**. O portal Azure Machine Learning Web Services abre para a página **de Serviço Web de implantação.**
 1. Digite um nome para o seu serviço web e escolha um plano de pagamento.
 1. Selecione **Implementar**.
 
 ## <a name="retrain-the-model"></a>Retreinar o modelo
 
-Para este exemplo, estamos C# a usar para criar a aplicação de reconversão. Também pode utilizar o código de amostra Python ou R para realizar esta tarefa.
+Para este exemplo, estamos a usar C# para criar a aplicação de reconversão. Também pode utilizar o código de amostra Python ou R para realizar esta tarefa.
 
 Utilize os seguintes passos para chamar as APIs de reconversão:
 
-1. Crie C# uma aplicação de consola no Estúdio Visual: **New** > **Project** > Visual >  **C# Visual** **Windows Classic Desktop** > Console App **(.NET Framework)** .
+1. Crie uma aplicação de consola C# no Estúdio Visual: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 1. Inscreva-se no portal de Serviços Web de Aprendizagem automática.
 1. Clique no serviço web com o qual está a trabalhar.
 1. Clique **em Consumir**.
 1. Na parte inferior da página **Consumir,** na secção Código da **Amostra,** clique **em Lote**.
-1. Copie C# o código da amostra para a execução do lote e cole-o no ficheiro Program.cs. Certifique-se de que o espaço de nome permanece intacto.
+1. Copie o código C# da amostra para a execução do lote e cole-o no ficheiro Program.cs. Certifique-se de que o espaço de nome permanece intacto.
 
 Adicione o pacote NuGet Microsoft.AspNet.WebApi.Client, conforme especificado nos comentários. Para adicionar a referência a Microsoft.WindowsAzure.Storage.dll, poderá ser necessário instalar a [biblioteca de clientes para serviços](https://www.nuget.org/packages/WindowsAzure.Storage)de armazenamento Azure .
 
@@ -82,13 +82,13 @@ Localize a declaração de **apiás:**
 
 Na secção de **informação** de consumo básico da página **Consumir,** localize a chave primária e copie-a para a declaração de **apios.**
 
-### <a name="update-the-azure-storage-information"></a>Atualizar as informações de armazenamento do Azure
+### <a name="update-the-azure-storage-information"></a>Atualizar as informações de Armazenamento Azure
 
 O código de amostra bes envia um ficheiro de uma unidade local (por exemplo, "C:\temp\CensusInput.csv") para o Armazenamento Azure, processa-o e escreve os resultados de volta ao Armazenamento Azure.
 
 1. Iniciar sessão no portal do Azure
 1. Na coluna de navegação à esquerda, clique em **Mais serviços,** procure **contas de Armazenamento**e selecione-as.
-1. Na lista de contas de armazenamento, selecione um para armazenar o modelo retrained.
+1. A partir da lista de contas de armazenamento, selecione uma para armazenar o modelo retreinado.
 1. Na coluna de navegação à esquerda, clique nas **teclas de acesso**.
 1. Copiar e guardar a **chave de acesso primário**.
 1. Na coluna de navegação esquerda, clique em **Blobs**.
@@ -102,9 +102,9 @@ Localize as declarações de *StorageAccountName*, *StorageAccountKey*e *Storage
 
 Deve também certificar-se de que o ficheiro de entrada está disponível no local que especifica no código.
 
-### <a name="specify-the-output-location"></a>Especifique a localização de saída
+### <a name="specify-the-output-location"></a>Especificar a localização de saída
 
-Quando especificar a localização de saída na Carga Útil do Pedido, a extensão do ficheiro especificado no *RelativoLocalização* deve ser especificada como `ilearner`.
+Quando especificar a localização de saída na Carga Útil do Pedido, a extensão do `ilearner`ficheiro especificado no *RelativoLocalização* deve ser especificada como .
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
@@ -118,7 +118,7 @@ Quando especificar a localização de saída na Carga Útil do Pedido, a extens�
 
 Eis um exemplo de reconversão da produção:
 
-![Saída de reparametrização](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Reconversão da produção](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Avaliar os resultados da reconversão
 
@@ -142,7 +142,7 @@ Em seguida, obtenha o objeto de Definição de Serviço Web, chamando o cmdlet [
 
     $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Para determinar o nome do grupo de recursos de um serviço web existente, execute o cmdlet Get-AzMlWebService sem quaisquer parâmetros para exibir os serviços web na sua subscrição. Localize o serviço web e, em seguida, examinar sua ID de serviço web. O nome do grupo de recursos é o quarto elemento no ID, logo após o elemento *recursosGroup.* No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
+Para determinar o nome do grupo de recursos de um serviço web existente, execute o cmdlet Get-AzMlWebService sem quaisquer parâmetros para exibir os serviços web na sua subscrição. Localize o serviço web e, em seguida, olhe para o seu ID de serviço web. O nome do grupo de recursos é o quarto elemento no ID, logo após o elemento *recursosGroup.* No exemplo seguinte, o nome do grupo de recursos é Default-MachineLearning-SouthCentralUS.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -151,7 +151,7 @@ Para determinar o nome do grupo de recursos de um serviço web existente, execut
     Type : Microsoft.MachineLearning/webServices
     Tags : {}
 
-Alternativamente, para determinar o nome do grupo de recursos de um serviço web existente, inscreva-se no portal Azure Machine Learning Web Services. Selecione o serviço web. O nome do grupo de recursos é o quinto elemento do URL do serviço web, logo após o elemento *recursosGroup.* No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
+Alternativamente, para determinar o nome do grupo de recursos de um serviço web existente, inscreva-se no portal Azure Machine Learning Web Services. Selecione o serviço web. O nome do grupo de recursos é o quinto elemento do URL do serviço web, logo após o elemento *recursosGroup.* No exemplo seguinte, o nome do grupo de recursos é Default-MachineLearning-SouthCentralUS.
 
     https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
@@ -195,4 +195,4 @@ Por fim, utilize o cmdlet [Update-AzMlWebService](https://docs.microsoft.com/pow
 Para saber mais sobre como gerir os serviços web ou acompanhar as várias experiências, consulte os seguintes artigos:
 
 * [Explore o portal de Serviços Web](manage-new-webservice.md)
-* [Gerir iterações de experimentação](manage-experiment-iterations.md)
+* [Gerir iterações das experimentações](manage-experiment-iterations.md)

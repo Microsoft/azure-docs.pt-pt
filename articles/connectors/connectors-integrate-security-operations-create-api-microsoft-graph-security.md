@@ -1,6 +1,6 @@
 ---
-title: Integrar e gerir operações de segurança e segurança do gráfico da Microsoft
-description: Melhore a proteção, deteção e resposta de ameaças da sua aplicação com aplicações lógicas de segurança e azure do Microsoft Graph
+title: Integrar e gerir operações de segurança & Microsoft Graph Security
+description: Melhore a proteção, deteção e resposta de ameaça da sua aplicação com as Aplicações lógicas & Azure Da Microsoft Graph Security
 services: logic-apps
 ms.suite: integration
 author: preetikr
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598838"
 ---
-# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com aplicações lógicas de segurança e azure do Microsoft Graph
+# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com as aplicações lógicas do Microsoft Graph Security & Azure Logic
 
 Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o conector [Microsoft Graph Security,](https://docs.microsoft.com/graph/security-concept-overview) pode melhorar a forma como a sua aplicação deteta, protege e responde a ameaças através da criação de fluxos de trabalho automatizados para integrar produtos, serviços e parceiros de segurança da Microsoft. Por exemplo, pode criar [playbooks do Azure Security Center](../security-center/security-center-playbooks.md) que monitorizam e gerem entidades de Segurança do Microsoft Graph, como alertas. Aqui estão alguns cenários que são suportados pelo conector microsoft Graph Security:
 
@@ -36,19 +36,19 @@ Para saber mais sobre a Segurança do Microsoft Graph, consulte a visão geral d
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Para utilizar o conector microsoft graph security, deve ter *dado explicitamente* o consentimento do administrador do administrador do Azure Ative Directory (AD), que faz parte dos requisitos de [autenticação](https://aka.ms/graphsecurityauth)de segurança do Microsoft Graph Security . Este consentimento requer o ID e o nome do conector microsoft Graph Security, que também pode encontrar no [portal Azure:](https://portal.azure.com)
+* Para utilizar o conector de Segurança do Microsoft Graph, tem de lhe ser *dado explicitamente* o consentimento de um administrador de inquilinos do Azure Active Directory (AD), o que faz parte dos [requisitos da Autenticação de Segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Este consentimento requer o ID e o nome do conector microsoft Graph Security, que também pode encontrar no [portal Azure:](https://portal.azure.com)
 
   | Propriedade | Valor |
   |----------|-------|
-  | **Nome da candidatura** | `MicrosoftGraphSecurityConnector` |
+  | **Nome da Aplicação** | `MicrosoftGraphSecurityConnector` |
   | **ID de aplicação** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
   |||
 
   Para conceder o consentimento para o conector, o seu administrador de inquilino da AD Azure pode seguir qualquer uma destas etapas:
 
-  * [Conceda o consentimento do administrador inquilino para os pedidos da Azure AD.](../active-directory/develop/v2-permissions-and-consent.md)
+  * [Dar consentimento ao administrador de inquilinos para as aplicações do Azure AD](../active-directory/develop/v2-permissions-and-consent.md).
 
-  * Durante a primeira execução da sua aplicação lógica, a sua aplicação pode solicitar o consentimento do seu administrador de inquilino da AD Azure através da experiência de consentimento da [aplicação](../active-directory/develop/application-consent-experience.md).
+  * Durante a primeira execução da sua aplicação lógica, a mesma poderá pedir o consentimento do seu administrador de inquilinos do Azure AD através da [experiência de consentimento da aplicação](../active-directory/develop/application-consent-experience.md).
    
 * Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -94,9 +94,9 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
    | Propriedade | Propriedade (JSON) | Necessário | Tipo | Descrição |
    |----------|-----------------|----------|------|-------------|
    | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve a frequência com que o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
-   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana,** ou **Mês** |
-   | **Time zone** (Fuso horário) | `timeZone` | Não | String | Aplica-se apenas quando especifica um tempo de início porque este gatilho não aceita [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
-   | **Start time** (Hora de início) | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p><p>YYYY-MM-DDThh:mm:ss se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de setembro de 2017 às 14:00, especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Tempo Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem fuso horário. <p>**Nota:** Esta hora de início tem um máximo de 49 anos no futuro e deve seguir a especificação de [data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data utc,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [uma compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente . <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as formas de usar a data e a hora de início?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Frequência** | `frequency` | Sim | Cadeia | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana,** ou **Mês** |
+   | **Time zone** (Fuso horário) | `timeZone` | Não | Cadeia | Aplica-se apenas quando especifica um tempo de início porque este gatilho não aceita [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
+   | **Start time** (Hora de início) | `startTime` | Não | Cadeia | Forneça uma data e hora de início neste formato: <p><p>YYYY-MM-DDThh:mm:ss se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de setembro de 2017 às 14:00, especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Tempo Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem fuso horário. <p>**Nota:** Esta hora de início tem um máximo de 49 anos no futuro e deve seguir a especificação de [data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data utc,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [uma compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente . <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as formas de usar a data e a hora de início?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  Quando terminar, na barra de ferramentas de design, selecione **Save**.
@@ -109,7 +109,7 @@ Aqui estão mais detalhes específicos sobre a utilização das várias ações 
 
 ### <a name="manage-alerts"></a>Gerir alertas
 
-Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL base completo ou a ação HTTP, por exemplo, `https://graph.microsoft.com/v1.0/security/alerts`, ou a `GET` ou `PATCH` operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação **de alertas Get** quando você quer uma lista com alertas de alta gravidade:
+Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL base completo ou `https://graph.microsoft.com/v1.0/security/alerts`a `GET` ação `PATCH` HTTP, por exemplo, ou a ou operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação **de alertas Get** quando você quer uma lista com alertas de alta gravidade:
 
 `Filter alerts value as Severity eq 'high'`
 
@@ -117,14 +117,14 @@ Para obter mais informações sobre as consultas que pode utilizar com este cone
 
 | Ação | Descrição |
 |--------|-------------|
-| **Receba alertas** | Receba alertas filtrados com base numa ou mais propriedades de [alerta,](https://docs.microsoft.com/graph/api/resources/alert)por exemplo, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
+| **Receba alertas** | Receba alertas filtrados com base numa ou `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`mais propriedades de [alerta,](https://docs.microsoft.com/graph/api/resources/alert)por exemplo, . | 
 | **Receba alerta por ID** | Receba um alerta específico com base na identificação do alerta. | 
 | **Alerta de atualização** | Atualize um alerta específico com base no ID de alerta. Para se certificar de que passa as propriedades necessárias e editáveis a seu pedido, consulte as [propriedades editáveis para alertas](https://docs.microsoft.com/graph/api/alert-update). Por exemplo, para atribuir um alerta a um analista de segurança para que possam investigar, pode atualizar o alerta **atribuído à** propriedade. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>Gerir subscrições de alerta
 
-O Microsoft Graph suporta [*subscrições*](https://docs.microsoft.com/graph/api/resources/subscription), ou [*webhooks.* ](https://docs.microsoft.com/graph/api/resources/webhooks) Para obter, atualizar ou eliminar subscrições, fornecer os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) para a construção da entidade do Microsoft Graph e incluem `security/alerts` seguido seguem-se a consulta ODATA. *Não inclua* o URL base, por exemplo, `https://graph.microsoft.com/v1.0`. Em vez disso, utilize o formato neste exemplo:
+O Microsoft Graph suporta [*subscrições*](https://docs.microsoft.com/graph/api/resources/subscription), ou [*webhooks.*](https://docs.microsoft.com/graph/api/resources/webhooks) Para obter, atualizar ou eliminar subscrições, fornecer os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) para a construção da entidade do Microsoft Graph e incluir `security/alerts` seguido seguem-se a consulta ODATA. *Não inclua* o URL base, `https://graph.microsoft.com/v1.0`por exemplo, . Em vez disso, utilize o formato neste exemplo:
 
 `security/alerts?$filter=status eq 'New'`
 
@@ -132,13 +132,13 @@ O Microsoft Graph suporta [*subscrições*](https://docs.microsoft.com/graph/api
 |--------|-------------|
 | **Criar subscrições** | [Crie uma subscrição](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) que o notifique sobre quaisquer alterações. Pode filtrar esta subscrição para os tipos de alerta específicos que pretende. Por exemplo, pode criar uma subscrição que o notifique sobre alertas de alta gravidade. |
 | **Obtenha subscrições ativas** | [Obtenha subscrições não expiradas.](https://docs.microsoft.com/graph/api/subscription-list) | 
-| **Atualizar subscrição** | [Atualize uma subscrição](https://docs.microsoft.com/graph/api/subscription-update) fornecendo o ID de subscrição. Por exemplo, para estender a sua subscrição, pode atualizar a propriedade `expirationDateTime` da subscrição. | 
-| **Excluir subscrição** | [Eliminar uma subscrição](https://docs.microsoft.com/graph/api/subscription-delete) fornecendo o ID de subscrição. | 
+| **Atualizar subscrição** | [Atualize uma subscrição](https://docs.microsoft.com/graph/api/subscription-update) fornecendo o ID de subscrição. Por exemplo, para estender a sua subscrição, pode atualizar a propriedade da `expirationDateTime` subscrição. | 
+| **Eliminar subscrição** | [Eliminar uma subscrição](https://docs.microsoft.com/graph/api/subscription-delete) fornecendo o ID de subscrição. | 
 ||| 
 
 ### <a name="manage-threat-intelligence-indicators"></a>Gerir indicadores de inteligência de ameaças
 
-Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL base completo ou a ação HTTP, por exemplo, `https://graph.microsoft.com/beta/security/tiIndicators`, ou a `GET` ou `PATCH` operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação **Get tiIndicators** quando você quer uma lista que tem o tipo de ameaça `DDoS`:
+Para filtrar, classificar ou obter os resultados mais recentes, fornecer *apenas* os parâmetros de [consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* o URL base completo ou `https://graph.microsoft.com/beta/security/tiIndicators`a `GET` ação `PATCH` HTTP, por exemplo, ou a ou operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação Get `DDoS` **tiIndicators** quando você quer uma lista que tem o tipo de ameaça:
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
@@ -146,7 +146,7 @@ Para obter mais informações sobre as consultas que pode utilizar com este cone
 
 | Ação | Descrição |
 |--------|-------------|
-| **Obtenha indicadores de inteligência de ameaça** | Obtenha os tiIndicators filtrados com base em uma ou mais [propriedades tiIndicator](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta), por exemplo, `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Obtenha indicadores de inteligência de ameaça** | Obter indicadores de tiIndicators filtrados com base em uma ou mais [propriedades tiIndicator,](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta)por exemplo,`threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Obtenha indicador de inteligência de ameaça por ID** | Obtenha um tiIndicator específico com base no ID do tiIndicator. | 
 | **Criar indicador de inteligência de ameaça** | Crie um novo tiIndicator colocando na coleção tiIndicators. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as [propriedades necessárias para criar o tiIndicator](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
 | **Submeta vários indicadores de inteligência de ameaça** | Crie vários novos tiIndicators publicando uma coleção de tiIndicators. Para se certificar de que passa as propriedades necessárias a seu pedido, consulte as propriedades necessárias para a apresentação de [vários tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |

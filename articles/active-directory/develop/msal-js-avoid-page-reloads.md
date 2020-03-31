@@ -14,28 +14,28 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084950"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evite recargas de página ao adquirir e renovar tokens silenciosamente usando MSAL.js
-A Microsoft Authentication Library for JavaScript (MSAL.js) utiliza elementos `iframe` escondidos para adquirir e renovar tokens silenciosamente em segundo plano. A Azure AD devolve o token ao redirect_uri registado especificado no pedido simbólico (por padrão, esta é a página raiz da aplicação). Uma vez que a resposta é um 302, resulta no HTML correspondente ao `redirect_uri` ser carregado no `iframe`. Normalmente, o `redirect_uri` da aplicação é a página raiz e isso faz com que seja recarregado.
+A Microsoft Authentication Library for JavaScript (MSAL.js) utiliza elementos ocultos `iframe` para adquirir e renovar tokens silenciosamente em segundo plano. A Azure AD devolve o token ao redirect_uri registado especificado no pedido simbólico (por padrão, esta é a página raiz da aplicação). Uma vez que a resposta é um 302, resulta no HTML correspondente ao `redirect_uri` carregamento na `iframe`. Normalmente, a `redirect_uri` aplicação é a página raiz e isso faz com que seja recarregada.
 
-Noutros casos, se navegar para a página raiz da aplicação requer autenticação, pode levar a elementos `iframe` aninhadas ou `X-Frame-Options: deny` erro.
+Noutros casos, se navegar para a página raiz da aplicação requer `iframe` autenticação, pode levar a elementos ou `X-Frame-Options: deny` erros aninhados.
 
-Uma vez que a MSAL.js não pode descartar os 302 emitidos pela Azure AD e é obrigado a processar o símbolo devolvido, não pode impedir que o `redirect_uri` seja carregado na `iframe`.
+Uma vez que a MSAL.js não pode descartar os 302 emitidos pela Azure `redirect_uri` AD e `iframe`é obrigado a processar o símbolo devolvido, não pode impedir que o seu carregado no .
 
 Para evitar a recarga de toda a aplicação ou outros erros causados por isso, siga estas seleções.
 
 ## <a name="specify-different-html-for-the-iframe"></a>Especificar HTML diferente para o iframe
 
-Delineie a propriedade `redirect_uri` em config para uma página simples, que não requer autenticação. Tem de se certificar de que corresponde ao `redirect_uri` registado no portal Azure. Isto não afetará a experiência de login do utilizador, uma vez que o MSAL guarda a página de início quando o utilizador iniciar o processo de login e redireciona de volta para o local exato após o início do login.
+Coloque `redirect_uri` a propriedade em config numa página simples, que não requer autenticação. Tem de se certificar de `redirect_uri` que corresponde ao registado no portal Azure. Isto não afetará a experiência de login do utilizador, uma vez que o MSAL guarda a página de início quando o utilizador iniciar o processo de login e redireciona de volta para o local exato após o início do login.
 
 ## <a name="initialization-in-your-main-app-file"></a>Inicialização no seu ficheiro principal de aplicação
 
-Se a sua aplicação estiver estruturada de modo a existir um ficheiro Javascript central que define a inicialização, encaminhamento e outras coisas da aplicação, pode carregar condicionalmente os módulos da sua aplicação com base no facto de a aplicação estar a carregar num `iframe` ou não. Por exemplo:
+Se a sua aplicação estiver estruturada de modo a existir um ficheiro Javascript central que define a inicialização, encaminhamento e outras coisas `iframe` da aplicação, pode carregar condicionalmente os módulos da sua aplicação com base no facto de a aplicação estar a carregar ou não. Por exemplo:
 
 Em AngularJS: app.js
 

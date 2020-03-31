@@ -9,31 +9,31 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184229"
 ---
-Abrir uma porta ou criar um ponto de extremidade, a uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou uma interface de rede VM. Estes filtros que controlam o tráfego de entrada e saído, coloca num grupo de segurança de rede anexado ao recurso que recebe o tráfego.
+Abre uma porta, ou cria um ponto final, para uma máquina virtual (VM) em Azure, criando um filtro de rede numa subnet ou numa interface de rede VM. Coloca estes filtros, que controlam o tráfego de entrada e saída, num grupo de segurança da rede ligado ao recurso que recebe o tráfego.
 
-O exemplo neste artigo demonstra como criar um filtro de rede que utiliza a porta TCP 80 (presume-se já a utilizar os serviços apropriados e aberto quaisquer regras de firewall do SO na VM) padrão.
+O exemplo neste artigo demonstra como criar um filtro de rede que utiliza a porta Padrão TCP 80 (é assumido que já iniciou os serviços apropriados e abriu quaisquer regras de firewall solado no VM).
 
-Depois de criar uma VM que está configurada para atender solicitações da web na porta TCP padrão 80, pode:
+Depois de criar um VM configurado para servir pedidos web na porta padrão de TCP 80, pode:
 
 1. Crie um grupo de segurança de rede.
 
-2. Criar uma regra de segurança de entrada a permitir o tráfego e atribuir valores para as seguintes definições:
+2. Criar uma regra de segurança de entrada que permita o tráfego e atribuir valores às seguintes definições:
 
-   - **Intervalos de portas de destino**: 80
+   - **Gamas de porta de destino**: 80
 
-   - **Intervalos de portas de origem**: * (permite que qualquer porta de origem)
+   - **Gamas**de porta de origem: * (permite qualquer porta de origem)
 
-   - **Valor de prioridade**: Introduza um valor que é menor do que a regra de entrada de negação de 65,500 e superior numa prioridade de que não o predefinido catch-all.
+   - **Valor prioritário**: Introduza um valor inferior a 65.500 e superior em prioridade do que a regra de entrada por defeito.
 
-3. Associe o grupo de segurança de rede com a interface de rede VM ou a sub-rede.
+3. Associe o grupo de segurança da rede com a interface ou sub-rede vM.
 
-Embora esse exemplo usa uma regra simples para permitir o tráfego HTTP, também pode utilizar grupos de segurança de rede e regras para criar configurações de rede mais complexas. 
+Embora este exemplo utilize uma regra simples para permitir o tráfego HTTP, também pode usar grupos e regras de segurança de rede para criar configurações de rede mais complexas. 
 
 
 

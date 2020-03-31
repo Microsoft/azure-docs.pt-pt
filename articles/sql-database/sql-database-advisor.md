@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: bd7473813722fd413947535413b98d493058634a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214144"
 ---
 # <a name="database-advisor-performance-recommendations-for-single-and-pooled-databases"></a>Recomendações de desempenho do Database Advisor para bases de dados individuais e reunidas
@@ -31,7 +31,7 @@ A visão geral do desempenho fornece um resumo do desempenho da sua base de dado
 - O azulejo **das Recomendações** fornece uma desagregação das recomendações de afinação para a sua base de dados (as três principais recomendações são mostradas se houver mais). Clicar neste azulejo leva-o às opções de recomendação de **[Desempenho.](sql-database-advisor-portal.md#viewing-recommendations)**
 - O azulejo da **atividade tuning** fornece um resumo das ações de afinação contínuas e completas para a sua base de dados, dando-lhe uma visão rápida do histórico da atividade de afinação. Clicar neste azulejo leva-o à visão completa do histórico de afinação para a sua base de dados.
 - O azulejo **de afinação automática** mostra a **[configuração de afinação automática](sql-database-automatic-tuning-enable.md)** para a sua base de dados (opções de afinação que são automaticamente aplicadas à sua base de dados). Clicar neste azulejo abre o diálogo de configuração da automatização.
-- As **consultas de base** de dados mostram o resumo do desempenho da consulta para a sua base de dados (utilização geral do DTU e consultas de consumo de recursos superiores). Clicar neste azulejo leva-o à **[Consulta Performance Insight](sql-database-query-performance.md)** .
+- As **consultas de base** de dados mostram o resumo do desempenho da consulta para a sua base de dados (utilização geral do DTU e consultas de consumo de recursos superiores). Clicar neste azulejo leva-o à **[Consulta Performance Insight](sql-database-query-performance.md)**.
 
 ## <a name="performance-recommendation-options"></a>Opções de recomendação de desempenho
 
