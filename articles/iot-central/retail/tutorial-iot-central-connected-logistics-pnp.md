@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: d7050cfdae2c726a3a5bd44b4399792a400572a3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77025525"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação logística conectado
@@ -37,7 +37,7 @@ Pode criar aplicação usando os seguintes passos
 1. Navegue para o site do gestor de aplicações Azure IoT Central. Selecione **Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador Retail.**
 
     > [!div class="mx-imgBorder"]
-    > ![](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png) de painel de logística conectado
+    > ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
 
 2. Selecione **Criar app** sob **aplicação logística conectada**
 
@@ -48,43 +48,43 @@ Pode criar aplicação usando os seguintes passos
    * **Criar**: Selecione criar na parte inferior da página para implementar a sua aplicação.
 
     > [!div class="mx-imgBorder"]
-    > ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png) de painel de logística conectado
+    > ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![connected Logistics info info](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
+    > ![Informação de faturação logística conectada](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
 
-## <a name="walk-through-the-application"></a>andar através da aplicação 
+## <a name="walk-through-the-application"></a>Caminhe pela aplicação 
 
 ## <a name="dashboard"></a>Dashboard
 
 Depois de implementar com sucesso o modelo de aplicação, o seu dashboard padrão é um portal focado no operador logístico conectado. Northwind Trader é um fornecedor de logística fictícia que gere a frota de carga no oceano e na terra. Neste painel, você verá dois gateways diferentes fornecendo telemetria sobre envios juntamente com comandos associados, empregos e ações que você pode fazer. Este dashboard é pré-configurado para mostrar a atividade crítica de operações de dispositivos logísticos.
 O painel de instrumentos está logicamente dividido entre duas diferentes operações de gestão de dispositivos gateway, 
    * A rota logística para envio de camiões e detalhes de localização do envio do oceano é um elemento essencial para todo o transporte multimodal
-   * Ver o estado do gateway e informações relevantes 
+   * Ver o estado do gateway & informações relevantes 
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png)
 
    * Pode rastrear facilmente o número total de gateways, etiquetas ativas e desconhecidas.
-   * Pode efetuar operações de gestão de dispositivos, tais como firmware de atualização, desativar o sensor, ativar o sensor, atualizar o limiar do sensor, atualizar intervalos de telemetria e atualizar contratos de serviço de dispositivos.
+   * Pode então fazer operações de gestão de dispositivos como firmware de atualização, desativar o sensor, ativar o sensor, atualizar o limiar do sensor, atualizar intervalos de telemetria, & atualizar os contratos de serviço do dispositivo.
    * Ver o consumo de bateria do dispositivo
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 
-Clique no separador de modelos do Dispositivo e verá o modelo de capacidade de gateway. Um modelo de capacidade é estruturado em torno de duas interfaces diferentes **Gateway Telemetria & Property** e **Gateway Commands**
+Clique no separador de modelos do Dispositivo e verá o modelo de capacidade de gateway. Um modelo de capacidade é estruturado em torno de duas interfaces diferentes **Gateway Telemetria & Property** e Gateway **Commands**
 
-**Gateway Telemettry & Property** - Esta interface representa toda a telemetria relacionada com sensores, localização e informações do dispositivo, bem como capacidade de propriedade dupla de dispositivos, tais como limiares de sensor e intervalos de atualização.
+**Gateway Telemettry & Property** - Esta interface representa toda a telemetria relacionada com sensores, localização e informações do dispositivo, bem como capacidade de propriedade dupla de dispositivos, tais como limiares de sensor & intervalos de atualização.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png)
 
 **Gateway Commands** - Esta interface organiza todas as capacidades de comando gateway
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png)
 
 ## <a name="rules"></a>Regras
 Selecione o separador de regras para ver duas regras diferentes que existem neste modelo de aplicação. Estas regras estão configuradas para notificações por e-mail aos operadores para mais investigações.
@@ -94,13 +94,13 @@ Selecione o separador de regras para ver duas regras diferentes que existem nest
 **Gateway sem resposta**: Esta regra será desencadeada se o portal não reportar à nuvem por um período prolongado. O gateway pode não responder devido ao modo de bateria baixa, perda de conectividade, saúde do dispositivo.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png)
 
 ## <a name="jobs"></a>Tarefas
 Selecione o separador de empregos para ver cinco empregos diferentes que existem como parte deste modelo de aplicação:
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
 
 Pode utilizar a funcionalidade de trabalho para fazer operações a nível de solução. Aqui os trabalhos estão a usar os comandos do dispositivo e a capacidade gémea para fazer tarefas como desativar sensores específicos em toda a porta de entrada ou modificar o limiar do sensor dependendo do modo de envio e da rota. 
    * É uma operação padrão para desativar os sensores de choque durante o transporte do oceano para conservar a bateria ou diminuir o limiar de temperatura durante o transporte em cadeia fria. 
@@ -108,10 +108,10 @@ Pode utilizar a funcionalidade de trabalho para fazer operações a nível de so
    * Os trabalhos permitem-lhe fazer operações em todo o sistema, tais como atualizar firmware nos gateways ou atualizar contrato de serviço para se manter atualizado em atividades de manutenção.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando **as definições** de > Aplicação **da Administração** e clique em **Eliminar**.
+Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando**as definições** de Aplicação de **Administração** > e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png) de painel de logística conectado
+> ![Painel logístico conectado](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o conceito de logística conectado](./architecture-connected-logistics-pnp.md)

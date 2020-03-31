@@ -1,5 +1,5 @@
 ---
-title: Configurar clusters em HDInsight com Apache Hadoop, Apache Spark, Apache Kafka, e muito mais
+title: Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 description: Configurar os clusters Hadoop, Kafka, Spark, HBase, R Server ou Storm para HDInsight a partir de um browser, o clássico AZURI, Azure PowerShell, REST ou SDK.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: b4922326b92efa88552eb100488a29fc53e1f914
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272321"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064656"
 ---
-# <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters em HDInsight com Apache Hadoop, Apache Spark, Apache Kafka, e muito mais
+# <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -32,14 +32,14 @@ A tabela que se segue mostra os diferentes métodos que pode utilizar para confi
 
 | Aglomerados criados com | Browser | Linha de comandos | API REST | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Fábrica de Dados Azure](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Modelos de Gestor de Recursos Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight utilizando a vista padrão ou *Classic*.
+Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight.
 
 ## <a name="basics"></a>Noções básicas
 
@@ -80,7 +80,7 @@ O Azure HDInsight fornece atualmente os seguintes tipos de cluster, cada um com 
 | [Kafka](kafka/apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para construir pipelines e aplicações de dados de streaming em tempo real |
 | [Serviços ML](r-server/r-server-overview.md) |Várias estatísticas de big data, modelação preditiva e capacidades de aprendizagem automática |
 | [Spark](spark/apache-spark-overview.md) |Processamento de memória, consultas interativas, processamento de fluxo de micro-lote |
-| [Tempestade](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
+| [Storm](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
 
 #### <a name="version"></a>Versão
 
@@ -91,22 +91,22 @@ Escolha a versão do HDInsight para este cluster. Para mais informações, consu
 Com os clusters HDInsight, pode configurar duas contas de utilizador durante a criação do cluster:
 
 * Nome de utilizador de login do cluster: O nome de utilizador predefinido é *administrador*. Utiliza a configuração básica no portal Azure. Às vezes chama-se "Utilizador do Cluster", ou "utilizador http".
-* Nome de utilizador secure Shell (SSH): Utilizado para ligar ao cluster através do SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Nome de utilizador secure Shell (SSH): Utilizado para ligar ao cluster através do SSH. Para mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 O nome de utilizador HTTP tem as seguintes restrições:
 
-* Personagens especiais permitidos: `_` e `@`
-* Personagens não permitidos: #;."",\/:'!*?$(){}[]<>&-=+~^espaço
+* Caracteres especiais `_` permitidos: e`@`
+* Personagens não permitidas:\/#;,"",,','!*?$(][]<>{}&-=+~~espaço
 * Comprimento máximo: 20
 
 O nome de utilizador SSH tem as seguintes restrições:
 
-* Personagens especiais permitidos:`_` e `@`
-* Personagens não permitidos: #;."",\/:'!*?$(){}[]<>&-=+~^espaço
+* Caracteres especiais`_` permitidos: e`@`
+* Personagens não permitidas:\/#;,"",,','!*?$(][]<>{}&-=+~~espaço
 * Comprimento máximo: 64
 * Nomes reservados: hadoop, utilizadores, oozie, colmeia, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarns, hcat, ams, hbase, storm, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 1, 123, a, actuser, adm, in2, aspnet, convidado, john, proprietário, raiz, servidor, sql, suporte, support_388945a0, sys, test2, test3, user4, user5, spark
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 ![Definições de armazenamento de cluster: pontos finais compatíveis com HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
 

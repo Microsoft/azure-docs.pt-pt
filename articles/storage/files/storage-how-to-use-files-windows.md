@@ -8,14 +8,14 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268148"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
-Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
+[Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
 
 Para utilizar uma partilha de ficheiros do Azure fora da região do Azure na qual está alojada, como, por exemplo, no local ou noutra região do Azure, o SO tem de suportar SMB 3.0. 
 
@@ -23,7 +23,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montável no Local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server de 2019 | SMB 3.0 | Sim | Sim |
+| Windows Server 2019 | SMB 3.0 | Sim | Sim |
 | Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
 | Canal semi-anual do Windows Server<sup>2</sup> | SMB 3.0 | Sim | Sim |
 | Windows Server 2016 | SMB 3.0 | Sim | Sim |
@@ -41,9 +41,9 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 > Recomendamos obter sempre o KB mais recente para a sua versão do Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-* **Nome da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa do nome da conta de armazenamento.
+* **Nome**da conta de armazenamento : Para montar uma partilha de ficheiros Azure, necessitará do nome da conta de armazenamento.
 
-* **Chave da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
+* **Chave da conta**de armazenamento : Para montar uma partilha de ficheiros Azure, necessitará da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
 
 * **Confirmar que a porta 445 está aberta**: o protocolo SMB requer que a porta TCP 445 esteja aberta; se estive bloqueada, as ligações falham. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. Você pode aprender sobre [várias maneiras de contornar a porta bloqueada 445 aqui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
@@ -231,7 +231,7 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 
 | Versão do Windows                           | Estado predefinido de SMB 1 | Método de Desativação/Remoção       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server de 2019                       | Desativado             | Funcionalidade Remover com o Windows |
+| Windows Server 2019                       | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server, versões 1709+            | Desativado             | Funcionalidade Remover com o Windows |
 | Windows 10, versões 1709+                | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server 2016                       | Ativado              | Funcionalidade Remover com o Windows |
@@ -300,8 +300,8 @@ Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o
 - [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Descobrir o SMB 1 no seu ambiente com DSCEA)
 - [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Desativar o SMB 1 através da Política de Grupo)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
-- [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
+- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [FAQ](../storage-files-faq.md)
 - [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      

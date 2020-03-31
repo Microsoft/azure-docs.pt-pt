@@ -14,26 +14,26 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1a520c5a1002e401f880fba84f8fc02a0a678133
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084732"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instantiate uma aplicação cliente confidencial com opções de configuração usando MSAL.NET
 
 Este artigo descreve como instantaneamente uma [aplicação de cliente confidencial](msal-client-applications.md) usando a Microsoft Authentication Library para .NET (MSAL.NET).  A aplicação é instantânea com opções de configuração definidas num ficheiro de definições.
 
-Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
+Antes de inicializar uma aplicação, primeiro é necessário [registá-la](quickstart-register-app.md) para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Após o registo, poderá necessitar das seguintes informações (que podem ser encontradas no portal Azure):
 
 - O ID do cliente (uma corda que representa um GUID)
-- A URL do provedor de identidade (chamada de instância) e o público-alvo de entrada para seu aplicativo. Esses dois parâmetros são coletivamente conhecidos como autoridade.
+- O URL do fornecedor de identidade (nome ou a instância) e o público de inscrição para a sua aplicação. Estes dois parâmetros são coletivamente conhecidos como autoridade.
 - O ID do inquilino se estiver a escrever uma linha de aplicação de negócios exclusivamente para a sua organização (também nomeada candidatura de inquilino único).
 - O segredo da aplicação (string secreto do cliente) ou certificado (do tipo X509Certificate2) se for uma aplicação de cliente confidencial.
 - Para aplicações web, e por vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
 
 ## <a name="configure-the-application-from-the-config-file"></a>Configure a aplicação a partir do ficheiro config
-O nome das propriedades das opções em MSAL.NET corresponde ao nome das propriedades do `AzureADOptions` no Núcleo ASP.NET, pelo que não precisa de escrever nenhum código de cola.
+O nome das propriedades das opções em MSAL.NET corresponde `AzureADOptions` ao nome das propriedades do ASP.NET Core, por isso não precisa de escrever nenhum código de cola.
 
 Uma configuração de aplicação ASP.NET Core é descrita num ficheiro *appsettings.json:*
 
@@ -60,7 +60,7 @@ Uma configuração de aplicação ASP.NET Core é descrita num ficheiro *appsett
 
 A partir de MSAL.NET v3.x, pode configurar a sua aplicação de cliente confidencial a partir do ficheiro config.
 
-Na aula onde pretende configurar e instantaneamente a sua aplicação, tem de declarar um objeto `ConfidentialClientApplicationOptions`.  Ligue a configuração lida a partir da fonte (incluindo o ficheiro appconfig.json) à instância das opções de aplicação, utilizando o método `IConfigurationRoot.Bind()` a partir do [pacote Microsoft.Extensions.Configuration.Binder nuget:](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)
+Na aula onde pretende configurar e instantaneamente a sua `ConfidentialClientApplicationOptions` aplicação, tem de declarar um objeto.  Ligue a configuração lida a partir da fonte (incluindo o ficheiro appconfig.json) à instância das opções de aplicação, utilizando o `IConfigurationRoot.Bind()` método do pacote de [nuget Microsoft.Extensions.Configuration.Binder nuget:](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Isto permite que o conteúdo da secção "AzureAD" do ficheiro *appsettings.json* esteja ligado às propriedades correspondentes do `ConfidentialClientApplicationOptions` objeto.  Em seguida, construa um objeto `ConfidentialClientApplication`:
+Isto permite que o conteúdo da secção "AzureAD" do ficheiro *appsettings.json* `ConfidentialClientApplicationOptions` esteja ligado às propriedades correspondentes do objeto.  Em seguida, `ConfidentialClientApplication` construir um objeto:
 
 ```csharp
 IConfidentialClientApplication app;

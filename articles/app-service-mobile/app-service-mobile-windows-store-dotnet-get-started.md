@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 9188db19adab9bd46d65fc97f1c62b39141cee90
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461390"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Crie uma aplicação Windows com um backend Azure
@@ -47,11 +47,11 @@ Siga estes passos para criar um novo back-end da Aplicação Móvel.
 
 1. Abra o projeto UWP.
 
-2. Vá ao [portal Azure](https://portal.azure.com/) e navegue para a aplicação móvel que criou. Na `Overview` lâmina, procure o URL que é o ponto final público da sua aplicação móvel. Exemplo - o nome de site do meu nome de aplicação "test123" será https://test123.azurewebsites.net.
+2. Vá ao [portal Azure](https://portal.azure.com/) e navegue para a aplicação móvel que criou. Na `Overview` lâmina, procure o URL que é o ponto final público da sua aplicação móvel. Exemplo - o nome de site para o meu https://test123.azurewebsites.netnome de aplicação "test123" será .
 
-3. Abra o ficheiro `App.xaml.cs` nesta pasta - windows-uwp-cs/ZUMOAPPNAME/. O nome da candidatura é `ZUMOAPPNAME`.
+3. Abra o `App.xaml.cs` ficheiro nesta pasta - windows-uwp-cs/ZUMOAPPNAME/. O nome `ZUMOAPPNAME`da aplicação é .
 
-4. Na aula de `App`, substitua `ZUMOAPPURL` parâmetro por ponto final público acima.
+4. Na `App` aula, `ZUMOAPPURL` substitua o parâmetro por ponto final público acima.
 
     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 

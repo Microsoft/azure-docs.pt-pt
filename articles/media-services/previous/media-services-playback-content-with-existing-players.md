@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565830"
 ---
-# <a name="playing-your-content-with-existing-players"></a>Jogando o seu conteúdo com os jogadores existentes
+# <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com os leitores existentes
 A Azure Media Services suporta muitos formatos de streaming populares, tais como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta-o para os jogadores existentes que pode usar para testar os seus fluxos.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>O leitor de conteúdos do portal Azure Media Services
@@ -33,7 +33,7 @@ São aplicáveis algumas considerações:
 
 * O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [Azure Media Player](https://aka.ms/azuremediaplayer).
 
-![Leitor AMS][AMSPlayer]
+![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Media Player do Azure
 

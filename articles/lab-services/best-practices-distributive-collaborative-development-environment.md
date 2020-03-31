@@ -1,6 +1,6 @@
 ---
-title: Desenvolvimento colaborativo distribuído de recursos de Azure DevTest Labs
-description: Fornece as práticas recomendadas para configurar um ambiente de desenvolvimento distribuído e colaborativo para desenvolver recursos do DevTest Labs.
+title: Desenvolvimento colaborativo distribuído dos recursos da Azure DevTest Labs
+description: Fornece as melhores práticas para a criação de um ambiente de desenvolvimento distribuído e colaborativo para desenvolver recursos da DevTest Labs.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,52 +14,52 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 9469591b1945adaffca973828d619d5d06655262
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170112"
 ---
-# <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Práticas recomendadas para desenvolvimento distribuído e colaborativo de recursos de Azure DevTest Labs
-O desenvolvimento colaborativo distribuído permite que diferentes equipes ou pessoas desenvolvam e mantenham uma base de código. Para ter êxito, o processo de desenvolvimento depende da capacidade de criar, compartilhar e integrar informações. Esse princípio de desenvolvimento de chave pode ser usado em Azure DevTest Labs. Há vários tipos de recursos em um laboratório que são normalmente distribuídos entre diferentes laboratórios em uma empresa. Os diferentes tipos de recursos estão concentrados em duas áreas:
+# <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Boas práticas para o desenvolvimento distribuído e colaborativo dos recursos da Azure DevTest Labs
+O desenvolvimento colaborativo distribuído permite que diferentes equipas ou pessoas desenvolvam e mantenham uma base de código. Para ser bem sucedido, o processo de desenvolvimento depende da capacidade de criar, partilhar e integrar informação. Este princípio de desenvolvimento chave pode ser usado dentro dos Laboratórios Azure DevTest. Existem vários tipos de recursos dentro de um laboratório que são comumente distribuídos entre diferentes laboratórios dentro de uma empresa. Os diferentes tipos de recursos estão focados em duas áreas:
 
-- Recursos que são armazenados internamente no laboratório (baseado em laboratório)
-- Recursos que são armazenados em [repositórios externos que estão conectados ao laboratório](devtest-lab-add-artifact-repo.md) (com base no repositório de código). 
+- Recursos que são armazenados internamente dentro do laboratório (baseado em laboratório)
+- Recursos que são armazenados em [repositórios externos que estão ligados ao laboratório](devtest-lab-add-artifact-repo.md) (baseado em repositório de código). 
 
-Este documento descreve algumas das práticas recomendadas que permitem a colaboração e a distribuição em várias equipes, garantindo a personalização e a qualidade em todos os níveis.
+Este documento descreve algumas boas práticas que permitem a colaboração e distribuição em várias equipas, garantindo a personalização e qualidade a todos os níveis.
 
 ## <a name="lab-based-resources"></a>Recursos baseados em laboratório
 
-### <a name="custom-virtual-machine-images"></a>Imagens de máquina virtual personalizada
-Você pode ter uma fonte comum de imagens personalizadas que são implantadas em laboratórios à noite. Para obter informações detalhadas, consulte [fábrica de imagens](image-factory-create.md).    
+### <a name="custom-virtual-machine-images"></a>Imagens de máquina virtual personalizadas
+Você pode ter uma fonte comum de imagens personalizadas que são implantadas em laboratórios todas as noites. Para obter informações detalhadas, consulte [a fábrica de imagem.](image-factory-create.md)    
 
 ### <a name="formulas"></a>Fórmulas
-As [fórmulas](devtest-lab-manage-formulas.md) são específicas do laboratório e não têm um mecanismo de distribuição. Os membros do laboratório fazem todo o desenvolvimento de fórmulas. 
+[As fórmulas](devtest-lab-manage-formulas.md) são específicas do laboratório e não têm um mecanismo de distribuição. Os membros do laboratório fazem todo o desenvolvimento de fórmulas. 
 
-## <a name="code-repository-based-resources"></a>Recursos baseados no repositório de código
-Há dois recursos diferentes que se baseiam em repositórios de código, artefatos e ambientes. Este artigo vai além dos recursos e como configurar de forma mais eficiente os repositórios e o fluxo de trabalho para permitir a capacidade de personalizar os artefatos e ambientes disponíveis no nível da organização ou da equipe.  Este fluxo de trabalho é baseado na [estratégia de ramificação do controle de código-fonte](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops)padrão. 
+## <a name="code-repository-based-resources"></a>Recursos baseados em código
+Existem duas características diferentes que são baseadas em repositórios de código, artefactos e ambientes. Este artigo analisa as características e como criar repositórios e fluxos de trabalho mais eficazes para permitir a capacidade de personalizar os artefactos e ambientes disponíveis a nível da organização ou da equipa.  Este fluxo de trabalho baseia-se na estratégia padrão de ramificação de código de [código.](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops) 
 
 ### <a name="key-concepts"></a>Conceitos-chave
-As informações de origem dos artefatos incluem metadados, scripts. As informações de origem dos ambientes incluem os modelos de metadados e do Resource Manager com quaisquer arquivos de suporte, como scripts do PowerShell, scripts de DSC, arquivos zip e assim por diante.  
+A informação de origem dos artefactos inclui metadados, scripts. A informação de origem para ambientes inclui metadados e modelos de Gestor de Recursos com quaisquer ficheiros de suporte como scripts PowerShell, scripts DSC, ficheiros Zip, e assim por diante.  
 
-### <a name="repository-structure"></a>Estrutura do repositório  
-A configuração mais comum para o SCC (controle de código-fonte) é configurar uma estrutura de várias camadas para armazenar arquivos de código (modelos, metadados e scripts do Resource Manager) que são usados no nos laboratórios. Especificamente, crie repositórios diferentes para armazenar recursos que são gerenciados pelos diferentes níveis da empresa:   
+### <a name="repository-structure"></a>Estrutura repositória  
+A configuração mais comum para o controlo de códigos de origem (SCC) é criar uma estrutura de vários níveis para armazenar ficheiros de código (modelos de Gestor de Recursos, metadados e scripts) que são usados nos laboratórios. Especificamente, crie diferentes repositórios para armazenar recursos que são geridos pelos diferentes níveis do negócio:   
 
-- Recursos de toda a empresa.
-- Recursos de unidade de negócios/divisão
-- Recursos específicos da equipe.
+- Recursos em toda a empresa.
+- Unidade de negócio/recursos de divisão
+- Recursos específicos da equipa.
 
-Cada um desses níveis é vinculado a um repositório diferente em que a ramificação mestre deve ser da qualidade de produção. As [ramificações](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) em cada repositório seriam para o desenvolvimento desses recursos específicos (artefatos ou modelos). Essa estrutura se alinha bem com os DevTest Labs, pois você pode facilmente conectar vários repositórios e várias ramificações ao mesmo tempo para os laboratórios da organização. O nome do repositório está incluído na interface do usuário para evitar confusão quando há nomes, descrições e publicadores idênticos.
+Cada um destes níveis liga-se a um repositório diferente onde o ramo principal é obrigado a ser da qualidade de produção. Os [ramos](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) de cada repositório seriam para o desenvolvimento desses recursos específicos (artefactos ou modelos). Esta estrutura alinha-se bem com os Laboratórios DevTest, pois pode facilmente ligar vários repositórios e múltiplos ramos ao mesmo tempo aos laboratórios da organização. O nome do repositório está incluído na interface do utilizador (UI) para evitar confusão quando há nomes, descrição e editor idênticos.
      
-O diagrama a seguir mostra dois repositórios: um repositório da empresa que é mantido pela divisão de ti e um repositório de divisão mantido pela divisão R & D.
+O diagrama seguinte mostra dois repositórios: um repositório da empresa que é mantido pela Divisão de TI, e um repositório de divisão mantido pela divisão R&D.
 
-![Um distributivo de exemplo e ambiente de desenvolvimento colaborativo](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
+![Um ambiente de desenvolvimento distributivo e colaborativo da amostra](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
    
-Essa estrutura em camadas permite o desenvolvimento e, ao mesmo tempo, mantém um nível mais alto de qualidade no Branch mestre, enquanto que vários repositórios conectados a um laboratório proporcionam maior flexibilidade.
+Esta estrutura em camadas permite o desenvolvimento, mantendo um nível de qualidade mais elevado no ramo principal, ao mesmo tempo que ter múltiplos repositórios ligados a um laboratório permite uma maior flexibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes    
 Consulte os seguintes artigos:
 
-- Adicionar um repositório a um laboratório usando o [portal do Azure](devtest-lab-add-artifact-repo.md) ou por meio do [modelo de gerenciamento de recursos do Azure](add-artifact-repository.md)
-- [Artefatos do DevTest Labs](devtest-lab-artifact-author.md)
-- [Ambientes do DevTest Labs](devtest-lab-create-environment-from-arm.md).
+- Adicione um repositório a um laboratório utilizando o [portal Azure](devtest-lab-add-artifact-repo.md) ou através do modelo de Gestão de [Recursos Azure](add-artifact-repository.md)
+- [Artefactos de Laboratórios DevTest](devtest-lab-artifact-author.md)
+- [Ambientes de Laboratórios DevTest.](devtest-lab-create-environment-from-arm.md)

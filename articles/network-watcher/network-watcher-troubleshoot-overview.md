@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840694"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Vigilante da Rede Azure
@@ -47,36 +47,36 @@ As tabelas a seguir mostram os diferentes tipos de avarias (id em resultados da 
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de avaria | Razão | Registo|
+| Tipo de Falha | Razão | Registar|
 |---|---|---|
 | NoFault | Quando não é detetado nenhum erro |Sim|
 | GatewayNotFound | Não é possível encontrar gateway ou gateway não é provisionado |Não|
-| Manutenção Planeada |  A instância gateway está sob manutenção  |Não|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização do utilizador está em andamento. A atualização pode ser uma operação de redimensionação. | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância primária do portal não pode ser alcançada devido a uma falha na sonda de saúde. | Não |
-| PlataformaInActive | Há um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
+| PlannedMaintenance |  A instância gateway está sob manutenção  |Não|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | Não |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
+| PlatformInActive | Existe um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
 | NoConnectionsFoundForGateway | Não existem ligações na porta de entrada. Esta falha é apenas um aviso.| Não|
-| ConnectionsNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O atual uso do CPU de gateway é > 95%. | Sim |
+| ConexõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
+| Utilização do GatewayCPUExceeded | A utilização atual do CPU de gateway é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de avaria | Razão | Registo|
+| Tipo de Falha | Razão | Registar|
 |---|---|---|
 | NoFault | Quando não é detetado nenhum erro |Sim|
 | GatewayNotFound | Não é possível encontrar gateway ou gateway não é provisionado |Não|
-| Manutenção Planeada | A instância gateway está sob manutenção  |Não|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização do utilizador está em andamento. A atualização pode ser uma operação de redimensionação.  | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância primária do portal não pode ser alcançada devido a uma falha na sonda de saúde. | Não |
-| ConnectionEntityNotFound | Falta a configuração da ligação | Não |
-| ConnectionIsMarkedDisconnected | A ligação está marcada como "desligada" |Não|
+| PlannedMaintenance | A instância gateway está sob manutenção  |Não|
+| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
+| Conexão EntidadeNão Encontrada | Falta a configuração da ligação | Não |
+| ConexõesMarcadasDesligadas | A ligação está marcada como "desligada" |Não|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| ConexãoMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
 | Autenticação | Desfasamento da chave pré-partilhada | Sim|
-| PeerReachability | O gateway de mesmo nível não está acessível. | Sim|
-| IkePolicyMismatch | O gateway par tem políticas IKE que não são suportadas pelo Azure. | Sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
+| Alcance da peerreachability | A porta de entrada dos pares não é alcançável. | Sim|
+| IkePolicyMismatch | O gateway peer tem políticas IKE que não são apoiadas pelo Azure. | Sim|
+| Erro do WfpParse | Ocorreu um erro ao analisar o registo do PAM. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
 
@@ -85,14 +85,14 @@ As seguintes listas de tabelas que gateways e ligações são suportadas com res
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
-|VPN      | Suportadas        |
+|VPN      | Suportado        |
 |ExpressRoute | Não suportado |
-|**Tipos VPN** | |
-|Baseado em Rota | Suportadas|
+|**Tipos de VPN** | |
+|Baseado em Rota | Suportado|
 |Baseado em Políticas | Não suportado|
 |**Tipos de ligação**||
-|IPSec| Suportadas|
-|VNet2Vnet| Suportadas|
+|IPsec| Suportado|
+|VNet2Vnet| Suportado|
 |ExpressRoute| Não suportado|
 |VPNClient| Não suportado|
 
@@ -145,7 +145,7 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Esfregado-wfpdiag.txt
 
 O ficheiro de registo **Scrubbed-wfpdiag.txt** contém o registo do wfp. Este registo contém registo de gotas de pacote e falhas IKE/AuthIP.
 
@@ -178,7 +178,7 @@ O exemplo seguinte mostra o conteúdo do ficheiro Scrubbed-wfpdiag.txt. Neste ex
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.soma
 
 O ficheiro **wfpdiag.txt.sum** é um registo que mostra os amortecedores e eventos processados.
 

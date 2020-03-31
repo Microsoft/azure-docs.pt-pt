@@ -1,59 +1,58 @@
 ---
-title: Aprendizado de máquina e ia com ONNX na visualização de borda do banco de dados SQL do Azure | Microsoft Docs
-description: O Machine Learning na visualização de borda do banco de dados SQL do Azure dá suporte a modelos no formato de troca de rede neural aberto (ONNX). ONNX é um formato aberto que você pode usar para trocar modelos entre várias estruturas e ferramentas de aprendizado de máquina.
-keywords: implantar borda do banco de dados SQL
+title: Machine learning e IA com ONNX em Pré-visualização de borda de base de dados Azure SQL / Microsoft Docs
+description: Machine learning in Azure SQL Database Edge Preview suporta modelos no formato Open Neural Network Exchange (ONNX). O ONNX é um formato aberto que pode utilizar para trocar modelos entre vários quadros e ferramentas de aprendizagem automática.
+keywords: implementar borda de base de dados sql
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph
-ms.date: 11/07/2019
-ms.openlocfilehash: bdb602598f3d8b4aaed5d6061542d540a82ebc75
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+author: dphansen
+ms.author: davidph
+ms.date: 03/26/2020
+ms.openlocfilehash: 7813a08b6b18e517b81e8c4bfac660d198eba7f7
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114593"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366262"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Aprendizado de máquina e ia com ONNX na visualização de borda do banco de dados SQL
+# <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Machine learning e IA com ONNX na Pré-visualização de borda de base de dados SQL
 
-O Machine Learning na visualização de borda do banco de dados SQL do Azure dá suporte a modelos no formato de [troca de rede neural aberto (ONNX)](https://onnx.ai/) . ONNX é um formato aberto que você pode usar para trocar modelos entre várias [estruturas e ferramentas de aprendizado de máquina](https://onnx.ai/supported-tools).
+Machine learning in Azure SQL Database Edge Preview suporta modelos no formato [Open Neural Network Exchange (ONNX).](https://onnx.ai/) O ONNX é um formato aberto que pode utilizar para trocar modelos entre [vários quadros e ferramentas de aprendizagem automática.](https://onnx.ai/supported-tools)
 
 ## <a name="overview"></a>Descrição geral
 
-Para inferir modelos de aprendizado de máquina na borda do banco de dados SQL do Azure, primeiro você precisará obter um modelo. Isso pode ser um modelo pretreinado ou um modelo personalizado treinado com sua estrutura de escolha. A borda do banco de dados SQL do Azure dá suporte ao formato ONNX e você precisará converter o modelo para esse formato. Não deve haver nenhum impacto na precisão do modelo e, depois de ter o modelo ONNX, você pode implantar o modelo na borda do banco de dados SQL do Azure e usar [a pontuação nativa com a função prever T-SQL](/sql/advanced-analytics/sql-native-scoring/).
+Para inferir modelos de machine learning no Azure SQL Database Edge, primeiro terá de obter um modelo. Este pode ser um modelo pré-treinado ou um modelo personalizado treinado com o seu quadro de eleição. O Azure SQL Database Edge suporta o formato ONNX e terá de converter o modelo para este formato. Não deve haver impacto na precisão do modelo, e uma vez que tenha o modelo ONNX, pode implementar o modelo em Azure SQL Database Edge e utilizar [a pontuação nativa com a função PREDICT T-SQL](/sql/advanced-analytics/sql-native-scoring/).
 
-## <a name="get-onnx-models"></a>Obter modelos ONNX
+## <a name="get-onnx-models"></a>Obtenha modelos ONNX
 
 Para obter um modelo no formato ONNX:
 
-- **Serviços de criação de modelo**: serviços como o [recurso de Machine Learning automatizado no Azure Machine Learning e no](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) [Azure serviço de visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) dão suporte à exportação direta do modelo treinado no formato ONNX.
+- **Serviços de Construção**de Modelos : Serviços como a [funcionalidade automatizada de Machine Learning no Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) e [azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) suportam exportar diretamente o modelo treinado no formato ONNX.
 
-- [**Converter e/ou exportar modelos existentes**](https://github.com/onnx/tutorials#converting-to-onnx-format): várias estruturas de treinamento (por exemplo, [PyTorch](https://pytorch.org/docs/stable/onnx.html), chainer e Caffe2) dão suporte à funcionalidade de exportação nativa para o ONNX, que permite que você salve seu modelo treinado em uma versão específica do formato ONNX. Para estruturas que não dão suporte à exportação nativa, há pacotes instaláveis do conversor de ONNX autônomo que permitem converter modelos treinados de diferentes estruturas de Machine Learning para o formato ONNX.
+- [**Converter e/ou exportar modelos existentes**](https://github.com/onnx/tutorials#converting-to-onnx-format): Vários quadros de formação (por [exemplo, PyTorch,](https://pytorch.org/docs/stable/onnx.html)Chainer e Caffe2) suportam a funcionalidade de exportação nativa para a ONNX, o que lhe permite guardar o seu modelo treinado para uma versão específica do formato ONNX. Para estruturas que não suportam a exportação nativa, existem pacotes instaladores onNX convertíveis autónomos que permitem converter modelos treinados a partir de diferentes estruturas de aprendizagem automática para o formato ONNX.
 
-     **Estruturas com suporte**
+     **Estruturas suportadas**
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
    * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
    * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
-   * [Do coreml](https://github.com/onnx/onnxmltools)
+   * [CoreML](https://github.com/onnx/onnxmltools)
     
-    Para obter a lista completa de estruturas e exemplos com suporte, consulte [convertendo para o formato ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
+    Para obter a lista completa de quadros e exemplos suportados, consulte [converter para o formato ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Limitações
 
-Atualmente, nem todos os modelos ONNX têm suporte da borda do banco de dados SQL do Azure. O suporte é limitado a modelos com **tipos de dados numéricos**:
+Atualmente, nem todos os modelos ONNX são suportados pela Azure SQL Database Edge. O suporte limita-se a modelos com tipos de **dados numéricos:**
 
 - [int e bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [real e float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+- [real e flutuar.](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql)
   
-Outros tipos numéricos podem ser convertidos em tipos com suporte usando [cast e Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Outros tipos numéricos podem ser convertidos para tipos suportados utilizando [O CAST e o CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
 
-As entradas do modelo devem ser estruturadas de forma que cada entrada para o modelo corresponda a uma única coluna em uma tabela. Por exemplo, se você estiver usando uma estrutura de dados pandas para treinar um modelo, cada entrada deverá ser uma coluna separada para o modelo.
+As inputs do modelo devem ser estruturadas de modo a que cada entrada do modelo corresponda a uma única coluna numa tabela. Por exemplo, se estiver a utilizar um quadro de dados pandas para treinar um modelo, cada entrada deve ser uma coluna separada do modelo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implantar a borda do banco de dados SQL por meio do portal do Azure](deploy-portal.md)
-- [Implantar um modelo ONNX na visualização de borda do banco de dados SQL do Azure](deploy-onnx.md)
+- [Implementar borda de base de dados SQL através do portal Azure](deploy-portal.md)
+- [Implemente um modelo ONNX na pré-visualização de borda de base de dados Azure SQL](deploy-onnx.md)

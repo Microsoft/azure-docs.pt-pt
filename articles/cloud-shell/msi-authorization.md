@@ -1,6 +1,6 @@
 ---
-title: Usar identidades gerenciadas para recursos no Azure Cloud Shell
-description: Autenticar código com MSI no Azure Cloud Shell
+title: Use identidades geridas para recursos em Azure Cloud Shell
+description: Código autenticado com MSI em Casca de Nuvem Azure
 services: azure
 author: maertendMSFT
 ms.author: damaerte
@@ -11,40 +11,40 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
 ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72328720"
 ---
-# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Usar identidades gerenciadas para recursos do Azure no Azure Cloud Shell
+# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Use identidades geridas para recursos Azure em Azure Cloud Shell
 
-Azure Cloud Shell dá suporte à autorização com identidades gerenciadas para recursos do Azure. Utilize isso para recuperar Tokens de acesso para se comunicar com segurança com os serviços do Azure.
+A Azure Cloud Shell apoia a autorização com identidades geridas para os recursos Azure. Utilize isto para recuperar fichas de acesso para comunicar com segurança com os serviços Azure.
 
 ## <a name="about-managed-identities-for-azure-resources"></a>Acerca das identidades geridas para os recursos do Azure
-Um desafio comum ao criar aplicativos de nuvem é como gerenciar com segurança as credenciais que precisam estar em seu código para autenticação em serviços de nuvem. Em Cloud Shell talvez seja necessário autenticar a recuperação de Key Vault para uma credencial que um script possa precisar.
+Um desafio comum ao construir aplicações em nuvem é como gerir de forma segura as credenciais que precisam de estar no seu código para autenticar serviços na nuvem. Na Cloud Shell poderá supor a recuperação do Cofre chave para uma credencial que um script possa necessitar.
 
-Identidades gerenciadas para recursos do Azure facilitam a solução desse problema, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
+Identidades geridas para recursos Azure torna a resolução deste problema mais simples, conferindo aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
-## <a name="acquire-access-token-in-cloud-shell"></a>Adquirir token de acesso no Cloud Shell
+## <a name="acquire-access-token-in-cloud-shell"></a>Adquirir ficha de acesso na Cloud Shell
 
-Execute os comandos a seguir para definir seu token de acesso MSI como uma variável de ambiente, `access_token`.
+Execute os seguintes comandos para definir o seu sinal `access_token`de acesso MSI como uma variável ambiental, .
 ```
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```
 
-## <a name="handling-token-expiration"></a>Tratamento da expiração do token
+## <a name="handling-token-expiration"></a>Expiração do token de manuseamento
 
-O subsistema MSI local armazena em cache os tokens. Portanto, você pode chamá-lo sempre que desejar e uma chamada durante a transmissão para os resultados do AD do Azure somente se:
-- um erro de cache ocorre devido a nenhum token no cache
-- o token expirou
+Os caches do subsistema MSI locais. Portanto, pode chamá-lo sempre que quiser, e uma chamada no cabo para os resultados da AD Azure apenas se:
+- uma falta cache ocorre devido a nenhum símbolo na cache
+- o símbolo está expirado
 
-Se você armazenar em cache o token em seu código, deverá estar preparado para lidar com cenários em que o recurso indica que o token expirou.
+Se enfiar o símbolo no seu código, deve estar preparado para lidar com cenários em que o recurso indique que o token está expirado.
 
-Para lidar com erros de token, visite a [página MSI sobre como enrolar tokens de acesso MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+Para lidar com erros simbólicos, visite a [página mSI sobre fichas de acesso MSI de caracóis](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
 
 ## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Adquirindo tokens de acesso de VMs do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Aquisição de fichas de acesso a MSI VMs](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)

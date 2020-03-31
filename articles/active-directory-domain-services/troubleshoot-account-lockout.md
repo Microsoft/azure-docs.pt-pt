@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de bloqueio de conta no Azure AD Domain Services | Microsoft Docs
-description: Saiba como solucionar problemas comuns que fazem com que as contas de usuário sejam bloqueadas no Azure Active Directory Domain Services.
+title: Bloqueio de conta de resolução de problemas nos Serviços de Domínio da AD azure [ Microsoft Docs
+description: Aprenda a resolver problemas comuns que fazem com que as contas dos utilizadores sejam bloqueadas nos Serviços de Domínio do Diretório Ativo azure.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -10,55 +10,55 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 29789f299f266c86d719d56cfbf8e262907f7264
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827082"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246324"
 ---
-# <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de bloqueio de conta com um Azure AD Domain Services domínio gerenciado
+# <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de bloqueio de conta com um domínio gerido pelos Serviços de Domínio Da Azure AD
 
-Para evitar tentativas de entrada mal-intencionadas repetidas, o Azure AD DS bloqueia contas após um limite definido. Esse bloqueio de conta também pode ocorrer por acidente sem um incidente de ataque de entrada. Por exemplo, se um usuário inserir repetidamente a senha errada ou um serviço tentar usar uma senha antiga, a conta será bloqueada.
+Para evitar repetidas tentativas de entrada maliciosas, o Azure AD DS bloqueia contas após um limiar definido. Este bloqueio de conta também pode acontecer por acidente sem um incidente de ataque de sinal. Por exemplo, se um utilizador introduzir repetidamente a palavra-passe errada ou um serviço tentar usar uma senha antiga, a conta fica bloqueada.
 
-Este artigo de solução de problemas descreve por que os bloqueios de conta acontecem e como você pode configurar o comportamento e como examinar as auditorias de segurança para solucionar problemas de eventos de bloqueio.
+Este artigo de resolução de problemas descreve por que razão os bloqueios de conta acontecem e como pode configurar o comportamento e como rever as auditorias de segurança para resolver eventos de bloqueio.
 
 ## <a name="what-is-an-account-lockout"></a>O que é um bloqueio de conta?
 
-Uma conta de usuário no Azure AD DS será bloqueada quando um limite definido para tentativas de entrada malsucedidas for atingido. Esse comportamento de bloqueio de conta foi projetado para protegê-lo de tentativas de entrada de força bruta repetidas que podem indicar um ataque digital automatizado.
+Uma conta de utilizador em Azure AD DS é bloqueada quando um limiar definido para tentativas de entrada mal sucedidas foi cumprido. Este comportamento de bloqueio de conta foi concebido para protegê-lo de tentativas repetidas de sinal de força bruta que podem indicar um ataque digital automatizado.
 
-**Por padrão, se houver 5 tentativas de senha inadequadas em 2 minutos, a conta será bloqueada por 30 minutos.**
+**Por predefinição, se houver 5 tentativas de senha em 2 minutos, a conta fica bloqueada durante 30 minutos.**
 
-Os limites de bloqueio de conta padrão são configurados usando a política de senha refinada. Se você tiver um conjunto específico de requisitos, poderá substituir esses limites de bloqueio de conta padrão. No entanto, não é recomendável aumentar os limites de limite para tentar reduzir o número de bloqueios de conta. Solucione primeiro a origem do comportamento de bloqueio de conta.
+Os limiares de bloqueio da conta predefinida são configurados utilizando a política de senha sinuosa. Se tiver um conjunto específico de requisitos, pode anular estes limiares de bloqueio de conta por defeito. No entanto, não é aconselhável aumentar os limites de limiar para tentar reduzir os bloqueios da conta de números. Problemas atiram a fonte do comportamento de bloqueio da conta primeiro.
 
-### <a name="fine-grained-password-policy"></a>Política de senha refinada
+### <a name="fine-grained-password-policy"></a>Política de senha de grãos finos
 
-As FGPPs (políticas de senha refinadas) permitem que você aplique restrições específicas para políticas de bloqueio de senha e de conta a usuários diferentes em um domínio. FGPP afeta somente os usuários criados no Azure AD DS. Usuários de nuvem e usuários de domínio sincronizados no Azure AD DS domínio gerenciado do Azure AD não são afetados pelas políticas de senha.
+As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para as políticas de password e bloqueio de conta a diferentes utilizadores num domínio. A FGPP apenas afeta os utilizadores criados em DS AD Azure. Os utilizadores de cloud e utilizadores de domínio sincronizados no domínio gerido pelo Azure AD DS a partir do Azure AD não são afetados pelas políticas de senha.
 
-As políticas são distribuídas por meio de associação de grupo no domínio gerenciado AD DS do Azure, e todas as alterações feitas são aplicadas na próxima entrada do usuário. A alteração da política não desbloqueia uma conta de usuário que já está bloqueada.
+As políticas são distribuídas através da associação de grupos no domínio gerido pelo Azure AD DS, e quaisquer alterações que faça são aplicadas no próximo início de sessão do utilizador. Mudar a apólice não desbloqueia uma conta de utilizador que já está bloqueada.
 
-Para obter mais informações sobre políticas de senha refinadas, consulte [Configurar políticas de bloqueio de senha e conta][configure-fgpp].
+Para obter mais informações sobre as políticas de senha de grão fino, consulte as políticas de bloqueio de [palavras-passe e][configure-fgpp]de conta Configurar.
 
-## <a name="common-account-lockout-reasons"></a>Motivos comuns de bloqueio de conta
+## <a name="common-account-lockout-reasons"></a>Razões comuns de bloqueio da conta
 
-Os motivos mais comuns para que uma conta seja bloqueada, sem qualquer intenção ou fator mal-intencionado, incluem os seguintes cenários:
+As razões mais comuns para uma conta ser bloqueada, sem qualquer intenção ou fatores maliciosos, incluem os seguintes cenários:
 
-* **O usuário se bloqueou.**
-    * Após uma alteração recente de senha, o usuário continuou a usar uma senha anterior? A política de bloqueio de conta padrão de 5 tentativas com falha em 2 minutos pode ser causada pelo usuário repetindo inadvertidamente uma senha antiga.
-* **Há um aplicativo ou serviço que tem uma senha antiga.**
-    * Se uma conta for usada por aplicativos ou serviços, esses recursos poderão tentar se conectar repetidamente usando uma senha antiga. Esse comportamento faz com que a conta seja bloqueada.
-    * Tente minimizar o uso da conta em vários aplicativos ou serviços diferentes e registre onde as credenciais são usadas. Se uma senha de conta for alterada, atualize os aplicativos ou serviços associados adequadamente.
-* **A senha foi alterada em um ambiente diferente e a nova senha ainda não foi sincronizada.**
-    * Se uma senha de conta for alterada fora do Azure AD DS, como em um ambiente de AD DS local, pode levar alguns minutos para que a alteração de senha seja sincronizada por meio do Azure AD e do Azure AD DS.
-    * Um usuário que tenta entrar em um recurso por meio do Azure AD DS antes que o processo de sincronização de senha seja concluído faz com que sua conta seja bloqueada.
+* **O utilizador fechou-se.**
+    * Após uma recente alteração de palavra-passe, o utilizador continuou a utilizar uma senha anterior? A política de bloqueio de conta predefinida de 5 tentativas falhadas em 2 minutos pode ser causada pelo utilizador, inadvertidamente, a reexperimentar uma senha antiga.
+* **Há uma aplicação ou serviço que tem uma senha antiga.**
+    * Se uma conta for utilizada por aplicações ou serviços, esses recursos podem tentar iniciar sessão repetidamente utilizando uma senha antiga. Este comportamento faz com que a conta seja bloqueada.
+    * Tente minimizar o uso da conta em várias aplicações ou serviços diferentes e registar onde as credenciais são usadas. Se uma palavra-passe da conta for alterada, atualize as aplicações ou serviços associados em conformidade.
+* **A palavra-passe foi alterada num ambiente diferente e a nova senha ainda não se sincronizou.**
+    * Se uma palavra-passe de conta for alterada fora do Azure AD DS, como num ambiente ad dS on-prem, pode levar alguns minutos para que a alteração da palavra-passe se sincronize através do Azure AD DS e em Azure AD DS.
+    * Um utilizador que tenta iniciar sessão num recurso através do Azure AD DS antes de o processo de sincronização de palavras-passe ter concluído faz com que a sua conta seja bloqueada.
 
-## <a name="troubleshoot-account-lockouts-with-security-audits"></a>Solucionar problemas de bloqueios de conta com auditorias de segurança
+## <a name="troubleshoot-account-lockouts-with-security-audits"></a>Bloqueios de conta de resolução de problemas com auditorias de segurança
 
-Para solucionar problemas quando ocorrerem eventos de bloqueio de conta e de onde eles estão vindo, [habilite as auditorias de segurança para o Azure AD DS (atualmente em visualização)][security-audit-events]. Os eventos de auditoria são capturados somente a partir do momento em que você habilitar o recurso. O ideal é que você habilite as auditorias de segurança *antes que* haja um problema de bloqueio de conta para solucionar problemas. Se uma conta de usuário tiver problemas de bloqueio repetidamente, você poderá habilitar as auditorias de segurança prontas para a próxima vez em que a situação ocorrer.
+Para resolver problemas quando ocorrerem eventos de bloqueio de conta e de onde vêm, ative auditorias de [segurança para O DS Azure AD][security-audit-events]. Os eventos de auditoria só são capturados a partir do momento em que ativar a funcionalidade. Idealmente, deve ativar auditorias de segurança *antes* que haja um problema de bloqueio de conta. Se uma conta de utilizador tiver problemas de bloqueio repetidamente, pode ativar auditorias de segurança prontas para a próxima vez que a situação ocorrer.
 
-Depois de habilitar as auditorias de segurança, as consultas de exemplo a seguir mostram como examinar os *eventos de bloqueio de conta*, o código *4740*.
+Uma vez ativadas as auditorias de segurança, as seguintes consultas de amostra mostram-lhe como rever *eventos*de bloqueio de conta, código *4740*.
 
-Exibir todos os eventos de bloqueio de conta dos últimos sete dias:
+Veja todos os eventos de bloqueio da conta nos últimos sete dias:
 
 ```Kusto
 AADDomainServicesAccountManagement
@@ -66,7 +66,7 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 ```
 
-Exiba todos os eventos de bloqueio de conta dos últimos sete dias para a conta denominada *driley*.
+Veja todos os eventos de bloqueio da conta nos últimos sete dias para a conta chamada *driley*.
 
 ```Kusto
 AADDomainServicesAccountLogon
@@ -75,7 +75,7 @@ AADDomainServicesAccountLogon
 | where "driley" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-Exibir todos os eventos de bloqueio de conta entre 26 de junho de 2019 às 9h e 1º de julho de 2019, meia-noite, classificada em ordem crescente pela data e hora:
+Veja todos os eventos de bloqueio de conta entre 26 de junho de 2019 às 9h00. e 1 de julho de 2019 meia-noite, ordenada ascendente pela data e hora:
 
 ```Kusto
 AADDomainServicesAccountManagement
@@ -86,9 +86,9 @@ AADDomainServicesAccountManagement
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre políticas de senha refinadas para ajustar os limites de bloqueio de conta, consulte [Configurar políticas de bloqueio de conta e senha][configure-fgpp].
+Para obter mais informações sobre as políticas de senha de grão fino para ajustar os limiares de bloqueio da conta, consulte as políticas de bloqueio de [palavras-passe e de conta Configurar][configure-fgpp].
 
-Se você ainda tiver problemas para ingressar sua VM no domínio gerenciado AD DS do Azure, [Encontre ajuda e abra um tíquete de suporte para Azure Active Directory][azure-ad-support].
+Se ainda tiver problemas em juntar o seu VM ao domínio gerido pelo Azure AD DS, encontre ajuda e abra um bilhete de apoio para o [Azure Ative Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md

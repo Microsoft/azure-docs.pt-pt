@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta no portal'
 description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implantar artefactos através do portal Azure.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240983"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282057"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Defina e atribua uma planta no portal
 
@@ -16,7 +16,7 @@ Quando aprender a criar e atribuir plantas, pode definir padrões comuns para de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
@@ -29,6 +29,8 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
    Ou, selecione **Create** from the **Getting start** page para ir direto para criar uma planta.
 
    ![Criar uma planta a partir da página definições de Blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+
+1. Selecione **Comece com a planta em branco** do cartão no topo da lista de plantas incorporadas.
 
 1. Forneça um **nome de Planta** como **MyBlueprint**. (Utilize até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe a **descrição da planta** em branco por enquanto.
 
@@ -49,7 +51,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
    ![Atribuição de funções para um artefacto de planta](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > A maioria dos artefactos suportam parâmetros. Um parâmetro que lhe foi atribuído um valor durante a criação de plantas é um *parâmetro estático.* Se o parâmetro for atribuído durante a atribuição da planta, é um *parâmetro dinâmico.* Para obter mais informações, veja [Parâmetros de esquema](./concepts/parameters.md).
+   > A maioria dos artefactos suporta parâmetros. Um parâmetro que lhe foi atribuído um valor durante a criação de plantas é um *parâmetro estático.* Se o parâmetro for atribuído durante a atribuição da planta, é um *parâmetro dinâmico.* Para mais informações, consulte os [parâmetros blueprint](./concepts/parameters.md).
 
 1. Adicione uma atribuição de política ao nível da subscrição:
 
@@ -65,7 +67,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 1. Selecione a linha da etiqueta de atribuição de políticas **E o seu valor predefinido para grupos de recursos**.
 
-1. A janela para fornecer parâmetros ao artefacto como parte da definição de planta abre e permite definir os parâmetros para todas as atribuições (parâmetros estáticos) com base nesta planta em vez de durante a atribuição (parâmetros dinâmicos). Este exemplo utiliza parâmetros dinâmicos durante a atribuição da planta, por isso deixe as predefinições e **selecione Cancelar**.
+1. É apresentada a janela com os parâmetros para o artefacto como parte da definição do esquema e que permite definir os parâmetros para todas as atribuições (parâmetros estáticos) com base neste esquema, em vez de o fazer durante a atribuição (parâmetros dinâmicos). Este exemplo utiliza parâmetros dinâmicos durante a atribuição da planta, por isso deixe as predefinições e **selecione Cancelar**.
 
 1. Adicione um grupo de recursos ao nível da subscrição:
 
@@ -144,7 +146,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Modelo de Gestor de Recursos para o artefacto da planta](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Note que cada artefacto tem  **_x_ de _y_ parâmetros povoados** na coluna **Parâmetros.** Os parâmetros dinâmicos são definidos durante cada atribuição da planta.
+1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Note que cada artefacto tem ** _x_ de _y_ parâmetros povoados** na coluna **Parâmetros.** Os parâmetros dinâmicos são definidos durante cada atribuição do esquema.
 
    ![Definição de planta completa](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -170,7 +172,7 @@ Em [Create a blueprint,](#create-a-blueprint)não forneceu uma descrição ou ad
 
    1. Em **Funções**, selecione **Proprietário**, e limpe a caixa de verificação sob o utilizador, app ou caixa **de grupo Add.**
 
-   1. Procure e selecione um utilizador, app ou grupo para adicionar. Este artefacto usa um parâmetro estático definido o mesmo em cada atribuição desta planta.
+   1. Procure e selecione um utilizador, app ou grupo para adicionar. Este artefacto utiliza um parâmetro estático que é o mesmo em cada atribuição deste esquema.
 
    e. Selecione **Adicionar** este artefacto à planta.
 
@@ -290,7 +292,7 @@ Se já não precisar de uma atribuição de plantas, remova-a de uma subscriçã
 > A eliminação de uma planta neste método também elimina todas as versões publicadas da planta selecionada.
 > Para eliminar uma única versão, abra a planta, selecione o separador **de versões Publicados,** selecione a versão que pretende eliminar e, em seguida, selecione **Delete This Version**. Além disso, não pode apagar uma planta até ter eliminado toda a definição de projeto.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou, atribuiu e removeu uma planta com portal Azure. Para saber mais sobre as Plantas Azure, continue o artigo blueprint lifecycle.
 

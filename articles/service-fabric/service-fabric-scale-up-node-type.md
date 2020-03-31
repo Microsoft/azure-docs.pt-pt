@@ -1,45 +1,45 @@
 ---
-title: Escalar verticalmente um tipo de nó de Service Fabric do Azure
-description: Saiba como dimensionar um Cluster Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
+title: Dimensione um nó de tecido de serviço Azure
+description: Aprenda a escalar um cluster de tecido de serviço adicionando um conjunto de escala de máquina virtual.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464222"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalar verticalmente um tipo de nó primário de Cluster Service Fabric
-Este artigo descreve como escalar verticalmente um tipo de nó primário de Cluster Service Fabric aumentando os recursos de máquina virtual. Um Cluster Service Fabric é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster de Service Fabric, você pode dimensionar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  À medida que o cluster é dimensionado, os aplicativos também são dimensionados automaticamente.
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentar verticalmente um nó do tipo primário do cluster do Service Fabric
+Este artigo descreve como escalar um tipo de nó primário de cluster de tecido de serviço, aumentando os recursos da máquina virtual. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede, nas quais os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamado de nó. Os conjuntos de escala de máquinas virtuais são um recurso de computação Azure que utiliza para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó pode então ser gerido separadamente. Depois de criar um cluster de Tecido de Serviço, pode escalar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operativo dos VMs do tipo nó.  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
 
 > [!WARNING]
-> Não comece a alterar o SKU da VM NodeType primária, se a integridade do cluster não estiver íntegra. Se a integridade do cluster não estiver íntegra, você só desestabilizará o cluster se tentar alterar a SKU da VM.
+> Não comece a alterar o nóprimário VM SKU, se a saúde do cluster não for saudável. Se a saúde do cluster não for saudável, só irá desestabilizar ainda mais o cluster, se tentar alterar o VM SKU.
 >
-> Recomendamos que você não altere a SKU da VM de um conjunto de dimensionamento/tipo de nó, a menos que ele esteja sendo executado na [durabilidade de prata ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). A alteração do tamanho do SKU da VM é uma operação de infraestrutura in-loco destrutiva de dados. Sem alguma capacidade de atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. Isso significa o tipo de nó primário, que está executando serviços de sistema do Service Fabric com estado ou qualquer tipo de nó que esteja executando suas cargas de trabalho de aplicativo com estado.
+> Recomendamos que não altere o VM SKU de um tipo de conjunto/nó de escala, a menos que esteja a funcionar na [durabilidade da Prata ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Mudar o tamanho VM SKU é uma operação de infraestrutura destrutiva em dados. Sem alguma capacidade de atrasar ou monitorizar esta alteração, é possível que a operação possa causar perda de dados para serviços estatais ou causar outras questões operacionais imprevistas, mesmo para cargas de trabalho apátridas. Isto significa que o seu tipo principal de nó, que está a executar serviços de sistema de tecido de serviço audais, ou qualquer tipo de nó que esteja a executar as suas cargas de trabalho de aplicação audais.
 >
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Atualizar o tamanho e o sistema operacional das VMs do tipo de nó primário
-Aqui está o processo para atualizar o tamanho da VM e o sistema operacional das VMs do tipo de nó primário.  Após a atualização, as VMs do tipo de nó primário são de tamanho padrão D4_V2 e executando o Windows Server 2016 datacenter com contêineres.
+## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Atualizar o tamanho e o sistema operativo dos VMs do nó primário
+Aqui está o processo de atualização do tamanho vm e do sistema operativo dos VM do tipo principal vMs.  Após a atualização, os VMs do nó principal são o tamanho Standard D4_V2 e executando o Datacenter Do Windows Server 2016 com contentores.
 
 > [!WARNING]
-> Antes de tentar esse procedimento em um cluster de produção, recomendamos que você estude os modelos de exemplo e verifique o processo em relação a um cluster de teste. O cluster também está indisponível por um tempo. Você não pode fazer alterações em vários VMSS declarados como o mesmo NodeType em paralelo; será necessário executar operações de implantação separadas para aplicar as alterações a cada NodeType VMSS individualmente.
+> Antes de tentar este procedimento num cluster de produção, recomendamos que estude os modelos de amostra e verifique o processo contra um cluster de teste. O cluster também está indisponível por um tempo. NÃO pode fazer alterações em múltiplos VMSS declarados como o mesmo Nó Type em paralelo; terá de efetuar operações de implantação separadas para aplicar alterações individualmente em cada VMSS no nó.
 
-1. Implante o cluster inicial com dois tipos de nó e dois conjuntos de dimensionamento (um conjunto de dimensionamento por tipo de nó) usando esses arquivos de [modelo](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) e [parâmetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) de exemplo.  Ambos os conjuntos de dimensionamento têm o tamanho padrão D2_V2 e executando o Windows Server 2012 R2 Datacenter.  Aguarde até que o cluster conclua a atualização da linha de base.   
-2. Opcional – implante uma amostra com monitoração de estado no cluster.
-3. Depois de decidir atualizar as VMs do tipo de nó primário, adicione um novo conjunto de dimensionamento ao tipo de nó primário usando esses arquivos de [parâmetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) e [modelo](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) de exemplo para que o tipo de nó primário agora tenha dois conjuntos de dimensionamento.  Os serviços do sistema e os aplicativos de usuário são capazes de migrar entre VMs nos dois conjuntos de dimensionamento diferentes.  As novas VMs do conjunto de dimensionamento são de tamanho padrão D4_V2 e executam o Windows Server 2016 datacenter com contêineres.  Um novo balanceador de carga e um endereço IP público também são adicionados com o novo conjunto de dimensionamento.  
-    Para localizar o novo conjunto de dimensionamento no modelo, procure o recurso "Microsoft. Compute/virtualMachineScaleSets" denominado pelo parâmetro *vmNodeType2Name* .  O novo conjunto de dimensionamento é adicionado ao tipo de nó primário usando as propriedades-> virtualMachineProfile-> extensionProfile-> extensões-> Propriedades-> Configurações-> nodeTypeRef configuração.
-4. Verifique a integridade do cluster e verifique se todos os nós estão íntegros.
-5. Desabilite os nós no conjunto de dimensionamento antigo do tipo de nó primário com a intenção de remover o nó. Você pode desabilitar tudo de uma vez e as operações são enfileiradas. Aguarde até que todos os nós sejam desabilitados, o que pode levar algum tempo.  Como os nós mais antigos no tipo de nó estão desabilitados, os serviços do sistema e os nós de propagação migram para as VMs do novo conjunto de dimensionamento no tipo de nó primário.
-6. Remova o conjunto de dimensionamento mais antigo do tipo de nó primário.
-7. Remova o balanceador de carga associado ao conjunto de dimensionamento antigo. O cluster não está disponível enquanto o novo endereço IP público e o balanceador de carga estão configurados para o novo conjunto de dimensionamento.  
-8. Armazene as configurações de DNS do endereço IP público associado ao conjunto de dimensionamento do tipo de nó primário antigo em uma variável e remova esse endereço IP público.
-9. Substitua as configurações de DNS do endereço IP público associado ao novo conjunto de dimensionamento do tipo de nó primário pelas configurações de DNS do endereço IP público excluído.  O cluster agora está acessível novamente.
-10. Remova o estado do nó dos nós do cluster.  Se o nível de durabilidade do conjunto de dimensionamento antigo era prata ou ouro, essa etapa é feita automaticamente pelo sistema.
-11. Se você implantou o aplicativo com estado em uma etapa anterior, verifique se o aplicativo está funcionando.
+1. Desloque o cluster inicial com dois tipos de nó e dois conjuntos de escala (um conjunto de escala por tipo de nó) utilizando estes [modelos](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) de amostra e ficheiros [de parâmetros.](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json)  Ambos os conjuntos de escala são tamanho Standard D2_V2 e executando O Datacenter Do Windows Server 2012 R2.  Aguarde que o cluster complete a atualização de base.   
+2. Opcional: coloque uma amostra de estado no cluster.
+3. Depois de decidir atualizar os VMs do nó primário, adicione um novo conjunto de escala ao tipo de nó primário utilizando estes [modelos](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) de amostra e ficheiros de [parâmetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) para que o tipo de nó primário tenha agora dois conjuntos de escala.  Os serviços de sistema e as aplicações dos utilizadores são capazes de migrar entre VMs nos dois conjuntos de escala diferentes.  Os novos VMs conjuntos de escala são tamanho Standard D4_V2 e executam o Datacenter Do Windows Server 2016 com contentores.  Um novo equilibrador de carga e endereço IP público também são adicionados com o novo conjunto de escala.  
+    Para encontrar a nova escala definida no modelo, procure o recurso "Microsoft.Compute/virtualMachineScaleSets" nomeado pelo parâmetro *vmNodeType2Name.*  O novo conjunto de escala é adicionado ao tipo de nó primário utilizando a extensão virtual >>de propriedades->>Máquinasdeperfil->de extensões->definições >>definição de nóTypeRef >definição.
+4. Verifique a saúde do cluster e verifique se todos os nós estão saudáveis.
+5. Desative os nódosos no conjunto de calcário antigo do tipo de nó primário com a intenção de remover o nó. Podedes desativar tudo de uma vez e as operações estão em fila. Espere até que todos os nós estejam desativados, o que pode levar algum tempo.  Como os nós mais velhos do tipo de nó são desativados, os serviços do sistema e os nós de sementes migram para os VMs da nova escala definida no tipo de nó primário.
+6. Retire a balança mais antiga do tipo de nó primário.
+7. Retire o equilíbrio de carga associado ao conjunto de calcário antigo. O cluster não está disponível enquanto o novo endereço IP público e o equilibrador de carga estão configurados para o novo conjunto de escala.  
+8. Guarde as definições de DNS do endereço IP público associado à antiga escala do tipo de nó primário definida numa variável e remova esse endereço IP público.
+9. Substitua as definições de DNS do endereço IP público associado seleção do novo tipo de nó primário com as definições dNS do endereço IP público eliminado.  O aglomerado está agora acessível novamente.
+10. Retire o estado do nó dos nós do aglomerado.  Se o nível de durabilidade do conjunto de escala antiga for prateado ou dourado, este passo é feito automaticamente pelo sistema.
+11. Se implementou a aplicação imponente num passo anterior, verifique se a aplicação está funcional.
 
 ```powershell
 # Variables.
@@ -150,9 +150,9 @@ foreach($name in $nodeNames){
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como [Adicionar um tipo de nó a um cluster](virtual-machine-scale-set-scale-node-type-scale-out.md)
-* Saiba mais sobre a [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
-* [Dimensionar ou reduzir um cluster do Azure](service-fabric-tutorial-scale-cluster.md).
-* [Dimensione um cluster do Azure programaticamente](service-fabric-cluster-programmatic-scaling.md) usando o SDK de computação do Azure fluente.
-* [Dimensionar ou reduzir um cluster autônomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* Aprenda a [adicionar um tipo de nó a um cluster](virtual-machine-scale-set-scale-node-type-scale-out.md)
+* Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)
+* [Escala um aglomerado Azure para dentro ou para fora.](service-fabric-tutorial-scale-cluster.md)
+* [Dimensione um cluster Azure programáticamente](service-fabric-cluster-programmatic-scaling.md) utilizando o fluente sdk de computação Azure.
+* [Escala um aglomerado autónomo dentro ou fora.](service-fabric-cluster-windows-server-add-remove-nodes.md)
 

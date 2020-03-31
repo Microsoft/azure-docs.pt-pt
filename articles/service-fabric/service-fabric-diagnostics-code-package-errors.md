@@ -1,62 +1,62 @@
 ---
-title: Diagnosticar erros de pacote de código comum usando Service Fabric
-description: Saiba como solucionar problemas de erros de pacote de código comum com o Azure Service Fabric
+title: Diagnosticar erros de pacote de código comum utilizando o Tecido de Serviço
+description: Saiba como resolver erros de pacote de código comum com tecido de serviço Azure
 author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75463108"
 ---
-# <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros de pacote de código comum usando Service Fabric
+# <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros de pacote de código comum utilizando o Tecido de Serviço
 
-Este artigo descreve o que significa que um pacote de códigos é encerrado inesperadamente. Ele fornece informações sobre as possíveis causas de códigos de erro comuns, juntamente com as etapas de solução de problemas.
+Este artigo descreve o que significa para um pacote de código terminar inesperadamente. Fornece informações sobre possíveis causas de códigos de erro comuns, juntamente com passos de resolução de problemas.
 
-## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>Quando um processo ou contêiner termina inesperadamente?
+## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>Quando termina um processo ou um contentor inesperadamente?
 
-Quando o Azure Service Fabric recebe uma solicitação para iniciar um pacote de códigos, ele começa a preparar o ambiente no sistema local de acordo com as opções definidas nos manifestos do aplicativo e do serviço. Essas preparações podem incluir a reserva de recursos ou pontos de extremidade de rede, a configuração de regras de firewall ou a configuração de restrições de governança de recursos. 
+Quando a Azure Service Fabric recebe um pedido para iniciar um pacote de código, começa a preparar o ambiente no sistema local de acordo com as opções definidas nos manifestos app e serviço. Estas preparações podem incluir reservar pontos finais ou recursos de rede, configurar regras de firewall ou estabelecer restrições de governação de recursos. 
 
-Depois que o ambiente tiver sido configurado corretamente, Service Fabric tentará abrir o pacote de códigos. Esta etapa será considerada com êxito se o tempo de execução do sistema operacional ou contêiner relatar que o processo ou o contêiner foi ativado com êxito. Se a ativação não for bem-sucedida, você deverá ver uma mensagem de integridade em SFX que se assemelha ao seguinte:
+Depois de o ambiente ter sido configurado corretamente, o Service Fabric tenta trazer o pacote de código. Este passo é considerado bem sucedido se o sistema de execução do SISTEMA ou do contentor reportar que o processo ou o contentor foi ativado com sucesso. Se a ativação não for bem sucedida, deve ver uma mensagem de saúde no SFX que se assemelha ao seguinte:
 
 ```
 There was an error during CodePackage activation. Service host failed to activate. Error: 0xXXXXXXXX
 ```
 
-Depois que o pacote de códigos tiver sido ativado com êxito, Service Fabric começará a monitorar seu tempo de vida. Neste ponto, um processo ou contêiner pode ser encerrado a qualquer momento por vários motivos. Por exemplo, ele pode ter falhado em inicializar uma DLL ou o sistema operacional pode ter esgotado o espaço de heap de área de trabalho. Se seu pacote de códigos foi encerrado, você deverá ver a seguinte mensagem de integridade em SFX:
+Depois de o pacote de código ter sido ativado com sucesso, o Service Fabric começa a monitorizar a sua vida útil. Neste ponto, um processo ou recipiente pode terminar a qualquer momento por uma série de razões. Por exemplo, pode não ter conseguido inicializar um DLL, ou o SISTEMA poderia ter ficado sem espaço de pilha de ambiente de trabalho. Se o seu pacote de código for encerrado, deve ver a seguinte mensagem de saúde no SFX:
 
 ```
 The process/container terminated with exit code: XXXXXXXX. Please look at your application logs/dump or debug your code package for more details. For information about common termination errors, please visit https://aka.ms/service-fabric-termination-errors
 ```
 
-O código de saída nessa mensagem de integridade é a única pista que o processo ou o contêiner fornece sobre por que ele terminou. Ele pode ser gerado por qualquer nível da pilha. Por exemplo, esse código de saída pode estar relacionado a um erro do sistema operacional ou a um problema do .NET, ou pode ter sido gerado pelo seu código. Use este artigo como um ponto de partida para diagnosticar a origem dos códigos de saída de encerramento e as soluções possíveis. Mas tenha em mente que essas são soluções gerais para cenários comuns e podem não se aplicar ao erro que você está vendo.
+O código de saída nesta mensagem de saúde é a única pista de que o processo ou o contentor fornece sobre o porquê de ter terminado. Pode ser gerado por qualquer nível da pilha. Por exemplo, este código de saída pode estar relacionado com um erro de Os ou com um problema .NET, ou pode ter sido levantado pelo seu código. Use este artigo como ponto de partida para o diagnóstico De fonte de códigos de saída de rescisão e possíveis soluções. Mas lembre-se que estas são soluções gerais para cenários comuns e podem não se aplicar ao erro que está a ver.
 
-## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Como saber se Service Fabric meu pacote de código foi encerrado?
+## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Como posso saber se o Tecido de Serviço terminou o meu pacote de código?
 
-Service Fabric pode ser responsável por encerrar seu pacote de códigos por vários motivos. Por exemplo, pode decidir posicionar o pacote de códigos em outro nó para fins de balanceamento de carga. Você pode verificar se Service Fabric terminou seu pacote de códigos se vir qualquer um dos códigos de saída na tabela a seguir.
+O Service Fabric pode ser responsável por terminar o seu pacote de código por uma variedade de razões. Por exemplo, pode decidir colocar o pacote de código noutro nó para fins de equilíbrio de carga. Pode verificar se o Tecido de Serviço terminou o seu pacote de código se vir algum dos códigos de saída na tabela seguinte.
 
 >[!NOTE]
-> Se o processo ou o contêiner terminar com um código de saída diferente dos códigos na tabela a seguir, Service Fabric não será responsável por encerrá-lo.
+> Se o seu processo ou contentor terminar com um código de saída diferente dos códigos na tabela seguinte, o Tecido de Serviço não é responsável pela sua cessação.
 
 Código de saída | Descrição
 --------- | -----------
-7147 | Indica que Service Fabric desligam normalmente o processo ou o contêiner enviando-o um sinal CTRL + C.
-7148 | Indica que Service Fabric terminou o processo ou o contêiner. Às vezes, esse código de erro indica que o processo ou o contêiner não respondeu oportunamente depois de enviar um sinal CTRL + C e precisava ser encerrado.
+7147 | Indica que o Tecido de Serviço desliga graciosamente o processo ou o recipiente enviando-lhe um sinal CTRL+C.
+7148 | Indica que o Tecido de Serviço encerrou o processo ou o recipiente. Por vezes, este código de erro indica que o processo ou o recipiente não responderam atempadamente após o envio de um sinal CTRL+C, e tiveram de ser encerrados.
 
 
-## <a name="other-common-error-codes-and-their-potential-fixes"></a>Outros códigos de erro comuns e suas possíveis correções
+## <a name="other-common-error-codes-and-their-potential-fixes"></a>Outros códigos de erro comuns e as suas correções potenciais
 
-Código de saída | Valor hexadecimal | Breve descrição | Causa raiz | Correção potencial
+Código de saída | Valor hexadecimal | Descrição curta | Causa raiz | Correção potencial
 --------- | --------- | ----------------- | ---------- | -------------
-3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Esse erro às vezes significa que a máquina ficou sem espaço de heap de área de trabalho. Essa causa é especialmente provável se você tiver vários processos que pertencem ao seu aplicativo em execução no nó. | Se seu programa não foi criado para responder a sinais CTRL + C, você poderá habilitar a configuração **EnableActivateNoWindow** no manifesto do cluster. A habilitação dessa configuração significa que seu pacote de códigos será executado sem uma janela GUI e não receberá sinais CTRL + C. Essa ação também reduz a quantidade de espaço de heap de área de trabalho que cada processo consome. Se o seu pacote de códigos precisar receber sinais CTRL + C, você poderá aumentar o tamanho do heap de área de trabalho do nó.
-3762504530 | 0xe0434352 | N/A | Esse valor representa o código de erro para uma exceção sem tratamento do código gerenciado (ou seja, .NET). | Esse código de saída indica que seu aplicativo gerou uma exceção que permanece sem tratamento e que encerrou o processo. Como a primeira etapa para determinar o que disparou esse erro, depure os logs e os arquivos de despejo do aplicativo.
+3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Este erro, por vezes, significa que a máquina está sem espaço para o ambiente de trabalho. Esta causa é especialmente provável se tiver inúmeros processos que pertencem à sua aplicação em funcionamento no nó. | Se o seu programa não foi construído para responder aos sinais CTRL+C, pode ativar a definição **EnableActivateNoWindow** no manifesto cluster. Ativar esta definição significa que o seu pacote de código funcionará sem uma janela GUI e não receberá sinais Ctrl+C. Esta ação também reduz a quantidade de espaço de pilha de ambiente de trabalho que cada processo consome. Se o seu pacote de código precisar de receber sinais Ctrl+C, pode aumentar o tamanho da pilha de ambiente de trabalho do seu nó.
+3762504530 | 0xe0434352 | N/D | Este valor representa o código de erro para uma exceção não manipulada do código gerido (isto é, .NET). | Este código de saída indica que a sua aplicação levantou uma exceção que permanece destratada e que terminou o processo. Como primeiro passo para determinar o que desencadeou este erro, desinvista os registos da sua aplicação e despeje ficheiros.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como [diagnosticar outros cenários comuns](service-fabric-diagnostics-common-scenarios.md).
-* Obtenha uma visão geral mais detalhada dos logs de Azure Monitor e o que eles oferecem lendo [Azure monitor visão geral](../operations-management-suite/operations-management-suite-overview.md).
-* Saiba mais sobre [alertas](../log-analytics/log-analytics-alerts.md) de Azure monitor logs para auxiliar na detecção e no diagnóstico.
-* Familiarize-se com os recursos de [pesquisa de logs e consulta](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs de Azure monitor.
+* Saiba mais sobre o diagnóstico de [outros cenários comuns.](service-fabric-diagnostics-common-scenarios.md)
+* Obtenha uma visão mais detalhada dos registos do Monitor Azure e do que oferecem através da leitura da [visão geral do Monitor Azure](../operations-management-suite/operations-management-suite-overview.md).
+* Saiba mais sobre os registos do Monitor Azure [alertando](../log-analytics/log-analytics-alerts.md) para ajuda na deteção e diagnóstico.
+* Conheça as funcionalidades de [pesquisa de registo e consulta](../log-analytics/log-analytics-log-searches.md) oferecidas como parte dos registos do Monitor Azure.

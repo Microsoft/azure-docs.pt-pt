@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616872"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup osS e restauro para SKUs tipo II de carimbos de Revisão 3
@@ -31,7 +31,7 @@ Este documento descreve os passos para executar uma cópia de segurança do nív
 >[!NOTE]
 >Os scripts de backup DO OS utilizam o software ReaR, que está pré-instalado no servidor.  
 
-Após a disponibilização estar completa da equipa `Service Management` Microsoft, por padrão, o servidor está configurado com dois horários de backup para fazer o backup do nível do sistema de ficheiros no detrás do sistema operativo. Pode verificar os horários dos trabalhos de backup utilizando o seguinte comando:
+Após a disponibilização estar `Service Management` completa da equipa da Microsoft, por padrão, o servidor é configurado com dois horários de backup para fazer o backup do nível do sistema de ficheiros no detrás do sistema operativo. Pode verificar os horários dos trabalhos de backup utilizando o seguinte comando:
 ```
 #crontab –l
 ```

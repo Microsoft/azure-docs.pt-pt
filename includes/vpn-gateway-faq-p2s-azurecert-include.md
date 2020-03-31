@@ -9,27 +9,27 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75751468"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>O que devo fazer se estiver recebendo uma incompatibilidade de certificado ao se conectar usando a autenticação de certificado?
+### <a name="what-should-i-do-if-im-getting-a-certificate-mismatch-when-connecting-using-certificate-authentication"></a>O que devo fazer se estou a receber uma incompatibilidade de certificado quando estou a ligar-me usando a autenticação de certificado?
 
-Desmarque **"verificar a identidade do servidor Validando o certificado"** ou **adicione o FQDN do servidor junto com o certificado** ao criar um perfil manualmente. Você pode fazer isso executando o **Rasphone** em um prompt de comando e escolhendo o perfil na lista suspensa.
+Desmarque **"Verifique a identidade do servidor validando o certificado"** ou **adicione o FQDN do servidor juntamente com o certificado** ao criar um perfil manualmente. Pode fazê-lo executando **o rasphone** a partir de um pedido de comando e escolhendo o perfil da lista de lançamentos.
 
-Não é recomendável ignorar a validação de identidade do servidor em geral, mas com a autenticação de certificado do Azure, o mesmo certificado está sendo usado para validação do servidor no protocolo IKEv2/SSTP e no protocolo EAP. Como o certificado do servidor e o FQDN já foram validados pelo protocolo de encapsulamento de VPN, ele é redundante para validar o mesmo novamente no EAP.
+Contornar a validação da identidade do servidor não é recomendado em geral, mas com a autenticação do certificado Azure, o mesmo certificado está a ser utilizado para validação do servidor no protocolo de túnel VPN (IKEv2/SSTP) e no protocolo EAP. Uma vez que o certificado de servidor e fQDN já são validados pelo protocolo de túnel VPN, é redundante validar o mesmo novamente em EAP.
 
-![ponto a site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado do servidor")
+![ponto-a-local](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado de servidor")
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Posso usar minha própria AC raiz de PKI interna para gerar certificados para conectividade ponto a site?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Posso usar o meu próprio CA raiz PKI interno para gerar certificados para a conectividade Point-to-Site?
 
 Sim. Anteriormente, só podiam ser utilizados os certificados de raiz autoassinados. Ainda pode carregar 20 certificados de raiz.
 
-### <a name="can-i-use-certificates-from-azure-key-vault"></a>Posso usar certificados de Azure Key Vault?
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>Posso usar certificados do Cofre de Chaves Azure?
 
 Não.
 
@@ -37,7 +37,7 @@ Não.
 
 Pode utilizar a sua solução de PKI de Empresa (o PKI interno), o Azure PowerShell, MakeCert e OpenSSL.
 
-### <a name="certsettings"></a>Existem instruções para parâmetros e definições de certificado?
+### <a name="are-there-instructions-for-certificate-settings-and-parameters"></a><a name="certsettings"></a>Existem instruções para parâmetros e definições de certificado?
 
 * **Solução PKI de Empresa/Interno:** Veja os passos para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 

@@ -1,31 +1,34 @@
 ---
-title: Como utilizar o módulo IO espacial Do Azure Maps  Microsoft Azure Maps
+title: Como utilizar o módulo IO espacial Do Azure Maps [ Microsoft Azure Maps
 description: Saiba como utilizar o módulo Espacial IO fornecido pelo Azure Maps Web SDK. Este módulo fornece funcionalidades robustas para facilitar a integração de dados espaciais com o Web SDK do Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c309473529666d369e8accd1617021249867fb19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5bcfeebc1fcb96cfdf6ea802293eb4027f339815
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371041"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335217"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como utilizar o módulo Azure Maps Spatial IO
 
 O Azure Maps Web SDK fornece o **módulo Espacial IO,** que integra dados espaciais com o Web SDK do Azure Maps utilizando javaScript ou TypeScript. As características robustas neste módulo permitem aos desenvolvedores:
 
-- [Leia e escreva dados para ficheiros espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de ficheiros suportados incluem: FICHEIROS KML, KMZ, GPX, GeoRSS, GML e CSV contendo colunas com informações espaciais.
-- [Ligue-se aos serviços do Consórcio Geoespacial Aberto (OGC) e integre-se com a Web SDK do Azure Maps. Sobreposição dos Serviços de Mapeamento web (WMS) e dos Serviços de Azulejos do Mapa Web (WMTS) como camadas no mapa.](spatial-io-add-ogc-map-layer.md)
+- [Leia e escreva ficheiros comuns de dados espaciais](spatial-io-read-write-spatial-data.md). Os formatos de ficheiros suportados incluem: KML, KMZ, GPX, GeoRSS, GML, GeoJSON e Ficheiros CSV contendo colunas com informações espaciais. Também suporta texto bem conhecido (WKT).
+- [Ligue-se aos serviços do Consórcio Geoespacial Aberto (OGC) e integre-se com a Web SDK do Azure Maps. Sobreposição dos Serviços de Mapas Web (WMS) e serviços de azulejos do mapa web (WMTS) como camadas no mapa](spatial-io-add-ogc-map-layer.md).
 - Dados de consulta num Serviço de [Funcionalidadeweb (WFS)](spatial-io-connect-wfs-service.md).
-- [Sobreponha conjuntos de dados complexos que contenham informações de estilo e os façam render automaticamente](spatial-io-add-simple-data-layer.md).
+- [Sobreponha conjuntos de dados complexos que contenham informações de estilo e os façam render automaticamente usando código mínimo](spatial-io-add-simple-data-layer.md).
 - Aproveite o XML de alta velocidade e as [aulas de leitores de ficheiros e escritores delimitados.](spatial-io-core-operations.md)
 
 Neste guia, vamos aprender a integrar e utilizar o módulo Espacial IO numa aplicação web.
+
+> [!WARNING]
+> Utilize apenas dados e serviços que são de uma fonte em que confia, especialmente se os referir a partir de outro domínio. O módulo IO espacial toma medidas para minimizar o risco, no entanto a abordagem mais segura também não permite que quaisquer dados danagerous na sua aplicação comecem. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +38,7 @@ Antes de poder utilizar o módulo Espacial IO, terá de [fazer uma conta Azure M
 
 Pode carregar o módulo IO espacial Do Azure Maps utilizando uma das duas opções:
 
-* O CDN azure globalmente hospedado para o módulo IO espacial Azure Maps. Para esta opção, adicione uma referência ao JavaScript no elemento `<head>` do ficheiro HTML.
+* O CDN azure globalmente hospedado para o módulo IO espacial Azure Maps. Para esta opção, adicione uma referência `<head>` ao JavaScript no elemento do ficheiro HTML.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
@@ -47,7 +50,7 @@ Pode carregar o módulo IO espacial Do Azure Maps utilizando uma das duas opçõ
     npm install azure-maps-spatial-io
     ```
 
-    Em seguida, adicione uma referência ao JavaScript no elemento `<head>` do documento HTML:
+    Em seguida, adicione uma referência `<head>` ao JavaScript no elemento do documento HTML:
 
     ```html
     <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
@@ -111,13 +114,13 @@ Pode carregar o módulo IO espacial Do Azure Maps utilizando uma das duas opçõ
     </html>
     ```
 
-2. Carregue o módulo IO espacial Azure Maps. Para este exercício, utilize o CDN para o módulo IO espacial Do Azure Maps. Adicione a referência abaixo ao elemento `<head>` do seu ficheiro HTML:
+2. Carregue o módulo IO espacial Azure Maps. Para este exercício, utilize o CDN para o módulo IO espacial Do Azure Maps. Adicione a referência `<head>` abaixo ao elemento do seu ficheiro HTML:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. Inicialize uma `datasource`e adicione a fonte de dados ao mapa. Inicialize um `layer`e adicione a fonte de dados à camada do mapa. Em seguida, renderizar tanto a fonte de dados como a camada. Antes de rolar para baixo para ver o código completo no próximo passo, pense nos melhores lugares para colocar a fonte de dados e os fragmentos de código de camada. Lembre-se que, antes de manipularmos programáticamente o mapa, devemos esperar até que o recurso do mapa esteja pronto.
+3. Inicialize `datasource`a , e adicione a fonte de dados ao mapa. Inicialize `layer`a e adicione a fonte de dados à camada do mapa. Em seguida, renderizar tanto a fonte de dados como a camada. Antes de rolar para baixo para ver o código completo no próximo passo, pense nos melhores lugares para colocar a fonte de dados e os fragmentos de código de camada. Lembre-se que, antes de manipularmos programáticamente o mapa, devemos esperar até que o recurso do mapa esteja pronto.
 
     ```javascript
     var datasource, layer;
@@ -212,7 +215,7 @@ Pode carregar o módulo IO espacial Do Azure Maps utilizando uma das duas opçõ
     </html>
     ```
 
-5. Lembre-se de substituir `<Your Azure Maps Key>` com a sua chave principal. Abra o seu ficheiro HTML e verá resultados semelhantes à seguinte imagem:
+5. Lembre-se `<Your Azure Maps Key>` de substituir com a sua chave principal. Abra o seu ficheiro HTML e verá resultados semelhantes à seguinte imagem:
 
     <center>
 

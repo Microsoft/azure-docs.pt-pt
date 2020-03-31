@@ -1,5 +1,5 @@
 ---
-title: Utilizar autoML para criar modelos e implementar
+title: Use autoML para criar modelos & implementar
 titleSuffix: Azure Machine Learning
 description: Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning.
 services: machine-learning
@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
 ms.openlocfilehash: 9999d74bf6bef3e8351460add7efc8bdbfcd1045
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270033"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning
@@ -29,19 +29,19 @@ Para uma experiência baseada em código Python, [configure as suas experiência
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 * Um espaço de trabalho azure machine learning com um tipo de **edição Enterprise.** Consulte Criar um espaço de [trabalho de aprendizagem automática Azure](how-to-manage-workspace.md).  Para atualizar um espaço de trabalho existente para a edição da Enterprise, consulte [upgrade para edição enterprise.](how-to-manage-workspace.md#upgrade)
 
 ## <a name="get-started"></a>Introdução
 
-1. Inscreva-se na Azure Machine Learning em https://ml.azure.com. 
+1. Inscreva-se na Aprendizagem https://ml.azure.comautomática azure em . 
 
 1. Selecione a sua subscrição e espaço de trabalho. 
 
 1. Navegue para o painel esquerdo. **Selecione ML automatizado** na secção **Autor.**
 
-[painel de navegação do estúdio de machine learning ![Azure](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png)
+[![Painel de navegação do estúdio Azure Machine Learning](media/how-to-use-automated-ml-for-ml-models/nav-pane.png)](media/how-to-use-automated-ml-for-ml-models/nav-pane-expanded.png)
 
  Se for a sua primeira vez a fazer experiências, verá uma lista vazia e ligações à documentação. 
 
@@ -74,7 +74,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.
     
-        Selecione **Seguinte**.
+        Selecione **Next**.
 
     1. O formulário **Schema** é inteligentemente povoado com base nas seleções na **forma Definições e pré-visualização.** Aqui configure o tipo de dados para cada coluna, reveja os nomes das colunas e selecione quais as colunas a **não incluir** para a sua experiência. 
             
@@ -82,7 +82,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
     1. O formulário **de detalhes confirmar** é um resumo das informações previamente povoadas nos **formulários de informação** e definições básicas **e pré-visualização.** Também tem a opção de criar um perfil de dados para o seu conjunto de dados utilizando um cálculo ativado por perfis. Saiba mais sobre [o perfil de dados.](#profile)
 
-        Selecione **Seguinte**.
+        Selecione **Next**.
 1. Selecione o seu conjunto de dados recém-criado assim que aparecer. Também é capaz de visualizar uma pré-visualização do conjunto de dados e estatísticas da amostra. 
 
 1. No formulário **de execução Configure,** introduza um nome único de experiência.
@@ -104,7 +104,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     >[!NOTE]
     > O seu nome de cálculo indicará se o cálculo que seleciona/cria está *ativado*por perfis . (Consulte o [perfil de dados](#profile) da secção para obter mais detalhes).
 
-    Selecione **Seguinte**.
+    Selecione **Next**.
 
 1. No formulário de **tipo de tarefa e configurações,** selecione o tipo de tarefa: classificação, regressão ou previsão. Veja [como definir tipos de tarefas](how-to-define-task-type.md) para mais informações.
 
@@ -123,7 +123,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     Caracterização automática| Selecione para ativar ou desativar o pré-processamento feito por aprendizagem automática de máquinas. O pré-processamento inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas. Não suportado para o tipo de tarefa de previsão da série temporal. [Saiba mais sobre o pré-processamento.](#featurization) 
     Explicar o melhor modelo | Selecione para ativar ou desativar para mostrar explicabilidade do melhor modelo recomendado
     Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de formação.
-    Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> Tempo de trabalho de *formação (horas)* : Quanto tempo permite que o trabalho de formação decorra. <br> *Limiar de pontuação métrica*: Pontuação mínima métrica para todos os gasodutos. Isto garante que se tiver uma métrica de destino definida que pretende alcançar, não passa mais tempo no trabalho de formação do que o necessário.
+    Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> Tempo de trabalho de *formação (horas)*: Quanto tempo permite que o trabalho de formação decorra. <br> *Limiar de pontuação métrica*: Pontuação mínima métrica para todos os gasodutos. Isto garante que se tiver uma métrica de destino definida que pretende alcançar, não passa mais tempo no trabalho de formação do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para usar no trabalho de formação. [Saiba mais sobre validação cruzada.](how-to-configure-auto-train.md)
     Simultaneidade| *Iterações simultâneas*: Número máximo de gasodutos (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
 
@@ -131,7 +131,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 <a name="profile"></a>
 
-## <a name="data-profiling--summary-stats"></a>Estatísticas de perfis e resumos de dados
+## <a name="data-profiling--summary-stats"></a>Perfis de dados & estatísticas sumárias
 
 Pode obter uma grande variedade de estatísticas sumárias em todo o seu conjunto de dados para verificar se o seu conjunto de dados está pronto para ML. Para colunas não numéricas, incluem apenas estatísticas básicas como min, máx e contagem de erros. Para colunas numéricas, também pode rever os seus momentos estatísticos e quantificados estimados. Especificamente, o nosso perfil de dados inclui:
 
@@ -149,11 +149,11 @@ Máx.| Valor máximo da coluna.
 Contagem| Número total de entradas desaparecidas e não em falta na coluna.
 Não falta ndo contagem| Número de entradas na coluna que não faltam. Cordas vazias e erros são tratados como valores, pelo que não contribuirão para a "contagem não em falta".
 Quantiles| Valores aproximados em cada quantile para fornecer uma noção da distribuição dos dados.
-média| Média aritmética ou média da coluna.
+Média| Média aritmética ou média da coluna.
 Desvio padrão| Medida da quantidade de dispersão ou variação dos dados desta coluna.
-Variância| A medida de quão longe os dados desta coluna são do seu valor médio. 
-Assimetrias| Medida de quão diferentes são os dados desta coluna de uma distribuição normal.
-Kurtosis| A medida de quão fortemente seguidos os dados desta coluna é comparada a uma distribuição normal.
+Desvio| A medida de quão longe os dados desta coluna são do seu valor médio. 
+Skewness| Medida de quão diferentes são os dados desta coluna de uma distribuição normal.
+Kurtose| A medida de quão fortemente seguidos os dados desta coluna é comparada a uma distribuição normal.
 
 
 <a name="featurization"></a>
@@ -164,11 +164,11 @@ O machine learning automatizado oferece pré-processamento e guarda-costas de da
 
 ### <a name="preprocessing"></a>Pré-processamento
 
-|Passos de&nbsp;de pré-processamento| Descrição |
+|Etapas&nbsp;de pré-processamento| Descrição |
 | ------------- | ------------- |
-|Remova cardinalidade elevada ou nenhum recurso de variância|Retire-as de conjuntos de formação e validação, incluindo características com todos os valores em falta, o mesmo valor em todas as linhas ou com cardeal extremamente elevado (por exemplo, hashes, IDs ou GUIDs).|
+|Largar alto cardeal ou sem características de variação|Retire-as de conjuntos de formação e validação, incluindo características com todos os valores em falta, o mesmo valor em todas as linhas ou com cardeal extremamente elevado (por exemplo, hashes, IDs ou GUIDs).|
 |Impute valores em falta|Para características numéricas, impute com valores médios na coluna.<br/><br/>Para características categóricas, impute com valor mais frequente.|
-|Gerar recursos adicionais|Para as funcionalidades de DateTime: ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para as características do texto: Frequência de termo baseada em unigramas, bi-gramas e tri-character-gramas.|
+|Gerar recursos adicionais|Para as funcionalidades data: Ano, Mês, Dia, Dia da semana, Dia do ano, Trimestre, Semana do ano, Hora, Minuto, Segundo.<br/><br/>Para as características do texto: Frequência de termo baseada em unigramas, bi-gramas e tri-character-gramas.|
 |Transformar e codificar |Características numéricas com poucos valores únicos são transformadas em características categóricas.<br/><br/>A codificação one-hot é realizada para a baixa cardeal categórica; para alta cardinalidade, uma codificação de hash-hot-hash.|
 |Incorporações de palavras|O featurizer de texto que converte vetores de tokens de texto em vetores de frase usando um modelo pré-treinado. O vetor de incorporação de cada palavra num documento é agregado em conjunto para produzir um vetor de características documentais.|
 |Codificação de alvos|Para características categóricas, mapeie cada categoria com valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada na frequência e a validação cruzada k-fold são aplicadas para reduzir a adaptação do mapeamento e do ruído causados por categorias de dados escassas.|
@@ -182,11 +182,11 @@ Os guarda-costas de dados são aplicados automaticamente para ajudá-lo a identi
 
 A tabela que se segue descreve os guarda-costas de dados atualmente suportados, e os estados associados que os utilizadores podem encontrar ao submeter a sua experiência.
 
-Guarda-costas|Estado|Condição&nbsp;para&nbsp;gatilho
+Guarda-costas|Estado|Condição&nbsp;&nbsp;para o gatilho
 ---|---|---
-Falta de valores de&nbsp;&nbsp;imputação |**Passado** <br> <br> **Fixo**|    Nenhum valor em falta em nenhuma das colunas de entrada&nbsp; <br> <br> Algumas colunas têm valores em falta
-Validação cruzada|**Feito**|Se não for fornecido nenhum conjunto de validação explícita
-&nbsp;de cardinalidade de alta&nbsp;apresentam&nbsp;deteção|    **Passado** <br> <br>**Feito**|    Não foram detetados grandes características de cardinalidade <br><br> Foram detetadas colunas de entrada de alta cardinalidade
+Imputação&nbsp;de valores em falta&nbsp; |**Passado** <br> <br> **Fixo**|    Nenhum valor em falta em&nbsp;nenhuma das colunas de entrada <br> <br> Algumas colunas têm valores em falta
+Validação cruzada|**Concluído**|Se não for fornecido nenhum conjunto de validação explícita
+Deteção&nbsp;de&nbsp;recurso de alta&nbsp;cardinalidade|    **Passado** <br> <br>**Concluído**|    Não foram detetados grandes características de cardinalidade <br><br> Foram detetadas colunas de entrada de alta cardinalidade
 Deteção de equilíbrio de classes    |**Passado** <br><br><br>**Alertado** |As aulas são equilibradas nos dados da formação; Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras <br> <br> As aulas nos dados de formação são desequilibradas
 Consistência dos dados da série temporal|**Passado** <br><br><br><br> **Fixo** |<br> Foram analisados os valores de {horizon, lag, rolling window} e não foram detetados potenciais problemas fora da memória. <br> <br>Os valores selecionados {horizon, lag, rolling window} foram analisados e potencialmente causarão a sua experiência a ficar sem memória. O lag ou a janela de rolamento foram desligados.
 
@@ -194,7 +194,7 @@ Consistência dos dados da série temporal|**Passado** <br><br><br><br> **Fixo**
 
 Selecione **Terminar** para executar a sua experiência. O processo de preparação da experimentação pode demorar até 10 minutos. As tarefas de preparação podem demorar mais 2 ou 3 minutos para cada pipeline concluir a execução.
 
-### <a name="view-experiment-details"></a>Ver detalhes da experiência
+### <a name="view-experiment-details"></a>Ver detalhes da experimentação
 
 O ecrã **'Executar Detalhes'** abre-se para o separador **Detalhes.** Este ecrã mostra-lhe um resumo da experiência executada, incluindo uma barra de estado no topo ao lado do número de execução. 
 
@@ -206,7 +206,7 @@ O separador**Modelos** contém uma lista dos modelos criados encomendados pela p
 
 Aperte em qualquer um dos modelos concluídos para ver detalhes de execução de treino, [Learn more about charts](how-to-understand-automated-ml.md)como métricas de execução no separador de detalhes do **Modelo** ou gráficos de desempenho no separador **Visualizações.**
 
-[detalhes da ![Iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+[![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>Implante o seu modelo
 
@@ -226,7 +226,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
     ----|----
     Nome| Introduza um nome único para a sua implantação.
     Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
-    Tipo computacional| Selecione o tipo de ponto final que pretende implementar: *Serviço Azure Kubernetes (AKS)* ou Instância de *Contentores Azure (ACI)* .
+    Tipo computacional| Selecione o tipo de ponto final que pretende implementar: *Serviço Azure Kubernetes (AKS)* ou Instância de *Contentores Azure (ACI)*.
     Nome computacional| *Aplica-se apenas ao AKS:* Selecione o nome do cluster AKS que deseja implementar.
     Ativar a autenticação | Selecione para permitir a autenticação baseada em tokenou ou baseado em chaves.
     Use ativos de implementação personalizados| Ative esta funcionalidade se quiser carregar o seu próprio script de pontuação e ficheiro ambiente. [Saiba mais sobre a pontuação de scripts.](how-to-deploy-and-where.md#script)
@@ -240,7 +240,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 
 Agora tem um serviço web operacional para gerar previsões! Pode testar as previsões consultando o serviço a partir do suporte de [Machine Learning Azure.](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Aprenda a consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
 * [Compreender os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

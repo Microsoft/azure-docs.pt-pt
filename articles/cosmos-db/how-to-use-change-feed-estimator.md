@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 8bd024fae7496db6c9cb6410df26975fde1984f7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585293"
 ---
 # <a name="use-the-change-feed-estimator"></a>Utilize o estimador de alimentação de alteração
@@ -33,19 +33,19 @@ Tal como o processador de feed de [mudança,](./change-feed-processor.md)o estim
 
 Como exemplo, se o seu processador de feed de mudança for definido desta forma:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartProcessorEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
-A forma correta de inicializar um estimador para medir esse processador estaria a usar `GetChangeFeedEstimatorBuilder` como:
+A forma correta de inicializar um estimador para `GetChangeFeedEstimatorBuilder` medir esse processador estaria a usar assim:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
-Quando tanto o processador como o estimador partilham o mesmo `leaseContainer` e o mesmo nome.
+Quando tanto o processador como o `leaseContainer` estimador partilham o mesmo nome e o mesmo nome.
 
 Os outros dois parâmetros são o delegado, que receberá um número que representa **quantas alterações estão pendentes para serem lidas** pelo processador, e o intervalo de tempo em que pretende que esta medição seja feita.
 
 Um exemplo de um delegado que recebe a estimativa é:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="EstimationDelegate":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
 
 Pode enviar esta estimativa para a sua solução de monitorização e usá-la para entender como o seu progresso se está a comportar ao longo do tempo.
 
@@ -63,4 +63,4 @@ Pode enviar esta estimativa para a sua solução de monitorização e usá-la pa
 Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
 
 * [Visão geral do processador de feed de mudança](change-feed-processor.md)
-* [Alterar a hora de início do processador de feed](how-to-configure-change-feed-start-time.md)
+* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)

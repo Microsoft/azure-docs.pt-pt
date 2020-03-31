@@ -1,15 +1,15 @@
 ---
-title: Criar uma função no Azure disparada pelo armazenamento de BLOBs
+title: Criar uma função em Azure desencadeada pelo armazenamento blob
 description: Utilize as Funções do Azure para criar uma função sem servidores que é invocada por itens que são adicionados ao Armazenamento de blobs do Azure.
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769307"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função acionada pelo Armazenamento de blobs do Azure
@@ -35,7 +35,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Criar uma função acionada pelo Armazenamento de blobs
 
-1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a sua **+** aplicação de função e clique no botão ao lado das **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Início rápido das funções no portal do Azure](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -45,7 +45,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. No campo de pesquisa, escreva `blob` e escolha o modelo **Acionador de blob**.
 
-1. Se solicitado, selecione **instalar** para instalar a extensão de armazenamento do Azure e quaisquer dependências no aplicativo de funções. Depois de instalar com êxito, selecione **Continuar**.
+1. Se for solicitado, selecione **Instalar** para instalar a extensão de Armazenamento Azure e quaisquer dependências na aplicação de funções. Depois de instalar com êxito, selecione **Continuar**.
 
     ![Instalar as extensões de enlace](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -77,7 +77,7 @@ Em seguida, vai ligar à sua conta de Armazenamento do Azure e criar o contentor
 
     ![Introduza as credenciais de armazenamento e ligue-se.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **contêineres de blob**, clique em **criar contêiner de blob**, digite `samples-workitems`e pressione Enter.
+1. Expanda a conta de armazenamento anexada, clique à direita `samples-workitems`em **recipientes Blob,** clique em Criar Recipiente **Blob,** tipo, e, em seguida, prima introduzir.
 
     ![Crie uma fila de armazenamento.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -87,7 +87,7 @@ Agora que já tem um contentor de blobs, pode carregar um ficheiro para o mesmo 
 
 1. Novamente no portal do Azure, navegue para a função, expanda os **Registos**, na parte inferior da página, e confirme que a transmissão de registos não está em pausa.
 
-1. Em Gerenciador de Armazenamento, expanda sua conta de armazenamento, **contêineres de blob**e **exemplos-WorkItems**. Clique em **Carregar** e em **Carregar ficheiros...** .
+1. No Storage Explorer, expanda a sua conta de armazenamento, **recipientes blob**e **amostras de trabalho.** Clique em **Carregar** e em **Carregar ficheiros...**.
 
     ![Carregue um ficheiro para o contentor de blobs.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

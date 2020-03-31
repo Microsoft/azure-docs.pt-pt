@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936931"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerir as Zonas DNS em DNS Azure utilizando o Azure CLI
@@ -25,7 +25,7 @@ ms.locfileid: "76936931"
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI do Azure](dns-operations-dnszones-cli.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 
 Este guia mostra como gerir as suas zonas DNS utilizando o Azure CLI cross-platform, que está disponível para Windows, Mac e Linux. Também pode gerir as suas zonas DNS utilizando o [Azure PowerShell](dns-operations-dnszones.md) ou o portal Azure.
@@ -48,7 +48,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja [Iniciar sessão no Azure a partir da CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [o Login em Azure a partir do Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -76,7 +76,7 @@ az extension add --name dns
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. que é utilizada como a localização predefinida para os recursos nesse grupo de recursos. No entanto, uma vez que todos os recursos DNS são globais, não regionais, a opção de localização do grupo de recursos não tem impacto no DNS do Azure.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. Isto é utilizado como a localização predefinida para recursos nesse grupo de recursos. No entanto, uma vez que todos os recursos DNS são globais, não regionais, a opção de localização do grupo de recursos não tem impacto no DNS do Azure.
 
 Pode ignorar este passo se estiver a utilizar um grupo de recursos existente.
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obter ajuda
 
-Todos os comandos Azure CLI relativos ao DNS Azure começam com `az network dns`. A ajuda está disponível para cada comando utilizando a opção `--help` (forma curta `-h`).  Por exemplo:
+Todos os comandos Azure CLI relativos `az network dns`ao DNS Azure começam com . A ajuda está disponível `--help` para cada `-h`comando utilizando a opção (forma curta).  Por exemplo:
 
 ```azurecli
 az network dns --help
@@ -106,7 +106,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com tags
 
-O exemplo seguinte mostra como criar uma zona DNS com duas [tags Azure Resource Manager,](dns-zones-records.md#tags) *projeto = demonstração* e *env = teste,* utilizando o parâmetro `--tags` (forma curta `-t`):
+O exemplo seguinte mostra como criar uma zona DNS com duas [tags Azure Resource Manager,](dns-zones-records.md#tags)projeto = `-t` *demonstração* e *env = teste,* utilizando o `--tags` parâmetro (forma curta):
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
@@ -114,7 +114,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com -
 
 ## <a name="get-a-dns-zone"></a>Obtenha uma zona DNS
 
-Para recuperar uma zona DNS, use `az network dns zone show`. Para obter ajuda, consulte `az network dns zone show --help`.
+Para recuperar uma zona `az network dns zone show`DNS, utilize . Para obter ajuda, consulte `az network dns zone show --help`.
 
 O exemplo seguinte devolve a zona dNS *contoso.com* e os seus dados associados do grupo de recursos *MyResourceGroup*. 
 

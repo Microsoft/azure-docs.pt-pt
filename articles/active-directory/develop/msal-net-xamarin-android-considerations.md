@@ -15,10 +15,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81b55253d757f641979c6f72001803d7d38d9af3
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132506"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações para usar Xamarin Android com MSAL.NET
@@ -34,7 +34,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-No MSAL 4.2 e mais tarde, também pode definir esta funcionalidade ao nível de `PublicClientApplication`. Para tal, use uma chamada:
+No MSAL 4.2 e mais tarde, também pode `PublicClientApplication`definir esta funcionalidade ao nível de . Para tal, use uma chamada:
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -44,7 +44,7 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-Se utilizar o [CurrentActivityPlugin](https://github.com/jamesmontemagno/CurrentActivityPlugin), então o seu código de construtor `PublicClientApplication` parece ser o seguinte exemplo.
+Se utilizar o [CurrentActivityPlugin,](https://github.com/jamesmontemagno/CurrentActivityPlugin)então o seu `PublicClientApplication` código de construtor parece ser o seguinte exemplo.
 
 ```csharp
 // Requires MSAL.NET 4.2 or later
@@ -55,7 +55,7 @@ var pca = PublicClientApplicationBuilder
 ```
 
 ## <a name="ensure-that-control-returns-to-msal"></a>Certifique-se de que o controlo regressa à MSAL 
-Quando a parte interativa do fluxo de autenticação terminar, certifique-se de que o controlo volta para o MSAL. No Android, sobrepor-se ao método `OnActivityResult` de `Activity`. Então chame o método `SetAuthenticationContinuationEventArgs` da classe `AuthenticationContinuationHelper` MSAL. 
+Quando a parte interativa do fluxo de autenticação terminar, certifique-se de que o controlo volta para o MSAL. No Android, sobrepor-se ao `OnActivityResult` método de `Activity`. Então `SetAuthenticationContinuationEventArgs` ligue para `AuthenticationContinuationHelper` o método da classe MSAL. 
 
 Segue-se um exemplo:
 
@@ -91,9 +91,9 @@ O ficheiro *AndroidManifest.xml* deve conter os seguintes valores:
  </activity>
 ```
 
-Substitua o nome do pacote que registou no portal Azure pelo valor `android:host=`. Substitua o hash chave que registou no portal Azure pelo valor `android:path=`. O hash de assinatura *não* deve ser codificado por URL. Certifique-se de que aparece no início do seu hash de assinatura um corte dianteiro (`/`) no início da sua assinatura.
+Substitua o nome do pacote que registou no portal Azure pelo `android:host=` valor. Substitua o hash chave que registou `android:path=` no portal Azure pelo valor. O hash de assinatura *não* deve ser codificado por URL. Certifique-se de que`/`aparece no início do seu hash de assinatura um primeiro-dia.
 
-Alternativamente, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade em código, crie primeiro uma classe que inclua o atributo `Activity` e o atributo `IntentFilter`. 
+Alternativamente, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade em código, crie primeiro uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
 
 Aqui está um exemplo de uma classe que representa os valores do ficheiro XML:
 
@@ -110,7 +110,7 @@ Aqui está um exemplo de uma classe que representa os valores do ficheiro XML:
 
 ### <a name="xamarinforms-43x-manifest"></a>Xamarin.Forms 4.3.X manifesto
 
-Xamarin.Forms 4.3.x gera código que define o atributo `package` para `com.companyname.{appName}` em *AndroidManifest.xml*. Se utilizar `DataScheme` como `msal{client_id}`, então talvez queira alterar o valor para corresponder ao valor do espaço de nome `MainActivity.cs`.
+Xamarin.Forms 4.3.x gera código que `package` define `com.companyname.{appName}` o atributo em *AndroidManifest.xml*. Se utilizar `DataScheme` `msal{client_id}`como , então talvez queira alterar o `MainActivity.cs` valor para corresponder ao valor do espaço de nome.
 
 ## <a name="use-the-embedded-web-view-optional"></a>Utilize a visão web incorporada (opcional)
 
@@ -141,12 +141,12 @@ Para resolver problemas, constrói problemas:
 - Verifique se Xamarin.Android.Support.v4 foi atualizado automaticamente para a versão 25.4.0.2. Se necessário, atualize para a versão 25.4.0.2.
 - Certifique-se de que todos os pacotes Xamarin.Android.Suporte saem para a versão 25.4.0.2.
 - Limpe ou reconstrua a aplicação.
-- No Estúdio Visual, tente definir o número máximo de construções paralelas do projeto para 1. Para isso, selecione **Options** > **Projects and Solutions** > **Build and Run** > número máximo **de projetos paralelos construídos.**
-- Se estiver a construir a partir da linha de comando e o seu comando usar `/m`, tente remover este elemento do comando.
+- No Estúdio Visual, tente definir o número máximo de construções paralelas do projeto para 1. Para isso, selecione **Options** > **Projects and Solutions** > **Build and Run** > **O número máximo de projetos paralelos constrói.**
+- Se estiver a construir a partir da `/m`linha de comando e o seu comando usar, tente remover este elemento do comando.
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Erro: O nome AutenticaçãoContinuationHelper não existe no contexto atual
 
-Se um erro indicar que `AuthenticationContinuationHelper` não existe no contexto atual, o Visual Studio pode ter atualizado incorretamente o ficheiro Android.csproj*. Por vezes, o *\<HintPath>* o caminho do ficheiro contém incorretamente *o netstandard13* em vez de *monoandroid90*.
+Se um erro `AuthenticationContinuationHelper` indicar que isso não existe no contexto atual, o Visual Studio pode ter atualizado incorretamente o ficheiro Android.csproj*. Por * \<vezes,* o caminho de ficheiro sinuosamente>HintPath contém *13 líquidos* em vez de *monoandroid90*.
 
 Este exemplo contém um caminho de ficheiro correto:
 

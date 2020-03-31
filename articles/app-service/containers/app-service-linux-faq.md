@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245825"
 ---
-# <a name="azure-app-service-on-linux-faq"></a>Serviço de Aplicações Azure no Linux FAQ
+# <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
 
 Com o lançamento do App Service no Linux, estamos a trabalhar na adição de funcionalidades e na melhoria da nossa plataforma. Este artigo fornece respostas a perguntas que os nossos clientes nos têm feito recentemente.
 
@@ -32,10 +32,10 @@ Podes encontrar todos os ficheiros do Docker no [GitHub.](https://github.com/azu
 
 | Pilha           | Valor Esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | o comando para iniciar a sua aplicação JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | a localização de um script para executar quaisquer configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | o comando para iniciar a sua `java -jar /home/site/wwwroot/app.jar --server.port=80`aplicação JAR (por exemplo, ) |
+| Tomcat          | a localização de um guião para executar `/home/site/deployments/tools/startup_script.sh`quaisquer configurações necessárias (por exemplo, )          |
 | Node.js         | o ficheiro de configuração PM2 ou o seu ficheiro script                                |
-| .Núcleo De Rede       | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
+| .NET Core       | o nome DLL compilado como`dotnet <myapp>.dll`                                 |
 | Ruby            | o script Ruby que você quer inicializar a sua app com                     |
 
 Estes comandos ou scripts são executados após o início do recipiente Docker incorporado, mas antes do seu código de aplicação ser iniciado.
@@ -56,7 +56,7 @@ Sim, pode fazê-lo através do site de gestão de controlo de fontes (SCM).
 
 **Como posso criar um plano de serviço de aplicações Linux através de um modelo SDK ou de Um Gestor de Recursos Azure?**
 
-Deve definir o campo **reservado** do serviço de aplicações como *verdadeiro*.
+Desloque o campo **reservado** do serviço de aplicações como *verdadeiro*.
 
 ## <a name="continuous-integration-and-deployment"></a>Integração e implementação contínua
 
@@ -70,7 +70,7 @@ Sim.
 
 **Posso usar *webDeploy/MSDeploy* para implementar a minha aplicação web?**
 
-Sim, você precisa definir uma definição de aplicativo chamada `WEBSITE_WEBDEPLOY_USE_SCM` a *falso*.
+Sim, precisa definir uma definição de aplicação chamada `WEBSITE_WEBDEPLOY_USE_SCM` a *falsa*.
 
 **A implementação da git da minha aplicação falha ao usar a aplicação web linux. Como posso resolver o assunto?**
 
@@ -78,19 +78,19 @@ Se a implementação da Git falhar na sua aplicação web Linux, escolha uma das
 
 - Utilize a função De entrega contínua (pré-visualização): Pode armazenar o código fonte da sua aplicação num repo DevOps Git ou GitHub para utilizar a Azure Continuous Delivery. Para mais informações, consulte Como configurar a Entrega Contínua para a [aplicação web linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para utilizar este API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e ir para a pasta onde pretende implementar o seu código. Execute o seguinte código:
+- Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para utilizar este API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e ir para a pasta onde pretende implementar o seu código. Executar o seguinte código:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Se tiver um erro de que o comando `curl` não seja encontrado, certifique-se de que instala o caracol utilizando `apt-get install curl` antes de executar o comando `curl` anterior.
+   Se tiver um erro `curl` que o comando não seja encontrado, certifique-se de que instala o caracol utilizando `apt-get install curl` antes de executar o comando anterior. `curl`
 
 ## <a name="language-support"></a>Suporte de idiomas
 
 **Quero usar tomadas web na minha aplicação Node.js, quaisquer configurações especiais ou configurações para definir?**
 
-Sim, desative `perMessageDeflate` no seu código Node.js do lado do servidor. Por exemplo, se estiver a utilizar socket.io, utilize o seguinte código:
+Sim, `perMessageDeflate` desative o seu código nonóio do lado do servidor. Por exemplo, se estiver a utilizar socket.io, utilize o seguinte código:
 
 ```nodejs
 const io = require('socket.io')(server,{
@@ -108,21 +108,21 @@ Sim, durante uma implantação git, Kudu deve detetar que você está implementa
 
 ## <a name="custom-containers"></a>Personalizar contentores
 
-**Estou a usar o meu próprio contentor personalizado. Quero que a plataforma monte uma quota SMB para o diretório `/home/`.**
+**Estou a usar o meu próprio contentor personalizado. Quero que a plataforma monte uma `/home/` parte SMB para o diretório.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição **for não especificada** ou definida como *verdadeira,* o `/home/` diretório **será partilhado** em instâncias de escala, e os ficheiros escritos **persistirão** em reinícios. A definição explícita de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a *falso* irá desativar o suporte.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a definição não for `/home/` **especificada** ou definida como *verdadeira,* o diretório será **partilhado** em instâncias de escala, e os ficheiros escritos **persistirão** em reinícios. A definição `WEBSITES_ENABLE_APP_SERVICE_STORAGE` explícita de *falso* irá desativar o suporte.
 
 **O meu recipiente personalizado demora muito tempo a começar, e a plataforma reinicia o contentor antes de terminar de arrancar.**
 
-Pode configurar o tempo que a plataforma irá esperar antes de reiniciar o seu recipiente. Para isso, defina a definição de aplicações `WEBSITES_CONTAINER_START_TIME_LIMIT` para o valor que pretende. O valor padrão é de 230 segundos, e o valor máximo é de 1800 segundos.
+Pode configurar o tempo que a plataforma irá esperar antes de reiniciar o seu recipiente. Para isso, defina `WEBSITES_CONTAINER_START_TIME_LIMIT` a definição da aplicação para o valor que pretende. O valor padrão é de 230 segundos, e o valor máximo é de 1800 segundos.
 
 **Qual é o formato para o URL do servidor de registo privado?**
 
-Forneça o URL completo do registo, incluindo `http://` ou `https://`.
+Fornecer o URL completo `http://` do `https://`registo, incluindo ou .
 
 **Qual é o formato para o nome de imagem na opção de registo privado?**
 
-Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, utilize a [ferramenta`az` linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name`definir, utilize a [ `az` ferramenta de linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Posso expor mais do que uma porta na minha imagem de recipiente personalizada?**
 
@@ -153,7 +153,7 @@ Para utilizar o ACR com multi-contentores, **todas as imagens** de contentores d
 Criar as seguintes definições de aplicação:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (URL completo, ex: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (URL completo, `https://<server-name>.azurecr.io`ex: )
 - DOCKER_REGISTRY_SERVER_PASSWORD (permitir o acesso à administração nas definições de ACR)
 
 Dentro do ficheiro de configuração, consulte a sua imagem ACR como o seguinte exemplo:
@@ -169,15 +169,23 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 
 Aqui estão as regras para determinar qual o recipiente acessível - por ordem de precedência:
 
-- Definição de aplicação `WEBSITES_WEB_CONTAINER_NAME` definida para o nome do recipiente
+- Definição `WEBSITES_WEB_CONTAINER_NAME` de aplicação definida para o nome do recipiente
 - O primeiro recipiente a definir o porto 80 ou 8080
 - Se nenhum dos acima for verdadeiro, o primeiro recipiente definido no ficheiro será acessível (exposto)
+
+
+## <a name="web-sockets"></a>Tomadas web
+
+As Web Sockets são suportadas em aplicações Linux.
+
+> [!IMPORTANT]
+> As Web Sockets não são atualmente suportadas para aplicações Linux em Planos de Serviço de Aplicações Grátis. Estamos a trabalhar na remoção desta limitação e planeamos suportar até 5 ligações web socket nos planos do Serviço de Aplicações Gratuitos.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 
 **Qual é o preço, agora que o serviço está geralmente disponível?**
 
-É-lhe cobrado o preço normal do Serviço de Aplicações Azure pelo número de horas que a sua aplicação executa.
+Os preços variam por SKU e região, mas você pode ver mais detalhes na nossa página de preços: Preços do Serviço de [Aplicações](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ## <a name="other-questions"></a>Outras questões
 
@@ -193,7 +201,7 @@ Só pode utilizar letras (A-Z, a-z), números (0-9) e o caráter de sublinhado (
 
 Pode submeter a sua ideia no fórum de feedback de [Aplicações Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" ao título da sua ideia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Serviço de Aplicações Azure no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

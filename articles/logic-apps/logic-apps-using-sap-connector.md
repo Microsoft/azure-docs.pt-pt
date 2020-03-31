@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
 ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651020"
 ---
-# <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar aos sistemas SAP a partir de Aplicações Lógicas Azure
+# <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
 > [!IMPORTANT]
 > Os anteriores connectores sap application Server e SAP Message Server são depreciados em 29 de fevereiro de 2020. O atual conector SAP consolida estes conectores SAP anteriores para que não tenha de alterar o tipo de ligação, é totalmente compatível com conectores anteriores, fornece muitas capacidades adicionais e continua a utilizar a biblioteca de conectores SAP .Net ( SAP NCo).
@@ -93,7 +93,7 @@ Neste exemplo, cria uma aplicação lógica com um ponto final no Azure para que
 
 1. No [portal Azure, crie](https://portal.azure.com)uma aplicação lógica em branco, que abre o Logic App Designer.
 
-1. Na caixa de pesquisa, introduza `http request` como filtro. A partir da lista **de Gatilhos,** selecione **Quando um pedido HTTP for recebido**.
+1. Na caixa de `http request` pesquisa, introduza como filtro. A partir da lista **de Gatilhos,** selecione **Quando um pedido HTTP for recebido**.
 
    ![Adicionar gatilho de pedido HTTP](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
@@ -113,7 +113,7 @@ Nas Aplicações Lógicas Azure, uma [ação](../logic-apps/logic-apps-overview.
 
    ![Adicione um novo passo para a aplicação lógica](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
 
-1. Na caixa de pesquisa, introduza `sap` como filtro. A partir da lista **de Ações,** selecione **Enviar mensagem para SAP**.
+1. Na caixa de `sap` pesquisa, introduza como filtro. A partir da lista **de Ações,** selecione **Enviar mensagem para SAP**.
   
    ![Selecione ação "Enviar mensagem para SAP"](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -182,7 +182,7 @@ Adicione agora uma ação de resposta ao fluxo de trabalho da sua aplicação l�
 
 1. No Logic App Designer, sob a ação SAP, selecione **Novo passo**.
 
-1. Na caixa de pesquisa, introduza `response` como filtro. Na lista **de Ações,** selecione **Resposta**.
+1. Na caixa de `response` pesquisa, introduza como filtro. Na lista **de Ações,** selecione **Resposta**.
 
 1. Clique na caixa **Body** para que a lista de conteúdos dinâmicos apareça. A partir dessa lista, em **Enviar mensagem para O SAP,** selecione o campo **Body.**
 
@@ -227,7 +227,7 @@ Este exemplo utiliza uma aplicação lógica que dispara quando a aplicação re
 
 1. No portal Azure, crie uma aplicação lógica em branco, que abre o Logic App Designer.
 
-1. Na caixa de pesquisa, introduza `sap` como filtro. A partir da lista **de Gatilhos,** selecione **Quando uma mensagem é recebida do SAP**.
+1. Na caixa de `sap` pesquisa, introduza como filtro. A partir da lista **de Gatilhos,** selecione **Quando uma mensagem é recebida do SAP**.
 
    ![Adicionar gatilho SAP](./media/logic-apps-using-sap-connector/add-sap-trigger-logic-app.png)
 
@@ -296,7 +296,7 @@ A sua aplicação lógica está agora pronta para receber mensagens do seu siste
 
 Pode configurar o SAP para [enviar IDOCs em pacotes,](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html)que são lotes ou grupos de IDOCs. Para receber pacotes IDOC, o conector SAP, e especificamente o gatilho, não precisa de configuração extra. No entanto, para processar cada item num pacote IDOC após o gatilho receber o pacote, são necessários alguns passos adicionais para dividir o pacote em IDOCs individuais.
 
-Aqui está um exemplo que mostra como extrair IDOCs individuais de um pacote usando a [função`xpath()`:](./workflow-definition-language-functions-reference.md#xpath)
+Aqui está um exemplo que mostra como extrair IDOCs individuais de um pacote usando a [ `xpath()` função:](./workflow-definition-language-functions-reference.md#xpath)
 
 1. Antes de começar, precisa de uma aplicação lógica com um gatilho SAP. Se ainda não tem esta aplicação lógica, siga os passos anteriores neste tópico para [configurar uma aplicação lógica com um gatilho SAP](#receive-from-sap).
 
@@ -304,13 +304,13 @@ Aqui está um exemplo que mostra como extrair IDOCs individuais de um pacote usa
 
    ![Adicione o gatilho SAP à aplicação lógica](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. Obtenha o espaço de nome raiz do XML IDOC que a sua aplicação lógica recebe do SAP. Para extrair este espaço de nome do documento XML, adicione um passo que cria uma variável de cadeia local e armazena esse espaço de nome usando uma expressão `xpath()`:
+1. Obtenha o espaço de nome raiz do XML IDOC que a sua aplicação lógica recebe do SAP. Para extrair este espaço de nome do documento XML, adicione um passo que `xpath()` cria uma variável de cadeia local e armazena esse espaço de nome usando uma expressão:
 
    `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
    ![Obtenha espaço de nome raiz do IDOC](./media/logic-apps-using-sap-connector/get-namespace.png)
 
-1. Para extrair um IDOC individual, adicione um passo que cria uma variável de matriz e armazena a coleção IDOC utilizando outra expressão `xpath()`:
+1. Para extrair um IDOC individual, adicione um passo que cria uma variável de matriz e armazena a coleção IDOC utilizando outra `xpath()` expressão:
 
    `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
@@ -320,7 +320,7 @@ Aqui está um exemplo que mostra como extrair IDOCs individuais de um pacote usa
 
    ![Enviar IDOC para servidor SFTP](./media/logic-apps-using-sap-connector/loop-batch.png)
 
-   Cada IDOC deve incluir o espaço de nome raiz, razão pela qual o conteúdo do ficheiro é embrulhado dentro de um elemento `<Receive></Receive` juntamente com o espaço de nome raiz antes de enviar o IDOC para a aplicação a jusante, ou servidor SFTP neste caso.
+   Cada IDOC deve incluir o espaço de nome raiz, razão `<Receive></Receive` pela qual o conteúdo do ficheiro é embrulhado dentro de um elemento juntamente com o espaço de nome raiz antes de enviar o IDOC para a aplicação a jusante, ou servidor SFTP neste caso.
 
 Você pode usar o modelo quickstart para este padrão selecionando este modelo no Logic App Designer quando você criar uma nova aplicação lógica.
 
@@ -334,7 +334,7 @@ Este exemplo utiliza uma aplicação lógica que pode desencadear com um pedido 
 
 1. No portal Azure, crie uma aplicação lógica em branco, que abre o Logic App Designer.
 
-1. Na caixa de pesquisa, introduza `http request` como filtro. A partir da lista **de Gatilhos,** selecione **Quando um pedido HTTP for recebido**.
+1. Na caixa de `http request` pesquisa, introduza como filtro. A partir da lista **de Gatilhos,** selecione **Quando um pedido HTTP for recebido**.
 
    ![Adicionar gatilho de pedido HTTP](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
@@ -351,7 +351,7 @@ Na barra de ferramentas de design, selecione **Guardar**.
 
    ![Adicione um novo passo para a aplicação lógica](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
 
-1. Na caixa de pesquisa, introduza `sap` como filtro. Na lista **de Ações,** selecione **Generate schemas**.
+1. Na caixa de `sap` pesquisa, introduza como filtro. Na lista **de Ações,** selecione **Generate schemas**.
   
    ![Adicione ação "Gerar schemas" à aplicação lógica](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -417,7 +417,7 @@ Opcionalmente, pode descarregar ou armazenar os esquemas gerados em repositório
 
 1. No Logic App Designer, sob o gatilho, selecione **Novo passo**.
 
-1. Na caixa de pesquisa, introduza `Resource Manager` como filtro. Selecione **Criar ou atualizar um recurso**.
+1. Na caixa de `Resource Manager` pesquisa, introduza como filtro. Selecione **Criar ou atualizar um recurso**.
 
    ![Selecione ação do Gestor de Recursos Azure](media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
 
@@ -434,7 +434,7 @@ Opcionalmente, pode descarregar ou armazenar os esquemas gerados em repositório
    ![Ação do Gestor de Recursos Azure com loop "para cada"](media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)
 
    > [!NOTE]
-   > Os schemas usam o formato codificado base64. Para fazer o upload dos esquemas para uma conta de integração, devem ser descodificados utilizando a função `base64ToString()`. Aqui está um exemplo que mostra o código para o elemento `"properties"`:
+   > Os schemas usam o formato codificado base64. Para fazer o upload dos esquemas para uma conta de `base64ToString()` integração, devem ser descodificados utilizando a função. Aqui está um exemplo que mostra `"properties"` o código para o elemento:
    >
    > ```json
    > "properties": {
@@ -466,7 +466,7 @@ Antes de começar, certifique-se de que cumpriu os [pré-requisitos](#pre-reqs)p
 
    | Propriedade | Descrição |
    |----------| ------------|
-   | **Caminho da Biblioteca SNC** | O nome ou caminho da biblioteca SNC em relação à localização de instalação nCo ou caminho absoluto. Exemplos são `sapsnc.dll` ou `.\security\sapsnc.dll` ou `c:\security\sapsnc.dll`. |
+   | **Caminho da Biblioteca SNC** | O nome ou caminho da biblioteca SNC em relação à localização de instalação nCo ou caminho absoluto. Exemplos `sapsnc.dll` são `.\security\sapsnc.dll` `c:\security\sapsnc.dll`ou . |
    | **SNC SSO** | Quando se liga através do SNC, a identidade SNC é normalmente utilizada para autenticar o chamador. Outra opção é anular para que as informações do utilizador e da palavra-passe possam ser utilizadas para autenticar o chamador, mas a linha ainda está encriptada. |
    | **SNC Meu Nome** | Na maioria dos casos, esta propriedade pode ser omitida. A solução SNC instalada geralmente conhece o seu próprio nome SNC. Apenas para soluções que suportem múltiplas identidades, poderá ser necessário especificar a identidade a utilizar para este destino ou servidor específico. |
    | **Nome do parceiro SNC** | O nome do SNC de back-end. |
@@ -480,7 +480,7 @@ Antes de começar, certifique-se de que cumpriu os [pré-requisitos](#pre-reqs)p
 
 ## <a name="safe-typing"></a>Dactilografia segura
 
-Por predefinição, quando cria a sua ligação SAP, a dactilografia forte é usada para verificar valores inválidos executando validação XML contra o esquema. Este comportamento pode ajudá-lo a detetar problemas mais cedo. A opção **"Digito seguro"** está disponível para a retrocompatibilidade e verifica apenas o comprimento da corda. Se escolher a **Digitação Segura,** o tipo DATS e o tipo TIMS em SAP são tratados como cordas e não como os seus equivalentes XML, `xs:date` e `xs:time`, onde `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. A dactilografia segura afeta o comportamento de toda a geração schema, a mensagem de envio tanto para a carga útil "enviada" como para a resposta "recebida" e para o gatilho. 
+Por predefinição, quando cria a sua ligação SAP, a dactilografia forte é usada para verificar valores inválidos executando validação XML contra o esquema. Este comportamento pode ajudá-lo a detetar problemas mais cedo. A opção **"Digito seguro"** está disponível para a retrocompatibilidade e verifica apenas o comprimento da corda. Se escolher a **Digitação Segura,** o tipo DATS e o tipo TIMS em SAP `xs:time`são `xmlns:xs="http://www.w3.org/2001/XMLSchema"`tratados como cordas e não como os seus equivalentes XML, `xs:date` e , onde . A dactilografia segura afeta o comportamento de toda a geração schema, a mensagem de envio tanto para a carga útil "enviada" como para a resposta "recebida" e para o gatilho. 
 
 Quando se trata de uma dactilografia forte **(A dactilografia segura** não está ativada), o esquema mapeia os tipos DATS e TIMS para tipos xml mais simples:
 

@@ -11,16 +11,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 0562d609231d69d95f1d2b5b838663b704f8f2f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255746"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124754"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilize pontos finais e regras de serviço de rede virtual para servidores de base de dados
 
-*As regras* de rede virtual são uma característica de segurança de firewall que controla se o servidor de base de dados para as suas bases de dados únicas e um pool elástico na Base de Dados Azure [SQL](sql-database-technical-overview.md) ou para as suas bases de dados no [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas a partir de determinadas redes virtuais. Este artigo explica porque é que a funcionalidade de regra da rede virtual é, por vezes, a sua melhor opção para permitir a comunicação com segurança para a sua Base de Dados Azure SQL e SQL Data Warehouse.
+*As regras* de rede virtual são uma característica de segurança de firewall que controla se o servidor de base de dados para as suas bases de dados únicas e um pool elástico na Base de Dados Azure [SQL](sql-database-technical-overview.md) ou para as suas bases de dados no [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas a partir de determinadas redes virtuais. Este artigo explica porque é que a funcionalidade de regra da rede virtual é, por vezes, a sua melhor opção para permitir a comunicação com segurança para a sua Base de Dados Azure SQL e SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instância gerida** na Base de Dados Azure SQL porque não tem um ponto final de serviço associado ao mesmo.
@@ -53,7 +53,7 @@ Cada regra de rede virtual aplica-se a todo o seu servidor de base de dados Azur
 
 Existe uma separação das funções de segurança na administração de pontos finais de serviço da Rede Virtual. São necessárias ações de cada uma das seguintes funções:
 
-- **Administração da rede:** &nbsp; ligar o ponto final.
+- **Administração da rede:** &nbsp; Ligue o ponto final.
 - **Administração da base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a subnet dada ao servidor de base de dados SQL.
 
 *Alternativa RBAC:*
@@ -158,15 +158,15 @@ A PolyBase é comumente usada para carregar dados no Armazém de Dados Azure SQL
        > - Não há necessidade de especificar SECRET com a chave de acesso ao Armazenamento Azure porque este mecanismo utiliza [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) sob as capas.
        > - O nome DE IDENTIDADE deve ser **"Identidade de Serviço Gerida"** para a conectividade PolyBase para trabalhar com a conta de Armazenamento Azure garantida à VNet.
 
-   1. Crie fonte de dados externacom `abfss://` esquema de ligação à sua conta de armazenamento v2 de uso da PolyBase:
+   1. Crie fonte `abfss://` de dados externacom esquema de ligação à sua conta de armazenamento v2 de uso da PolyBase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Se já tem tabelas externas associadas à conta de armazenamento v1 ou blob de uso geral, deve primeiro largar essas tabelas externas e, em seguida, deixar cair a fonte de dados externa correspondente. Em seguida, crie uma fonte externa de dados com `abfss://` esquema que ligue à conta de armazenamento v2 de uso geral como acima e recrie todas as tabelas externas utilizando esta nova fonte de dados externa. Pode utilizar [o Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criação para todas as tabelas externas para facilitar.
-       > - Para mais informações sobre `abfss://` esquema, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Se já tem tabelas externas associadas à conta de armazenamento v1 ou blob de uso geral, deve primeiro largar essas tabelas externas e, em seguida, deixar cair a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com `abfss://` um esquema que ligue à conta de armazenamento v2 de uso geral como acima e recrie todas as tabelas externas utilizando esta nova fonte de dados externa. Pode utilizar [o Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criação para todas as tabelas externas para facilitar.
+       > - Para mais `abfss://` informações sobre o esquema, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - Para mais informações sobre a CREATE EXTERNAL DATA SOURCE, consulte este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Consulta normal utilizando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -197,7 +197,7 @@ O erro de ligação 40914 diz respeito às regras de *rede virtuais,* conforme e
 
 ### <a name="error-40615"></a>Erro 40615
 
-*Texto de mensagem:* Não é possível abrir o '{0}' do servidor ' solicitado pelo login. O cliente com endereço IP '{1}' não está autorizado a aceder ao servidor.
+*Texto de mensagem:* Não é{0}possível abrir o servidor ' ' solicitado pelo login. O cliente com{1}endereço IP ' ' não está autorizado a aceder ao servidor.
 
 *Descrição do erro:* O cliente está a tentar ligar-se a partir de um endereço IP que não está autorizado a ligar-se ao servidor de base de dados Azure SQL. O servidor da firewall não dispõe de qualquer regra de endereço IP que permita a um cliente comunicar entre esse mesmo endereço IP e a Base de Dados SQL.
 
@@ -235,7 +235,7 @@ Já deve ter uma sub-rede que esteja marcada com o nome final do tipo de ponto f
 
 ## <a name="azure-portal-steps"></a>Passos do portal Azure
 
-1. Inicie sessão no [portal do Azure][http-azure-portal-link-ref-477t].
+1. Inicie sessão no [Portal do Azure][http-azure-portal-link-ref-477t].
 
 2. Procure e selecione **servidores SQL**e, em seguida, selecione o seu servidor. Em **Segurança,** selecione **Firewalls e redes virtuais.**
 
@@ -252,7 +252,7 @@ Já deve ter uma sub-rede que esteja marcada com o nome final do tipo de ponto f
 
     > [!TIP]
     > Deve incluir o **prefixo** de endereço correto para a sua sub-rede. Pode encontrar o valor no portal.
-    > Navegue **todos os recursos** &gt; Todos os **tipos** &gt; **redes virtuais.** O filtro exibe as suas redes virtuais. Clique na sua rede virtual e, em seguida, clique em **Subnets**. A coluna **ADDRESS RANGE** tem o prefixo de endereço de que necessita.
+    > Navegue **todos os recursos** &gt; **Todos os tipos** &gt; **redes virtuais.** O filtro exibe as suas redes virtuais. Clique na sua rede virtual e, em seguida, clique em **Subnets**. A coluna **ADDRESS RANGE** tem o prefixo de endereço de que necessita.
 
     ![Preencha os campos para uma nova regra.][image-portal-firewall-create-update-vnet-rule-20-png]
 

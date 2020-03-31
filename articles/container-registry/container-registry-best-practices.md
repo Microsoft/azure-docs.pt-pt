@@ -4,10 +4,10 @@ description: Saiba como utilizar o registo de contentor do Azure de forma eficie
 ms.topic: article
 ms.date: 09/27/2018
 ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247075"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
@@ -33,7 +33,7 @@ Para saber como utilizar a georreplicação, veja o tutorial de três partes [Ge
 
 Ao tirar partido dos espaços de nomes do repositório, pode permitir a partilha de um único registo em vários grupos na sua organização. Os registos podem ser partilhados em implementações e equipas. O Azure Container Registry suporta espaços de nomes aninhados, ao ativar o isolamento de grupo.
 
-Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são usadas em toda a empresa, como `aspnetcore`, são colocadas no espaço de nome raiz, enquanto imagens de contentores pertencentes aos grupos de Produtos e Marketing usam cada um os seus próprios espaços de nome.
+Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são `aspnetcore`usadas em toda a empresa, como, são colocadas no espaço de nome raiz, enquanto imagens de contentores pertencentes aos grupos de Produtos e Marketing usam cada um os seus próprios espaços de nome.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -53,13 +53,13 @@ Ao autenticar com um registo de contentor do Azure, existem dois cenários princ
 | Tipo | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um programador a extrair imagens ou enviar imagens a partir da respetiva máquina de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
-| Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Principal de serviço](container-registry-authentication.md#service-principal) |
+| Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Diretor de serviço](container-registry-authentication.md#service-principal) |
 
 Para obter informações aprofundadas sobre a autenticação do Azure Container Registry, veja [Authenticate with an Azure container registry (Autenticar com um registo de contentor do Azure)](container-registry-authentication.md).
 
 ## <a name="manage-registry-size"></a>Gerir o tamanho do registo
 
-Os constrangimentos de armazenamento de cada registo de [contentores SKU][container-registry-skus] destinam-se a alinhar-se com um cenário típico: **Básico** para começar, **Standard** para a maioria das aplicações de produção, e **Premium** para desempenho em hiperescala e [geo-replicação.][container-registry-geo-replication] Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+As restrições de armazenamento de cada [registo de contentor SKU][container-registry-skus] são destinadas para alinhar com um cenário típico: **Básico** para começar a trabalhar, **Standard**, para a maioria das aplicações de produção, e **Premium**, para desempenho de hiper escala e [georreplicação][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
 Utilize o comando Azure CLI [az acr show-usage][az-acr-show-usage] para mostrar o tamanho atual do seu registo:
 

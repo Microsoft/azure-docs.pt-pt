@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048350"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados?
@@ -28,7 +28,7 @@ Os fluxos de dados de contorcer em conflito são especialmente úteis para engen
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>Exploração e preparação de dados interativos rápidos
 
-Vários engenheiros de dados e integradores de dados de cidadãos podem explorar e preparar conjuntos de dados em escala de nuvem. Com o aumento do volume, variedade e velocidade dos dados nos lagos de dados, os utilizadores precisam de uma forma eficaz de explorar e preparar conjuntos de dados. Por exemplo, poderá ter de criar um conjunto de dados que "tenha toda a informação demográfica do cliente para novos clientes desde 2017". Você não está mapeando para um destino conhecido. Estás a explorar, a discutir e a preparar conjuntos de dados para satisfazer um requisito antes de o publicares no lago. Os fluxos de dados de estrangulamento são frequentemente usados para cenários de análise menos formais. Os conjuntos de dados preparados podem ser usados para fazer transformações e operações de aprendizagem automática a jusante.
+Vários engenheiros de dados e integradores de dados de cidadãos podem explorar e preparar conjuntos de dados em escala de nuvem. Com o aumento do volume, variedade e velocidade dos dados nos lagos de dados, os utilizadores precisam de uma forma eficaz de explorar e preparar conjuntos de dados. Por exemplo, poderá ter de criar um conjunto de dados que "tenha toda a informação demográfica do cliente para novos clientes desde 2017". Não estás a mapear um alvo conhecido. Estás a explorar, a discutir e a preparar conjuntos de dados para satisfazer um requisito antes de o publicares no lago. Os fluxos de dados de estrangulamento são frequentemente usados para cenários de análise menos formais. Os conjuntos de dados preparados podem ser usados para fazer transformações e operações de aprendizagem automática a jusante.
 
 ### <a name="code-free-agile-data-preparation"></a>Preparação de dados ágeis sem código
 
@@ -38,15 +38,15 @@ Os integradores de dados dos cidadãos passam mais de 60% do seu tempo à procur
 
 Digitalmente, digitalize os seus dados de forma livre de códigos para remover quaisquer anomalias, anomalias e adaptá-la a uma forma para análiserápida rápida.
 
-## <a name="supported-sources"></a>Fontes com suporte
+## <a name="supported-sources"></a>Fontes apoiadas
 
 | Conector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave da Conta |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave de conta |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | CSV | Principal de Serviço |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | CSV | Chave de Conta, Diretor de Serviço |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
-| [Análise synapse azure](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
 
 ## <a name="the-mashup-editor"></a>O editor de mashup
 

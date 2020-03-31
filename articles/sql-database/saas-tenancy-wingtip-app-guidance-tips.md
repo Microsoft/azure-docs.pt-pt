@@ -1,6 +1,6 @@
 ---
-title: Exemplo de aplicativo multilocatário – Wingtip SaaS
-description: Fornece etapas e orientações para instalar e executar o aplicativo de multilocatário de exemplo que usa o banco de dados SQL do Azure, o exemplo de SaaS do Wingtip tickets.
+title: Exemplo de aplicativo multi-inquilino - Wingtip SaaS
+description: Fornece passos e orientações para a instalação e execução da aplicação de multi-inquilinos da amostra que utiliza a Base de Dados Azure SQL, o exemplo wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,60 +12,60 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132292"
 ---
-# <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip tickets
+# <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Orientação geral para trabalhar com bilhetes wingtip amostra apps SaaS
 
-Este artigo contém diretrizes gerais para executar os aplicativos SaaS de exemplo Wingtip tickets que usam o banco de dados SQL do Azure.
+Este artigo contém orientações gerais para executar as aplicações SaaS da amostra de bilhetes Wingtip que utilizam a Base de Dados Azure SQL.
 
-## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Baixar e desbloquear os scripts SaaS do Wingtip tickets
+## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Descarregue e desbloqueie os scripts SaaS bilhetes wingtip
 
-Conteúdos executáveis (scripts, DLLs) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, **siga as etapas abaixo para desbloquear o arquivo. zip antes de extrair**. Isso garante que os scripts tenham permissão para serem executados.
+Os conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando os ficheiros zip são descarregados de uma fonte externa e extraídos. Ao extrair os scripts de um ficheiro zip, **siga os passos abaixo para desbloquear o ficheiro .zip antes**de extrair . Isto garante que os scripts são autorizados a ser executados.
 
-1. Navegue até o repositório GitHub do Wingtip tickets SaaS para o padrão de aluguel de banco de dados que você deseja explorar:
+1. Navegue no Wingtip Tickets SaaS GitHub repo para o padrão de arrendamento de base de dados que deseja explorar:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
-2. Clique em **clonar ou baixar**.
-3. Clique em **baixar zip** e salve o arquivo.
-4. Clique com o botão direito do mouse no arquivo zip e selecione **Propriedades**. O nome do arquivo zip corresponderá ao nome do repositório. Estendi. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
-5. Na guia **geral** , selecione **desbloquear**.
+2. Clique em **Clone ou faça o download.**
+3. Clique em **Baixar zip** e guardar o ficheiro.
+4. Clique no ficheiro zip e selecione **Propriedades**. O nome do ficheiro zip corresponderá ao nome do repo. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+5. No separador **Geral,** selecione **Desbloquear**.
 6. Clique em **OK**.
-7. Extraia os arquivos.
+7. Extraia os ficheiros.
 
-Os scripts estão localizados na pasta *..\\módulos de aprendizado* .
+Os scripts estão localizados na *.. Pasta \\de Módulos de Aprendizagem.*
 
 
-## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabalhando com os scripts do PowerShell do Wingtip tickets
+## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabalhando com os scripts PowerShell de bilhetes wingtip
 
-Para obter o máximo do exemplo, você precisa se aprofundar nos scripts fornecidos. Use pontos de interrupção e percorra os scripts à medida que eles são executados e examine como os diferentes padrões de SaaS são implementados. Para percorrer facilmente os scripts e módulos fornecidos para obter a melhor compreensão, recomendamos o uso do [ISE do PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
+Para tirar o máximo partido da amostra, é necessário mergulhar nos scripts fornecidos. Use breakpoints e passe pelos scripts enquanto executam e examinam como os diferentes padrões SaaS são implementados. Para passar facilmente pelos scripts e módulos fornecidos para a melhor compreensão, recomendamos a utilização do [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
 
-### <a name="update-the-configuration-file-for-your-deployment"></a>Atualizar o arquivo de configuração para sua implantação
+### <a name="update-the-configuration-file-for-your-deployment"></a>Atualize o ficheiro de configuração para a sua implementação
 
-Edite o arquivo **userconfig. psm1** com o grupo de recursos e o valor do usuário que você definiu durante a implantação:
+Editar o ficheiro **UserConfig.psm1** com o grupo de recursos e o valor do utilizador que definiu durante a implementação:
 
-1. Abra o *ISE do PowerShell* e carregue...\\módulos de aprendizado\\*userconfig. psm1*
-2. Atualize *ResourceGroupName* e *nomeie* com os valores específicos para sua implantação (somente nas linhas 10 e 11).
-3. Salve as alterações!
+1. Abra o *PowerShell ISE* e carregue... \\Módulos\\de Aprendizagem*UserConfig.psm1*
+2. Atualizar *O Nome* e *Nome* do Grupo de Recursos com os valores específicos para a sua implementação (apenas nas linhas 10 e 11).
+3. Guarde as alterações!
 
-Definir esses valores aqui simplesmente evita que você precise atualizar esses valores específicos da implantação em cada script.
+Definir estes valores aqui simplesmente impede que você tenha que atualizar estes valores específicos de implementação em cada script.
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Execute os scripts pressionando F5
 
-Vários scripts usam *$PSScriptRoot* para navegar em pastas e *$PSScriptRoot* só é avaliada quando os scripts são executados pressionando **F5**.  Realçar e executar uma seleção (**F8**) pode resultar em erros; portanto, pressione **F5** ao executar scripts.
+Vários scripts usam *$PSScriptRoot* para navegar em pastas, e *$PSScriptRoot* só é avaliado quando os scripts são executados pressionando **F5**.Realçar e executar uma seleção **(F8)** pode resultar em erros, por isso prima **F5** ao executar scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Analisar os scripts para examinar a implementação
 
-A melhor maneira de entender os scripts é percorrendo-os para ver o que eles fazem. Confira os scripts de **demonstração** incluídos que apresentam um fluxo de trabalho de alto nível fácil de seguir. Os scripts de **demonstração** mostram as etapas necessárias para realizar cada tarefa, portanto, defina pontos de interrupção e aprofunde-se nas chamadas individuais para ver os detalhes de implementação para os diferentes padrões de SaaS.
+A melhor maneira de entender os guiões é pisando neles para ver o que fazem. Confira os scripts de **Demo** incluídos que apresentam um fluxo de trabalho de alto nível fácil de seguir. Os scripts **Demo** mostram os passos necessários para realizar cada tarefa, de modo que detetete te pontos de rutura e perfure mais profundamente as chamadas individuais para ver detalhes de implementação para os diferentes padrões SaaS.
 
-Dicas para explorar e percorrer os scripts do PowerShell:
+Dicas para explorar e pisar através dos scripts PowerShell:
 
-- Abrir scripts de **demonstração** no ISE do PowerShell.
-- Execute ou continue com **F5** (não é recomendável usar **F8** porque *$PSScriptRoot* não é avaliada ao executar seleções de um script).
+- Open **Demo-** scripts no PowerShell ISE.
+- Execute ou continue com **F5** (usar **F8** não é aconselhado porque *$PSScriptRoot* não é avaliado ao executar seleções de um script).
 - Para colocar os pontos de interrupção, clique ou selecione uma linha e prima **F9**.
 - Para executar o próximo passo numa chamada de função ou script, utilize **F10**.
 - Para avançar para uma chamada de função ou script, utilize **F11**.
@@ -74,48 +74,48 @@ Dicas para explorar e percorrer os scripts do PowerShell:
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Explorar o esquema de base de dados e executar consultas SQL com o SSMS
 
-Use o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar e procurar os servidores de aplicativos e bancos de dados.
+Utilize o Estúdio de Gestão de [Servidores SQL (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para ligar e navegar nos servidores de aplicações e bases de dados.
 
-A implantação inicialmente tem locatários e servidores de banco de dados SQL de catálogo para se conectar. A nomenclatura dos servidores depende do padrão de aluguel do banco de dados (veja abaixo os detalhes específicos).
+A implementação inicialmente tem inquilinos e servidores de base de dados SQL para ligar. O nome dos servidores depende do padrão de arrendamento da base de dados (ver abaixo para obter detalhes).
 
-   - **Aplicativo autônomo:** servidores para cada locatário (por exemplo, *contosoconcerthall-&lt;servidor de&gt;de usuário* ) e o *usuário Catalog-sa-&lt;&gt;*
-   - **Banco de dados por locatário:** *tenants1-dpt-&lt;&gt;* de usuário e *Catálogo-DPT-&lt;usuário&gt;* servidores
-   - **Banco de dados multilocatário:** *tenants1-mt-&lt;&gt;* do usuário e *Catalog-MT-&lt;usuários&gt;* servidores
+   - **Aplicação autónoma:** servidores para cada inquilino (ex. *Contosoconcerthall-&lt;&gt; Servidor de utilizador)* e *catálogo-sa-Utilizador&lt;&gt; *
+   - **Base de dados por inquilino:** *&lt;inquilinos1-dpt- Utilizador&gt; * e servidores de *&lt;utilizador&gt; de catálogo*
+   - **Base de dados multi-inquilinos:** *&lt;inquilinos1-mt- User&gt; * e servidores de *utilizador de&lt;&gt; catálogo*
 
-Para garantir uma conexão de demonstração bem-sucedida, todos os servidores têm uma [regra de firewall](sql-database-firewall-configure.md) que permite todos os IPs por meio do.
+Para garantir uma ligação de demonstração bem sucedida, todos os servidores têm uma regra de [firewall](sql-database-firewall-configure.md) que permite a todos os IPs passarem.
 
 
-1. Abra o *SSMS* e conecte-se aos locatários. O nome do servidor depende do padrão de aluguel de banco de dados que você selecionou (veja abaixo as especificações):
-    - **Aplicativo autônomo:** servidores de locatários individuais (por exemplo, *contosoconcerthall-&lt;User&gt;.database.windows.net*)
-    - **Banco de dados por locatário:** *tenants1-DPT-&lt;usuário&gt;. Database.Windows.net*
-    - **Banco de dados multilocatário:** *tenants1-MT-&lt;usuário&gt;. Database.Windows.net*
-2. Clique em **Ligar** > **Motor de Base de Dados...** :
+1. Abra *o SSMS* e ligue-se aos inquilinos. O nome do servidor depende do padrão de arrendamento da base de dados que selecionou (ver abaixo para obter detalhes):
+    - **Aplicação autónoma:** servidores de inquilinos individuais (ex. *Contosoconcerthall-&lt;&gt;Utilizador .database.windows.net*)
+    - **Base de dados por inquilino:** *&lt;inquilinos1-dpt- Utilizador&gt;.database.windows.net*
+    - **Base de dados multi-inquilinos:** *&lt;inquilinos1-mt- Utilizador&gt;.database.windows.net*
+2. Clique **em ligar** > motor de base de**dados...**
 
    ![servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: login = *Developer*, password = *P\@ssword1*
+3. As credenciais de demonstração são: Login = *desenvolvedor*, Password = *P\@ssword1*
 
-    A imagem abaixo demonstra o logon do padrão de *banco de dados por locatário* .
-    ![ligação](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
-
-
-
-4. Repita as etapas 2-3 e conecte-se ao servidor de catálogo (veja abaixo os nomes de servidor específicos com base no padrão de aluguel de banco de dados selecionado)
-    - **Aplicativo autônomo:** *Catalog-SA-&lt;usuário&gt;. Database.Windows.net*
-    - **Banco de dados por locatário:** *Catalog-DPT-&lt;usuário&gt;. Database.Windows.net*
-    - **Banco de dados multilocatário:** *Catalog-MT-&lt;usuário&gt;. Database.Windows.net*
+    A imagem abaixo demonstra o login para a Base de Dados por padrão *de inquilino.*
+    ![conexão](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
-Depois de se conectar com êxito, você deverá ver todos os servidores. Sua lista de bancos de dados pode ser diferente, dependendo dos locatários que você provisionou.
 
-A imagem abaixo demonstra o logon para o padrão de *banco de dados por locatário* .
+4. Repita os passos 2-3 e ligue-se ao servidor de catálogo (ver abaixo os nomes específicos do servidor com base no padrão de arrendamento de base de dados selecionado)
+    - **Aplicação autónoma:** *catálogo-sa-&lt;Utilizador&gt;.database.windows.net*
+    - **Base de dados por inquilino:** *catalog-dpt-&lt;Utilizador&gt;.database.windows.net*
+    - Base de **dados multi-inquilinos:** *catálogo-mt-&lt;Utilizador&gt;.database.windows.net*
+
+
+Depois de ligar com sucesso, deve ver todos os servidores. A sua lista de bases de dados pode ser diferente, dependendo dos inquilinos que você disponibilizou.
+
+A imagem abaixo demonstra o login para a Base de Dados por padrão *de inquilino.*
 
 ![explorador de objetos](media/saas-tenancy-wingtip-app-guidance-tips/object-explorer.png)
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Implantar o aplicativo autônomo SaaS Wingtip tickets](saas-standaloneapp-get-started-deploy.md)
-- [Implantar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md)
-- [Implantar o aplicativo de banco de dados multilocatário SaaS Wingtip tickets](saas-multitenantdb-get-started-deploy.md)
+- [Implementar a aplicação autónoma de bilhetes SaaS](saas-standaloneapp-get-started-deploy.md)
+- [Implementar a base de dados saaS de bilhetes wingtip por pedido de inquilino](saas-dbpertenant-get-started-deploy.md)
+- [Implementar a aplicação de base de dados de bilhetes SaaS Multi-inquilinos](saas-multitenantdb-get-started-deploy.md)
 

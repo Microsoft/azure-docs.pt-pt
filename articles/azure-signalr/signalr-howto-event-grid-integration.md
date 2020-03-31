@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
 ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76710826"
 ---
-# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do Serviço De Sinalização Azure para a Grelha de Eventos
+# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do Azure SignalR Service ao Event Grid
 
 Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que fornece um consumo uniforme de eventousando um modelo pub-sub. Neste guia, utiliza o Azure CLI para criar um Serviço de Sinalização Azure, subscrever eventos de ligação e, em seguida, implementar uma aplicação web de amostra para receber os eventos. Finalmente, pode ligar e desligar e ver a carga útil do evento na aplicação da amostra.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Os comandos Azure CLI neste artigo são formatados para **a** concha bash. Se es
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos Azure é um recipiente lógico no qual você implanta e gere os seus recursos Azure. O seguinte [grupo az criar][az-group-create] comando cria um grupo de recursos chamado *myResourceGroup* na região *oriental.* Se quiser usar um nome diferente para o seu grupo de recursos, detete `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos Azure é um recipiente lógico no qual você implanta e gere os seus recursos Azure. O seguinte [grupo az criar][az-group-create] comando cria um grupo de recursos chamado *myResourceGroup* na região *oriental.* Se quiser usar um nome diferente para `RESOURCE_GROUP_NAME` o seu grupo de recursos, detetete tacada para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -75,7 +75,7 @@ Uma vez criado o Serviço SignalR, o Azure CLI devolve a saída semelhante à se
 
 Nesta secção, você usa um modelo de Gestor de Recursos localizado num repositório GitHub para implementar uma aplicação web de amostra pré-construída para o Serviço de Aplicações Azure. Mais tarde, subscreve os eventos da Grelha de Eventos do seu registo e especifique esta aplicação como o ponto final para o qual os eventos são enviados.
 
-Para implementar a aplicação de amostra, detete `SITE_NAME` para um nome único para a sua aplicação web e execute os seguintes comandos. O nome do site deve ser único dentro do Azure porque faz parte do nome de domínio totalmente qualificado (FQDN) da aplicação web. Numa secção posterior, navega para o FQDN da aplicação num navegador web para ver os eventos do seu registo.
+Para implementar a aplicação de amostra, detete `SITE_NAME` tede um nome único para a sua aplicação web e execute os seguintes comandos. O nome do site deve ser único dentro do Azure porque faz parte do nome de domínio totalmente qualificado (FQDN) da aplicação web. Numa secção posterior, navega para o FQDN da aplicação num navegador web para ver os eventos do seu registo.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -141,7 +141,7 @@ Quando a subscrição estiver concluída, deverá ver a saída semelhante à seg
 
 ## <a name="trigger-registry-events"></a>Eventos de registo de gatilho
 
-Mude para o modo de serviço para `Serverless Mode` e instale uma ligação do cliente ao Serviço SignalR. Pode tomar a [Amostra Sem Servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como referência.
+Mude para o `Serverless Mode` modo de serviço e instale uma ligação do cliente ao Serviço SignalR. Pode tomar a [Amostra Sem Servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como referência.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Ver eventos de registo
 
-Ligou um cliente ao Serviço SignalR. Navegue para a sua aplicação web Event Grid Viewer, e deverá ver um evento `ClientConnectionConnected`. Se rescindir o cliente, também verá um evento `ClientConnectionDisconnected`.
+Ligou um cliente ao Serviço SignalR. Navegue para a sua aplicação web `ClientConnectionConnected` Event Grid Viewer, e deverá ver um evento. Se rescindir o cliente, também `ClientConnectionDisconnected` verá um evento.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

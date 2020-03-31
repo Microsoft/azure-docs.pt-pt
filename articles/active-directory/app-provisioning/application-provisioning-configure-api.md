@@ -16,12 +16,12 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b59bceb07facd944d7159eeb416c7e9e91557c
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522735"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481471"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configure o fornecimento usando APIs do Microsoft Graph
 
@@ -174,7 +174,7 @@ Content-type: application/json
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Recuperar o modelo para o conector de provisionamento
 
-As aplicações na galeria que estão habilitadas para o provisionamento têm modelos para simplificar a configuração. Utilize o pedido abaixo para [recuperar o modelo para a configuração de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http).
+As aplicações na galeria que estão habilitadas para o provisionamento têm modelos para simplificar a configuração. Utilize o pedido abaixo para [recuperar o modelo para a configuração de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Note que terá de fornecer a identificação. O ID refere-se ao recurso anterior, que neste caso é o Diretor de Serviço. 
 
 #### <a name="request"></a>*Pedido*
 
@@ -266,10 +266,10 @@ Content-type: application/json
 
 ### <a name="test-the-connection-to-the-application"></a>Testar a ligação à aplicação
 
-Teste a ligação com a aplicação de terceiros. O exemplo abaixo é para uma aplicação que requer clientSecret e secretToken. Cada aplicação tem os seus requisitos. Reveja a documentação da [API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) para ver as opções disponíveis. 
+Teste a ligação com a aplicação de terceiros. O exemplo abaixo é para uma aplicação que requer clientSecret e secretToken. Cada aplicação tem os seus requisitos. As aplicações usam frequentemente o BaseAddress no lugar do ClientSecret. Para determinar quais as credenciais que a sua aplicação necessita, navegue para a página de configuração de provisionamento para a sua aplicação e no modo desenvolvedor clique na ligação de teste. O tráfego da rede mostrará os parâmetros utilizados para credenciais. A lista completa de credenciais pode ser consultada [aqui.](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) 
 
 #### <a name="request"></a>*Pedido*
-```http
+```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 { 
     credentials: [ 
@@ -293,7 +293,7 @@ HTTP/1.1 204 No Content
 A configuração do provisionamento requer estabelecer um fundo entre a Azure AD e a aplicação. Autorize o acesso à aplicação de terceiros. O exemplo abaixo é para uma aplicação que requer clientSecret e secretToken. Cada aplicação tem os seus requisitos. Reveja a documentação da [API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) para ver as opções disponíveis. 
 
 #### <a name="request"></a>*Pedido*
-```json
+```msgraph-interactive
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
  
 { 

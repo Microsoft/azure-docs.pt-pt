@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087182"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com quadro de entidade
@@ -29,7 +29,7 @@ Para descarregar o código para este artigo:
 * É necessário o Visual Studio 2012 ou mais tarde. 
 * Descarregue as [ferramentas ELÁSTICAS DB para Azure SQL - Amostra de Integração de Quadros](https://github.com/Azure/elastic-db-tools/)de Entidades . Desaperte a amostra para um local à sua escolha.
 * Inicie o Visual Studio. 
-* No Estúdio Visual, selecione File &> Open Project/Solution. 
+* No Estúdio Visual, selecione File -> Open Project/Solution. 
 * No diálogo **Open Project,** navegue para a amostra que descarregou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra. 
 
 Para executar a amostra, precisa de criar três bases de dados vazias na Base de Dados Azure SQL:
@@ -44,7 +44,7 @@ Depois de ter criado estas bases de dados, preencha os suportes de lugares em **
 
 Os desenvolvedores do Quadro de Entidades contam com um dos seguintes quatro fluxos de trabalho para construir aplicações e para garantir a persistência de objetos de aplicação:
 
-* **Código Primeiro (Nova Base de Dados)** : O desenvolvedor ef cria o modelo no código de aplicação e, em seguida, a EF gera a base de dados a partir dele. 
+* **Código Primeiro (Nova Base de Dados)**: O desenvolvedor ef cria o modelo no código de aplicação e, em seguida, a EF gera a base de dados a partir dele. 
 * **Código Primeiro (Base**de Dados Existente) : O desenvolvedor permite que a EF gere o código de aplicação do modelo a partir de uma base de dados existente.
 * **Modelo Primeiro**: O desenvolvedor cria o modelo no designer EF e depois a EF cria a base de dados a partir do modelo.
 * **Base de Dados Primeiro**: O desenvolvedor utiliza ferramentas EF para inferir o modelo a partir de uma base de dados existente. 
@@ -162,7 +162,7 @@ O novo construtor abre a ligação ao fragmento que detém os dados do fragmento
 
 #### <a name="transient-faults-handling"></a>Manipulação de falhas transitórias
 
-A equipa de Padrões e Práticas da Microsoft publicou o Bloco de Aplicações de Manipulação de [Falhas Transitórias](https://msdn.microsoft.com/library/dn440719.aspx). A biblioteca é usada com biblioteca de clientes em escala elástica em combinação com EF. No entanto, certifique-se de que qualquer exceção transitória regressa a um local onde pode garantir que o novo construtor está a ser utilizado após uma falha transitória para que qualquer nova tentativa de ligação seja feita utilizando os construtores que alterou. Caso contrário, não é garantida uma ligação ao fragmento correto, e não existem garantias de que a ligação seja mantida à medida que ocorrem alterações ao mapa do fragmento. 
+A equipa de & Práticas da Microsoft Patterns publicou o Bloco de Aplicações de Manipulação de [Falhas Transitórias](https://msdn.microsoft.com/library/dn440719.aspx). A biblioteca é usada com biblioteca de clientes em escala elástica em combinação com EF. No entanto, certifique-se de que qualquer exceção transitória regressa a um local onde pode garantir que o novo construtor está a ser utilizado após uma falha transitória para que qualquer nova tentativa de ligação seja feita utilizando os construtores que alterou. Caso contrário, não é garantida uma ligação ao fragmento correto, e não existem garantias de que a ligação seja mantida à medida que ocorrem alterações ao mapa do fragmento. 
 
 A seguinte amostra de código ilustra como uma política de retry SQL pode ser usada em torno dos novos construtores de subclasse **DbContext:** 
 
@@ -193,10 +193,10 @@ Os exemplos de código acima ilustram as reescritas de construção predefinidas
 | Construtor atual | Construtor reescrito para dados | Construtor de Base | Notas |
 | --- | --- | --- | --- |
 | MyContext() |Contexto de escala elástica (ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação tem de ser uma função do mapa do fragmento e da chave de encaminhamento dependente de dados. Você precisa passar by-by-by criação de conexão automática pela EF e em vez disso usar o mapa de fragmentos para intermediar a ligação. |
-| MyContext(string) |Contexto de escala elástica (ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação é uma função do mapa do fragmento e da chave de encaminhamento dependente de dados. Um nome de base de dados fixo ou cadeia de ligação não funciona como validação de by-pass pelo mapa do fragmento. |
-| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A ligação é criada para o mapa de fragmentos dado e chave de sharding com o modelo fornecido. O modelo compilado é passado para a base c'tor. |
+| MyContext (cadeia) |Contexto de escala elástica (ShardMap, TKey) |DbContext (DbConnection, bool) |A ligação é uma função do mapa do fragmento e da chave de encaminhamento dependente de dados. Um nome de base de dados fixo ou cadeia de ligação não funciona como validação de by-pass pelo mapa do fragmento. |
+| MyContext (DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A ligação é criada para o mapa de fragmentos dado e chave de sharding com o modelo fornecido. O modelo compilado é passado para a base c'tor. |
 | MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |A ligação tem de ser deduzida do mapa do fragmento e da chave. Não pode ser fornecida como entrada (a menos que essa entrada já estivesse a utilizar o mapa do fragmento e a chave). O Boolean é transmitido. |
-| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A ligação tem de ser deduzida do mapa do fragmento e da chave. Não pode ser fornecida como entrada (a menos que essa entrada estivesse a utilizar o mapa do fragmento e a chave). O modelo compilado é transmitido. |
+| MyContext (string, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |A ligação tem de ser deduzida do mapa do fragmento e da chave. Não pode ser fornecida como entrada (a menos que essa entrada estivesse a utilizar o mapa do fragmento e a chave). O modelo compilado é transmitido. |
 | MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |O novo construtor precisa de garantir que qualquer ligação no ObjectContext passada como entrada é reencaminhada para uma ligação gerida pela Escala Elástica. Uma discussão detalhada sobre objectContexts está fora do âmbito deste documento. |
 | MyContext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |A ligação tem de ser deduzida do mapa do fragmento e da chave. A ligação não pode ser fornecida como entrada (a menos que essa entrada já estivesse a utilizar o mapa do fragmento e a chave). Modelo e Boolean são passados para o construtor de classe base. |
 

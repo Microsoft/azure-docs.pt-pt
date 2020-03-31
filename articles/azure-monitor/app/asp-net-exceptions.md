@@ -3,14 +3,14 @@ title: Diagnosticar falhas e exceções com insights de aplicação azure
 description: Capture exceções de apps ASP.NET juntamente com telemetria de pedidos.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79276234"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294693"
 ---
-# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas suas aplicações web com Insights de Aplicação
+# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações Web com o Application Insights
 As exceções na sua aplicação ao vivo são relatadas pela [Application Insights](../../azure-monitor/app/app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos tanto no cliente como no servidor, para que possa diagnosticar rapidamente as causas.
 
 ## <a name="set-up-exception-reporting"></a>Configurar relatórios de exceção
@@ -27,6 +27,8 @@ As exceções na sua aplicação ao vivo são relatadas pela [Application Insigh
   * [Web API 1.*](#web-api-1x)
   * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
+
+  Este artigo está especificamente focado em aplicações .NET Framework de uma perspetiva de exemplo de código. Alguns dos métodos que funcionam para o .NET Framework são obsoletos no .NET Core SDK. Consulte a [documentação .NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) se tiver uma aplicação .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnóstico de exceções usando o Estúdio Visual
 Abra a solução de aplicações no Visual Studio para ajudar na depuração.
@@ -75,7 +77,7 @@ Tem várias opções:
 
 Para ver estes eventos, abra [a Pesquisa](../../azure-monitor/app/diagnostic-search.md) a partir do menu esquerdo, selecione os tipos de **eventos**de menu suspensos , e, em seguida, escolha Evento Personalizado, Trace ou Exceção.
 
-![Explorar](./media/asp-net-exceptions/customevents.png)
+![Pormenorizar](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desselecionados em grupo, para que possa navegar entre eventos relacionados. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
@@ -89,7 +91,7 @@ Os detalhes do pedido não incluem os dados enviados para a sua aplicação numa
 * Insira o código na sua aplicação para ligar para [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Envie os dados do POST no parâmetro da mensagem. Há um limite para o tamanho permitido, por isso deve tentar enviar apenas os dados essenciais.
 * Quando investigar um pedido falhado, encontre os vestígios associados.
 
-## <a name="exceptions"></a>Captura de exceções e dados de diagnóstico relacionados
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Captura de exceções e dados de diagnóstico relacionados
 No início, não verá no portal todas as exceções que causam falhas na sua aplicação. Verá quaisquer exceções ao navegador (se estiver a utilizar o [JavaScript SDK](../../azure-monitor/app/javascript.md) nas suas páginas web). Mas a maioria das exceções do servidor são apanhadas pelo IIS e você tem que escrever um pouco de código para vê-los.
 
 Pode:
@@ -155,7 +157,7 @@ As propriedades e medições são opcionais, mas são úteis para [filtrar e adi
 ## <a name="browser-exceptions"></a>Exceções de browser
 A maioria das exceções do navegador são reportadas.
 
-Se a sua página web incluir ficheiros de script saem de redes de entrega de conteúdos ou outros domínios, certifique-se de que a sua etiqueta de script tem o atributo ```crossorigin="anonymous"```, e que o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isto permitir-lhe-á obter um traço de pilha e detalhes para exceções javaScript não manuseadas a partir destes recursos.
+Se a sua página web incluir ficheiros de script saem de ```crossorigin="anonymous"```redes de entrega de conteúdos ou outros domínios, certifique-se de que a sua etiqueta de script tem o atributo , e que o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isto permitir-lhe-á obter um traço de pilha e detalhes para exceções javaScript não manuseadas a partir destes recursos.
 
 ## <a name="reuse-your-telemetry-client"></a>Reutilizar o seu cliente de telemetria
 
@@ -207,12 +209,12 @@ Há uma série de casos que os filtros de exceção não conseguem lidar. Por ex
 * Exceção lançada em tarefas de fundo.
 
 Todas as exceções *tratadas* por aplicação ainda precisam de ser rastreadas manualmente.
-Exceções não tratadas originárias de controladores normalmente resultam em 500 respostas "Erro interno do servidor". Se tal resposta for construída manualmente em resultado de uma exceção manipulada (ou nenhuma exceção) é rastreada na telemetria de pedido correspondente com `ResultCode` 500, no entanto, o Application Insights SDK não consegue rastrear a correspondente exceção.
+Exceções não tratadas originárias de controladores normalmente resultam em 500 respostas "Erro interno do servidor". Se tal resposta for construída manualmente em resultado de uma exceção manipulada (ou nenhuma exceção) é rastreada na telemetria de pedido correspondente com `ResultCode` 500, no entanto, o SDK de Insights de Aplicação não consegue rastrear a correspondente exceção.
 
 ### <a name="prior-versions-support"></a>Suporte de versões anteriores
 Se utilizar o MVC 4 (e anterior) do Web SDK 2.5 (e anterior), consulte os seguintes exemplos para rastrear exceções.
 
-Se a configuração [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) for `Off`, então estarão disponíveis exceções para que o [Módulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx) possa recolher. No entanto, se for `RemoteOnly` (predefinido), ou `On`, então a exceção será apurada e não estará disponível para que os Insights de Aplicação recolham automaticamente. Pode corrigir isso substituindo a [classe System.Web.Mvc.HandleErrorAttribute,](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)e aplicando a classe overridden como mostrado para as diferentes versões MVC abaixo[(fonte GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Se a configuração `Off` [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) for , então estarão disponíveis exceções para que o [Módulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx) possa recolher. No entanto, `RemoteOnly` se for `On`(predefinido), ou , então a exceção será apurada e não estará disponível para que os Insights de Aplicação recolham automaticamente. Pode corrigir isso substituindo a [classe System.Web.Mvc.HandleErrorAttribute,](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)e aplicando a classe overridden como mostrado para as diferentes versões MVC abaixo[(fonte GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -253,10 +255,10 @@ Substitua o atributo HandleError pelo seu novo atributo nos seus controladores.
     ...
 ```
 
-[Exemplo](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
-Registe `AiHandleErrorAttribute` como filtro global em Global.asax.cs:
+Registe-se `AiHandleErrorAttribute` como filtro global em Global.asax.cs:
 
 ```csharp
     public class MyMvcApplication : System.Web.HttpApplication
@@ -268,7 +270,7 @@ Registe `AiHandleErrorAttribute` como filtro global em Global.asax.cs:
      ...
 ```
 
-[Exemplo](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Amostra](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registe o AiHandleErrorAttribute como filtro global em FilterConfig.cs:
@@ -284,7 +286,7 @@ Registe o AiHandleErrorAttribute como filtro global em FilterConfig.cs:
     }
 ```
 
-[Exemplo](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Amostra](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>API Web
 Começando pela versão 2.6 do Web SDK (beta3 e mais tarde), a Application Insights recolhe exceções não manipuladas lançadas nos métodos do controlador automaticamente para webAPI 2+. Se tiver adicionado anteriormente um manipulador personalizado para rastrear tais exceções (conforme descrito nos seguintes exemplos), poderá removê-lo para evitar o duplo rastreio de exceções.
@@ -299,7 +301,7 @@ Há uma série de casos que os filtros de exceção não conseguem lidar. Por ex
 * Exceção lançada em tarefas de fundo.
 
 Todas as exceções *tratadas* por aplicação ainda precisam de ser rastreadas manualmente.
-Exceções não tratadas originárias de controladores normalmente resultam em 500 respostas "Erro interno do servidor". Se essa resposta for construída manualmente em resultado de uma exceção manipulada (ou nenhuma exceção) é rastreada numa telemetria de pedido correspondente com `ResultCode` 500, no entanto, o SDK de Insights de Aplicação não consegue rastrear a correspondente exceção.
+Exceções não tratadas originárias de controladores normalmente resultam em 500 respostas "Erro interno do servidor". Se tal resposta for construída manualmente em resultado de uma exceção manipulada (ou nenhuma exceção) é rastreada numa telemetria de pedido correspondente com `ResultCode` 500, no entanto, o Application Insights SDK não consegue rastrear a correspondente exceção.
 
 ### <a name="prior-versions-support"></a>Suporte de versões anteriores
 Se utilizar webAPI 1 (e anterior) de Web Insights Web SDK 2.5 (e anterior), consulte os seguintes exemplos para rastrear exceções.
@@ -352,7 +354,7 @@ Pode adicionar este atributo overridden a controladores específicos, ou adicion
     }
 ```
 
-[Exemplo](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Web API 2.x
 Adicione uma implementação do IExceptionLogger:
@@ -407,7 +409,7 @@ Adicione isto aos serviços na WebApiConfig:
      }
 ```
 
-[Exemplo](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Como alternativas, poderia:
 
@@ -477,7 +479,7 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Exemplo](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Contadores de desempenho de exceção
 Se tiver instalado o Agente de Insights de [Aplicação](../../azure-monitor/app/monitor-performance-live-website-now.md) no seu servidor, pode obter um gráfico da taxa de exceções, medida por .NET. Isto inclui exceções .NET manuseadas e não manuseadas.

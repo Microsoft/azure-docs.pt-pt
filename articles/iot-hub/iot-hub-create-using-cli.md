@@ -1,5 +1,5 @@
 ---
-title: Crie um Hub IoT usando o Azure CLI  Microsoft Docs
+title: Crie um Hub IoT usando o Azure CLI [ Microsoft Docs
 description: Aprenda a usar os comandos Azure CLI para criar um grupo de recursos e, em seguida, criar um hub IoT no grupo de recursos. Também aprenda a remover o centro.
 author: robinsh
 ms.service: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284723"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Crie um hub IoT usando o Azure CLI
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como criar um hub IoT usando o Azure CLI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este how-to, você precisa de uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para completar este how-to, você precisa de uma subscrição Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -30,7 +30,7 @@ Para completar este how-to, você precisa de uma subscrição Azure. Se não tiv
 
 Se estiver a executar o Azure CLI localmente em vez de utilizar a Cloud Shell, tem de iniciar sessão na sua conta Azure.
 
-No pedido de comando, executar o comando de [login:](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
+Na linha de comandos, execute o [comando login](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
 
    ```azurecli
    az login
@@ -42,7 +42,7 @@ Siga as instruções para se autenticar com o código e inicie sessão na sua co
 
 Utilize o Azure CLI para criar um grupo de recursos e, em seguida, adicione um hub IoT.
 
-1. Quando se cria um hub IoT, deve criá-lo num grupo de recursos. Utilize um grupo de recursos existente, ou execute o seguinte comando para criar um grupo de [recursos:](https://docs.microsoft.com/cli/azure/resource)
+1. Quando se cria um hub IoT, deve criá-lo num grupo de recursos. Utilize um grupo de recursos existente ou execute o comando [ para criar um grupo de recursos](https://docs.microsoft.com/cli/azure/resource):
     
    ```azurecli
    az group create --name {your resource group name} --location westus

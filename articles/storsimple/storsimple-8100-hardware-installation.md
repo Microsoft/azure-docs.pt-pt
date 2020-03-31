@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267589"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar e cabo o seu dispositivo StorSimple 8100
@@ -27,7 +27,7 @@ Os seguintes passos fornecem instruções claras e detalhadas sobre como desemba
 ### <a name="prepare-to-unpack-your-device"></a>Prepare-se para desembalar o seu dispositivo
 Antes de desempacotar o seu dispositivo, reveja as seguintes informações.
 
-ícone de aviso ![](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+![Aviso](./media/storsimple-safety/IC740879.png)![Ícone ícone](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **AVISO!**
 
 1. Certifique-se de que tem duas pessoas disponíveis para gerir o peso do recinto se estiver a manuseá-lo manualmente. Um recinto totalmente configurado pode pesar até 32 kg .).
 2. Coloque a caixa numa superfície plana e uniforme.
@@ -83,7 +83,7 @@ O aparelho deve ser instalado num cesto padrão de 19 polegadas que tenha postes
 2. Verifique se o site onde pretende instalar tem uma potência CA padrão de uma fonte independente ou uma unidade de distribuição de energia de rack (PDU) com uma fonte de alimentação ininterrupta (UPS).
 3. Certifique-se de que uma ranhura de 2U está disponível na prateleira na qual pretende montar o dispositivo.
 
-ícone de aviso ![](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+![Aviso](./media/storsimple-safety/IC740879.png)![Ícone ícone](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **AVISO!**
 
 Certifique-se de que tem duas pessoas disponíveis para gerir o peso se estiver a manusear a configuração manual do dispositivo. Um recinto totalmente configurado pode pesar até 32 kg .).
 
@@ -150,7 +150,7 @@ Utilizando os trilhos de cremalheira que acabam de ser instalados, execute os se
 
 O próximo passo é ligar o seu dispositivo para acesso à energia, rede e em série.
 
-## <a name="cable-your-storsimple-8100-device"></a>Cabo o seu dispositivo StorSimple 8100
+## <a name="cable-your-storsimple-8100-device"></a>Cable your StorSimple 8100 device (Ligar os cabos do dispositivo StorSimple 8100)
 Os seguintes procedimentos explicam como cabo o seu dispositivo StorSimple 8100 para ligações de alimentação, rede e série.
 
 ### <a name="prerequisites"></a>Pré-requisitos
