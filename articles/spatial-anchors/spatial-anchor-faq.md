@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844892"
 ---
-# <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes acerca do Azure Spatial Anchors
+# <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre âncoras espaciais Azure
 
 O Azure Spatial Anchors é uma plataforma de serviço sinuoso gerido em nuvem e plataforma de desenvolvimento que permite experiências de realidade mista multiutilizador, conscientes espacialmente em dispositivos HoloLens, iOS e Android.
 
@@ -57,13 +57,13 @@ Para proporcionar transparência, abaixo está uma imagem de um ambiente e a nuv
 
 A Azure Spatial Anchors adere aos Termos do Contrato de [Serviço Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9)e à Declaração de Privacidade da [Microsoft.](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409)
 
-![Um ambiente e a sua nuvem de ponto escasso derivada](./media/sparse-point-cloud.png)
-*Figura 1: Um ambiente e a sua nuvem de ponto escassa derivada*
+![Um ambiente e a sua nuvem](./media/sparse-point-cloud.png)
+de ponto escasso derivada*Figura 1: Um ambiente e a sua nuvem de ponto escassa derivada*
 
 
 **P: Existe uma maneira de enviar informações de diagnóstico para a Microsoft?**
 
-**R**: Sim. A Azure Spatial Anchors tem um modo de diagnóstico que os desenvolvedores podem optar por optar através da API de Âncoras Espaciais Azure. Isto é útil, por exemplo, se encontrar um ambiente onde não é capaz de criar e localizar âncoras previsivelmente. Podemos perguntar se pode apresentar um relatório de diagnóstico contendo informações que nos ajudem a depurar. Para mais informações consulte [A exploração madeireira e diagnósticos em Âncoras Espaciais Azure](./concepts/logging-diagnostics.md).
+**A:** Sim. A Azure Spatial Anchors tem um modo de diagnóstico que os desenvolvedores podem optar por optar através da API de Âncoras Espaciais Azure. Isto é útil, por exemplo, se encontrar um ambiente onde não é capaz de criar e localizar âncoras previsivelmente. Podemos perguntar se pode apresentar um relatório de diagnóstico contendo informações que nos ajudem a depurar. Para mais informações consulte [A exploração madeireira e diagnósticos em Âncoras Espaciais Azure](./concepts/logging-diagnostics.md).
 
 ## <a name="availability-and-pricing-faqs"></a>FaQs de disponibilidade e preços
 

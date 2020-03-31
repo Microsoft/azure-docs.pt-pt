@@ -7,12 +7,12 @@ ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 30d74f36c6462d1fba039595d2ed6fe722b742e8
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: fac9c78607e50dca384670bf4cc08b50f723312b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79164816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065601"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>Visualizar dados do Azure Data Explorer em Kibana com o conector de código aberto K2Bridge
 
@@ -31,7 +31,7 @@ K2Bridge suporta o separador Discover da Kibana, onde pode:
 
 A imagem abaixo mostra uma instância de Kibana ligada ao Azure Data Explorer por K2Bridge. A experiência do utilizador em Kibana é inalterada.
 
-   [página de ![Kibana](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
+   [![Página de Kibana](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,33 +111,35 @@ Por predefinição, o gráfico helm da K2Bridges refere uma imagem publicamente 
         ```bash
         helm install kibana elastic/kibana -n k2bridge --set image=docker.elastic.co/kibana/kibana-oss --set imageTag=6.8.5 --set elasticsearchHosts=http://k2bridge:8080
         ```
+        
     1. Utilize o encaminhamento do porto para aceder a Kibana no local anfitrião: 
 
         ```bash
         kubectl port-forward service/kibana-kibana 5601 --namespace k2bridge
         ```
-    1. Ligue-se a Kibana navegando até http://127.0.0.1:5601.
+        
+    1. Ligue-se a Kibana http://127.0.0.1:5601navegando até .
 
     1. Expor Kibana aos utilizadores finais. Existem vários métodos para o fazer. O método que usa depende em grande parte do seu caso de utilização.
 
         Por exemplo:
 
-        Exponha o serviço como um serviço LoadBalancer. Para isso, adicione o seguinte parâmetro ao comando de instalação de instalação k2Bridge Helm[(acima):](#install-k2bridge-chart)
-
-        `--set service.type=LoadBalancer`
+        Exponha o serviço como um serviço LoadBalancer. Para isso, adicione `--set service.type=LoadBalancer` o parâmetro ao comando de instalação de instalação k2Bridge Helm[(acima).](#install-k2bridge-chart)        
     
         Em seguida, execute:
-
-           ```bash
-           kubectl get service -w -n k2bridge
-           ```   
+        
+        ```bash
+        kubectl get service -w -n k2bridge
+        ```
+        
         A saída deve parecer: 
 
         ```bash
         NAME            TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
         kibana-kibana   LoadBalancer   xx.xx.xx.xx   <pending>      5601:30128/TCP   4m24s
         ```
-        Em seguida, pode utilizar o EXTERNO-IP gerado que aparece, e usá-lo para aceder à Kibana abrindo um navegador para: `\<EXTERNAL-IP>:5601`.
+ 
+        Em seguida, pode utilizar o EXTERNO-IP gerado que aparece, e usá-lo `<EXTERNAL-IP>:5601`para aceder a Kibana abrindo um navegador para .
 
 1. Configure padrões de índice para aceder aos seus dados:  
 Num novo caso de Kibana:
@@ -148,7 +150,7 @@ Num novo caso de Kibana:
 O nome do índice deve corresponder exatamente ao nome da tabela ou nome da função, sem um asterisco. Pode copiar a linha relevante da lista.
 
 > [!Note]
-> Para funcionar com outros fornecedores kubernetes, altere o armazenamento ElasticsearchClassName em `values.yaml` para se adaptar ao sugerido pelo fornecedor.
+> Para funcionar com outros fornecedores kubernetes, altere `values.yaml` o armazenamento ElasticsearchClassName para se adaptar ao sugerido pelo fornecedor.
 
 ## <a name="visualize-data"></a>Visualizar os dados
 
@@ -179,7 +181,7 @@ Quando o Azure Data Explorer estiver configurado como uma fonte de dados para a 
         * Procure "erro" para encontrar todos os registos que contenham este valor. 
         * Procurar o "status: 200", para obter todos os registos com um valor de estado de 200. 
     * Utilização de operadores lógicos (E, OU, NÃO)
-    * Usando wildcards (asterisco " \* " ou ponto de interrogação "?") Por exemplo:
+    * Usando wildcards (asterisco " \* ou ponto de interrogação "?") Por exemplo:
         * A consulta `"destination_city: L*"` corresponderá aos registos em que o valor da cidade de destino começa com "l" (K2Bridge não é sensível a casos).
 
     ![Executar consulta](media/k2bridge/k2bridge-run-query.png)
@@ -196,7 +198,7 @@ Quando o Azure Data Explorer estiver configurado como uma fonte de dados para a 
     >[!Tip]
     > Utilize o ícone (+) de ampliação para encontrar todos os registos que tenham um valor específico.
     
-    ![Lista de campo](media/k2bridge/k2bridge-field-list.png)
+    ![Lista de campos](media/k2bridge/k2bridge-field-list.png)
    
     Também pode filtrar os resultados utilizando o ícone (+) de amplificador na vista de formato da tabela de resultados de cada registo na tabela de resultados.
     

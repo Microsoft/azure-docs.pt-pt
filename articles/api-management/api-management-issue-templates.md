@@ -1,5 +1,5 @@
 ---
-title: Modelos de emissão na Gestão da API azure  Microsoft Docs
+title: Modelos de emissão na Gestão da API azure [ Microsoft Docs
 description: Saiba como personalizar o conteúdo das páginas Issue no portal de desenvolvimento da Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249584"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de emissão na Gestão da API Azure
@@ -34,7 +34,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="IssueList"></a>Lista de emissão  
+##  <a name="issue-list"></a><a name="IssueList"></a>Lista de emissão  
  O modelo **da lista de emissão** permite-lhe personalizar o corpo da página da lista de edição no portal do desenvolvedor.  
   
  ![Portal de Desenvolvimento da Lista de Problemas](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal de Desenvolvimento da Lista de Emissão APIM")  
@@ -92,7 +92,7 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 ```
   
 ### <a name="controls"></a>Controlos  
- O modelo `Issue list` pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
+ O `Issue list` modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   

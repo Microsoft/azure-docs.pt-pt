@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271879"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Mova dados para o armazenamento de Blob Azure
@@ -60,11 +60,11 @@ Se não quiser utilizar o utilitário Avere CLFSLoad, ou se quiser adicionar uma
 
 ![Diagrama mostrando movimento de dados multi-cliente, multi-threaded: Na parte superior esquerda, um ícone para armazenamento de hardware no local tem várias setas provenientes dele. As setas apontam para quatro máquinas de clientes. De cada máquina cliente três setas apontam para o Cache Azure HPC. A partir do Cache Azure HPC, várias setas apontam para o armazenamento blob.](media/hpc-cache-parallel-ingest.png)
 
-Os comandos ``cp`` ou ``copy`` que normalmente utiliza para transferir dados de um sistema de armazenamento para outro são processos de roscar único que copiam apenas um ficheiro de cada vez. Isto significa que o servidor de ficheiros está a ingerir apenas um ficheiro de cada vez - o que é um desperdício dos recursos da cache.
+Os ``cp`` ``copy`` comandos ou comandos que normalmente utiliza para transferir dados de um sistema de armazenamento para outro são processos de roscar único que copiam apenas um ficheiro de cada vez. Isto significa que o servidor de ficheiros está a ingerir apenas um ficheiro de cada vez - o que é um desperdício dos recursos da cache.
 
 Esta secção explica estratégias para criar um sistema multi-cliente de cópia de ficheiros multi-threaded para mover dados para o armazenamento Blob com cache Azure HPC. Explica conceitos de transferência de ficheiros e pontos de decisão que podem ser usados para copiar dados eficientes usando vários clientes e comandos de cópia simples.
 
-Também explica alguns serviços que podem ajudar. O utilitário ``msrsync`` pode ser usado para automatizar parcialmente o processo de divisão de um conjunto de dados em baldes e usando comandos rsync. O roteiro ``parallelcp`` é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente.
+Também explica alguns serviços que podem ajudar. O ``msrsync`` utilitário pode ser utilizado para automatizar parcialmente o processo de divisão de um conjunto de dados em baldes e utilizando comandos rsync. O ``parallelcp`` script é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente.
 
 ### <a name="strategic-planning"></a>Planeamento estratégico
 
@@ -79,9 +79,9 @@ As estratégias para ingerir dados paralelos com a Cache Azure HPC incluem:
 
 * Cópia manual - Pode criar manualmente uma cópia multi-roscada num cliente executando mais do que um comando de cópia ao mesmo tempo em segundo plano contra conjuntos predefinidos de ficheiros ou caminhos. Leia [a ingestão de dados azure HPC Cache - método](hpc-cache-ingest-manual.md) de cópia manual para mais detalhes.
 
-* Copiar parcialmente automatizado com ``msrsync`` - ``msrsync`` é um utilitário de invólucro que executa múltiplos processos paralelos ``rsync``. Para mais detalhes, leia [a ingerir dados azure HPC Cache - método msrsync](hpc-cache-ingest-msrsync.md).
+* A cópia parcialmente ``msrsync``  -  ``msrsync`` automatizada é um utilitário ``rsync`` de invólucro que executa vários processos paralelos. Para mais detalhes, leia [a ingerir dados azure HPC Cache - método msrsync](hpc-cache-ingest-msrsync.md).
 
-* Cópia escrita com ``parallelcp`` - Aprenda a criar e executar um roteiro de cópia paralela no [ingerir dados de Cache Azure HPC - método de script](hpc-cache-ingest-parallelcp.md)de cópia paralela .
+* Cópia escrita com ``parallelcp`` - Aprenda a criar e executar um roteiro de cópia paralela em [Azure HPC Cache ingerir dados - método de script](hpc-cache-ingest-parallelcp.md)de cópia paralela .
 
 ## <a name="next-steps"></a>Passos seguintes
 

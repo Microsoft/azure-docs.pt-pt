@@ -8,10 +8,10 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672417"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure
@@ -38,7 +38,7 @@ Os registos da plataforma podem ser enviados para os destinos na tabela seguinte
 |:---|:---|
 | [Área de trabalho do Log Analytics](resource-logs-collect-workspace.md) | A recolha de registos num espaço de trabalho do Log Analytics permite-lhe analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registo poderosas e também para alavancar outras funcionalidades do Monitor de Acesso, como alertas e visualizações. |
 | [Hubs de eventos](resource-logs-stream-event-hubs.md) | O envio de registos para Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. |
-| [Conta de armazenamento do Azure](resource-logs-collect-storage.md) | Arquivar registos numa conta de armazenamento Azure é útil para auditoria, análise estática ou cópia de segurança. |
+| [Conta de armazenamento azure](resource-logs-collect-storage.md) | Arquivar registos numa conta de armazenamento Azure é útil para auditoria, análise estática ou cópia de segurança. |
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Criar configurações de diagnóstico no portal Azure
 Pode configurar as definições de diagnóstico no portal Azure, quer a partir do menu Do Monitor Azure, quer a partir do menu do recurso.
@@ -57,13 +57,13 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
 
         ![Definições de diagnóstico](media/diagnostic-settings/menu-activity-log.png)
 
-2. Se não existem definições existem no recurso que selecionou, lhe for pedido para criar uma definição. Clique em **adicionar definição de diagnóstico**.
+2. Se não existirem definições no recurso selecionado, é-lhe solicitado que crie uma definição. Clique em **adicionar definição de diagnóstico**.
 
    ![Adicionar definição de diagnóstico - sem definições existentes](media/diagnostic-settings/add-setting.png)
 
    Se existirem definições existentes no recurso, verá uma lista de definições já configuradas. Clique em **Adicionar definição de diagnóstico** para adicionar uma nova definição ou editar **definição** para editar uma existente. Cada definição não pode ter mais do que um dos tipos de destino.
 
-   ![Adicionar definição de diagnóstico - existente definições](media/diagnostic-settings/edit-setting.png)
+   ![Adicionar definição de diagnóstico - definições existentes](media/diagnostic-settings/edit-setting.png)
 
 3. Dê um nome ao seu cenário se já não tiver um.
 4. Verifique a caixa para cada destino para enviar os registos. Clique em **Configurar** para especificar as suas definições conforme descrito na tabela seguinte.
@@ -74,9 +74,9 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
     | Conta de armazenamento | Nome da conta de armazenamento. |
     | Espaço de nomes do hub de eventos | O espaço de nome onde o hub do evento é criado (se esta for a sua primeira vez em diários de streaming) ou transmitido para (se já existem recursos que estão a transmitir essa categoria de log para este espaço de nome).
     | Nome do hub de eventos | Especificar opcionalmente um nome de centro de eventos para enviar todos os dados na definição. Se não especificar um nome, é criado um centro de eventos para cada categoria de registo. Se estiver a enviar várias categorias, poderá querer especificar um nome para limitar o número de centros de eventos criados. Consulte as quotas e limites de limites do [Azure Event Hubs](../../event-hubs/event-hubs-quotas.md) para detalhes. |
-    | Nome de política do hub de eventos | Define as permissões que o mecanismo de streaming tem. |
+    | Nome da política do centro de eventos | Define as permissões que o mecanismo de streaming tem. |
 
-    ![Adicionar definição de diagnóstico - existente definições](media/diagnostic-settings/setting-details.png)
+    ![Adicionar definição de diagnóstico - definições existentes](media/diagnostic-settings/setting-details.png)
 
 5. Verifique a caixa para cada uma das categorias de dados a enviar para os destinos especificados. A lista de categorias variará para cada serviço Azure.
 

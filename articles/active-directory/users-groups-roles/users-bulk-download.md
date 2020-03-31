@@ -1,5 +1,5 @@
 ---
-title: Faça o download de uma lista de utilizadores (pré-visualização) no portal de Diretório Ativo Do Azure  Microsoft Docs
+title: Faça o download de uma lista de utilizadores (pré-visualização) no portal de Diretório Ativo Do Azure [ Microsoft Docs
 description: Descarregue os registos dos utilizadores a granel no centro de administração Azure em Azure Ative Directory.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063837"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores (pré-visualização) no portal de Diretório Ativo Do Azure
@@ -31,8 +31,8 @@ Para descarregar a lista de utilizadores do centro de administração da AD Azur
 ## <a name="to-download-a-list-of-users"></a>Para descarregar uma lista de utilizadores
 
 1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta de administrador de utilizador na organização.
-2. Navegue para Azure Ative Directory > Users. Em seguida, selecione os utilizadores que pretende incluir no download, marcando a caixa na coluna esquerda ao lado de cada utilizador. Nota: Neste momento, não há forma de selecionar todos os utilizadores para exportação. Cada um deve ser selecionado individualmente.
-3. No Azure AD, selecione **Utilizadores** > **Descarregue os utilizadores.**
+2. Navegue para o Diretório Ativo do Azure > Utilizadores. Em seguida, selecione os utilizadores que pretende incluir no download, marcando a caixa na coluna esquerda ao lado de cada utilizador. Nota: Neste momento, não há forma de selecionar todos os utilizadores para exportação. Cada um deve ser selecionado individualmente.
+3. No Azure AD, selecione **Utilizadores** > **Descarregue os utilizadores**.
 4. Na página de **Utilizadores de Descarregamento,** selecione **Iniciar** a receber um ficheiro CSV listando propriedades de perfil de utilizador. Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da operação Bulk. O ficheiro contém a razão de cada erro.
 
    ![Selecione onde deseja a lista os utilizadores que pretende descarregar](./media/users-bulk-download/bulk-download.png)
@@ -43,23 +43,23 @@ Para descarregar a lista de utilizadores do centro de administração da AD Azur
 
    - userPrincipalName
    - displayName
-   - Apelido
-   - mail
-   - givenName
+   - surname
+   - correio
+   - nomeDado
    - objectId
    - userType
-   - jobTitle
-   - Departamento
-   - accountEnabled
-   - usageLocation
+   - empregoTítulo
+   - departamento
+   - contaEnabled
+   - utilizaçãoLocalização
    - streetAddress
    - state
    - país
    - physicalDeliveryOfficeName
    - city
-   - postalCode
-   - telephoneNumber
-   - móvel
+   - Código postal
+   - telefoneNúmero
+   - dispositivo móvel
    - autenticaçãoNúmero de Telefone
    - autenticaçãoAlternativePhoneNumber
    - autenticaçãoEmail

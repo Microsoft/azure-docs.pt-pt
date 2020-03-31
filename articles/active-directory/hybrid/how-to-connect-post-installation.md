@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261297"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximos passos e como gerir o Azure AD Connect
@@ -35,7 +35,7 @@ Agora que os seus utilizadores foram sincronizados com a nuvem, é necessário a
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Para atribuir uma Licença azure AD Premium ou Enterprise Mobility Suite
 
 1. Inscreva-se no portal Azure como administrador.
-2. No lado esquerdo, selecione **Active Directory**.
+2. À esquerda, selecione **Ative Directy**.
 3. Na página **do Diretório Ativo,** clique duas vezes no diretório que tem os utilizadores que pretende configurar.
 4. Na parte superior da página do diretório, selecione **Licenças**.
 5. Na página **licenças,** selecione **Ative Directory Premium** ou **Enterprise Mobility Suite,** e, em seguida, clique em **Atribuir**.
@@ -46,7 +46,7 @@ Utilize o portal Azure para verificar o estado de uma sincronização.
 
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Para verificar a tarefa de sincronização programada
 1. Inscreva-se no portal Azure como administrador.
-2. No lado esquerdo, selecione **Active Directory**.
+2. À esquerda, selecione **Ative Directy**.
 3. À esquerda, selecione **Azure AD Connect**
 4. No topo da página, note a última sincronização.
 

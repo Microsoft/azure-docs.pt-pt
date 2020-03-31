@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 9302cadf0b900c9faac382bad86b51cea7d828fb
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443521"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Como adicionar proprietários adicionais a um laboratório existente nos Serviços de Laboratório Azure

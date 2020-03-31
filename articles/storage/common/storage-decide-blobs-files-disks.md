@@ -1,6 +1,6 @@
 ---
-title: Decidindo quando usar BLOBs do Azure, arquivos do Azure ou discos do Azure
-description: Saiba mais sobre as diferentes maneiras de armazenar e acessar dados no Azure para ajudá-lo a decidir qual tecnologia usar.
+title: Decidir quando usar Blobs Azure, Ficheiros Azure ou Discos Azure
+description: Saiba mais sobre as diferentes formas de armazenar e aceder a dados no Azure para ajudá-lo a decidir que tecnologia usar.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,35 +9,35 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 4b1a42e25a6d8c7b4a3c24dffcb858ffe63dd10b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71671036"
 ---
-# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar BLOBs do Azure, arquivos do Azure ou discos do Azure
+# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidir quando usar Blobs Azure, Ficheiros Azure ou Discos Azure
 
-O Microsoft Azure fornece vários recursos no armazenamento do Azure para armazenar e acessar seus dados na nuvem. Este artigo aborda os arquivos, BLOBs e discos do Azure e foi projetado para ajudá-lo a escolher entre esses recursos.
+O Microsoft Azure fornece várias funcionalidades no Armazenamento Azure para armazenar e aceder aos seus dados na nuvem. Este artigo abrange Ficheiros Azure, Blobs e Discos, e foi concebido para ajudá-lo a escolher entre estas funcionalidades.
 
 ## <a name="scenarios"></a>Cenários
 
-A tabela a seguir compara arquivos, BLOBs e discos e mostra cenários de exemplo apropriados para cada um.
+A tabela seguinte compara Ficheiros, Blobs e Discos, e mostra cenários de exemplo adequados para cada um.
 
 | Funcionalidade | Descrição | Quando utilizar |
 |--------------|-------------|-------------|
-| **Ficheiros do Azure** | Fornece uma interface SMB, bibliotecas de cliente e uma [interface REST](/rest/api/storageservices/file-service-rest-api) que permite o acesso de qualquer lugar a arquivos armazenados. | Você deseja "aumentar e deslocar" um aplicativo para a nuvem que já usa as APIs do sistema de arquivos nativo para compartilhar dados entre ele e outros aplicativos em execução no Azure.<br/><br/>Você deseja armazenar ferramentas de desenvolvimento e depuração que precisam ser acessadas de várias máquinas virtuais. |
-| **BLOBs do Azure** | Fornece bibliotecas de cliente e uma [interface REST](/rest/api/storageservices/blob-service-rest-api) que permite que dados não estruturados sejam armazenados e acessados em grande escala em blobs de blocos.<br/><br/>Também dá suporte a [Azure data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluções de análise de Big data empresarial. | Você deseja que seu aplicativo dê suporte a cenários de acesso aleatório e streaming.<br/><br/>Você deseja ser capaz de acessar dados de aplicativos de qualquer lugar.<br/><br/>Você deseja criar um data Lake corporativo no Azure e executar Big Data Analytics. |
-| **Discos do Azure** | Fornece bibliotecas de cliente e uma [interface REST](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que os dados sejam armazenados de forma persistente e acessados de um disco rígido virtual anexado. | Você deseja migrar e deslocar os aplicativos que usam APIs do sistema de arquivos nativo para ler e gravar dados em discos persistentes.<br/><br/>Você deseja armazenar dados que não precisam ser acessados de fora da máquina virtual à qual o disco está anexado. |
+| **Ficheiros do Azure** | Fornece uma interface SMB, bibliotecas de clientes e uma [interface REST](/rest/api/storageservices/file-service-rest-api) que permite o acesso de qualquer lugar a ficheiros armazenados. | Pretende "levantar e deslocar" uma aplicação para a nuvem que já utiliza o sistema de ficheiros nativo APIs para partilhar dados entre ele e outras aplicações em funcionamento no Azure.<br/><br/>Você quer armazenar ferramentas de desenvolvimento e depuração que precisam ser acedidas a partir de muitas máquinas virtuais. |
+| **Blobs do Azure** | Fornece bibliotecas de clientes e uma [interface REST](/rest/api/storageservices/blob-service-rest-api) que permite armazenar e aceder a dados não estruturados em larga escala em blocos de bolhas.<br/><br/>Também suporta [o Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluções de análise de big data da empresa. | Deseja que a sua aplicação suporte o streaming e os cenários de acesso aleatório.<br/><br/>Pretende aceder aos dados da aplicação a partir de qualquer lugar.<br/><br/>Você quer construir um lago de dados da empresa em Azure e realizar análise de big data. |
+| **Discos do Azure** | Fornece bibliotecas de clientes e uma [interface REST](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que os dados sejam armazenados e acedidos persistentemente a partir de um disco rígido virtual anexo. | Pretende levantar e deslocar aplicações que utilizam APIs do sistema de ficheiros nativopara ler e escrever dados para discos persistentes.<br/><br/>Pretende armazenar dados que não são necessários para serem acedidos de fora da máquina virtual a que o disco está ligado. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ao tomar decisões sobre como seus dados são armazenados e acessados, você também deve considerar os custos envolvidos. Para obter mais informações, consulte [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+Ao tomar decisões sobre como os seus dados são armazenados e acedidos, deve também considerar os custos envolvidos. Para mais informações, consulte o [Preço de Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).
   
-Alguns recursos SMB não são aplicáveis à nuvem. Para obter mais informações, consulte [recursos sem suporte no serviço de arquivos do Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Algumas funcionalidades SMB não são aplicáveis à nuvem. Para mais informações, consulte [Funcionalidades não suportadas pelo serviço De Ficheiros Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
  
-Para obter mais informações sobre BLOBs do Azure, consulte nosso artigo [o que é o armazenamento de BLOBs do Azure?](../blobs/storage-blobs-overview.md).
+Para mais informações sobre o Azure Blobs, consulte o nosso artigo, O que é o [armazenamento de Azure Blob?](../blobs/storage-blobs-overview.md)
 
-Para obter mais informações sobre Armazenamento em Disco, consulte nossa [introdução aos Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Para mais informações sobre o Armazenamento de Discos, consulte a nossa [Introdução para discos geridos](../../virtual-machines/windows/managed-disks-overview.md).
 
-Para obter mais informações sobre os arquivos do Azure, consulte nosso artigo [sobre como planejar uma implantação de arquivos do Azure](../files/storage-files-planning.md).
+Para mais informações sobre o Azure Files, consulte o nosso artigo, [Planning for a Azure Files implementação](../files/storage-files-planning.md).

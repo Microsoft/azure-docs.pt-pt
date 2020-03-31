@@ -1,5 +1,5 @@
 ---
-title: Como lidar com as alterações de cookies do SameSite no navegador Chrome  Azure
+title: Como lidar com as alterações de cookies do SameSite no navegador Chrome [ Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como lidar com as alterações de cookies do SameSite no navegador Chrome.
 services: active-directory
@@ -14,45 +14,45 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 8fc1fab89a89fbf7e20414f292a1b02f77ac7907
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 056b787bbbcde6ba7f9510043deabdcf85ac7467
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776368"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050532"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Processar as alterações de cookies do SameSite no browser do Chrome
 
 ## <a name="what-is-samesite"></a>O que é sameSite?
 
-`SameSite` é uma propriedade que pode ser definida em cookies HTTP para evitar ataques de falsificação de pedido de site cruzado (CSRF) em aplicações web:
+`SameSite`é uma propriedade que pode ser definida em cookies HTTP para evitar ataques de falsificação de pedido de site cruzado (CSRF) em aplicações web:
 
-- Quando `SameSite` é definido para **Lax**, o cookie é enviado em pedidos dentro do mesmo site e em pedidos GET de outros sites. Não é enviado em pedidos get que são de domínio cruzado.
+- Quando `SameSite` é definido para **Lax,** o cookie é enviado em pedidos dentro do mesmo site e em pedidos GET de outros sites. Não é enviado em pedidos get que são de domínio cruzado.
 - Um valor da **Strict** garante que o cookie é enviado apenas em pedidos dentro do mesmo site.
 
-Por predefinição, o valor `SameSite` não é definido nos navegadores e é por isso que não existem restrições aos cookies que estão a ser enviados em pedidos. Um pedido teria de optar pela proteção do CSRF, fixando **o Lax** ou **o Strict** de acordo com os seus requisitos.
+Por predefinição, o `SameSite` valor NÃO é definido nos navegadores e é por isso que não existem restrições aos cookies que estão a ser enviados em pedidos. Um pedido teria de optar pela proteção do CSRF, fixando **o Lax** ou **o Strict** de acordo com os seus requisitos.
 
 ## <a name="samesite-changes-and-impact-on-authentication"></a>Alterações no Mesmo Site e impacto na autenticação
 
-As [recentes atualizações para as normas no SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) propõem proteger as aplicações, tornando o comportamento padrão de `SameSite` quando nenhum valor é definido para Lax. Esta mitigação significa que os cookies serão restringidos em pedidos HTTP, exceto GET feito de outros sites. Além disso, é introduzido um valor de **None** para eliminar as restrições aos cookies enviados. Estas atualizações serão lançadas em breve numa próxima versão do navegador Chrome.
+Atualizações recentes [das normas no SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) propõem `SameSite` proteger as aplicações, fazendo o comportamento padrão de quando nenhum valor é definido para Lax. Esta mitigação significa que os cookies serão restringidos em pedidos HTTP, exceto GET feito de outros sites. Além disso, é introduzido um valor de **None** para eliminar as restrições aos cookies enviados. Estas atualizações serão lançadas em breve numa próxima versão do navegador Chrome.
 
-Quando as aplicações web autenticam com a plataforma Microsoft Identity utilizando o modo de resposta "form_post", o servidor de login responde à aplicação utilizando um POST HTTP para enviar os tokens ou código auth. Porque este pedido é um pedido transversal (desde `login.microsoftonline.com` ao seu domínio - por exemplo, https://contoso.com/auth), cookies que foram definidos pela sua app agora estão de acordo com as novas regras no Chrome. Os cookies que precisam de ser usados em cenários transversais são cookies que detêm os valores *do Estado* e *nonce,* que também são enviados no pedido de login. Há outros cookies deixados pela Azure AD para realizar a sessão.
+Quando as aplicações web autenticam com a plataforma Microsoft Identity utilizando o modo de resposta "form_post", o servidor de login responde à aplicação utilizando um POST HTTP para enviar os tokens ou código auth. Porque este pedido é um pedido `login.microsoftonline.com` de domínio transversal `https://contoso.com/auth`(do seu domínio - por exemplo ), cookies que foram definidos pela sua app agora se enquadram nas novas regras do Chrome. Os cookies que precisam de ser usados em cenários transversais são cookies que detêm os valores *do Estado* e *nonce,* que também são enviados no pedido de login. Há outros cookies deixados pela Azure AD para realizar a sessão.
 
 Caso não atualize as suas aplicações web, este novo comportamento resultará em falhas de autenticação.
 
 ## <a name="mitigation-and-samples"></a>Mitigação e amostras
 
-Para superar as falhas de autenticação, as aplicações web autenticando com a plataforma de identidade da Microsoft podem definir a propriedade `SameSite` para `None` para cookies que são usados em cenários de domínio cruzado quando estão em execução no navegador Chrome.
-Outros navegadores (ver [aqui](https://www.chromium.org/updates/same-site/incompatible-clients) para uma lista completa) seguem o comportamento anterior de `SameSite` e não incluirão os cookies se `SameSite=None` estiver definido.
-É por isso que, para suportar a autenticação em vários navegadores, as aplicações web terão de definir o valor `SameSite` para `None` apenas no Chrome e deixar o valor vazio noutros navegadores.
+Para superar as falhas de autenticação, as aplicações web `SameSite` autenticando `None` com a plataforma de identidade da Microsoft podem definir a propriedade para cookies que são usados em cenários de domínio cruzado quando estão em execução no navegador Chrome.
+Outros navegadores (ver [aqui](https://www.chromium.org/updates/same-site/incompatible-clients) para uma lista `SameSite` completa) seguem o comportamento `SameSite=None` anterior e não incluirão os cookies se estiver definido.
+É por isso que, para suportar a autenticação em `SameSite` vários `None` navegadores, as aplicações web terão de definir o valor apenas no Chrome e deixar o valor vazio noutros navegadores.
 
 Esta abordagem é demonstrada nas nossas amostras de código abaixo.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 A tabela abaixo apresenta os pedidos de pull que funcionaram em torno das alterações do SameSite nas nossas amostras ASP.NET e ASP.NET Core.
 
-| Exemplo | Pedido de puxar |
+| Sample | Pedido Pull |
 | ------ | ------------ |
 |  [tutoriatutorial incremental da Web App ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Conserção de cookies do mesmo site #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
 |  [ASP.NET amostra da Aplicação Web do MVC](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Mesma #35 de correção de cookies do mesmo site](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
@@ -63,17 +63,17 @@ para mais detalhes sobre como lidar com cookies do SameSite em ASP.NET e ASP.NET
 - [Trabalhe com cookies SameSite em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
 - [blog ASP.NET no mesmo site](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-| Exemplo |
+| Sample |
 | ------ |
-|  [MS-Identity-Python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp)  |
+|  [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp)  |
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-| Exemplo | Pedido de puxar |
+| Sample | Pedido Pull |
 | ------ | ------------ |
-|  [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [Mesma #24 de correção de cookies do mesmo site](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
+|  [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [Mesma #24 de correção de cookies do mesmo site](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
 |  [ms-identity-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi)  | [Mesmo site corrigir cookie #4](https://github.com/Azure-Samples/ms-identity-java-webapi/pull/4)
 
 ---

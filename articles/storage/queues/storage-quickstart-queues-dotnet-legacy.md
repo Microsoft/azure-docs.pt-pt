@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
 ms.openlocfilehash: c327629f0c5e88520a8bb0b9c4ff68e6edc00c35
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79137344"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET gerir uma fila
@@ -46,7 +46,7 @@ Para obter informações sobre como escolher entre o .NET Core e o .NET Framewor
 
 A aplicação de exemplo utilizada neste início rápido é uma aplicação de consola básica. Pode explorar a aplicação de exemplo no [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. 
+Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para o seu ambiente de desenvolvimento. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
@@ -200,7 +200,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-Para adicionar uma mensagem que não expira, utilize `Timespan.FromSeconds(-1)` na sua chamada para [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Para adicionar uma mensagem que `Timespan.FromSeconds(-1)` não expira, utilize a sua chamada para [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -220,7 +220,7 @@ Console.WriteLine("Contents of peeked message '{0}': {1}", peekedMessage.Id, pee
 Console.WriteLine();
 ```
 
-### <a name="dequeue-a-message"></a>Desfilar uma mensagem
+### <a name="dequeue-a-message"></a>Remover uma mensagem da fila
 
 A amostra também mostra como adiar uma mensagem. Quando se desfila uma mensagem, recupera-se a mensagem da frente da fila e torna-a temporariamente invisível para outros clientes. Por padrão, uma mensagem permanece invisível por 30 segundos. Durante este tempo, o seu código pode processar a mensagem. Para terminar a desfilar a mensagem, apaga a mensagem imediatamente após o processamento, para que outro cliente não desfaça a mesma mensagem.
 
@@ -263,7 +263,7 @@ Consulte estes recursos adicionais para o desenvolvimento .NET com as filas Azur
 ### <a name="binaries-and-source-code"></a>Binários e código fonte
 
 - Descarregue os pacotes NuGet para a versão mais recente da biblioteca de [clientes azure storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
-    - [Comum](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Veja o [código fonte da biblioteca de cliente .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 

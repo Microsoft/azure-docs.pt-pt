@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670122"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Monitor Azure
@@ -94,7 +94,7 @@ Além de trabalhar interativamente com consultas de registo e os seus resultados
 - **Regras de alerta.** [As regras](../platform/alerts-overview.md) de alerta identificam proativamente problemas a partir de dados no seu espaço de trabalho.  Cada regra de alerta baseia-se numa pesquisa de registo que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se deve ser criado um alerta.
 - **Tabliers.** Pode fixar os resultados de qualquer consulta num [dashboard Azure](../learn/tutorial-logs-dashboards.md) que lhe permita visualizar dados de registo e métricas e partilhar opcionalmente com outros utilizadores do Azure.
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards dos utilizadores com [o View Designer](../platform/view-designer.md).  As consultas de registo fornecem os dados utilizados por [azulejos](../platform/view-designer-tiles.md) e peças de [visualização](../platform/view-designer-parts.md) em cada vista.  
-- **Exportar.**  Quando importa dados de registo do Azure Monitor para excel ou [Power BI,](../platform/powerbi.md)cria uma consulta de registo para definir os dados para exportação.
+- **A exportação.**  Quando importa dados de registo do Azure Monitor para excel ou [Power BI,](../platform/powerbi.md)cria uma consulta de registo para definir os dados para exportação.
 - **PowerShell.** Pode executar um script PowerShell a partir de uma linha de comando ou de um livro de execução da Automatização Azure que utiliza [o Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar dados de registo do Monitor Azure.  Este cmdlet requer uma consulta para determinar os dados para recuperar.
 - **Azure Monitor Logs API.**  O [Azure Monitor Logs API](https://dev.loganalytics.io) permite que qualquer cliente rest API recupere dados de registo do espaço de trabalho.  O pedido da API inclui uma consulta que é feita contra o Monitor Azure para determinar os dados a recuperar.
 

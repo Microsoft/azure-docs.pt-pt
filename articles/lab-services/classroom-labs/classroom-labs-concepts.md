@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
 ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77526234"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula

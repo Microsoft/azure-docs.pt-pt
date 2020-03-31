@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade criada com STONITH para SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Alta disponibilidade criada com STONITH para SAP HANA em Azure (Grandes Instâncias)[ Microsoft Docs
 description: Estabelecer uma elevada disponibilidade para o SAP HANA em Azure (Grandes Instâncias) em SUSE utilizando o STONITH
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77615092"
 ---
-# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Alta disponibilidade criada em SUSE utilizando o STONITH
+# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>High availability set up in SUSE using the STONITH (Utilizar STONITH para configurar a elevada disponibilidade em SUSE)
 Este documento fornece as instruções detalhadas passo a passo para configurar o sistema operativo De Alta Disponibilidade no Sistema Operativo SUSE utilizando o dispositivo STONITH.
 
 **Isenção** de responsabilidade: *Este guia é derivado testando a configuração no ambiente Microsoft HANA Large Instances, que funciona com sucesso. Uma vez que a equipa de Gestão de Serviços da Microsoft para as grandes instâncias hana não suporta o sistema operativo, poderá ter de contactar a SUSE para mais resolução de problemas ou esclarecimentos sobre a camada do sistema operativo. A equipa de gestão de serviços da Microsoft configura o dispositivo STONITH e suporta totalmente e pode estar envolvida para resolução de problemas para problemas com dispositivos STONITH.*
@@ -136,16 +136,16 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ### <a name="32-setting-up-the-cluster"></a>3.2 Configuração do cluster
 3.2.1 Pode utilizar o comando *ha-cluster-init* ou utilizar o assistente yast2 para configurar o cluster. Neste caso, o feiticeiro yast2 é usado. Você executa este passo **apenas no nó primário.**
 
-Siga yast2> Alta Disponibilidade > Cluster ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
+Siga yast2> Alta ![Disponibilidade > Cluster yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
 Clique **em cancelar** uma vez que o pacote halk2 já está instalado.
 
-![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
+![yast-falcão-continuar.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
 Clique em **Continuar**
 
-Valor esperado=Número de nós implantados (neste caso 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) Click **Next**
+Valor esperado=Número de nós implantados (neste ![caso 2)](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) yast-Cluster-Security.png Clique **Próximo**
 ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) Adicione nomes de nó e clique em "Adicionar ficheiros sugeridos"
 
 Clique em "Ligar csync2 ON"
@@ -154,7 +154,7 @@ Clique em "Generate Pre-Shared-Keys", mostra abaixo popup
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Clique em **OK**
+Clique **OK**
 
 A autenticação é realizada utilizando os endereços IP e as teclas pré-partilhadas em Csync2. O ficheiro chave é gerado com csync2 -k /etc/csync2/key_hagroup. O ficheiro key_hagroup deve ser copiado para todos os membros do cluster manualmente após a sua criação. **Certifique-se de copiar o ficheiro do nó 1 ao nó2**.
 
@@ -191,7 +191,7 @@ modprobe softdog
 ```
 lsmod | grep dog
 ```
-![lsmod-grep-dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
+![Lsmod-grep-dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
 
 4.5 Inicie o dispositivo SBD em **ambos os** nós
 ```
@@ -320,9 +320,9 @@ crm configure load update crm-vip.txt
 ### <a name="74-validate-the-resources"></a>7.4 Validar os recursos
 
 Quando se dirige o comando *crm_mon,* pode-se ver os dois recursos.
-![](media/HowToHLI/HASetupWithStonith/crm_mon_command.png) crm_mon_command.png
+![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Além disso, pode ver o estado em https://\<endereço IP do *nó>:7630/cib/live/state*
+Além disso, pode ver o estado no *endereço IP do nó https://\<>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,10 +334,10 @@ Service pacemaker stop
 Agora, pare o serviço de pacemaker no **nó2** e os recursos falharam no **nó1**
 
 **Antes do fracasso**  
-![](media/HowToHLI/HASetupWithStonith/Before-failover.png) de antes do fracasso.png  
+![Antes do fracasso.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **Depois do fracasso**  
-![pós-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
 ![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
@@ -383,19 +383,19 @@ Se o yast2 não abrir com a vista gráfica, siga os passos seguintes.
 
 Instale os pacotes necessários. Tem de ser registado como "raiz" do utilizador e ter SMT configurado para descarregar/instalar as embalagens.
 
-Para instalar os pacotes, utilize yast>Software>Software Management>Dependencies> opção "Instale pacotes recomendados...". A imagem que se segue ilustra os ecrãs esperados.
+Para instalar os pacotes, utilize o yast>Software>Software Management>Dependencies> opção "Instalar pacotes recomendados...". A imagem que se segue ilustra os ecrãs esperados.
 >[!NOTE]
 >Você precisa realizar os passos em ambos os nós, para que você possa aceder à vista gráfica yast2 de ambos os nós.
 
-![yast-sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
+![gestão yast-sofware.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
 
-Sob Dependências, selecione "Instalar pacotes recomendados" ![dependências de yast.png](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
+Sob Dependências, selecione "Instalar pacotes recomendados" ![yast-dependencies.png](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
 Reveja as alterações e bata OK
 
-![Yast](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
+![yast](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
 
-Instalação de pacotes procede ![instalação de desempenho yast.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
+A instalação ![do pacote prossegue yast-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
 Clique em Seguinte
 
@@ -412,22 +412,22 @@ zypper -n install libqt4
 zypper -n install libyui-qt
 ```
 ![zypper-install-ligyui.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
-![zypper-install-ligyui_part2.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png) Yast2 devem ser capazes de abrir a vista gráfica agora, como mostrado aqui.
+![zypper-install-ligyui_part2.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png) Yast2 deve ser capaz de abrir a vista gráfica agora, como mostrado aqui.
 ![yast2-control-center.png](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
 ### <a name="scenario-3-yast2-does-not-high-availability-option"></a>Cenário 3: yast2 não tem opção de Alta Disponibilidade
 Para que a opção de Alta Disponibilidade seja visível no centro de controlo yast2, é necessário instalar as embalagens adicionais.
 
-Usando o Yast2>Software>Gestão de software>Selecione os seguintes padrões
+Utilização do Yast2>software>gestão de software>Selecione os seguintes padrões
 
 - Base de servidor SAP HANA
-- C/C++ Compilador e ferramentas
+- Compilador C/C++
 - Elevada disponibilidade
 - Base do servidor de aplicação SAP
 
 O ecrã seguinte mostra os passos para instalar os padrões.
 
-Utilização de yast2 > Software > Gestão de Software
+Utilização de yast2 > Software > Software Management
 
 ![yast2-control-center.png](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
@@ -451,7 +451,7 @@ Clique em **seguida** quando a instalação estiver concluída
 ### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Cenário 4: Instalação HANA falha com erro de conjuntos gcc
 A instalação HANA falha com o seguinte erro.
 
-![Hana-installation-error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
+![Hana-instalação-erro.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
 
 Para corrigir o problema, é necessário instalar bibliotecas (libgcc_sl e libstdc++6) como a seguir.
 
@@ -525,9 +525,9 @@ ssh-keygen -q -f /root/.ssh/id_rsa -C 'Cluster Internal' -N ''
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 ```
 
-![ssh-keygen-node1.PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node1.PNG)
+![ssh-keygen-node1. PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node1.PNG)
 
-![ssh-keygen-node2.PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
+![ssh-keygen-node2. PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
 
 Após a correção anterior, o nó2 deve ser adicionado ao cluster
 

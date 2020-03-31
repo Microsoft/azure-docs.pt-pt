@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77917918"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização Azure AD Connect: Extensões de diretório
@@ -60,14 +60,14 @@ Durante a instalação do Azure AD Connect, está registada uma aplicação onde
 
 Certifique-se de que seleciona **todas as aplicações** para ver esta aplicação.
 
-Os atributos são pré-fixados com **\_de extensão {ApplicationId}\_** . ApplicationId tem o mesmo valor para todos os atributos do seu inquilino Azure AD. Você precisará deste valor para todos os outros cenários neste tópico.
+Os atributos são pré-fixados com **extensão \_\_{ApplicationId}**. ApplicationId tem o mesmo valor para todos os atributos do seu inquilino Azure AD. Você precisará deste valor para todos os outros cenários neste tópico.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Atributos de visualização usando o Microsoft Graph API
 
 Estes atributos estão agora disponíveis através da Microsoft Graph API, utilizando o [Microsoft Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer#)
 
 >[!NOTE]
-> Na API do Microsoft Graph, é necessário pedir que os atributos sejam devolvidos. Selecione explicitamente os atributos como este: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
+> Na API do Microsoft Graph, é necessário pedir que os atributos sejam devolvidos. Selecione explicitamente `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`os atributos como este: .
 >
 > Para mais informações, consulte [o Microsoft Graph: Utilize parâmetros](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)de consulta .
 
@@ -87,7 +87,7 @@ Um dos cenários mais úteis é usar estes atributos em segurança dinâmica ou 
 
    ![Screenshot com novos atributos aparecendo na UI](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   Complete a expressão de acordo com os seus requisitos. No nosso exemplo, a regra é definida para **(user.extension_9d98ed114c4840d298fad781915f27e4_division -eq "Vendas e marketing")** .
+   Complete a expressão de acordo com os seus requisitos. No nosso exemplo, a regra é definida para **(user.extension_9d98ed114c4840d298fad781915f27e4_division -eq "Vendas e marketing")**.
 
 4. Depois de o grupo ter sido criado, dê ao Azure AD algum tempo para povoar os membros e depois rever os membros.
 

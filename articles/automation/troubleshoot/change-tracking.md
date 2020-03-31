@@ -10,17 +10,17 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6cadaea1a20743071acbe8860df02ca7bbdde954
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198535"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Resolver Problemas do Controlo de Alterações e do Inventário
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Cenário: Change Tracking records não estão a aparecer para máquinas Windows
+### <a name="scenario-change-tracking-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>Cenário: Change Tracking records não estão a aparecer para máquinas Windows
 
 #### <a name="issue"></a>Problema
 
@@ -115,5 +115,5 @@ A funcionalidade FIM do Azure Security Center pode estar a validar incorretament
 Se não vir o seu problema ou não conseguir resolver o seu problema, utilize um dos seguintes canais para obter mais suporte.
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

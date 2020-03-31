@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656645"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246522"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -30,7 +30,7 @@ A arquitetura de reporte em Azure Ative Directory (Azure AD) consiste nos seguin
 
 - **Atividade** 
     - **Iniciars inscrições** – Informação sobre a utilização de aplicações geridas e atividades de sessão de utilizadores.
-    - **Registos** de auditoria - [Registos de Auditoria](concept-audit-logs.md) fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
+    - **Registos de auditoria Registos** - [de auditoria Registos](concept-audit-logs.md) de auditoria fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
 - **Segurança** 
     - **Inscrições arriscadas** - Um [sinal de inscrição arriscado](concept-risky-sign-ins.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
     - **Utilizadores sinalizados para o risco** - Um [utilizador arriscado](concept-user-at-risk.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
@@ -47,7 +47,11 @@ Este artigo dá-lhe uma visão geral do relatório de inscrição.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Que licença do Azure AD precisa para aceder à atividade de entrada?
 
-* O seu inquilino deve ter uma licença Azure AD Premium associada a ela para ver o relatório de atividades de entrada. Ver [Começar com o Azure Ative Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição de Diretório Ativo Azure. Levará alguns dias para que os dados apareçam nos relatórios depois de atualizar para uma licença premium sem atividades de dados antes da atualização.
+- O relatório de atividades de entrada está disponível em [todas as edições da Azure AD.](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
+
+- Se pretender aceder aos dados de entrada utilizando uma API, o seu inquilino deve ter uma licença [Azure Ative Directory Premium](../fundamentals/active-directory-get-started-premium.md) associada a ele.
+
+
 
 ## <a name="sign-ins-report"></a>Relatório de inscrição
 
@@ -150,10 +154,10 @@ Primeiro, reduzir os dados reportados a um nível que funcione para si. Em segun
 |Browser|![Marcar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de insessão dos utilizadores que usam navegadores web|
 |Exchange ActiveSync| | Mostra todas as tentativas de login dos utilizadores com aplicações de clientes usando o Exchange ActiceSync para se conectar ao Exchange Online|
 |Troca de PowerShell online| |Usado para ligar a Exchange Online com powerShell remoto. Se bloquear a autenticação básica para exchange Online PowerShell, precisa de utilizar o módulo Exchange Online PowerShell para se ligar. Para obter instruções, consulte Connect to Exchange Online PowerShell utilizando a [autenticação de vários fatores](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
-|Serviços Web de Intercâmbio| |Uma interface de programação que é usada pelo Outlook, Outlook for Mac e aplicações de terceiros.|
+|Serviços Web Exchange| |Uma interface de programação que é usada pelo Outlook, Outlook for Mac e aplicações de terceiros.|
 |IMAP4| |Um cliente de correio antigo que usa o IMAP para recuperar e-mail.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e mais tarde.|
-|Aplicações móveis e clientes de ambiente de trabalho|![Marcar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de login dos utilizadores que usam aplicações móveis e clientes de desktop.|
+|Aplicativos móveis e clientes de desktop|![Marcar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de login dos utilizadores que usam aplicações móveis e clientes de desktop.|
 |Livro de endereços offline| |Uma cópia das coleções da lista de endereços que são descarregadas e utilizadas pelo Outlook.|
 |Outlook Anywhere (RPC over HTTP)| |Usado pelo Outlook 2016 e mais cedo.|
 |Serviço outlook| |Usado pelo aplicativo Mail and Calendar para windows 10.|
@@ -172,13 +176,17 @@ Primeiro, reduzir os dados reportados a um nível que funcione para si. Em segun
 **Id correlação** - A identificação da correlação da atividade.
 
 
+
+
 **Acesso condicional** - O estado das regras de acesso condicional aplicadas
 
-- Não aplicado 
+- **Não aplicada**: Nenhuma política aplicada ao utilizador e aplicação durante o sessão.
 
-- Êxito
+- **Sucesso**: Uma ou mais políticas de acesso condicional aplicadas ao utilizador e aplicação (mas não necessariamente as outras condições) durante o registo. 
 
-- Falha
+- **Falha**: Uma ou mais políticas de acesso condicional aplicadas e não foi satisfeita durante o registo.
+
+
 
 
 
@@ -190,7 +198,7 @@ Primeiro, reduzir os dados reportados a um nível que funcione para si. Em segun
 
 Clique na opção **Download** para criar um ficheiro CSV ou JSON dos mais recentes 250.000 registos. Comece com [o download dos dados de entrada](quickstart-download-sign-in-report.md) se quiser trabalhar com ele fora do portal Azure.  
 
-![Transferência](./media/concept-sign-ins/71.png "Transferência")
+![Transferir](./media/concept-sign-ins/71.png "Transferência")
 
 > [!IMPORTANT]
 > O número de registos que pode descarregar está limitado pelas políticas de retenção de [relatórios do Azure Ative Directory.](reference-reports-data-retention.md)  
@@ -203,7 +211,7 @@ A Azure AD e o portal Azure fornecem-lhe pontos de entrada adicionais para os da
 - A visão geral da proteção da identidade
 - Utilizadores
 - Grupos
-- Aplicações empresariais
+- Aplicações Empresariais
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Utilizadores insaem dados na proteção de segurança da identidade
 
@@ -230,7 +238,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Cliente
 - Localização
 - Endereço IP
-- Data
+- Date
 - MFA Necessário
 - Estado de início de sessão
 

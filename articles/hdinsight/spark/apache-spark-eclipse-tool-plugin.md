@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272113"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Kit de Ferramentas Azure para eclipse para criar aplicações Apache Spark para um cluster HDInsight
@@ -33,7 +33,7 @@ Utilize ferramentas HDInsight no Kit de Ferramentas Azure para [o Eclipse](https
 
 ## <a name="install-required-plug-ins"></a>Instale plug-ins necessários
 
-### <a name="install-azure-toolkit-for-eclipse"></a>Instale o Kit de Ferramentas Azure para Eclipse
+### <a name="install-azure-toolkit-for-eclipse"></a>Instalar o Azure Toolkit for Eclipse
 
 Para instruções de instalação, consulte a instalação do [Kit de Ferramentas Azure para eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation).
 
@@ -45,21 +45,21 @@ Ao abrir o Eclipse, as Ferramentas HDInsight detetam automaticamente se instalou
 
 ### <a name="confirm-plug-ins"></a>Confirmar plug-ins
 
-1. Navegue para **ajudar > ** **Eclipse Marketplace...** .
+1. Navegue para **ajudar o** > **Eclipse Marketplace...**.
 
 1. Selecione o separador **Instalado.**
 
 1. Devia ver pelo menos:
-    * Azure Toolkit para eclipse \<versão>.
-    * Scala IDE \<versão>.
+    * Azure Toolkit \<para versão Eclipse>.
+    * Versão Scala \<IDE>.
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Inscreva-se na sua subscrição Azure
 
 1. Comece o Eclipse IDE.
 
-1. Navegue para a vista **de** >  da **janela** > **outro...**  > **Sign In.**
+1. Navegue para o show **de janelas** >  **ver** > **outro...**  >  **Assine. . .**
 
-1. A partir do diálogo **Show View,** navegue até **Azure** > **Azure Explorer,** e depois selecione **Open**.
+1. A partir do diálogo **Show View,** navegue até **ao Azure** > **Azure Explorer,** e depois selecione **Open**.
 
    ![Apache Spark Eclipse mostra vista](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
 
@@ -83,7 +83,7 @@ Ao abrir o Eclipse, as Ferramentas HDInsight detetam automaticamente se instalou
 
 ## <a name="link-a-cluster"></a>Ligar um cluster
 
-Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. Da mesma forma, para um cluster HDInsight unido ao domínio, pode ligar utilizando o domínio e o nome de utilizador, como `user1@contoso.com`.
+Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. Da mesma forma, para um cluster HDInsight unido ao domínio, pode `user1@contoso.com`ligar utilizando o domínio e o nome de utilizador, tais como .
 
 1. Do **Azure Explorer,** clique à direita **HDInsight,** e selecione **Link A Cluster**.
 
@@ -95,7 +95,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. 
 
    > [!NOTE]  
    > Utilizamos a chave de armazenamento, nome de utilizador e senha ligados se o cluster tiver registado na subscrição do Azure e linked um cluster.
-   > ![contas de armazenamento do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > ![Contas de armazenamento do Azure Explorer](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
    >
    > Para o utilizador apenas do teclado, quando o foco atual estiver na **Chave de Armazenamento,** é necessário utilizar **o CTRL+TAB** para se concentrar no próximo campo do diálogo.
 
@@ -109,14 +109,14 @@ Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Criar um projeto Spark Scala para um cluster HDInsight Spark
 
-1. A partir do espaço de trabalho Eclipse IDE, selecione **File** > **New** > **Project...** .
+1. A partir do espaço de trabalho Eclipse IDE, selecione **File** > **New** > **Project...**.
 
-1. No assistente do **Novo Projeto,** selecione **HDInsight Project** > **Spark on HDInsight (Scala)** . Em seguida, selecione **Seguinte**.
+1. No assistente do **Novo Projeto,** selecione **HDInsight Project** > **Spark no HDInsight (Scala)**. Em seguida, selecione **Seguinte**.
 
    ![Selecionando o projeto Spark on HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
 1. Na caixa de diálogo New **HDInsight Scala Project,** forneça os seguintes valores e, em seguida, selecione **Seguinte:**
-   * Insira um nome para o projeto.
+   * Introduza um nome para o projeto.
    * Na área **DE JRE,** certifique-se de que utilize um ambiente de **execução JRE** definido para **JavaSE-1.7** ou posterior.
    * Na área da **Spark Library,** pode escolher **Use Maven para configurar a opção Spark SDK.**  A nossa ferramenta integra a versão adequada para Spark SDK e Scala SDK. Também pode escolher a opção **De Adicionar Spark SDK manualmente,** transferir e adicionar Spark SDK manualmente.
 
@@ -126,9 +126,9 @@ Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. 
 
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Criar uma aplicação Scala para um cluster HDInsight Spark
 
-1. A partir do **Package Explorer,** expanda o projeto que criou anteriormente. Srcde clique à direita, selecione **New** > **Other...** .
+1. A partir do **Package Explorer,** expanda o projeto que criou anteriormente. Src **src**de clique à direita, selecione **New** > **Other...**.
 
-1. Na caixa de diálogo **Select uma assistente,** selecione **Scala Wizards** > **Scala Object**. Em seguida, selecione **Seguinte**.
+1. Na caixa de diálogo **Select a Wizard,** selecione **Scala Wizards** > **Scala Object**. Em seguida, selecione **Seguinte**.
 
    ![Selecione um assistente Criar um Objeto Scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -218,11 +218,11 @@ Pode realizar várias operações utilizando ferramentas HDInsight, incluindo ac
 
 1. No Azure Explorer, clique no nome do cluster Spark e, em seguida, **selecione Open Spark History UI**. Quando for solicitado, entre nas credenciais de administração do cluster. Especificou-os enquanto aprovisionava o cluster.
 
-1. No painel de servidores do spark history, utiliza o nome da aplicação para procurar a aplicação que acabou de executar. No código anterior, detetou o nome da aplicação utilizando `val conf = new SparkConf().setAppName("MyClusterApp")`. Então, o seu nome de aplicação Spark era **MyClusterApp**.
+1. No painel de servidores do spark history, utiliza o nome da aplicação para procurar a aplicação que acabou de executar. No código anterior, deteta o `val conf = new SparkConf().setAppName("MyClusterApp")`nome da aplicação utilizando . Então, o seu nome de aplicação Spark era **MyClusterApp**.
 
 ### <a name="start-the-apache-ambari-portal"></a>Inicie o portal Apache Ambari
 
-1. No Azure Explorer, clique no nome do cluster Spark e, em seguida, **selecione Open Cluster Management Portal (Ambari)** .
+1. No Azure Explorer, clique no nome do cluster Spark e, em seguida, **selecione Open Cluster Management Portal (Ambari)**.
 
 1. Quando for solicitado, entre nas credenciais de administração do cluster. Especificou-os enquanto aprovisionava o cluster.
 
@@ -248,7 +248,7 @@ Para resolver este erro, precisa de [Winutils.exe](https://github.com/stevelough
 
 1. Inicie o Eclipse e crie um projeto. Na caixa de diálogo **New Project,** faça as seguintes escolhas e, em seguida, selecione **Next**.
 
-1. No assistente do **Novo Projeto,** selecione **HDInsight Project** > Spark na Amostra de **Execução Local HDInsight (Scala)** . Em seguida, selecione **Seguinte**.
+1. No assistente do **Novo Projeto,** selecione **HDInsight Project** > **Spark na Amostra de Execução Local HDInsight (Scala)**. Em seguida, selecione **Seguinte**.
 
    ![Novo projeto seleciona um diálogo de assistente](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 

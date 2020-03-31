@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7c15786e9a5d2fe65c20a26606087cee994ab54b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: cc76f8c87eca059db85a68acbe4c317cf4904d39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302853"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457190"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança azure para cofre chave
 
@@ -32,7 +32,7 @@ Para mais informações, consulte a [visão geral da Azure Security Baselines](h
 **Orientação**: Integrar o cofre de chaves Azure com ligação privada Azure. O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Key Vault) e o Azure acolheu serviços de clientes/parceiros sobre um Ponto Final Privado na sua rede virtual.
 Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado por Azure Private Link. O ponto final privado utiliza um endereço IP privado do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a uma instância de um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acesso.
 
-Como integrar o Cofre chave com ligação privada Azure: https://docs.microsoft.com/azure/key-vault/private-link-service
+Como integrar o Cofre chave com ligação privada Azure:https://docs.microsoft.com/azure/key-vault/private-link-service
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -64,7 +64,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 **Orientação**: Ativar a Norma de Proteção De DDoS Azure nas Redes Virtuais Azure associadas às instâncias do Cofre Chave para proteção contra ataques de negação de serviço distribuídos. Utilize o Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP da Internet maliciosos ou não utilizados conhecidos.
 
  
-Gerir a Norma de Proteção Azure DDoS utilizando o portal Azure: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection deteção de ameaças para a camada de serviço Azure no Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Gerir a Norma de Proteção Azure https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection DDoS utilizando o portal Azure: Deteção de ameaças para a camada de serviço Azure no Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -73,9 +73,9 @@ Gerir a Norma de Proteção Azure DDoS utilizando o portal Azure: https://docs.m
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de registos e registos de fluxo
 
 **Orientação**: O Cofre de Chaves Azure não utiliza grupos de segurança de rede (NSG) e os registos de fluxo para o Cofre de Chaves Azure não são capturados. Em vez disso, utilize o Azure Private Link para proteger as instâncias do Cofre de Chaves Azure e permitir configurações de diagnóstico para registar métricas e eventos de auditoria.
-Integrar o cofre chave com ligação privada Azure: https://docs.microsoft.com/azure/key-vault/private-link-service
+Integrar o cofre chave com ligação privada Azure:https://docs.microsoft.com/azure/key-vault/private-link-service
 
-Exploração madeireira do cofre de chaves azure: https://docs.microsoft.com/azure/key-vault/key-vault-logging
+Exploração madeireira do cofre de chaves azure:https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -90,7 +90,7 @@ Exploração madeireira do cofre de chaves azure: https://docs.microsoft.com/azu
 Quando o Azure Security Center deteta atividade anómala, apresenta alertas. Também envia um e-mail ao administrador de subscrição com detalhes sobre a atividade suspeita e recomendações para como investigar e remediar as ameaças identificadas.
 
 
-Criar proteção avançada contra ameaças para o Cofre chave Azure: https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+Criar uma proteção avançada contra ameaças para o Cofre chave Azure:https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
 
 
 **Monitorização do Centro de Segurança Azure:** Sim
@@ -110,7 +110,7 @@ Criar proteção avançada contra ameaças para o Cofre chave Azure: https://doc
 **Orientação**: Para recursos que necessitem de acesso às instâncias do Cofre chave Azure, utilize etiquetas de serviço Azure para o Cofre chave Azure para definir controlos de acesso à rede em grupos de segurança de rede ou Firewall Azure. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Especificando o nome da etiqueta de serviço (por exemplo, ApiManagement) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
 
-Visão geral das etiquetas de serviço Azure: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Visão geral das etiquetas de serviço Azure:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -118,10 +118,7 @@ Visão geral das etiquetas de serviço Azure: https://docs.microsoft.com/azure/v
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: Defina e implemente configurações de segurança padrão para recursos de rede associados aos seus casos de Cofre chave Azure com a Política Azure. Utilize pseudónimos da Política Azure nos espaços de nome "Microsoft.KeyVault" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração da rede das suas instâncias do Cofre chave Azure. Também pode utilizar definições políticas incorporadas relacionadas com o Cofre chave Azure, tais como:
-
-
-O Key Vault deve utilizar um ponto final de serviço de rede virtual
+**Orientação**: Defina e implemente configurações de segurança padrão para recursos de rede associados aos seus casos de Cofre chave Azure com a Política Azure. Utilize pseudónimos da Política Azure nos espaços de nome "Microsoft.KeyVault" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração da rede das suas instâncias do Cofre chave Azure. Você também pode fazer uso de definições de política incorporadas relacionadas com o Cofre chave Azure, tais como: [Key Vault deve usar um ponto final](key-vault-overview-vnet-service-endpoints.md) de serviço de rede virtual
 
 
 Tutorial: Criar e gerir políticas para impor o cumprimento:
@@ -229,7 +226,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 **Orientação**: Dentro do Monitor Azure, para o espaço de trabalho do Log Analytics utilizado para manter os seus registos do Cofre de Chaves Azure, deteta o período de retenção de acordo com as regras de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-Alterar o período de retenção de dados: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Alterar o período de retenção de dados:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -240,12 +237,12 @@ Alterar o período de retenção de dados: https://docs.microsoft.com/azure/azur
 **Orientação**: Analise e monitorize os registos para comportamentos anómalos e reveja regularmente os resultados dos seus recursos protegidos pelo Cofre de Chaves Azure. Utilize o espaço de trabalho do Monitor de Log Analytics do Azure Monitor para rever os registos e executar consultas nos dados de registo. Em alternativa, pode ativar e embarcar dados para o Azure Sentinel ou um SIEM de terceiros. 
 
 
-Quickstart: A bordo azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Quickstart: A bordo do Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
-Começar com Log Analytics no Monitor Azure: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Inicie-se com Log Analytics no Monitor Azure:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Começar com consultas de log no Monitor Azure: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Começar com consultas de log no Monitor Azure:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -307,9 +304,9 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 (Get-AzResource -ResourceId [KeyVaultResourceID]). Propriedades.AccessPolicies
 
-Registar uma candidatura com o Diretório Ativo azure: https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
+Registar uma candidatura com o Diretório Ativo azure:https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
 
-Acesso seguro a um cofre chave: https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+Acesso seguro a um cofre chave:https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -372,9 +369,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Orientação**: Utilize uma estação de trabalho de acesso privilegiado (PAW) com autenticação de multi-factores Azure (MFA) configurada para iniciar sessão e configurar os recursos habilitados para o Cofre chave. 
 
-Postos de trabalho privilegiados de acesso: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Postos de trabalho privilegiados de acesso:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-Planejando uma implementação de autenticação azure multi-factor baseada na nuvem: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planejando uma implementação de autenticação azure multi-factor baseada na nuvem:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -387,15 +384,15 @@ Planejando uma implementação de autenticação azure multi-factor baseada na n
 
 Permitir que a proteção avançada de ameaças (ATP) para o Cofre chave Azure gere alertas para atividades suspeitas.
 
-Implemente a Gestão de Identidade Privilegiada da Azure AD (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Implemente a Gestão de Identidade Privilegiada da Azure AD (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Criar uma proteção avançada contra ameaças para o Cofre chave Azure (pré-visualização): https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+Criar proteção avançada contra ameaças para o Cofre chave Azure (pré-visualização):https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
 
-Alertas para cofre de chaves Azure (Pré-visualização): https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurekv
+Alertas para cofre de chaves Azure (Pré-visualização):https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurekv
 
-Deteções de risco do Diretório Ativo Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Deteções de risco do Diretório Ativo Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Criar e gerir grupos de ação no portal Azure: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
+Criar e gerir grupos de ação no portal Azure:https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 
 **Monitorização do Centro de Segurança Azure:** Sim
@@ -406,7 +403,7 @@ Criar e gerir grupos de ação no portal Azure: https://docs.microsoft.com/azure
 
 **Orientação**: Configure o estado de localização de uma política de acesso condicional e gerencie os seus locais nomeados. Com localizações nomeadas, pode criar agrupamentos lógicos de gamas de endereços IP ou países e regiões. Pode restringir o acesso a recursos sensíveis, como os seus segredos do Cofre chave, aos seus locais configurados.
 
-Qual é a condição de localização no Acesso Condicional do Diretório Ativo Azure?: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Qual é a condição de localização no Acesso Condicional do Diretório Ativo Azure?:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
@@ -419,7 +416,7 @@ Qual é a condição de localização no Acesso Condicional do Diretório Ativo 
 
  
 
-Quickstart: Criar um novo inquilino no Azure Ative Directory: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+Quickstart: Criar um novo inquilino no Azure Ative Directory:https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -447,9 +444,9 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 **Orientação**: Ative as definições de diagnóstico para o Cofre de Chaves Azure e para o Diretório Ativo Azure, enviando todos os registos para um espaço de trabalho de Log Analytics. Configure os alertas desejados (como tentativas de aceder a segredos desativados) dentro do Log Analytics.
 
-Integrar registos de AD Azure com registos do Monitor Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Integre os registos de AD Azure com registos do Monitor Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-Migrando da antiga solução Key Vault: https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
+Migrando da antiga solução Key Vault:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -459,11 +456,11 @@ Migrando da antiga solução Key Vault: https://docs.microsoft.com/azure/azure-m
 
 **Orientação**: Utilize as funcionalidades de Proteção de Identidade e Deteção de Riscos do Azure Ative Directory para configurar respostas automatizadas a ações suspeitas detetadas relacionadas com os recursos protegidos do seu Cofre chave Azure. Deve permitir que as respostas automatizadas através do Azure Sentinel implementem as respostas de segurança da sua organização. 
 
-Relatório de inscrições de risco no portal Azure Ative Diretório: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
+Relatório de inscrição arriscado no portal azure ative diretório:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
 
-Como: Configurar e ativar políticas de risco: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Como: Configurar e ativar políticas de risco:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Como embarcar no Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como embarcar no Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -473,7 +470,7 @@ Como embarcar no Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quick
 
 **Orientação**: Não aplicável; Caixa de bloqueio de cliente não suportada para cofre de chaves Azure.
 
-Serviços e cenários suportados na disponibilidade geral: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Serviços e cenários suportados em disponibilidade geral:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -488,7 +485,7 @@ Serviços e cenários suportados na disponibilidade geral: https://docs.microsof
 
 **Orientação**: Utilize etiquetas para ajudar a rastrear os recursos do Azure que armazenam ou processam informações sensíveis sobre o Cofre chave Azure habilitados recursos. 
 
-Utilize etiquetas para organizar os seus recursos Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Utilize etiquetas para organizar os seus recursos Azure:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -501,9 +498,9 @@ Utilize etiquetas para organizar os seus recursos Azure: https://docs.microsoft.
 
 Depois de as regras de firewall estarem em vigor, só é possível executar operações de avião de dados Azure Key Vault quando o seu pedido tiver origem em subredes permitidas ou intervalos de endereçoip. Isto também se aplica ao acesso azure key vault no portal Azure. Embora possa navegar para um cofre chave a partir do portal Azure, pode não ser capaz de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Isto também afeta o Azure Key Vault Picker e outros serviços Azure. Pode ver listas de Cofres Chave, mas não listar chaves, se as regras de firewall impedirem a sua máquina de cliente de o fazer.
 
-Configure firewalls e redes virtuais do Cofre de Chaves Do Azure: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
+Configure firewalls e redes virtuais do Cofre de Chaves Do Azure:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
-Pontos finais de serviço de rede virtual para Cofre chave Azure: https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
+Pontos finais de serviço de rede virtual para o Cofre chave Azure:https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
 
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
@@ -514,11 +511,11 @@ Pontos finais de serviço de rede virtual para Cofre chave Azure: https://docs.m
 
 **Orientação**: Todos os dados armazenados no Cofre de Chaves Azure são considerados sensíveis. Utilize os controlos de acesso ao avião de dados Azure Key Vault para controlar o acesso aos segredos do Cofre chave Azure. Também pode utilizar a firewall incorporada do Key Vault para controlar o acesso na camada de rede. Para monitorizar o acesso ao Cofre de Chaves Azure, ative as definições de diagnóstico do cofre de chaves e envie registos para uma conta de armazenamento Azure ou espaço de trabalho de Log Analytics.
 
-Acesso seguro a um cofre chave: https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+Acesso seguro a um cofre chave:https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
-Configure firewalls e redes virtuais do Cofre de Chaves Do Azure: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
+Configure firewalls e redes virtuais do Cofre de Chaves Do Azure:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
-Exploração madeireira do cofre de chaves azure: https://docs.microsoft.com/azure/key-vault/key-vault-logging
+Exploração madeireira do cofre de chaves azure:https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
 **Monitorização do Centro de Segurança Azure:** Sim
@@ -529,7 +526,7 @@ Exploração madeireira do cofre de chaves azure: https://docs.microsoft.com/azu
 
 **Orientação**: Todo o tráfego para o Cofre chave Azure para autenticação, gestão e acesso a avião de dados, é encriptado e passa por HTTPS: porta 443. (No entanto, ocasionalmente haverá tráfego HTTP [porta 80] para a CRL.) 
 
-Access Azure Key Vault atrás de uma firewall: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
+Aceda ao Cofre chave Azure atrás de uma firewall:https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -559,12 +556,12 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Utilizar a prevenção da perda de dados baseada no hospedeiro para impor o controlo do acesso
 
-**Orientação**: A Microsoft gere a infraestrutura subjacente ao Cofre de Chaves Azure e implementou controlos rigorosos para evitar a perda ou exposição dos dados dos clientes.
+**Orientação**: A Microsoft gere a infraestrutura subjacente ao Cofre de Chaves Azure e implementou controlos rigorosos para evitar a perda ou exposição do daUse Azure Security Center para realizar digitalizações de base para o seu cofre de chaves Azure.
 
 
-O que é o Cofre chave Azure? https://docs.microsoft.com/azure/key-vault/key-vault-overview
+O que é azure key vault?:https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
-Proteção de dados dos clientes azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Proteção de dados dos clientes da Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -575,7 +572,7 @@ Proteção de dados dos clientes azure: https://docs.microsoft.com/azure/securit
 **Orientação**: Todos os objetos geridos (chave, certificados e segredos) são encriptados em repouso no Cofre chave Azure.
 
 
-Controlos de segurança para cofre de chaves Azure: https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
+Controlos de segurança para o Cofre de Chaves Azure:https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -586,7 +583,7 @@ Controlos de segurança para cofre de chaves Azure: https://docs.microsoft.com/a
 
 **Orientação**: Utilize a solução Azure Key Vault Analytics no Azure Monitor para rever os registos de eventos de auditoria do Cofre de Chaves do Azure.
 
-Solução Azure Key Vault Analytics no Monitor Azure: https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
+Solução azure key vault Analytics no Monitor Azure:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -649,11 +646,11 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar e descubra todos os recursos (incluindo as instâncias do Cofre Chave Azure) dentro da sua subscrição. Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
-Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Explorador de Gráficos de Recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Explorador de Gráficos de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Obtenha subscrições a que a conta corrente pode aceder.: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Obtenha subscrições a que a conta corrente pode aceder.:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-O que é o controlo de acesso baseado em papéis (RBAC) para os recursos Do Azure? https://docs.microsoft.com/azure/role-based-access-control/overview
+O que é o controlo de acesso baseado em papéis (RBAC) para os recursos Do Azure?https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -687,7 +684,7 @@ Criar grupos de gestão para organização e gestão de recursos:
 https://docs.microsoft.com/azure/governance/management-groups/create
 
 
-Utilize etiquetas para organizar os seus recursos Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Utilize etiquetas para organizar os seus recursos Azure:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -710,9 +707,9 @@ Utilize etiquetas para organizar os seus recursos Azure: https://docs.microsoft.
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s subscrição)."
 
-Tutorial: Criar e gerir políticas para impor o cumprimento: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Tutorial: Criar e gerir políticas para impor o cumprimento:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Explorador de Gráficos de Recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Explorador de Gráficos de Recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -750,9 +747,9 @@ Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Exp
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Tutorial: Criar e gerir políticas para impor o cumprimento: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Tutorial: Criar e gerir políticas para impor o cumprimento:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Amostras de política azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Amostras de política azure:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -772,7 +769,7 @@ Amostras de política azure: https://docs.microsoft.com/azure/governance/policy/
 **Orientação**: Utilize o Acesso Condicional Azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure (ARM) configurando o "block access" para a App "Microsoft Azure Management". Isto pode impedir a criação e alterações nos recursos dentro de um ambiente de alta segurança, como aqueles com configuração key vault.
 
 
-Gerir o acesso à gestão azure com Acesso Condicional: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Gerir o acesso à gestão azure com acesso condicional:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -915,7 +912,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para os serviços Do Azure
 
-**Orientação**: Utilize o Centro de Segurança Azure para realizar digitalizações de base para os seus recursos protegidos por cofre sinuoso 
+**Orientação**: Utilize o Centro de Segurança Azure para efetuar exames de base para os seus recursos protegidos por cofre sinuoso. 
 
   
 
@@ -985,7 +982,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Orientação**: Implementar o Scanner Credencial para identificar credenciais dentro do código. O Credential Scanner também incentivará a mudança de credenciais descobertas para locais mais seguros, como o Cofre chave Azure.  
   
- Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
+ Como configurar o Scanner Credencial:https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1011,7 +1008,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 Pré-digitalização de qualquer conteúdo que seja carregado ou enviado para recursos não computacionais do Azure Key Vault, como o Azure Key Vault. A Microsoft não pode aceder aos seus dados nestes casos.
 
 
-Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtuais: https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtuais:https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1040,15 +1037,15 @@ Compreenda o Microsoft Antimalware para Serviços Azure Cloud e Máquinas Virtua
 
 Opcionalmente, pode armazenar as suas cópias de segurança do Key Vault dentro do Azure Backup.
 
-Como apoiar os certificados do cofre de chaves: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
+Como fazer backup dos certificados do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
 
-Como fazer backup das chaves do cofre: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Como fazer backup das chaves do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
-Como fazer backup nas Contas de Armazenamento Geridas pelo Cofre de Chaves: https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
+Como fazer backup nas Contas de Armazenamento Geridas pelo Cofre de Chaves:https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
 
-Como apoiar segredos do cofre: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+Como apoiar os segredos do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
-Como ativar o Backup Azure: https://docs.microsoft.com/azure/backup
+Como ativar o Backup Azure:https://docs.microsoft.com/azure/backup
 
 
 **Monitorização**do Azure Security Center : Não aplicável
@@ -1066,15 +1063,15 @@ Como ativar o Backup Azure: https://docs.microsoft.com/azure/backup
 
 Opcionalmente, pode armazenar as suas cópias de segurança do Key Vault dentro do Azure Backup.
 
-Como apoiar os certificados do cofre de chaves: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
+Como fazer backup dos certificados do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
 
-Como fazer backup das chaves do cofre: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Como fazer backup das chaves do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
-Como fazer backup nas Contas de Armazenamento Geridas pelo Cofre de Chaves: https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
+Como fazer backup nas Contas de Armazenamento Geridas pelo Cofre de Chaves:https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
 
-Como apoiar segredos do cofre: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+Como apoiar os segredos do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
-Como ativar o Backup Azure: https://docs.microsoft.com/azure/backup
+Como ativar o Backup Azure:https://docs.microsoft.com/azure/backup
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1089,13 +1086,13 @@ Como ativar o Backup Azure: https://docs.microsoft.com/azure/backup
 - Restaurar-AzKeyVaultManagedStorageAccount
 - Restaurar-AzKeyVaultSecret
 
-Como restaurar os certificados do cofre chave: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
+Como restaurar os certificados do cofre de chaves:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
 
-Como restaurar as chaves do cofre: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
+Como restaurar as chaves do cofre:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
 
-Como restaurar as Contas de Armazenamento Geridas pelo Cofre chave: https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount
+Como restaurar as Contas de Armazenamento Geridas pelo Cofre chave:https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount
 
-Como restaurar segredos do cofre: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
+Como restaurar os segredos do cofre:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
 **Monitorização**do Azure Security Center : Não aplicável
 

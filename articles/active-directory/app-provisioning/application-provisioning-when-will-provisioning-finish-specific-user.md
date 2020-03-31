@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264144"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento de utilizadores
@@ -40,7 +40,7 @@ Quando configura o fornecimento automático pela primeira vez, a secção **Esta
 
 Após a conclusão de um ciclo de provisionamento, a secção estatísticas até **à data** mostra o número acumulado de utilizadores e grupos que foram previstos até à data, juntamente com a data de conclusão e duração do último ciclo. O **ID de Atividade** identifica exclusivamente o ciclo de provisionamento mais recente. O **Job ID** é um identificador único para o trabalho de provisionamento, e é específico da app no seu inquilino.
 
-O progresso do provisionamento pode ser visto no portal Azure, no **Azure Ative Directory &gt; Enterprise Apps &gt; \[nome** de aplicação\] &gt; do separador Provisioning.
+O progresso do provisionamento pode ser visto no portal Azure, no ** &gt; separador &gt; \[\] &gt; ** de aplicação de aplicações de aplicação de aplicações de aplicações de aplicações de aplicação de aplicações de aplicações de diretório ativo azure.
 
 ![Barra de progresso da página de provisionamento](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -48,7 +48,7 @@ O progresso do provisionamento pode ser visto no portal Azure, no **Azure Ative 
 
 Para ver o estado de provisionamento de um utilizador selecionado, consulte os registos de [provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) em Azure AD. Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de fornecimento de AD Azure. Isto inclui todas as operações de leitura e escrita efetuadas para os sistemas de origem e alvo, e os dados do utilizador que foram lidos ou escritos durante cada operação.
 
-Pode aceder aos registos de fornecimento no portal Azure selecionando o **Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Pode aceder aos registos de fornecimento no portal Azure selecionando registos de provisionamento de &gt; **aplicações** &gt; de **diretório ativo azure** **(pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Os registos de fornecimento registam todas as operações efetuadas pelo serviço de provisionamento, incluindo:
 
@@ -73,14 +73,14 @@ A tabela que se segue resume os tempos de sincronização para cenários comuns 
 
 | Configuração de âmbito | Utilizadores, grupos e membros no âmbito | Tempo inicial do ciclo | Tempo de ciclo incremental |
 | -------- | -------- | -------- | -------- |
-| Sync apenas utilizadores e grupos atribuídos |  E 1.000 |  E 30 minutos | E 30 minutos |
-| Sync apenas utilizadores e grupos atribuídos |  1,000 - 10,000 | 142 - 708 minutos | E 30 minutos |
-| Sync apenas utilizadores e grupos atribuídos |   10,000 - 100,000 | 1\.170 - 2.340 minutos | E 30 minutos |
-| Sincronizar todos os utilizadores e grupos em Azure AD |  E 1.000 | E 30 minutos  | E 30 minutos |
-| Sincronizar todos os utilizadores e grupos em Azure AD |  1,000 - 10,000 | < 30 - 120 minutos | E 30 minutos |
-| Sincronizar todos os utilizadores e grupos em Azure AD |  10,000 - 100,000  | 713 - 1.425 minutos | E 30 minutos |
-| Sincronizar todos os utilizadores em Azure AD|  E 1.000  | E 30 minutos | E 30 minutos |
-| Sincronizar todos os utilizadores em Azure AD | 1,000 - 10,000  | 43 - 86 minutos | E 30 minutos |
+| Sync apenas utilizadores e grupos atribuídos |  < 1.000 |  < 30 minutos | < 30 minutos |
+| Sync apenas utilizadores e grupos atribuídos |  1,000 - 10,000 | 142 - 708 minutos | < 30 minutos |
+| Sync apenas utilizadores e grupos atribuídos |   10,000 - 100,000 | 1.170 - 2.340 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores e grupos em Azure AD |  < 1.000 | < 30 minutos  | < 30 minutos |
+| Sincronizar todos os utilizadores e grupos em Azure AD |  1,000 - 10,000 | < 30 - 120 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores e grupos em Azure AD |  10,000 - 100,000  | 713 - 1.425 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores em Azure AD|  < 1.000  | < 30 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores em Azure AD | 1,000 - 10,000  | 43 - 86 minutos | < 30 minutos |
 
 
 Para a configuração Sync apenas para **utilizadores e grupos atribuídos,** pode utilizar as seguintes fórmulas para determinar os tempos de **ciclo mínimo** e máximo esperados:
@@ -104,5 +104,5 @@ Resumo dos fatores que influenciam o tempo que leva para completar um **ciclo in
 
 - Se o desempenho se tornar um problema e estiver a tentar fornecer a maioria dos utilizadores e grupos no seu inquilino, utilize filtros de digitalização. Os filtros de deteção permitem afinar os dados que o serviço de fornecimento extrai da AD Azure filtrando os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte o [fornecimento de aplicações baseado no Atributo com filtros](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)de deteção .
 
-## <a name="next-steps"></a>Passos Seguintes
-[Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e desaprovisionamento automático de utilizadores em aplicações SaaS no Azure Active Directory)
+## <a name="next-steps"></a>Passos seguintes
+[Automatizar o fornecimento e o desprovisionamento de utilizadores às aplicações SaaS com o Diretório Ativo azure](user-provisioning.md)

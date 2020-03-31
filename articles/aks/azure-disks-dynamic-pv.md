@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 37fea36567866af69e832a1f7e3caff2a68477a9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596968"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e utilizar de forma dinâmica um volume persistente com discos Azure no Serviço Azure Kubernetes (AKS)
@@ -24,7 +24,7 @@ Para obter mais informações sobre os volumes kubernetes, consulte as opções 
 
 Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Construído em aulas de armazenamento
 
@@ -37,7 +37,7 @@ Cada cluster AKS inclui duas classes de armazenamento pré-criadas, ambas config
 * A classe de armazenamento *premium gerida* prevê um disco Azure premium.
     * Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. Se os nós AKS do seu cluster utilizarem armazenamento premium, selecione a classe *premium gerida.*
     
-Estas classes de armazenamento padrão não permitem atualizar o tamanho do volume uma vez criado. Para ativar esta capacidade, adicione a *allowVolumeExpansion: linha verdadeira* a uma das classes de armazenamento padrão, ou crie a sua própria classe de armazenamento personalizado. Pode editar uma classe de armazenamento existente utilizando o comando `kubectl edit sc`. Para obter mais informações sobre as classes de armazenamento e criar as suas próprias, consulte opções de [armazenamento para aplicações no AKS][storage-class-concepts].
+Estas classes de armazenamento padrão não permitem atualizar o tamanho do volume uma vez criado. Para ativar esta capacidade, adicione a *allowVolumeExpansion: linha verdadeira* a uma das classes de armazenamento padrão, ou crie a sua própria classe de armazenamento personalizado. Pode editar uma classe de `kubectl edit sc` armazenamento existente utilizando o comando. Para obter mais informações sobre as classes de armazenamento e criar as suas próprias, consulte opções de [armazenamento para aplicações no AKS][storage-class-concepts].
 
 Use o [kubectl obter][kubectl-get] comando sc para ver as classes de armazenamento pré-criadas. O exemplo que se segue mostra as classes de armazenamento pré-criar disponíveis dentro de um cluster AKS:
 
@@ -56,7 +56,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 Uma reivindicação de volume persistente (PVC) é utilizada para fornecer automaticamente armazenamento com base numa classe de armazenamento. Neste caso, um PVC pode usar uma das classes de armazenamento pré-criadas para criar um disco gerido por Azure padrão ou premium.
 
-Crie um ficheiro chamado `azure-premium.yaml`e copie no seguinte manifesto. A reclamação solicita um disco chamado `azure-managed-disk` que tem *5GB* de tamanho com acesso *ReadWriteOnce.* A classe de armazenamento *premium gerida* é especificada como a classe de armazenamento.
+Crie um `azure-premium.yaml`ficheiro com o nome e copie no seguinte manifesto. A reclamação solicita `azure-managed-disk` um disco nomeado com *5GB* de tamanho com acesso *ReadWriteOnce.* A classe de armazenamento *premium gerida* é especificada como a classe de armazenamento.
 
 ```yaml
 apiVersion: v1
@@ -73,7 +73,7 @@ spec:
 ```
 
 > [!TIP]
-> Para criar um disco que utilize o armazenamento padrão, utilize `storageClassName: default` em vez *de ser gerido.*
+> Para criar um disco que `storageClassName: default` utilize o armazenamento padrão, utilize em vez *de ser gerido.*
 
 Crie a reivindicação de volume persistente com o [kubectl aplique][kubectl-apply] o comando e especifique o seu ficheiro *azure-premium.yaml:*
 
@@ -85,9 +85,9 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Use o volume persistente
 
-Uma vez criada a reivindicação persistente do volume e o disco aprovisionado com sucesso, uma cápsula pode ser criada com acesso ao disco. O manifesto seguinte cria uma cápsula básica NGINX que utiliza a reivindicação de volume persistente *denominada disco gerido por azure* para montar o disco Azure no caminho `/mnt/azure`. Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'* .
+Uma vez criada a reivindicação persistente do volume e o disco aprovisionado com sucesso, uma cápsula pode ser criada com acesso ao disco. O manifesto seguinte cria uma cápsula básica NGINX que utiliza a reivindicação de volume persistente `/mnt/azure`chamada disco gerido por *azure* para montar o disco Azure no caminho . Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'*.
 
-Crie um ficheiro chamado `azure-pvc-disk.yaml`e copie no seguinte manifesto.
+Crie um `azure-pvc-disk.yaml`ficheiro com o nome e copie no seguinte manifesto.
 
 ```yaml
 kind: Pod
@@ -122,7 +122,7 @@ $ kubectl apply -f azure-pvc-disk.yaml
 pod/mypod created
 ```
 
-Agora tem uma cápsula de corrida com o disco Azure montado no diretório `/mnt/azure`. Esta configuração pode ser vista ao inspecionar a sua cápsula através de `kubectl describe pod mypod`, como mostra o seguinte exemplo condensado:
+Agora tem uma cápsula de corrida com o `/mnt/azure` disco Azure montado no diretório. Esta configuração pode ser vista `kubectl describe pod mypod`ao inspecionar a sua cápsula via , como mostra o seguinte exemplo condensado:
 
 ```console
 $ kubectl describe pod mypod
@@ -151,7 +151,7 @@ Events:
 
 Para fazer o backup dos dados no seu volume persistente, tire uma foto do disco gerido para o volume. Em seguida, pode utilizar este instantâneo para criar um disco restaurado e ligar-se às cápsulas como forma de restaurar os dados.
 
-Em primeiro lugar, obtenha o nome de volume com o comando `kubectl get pvc`, como para o PVC denominado *disco gerido por azure:*
+Em primeiro lugar, obtenha `kubectl get pvc` o nome de volume com o comando, como para o PVC denominado *disco gerido por azure:*
 
 ```console
 $ kubectl get pvc azure-managed-disk
@@ -193,7 +193,7 @@ Para utilizar o disco restaurado com uma cápsula, especifique a identificação
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Crie um manifesto de casulo chamado `azure-restored.yaml` e especifique o disco URI obtido no passo anterior. O exemplo seguinte cria um servidor web NGINX básico, com o disco restaurado montado como um volume em */mnt/azure:*
+Crie um `azure-restored.yaml` manifesto de pod nomeado e especifique o disco URI obtido no passo anterior. O exemplo seguinte cria um servidor web NGINX básico, com o disco restaurado montado como um volume em */mnt/azure:*
 
 ```yaml
 kind: Pod
@@ -230,7 +230,7 @@ $ kubectl apply -f azure-restored.yaml
 pod/mypodrestored created
 ```
 
-Pode utilizar `kubectl describe pod mypodrestored` para visualizar detalhes da cápsula, como o seguinte exemplo condensado que mostra a informação sobre o volume:
+Pode utilizar `kubectl describe pod mypodrestored` para visualizar detalhes da cápsula, como o seguinte exemplo condensado que mostra as informações de volume:
 
 ```console
 $ kubectl describe pod mypodrestored

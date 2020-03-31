@@ -4,10 +4,10 @@ description: Instale o runtime e o SDK e crie um cluster de desenvolvimento loca
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258437"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
@@ -179,7 +179,7 @@ Inicie um cluster local após a conclusão da instalação.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Abra um browser e aceda a [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). Quando o cluster for iniciado, verá o dashboard do Service Fabric Explorer. Pode demorar alguns minutos até o cluster estar totalmente configurado. Se o browser falhar em abrir o URL ou se o Service Fabric Explorer não indicar que o sistema está preparado, aguarde alguns minutos e tente novamente.
+2. Abra um navegador web e vá`http://localhost:19080/Explorer`ao Service Fabric [Explorer](http://localhost:19080/Explorer) ( ). Quando o cluster for iniciado, verá o dashboard do Service Fabric Explorer. Pode demorar alguns minutos até o cluster estar totalmente configurado. Se o browser falhar em abrir o URL ou se o Service Fabric Explorer não indicar que o sistema está preparado, aguarde alguns minutos e tente novamente.
 
     ![Service Fabric Explorer no Linux][sfx-linux]
 
@@ -261,11 +261,11 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse, em vez de utilizar um instalador de pacote (`apt` ou `apt-get`). Se o fizer, assegura que obtém a versão mais recente do Eclipse. Pode instalar o Eclipse IDE para Programadores de Java ou para Programadores de Java EE.
 
-1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Pode atualizar a Buildship utilizando as instruções da [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
+1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados selecionando **a Ajuda** > sobre detalhes de**instalação**do**Eclipse** > . Pode atualizar o Buildship com as instruções apresentadas em [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
 
-2. Para instalar o plug-in do Service Fabric, selecione **Ajuda** > **Instalar Novo Software**.
+2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a** > **instalar novo software**.
 
-3. Na caixa **Compatível com**, escreva **https://dl.microsoft.com/eclipse** .
+3. Na caixa **Compatível com**, escreva **https://dl.microsoft.com/eclipse**.
 
 4. Selecione **Adicionar**.
 
@@ -275,7 +275,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 6. Execute os passos de instalação. Em seguida, aceite o contrato de licença do utilizador final.
 
-Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se estiver disponível uma versão mais recente.
+Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique sese a **Ajuda** > sobre detalhes de**instalação****do Eclipse** > . Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se estiver disponível uma versão mais recente.
 
 Para obter mais informações, veja [Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse](service-fabric-get-started-eclipse.md).
 
@@ -313,7 +313,7 @@ Para remover os SDKs do Service Fabric, execute os seguintes comandos.
     npm uninstall -g generator-azuresfguest
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

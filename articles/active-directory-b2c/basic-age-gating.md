@@ -1,5 +1,5 @@
 ---
-title: Permitir a marcha da idade no Diretório Ativo Azure B2C  Microsoft Docs
+title: Permitir a marcha da idade no Diretório Ativo Azure B2C [ Microsoft Docs
 description: Saiba como identificar menores usando a sua aplicação.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189978"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar a gating idade no Diretório Ativo Azure B2C
@@ -27,25 +27,25 @@ A marcha etária no Diretório Ativo Azure B2C (Azure AD B2C) permite identifica
 
 Depois de permitir a marcha da idade no [fluxo](user-flow-overview.md)do utilizador, os utilizadores são questionados quando nasceram e em que país/região vivem. Se um utilizador assinar que não tenha introduzido previamente a informação, terá de entrar nela da próxima vez que iniciar a sua inscrição. As regras são aplicadas sempre que um utilizador entra.
 
-O Azure AD B2C utiliza a informação que o utilizador introduz para identificar se é menor. O campo **ageGroup** é então atualizado na sua conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult`e `NotAdult`.  Os campos **ageGroup** e **consentProvidedForMinor** são então utilizados para calcular o valor da **classificação legalAgeGroup .**
+O Azure AD B2C utiliza a informação que o utilizador introduz para identificar se é menor. O campo **ageGroup** é então atualizado na sua conta. O valor `null`pode `Undefined` `Minor`ser, , e `Adult` `NotAdult`.  Os campos **ageGroup** e **consentProvidedForMinor** são então utilizados para calcular o valor da **classificação legalAgeGroup .**
 
 A marcha etária envolve dois valores etários: a idade em que alguém já não é considerado menor, e a idade em que um menor deve ter o consentimento dos pais. A tabela que se segue enumera as regras de idade utilizadas para a definição de um menor e um menor que exigem o consentimento.
 
 | País/Região | Nome país/região | Idade de consentimento menor | Idade menor |
 | -------------- | ------------------- | ----------------- | --------- |
-| Predefinição | Nenhum | Nenhum | 18 |
-| AE | Emirados Árabes Unidos | Nenhum | 21 |
+| Predefinição | Nenhuma | Nenhuma | 18 |
+| AE | Emirados Árabes Unidos | Nenhuma | 21 |
 | AT | Áustria | 14 | 18 |
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgária | 16 | 18 |
-| BH | Barém | Nenhum | 21 |
-| CM | Camarões | Nenhum | 21 |
+| BH | Barém | Nenhuma | 21 |
+| CM | Camarões | Nenhuma | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Checa | 16 | 18 |
 | DE | Alemanha | 16 | 18 |
 | DK | Dinamarca | 16 | 18 |
 | EE | Estónia | 16 | 18 |
-| EG | Egito | Nenhum | 21 |
+| EG | Egito | Nenhuma | 21 |
 | ES | Espanha | 13 | 18 |
 | FR | França | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
@@ -59,18 +59,18 @@ A marcha etária envolve dois valores etários: a idade em que alguém já não 
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letónia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| ND | Namíbia | Nenhum | 21 |
+| ND | Namíbia | Nenhuma | 21 |
 | NL | Países Baixos | 16 | 18 |
 | PL | Polónia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Roménia | 16 | 18 |
 | SE | Suécia | 13 | 18 |
-| SG | Singapura | Nenhum | 21 |
+| SG | Singapura | Nenhuma | 21 |
 | SI | Eslovénia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
-| TD | Rio Chade | Nenhum | 21 |
-| TH | Tailândia | Nenhum | 20 |
-| TW | Taiwan | Nenhum | 20 |
+| DT | Chade | Nenhuma | 21 |
+| TH | Tailândia | Nenhuma | 20 |
+| TW | Taiwan | Nenhuma | 20 |
 | EUA | Estados Unidos | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opções de gating de idade
@@ -103,7 +103,7 @@ Depois de o seu inquilino ser configurado para usar a marcha etária, pode entã
 1. Crie um fluxo de utilizador que tenha a marcha da idade ativada.
 2. Depois de criar o fluxo do utilizador, selecione **Propriedades** no menu.
 3. Na secção Idade de **marcha,** selecione **Ativado**.
-4. Em seguida, decide como pretende gerir utilizadores que se identifiquem como menores. Para **iniciar sessão ou iniciar sessão,** selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se estiver selecionado o bloqueio de menores, selecione `Send a JSON back to the application` ou `Show an error message`.
+4. Em seguida, decide como pretende gerir utilizadores que se identifiquem como menores. Para **iniciar sessão ou iniciar sessão,** selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se estiver selecionado o bloqueio `Send a JSON back to the application` de `Show an error message`menores, selecione ou .
 
 
 

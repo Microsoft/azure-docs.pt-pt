@@ -8,18 +8,18 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 80fcf4b6c5d64dde7bd1c5475fb6a3dbafd7f907
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965115"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Adicione os principais da base de dados para o Azure Data Explorer utilizando um modelo de Gestor de Recursos Azure
 
 > [!div class="op_single_selector"]
-> * [C#](database-principal-csharp.md)
-> * [Python](database-principal-python.md)
-> * [Modelo do Azure Resource Manager](database-principal-resource-manager.md)
+> * [C #](database-principal-csharp.md)
+> * [Pitão](database-principal-python.md)
+> * [Modelo Azure Resource Manager](database-principal-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Neste artigo, adiciona os principais da base de dados do Azure Data Explorer utilizando um modelo de Gestor de Recursos Azure.
 
@@ -30,7 +30,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ## <a name="azure-resource-manager-template-for-adding-a-database-principal"></a>Modelo de Gestor de Recursos Azure para adicionar um principal de base de dados
 
-O exemplo seguinte mostra um modelo de Gestor de Recursos Azure para adicionar um diretor de base de dados.  Você pode [Editar e implantar o modelo no portal do Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando o formulário.
+O exemplo seguinte mostra um modelo de Gestor de Recursos Azure para adicionar um diretor de base de dados.  Pode [editar e implantar o modelo no portal Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) utilizando o formulário.
 
 ```json
 {

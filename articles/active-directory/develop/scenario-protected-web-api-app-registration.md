@@ -1,5 +1,5 @@
 ---
-title: Registo de aplicações api web protegidas  Azure
+title: Registo de aplicações api web protegidas [ Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web protegida e as informações necessárias para registar a app.
 services: active-directory
@@ -17,10 +17,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262506"
 ---
 # <a name="protected-web-api-app-registration"></a>API da web protegida: Registo de aplicativos
@@ -35,7 +35,7 @@ O ponto final da plataforma de identidade da Microsoft pode emitir tokens v1.0 e
 
 A versão simbólica aceite depende do valor dos tipos de **conta Suportada** que escolher quando cria a sua aplicação.
 
-- Se o valor dos tipos de **conta suportada** for contas **em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** , a versão token aceite é v2.0.
+- Se o valor dos tipos de **conta suportada** for contas **em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão token aceite é v2.0.
 - Caso contrário, a versão simbólica aceite é v1.0.
 
 Depois de criar a aplicação, pode determinar ou alterar a versão simbólica aceite seguindo estes passos:
@@ -60,7 +60,7 @@ Outras definições específicas para apis web são a API exposta e os âmbitos 
 
 ### <a name="application-id-uri-and-scopes"></a>ID DE aplicação URI e âmbitos
 
-Os âmbitos geralmente têm o formulário `resourceURI/scopeName`. Para o Microsoft Graph, os âmbitos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read`.
+Os âmbitos geralmente têm o formulário. `resourceURI/scopeName` Para o Microsoft Graph, os âmbitos têm atalhos. Por exemplo, `User.Read` é um `https://graph.microsoft.com/user.read`atalho para .
 
 Durante o registo da aplicação, é necessário definir estes parâmetros:
 
@@ -68,7 +68,7 @@ Durante o registo da aplicação, é necessário definir estes parâmetros:
 - Um ou mais âmbitos
 - Um ou mais papéis de aplicativo
 
-Por predefinição, o portal de registo de aplicações recomenda que utilize o recurso URI `api://{clientId}`. Este URI é único, mas não humano legível. Se alterar o URI, certifique-se de que o novo valor é único.
+Por predefinição, o portal de registo `api://{clientId}`de aplicações recomenda que utilize o recurso URI . Este URI é único, mas não humano legível. Se alterar o URI, certifique-se de que o novo valor é único.
 
 Para aplicações de clientes, os âmbitos aparecem como *permissões delegadas* e as funções de aplicações aparecem como *permissões* de aplicação para a sua Web API.
 
@@ -81,7 +81,7 @@ Os âmbitos também aparecem na janela de consentimento que é apresentada aos u
 
 1. Selecione **Expor uma API** no registo de candidatura.
 1. Selecione **Adicionar âmbito**.
-1. Se solicitado, aceite o ID DE aplicação proposto (`api://{clientId}`) selecionando **Guardar e Continuar**.
+1. Se solicitado, aceite o ID URI`api://{clientId}`da aplicação proposto , selecionando **Guardar e Continuar**.
 1. Especifique estes valores:
     - Selecione **o nome Scope** e introduza **access_as_user**.
     - Selecione **Quem pode consentir** e certificar-se de que **os Administradores e utilizadores** são selecionados.
@@ -104,13 +104,13 @@ Nesta secção, aprende-se a registar a sua API protegida para que as aplicaçõ
 Para expor permissões de pedido, precisa editar o manifesto.
 
 1. No registo de candidatura para a sua candidatura, selecione **Manifesto**.
-1. Para editar o manifesto, encontre a definição `appRoles` e adicione funções de aplicação. As definições de funções são fornecidas no seguinte bloco JSON da amostra.
-1. Deixe `allowedMemberTypes` apenas para `"Application"`.
+1. Para editar o manifesto, encontre a `appRoles` definição e adicione as funções de aplicação. As definições de funções são fornecidas no seguinte bloco JSON da amostra.
+1. Deixe `allowedMemberTypes` definido `"Application"` apenas.
 1. Certifique-se de que `id` é um GUID único.
-1. Certifique-se de que `displayName` e `value` não contenham espaços.
+1. `displayName` Certifique-se `value` de não conter espaços.
 1. Salve o manifesto.
 
-A amostra que se segue mostra o conteúdo de `appRoles`, onde o valor da `id` pode ser um GUIA único.
+A amostra que se `appRoles`segue mostra `id` o conteúdo de, onde o valor pode ser único GUID.
 
 ```JSon
 "appRoles": [
@@ -145,11 +145,11 @@ Para adicionar esta segurança acrescida:
 
    > [!IMPORTANT]
    >
-   > Se definir a atribuição de **utilizador necessária?** Se o cliente não for atribuído a nenhuma função de aplicação, a Azure AD devolverá a mensagem de erro "invalid_client: AADSTS501051: Aplicação \<nome de candidatura\> não é atribuído a um papel para a \<web API\>".
+   > Se definir a atribuição de **Yes** **utilizador necessária?** Se o cliente não for atribuído a quaisquer funções de aplicação, a Azure AD devolverá a \<mensagem\> de erro "invalid_client: AADSTS501051: O nome da aplicação de aplicação não é atribuído a um papel para a \<Web API\>".
    >
-   > Se mantiver a atribuição de **utilizador necessária?** Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um sinal de acesso para a API apenas especificando o seu público. Qualquer aplicação pode aceder à API sem ter de solicitar permissões para a si.
+   > Se mantiver a atribuição de **No** **utilizador necessária?** Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um sinal de acesso para a API apenas especificando o seu público. Qualquer aplicação pode aceder à API sem ter de solicitar permissões para a si.
    >
-   > Mas, como explicado na secção anterior, a sua API web pode sempre verificar que a aplicação tem o papel certo, que é autorizado pelo administrador do arrendatário. A API realiza esta verificação validando que o token de acesso tem uma reivindicação de funções e que o valor para esta reclamação está correto. Na amostra JSON anterior, o valor é `access_as_application`.
+   > Mas, como explicado na secção anterior, a sua API web pode sempre verificar que a aplicação tem o papel certo, que é autorizado pelo administrador do arrendatário. A API realiza esta verificação validando que o token de acesso tem uma reivindicação de funções e que o valor para esta reclamação está correto. Na amostra JSON anterior, `access_as_application`o valor é .
 
 1. Selecione **Guardar**.
 

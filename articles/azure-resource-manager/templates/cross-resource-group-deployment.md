@@ -1,14 +1,14 @@
 ---
-title: Implementar recursos cruzam subscrição e grupo de recursos
+title: Implementar recursos cruze subscrição & grupo de recursos
 description: Mostra como direcionar mais de um grupo de subscrição e recursos Azure durante a implantação.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 3cc31e64e9595c637a23fc54d9d02274ded40dda
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460352"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Dispor recursos do Azure para mais de um grupo de subscrição ou recursos
 
@@ -19,7 +19,7 @@ Normalmente, você implementa todos os recursos do seu modelo para um único [gr
 
 ## <a name="specify-subscription-and-resource-group"></a>Especificar grupo de subscrição e recursos
 
-Para direcionar um grupo de recursos ou subscrição diferente, utilize um [modelo aninhado ou ligado](linked-templates.md). O tipo de recursos `Microsoft.Resources/deployments` fornece parâmetros para `subscriptionId` e `resourceGroup`, que lhe permitem especificar o grupo de subscrição e recursos para a implantação aninhada. Se não especificar o ID de subscrição ou o grupo de recursos, o grupo de subscrição e recursos do modelo de progenitor é utilizado. Todos os grupos de recursos devem existir antes de executar a implantação.
+Para direcionar um grupo de recursos ou subscrição diferente, utilize um [modelo aninhado ou ligado](linked-templates.md). O `Microsoft.Resources/deployments` tipo de recurso `subscriptionId` fornece `resourceGroup`parâmetros para e, que lhe permitem especificar o grupo de subscrição e recursos para a implantação aninhada. Se não especificar o ID de subscrição ou o grupo de recursos, o grupo de subscrição e recursos do modelo de progenitor é utilizado. Todos os grupos de recursos devem existir antes de executar a implantação.
 
 A conta que utiliza para implementar o modelo deve ter permissões para implantar no ID de subscrição especificado. Se a subscrição especificada existir num inquilino do Diretório Ativo Azure diferente, deve [adicionar utilizadores convidados de outro diretório](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
@@ -40,7 +40,7 @@ Para especificar um grupo de recursos diferente e subscrição, utilize:
 
 Se os seus grupos de recursos estiverem na mesma subscrição, pode remover o valor **de subscriçãoId.**
 
-O exemplo seguinte implementa duas contas de armazenamento. A primeira conta de armazenamento é implantada para o grupo de recursos especificado durante a implantação. A segunda conta de armazenamento é implantada para o grupo de recursos especificado nos parâmetros `secondResourceGroup` e `secondSubscriptionID`:
+O exemplo seguinte implementa duas contas de armazenamento. A primeira conta de armazenamento é implantada para o grupo de recursos especificado durante a implantação. A segunda conta de armazenamento é implantada `secondResourceGroup` `secondSubscriptionID` para o grupo de recursos especificado nos e parâmetros:
 
 ```json
 {
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para implementar duas contas de armazenamento para dois grupos de recursos na **mesma subscrição,** use:
 
@@ -172,7 +172,7 @@ secondRG="secondarygroup"
 
 az group create --name $firstRG --location southcentralus
 az group create --name $secondRG --location eastus
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group $firstRG \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
@@ -194,7 +194,7 @@ az group create --name $secondRG --location eastus
 az account set --subscription $firstSub
 az group create --name $firstRG --location southcentralus
 
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group $firstRG \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
@@ -205,7 +205,7 @@ az group deployment create \
 
 ## <a name="use-functions"></a>Utilizar funções
 
-As funções do Grupo de [Recursos()](template-functions-resource.md#resourcegroup) e [da subscrição](template-functions-resource.md#subscription) resolvem de forma diferente com base na forma como especifica o modelo. Quando se liga a um modelo externo, as funções resolvem-se sempre ao âmbito desse modelo. Quando nidificar um modelo dentro de um modelo de progenitor, use a propriedade `expressionEvaluationOptions` para especificar se as funções resolvem o grupo de recursos e a subscrição para o modelo dos pais ou o modelo aninhado. Desloque a propriedade a `inner` para resolver o âmbito para o modelo aninhado. Desloque a propriedade para `outer` para resolver o âmbito do modelo de progenitor.
+As funções do Grupo de [Recursos()](template-functions-resource.md#resourcegroup) e [da subscrição](template-functions-resource.md#subscription) resolvem de forma diferente com base na forma como especifica o modelo. Quando se liga a um modelo externo, as funções resolvem-se sempre ao âmbito desse modelo. Quando nidificar um modelo dentro `expressionEvaluationOptions` de um modelo de progenitor, use a propriedade para especificar se as funções resolvem o grupo de recursos e a subscrição para o modelo dos pais ou o modelo aninhado. Desloque `inner` a propriedade para resolver o âmbito para o modelo aninhado. Desloque `outer` a propriedade para resolver o âmbito do modelo de progenitor.
 
 O quadro seguinte mostra se as funções resolvem para o grupo de recursos e subscrição incorporados.
 
@@ -213,7 +213,7 @@ O quadro seguinte mostra se as funções resolvem para o grupo de recursos e sub
 | ------------- | ----- | ---------- |
 | aninhada        | exterior (padrão) | Grupo de recursos-mãe |
 | aninhada        | interior | Grupo de subrecursos |
-| ligado        | N/A   | Grupo de subrecursos |
+| ligado        | N/D   | Grupo de subrecursos |
 
 O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) de exemplo mostra:
 
@@ -340,14 +340,14 @@ A saída do exemplo anterior é:
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
 az group create --name inlineGroup --location southcentralus
 az group create --name linkedGroup --location southcentralus
 
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group parentGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
@@ -378,7 +378,7 @@ A saída do exemplo anterior é:
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para entender como definir parâmetros no seu modelo, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](template-syntax.md)de Recursos Azure .
 * Para obter dicas sobre a resolução de erros comuns de implementação, consulte erros comuns de [implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).

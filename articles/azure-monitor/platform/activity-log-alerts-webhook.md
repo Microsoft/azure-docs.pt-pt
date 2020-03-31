@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669051"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividade do Azure
@@ -23,7 +23,7 @@ Para obter informações sobre grupos de ação, consulte como [criar grupos](..
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
-O webhook pode utilizar opcionalmente uma autorização baseada em token para autenticação. O webhook URI é guardado com um ID simbólico, por exemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
+O webhook pode utilizar opcionalmente uma autorização baseada em token para autenticação. O webhook URI é guardado com um `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`ID simbólico, por exemplo, .
 
 ## <a name="payload-schema"></a>Esquema de carga útil
 A carga útil JSON contida na operação POST difere com base nos dados da carga útil.contextLog.eventSource field.
@@ -258,8 +258,8 @@ Para obter detalhes específicos sobre os alertas de registo de atividade de not
 | --- | --- |
 | status |Usado para alertas métricos. Sempre definido para "ativado" para alertas de registo de atividade. |
 | contexto |Contexto do evento. |
-| resourceProviderName |O fornecedor de recursos do recurso impactado. |
-| conditionType |Sempre "Evento". |
+| nome fornecedor de recursos |O fornecedor de recursos do recurso impactado. |
+| condiçãoTipo |Sempre "Evento". |
 | nome |Nome da regra do alerta. |
 | ID |Identificação do recurso do alerta. |
 | descrição |Descrição do alerta definida quando o alerta é criado. |
@@ -267,22 +267,22 @@ Para obter detalhes específicos sobre os alertas de registo de atividade de not
 | carimbo de data/hora |O momento em que o evento foi gerado pelo serviço Azure que processou o pedido. |
 | resourceId |Identificação de recursos do recurso impactado. |
 | resourceGroupName |Nome do grupo de recursos para o recurso impactado. |
-| propriedades |Conjunto de pares de `<Key, Value>` (isto é, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
+| propriedades |Conjunto `<Key, Value>` de pares (isto `Dictionary<String, String>`é, ) que inclui detalhes sobre o evento. |
 | evento |Elemento que contém metadados sobre o evento. |
-| authorization |As propriedades de Controlo de Acesso Baseado em Papel do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
+| autorização |As propriedades de Controlo de Acesso Baseado em Papel do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
 | categoria |Categoria do evento. Os valores suportados incluem Administrativo, Alerta, Segurança, Serviços De Saúde e Recomendação. |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. Pode ser nulo para certas chamadas do sistema. |
 | correlationId |Normalmente um GUID em formato de corda. Os eventos com correlationId pertencem à mesma ação maior e geralmente partilham uma correlação. |
-| eventDescription |Descrição do texto estático do evento. |
-| eventDataId |Identificador único para o evento. |
-| eventSource |Nome do serviço Azure ou infraestrutura que gerou o evento. |
+| eventoDescrição |Descrição do texto estático do evento. |
+| eventoDataId |Identificador único para o evento. |
+| eventoSource |Nome do serviço Azure ou infraestrutura que gerou o evento. |
 | httpRequest |O pedido geralmente inclui o método clienteRequestId, clientIpAddress e HTTP (por exemplo, PUT). |
 | nível |Um dos seguintes valores: Crítico, Erro, Aviso e Informação. |
 | operationId |Normalmente, um GUID partilhou entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Propriedades do evento. |
 | status |Cadeia. Estado da operação. Os valores comuns incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
-| subStatus |Normalmente inclui o código de estado HTTP da chamada REPOUSA correspondente. Também pode incluir outras cordas que descrevem um subestatuto. Os valores comuns do subestatuto incluem OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409 ), Erro do servidor interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Timeout gateway (Código de Estado HTTP: 504). |
+| subEstatuto |Normalmente inclui o código de estado HTTP da chamada REPOUSA correspondente. Também pode incluir outras cordas que descrevem um subestatuto. Os valores comuns do subestatuto incluem OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409 ), Erro do servidor interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Timeout gateway (Código de Estado HTTP: 504). |
 
 Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte a [visão geral do registo de atividade do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 

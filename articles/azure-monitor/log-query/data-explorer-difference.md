@@ -1,5 +1,5 @@
 ---
-title: Diferenças linguísticas de consulta de log Do Azure Monitor  Microsoft Docs
+title: Diferenças linguísticas de consulta de log Do Azure Monitor [ Microsoft Docs
 description: Informações de referência para a linguagem de consulta Kusto utilizada saqueada pelo Azure Monitor. Inclui elementos adicionais específicos do Monitor Azure e elementos não suportados nas consultas de registo do Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: b4601968a318388086a60ef98e4359ae01f652ed
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662107"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferenças linguísticas de consulta de log do Monitor Azure

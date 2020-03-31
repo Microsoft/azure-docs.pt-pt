@@ -9,13 +9,13 @@ ms.date: 4/3/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: a5c2fdde564eba2d95e7f14f4d47e4d381739d5d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365173"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS utilizando o Azure CLI
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS com a CLI do Azure
 
 Este artigo acompanha-o a importar e exportar ficheiros de zona DNS para O DNS Azure utilizando o Azure CLI.
 
@@ -43,7 +43,7 @@ Importar um ficheiro de zona cria uma nova zona em DNS Azure se não existir já
 
 * Por padrão, os conjuntos de recordes existentes e novos são fundidos. Os registos idênticos dentro de um conjunto de registos fundidos são desduplicados.
 * Quando os conjuntos de recordes são fundidos, é utilizado o tempo de viver (TTL) de conjuntos de discos pré-existentes.
-* Os parâmetros de início da Autoridade (SOA) (exceto `host`) são sempre retirados do ficheiro da zona importada. Da mesma forma, para o registo do servidor de nome definido no ápice da zona, o TTL é sempre retirado do ficheiro da zona importada.
+* Os parâmetros de início da Autoridade `host`(SOA) (exceto) são sempre retirados do ficheiro da zona importada. Da mesma forma, para o registo do servidor de nome definido no ápice da zona, o TTL é sempre retirado do ficheiro da zona importada.
 * Um registo CNAME importado não substitui um registo CNAME existente com o mesmo nome.  
 * Quando surge um conflito entre um registo CNAME e outro registo com o mesmo nome, mas de tipo diferente (independentemente do qual exista ou novo), o registo existente é mantido. 
 
@@ -51,11 +51,11 @@ Importar um ficheiro de zona cria uma nova zona em DNS Azure se não existir já
 
 As seguintes notas fornecem detalhes técnicos adicionais sobre o processo de importação de zonas.
 
-* A diretiva `$TTL` é facultativa e é apoiada. Quando não for dada nenhuma diretiva `$TTL`, os registos sem um TTL explícito são importados definidos para um TTL padrão de 3600 segundos. Quando dois registos no mesmo conjunto de registos especificam diferentes TTLs, o valor mais baixo é utilizado.
-* A diretiva `$ORIGIN` é facultativa e é apoiada. Quando não for definido qualquer `$ORIGIN`, o valor predefinido utilizado é o nome de zona especificado na linha de comando (mais o terminando ".").
-* As diretivas `$INCLUDE` e `$GENERATE` não são apoiadas.
+* A `$TTL` diretiva é facultativa e é apoiada. Quando `$TTL` nenhuma diretiva é dada, os registos sem um TTL explícito são importados definidos para um TTL padrão de 3600 segundos. Quando dois registos no mesmo conjunto de registos especificam diferentes TTLs, o valor mais baixo é utilizado.
+* A `$ORIGIN` diretiva é facultativa e é apoiada. Quando `$ORIGIN` não é definido, o valor predefinido utilizado é o nome de zona especificado na linha de comando (mais o terminando ".").
+* As `$INCLUDE` `$GENERATE` diretivas e as diretivas não são apoiadas.
 * Estes tipos de discos são suportados: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV e TXT.
-* O registo SOA é criado automaticamente pelo Azure DNS quando uma zona é criada. Quando se importa um ficheiro de zona, todos os parâmetros SOA são retirados do ficheiro da zona, *exceto* o parâmetro `host`. Este parâmetro utiliza o valor fornecido pelo Azure DNS. Isto porque este parâmetro deve referir-se ao servidor de nome primário fornecido pelo Azure DNS.
+* O registo SOA é criado automaticamente pelo Azure DNS quando uma zona é criada. Quando se importa um ficheiro de zona, todos os parâmetros `host` SOA são retirados do *ficheiro* da zona exceto o parâmetro. Este parâmetro utiliza o valor fornecido pelo Azure DNS. Isto porque este parâmetro deve referir-se ao servidor de nome primário fornecido pelo Azure DNS.
 * O registo do servidor de nome definido no ápice da zona também é criado automaticamente pelo Azure DNS quando a zona é criada. Apenas o TTL deste recorde é importado. Estes registos contêm os nomes do servidor fornecidos pelo Azure DNS. Os dados de registo não são subscritos pelos valores contidos no ficheiro da zona importada.
 * Durante a pré-visualização pública, o Azure DNS suporta apenas discos TXT de corda única. Os registos TXT multistring são concatenados e truncados a 255 caracteres.
 
@@ -69,9 +69,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 Valores:
 
-* `<resource group>` é o nome do grupo de recursos para a zona em Azure DNS.
-* `<zone name>` é o nome da zona.
-* `<zone file name>` é o caminho/nome do ficheiro da zona a importar.
+* `<resource group>`é o nome do grupo de recursos para a zona em Azure DNS.
+* `<zone name>`é o nome da zona.
+* `<zone file name>`é o caminho/nome do ficheiro de zona a importar.
 
 Se uma zona com este nome não existir no grupo de recursos, é criada para si. Se a zona já existir, os recordes importados são fundidos com os estabelecidos de recorde existentes. 
 
@@ -85,7 +85,7 @@ Para importar um ficheiro de zona para a zona **contoso.com**.
     az group create --group myresourcegroup -l westeurope
     ```
 
-2. Para importar a zona **contoso.com** do ficheiro **contoso.com.txt** para uma nova zona DNS no grupo de recursos **myresourcegroup,** você executará o comando `az network dns zone import`.<BR>Este comando carrega o ficheiro da zona e analisa-o. O comando executa uma série de comandos no serviço Azure DNS para criar a zona e todos os recordes estabelecidos na zona. O comando relata o progresso na janela da consola, juntamente com quaisquer erros ou avisos. Como os conjuntos de recordes são criados em série, pode levar alguns minutos para importar um ficheiro de grande zona.
+2. Para importar a zona **contoso.com** do ficheiro **contoso.com.txt** para uma nova zona DNS no `az network dns zone import`grupo de recursos **myresourcegroup,** você executará o comando .<BR>Este comando carrega o ficheiro da zona e analisa-o. O comando executa uma série de comandos no serviço Azure DNS para criar a zona e todos os recordes estabelecidos na zona. O comando relata o progresso na janela da consola, juntamente com quaisquer erros ou avisos. Como os conjuntos de recordes são criados em série, pode levar alguns minutos para importar um ficheiro de grande zona.
 
     ```azurecli
     az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
@@ -101,8 +101,8 @@ Para verificar a zona DNS depois de importar o ficheiro, pode utilizar qualquer 
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* Pode enumerar os registos utilizando o comando Azure CLI `az network dns record-set ns list`.
-* Pode utilizar `nslookup` para verificar a resolução de nomes dos registos. Como a zona ainda não foi delegada, precisa especificar explicitamente os servidores de nome DNS Do DNS do Azure corretos. A amostra que se segue mostra como recuperar os nomes do servidor atribuídos à zona. Isto também mostra como consultar o registo "www" utilizando `nslookup`.
+* Pode enumerar os registos utilizando o `az network dns record-set ns list`comando Azure CLI .
+* Pode utilizar `nslookup` para verificar a resolução de nomes dos registos. Como a zona ainda não foi delegada, precisa especificar explicitamente os servidores de nome DNS Do DNS do Azure corretos. A amostra que se segue mostra como recuperar os nomes do servidor atribuídos à zona. Isto também mostra como consultar o registo `nslookup`"www" utilizando .
 
     ```azurecli
     az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
@@ -163,15 +163,15 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 Valores:
 
-* `<resource group>` é o nome do grupo de recursos para a zona em Azure DNS.
-* `<zone name>` é o nome da zona.
-* `<zone file name>` é o caminho/nome do ficheiro de zona a exportar.
+* `<resource group>`é o nome do grupo de recursos para a zona em Azure DNS.
+* `<zone name>`é o nome da zona.
+* `<zone file name>`é o caminho/nome do ficheiro de zona a exportar.
 
 Tal como acontece com a importação de zona, primeiro precisa de iniciar sessão, escolher a sua subscrição e configurar o Azure CLI para utilizar o modo Gestor de Recursos.
 
 ### <a name="to-export-a-zone-file"></a>Para exportar um ficheiro de zona
 
-Para exportar a atual zona de DNS Azure **contoso.com** no grupo de recursos **myresourcegroup** para o ficheiro **contoso.com.txt** (na pasta atual), executar `azure network dns zone export`. Este comando chama o serviço Azure DNS para enumerar os recordes na zona e exportar os resultados para um ficheiro de zona compatível com BIND.
+Para exportar a zona DNS Azure existente **contoso.com** no grupo de recursos **myresourcegroup** para o ficheiro `azure network dns zone export` **contoso.com.txt** (na pasta atual), executar . Este comando chama o serviço Azure DNS para enumerar os recordes na zona e exportar os resultados para um ficheiro de zona compatível com BIND.
 
 ```azurecli
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt

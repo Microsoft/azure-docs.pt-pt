@@ -5,20 +5,20 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184765"
 ---
-1. Na vista solução (ou **Explorador de soluções** no Visual Studio), com o botão direito a **componentes** pasta, clique em **obter mais componentes...** , procure o **cliente Google Cloud Messaging** componente e adicioná-lo ao projeto.
-2. Abra o ficheiro de projeto ToDoActivity.cs e adicione o seguinte usando a instrução a classe:
+1. Na visão Solution (ou **Solution Explorer** in Visual Studio), clique na pasta **Componentes,** clique em **Get More Components...**, procure o componente do Cliente de **Mensagens Cloud** do Google e adicione-o ao projeto.
+2. Abra o ficheiro ToDoActivity.cs projeto e adicione o seguinte usando a declaração à classe:
 
     ```csharp
     using Gcm.Client;
     ```
 
-3. Na **ToDoActivity** , adicione o seguinte código novo: 
+3. Na classe **ToDoActivity,** adicione o seguinte novo código: 
 
     ```csharp
     // Create a new instance field for this activity.
@@ -42,8 +42,8 @@ ms.locfileid: "67184765"
     }
     ```
 
-    Isto permite-lhe aceder à instância de cliente móvel do processo de serviço do manipulador de push.
-4. Adicione o seguinte código para o **OnCreate** método, após o **MobileServiceClient** é criado:
+    Isto permite-lhe aceder à instância do cliente móvel a partir do processo de serviço push handler.
+4. Adicione o seguinte código ao método **OnCreate,** depois de criado o **MobileServiceClient:**
 
     ```csharp
     // Set the current instance of TodoActivity.
@@ -57,4 +57,4 @@ ms.locfileid: "67184765"
     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
     ```
 
-Sua **ToDoActivity** está agora preparado para adicionar notificações push.
+O Seu **ToDoActivity** está agora preparado para adicionar notificações push.

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539370"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
 
 A navegação por mensagens, ou espreitar, permite que um cliente do Service Bus enumere todas as mensagens que residem numa fila ou subscrição, normalmente para fins de diagnóstico e depuração.
 
-As operações de peek devolvem todas as mensagens existentes no registo de mensagens de fila ou subscrição, não apenas as disponíveis para aquisição imediata com `Receive()` ou o ciclo `OnMessage()`. A propriedade `State` de cada mensagem diz-lhe se a mensagem está ativa (disponível para ser recebida), [adiada](message-deferral.md)ou [programada.](message-sequencing.md)
+As operações de peek devolvem todas as mensagens existentes no `Receive()` registo `OnMessage()` de mensagens de fila ou subscrição, não apenas as disponíveis para aquisição imediata com ou o loop. A `State` propriedade de cada mensagem diz-lhe se a mensagem está ativa (disponível para ser recebida), [adiada,](message-deferral.md)ou [programada.](message-sequencing.md)
 
 As mensagens consumidas e expiradas são limpas por uma "recolha de lixo" assíncrona e não necessariamente quando as mensagens expiram, pelo que `Peek` podem, de facto, devolver mensagens que já tenham expirado e serão removidas ou mortas quando uma operação de receção for invocada na fila ou subscrição.
 
@@ -47,5 +47,5 @@ Também pode semear uma sobrecarga do método com um [SequenceNumber](/dotnet/ap
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 22a4177d85cb9dbbaa9ed75e063306484c7b48a9
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298976"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Cofre chave para Windows
@@ -23,7 +23,7 @@ A extensão VM do Cofre Chave fornece uma atualização automática de certifica
 
 A extensão VM do Cofre Chave suporta versões abaixo do Windows:
 
-- Windows Server de 2019
+- Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
 
@@ -64,31 +64,31 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 ```
 
 > [!NOTE]
-> Os seus certificados observados URLs devem ser do formulário `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Os seus certificados observados URLs `https://myVaultName.vault.azure.net/secrets/myCertName`devem ser do formulário .
 > 
-> Isto porque o caminho `/secrets` devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de cofre chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isto porque `/secrets` o caminho devolve o certificado completo, `/certificates` incluindo a chave privada, enquanto o caminho não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de cofre chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | Cadeia de caracteres |
-| tipo | KeyVaultForWindows | Cadeia de caracteres |
+| publicador | Microsoft.Azure.KeyVault | string |
+| tipo | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
-| sondagensIntervalInS | 3600 | Cadeia de caracteres |
-| certificateStoreName | MY | Cadeia de caracteres |
-| linkOnRenovação | false | valor booleano |
-| certificateStoreLocation  | Máquina Local | Cadeia de caracteres |
-| necessárioInitialSync | true | valor booleano |
-| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cordas
+| sondagensIntervalInS | 3600 | string |
+| certificateStoreName | MY | string |
+| linkOnRenovação | false | boolean |
+| certificateStoreLocation  | Máquina Local | string |
+| necessárioInitialSync | true | boolean |
+| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelos. 
+As extensões VM azure podem ser implantadas com modelos de Gestor de Recursos Azure. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelos. 
 
-A configuração JSON para uma extensão virtual da máquina deve ser aninhada dentro do fragmento de recurso virtual da máquina do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e no caso de uma escala de máquina virtual definida sob `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
+A configuração JSON para uma extensão virtual da máquina deve ser `"resources": []` aninhada dentro do fragmento de recurso `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` virtual da máquina do modelo, especificamente o objeto para o modelo de máquina virtual e no caso de uma escala de máquina virtual colocada sob objeto.
 
 ```json
     {
@@ -163,7 +163,7 @@ O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre cha
     
     ```
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implantação Azure CLI
 
 O Azure CLI pode ser utilizado para implantar a extensão VM do Cofre chave para uma máquina virtual existente ou conjunto de escala de máquina virtual. 
  
@@ -195,9 +195,9 @@ Tenha em atenção as seguintes restrições/requisitos:
   - A Política de Acesso ao Cofre chave está definida para identidade VM/VMSS usando MSI
 
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure PowerShell.
 
@@ -211,7 +211,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-Resultado da execução de extensão é registado para o ficheiro seguinte:
+A saída de execução de extensão é registada no seguinte ficheiro:
 
 ```
 %windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
@@ -220,4 +220,4 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

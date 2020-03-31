@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: femila
 ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77486364"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de evento sinuoso do evento Azure Event Grid para o Azure Maps
 
 Este artigo fornece as propriedades e esquemas para eventos do Azure Maps. Para uma introdução aos eventos schemas, consulte [o evento Azure Event Grid schema](https://docs.microsoft.com/azure/event-grid/event-schema).
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
 Uma conta Azure Maps emite os seguintes tipos de eventos:
 
@@ -104,14 +104,14 @@ Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. A Grelha de Eventos fornece este valor. |
-| subject | string | Caminho definido pela editora para o assunto do evento. |
-| eventType | string | Um dos tipos de eventos registados para esta fonte do evento. |
-| eventoTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
 | data | objeto | Dados do evento geofencing. |
-| dataVersion | string | A versão esquema do objeto de dados. A editora define a versão do esquema. |
-| metadataVersion | string | A versão de esquema dos metadados do evento. A Grelha de Eventos define o esquema das propriedades de alto nível. A Grelha de Eventos fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
@@ -121,7 +121,7 @@ O objeto de dados tem as seguintes propriedades:
 | apiName | string | Nome da API do evento. |
 | issues | objeto | Lista os problemas encontrados durante o processamento. Se algum problema for devolvido, então não haverá geometrias devolvidas com a resposta. |
 | responseCode | número | Código de resposta HTTP |
-| geometries | objeto | Enumera as geometrias da vedação que contêm a posição de coordenada ou sobrepõem o tampão de busca em torno da posição. |
+| geometrias | objeto | Enumera as geometrias da vedação que contêm a posição de coordenada ou sobrepõem o tampão de busca em torno da posição. |
 
 O objeto de erro é devolvido quando ocorre um erro na API do Maps. O objeto de erro tem as seguintes propriedades:
 
@@ -135,7 +135,7 @@ O objeto ErrorDetails é devolvido quando ocorre um erro na API do Maps. Os Erro
 | -------- | ---- | ----------- |
 | code | string | O código de estado HTTP. |
 | message | string | Se disponível, uma descrição legível humana do erro. |
-| erro interno | InnerError | Se disponível, um objeto que contenha informações específicas do serviço sobre o erro. |
+| erro interno | Erro Interior | Se disponível, um objeto que contenha informações específicas do serviço sobre o erro. |
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
 
@@ -147,7 +147,7 @@ O objeto de geometria, lista iDs de geometria das geovedações que expiraram em
 
 | Propriedade | Tipo | Descrição |
 |:-------- |:---- |:----------- |
-| deviceid | string | Identificação do dispositivo. |
+| dispositivo | string | Identificação do dispositivo. |
 | distância | string | <p>Distância da coordenada até à fronteira mais próxima da geoveda. Positivo significa que a coordenada está fora da geocerca. Se a coordenada estiver fora da geoveda, mas mais do que o valor da pesquisaBuffer longe da fronteira geovete mais próxima, então o valor é 999. Negativo significa que a coordenada está dentro da geocerca. Se a coordenada estiver dentro do polígono, mas mais do que o valor da pesquisaBuffer longe da fronteira geofencing mais próxima, então o valor é -999. Um valor de 999 significa que há grande confiança que a coordenada está bem fora da geocerca. Um valor de -999 significa que há grande confiança que a coordenada está bem dentro da geoveda.<p> |
 | geometride |string | A identificação única identifica a geometria geoveda. |
 | mais próximo | número | Latitude do ponto mais próximo da geometria. |
@@ -158,9 +158,9 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| expiredGeofenceGeometryId | string[] | Listas da identificação de geometria da geovete que é expirada em relação ao tempo de utilizador no pedido. |
-| geometries | geometrias[] |Enumera as geometrias da vedação que contêm a posição de coordenada ou sobrepõem o tampão de busca em torno da posição. |
-| invalidPeriodGeofenceGeometryId | string[]  | Listas da identificação de geometria da geoveda que se encontra em período inválido em relação ao tempo de utilização no pedido. |
+| expiradoGeofenceGeometryId | cadeia[] | Listas da identificação de geometria da geovete que é expirada em relação ao tempo de utilizador no pedido. |
+| geometrias | geometrias[] |Enumera as geometrias da vedação que contêm a posição de coordenada ou sobrepõem o tampão de busca em torno da posição. |
+| inválidoPeriodGeofenceGeometryId | cadeia[]  | Listas da identificação de geometria da geoveda que se encontra em período inválido em relação ao tempo de utilização no pedido. |
 | isEventPublished | boolean | É verdade que pelo menos um evento é publicado para o assinante do evento Azure Maps, falso se nenhum evento for publicado para o subscritor do evento Azure Maps. |
 
 ## <a name="next-steps"></a>Passos seguintes

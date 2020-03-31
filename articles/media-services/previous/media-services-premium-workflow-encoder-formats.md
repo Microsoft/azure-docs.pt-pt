@@ -15,13 +15,13 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269760"
 ---
-# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formatos e codecs
+# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formats and codecs (Formatos e codecs do Media Encoder Premium Workflow)
 
 > [!NOTE]
 > O processador de mídia Media Encoder Premium Workflow, discutido neste tópico, não está disponível na China. 
@@ -34,11 +34,11 @@ Media Encoder Premium Workflow Output Formatos e Codecs
 
 **Media Encoder Premium Workflow** suporta legendagem fechada descrita [nesta](#closed_captioning) secção. 
 
-## <a id="input_formats"></a>Media Encoder Premium Workflow Input Formatos e Codecs
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Media Encoder Premium Workflow Input Formatos e Codecs
 
 A secção seguinte lista os códigos e formatos de ficheiros que este processador de mídia suporta como entrada.
 
-### <a name="input-containerfile-formats"></a>Formatos de recipiente de entrada/ficheiro
+### <a name="input-containerfile-formats"></a>Contentor de Entrada/Formatos de Ficheiro
 
 * Adobe® Flash® F4V
 * MXF/SMPTE 377m
@@ -49,29 +49,29 @@ A secção seguinte lista os códigos e formatos de ficheiros que este processad
 * Windows Media/ASF
 * AVI (Não comprimido 8bit/10bit)
 
-### <a name="input-video-codecs"></a>Input Video Codecs
+### <a name="input-video-codecs"></a>Codecs de Vídeo de Entrada
 
-* AVC 8-bit/10-bit, até 4:2:2, incluindo AVCIntra
-* DNxHD ávido (em MXF)
-* DVCPro/DVCProHD (em MXF)
+* AVC 8-bits/10-bits, até 4:2:2, incluindo AVCIntra
+* Avid DNxHD (no MXF)
+* DVCPro/DVCProHD (no MXF)
 * Hevc/H.265, Perfil Principal e Principal 10
 * JPEG2000
 * MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
 * Windows Media Video/VC-1
 
-### <a name="input-audio-codecs"></a>Codificadores de áudio de entrada
+### <a name="input-audio-codecs"></a>Codecs de Entrada de Áudio
 
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
 * AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
-* Camada MPEG 2
-* MP3 (Camada áudio MPEG-1 3)
-* Windows Media Audio
+* MPEG Camada 2
+* MP3 (MPEG-1 Camada de Áudio 3)
+* Áudio de Suporte de Dados do Windows
 * WAV/PCM
 
-## <a id="output_format"></a>Media Encoder Premium Workflow Output Formatos e Codecs
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Media Encoder Premium Workflow Output Formatos e Codecs
 
 A secção seguinte lista os códigos e formatos de ficheiros que são suportados como saída deste processador de mídia.
 
@@ -90,8 +90,8 @@ A secção seguinte lista os códigos e formatos de ficheiros que são suportado
 ### <a name="output-video-codecs"></a>Códigos de vídeo de saída
 
 * AVC (H.264; 8 bits; até High Profile, Nível 5.2; 4K Ultra HD; AVC Intra)
-* DNxHD ávido (em MXF)
-* DVCPro/DVCProHD (em MXF)
+* Avid DNxHD (no MXF)
+* DVCPro/DVCProHD (no MXF)
 * MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
 * Windows Media Video/VC-1
@@ -105,14 +105,14 @@ A secção seguinte lista os códigos e formatos de ficheiros que são suportado
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) até 7.1
 * AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
-* Camada MPEG 2
-* MP3 (Camada áudio MPEG-1 3)
-* Windows Media Audio
+* MPEG Camada 2
+* MP3 (MPEG-1 Camada de Áudio 3)
+* Áudio de Suporte de Dados do Windows
 
 >[!NOTE]
 >Se codificar o Dolby® Digital (AC3), a saída só pode ser escrita num ficheiro ISO MP4.
 
-## <a id="closed_captioning"></a>Suporte para Legendagem Fechada
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>Suporte para Legendagem Fechada
 
 Na ingestão, suportes de trabalho premium media **encoder:**
 

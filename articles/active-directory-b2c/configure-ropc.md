@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189706"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure as credenciais de senha do proprietário de recursos fluem em Azure AD B2C
@@ -28,7 +28,7 @@ O fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo 
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Criar um fluxo de utilizador proprietário de recursos
 
-1. Inscreva-se no portal Azure como administrador global do seu inquilino Azure AD B2C.
+1. Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
 2. Para mudar para o seu inquilino Azure AD B2C, selecione o diretório B2C no canto superior direito do portal.
 3. Clique nos **fluxos do utilizador**e selecione **Novo fluxo de utilizador**.
 4. Clique no separador **All** e selecione **Iniciar sessão utilizando ROPC**.
@@ -50,9 +50,9 @@ O fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo 
 ## <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
 Utilize a sua aplicação de desenvolvimento API favorita para gerar uma chamada API e reveja a resposta para desinserir o fluxo do utilizador. Construa uma chamada como esta com a informação na tabela seguinte como o corpo do pedido do POST:
-- Substitua *\<seu inquilino.onmicrosoft.com>* com o nome do seu inquilino B2C.
-- Substitua *\<B2C_1A_ROPC_Auth>* com o nome completo da sua política de credenciais de senha do proprietário de recursos.
-- Substitua *\<bef222d56-552f-4a5b-b90a-1988a7d634c3>* com o ID de inscrição da sua inscrição.
+- Substitua yourtenant.onmicrosoft.com * \<>* pelo nome do seu inquilino B2C.
+- Substitua B2C_1A_ROPC_Auth * \<>* pelo nome completo da sua política de credenciais de senha do proprietário de recursos.
+- Substitua o * \<bef222d56-552f-4a5b-b90a-1988a7d634c3>* com o ID de inscrição do seu registo.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
@@ -101,7 +101,7 @@ Construa uma chamada POST como a mostrada aqui com a informação na tabela segu
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
+| recurso | \<bef222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *recursos* são os valores que observou anteriormente como id da aplicação. *Refresh_token* é o símbolo que recebeu na chamada de autenticação mencionada anteriormente.

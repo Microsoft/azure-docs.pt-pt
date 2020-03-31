@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257202"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastres de VMware VMs para Azure com powerShell
@@ -37,7 +37,7 @@ Antes de começar:
 
 - Certifique-se de que compreende a [arquitetura e os componentes do cenário](vmware-azure-architecture.md).
 - Reveja os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) de todos os componentes.
-- Tem o módulo de `Az` Azure PowerShell. Se precisar de instalar ou atualizar o Azure PowerShell, siga este Guia para instalar e configurar o [PowerShell Azure](/powershell/azure/install-az-ps).
+- Tem o módulo Azure PowerShell. `Az` Se precisar de instalar ou atualizar o Azure PowerShell, siga este Guia para instalar e configurar o [PowerShell Azure](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Iniciar sessão no Azure
 
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Despolete o contexto do cofre utilizando o cmdlet Set-ASRVaultContext. Uma vez definidos, as operações subsequentes de recuperação do local do Azure na sessão PowerShell são realizadas no contexto do cofre selecionado.
 
 > [!TIP]
-> O módulo PowerShell de recuperação do site Azure (módulo Az.RecoveryServices) vem com pseudónimos fáceis de usar para a maioria dos cmdlets. Os cmdlets no módulo assumem a forma *\<Operation>-**AzRecoveryServicesAsr**\<Object>* e têm pseudónimos equivalentes que assumem a forma *\<Operation>-**ASR**\<Object>* Pode substituir os pseudónimos de cmdlet para facilitar a utilização.
+> O módulo PowerShell de recuperação do site Azure (módulo Az.RecoveryServices) vem com pseudónimos fáceis de usar para a maioria dos cmdlets. Os cmdlets no módulo tomam o formulário * \<Operação>-**AzRecoveryServicesAsr**\<Object>* e têm pseudónimos equivalentes que assumem o formulário * \<Operação>- Objeto**ASR**\<>*. Pode substituir os pseudónimos de cmdlet para facilitar a utilização.
 
 No exemplo abaixo, os detalhes do cofre da variável $vault são usados para especificar o contexto do cofre para a sessão PowerShell.
 
@@ -342,7 +342,7 @@ Necessitará dos seguintes detalhes para proteger uma máquina virtual descobert
 * O item protegido a ser replicado.
 * A conta de armazenamento para replicar a máquina virtual para (apenas se estiver a replicar para a conta de armazenamento). 
 * É necessário um armazenamento de registo para proteger as máquinas virtuais a uma conta de armazenamento premium ou a um disco gerido.
-* O Servidor de Processo supor para a replicação. A lista de servidores de processos disponíveis foi recuperada e guardada nas variáveis ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfiguraçãoServer).*
+* O Servidor de Processo supor para a replicação. A lista de servidores de processos disponíveis foi recuperada e guardada nas variáveis ***$ProcessServers[0]****(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfiguraçãoServer).*  
 * A conta a utilizar para instalar o software de serviço de mobilidade nas máquinas. A lista de contas disponíveis foi recuperada e armazenada na ***variável $AccountHandles.***
 * O mapeamento do recipiente de proteção para a política de replicação a utilizar para a replicação.
 * O grupo de recursos em que as máquinas virtuais devem ser criadas no caso da falha.
@@ -353,9 +353,9 @@ Agora, reproduza as seguintes máquinas virtuais utilizando as definições espe
 
 |Máquina virtual  |Servidor de processos        |Conta de Armazenamento              |Conta de Armazenamento de Registos  |Política           |Conta para instalação de serviço de mobilidade|Grupo de recursos-alvo  | Rede virtual alvo  |Sub-rede alvo  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|CentOSVM1       |ConfigurationServer   |N/A| logstorageaccount1                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|Win2K12VM1       |ScaleOut-ProcessServer|conta de armazenamento premium1       |logstorageaccount1   |Política de Replicação|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM1       |ConfiguraçãoServidor   |N/D| conta de logstorage1                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|Win2K12VM1       |ScaleOut-ProcessServer|conta de armazenamento premium1       |conta de logstorage1   |Política de Replicação|Conta Windows                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfiguraçãoServidor   |replicaçõestdstorageaccount1| N/D                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
 ```azurepowershell
@@ -496,5 +496,5 @@ Neste passo, falhamos sobre a máquina virtual Win2K12VM1 para um ponto de recup
 
 2. Uma vez falhado com sucesso, pode supor a operação de failover e configurar a replicação inversa do Azure de volta ao site VMware no local.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba automatizar mais tarefas utilizando a referência PowerShell de recuperação do [site Azure](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

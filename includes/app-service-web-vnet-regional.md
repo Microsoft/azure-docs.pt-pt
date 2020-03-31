@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: c731e2a7d4da1a66aabb50b335d526fbb6a0a302
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671544"
 ---
 A utilização da Integração VNet regional permite ao acesso da sua aplicação:
@@ -19,7 +19,7 @@ A utilização da Integração VNet regional permite ao acesso da sua aplicaçã
 * recursos através das ligações ExpressRoute
 * recursos na VNet a que está ligado
 * recursos através de conexões peered, incluindo conexões ExpressRoute
-* Pontos finais privados 
+* pontos finais privados 
 
 Ao utilizar a Integração VNet com VNets na mesma região, pode utilizar as seguintes funcionalidades de Networking Azure:
 

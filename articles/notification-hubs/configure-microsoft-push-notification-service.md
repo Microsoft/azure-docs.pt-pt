@@ -1,6 +1,6 @@
 ---
-title: Configurar o serviço de notificação por push da Microsoft nos hubs de notificação do Azure | Microsoft Docs
-description: Saiba como definir as configurações do serviço de notificação por push da Microsoft para um hub de notificação do Azure.
+title: Configure o Serviço de Notificação push da Microsoft em Hubs de Notificação Azure [ Microsoft Docs
+description: Saiba como configurar as definições do Microsoft Push Notification Service para um hub de notificação Azure.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -12,37 +12,38 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 0d7bf5410e05bb74a215fb7a95c704673b764b93
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 99f29e7910fe6070c6202f6a936173455f979732
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212487"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127333"
 ---
-# <a name="configure-microsoft-push-notification-service-mpns-settings-for-a-notification-hub-in-the-azure-portal"></a>Definir as configurações do MPNS (serviço de notificação por push da Microsoft) para um hub de notificação no portal do Azure
-Este artigo mostra como definir as configurações do MPNS (serviço de notificação por push da Microsoft) para um hub de notificação do Azure usando o portal do Azure. 
+# <a name="configure-microsoft-push-notification-service-mpns-settings-in-the-azure-portal"></a>Configure as definições do Microsoft Push Notification Service (MPNS) no portal Azure
+
+Este artigo mostra-lhe como configurar as definições do Microsoft Push Notification Service (MPNS) para um hub de notificação Azure utilizando o portal Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você ainda não criou um hub de notificação, crie um agora. Para obter mais informações, consulte [criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
+Se ainda não criou um centro de notificação, crie um agora. Para mais informações, consulte Criar um hub de [notificação Azure no portal Azure.](create-notification-hub-portal.md) 
 
-## <a name="configure-microsoft-push-notification-service-mpns"></a>Configurar o serviço de notificação por push da Microsoft (MPNS)
+## <a name="configure-microsoft-push-notification-service-mpns"></a>Configure o Microsoft Push Notification Service (MPNS)
 
-O procedimento a seguir fornece as etapas para definir as configurações do serviço de notificação por push da Microsoft (MPNS) para um hub de notificação: 
+O seguinte procedimento dá-lhe passos para configurar as definições do Microsoft Push Notification Service (MPNS) para um centro de notificação: 
 
-1. Na portal do Azure, na página **Hub de notificação** , selecione **Windows Phone (MPNS)** no menu à esquerda.
-1. Habilitar notificações por push autenticadas ou não autenticadas:
+1. No portal Azure, na página Do Centro de **Notificação,** selecione **Windows Phone (MPNS)** no menu esquerdo.
+1. Ativar notificações push não autenticadas ou autenticadas:
 
-   a. Para habilitar as notificações por push não autenticadas, selecione Habilitar**gravação** **por push** > não autenticado.
+   a. Para ativar notificações push não autenticadas, selecione **Ativar** > o impulso não autenticado**Save**.
 
-      ![Captura de tela que mostra como habilitar notificações por push não autenticadas](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+      ![Screenshot que mostra como ativar notificações push não autenticadas](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
-   b. Para habilitar as notificações por push autenticadas:
-      * Na barra de ferramentas, selecione **carregar certificado**.
-      * Selecione o ícone arquivo e, em seguida, selecione o arquivo de certificado.
+   b. Para permitir notificações de push autenticadas:
+      * Na barra de ferramentas, selecione **Certificado de Upload**.
+      * Selecione o ícone do ficheiro e, em seguida, selecione o ficheiro de certificado.
       * Introduza a palavra-passe para o certificado.
       * Selecione **OK**.
-      * Na página **Windows Phone (MPNS)** , selecione **salvar**.
+      * Na página **Windows Phone (MPNS),** selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter um tutorial com as instruções passo a passo para enviar notificações por push para Windows Phone dispositivos usando os hubs de notificação do Azure e o MPNS (serviço de notificação por push da Microsoft), consulte [notificações por push para Windows Phone aplicativos usando os hubs de notificação](notification-hubs-windows-mobile-push-notifications-mpns.md).
+Para um tutorial com instruções passo a passo para empurrar notificações para dispositivos Windows Phone utilizando hubs de notificação Do Azure e Microsoft Push Notification Service (MPNS), consulte [notificações push para aplicações do Windows Phone utilizando Centros](notification-hubs-windows-mobile-push-notifications-mpns.md)de Notificação .
 

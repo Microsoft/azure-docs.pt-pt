@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77083213"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use Java para criar uma sala de chat com funções Azure e serviço de sinalização
@@ -30,7 +30,7 @@ O Serviço De Sinalização Azure permite-lhe adicionar facilmente funcionalidad
    > [!NOTE]
    > Para instalar extensões, as ferramentas core funções do Azure requerem o [SDK .NET Core](https://www.microsoft.com/net/download) instalado. No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
 
-- [Kit de Desenvolvimento Java](https://www.azul.com/downloads/zulu/), versão 8
+- [Java Development Kit](https://www.azul.com/downloads/zulu/), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 
 > [!NOTE]
@@ -67,7 +67,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **sendMessage** - Recebe uma mensagem de chat no organismo de pedido e utiliza a ligação de saída *SignalR* para transmitir a mensagem a todas as aplicações de clientes conectadas.
 
-1. No terminal, certifique-se de que está na pasta *src/chat/java.* Crie o aplicativo de funções.
+1. No terminal, certifique-se de que está na pasta *src/chat/java.* Construa a aplicação de funções.
 
     ```bash
     mvn clean package

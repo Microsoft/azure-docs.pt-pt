@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206287"
 ---
-# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a Apache Spark REST API para submeter trabalhos remotos a um cluster hDInsight Spark
+# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilizar a API REST do Apache Spark para submeter trabalhos remotos para um cluster do HDInsight Spark
 
 Aprenda a usar [Apache Livy](https://livy.incubator.apache.org/), o Apache Spark REST API, que é usado para submeter trabalhos remotos a um cluster Azure HDInsight Spark. Para obter documentação detalhada, consulte [Apache Livy.](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 
@@ -27,7 +27,7 @@ Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar cl
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Submeta um lote apache Livy Spark
 
-Antes de submeter uma função de lote, deve carregar o jarro de aplicação no armazenamento do cluster associado ao cluster. Pode utilizar o [AzCopy](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comando, para o fazer. Existem vários outros clientes que pode usar para fazer o upload de dados. Pode descobrir mais sobre eles em [dados de Upload para trabalhos Apache Hadoop em HDInsight](../hdinsight-upload-data.md).
+Antes de submeter uma função de lote, deve carregar o jarro de aplicação no armazenamento do cluster associado ao cluster. Para o fazer, pode utilizar [AzCopy](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comandos. Existem vários outros clientes que pode usar para fazer o upload de dados. Pode descobrir mais sobre eles em [dados de Upload para trabalhos Apache Hadoop em HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -77,7 +77,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>Exemplo
 
-Apagar um lote com `5`de identificação do lote .
+Apagar um lote com identificação `5`do lote .
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -99,7 +99,7 @@ Nesta secção, analisamos exemplos para usar a Livy Spark para apresentar traba
 
 Execute os seguintes passos:
 
-1. Para facilitar a utilização, detete as variáveis ambientais. Este exemplo baseia-se num ambiente Windows, revendo variáveis conforme necessário para o seu ambiente. Substitua `CLUSTERNAME`e `PASSWORD` os valores apropriados.
+1. Para facilitar a utilização, detete as variáveis ambientais. Este exemplo baseia-se num ambiente Windows, revendo variáveis conforme necessário para o seu ambiente. `CLUSTERNAME`Substitua, `PASSWORD` e com os valores apropriados.
 
     ```cmd
     set clustername=CLUSTERNAME
@@ -203,11 +203,11 @@ Execute os seguintes passos:
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Atualizações para a configuração da Livy a partir da versão HDInsight 3.5
 
-Os clusters HDInsight 3.5 e acima, por padrão, desativam a utilização de ficheiros locais para aceder a ficheiros de dados de amostras ou frascos. Encorajamo-lo a utilizar o caminho `wasbs://` em vez de aceder a frascos ou a amostrar ficheiros de dados do cluster.
+Os clusters HDInsight 3.5 e acima, por padrão, desativam a utilização de ficheiros locais para aceder a ficheiros de dados de amostras ou frascos. Encorajamo-lo a `wasbs://` usar o caminho em vez de aceder a frascos ou a amostrar ficheiros de dados do cluster.
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Submeter empregos à Livy para um cluster dentro de uma rede virtual Azure
 
-Se se ligar a um cluster HDInsight Spark a partir de uma Rede Virtual Azure, pode ligar-se diretamente à Livy no cluster. Neste caso, o URL para o ponto final da Livy é `http://<IP address of the headnode>:8998/batches`. Aqui, **8998** é o porto onde Livy corre no nó do aglomerado. Para obter mais informações sobre o acesso a serviços em portos não públicos, consulte [portas utilizadas pelos serviços Apache Hadoop no HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Se se ligar a um cluster HDInsight Spark a partir de uma Rede Virtual Azure, pode ligar-se diretamente à Livy no cluster. Neste caso, o URL para O `http://<IP address of the headnode>:8998/batches`ponto final da Livy é . Aqui, **8998** é o porto onde Livy corre no nó do aglomerado. Para obter mais informações sobre o acesso a serviços em portos não públicos, consulte [portas utilizadas pelos serviços Apache Hadoop no HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

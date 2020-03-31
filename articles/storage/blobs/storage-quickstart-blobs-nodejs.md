@@ -8,23 +8,23 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: e68e91d90846ab77b994b53be7a84a9dd8bc5a25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241039"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js
 
 Neste arranque rápido, aprende-se a gerir bolhas usando o Node.js. As bolhas são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, meios de streaming e dados de arquivo. Você vai carregar, descarregar e listar bolhas, e você vai criar e apagar recipientes.
 
-[Documentação de referência da API](/javascript/api/@azure/storage-blob) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | Pacote [(Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-blob) | [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[Documentação de](/javascript/api/@azure/storage-blob) | referência API Pacote[de código fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | (Gestor de Pacote de Pacote de[Nó)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma conta do Armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
-- [Node.js](https://nodejs.org/en/download/).
+- Uma conta do Armazenamento do Azure. [Criar uma conta de armazenamento.](../common/storage-account-create.md)
+- [Node.js.](https://nodejs.org/en/download/)
 
 > [!NOTE]
 > Para começar com a versão SDK anterior, consulte [Quickstart: Gerencie as bolhas com JavaScript v10 SDK em Node.js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -72,11 +72,11 @@ Crie uma aplicação JavaScript chamada *blob-quickstart-v12*.
     }
     ```
     
-    Pode colocar o seu próprio nome no campo `author`, se quiser.
+    Pode colocar o `author` seu próprio nome no campo, se quiser.
    
 ### <a name="install-the-package"></a>Instale o pacote
 
-Ainda no diretório *blob-quickstart-v12,* instale a biblioteca de clientes de armazenamento Azure Blob para pacote JavaScript utilizando o comando `npm install`. Este comando lê o ficheiro *package.json* e instala a biblioteca de clientes de armazenamento Azure Blob v12 para pacote JavaScript e todas as bibliotecas de que depende.
+Ainda no diretório *blob-quickstart-v12,* instale a biblioteca de clientes de armazenamento `npm install` Azure Blob para o pacote JavaScript utilizando o comando. Este comando lê o ficheiro *package.json* e instala a biblioteca de clientes de armazenamento Azure Blob v12 para pacote JavaScript e todas as bibliotecas de que depende.
 
 ```console
 npm install
@@ -110,7 +110,7 @@ Do diretório do projeto:
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento da Blob Azure está otimizado para armazenar quantidades massivas de dados não estruturados. Dados não estruturados são dados que não aderem a um determinado modelo ou definição de dados, tais como texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
+O armazenamento da Blob Azure está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um recipiente na conta de armazenamento
@@ -122,26 +122,26 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Utilize as seguintes aulas JavaScript para interagir com estes recursos:
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): A classe `BlobServiceClient` permite manipular os recursos de Armazenamento Azure e os recipientes blob.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): A classe `ContainerClient` permite manipular os recipientes de armazenamento Azure e as suas bolhas.
-* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): A classe `BlobClient` permite manipular as bolhas de Armazenamento Azure.
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): `BlobServiceClient` A classe permite-lhe manipular os recursos de Armazenamento Azure e os recipientes blob.
+* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): `ContainerClient` A classe permite-lhe manipular os recipientes de armazenamento Azure e as suas bolhas.
+* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): `BlobClient` A classe permite-lhe manipular bolhas de Armazenamento Azure.
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Estes snippets de código de exemplo mostram-lhe como executar o seguinte com a biblioteca de clientes de armazenamento Azure Blob para JavaScript:
 
-* [Obter a corda de ligação](#get-the-connection-string)
-* [Criar um recipiente](#create-a-container)
+* [Obter a cadeia de ligação](#get-the-connection-string)
+* [Criar um contentor](#create-a-container)
 * [Faça upload de bolhas para um recipiente](#upload-blobs-to-a-container)
-* [Lista rindo as bolhas num recipiente](#list-the-blobs-in-a-container)
-* [Baixar bolhas](#download-blobs)
+* [Listar os blobs num contentor](#list-the-blobs-in-a-container)
+* [Transferir blobs](#download-blobs)
 * [Eliminar um contentor](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>Obter a cadeia de ligação
 
 O código abaixo recupera a cadeia de ligação para a conta de armazenamento a partir da variável ambiental criada na secção de cadeias de ligação de [armazenamento Configure.](#configure-your-storage-connection-string)
 
-Adicione este código dentro da função `main`:
+Adicione este código `main` dentro da função:
 
 ```javascript
 // Retrieve the connection string for use with the application. The storage
@@ -162,7 +162,7 @@ Decida um nome para o novo contentor. O código abaixo anexa um valor UUID para 
 
 Crie uma instância da classe [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) ligando para o método [ConnectionString.](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) Em seguida, ligue para o método [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) para obter uma referência a um recipiente. Finalmente, ligue para [criar](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) o recipiente na sua conta de armazenamento.
 
-Adicione este código ao fim da função `main`:
+Adicione este código ao `main` fim da função:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
@@ -190,7 +190,7 @@ O seguinte código snippet:
 1. Obtém uma referência a um objeto [BlockBlobClient,](/javascript/api/@azure/storage-blob/blockblobclient) ligando para o método [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) no [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) a partir da secção [Criar um contentor.](#create-a-container)
 1. Envia os dados das cordas de texto para a bolha, ligando para o método [de upload.](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-)
 
-Adicione este código ao fim da função `main`:
+Adicione este código ao `main` fim da função:
 
 ```javascript
 // Create a unique name for the blob
@@ -211,7 +211,7 @@ console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.re
 
 Enumera as bolhas no recipiente, chamando o método [listBlobsFlat.](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) Neste caso, apenas uma bolha foi adicionada ao recipiente, pelo que a operação de listagem devolve apenas uma bolha.
 
-Adicione este código ao fim da função `main`:
+Adicione este código ao `main` fim da função:
 
 ```javascript
 console.log('\nListing blobs...');
@@ -224,9 +224,9 @@ for await (const blob of containerClient.listBlobsFlat()) {
 
 ### <a name="download-blobs"></a>Transferir blobs
 
-Descarregue a bolha anteriormente criada, ligando para o método [de descarregamento.](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) O código de exemplo inclui uma função de ajudante chamada `streamToString`, que é usada para ler um fluxo legível no Nó numa corda.
+Descarregue a bolha anteriormente criada, ligando para o método [de descarregamento.](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) O código de exemplo inclui `streamToString`uma função de ajudante chamada , que é usada para ler um fluxo legível Node.js em uma corda.
 
-Adicione este código ao fim da função `main`:
+Adicione este código ao `main` fim da função:
 
 ```javascript
 // Get blob content from position 0 to the end
@@ -237,7 +237,7 @@ console.log('\nDownloaded blob content...');
 console.log('\t', await streamToString(downloadBlockBlobResponse.readableStreamBody));
 ```
 
-Adicione esta função de ajudante *após* a função `main`:
+Adicione esta função `main` de ajudante *após* a função:
 
 ```javascript
 // A helper function used to read a Node.js readable stream into a string
@@ -259,7 +259,7 @@ async function streamToString(readableStream) {
 
 O código que se segue limpa os recursos que a app criou removendo todo o recipiente utilizando o método [de eliminação.](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) Também pode eliminar os ficheiros locais, se quiser.
 
-Adicione este código ao fim da função `main`:
+Adicione este código ao `main` fim da função:
 
 ```javascript
 console.log('\nDeleting container...');
@@ -273,7 +273,7 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 Esta aplicação cria uma cadeia de texto e envia-a para o armazenamento blob. O exemplo lista então a bolha no recipiente, descarrega a bolha e exibe os dados descarregados.
 
-A partir de um pedido de consola, navegue até ao diretório que contém o ficheiro *blob-quickstart-v12.py* e execute o seguinte comando `node` para executar a aplicação.
+A partir de um pedido de *blob-quickstart-v12.py* consola, navegue até `node` ao diretório que contenha o ficheiro blob-quickstart-v12.py e execute o seguinte comando para executar a aplicação.
 
 ```console
 node blob-quickstart-v12.js

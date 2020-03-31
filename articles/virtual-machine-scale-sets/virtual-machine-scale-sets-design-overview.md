@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250780"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escala
@@ -39,7 +39,7 @@ Atualmente, algumas funcionalidades estão disponíveis apenas em VMs:
 - Pode migrar um VM individual de discos nativos para discos geridos, mas não pode migrar instâncias vm num conjunto de escala.
 - Pode atribuir endereços IP públicos IPv6 a cartões individuais de interface de rede vM (NICs), mas não pode fazê-lo para instâncias vm num conjunto de escala. Pode atribuir endereços IP públicos IPv6 para carregar os equilibradores na frente de vMs individuais ou vMs de escala.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escala com discos geridos azure
 Conjuntos de escala podem ser criados com [Discos Geridos Azure](../virtual-machines/windows/managed-disks-overview.md) em vez de contas tradicionais de armazenamento Azure. Os Discos Geridos proporcionam os seguintes benefícios:
@@ -56,7 +56,7 @@ Um conjunto de escala que não é definido com discos geridos azure baseia-se em
 ## <a name="overprovisioning"></a>Excesso de oferta
 Os conjuntos de escala atualmente não estão em incumprimento para VMs "overprovisioning". Com o excesso de provisionamento ligado, o conjunto de escala realmente gira mais VMs do que pediu, em seguida, elimina os VMextra extra uma vez que o número solicitado de VMs são aprovisionados com sucesso. O excesso de oferta melhora as taxas de sucesso e reduz o tempo de implantação. Não está cobrado pelos VMextra extras, e eles não contam para os seus limites de quota.
 
-Embora o excesso de oferta melhore as taxas de sucesso, pode causar comportamentos confusos para uma aplicação que não foi concebida para lidar com VMs extras que aparecem e depois desaparecem. Para desligar o excesso de fornecimento, certifique-se de que tem a seguinte corda no seu modelo: `"overprovision": "false"`. Mais detalhes podem ser encontrados na [documentação da Scale set REST API](/rest/api/virtualmachinescalesets/create-or-update-a-set).
+Embora o excesso de oferta melhore as taxas de sucesso, pode causar comportamentos confusos para uma aplicação que não foi concebida para lidar com VMs extras que aparecem e depois desaparecem. Para desligar o excesso de fornecimento, certifique-se `"overprovision": "false"`de que tem a seguinte corda no seu modelo: . Mais detalhes podem ser encontrados na [documentação da Scale set REST API](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Se o seu conjunto de escala utilizar o armazenamento gerido pelo utilizador, e desativar o excesso de oferta, pode ter mais de 20 VMs por conta de armazenamento, mas não é aconselhável ultrapassar os 40 por razões de desempenho da OI. 
 

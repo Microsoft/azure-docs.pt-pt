@@ -13,16 +13,16 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/20/2020
+ms.date: 03/23/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: dad71d473ecb6107a5cf0d8f5953667f07bfce5c
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: f5b59d1669d89c73b93199d1f833da149003d399
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526778"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159341"
 ---
 # <a name="what-is-azure-notification-hubs"></a>O que são os Hubs de Notificação do Azure?
 
@@ -42,7 +42,7 @@ As notificações push são uma forma de comunicação app-a-utilizador onde os 
 As notificações push são essenciais para as aplicações de consumidor, para aumentar a interação e a utilização da aplicação, e para as aplicações empresariais, para comunicar informações da empresa atualizadas. É a melhor comunicação app-a-utilizador porque é energeticamente eficiente para dispositivos móveis, flexível para os remetentes de notificações, e disponível quando as aplicações correspondentes não estão ativas.
 
 > [!NOTE]
-> Os Hubs de Notificação Azure não suportam notificações push Voice Over Internet Protocol (VOIP).
+> Os Hubs de Notificação Azure não suportam oficialmente notificações push Voice Over Internet Protocol (VOIP); no entanto, [este artigo descreve como pode utilizar notificações DOP BP](voip-apns.md) através de Centros de Notificação Azure.
 
 Para obter mais informações sobre as notificações push para algumas plataformas populares, veja os tópicos seguintes:
 
@@ -71,7 +71,7 @@ O envio de notificações push requer infraestruturas complexas que não estão 
 
 - **Dependência da plataforma**
   - O backend requer uma lógica complexa e difícil de manter dependente da plataforma para enviar notificações a dispositivos em várias plataformas, uma vez que os PNSes não estão unificados.
-- **Dimensionar**
+- **Escala**
   - De acordo com as diretrizes do PNS, as fichas do dispositivo devem ser renovadas em todos os lançamentos da aplicação. O backend lida com uma grande quantidade de tráfego e acesso à base de dados apenas para manter os tokens atualizados. Quando o número de dispositivos aumenta para centenas, milhares ou milhões, o custo de criação e manutenção desta infraestrutura é enorme.
   - A maioria dos PNS não suporta a difusão para vários dispositivos. Uma simples difusão para um milhão de dispositivos resulta num milhão de chamadas para os PNS. Dimensionar esta quantidade de tráfico com latência mínima não é algo trivial.
 - **Encaminhamento**

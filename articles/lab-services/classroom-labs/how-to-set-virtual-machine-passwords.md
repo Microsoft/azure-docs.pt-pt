@@ -1,5 +1,5 @@
 ---
-title: Definir senhas para VMs nos Serviços de Laboratório Azure  Microsoft Docs
+title: Definir senhas para VMs nos Serviços de Laboratório Azure [ Microsoft Docs
 description: Aprenda a definir e redefinir senhas para máquinas virtuais (VMs) em laboratórios de sala de aula da Azure Lab Services.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933821"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como fazer as seguintes tarefas:
 ## <a name="update-the-lab-capacity"></a>Atualizar a capacidade do laboratório
 Para aumentar ou diminuir a capacidade do laboratório (número de máquinas virtuais num laboratório), faça os seguintes passos:
 
-1. Na página de piscina de **máquinas Virtuais,** selecione **capacidade do Laboratório: número &lt;&gt; máquinas.**
+1. Na página de piscina de **máquinas virtuais,** selecione **capacidade do &lt;Laboratório: máquinas numéis&gt; **.
 2. Insira o novo **número de VMs** que quer no laboratório. Este número deve ser maior ou igual ao número de utilizadores registados no laboratório. 
 3. Em seguida, selecione **Guardar**. 
 
@@ -110,7 +110,7 @@ O criador do laboratório (instrutor/professor) pode ligar-se a um VM do aluno s
 
     ![Lista de exportação de máquinas virtuais](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outras opções de utilização do aluno que você (como proprietário de laboratório) pode configurar, consulte o seguinte artigo: [Configure](how-to-configure-student-usage.md)o uso do aluno .
 
 Para saber como os alunos podem redefinir senhas para os seus VMs, consulte [Definir ou redefinir palavra-passe para máquinas virtuais em laboratórios de sala de aula (alunos)](how-to-set-virtual-machine-passwords-student.md).

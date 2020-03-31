@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 72c04cf5e3e5fbdeac2d267dfc7b2703bd37a1c2
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122678"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configure um grupo de disponibilidade de grupo de trabalho 
@@ -40,26 +40,26 @@ Para referência, os seguintes parâmetros são utilizados neste artigo, mas pod
 | **Nó1**   | AGNode1 (10.0.0.4) |
 | **Nó2**   | AGNode2 (10.0.0.5) |
 | **Nome do cluster** | AGWGAG (10.0.0.6) |
-| **Ouvinte** | AGListener (10.0.0.7) | 
+| **Serviço de Escuta** | AGListener (10.0.0.7) | 
 | **Sufixo DNS** | ag.wgcluster.example.com | 
 | **Nome do grupo de trabalho** | Grupo AGWork | 
 | &nbsp; | &nbsp; |
 
 ## <a name="set-dns-suffix"></a>Definir sufixo DNS 
 
-Neste passo, configure o sufixo DNS para ambos os servidores. Por exemplo, `ag.wgcluster.example.com`. Isto permite-lhe utilizar o nome do objeto a que pretende ligar como um endereço totalmente qualificado dentro da sua rede, como `AGNode1.ag.wgcluster.example.com`. 
+Neste passo, configure o sufixo DNS para ambos os servidores. Por exemplo, `ag.wgcluster.example.com`. Isto permite-lhe utilizar o nome do objeto a que pretende ligar como `AGNode1.ag.wgcluster.example.com`um endereço totalmente qualificado dentro da sua rede, como . 
 
 Para configurar o sufixo DNS, siga estes passos:
 
 1. RDP no seu primeiro nó e abre o Servidor Manager. 
 1. Selecione **Local Server** e, em seguida, selecione o nome da sua máquina virtual sob **o nome**do computador . 
-1. Selecione **Alteração...** em baixo **Para mudar o nome deste computador...** . 
-1. Mude o nome do nome do grupo de trabalho para ser algo significativo, como `AGWORKGROUP`: 
+1. Selecione **Alteração...** em baixo **Para mudar o nome deste computador...**. 
+1. Mude o nome do nome do grupo de `AGWORKGROUP`trabalho para ser algo significativo, como: 
 
    ![Alterar nome do grupo de trabalho](media/virtual-machines-windows-sql-workgroup-availability-group/1-change-workgroup-name.png)
 
 1. Selecione **Mais...** para abrir a caixa de diálogo **DNS Sufixo e NetBIOS Computer Name.** 
-1. Digite o nome do seu sufixo DNS sob o **sufixo Primário DNS deste computador,** como `ag.wgcluster.example.com` e, em seguida, selecione **OK:** 
+1. Digite o nome do seu sufixo DNS sob o **sufixo DNS primário deste computador,** tal como e, em `ag.wgcluster.example.com` seguida, selecione **OK:** 
 
    ![Adicione sufixo DNS](media/virtual-machines-windows-sql-workgroup-availability-group/2-add-dns-suffix.png)
 
@@ -77,9 +77,9 @@ Como não há diretório ativo, não há forma de autenticar as ligações das j
 Para editar o ficheiro anfitrião, siga estes passos:
 
 1. RDP na sua máquina virtual. 
-1. Utilize o Explorador de **Ficheiros** para ir a `c:\windows\system32\drivers\etc`. 
+1. Use o Explorador `c:\windows\system32\drivers\etc`de **Ficheiros** para ir a . 
 1. Clique no ficheiro dos **anfitriões** e abra o ficheiro com **o Bloco** de Notas (ou qualquer outro editor de texto).
-1. No final do ficheiro, adicione uma entrada para cada nó, o grupo de disponibilidade e o ouvinte sob a forma de `IP Address, DNS Suffix #comment` como: 
+1. No final do ficheiro, adicione uma entrada para cada nó, o grupo de `IP Address, DNS Suffix #comment` disponibilidade e o ouvinte sob a forma de: 
 
    ```
    10.0.0.4 AGNode1.ag.wgcluster.example.com #Availability group node
@@ -101,7 +101,7 @@ Para isso, execute o seguinte cmdlet PowerShell numa sessão administrativa powe
 new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy -Value 1
 ```
 
-## <a name="create-the-failover-cluster"></a>Criar o cluster failover
+## <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
 Neste passo, criará o cluster failover. Se não está familiarizado com estes passos, pode segui-los a partir do tutorial do [cluster failover](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
 
@@ -112,9 +112,9 @@ Diferenças notáveis entre o tutorial e o que deve ser feito para um agrupament
    - `AGNode2.ag.wgcluster.example.com`
 - **Desfaça-se Adicione todo o armazenamento elegível ao cluster**. 
 
-Uma vez criado o cluster, atribua um endereço IP de cluster estático. Para isso, siga estes passos:
+Uma vez criado o cluster, atribua um endereço IP de cluster estático. Para o fazer, siga estes passos:
 
-1. Num dos nós, abra o **Failover Cluster Manager,** selecione o cluster, clique à direita no **nome: \<ClusterNam>** em **Cluster Core Resources** e, em seguida, selecione **Propriedades**. 
+1. Num dos nós, abra o **Failover Cluster Manager,** selecione o cluster, clique à direita no ** \<nome: ClusterNam>** em Recursos **Core cluster** e, em seguida, selecione **Propriedades**. 
 
    ![Propriedades de lançamento para o nome do cluster](media/virtual-machines-windows-sql-workgroup-availability-group/5-launch-cluster-name-properties.png)
 
@@ -137,7 +137,7 @@ Neste passo, ative a funcionalidade do grupo de disponibilidade. Se não está f
 
 ## <a name="create-keys-and-certificate"></a>Criar chaves e certificado
 
-Neste passo, crie certificados que um login SQL utiliza no ponto final encriptado. Crie uma pasta em cada nó para segurar as cópias de segurança do certificado, tais como `c:\certs`. 
+Neste passo, crie certificados que um login SQL utiliza no ponto final encriptado. Crie uma pasta em cada nó para segurar `c:\certs`as cópias de segurança do certificado, tais como . 
 
 Para configurar o primeiro nó, siga estes passos: 
 
@@ -178,12 +178,12 @@ Para configurar o primeiro nó, siga estes passos:
    GO  
    ```
 
-1. Utilize o **File Explorer** para ir ao local do ficheiro onde está o seu certificado, como `c:\certs`. 
-1. Faça manualmente uma cópia do certificado, como `AGNode1Cert.crt`, a partir do primeiro nó, e transfira-o para o mesmo local no segundo nó. 
+1. Utilize o **File Explorer** para ir ao local `c:\certs`do ficheiro onde está o seu certificado, como . 
+1. Faça manualmente uma cópia do `AGNode1Cert.crt`certificado, como, por exemplo, a partir do primeiro nó, e transfira-o para o mesmo local no segundo nó. 
 
 Para configurar o segundo nó, siga estes passos: 
 
-1. Ligue-se ao segundo nó com o Estúdio de Gestão de **Servidores SQL,** como `AGNode2`. 
+1. Ligue-se ao segundo nó com o Estúdio `AGNode2`de Gestão de **Servidores SQL,** como . 
 1. Numa janela **new consulta,** execute a seguinte declaração Transact-SQL (T-SQL) após a atualização para uma senha complexa e segura: 
 
    ```sql
@@ -219,8 +219,8 @@ Para configurar o segundo nó, siga estes passos:
    GO  
    ```
 
-1. Utilize o **File Explorer** para ir ao local do ficheiro onde está o seu certificado, como `c:\certs`. 
-1. Faça manualmente uma cópia do certificado, como `AGNode2Cert.crt`, a partir do segundo nó, e transfira-o para o mesmo local no primeiro nó. 
+1. Utilize o **File Explorer** para ir ao local `c:\certs`do ficheiro onde está o seu certificado, como . 
+1. Faça manualmente uma cópia do `AGNode2Cert.crt`certificado, como, por exemplo, a partir do segundo nó, e transfira-o para o mesmo local no primeiro nó. 
 
 Se houver outros nós no cluster, repita estes passos também, modificando os respetivos nomes de certificados. 
 
@@ -228,7 +228,7 @@ Se houver outros nós no cluster, repita estes passos também, modificando os re
 
 A autenticação do certificado é utilizada para sincronizar dados em todos os nódosos. Para permitir isto, crie um login para o outro nó, crie um utilizador para o login, crie um certificado para o login utilizar o certificado de back-up e, em seguida, conceder a ligação no ponto final espelhado. 
 
-Para tal, primeiro faça a seguinte consulta Transact-SQL (T-SQL) no primeiro nó, como `AGNode1`: 
+Para tal, primeiro faça a seguinte consulta Transact-SQL (T-SQL) no `AGNode1`primeiro nó, tais como: 
 
 ```sql
 --create a login for the AGNode2
@@ -251,7 +251,7 @@ GRANT CONNECT ON ENDPOINT::hadr_endpoint TO [AGNode2_login];
 GO
 ```
 
-Em seguida, faça a seguinte consulta Transact-SQL (T-SQL) no segundo nó, como `AGNode2`: 
+Em seguida, faça a seguinte consulta Transact-SQL (T-SQL) `AGNode2`no segundo nó, tais como: 
 
 ```sql
 --create a login for the AGNode1
@@ -281,7 +281,7 @@ Se houver outros nós no cluster, repita esses passos também, modificando o res
 Neste passo, configure o seu grupo de disponibilidade e adicione as suas bases de dados. Não crie um ouvinte neste momento. Se não está familiarizado com os passos, consulte o tutorial do grupo de [disponibilidade.](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group) Certifique-se de iniciar uma falha e não verificar se está tudo a funcionar como deve ser. 
 
    > [!NOTE]
-   > Se houver uma falha durante o processo de sincronização, poderá ter de conceder `NT AUTHORITY\SYSTEM` direitos de sinadmina para criar recursos de cluster no primeiro nó, como `AGNode1` temporariamente. 
+   > Se houver uma falha durante o processo de sincronização, poderá ter de conceder `NT AUTHORITY\SYSTEM` direitos de sysadmin a criar recursos de cluster no primeiro nó, como `AGNode1` temporariamente. 
 
 ## <a name="configure-load-balancer"></a>Configure o equilibrador de carga
 

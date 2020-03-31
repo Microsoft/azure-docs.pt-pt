@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257969"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Faça um exercício DR para VMs hiper-V para um local secundário
@@ -45,7 +45,7 @@ Quando executa uma falha de teste, é-lhe pedido que selecione as definições d
 
 | **Opção** | **Detalhes** | |
 | --- | --- | --- |
-| **Nenhuma.** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem, e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de ter sido criada.| |
+| **Nenhum** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem, e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de ter sido criada.| |
 | **Usar existente** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem.<br/><br/>Crie uma rede VM isolada da sua rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada na produção) em VMM para o efeito. Esta rede lógica é usada para criar redes VM para falhas de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hyper-V que estão hospedando máquinas virtuais.<br/><br/>Para as redes lógicas VLAN, os sites de rede que adiciona à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em Virtualização da Rede Windows, a Recuperação do Site Azure cria automaticamente redes VM isoladas. | |
 | **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na definição que especifica na **Rede Lógica** e nos seus sites de rede relacionados.<br/><br/> Falha verifica se os VMs são criados.<br/><br/> Deve utilizar esta opção se um plano de recuperação utilizar mais do que uma rede VM.<br/><br/> Se estiver a utilizar redes de virtualização da Rede Windows, esta opção pode criar automaticamente redes VM com as mesmas definições (subredes e conjuntos de endereços IP) na rede da máquina virtual de réplica. Estas redes VM são limpas automaticamente após a falha do teste estar completa.<br/><br/> O VM de teste é criado no hospedeiro no qual a máquina virtual de réplica existe. Não é adicionado à nuvem.|
 
@@ -119,11 +119,11 @@ Prepare um servidor DNS para a falha do teste da seguinte forma:
 
 Este procedimento descreve como executar um teste falhado para um plano de recuperação. Em alternativa, pode executar a falha para uma única máquina virtual no separador **Máquinas Virtuais.**
 
-1. Selecione Planos de **Recuperação** > *recoveryplan_name*. Clique em **Failover** > **Failover**do teste .
+1. Selecione **Planos** > de Recuperação*recoveryplan_name*. Clique em**Failover do Teste failover**do teste **de failover** > .
 2. Na lâmina failover do **teste,** especifique como as VMs réplicas devem ser ligadas às redes após a falha do teste.
 3. Falha no progresso no separador **Jobs.**
 4. Depois de concluída a falha, verifique se os VMs começam com sucesso.
-5. Quando terminar, clique em teste de **limpeza** falhando no plano de recuperação. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste. Este passo elimina quaisquer VMs e redes que foram criadas pela Recovery do Site durante a falha do teste. 
+5. Quando terminar, clique em teste de **limpeza** falhando no plano de recuperação. Em **Notas,** grave e guarde quaisquer observações associadas ao failover do teste. Este passo elimina quaisquer VMs e redes que foram criadas pela Recovery do Site durante a falha do teste. 
 
 ![Ativação pós-falha de teste](./media/hyper-v-vmm-test-failover/TestFailover.png)
  

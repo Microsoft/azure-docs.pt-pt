@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: 098efd3075c6b099bdfc925cb4f09163f83532a5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668271"
 ---
-# <a name="what-are-classic-alerts-in-microsoft-azure"></a>Quais são os alertas clássicos no Microsoft Azure?
+# <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
 > [!NOTE]
 > Este artigo descreve como criar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](../../azure-monitor/platform/alerts-overview.md) Os alertas clássicos são [retirados](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. 
@@ -78,7 +78,7 @@ No entanto, os alertas métricos mais antigos não utilizam grupos de ação. Em
 
 Webhooks permite automação e reparação, por exemplo, usando:
 - Runbook da Automatização do Azure
-- Função Azure
+- Função do Azure
 - App Lógica Azure
 - um serviço de terceiros
 

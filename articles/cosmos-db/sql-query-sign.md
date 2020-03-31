@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 84335acbee1e4166e5346f5c5cac6ef8dae11e99
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302071"
 ---
 # <a name="sign-azure-cosmos-db"></a>SINAL (Azure Cosmos DB)
- Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.  
+ Devolve o sinal positivo (+1), zero (0) ou negativo (-1) da expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ SIGN(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte devolve os valores `SIGN` dos números de -2 a 2.  
+  O exemplo seguinte `SIGN` devolve os valores dos números de -2 a 2.  
   
 ```sql
 SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  

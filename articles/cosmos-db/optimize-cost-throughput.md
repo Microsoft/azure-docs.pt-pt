@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501463"
 ---
-# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de entrada provisionado no Azure Cosmos DB
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
 
 Ao oferecer um modelo de entrada provisionado, o Azure Cosmos DB oferece um desempenho previsível a qualquer escala. Reservar ou fornecer a entrada antes do tempo elimina o "efeito ruidoso do vizinho" no seu desempenho. Especifica a quantidade exata de entrada que necessita e o Azure Cosmos DB garante a entrada configurada, apoiada por SLA.
 
@@ -57,7 +57,7 @@ Como mostrado na tabela seguinte, dependendo da escolha da API, pode fornecer a 
 |----|----|----|
 |SQL API|Base de Dados|Contentor|
 |API do Azure Cosmos DB para MongoDB|Base de Dados|Coleção|
-|API de Cassandra|Espaço de chaves|Tabela|
+|API de Cassandra|Espaço-chave|Tabela|
 |API do Gremlin|Conta de base de dados|Graph|
 |API de Tabela|Conta de base de dados|Tabela|
 
@@ -65,7 +65,7 @@ Ao fornecer a entrada em diferentes níveis, pode otimizar os seus custos com ba
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Otimize com a limitação da taxa dos seus pedidos
 
-Para cargas de trabalho que não sejam sensíveis à latência, pode fornecer menos produção e deixar que a taxa de manuseamento da aplicação limite a taxa quando a produção real exceda a produção prevista. O servidor terminará preventivamente o pedido com `RequestRateTooLarge` (código de estado HTTP 429) e devolverá o cabeçalho `x-ms-retry-after-ms` indicando a quantidade de tempo, em milissegundos, que o utilizador deve esperar antes de voltar a tentar o pedido. 
+Para cargas de trabalho que não sejam sensíveis à latência, pode fornecer menos produção e deixar que a taxa de manuseamento da aplicação limite a taxa quando a produção real exceda a produção prevista. O servidor terminará preventivamente o `RequestRateTooLarge` pedido com (código de estado `x-ms-retry-after-ms` HTTP 429) e devolverá o cabeçalho indicando a quantidade de tempo, em milissegundos, que o utilizador deve esperar antes de voltar a experimentar o pedido. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Os SDKs nativos (.NET/.NET Core, Java, Node.js e Python) captam implicitamente esta resposta, respeitam o cabeçalho de retry-after especificado pelo servidor e retentam novamente o pedido. A menos que a sua conta seja acedida simultaneamente por vários clientes, a próxima reprovação terá sucesso.
 
-Se tiver mais de um cliente a operar de forma consistente acima da taxa de pedido, a contagem de retry predefinido, que está atualmente fixada para 9, pode não ser suficiente. Nesses casos, o cliente lança uma `RequestRateTooLargeException` com o código de estado 429 para a aplicação. A contagem de retry predefinido pode ser alterada definindo o `RetryOptions` na instância ConnectionPolicy. Por predefinição, o `RequestRateTooLargeException` com o código de estado 429 é devolvido após um tempo acumulado de espera de 30 segundos se o pedido continuar a funcionar acima da taxa de pedido. Isto ocorre mesmo quando a contagem de retry atual é inferior à contagem máxima de retry, seja o padrão de 9 ou um valor definido pelo utilizador. 
+Se tiver mais de um cliente a operar de forma consistente acima da taxa de pedido, a contagem de retry predefinido, que está atualmente fixada para 9, pode não ser suficiente. Nesses casos, o cliente `RequestRateTooLargeException` lança um código de estado 429 para a aplicação. A contagem de retry predefinido `RetryOptions` pode ser alterada definindo a instância ConnectionPolicy. Por predefinição, o `RequestRateTooLargeException` código de estado 429 é devolvido após um tempo acumulado de espera de 30 segundos se o pedido continuar a funcionar acima da taxa de pedido. Isto ocorre mesmo quando a contagem de retry atual é inferior à contagem máxima de retry, seja o padrão de 9 ou um valor definido pelo utilizador. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) está definido para 3, por isso, neste caso, se uma operação de pedido for limitada por exceder a entrada reservada para o recipiente, a operação de pedido se retenta três vezes antes de lançar a exceção ao pedido. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definido para 60, por isso, neste caso, se o tempo de espera acumulado de retry em segundos desde que o primeiro pedido excede 60 segundos, a exceção é lançada.
 
@@ -87,7 +87,7 @@ connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3;
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
-## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Estratégia de partilha e custos de provisão provisionados
+## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Estratégia de criação de partições e custos do débito aprovisionado
 
 Uma boa estratégia de partição é importante para otimizar os custos no Azure Cosmos DB. Certifique-se de que não há distorções de divisórias, que são expostas através de métricas de armazenamento. Certifique-se de que não existe um desvio de entrada para uma partição, que é exposta com métricas de entrada. Certifique-se de que não há alterações em relação a chaves de partição específicas. As chaves dominantes no armazenamento são expostas através de métricas, mas a chave será dependente do seu padrão de acesso à aplicação. É melhor pensar na chave de partição lógica certa. Espera-se que uma boa chave de partição tenha as seguintes características:
 
@@ -139,7 +139,7 @@ Para determinar a entrada prevista para uma nova carga de trabalho, pode utiliza
 
 2. É recomendado criar os recipientes com uma entrada mais alta do que o esperado e depois escalonar-se conforme necessário. 
 
-3. Recomenda-se usar um dos SDKs DB da Azure Cosmos para beneficiar de repetições automáticas quando os pedidos ficam limitados à taxa. Se estiver a trabalhar numa plataforma que não seja suportada e utilize a API REST da Cosmos DB, implemente a sua própria política de retry usando o cabeçalho `x-ms-retry-after-ms`. 
+3. Recomenda-se usar um dos SDKs DB da Azure Cosmos para beneficiar de repetições automáticas quando os pedidos ficam limitados à taxa. Se estiver a trabalhar numa plataforma que não seja suportada e utilize a API REST `x-ms-retry-after-ms` da Cosmos DB, implemente a sua própria política de retry usando o cabeçalho. 
 
 4. Certifique-se de que o seu código de aplicação suporta graciosamente o caso quando todas as tentativas falharem. 
 
@@ -155,7 +155,7 @@ Os seguintes passos ajudam-no a tornar as suas soluções altamente escaláveis 
 
 1. Se tiver sobressaltado significativamente a entrada em contentores e bases de dados, deve rever as RUs aprovisionadas vs consumidas e afinar as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de entrada reservada exigida pela sua aplicação é registar a taxa da unidade de pedido RU associada à execução de operações típicas contra um recipiente ou base de dados representativo da Azure Cosmos utilizado pela sua aplicação e em seguida, estimar o número de operações que antecipa realizar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para aprender a estimar os custos de consultas de RU programáticamente ou usando o portal ver [Otimizar o custo das consultas](online-backup-and-restore.md). 
+2. Um método para estimar a quantidade de entrada reservada exigida pela sua aplicação é registar a taxa da unidade de pedido RU associada à execução de operações típicas contra um recipiente ou base de dados representativo da Azure Cosmos utilizado pela sua aplicação e em seguida, estimar o número de operações que antecipa realizar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para aprender a estimar os custos de consultas de RU programáticamente ou usando o portal ver [Otimizar o custo das consultas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). 
 
 3. Outra forma de obter operações e os seus custos em RUs é permitindo registos do Monitor Azure, o que lhe dará a repartição da operação/duração e a cobrança de pedidos. A Azure Cosmos DB fornece o pedido de cobrança de cada operação, para que cada carga de operação possa ser armazenada de volta da resposta e depois usada para análise. 
 

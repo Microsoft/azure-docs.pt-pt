@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 1492dd392eabc4331f8e3d4604fb245a89dedff5
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899233"
 ---
 # <a name="media-services-high-availability-streaming"></a>Streaming de alta disponibilidade dos Serviços de Media

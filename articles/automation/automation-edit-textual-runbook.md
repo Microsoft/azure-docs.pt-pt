@@ -10,10 +10,10 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367283"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edição de livros textual na Automação Azure
@@ -22,7 +22,7 @@ O editor textual da Azure Automation pode ser usado para editar os livros de [ex
 
 O editor textual inclui uma funcionalidade para inserir código para cmdlets, ativos e livros infantis num livro de corridas. Em vez de escrever o código por si mesmo, pode selecionar a partir de uma lista de recursos disponíveis e o editor insere o código apropriado no livro de execução.
 
-Cada livro de execução em Azure Automation tem duas versões, Draft e Published. Edita a versão Draft do livro de execução e depois publica-a para que possa ser executada. Não é possível editar a versão publicada. Para mais informações, consulte [a Publicação de um livro de execução](manage-runbooks.md#publish-a-runbook).
+Cada livro de execução em Azure Automation tem duas versões, Draft e Published. Edita a versão Draft do livro de execução e depois publica-a para que possa ser executada. A versão Publicada não pode ser editada. Para mais informações, consulte [a Publicação de um livro de execução](manage-runbooks.md#publish-a-runbook).
 
 Este artigo fornece passos detalhados para o desempenho de diferentes funções com este editor. Estes não são aplicáveis a [livros gráficos.](automation-runbook-types.md#graphical-runbooks) Para trabalhar com estes livros de execução, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
 
@@ -47,7 +47,7 @@ Utilize o seguinte procedimento para abrir um livro de execução para edição 
 3. Expanda o módulo que contém o cmdlet para utilizar.
 4. Clique no nome cmdlet para inserir e **selecione Adicionar a tela**. Se o cmdlet tiver mais de um parâmetro definido, o editor adiciona o conjunto predefinido. Também pode expandir o cmdlet para selecionar um conjunto de parâmetros diferente.
 5. Note que o código para o cmdlet é inserido com toda a sua lista de parâmetros.
-6. Forneça um valor adequado em vez do valor rodeado por suportes angulares (<>) para quaisquer parâmetros necessários. Remova os parâmetros que não precisa.
+6. Forneça um valor adequado em vez do valor rodeado por parênteses angulares (<>) para os parâmetros necessários. Remova os parâmetros que não precisa.
 
 ### <a name="insert-code-for-a-child-runbook-into-a-runbook"></a>Insira o código para um livro de crianças num livro de corridas
 
@@ -71,7 +71,7 @@ Para editar um livro de execução com o Windows PowerShell, utilize o editor à
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Recupere o conteúdo de um livro de corridas utilizando o Windows PowerShell
 
-Comandos de exemplo seguintes mostram como obter o script de um runbook e guardá-lo para um ficheiro de script. Neste exemplo, a versão de rascunho é recuperada. Também é possível recuperar a versão publicada do livro de corridas, embora esta versão não possa ser alterada.
+Os comandos de exemplo seguintes exemplificam como obter o script de um runbook e guardá-lo num ficheiro de script. Neste exemplo, é obtida a versão de Rascunho. Também é possível recuperar a versão publicada do livro de corridas, embora esta versão não possa ser alterada.
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -84,7 +84,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Altere o conteúdo de um livro de execução utilizando o Windows PowerShell
 
-Os comandos de exemplo seguintes mostram como substituir o conteúdo existente de um runbook pelo conteúdo de um ficheiro de script. Este é o mesmo procedimento de amostra que em [Importar um livro de execução de um ficheiro de script com windows PowerShell](manage-runbooks.md#import-a-runbook).
+Os comandos de amostra seguem mostrar como substituir o conteúdo existente de um livro de execução com o conteúdo de um ficheiro de script. Este é o mesmo procedimento de amostra que em [Importar um livro de execução de um ficheiro de script com windows PowerShell](manage-runbooks.md#import-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"

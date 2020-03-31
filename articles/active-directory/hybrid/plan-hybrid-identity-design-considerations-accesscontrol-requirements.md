@@ -1,6 +1,6 @@
 ---
-title: Requisitos de controlo de acesso de design de identidade do híbrida do Azure | Documentos da Microsoft
-description: Aborda os pilares da identidade e identificar os requisitos de acesso para recursos para os utilizadores num ambiente híbrido.
+title: Requisitos de controlo de acesso ao design de identidade híbrido Saem Os requisitos de controlo do acesso ao azure Microsoft Docs
+description: Abrange os pilares da identidade e identifica os requisitos de acesso dos recursos para os utilizadores num ambiente híbrido.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,69 +18,69 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60295148"
 ---
-# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de controlo de acesso para a sua solução de identidade híbrida
-Quando uma organização é conceber a sua solução de identidade híbrida, também podem utilizar esta oportunidade para rever os requisitos de acesso para os recursos que eles estiverem planejando para disponibilizá-lo para os utilizadores. O acesso a dados em várias quatro todos os pilares da identidade, que são:
+# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de controlo de acesso para a sua solução de identidade híbrida
+Quando uma organização está a desenhar a sua solução de identidade híbrida, também pode aproveitar esta oportunidade para rever os requisitos de acesso aos recursos que estão a planear disponibilizar aos utilizadores. O acesso aos dados cruza os quatro pilares da identidade, que são:
 
 * Administração
 * Autenticação
 * Autorização
 * Auditoria
 
-As secções que se seguem abordará autenticação e autorização em mais detalhes, administração, e auditoria fazem parte do ciclo de vida de identidade híbrida. Leia [determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para obter mais informações sobre estas capacidades.
+As secções que se seguem abrangerão a autenticação e a autorização em mais detalhes, administração e auditoria fazem parte do ciclo de vida da identidade híbrida. Leia [Determinar as tarefas híbridas](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) de gestão de identidade para obter mais informações sobre estas capacidades.
 
 > [!NOTE]
-> Leia [os quatro pilares da identidade - gestão de identidades na idade de TI híbrida](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para obter mais informações sobre cada uma dessas pilares.
+> Leia [Os Quatro Pilares da Identidade - Gestão de Identidade na Era das TI Híbridas](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para obter mais informações sobre cada um desses pilares.
 > 
 > 
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
-Existem diferentes cenários de autenticação e autorização, esses cenários terá requisitos específicos que devem ser cumpridos pela solução de identidade híbrida que a empresa irá adotar. Cenários que envolvem a comunicação do empresa-empresa (B2B) podem adicionar um desafio adicional para os administradores de TI, uma vez que têm de se certificar de que o método de autenticação e autorização utilizado pela organização consegue comunicar com seus parceiros de negócios. Durante o processo de conceção para requisitos de autenticação e autorização, certifique-se de que as seguintes perguntas serão respondidas:
+Existem diferentes cenários de autenticação e autorização, estes cenários terão requisitos específicos que devem ser cumpridos pela solução de identidade híbrida que a empresa vai adotar. Cenários que envolvam a comunicação Business to Business (B2B) podem acrescentar um desafio extra aos administradores de TI, uma vez que terão de garantir que o método de autenticação e autorização utilizado pela organização pode comunicar com os seus parceiros de negócio. Durante o processo de conceção dos requisitos de autenticação e autorização, certifique-se de que as seguintes questões são respondidas:
 
-* Será a sua organização autenticar e autorizar o somente os usuários localizados em seu sistema de gestão de identidade?
-  * Existem planos para cenários B2B?
-  * Se Sim, já sabe quais protocolos (SAML, OAuth, Kerberos ou certificados) serão utilizados para ligar a ambas as empresas?
-* É a solução de identidade híbrida que vai para adotar o suporte esses protocolos?
+* A sua organização irá autenticar e autorizar apenas utilizadores localizados no seu sistema de gestão de identidade?
+  * Há planos para cenários B2B?
+  * Se sim, já sabe quais os protocolos (SAML, OAuth, Kerberos ou Certificados) para ligar ambas as empresas?
+* A solução de identidade híbrida que vai adotar apoia esses protocolos?
 
-Outro ponto importante a considerar é onde estarão localizado no repositório de autenticação que será utilizado por utilizadores e parceiros e o modelo administrativo para ser utilizado. Considere as seguintes opções de dois núcleos:
+Outro ponto importante a ter em conta é o local onde será localizado o repositório de autenticação que será utilizado pelos utilizadores e parceiros e o modelo administrativo a utilizar. Considere as seguintes duas opções principais:
 
-* Centralizado: neste modelo, as credenciais do utilizador, políticas e administração podem ser centralizado no local ou na cloud.
-* Híbrida: neste modelo, as credenciais do utilizador, políticas e administração será centralizado no local e um replicadas na cloud.
+* Centralizado: neste modelo, as credenciais, políticas e administração do utilizador podem ser centralizadas no local ou na nuvem.
+* Híbrido: neste modelo, as credenciais, políticas e administração do utilizador serão centralizadas no local e uma replicada na nuvem.
 
-Qual modelo de sua organização irá adotar varia de acordo com seus requisitos de negócios, que pretende responder às perguntas seguintes para identificar qual irão residir no sistema de gerenciamento de identidade e o modo administrativo a utilizar:
+Qual o modelo que a sua organização irá adotar variará de acordo com os seus requisitos de negócio, pretende responder às seguintes questões para identificar onde o sistema de gestão de identidade vai residir e o modo administrativo a utilizar:
 
-* Sua organização tem atualmente uma gestão de identidades no local?
-  * Se Sim, eles pretende mantê-lo?
-  * Existem requisitos de regulamentação ou conformidade que sua organização tem de seguir esse dita em que o sistema de gestão de identidades deve residir?
-* A sua organização utiliza o início de sessão único para aplicações existentes no local ou na cloud?
-  * Se Sim, a adoção de um modelo de identidade híbrida afeta este processo?
+* A sua organização tem atualmente uma gestão de identidade no local?
+  * Se sim, planeiam mantê-lo?
+  * Existem requisitos de regulação ou conformidade que a sua organização deve seguir que ditem onde o sistema de gestão de identidade deve residir?
+* A sua organização utiliza um único sinal para aplicações localizadas no local ou na nuvem?
+  * Se sim, a adoção de um modelo de identidade híbrida afeta este processo?
 
 ## <a name="access-control"></a>Controlo de Acesso
-Embora a autenticação e autorização são elementos principais para ativar o acesso a dados empresariais por meio de validação do utilizador, também é importante controlar o nível de acesso que estes utilizadores têm e o nível de administradores do acesso terá sobre os recursos a Se eles estão a gerir. Sua solução de identidade híbrida tem de ser capaz de fornecer acesso granular para recursos, a delegação e controlo de acesso de base de função. Certifique-se de que o seguinte é às suas perguntas sobre o controlo de acesso:
+Embora a autenticação e a autorização sejam elementos fundamentais para permitir o acesso aos dados corporativos através da validação do utilizador, também é importante controlar o nível de acesso que estes utilizadores terão e o nível de acesso que os administradores terão sobre os recursos que estão a gerir. A sua solução de identidade híbrida deve ser capaz de fornecer acesso granular aos recursos, delegação e controlo de acesso de base. Certifique-se de que a seguinte pergunta é respondida no que diz respeito ao controlo de acesso:
 
-* A sua empresa tem mais de um usuário com privilégio elevado para gerir o seu sistema de identidade?
-  * Se Sim, a cada utilizador é necessário o mesmo nível de acesso?
-* A sua empresa precisaria delegar o acesso aos utilizadores para gerir os recursos específicos?
-  * Se Sim, a frequência com que isso acontece?
-* A sua empresa precisaria integrar os recursos de controle de acesso entre no local e na cloud recursos?
-* A sua empresa precisaria limitar o acesso a recursos de acordo com algumas condições?
-* A sua empresa teria qualquer aplicativo que precise de acesso de controle personalizado a alguns recursos?
-  * Se Sim, onde estão os aplicativos localizados (no local ou na cloud)?
-  * Se Sim, onde estão os recursos de destino localizados (no local ou na cloud)?
+* A sua empresa tem mais do que um utilizador com privilégioelevado para gerir o seu sistema de identidade?
+  * Se sim, cada utilizador precisa do mesmo nível de acesso?
+* A sua empresa necessita de delegar acesso aos utilizadores para gerir recursos específicos?
+  * Se sim, com que frequência isto acontece?
+* A sua empresa necessitaria de integrar as capacidades de controlo de acesso entre as instalações e os recursos na nuvem?
+* A sua empresa teria de limitar o acesso aos recursos de acordo com algumas condições?
+* A sua empresa teria alguma aplicação que necessite de acesso personalizado a alguns recursos?
+  * Se sim, onde estão as aplicações localizadas (no local ou na nuvem)?
+  * Se sim, onde estão os recursos-alvo localizados (no local ou na nuvem)?
 
 > [!NOTE]
-> Lembre-se de que anota cada resposta e compreender as razões implícitas para a resposta. [Definir a estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção.  Respondendo essas perguntas irá selecionar qual opção melhor se adequa às suas necessidades empresariais.
+> Certifique-se de que anota cada resposta e que compreende os fundamentos das mesmas. [Definir a Estratégia](plan-hybrid-identity-design-considerations-data-protection-strategy.md) de Proteção de Dados irá passar por cima das opções disponíveis e vantagens/desvantagens de cada opção.  Ao responder a essas perguntas, irá selecionar qual a opção que melhor se adequa às suas necessidades de negócio.
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
-[Determinar os requisitos de resposta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
+## <a name="next-steps"></a>Passos seguintes
+[Determinar requisitos de resposta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>Consultar Também
-[Descrição geral das considerações de design](plan-hybrid-identity-design-considerations-overview.md)
+## <a name="see-also"></a>Veja também
+[Visão geral das considerações de conceção](plan-hybrid-identity-design-considerations-overview.md)
 

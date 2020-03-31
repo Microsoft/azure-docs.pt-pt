@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot domain-join com Azure AD Domain Services  Microsoft Docs
+title: Troubleshoot domain-join com Azure AD Domain Services [ Microsoft Docs
 description: Aprenda a resolver problemas comuns quando tenta juntar-se a um VM ou ligar uma aplicação aos Serviços de Domínio de Diretório Ativo Azure e não pode ligar ou autenticar o domínio gerido.
 services: active-directory-ds
 author: iainfoulds
@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
 ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299113"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de resolução de problemas de união de domínio com um domínio gerido pela Azure AD Domain Services
@@ -32,10 +32,10 @@ Se o VM não conseguir encontrar o domínio gerido pelo Azure AD DS, normalmente
 
 1. Certifique-se de que o VM está ligado à mesma rede virtual, ou a uma rede virtual esparsada que está ativada para O DS Azure. Caso contrário, o VM não consegue encontrar e ligar-se ao domínio para se juntar.
     * Se o VM não estiver ligado à mesma rede virtual, confirme que o peering virtual de rede ou ligação VPN é *Ativo* ou *Ligado* para permitir que o tráfego flua corretamente.
-1. Tente pingar o domínio usando o nome de domínio do domínio gerido pelo Azure AD DS, como `ping aaddscontoso.com`.
-    * Se a resposta de ping falhar, tente pingar os endereços IP para o domínio apresentado na página de visão geral no portal para o seu domínio gerido pelo Azure AD DS, como `ping 10.0.0.4`.
+1. Tente pingar o domínio usando o nome de domínio do domínio `ping aaddscontoso.com`gerido azure AD DS, tais como .
+    * Se a resposta de ping falhar, tente pingar os endereços IP para o domínio apresentado na página de visão `ping 10.0.0.4`geral no portal para o seu domínio gerido pelo Azure AD DS, como .
     * Se conseguir obter o acesso ao endereço IP com sucesso, mas não o domínio, o DNS pode estar incorretamente configurado. Certifique-se de que configura os servidores DNS geridos pelo Azure AD DNs para a rede virtual.
-1. Tente lavar a cache de dNS na máquina virtual, como `ipconfig /flushdns`.
+1. Tente lavar a cache de resolver DNS `ipconfig /flushdns`na máquina virtual, como .
 
 ### <a name="network-security-group-nsg-configuration"></a>Configuração do Grupo de Segurança da Rede (NSG)
 
@@ -53,7 +53,7 @@ Se obtém uma caixa de diálogo que pede credenciais para aderir ao domínio ger
 
 Para resolver problemas relacionados com credenciais, reveja os seguintes passos de resolução de problemas:
 
-1. Tente utilizar o formato UPN para especificar credenciais, como `dee@aaddscontoso.onmicrosoft.com`. Certifique-se de que esta UPN está corretamente configurada em Azure AD.
+1. Tente utilizar o formato UPN `dee@aaddscontoso.onmicrosoft.com`para especificar credenciais, tais como . Certifique-se de que esta UPN está corretamente configurada em Azure AD.
     * O *Nome SAMAccountName* para a sua conta pode ser autogerado se houver vários utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo. Por isso, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
 1. Tente usar as credenciais para uma conta de utilizador que faz parte do domínio gerido pelo Azure AD DS para se juntar aos VMs ao domínio gerido.
 1. Certifique-se de que ativou a sincronização da [palavra-passe][enable-password-sync] e esperou o suficiente para que a sincronização inicial da palavra-passe esteja concluída.

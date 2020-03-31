@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: f9c70491d06f61931ebabda859ff3a86ed035b44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249285"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Adicione notificações push à sua App Xamarin.iOS
@@ -61,7 +61,7 @@ Se não utilizar o projeto de servidor de arranque rápido descarregado, necessi
     }
     ```
 
-2. Adicione a seguinte declaração `using` ao topo do ficheiro **AppDelegate.cs.**
+2. Adicione a `using` seguinte declaração ao topo do ficheiro **AppDelegate.cs.**
 
     ```csharp
     using Microsoft.WindowsAzure.MobileServices;
@@ -87,7 +87,7 @@ Se não utilizar o projeto de servidor de arranque rápido descarregado, necessi
     }
     ```
 
-4. No mesmo ficheiro, anula o evento `RegisteredForRemoteNotifications`. Neste código está a registar-se para uma simples notificação de modelo que será enviada através de todas as plataformas suportadas pelo servidor.
+4. No mesmo ficheiro, anula o `RegisteredForRemoteNotifications` evento. Neste código está a registar-se para uma simples notificação de modelo que será enviada através de todas as plataformas suportadas pelo servidor.
 
     Para obter mais informações sobre modelos com Centros de Notificação, consulte [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
@@ -132,14 +132,14 @@ Se não utilizar o projeto de servidor de arranque rápido descarregado, necessi
 
 A sua aplicação está agora atualizada para suportar notificações push.
 
-## <a name="test"></a>Teste notificações push na sua aplicação
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>Teste notificações push na sua aplicação
 
 1. Pressione o botão **Executar** para construir o projeto e inicie a aplicação num dispositivo capaz de iOS e, em seguida, clique em **OK** para aceitar notificações push.
 
    > [!NOTE]
    > Deve aceitar explicitamente notificações push da sua aplicação. Este pedido ocorre apenas na primeira vez que a aplicação corre.
 
-2. Na aplicação, digite uma tarefa e clique no ícone plus **(+).**
+2. Na aplicação, digite uma tarefa e**+** clique no ícone plus .
 3. Verifique se uma notificação é recebida e, em seguida, clique em **OK** para rejeitar a notificação.
 4. Repita o passo 2 e feche imediatamente a aplicação e verifique se é mostrada uma notificação.
 

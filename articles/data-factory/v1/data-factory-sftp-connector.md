@@ -12,10 +12,10 @@ ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3f78934fb11dd4f9e34bf27d565d471d47f250b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265808"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Mova dados de um servidor SFTP usando a Fábrica de Dados Azure
@@ -45,23 +45,23 @@ Pode criar um pipeline com uma atividade de cópia que move dados de uma fonte S
 
 - Também pode utilizar as seguintes ferramentas para criar um pipeline: **Estúdio Visual,** **Azure PowerShell,** **Modelo de Gestor de Recursos Azure,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia. Para que as amostras da JSON copiem dados do servidor SFTP para o Armazenamento De Blob Azure, consulte [o Exemplo JSON: Copiar dados do servidor SFTP para](#json-example-copy-data-from-sftp-server-to-azure-blob) a secção de blob Azure deste artigo.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 O quadro seguinte fornece descrição para elementos JSON específicos do serviço ligado ftp.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo | A propriedade tipo deve ser definida para `Sftp`. |Sim |
-| host | Nome ou endereço IP do servidor SFTP. |Sim |
+| tipo | A propriedade tipo deve `Sftp`ser definida para . |Sim |
+| anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
 | porta |Porta na qual o servidor SFTP está a ouvir. O valor padrão é: 21 |Não |
 | authenticationType |Especificar tipo de autenticação. Valores permitidos: **Básico,** **SshPublicKey**. <br><br> Consulte [a utilização de autenticações básicas](#using-basic-authentication) e utilização de secções de [autenticação de chaves públicas SSH](#using-ssh-public-key-authentication) em mais propriedades e amostras JSON, respectivamente. |Sim |
-| skipHostKeyValidation | Especifique se saltar a validação da chave do hospedeiro. | Não. O valor padrão: falso |
-| hostKeyFingerprint | Especifique a impressão do dedo da chave hospedeira. | Sim, se o `skipHostKeyValidation` for falso.  |
-| gatewayName |Nome do Portal de Gestão de Dados para ligar a um servidor SFTP no local. | Sim, se copiar dados de um servidor SFTP no local. |
-| encryptedCredential | Credencial encriptada para aceder ao servidor SFTP. Gerado automaticamente quando especifica a autenticação básica (nome de utilizador + palavra-passe) ou autenticação SshPublicKey (nome de utilizador + caminho ou conteúdo privado) no assistente de cópia ou no diálogo popup ClickOnce. | Não. Aplicar apenas ao copiar dados de um servidor SFTP no local. |
+| skipHostKeyValidação | Especifique se saltar a validação da chave do hospedeiro. | Não. O valor padrão: falso |
+| anfitriãoKeyFingerprint | Especifique a impressão do dedo da chave hospedeira. | Sim, `skipHostKeyValidation` se o for falso.  |
+| nome gateway |Nome do Portal de Gestão de Dados para ligar a um servidor SFTP no local. | Sim, se copiar dados de um servidor SFTP no local. |
+| credenta encriptado | Credencial encriptada para aceder ao servidor SFTP. Gerado automaticamente quando especifica a autenticação básica (nome de utilizador + palavra-passe) ou autenticação SshPublicKey (nome de utilizador + caminho ou conteúdo privado) no assistente de cópia ou no diálogo popup ClickOnce. | Não. Aplicar apenas ao copiar dados de um servidor SFTP no local. |
 
 ### <a name="using-basic-authentication"></a>Utilização da autenticação básica
 
-Para utilizar a autenticação básica, detete `authenticationType` como `Basic`, e especifique as seguintes propriedades para além das genéricas do conector SFTP introduzidas na última secção:
+Para utilizar a autenticação básica, definida `authenticationType` como `Basic`, e especificar as seguintes propriedades para além das genéricas do conector SFTP introduzidas na última secção:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
@@ -111,17 +111,17 @@ Para utilizar a autenticação básica, detete `authenticationType` como `Basic`
 
 ### <a name="using-ssh-public-key-authentication"></a>Utilização da autenticação de chaves públicas SSH
 
-Para utilizar a autenticação da chave pública SSH, defina `authenticationType` como `SshPublicKey`, e especifique as seguintes propriedades para além das genéricas do conector SFTP introduzidas na última secção:
+Para utilizar a autenticação da `authenticationType` chave `SshPublicKey`pública SSH, definida como , e especificar as seguintes propriedades para além das genéricas do conector SFTP introduzidas na última secção:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | o nome de utilizador |Utilizador que tenha acesso ao servidor SFTP |Sim |
-| privateKeyPath | Especifique o caminho absoluto para o ficheiro chave privado a que o gateway pode aceder. | Especifique o `privateKeyPath` ou `privateKeyContent`. <br><br> Aplicar apenas ao copiar dados de um servidor SFTP no local. |
-| privateKeyContent | Uma sequência serializada do conteúdo da chave privada. O Copy Wizard pode ler o ficheiro de chave privada e extrair automaticamente o conteúdo da chave privada. Se estiver a utilizar qualquer outra ferramenta/SDK, utilize a propriedade privateKeyPath. | Especifique o `privateKeyPath` ou `privateKeyContent`. |
-| passPhrase | Especifique a frase/palavra-passe de passe para desencriptar a chave privada se o ficheiro chave estiver protegido por uma frase de passe. | Sim, se o ficheiro da chave privada estiver protegido por uma frase de passe. |
+| privateKeyPath | Especifique o caminho absoluto para o ficheiro chave privado a que o gateway pode aceder. | Especifique ou o `privateKeyPath` `privateKeyContent`. <br><br> Aplicar apenas ao copiar dados de um servidor SFTP no local. |
+| privateKeyContent | Uma sequência serializada do conteúdo da chave privada. O Copy Wizard pode ler o ficheiro de chave privada e extrair automaticamente o conteúdo da chave privada. Se estiver a utilizar qualquer outra ferramenta/SDK, utilize a propriedade privateKeyPath. | Especifique ou o `privateKeyPath` `privateKeyContent`. |
+| passFrase | Especifique a frase/palavra-passe de passe para desencriptar a chave privada se o ficheiro chave estiver protegido por uma frase de passe. | Sim, se o ficheiro da chave privada estiver protegido por uma frase de passe. |
 
 > [!NOTE]
-> O conector SFTP suporta a tecla RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro chave começa com "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk OpenSSH formato.
+> O conector SFTP suporta a tecla RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro chave começa com "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Se o ficheiro de teclas privada for um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk para formato OpenSSH.
 
 #### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Exemplo: Autenticação SshPublicKey utilizando ficheiros chave privadoSPath
 
@@ -164,19 +164,19 @@ Para utilizar a autenticação da chave pública SSH, defina `authenticationType
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados.
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados.
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados. Fornece informações específicas ao tipo de conjunto de dados. A secção TypeProperties para um conjunto de dados do conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Sub caminho para a pasta. Use o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte as definições de serviço ligados à amostra e definições de conjunto de dados, por exemplo.<br/><br/>Pode combinar esta propriedade com **partiçãoBy** para ter caminhos de pastas baseados em datas de início/fim de fatias. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do ficheiro não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| fileFilter |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na pastaPath em vez de todos os ficheiros.<br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (personagem único).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com HDFS. |Não |
+| fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do ficheiro não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt`(Exemplo: Dados.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileFilter |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na pastaPath em vez de todos os ficheiros.<br/><br/>Os valores `*` permitidos são: (múltiplos caracteres) e `?` (personagem único).<br/><br/>Exemplos 1:`"fileFilter": "*.log"`<br/>Exemplo 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | divididoBy |a divisãoBy pode ser usada para especificar uma pasta dinâmicaPath, nome de ficheiro para dados da série de tempo. Por exemplo, pastaPath parametrizado para cada hora de dados. |Não |
-| format | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como está** entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desloque a propriedade **tipo** em formato a um destes valores. Para mais informações, consulte as secções de [Formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [Formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como está** entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e de saída. |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2,** e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para mais informações, consulte [formatos de ficheiroe de compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 | useBinaryTransfer |Especifique se utilizar o modo de transferência Binário. Verdadeiro para o modo binário e falso ASCII. Valor padrão: Verdadeiro. Esta propriedade só pode ser utilizada quando o tipo de serviço associado é de tipo: FtpServer. |Não |
 
 > [!NOTE]
@@ -185,7 +185,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
 ### <a name="using-partionedby-property"></a>Usando propriedade partionedBy
 Tal como mencionado na secção anterior, pode especificar uma pasta dinâmicaPath, nome de ficheiro para dados de séries de tempo com divisóriaby. Pode fazê-lo com as macros data Factory e a variável do sistema SliceStart, SliceEnd que indicam o período lógico de tempo para uma determinada fatia de dados.
 
-Para conhecer conjuntos de dados de séries de tempo, agendamento e fatias, Consulte a [Criação](data-factory-create-datasets.md)de Conjuntos de Dados, [Agendamento e Execução](data-factory-scheduling-and-execution.md)e Criação de artigos de [Pipelines.](data-factory-create-pipelines.md)
+Para conhecer conjuntos de dados de séries de tempo, agendamento e fatias, Consulte a [Criação](data-factory-create-datasets.md)de Conjuntos de Dados, [Agendamento & Execução](data-factory-scheduling-and-execution.md)e Criação de artigos de [Pipelines.](data-factory-create-pipelines.md)
 
 #### <a name="sample-1"></a>Amostra 1:
 
@@ -214,13 +214,13 @@ Neste exemplo {Slice} é substituído pelo valor da variável sliceStart do sist
 Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis separadas que são usadas pelas propriedades da pastaPath e fileName.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção typeProperties da atividade variam com cada tipo de atividade. Para a atividade da Cópia, as propriedades do tipo variam consoante os tipos de fontes e pias.
 
 [!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
 
-## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiros e compressão suportados
+## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 Consulte [os formatos de Arquivo e compressão no](data-factory-supported-file-and-compression-formats.md) artigo da Azure Data Factory sobre detalhes.
 
 ## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Exemplo JSON: Copiar dados do servidor SFTP para o blob Azure
@@ -267,7 +267,7 @@ Consulte a secção de [serviço ligada ftp](#linked-service-properties) para di
     }
 }
 ```
-**Serviço ligado do Armazenamento do Azure**
+**Serviço ligado do Storage do Azure**
 
 ```JSON
 {
@@ -282,7 +282,7 @@ Consulte a secção de [serviço ligada ftp](#linked-service-properties) para di
 ```
 **Conjunto de dados de entrada SFTP**
 
-Este conjunto de dados refere-se à pasta SFTP `mysharedfolder` e `test.csv`de ficheiros . O oleoduto copia o ficheiro para o destino.
+Este conjunto de dados refere-se `mysharedfolder` à `test.csv`pasta E ficheiro SFTP . O oleoduto copia o ficheiro para o destino.
 
 Definição "externa": "verdadeira" informa o serviço data Factory de que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 

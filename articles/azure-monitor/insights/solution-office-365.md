@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
 ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663268"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
@@ -26,7 +26,7 @@ ms.locfileid: "77663268"
 > 
 > O relatório Azure AD fornece uma visão mais abrangente dos registos da atividade da AD Azure no seu ambiente, incluindo assinar em eventos, eventos de auditoria e alterações no seu diretório. Para ligar os registos da AD Azure, pode utilizar o [conector Azure Sentinel Azure AD](../../sentinel/connect-azure-active-directory.md) ou configurar a integração de [registos da AD Azure com](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)o Monitor Azure . 
 >
-> A recolha de registo azure está sujeita aos preços do Monitor Azure.  Consulte [os preços do Monitor Azure](https://azure.microsoft.com/pricing/details/monitor/) para obter mais informações.
+> A recolha de registo sacana azure está sujeita aos preços do Monitor Azure.  Consulte [os preços do Monitor Azure](https://azure.microsoft.com/pricing/details/monitor/) para obter mais informações.
 >
 > Para utilizar a solução Azure Sentinel Office 365:
 > 1. A utilização do conector Office 365 em Azure Sentinel afeta os preços do seu espaço de trabalho. Para mais informações, consulte [os preços do Azure Sentinel.](https://azure.microsoft.com/pricing/details/azure-sentinel/)
@@ -95,7 +95,7 @@ ms.locfileid: "77663268"
 >
 > - [Detetar ameaças fora da caixa](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [Criar regras analíticas personalizadas para detetar ameaças suspeitas](../../sentinel/tutorial-detect-threats-custom.md)
-> - [Monitorize os seus dados](../../sentinel/tutorial-monitor-your-data.md)
+> - [Monitorizar os seus dados](../../sentinel/tutorial-monitor-your-data.md)
 > - [Investigar incidentes com O Sentinela](../../sentinel/tutorial-investigate-cases.md)
 > - [Criar respostas de ameaça automatizadas no Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Comunidade Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
@@ -236,7 +236,7 @@ Pode levar algumas horas para que os dados sejam inicialmente recolhidos. Assim 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 Quando adicionar a solução Office 365 ao seu espaço de trabalho Log Analytics, o azulejo **do Office 365** será adicionado ao seu painel de instrumentos. Este mosaico apresenta uma contagem e uma representação gráfica do número de computadores no seu ambiente e a respetiva conformidade de atualização.<br><br>
-![Office 365 Resumo azulejo](media/solution-office-365/tile.png)  
+![Escritório 365 Azulejo sumário](media/solution-office-365/tile.png)  
 
 Clique no **azulejo do Office 365** para abrir o painel de instrumentos do Office **365.**
 
@@ -258,22 +258,22 @@ O dashboard inclui as colunas da tabela seguinte. Cada coluna enumera os dez pri
 
 Todos os registos criados no espaço de trabalho Log Analytics no Monitor Azure pela solução Office 365 têm um **Tipo** de Atividade de **Escritório**.  A propriedade **OfficeWorkload** determina a que serviço office 365 o registo se refere - Exchange, AzureActiveDirectory, SharePoint ou OneDrive.  A propriedade **RecordType** especifica o tipo de funcionamento.  As propriedades variam para cada tipo de operação e são mostradas nas tabelas abaixo.
 
-### <a name="common-properties"></a>Propriedades comuns
+### <a name="common-properties"></a>Common properties (Propriedades comuns)
 
 As seguintes propriedades são comuns a todos os registos do Office 365.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | Tipo | *Atividade do Escritório* |
-| ClientIP | O endereço IP do dispositivo que foi utilizado quando a atividade foi registada. O endereço IP é apresentado em formato de endereço IPv4 ou IPv6. |
+| ClientIP | O endereço IP do dispositivo que foi utilizado quando a atividade foi registada. O endereço IP é apresentado no formato de endereço IPv4 ou IPv6. |
 | OfficeWorkload | Serviço de escritório 365 a que o registo se refere.<br><br>AzureActiveDirectory<br>Troca<br>SharePoint|
-| Operação | O nome do utilizador ou da atividade administrativa.  |
-| OrganizaçãoId | O GUID para o escritório 365 inquilino da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorra. |
-| Tipo de gravação | Tipo de operação realizada. |
-| ResultStatus | Indica se a ação (especificada na propriedade operação) foi ou não bem sucedida. Os valores possíveis são bem sucedidos, parcialmente bem sucedidos ou falhados. Para a atividade de administrador a Exchange, o valor é verdadeiro ou falso. |
-| UserId | A UPN (Nome Principal do Utilizador) do utilizador que realizou a ação que resultou no registo foi registada; por exemplo, my_name@my_domain_name. Note que também estão incluídos registos de atividade realizadas por contas do sistema (como o sistema SHAREPOINT\ou NTAUTHORITY\SYSTEM). | 
+| Operação | O nome da atividade do utilizador ou administrador.  |
+| OrganizationId | O GUID para o escritório 365 inquilino da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorra. |
+| RecordType | Tipo de operação realizada. |
+| ResultStatus | Indica se a ação (especificada na propriedade Operação) foi concluída com êxito ou não. Os valores possíveis são bem sucedidos, parcialmente bem sucedidos ou falhados. Para a atividade de administrador a Exchange, o valor é verdadeiro ou falso. |
+| IDUtilizador | A UPN (Nome Principal do Utilizador) do utilizador que realizou a ação que resultou no registo foi registada; por exemplo, my_name@my_domain_name. Note que também estão incluídos registos de atividade realizadas por contas do sistema (como o sistema SHAREPOINT\ou NTAUTHORITY\SYSTEM). | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade UserId.  Por exemplo, esta propriedade é povoada com o id exclusivo do passaporte (PUID) para eventos realizados pelos utilizadores em SharePoint, OneDrive for Business e Exchange. Esta propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos ocorridos em outros serviços e eventos realizados por contas do sistema|
-| Tipo de utilizador | O tipo de utilizador que realizou a operação.<br><br>Admin<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServiçoPrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executou a operação.<br><br>Administrador<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Diretório Ativo Azure
@@ -283,7 +283,7 @@ As seguintes propriedades são comuns a todos os registos do Diretório Ativo Az
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
-| Tipo de gravação     | AzureActiveDirectory |
+| RecordType     | AzureActiveDirectory |
 | AzureActiveDirectory_EventType | O tipo de evento Azure AD. |
 | Propriedades Estendidas | As propriedades estendidas do evento Azure AD. |
 
@@ -309,15 +309,15 @@ Estes registos são criados quando são feitas alterações ou adições em obje
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
-| Tipo de gravação     | AzureActiveDirectory |
+| RecordType     | AzureActiveDirectory |
 | Alvo AAD | O utilizador em que a ação (identificada pela operação imóvel) foi realizada. |
 | Ator | O utilizador ou diretor de serviço que realizou a ação. |
-| ActorContextId | O GUID da organização a que o ator pertence. |
+| ActorContextid | O GUID da organização a que o ator pertence. |
 | ActorIpAddress | O endereço IP do ator no formato de endereço IPV4 ou IPV6. |
 | InterSystemsId | O GUID que acompanha as ações através de componentes dentro do serviço Office 365. |
-| IntraSystemId |   O GUID que é gerado pelo Azure Ative Directory para acompanhar a ação. |
-| SupportTicketId | O bilhete de apoio ao cliente ID para a ação em situações de "act-on-be-of". |
-| TargetContextId | O GUID da organização a que pertence o utilizador visado. |
+| Intrasistemaid |   O GUID que é gerado pelo Azure Ative Directory para acompanhar a ação. |
+| SupportTicketid | O bilhete de apoio ao cliente ID para a ação em situações de "act-on-be-of". |
+| TargetContextid | O GUID da organização a que pertence o utilizador visado. |
 
 
 ### <a name="data-center-security"></a>Segurança do Data Center
@@ -329,8 +329,8 @@ Estes registos são criados a partir de dados de auditoria de segurança do Data
 | Organização Eficaz | O nome do inquilino a que a elevação/cmdlet foi alvo. |
 | ElevaçãoTempo Aprovado | A marca de tempo para quando a elevação foi aprovada. |
 | Aprovador de Elevação | O nome de um gerente da Microsoft. |
-| ElevationDuration | A duração pela qual a elevação estava ativa. |
-| ElevationRequestId |  Um identificador único para o pedido de elevação. |
+| Duração de elevação | A duração pela qual a elevação estava ativa. |
+| Elevação Requestdóide |  Um identificador único para o pedido de elevação. |
 | Papel de Elevação | O papel que a elevação foi solicitada. |
 | Tempo de Elevação | O início da elevação. |
 | Start_Time | A hora de início da execução do cmdlet. |
@@ -343,35 +343,35 @@ Estes registos são criados quando são feitas alterações à configuração de
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Troca |
-| Tipo de gravação     | ExchangeAdmin |
+| RecordType     | ExchangeAdmin |
 | ExternalAccess |  Especifica se o cmdlet foi gerido por um utilizador na sua organização, por pessoal do Centro de Dados da Microsoft ou por uma conta de serviço de datacenter, ou por um administrador delegado. O valor Falso indica que o cmdlet foi dirigido por alguém da sua organização. O valor True indica que o cmdlet foi gerido por pessoal do datacenter, uma conta de serviço de datacenter ou um administrador delegado. |
-| ModifiedObjectResolvedName |  Este é o nome amigável do utilizador do objeto que foi modificado pelo cmdlet. Isto só é registado se o cmdlet modificar o objeto. |
+| Nome modificado DoObjeto Resolvido |  Este é o nome amigável do utilizador do objeto que foi modificado pelo cmdlet. Isto só é registado se o cmdlet modificar o objeto. |
 | OrganizationName | O nome do inquilino. |
 | OriginandoServer | O nome do servidor a partir do qual o cmdlet foi executado. |
 | Parâmetros | O nome e valor para todos os parâmetros utilizados com o cmdlet identificado na propriedade Operações. |
 
 
-### <a name="exchange-mailbox"></a>Caixa de Correio do Exchange
+### <a name="exchange-mailbox"></a>Caixa de correio de troca
 
 Estes registos são criados quando são feitas alterações ou adições para trocar caixas de correio.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Troca |
-| Tipo de gravação     | ExchangeItem |
+| RecordType     | ExchangeItem |
 | ClientInfoString | Informações sobre o cliente de e-mail que foi usado para realizar a operação, como uma versão de navegador, versão Outlook e informações de dispositivos móveis. |
-| Client_IPAddress | O endereço IP do dispositivo que foi utilizado quando a operação foi registada. O endereço IP é apresentado em formato de endereço IPv4 ou IPv6. |
-| ClientMachineName | O nome da máquina que acolhe o cliente do Outlook. |
-| ClientProcessName | O cliente de e-mail que foi usado para aceder à caixa de correio. |
-| ClientVersion | A versão do cliente de e-mail. |
-| InternalLogonType | Reservado para utilização interna. |
+| Client_IPAddress | O endereço IP do dispositivo que foi utilizado quando a operação foi registada. O endereço IP é apresentado no formato de endereço IPv4 ou IPv6. |
+| Nome da Máquina cliente | O nome da máquina que acolhe o cliente do Outlook. |
+| Nome do Processo do Cliente | O cliente de e-mail que foi usado para aceder à caixa de correio. |
+| Versão do Cliente | A versão do cliente de e-mail. |
+| InternalLogonType | Reservado para uso interno. |
 | Logon_Type | Indica o tipo de utilizador que acedeu à caixa de correio e realizou a operação que foi registada. |
 | LogonUserDisplayName |    O nome fácil de utilizar do utilizador que realizou a operação. |
 | LogonUserSid | O SID do utilizador que realizou a operação. |
 | Caixa de correioGuid | O Guia de Intercâmbio da caixa de correio a que foi acedido. |
-| MailboxOwnerMasterAccountSid | Conta principal da conta do dono da caixa de correio SID. |
-| MailboxOwnerSid | O SID do dono da caixa de correio. |
-| MailboxOwnerUPN | O endereço de e-mail da pessoa proprietária da caixa de correio a que foi acedida. |
+| Caixa de correioOwnerMasterAccountSid | Conta principal da conta do dono da caixa de correio SID. |
+| Caixa de correioOwnerSid | O SID do dono da caixa de correio. |
+| Caixa de correioOwnerUPN | O endereço de e-mail da pessoa proprietária da caixa de correio a que foi acedida. |
 
 
 ### <a name="exchange-mailbox-audit"></a>Auditoria de Caixa de Correios de Troca
@@ -381,11 +381,11 @@ Estes registos são criados quando é criada uma entrada de auditoria de uma cai
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Troca |
-| Tipo de gravação     | ExchangeItem |
+| RecordType     | ExchangeItem |
 | Item | Representa o item sobre o qual a operação foi realizada | 
 | SendAsUserMailboxGuid | O Guia de Intercâmbio da caixa de correio que foi acedida para enviar e-mail como. |
 | SendAsUserSmtp | Endereço SMTP do utilizador que está a ser personificado. |
-| SendonBehalfOfUserMailboxGuid | O Guia de Intercâmbio da caixa de correio que foi acedida para enviar correio em nome de. |
+| SendonBehalfOfUserBoxGuid | O Guia de Intercâmbio da caixa de correio que foi acedida para enviar correio em nome de. |
 | SendOnBehalfOfUserSmtp | Endereço SMTP do utilizador em nome de quem o e-mail é enviado. |
 
 
@@ -396,9 +396,9 @@ Estes registos são criados quando são feitas alterações ou adições aos gru
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Troca |
-| OfficeWorkload | ExchangeItemGroup |
-| AffectedItems | Informação sobre cada item do grupo. |
-| CrossMailboxOperations | Indica se a operação envolveu mais de uma caixa de correio. |
+| OfficeWorkload | Grupo ExchangeItem |
+| Itens afetados | Informação sobre cada item do grupo. |
+| Operações CrossMailbox | Indica se a operação envolveu mais de uma caixa de correio. |
 | DestMailboxId | Definir apenas se o parâmetro CrossMailboxOperations for True. Especifica a caixa de correio-alvo GUID. |
 | DestMailboxOwnerMasterAccountSid | Definir apenas se o parâmetro CrossMailboxOperations for True. Especifica o SID para a conta principal SID do proprietário da caixa de correio alvo. |
 | DestMailboxOwnerSid | Definir apenas se o parâmetro CrossMailboxOperations for True. Especifica o SID da caixa de correio alvo. |
@@ -417,9 +417,9 @@ Estas propriedades são comuns a todos os registos do SharePoint.
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | EventSource | Identifica que um evento ocorreu no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
-| ItemType | O tipo de objeto que foi acedido ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
+| TipoItem | O tipo de objeto que foi acedido ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
 | MachineDomainInfo | Informações sobre operações de sincronização do dispositivo. Esta informação só é reportada se estiver presente no pedido. |
-| MachineId |   Informações sobre operações de sincronização do dispositivo. Esta informação só é reportada se estiver presente no pedido. |
+| Máquina de lavar |   Informações sobre operações de sincronização do dispositivo. Esta informação só é reportada se estiver presente no pedido. |
 | Site_ | O GUID do site onde está localizado o ficheiro ou pasta acedido pelo utilizador. |
 | Source_Name | A entidade que desencadeou a operação auditada. Os valores possíveis são SharePoint ou ObjectModel. |
 | UserAgent | Informações sobre o cliente ou navegador do utilizador. Esta informação é fornecida pelo cliente ou navegador. |
@@ -445,14 +445,14 @@ Estes registos são criados em resposta a operações de ficheiros no SharePoint
 | Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
-| OfficeWorkload | SharePointFileOperation |
-| DestinationFileExtension | A extensão do ficheiro de um ficheiro que é copiado ou movido. Esta propriedade é apresentada apenas para eventos FileCopied e FileMoved. |
-| DestinationFileName | O nome do ficheiro que é copiado ou movido. Esta propriedade é apresentada apenas para eventos FileCopied e FileMoved. |
+| OfficeWorkload | Operação SharePointFile |
+| Extensão do Ficheiro de Destino | A extensão do ficheiro de um ficheiro que é copiado ou movido. Esta propriedade é apresentada apenas para eventos FileCopied e FileMoved. |
+| Nome de DestinationFile | O nome do ficheiro que é copiado ou movido. Esta propriedade é apresentada apenas para eventos FileCopied e FileMoved. |
 | DestinationRelativeUrl | O URL da pasta de destino onde um ficheiro é copiado ou movido. A combinação dos valores para os parâmetros SiteURL, DestinationRelativeURL e DestinationFileName é o mesmo que o valor para a propriedade ObjectID, que é o nome completo do caminho para o ficheiro que foi copiado. Esta propriedade é apresentada apenas para eventos FileCopied e FileMoved. |
 | PartilharType | O tipo de permissões de partilha que foram atribuídas ao utilizador com que o recurso foi partilhado. Este utilizador é identificado pelo parâmetro UserSharedWith. |
 | Site_Url | O URL do site onde o ficheiro ou pasta acedido pelo utilizador está localizado. |
-| SourceFileExtension | A extensão do ficheiro que foi acedida pelo utilizador. Esta propriedade está em branco se o objeto que foi acedido é uma pasta. |
-| SourceFileName |  O nome do ficheiro ou pasta acedido pelo utilizador. |
+| Extensão do Ficheiro fonte | A extensão do ficheiro que foi acedida pelo utilizador. Esta propriedade está em branco se o objeto que foi acedido é uma pasta. |
+| Nome sourcefile |  O nome do ficheiro ou pasta acedido pelo utilizador. |
 | SourceRelativeUrl | O URL da pasta que contém o ficheiro acedido pelo utilizador. A combinação dos valores para os parâmetros SiteURL, SourceRelativeURL e SourceFileName é o mesmo que o valor para a propriedade ObjectID, que é o nome de caminho completo para o ficheiro acedido pelo utilizador. |
 | UserSharedWith |  O utilizador com o que um recurso foi partilhado. |
 
@@ -465,8 +465,8 @@ A tabela seguinte fornece consultas de registo de amostras para registos de atua
 
 | Consulta | Descrição |
 | --- | --- |
-|Contagem de todas as operações na subscrição do seu Office 365 |OfficeActivity &#124; resume contagem() por Operação |
-|Utilização de sites sharePoint|OfficeActivity &#124; onde officeWorkload =~ &#124; "sharepoint" resumir contagem() por SiteUrl \| classificar por Count asc|
+|Contagem de todas as operações na subscrição do seu Office 365 |OfficeActivity &#124; resumir contagem() por Operação |
+|Utilização de sites sharePoint|OfficeActivity &#124; onde officeWorkload =~ "sharepoint" &#124; resumir \| a contagem() por siteUrl tipo por Count asc|
 |Operações de acesso a ficheiros por tipo de utilizador | OfficeActivity &#124; resumir contagem() por UserType |
 |Monitorizar as ações externas no Exchange|OfficeActivity &#124; onde officeWorkload =~ "exchange" e ExternalAccess == verdadeiro|
 

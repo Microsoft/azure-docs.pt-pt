@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
 ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258658"
 ---
-# <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar e atualizar um cluster azure service fabric
+# <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar o cluster do Service Fabric do Azure
 
 Para qualquer sistema moderno, conceber para a graduação é fundamental para alcançar o sucesso a longo prazo do seu produto. Um cluster Azure Service Fabric é um recurso que possui, mas é parcialmente gerido pela Microsoft. Este artigo descreve o que é gerido automaticamente e o que pode configurar-se.
 

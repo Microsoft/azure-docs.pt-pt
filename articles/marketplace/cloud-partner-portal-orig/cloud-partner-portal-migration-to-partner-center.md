@@ -1,34 +1,33 @@
 ---
-title: Migração para o Partner Center | Azure Marketplace
-description: Migrando ofertas de Portal do Cloud Partner para o Partner Center.
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+title: Migração para Centro parceiro [ Centro de Migração ] Mercado Azure
+description: Ofertas de migração do Portal do Parceiro cloud para o Partner Center.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.author: v-chjen
-ms.openlocfilehash: cf1f7f7ebd7d0761f3bec0ab5a27e1d54fde256e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: dsindona
+ms.openlocfilehash: 8ef117425f945d14db535ea3ecedc50d18819868
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280172"
 ---
 # <a name="cloud-partner-portal-migration-to-partner-center"></a>Migração do Cloud Partner Portal para o Centro de Parceiros
 
-Para simplificar sua conta e oferecer experiência de gerenciamento, a Microsoft está migrando ofertas de Portal do Cloud Partner para o Partner Center. Se, no momento, você gerenciar o material de venda covendente no catálogo de um parceiro comercial (OCP GTM), você poderá atualizar seu material de venda de cooperação no Partner Center em breve.
+Para agilizar a sua conta e oferecer experiência de gestão, a Microsoft está a migrar ofertas do Cloud Partner Portal para o Partner Center. Se gere atualmente uma garantia de co-venda no catálogo One Commercial Partner Go-to-Market (OCP GTM), poderá atualizar em breve a sua co-venda de garantias no Partner Center.
 
-| **Tipo de oferta** | **Gerenciamento de oferta migrado do Portal do Cloud Partner para o Partner Center** | **Capacidade de atualizar o material de venda de cooperação no Partner Center** |
+| **Tipo de Oferta** | **Gestão de ofertas migrada do Cloud Partner Portal para partner Center** | **Capacidade de atualizar co-venda de garantias no Partner Center** |
 |    -----------------------    |    -----------------------------  |  -----------------------------  |
-| SaaS (software como serviço) |     Já disponível       |   Disponibilidade geral em cerca de fev. 2020      |
-| Dynamics 365 para compromisso com o cliente & PowerApps      |     Já disponível        |   Já disponível      |
+| Software como Serviço (SaaS) |     Já disponível       |   Disponibilidade geral em torno de fev. 2020      |
+| Dinâmica 365 para envolvimento com clientes & PowerApps      |     Já disponível        |   Já disponível      |
 | Dynamics 365 for Operations     |     Já disponível       |   Já disponível     |
-| Dynamics 365 Business Central      |     Já disponível        |   Disponibilidade geral em cerca de fev. 2020     |
-| Aplicação do Azure     |     Disponibilidade geral Dec. 2019       |   Disponibilidade geral em cerca de fev. 2020     |
-| Máquina Virtual do Azure      |     A anunciar       |   A anunciar    |
-| Contêiner do Azure     |     A anunciar       |   A anunciar     |
-| Serviço de Consultoria      |     A anunciar       |   A anunciar     |
-| Módulo IoT Edge      |     A anunciar       |   A anunciar     |
-| Power BI aplicativo de serviço     |     A anunciar       |   A anunciar     |
+| Dynamics 365 Business Central      |     Já disponível        |   Disponibilidade geral em torno de fev. 2020     |
+| Aplicação do Azure     |     Disponibilidade geral dez 2019       |   Disponibilidade geral em torno de fev. 2020     |
+| Máquina Virtual do Azure      |     A ser anunciado       |   A ser anunciado    |
+| Contentor Azure     |     A ser anunciado       |   A ser anunciado     |
+| Serviço de Consultoria      |     A ser anunciado       |   A ser anunciado     |
+| Módulo IoT Edge      |     A ser anunciado       |   A ser anunciado     |
+| App de serviço power BI     |     A ser anunciado       |   A ser anunciado     |
 |  |  |
