@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759317"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte AMQP 1.0 em Ônibus de serviço
@@ -71,7 +71,7 @@ A figura que se segue ilustra uma implementação de exemplo em que os clientes 
 
 Neste momento, as seguintes bibliotecas de clientes são conhecidas por trabalhar com a Service Bus:
 
-| Linguagem | Biblioteca |
+| Idioma | Biblioteca |
 | --- | --- |
 | Java |Cliente apache Qpid Java Message Service (JMS)<br/>IIT Software SwiftMQ Java cliente |
 | C |Apache Qpid Proton-C |
@@ -86,7 +86,7 @@ Neste momento, as seguintes bibliotecas de clientes são conhecidas por trabalha
 * O suporte AMQP 1.0 já está disponível no Azure Service Bus, bem como no Ônibus de Serviço para O Servidor windows (Ônibus de Serviço 1.1). Os preços são os mesmos que para os protocolos existentes.
 
 ## <a name="next-steps"></a>Passos seguintes
-Pronto para aprender mais? Visite os seguintes links:
+Está pronto para saber mais? Visite os seguintes links:
 
 * [Utilização do ônibus de serviço de .NET com AMQP]
 * [Utilização de ônibus de serviço de Java com AMQP]

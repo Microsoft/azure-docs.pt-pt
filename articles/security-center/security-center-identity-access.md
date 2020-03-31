@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2020
+ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 183b81134b2fe72a539cc6460a05d828342aafbb
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 152168bbadd5815659bc5f70c91bd2a28f5e049d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086471"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481964"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
 
@@ -29,14 +29,16 @@ Quando o Security Center identifica potenciais vulnerabilidades de segurança, c
 
 O perímetro de segurança evoluiu de um perímetro de rede para um perímetro de identidade. A segurança torna-se menos sobre defender a sua rede e mais sobre a defesa dos seus dados, bem como sobre a gestão da segurança das suas apps e utilizadores. Hoje em dia, com mais dados e mais aplicações a mudarem para a cloud, a identidade torna-se no novo perímetro.
 
-Através da monitorização das atividades de identidade, poderá levar a cabo ações proativas antes da ocorrência de um incidente ou ações reativas para parar uma tentativa de ataque. Exemplos de recomendações que pode ver na secção de segurança de **recursos de identidade e acesso** do Centro de Segurança Azure incluem:
+Ao monitorizar as atividades identitárias, pode tomar ações proactivas antes de ocorrer um incidente, ou ações reativas para parar uma tentativa de ataque. Por exemplo, o Security Center pode sinalizar contas depreciadas (contas que já não são necessárias, e bloqueadas de assinar pelo Azure Ative Directory) para remoção. 
+
+Exemplos de recomendações que pode ver na secção de segurança de **recursos de identidade e acesso** do Centro de Segurança Azure incluem:
 
 - MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - Um máximo de 3 proprietários deve ser designado para a sua subscrição
-- As contas depreciadas devem ser removidas da sua subscrição
 - As contas externas com permissões de leitura devem ser removidas da sua subscrição
+- As contas depreciadas devem ser removidas da sua subscrição
 
-Para obter uma lista completa das recomendações que pode ver aqui, consulte [recomendações](recommendations-reference.md#recs-identity)de Identidade e Acesso .
+Para mais informações sobre estas recomendações, bem como uma lista completa das recomendações que pode ver aqui, consulte recomendações de [Identidade e Acesso.](recommendations-reference.md#recs-identity)
 
 > [!NOTE]
 > Se a sua subscrição tiver mais de 600 contas, o Security Center não poderá executar as recomendações de Identidade contra a sua subscrição. As recomendações que não são executadas estão listadas em "avaliações indisponíveis" abaixo.
@@ -56,7 +58,7 @@ Todas as recomendações de identidade e acesso estão disponíveis em dois cont
 
 Ativar o MFA requer [permissões de inquilinos do Azure Ative Directory (AD).](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
-- Se tiver uma edição premium de AD, ative o MFA utilizando [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- Se tiver uma edição premium de AD, ative o MFA utilizando [acesso condicional.](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - Os utilizadores da edição gratuita de AD podem ativar falhas de **segurança** no Diretório Ativo do Azure, conforme descrito na [documentação ad,](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) mas a recomendação do Security Center para ativar o MFA continuará a aparecer.
 

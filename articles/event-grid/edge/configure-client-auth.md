@@ -1,5 +1,5 @@
 ---
-title: Configure a autenticação do cliente das chamadas recebidas - Azure Event Grid IoT Edge  Microsoft Docs
+title: Configure a autenticação do cliente das chamadas recebidas - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Configure os protocolos DaPI expostos pela Grelha de Eventos na Borda IoT.
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3363db4557dd19e8d72747ccd62bb535abb7b1e2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841796"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>Configurar a autenticação do cliente das chamadas recebidas
@@ -21,7 +21,7 @@ ms.locfileid: "76841796"
 Este guia dá exemplos das possíveis configurações de autenticação do cliente para o módulo De Rede de Eventos. O módulo Event Grid suporta dois tipos de autenticação do cliente:
 
 * Assinatura de acesso partilhado (SAS) baseada na chave
-* com base em certificados
+* Com base em certificados
 
 Consulte o guia [de segurança e autenticação](security-authentication.md) para todas as configurações possíveis.
 

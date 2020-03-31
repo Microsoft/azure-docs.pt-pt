@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: kasing
 ms.openlocfilehash: c9659c38e349bd62f22ed0d0839d97651b1b3b66
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944821"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Como configurar o Cofre chave para máquinas virtuais com o AZURE CLI
@@ -22,21 +22,21 @@ Na pilha de Gestor de Recursos Azure, os segredos/certificados são modelados co
 Para realizar estes passos, necessita do mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e registado numa conta Azure utilizando [login az](/cli/azure/reference-index).
 
 ## <a name="create-a-key-vault"></a>Criar um Key Vault
-Crie um cofre chave e atribua a política de implantação com [a criação de keyvault az](/cli/azure/keyvault). O exemplo seguinte cria um cofre-chave chamado `myKeyVault` no grupo de recursos `myResourceGroup`:
+Crie um cofre chave e atribua a política de implantação com [a criação de keyvault az](/cli/azure/keyvault). O exemplo seguinte cria `myKeyVault` um `myResourceGroup` cofre chave nomeado no grupo de recursos:
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>Atualizar um cofre de chaves para uso com VMs
-Desestabeleça a política de implementação num cofre de chaves existente com [atualização do cofre az](/cli/azure/keyvault). As seguintes atualizações do cofre-chave chamado `myKeyVault` no grupo de recursos `myResourceGroup`:
+Desestabeleça a política de implementação num cofre de chaves existente com [atualização do cofre az](/cli/azure/keyvault). As seguintes atualizações `myKeyVault` do `myResourceGroup` cofre-chave nomeado no grupo de recursos:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
 ```
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Use modelos para configurar o cofre chave
-Quando você usa um modelo, você precisa definir a propriedade `enabledForDeployment` para `true` para o recurso Key Vault da seguinte forma:
+Quando você usa um modelo, `enabledForDeployment` você `true` precisa definir a propriedade para o recurso Key Vault da seguinte forma:
 
 ```json
 {
@@ -52,5 +52,5 @@ Quando você usa um modelo, você precisa definir a propriedade `enabledForDeplo
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para outras opções que pode configurar quando criar um Cofre chave utilizando modelos, consulte [Criar um cofre chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).

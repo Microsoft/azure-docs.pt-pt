@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191518"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Criar um único endereço IP para um ou mais ambientes de serviço de integração em Aplicações Lógicas Azure
@@ -21,7 +21,7 @@ Este tópico mostra como direcionar o tráfego de saída através de uma Firewal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma firewall Azure que funciona na mesma rede virtual que o seu ISE. Se não tiver uma firewall, adicione primeiro [uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) que tenha o nome de `AzureFirewallSubnet` à sua rede virtual. Em seguida, pode [criar e implantar uma firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) na sua rede virtual.
+* Uma firewall Azure que funciona na mesma rede virtual que o seu ISE. Se não tiver uma firewall, adicione primeiro [uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) que tenha o nome `AzureFirewallSubnet` da sua rede virtual. Em seguida, pode [criar e implantar uma firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) na sua rede virtual.
 
 * Uma mesa de [rota](../virtual-network/manage-route-table.md)Azure. Se não tiver uma, primeiro [crie uma mesa](../virtual-network/manage-route-table.md#create-a-route-table)de rota. Para obter mais informações sobre o encaminhamento, consulte o [encaminhamento](../virtual-network/virtual-networks-udr-overview.md)de tráfego da rede virtual .
 
@@ -51,21 +51,21 @@ Este tópico mostra como direcionar o tráfego de saída através de uma Firewal
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome da rota** | < *> de nome único de rota* | Um nome único para a rota na tabela de rotas |
-   | **Prefixo de endereço** | <> *de destino* | O endereço do sistema de destino para onde quer que o tráfego vá. Certifique-se de que utiliza a notação de [encaminhamento inter-domínio sem classe (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para este endereço. |
+   | **Nome da rota** | <*nome único de rota*> | Um nome único para a rota na tabela de rotas |
+   | **Prefixo de endereço** | <*destino-endereço*> | O endereço do sistema de destino para onde quer que o tráfego vá. Certifique-se de que utiliza a notação de [encaminhamento inter-domínio sem classe (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para este endereço. |
    | **Tipo de salto seguinte** | **Aparelho virtual** | O [tipo de lúpulo](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) que é usado pelo tráfego de saída |
-   | **Próximo endereço de lúpulo** | <> de *endereços ip privados de firewall* | O endereço IP privado para a sua firewall |
+   | **Endereço do próximo salto** | <*firewall-private-IP-address*> | O endereço IP privado para a sua firewall |
    |||
 
 ## <a name="set-up-network-rule"></a>Configurar a regra da rede
 
-1. No portal Azure, encontre e selecione a sua firewall. No menu firewall, em **Definições,** selecione **Regras**. No painel de regras, selecione **a recolha** de regras da rede > Adicionar a recolha de regras de **rede**.
+1. No portal Azure, encontre e selecione a sua firewall. No menu firewall, em **Definições,** selecione **Regras**. No painel de regras, selecione **Coleção** > de regras de rede**Adicionar coleção de regras**de rede .
 
    ![Adicione a recolha de regras de rede à firewall](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-network-rule-collection.png)
 
 1. Na coleção, adicione uma regra que permite o tráfego para o sistema de destino.
 
-   Por exemplo, suponha que você tem uma aplicação lógica que funciona num ISE e precisa comunicar com um sistema SFTP. Cria-se uma coleção de regras de rede que se chama `LogicApp_ISE_SFTP_Outbound`, que contém uma regra de rede chamada `ISE_SFTP_Outbound`. Esta regra permite o tráfego a partir do endereço IP de qualquer subnet onde o seu ISE corre na sua rede virtual para o sistema SFTP de destino utilizando o endereço IP privado da sua firewall.
+   Por exemplo, suponha que você tem uma aplicação lógica que funciona num ISE e precisa comunicar com um sistema SFTP. Cria-se uma coleção de `LogicApp_ISE_SFTP_Outbound`regras de rede `ISE_SFTP_Outbound`que se chama , que contém uma regra de rede chamada . Esta regra permite o tráfego a partir do endereço IP de qualquer subnet onde o seu ISE corre na sua rede virtual para o sistema SFTP de destino utilizando o endereço IP privado da sua firewall.
 
    ![Configurar a regra da rede para firewall](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 
@@ -73,8 +73,8 @@ Este tópico mostra como direcionar o tráfego de saída através de uma Firewal
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | <> *de recolha de regras de rede* | O nome da sua coleção de regras de rede |
-   | **Prioridade** | <> *de nível prioritário* | A ordem de prioridade a utilizar para executar a coleção de regras. Para mais informações, veja [quais são alguns conceitos de Firewall Azure?](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts) |
+   | **Nome** | <*código de recolha de regras de rede*> | O nome da sua coleção de regras de rede |
+   | **Prioridade** | <*nível de prioridade*> | A ordem de prioridade a utilizar para executar a coleção de regras. Para mais informações, veja [quais são alguns conceitos de Firewall Azure?](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts) |
    | **Ação** | **Permitir** | O tipo de ação a executar para esta regra |
    |||
 
@@ -82,17 +82,17 @@ Este tópico mostra como direcionar o tráfego de saída através de uma Firewal
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | < *> de nome da rede* | O nome da sua regra de rede |
+   | **Nome** | <*nome da regra da rede*> | O nome da sua regra de rede |
    | **Protocolo** | <*protocolos de ligação*> | Os protocolos de ligação a utilizar. Por exemplo, se estiver a usar as regras do NSG, selecione **tCP** e **UDP**, não só **TCP**. |
-   | **Endereços de origem** | <*endereços de sub-rede ISE*> | Os endereços IP da sub-rede onde o seu ISE corre e onde o tráfego da sua aplicação lógica é originário |
-   | **Endereços de destino** | <> *de endereço de destino-IP* | O endereço IP para o seu sistema de destino onde pretende que o tráfego vá |
-   | **Portos de destino** | < *> de destino-portos* | Quaisquer portas que o seu sistema de destino utilize para comunicação de entrada |
+   | **Endereços de origem** | <*Endereços ise-sub-net*> | Os endereços IP da sub-rede onde o seu ISE corre e onde o tráfego da sua aplicação lógica é originário |
+   | **Endereços de destino** | <*destino-endereço IP*> | O endereço IP para o seu sistema de destino onde pretende que o tráfego vá |
+   | **Portos de destino** | <*destino-portos*> | Quaisquer portas que o seu sistema de destino utilize para comunicação de entrada |
    |||
 
    Para obter mais informações sobre as regras da rede, consulte estes artigos:
 
    * [Configurar uma regra de rede](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
-   * [Lógica de processamento de regras da Firewall Azure](../firewall/rule-processing.md#network-rules-and-applications-rules)
+   * [Lógica de processamento de regras do Azure Firewall](../firewall/rule-processing.md#network-rules-and-applications-rules)
    * [Azure Firewall FAQ](../firewall/firewall-faq.md)
    * [Azure PowerShell: New-AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule)
    * [Azure CLI: az network firewall network-rule](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)

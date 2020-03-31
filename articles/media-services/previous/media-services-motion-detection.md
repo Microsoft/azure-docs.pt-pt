@@ -15,10 +15,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77913009"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detete movimentos com Azure Media Analytics
@@ -47,10 +47,10 @@ Pode utilizar os seguintes parâmetros:
 
 | Nome | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
-| sensibilidadeN |String: 'low', 'medium', 'high' |Define o nível de sensibilidade a que os movimentos são relatados. Ajuste isto para ajustar o número de falsos positivos. |'médio' |
-| frameSamplingValue |Inteiro positivo |Define a frequência em que o algoritmo corre. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |
-| detectLightChange |Boolean: 'true', 'false' |Define se as alterações de luz são reportadas nos resultados |'Falso' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre eventos de movimento onde 2 eventos são combinados e reportados como 1. |00:00:00 |
+| sensibilidadeN |String:'low', 'medium', 'alto' |Define o nível de sensibilidade a que os movimentos são relatados. Ajuste isto para ajustar o número de falsos positivos. |'médio' |
+| quadroSamplingValue |Inteiro positivo |Define a frequência em que o algoritmo corre. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |
+| detectarLightChange |Boolean:'true', 'falso' |Define se as alterações de luz são reportadas nos resultados |'Falso' |
+| fusãoTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre eventos de movimento onde 2 eventos são combinados e reportados como 1. |00:00:00 |
 | zonas de deteção |Uma variedade de zonas de deteção:<br/>- Zona de Deteção é uma variedade de 3 ou mais pontos<br/>- O ponto é uma coordenada x e y de 0 a 1. |Descreve a lista de zonas de deteção poligonal a utilizar.<br/>Os resultados são reportados com as zonas como identificação, sendo que o primeiro é 'id':0 |Zona única, que cobre toda a moldura. |
 
 ### <a name="json-example"></a>Exemplo jSON
@@ -90,7 +90,7 @@ Um trabalho de deteção de movimentos devolve um ficheiro JSON no ativo de saí
 
 A API do Detetor de Movimento fornece indicadores uma vez que há objetos em movimento num vídeo de fundo fixo (por exemplo, um vídeo de vigilância). O Detetor de Movimento é treinado para reduzir falsos alarmes, tais como iluminação e mudanças de sombra. As limitações atuais dos algoritmos incluem vídeos de visão noturna, objetos semi-transparentes e pequenos objetos.
 
-### <a id="output_elements"></a>Elementos do ficheiro JSON de saída
+### <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do ficheiro JSON de saída
 > [!NOTE]
 > No último lançamento, o formato Output JSON mudou e pode representar uma mudança de rutura para alguns clientes.
 > 
@@ -100,9 +100,9 @@ A tabela seguinte descreve elementos do ficheiro JSON de saída.
 
 | Elemento | Descrição |
 | --- | --- |
-| version |Isto refere-se à versão da API de vídeo. A versão atual é 2. |
-| timescale |"Carrapatos" por segundo do vídeo. |
-| compensado |O tempo compensado por carimbos de tempo em "tiques". Na versão 1.0 das APIs de Vídeo, este será sempre 0. Em cenários futuros que apoiamos, este valor pode mudar. |
+| versão |Isto refere-se à versão da API de vídeo. A versão atual é 2. |
+| escala de tempo |"Carrapatos" por segundo do vídeo. |
+| offset |O tempo compensado por carimbos de tempo em "tiques". Na versão 1.0 das APIs de Vídeo, este será sempre 0. Em cenários futuros que apoiamos, este valor pode mudar. |
 | framerate |Fotogramas por segundo do vídeo. |
 | largura, altura |Refere-se à largura e altura do vídeo em pixels. |
 | start |A marca de início em "tiques". |
@@ -110,11 +110,11 @@ A tabela seguinte descreve elementos do ficheiro JSON de saída.
 | intervalo |O intervalo de cada entrada no evento, em "tiques". |
 | eventos |Cada fragmento de evento contém o movimento detetado dentro desse período de tempo. |
 | tipo |Na versão atual, este é sempre '2' para movimento genérico. Esta etiqueta dá aos APIs de vídeo a flexibilidade para categorizar o movimento em futuras versões. |
-| regionId |Como explicado acima, este será sempre 0 nesta versão. Esta etiqueta confere à Video API a flexibilidade para encontrar movimento em várias regiões em futuras versões. |
+| regiãoId |Como explicado acima, este será sempre 0 nesta versão. Esta etiqueta confere à Video API a flexibilidade para encontrar movimento em várias regiões em futuras versões. |
 | regiões |Refere-se à área no seu vídeo onde se preocupa com o movimento. <br/><br/>-"id" representa a região – nesta versão há apenas um, ID 0. <br/>-"tipo" representa a forma da região com que se preocupa com o movimento. Atualmente, são apoiados "retângulo" e "polígono".<br/> Se especificou "retângulo", a região tem dimensões em X, Y, Largura e Altura. As coordenadas X e Y representam as coordenadas XY superiores à esquerda da região numa escala normalizada de 0,0 a 1.0. A largura e a altura representam o tamanho da região numa escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, Largura e Altura são sempre fixados a 0, 0 e 1, 1. <br/>Se especificou "polígono", a região tem dimensões em pontos. <br/> |
 | fragmentos |Os metadados são divididos em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s). Um fragmento sem eventos significa que não foi detetado nenhum movimento durante a hora e duração do início. |
 | parênteses [] |Cada suporte representa um intervalo no caso. Os suportes vazios para esse intervalo significam que não foi detetado nenhum movimento. |
-| locations |Esta nova entrada em eventos lista o local onde ocorreu a moção. Isto é mais específico do que as zonas de deteção. |
+| locais |Esta nova entrada em eventos lista o local onde ocorreu a moção. Isto é mais específico do que as zonas de deteção. |
 
 O exemplo json seguinte mostra a saída:
 

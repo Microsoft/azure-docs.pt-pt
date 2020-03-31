@@ -63,6 +63,8 @@
           href: concepts-data-access-security-private-link.md
         - name: Proteção Avançada Contra Ameaças
           href: concepts-data-access-and-security-threat-protection.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Continuidade do negócio
       items:
         - name: Introdução à continuidade de negócio
@@ -138,6 +140,10 @@
           href: howto-auto-grow-storage-portal.md
         - name: CLI do Azure
           href: howto-auto-grow-storage-cli.md
+    - name: Negar o Acesso à Rede Pública
+      items:
+        - name: Portal do Azure
+          href: howto-deny-public-network-access.md
     - name: Aceder a registos do servidor
       items:
         - name: Registos de consulta lenta

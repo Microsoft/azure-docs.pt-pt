@@ -1,88 +1,96 @@
 ---
-title: 'Início rápido: nova atribuição de política com modelos'
-description: Neste guia de início rápido, você usa um modelo do Resource Manager para criar uma atribuição de política para identificar recursos sem conformidade.
-ms.date: 11/25/2019
+title: 'Quickstart: Nova atribuição de políticas com modelos'
+description: Neste arranque rápido, você usa um modelo de Gestor de Recursos para criar uma atribuição de política para identificar recursos não conformes.
+ms.date: 03/16/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8b9b0024e5c15c78c6777b8657839791484d66b5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: subject-armqs
+ms.openlocfilehash: 9f9998c407c39d11615a5997549a363a276b9e10
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980512"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471409"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes utilizando um modelo de Gestor de Recursos
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
-Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
+Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos. No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em _não conformidade_ com a atribuição de política.
 
-No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em _não conformidade_ com a atribuição de política.
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, você cria uma atribuição de política e atribui uma definição de política interna chamada _VMs de auditoria que não usam discos gerenciados_. Para obter uma lista parcial de políticas internas disponíveis, consulte [exemplos de Azure Policy](./samples/index.md).
+Neste arranque rápido, cria-se uma atribuição de políticas e atribui-se uma definição de política incorporada chamada _VMs_de auditoria que não utilizam discos geridos . Para obter uma lista parcial das políticas disponíveis em butinsas, consulte [as amostras da Política Azure.](./samples/index.md)
 
-Há vários métodos para criar atribuições de política. Neste guia de início rápido, você usa um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
-Aqui está uma cópia do modelo:
+### <a name="review-the-template"></a>Reveja o modelo
 
-[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+
+O recurso definido no modelo é:
+
+- [Microsoft.Autorizações/políticas](/azure/templates/microsoft.authorization/policyassignments)
+
+### <a name="deploy-the-template"></a>Implementar o modelo
 
 > [!NOTE]
-> Azure Policy serviço é gratuito. Para obter mais informações, consulte [visão geral do Azure Policy](./overview.md).
+> O serviço De Política Azure é gratuito. Para mais informações, consulte [a visão geral da Política do Azure.](./overview.md)
 
-1. Selecione a imagem a seguir para entrar no portal do Azure e abrir o modelo:
+1. Selecione a seguinte imagem para iniciar sessão no portal Azure e abra o modelo:
 
-   [![implantar o modelo de política no Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![Implementar o modelo de política para Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
-1. Selecione ou insira os seguintes valores:
+1. Selecione ou introduza os seguintes valores:
 
    | Nome | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
-   | Grupo de recursos | Selecione **criar novo**, especifique um nome e, em seguida, selecione **OK**. Na captura de tela, o nome do grupo de recursos é _mypolicyquickstart\<data em MMDD\>RG_. |
-   | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
-   | Nome da atribuição de política | Especifique um nome de atribuição de política. Você pode usar a exibição definição de política se desejar. Por exemplo, **audite VMs que não usam discos gerenciados**. |
-   | Nome RG | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste guia de início rápido, use o valor padrão **[resourcegroup (). Name]** . **[resourcegroup ()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
-   | ID de definição de política | Especifique **/Providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4C19-B460-a2d36003525a**. |
-   | Eu concordo com os termos e condições declarados acima | Não |
+   | Grupo de recursos | Selecione **Criar novo,** especificar um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart\<Date in\>MMDD rg_. |
+   | Localização | selecione uma região. Por exemplo, **Centro dos EUA.** |
+   | Nome de atribuição de políticas | Especifique um nome de atribuição de apólices. Pode utilizar o visor de definição de política, se quiser. Por exemplo, **VMs de auditoria que não utilizam discos geridos**. |
+   | Nome Rg | Especifique um nome de grupo de recursos para onde pretende atribuir a apólice. Neste arranque rápido, utilize o valor predefinido [nome do Grupo de **recursos].** **[recursosGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
+   | ID de Definição de Política | Especificar **/fornecedores/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
+   | Concordo com os termos e condições acima referidos | (Selecione) |
 
 1. Selecione **Comprar**.
 
 Alguns recursos adicionais:
 
-- Para encontrar mais modelos de exemplos, consulte [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
-- Para ver a referência de modelo, vá para [referência de modelo do Azure](/azure/templates/microsoft.authorization/allversions).
-- Para saber como desenvolver modelos do Resource Manager, consulte a [documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Para aprender a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](../../azure-resource-manager/templates/deploy-to-subscription.md).
+- Para encontrar mais modelos de amostras, consulte o [modelo Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- Para ver a referência do modelo, vá à referência do [modelo Azure](/azure/templates/microsoft.authorization/allversions).
+- Para aprender a desenvolver modelos de Gestor de Recursos, consulte a [documentação do Gestor de Recursos do Azure.](../../azure-resource-manager/management/overview.md)
+- Para aprender a implantação ao nível da subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
-## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
+## <a name="validate-the-deployment"></a>Validar a implementação
 
-Selecione **conformidade** no lado esquerdo da página. Em seguida, localize a **VMs de auditoria que não utilizam discos geridos** atribuição de política que criou.
+Selecione **Compliance** no lado esquerdo da página. Em seguida, localize os **VMs** de auditoria que não utilizam a atribuição de políticas de discos geridos que criou.
 
-![Página Visão geral de conformidade de política](./media/assign-policy-template/policy-compliance.png)
+![Página geral de conformidade de política](./media/assign-policy-template/policy-compliance.png)
 
-Se existirem quaisquer recursos existentes que não estão em conformidade com esta nova atribuição, aparecem em **recursos não compatíveis**.
+Se existem recursos existentes que não estejam em conformidade com esta nova atribuição, eles aparecem sob **recursos não conformes.**
 
-Para obter mais informações, consulte [como funciona a conformidade](./how-to/get-compliance-data.md#how-compliance-works).
+Para mais informações, consulte como funciona a [conformidade.](./how-to/get-compliance-data.md#how-compliance-works)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover a atribuição de criado, siga estes passos:
+Para remover a atribuição criada, siga estes passos:
 
 1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página Azure Policy e localize a atribuição de política **Auditar VMs que não utilizam discos geridos** que criou.
 
-1. Clique com o botão direito do mouse na atribuição **auditar VMs que não usam a política de discos gerenciados** e selecione **excluir atribuição**.
+1. Clique direito nos **VMs de auditoria que não utilizam** a atribuição da política de discos geridos e selecione eliminar a **atribuição**.
 
-   ![Excluir uma atribuição da página Visão geral de conformidade](./media/assign-policy-template/delete-assignment.png)
+   ![Eliminar uma atribuição da página de síntese de conformidade](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você atribuiu uma definição de política interna a um escopo e avaliou seu relatório de conformidade. A definição de política valida que todos os recursos no âmbito estão em conformidade e identifica quais não estão.
+Neste arranque rápido, atribuiu uma definição de política incorporada a um âmbito e avaliou o seu relatório de conformidade. A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são.
 
-Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, avance para o tutorial para:
+Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, continue o tutorial para:
 
 > [!div class="nextstepaction"]
 > [Criar e gerir políticas](./tutorials/create-and-manage.md)

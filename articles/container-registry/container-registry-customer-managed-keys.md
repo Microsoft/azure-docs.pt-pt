@@ -4,12 +4,12 @@ description: Saiba sobre encriptação no resto do seu registo de contentores Az
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365346"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498959"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Encriptação usando chaves geridas pelo cliente
 
@@ -20,7 +20,7 @@ A encriptação do lado do servidor com chaves geridas pelo cliente é suportada
 Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte o [Registo de Contentores Azure SKUs](container-registry-skus.md).
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se atualmente em pré-visualização e aplicam-se [algumas limitações.](#preview-limitations) As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se atualmente em pré-visualização e aplicam-se [algumas limitações.](#preview-limitations) As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 >
    
 ## <a name="preview-limitations"></a>Limitações de pré-visualização 
@@ -32,11 +32,11 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar os passos Do ClI Azure neste artigo, precisa da versão Azure CLI 2.2.0 ou posterior. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Para utilizar os passos Do ClI Azure neste artigo, precisa da versão Azure CLI 2.2.0 ou posterior. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="enable-customer-managed-key---cli"></a>Ativar a chave gerida pelo cliente - CLI
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Se necessário, o [grupo AZ crie][az-group-create] um comando para criar um grupo de recursos para criar o cofre chave, o registo de contentores e outros recursos necessários.
 
@@ -114,7 +114,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-Na saída de comando, tome nota da identificação da chave, `kid`. Usa este ID no próximo passo:
+Na saída de comando, tome nota `kid`da identificação da chave, . Usa este ID no próximo passo:
 
 ```JSON
 [...]
@@ -187,7 +187,7 @@ Ao criar um cofre chave para uma chave gerida pelo cliente, no separador **Basic
 Configure uma política para o cofre chave para que a identidade possa acessá-la.
 
 1. Navegue para o seu cofre chave.
-1. Selecione **Definições** > Políticas de **acesso > +Adicionar Política de Acesso**.
+1. Selecione **Definições** > **As políticas de acesso > +Adicionar Política de Acesso**.
 1. Selecione **permissões chave**, e selecione **Obter,** **desembrulhar a chave**e embrulhar a **tecla**.
 1. **Selecione o principal e** selecione o nome de recurso da sua identidade gerida atribuída pelo utilizador.  
 1. **Selecione Adicionar**e, em seguida, selecione **Guardar**.
@@ -197,14 +197,14 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 ### <a name="create-key"></a>Criar chave
 
 1. Navegue para o seu cofre chave.
-1. Selecione **Definições** > **Teclas**.
+1. Selecione **Definições** > **.**
 1. Selecione **+Generate/Import** e introduza um nome único para a chave.
 1. Aceite os valores predefinidos restantes e selecione **Criar**.
 1. Após a criação, selecione a tecla e tome nota da versão chave atual.
 
 ### <a name="create-azure-container-registry"></a>Criar um registo de contentor do Azure
 
-1. Selecione **Criar um recurso** > **Contentores** > **Container Registry**.
+1. Selecione **Criar um** > registo de**contentores** > **Container Registry**de recursos .
 1. No separador **Basics,** selecione ou crie um grupo de recursos e introduza um nome de registo. No **SKU,** selecione **Premium**.
 1. No **separador Encriptação,** na **tecla gerida pelo Cliente,** selecione **Ativado**.
 1. Em **Identidade,** selecione a identidade gerida que criou.
@@ -215,13 +215,13 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 
 ![Criar registo de contentores no portal Azure](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
 
-Para ver o estado de encriptação do seu registo no portal, navegue para o seu registo. Em **Definições,** **selecione Encriptação (Pré-visualização)** .
+Para ver o estado de encriptação do seu registo no portal, navegue para o seu registo. Em **Definições,** **selecione Encriptação (Pré-visualização)**.
 
 ## <a name="enable-customer-managed-key---template"></a>Ativar a chave gerida pelo cliente - modelo
 
 Também pode usar um modelo de Gestor de Recursos para criar um registo e ativar a encriptação com uma chave gerida pelo cliente. 
 
-O modelo seguinte cria um novo registo de contentores e uma identidade gerida atribuída pelo utilizador. Copie o seguinte conteúdo para um novo ficheiro e guarde-o utilizando um nome de ficheiro como `CMKtemplate.json`.
+O modelo seguinte cria um novo registo de contentores e uma identidade gerida atribuída pelo utilizador. Copie o seguinte conteúdo para um novo ficheiro `CMKtemplate.json`e guarde-o utilizando um nome de ficheiro como .
 
 ```JSON
 {
@@ -408,9 +408,9 @@ Revogar a chave bloqueia efetivamente o acesso a todos os dados do registo, uma 
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/keyt#az-keyvault-key-create
-[az-keyvault-set-policy]: /cli/azure/keyvault/keyt#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault/keyt#az-keyvault-delete-policy
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
 [az-resource-show]: /cli/azure/resource#az-resource-show
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show

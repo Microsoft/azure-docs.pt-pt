@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598175"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
@@ -37,8 +37,8 @@ Para configurar o aparelho:
 
 Descarregue o ficheiro zipped para o aparelho.
 
-1. Em **Objetivos de Migração** > **servidores** > **Azure Migrate: Avaliação do servidor,** clique **em Descobrir**.
-2. Em **Discover machines** > **As suas máquinas estão virtualizadas?**
+1. Em **Objetivos** > de Migração**Servidores** > **Azure Migrar: Avaliação do servidor,** clique **em Descobrir**.
+2. Em **Discover machines** > **As suas máquinas estão virtualizadas?** **Not virtualized/Other**
 3. Clique em **Baixar** para descarregar o ficheiro zipped.
 
     ![Baixar VM](./media/tutorial-assess-physical/download-appliance.png)
@@ -97,7 +97,7 @@ Instale o aparelho pela primeira vez.
 2. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
     - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um proxy:
-        - Clique em **definições proxy**, e especifique o endereço proxy e a porta de escuta, sob a forma http://ProxyIPAddress ou http://ProxyFQDN.
+        - Clique em **definições proxy**, e especifique o endereço proxy e a porta de escuta, no formulário http://ProxyIPAddress ou http://ProxyFQDN.
         - Especifique as credenciais se o proxy precisar de autenticação.
         - Apenas é suportado o proxy HTTP.
     - **Sincronização de tempo**: O tempo é verificado. O tempo no aparelho deve estar sincronizado com o tempo de internet para que a descoberta de VM funcione corretamente.
@@ -125,7 +125,7 @@ Pode adicionar um conjunto de credenciais cada um para servidores Windows e Linu
 4. Clique em **Adicionar servidor**, e especifique os detalhes do servidor - endereço FQDN/IP e nome amigável de credenciais (uma entrada por linha) para ligar ao servidor.
 3. Clique em **Validar**. Após validação, a lista de servidores que podem ser descobertos é mostrada.
     - Se a validação falhar num servidor, reveja o erro pairando sobre o ícone na coluna **'Estado'.** Corrija os problemas e valide novamente.
-    - Para remover um servidor, selecione > **Delete**.
+    - Para remover um servidor, selecione > **Eliminar**.
 4. Após validação, clique em **Guardar e iniciar** a descoberta para iniciar o processo de descoberta.
 
 Isto começa a ser descoberto. Leva cerca de 15 minutos para que os metadados de VMs descobertos apareçam no portal Azure.
@@ -135,7 +135,7 @@ Isto começa a ser descoberto. Leva cerca de 15 minutos para que os metadados de
 Após a descoberta terminar, pode verificar se os servidores aparecem no portal.
 
 1. Abra o painel de migração Azure.
-2. Em **Azure Migrate - Servidores** > **Azure Migrar:** Página de Avaliação do Servidor, clique no ícone que apresenta a contagem para **servidores descobertos**.
+2. No **Azure Migrate - Servers** > **Azure Migrar:** Página de Avaliação do Servidor, clique no ícone que apresenta a contagem para **servidores descobertos**.
 
 
 ## <a name="next-steps"></a>Passos seguintes

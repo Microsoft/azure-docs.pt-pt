@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667232"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente de Diretório Ativo com a solução Ative Directory Health Check no Azure Monitor
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor (Otimizar o ambiente do Active Directory com a solução Verificação de Estado de Funcionamento do Active Directory no Azure Monitor)
 
 ![Símbolo de verificação de saúde ad](./media/ad-assessment/ad-assessment-symbol.png)
 
@@ -52,7 +52,7 @@ Para efetuar a verificação de saúde contra os seus controladores de domínio 
 
 O agente no seu controlador de domínio que reporta a um grupo de gestão do Gestor de Operações, recolhe dados, reencaminha para o seu servidor de gestão atribuído, e depois é enviado diretamente de um servidor de gestão para o Monitor De operações.  Os dados não estão escritos nas bases de dados do Gestor de Operações.  
 
-## <a name="active-directory-health-check-data-collection-details"></a>Dados da recolha de dados do Diretório Ativo
+## <a name="active-directory-health-check-data-collection-details"></a>Detalhes da recolha de dados da Verificação de Estado de Funcionamento do Active Directory
 
 Ative Directory Health Check recolhe dados das seguintes fontes utilizando o agente que ativou:
 
@@ -70,11 +70,11 @@ Ative Directory Health Check recolhe dados das seguintes fontes utilizando o age
 
 Os dados são recolhidos no controlador de domínio e encaminhados para o Monitor Azure de sete em sete dias.  
 
-## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender como as recomendações são prioritárias
+## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender como é definida a prioridade das recomendações
 
 Todas as recomendações feitas recebem um valor de ponderação que identifica a importância relativa da recomendação. Apenas são apresentadas as 10 recomendações mais importantes.
 
-### <a name="how-weights-are-calculated"></a>Como os pesos são calculados
+### <a name="how-weights-are-calculated"></a>Método de cálculo das ponderações
 
 As ponderações são valores agregados com base em três factores-chave:
 
@@ -84,7 +84,7 @@ As ponderações são valores agregados com base em três factores-chave:
 
 A ponderação para cada recomendação é expressa em percentagem da pontuação total disponível para cada área de foco. Por exemplo, se uma recomendação na área de foco de Segurança e Conformidade tiver uma pontuação de 5%, implementando essa recomendação aumenta a sua pontuação global de Segurança e Conformidade em 5%.
 
-### <a name="focus-areas"></a>Áreas de foco
+### <a name="focus-areas"></a>Áreas em foco
 
 **Segurança e Conformidade** - Esta área de foco apresenta recomendações para potenciais ameaças e violações de segurança, políticas corporativas e requisitos técnicos, legais e regulamentares de conformidade.
 
@@ -94,7 +94,7 @@ A ponderação para cada recomendação é expressa em percentagem da pontuaçã
 
 **Upgrade, Migração e Implantação** - Esta área de foco mostra recomendações para ajudá-lo a atualizar, migrar e implementar O Diretório Ativo para a sua infraestrutura existente.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve tentar pontuar 100% em todas as áreas de foco?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve visar uma pontuação de 100% em cada uma das áreas em foco?
 
 Não necessariamente. As recomendações baseiam-se nos conhecimentos e experiências adquiridas pelos engenheiros da Microsoft em milhares de visitas de clientes. No entanto, nenhuma infraestrutura de servidores é a mesma, e recomendações específicas podem ser mais ou menos relevantes para si. Por exemplo, algumas recomendações de segurança podem ser menos relevantes se as suas máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para serviços que fornecem recolha e reporte de dados ad hoc de baixa prioridade. As questões que são importantes para um negócio maduro podem ser menos importantes para uma start-up. Você pode querer identificar quais as áreas de foco são as suas prioridades e, em seguida, olhar para como as suas pontuações mudam ao longo do tempo.
 
@@ -134,7 +134,7 @@ Utilize a seguinte consulta para listar recomendações que falharam para comput
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Aqui está uma imagem mostrando a consulta de log:<
+Aqui está uma imagem mostrando a consulta de registo:<
 
 ![recomendações falhadas](media/ad-assessment/ad-failed-recommendations.png)
 
@@ -164,7 +164,7 @@ Após o próximo exame de saúde programado, por padrão de sete em sete dias, a
 
 2. Se decidir mais tarde que pretende ver recomendações ignoradas, remova quaisquer ficheiros IgnoreRecommendations.txt ou pode remover recomendações das mesmas.
 
-## <a name="ad-health-check-solutions-faq"></a>Soluções de Verificação de Saúde AD FAQ
+## <a name="ad-health-check-solutions-faq"></a>FAQ sobre soluções de Verificação de Estado de Funcionamento do AD
 
 *Que controlos são realizados pela solução de Avaliação de AD?*
 
@@ -175,7 +175,7 @@ ADAssessmentRecommendation
 | distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
 | sort by FocusArea,ActionArea, Recommendation
 ```
-Os resultados podem ser exportados para o Excel para examinar detalhadamente.
+Os resultados podem então ser exportados para o Excel para posterior revisão.
 
 *Com que frequência funciona um exame de saúde?*
 

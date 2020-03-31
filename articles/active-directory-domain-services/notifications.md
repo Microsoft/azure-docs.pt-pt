@@ -1,5 +1,5 @@
 ---
-title: Notificações por e-mail para Serviços de Domínio Azure AD  Microsoft Docs'
+title: Notificações por e-mail para Serviços de Domínio Azure AD [ Microsoft Docs'
 description: Saiba configurar notificações de e-mail para alertá-lo sobre questões num domínio gerido pelo Azure Ative Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 5507579338ad0d87bc6223b56283fe7ed46af7d8
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613293"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configure notificações de e-mail para problemas em Serviços de Domínio de Diretório Ativo Azure
@@ -33,7 +33,7 @@ O seguinte exemplo de notificação por e-mail indica que foi gerado um aviso cr
 ![Notificação de e-mail de exemplo](./media/active-directory-domain-services-alerts/email-alert.png)
 
 > [!WARNING]
-> Certifique-se sempre de que o e-mail vem de um remetente verificado da Microsoft antes de clicar nos links da mensagem. As notificações por e-mail são sempre do endereço `azure-noreply@microsoft.com`.
+> Certifique-se sempre de que o e-mail vem de um remetente verificado da Microsoft antes de clicar nos links da mensagem. As notificações por e-mail são sempre do `azure-noreply@microsoft.com` endereço.
 
 ### <a name="why-would-i-receive-email-notifications"></a>Por que receberia notificações por e-mail?
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277885"
 ---
 # <a name="durable-functions-types-and-features"></a>Tipos e características de funções duráveis
@@ -20,7 +20,7 @@ Existem atualmente quatro tipos de funções duráveis em Funções Azure: ativi
 
 ## <a name="orchestrator-functions"></a>Funções orquestradoras
 
-As funções de orquestrador descrevem como as ações são executadas e a ordem em que as ações são executadas. As funções do orquestrador descrevemC# a orquestração em código (ou JavaScript) como mostrado nos padrões de aplicação de [Funções Duráveis](durable-functions-overview.md#application-patterns). Uma orquestração pode ter muitos tipos diferentes de ações, incluindo [funções](#activity-functions)de atividade, [suborquestrações,](durable-functions-orchestrations.md#sub-orchestrations) [esperando por eventos externos,](durable-functions-orchestrations.md#external-events) [HTTP,](durable-functions-http-features.md)e [temporizadores.](durable-functions-orchestrations.md#durable-timers) As funções de orquestrador também podem interagir com [funções da entidade.](#entity-functions)
+As funções de orquestrador descrevem como as ações são executadas e a ordem em que as ações são executadas. As funções do orquestrador descrevem a orquestração em código (C# ou JavaScript) como mostrado nos padrões de aplicação de [Funções Duráveis](durable-functions-overview.md#application-patterns). Uma orquestração pode ter muitos tipos diferentes de ações, incluindo [funções](#activity-functions)de atividade, [suborquestrações,](durable-functions-orchestrations.md#sub-orchestrations) [esperando por eventos externos,](durable-functions-orchestrations.md#external-events) [HTTP,](durable-functions-http-features.md)e [temporizadores.](durable-functions-orchestrations.md#durable-timers) As funções de orquestrador também podem interagir com [funções da entidade.](#entity-functions)
 
 > [!NOTE]
 > As funções de orquestrador são escritas usando código comum, mas existem requisitos rigorosos sobre como escrever o código. Especificamente, o código de função orquestrador deve ser *determinista.* Não seguir estes requisitos de determinismo pode fazer com que as funções de orquestração não funcionem corretamente. Informações detalhadas sobre estes requisitos e como trabalhar à sua volta podem ser encontradas no tópico de restrições de [código.](durable-functions-code-constraints.md)
@@ -36,7 +36,7 @@ Ao contrário das funções orquestradoras, as funções de atividade não são 
 > [!NOTE]
 > Como as funções de atividade só garantem *pelo menos uma vez a* execução, recomendamos que torne a sua função de atividade lógica *idempotente* sempre que possível.
 
-Utilize um gatilho de [atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. as funções .NET recebem uma `DurableActivityContext` como parâmetro. Também pode ligar o gatilho a qualquer outro objeto sériedo JSON para passar as inputs à função. No JavaScript, pode aceder a uma entrada através da propriedade `<activity trigger binding name>` no [objeto`context.bindings`](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado para eles. Para passar vários valores, deve utilizar tuples, matrizes ou tipos complexos.
+Utilize um gatilho de [atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções .NET recebem um `DurableActivityContext` parâmetro. Também pode ligar o gatilho a qualquer outro objeto sériedo JSON para passar as inputs à função. No JavaScript, pode aceder a `<activity trigger binding name>` uma entrada através da propriedade no [ `context.bindings` objeto](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado para eles. Para passar vários valores, deve utilizar tuples, matrizes ou tipos complexos.
 
 > [!NOTE]
 > Só pode desencadear uma função de atividade a partir de uma função de orquestrador.
@@ -59,9 +59,9 @@ As funções de orquestrador são desencadeadas por um gatilho de [orquestraçã
 
 Além de desencadear funções de orquestrador ou entidade, a ligação duradoura do *cliente* pode ser usada para interagir com orquestrações e entidades de corrida. Por exemplo, as orquestrações podem ser consultadas, encerradas, e podem ter eventos criados para eles. Para obter mais informações sobre gestão de orquestrações e entidades, consulte o artigo de gestão da [Instância.](durable-functions-instance-management.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para começar, crie a [C#](durable-functions-create-first-csharp.md) sua primeira função durável em ou [JavaScript](quickstart-js-vscode.md).
+Para começar, crie a sua primeira função durável em [C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md).
 
 > [!div class="nextstepaction"]
 > [Ler mais sobre orquestrações de Funções Duráveis](durable-functions-orchestrations.md)

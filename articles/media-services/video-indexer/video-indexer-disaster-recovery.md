@@ -1,6 +1,7 @@
 ---
-title: Video Indexer continuidade dos negócios e recuperação de desastres-Azure
-description: Saiba como fazer failover para uma conta de Video Indexer secundária se ocorrer uma interrupção ou falha de um datacenter regional.
+title: Falha no Indexer de Vídeo e recuperação de desastres
+titleSuffix: Azure Media Services
+description: Aprenda a falhar numa conta secundária do Indexer de Vídeo se ocorrer uma falha regional do datacenter ou desastre.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,35 +14,35 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 2f54c340226a9ea78643df8e0a984c8ed8475c94
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 17c21900448fcb6d0a40fe5407f3b8bd62f9e3e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513580"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499615"
 ---
-# <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Manipule Video Indexer continuidade dos negócios e recuperação de desastres
+# <a name="video-indexer-failover-and-disaster-recovery"></a>Falha no Indexer de Vídeo e recuperação de desastres
 
-Os serviços de mídia do Azure Video Indexer não fornecem failover instantâneo do serviço se houver uma interrupção ou falha de datacenter regional. Este artigo explica como configurar seu ambiente para um failover a fim de garantir a disponibilidade ideal para aplicativos e o tempo de recuperação minimizado se ocorrer um desastre.
+O Azure Media Services Video Indexer não fornece falhas instantâneas do serviço se houver uma falha ou falha no datacenter regional. Este artigo explica como configurar o seu ambiente para uma falha para garantir a disponibilidade ideal para apps e tempo de recuperação minimizado se ocorrer um desastre.
 
-Recomendamos que você configure a BCDR (recuperação de desastre de continuidade de negócios) em pares regionais para se beneficiar das políticas de isolamento e disponibilidade do Azure. Para obter mais informações, consulte [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Recomendamos que configure a recuperação de desastres de continuidade do negócio (BCDR) em pares regionais para beneficiar das políticas de isolamento e disponibilidade de Azure. Para mais informações, consulte [regiões emparelhadas de Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Uma subscrição do Azure. Se você ainda não tiver uma assinatura do Azure, Inscreva-se para a [avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+Uma subscrição do Azure. Se ainda não tiver uma assinatura Azure, inscreva-se no [teste gratuito do Azure.](https://azure.microsoft.com/free/)
 
-## <a name="failover-to-a-secondary-account"></a>Failover para uma conta secundária
+## <a name="failover-to-a-secondary-account"></a>Falha numa conta secundária
 
-Para implementar o BCDR, você precisa ter duas contas de Video Indexer para lidar com a redundância.
+Para implementar o BCDR, é necessário ter duas contas de Indexer de Vídeo para lidar com a redundância.
 
-1. Crie duas contas de Video Indexer conectadas ao Azure (consulte [criar contas](connect-to-azure.md)). Uma para sua região primária e a outra para a região emparelhada do Azure. 
-1. Se houver uma falha em sua região primária, alterne para a indexação usando a conta secundária.
+1. Crie duas contas de Indexer de Vídeo ligadas ao Azure (ver [Criar uma conta de Indexer](connect-to-azure.md)de Vídeo). Crie uma conta para a sua região primária e outra para a região azul emparelhada.
+1. Se houver uma falha na sua região primária, mude para a indexação usando a conta secundária.
 
 > [!TIP]
-> Você pode automatizar o BCDR Configurando alertas do log de atividades para notificações de integridade do serviço de acordo com a [criação de alertas do log de atividades em notificações de serviço](../../service-health/alerts-activity-log-service-notifications.md).
+> Pode automatizar o BCDR através da criação de alertas de registo de atividade para notificações de saúde de serviço, de acordo com alertas de registo de [atividade sonantes da Create em notificações](../../service-health/alerts-activity-log-service-notifications.md)de serviço .
 
-Para obter informações sobre como usar vários locatários, consulte [gerenciar vários locatários](manage-multiple-tenants.md). Para implementar o BCDR, escolha uma destas duas opções: [Video indexer conta por locatário](manage-multiple-tenants.md#video-indexer-account-per-tenant) ou [assinatura do Azure por locatário](manage-multiple-tenants.md#azure-subscription-per-tenant).
+Para obter informações sobre o uso de vários inquilinos, consulte [Gerir vários inquilinos.](manage-multiple-tenants.md) Para implementar o BCDR, escolha uma destas duas opções: [conta Indexer](manage-multiple-tenants.md#video-indexer-account-per-tenant) de vídeo por inquilino ou [subscrição Azure por inquilino.](manage-multiple-tenants.md#azure-subscription-per-tenant)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Gerenciar uma conta de video indexer conectada ao Azure](manage-account-connected-to-azure.md).
+[Gerir uma conta de Indexer](manage-account-connected-to-azure.md)de Vídeo ligada ao Azure .

@@ -1,5 +1,5 @@
 ---
-title: Utilize a Azure Media Services para entregar licenças de DRM ou chaves AES  Microsoft Docs
+title: Utilize a Azure Media Services para entregar licenças de DRM ou chaves AES [ Microsoft Docs
 description: Este artigo descreve como pode utilizar os Serviços De Mídia Azure para fornecer licenças PlayReady e/ou Widevine e chaves AES, mas faça o resto (codificar, encriptar, transmitir) utilizando os seus servidores no local.
 services: media-services
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78268121"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize os Serviços de Media para entregar licenças de DRM ou chaves AES 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 O Azure Media Services permite-lhe ingerir, codificar, adicionar proteção de conteúdo e transmitir o seu conteúdo. Para mais informações, consulte [Use PlayReady e/ou Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Alguns clientes querem utilizar os Serviços de Media apenas para entregar licenças e/ou chaves e codificar, encriptar e transmitir utilizando os seus servidores no local. Este artigo descreve como pode utilizar os Serviços de Media para entregar licenças PlayReady e/ou Widevine, mas faça o resto com os seus servidores no local. 
 
-Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="overview"></a>Descrição geral
 A Media Services presta um serviço para a entrega de licenças de gestão de direitos digitais PlayReady e Widevine (DRM) e chaves AES-128. Os Serviços de Media também fornecem APIs que permitem configurar os direitos e restrições que deseja para o tempo de funcionação da DRM para aplicar quando um utilizador reproduz o conteúdo protegido pela DRM. Quando um utilizador solicita o conteúdo protegido, a aplicação do jogador solicita uma licença do serviço de licença de Serviços de Media. Se a licença for autorizada, o serviço de licença dos Serviços de Media emite a licença ao jogador. As licenças PlayReady e Widevine contêm a chave de desencriptação que pode ser usada pelo leitor cliente para desencriptar e transmitir o conteúdo.
@@ -44,7 +44,7 @@ Para descarregar a amostra descrita neste artigo, consulte [a Use Azure Media Se
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
-1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento dos Serviços de Multimédia com .NET).
+1. Instale o seu ambiente de desenvolvimento e povoe o ficheiro app.config com informações de ligação, conforme descrito no [desenvolvimento dos Serviços de Media com .NET](media-services-dotnet-how-to-use.md).
 
 2. Adicione os elementos seguintes a **appSettings** definidos no ficheiro app.config:
 
@@ -356,5 +356,5 @@ namespace DeliverDRMLicenses
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte também
-* [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md) (Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine)
+* [Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

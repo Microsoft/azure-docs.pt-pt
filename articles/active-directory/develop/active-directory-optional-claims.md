@@ -1,5 +1,5 @@
 ---
-title: Fornecer reclamações opcionais às aplicações da AD Azure  Azure
+title: Fornecer reclamações opcionais às aplicações da AD Azure [ Azure
 titleSuffix: Microsoft identity platform
 description: Como adicionar reclamações personalizadas ou adicionais às fichas SAML 2.0 e JSON Web Tokens (JWT) emitidas pelo Azure Ative Directory.
 author: rwike77
@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136522"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua aplicação Azure AD
@@ -45,7 +45,7 @@ Embora as reclamações opcionais sejam suportadas tanto em fichas de formato v1
 O conjunto de reclamações opcionais disponíveis por padrão para aplicações a utilizar estão listados abaixo. Para adicionar reclamações opcionais personalizadas para a sua aplicação, consulte [Extensões de Diretório,](#configuring-directory-extension-optional-claims)abaixo. Ao adicionar reclamações ao token de **acesso,** as reclamações aplicam-se aos tokens de acesso solicitados *para* a aplicação (uma API web), não reclamações solicitadas *pelo* pedido. Não importa como o cliente aceda à sua API, os dados certos estão presentes no sinal de acesso que é usado para autenticar contra a sua API.
 
 > [!NOTE]
-> A maioria destas reclamações pode ser incluída em JWTs para fichas v1.0 e v2.0, mas não tokens SAML, exceto quando anotado na coluna Token Type. As contas de consumo suportam um subconjunto destas reclamações, marcado na coluna "Tipo de Utilizador".  Muitas das reclamações enumeradas não se aplicam aos utilizadores de consumo (não têm inquilino, pelo que `tenant_ctry` não tem valor).  
+> A maioria destas reclamações pode ser incluída em JWTs para fichas v1.0 e v2.0, mas não tokens SAML, exceto quando anotado na coluna Token Type. As contas de consumo suportam um subconjunto destas reclamações, marcado na coluna "Tipo de Utilizador".  Muitas das reclamações enumeradas não se aplicam aos `tenant_ctry` utilizadores de consumo (não têm inquilino, pelo que não têm qualquer valor).  
 
 **Quadro 2: v1.0 e v2.0 conjunto de reclamação opcional**
 
@@ -55,22 +55,22 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
 | `home_oid`                 | Para os utilizadores convidados, o id do objeto do utilizador no inquilino do utilizador.| JWT        |           | |
 | `sid`                      | ID da sessão, utilizado para a inscrição do utilizador por sessão. | JWT        |  Contas ad si e azure.   |         |
-| `platf`                    | Plataforma de dispositivos    | JWT        |           | Restrito a dispositivos geridos que podem verificar o tipo de dispositivo.|
+| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restrito a dispositivos geridos que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Proveniente do Email PrimaryAuthoritativeEmail do utilizador      | JWT        |           |         |
 | `verified_secondary_email` | Proveniente do Email Secundário do Utilizador   | JWT        |           |        |
 | `enfpolids`                | Identificação política forçada. Uma lista das iDs de política que foram avaliadas para o utilizador atual. | JWT |  |  |
 | `vnet`                     | Informação do especificador VNET. | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente que solicita (quando dentro de um VNET) |
-| `ctry`                     | País do utilizador | JWT |  | A Azure AD devolve a `ctry` reclamação opcional se estiver presente e o valor da reclamação for um código de dois letras padrão, como FR, JP, SZ, e assim por diante. |
+| `ctry`                     | País do utilizador | JWT |  | A Azure AD devolve a `ctry` reclamação opcional se estiver presente e o valor da reclamação é um código de duas letras padrão, como FR, JP, SZ, e assim por diante. |
 | `tenant_ctry`              | País do inquilino de recursos | JWT | | |
 | `xms_pdl`          | Localização de dados preferenciais   | JWT | | Para os inquilinos Multi-Geo, a localização de dados preferida é o código de três letras que mostra a região geográfica em que o utilizador se encontra. Para mais informações, consulte a [documentação Azure AD Connect sobre](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)a localização de dados preferido .<br/>Por exemplo: `APC` para a Ásia-Pacífico. |
 | `xms_pl`                   | Idioma preferido do utilizador  | JWT ||O idioma preferido do utilizador, se definido. Oriundo do inquilino da casa, em cenários de acesso aos hóspedes. Formato LL-CC ("en-us"). |
 | `xms_tpl`                  | Língua preferida do inquilino| JWT | | A linguagem preferida do inquilino de recursos, se definido. Formato LL ("en"). |
 | `ztdid`                    | ID de implementação de zero toque | JWT | | A identidade do dispositivo utilizada para [o Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | O e-mail endereçado para este utilizador, se o utilizador tiver um.  | JWT, SAML | MSA, Azure AD | Este valor é incluído por padrão se o utilizador for um hóspede no inquilino.  Para utilizadores geridos (os utilizadores no interior do arrendatário), deve ser solicitado através desta reclamação opcional ou, apenas em v2.0, com o âmbito OpenID.  Para utilizadores geridos, o endereço de e-mail deve ser definido no [portal de administração](https://portal.office.com/adminportal/home#/users)do Office .| 
-| `groups`| Formatação opcional para sinistros de grupo |JWT, SAML| |Utilizado em conjunto com a definição de Reivindicações de Grupono manifesto de [candidatura,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reivindicações do Grupo](#configuring-groups-optional-claims) abaixo. Para mais informações sobre reivindicações de grupo, consulte [Como configurar as reivindicações](../hybrid/how-to-connect-fed-group-claims.md) do grupo
-| `acct`             | Estado da conta dos utilizadores no inquilino. | JWT, SAML | | Se o utilizador for membro do inquilino, o valor é `0`. Se forem hóspedes, o valor é `1`. |
-| `upn`                      | Reivindicação userPrincipalName. | JWT, SAML  |           | Embora esta alegação esteja automaticamente incluída, pode especificá-la como uma alegação opcional de anexar propriedades adicionais para modificar o seu comportamento no caso do utilizador convidado.  |
+| `email`                    | O e-mail endereçado para este utilizador, se o utilizador tiver um.  | JWT | MSA, Azure AD | Este valor é incluído por padrão se o utilizador for um hóspede no inquilino.  Para utilizadores geridos (os utilizadores no interior do arrendatário), deve ser solicitado através desta reclamação opcional ou, apenas em v2.0, com o âmbito OpenID.  Para utilizadores geridos, o endereço de e-mail deve ser definido no [portal de administração](https://portal.office.com/adminportal/home#/users)do Office .| 
+| `groups`| Formatação opcional para sinistros de grupo |JWT| |Utilizado em conjunto com a definição de Reivindicações de Grupono manifesto de [candidatura,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reivindicações do Grupo](#configuring-groups-optional-claims) abaixo. Para mais informações sobre reivindicações de grupo, consulte [Como configurar as reivindicações](../hybrid/how-to-connect-fed-group-claims.md) do grupo
+| `acct`             | Estado da conta dos utilizadores no inquilino. | JWT | | Se o utilizador for membro do inquilino, o valor é `0`. Se são hóspedes, o `1`valor é. |
+| `upn`                      | Reivindicação userPrincipalName. | JWT  |           | Embora esta alegação esteja automaticamente incluída, pode especificá-la como uma alegação opcional de anexar propriedades adicionais para modificar o seu comportamento no caso do utilizador convidado.  |
 
 ## <a name="v20-specific-optional-claims-set"></a>v2.0 conjunto de reclamações opcionais específicas
 
@@ -82,17 +82,17 @@ Estas reclamações estão sempre incluídas em fichas v1.0 Azure AD, mas não i
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP do cliente que o cliente registou.   |       |
 | `onprem_sid`  | Identificador de segurança no local |                                             |       |
-| `pwd_exp`     | Tempo de validade da palavra-passe        | A data em que a palavra-passe expira. |       |
+| `pwd_exp`     | Hora de Expiração da Palavra-Passe        | A data em que a palavra-passe expira. |       |
 | `pwd_url`     | Alterar URL de palavra-passe             | Um URL que o utilizador pode visitar para alterar a sua palavra-passe.   |   |
-| `in_corp`     | Dentro da Rede Corporativa        | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída.   |  Baseado nas definições [de IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
-| `nickname`    | apelido                        | Um nome adicional para o utilizador. A alcunha é separada do primeiro ou último nome. Requer o alcance `profile`.| 
-| `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Apoiado em MSA e Azure AD. Requer o alcance `profile`.   |
-| `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o alcance `profile`. |
-| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para dados chave. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configurar a reclamação. Requer o alcance `profile`.|
+| `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída.   |  Baseado nas definições [de IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
+| `nickname`    | Apelido                        | Um nome adicional para o utilizador. A alcunha é separada do primeiro ou último nome. Requer o `profile` alcance.| 
+| `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Apoiado em MSA e Azure AD. Requer o `profile` alcance.   |
+| `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o `profile` alcance. |
+| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para dados chave. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configurar a reclamação. Requer o `profile` alcance.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de reclamações opcionais
 
-Algumas reclamações opcionais podem ser configuradas para alterar a forma como a reclamação é devolvida. Estas propriedades adicionais são usadas principalmente para ajudar a migrar de aplicações no local com diferentes expectativas de dados (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não conseguem lidar com marcas de hash (`#`) na UPN)
+Algumas reclamações opcionais podem ser configuradas para alterar a forma como a reclamação é devolvida. Estas propriedades adicionais são usadas principalmente para ajudar a migração de `include_externally_authenticated_upn_without_hash` aplicações no local com diferentes`#`expectativas de dados (por exemplo, ajuda com clientes que não conseguem lidar com marcas de hash () na UPN)
 
 **Quadro 4: Valores para configurar reclamações opcionais**
 
@@ -100,7 +100,7 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para fichas v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | O mesmo que acima, exceto`#`que as marcas de`_`hash () são substituídas por sublinhados ( ), por exemplo`foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 
@@ -117,17 +117,17 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
         }
     ```
 
-Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente inclua uma reclamação upn com o inquilino adicional e informações de inquilino de recursos. A `upn` reclamação só é alterada no símbolo se o utilizador for hóspede no inquilino (que utiliza um IDP diferente para autenticação). 
+Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente inclua uma reclamação upn com o inquilino adicional e informações de inquilino de recursos. A `upn` reclamação só é alterada no token se o utilizador for hóspede no inquilino (que utiliza um IDP diferente para autenticação). 
 
 ## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
 
 > [!IMPORTANT]
-> As fichas de acesso são **sempre** geradas usando o manifesto do recurso, não o cliente.  Assim, no pedido `...scope=https://graph.microsoft.com/user.read...` o recurso é a API do Microsoft Graph.  Assim, o token de acesso é criado usando o manifesto Microsoft Graph API, e não o manifesto do cliente.  Alterar o manifesto para a sua aplicação nunca fará com que os tokens para que a API do Microsoft Graph pareça diferente.  Para validar que as alterações `accessToken` estão em vigor, solicite um sinal para a sua aplicação e não outra aplicação.  
+> As fichas de acesso são **sempre** geradas usando o manifesto do recurso, não o cliente.  Assim, no `...scope=https://graph.microsoft.com/user.read...` pedido o recurso é a API do Microsoft Graph.  Assim, o token de acesso é criado usando o manifesto Microsoft Graph API, e não o manifesto do cliente.  Alterar o manifesto para a sua aplicação nunca fará com que os tokens para que a API do Microsoft Graph pareça diferente.  Para validar que `accessToken` as suas alterações estão em vigor, solicite um sinal para a sua aplicação e não outra aplicação.  
 
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou do manifesto de aplicação.
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. Vá ao [portal Azure.](https://portal.azure.com) Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
 1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
 
@@ -135,7 +135,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 
 [![Mostra como configurar reclamações opcionais usando a UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .
+1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)**.
 2. **Selecione Adicionar reclamação opcional**.
 3. Selecione o tipo de ficha que pretende configurar.
 4. Selecione as reclamações opcionais a adicionar.
@@ -215,11 +215,11 @@ Além do conjunto de reclamações opcionais padrão, também pode configurar fi
 
 ### <a name="directory-extension-formatting"></a>Formatação de extensão do diretório
 
-Ao configurar as reclamações opcionais de extensão do diretório utilizando o manifesto de aplicação, utilize o nome completo da extensão (no formato: `extension_<appid>_<attributename>`). O `<appid>` deve coincidir com a identificação do pedido que solicita a reclamação. 
+Ao configurar as reclamações opcionais de extensão do diretório `extension_<appid>_<attributename>`utilizando o manifesto de aplicação, utilize o nome completo da extensão (no formato: ). O `<appid>` deve coincidir com a identificação do pedido que solicita a reclamação. 
 
 Dentro do JWT, estas reclamações serão emitidas com o seguinte formato de nome: `extn.<attributename>`.
 
-Dentro das fichas SAML, estas alegações serão emitidas com o seguinte formato URI: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Dentro das fichas SAML, estas alegações serão emitidas com o seguinte formato URI:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## <a name="configuring-groups-optional-claims"></a>Configuração de reivindicações opcionais de grupos
 
@@ -232,7 +232,7 @@ Esta secção cobre as opções de configuração sob pedidos opcionais para alt
 > Para mais detalhes, incluindo ressalvas importantes para a visualização pública de reivindicações de grupo a partir de atributos no local, consulte as alegações do [grupo Configure para aplicações com a AD Azure](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Configurar os grupos de reclamações opcionais através da UI:**
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página
 1. Selecione **Azure Ative Directory** a partir do menu à esquerda
 1. Na secção **Gerir,** selecione registos de **Aplicativos**
@@ -241,10 +241,10 @@ Esta secção cobre as opções de configuração sob pedidos opcionais para alt
 2. Selecione **Adicionar grupos**
 3. Selecione os tipos de grupo para devolução (**Todos os Grupos,** **SecurityGroup,** ou **Roledeta de Direção**). A opção **Todos os Grupos** inclui **SecurityGroup**, **DirectoryRole**e **DistributionList**
 4. Opcional: clique nas propriedades específicas do tipo token para modificar o valor de reivindicação dos grupos para conter nas instalações ou para alterar o tipo de reclamação para uma função
-5. Clicar em **Guardar**
+5. Clique em **Guardar**
 
 **Configurar os grupos de reclamações opcionais através do manifesto de candidatura:**
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página
 1. Selecione **Azure Ative Directory** a partir do menu à esquerda
 1. Selecione a aplicação que pretende configurar reclamações opcionais na lista
@@ -290,8 +290,8 @@ Esta secção cobre as opções de configuração sob pedidos opcionais para alt
    | Esquema de reclamações opcionais | Valor |
    |----------|-------------|
    | **nome:** | Devem ser "grupos" |
-   | **fonte:** | Não utilizado. Omite ou especifique nulo |
-   | **essencial:** | Não utilizado. Omite ou especifique falso |
+   | **fonte:** | Não usado. Omite ou especifique nulo |
+   | **essencial:** | Não usado. Omite ou especifique falso |
    | **propriedades adicionais:** | Lista de propriedades adicionais.  Opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
    Adicionalmente são necessários apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se mais do que um estiver presente, o primeiro é usado e qualquer outro ignorado.
@@ -353,13 +353,13 @@ Existem várias opções disponíveis para atualizar as propriedades na configur
 -   Também é possível escrever uma aplicação que utiliza a [API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) do Microsoft Graph para atualizar a sua aplicação. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência DaPi do Microsoft Graph pode ajudá-lo a configurar as reclamações opcionais.
 
 **Exemplo:** No exemplo abaixo, utilizará a **configuração Token (pré-visualização)** UI e **Manifesto** para adicionar reclamações opcionais aos tokens de acesso, ID e SAML destinados à sua aplicação. Serão adicionadas diferentes reclamações opcionais a cada tipo de ficha que a aplicação pode receber:
--    As fichas de identificação irão agora conter a UPN para utilizadores federados na forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
+-    As fichas de identificação irão agora conter a UPN`<upn>_<homedomain>#EXT#@<resourcedomain>`para utilizadores federados na forma completa ( ).
 -    Os tokens de acesso que outros clientes pedem para este pedido agora incluirão a reivindicação auth_time
--    As fichas SAML agora contêm a extensão do esquema do diretório skypeId (neste exemplo, o ID da aplicação para esta aplicação é ab603c56068041afb2f6832e2a17e237). As fichas SAML exporão o ID skype como `extension_skypeId`.
+-    As fichas SAML agora contêm a extensão do esquema do diretório skypeId (neste exemplo, o ID da aplicação para esta aplicação é ab603c56068041afb2f6832e2a17e237). As fichas SAML exporão o `extension_skypeId`ID skype como .
 
 **Configuração ui:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
 
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página.
 
@@ -369,7 +369,7 @@ Existem várias opções disponíveis para atualizar as propriedades na configur
 
 1. Encontre a aplicação que pretende configurar reclamações opcionais na lista e clique nela.
 
-1. Na secção **Gerir,** clique na **configuração token (pré-visualização)** .
+1. Na secção **Gerir,** clique na **configuração token (pré-visualização)**.
 
 1. **Selecione Adicionar pedido opcional,** selecione o tipo de ficha de **identificação,** selecione **upn** na lista de reclamações e, em seguida, clique em **Adicionar**.
 
@@ -382,12 +382,12 @@ Existem várias opções disponíveis para atualizar as propriedades na configur
     [![Mostra como configurar reclamações opcionais usando a UI](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuração manifesta:**
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página.
 1. Selecione **Azure Ative Directory** a partir do menu à esquerda.
 1. Encontre a aplicação que pretende configurar reclamações opcionais na lista e clique nela.
 1. Na secção **Gerir,** clique em **Manifestar** para abrir o editor de manifesto inline.
-1. Pode editar diretamente o manifesto usando este editor. O manifesto segue o esquema para a [entidade Aplicação,](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)e forma automaticamente o manifesto uma vez guardado. Novos elementos serão adicionados à propriedade `OptionalClaims`.
+1. Pode editar diretamente o manifesto usando este editor. O manifesto segue o esquema para a [entidade Aplicação,](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)e forma automaticamente o manifesto uma vez guardado. Novos elementos serão `OptionalClaims` adicionados à propriedade.
 
     ```json
             "optionalClaims": {
