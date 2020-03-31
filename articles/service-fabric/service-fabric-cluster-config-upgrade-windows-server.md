@@ -1,27 +1,27 @@
 ---
-title: Atualizar a configuração de um cluster autônomo
-description: Saiba como atualizar a configuração que executa um Cluster Service Fabric autônomo.
+title: Atualizar a configuração de um cluster autónomo
+description: Aprenda a atualizar a configuração que executa um cluster de Tecido de Serviço autónomo.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610132"
 ---
-# <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualizar a configuração de um cluster autônomo 
+# <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualizar a configuração de um cluster autónomo 
 
-Para qualquer sistema moderno, a capacidade de atualizar é a chave para o sucesso de longo prazo de seu produto. Um Cluster Service Fabric do Azure é um recurso que você possui. Este artigo descreve como atualizar as definições de configuração do Cluster Service Fabric autônomo.
+Para qualquer sistema moderno, a capacidade de upgrade é fundamental para o sucesso a longo prazo do seu produto. Um cluster Azure Service Fabric é um recurso que possui. Este artigo descreve como atualizar as configurações de configuração do seu cluster de Tecido de Serviço autónomo.
 
-## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalizar as configurações de cluster no arquivo ClusterConfig. JSON
-Os clusters autônomos são configurados por meio do arquivo *ClusterConfig. JSON* . Para saber mais sobre as diferentes configurações, confira [definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
+## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalize as definições de cluster no ficheiro ClusterConfig.json
+Os clusters autónomos são configurados através do ficheiro *ClusterConfig.json.* Para saber mais sobre as diferentes definições, consulte as definições de [Configuração para um cluster Windows autónomo](service-fabric-cluster-manifest.md).
 
-Você pode adicionar, atualizar ou remover as configurações na seção `fabricSettings` na seção [Propriedades do cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig. JSON*. 
+Pode adicionar, atualizar ou remover `fabricSettings` as definições na secção sob a secção de propriedades do [Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.json*. 
 
-Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* à seção *diagnóstico* em `fabricSettings`:
+Por exemplo, o seguinte JSON adiciona uma nova definição *MaxDiskQuotaInMB* à secção *de Diagnósticos* em : `fabricSettings`
 
 ```json
       {
@@ -35,48 +35,48 @@ Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB*
       }
 ```
 
-Depois de modificar as configurações no arquivo ClusterConfig. JSON, [teste a configuração do cluster](#test-the-cluster-configuration) e, em seguida, [atualize a configuração do cluster](#upgrade-the-cluster-configuration) para aplicar as configurações ao cluster. 
+Depois de ter modificado as definições no ficheiro ClusterConfig.json, [teste a configuração do cluster](#test-the-cluster-configuration) e, em seguida, [atualize a configuração do cluster](#upgrade-the-cluster-configuration) para aplicar as definições ao seu cluster. 
 
 ## <a name="test-the-cluster-configuration"></a>Testar a configuração do cluster
-Antes de iniciar a atualização de configuração, você pode testar seu novo JSON de configuração de cluster executando o seguinte script do PowerShell no pacote autônomo:
+Antes de iniciar a atualização de configuração, pode testar a sua nova configuração de cluster JSON executando o seguinte script PowerShell no pacote autónomo:
 
 ```powershell
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
 ```
 
-Ou use este script:
+Ou usar este guião:
 
 ```powershell
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, IP do nó, etc. O novo JSON de configuração de cluster é testado em relação ao antigo e gera erros na janela do PowerShell se houver um problema.
+Algumas configurações não podem ser atualizadas, tais como pontos finais, nome de cluster, IP do nó, etc. A nova configuração do cluster JSON é testada contra a antiga e lança erros na janela PowerShell se houver um problema.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
-Para atualizar a atualização de configuração de cluster, execute [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização pelo domínio de atualização.
+Para atualizar a atualização de configuração do cluster, executar [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada no domínio de upgrade por domínio de atualização.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 ```
 
-## <a name="upgrade-cluster-certificate-configuration"></a>Atualizar configuração de certificado do cluster
-Um certificado de cluster é usado para autenticação entre nós de cluster. A substituição do certificado deve ser executada com cuidado extra, pois a falha bloqueia a comunicação entre os nós do cluster.
+## <a name="upgrade-cluster-certificate-configuration"></a>Configuração de certificado de cluster de upgrade
+É utilizado um certificado de cluster para autenticação entre os nós do cluster. O capotamento do certificado deve ser realizado com especial cuidado porque a falha bloqueia a comunicação entre os nós do cluster.
 
-Há suporte para quatro opções:  
+São apoiadas quatro opções:  
 
-* Atualização de certificado único: o caminho de atualização é certificado A (primário)-> certificado B (primário)-> certificado C (primário)->....
+* Atualização de certificado único: A trajetória de atualização é certificado A (Primário) -> Certificado B (Primário) -> Certificado C (Primário) ->....
 
-* Atualização de certificado duplo: o caminho de atualização é certificado A (primário)-> certificado A (primário) e B (secundário)-> certificado B (primário)-> certificado B (primário) e C (secundário)-> certificado C (primário)->....
+* Atualização dupla do certificado: A trajetória de atualização é o Certificado A (Primário) -> Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário) ->....
 
-* Atualização de tipo de certificado: configuração de certificado baseada em impressão digital <-> configuração de certificado com base em comum. Por exemplo, impressão digital do certificado A (primária) e impressão digital B (secundária)-> certificado CommonName C.
+* Atualização do tipo de certificado: Configuração de certificado baseado em impressão digital < configuração do certificado baseado em Nome Comum > CommonName. Por exemplo, Impressão digital do certificado A (Primária) e impressão digital B (secundária) -> Certificado Comum C.
 
-* Atualização de impressão digital do emissor do certificado: o caminho de atualização é certificado CN = A, IssuerThumbprint = IT1 (primário)-> certificado CN = A, IssuerThumbprint = IT1, IT2 (primário)-> certificado CN = A, IssuerThumbprint = IT2 (primário).
+* Atualização da impressão digital do emitente do certificado: O caminho de atualização é certificado CN=A,EmitenteThumbprint=IT1 (Primário) -> Certificado CN=A,EmitenteThumbprint=IT1,IT2 (Primário) -> Certificado CN=A,EmitenteThumbprint=IT2 (Primário).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como personalizar algumas [configurações de cluster Service Fabric](service-fabric-cluster-fabric-settings.md).
-* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md).
-* Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md).
+* Aprenda a personalizar algumas [definições](service-fabric-cluster-fabric-settings.md)de cluster de Tecido de Serviço .
+* Aprenda a [escalar o seu cluster para dentro e para fora.](service-fabric-cluster-scale-up-down.md)
+* Conheça as atualizações de [aplicações.](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

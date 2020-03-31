@@ -9,19 +9,19 @@ ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a0a4a10797109cb3363027e2445259d06d9aa071
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76118073"
 ---
-## <a name="about-the-user-delegation-sas"></a>Sobre a SAS de delegação de usuário
+## <a name="about-the-user-delegation-sas"></a>Sobre a delegação de utilizadores SAS
 
-Um token SAS para acesso a um contêiner ou blob pode ser protegido usando as credenciais do Azure AD ou uma chave de conta. Uma SAS protegida com as credenciais do Azure AD é chamada de SAS de delegação de usuário, pois o token 2,0 do OAuth usado para assinar a SAS é solicitado em nome do usuário.
+Um símbolo SAS para acesso a um recipiente ou bolha pode ser protegido utilizando credenciais AD Azure ou uma chave de conta. Um SAS protegido com credenciais AD Azure é chamado de delegação de utilizadores SAS, porque o token OAuth 2.0 usado para assinar o SAS é solicitado em nome do utilizador.
 
-A Microsoft recomenda que você use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando seu design de aplicativo requer assinaturas de acesso compartilhado, use as credenciais do Azure AD para criar uma SAS de delegação de usuário para segurança superior. Para obter mais informações sobre a SAS de delegação de usuário, consulte [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas).
+A Microsoft recomenda que utilize credenciais de AD Azure sempre que possível como uma boa prática de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design da sua aplicação necessitar de assinaturas de acesso partilhado, utilize credenciais Azure AD para criar uma delegação de utilizadores SAS para uma segurança superior. Para obter mais informações sobre a delegação de utilizadores SAS, consulte [Criar uma delegação de utilizadores SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 > [!CAUTION]
-> Qualquer cliente que possua uma SAS válida pode acessar dados em sua conta de armazenamento, conforme permitido por essa SAS. É importante proteger uma SAS contra uso mal-intencionado ou indesejado. Use o critério de distribuição de uma SAS e tenha um plano em vigor para revogar uma SAS comprometida.
+> Qualquer cliente que possua um SAS válido pode aceder a dados na sua conta de armazenamento, conforme permitido por esse SAS. É importante proteger um SAS de uso malicioso ou não intencional. Use a discrição na distribuição de um SAS, e tenha um plano em vigor para revogar um SAS comprometido.
 
-Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../articles/storage/common/storage-sas-overview.md).
+Para obter mais informações sobre assinaturas de acesso partilhado, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../articles/storage/common/storage-sas-overview.md).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 3cc459b7f4b81b14f57bbb702f0b0d988654189f
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
-ms.translationtype: MT
+ms.openlocfilehash: 48fd4b0e6f0351cd46fc4063785d961867637e0c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298659"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060635"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conceber redes virtuais com recursos de gateway NAT
 
@@ -39,7 +39,7 @@ Configurar e utilizar o gateway NAT é intencionalmente simplificado:
 Recurso de gateway NAT:
 - Criar recursos de gateway NAT regionais ou zonais (isolados de zona),
 - Atribuir endereços IP,
-- Modificar o tempo de paragem inativa (opcional).
+- Modificar o tempo de paragem do tCP (opcional).
 
 Rede virtual:
 - Configure a sub-rede virtual para utilizar um portal NAT.
@@ -50,7 +50,7 @@ Não são necessárias rotas definidas pelo utilizador.
 
 O recurso foi concebido para ser simples, como pode ver pelo exemplo do Gestor de Recursos Azure num formato semelhante ao modelo.  Este formato semelhante ao modelo é mostrado aqui para ilustrar os conceitos e estrutura.  Modifique o exemplo para as suas necessidades.  Este documento não se destina a ser um tutorial.
 
-O diagrama seguinte mostra as referências recedíveis entre os diferentes recursos do Gestor de Recursos Azure.  A seta indica a direção da referência, originária de onde é reconelegível. Revisão 
+O diagrama seguinte mostra as referências recedíveis entre os diferentes recursos do Gestor de Recursos Azure.  A seta indica a direção da referência, originária de onde é reconelegível. Rever 
 
 <p align="center">
   <img src="media/nat-overview/flow-map.svg" width="256" title="Modelo de objeto nat rede virtual">
@@ -62,75 +62,31 @@ O NAT é recomendado para a maioria das cargas de trabalho, a menos que tenha um
 
 Pode migrar de cenários de equilíbrio de carga padrão, incluindo [regras de saída,](../load-balancer/load-balancer-outbound-rules-overview.md)para gateway NAT. Para migrar, mover os recursos públicos ip e ip prefixo público saem de frontends de equilibradores de carga para gateway NAT. Não são necessários novos endereços IP para gateway NAT. O IP e o prefixo públicopadrão podem ser reutilizados desde que o total não exceda 16 endereços IP. Plano para a migração com interrupção do serviço em mente durante a transição.  Pode minimizar a interrupção automatizando o processo. Teste a migração num ambiente de preparação primeiro.  Durante a transição, os fluxos originados de entrada não são afetados.
 
-O exemplo seguinte criaria um recurso de gateway NAT chamado _myNATGateway_ é criado na região _East US 2, AZ 1_ com um tempo de 4 _minutos_ inativo. Os endereços IP de saída fornecidos são:
-- Um conjunto de recursos de endereço IP público _myIP1_ e _myIP2_ e 
-- Um conjunto de recursos públicos de prefixo _IP myPrefix1_ e _myPrefix2_. 
+O exemplo seguinte é um corte de um modelo de Gestor de Recursos Azure.  Este modelo implementa vários recursos, incluindo um gateway NAT.  O modelo tem os seguintes parâmetros neste exemplo:
 
-O número total de endereços IP fornecidos pelos quatro recursos de endereçoIP não pode exceder 16 endereços IP no total. É permitido qualquer número de endereços IP entre 1 e 16.
+- **natgatewayname** - Nome da porta de entrada NAT.
+- **localização** - Região azure onde se encontra recurso.
+- **nome público** - Nome do IP público de saída associado à porta de entrada NAT.
+- **nome públicoprefixo** - Nome do prefixo IP público de saída associado ao gateway NAT.
+- **vnetname** - Nome da rede virtual.
+- **subnome** - Nome da subnet associada ao gateway NAT.
 
-```json
-{
-"name": "myNATGateway",
-   "type": "Microsoft.Network/natGateways",
-   "apiVersion": "2018-11-01",
-   "location": "East US 2",
-   "sku": { "name": "Standard" },
-   "zones": [ "1" ],
-   "properties": {
-      "idleTimeoutInMinutes": 4, 
-      "publicIPPrefixes": [
-         {
-            "id": "ref to myPrefix1"
-         },
-         {
-            "id": "ref to myPrefix2"
-         }
-      ],
-      "publicIPAddresses": [
-         {
-            "id": "ref to myIP1"
-         },
-         {
-            "id": "ref to myIP2"
-         }
-      ]
-   }
-}
-```
+O número total de endereços IP fornecidos por todos os endereços IP e recursos de prefixo não podem exceder 16 endereços IP no total. É permitido qualquer número de endereços IP entre 1 e 16.
+
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="256-281":::
 
 Quando o recurso de gateway NAT foi criado, pode ser usado em uma ou mais subredes de uma rede virtual. Especifique quais as subredes que utilizam este recurso de gateway NAT. Um portal NAT não é capaz de abranger mais do que uma rede virtual. Não é necessário atribuir a mesma porta de entrada NAT a todas as subredes de uma rede virtual. As subredes individuais podem ser configuradas com diferentes recursos de gateway NAT.
 
 Os cenários que não utilizem zonas de disponibilidade serão regionais (nenhuma zona especificada). Se estiver a usar zonas de disponibilidade, pode especificar uma zona para isolar o NAT numa zona específica. A redundância da zona não é apoiada. Rever [as zonas de disponibilidade](#availability-zones)do NAT.
 
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
 
-```json
-{
-   "name": "myVNet",
-   "apiVersion": "2018-11-01",
-   "type": "Microsoft.Network/virtualNetworks",
-   "location": "myRegion", 
-   "properties": {
-      "addressSpace": {
-          "addressPrefixes": [
-           "192.168.0.0/16"
-          ]
-      },
-      "subnets": [
-         {
-            "name": "mySubnet1",
-            "properties": {
-               "addressPrefix": "192.168.0.0/24",
-               "natGateway": {
-                  "id": "ref to myNATGateway"
-               }
-            }
-         } 
-      ]
-   }
-}
-```
-Os gateways NAT são definidos com uma propriedade numa subnet dentro de uma rede virtual. Os fluxos criados por máquinas virtuais na subnet _mySubnet1_ da rede virtual _myVNet_ usarão o gateway NAT. Toda a conectividade de saída utilizará os endereços IP associados ao _myNatGateway_ como endereço IP de origem.
+Os gateways NAT são definidos com uma propriedade numa subnet dentro de uma rede virtual. Os fluxos criados por máquinas virtuais no **subnome subnet de sub-rede** de **vnetname** de rede virtual usarão o gateway NAT. Toda a conectividade de saída utilizará os endereços IP associados ao **nome natgateway** como endereço IP de origem.
 
+Para obter mais informações sobre o modelo do Gestor de Recursos Azure utilizado neste exemplo, consulte:
+
+- [Quickstart: Criar um gateway NAT - Modelo de Gestor de Recursos](quickstart-create-nat-gateway-template.md)
+- [Rede Virtual NAT](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
 
 ## <a name="design-guidance"></a>Orientação de Design
 
@@ -313,7 +269,7 @@ Os recursos de gateway NAT interagem com os cabeçalhos de transporte IP e IP do
 
 ### <a name="timers"></a>Temporizadores
 
-O tempo limite pode ser ajustado de 4 minutos (predefinido) a 120 minutos (2 horas) para todos os fluxos.  Além disso, pode repor o temporizador inativo com o tráfego no fluxo.  Um padrão recomendado para refrescar ligações longas e deteção de vida de ponto final é a manutenção de TCP.  As vidas de manutenção do TCP aparecem como ACKs duplicados para os pontos finais, são baixos e invisíveis para a camada de aplicação.
+O tempo de paragem inativo do TCP pode ser ajustado de 4 minutos (predefinido) a 120 minutos (2 horas) para todos os fluxos.  Além disso, pode repor o temporizador inativo com o tráfego no fluxo.  Um padrão recomendado para refrescar ligações longas e deteção de vida de ponto final é a manutenção de TCP.  As vidas de manutenção do TCP aparecem como ACKs duplicados para os pontos finais, são baixos e invisíveis para a camada de aplicação.
 
 Os seguintes tempos são utilizados para a libertação da porta SNAT:
 
@@ -340,23 +296,23 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 
 Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos construir a seguir na [UserVoice para o NAT](https://aka.ms/natuservoice).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça a [rede virtual NAT](nat-overview.md).
 * Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .
 * Saiba mais sobre a resolução de recursos de [gateway na NAT.](troubleshoot-nat.md)
 * Tutorial para validar na NaT Gateway
-  - [CLI do Azure](tutorial-create-validate-nat-gateway-cli.md)
+  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
   - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
   - [Portal](tutorial-create-validate-nat-gateway-cli.md)
 * Quickstart para implantar um recurso de gateway NAT
-  - [CLI do Azure](./quickstart-create-nat-gateway-cli.md)
+  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
   - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Modelo](./quickstart-create-nat-gateway-template.md)
 * Conheça a API do recurso de gateway NAT
-  - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 
 * Conheça [as zonas de disponibilidade.](../availability-zones/az-overview.md)

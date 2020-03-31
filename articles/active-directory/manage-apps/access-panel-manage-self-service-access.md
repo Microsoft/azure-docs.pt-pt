@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o acesso de aplicações self-service | Documentos da Microsoft
-description: Ativar o acesso de aplicações self-service permitir que os utilizadores encontrar as suas aplicações
+title: Como utilizar o acesso à aplicação self-service [ Microsoft Docs
+description: Ativar o acesso à aplicação self-service para permitir que os utilizadores encontrem as suas próprias aplicações
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,73 +17,73 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55da8731855c8afda496edff33f3fbb7982cd44b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784543"
 ---
-# <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso de aplicações self-service
+# <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso à aplicação self-service
 
-Antes dos utilizadores Self-podem detetar aplicações a partir de seu painel de acesso, tem de ativar **acesso da aplicação self-service** para todos os aplicativos que deseja permitir que os utilizadores Self-detetar e pedir acesso.
+Antes de os seus utilizadores poderem autodescobrir as aplicações a partir do seu painel de acesso, é necessário permitir o acesso à **aplicação self-service** a quaisquer aplicações a que deseje permitir aos utilizadores auto-descobrire solicitar acesso.
 
-Esta funcionalidade é uma forma excelente de economizar tempo e dinheiro como um grupo de TI e é altamente recomendável como parte de uma implementação de aplicações modernas com o Azure Active Directory.
+Esta funcionalidade é uma ótima maneira de economizar tempo e dinheiro como um grupo de TI, e é altamente recomendado como parte de uma implementação de aplicações modernas com o Azure Ative Directory.
 
-Utilizar esta funcionalidade, pode:
+Através desta funcionalidade, pode:
 
--   Permitir que os utilizadores Self-detetar aplicações a partir da [painel de acesso de aplicação](https://myapps.microsoft.com/) sem se preocupar o grupo de TI.
+-   Deixe os utilizadores auto-descobrirem as aplicações do Painel de Acesso à [Aplicação](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
 
--   Adicione esses utilizadores a um grupo previamente configurado para que possa ver que pediu acesso, remover o acesso e gerir as funções atribuídas a eles.
+-   Adicione esses utilizadores a um grupo pré-configurado para que possa ver quem solicitou acesso, remover o acesso e gerir as funções que lhes foram atribuídas.
 
--   Opcionalmente, permitem que um aprovador empresarial aprovar pedidos de acesso de aplicações para que não tem do grupo de TI.
+-   Opcionalmente, permita que um aprovador de negócios aprove pedidos de acesso a aplicações para que o grupo de TI não tenha de o fazer.
 
--   Opcionalmente, configure até 10 pessoas que podem aprovar o acesso a esta aplicação.
+-   Configure opcionalmente até 10 indivíduos que possam aprovar o acesso a esta aplicação.
 
--   Opcionalmente, permitir que uma empresa aprovador para definir as palavras-passe esses utilizadores pode utilizar para iniciar sessão na aplicação, desde o aprovador empresarial tenha [painel de acesso de aplicação](https://myapps.microsoft.com/).
+-   Opcionalmente, permita que um utilizador de negócios detetete as palavras-passe que os utilizadores podem utilizar para iniciar sessão na aplicação, a partir do Painel de Acesso à [Aplicação](https://myapps.microsoft.com/)do utilizador.
 
--   Atribua opcionalmente automaticamente utilizadores de atribuídos a uma função de aplicação diretamente de Self-Service.
+-   Opcionalmente atribua automaticamente os utilizadores autosserviço atribuídos a uma função de aplicação diretamente.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Ativar o acesso de aplicações self-service permitir que os utilizadores encontrar as suas aplicações
+## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Ativar o acesso à aplicação self-service para permitir que os utilizadores encontrem as suas próprias aplicações
 
-Acesso de aplicações self-service é uma excelente forma de permitir que os utilizadores Self-detetar aplicações, opcionalmente, permitir que o grupo de negócio para aprovar o acesso a esses aplicativos. Pode permitir que o grupo de empresas gerir as credenciais atribuídas a esses utilizadores para a direita da palavra-passe de início de sessão único em aplicações de seus painéis de acesso.
+O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se autodescubram aplicações, permitindo opcionalmente ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas aos utilizadores para aplicações de assinatura única de password a partir dos seus painéis de acesso.
 
-Para ativar o acesso de aplicações self-service a uma aplicação, siga os passos abaixo:
+Para permitir o acesso à aplicação self-service a uma aplicação, siga os passos abaixo:
 
-1. Abra o [ **Portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
+1. Abra o [**Portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
 
-2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerda principal.
+2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
 
-4. Clique em **aplicações empresariais** do menu de navegação do lado esquerdo do Azure Active Directory.
+4. clique **em Aplicações Empresariais** a partir do menu de navegação à mão esquerda do Diretório Ativo Azure.
 
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
 
-6. Selecione a aplicação que pretende ativar a gestão personalizada de acesso a partir da lista.
+6. Selecione a aplicação que pretende ativar o acesso ao Self-service a partir da lista.
 
-7. Assim que o aplicativo é carregado, clique em **self-service** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que a aplicação estiver carregada, clique em **Self-service** a partir do menu de navegação à mão esquerda da aplicação.
 
-8. Para ativar o acesso de aplicações self-service para esta aplicação, ative o **permitir que os utilizadores peçam acesso a esta aplicação?** alternar para **Sim.**
+8. Para permitir o acesso à aplicação self-service para esta aplicação, **Yes.** rode os **utilizadores de Permitir em solicitar acesso a esta aplicação?**
 
-9. Em seguida, para selecionar o grupo a que os utilizadores que pedem acesso a esta aplicação deve ser adicionado, clique o Seletor de junto à etiqueta **a que grupo devem os utilizadores atribuídos ser adicionados?** e selecione um grupo.
+9. Em seguida, para selecionar o grupo ao qual devem ser adicionados os utilizadores que solicitam o acesso a esta aplicação, clique no seletor ao lado da etiqueta **Para que grupo deve ser adicionado os utilizadores?**
 
-10. **Opcional:** Se quiser pedir uma aprovação de negócios antes dos utilizadores têm permissão para aceder, defina o **exigem a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
+10. **Opcional:** Se desejar uma aprovação de negócio antes de os utilizadores poderem aceder, detetete a **aprovação do Requires antes de conceder acesso a esta aplicação?** **Yes**
 
-11. **Opcional: Para aplicativos usando apenas, palavra-passe início de sessão único no** se pretender permitir que os aprovadores empresariais especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir que os aprovadores definam as palavras-passe do utilizador para isso aplicação?**  alternar para **Sim**.
+11. **Opcional: Para aplicações** que utilizem apenas uma única placa de senha, se pretender permitir que esses aprovadores de negócios especifiquem as palavras-passe enviadas **Yes**para esta aplicação para utilizadores aprovados, detete te permite que os aprovadores de permitam definir as **palavras-passe do utilizador para esta aplicação?**
 
-12. **Opcional:** Para especificar os aprovadores empresariais que têm permissão para aprovar o acesso a esta aplicação, clique o Seletor de junto à etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar até 10 aprovadores de negócios individuais.
+12. **Opcional:** Para especificar os aprovadores de negócios autorizados a aprovar o acesso a esta aplicação, clique no seletor ao lado do rótulo **Quem está autorizado a aprovar o acesso a esta aplicação?**
 
-    * Grupos não são suportados.
+    * Os grupos não são apoiados.
 
-13. **Opcional:** **Para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados self-service a uma função, clique o Seletor de junto aos **a que função devem ser atribuídos os utilizadores desta aplicação?** para selecionar a função para o qual Estes utilizadores devem ser atribuídos.
+13. **Opcional:** **Para aplicações que exponham funções,** caso deseje atribuir aos utilizadores aprovados por self-service uma função, clique no seletor ao lado do **To que deve ser atribuído aos utilizadores nesta aplicação?**
 
-14. Clique nas **guardar** botão na parte superior do painel para concluir.
+14. Clique no botão **Guardar** na parte superior da lâmina para terminar.
 
-Depois de concluir a configuração de aplicações self-service, os usuários podem navegar para seus [painel de acesso de aplicação](https://myapps.microsoft.com/) e clique nas **+ adicionar** botão para encontrar as aplicações a que tiver ativado o Self-Service acesso. Aprovadores empresariais também veem uma notificação no seu [painel de acesso de aplicação](https://myapps.microsoft.com/). Pode ativar um e-mail a notificar quando um utilizador pediu acesso a um aplicativo que requer a sua aprovação. 
+Assim que completar a configuração da aplicação self-service, os utilizadores podem navegar para o seu Painel de Acesso a [Aplicações](https://myapps.microsoft.com/) e clicar no botão **+Adicionar** para encontrar as aplicações às quais ativou o acesso ao self-service. Os aprovadores de negócios também vêem uma notificação no seu Painel de Acesso a [Aplicações.](https://myapps.microsoft.com/) Pode ativar um e-mail notificando-os quando um utilizador solicitou acesso a uma aplicação que requer a sua aprovação. 
 
-Estas aprovações suportam aprovação única fluxos de trabalho apenas, que significa que, se especificar vários aprovadores, qualquer um único aprovador pode aprovar acesso à aplicação.
+Estas aprovações suportam apenas fluxos de trabalho de aprovação individuais, o que significa que se especificar vários aprovadores, qualquer único aprovador pode aprovar o acesso à aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Configurar o Azure Active Directory para gestão de grupos self-service](../users-groups-roles/groups-self-service-management.md)
+## <a name="next-steps"></a>Passos seguintes
+[Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)

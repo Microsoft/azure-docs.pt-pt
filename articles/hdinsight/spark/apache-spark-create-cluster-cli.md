@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049688"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Quickstart: Criar o cluster Apache Spark em Azure HDInsight usando o Azure CLI
@@ -27,7 +27,7 @@ Neste arranque rápido, aprende-se a criar um cluster Apache Spark em Azure HDIn
 
 ## <a name="create-an-apache-spark-cluster"></a>Criar um cluster do Apache Spark
 
-1. Entre em sua assinatura do Azure. Se planeia utilizar a Azure Cloud Shell, selecione **Experimente-a** no canto superior direito do bloco de código seguinte. Caso contrário, insira o seguinte comando:
+1. Inscreva-se na sua assinatura Azure. Se planeia utilizar a Azure Cloud Shell, selecione **Experimente-a** no canto superior direito do bloco de código seguinte. Caso contrário, insira o seguinte comando:
 
     ```azurecli-interactive
     az login
@@ -36,7 +36,7 @@ Neste arranque rápido, aprende-se a criar um cluster Apache Spark em Azure HDIn
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Definir variáveis de ambiente. O uso de variáveis neste quickstart é baseado em Bash. Pequenas variações serão necessárias para outros ambientes. Substitua o NOME DE GRUPO DE RECURSOS, LOCALIZAÇÃO, CLUSTERNAME, STORAGEACCOUNTNAME e PASSWORD no código abaixo pelos valores pretendidos. Em seguida, introduza os comandos CLI para definir as variáveis ambientais.
+2. Definir variáveis ambientais. O uso de variáveis neste quickstart é baseado em Bash. Serão necessárias ligeiras variações para outros ambientes. Substitua o NOME DE GRUPO DE RECURSOS, LOCALIZAÇÃO, CLUSTERNAME, STORAGEACCOUNTNAME e PASSWORD no código abaixo pelos valores pretendidos. Em seguida, introduza os comandos CLI para definir as variáveis ambientais.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -113,9 +113,9 @@ Neste arranque rápido, aprende-se a criar um cluster Apache Spark em Azure HDIn
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de completar o arranque rápido, poderá querer eliminar o cluster. Com o HDInsight, seus dados são armazenados no armazenamento do Azure, para que você possa excluir um cluster com segurança quando ele não estiver em uso. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Como os encargos para o cluster são muitas vezes mais do que os encargos de armazenamento, ele faz sentido econômico excluir clusters quando eles não estiverem em uso.
+Depois de completar o arranque rápido, poderá querer eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Armazenamento Azure, para que possa eliminar com segurança um cluster quando não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que as taxas de armazenamento, faz sentido económico apagar clusters quando não estão em uso.
 
-Insira todos ou alguns dos comandos a seguir para remover os recursos:
+Insira todos ou alguns dos seguintes comandos para remover recursos:
 
 ```azurecli-interactive
 # Remove cluster

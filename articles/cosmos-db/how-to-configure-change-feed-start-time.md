@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 8a5507d11c9545e4053dde832b7305f9bf35e39e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586279"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Como configurar o tempo de início do processador de feed de mudança
@@ -23,17 +23,17 @@ Quando um processador de feed de mudança começar pela primeira vez, irá inici
 
 ## <a name="reading-from-a-previous-date-and-time"></a>Leitura de uma data e hora anteriores
 
-É possível inicializar o processador de feed de mudança para ler alterações a partir de uma **data e hora específicas,** passando uma instância de um `DateTime` à extensão do construtor `WithStartTime`:
+É possível inicializar o processador de feed de mudança para ler alterações a `DateTime` partir `WithStartTime` de uma data e **hora específicas,** passando uma instância de a para a extensão do construtor:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="TimeInitialization":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
 O processador de feed de alteração será inicializado para essa data e hora específicas e começará a ler as alterações que ocorreram depois.
 
 ## <a name="reading-from-the-beginning"></a>Leitura desde o início
 
-Noutros cenários, como migrações de dados ou análise de toda a história de um contentor, precisamos de ler a mudança de alimentos desde **o início da vida útil desse contentor.** Para isso, podemos usar `WithStartTime` na extensão do construtor, mas passando `DateTime.MinValue.ToUniversalTime()`, o que geraria a representação UTC do valor mínimo `DateTime`, como assim:
+Noutros cenários, como migrações de dados ou análise de toda a história de um contentor, precisamos de ler a mudança de alimentos desde **o início da vida útil desse contentor.** Para isso, podemos `WithStartTime` usar na extensão `DateTime.MinValue.ToUniversalTime()`do construtor, mas a passagem, que geraria a representação UTC do valor mínimo, `DateTime` como assim:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartFromBeginningInitialization":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 
 O processador de alimentação de mudanças será inicializado e começará a ler alterações desde o início da vida útil do recipiente.
 
@@ -54,4 +54,4 @@ O processador de alimentação de mudanças será inicializado e começará a le
 Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
 
 * [Visão geral do processador de feed de mudança](change-feed-processor.md)
-* [Utilização do estimador de alimentação de alteração](how-to-use-change-feed-estimator.md)
+* [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)

@@ -1,5 +1,5 @@
 ---
-title: login azcopy  Microsoft Docs
+title: login azcopy [ Microsoft Docs
 description: Este artigo fornece informações de referência para o comando de login da azcopia.
 author: normesta
 ms.service: storage
@@ -8,18 +8,18 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905277"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295411"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
 Inicia sessão no Azure Ative Directory para aceder aos recursos de Armazenamento Azure.
 
-## <a name="synopsis"></a>Resumo
+## <a name="synopsis"></a>Sinopse
 
 Inicie sessão no Azure Ative Directory para aceder aos recursos de Armazenamento Azure.
 
@@ -38,10 +38,10 @@ azcopy login [flags]
 
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
-- [Começar com a AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -101,11 +101,11 @@ Certifique-se de tratar /path/to/my/cert como um caminho para um ficheiro PEM ou
 
 |Opção|Descrição|
 |--|--|
-|--aad-endpoint|O ponto final do Diretório Ativo Azure a utilizar. O padrão (https://login.microsoftonline.com) é correto para a nuvem pública de Azure. Defina este parâmetro ao autenticar numa nuvem nacional. Consulte [os pontos finais de autenticação Da Azure.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)
+|--aad-endpoint|O ponto final do Diretório Ativo Azure a utilizar. O padrão`https://login.microsoftonline.com`é correto para a nuvem pública de Azure. Defina este parâmetro ao autenticar numa nuvem nacional. Consulte [os pontos finais de autenticação Da Azure.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)
 Esta bandeira não é necessária para a Identidade de Serviço Gerida.|
 |--cadeia de aplicação-id|Id de aplicação da identidade atribuída ao utilizador. Necessário para o auth principal de serviço.|
 |--cadeia de caminho-de-certificado|Caminho para certificado para autenticação SPN. Necessário para o auth principal de serviço baseado em certificado.|
-|-h,--ajuda|Mostre o conteúdo da ajuda para o comando de login.|
+|-h, --ajuda|Mostre o conteúdo da ajuda para o comando de login.|
 |--identidade|log in usando a identidade da máquina virtual, também conhecida como identidade de serviço gerida (MSI).|
 |--identidade-cliente-id string|Identificação do cliente da identidade atribuída ao utilizador.|
 |--identidade-objeto-id string|Identificação do objeto da identidade atribuída ao utilizador.|
@@ -113,13 +113,13 @@ Esta bandeira não é necessária para a Identidade de Serviço Gerida.|
 |--serviço-principal|Faça login via SPN (Nome Principal de Serviço) utilizando um certificado ou um segredo. O segredo do cliente ou a palavra-passe do certificado devem ser colocados na variável ambiente adequada. Digite `AzCopy env` para ver nomes e descrições de variáveis ambientais.|
 |--cadeia de inquilino-id| o ID de inquilino de diretório ativo Azure para usar para login interativo dispositivo OAuth.|
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
 |Opção|Descrição|
 |---|---|
-|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
-|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--cap-mbps uint32|Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.|
+|--cadeia tipo saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

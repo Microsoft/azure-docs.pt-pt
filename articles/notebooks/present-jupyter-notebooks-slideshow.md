@@ -1,100 +1,100 @@
 ---
-title: Apresentar um notebook Jupyter como uma apresentação de slides sobre Azure Notebooks visualização
-description: Saiba como configurar células para o modo de apresentação de slides em um notebook Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão de elevação.
+title: Apresente um caderno Jupyter como uma apresentação de diapositivos na Pré-visualização de cadernos Azure
+description: Aprenda a configurar as células para o modo slideshow num portátil Jupyter e, em seguida, apresentar a apresentação de diapositivos utilizando a extensão RISE.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647123"
 ---
-# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Executar uma apresentação de slides do bloco de notas em Azure Notebooks visualização
+# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Executar um slideshow de cadernos em Pré-visualização de cadernos Azure
 
-Blocos de notas do Azure está pré-configurada com o Jupyter/IPython Slideshow extensão (aumento) que permite-lhe apresentar um bloco de notas diretamente como uma apresentação de diapositivos. Numa apresentação de diapositivos, as células são normalmente apresentados um a um usando um tamanho de fonte que é adequado para apresentar em telas grandes e pode executar o código, em vez de mudar para um computador separado de demonstração.
+Os Cadernos Azure são pré-configurados com a Extensão de Apresentação de Slides Jupyter/IPython (RISE) que lhe permite apresentar um caderno diretamente como uma apresentação de diapositivos. Numa apresentação de diapositivos, as células são normalmente exibidas uma de cada vez usando um tamanho de fonte adequado para apresentar em ecrãs grandes, e você ainda pode executar o código em vez de mudar para um computador de demonstração separado.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-A imagem seguinte mostra a vista de bloco de anotações padrão, no qual pode ver as células de Markdown e o código de todas as ferramentas:
+A imagem que se segue mostra a vista padrão do caderno, na qual pode ver as células Markdown e code all together:
 
-![Um bloco de notas no modo de exibição padrão](media/slideshow/slideshow-notebook-view.png)
+![Um caderno na vista padrão](media/slideshow/slideshow-notebook-view.png)
 
-Quando inicia uma apresentação de slides, a primeira célula for alargada para preencher o browser, onde o **X** no canto superior esquerdo termina a apresentação de slides, **?** o apresenta à esquerda inferior atalhos de teclado e as setas no canto inferior direito navegue entre slides:
+Quando inicia uma apresentação de diapositivos, a primeira célula é ampliada para preencher o navegador, onde o **X** na parte superior esquerda sai da apresentação de diapositivos, **?** na parte inferior esquerda exibe atalhos de teclado, e as setas na parte inferior direita navegam entre slides:
 
-![Um bloco de notas no modo de apresentação de slides](media/slideshow/slideshow-slide-view.png)
+![Um caderno no modo slideshow](media/slideshow/slideshow-slide-view.png)
 
-Preparar um bloco de notas para uma apresentação de diapositivos envolve duas atividades principais:
+A preparação de um caderno para uma apresentação de diapositivos envolve duas atividades primárias:
 
-1. Uma vez que as células de Markdown são compostas com tipos de letra grandes, algum conteúdo poderá não estar visível na apresentação de slides. Portanto, normalmente, limitar a quantidade de texto em qualquer determinada célula; Normalmente, um cabeçalho com quatro a seis linhas funciona melhor. Se tiver mais texto, dividido essas informações em várias células.
+1. Como as células Markdown são renderizadas com fontes grandes, alguns conteúdos podem não ser visíveis na apresentação de diapositivos. Assim, normalmente limita a quantidade de texto em qualquer célula; um cabeçalho com quatro a seis linhas geralmente funciona melhor. Se tiver mais texto, divida essa informação em várias células.
 
-2. Configure o comportamento de cada célula na apresentação de slides usando a barra de ferramentas de célula de apresentação de slides. Tipos de célula determinam o comportamento dos botões de navegação.
+2. Configure o comportamento de cada célula na apresentação de diapositivos utilizando a barra de ferramentas de apresentação de diapositivos. Os tipos de células determinam o comportamento dos botões de navegação.
 
 ## <a name="the-anatomy-of-a-slideshow"></a>A anatomia de uma apresentação de diapositivos
 
-Se tirar um bloco de notas aleatório e utilizá-lo para uma apresentação de diapositivos, normalmente descobrir que estão se todas as células e grande parte do conteúdo está oculto desativado na parte inferior da janela do navegador. Para fazer uma apresentação em vigor, em seguida, tem de atribuir um tipo de apresentação de slides para cada célula usando a barra de ferramentas do Slideshow célula:
+Se pegar num caderno aleatório e usá-lo para uma apresentação de diapositivos, normalmente descobre que todas as células estão juntas, e grande parte do conteúdo está escondido na parte inferior da janela do navegador. Para fazer uma apresentação eficaz, então, você precisa atribuir um tipo de slideshow a cada célula usando a barra de ferramentas de célulaslideshow:
 
-1. Sobre o **vista** menu, selecione **barra de ferramentas de célula** > **Slideshow**:
+1. No menu **'Ver',** selecione Apresentação > **de Diapositivos**da **Barra de Ferramentas celulares:**
 
-    ![Ativar a barra de ferramentas de apresentação de slides da célula](media/slideshow/slideshow-view-cell-toolbar.png)
+    ![Ligar a barra de ferramentas de apresentação de diapositivos da célula](media/slideshow/slideshow-view-cell-toolbar.png)
 
-1. R **deslize tipo** pendente é apresentado no canto superior direito de cada célula no bloco de notas:
+1. Uma queda **do tipo de diapositivo** aparece na parte superior direita de cada célula no Caderno:
 
-    ![Barra de ferramentas de apresentação de slides de célula](media/slideshow/slideshow-cell-toolbar.png)
+    ![Barra de ferramentas de apresentação de diapositivos celular](media/slideshow/slideshow-cell-toolbar.png)
 
-1. Para cada célula, selecione uma das cinco tipos:
+1. Para cada célula, selecione um de cinco tipos:
 
-    ![Tipos de apresentação de slides de célula](media/slideshow/slideshow-cell-slide-types.png)
+    ![Tipos de slideshow celular](media/slideshow/slideshow-cell-slide-types.png)
 
-    | Tipo de slide | Comportamento |
+    | Tipo de diapositivo | Comportamento |
     | --- | --- |
-    | -(não definido) | Célula é apresentada com a célula anterior, o que é muitas vezes não um efeito desejado numa apresentação de diapositivos. |
-    | Diapositivo | A célula é um slide primário, navegado com as setas do esquerda e direita do controle de navegação. |
-    | Slide secundárias | Célula é "inferior" um slide primário, navegado para utilizar a seta para baixo do controle de navegação. Devolve a seta para cima ao diapositivo principal. Slides secundárias são utilizados para secundário material que poderiam Pular no caminho do principal de uma apresentação, mas está prontamente disponível caso seja necessário. |
-    | Fragmento | Conteúdo da célula é apresentado no contexto do slide anterior ou slide secundárias ao utilizar a seta de navegação baixo (um fragmento é removido quando utilizar a seta para cima). Pode utilizar um fragmento com uma célula de código para tornar esse código aparecem dentro de um slide, ou pode usar vários fragmentos para tornar o texto marcadores são apresentados um a um (veja o exemplo na secção seguinte). Uma vez que criar fragmentos no slide atual, fragmentos em excesso não será visíveis desativado na parte inferior da janela do navegador. |
-    | Ignorar | Célula não é mostrada na apresentação de slides. |
-    | Notas | Célula contém como anotações do orador, que não são mostradas na apresentação de slides. |
+    | - (não definido) | A célula é exibida com a célula anterior, que muitas vezes não é um efeito desejado numa apresentação de diapositivos. |
+    | Slide | A célula é um slide primário, navegado com as setas esquerda e direita do controlo de navegação. |
+    | Sub-slide | A célula é "abaixo" de um slide primário, navegado para usar a seta para baixo do controlo de navegação. A seta para cima volta ao slide primário. Os sub-slides são utilizados para material secundário que pode saltar no caminho principal de uma apresentação, mas está prontamente disponível se necessário. |
+    | Fragment | O conteúdo celular aparece no contexto do slide ou sub-slide anterior esquelético quando se utiliza a seta de navegação para baixo (um fragmento é removido quando se utiliza a seta para cima). Pode utilizar um fragmento com uma célula de código para fazer com que esse código apareça dentro de um slide, ou pode utilizar vários fragmentos para fazer com que as balas de texto apareçam uma a uma (ver exemplo na secção seguinte). Como os fragmentos se baseiam no slide atual, os fragmentos em excesso não serão visíveis na parte inferior da janela do navegador. |
+    | Ignorar | A célula não é mostrada na apresentação de diapositivos. |
+    | Notas | A célula contém notas de altifalante, que não são mostradas na apresentação de diapositivos. |
 
-1. Inicialmente, é útil escolher **deslize** para cada célula. Em seguida, pode executar a apresentação de slides e efetue os ajustes adequados.
+1. Inicialmente, é útil escolher **slide** para cada célula. Em seguida, pode executar a apresentação de diapositivos e fazer os ajustes adequados.
 
-### <a name="example-fragment-cells-for-bullet-items"></a>Exemplo: fragmento células de itens de marca de lista
+### <a name="example-fragment-cells-for-bullet-items"></a>Exemplo: células de fragmento para objetos de bala
 
-Para tornar marcadores num slide aparecer uma ao local de um, o cabeçalho de slides numa célula de Markdown com o **Slide** escreva, em seguida, coloque cada item numa célula separada de Markdown com o **fragmento** tipo:
+Para fazer com que as balas num slide apareçam uma a uma, coloque o cabeçalho de diapositivonuma célula de Marcação com o tipo **Slide** e, em seguida, coloque cada bala numa célula de Markdown separada com o tipo **Fragment:**
 
-![Exemplo de criação de várias células de Markdown para itens de marca de lista](media/slideshow/slideshow-fragments.png)
+![Exemplo de criar várias células Markdown para itens de bala](media/slideshow/slideshow-fragments.png)
 
-Uma vez que a apresentação de slides renderiza fragmentos com mais vertical espaçamento do que quando todos os marcadores estão na mesma célula, poderá não conseguir utilizar a mesma quantidade de itens de marca de lista.
+Como a apresentação de diapositivos torna fragmentos com mais espaçamento vertical do que quando todas as balas estão na mesma célula, pode não ser capaz de usar tantos objetos de bala.
 
-## <a name="run-the-slideshow"></a>Executar a apresentação de slides
+## <a name="run-the-slideshow"></a>Executar a apresentação de diapositivos
 
-1. Se tiver editado células de Markdown, certifique-se para executá-los para renderizar o HTML, caso contrário, eles aparecem *como* Markdown na apresentação de slides.
+1. Se editou quaisquer células Markdown, certifique-se de executá-las para renderizar o seu HTML, caso contrário aparecem *como* Markdown na apresentação de diapositivos.
 
-1. Assim que tiver configurado a **tipo de deslize** para cada célula, selecionar a célula com a qual iniciar a apresentação de slides, em seguida, selecione o **apresentação de slides de aumentar Enter/saída** botão na barra de ferramentas principal:
+1. Depois de configurar o **Tipo de Diapositivo** para cada célula, selecione a célula com a qual iniciar a apresentação de diapositivos, e, em seguida, selecione o botão 'Apresentação de **diapositivos 'Entrar/Saída RISE',** na barra principal de ferramentas:
 
-    ![Apresentação de slides de aumentar entrar/sair do botão na barra de ferramentas principal](media/slideshow/slideshow-start.png)
+    ![Botão de apresentação de diapositivos Enter/Exit RISE Na barra principal](media/slideshow/slideshow-start.png)
 
-1. Para navegar entre slides, bem como fragmentos, use as setas do esquerda e direita no controle de navegação. O texto no controle mostra um número que representa *slide.sub slide*.
+1. Para navegar entre slides e fragmentos, utilize as setas esquerda e direita no controlo de navegação. O texto no comando mostra um número que representa *slide.sub-slide*.
 
-    ![Controle de navegação de apresentação de slides](media/slideshow/slideshow-navigation-control.png)
+    ![Controlo de navegação slideshow](media/slideshow/slideshow-navigation-control.png)
 
-1. Para navegar entre slides e secundárias slides, bem como fragmentos, utilize a cópia de segurança e para baixo setas, se estiver ativada:
+1. Para navegar entre slides e sub-slides, bem como fragmentos, utilize as setas para cima e para baixo, se ativadas:
 
-    ![Controles de navegação de apresentação de slides para slides secundárias](media/slideshow/slideshow-navigation-control-subslide.png)
+    ![Slideshow controlos de navegação para sub-slides](media/slideshow/slideshow-navigation-control-subslide.png)
 
-1. Numa célula de código, utilize o botão Reproduzir para executar o código; saída será no slide:
+1. Numa célula de código, utilize o botão de reprodução para executar o código; a saída aparece no slide:
 
-    ![Botão Reproduzir para executar uma célula de código](media/slideshow/slideshow-run-code-cell.png)
+    ![Reproduzir botão para executar uma célula de código](media/slideshow/slideshow-run-code-cell.png)
 
-    ![Saída de célula de código é apresentado na apresentação de diapositivos](media/slideshow/slideshow-run-code-cell-output.png)
+    ![A saída da célula de código aparece na apresentação de diapositivos](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > Saída de célula é considerada parte da célula numa apresentação de diapositivos. Se executar uma célula no bloco de notas ou exibição de apresentação de slides, o resultado é apresentado na outra vista também. Para limpar a saída, utilize o **célula** > **saídas atual** > **limpar** comando (para a célula atual) ou **célula**  >  **Todos os resultados** > **clara** (para todas as células).
+    > A saída celular é considerada parte da célula numa apresentação de diapositivos. Se executar uma célula em qualquer portátil ou visualização de apresentação de diapositivos, a saída também aparece na outra vista. Para limpar a saída, utilize **o** > **Current Outputs** > comando**Desalvio** de Corrente celular (para a célula atual) ou **"Cell** > **All Outputs** > **Clear"** (para todas as células).
 
-1. Quando tiver terminado com a apresentação de slides, utilize o **X** para regressar à vista de bloco de notas.
+1. Quando terminar a apresentação de diapositivos, use o **X** para voltar à vista do caderno.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: Instalar pacotes dentro de um caderno](install-packages-jupyter-notebook.md)
+- [Como: Trabalhar com ficheiros de dados](work-with-project-data-files.md)
+- [Como: Aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)

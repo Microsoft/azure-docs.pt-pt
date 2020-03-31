@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096055"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331274"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem por passe por diretório ativo azure: Perguntas frequentes
 
@@ -75,7 +75,7 @@ Se não configurar a reescrita de palavra-passe para um utilizador específico o
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>O que comunicam os Agentes de Autenticação Pass-through através das portas 80 e 443?
 
 - Os Agentes de Autenticação fazem pedidos HTTPS sobre a porta 443 para todas as operações de recurso.
-- Os Agentes de Autenticação fazem pedidos http sobre a porta 80 para descarregar as listas de revogação de certificados SSL (CRLs).
+- Os Agentes de Autenticação fazem pedidos http sobre a porta 80 para descarregar as listas de revogação de certificados TLS/SSL (CRLs).
 
      >[!NOTE]
      >As atualizações recentes reduziram o número de portas que a funcionalidade necessita. Se tiver versões mais antigas do Azure AD Connect ou do Agente de Autenticação, mantenha estas portas abertas também: 5671, 8080, 9090, 9091, 9350, 9352 e 10100-10120.
@@ -87,7 +87,7 @@ Sim. Se o Web Proxy Auto-Discovery (WPAD) estiver ativado no seu ambiente no loc
 Se não tiver WPAD no seu ambiente, pode adicionar informações de procuração (como mostrado abaixo) para permitir que um Agente de Autenticação Pass-through se comunique com a AD Azure:
 - Configure informações de procuração no Internet Explorer antes de instalar o Agente de Autenticação Pass-through no servidor. Isto permitir-lhe-á concluir a instalação do Agente de Autenticação, mas continuará a aparecer como **Inativo** no portal Doin.
 - No servidor, navegue para "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
-- Editar o ficheiro de configuração "AzureADConnectAuthenticationAgentService" e adicionar as seguintes linhas (substitua "http\://contosoproxy.com:8080" com o seu endereço de procuração real):
+- Editar o ficheiro de configuração "AzureADConnectAuthenticationAgentService" e\:adicionar as seguintes linhas (substitua "http/contosoproxy.com:8080" com o seu endereço de procuração real):
 
 ```
    <system.net>
@@ -111,7 +111,7 @@ A comunicação entre cada Agente de Autenticação Pass-through e Azure AD é a
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como posso remover um agente de autenticação pass-through?
 
-Enquanto um Agente de Autenticação Pass-through estiver em execução, permanece ativo e continuamente lida com pedidos de inscrição do utilizador. Se pretender desinstalar um Agente de Autenticação, vá ao Painel de **Controlo -> Programas -> Programas e Funcionalidades** e desinstale tanto o **Microsoft Azure AD Connect Authentication Agent como** os programas de atualização do Agente de **Ligação AD Microsoft Azure.**
+Enquanto um Agente de Autenticação Pass-through estiver em execução, permanece ativo e continuamente lida com pedidos de inscrição do utilizador. Se pretender desinstalar um Agente de Autenticação, vá ao Painel de **Controlo -> Programas - programas e Funcionalidades >** e desinstale tanto o **Microsoft Azure AD Connect Authentication Agent como** os programas de atualização do Agente de **Ligação AD Microsoft Azure.**
 
 Se verificar a lâmina de autenticação pass-through no centro de [administração do Diretório Ativo Azure](https://aad.portal.azure.com) depois de completar o passo anterior, verá o Agente de Autenticação a mostrar-se **inativo**. Espera-se que isto se _encontre._ O Agente de Autenticação é automaticamente retirado da lista após alguns dias.
 

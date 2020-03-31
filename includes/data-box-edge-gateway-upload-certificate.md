@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 06/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 09d9b5bbf3f9ca7a4eef37891d03c9c865e7f74b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67448644"
 ---
-Um certificado SSL adequado garante que estiver enviando informações encriptadas para o servidor correto. Além de criptografia, o certificado também permite a autenticação. Pode carregar seu próprio certificado SSL confiável por meio da interface do PowerShell do dispositivo.
+Um certificado SSL adequado garante que está a enviar informações encriptadas para o servidor certo. Além da encriptação, o certificado também permite a autenticação. Pode fazer o upload do seu próprio certificado SSL fidedigno através da interface PowerShell do dispositivo.
 
-1. [Ligar a interface do PowerShell](#connect-to-the-powershell-interface).
-2. Utilize o `Set-HcsCertificate` cmdlet para carregar o certificado. Quando lhe for pedido, forneça os seguintes parâmetros:
+1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
+2. Utilize `Set-HcsCertificate` o cmdlet para fazer o upload do certificado. Quando solicitado, forneça os seguintes parâmetros:
 
-   - `CertificateFilePath` -Path para a partilha que contém o ficheiro de certificado no *. pfx* formato.
-   - `CertificatePassword` -A palavra-passe utilizada para proteger o certificado.
-   - `Credentials` -Nome de utilizador para aceder à partilha que contém o certificado. Forneça a palavra-passe para a partilha de rede quando lhe for pedido.
+   - `CertificateFilePath`- Caminho para a parte que contém o ficheiro de certificado em formato *.pfx.*
+   - `CertificatePassword`- Uma senha usada para proteger o certificado.
+   - `Credentials`- Nome de utilizador para aceder à parte que contém o certificado. Forneça a palavra-passe para a partilha da rede quando solicitado.
 
-     O exemplo seguinte mostra a utilização deste cmdlet:
+     O exemplo que se segue mostra a utilização deste cmdlet:
 
      ```
      Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username"

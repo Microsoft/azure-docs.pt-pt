@@ -8,13 +8,13 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274193"
 ---
-# <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Stream Azure monitorizando dados para um centro de eventos
+# <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmitir os dados de monitorização do Azure para um hub de eventos
 O Azure Monitor fornece uma solução completa de monitorização de pilhas completas para aplicações e serviços em Azure, em outras nuvens e no local. Além de utilizar o Monitor Azure para analisar esses dados e alavancar os mesmos para diferentes cenários de monitorização, poderá ser necessário enviá-lo para outras ferramentas de monitorização no seu ambiente. O método mais eficaz para transmitir dados de monitorização a ferramentas externas na maioria dos casos é a utilização de Hubs de [Eventos Azure](/azure/event-hubs/). Este artigo fornece uma breve descrição de como pode transmitir dados de monitorização de diferentes fontes para um centro de eventos e ligações a orientações detalhadas.
 
 
@@ -34,7 +34,7 @@ Antes de configurar o streaming para qualquer fonte de dados, precisa criar um e
 
 | Escalão | Dados | Método |
 |:---|:---|:---|
-| [Inquilino azure](data-sources.md#azure-tenant) | Registos de auditoria do Diretório Ativo Azure | Configure um cenário de diagnóstico de inquilino no seu inquilino AAD. Consulte [Tutorial: Stream Azure Ative Directory logy to a Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) for details. |
+| [Inquilino do Azure](data-sources.md#azure-tenant) | Registos de auditoria do Diretório Ativo Azure | Configure um cenário de diagnóstico de inquilino no seu inquilino AAD. Consulte [Tutorial: Stream Azure Ative Directory logy to a Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) for details. |
 | [Subscrição do Azure](data-sources.md#azure-subscription) | Registo de Atividades do Azure | Crie um perfil de registo para exportar eventos de Registo de Atividades para Centros de Eventos.  Consulte [os registos da plataforma Stream Azure para](resource-logs-stream-event-hubs.md) obter mais detalhes sobre o evento. |
 | [Recursos do Azure](data-sources.md#azure-resources) | Métricas da plataforma<br> Registos do recurso |Ambos os tipos de dados são enviados para um centro de eventos usando uma definição de diagnóstico de recursos. Consulte os registos de [recursos stream Azure para obter](resource-logs-stream-event-hubs.md) mais detalhes. |
 | [Sistema operativo (convidado)](data-sources.md#operating-system-guest) | Máquinas virtuais do Azure | Instale a extensão de [diagnóstico azure](diagnostics-extension-overview.md) nas máquinas virtuais Windows e Linux em Azure. Consulte os dados do [Streaming Azure Diagnostics no caminho quente, utilizando os Hubs](diagnostics-extension-stream-event-hubs.md) de Eventos para obter detalhes sobre os VMs do Windows e utilizar a [extensão de diagnóstico do Linux para monitorizar métricas e registos](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) para obter detalhes sobre VMs Linux. |

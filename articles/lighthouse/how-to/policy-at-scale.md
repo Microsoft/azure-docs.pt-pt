@@ -1,24 +1,24 @@
 ---
-title: Implantar Azure Policy em assinaturas delegadas em escala
-description: Saiba como o gerenciamento de recursos delegado do Azure permite implantar uma definição de política e uma atribuição de política em vários locatários.
+title: Implementar a Política Azure para subscrições delegadas em escala
+description: Saiba como a gestão de recursos delegados da Azure permite implementar uma definição de política e atribuição de políticas entre vários inquilinos.
 ms.date: 11/8/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456853"
 ---
-# <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar Azure Policy em assinaturas delegadas em escala
+# <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementar a Política Azure para subscrições delegadas em escala
 
-Como um provedor de serviços, você pode ter integrado vários locatários de clientes para o gerenciamento de recursos delegado do Azure. O [Azure Lighthouse](../overview.md) permite que os provedores de serviços executem operações em escala em vários locatários de uma vez, tornando as tarefas de gerenciamento mais eficientes.
+Como prestador de serviços, pode ter embarcado em vários inquilinos de clientes para a gestão de recursos delegados da Azure. [O Azure Lighthouse](../overview.md) permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
 
-Este tópico mostra como usar [Azure Policy](../../governance/policy/index.yml) para implantar uma definição de política e uma atribuição de política em vários locatários usando comandos do PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento sejam protegidas, permitindo apenas o tráfego HTTPS.
+Este tópico mostra-lhe como usar a [Política Azure](../../governance/policy/index.yml) para implementar uma definição de política e atribuição de políticas entre vários inquilinos usando comandos PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento são asseguradas permitindo apenas o tráfego HTTPS.
 
-## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usar o grafo de recursos do Azure para consultar em locatários do cliente
+## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Use o Gráfico de Recursos Azure para consultar os inquilinos dos clientes
 
-Você pode usar o [grafo de recursos do Azure](../../governance/resource-graph/index.yml) para consultar em todas as assinaturas nos locatários do cliente que você gerencia. Neste exemplo, identificaremos todas as contas de armazenamento nessas assinaturas que atualmente não exigem tráfego HTTPS.  
+Você pode usar [o Azure Resource Graph](../../governance/resource-graph/index.yml) para consultar todas as subscrições nos inquilinos de clientes que você gere. Neste exemplo, identificaremos quaisquer contas de armazenamento nestas subscrições que não necessitem atualmente de tráfego HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -30,9 +30,9 @@ $ManagedSubscriptions = Search-AzGraph -Query "ResourceContainers | where type =
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | project name, location, subscriptionId, tenantId, properties.supportsHttpsTrafficOnly" -subscription $ManagedSubscriptions.subscriptionId | convertto-json
 ```
 
-## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Implantar uma política em vários locatários do cliente
+## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Implementar uma política em vários inquilinos de clientes
 
-O exemplo a seguir mostra como usar um [modelo de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) para implantar uma definição de política e uma atribuição de política em assinaturas delegadas em vários locatários de cliente. Essa definição de política requer que todas as contas de armazenamento usem o tráfego HTTPS, impedindo a criação de novas contas de armazenamento que não estejam em conformidade e marcando as contas de armazenamento existentes sem a configuração como sem conformidade.
+O exemplo abaixo mostra como usar um modelo de Gestor de [Recursos Azure](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) para implementar uma definição de política e atribuição de políticas em assinaturas delegadas em vários inquilinos de clientes. Esta definição de política requer que todas as contas de armazenamento utilizem o tráfego HTTPS, impedindo a criação de quaisquer novas contas de armazenamento que não cumpram e marcam as contas de armazenamento existentes sem a definição como incompatível.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -48,9 +48,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
-## <a name="validate-the-policy-deployment"></a>Validar a implantação da política
+## <a name="validate-the-policy-deployment"></a>Validar a implementação da política
 
-Depois de implantar o modelo de Azure Resource Manager, você pode confirmar que a definição de política foi aplicada com êxito ao tentar criar uma conta de armazenamento com **EnableHttpsTrafficOnly** definido como **false** em uma de suas assinaturas delegadas. Devido à atribuição de política, você não poderá criar essa conta de armazenamento.  
+Depois de ter implementado o modelo do Gestor de Recursos Do Azure, pode confirmar que a definição de política foi aplicada com sucesso ao tentar criar uma conta de armazenamento com o **EnableHttpsTrafficOnly** definido como **falso** numa das suas subscrições delegadas. Por causa da atribuição de apólices, você não deve ser capaz de criar esta conta de armazenamento.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `
@@ -63,7 +63,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado, remova a definição de política e a atribuição criada pela implantação.
+Quando terminar, remova a definição de política e a atribuição criadas pela implantação.
 
 ```powershell
 foreach ($ManagedSub in $ManagedSubscriptions)
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [Azure Policy](../../governance/policy/index.yml).
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
+- Conheça a [Política Azure.](../../governance/policy/index.yml)
+- Conheça [as experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77430946"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configure uma política de segurança na Política Azure utilizando a API REST
@@ -115,21 +115,21 @@ Este exemplo mostra-lhe como remover uma atribuição:
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## Referência de nomes de políticas<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Referência de nomes de políticas<a name="policy-names"></a>
 
 |Nome de política no Centro de Segurança|Nome de política exibido na Política de Azure |Nome do parâmetro de efeito político|
 |----|----|----|
 |Encriptação SQL |Monitorize a base de dados SQL não encriptada no Centro de Segurança Azure |sqlEncryptionMonitoringEffect| 
 |Auditoria do SQL |Monitorize a base de dados SQL não auditada no Centro de Segurança Azure |sqlAuditingMonitoringEffect|
 |Atualizações do sistema |Monitorizar as atualizações do sistema em falta no Centro de Segurança do Azure |systemUpdatesMonitoringEffect|
-|Encriptação do armazenamento |Auditoria falta de encriptação blob para contas de armazenamento |storageEncryptionMonitoringEffect|
+|Encriptação do armazenamento |Auditar encriptação por blob em falta para contas de armazenamento |armazenamentoEncriptaçãoMonitoreffect|
 |Acesso à Rede JIT |Monitorize possíveis acessos de rede just-in-time (JIT) no Centro de Segurança Azure |jitNetworkAccessMonitoringEffect |
-|Controlos de aplicações adaptáveis |Monitorize possível aplicação Whitelisting no Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Controlos de aplicações adaptáveis |Monitorize possível aplicação Whitelisting no Azure Security Center |adaptativoAplicaçãoControlEsMonitoringEffect|
 |Grupos de segurança de rede |Monitor acesso permissivo à rede no Centro de Segurança Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurações de segurança |Monitorize as vulnerabilidades do OS no Centro de Segurança Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint protection |Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure |endpointProtectionMonitoringEffect |
+|Configurações de segurança |Monitorize as vulnerabilidades do OS no Centro de Segurança Azure |sistemaConfiguraçõesMonitoringEffect| 
+|Endpoint protection |Monitor desaparecido Proteção de Ponto final no Centro de Segurança Azure |ponto finalPontoProtectionMonitoringEffect |
 |Encriptação de disco |Monitor de Discos VM não encriptados no Centro de Segurança Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidades |Monitor De vulnerabilidades vm no Centro de Segurança Azure |vulnerabilityAssessmentMonitoringEffect|
+|Avaliação de vulnerabilidades |Monitor De vulnerabilidades vm no Centro de Segurança Azure |vulnerabilidadeAssessmentMonitoringEffect|
 |Firewall de aplicação Web |Monitorize aplicação web desprotegida no Centro de Segurança Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorde pontos finais de rede desprotegidos no Centro de Segurança Azure| |
 

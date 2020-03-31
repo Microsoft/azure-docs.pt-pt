@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory Graph API  Microsoft Docs
+title: Azure Ative Directory Graph API [ Microsoft Docs
 description: Um guia de visão geral e quickstart para a APi do Gráfico AD Azure, que permite o acesso programático ao Azure AD através de pontos finais rest API.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: ef042b9eb625a0d0de5d5dcb883b823c3a499aa9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76698922"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
@@ -45,7 +45,7 @@ A APi Azure AD Graph fornece as seguintes funcionalidades:
 
 * **REST API Endpoints**: Azure AD Graph API é um serviço RESTful composto por pontos finais que são acedidos através de pedidos PADRÃO HTTP. A APi do Azure AD Graph suporta tipos de conteúdo xml ou javascript de notação de objetos (JSON) para pedidos e respostas. Para mais informações, consulte a referência da [AD Graph REST API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 * **Autenticação com Azure AD**: Todos os pedidos à APi do Gráfico AD Azure devem ser autenticados através da audação de um Tóken Web JSON (JWT) no cabeçalho de autorização do pedido. Esta ficha é adquirida fazendo um pedido ao ponto final simbólico da Azure AD e fornecendo credenciais válidas. Pode utilizar o fluxo de credenciais de cliente OAuth 2.0 ou o fluxo de concessão de código de autorização para adquirir um símbolo para ligar para o Gráfico. Para mais informações, [OAuth 2.0 em Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* **Autorização baseada em funções (RBAC)** : Os grupos de segurança são utilizados para executar RBAC em API do Gráfico AD Azure. Por exemplo, se pretender determinar se um utilizador tem acesso a um recurso específico, a aplicação pode ligar para a operação de [adesão ao grupo Check (transitiva),](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) que devolve verdadeiraou ou falsa.
+* **Autorização baseada em funções (RBAC)**: Os grupos de segurança são utilizados para executar RBAC em API do Gráfico AD Azure. Por exemplo, se pretender determinar se um utilizador tem acesso a um recurso específico, a aplicação pode ligar para a operação de [adesão ao grupo Check (transitiva),](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) que devolve verdadeiraou ou falsa.
 * **Consulta diferencial**: Consulta diferencial permite-lhe rastrear alterações num diretório entre dois períodos de tempo sem ter que fazer consultas frequentes à API do Gráfico AD Azure. Este tipo de pedido devolverá apenas as alterações efetuadas entre o pedido de consulta diferencial anterior e o pedido atual. Para mais informações, consulte a consulta diferencial da [AD Graph API.](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)
 * **Extensões de diretório:** Pode adicionar propriedades personalizadas a objetos de diretório sem necessitar de uma loja de dados externa. Por exemplo, se a sua aplicação necessitar de uma propriedade Skype ID para cada utilizador, pode registar a nova propriedade no diretório e estará disponível para utilização em cada objeto de utilizador. Para mais informações, consulte as extensões de esquema de diretório da [AD AD API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **Protegido por âmbitos**de permissão : A AD Graph API do Azure expõe âmbitos de permissão que permitem o acesso seguro aos dados da AD Azure utilizando o OAuth 2.0. Suporta uma variedade de tipos de aplicativos de clientes, incluindo:
@@ -59,8 +59,8 @@ A APi Azure AD Graph fornece as seguintes funcionalidades:
 
 A APi azure AD Graph permite muitos cenários de aplicação. Os seguintes cenários são os mais comuns:
 
-* **Aplicação Linha de Negócios (Inquilino Único)** : Neste cenário, um promotor empresarial trabalha para uma organização que tem uma subscrição do Office 365. O desenvolvedor está a construir uma aplicação web que interage com a AD Azure para executar tarefas como atribuir uma licença a um utilizador. Esta tarefa requer acesso à API do Gráfico AD Azure, pelo que o desenvolvedor regista a aplicação de inquilino único em Azure AD e configura e escreve permissões para a API do Gráfico AD Azure. Em seguida, a aplicação é configurada para usar as suas próprias credenciais ou as do utilizador atualmente de entrada para adquirir um símbolo para chamar a API do Gráfico AD Azure.
-* **Software as a Service Application (Multi-Tenant)** : Neste cenário, um fornecedor independente de software (ISV) está a desenvolver uma aplicação web multi-arrendatária hospedada que fornece funcionalidades de gestão de utilizadores para outras organizações que utilizam a AD Azure. Estas funcionalidades requerem acesso a objetos de diretório, pelo que a aplicação precisa de chamar a API do Gráfico AD Azure. O desenvolvedor regista a aplicação em Azure AD, configura-a para exigir permissões de leitura e escrita para a API do Gráfico AD Azure, e depois permite o acesso externo para que outras organizações possam consentir em usar a aplicação no seu diretório. Quando um utilizador de outra organização autentica a aplicação pela primeira vez, é-lhes mostrado um diálogo de consentimento com as permissões que a aplicação está a solicitar. A concessão do consentimento dará então à aplicação as permissões solicitadas à API do Gráfico Azure AD no diretório do utilizador. Para obter mais informações sobre o quadro de consentimento, consulte a [visão geral do quadro de consentimento](consent-framework.md).
+* **Aplicação Linha de Negócios (Inquilino Único)**: Neste cenário, um promotor empresarial trabalha para uma organização que tem uma subscrição do Office 365. O desenvolvedor está a construir uma aplicação web que interage com a AD Azure para executar tarefas como atribuir uma licença a um utilizador. Esta tarefa requer acesso à API do Gráfico AD Azure, pelo que o desenvolvedor regista a aplicação de inquilino único em Azure AD e configura e escreve permissões para a API do Gráfico AD Azure. Em seguida, a aplicação é configurada para usar as suas próprias credenciais ou as do utilizador atualmente de entrada para adquirir um símbolo para chamar a API do Gráfico AD Azure.
+* **Software as a Service Application (Multi-Tenant)**: Neste cenário, um fornecedor independente de software (ISV) está a desenvolver uma aplicação web multi-arrendatária hospedada que fornece funcionalidades de gestão de utilizadores para outras organizações que utilizam a AD Azure. Estas funcionalidades requerem acesso a objetos de diretório, pelo que a aplicação precisa de chamar a API do Gráfico AD Azure. O desenvolvedor regista a aplicação em Azure AD, configura-a para exigir permissões de leitura e escrita para a API do Gráfico AD Azure, e depois permite o acesso externo para que outras organizações possam consentir em usar a aplicação no seu diretório. Quando um utilizador de outra organização autentica a aplicação pela primeira vez, é-lhes mostrado um diálogo de consentimento com as permissões que a aplicação está a solicitar. A concessão do consentimento dará então à aplicação as permissões solicitadas à API do Gráfico Azure AD no diretório do utilizador. Para obter mais informações sobre o quadro de consentimento, consulte a [visão geral do quadro de consentimento](consent-framework.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

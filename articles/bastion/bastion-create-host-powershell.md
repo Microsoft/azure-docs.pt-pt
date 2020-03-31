@@ -1,5 +1,5 @@
 ---
-title: Criar um anfitrião bastião usando o Azure Powershell  Microsoft Docs
+title: Criar um anfitrião bastião usando o Azure Powershell [ Microsoft Docs
 description: Neste artigo, aprenda a criar um anfitrião do Azure Bastion
 services: bastion
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76990458"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Crie um anfitrião do Bastião Azure usando o Azure PowerShell
@@ -26,7 +26,7 @@ Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="createhost"></a>Criar um anfitrião de bastião
+## <a name="create-a-bastion-host"></a><a name="createhost"></a>Criar um anfitrião do Bastion
 
 Esta secção ajuda-o a criar um novo recurso Azure Bastion utilizando o Azure PowerShell.
 

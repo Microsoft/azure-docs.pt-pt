@@ -5,23 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 93e487063944801129090d6b9952143b8df887da
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154428"
 ---
 # <a name="web-api"></a>API Web
 
@@ -29,7 +27,7 @@ ms.locfileid: "77163918"
 
 Aplicações Web API são aplicações web que precisam de obter recursos de uma API web. Neste cenário, existem dois tipos de identidade que a aplicação web pode usar para autenticar e chamar a Web API:
 
-- **Identidade de aplicação** - Este cenário utiliza credenciais de cliente OAuth 2.0 para autenticar como aplicação e aceder à Web API. Ao utilizar uma identidade de aplicação, a API web só pode detetar que a aplicação web está a chamá-la, uma vez que a API web não recebe qualquer informação sobre o utilizador. Se a aplicação receber informações sobre o utilizador, será enviada através do protocolo de aplicação e não é assinada pela Azure AD. A Web API confia que a aplicação web autenticou o utilizador. Por esse motivo, esse padrão é chamado de um subsistema confiável.
+- **Identidade de aplicação** - Este cenário utiliza credenciais de cliente OAuth 2.0 para autenticar como aplicação e aceder à Web API. Ao utilizar uma identidade de aplicação, a API web só pode detetar que a aplicação web está a chamá-la, uma vez que a API web não recebe qualquer informação sobre o utilizador. Se a aplicação receber informações sobre o utilizador, será enviada através do protocolo de aplicação e não é assinada pela Azure AD. A Web API confia que a aplicação web autenticou o utilizador. Por esta razão, este padrão é chamado de subsistema de confiança.
 - **Identidade de utilizador delegada** - Este cenário pode ser realizado de duas formas: OpenID Connect e OAuth 2.0 com um cliente confidencial. A aplicação web obtém um sinal de acesso para o utilizador, o que comprova à Web API que o utilizador autenticou com sucesso à aplicação web e que a aplicação web foi capaz de obter uma identidade de utilizador delegada para ligar para a Web API. Este token de acesso é enviado no pedido para a Web API, que autoriza o utilizador e devolve o recurso pretendido.
 
 Tanto a identidade da aplicação como os tipos de identidade de utilizador delegados são discutidos no fluxo abaixo. A diferença fundamental entre eles é que a identidade de utilizador delegada deve primeiro adquirir um código de autorização antes de o utilizador poder iniciar sessão e ter acesso à API web.
@@ -43,7 +41,7 @@ Tanto a identidade da aplicação como os tipos de identidade de utilizador dele
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidade de candidatura com bolsa de credenciais de cliente OAuth 2.0
 
 1. Um utilizador é inscrito no Azure AD na aplicação web (ver a secção de **aplicações Web** para obter mais informações).
-1. A aplicação web tem de adquirir um token de acesso, para que possa autenticar para a API web e recuperar o recurso pretendido. Faz um pedido ao ponto final simbólico da Azure AD, fornecendo a credencial, id de aplicação e id de aplicação da Web API.
+1. A aplicação web precisa adquirir um sinal de acesso para que possa autenticar a Web API e recuperar o recurso pretendido. Faz um pedido ao ponto final simbólico da Azure AD, fornecendo a credencial, id de aplicação e id de aplicação da Web API.
 1. A Azure AD autentica a aplicação e devolve um token de acesso JWT que é usado para chamar a Web API.
 1. Ao longo do HTTPS, a aplicação web utiliza o token de acesso JWT devolvido para adicionar a cadeia JWT com uma designação "Bearer" no cabeçalho de autorização do pedido à Web API. A Web API valida então o símbolo JWT, e se a validação for bem sucedida, devolve o recurso desejado.
 
@@ -58,7 +56,7 @@ Tanto a identidade da aplicação como os tipos de identidade de utilizador dele
 
 1. Um utilizador já está inscrito numa aplicação web, cujo mecanismo de autenticação é independente da Azure AD.
 1. A aplicação web requer um código de autorização para adquirir um token de acesso, pelo que emite um pedido através do navegador para o ponto final de autorização da Azure AD, fornecendo o ID de aplicação e redirecionando o URI para a aplicação web após a autenticação bem sucedida. O utilizador entra em anúncio de Azure.
-1. Se o utilizador da aplicação web ainda não tiver consentido em permitir que a aplicação web ligue para a Web API em seu nome, o utilizador terá de consentir. A aplicação apresentará as permissões necessárias e, se alguma delas for em permissões de nível de administrador, um utilizador normal no diretório não poderá consentir. Este consentimento aplica-se tanto ao pedido de inquilino único como a vários inquilinos. No caso único do inquilino, um administrador pode executar o consentimento do administrador para consentir em nome dos seus utilizadores. Isto pode ser feito utilizando o botão `Grant Permissions` no [portal Azure](https://portal.azure.com). 
+1. Se o utilizador da aplicação web ainda não tiver consentido em permitir que a aplicação web ligue para a Web API em seu nome, o utilizador terá de consentir. A aplicação apresentará as permissões necessárias e, se alguma delas for em permissões de nível de administrador, um utilizador normal no diretório não poderá consentir. Este consentimento aplica-se tanto ao pedido de inquilino único como a vários inquilinos. No caso único do inquilino, um administrador pode executar o consentimento do administrador para consentir em nome dos seus utilizadores. Isto pode ser `Grant Permissions` feito utilizando o botão no [portal Azure](https://portal.azure.com). 
 1. Depois de o utilizador ter consentido, a aplicação web recebe o código de autorização que necessita para adquirir um token de acesso.
 1. Utilizando o código de autorização emitido pela Azure AD, a aplicação web envia um pedido ao ponto final simbólico da Azure AD que inclui o código de autorização, detalhes sobre a aplicação do cliente (ID de aplicação e redirecionamento URI), e o recurso pretendido (ID de aplicação) URI para a Web API).
 1. O código de autorização e informações sobre a aplicação web e a Web API são validados pela Azure AD. Após uma validação bem sucedida, a Azure AD devolve duas fichas: um símbolo de acesso JWT e um token de atualização JWT.

@@ -1,6 +1,6 @@
 ---
-title: Corrigir problemas com associações de grupo dinâmicos – Azure AD | Microsoft Docs
-description: Dicas de solução de problemas para associação de grupo dinâmico no Azure Active Directory
+title: Corrigir problemas com membros dinâmicos do grupo - Azure AD / Microsoft Docs
+description: Dicas de resolução de problemas para a adesão ao grupo dinâmico no Diretório Ativo do Azure
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,20 +14,20 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74026547"
 ---
-# <a name="troubleshoot-and-resolve-groups-issues"></a>Solucionar problemas e resolver questões de grupos
+# <a name="troubleshoot-and-resolve-groups-issues"></a>Problemas de resolução e resolução de problemas de grupos
 
-## <a name="troubleshooting-group-creation-issues"></a>Solucionando problemas de criação de grupo
+## <a name="troubleshooting-group-creation-issues"></a>Problemas de criação de grupos
 
-**Desabilitei a criação do grupo de segurança na portal do Azure mas os grupos ainda podem ser criados por meio do PowerShell** O **usuário pode criar grupos de segurança na configuração de portais do Azure** no portal do Azure controla se os usuários não administradores podem ou não criar grupos de segurança no painel de acesso ou no portal do Azure. Ele não controla a criação do grupo de segurança por meio do PowerShell.
+**Desativei a criação de grupos de segurança no portal Azure, mas os grupos ainda podem ser criados através** da Powershell O **Utilizador pode criar grupos de segurança em portais Azure** que se ajustam no portal Azure controla se os utilizadores não administradores podem ou não criar grupos de segurança no painel de acesso ou no portal Azure. Não controla a criação de grupos de segurança através da Powershell.
 
-Para desabilitar a criação de grupo para usuários não administradores no PowerShell:
-1. Verifique se os usuários não administradores têm permissão para criar grupos:
+Para desativar a criação de grupo para utilizadores não administradores na Powershell:
+1. Verifique se os utilizadores não administradores estão autorizados a criar grupos:
    
 
    ```powershell
@@ -35,40 +35,40 @@ Para desabilitar a criação de grupo para usuários não administradores no Pow
    ```
 
   
-2. Se ele retornar `UsersPermissionToCreateGroupsEnabled : True`, os usuários não administradores poderão criar grupos. Para desabilitar esse recurso:
+2. Se regressar, `UsersPermissionToCreateGroupsEnabled : True`os utilizadores não administradores podem criar grupos. Para desativar esta funcionalidade:
   
 
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```
 
-<br/>**Recebi um erro de máximo de grupos permitidos ao tentar criar um grupo dinâmico no PowerShell**<br/>
-Se você receber uma mensagem no PowerShell indicando que a _contagem máxima de grupos permitidos das diretivas de grupo dinâmicos foi atingida_, isso significa que você atingiu o limite máximo de grupos dinâmicos em seu locatário. O número máximo de grupos dinâmicos por locatário é 5.000.
+<br/>**Recebi um erro de grupos max ao tentar criar um Grupo Dinâmico em Powershell**<br/>
+Se receber uma mensagem no Powershell indicando que as políticas dinâmicas do grupo max permitiram a contagem de _grupos alcançada,_ isto significa que atingiu o limite máximo para grupos Dinâmicos no seu inquilino. O número máximo de grupos Dinâmicos por inquilino é de 5.000.
 
-Para criar novos grupos dinâmicos, primeiro você precisará excluir alguns grupos dinâmicos existentes. Não há como aumentar o limite.
+Para criar novos grupos Dinâmicos, primeiro terá de eliminar alguns grupos Dinâmicos existentes. Não há como aumentar o limite.
 
 ## <a name="troubleshooting-dynamic-memberships-for-groups"></a>Resolver problemas de associações dinâmicas a grupos
 
-**Configurei uma regra em um grupo, mas nenhuma associação foi atualizada no grupo**<br/>
-1. Verifique os valores dos atributos de usuário ou dispositivo na regra. Verifique se há usuários que satisfaçam a regra. Para dispositivos, verifique as propriedades do dispositivo para garantir que todos os atributos sincronizados contenham os valores esperados.<br/>
-2. Verifique o status de processamento de associação para confirmar se ele está concluído. Você pode verificar o [status de processamento de associação](groups-create-rule.md#check-processing-status-for-a-rule) e a data da última atualização na página **visão geral** do grupo.
+**Configurei uma regra sobre um grupo, mas nenhum membro é atualizado no grupo**<br/>
+1. Verifique os valores dos atributos do utilizador ou do dispositivo na regra. Certifique-se de que há utilizadores que satisfaçam a regra. Para os dispositivos, verifique as propriedades do dispositivo para garantir que quaisquer atributos sincronizados contenham os valores esperados.<br/>
+2. Verifique o estado de processamento da adesão para confirmar se está completo. Pode verificar o estado de processamento de [membros](groups-create-rule.md#check-processing-status-for-a-rule) e a última data atualizada na página **'Visão Geral** do grupo'.
 
-Se tudo estiver correto, aguarde algum tempo para que o grupo seja preenchido. Dependendo do tamanho do seu inquilino, o grupo pode demorar até 24 horas a ser preenchido pela primeira vez, ou após uma alteração de regra.
+Se tudo estiver bem, por favor, dê algum tempo para o grupo povoar. Dependendo do tamanho do seu inquilino, o grupo pode demorar até 24 horas a ser preenchido pela primeira vez, ou após uma alteração de regra.
 
-**Configurei uma regra, mas agora os membros existentes da regra foram removidos**<br/>Esse é o comportamento esperado. Os membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.
+**Configurei uma regra, mas agora os membros existentes da regra são removidos**<br/>Este comportamento está previsto. Os membros existentes do grupo são removidos quando uma regra é ativada ou alterada. Os utilizadores devolvidos da avaliação da regra são adicionados como membros ao grupo.
 
-**Não vejo alterações de associação instantaneamente quando adiciono ou altero uma regra, por que não?**<br/>A avaliação de associação dedicada é feita periodicamente em um processo assíncrono em segundo plano. O tempo que o processo leva é determinado pelo número de usuários em seu diretório e o tamanho do grupo criado como resultado da regra. Normalmente, os diretórios com pequenos números de usuários verão as alterações de associação de grupo em menos de alguns minutos. Os diretórios com um grande número de usuários podem levar 30 minutos ou mais para serem preenchidos.
+**Não vejo mudanças de filiação instantaneamente quando adiciono ou mudo uma regra, por que não?**<br/>A avaliação dedicada da adesão é feita periodicamente num processo de fundo assíncrono. O tempo que o processo demora é determinado pelo número de utilizadores no seu diretório e pelo tamanho do grupo criado como resultado da regra. Normalmente, os diretórios com um pequeno número de utilizadores verão a adesão ao grupo mudar em menos de alguns minutos. Os diretórios com um grande número de utilizadores podem demorar 30 minutos ou mais para povoar.
 
-**Como posso forçar o processamento do grupo agora?**<br/>
-Atualmente, não há como disparar automaticamente o grupo a ser processado sob demanda. No entanto, você pode disparar manualmente o reprocessamento atualizando a regra de associação para adicionar um espaço em branco no final.  
+**Como posso forçar o grupo a ser processado agora?**<br/>
+Atualmente, não há forma de ativar automaticamente o grupo a ser processado a pedido. No entanto, pode desencadear manualmente o reprocessamento atualizando a regra de adesão para adicionar um espaço branco no final.  
 
-**Encontrei um erro de processamento de regra**<br/>A tabela a seguir lista os erros comuns da regra de associação dinâmica e como corrigi-los.
+**Encontrei um erro de processamento de regras.**<br/>A tabela que se segue enumera erros de regra de adesão dinâmicos comuns e como corrigi-los.
 
-| Erro do analisador de regra | Uso de erro | Uso corrigido |
+| Erro de parser de regras | Utilização de erros | Utilização corrigida |
 | --- | --- | --- |
-| Erro: atributo sem suporte. |(User. inválidaproperty-EQ "valor") |(User. Department-EQ "valor")<br/><br/>Verifique se o atributo está na [lista de propriedades com suporte](groups-dynamic-membership.md#supported-properties). |
-| Erro: não há suporte para o operador no atributo. |(User. accountEnabled-contém true) |(User. accountEnabled-EQ true)<br/><br/>O operador usado não tem suporte para o tipo de propriedade (neste exemplo,-Contains não pode ser usado no tipo booliano). Use os operadores corretos para o tipo de propriedade. |
-| Erro: erro de compilação de consulta. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2. (User. userPrincipalName-Match "*@domain.ext") | 1. operador ausente. Use-and ou-or dois predicados de junção<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. erro na expressão regular usada com-Match<br>(User. userPrincipalName-Match ". *@domain.ext")<br>Alternativamente: (User. userPrincipalName-Match "@domain.ext$") |
+| Erro: Atributo não suportado. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Certifique-se de que o atributo está na [lista de propriedades suportadas](groups-dynamic-membership.md#supported-properties). |
+| Erro: O operador não é suportado no atributo. |(user.accountEnabled -contém verdadeiro) |(user.accountEnabled -eq true)<br/><br/>O operador utilizado não é suportado para o tipo de propriedade (neste exemplo, - contém não pode ser utilizado em boolean do tipo). Utilize os operadores corretos para o tipo de propriedade. |
+| Erro: Erro de compilação de consulta. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2. (user.userPrincipalName -match@domain.ext"* ") | 1. Operador desaparecido. Utilização - e ou -ou dois se juntam predicados<br>(user.department -eq "Sales") -ou (user.department -eq "Marketing")<br>2. Erro na expressão regular utilizado com -match<br>(user.userPrincipalName -match ".*@domain.ext")<br>ou alternativamente: (user.userPrincipalName@domain.ext-match " $") |
 
 ## <a name="next-steps"></a>Passos seguintes
 

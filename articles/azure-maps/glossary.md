@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657049"
 ---
 # <a name="glossary"></a>Glossário
@@ -35,13 +35,13 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="annotation"></a>**Anotação**: Texto ou gráficos apresentados no mapa para fornecer informações ao utilizador. A anotação pode identificar ou descrever uma entidade de mapa específica, fornecer informações gerais sobre uma área no mapa, ou fornecer informações sobre o próprio mapa.
 
-<a name="antimeridian"></a>**Antimeridian**: Também conhecido como<sup></sup> o Meridian 180 th. Este é o ponto onde -180 graus e 180 graus de longitude se encontram. Que é o oposto do meridiano principal do mundo.
+<a name="antimeridian"></a>**Antimeridian**: Também conhecido como<sup>th</sup> o Meridian 180 th. Este é o ponto onde -180 graus e 180 graus de longitude se encontram. Que é o oposto do meridiano principal do mundo.
 
-<a name="application-programming-interface-api"></a>Interface de Programação de **Aplicações (API)** : Uma especificação que permite aos desenvolvedores criar aplicações.
+<a name="application-programming-interface-api"></a>Interface de Programação de **Aplicações (API)**: Uma especificação que permite aos desenvolvedores criar aplicações.
 
 <a name="api-key"></a>**Tecla API**: Ver [autenticação da chave partilhada](#shared-key-authentication).
 
-<a name="area-of-interest-aoi"></a>**Área de Interesse (AOI)** : A extensão utilizada para definir uma área de foco para um mapa ou uma produção de base de dados.
+<a name="area-of-interest-aoi"></a>**Área de Interesse (AOI)**: A extensão utilizada para definir uma área de foco para um mapa ou uma produção de base de dados.
 
 <a name="asset-tracking"></a>**Rastreio de ativos**: O processo de rastreio da localização de um ativo, como uma pessoa, veículo ou qualquer outro objeto.
 
@@ -51,9 +51,9 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="autosuggest"></a>**Sugestão automática**: Uma funcionalidade numa aplicação que prevê possibilidades lógicas para o que o utilizador está a escrever.
 
-<a name="azure-location-based-services-lbs"></a>**Serviços baseados em localização Azure (LBS)** : O antigo nome do Azure Maps quando estava em pré-visualização.
+<a name="azure-location-based-services-lbs"></a>**Serviços baseados em localização Azure (LBS)**: O antigo nome do Azure Maps quando estava em pré-visualização.
 
-<a name="azure-active-directory"></a>**Azure Ative Directory (Azure AD)** : Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração da Azure Maps Azure AD está atualmente disponível em pré-visualização de todas as APIs do Azure Maps. A Azure AD apoia o controlo de acesso baseado em papéis (RBAC) para permitir o acesso fino aos recursos do Azure Maps. Para saber mais sobre a integração da Azure Maps Azure AD, consulte [o Azure Maps e o Azure AD](azure-maps-authentication.md) e [gerea a autenticação em Azure Maps.](how-to-manage-authentication.md)
+<a name="azure-active-directory"></a>**Azure Ative Directory (Azure AD)**: Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração da Azure Maps Azure AD está atualmente disponível em pré-visualização de todas as APIs do Azure Maps. A Azure AD apoia o controlo de acesso baseado em papéis (RBAC) para permitir o acesso fino aos recursos do Azure Maps. Para saber mais sobre a integração da Azure Maps Azure AD, consulte [o Azure Maps e o Azure AD](azure-maps-authentication.md) e [gerea a autenticação em Azure Maps.](how-to-manage-authentication.md)
 
 <a name="azure-maps-key"></a>**Chave Azure Maps**: Ver [autenticação de chaves partilhadas](#shared-key-authentication).
 
@@ -111,7 +111,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="dbf-file"></a>**Ficheiro DBF**: Um formato de ficheiro de base de dados que é utilizado em combinação com O Shapefiles (SHP).
 
-<a name="degree-minutes-seconds-dms"></a>**Graus Minutos Segundos (DMS)** : A unidade de medida para descrever a latitude e a longitude. Um diploma é 1/360<sup>de</sup> um círculo. Um diploma é ainda dividido em 60 minutos, e um minuto é dividido em 60 segundos.
+<a name="degree-minutes-seconds-dms"></a>**Graus Minutos Segundos (DMS)**: A unidade de medida para descrever a latitude e a longitude. Um diploma é 1/360<sup>de</sup> um círculo. Um diploma é ainda dividido em 60 minutos, e um minuto é dividido em 60 segundos.
 
 <a name="delaunay-triangulation"></a>**Triangulação delaunay**: Uma técnica para criar uma malha de triângulos contíguos e não sobrepostos a partir de um conjunto de dados de pontos. O círculo circunscrito de cada triângulo não contém pontos do conjunto de dados no seu interior.
 
@@ -119,7 +119,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="destination"></a>**Destino**: Um ponto final ou local para onde alguém está viajando.
 
-<a name="digital-elevation-model-dem"></a>**Modelo de Elevação Digital (DEM)** : Um conjunto de dados de valores de elevação relacionados com uma superfície, capturado sobre uma área em intervalos regulares utilizando um datum comum. Os DEMs são normalmente usados para representar o relevo do terreno.
+<a name="digital-elevation-model-dem"></a>**Modelo de Elevação Digital (DEM)**: Um conjunto de dados de valores de elevação relacionados com uma superfície, capturado sobre uma área em intervalos regulares utilizando um datum comum. Os DEMs são normalmente usados para representar o relevo do terreno.
 
 <a name="dijkstra's-algorithm"></a>**Algoritmo de Dijkstra**: Um algoritmo que examina a conectividade de uma rede para encontrar o caminho mais curto entre dois pontos.
 
@@ -187,7 +187,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="great-circle-distance"></a>**Grande distância:** A distância mais curta entre dois pontos na superfície de uma esfera.
 
-<a name="greenwich-mean-time-gmt"></a>Hora média de **Greenwich (GMT)** : O tempo no meridiano principal, que atravessa o Observatório Real em Greenwich, Inglaterra.
+<a name="greenwich-mean-time-gmt"></a>Hora média de **Greenwich (GMT)**: O tempo no meridiano principal, que atravessa o Observatório Real em Greenwich, Inglaterra.
 
 <a name="guid"></a>**GUID**: Um identificador globalmente único. Uma cadeia usada para identificar exclusivamente uma interface, classe, biblioteca de tipo, categoria de componente ou registo.
 
@@ -215,7 +215,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="kml"></a>**KML**: Também conhecido como Keyhole Markup Language, é um formato de ficheiro XML comum para armazenar dados de vetoriais geográficos, tais como pontos, linhas e polígonos. 
 
-## <a name="l"></a>l
+## <a name="l"></a>L
 
 <a name="landsat"></a>**Landsat**: Satélites multiespectrais e orbitais terrestres desenvolvidos pela NASA que recolhem imagens de terra. Esta imagem é usada em muitas indústrias como a agricultura, a silvicultura e a cartografia.
 
@@ -275,7 +275,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="point"></a>**Ponto**: Uma geometria que representa uma única posição no mapa. 
 
-<a name="points-of-interest-poi"></a>**Pontos de interesse (POI)** : Um negócio, marco ou local de interesse comum.
+<a name="points-of-interest-poi"></a>**Pontos de interesse (POI)**: Um negócio, marco ou local de interesse comum.
 
 <a name="polygon"></a>**Polígono**: Uma geometria sólida que representa uma área num mapa. 
 
@@ -301,7 +301,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="quadtree"></a>**Quadtree**: Uma estrutura de dados em que cada nó tem exatamente quatro filhos. O sistema de tiling utilizado no Azure Maps utiliza uma estrutura quadtree tal como um utilizador zooms em um nível, cada azulejo de mapa se divide em quatro subtiles.  Para mais informações, consulte os níveis de Zoom e a documentação da grelha de [azulejos](zoom-levels-and-tile-grid.md) para obter mais informações.
 
-<a name="queries-per-second-qps"></a>**Consultas por Segundo (QPS)** : O número de consultas ou pedidos que podem ser feitos a um serviço ou plataforma num segundo. 
+<a name="queries-per-second-qps"></a>**Consultas por Segundo (QPS)**: O número de consultas ou pedidos que podem ser feitos a um serviço ou plataforma num segundo. 
 
 ## <a name="r"></a>R
 
@@ -325,7 +325,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="route"></a>**Rota**: Um caminho entre dois ou mais locais, que também pode incluir informações adicionais, tais como instruções para pontos de passagem ao longo do percurso.
 
-<a name="requests-per-second-rps"></a>**Pedidos por Segundo (RPS)** : Ver [consultas por segundo (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a>**Pedidos por Segundo (RPS)**: Ver [consultas por segundo (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a>**RSS**: Acrónimo para Sindicância Realmente Simples, Quadro de Descrição de Recursos (RDF) Resumo do Sítio, ou Resumo do Sítio Rico, dependendo da fonte. Um formato XML simples e estruturado para a partilha de conteúdos entre diferentes Web sites. Os documentos RSS incluem elementos-chave de metadados, tais como autor, data, título, uma breve descrição e uma ligação de hipertexto. Esta informação ajuda um utilizador (ou um serviço de editor RSS) a decidir quais os materiais que valem a pena investigar mais aprofundadamente.
 
@@ -335,11 +335,11 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="secondary-key"></a>**Chave secundária**: A segunda de duas teclas de subscrição fornecidas para a autenticação chave partilhada do Azure Maps. Ver [Autenticação da chave partilhada](#shared-key-authentication).
 
-<a name="shapefile-shp"></a>**Shapefile (SHP)** : Também conhecido como um Shapefile ESRI, é um formato de armazenamento de dados vetores para armazenar a localização, forma e atributos das características geográficas. Um ficheiro de forma é armazenado num conjunto de ficheiros relacionados.
+<a name="shapefile-shp"></a>**Shapefile (SHP)**: Também conhecido como um Shapefile ESRI, é um formato de armazenamento de dados vetores para armazenar a localização, forma e atributos das características geográficas. Um ficheiro de forma é armazenado num conjunto de ficheiros relacionados.
 
 <a name="shared-key-authentication"></a>**Autenticação de chave partilhada**: A autenticação da chave partilhada baseia-se na passagem das chaves geradas pela conta Azure Maps com cada pedido ao Azure Maps. Estas chaves são frequentemente referidas como chaves de subscrição. Recomenda-se que as teclas sejam regularmente regeneradas para segurança. São fornecidas duas teclas para que possa manter as ligações utilizando uma tecla enquanto regenera a outra. Quando regenerar as chaves, tem de atualizar quaisquer aplicações que acedam a esta conta para utilizar as novas teclas. Para saber mais sobre a autenticação do Azure Maps, consulte [o Azure Maps e o Azure AD](azure-maps-authentication.md) e [gerea a autenticação no Azure Maps.](how-to-manage-authentication.md)
 
-<a name="software-development-kit-sdk"></a>Kit de desenvolvimento de **software (SDK)** : Uma coleção de documentação, código de amostra e aplicações de amostra para ajudar um desenvolvedor a usar uma API para construir aplicações.
+<a name="software-development-kit-sdk"></a>Kit de desenvolvimento de **software (SDK)**: Uma coleção de documentação, código de amostra e aplicações de amostra para ajudar um desenvolvedor a usar uma API para construir aplicações.
 
 <a name="spherical-mercator-projection"></a>**Projeção esférica do Mercator**: Ver [Web Mercator](#web-mercator). 
 
@@ -374,7 +374,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="transformation"></a>**Transformação**: O processo de conversão de dados entre diferentes sistemas de coordenadas geográficas. Pode, por exemplo, ter alguns dados que foram capturados no Reino Unido e baseados no sistema de coordenadas geográficas OSGB de 1936. O Azure Maps utiliza a variante do sistema de referência de coordenadas [EPSG:3857](https://epsg.io/3857) do WGS84. Como tal, para exibir corretamente os dados, terá de ter as suas coordenadas transformadas de um sistema para outro.
 
-<a name="traveling-salesmen-problem-tsp"></a>**Problema dos Vendedores Itinerantes (TSP)** : Um problema no circuito Hamiltoniano em que um vendedor deve encontrar a forma mais eficiente de visitar uma série de paragens e, em seguida, voltar ao local de partida.  
+<a name="traveling-salesmen-problem-tsp"></a>**Problema dos Vendedores Itinerantes (TSP)**: Um problema no circuito Hamiltoniano em que um vendedor deve encontrar a forma mais eficiente de visitar uma série de paragens e, em seguida, voltar ao local de partida.  
 
 <a name="trilateration"></a>**Tritardeation**: O processo de determinação da posição de um ponto na superfície da Terra, no que diz respeito a dois outros pontos, medindo as distâncias entre os três pontos.
 
@@ -386,7 +386,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="vector-tile"></a>**Azulejo vetorial**: Uma especificação de dados aberta para armazenar dados geoespaciais de vetor usando o mesmo sistema de azulejos que o controlo do mapa. Ver também [camada de azulejos.](#tile-layer)
 
-<a name="vehicle-routing-problem-vrp"></a>Problema de **Encaminhamento de Veículos (VRP)** : Uma classe de problemas, em que um conjunto de rotas ordenadas para uma frota de veículos é calculado, tendo em conta como conjunto de restrições. Estes constrangimentos podem incluir janelas de tempo de entrega, múltiplas capacidades de rota e restrições de duração de viagem.
+<a name="vehicle-routing-problem-vrp"></a>Problema de **Encaminhamento de Veículos (VRP)**: Uma classe de problemas, em que um conjunto de rotas ordenadas para uma frota de veículos é calculado, tendo em conta como conjunto de restrições. Estes constrangimentos podem incluir janelas de tempo de entrega, múltiplas capacidades de rota e restrições de duração de viagem.
 
 <a name="voronoi-diagram"></a>**Diagrama voronoi**: Uma divisão do espaço em áreas, ou células, que rodeiam um conjunto de objetos geométricos, geralmente apontam características. Estas células, ou polígonos, devem satisfazer os critérios para os triângulos delaunay. Todas as localizações dentro de uma área estão mais próximas do objeto que rodeia do que de qualquer outro objeto no conjunto. Os diagramas de Voronoi são frequentemente usados para delinear áreas de influência em torno de características geográficas. 
 
@@ -396,7 +396,7 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="waypoint-optimization"></a>**Otimização**do Waypoint : O processo de reordenar um conjunto de pontos de passagem para minimizar o tempo de viagem ou a distância necessário para passar por todos os pontos de passagem fornecidos. Dependendo da complexidade da otimização, esta otimização é muitas vezes referida como o problema dos [vendedores ambulantes](#traveling-salesmen-problem-tsp) ou problema de [encaminhamento](#vehicle-routing-problem-vrp)de veículos.
 
-<a name="web-map-service-wms"></a>**Web Map Service (WMS)** : WMS é um padrão do Open Geographic Consortium (OGC) que define serviços de mapas baseados em imagem. Os serviços wMS fornecem imagens de mapas para áreas específicas dentro de um mapa a pedido. As imagens incluem simbologia pré-renderizada e podem ser renderizadas num dos vários estilos nomeados se definidos pelo serviço.
+<a name="web-map-service-wms"></a>**Web Map Service (WMS)**: WMS é um padrão do Open Geographic Consortium (OGC) que define serviços de mapas baseados em imagem. Os serviços wMS fornecem imagens de mapas para áreas específicas dentro de um mapa a pedido. As imagens incluem simbologia pré-renderizada e podem ser renderizadas num dos vários estilos nomeados se definidos pelo serviço.
 
 <a name="web-mercator"></a>**Web Mercator**: Também conhecido como projeção esférica mercator. É uma ligeira variante da projeção do Mercator, usada principalmente em programas de mapeamento baseados na Web. Usa as mesmas fórmulas que a projeção padrão do Mercator usada para mapas de pequena escala. No entanto, o Web Mercator usa as fórmulas esféricas em todas as escalas, mas os mapas mercator em larga escala normalmente usam a forma elipsoidal da projeção. A discrepância é impercetível à escala global, mas faz com que mapas de áreas locais se desviem ligeiramente dos verdadeiros mapas do Mercator elipsoidal, na mesma escala.
 

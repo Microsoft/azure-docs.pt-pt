@@ -1,6 +1,6 @@
 ---
-title: Ciência de dados dimensionável com o Azure Data Lake - processo de ciência de dados de equipa
-description: Como utilizar o Azure Data Lake para realizar tarefas de classificação de exploração e o binário dados num conjunto de dados.
+title: Ciência de dados escaláveis com Lago de Dados Azure - Processo de Ciência de Dados da Equipa
+description: Como utilizar o Lago de Dados Azure para fazer tarefas de exploração de dados e classificação binária num conjunto de dados.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,70 +12,70 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717927"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados dimensionável com o Azure Data Lake: uma passo a passo-a-ponto
-Estas instruções mostram como utilizar o Azure Data Lake para fazer a exploração de dados e tarefas de classificação binária de uma amostra da viagem de táxis de NYC e se comportarão de conjunto de dados para prever se ou não uma dica é pago por uma Europeia. Percorre-o através dos passos do Processo de Ciência de Dados da [Equipa,](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)de ponta a ponta, desde a aquisição de dados até à formação de modelos, e depois até à implementação de um serviço web que publique o modelo.
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados escalável com Lago de Dados Azure: Um Walkthrough de ponta a ponta
+Este walkthrough mostra como usar o Lago de Dados Azure para fazer tarefas de exploração de dados e classificação binária numa amostra da viagem de táxi de NYC e dataset de tarifas para prever se uma gorjeta é ou não paga por uma tarifa. Percorre-o através dos passos do Processo de Ciência de Dados da [Equipa,](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)de ponta a ponta, desde a aquisição de dados até à formação de modelos, e depois até à implementação de um serviço web que publique o modelo.
 
 ## <a name="technologies"></a>Tecnologias
 
 Estas tecnologias são usadas nesta passagem.
 * Azure Data Lake Analytics
-* U-SQL e o Visual Studio
+* U-SQL e Estúdio Visual
 * Python
 * Azure Machine Learning
 * Scripts
 
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
-O [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) tem todas as capacidades necessárias para facilitar aos cientistas de dados a loja de dados de qualquer tamanho, forma e velocidade, e para realizar o processamento de dados, análiseavançada e modelação de machine learning com alta escalabilidade de uma forma rentável.   Paga-se numa base por tarefa, apenas quando os dados, na verdade, está a ser processados. O Azure Data Lake Analytics inclui U-SQL, uma linguagem que alia a natureza declarativa do SQL ao poder expressivo do c# para fornecer escalável distribuído de capacidade de consulta. Permite-lhe processar dados não estruturados ao aplicar o esquema na leitura, inserir lógica personalizada e funções definidas pelo utilizador (UDFs) e inclui extensibilidade para permitir o controlo detalhado sobre como executar à escala. Para saber mais sobre a filosofia de design por trás da U-SQL, consulte o [blog do Visual Studio.](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)
+O [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) tem todas as capacidades necessárias para facilitar aos cientistas de dados a loja de dados de qualquer tamanho, forma e velocidade, e para realizar o processamento de dados, análiseavançada e modelação de machine learning com alta escalabilidade de uma forma rentável.   Paga-se por trabalho, só quando os dados estão a ser processados. O Azure Data Lake Analytics inclui o U-SQL, uma linguagem que mistura a natureza declarativa do SQL com o poder expressivo de C# para fornecer capacidade de consulta distribuída escalável. Permite-lhe processar dados não estruturados aplicando esquemas na leitura, inserindo a lógica personalizada e funções definidas pelo utilizador (UDFs), e inclui a extebilidade para permitir um controlo fino de grãos sobre como executar à escala. Para saber mais sobre a filosofia de design por trás da U-SQL, consulte o [blog do Visual Studio.](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)
 
-O Data Lake Analytics também é uma parte essencial do Cortana Analytics Suite e funciona com o Azure SQL Data Warehouse, o Power BI e o Data Factory. Esta combinação dá-lhe um grande dados em nuvem completa e plataforma de análise avançada.
+Data Lake Analytics é também uma peça-chave da Suite Cortana Analytics e trabalha com azure SQL Data Warehouse, Power BI e Data Factory. Esta combinação dá-lhe um grande dados em nuvem completa e plataforma de análise avançada.
 
-Este passo a passo começa com a descrição de como instalar os pré-requisitos e os recursos que são necessárias para concluir tarefas do processo de ciência de dados. Em seguida, descreve os passos de processamento de dados usando u-SQL e conclui mostrando como usar Python e Hive com Azure Machine Learning Studio (clássico) para construir e implementar os modelos preditivos.
+Esta passagem começa por descrever como instalar os pré-requisitos e recursos necessários para completar as tarefas do processo de ciência de dados. Em seguida, descreve os passos de processamento de dados usando u-SQL e conclui mostrando como usar Python e Hive com Azure Machine Learning Studio (clássico) para construir e implementar os modelos preditivos.
 
-### <a name="u-sql-and-visual-studio"></a>U-SQL e o Visual Studio
-Este passo a passo recomenda com o Visual Studio para editar scripts U-SQL para processar o conjunto de dados. Os scripts U-SQL são descritos aqui e fornecidos num arquivo separado. O processo inclui ingestão, explorar e os dados de amostragem. Ela também mostra como executar uma tarefa de script de U-SQL a partir do portal do Azure. Tabelas do Hive são criadas para os dados num cluster do HDInsight associado para facilitar a criação e implementação de um modelo de classificação binária no Azure Machine Learning Studio.
+### <a name="u-sql-and-visual-studio"></a>U-SQL e Estúdio Visual
+Este walkthrough recomenda a utilização do Visual Studio para editar scripts U-SQL para processar o conjunto de dados. Os scripts U-SQL são descritos aqui e fornecidos num ficheiro separado. O processo inclui ingerir, explorar e provar os dados. Também mostra como executar um trabalho escrito U-SQL a partir do portal Azure. As tabelas de colmeia são criadas para os dados de um cluster HDInsight associado para facilitar a construção e implementação de um modelo de classificação binária no Azure Machine Learning Studio.
 
 ### <a name="python"></a>Python
-Estas instruções também contém uma seção que mostra como criar e implementar um modelo preditivo com o Python com o Azure Machine Learning Studio. Ele fornece um bloco de notas do Jupyter com os scripts de Python para obter os passos neste processo. O bloco de notas inclui código para algumas funcionalidades adicionais engenharia passos e modelos de construção, como a classificação de várias classes e regressão de modelagem, além do modelo de classificação binária descrito aqui. É a tarefa de regressão prever a quantidade de sugestão com base em outros recursos de dica.
+Este walkthrough também contém uma secção que mostra como construir e implementar um modelo preditivo usando Python com Azure Machine Learning Studio. Fornece um caderno Jupyter com os scripts Python para os passos neste processo. O caderno inclui código para alguns passos adicionais de engenharia de recursos e construção de modelos, tais como classificação multiclasse e modelação de regressão, além do modelo de classificação binária aqui descrito. A tarefa de regressão é prever a quantidade da ponta com base em outras características da ponta.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning 
 O Azure Machine Learning Studio (clássico) é usado para construir e implementar os modelos preditivos usando duas abordagens: primeiro com scripts Python e depois com mesas de Colmeia num cluster HDInsight (Hadoop).
 
 ### <a name="scripts"></a>Scripts
-Apenas os principais passos descritos nestas instruções. Você pode baixar o **script u-SQL** completo e **o Caderno Jupyter** do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+Apenas os passos principais são delineados nesta passagem. Você pode baixar o **script u-SQL** completo e **o Caderno Jupyter** do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de iniciar estes tópicos, tem de ter o seguinte:
+Antes de começar estes tópicos, deve ter o seguinte:
 
 * Uma subscrição do Azure. Se ainda não tem um, consulte [o Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Recomendável] Visual Studio 2013 ou posterior. Se ainda não tiver uma destas versões instaladas, pode descarregar uma versão comunitária gratuita da [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+* [Recomendado] Estúdio Visual 2013 ou mais tarde. Se ainda não tiver uma destas versões instaladas, pode descarregar uma versão comunitária gratuita da [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
-> Em vez do Visual Studio, também pode utilizar o portal do Azure para submeter consultas do Azure Data Lake. São fornecidas instruções sobre como fazê-lo tanto com o Visual Studio como no portal da secção intitulada Dados de **Processo com U-SQL**.
+> Em vez do Visual Studio, também pode usar o portal Azure para submeter consultas do Lago de Dados Azure. São fornecidas instruções sobre como fazê-lo tanto com o Visual Studio como no portal da secção intitulada Dados de **Processo com U-SQL**.
 >
 >
 
 
-## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Preparar o ambiente de ciência de dados para o Azure Data Lake
-Para preparar o ambiente de ciência de dados para este passo a passo, crie os seguintes recursos:
+## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Prepare o ambiente da ciência dos dados para o Lago de Dados De Azure
+Para preparar o ambiente da ciência dos dados para esta passagem, crie os seguintes recursos:
 
 * Armazenamento de lagos de dados azure (ADLS)
 * Azure Data Lake Analytics (ADLA)
-* Conta de armazenamento de Blobs do Azure
+* Conta de armazenamento Azure Blob
 * Conta Azure Machine Learning Studio (clássica)
-* O Azure Data Lake Tools para Visual Studio (recomendado)
+* Ferramentas azure data lake para estúdio visual (recomendado)
 
-Esta secção fornece instruções sobre como criar cada um destes recursos. Se optar por utilizar tabelas do Hive com o Azure Machine Learning, em vez de Python, para criar um modelo, também terá de aprovisionar um cluster do HDInsight (Hadoop). Este procedimento alternativo no descrito na secção opção 2.
+Esta secção fornece instruções sobre como criar cada um destes recursos. Se optar por utilizar mesas de Colmeia com Machine Learning Azure, em vez de Python, para construir um modelo, também precisa de fornecer um cluster HDInsight (Hadoop). Este procedimento alternativo descrito na secção Opção 2.
 
 
 > [!NOTE]
-> A **Azure Data Lake Store** pode ser criada separadamente ou quando cria o **Azure Data Lake Analytics** como o armazenamento padrão. As instruções são referenciadas para a criação de cada um destes recursos em separado, mas a conta de armazenamento do Data Lake não tem de ser criada em separado.
+> A **Azure Data Lake Store** pode ser criada separadamente ou quando cria o **Azure Data Lake Analytics** como o armazenamento padrão. As instruções são referenciadas para a criação separada de cada um destes recursos, mas a conta de armazenamento do Lago de Dados não precisa de ser criada separadamente.
 >
 >
 
@@ -86,12 +86,12 @@ Crie um ADLS a partir do [portal Azure.](https://portal.azure.com) Para mais det
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
-### <a name="create-an-azure-data-lake-analytics-account"></a>Criar uma conta do Azure Data Lake Analytics
+### <a name="create-an-azure-data-lake-analytics-account"></a>Criar uma conta Azure Data Lake Analytics
 Crie uma conta ADLA a partir do [portal Azure.](https://portal.azure.com) Para mais detalhes, consulte [Tutorial: inicie-se com o Azure Data Lake Analytics utilizando](../../data-lake-analytics/data-lake-analytics-get-started-portal.md)o portal Azure .
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
-### <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs do Azure
+### <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento Azure Blob
 Crie uma conta de armazenamento Azure Blob a partir do [portal Azure.](https://portal.azure.com) Para mais detalhes, consulte a secção criar uma conta de armazenamento nas [contas de Armazenamento Azure](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
@@ -99,19 +99,19 @@ Crie uma conta de armazenamento Azure Blob a partir do [portal Azure.](https://p
 ### <a name="set-up-an-azure-machine-learning-studio-classic-account"></a>Criar uma conta Azure Machine Learning Studio (clássica)
 Inscreva-se/inte no Azure Machine Learning Studio (clássico) a partir da página de [estúdio azure machine learning.](https://azure.microsoft.com/services/machine-learning/) Clique no botão **Get agora iniciado** e, em seguida, escolha um "Espaço de Trabalho Gratuito" ou "Espaço de Trabalho Padrão". Agora está pronto para criar experiências no estúdio Azure Machine Learning.
 
-### <a name="install-azure-data-lake-tools-recommended"></a>Instalar as ferramentas do Azure Data Lake [recomendável]
+### <a name="install-azure-data-lake-tools-recommended"></a>Instale ferramentas de lago de dados azure [recomendado]
 Instale ferramentas azure data lake para a sua versão do Estúdio Visual de Ferramentas do [Lago de Dados Azure para estúdio visual](https://www.microsoft.com/download/details.aspx?id=49504).
 
  ![6](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
-Depois de terminar a instalação, abra o Estúdio Visual. Deverá ver o separador no menu na parte superior do Data Lake. Os recursos do Azure devem aparecer no painel esquerdo, ao iniciar sessão na conta do Azure.
+Depois de terminar a instalação, abra o Estúdio Visual. Você deve ver o data lake aba o menu no topo. Os seus recursos Azure devem aparecer no painel esquerdo quando assinar na sua conta Azure.
 
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
-## <a name="the-nyc-taxi-trips-dataset"></a>O conjunto de dados de viagens de táxis de NYC
-O conjunto de dados utilizado aqui é um conjunto de dados disponível publicamente - o conjunto de [dados de Viagens de Táxi de NYC](https://www.andresmh.com/nyctaxitrips/). Os dados da viagem de táxis de NYC consiste em cerca de 20 GB de arquivos compactados de CSV (GB de ~ 48 descomprimido), gravar mais de 173 milhões de viagens individuais e os fares pago para cada viagem. Cada registo de viagem inclui as localizações de recolha e de redução e vezes, o número de licença de hackers anónimos (driver) e o número de medallion (de táxis de ID exclusivo). Os dados abrange todas as viagens no ano de 2013 e são fornecidos no seguintes dois conjuntos de dados para todos os meses:
+## <a name="the-nyc-taxi-trips-dataset"></a>O conjunto de dados de viagens de táxi de NYC
+O conjunto de dados utilizado aqui é um conjunto de dados disponível publicamente - o conjunto de [dados de Viagens de Táxi de NYC](https://www.andresmh.com/nyctaxitrips/). Os dados da NyC Taxi Trip consistem em cerca de 20 GB de ficheiros CSV comprimidos (~48 GB descomprimidos), registando mais de 173 milhões de viagens individuais e as tarifas pagas por cada viagem. Cada registo de viagem inclui os locais e horários de recolha e entrega, o número de carta de condução anoonizada (motorista) e o número de medalhão (id único do táxi). Os dados abrangem todas as viagens do ano de 2013 e são fornecidos nos dois conjuntos de dados seguintes para cada mês:
 
-O 'trip_data CSV contém detalhes de viagem, como o número de passageiros, recolha e pontos de redução, duração de viagem e comprimento de viagem. Aqui estão alguns exemplos de registros:
+O CSV 'trip_data' contém detalhes da viagem, tais como o número de passageiros, pontos de recolha e entrega, duração da viagem e duração da viagem. Aqui estão alguns registos de amostras:
 
        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -122,7 +122,7 @@ O 'trip_data CSV contém detalhes de viagem, como o número de passageiros, reco
 
 
 
-O trip_fare CSV contém detalhes de Europeia pago para cada viagem, como o tipo de pagamento, a quantidade de Europeia, sobretaxa e impostos, dicas e pedágio e o valor total pago. Aqui estão alguns exemplos de registros:
+O CSV 'trip_fare' contém detalhes da tarifa paga por cada viagem, tais como tipo de pagamento, valor das tarifas, sobretaxa e impostos, gorjetas e portagens, e o valor total pago. Aqui estão alguns registos de amostras:
 
        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -131,10 +131,10 @@ O trip_fare CSV contém detalhes de Europeia pago para cada viagem, como o tipo 
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-A chave única para juntar dados de viagem\_e viagem\_tarifa é composta pelos seguintes três campos: medalhão, licença de\_de hack e recolha\_data. Os ficheiros CSV crus podem ser acedidos a partir de uma bolha de armazenamento Azure. O script U-SQL para esta adesão está na secção [de mesas de viagem e tarifas.](#join)
+A chave única\_para juntar\_dados de viagem e tarifa de\_viagem\_é composta pelos seguintes três campos: medalhão, licença de hack e data de recolha. Os ficheiros CSV crus podem ser acedidos a partir de uma bolha de armazenamento Azure. O script U-SQL para esta adesão está na secção [de mesas de viagem e tarifas.](#join)
 
-## <a name="process-data-with-u-sql"></a>Processar dados com o U-SQL
-As tarefas de processamento de dados ilustradas nesta secção incluem a ingerir, a verificação de qualidade, explorar e os dados de amostragem. Também é mostrado como associar as tabelas de viagem e Europeia. A seção final mostra execução uma tarefa de script de U-SQL no portal do Azure. Seguem-se ligações para cada subseção:
+## <a name="process-data-with-u-sql"></a>Processar dados com U-SQL
+As tarefas de processamento de dados ilustradas nesta secção incluem ingerir, verificar a qualidade, explorar e provar os dados. Como aderir às mesas de viagem e tarifas também é mostrado. A secção final mostra executar um trabalho escrito U-SQL do portal Azure. Aqui estão os links para cada subsecção:
 
 * [Ingestão de dados: leia em dados da bolha pública](#ingest)
 * [Verificação da qualidade dos dados](#quality)
@@ -143,22 +143,22 @@ As tarefas de processamento de dados ilustradas nesta secção incluem a ingerir
 * [Amostragem de dados](#sample)
 * [Executar empregos U-SQL](#run)
 
-Os scripts U-SQL são descritos aqui e fornecidos num arquivo separado. Você pode baixar os **scripts U-SQL completos** do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+Os scripts U-SQL são descritos aqui e fornecidos num ficheiro separado. Você pode baixar os **scripts U-SQL completos** do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Para executar u-SQL, Open Visual Studio, clique em **File -> New -> Project,** escolha **U-SQL Project**, nomee-o e guarde-o para uma pasta.
+Para executar U-SQL, Open Visual Studio, clique em **File --> New --> Project**, escolha **U-SQL Project**, nomeie-o e guarde-o para uma pasta.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
 > [!NOTE]
-> É possível utilizar o Portal do Azure para executar o U-SQL em vez do Visual Studio. Pode navegar para o recurso do Azure Data Lake Analytics no portal e submeter consultas diretamente como ilustrado na figura a seguir:
+> É possível utilizar o Portal Azure para executar u-SQL em vez de Visual Studio. Pode navegar para o recurso Azure Data Lake Analytics no portal e submeter consultas diretamente, conforme ilustrado na seguinte figura:
 >
 >
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Ingestão de Dados: Ler em dados da bolha pública
+### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Ingestão de Dados: Ler em dados da bolha pública
 
-A localização dos dados na bolha Azure é referenciada como **wasb://container\_nome\@ conta de\_armazenamento\_\_name.blob.core.windows.net/blob_name** e pode ser extraída através do **Extractors.Csv()** . Substitua o nome do seu próprio contentor e o nome da conta de armazenamento nos seguintes scripts para o nome\_de contentores\@\_de armazenamento\_conta\_nome no endereço de wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível utilizar\_**dados de viagem\_\{\*\}.csv** para ler em todos os 12 ficheiros de viagem.
+A localização dos dados na bolha Azure é referenciada como **wasb://container\_conta de armazenamento\@\_\_blob\_de nome name.blob.core.windows.net/blob_name** e pode ser extraída através do **Extractors.Csv()**. Substitua o nome do seu próprio contentor\_e\@o\_\_nome da conta de armazenamento nas seguintes scripts para o nome da conta\_de armazenamento blob do nome do recipiente no endereço wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível utilizar **dados\_\_\{\*\}de viagem .csv** para ler em todos os 12 ficheiros de viagem.
 
     ///Read in Trip data
     @trip0 =
@@ -181,7 +181,7 @@ A localização dos dados na bolha Azure é referenciada como **wasb://container
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Uma vez que existem cabeçalhos na primeira linha, terá de remover os cabeçalhos e alterar os tipos de coluna para aqueles apropriado. Pode guardar os dados processados para o Armazenamento do Lago De dados do Azure utilizando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou para a conta de armazenamento Azure Blob utilizando **wasb://container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Uma vez que existem cabeçalhos na primeira linha, é necessário remover os cabeçalhos e mudar os tipos de colunas em tipos apropriados. Pode guardar os dados processados para o Armazenamento do Lago De dados do Azure utilizando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou para a conta de armazenamento Azure Blob utilizando **wasb://container_name\@blob_storage_account_name.blob.core.windows.windows.net/blob_name**.
 
     // change data types
     @trip =
@@ -213,16 +213,16 @@ Uma vez que existem cabeçalhos na primeira linha, terá de remover os cabeçalh
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
     USING Outputters.Csv();
 
-Da mesma forma pode ler em conjuntos de dados Europeia. Clique no Azure Data Lake Storage, pode optar por ver os seus dados no **portal Azure --> Data Explorer** ou File **Explorer** dentro do Visual Studio.
+Da mesma forma, pode ler nos conjuntos de dados de tarifas. Clique no Armazenamento do Lago De Dados do Azure, pode optar por ver os seus dados no **portal Azure --> Data Explorer** ou File **Explorer** dentro do Visual Studio.
 
  ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
  ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="quality"></a>Verificação da qualidade dos dados
-Depois de tabelas de viagem e Europeia foram lidos no, verificações de qualidade de dados podem ser feitas da seguinte forma. Os ficheiros CSV resultantes podem ser de saída para armazenamento Azure Blob ou Armazenamento de Lago de Dados Azure.
+### <a name="data-quality-checks"></a><a name="quality"></a>Verificação da qualidade dos dados
+Após a leitura das tabelas de viagem e tarifa, os controlos de qualidade dos dados podem ser feitos da seguinte forma. Os ficheiros CSV resultantes podem ser de saída para armazenamento Azure Blob ou Armazenamento de Lago de Dados Azure.
 
-Encontre o número de medallions e o número exclusivo de medallions:
+Encontre o número de medalhões e o número único de medalhão:
 
     ///check the number of medallions and unique number of medallions
     @trip2 =
@@ -243,7 +243,7 @@ Encontre o número de medallions e o número exclusivo de medallions:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_1.csv"
     USING Outputters.Csv();
 
-Encontre esses medallions que tinha mais de 100 viagens:
+Encontre os medalhão que tiveram mais de 100 viagens:
 
     ///find those medallions that had more than 100 trips
     @ex_2 =
@@ -269,7 +269,7 @@ Encontre esses registos inválidos em termos de pickup_longitude:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_3.csv"
     USING Outputters.Csv();
 
-Localize valores em falta para algumas variáveis:
+Encontre valores em falta para algumas variáveis:
 
     //check missing values
     @res =
@@ -291,10 +291,10 @@ Localize valores em falta para algumas variáveis:
 
 
 
-### <a name="explore"></a>Exploração de dados
-Fazer alguma exploração de dados com os scripts seguintes para obter uma melhor compreensão dos dados.
+### <a name="data-exploration"></a><a name="explore"></a>Exploração de dados
+Faça alguma exploração de dados com os seguintes scripts para obter uma melhor compreensão dos dados.
 
-Encontre a distribuição de viagens tipadas e não colocado para:
+Encontre a distribuição de viagens com gorjeta e sem gorjeta:
 
     ///tipped vs. not tipped distribution
     @tip_or_not =
@@ -311,7 +311,7 @@ Encontre a distribuição de viagens tipadas e não colocado para:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv();
 
-Encontre a distribuição de Gorjeta com valores de truncado: 0, 5, 10 e 20 dólares.
+Encontre a distribuição do valor da gorjeta com valores de corte: 0, 5, 10 e 20 dólares.
 
     //tip class/range distribution
     @tip_class =
@@ -327,7 +327,7 @@ Encontre a distribuição de Gorjeta com valores de truncado: 0, 5, 10 e 20 dól
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_5.csv"
     USING Outputters.Csv();
 
-Encontre estatísticas básicas de distância de viagem:
+Encontre estatísticas básicas da distância da viagem:
 
     // find basic statistics for trip_distance
     @trip_summary4 =
@@ -343,7 +343,7 @@ Encontre estatísticas básicas de distância de viagem:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_14.csv"
     USING Outputters.Csv();
 
-Localize os percentis de distância de viagem:
+Encontre os percentículos da distância da viagem:
 
     // find percentiles of trip_distance
     @trip_summary3 =
@@ -358,8 +358,8 @@ Localize os percentis de distância de viagem:
     USING Outputters.Csv();
 
 
-### <a name="join"></a>Junte-se às mesas de viagem e tarifas
-Tabelas de viagem e Europeia podem ser associadas ao medallion, hack_license e pickup_time.
+### <a name="join-trip-and-fare-tables"></a><a name="join"></a>Junte-se às mesas de viagem e tarifas
+As mesas de viagem e tarifa podem ser acompanhadas por medalhão, hack_license e pickup_time.
 
     //join trip and fare table
 
@@ -383,7 +383,7 @@ Tabelas de viagem e Europeia podem ser associadas ao medallion, hack_license e p
     USING Outputters.Csv();
 
 
-Para cada nível de contagem de passageiros, calcule o número de registos, Gorjeta média, desvio da quantidade de sugestão, percentagem de viagens colocado para.
+Para cada nível de contagem de passageiros, calcule o número de registos, o valor médio da gorjeta, a variação do valor da gorjeta, a percentagem de viagens com gorjeta.
 
     // contingency table
     @trip_summary8 =
@@ -400,8 +400,8 @@ Para cada nível de contagem de passageiros, calcule o número de registos, Gorj
     USING Outputters.Csv();
 
 
-### <a name="sample"></a>Amostragem de dados
-Em primeiro lugar, selecione aleatoriamente 0,1% dos dados da tabela associado ao:
+### <a name="data-sampling"></a><a name="sample"></a>Amostragem de dados
+Primeiro, selecione aleatoriamente 0,1% dos dados da tabela aqueceda:
 
     //random select 1/1000 data for modeling purpose
     @addrownumberres_randomsample =
@@ -418,7 +418,7 @@ Em primeiro lugar, selecione aleatoriamente 0,1% dos dados da tabela associado a
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_random_1_1000.csv"
     USING Outputters.Csv();
 
-Em seguida, fazer amostragem stratified binário tip_class variável:
+Em seguida, faça uma amostragem estratificada por variável binária tip_class:
 
     //stratified random select 1/1000 data for modeling purpose
     @addrownumberres_stratifiedsample =
@@ -440,34 +440,34 @@ Em seguida, fazer amostragem stratified binário tip_class variável:
     USING Outputters.Csv();
 
 
-### <a name="run"></a>Executar empregos U-SQL
+### <a name="run-u-sql-jobs"></a><a name="run"></a>Executar empregos U-SQL
 Depois de editar scripts U-SQL, pode submetê-los ao servidor utilizando a sua conta Azure Data Lake Analytics. Clique em **Data Lake,** **Submeta O Trabalho,** selecione a sua **Conta Analytics,** escolha **paralelismo**e clique em **Enviar.**
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
-Quando a tarefa é compilada com êxito, o estado da sua tarefa é apresentado no Visual Studio para a monitorização. Após o trabalho estar concluído, pode até reproduzir o processo de execução do emprego e descobrir os passos de estrangulamento para melhorar a eficiência do seu trabalho. Também pode aceder ao portal do Azure para verificar o estado das suas tarefas de U-SQL.
+Quando o trabalho é cumprido com sucesso, o estado do seu trabalho é apresentado no Estúdio Visual para monitorização. Após o trabalho estar concluído, pode até reproduzir o processo de execução do emprego e descobrir os passos de estrangulamento para melhorar a eficiência do seu trabalho. Também pode ir ao portal Azure para verificar o estado dos seus empregos na U-SQL.
 
  ![13](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
 
  ![14](./media/data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
-Agora pode verificar os ficheiros de saída no armazenamento de Blobs do Azure ou no portal do Azure. Utilize os dados de exemplo stratified para nosso modelagem no próximo passo.
+Agora pode verificar os ficheiros de saída no armazenamento do Azure Blob ou no portal Azure. Utilize os dados da amostra estratificados para a nossa modelação no próximo passo.
 
  ![15](./media/data-lake-walkthrough/15-U-SQL-output-csv.PNG)
 
  ![16](./media/data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
 
-## <a name="build-and-deploy-models-in-azure-machine-learning"></a>Criar e implementar modelos no Azure Machine Learning
-Duas opções estão disponíveis extrair dados para o Azure Machine Learning para criar e
+## <a name="build-and-deploy-models-in-azure-machine-learning"></a>Construir e implementar modelos em Azure Machine Learning
+Estão disponíveis duas opções para que você possa puxar dados para Azure Machine Learning para construir e
 
 * Na primeira opção, utiliza os dados amostrados que foram escritos a um Azure Blob (na **amostra de dados** acima) e utiliza a Python para construir e implementar modelos a partir do Azure Machine Learning.
-* Na segunda opção, consultar os dados no Azure Data Lake diretamente, usando uma consulta do Hive. Esta opção requer que crie um novo cluster de HDInsight ou utilizar um cluster do HDInsight existente em que as tabelas do Hive apontam para os dados de táxis de NY no armazenamento do Azure Data Lake.  Ambas estas opções são abordadas nas secções seguintes.
+* Na segunda opção, consulta os dados no Lago de Dados Azure diretamente usando uma consulta da Hive. Esta opção requer que crie um novo cluster HDInsight ou utilize um cluster HDInsight existente onde as tabelas da Hive apontam para os dados do NY Taxi no Armazenamento do Lago De dados Azure.  Ambas as opções são discutidas nas seguintes secções.
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Opção 1: Utilizar o Python para criar e implementar modelos do machine learning
-Para criar e implementar modelos de aprendizagem automática com o Python, crie um bloco de notas do Jupyter no seu computador local ou no Azure Machine Learning Studio. O Caderno Jupyter fornecido no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) contém o código completo para explorar, visualizar dados, engenharia de funcionalidades, modelação e implementação. São abordados neste artigo, apenas a modelação e a implantação.
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Opção 1: Utilizar python para construir e implementar modelos de aprendizagem automática
+Para construir e implementar modelos de machine learning utilizando python, crie um Caderno Jupyter na sua máquina local ou no Azure Machine Learning Studio. O Caderno Jupyter fornecido no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) contém o código completo para explorar, visualizar dados, engenharia de funcionalidades, modelação e implementação. Neste artigo, apenas a modelação e implantação são cobertas.
 
-### <a name="import-python-libraries"></a>Bibliotecas de Python de importação
-Para executar o exemplo de notas do Jupyter e o Python ficheiro de script, o Python seguintes pacotes são necessários. Se estiver a utilizar o serviço Deportátil de Aprendizagem automática Azure, estes pacotes foram pré-instalados.
+### <a name="import-python-libraries"></a>Importabibliotecas Python
+Para executar a amostra Jupyter Notebook ou o ficheiro de script Python, são necessários os seguintes pacotes Python. Se estiver a utilizar o serviço Deportátil de Aprendizagem automática Azure, estes pacotes foram pré-instalados.
 
     import pandas as pd
     from pandas import Series, DataFrame
@@ -490,15 +490,15 @@ Para executar o exemplo de notas do Jupyter e o Python ficheiro de script, o Pyt
     from azureml import services
 
 
-### <a name="read-in-the-data-from-blob"></a>Leitura de dados de blob
-* Cadeia de Ligação
+### <a name="read-in-the-data-from-blob"></a>Ler nos dados da blob
+* Fio de ligação
 
         CONTAINERNAME = 'test1'
         STORAGEACCOUNTNAME = 'XXXXXXXXX'
         STORAGEACCOUNTKEY = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYY'
         BLOBNAME = 'demo_ex_9_stratified_1_1000_copy.csv'
         blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-* Leitura numa como texto
+* Ler como texto
 
         t1 = time.time()
         data = blob_service.get_blob_to_text(CONTAINERNAME,BLOBNAME).split("\n")
@@ -506,13 +506,13 @@ Para executar o exemplo de notas do Jupyter e o Python ficheiro de script, o Pyt
         print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
 
   ![17](./media/data-lake-walkthrough/17-python_readin_csv.PNG)
-* Adicionar nomes de colunas e separar colunas
+* Adicione nomes de colunas e colunas separadas
 
         colnames = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime',
         'passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude',
         'payment_type', 'fare_amount', 'surcharge', 'mta_tax', 'tolls_amount',  'total_amount', 'tip_amount', 'tipped', 'tip_class', 'rownum']
         df1 = pd.DataFrame([sub.split(",") for sub in data], columns = colnames)
-* Alterar algumas colunas em numérico
+* Mude algumas colunas para numérica
 
         cols_2_float = ['trip_time_in_secs','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude',
         'fare_amount', 'surcharge','mta_tax','tolls_amount','total_amount','tip_amount', 'passenger_count','trip_distance'
@@ -520,24 +520,24 @@ Para executar o exemplo de notas do Jupyter e o Python ficheiro de script, o Pyt
         for col in cols_2_float:
             df1[col] = df1[col].astype(float)
 
-### <a name="build-machine-learning-models"></a>Criar modelos de machine learning
-Aqui é criar um modelo de classificação binária para prever se uma viagem é colocado para ou não. O bloco de notas do Jupyter encontrará outros dois modelos: classificação multiclasses e modelos de regressão.
+### <a name="build-machine-learning-models"></a>Construir modelos de aprendizagem automática
+Aqui você constrói um modelo de classificação binário para prever se uma viagem é ou não inclinada. No Caderno Jupyter pode encontrar outros dois modelos: classificação multiclasse e modelos de regressão.
 
-* Primeiro precisa para criar variáveis fictícias que podem ser utilizadas na scikit-saiba modelos
+* Primeiro você precisa criar variáveis manequim que podem ser usadas em modelos de scikit-learn
 
         df1_payment_type_dummy = pd.get_dummies(df1['payment_type'], prefix='payment_type_dummy')
         df1_vendor_id_dummy = pd.get_dummies(df1['vendor_id'], prefix='vendor_id_dummy')
-* Criar o quadro de dados para a Modelagem
+* Criar quadro de dados para a modelação
 
         cols_to_keep = ['tipped', 'trip_distance', 'passenger_count']
         data = df1[cols_to_keep].join([df1_payment_type_dummy,df1_vendor_id_dummy])
 
         X = data.iloc[:,1:]
         Y = data.tipped
-* Preparação e teste de divisão de 60 e 40
+* Treino e teste 60-40 split
 
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=0)
-* Regressão logística no conjunto de treinamento
+* Regressão logística no conjunto de treino
 
         model = LogisticRegression()
         logit_fit = model.fit(X_train, Y_train)
@@ -545,10 +545,10 @@ Aqui é criar um modelo de classificação binária para prever se uma viagem é
         Y_train_pred = logit_fit.predict(X_train)
 
        ![c1](./media/data-lake-walkthrough/c1-py-logit-coefficient.PNG)
-* Classificar o conjunto de dados de teste
+* Conjunto de dados de teste de pontuação
 
         Y_test_pred = logit_fit.predict(X_test)
-* Calcular a métrica de avaliação
+* Calcular métricas de avaliação
 
         fpr_train, tpr_train, thresholds_train = metrics.roc_curve(Y_train, Y_train_pred)
         print fpr_train, tpr_train, thresholds_train
@@ -566,17 +566,17 @@ Aqui é criar um modelo de classificação binária para prever se uma viagem é
 
        ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
-### <a name="build-web-service-api-and-consume-it-in-python"></a>Criar API de serviço da Web e seu uso em Python
-Quer operacionalizar o modelo de machine learning depois que ele foi projetado. O modelo de logística binário é usado aqui como um exemplo. Certifique-se de que a versão scikit-learn na sua máquina local é 0.15.1 (O Azure Machine Learning Studio já está pelo menos nesta versão).
+### <a name="build-web-service-api-and-consume-it-in-python"></a>Construa a API do Serviço Web e consuma-a em Python
+Quer operacionalizar o modelo de aprendizagem automática depois de ter sido construído. O modelo logístico binário é usado aqui como um exemplo. Certifique-se de que a versão scikit-learn na sua máquina local é 0.15.1 (O Azure Machine Learning Studio já está pelo menos nesta versão).
 
-* Encontre as suas credenciais de espaço de trabalho a partir das definições do Azure Machine Learning Studio (clássico). No Estúdio de Aprendizagem automática Azure, clique em **Definições** --> **Nome** --> **Tokens de Autorização**.
+* Encontre as suas credenciais de espaço de trabalho a partir das definições do Azure Machine Learning Studio (clássico). No Estúdio de Aprendizagem automática Azure, clique em**Fichas**de Autorização de**Nome** -->  **de Definições** --> .
 
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
-* Criar o serviço Web
+* Criar o Serviço Web
 
         @services.publish(workspaceid, auth_token)
         @services.types(trip_distance = float, passenger_count = float, payment_type_dummy_CRD = float, payment_type_dummy_CSH=float, payment_type_dummy_DIS = float, payment_type_dummy_NOC = float, payment_type_dummy_UNK = float, vendor_id_dummy_CMT = float, vendor_id_dummy_VTS = float)
@@ -584,7 +584,7 @@ Quer operacionalizar o modelo de machine learning depois que ele foi projetado. 
         def predictNYCTAXI(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             inputArray = [trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH, payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS]
             return logit_fit.predict(inputArray)
-* Obter as credenciais do serviço web
+* Obtenha credenciais de serviço web
 
         url = predictNYCTAXI.service.url
         api_key =  predictNYCTAXI.service.api_key
@@ -597,7 +597,7 @@ Quer operacionalizar o modelo de machine learning depois que ele foi projetado. 
         @services.returns(float)
         def NYCTAXIPredictor(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             pass
-* Chame a API de serviço da Web. Normalmente, espere 5-10 segundos após o passo anterior.
+* Ligue para o serviço Web API. Normalmente, espere 5-10 segundos após o passo anterior.
 
         NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
@@ -606,13 +606,13 @@ Quer operacionalizar o modelo de machine learning depois que ele foi projetado. 
 ## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Opção 2: Criar e implementar modelos diretamente no Azure Machine Learning
 O Azure Machine Learning Studio (clássico) pode ler dados diretamente do Armazenamento do Lago De Dados Azure e depois ser usado para criar e implementar modelos. Esta abordagem utiliza uma tabela de colmeias que aponta para o Armazenamento do Lago De Dados Azure. Um cluster Azure HDInsight separado precisa de ser provisionado para a tabela Hive. 
 
-### <a name="create-an-hdinsight-linux-cluster"></a>Criar um Cluster do Linux de HDInsight
+### <a name="create-an-hdinsight-linux-cluster"></a>Criar um Cluster Linux HDInsight
 Crie um Cluster HDInsight (Linux) a partir do [portal Azure](https://portal.azure.com). Para mais detalhes, consulte o **cluster Create a HDInsight com acesso à** secção de armazenamento de lagos de dados Azure em Criar um cluster [HDInsight com data lake store usando](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)o portal Azure .
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
-### <a name="create-hive-table-in-hdinsight"></a>Criar uma tabela do Hive no HDInsight
-Agora cria-se tabelas Hive para serem usadas no Azure Machine Learning Studio (clássico) no cluster HDInsight utilizando os dados armazenados no Armazenamento do Lago De Dados Azure no passo anterior. Vá para o cluster de HDInsight que criou. Clique em **Configurações** --> **Propriedades** --> **Identidade AAD** do Cluster --> **Acesso ADLS,** certifique-se de que a sua conta de Armazenamento de Lagos de Dados Azure é adicionada na lista com direitos de leitura, escrita e execução.
+### <a name="create-hive-table-in-hdinsight"></a>Criar mesa de colmeia no HDInsight
+Agora cria-se tabelas Hive para serem usadas no Azure Machine Learning Studio (clássico) no cluster HDInsight utilizando os dados armazenados no Armazenamento do Lago De Dados Azure no passo anterior. Vá ao cluster HDInsight criado. Clique em **Configurações** --> **Propriedades** --> **Cluster ADLS Acesso** --> a Identidade**ADLS,** certifique-se de que a sua conta de Armazenamento de Lagos de Dados Azure é adicionada na lista com direitos de leitura, escrita e execução.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -622,7 +622,7 @@ Em seguida, clique no **Dashboard** ao lado do botão **Definições** e surge u
 
  ![21](./media/data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
-Cole os seguintes scripts de Hive para criar uma tabela. A localização da fonte de dados está na referência de Armazenamento de Lagos De Dados De Azure desta forma: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Colar nos seguintes scripts da Colmeia para criar uma mesa. A localização da fonte de dados está na referência de Armazenamento de Lagos De Dados De Azure desta forma: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
     CREATE EXTERNAL TABLE nyc_stratified_sample
     (
@@ -659,8 +659,8 @@ Quando a consulta estiver concluída, deve ver os resultados assim:
 
  ![22](./media/data-lake-walkthrough/22-Hive-Query-results.PNG)
 
-### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Criar e implementar modelos no Azure Machine Learning Studio
-Agora está pronto para criar e implementar um modelo que preveja se ou não uma dica é pago com o Azure Machine Learning. Os dados de exemplo stratified estão prontos para ser utilizada nesta classificação binária (sugestão ou não) problema. Modelos de previsão através da classificação de várias classes (tip_class) e regressão (tip_amount) também podem ser criados e implementados com o Azure Machine Learning Studio, mas aqui só é exibido como lidar com o caso com o modelo de classificação binária.
+### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Construir e implementar modelos no Azure Machine Learning Studio
+Está agora pronto para construir e implementar um modelo que prevê se uma gorjeta é ou não paga com o Azure Machine Learning. Os dados da amostra estratificados estão prontos para serem utilizados neste problema de classificação binária (ponta ou não). Os modelos preditivos que utilizam a classificação multiclasse (tip_class) e a regressão (tip_amount) também podem ser construídos e implantados com o Azure Machine Learning Studio, mas aqui só é mostrado como lidar com o caso usando o modelo de classificação binária.
 
 1. Obtenha os dados no Azure Machine Learning Studio (clássico) utilizando o módulo **de Dados de Importação,** disponível na secção de Entrada e Saída de **Dados.** Para mais informações, consulte a página de referência do [módulo de dados de importação.](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)
 2. Selecione **Hive Query** como fonte de **dados** no painel **Propriedades.**
@@ -671,11 +671,11 @@ Agora está pronto para criar e implementar um modelo que preveja se ou não uma
 
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)
 
-Um exemplo de uma leitura de experimentação de classificação binária dados de tabela do Hive são mostrados na figura a seguir:
+Um exemplo de uma experiência de classificação binária que lê dados da tabela Hive é mostrado na figura seguinte:
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-Depois da experiência ser criada, clique em **Configurar o Serviço Web** --> **Serviço Web Preditivo**
+Depois da experiência ser criada, clique em **Configurar o** --> **Serviço Web Predictive Do Serviço** Web
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
@@ -683,12 +683,12 @@ Executar a experiência de pontuação criada automaticamente, quando terminar, 
 
  ![26](./media/data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
 
-Dashboard do serviço web apresenta em breve:
+O painel de instrumentos do serviço web apresenta em breve:
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
 ## <a name="summary"></a>Resumo
-Ao completar este walkthrough, criou um ambiente de ciência de dados para a construção de soluções escaláveis de ponta a ponta no Lago de Dados Azure. Este ambiente foi utilizado para analisar um conjunto de dados público grande, colocar os passos canônico do processo de ciência de dados, de aquisição de dados por meio de preparação de modelos e, em seguida, para a implementação do modelo como um serviço web. A U-SQL foi usada para processar, explorar e provar os dados. Python e Hive foram usados com o Azure Machine Learning Studio (clássico) para construir e implementar modelos preditivos.
+Ao completar este walkthrough, criou um ambiente de ciência de dados para a construção de soluções escaláveis de ponta a ponta no Lago de Dados Azure. Este ambiente foi utilizado para analisar um grande conjunto de dados públicos, levando-o através dos passos canónicos do Processo de Ciência de Dados, desde a aquisição de dados até à formação de modelos, e depois à implementação do modelo como serviço web. A U-SQL foi usada para processar, explorar e provar os dados. Python e Hive foram usados com o Azure Machine Learning Studio (clássico) para construir e implementar modelos preditivos.
 
 ## <a name="whats-next"></a>Passos seguintes?
 O caminho de aprendizagem para o Processo de Ciência de [Dados da Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) fornece links para tópicos que descrevem cada passo no processo de análise avançada. Há uma série de walkthroughs itemd in the [Team Data Science Process walkthroughs](walkthroughs.md) page que mostram como usar recursos e serviços em vários cenários de análise preditiva:

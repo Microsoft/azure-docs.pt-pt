@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre os Serviços de Domínio Azure AD  Microsoft Docs
+title: Perguntas frequentes sobre os Serviços de Domínio Azure AD [ Microsoft Docs
 description: Leia e compreenda algumas das perguntas frequentes em torno da configuração, administração e disponibilidade para serviços de domínio de diretório ativo Azure
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: iainfou
 ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946424"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (Perguntas Frequentes)
@@ -146,11 +146,11 @@ Não. O Azure AD Domain Services é um serviço Azure pay-as-you-go e não faz p
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Em que regiões azure está o serviço disponível?
 Consulte os [Serviços Azure por página da região](https://azure.microsoft.com/regions/#services/) para ver uma lista das regiões azure onde estão disponíveis os Serviços de Domínio Azure AD.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Consulte o guia de resolução de [problemas](troubleshoot.md) para soluções para questões comuns com a configuração ou administração de Serviços de Domínio Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os Serviços de Domínio Azure AD, veja [o que é azure Ative Directory Domain Services?](overview.md)
 

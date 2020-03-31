@@ -1,6 +1,6 @@
 ---
-title: Problema ao entrar no aplicativo da galeria do Azure AD configurado para SSO | Microsoft Docs
-description: Como solucionar problemas com um aplicativo de galeria do Azure AD configurado para logon único com senha.
+title: Problema de sessão na app da galeria Azure AD configurada para SSO Microsoft Docs
+description: Como resolver problemas com uma aplicação da Azure AD Gallery que está configurada para uma assinatura individual de senha.
 documentationcenter: ''
 author: msmimart
 manager: CelesteDG
@@ -16,182 +16,182 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381305"
 ---
-# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemas de conexão com um aplicativo da galeria do Azure AD configurado para SSO
+# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemas de entrada com uma aplicação de galeria Azure AD configurada para SSO
 
-O painel de acesso é um portal baseado na Web. Ele permite que os usuários que têm contas corporativas ou de estudante do Azure Active Directory (Azure AD) acessem aplicativos baseados em nuvem para os quais têm permissões. Os usuários que têm as edições do Azure AD também podem usar o grupo de autoatendimento e os recursos de gerenciamento de aplicativo por meio do painel de acesso.
+O Painel de Acesso é um portal baseado na web. Permite aos utilizadores que tenham o Azure Ative Directory (Azure AD) a trabalhar ou contas escolares para acederem a aplicações baseadas na nuvem para as suas permissões. Os utilizadores que possuem edições AD Azure também podem usar capacidades de autosserviço e gestão de aplicações através do Painel de Acesso.
 
-O painel de acesso é separado da portal do Azure. Os usuários não precisam de uma assinatura do Azure para usar o painel de acesso.
+O Painel de Acesso está separado do portal Azure. Os utilizadores não precisam de uma subscrição Azure para utilizar o Painel de Acesso.
 
-Para usar o SSO (logon único) baseado em senha no painel de acesso, a extensão do painel de acesso deve ser instalada no navegador. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha.
+Para utilizar um único sinal de acesso (SSO) baseado em palavra-passe no Painel de Acesso, a extensão do Painel de Acesso deve ser instalada no seu navegador. A extensão descarrega automaticamente quando seleciona uma aplicação configurada para SSO baseado em palavras-passe.
 
-## <a name="browser-requirements-for-access-panel"></a>Requisitos de navegador para o painel de acesso
+## <a name="browser-requirements-for-access-panel"></a>Requisitos do navegador para Painel de Acesso
 
-O painel de acesso requer um navegador com suporte para JavaScript e com CSS habilitado.
+O Painel de Acesso requer um navegador que suporte o JavaScript e tenha CSS ativado.
 
-Os navegadores a seguir oferecem suporte ao SSO baseado em senha:
+Os seguintes navegadores suportam SSO baseado em palavra-passe:
 
-- Internet Explorer 8, 9, 10 e 11 no Windows 7 ou posterior
+- Internet Explorer 8, 9, 10 e 11 no Windows 7 ou mais tarde
 
-- Chrome no Windows 7 ou posterior ou no MacOS X ou posterior
+- Chrome no Windows 7 ou mais tarde ou no MacOS X ou mais tarde
 
-- Firefox 26,0 ou posterior no Windows XP SP2 ou posterior ou no Mac OS X 10,6 ou posterior
+- Firefox 26.0 ou mais tarde no Windows XP SP2 ou mais tarde ou no Mac OS X 10.6 ou posterior
 
 >[!NOTE]
->A extensão de SSO baseada em senha torna-se disponível para o Microsoft Edge no Windows 10 quando o suporte para extensões de navegador foi adicionado ao Microsoft Edge.
+>A extensão SSO baseada em palavras-passe fica disponível para o Microsoft Edge no Windows 10 quando o suporte para extensões de navegador foi adicionado ao Microsoft Edge.
 
-## <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
+## <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do Painel de Acesso
 
 Siga estes passos.
 
-1. Abra o [painel de acesso](https://myapps.microsoft.com) em um navegador com suporte e entre como um usuário no Azure AD.
+1. Open [Access Panel](https://myapps.microsoft.com) em um navegador suportado, e inscreva-se como um utilizador em Azure AD.
 
-2. Selecione um aplicativo habilitado para SSO de senha no painel de acesso.
+2. Selecione uma aplicação ativada por palavra-passe SSO no Painel de Acesso.
 
-3. Quando for solicitado, selecione **instalar agora**.
+3. Quando for solicitado, selecione **Instalar Agora**.
 
-4. Você será direcionado para um link de download baseado em seu navegador. Selecione **Adicionar** para instalar a extensão do navegador.
+4. Será direcionado para um link de descarregamento com base no seu navegador. Selecione **Adicionar** para instalar a extensão do navegador.
 
-5. Se for solicitado, selecione **habilitar** ou **permitir**.
+5. Se for solicitado, selecione **Ativar** ou **permitir**.
 
-6. Após a instalação, reinicie o navegador.
+6. Após a instalação, reinicie o seu navegador.
 
-7.  Entre no painel de acesso e veja se você pode iniciar seus aplicativos habilitados para SSO de senha.
+7.  Inicie sessão no Painel de Acesso e veja se consegue iniciar as suas aplicações ativadas por palavra-passe SSO.
 
-Você também pode baixar diretamente as extensões do Chrome e do Firefox por meio destes links:
+Também pode descarregar diretamente as extensões para Chrome e Firefox através destas links:
 
--   [Extensão do painel de acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Extensão do Painel de Acesso Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensão do painel de acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensão do Painel de Acesso firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Criar uma política de grupo para o Internet Explorer
 
-Você pode configurar uma política de grupo que permite instalar remotamente a extensão do painel de acesso para o Internet Explorer nos computadores dos usuários.
+Pode configurar uma política de grupo que lhe permite instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nas máquinas dos seus utilizadores.
 
 Estes são os pré-requisitos:
 
--   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) deve ser configurado e os computadores dos usuários devem ser ingressados em seu domínio.
+-   [Os Serviços](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) de Domínio de Diretório Ativo devem ser configurados e as máquinas dos seus utilizadores devem ser unidas ao seu domínio.
 
--   Você tem a permissão "Editar configurações" para editar o objeto de Política de Grupo (GPO). Por padrão, os membros dos seguintes grupos de segurança têm essa permissão: Administradores de domínio, administradores de empresa e proprietários de Política de Grupo criador. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Tem permissão de "Editar definições" para editar o Objeto de Política de Grupo (GPO). Por padrão, os membros dos seguintes grupos de segurança têm esta permissão: Administradores de Domínio, Administradores de Empresas e Proprietários de Criadores de Políticas de Grupo. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Para configurar a política de grupo e implantá-la para os usuários, consulte [como implantar a extensão do painel de acesso para o Internet Explorer usando a política de grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+Para configurar a política do grupo e implementá-la para os utilizadores, consulte [como implementar a extensão do Painel de Acesso para o Internet Explorer utilizando](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy)a política do grupo .
 
-## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Solucionar problemas do painel de acesso no Internet Explorer
+## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Painel de acesso de resolução de problemas no Internet Explorer
 
-Para acessar uma ferramenta de diagnóstico e instruções para configurar a extensão, consulte [solucionar problemas da extensão do painel de acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
+Para aceder a uma ferramenta de diagnóstico e instruções para configurar a extensão, consulte [Troubleshoot a extensão do Painel de Acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Configurar o SSO de senha para um aplicativo da galeria do Azure AD
+## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Configure a palavra-passe SSO para uma aplicação de galeria Azure AD
 
-Para configurar um aplicativo na galeria do Azure AD, você precisa fazer o seguinte:
+Para configurar uma aplicação da galeria Azure AD, precisa de fazer estas coisas:
 
--   Adicionar o aplicativo da galeria do Azure AD
--   [Configurar o aplicativo para logon único com senha](#configure-the-app-for-password-sso)
--   [Atribuir usuários ao aplicativo](#assign-users-to-the-app)
+-   Adicione a app da galeria Azure AD
+-   [Configure a aplicação para um único sign-on de senha](#configure-the-app-for-password-sso)
+-   [Atribuir utilizadores à aplicação](#assign-users-to-the-app)
 
-### <a name="add-the-app-from-the-azure-ad-gallery"></a>Adicionar o aplicativo da galeria do Azure AD
-
-Siga estes passos.
-
-1. Abra o [portal do Azure](https://portal.azure.com) e entre como um administrador global ou coadministrador.
-
-2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
-
-3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
-
-4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
-
-5. Selecione **Adicionar** no canto superior direito do painel **aplicativos empresariais** .
-
-6. Na seção **Adicionar da Galeria** , digite o nome do aplicativo na caixa **Inserir um nome** .
-
-7. Selecione o aplicativo que você deseja configurar para o SSO.
-
-8. *Adicional* Antes de adicionar o aplicativo, você pode alterar seu nome na caixa **nome** .
-
-9. Clique em **Adicionar** para adicionar o aplicativo.
-
-   Após um breve atraso, você poderá ver o painel de configuração do aplicativo.
-
-### <a name="configure-the-app-for-password-sso"></a>Configurar o aplicativo para SSO de senha
+### <a name="add-the-app-from-the-azure-ad-gallery"></a>Adicione a app da galeria Azure AD
 
 Siga estes passos.
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e entre como um administrador global ou coadministrador.
+1. Abra o [portal Azure](https://portal.azure.com) e inscreva-se como administrador global ou coadministrador.
 
-2. Selecione **todos os serviços** na parte superior do painel de navegação no lado esquerdo para abrir a extensão do Azure AD.
+2. Selecione **Todos os serviços** na parte superior do painel de navegação do lado esquerdo para abrir a extensão Azure AD.
 
-3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
 
-4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
+4. Selecione **Aplicações Empresariais** a partir do painel de navegação Azure AD.
 
-5. Selecione **todos os aplicativos** para exibir uma lista de seus aplicativos.
+5. **Selecione Adicionar** no canto superior direito do painel **de aplicações da empresa.**
+
+6. No Add da secção **galeria,** digite o nome da app na caixa **de nomes Enter.**
+
+7. Selecione a aplicação que pretende configurar para SSO.
+
+8. *Opcional:* Antes de adicionar a aplicação, pode alterar o seu nome na caixa **Nome.**
+
+9. Clique em **Adicionar** para adicionar a aplicação.
+
+   Depois de um breve atraso, poderá ver o painel de configuração da aplicação.
+
+### <a name="configure-the-app-for-password-sso"></a>Configure a aplicação para siso de senha
+
+Siga estes passos.
+
+1. Abra o [portal Azure](https://portal.azure.com/) e inscreva-se como administrador global ou coadministrador.
+
+2. Selecione **Todos os serviços** na parte superior do painel de navegação do lado esquerdo para abrir a extensão Azure AD.
+
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
+
+4. Selecione **Aplicações Empresariais** no painel de navegação Azure AD.
+
+5. Selecione **Todas as Aplicações** para ver uma lista das suas apps.
 
    > [!NOTE]
-   > Se você não vir o aplicativo desejado, use o controle de **filtro** na parte superior da **lista todos os aplicativos**. Defina a opção **Mostrar** como "todos os aplicativos".
+   > Se não vir a aplicação que deseja, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações**. Detete a opção **Show** para "Todas as Aplicações".
 
-6. Selecione o aplicativo que você deseja configurar para o SSO.
+6. Selecione a aplicação que pretende configurar para SSO.
 
-7. Depois que o aplicativo for carregado, selecione **logon único** no painel no lado esquerdo do aplicativo.
+7. Depois de a aplicação carregar, selecione **um único sinal no** painel do lado esquerdo da aplicação.
 
-8. Selecione o modo de **logon baseado em senha** .
+8. Selecione o modo **de acesso baseado em palavra-passe.**
 
-9. Atribua usuários ao aplicativo.
+9. Atribuir utilizadores à aplicação.
 
-10. Você também pode fornecer credenciais para usuários. (Caso contrário, os usuários serão solicitados a inserir as credenciais na inicialização do aplicativo.) Para fazer isso, selecione as linhas dos usuários. Em seguida, selecione **Atualizar credenciais** e insira seus nomes de usuário e senhas.
+10. Também pode fornecer credenciais para os utilizadores. (Caso contrário, os utilizadores serão solicitados a introduzir credenciais no arranque da aplicação.) Para tal, selecione as linhas dos utilizadores. Em seguida, selecione **'Credenciais de actualização'** e introduza os seus nomes de utilizador e palavras-passe.
 
 ### <a name="assign-users-to-the-app"></a>Atribuir utilizadores à aplicação
 
-Para atribuir usuários diretamente a um aplicativo, siga estas etapas:
+Para atribuir os utilizadores a uma aplicação diretamente, siga estes passos:
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e entre como um administrador global.
+1. Abra o [portal Azure](https://portal.azure.com/) e inscreva-se como administrador global.
 
-2. Selecione **todos os serviços** no problema de navegação no lado esquerdo para abrir a extensão do Azure AD.
+2. Selecione **todos os serviços** na dor de navegação do lado esquerdo para abrir a extensão Azure AD.
 
-3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
+3. Digite o **Diretório Ativo Do** tipo Azure na caixa de pesquisa de filtros e, em seguida, selecione **Azure Ative Directory**.
 
-4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
+4. Selecione **Aplicações Empresariais** no painel de navegação Azure AD.
 
-5. Selecione **todos os aplicativos** para exibir uma lista de seus aplicativos.
+5. Selecione **Todas as Aplicações** para ver uma lista das suas aplicações.
 
    > [!NOTE]
-   > Se você não vir o aplicativo desejado, use o controle de **filtro** na parte superior da **lista todos os aplicativos**. Defina a opção **Mostrar** como "todos os aplicativos".
+   > Se não vir a aplicação que deseja, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações**. Detete a opção **Show** para "Todas as Aplicações".
 
-6. Na lista, selecione o aplicativo ao qual você deseja atribuir um usuário.
+6. A partir da lista, selecione a aplicação a que pretende atribuir um utilizador.
 
-7. Depois que o aplicativo for carregado, selecione **usuários e grupos** no painel de navegação do aplicativo no lado esquerdo.
+7. Depois de a aplicação carregar, selecione **Utilizadores e Grupos** do painel de navegação da aplicação no lado esquerdo.
 
-8. Selecione **Adicionar** na parte superior da lista **usuários e grupos** para abrir o painel **Adicionar atribuição** .
+8. Selecione **Adicionar** no topo da lista de **Utilizadores e Grupos** para abrir o painel de atribuição de **adicionar.**
 
-9. Selecione **usuários e grupos** no painel **Adicionar atribuição** .
+9. Selecione **Utilizadores e grupos** no painel **adicionar atribuição.**
 
-10. Na caixa **Pesquisar por nome ou endereço de email** , digite o nome completo ou o endereço de email do usuário que você deseja atribuir.
+10. Na caixa de endereços De pesquisa ou endereço de **e-mail,** escreva o nome completo ou o endereço de e-mail do utilizador que pretende atribuir.
 
-11. Passe o mouse sobre o usuário na lista. Marque a caixa de seleção ao lado da foto ou do logotipo do perfil do usuário para adicionar esse usuário à lista **selecionada** .
+11. Paire sobre o utilizador da lista. Selecione a caixa de verificação ao lado da foto ou logotipo do perfil do utilizador para adicionar esse utilizador à lista **Selecionada.**
 
-12. *Adicional* Para adicionar outro usuário, digite outro nome ou endereço de email na caixa **Pesquisar por nome ou endereço de email** e marque a caixa de seleção para adicionar esse usuário à lista **selecionada** .
+12. *Opcional:* Para adicionar outro utilizador, digite outro nome ou endereço de e-mail na caixa de **endereços de pesquisa ou e-mail** e, em seguida, selecione a caixa de verificação para adicionar esse utilizador à lista **Selecionada.**
 
-13. Quando tiver terminado de selecionar os usuários, clique em **selecionar** para adicioná-los à lista de usuários e grupos que são atribuídos ao aplicativo.
+13. Quando terminar de selecionar os utilizadores, clique em **Select** para adicioná-los à lista de utilizadores e grupos que estão atribuídos à aplicação.
 
-14. *Adicional* Clique em **selecionar função** no painel **Adicionar atribuição** para selecionar uma função a ser atribuída aos usuários que você selecionou.
+14. *Opcional:* Clique em **Selecionar a Função** no painel **de atribuição de adicionar** para selecionar uma função para atribuir aos utilizadores que selecionou.
 
-15. Selecione **atribuir** para atribuir o aplicativo aos usuários selecionados.
+15. Selecione **Atribuir** para atribuir a app aos utilizadores selecionados.
 
-    Após um breve atraso, os usuários poderão acessar esses aplicativos no painel de acesso.
+    Após um breve atraso, os utilizadores poderão aceder a essas aplicações a partir do Painel de Acesso.
 
-## <a name="request-support"></a>Solicitar suporte 
-Se você receber uma mensagem de erro ao configurar o SSO e atribuir usuários, abra um tíquete de suporte. Inclua o máximo possível das seguintes informações:
+## <a name="request-support"></a>Solicitação de apoio 
+Se receber uma mensagem de erro quando configurar o SSO e atribuir utilizadores, abra um bilhete de suporte. Incluir o máximo possível das seguintes informações:
 
--   ID do erro de correlação
--   UPN (endereço de email do usuário)
+-   Id de erro de correlação
+-   UPN (endereço de e-mail do utilizador)
 -   TenantID
--   Tipo de navegador
--   Fuso horário e período de hora/hora em que o erro ocorreu
--   Rastreamentos do Fiddler
+-   Tipo de browser
+-   Fuso horário e prazo/hora quando ocorreu o erro
+-   Traços de violinista
 
-## <a name="next-steps"></a>Passos Seguintes
-[Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)
+## <a name="next-steps"></a>Passos seguintes
+[Forneça um único sinal às suas apps com Procuração de Aplicação](application-proxy-configure-single-sign-on-with-kcd.md)

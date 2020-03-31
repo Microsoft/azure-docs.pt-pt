@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240241"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API para Cassandra do Azure Cosmos DB através de [controladores](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) open source de cliente do Cassandra compatíveis com o [protocolo de invocação](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) da Linguagem de Consulta do Cassandra (CQL) v4. 
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API para Cassandra do Azure Cosmos DB através de [controladores](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) open source de cliente do Cassandra compatíveis com o [protocolo de invocação](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) da Linguagem de Consulta do Cassandra (CQL) v4. 
 
 Ao utilizar a API para Cassandra do Azure Cosmos DB, pode desfrutar dos benefícios das APIs para Apache Cassandra, bem como das funcionalidades proporcionadas pelo Azure Cosmos DB. As funcionalidades empresariais incluem [distribuição global](distribute-data-globally.md), [criação automática de partições de aumento horizontal](partition-data.md), garantias de disponibilidade e latência, encriptação de dados inativos, cópias de segurança e mais.
 
@@ -74,7 +74,7 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 
 * Certificado de  
-* Funções agregadas
+* Funções de agregação
   * min, max, avg, contagem
 * Funções de conversão de blobs 
   * typeAsBlob(valor)  
@@ -108,7 +108,7 @@ A API para Cassandra do Azure Cosmos DB é uma plataforma de serviço gerida. N�
 
 O utilitário da linha de comando CQLSH vem com Apache Cassandra 3.1.1 e funciona fora da caixa, definindo algumas variáveis ambientais.
 
-**Windows:**
+**Janelas:**
 
 Se utilizar as janelas, recomendamos que ative o sistema de [ficheiros Windows para o Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Em seguida, pode seguir os comandos linux abaixo.
 
@@ -202,5 +202,5 @@ Azure Cosmos DB é um sistema governado por recursos. Isto significa que pode fa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Comece por [criar uma conta de API para Cassandra do Azure Cosmos DB, uma base de dados e uma tabela](create-cassandra-api-account-java.md) com uma aplicação Java
+- Começar com [a criação de uma conta Cassandra API, base de dados e uma tabela](create-cassandra-api-account-java.md) usando uma aplicação Java
 

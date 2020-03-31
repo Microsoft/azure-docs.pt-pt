@@ -1,6 +1,6 @@
 ---
-title: Colaboração B2B para organizações híbridas-Azure AD
-description: Dê aos parceiros acesso a recursos locais e na nuvem com a colaboração B2B do Azure AD.
+title: Colaboração B2B para organizações híbridas - Azure AD
+description: Dê aos parceiros acesso tanto aos recursos no local como aos recursos na nuvem com a colaboração Azure AD B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,42 +12,42 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272478"
 ---
-# <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Azure Active Directory colaboração B2B para organizações híbridas
+# <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Colaboração Azure Ative Directory B2B para organizações híbridas
 
-A colaboração B2B do Azure Active Directory (Azure AD) facilita a permissão de acesso de seus parceiros externos a aplicativos e recursos em sua organização. Isso é verdadeiro mesmo em uma configuração híbrida em que você tem recursos locais e baseados em nuvem. Não importa se você atualmente gerencia contas de parceiros externas localmente no seu sistema de identidade local ou se gerencia as contas externas na nuvem como usuários B2B do Azure AD. Agora você pode conceder a esses usuários acesso aos recursos em qualquer local, usando as mesmas credenciais de entrada para ambos os ambientes.
+A colaboração Do Azure Ative Directory (Azure AD) B2B facilita-lhe o acesso aos seus parceiros externos a apps e recursos na sua organização. Isto é verdade mesmo numa configuração híbrida onde você tem tanto no local como recursos baseados em nuvem. Não importa se gere atualmente contas de parceiros externos localmente no seu sistema de identidade no local, ou se gere as contas externas na nuvem como utilizadores Do Azure AD B2B. Pode agora conceder a estes utilizadores acesso aos recursos em ambos os locais, utilizando as mesmas credenciais de inscrição para ambos os ambientes.
 
-## <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-apps"></a>Conceder aos usuários B2B no Azure AD acesso aos seus aplicativos locais
+## <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-apps"></a>Conceder aos utilizadores B2B no Acesso a AD Azure às suas aplicações no local
 
-Se sua organização usa recursos de colaboração B2B do Azure AD para convidar usuários convidados de organizações parceiras para o Azure AD, agora você pode fornecer a esses usuários B2B acesso a aplicativos locais.
+Se a sua organização utilizar capacidades de colaboração Azure AD B2B para convidar utilizadores convidados de organizações parceiras para o seu Azure AD, pode agora fornecer a estes utilizadores B2B acesso a aplicações no local.
 
-Para aplicativos que usam autenticação baseada em SAML, você pode disponibilizar esses aplicativos para usuários B2B por meio do portal do Azure, usando o Proxy de Aplicativo do AD do Azure para autenticação.
+Para aplicações que utilizem a autenticação baseada em SAML, pode disponibilizar estas aplicações aos utilizadores B2B através do portal Azure, utilizando o Proxy de Aplicação AD Azure para autenticação.
 
-Para aplicativos que usam a IWA (autenticação integrada do Windows) com KCD (delegação restrita de Kerberos), você também usa o proxy do Azure AD para autenticação. No entanto, para que a autorização funcione, um objeto de usuário é necessário no Windows Server Active Directory local. Há dois métodos que você pode usar para criar objetos de usuário local que representam seus usuários convidados B2B.
+Para aplicações que utilizem a Autenticação Integrada do Windows (IWA) com a delegação limitada kerberos (KCD), também utiliza o Proxy Azure AD para autenticação. No entanto, para autorização para funcionar, é necessário um objeto de utilizador no Diretório Ativo do Servidor do Windows no local. Existem dois métodos que pode utilizar para criar objetos de utilizador locais que representam os seus utilizadores convidados B2B.
 
-- Você pode usar o Microsoft Identity Manager (MIM) 2016 SP1 e o agente de gerenciamento do MIM para Microsoft Graph.
-- Você pode usar um script do PowerShell. (Essa solução não exige o MIM.)
+- Pode utilizar o Microsoft Identity Manager (MIM) 2016 SP1 e o agente de gestão MIM para o Microsoft Graph.
+- Pode usar um script PowerShell. (Esta solução não requer MIM.)
 
-Para obter detalhes sobre como implementar essas soluções, consulte [conceder aos usuários B2B no Azure ad acesso aos seus aplicativos locais](hybrid-cloud-to-on-premises.md).
+Para mais detalhes sobre como implementar estas soluções, consulte os utilizadores do [Grant B2B no Azure AD acesso às suas aplicações no local.](hybrid-cloud-to-on-premises.md)
 
-## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>Conceder acesso às contas de parceiros gerenciadas localmente aos recursos de nuvem
+## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>Conceder contas de parceiro geridas localmente acesso a recursos na nuvem
 
-Antes do Azure AD, as organizações com sistemas de identidade local têm tradicionalmente gerenciadas contas de parceiros em seu diretório local. Se você for uma organização desse tipo, você deseja garantir que seus parceiros continuem a ter acesso à medida que você move seus aplicativos e outros recursos para a nuvem. Idealmente, você quer que esses usuários usem o mesmo conjunto de credenciais para acessar recursos de nuvem e locais. 
+Antes da Azure AD, as organizações com sistemas de identidade no local têm tradicionalmente gerido contas de parceiros no seu diretório no local. Se é uma organização assim, pretende certificar-se de que os seus parceiros continuam a ter acesso à medida que transfere as suas apps e outros recursos para a nuvem. Idealmente, pretende que estes utilizadores utilizem o mesmo conjunto de credenciais para aceder tanto aos recursos em nuvem como no local. 
 
-Agora, oferecemos métodos em que você pode usar Azure AD Connect para sincronizar essas contas locais com a nuvem como "usuários convidados", onde as contas se comportam exatamente como usuários B2B do Azure AD.
+Oferecemos agora métodos onde pode utilizar o Azure AD Connect para sincronizar estas contas locais na nuvem como "utilizadores convidados", onde as contas se comportam como utilizadores do Azure AD B2B.
 
-Para ajudar a proteger os dados da empresa, você pode controlar o acesso apenas aos recursos corretos e configurar as políticas de autorização que tratam esses usuários convidados de forma diferente dos seus funcionários.
+Para ajudar a proteger os dados da sua empresa, pode controlar o acesso aos recursos certos e configurar políticas de autorização que tratem estes utilizadores convidados de forma diferente dos seus colaboradores.
 
-Para obter detalhes de implementação, consulte [conceder acesso às contas de parceiros gerenciadas localmente para recursos de nuvem usando a colaboração B2B do Azure ad](hybrid-on-premises-to-cloud.md).
+Para mais detalhes de implementação, consulte grant [localmente gerido parceiro contas acesso a recursos cloud usando a colaboração Azure AD B2B](hybrid-on-premises-to-cloud.md).
  
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Conceder aos usuários B2B no Azure AD acesso aos seus aplicativos locais](hybrid-cloud-to-on-premises.md)
-- [Conceder acesso às contas de parceiros gerenciadas localmente aos recursos de nuvem usando a colaboração B2B do Azure AD](hybrid-on-premises-to-cloud.md)
+- [Conceder aos utilizadores B2B no Acesso a AD Azure às suas aplicações no local](hybrid-cloud-to-on-premises.md)
+- [Conceder contas de parceiro geridas localmente acesso a recursos na nuvem usando a colaboração Azure AD B2B](hybrid-on-premises-to-cloud.md)
 
 

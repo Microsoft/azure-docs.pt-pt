@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655383"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com os valores da data em consultas de registo do Monitor Azure
@@ -30,22 +30,22 @@ Os tempos são expressos como decimal seguidos por uma unidade do tempo:
 
 |abreviatura   | unidade de tempo    |
 |:---|:---|
-|d           | dia          |
-|h           | hora         |
-|m           | minuto       |
-|s           | segundo       |
+|d           | day          |
+|h           | hour         |
+|m           | minute       |
+|t           | second       |
 |ms          | milissegundo  |
 |microsegundo | microsegundo  |
 |tique        | nanossegundo   |
 
-Os tempos de data podem ser criados através da fundição de uma cadeia utilizando o operador `todatetime`. Por exemplo, para rever os batimentos cardíacos vm enviados num prazo específico, utilize o operador `between` para especificar um intervalo de tempo.
+Os tempos de data podem `todatetime` ser criados lançando uma corda utilizando o operador. Por exemplo, para rever os batimentos cardíacos vm `between` enviados num prazo específico, utilize o operador para especificar um intervalo de tempo.
 
 ```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
-Outro cenário comum é comparar uma data com o presente. Por exemplo, para ver todos os batimentos cardíacos nos últimos dois minutos, pode utilizar o operador `now` juntamente com uma pá que representa dois minutos:
+Outro cenário comum é comparar uma data com o presente. Por exemplo, para ver todos os batimentos cardíacos `now` nos últimos dois minutos, pode utilizar o operador juntamente com uma espálhá-lo que representa dois minutos:
 
 ```Kusto
 Heartbeat
@@ -58,7 +58,7 @@ Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
-No entanto, o método mais curto e legível é a utilização do operador `ago`:
+No entanto, o método mais `ago` curto e legível é a utilização do operador:
 ```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
@@ -84,7 +84,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-A coluna `timeAgo` tem valores como: "00:09:31.51118992", o que significa que são formatadas como hh:mm:ss.fffffff. Se quiser formatar estes valores para o `numver` de minutos desde a hora de início, divida esse valor em "1 minuto":
+A `timeAgo` coluna tem valores como: "00:09:31.5118992", o que significa que são formatados como hh:mm:ss.fffffff. Se quiser formatar estes `numver` valores até aos minutos desde a hora de início, divida esse valor em "1 minuto":
 
 ```Kusto
 Event
@@ -96,7 +96,7 @@ Event
 
 
 ## <a name="aggregations-and-bucketing-by-time-intervals"></a>Agregações e baldes por intervalos de tempo
-Outro cenário comum é a necessidade de obter estatísticas durante um determinado período de tempo num determinado período de tempo. Para este cenário, um operador `bin` pode ser utilizado como parte de uma cláusula de resumo.
+Outro cenário comum é a necessidade de obter estatísticas durante um determinado período de tempo num determinado período de tempo. Para este cenário, um `bin` operador pode ser utilizado como parte de uma cláusula de resumo.
 
 Utilize a seguinte consulta para obter o número de eventos que ocorreram a cada 5 minutos durante a última meia hora:
 
@@ -108,7 +108,7 @@ Event
 
 Esta consulta produz a seguinte tabela:  
 
-|TimeGenerated(UTC)|events_count|
+|TimeGenerated (UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
 |2018-08-01T09:35:00.000|41|
@@ -117,7 +117,7 @@ Esta consulta produz a seguinte tabela:
 |2018-08-01T09:50:00.000|41|
 |2018-08-01T09:55:00.000|16|
 
-Outra forma de criar baldes de resultados é utilizar funções, como `startofday`:
+Outra forma de criar baldes de resultados `startofday`é utilizar funções, tais como:
 
 ```Kusto
 Event
@@ -129,10 +129,10 @@ Esta consulta produz os seguintes resultados:
 
 |carimbo de data/hora|count_|
 |--|--|
-|2018-07-28T00:00:00.000|7,136|
-|2018-07-29T00:00:00.000|12,315|
-|2018-07-30T00:00:00.000|16,847|
-|2018-07-31T00:00:00.000|12,616|
+|2018-07-28t00:00:00.000|7,136|
+|2018-07-29t00:00:00.000|12,315|
+|2018-07-30t00:00:00.000|16,847|
+|2018-07-31t00:00:00.000|12,616|
 |2018-08-01T00:00:00.000|5,416|
 
 
@@ -151,16 +151,16 @@ Event
 | Converter tipos de dados | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | Valor redondo para o tamanho do caixote do lixo | [caixote do lixo](/azure/kusto/query/binfunction) |
 | Obtenha uma data ou hora específicas | [há](/azure/kusto/query/agofunction) [agora](/azure/kusto/query/nowfunction)   |
-| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [mês](/azure/kusto/query/getmonthfunction) [mensal](/azure/kusto/query/monthofyearfunction) do dia [do](/azure/kusto/query/dayofmonthfunction) [dia](/azure/kusto/query/getyearfunction) do dia [da semana](/azure/kusto/query/dayofweekfunction) semana semana do [ano](/azure/kusto/query/dayofyearfunction) [](/azure/kusto/query/weekofyearfunction) |
+| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [mês](/azure/kusto/query/getmonthfunction) [mensal](/azure/kusto/query/monthofyearfunction) do dia [do](/azure/kusto/query/dayofmonthfunction) [dia](/azure/kusto/query/getyearfunction) do dia [da semana](/azure/kusto/query/dayofweekfunction) semana semana do [ano](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
 | Obtenha um valor relativo da data  | [fim do fim](/azure/kusto/query/endofdayfunction) [do](/azure/kusto/query/endofweekfunction) dia final do fim [do mês](/azure/kusto/query/endofmonthfunction) final do [mês](/azure/kusto/query/endofyearfunction) início [do](/azure/kusto/query/startofdayfunction) início do mês início [do](/azure/kusto/query/startofweekfunction) mês início [do](/azure/kusto/query/startofmonthfunction) [ano](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
 
-- [Operações de cordas](string-operations.md)
+- [Operações de cadeia](string-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [JSON e estruturas de dados](json-data-structures.md)
+- [Estruturas de dados e JSON](json-data-structures.md)
 - [Escrita de consulta avançada](advanced-query-writing.md)
-- [Junta-se](joins.md)
+- [Associações](joins.md)
 - [Gráficos](charts.md)

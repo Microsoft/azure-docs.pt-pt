@@ -1,6 +1,6 @@
 ---
 title: Configure a proteção bot para firewall de aplicação web com porta frontal Azure (pré-visualização)
-description: Saiba mais sobre o WAF (firewall do aplicativo Web).
+description: Aprenda firewall de aplicação web (WAF).
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.openlocfilehash: f48b683044bc727cda461fb64a743c055188962a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934666"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-preview"></a>Configurar a proteção bot para firewall de aplicação web (pré-visualização)

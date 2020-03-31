@@ -1,44 +1,43 @@
 ---
-title: Publicar oferta de imagem de contêineres do Azure | Azure Marketplace
-description: Como publicar uma oferta de contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Publicar oferta de imagem de Contentores Azure [ Mercado Azure
+description: Como publicar uma oferta de contentores Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: cf422e3d77fa0722fe10a52073cf89ab2a76dcc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c612d2234e6c3c4e93c3c984242bb283ed85c27f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279985"
 ---
 # <a name="publish-container-offer"></a>Publicar oferta de contentor
 
- Depois de criar uma nova oferta usando a **nova** página de oferta, você pode publicar a oferta. Selecione **publicar** para iniciar o processo de publicação.
+ Depois de criar uma nova oferta usando a página **New Offer,** pode publicar a oferta. Selecione **Publicar** para iniciar o processo de publicação.
 
-O diagrama a seguir mostra as etapas principais no processo de publicação para uma oferta para "entrar ao vivo".
+O diagrama seguinte mostra os principais passos no processo de publicação para uma oferta de "ir ao vivo".
 
-![Etapas de publicação para a oferta de contêiner](./media/offer-publishing-steps.png)
+![Etapas de publicação para oferta de contentores](./media/offer-publishing-steps.png)
 
-## <a name="detailed-description-of-publishing-steps"></a>Descrição detalhada das etapas de publicação
+## <a name="detailed-description-of-publishing-steps"></a>Descrição detalhada dos passos de publicação
 
-A tabela a seguir descreve cada etapa de publicação. Um tempo estimado para concluir cada etapa também é fornecido.
+A tabela seguinte descreve cada passo editorial. Estima-se que seja dado um tempo para terminar cada passo.
 
 
-|  **Etapa de publicação**           | **Momento**    | **Descrição**                                                            |
+|  **Passo editorial**           | **Tempo**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Validar pré-requisitos         | 15 min   | As informações da oferta e as configurações da oferta são validadas.                        |
-| Certificação                  | uma semana | A oferta é analisada pela equipe de certificação do Azure. A oferta é verificada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se ela atende a todos os critérios de qualificação. Para obter mais informações, consulte [pré-requisitos](./cpp-prerequisites.md) e [preparando seus ativos técnicos](./cpp-create-technical-assets.md). Os comentários serão fornecidos se um problema for encontrado. |
-| Empacotamento | 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e definidos. |
-|  Aprovação do Publicador             |  -        | Revisão final do Publicador e confirmação antes que a oferta fique ativa. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas de informações da oferta) para verificar se ela atende a todos os seus requisitos.  Selecione **Go Live** para que sua oferta possa passar para a próxima etapa. |
-| Empacotamento                 | 1 hora | A oferta concluída é replicada em regiões e sistemas de produção do Marketplace. | 
-| Em direto                           | 4 dias |A oferta é liberada, replicada para as regiões necessárias e disponibilizada para o público. |
+| Validar pré-requisitos         | 15 min   | As informações de oferta e as configurações de oferta são validadas.                        |
+| Certificação                  | 1 semana | A oferta é analisada pela Equipa de Certificação Azure. A oferta é analisada quanto a vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se cumpre todos os critérios de elegibilidade. Para mais informações, consulte [os pré-requisitos](./cpp-prerequisites.md) e [prepare os seus ativos técnicos.](./cpp-create-technical-assets.md) O feedback é fornecido se um problema for encontrado. |
+| Empacotamento | Uma hora  | Os ativos técnicos da Oferta são embalados para uso do cliente e os sistemas de chumbo são configurados e configurados. |
+|  Inscrição da editora             |  -        | Revisão final do editor e confirmação antes da oferta ir ao vivo. Pode implementar a sua oferta nas subscrições selecionadas (nas etapas de informação de oferta) para verificar se cumpre todos os seus requisitos.  Selecione **Go Live** para que a sua oferta possa passar para o próximo passo. |
+| Empacotamento                 | Uma hora | A oferta final é replicada em sistemas e regiões de produção de mercado. | 
+| Em direto                           | 4 dias |A oferta é lançada, replicada para as regiões necessárias, e disponibilizada ao público. |
 
-Aguarde até 10 dias úteis para que o processo de publicação seja concluído e a oferta seja liberada. Depois de concluir o processo de publicação, sua oferta de contêiner será listada na [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
+Permita até 10 dias úteis para que o processo de publicação termine e a oferta seja lançada. Depois de terminar o processo de publicação, a sua oferta de contentores será listada no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Atualizar uma oferta de contêiner existente no Azure Marketplace](./cpp-update-existing-offer.md)
+[Atualizar uma oferta de contentores existente no Azure Marketplace](./cpp-update-existing-offer.md)

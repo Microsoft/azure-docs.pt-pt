@@ -1,6 +1,6 @@
 ---
-title: Exibir e atribuir permissões de função de administrador – Azure AD | Microsoft Docs
-description: Agora você pode ver e gerenciar membros de uma função de administrador do Azure AD no Portal. Para aqueles que freqüentemente gerenciam atribuições de função.
+title: Ver e atribuir permissões de funções de administrador - Azure AD / Microsoft Docs
+description: Agora pode ver e gerir membros de um papel de administrador da AD Azure no portal. Para aqueles que frequentemente gerem tarefas de funções.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,45 +14,45 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900915"
 ---
-# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Exibir e atribuir funções de administrador no Azure Active Directory
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Ver e atribuir funções de administrador no Diretório Ativo do Azure
 
-Agora você pode ver e gerenciar todos os membros das funções de administrador no portal de Azure Active Directory. Se você gerenciar com frequência as atribuições de função, provavelmente preferirá essa experiência. E se você já se perguntou "o que realmente faz essas funções?", você pode ver uma lista detalhada de permissões para cada uma das funções de administrador do Azure AD.
+Agora pode ver e gerir todos os membros das funções de administrador no portal azure Ative Diretório. Se gere frequentemente tarefas de papéis, provavelmente preferirá esta experiência. E se alguma vez te perguntaste "O que diabos estes papéis realmente fazem?", podes ver uma lista detalhada de permissões para cada um dos cargos de administrador da AD Azure.
 
-## <a name="view-all-roles"></a>Exibir todas as funções
+## <a name="view-all-roles"></a>Ver todos os papéis
 
-Procure e selecione **Azure Active Directory**. Selecione **funções e administradores** para ver a lista de todas as funções disponíveis.
+Procure e selecione **Azure Active Directory**. Selecione **Funções e administradores** para ver a lista de todas as funções disponíveis.
 
-Clique nas reticências à direita de cada linha para abrir a descrição detalhada da função.
+Clique na elipse à direita de cada linha para abrir a descrição detalhada do papel.
 
-![lista de funções no portal do Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
+![lista de funções no portal Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
-## <a name="view-my-roles"></a>Exibir minhas funções
+## <a name="view-my-roles"></a>Ver os meus papéis
 
-Também é fácil exibir suas próprias permissões. Selecione **sua função** na página **funções e administradores** para ver as funções que estão atribuídas a você no momento.
+É fácil ver as suas próprias permissões também. Selecione **o seu papel** na página de **Funções e administradores** para ver as funções que estão atualmente atribuídas a si.
 
-## <a name="view-assignments-for-a-role"></a>Exibir atribuições para uma função
+## <a name="view-assignments-for-a-role"></a>Ver atribuições para um papel
 
-Clique em uma função para exibir os usuários atribuídos à função. Você pode selecionar **gerenciar no PIM** para recursos de gerenciamento adicionais. Os administradores de função com privilégios podem alterar as atribuições "permanentes" (sempre ativas na função) para "qualificado" (na função somente quando elevado). Se você não tiver o PIM, ainda poderá selecionar **gerenciar no PIM** para se inscrever em uma avaliação. Privileged Identity Management requer um [plano de licença do Azure ad Premium P2](../privileged-identity-management/subscription-requirements.md).
+Clique numa função para visualizar os utilizadores atribuídos à função. Pode selecionar **Gerir em PIM** para obter capacidades de gestão adicionais. Os Administradores de Funções Privilegiadas podem alterar atribuições "Permanentes" (sempre ativas no papel) a "Elegíveis" (no papel apenas quando elevados). Se não tiver PIM, ainda pode selecionar **Manage in PIM** para se inscrever para um julgamento. A Gestão de Identidade Privilegiada requer um plano de [licença Azure AD Premium P2.](../privileged-identity-management/subscription-requirements.md)
 
-![lista de membros de uma função de administrador](./media/directory-manage-roles-portal/member-list.png)
+![lista de membros de um papel de administrador](./media/directory-manage-roles-portal/member-list.png)
 
-Se você for um administrador global ou um administrador de função com privilégios, poderá facilmente adicionar ou remover membros, filtrar a lista ou selecionar um membro para ver suas funções atribuídas ativas.
+Se for um Administrador Global ou um Administrador de Papel Privilegiado, pode facilmente adicionar ou remover membros, filtrar a lista ou selecionar um membro para ver as suas funções ativas atribuídas.
 
-## <a name="view-a-users-role-permissions"></a>Exibir as permissões de função de um usuário
+## <a name="view-a-users-role-permissions"></a>Ver permissões de papel de um utilizador
 
-Quando você estiver exibindo os membros de uma função, selecione **Descrição** para ver a lista completa de permissões concedidas pela atribuição de função. A página inclui links para a documentação relevante para orientá-lo no gerenciamento de funções de diretório.
+Quando estiver a ver os membros de um papel, selecione **Descrição** para ver a lista completa de permissões concedidas pela atribuição do papel. A página inclui links para documentação relevante para ajudá-lo a guiá-lo através de funções de diretório de gestão.
 
-![lista de permissões para uma função de administrador](./media/directory-manage-roles-portal/role-description.png)
+![lista de permissões para um papel de administrador](./media/directory-manage-roles-portal/role-description.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Fique à vontade para compartilhar conosco no [Fórum de funções administrativas do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obter mais informações sobre funções e atribuição de função de administrador, consulte [atribuir funções de administrador](directory-assign-admin-roles.md).
-* Para permissões de usuário padrão, consulte uma [comparação das permissões padrão de usuário convidado e membro](../fundamentals/users-default-permissions.md).
+* Sinta-se livre para partilhar connosco no fórum de [funções administrativas da Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+* Para mais informações sobre funções e atribuição de funções de administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).
+* Para obter permissões de utilizador predefinidas, consulte uma [comparação das permissões padrão dos hóspedes e dos utilizadores dos membros](../fundamentals/users-default-permissions.md).

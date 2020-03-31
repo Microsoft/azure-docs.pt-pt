@@ -1,53 +1,53 @@
 ---
-title: Idiomas com suporte no Azure Functions
-description: Saiba quais idiomas têm suporte (GA) e quais são experimentais ou em versão prévia.
+title: Línguas apoiadas em Funções Azure
+description: Saiba quais as línguas suportadas (GA) e quais são experimentais ou em pré-visualização.
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74942261"
 ---
-# <a name="supported-languages-in-azure-functions"></a>Idiomas com suporte no Azure Functions
+# <a name="supported-languages-in-azure-functions"></a>Línguas apoiadas em Funções Azure
 
-Este artigo explica os níveis de suporte oferecidos para os idiomas que podem ser usados com Azure Functions.
+Este artigo explica os níveis de suporte oferecidos para línguas que pode usar com funções Azure.
 
-## <a name="levels-of-support"></a>Níveis de suporte
+## <a name="levels-of-support"></a>Níveis de apoio
 
-Há três níveis de suporte:
+Existem três níveis de apoio:
 
-* Disponibilidade **geral (GA)** – totalmente suportado e aprovado para uso em produção.
-* **Visualização** -ainda não tem suporte, mas espera-se alcançar o status de GA no futuro.
-* **Experimental** – sem suporte e pode ser abandonado no futuro; nenhuma garantia de status de GA ou de visualização eventual.
+* **Geralmente disponível (GA)** - Totalmente suportado e aprovado para utilização da produção.
+* **Pré-visualização** - Ainda não suportado, mas espera-se que atinja o estatuto de GA no futuro.
+* **Experimental** - Não suportado e poderá ser abandonado no futuro; nenhuma garantia de pré-visualização eventual ou estatuto de GA.
 
-## <a name="languages-by-runtime-version"></a>Idiomas por versão de tempo de execução 
+## <a name="languages-by-runtime-version"></a>Idiomas por versão runtime 
 
-[Três versões do tempo de execução de Azure Functions](functions-versions.md) estão disponíveis. A tabela a seguir mostra quais idiomas têm suporte em cada versão de tempo de execução.
+Estão disponíveis [três versões do tempo de funcionamento das Funções Azure.](functions-versions.md) A tabela que se segue mostra quais as línguas suportadas em cada versão de tempo de execução.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>Idiomas experimentais
+### <a name="experimental-languages"></a>Línguas experimentais
 
-As linguagens experimentais na versão 1. x não são bem dimensionadas e não dão suporte a todas as associações.
+As línguas experimentais na versão 1.x não escalam bem e não suportam todas as encadernações.
 
-Não use recursos experimentais para qualquer coisa na qual você dependa, pois não há suporte oficial para eles. Os casos de suporte não devem ser abertos para problemas com linguagens experimentais. 
+Não use funcionalidades experimentais para nada em que confie, pois não há apoio oficial para eles. Os casos de apoio não devem ser abertos para problemas com línguas experimentais. 
 
-Versões de tempo de execução posteriores não dão suporte a idiomas experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte na produção. 
+Versões posteriores não suportam línguas experimentais. O apoio a novas línguas só é adicionado quando a língua pode ser apoiada na produção. 
 
-### <a name="language-extensibility"></a>Extensibilidade da linguagem
+### <a name="language-extensibility"></a>Extibilidade linguística
 
-A partir da versão 2. x, o tempo de execução foi projetado para oferecer [extensibilidade de linguagem](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). As linguagens JavaScript e Java no tempo de execução 2. x são criadas com essa extensibilidade.
+A partir da versão 2.x, o tempo de execução foi concebido para oferecer [a extibilidade linguística.](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility) As línguas JavaScript e Java no tempo de execução 2.x são construídas com esta extensibility.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como desenvolver funções nos idiomas com suporte, consulte os seguintes recursos:
+Para saber mais sobre como desenvolver funções nas línguas apoiadas, consulte os seguintes recursos:
 
-+ [C#referência do desenvolvedor da biblioteca de classes](functions-dotnet-class-library.md)
-+ [C#referência do desenvolvedor de script](functions-reference-csharp.md)
-+ [Referência do desenvolvedor Java](functions-reference-java.md)
-+ [Referência do desenvolvedor de JavaScript](functions-reference-node.md)
-+ [Referência do desenvolvedor do PowerShell](functions-reference-powershell.md)
-+ [Referência do desenvolvedor do Python](functions-reference-python.md)
-+ [Referência do desenvolvedor TypeScript](functions-reference-node.md#typescript)
++ [Referência de desenvolvedor de biblioteca de classe C#](functions-dotnet-class-library.md)
++ [Referência c# script developer](functions-reference-csharp.md)
++ [Referência java desenvolvedor](functions-reference-java.md)
++ [Referência do desenvolvedor JavaScript](functions-reference-node.md)
++ [Referência do desenvolvedor PowerShell](functions-reference-powershell.md)
++ [Referência de desenvolvedor python](functions-reference-python.md)
++ [Referência do desenvolvedor typeScript](functions-reference-node.md#typescript)

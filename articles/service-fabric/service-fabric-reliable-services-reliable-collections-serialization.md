@@ -1,32 +1,32 @@
 ---
-title: Serialização de objeto de coleção confiável
-description: Saiba mais sobre a serialização de objeto de coleções confiáveis do Azure Service Fabric, incluindo a estratégia padrão e como definir a serialização personalizada. '
+title: Serialização de objetos de coleção confiável
+description: Saiba mais sobre a serialização de objetos de objetos de tecido de serviço Azure, incluindo a estratégia padrão e como definir a serialização personalizada.
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639552"
 ---
-# <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de coleção confiável no Azure Service Fabric
-As coleções confiáveis replicam e persistem seus itens para garantir que sejam duráveis em caso de falhas de máquina e interrupções de energia.
-Para replicar e para manter itens, as coleções confiáveis são necessárias para serializá-los.
+# <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objetos de coleção confiável em tecido de serviço Azure
+A reprodução e persistência das Coleções Fiáveis e os seus itens para garantir que são duráveis através de falhas de máquinas e falhas de energia.
+Tanto para replicar como para persistir itens, a Necessidade de Coleções Fiáveis os serializar.
 
-As coleções confiáveis obtêm o serializador apropriado para um determinado tipo do Gerenciador de estado confiável.
-O Gerenciador de estado confiável contém serializadores internos e permite que serializadores personalizados sejam registrados para um determinado tipo.
+A Reliable Collections obtém o serializador apropriado para um determinado tipo de Gestor de Estado Fiável.
+O Gestor de Estado fiável contém serializadores incorporados e permite que os serializadores personalizados sejam registados para um determinado tipo.
 
-## <a name="built-in-serializers"></a>Serializadores internos
+## <a name="built-in-serializers"></a>Serializers embutidos
 
-O Gerenciador de estado confiável inclui o serializador interno para alguns tipos comuns, para que eles possam ser serializados com eficiência por padrão. Para outros tipos, o Gerenciador de estado confiável volta a usar o [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
-Serializadores internos são mais eficientes, pois sabem que seus tipos não podem ser alterados e não precisam incluir informações sobre o tipo, como seu nome de tipo.
+O Gestor de Estado fiável inclui serializador incorporado para alguns tipos comuns, para que possam ser serializados de forma eficiente por padrão. Para outros tipos, o Gestor de Estado Fiável volta a utilizar o [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+Os serializadores incorporados são mais eficientes, uma vez que sabem que os seus tipos não podem mudar e não precisam de incluir informações sobre o tipo como o seu nome tipo.
 
-O Gerenciador de estado confiável tem um serializador interno para os seguintes tipos: 
+O Gestor de Estado fiável tem serializador incorporado para seguintes tipos: 
 - GUID
-- booleano
-- minuciosa
-- SByte
+- bool
+- byte
+- sbyte
 - byte[]
 - char
 - string
@@ -35,16 +35,16 @@ O Gerenciador de estado confiável tem um serializador interno para os seguintes
 - float
 - int
 - uint
-- longa
-- ULONG
-- baixo
-- num
+- longo
+- ulongo
+- curto
+- ucurto
 
-## <a name="custom-serialization"></a>Serialização personalizada
+## <a name="custom-serialization"></a>Serialização Personalizada
 
-Serializadores personalizados são comumente usados para aumentar o desempenho ou para criptografar os dados pela conexão e no disco. Entre outros motivos, os serializadores personalizados são geralmente mais eficientes do que o serializador genérico, pois não precisam serializar informações sobre o tipo. 
+Os serializadores personalizados são comumente usados para aumentar o desempenho ou para encriptar os dados sobre o fio e sobre o disco. Entre outras razões, os serializadores personalizados são geralmente mais eficientes do que os serializadores genéricos, uma vez que não precisam de serializar informações sobre o tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo t especificado. Esse registro deve ocorrer na construção do StatefulServiceBase para garantir que antes do início da recuperação, todas as coleções confiáveis tenham acesso ao serializador relevante para ler seus dados persistentes.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é utilizado para registar um serializador personalizado para o dado tipo T. Este registo deve ocorrer na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Fiáveis tenham acesso ao serializador relevante para ler os seus dados persistentes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -58,16 +58,16 @@ public StatefulBackendService(StatefulServiceContext context)
 ```
 
 > [!NOTE]
-> Serializadores personalizados recebem precedência sobre serializadores internos. Por exemplo, quando um serializador personalizado para int é registrado, ele é usado para serializar inteiros em vez do serializador interno para int.
+> Os serializadores personalizados têm precedência sobre os serializadores embutidos. Por exemplo, quando um serializador personalizado para int é registado, é usado para serializar inteiros em vez do serializador incorporado para int.
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Como implementar um serializador personalizado
 
-Um serializador personalizado precisa implementar a interface [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Um serializador personalizado precisa implementar a interface [iStateSerializer\<T>.](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1)
 
 > [!NOTE]
-> IStateSerializer\<T > inclui uma sobrecarga para Write e Read que usa um T chamado valor base adicional. Essa API é para serialização diferencial. Atualmente, o recurso de serialização diferencial não é exposto. Portanto, essas duas sobrecargas não são chamadas até que a serialização diferencial seja exposta e habilitada.
+> IStateSerializer\<T> inclui uma sobrecarga para Write and Read que leva um T adicional chamado valor base. Esta API é para serialização diferencial. Atualmente, a funcionalidade de serialização diferencial não está exposta. Assim, estas duas sobrecargas não são chamadas até que a serialização diferencial seja exposta e ativada.
 
-Veja a seguir um exemplo de tipo personalizado chamado OrderKey que contém quatro propriedades
+Segue-se um exemplo de tipo personalizado chamado OrderKey que contém quatro propriedades
 
 ```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
@@ -85,8 +85,8 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Veja a seguir um exemplo de implementação de IStateSerializer\<OrderKey >.
-Observe que as sobrecargas de leitura e gravação que levam em baseValue chamam sua respectiva sobrecarga para a compatibilidade de encaminhamentos.
+Segue-se um exemplo de\<implementação do IStateSerializer OrderKey>.
+Note que Ler e Escrever sobrecargas que tomam baseValue, ligue para a respetiva sobrecarga para a compatibilidade dos avançados.
 
 ```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
@@ -124,24 +124,24 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 }
 ```
 
-## <a name="upgradability"></a>Possibilidade
-Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização por vez. Durante esse processo, alguns domínios de atualização estarão na versão mais recente do seu aplicativo e alguns domínios de atualização estarão na versão mais antiga do seu aplicativo. Durante a distribuição, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga de seus dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos seus dados. Se o formato de dados não for compatível com versões posteriores e anteriores, a atualização poderá falhar ou pior, os dados poderão ser perdidos ou corrompidos.
+## <a name="upgradability"></a>Agradabilidade
+Numa [atualização](service-fabric-application-upgrade.md)de aplicações rolantes, a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante este processo, alguns domínios de upgrade estarão na versão mais recente da sua aplicação, e alguns domínios de upgrade estarão na versão mais antiga da sua aplicação. Durante o lançamento, a nova versão da sua aplicação deve poder ler a versão antiga dos seus dados, e a versão antiga da sua aplicação deve poder ler a nova versão dos seus dados. Se o formato de dados não for compatível para a frente e para trás, a atualização pode falhar, ou pior, os dados podem ser perdidos ou corrompidos.
 
-Se você estiver usando o serializador interno, não precisará se preocupar com a compatibilidade.
-No entanto, se você estiver usando um serializador personalizado ou o DataContractSerializer, os dados terão de ser infinitamente compatíveis com versões anteriores e posteriores.
-Em outras palavras, cada versão do serializador precisa ser capaz de serializar e desserializar qualquer versão do tipo.
+Se estiver a usar serializador incorporado, não tem de se preocupar com compatibilidade.
+No entanto, se estiver a utilizar um serializador personalizado ou o DataContractSerializer, os dados têm de ser infinitamente compatíveis para trás e para a frente.
+Por outras palavras, cada versão do serializador tem de ser capaz de serializar e desserializar qualquer versão do tipo.
 
-Os usuários do contrato de dados devem seguir as regras de controle de versão bem definidas para adicionar, remover e alterar campos. O contrato de dados também tem suporte para lidar com campos desconhecidos, conectar-se ao processo de serialização e desserialização e lidar com a herança de classe. Para obter mais informações, consulte [usando o contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx).
+Os utilizadores do Data Contract devem seguir as regras de versão bem definidas para adicionar, remover e alterar campos. O Data Contract também tem apoio para lidar com campos desconhecidos, ligar-se ao processo de serialização e desserialização, e lidar com a herança de classe. Para mais informações, consulte [a Utilização](https://msdn.microsoft.com/library/ms733127.aspx)do Contrato de Dados .
 
-Os usuários do serializador personalizado devem aderir às diretrizes do serializador que estão usando para verificar se ele é compatível com versões anteriores e posteriores.
-A maneira comum de dar suporte a todas as versões é adicionar informações de tamanho no início e apenas adicionar propriedades opcionais.
-Dessa forma, cada versão pode ler o máximo possível e pular a parte restante do fluxo.
+Os utilizadores de serializadorpersonalizadodevem aderir às diretrizes do serializador que estão a utilizar para se certificarem de que é compatível para trás e para a frente.
+A forma comum de suportar todas as versões é adicionar informações de tamanho no início e apenas adicionar propriedades opcionais.
+Desta forma, cada versão pode ler o máximo que puder e saltar sobre a parte restante do fluxo.
 
 ## <a name="next-steps"></a>Passos seguintes
-  * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
-  * [Referência do desenvolvedor para coleções confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  * [Atualizar seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante uma atualização de aplicativo usando o Visual Studio.
-  * [Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você durante uma atualização de aplicativo usando o PowerShell.
-  * Controle como o aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
-  * Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
-  * Corrija problemas comuns em atualizações de aplicativos consultando as etapas em [solução de problemas de atualizações de aplicativos](service-fabric-application-upgrade-troubleshooting.md).
+  * [Serialização e upgrade](service-fabric-application-upgrade-data-serialization.md)
+  * [Referência do desenvolvedor para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Atualizar a sua aplicação Utilizando o Estúdio Visual](service-fabric-application-upgrade-tutorial.md) leva-o através de uma atualização de aplicações utilizando o Visual Studio.
+  * [Atualizar a sua aplicação Utilizando powershell](service-fabric-application-upgrade-tutorial-powershell.md) passa por si através de uma atualização de aplicações utilizando o PowerShell.
+  * Controle a forma como a sua aplicação melhora utilizando parâmetros de [atualização](service-fabric-application-upgrade-parameters.md).
+  * Saiba como utilizar a funcionalidade avançada ao atualizar a sua aplicação referindo-se a [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
+  * Corrija problemas comuns nas atualizações de aplicações, referindo-se aos passos nas atualizações de aplicações de [resolução de problemas.](service-fabric-application-upgrade-troubleshooting.md)

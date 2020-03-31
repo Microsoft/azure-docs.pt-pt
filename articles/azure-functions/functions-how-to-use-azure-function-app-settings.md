@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276949"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de funções 
@@ -23,17 +23,17 @@ As cordas de ligação, as variáveis ambientais e outras definições de aplica
 Este artigo descreve como configurar e gerir as suas aplicações de função. 
 
 > [!TIP]  
-> Muitas opções de configuração também podem ser geridas utilizando o [CLI do Azure]. 
+> Muitas opções de configuração também podem ser geridas utilizando o [Azure CLI]. 
 
-## <a name="get-started-in-the-azure-portal"></a>Começar no portal Azure
+## <a name="get-started-in-the-azure-portal"></a>Começar a utilizar o portal do Azure
 
-Para começar, vá ao [Portal do Azure] e inscreva-se na sua conta Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação de funções, consulte a seguinte página:
+Para começar, vá ao [portal Azure] e inscreva-se na sua conta Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação de funções, consulte a seguinte página:
 
 ![Visão geral da aplicação de funções no portal Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-Pode navegar para tudo o que precisa para gerir a sua aplicação de funções a partir da página de visão geral, em particular as **[definições](#settings)** de Aplicação e **[funcionalidades da Plataforma](#platform-features)** .
+Pode navegar para tudo o que precisa para gerir a sua aplicação de funções a partir da página de visão geral, em particular as **[definições](#settings)** de Aplicação e **[funcionalidades da Plataforma](#platform-features)**.
 
-## <a name="settings"></a>Definições de aplicação
+## <a name="application-settings"></a><a name="settings"></a>Definições da aplicação
 
 O separador Definições de **Aplicação** mantém as definições utilizadas pela sua aplicação de função. Estas definições são armazenadas encriptadas e deve selecionar **valores do Show** para ver os valores no portal. Também pode aceder às definições de aplicações utilizando o Azure CLI.
 
@@ -45,14 +45,14 @@ Para adicionar uma definição no portal, selecione **nova definição** de apli
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O comando [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) devolve as definições de aplicação existentes, como no seguinte exemplo:
+O [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) comando devolve as definições de aplicação existentes, como no seguinte exemplo:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-O comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) adiciona ou atualiza uma definição de aplicação. O exemplo seguinte cria uma definição com uma chave denominada `CUSTOM_FUNCTION_APP_SETTING` e um valor de `12345`:
+O [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando adiciona ou atualiza uma definição de aplicação. O exemplo seguinte cria uma `CUSTOM_FUNCTION_APP_SETTING` definição com `12345`uma chave nomeada e um valor de:
 
 
 ```azurecli-interactive
@@ -87,7 +87,7 @@ O resto deste artigo centra-se nas seguintes funcionalidades do Serviço de Apli
 
 Para obter mais informações sobre como trabalhar com as definições do Serviço de Aplicações, consulte as definições do serviço de [aplicações Do Configure Azure](../app-service/configure-common.md).
 
-### <a name="editor"></a>Editor de Serviço de Aplicações
+### <a name="app-service-editor"></a><a name="editor"></a>Editor de Serviço de Aplicações
 
 ![O editor do Serviço de Aplicações](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -95,38 +95,38 @@ O editor do Serviço de Aplicações é um editor avançado no portal que pode u
 
 Recomendamos que considere desenvolver as suas funções no seu computador local. Quando desenvolve localmente e publica para o Azure, os seus ficheiros de projeto são apenas lidos no portal. Para saber mais, consulte [Código e teste funções azure localmente](functions-develop-local.md).
 
-### <a name="console"></a>Consola
+### <a name="console"></a><a name="console"></a>Consola
 
 ![Consola de aplicativo de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
 A consola in-portal é uma ferramenta de desenvolvimento ideal quando prefere interagir com a sua aplicação de função a partir da linha de comando. Comandos comuns incluem diretório e criação de ficheiros e navegação, bem como executar ficheiros de lote e scripts. 
 
-Ao desenvolver-se localmente, recomendamos a utilização das [Ferramentas Core funções Azure](functions-run-local.md) e do [CLI do Azure].
+Ao desenvolver-se localmente, recomendamos a utilização das [Ferramentas Core funções Azure](functions-run-local.md) e do [Azure CLI].
 
-### <a name="kudu"></a>Ferramentas avançadas (Kudu)
+### <a name="advanced-tools-kudu"></a><a name="kudu"></a>Ferramentas avançadas (Kudu)
 
 ![Configure Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-As ferramentas avançadas para o App Service (também conhecida como Kudu) fornecem acesso a funcionalidades administrativas avançadas da sua aplicação de funções. A partir de Kudu, gere informações do sistema, configurações de aplicações, variáveis ambientais, extensões do site, cabeçalhos HTTP e variáveis do servidor. Também pode lançar **o Kudu** navegando até ao ponto final do SCM para a sua aplicação de funções, como `https://<myfunctionapp>.scm.azurewebsites.net/` 
+As ferramentas avançadas para o App Service (também conhecida como Kudu) fornecem acesso a funcionalidades administrativas avançadas da sua aplicação de funções. A partir de Kudu, gere informações do sistema, configurações de aplicações, variáveis ambientais, extensões do site, cabeçalhos HTTP e variáveis do servidor. Você também pode lançar **Kudu** navegando para o ponto final SCM para a sua app de funções, como`https://<myfunctionapp>.scm.azurewebsites.net/` 
 
 
-### <a name="deployment"></a>Centro de Implantação
+### <a name="deployment-center"></a><a name="deployment"></a>Centro de Implementação
 
 Quando utiliza uma solução de controlo de fonte para desenvolver e manter o código das suas funções, o Centro de Implementação permite-lhe construir e implantar a partir do controlo de origem. O seu projeto é construído e implantado para o Azure quando fizer atualizações. Para mais informações, consulte tecnologias de [implantação em Funções Azure.](functions-deployment-technologies.md)
 
-### <a name="cors"></a>Partilha de recursos de origem cruzada
+### <a name="cross-origin-resource-sharing"></a><a name="cors"></a>Partilha de recursos de várias origens
 
-Para evitar a execução de código malicioso no cliente, os navegadores modernos bloqueiam pedidos de aplicações web para recursos executados em um domínio separado. [A partilha de recursos de origem cruzada (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) permite que um cabeçalho `Access-Control-Allow-Origin` declare quais as origens permitidas para chamar pontos finais na sua aplicação de função.
+Para evitar a execução de código malicioso no cliente, os navegadores modernos bloqueiam pedidos de aplicações web para recursos executados em um domínio separado. [A partilha de recursos de origem cruzada (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) permite que um `Access-Control-Allow-Origin` cabeçalho declare quais as origens permitidas para chamar pontos finais na sua aplicação de função.
 
 #### <a name="portal"></a>Portal
 
-Quando configura ruma a lista de **origens permitidas** para a sua aplicação de função, o cabeçalho `Access-Control-Allow-Origin` é adicionado automaticamente a todas as respostas de pontos finais HTTP na sua aplicação de função. 
+Quando configura a lista de **origens permitidas** para a sua aplicação de função, o `Access-Control-Allow-Origin` cabeçalho é adicionado automaticamente a todas as respostas de pontos finais HTTP na sua aplicação de função. 
 
 ![Configure lista cors da aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-Quando o wildcard (`*`) é usado, todos os outros domínios são ignorados. 
+Quando o`*`wildcard () é usado, todos os outros domínios são ignorados. 
 
-Utilize o comando [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) para adicionar um domínio à lista de origens permitidas. O exemplo que se segue acrescenta o domínio contoso.com:
+Utilize [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) o comando para adicionar um domínio à lista de origens permitidas. O exemplo que se segue acrescenta o domínio contoso.com:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -134,9 +134,9 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Use o comando [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) para listar as origens permitidas.
+Utilize [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) o comando para listar as origens permitidas.
 
-### <a name="auth"></a>Autenticação
+### <a name="authentication"></a><a name="auth"></a>Autenticação
 
 ![Configure a autenticação para uma aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
@@ -148,5 +148,5 @@ Quando as funções usam um gatilho HTTP, pode exigir que as chamadas sejam aute
 + [Configure Definições de serviço de aplicações Azure](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
 
-[CLI do Azure]: /cli/azure/
-[Portal do Azure]: https://portal.azure.com
+[Azure CLI]: /cli/azure/
+[Portal Azure]: https://portal.azure.com

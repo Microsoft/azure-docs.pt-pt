@@ -5,29 +5,29 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67183934"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
 
-## <a name="managing-table-entities"></a>Gerir entidades da tabela
+## <a name="managing-table-entities"></a>Gestão de entidades de tabela
 
-Agora que tem uma tabela, vamos analisar como gerir entidades ou linhas na tabela. 
+Agora que tem uma mesa, vamos ver como gerir entidades, ou filas, na mesa. 
 
-Entidades podem ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey**, **RowKey**, e **Timestamp**. É responsável por inserir e atualizar os valores dos **PartitionKey** e **RowKey**. O servidor gere o valor de **Timestamp**, que não pode ser modificado. Em conjunto a **PartitionKey** e **RowKey** identificam todas as entidades dentro de uma tabela.
+As entidades podem ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey,** **RowKey,** e **Timestamp**. É responsável por inserir e atualizar os valores de **PartitionKey** e **RowKey**. O servidor gere o valor da **marca**temporal, que não pode ser modificada. Juntos, o **PartitionKey** e **o RowKey** identificam exclusivamente todas as entidades dentro de uma tabela.
 
-* **PartitionKey**: Determina a partição que a entidade é armazenada no.
-* **RowKey**: Identifica de forma exclusiva a entidade na partição.
+* **PartitionKey**: Determina a partição em que a entidade está armazenada.
+* **RowKey**: Identifica exclusivamente a entidade dentro da partição.
 
 Pode definir até 252 propriedades personalizadas para uma entidade. 
 
-### <a name="add-table-entities"></a>Adicionar entidades de tabelas
+### <a name="add-table-entities"></a>Adicionar entidades de tabela
 
-Adicionar entidades a uma tabela com **Add-AzTableRow**. Estes exemplos utilizam chaves de partição com valores `partition1` e `partition2`, e as chaves de linha igual a abreviaturas de estado. As propriedades de cada entidade que estão `username` e `userid`. 
+Adicione entidades a uma tabela utilizando **Add-AzTableRow**. Estes exemplos usam chaves `partition1` `partition2`de partição com valores e, e chaves de fila iguais às abreviaturas do estado. As propriedades em `username` cada `userid`entidade são e . 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -55,42 +55,42 @@ Add-AzTableRow `
     -rowKey ("TX") -property @{"username"="Steven";"userid"=4}
 ```
 
-### <a name="query-the-table-entities"></a>Consultar as entidades da tabela
+### <a name="query-the-table-entities"></a>Consulta às entidades de mesa
 
-Pode consultar as entidades numa tabela utilizando a **Get-AzTableRow** comando.
+Pode consultar as entidades numa tabela utilizando o comando **Get-AzTableRow.**
 
 > [!NOTE]
-> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, e  **Get-AzureStorageTableRowByCustomFilter** foram preteridos e será removida numa atualização futura versão.
+> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey,** **Get-AzureStorageTableRowByColumnName**e **Get-AzureStorageTableRowByCustomFilter** estão deprecíceados e serão removidos numa futura atualização da versão.
 
-#### <a name="retrieve-all-entities"></a>Obter todas as entidades
+#### <a name="retrieve-all-entities"></a>Recuperar todas as entidades
 
 ```powershell
 Get-AzTableRow -table $cloudTable | ft
 ```
 
-Este comando produz resultados semelhantes a tabela seguinte:
+Este comando produz resultados semelhantes ao quadro seguinte:
 
-| userid | username | partição | rowkey |
+| usado | o nome de utilizador | partição | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CA |
-| 3 | Christine | Partition1 | WA |
-| 2 | Jessie | Partition2 | NM |
-| 4 | Steven | Partition2 | TX |
+| 1 | Chris | partição1 | CA |
+| 3 | Christine | partição1 | WA |
+| 2 | Jessie | partição2 | NM |
+| 4 | Steven | partição2 | TX |
 
-#### <a name="retrieve-entities-for-a-specific-partition"></a>Obter entidades para uma partição específica
+#### <a name="retrieve-entities-for-a-specific-partition"></a>Recuperar entidades para uma partição específica
 
 ```powershell
 Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 ```
 
-Os resultados ter um aspeto semelhantes a tabela seguinte:
+Os resultados são semelhantes ao quadro seguinte:
 
-| userid | username | partição | rowkey |
+| usado | o nome de utilizador | partição | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CA |
-| 3 | Christine | Partition1 | WA |
+| 1 | Chris | partição1 | CA |
+| 3 | Christine | partição1 | WA |
 
-#### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Obter entidades para um valor específico numa coluna de específico
+#### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Recuperar entidades por um valor específico numa coluna específica
 
 ```powershell
 Get-AzTableRow -table $cloudTable `
@@ -99,16 +99,16 @@ Get-AzTableRow -table $cloudTable `
     -operator Equal
 ```
 
-Esta consulta devolve um registo.
+Esta consulta recupera um recorde.
 
-|Campo|value|
+|campo|valor|
 |----|----|
-| userid | 1 |
-| username | Chris |
-| PartitionKey | Partition1 |
+| usado | 1 |
+| o nome de utilizador | Chris |
+| PartitionKey | partição1 |
 | RowKey      | CA |
 
-#### <a name="retrieve-entities-using-a-custom-filter"></a>Obter entidades utilizando um filtro personalizado 
+#### <a name="retrieve-entities-using-a-custom-filter"></a>Recuperar entidades usando um filtro personalizado 
 
 ```powershell
 Get-AzTableRow `
@@ -116,20 +116,20 @@ Get-AzTableRow `
     -customFilter "(userid eq 1)"
 ```
 
-Esta consulta devolve um registo.
+Esta consulta recupera um recorde.
 
-|Campo|value|
+|campo|valor|
 |----|----|
-| userid | 1 |
-| username | Chris |
-| PartitionKey | Partition1 |
+| usado | 1 |
+| o nome de utilizador | Chris |
+| PartitionKey | partição1 |
 | RowKey      | CA |
 
-### <a name="updating-entities"></a>A atualização de entidades 
+### <a name="updating-entities"></a>Entidades de atualização 
 
-Existem três passos para a atualização de entidades. Em primeiro lugar, obter a entidade para alterar. Em segundo lugar, efetue a alteração. Em terceiro lugar, consolidar a alteração usando **AzTableRow atualização**.
+Há três passos para atualizar as entidades. Primeiro, recuperar a entidade para mudar. Segundo, faça a mudança. Terceiro, comprometa a alteração utilizando **o Update-AzTableRow**.
 
-Atualizar a entidade com o nome de utilizador = Jessie ter o nome de utilizador = 'Jessie2'. Este exemplo também mostra outra forma de criar um filtro personalizado usando tipos .NET.
+Atualize a entidade com o nome de utilizador = 'Jessie' para ter o nome de utilizador = 'Jessie2'. Este exemplo também mostra outra forma de criar um filtro personalizado utilizando tipos .NET.
 
 ```powershell
 # Create a filter and get the entity to be updated.
@@ -151,22 +151,22 @@ Get-AzTableRow -table $cloudTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
-Os resultados mostram o registo de Jessie2.
+Os resultados mostram o disco da Jessie2.
 
-|Campo|value|
+|campo|valor|
 |----|----|
-| userid | 2 |
-| username | Jessie2 |
-| PartitionKey | Partition2 |
+| usado | 2 |
+| o nome de utilizador | Jessie2 |
+| PartitionKey | partição2 |
 | RowKey      | NM |
 
-### <a name="deleting-table-entities"></a>A eliminação de entidades da tabela
+### <a name="deleting-table-entities"></a>Entidades de mesa de adesão
 
-Pode eliminar uma entidade ou todas as entidades na tabela.
+Pode eliminar uma entidade ou todas as entidades da tabela.
 
-#### <a name="deleting-one-entity"></a>A eliminar uma entidade
+#### <a name="deleting-one-entity"></a>Apagar uma entidade
 
-Para eliminar uma entidade única, obter uma referência a essa entidade e encaminhá-la em **Remove-AzTableRow**.
+Para eliminar uma única entidade, obtenha uma referência a essa entidade e encaneie-a em **Remove-AzTableRow**.
 
 ```powershell
 # Set filter.
@@ -186,7 +186,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Eliminar todas as entidades da tabela
 
-Para eliminar todas as entidades na tabela, recuperá-los e encaminhar os resultados para o cmdlet remove. 
+Para eliminar todas as entidades da tabela, recupere-as e encaneie os resultados para a remoção do cmdlet. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.

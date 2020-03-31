@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: e629a9dd65a20883aa605e5d1d23248bcde575b4
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 568fc880711d42941fd9aef2ea19b8ac3123793a
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365156"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384250"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
 
 Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede.
 
-Pode utilizar etiquetas de serviço para definir controlos de acesso à rede em [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de segurança de rede ou [Firewall Azure](https://docs.microsoft.com/azure/firewall/service-tags). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Especificando o nome da etiqueta de serviço (por exemplo, **ApiManagement)** na *fonte* apropriada ou *destino* campo de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Pode utilizar etiquetas de serviço para definir controlos de acesso à rede em [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de segurança de rede ou [firewall Azure](https://docs.microsoft.com/azure/firewall/service-tags). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Especificando o nome da etiqueta de serviço (por exemplo, **ApiManagement)** no campo de *origem* ou *destino* adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
 
 Pode utilizar etiquetas de serviço para alcançar o isolamento da rede e proteger os seus recursos Azure da Internet geral, ao mesmo tempo que acede aos serviços Azure que têm pontos finais públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **o AzureCloud** ou [outras etiquetas](#available-service-tags) de serviço disponíveis de serviços específicos do Azure.
 
@@ -46,9 +46,9 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **ApiManagement** | Tráfego de gestão para implantações dedicadas à Gestão Azure API. <br/><br/>*Nota:* Esta etiqueta representa o ponto final do serviço Azure API Management para o plano de controlo por região. Isto permite que os clientes realizem operações de gestão nas APIs, Operações, Políticas, Valores Nomeados configurados no serviço de Gestão API.  | Entrada | Sim | Sim |
 | **AplicaçõesInsightsDisponibilidade** | Disponibilidade de Insights de Aplicação. | Entrada | Não | Não |
 | **Configuração de aplicações** | Configuração de aplicativos. | Saída | Não | Não |
-| **AppService**    | Serviço de aplicações do Azure. Esta etiqueta é recomendada para regras de segurança de saída para as extremidades frontais da aplicação web. | Saída | Sim | Sim |
+| **AppService**    | Serviço de Aplicações Azure. Esta etiqueta é recomendada para regras de segurança de saída para as extremidades frontais da aplicação web. | Saída | Sim | Sim |
 | **Gestão de Serviços de Aplicação** | Tráfego de gestão para implementações dedicadas ao Ambiente de Serviço de Aplicações. | Ambos | Não | Sim |
-| **AzureActiveDirectory** | Diretório Azure Ative. | Saída | Não | Sim |
+| **AzureActiveDirectory** | Azure Active Directory. | Saída | Não | Sim |
 | **AzureActiveDirectoryDomainServices** | Tráfego de gestão para implantações dedicadas aos Serviços de Domínio de Diretório Ativo Azure. | Ambos | Não | Sim |
 | **AzureAdvancedThreatProtection** | Proteção avançada de ameaças azure. | Saída | Não | Não |
 | **AzureBackup** |Reforço Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das etiquetas **De Armazenamento** e **AzureActiveDirectory.** | Saída | Não | Sim |
@@ -64,7 +64,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **Espaços AzureDevEspaços** | Espaços Azure Dev. | Saída | Não | Não |
 | **AzureEventGrid** | Grelha de Eventos Azure. <br/><br/>*Nota:* Esta etiqueta abrange pontos finais da Azure Event Grid nos EUA South Central, US East, US East 2, US West 2 e US Central apenas. | Ambos | Não | Não |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Porta da frente azure. | Ambos | Não | Não |
-| **Proteção de Informação Azure** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory,** **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty** tags. | Saída | Não | Não |
+| **AzureInformationProtection** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory,** **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty** tags. | Saída | Não | Não |
 | **AzureIoTHub** | Hub Azure IoT. | Saída | Não | Não |
 | **AzureKeyVault** | Cofre de Chaves Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureActiveDirectory.** | Saída | Sim | Sim |
 | **AzureLoadBalancer** | O equilibrador de carga de infraestruturas Azure. A etiqueta traduz-se no [endereço IP virtual do hospedeiro](security-overview.md#azure-platform-considerations) (168.63.129.16) de onde provêm as sondas de saúde Azure. Isto não inclui tráfego para o seu recurso Azure Load Balancer. Se não estiver a usar o Azure Load Balancer, pode anular esta regra. | Ambos | Não | Não |
@@ -76,12 +76,12 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzurePlatformLKM** | Serviço de licenciamento ou gestão de chaves do Windows.<br/><br/>Pode utilizar esta etiqueta para desativar os defeitos para licenciamento. Seja cauteloso quando usar esta etiqueta. Recomendamos que leia [considerações da plataforma Azure.](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)  Recomendamos também que realize testes antes de utilizar esta etiqueta. | Saída | Não | Não |
 | **AzureResourceManager** | Gestor de Recursos Azure. | Saída | Não | Não |
 | **AzureSignalR** | Sinal azul. | Saída | Não | Não |
-| **Recuperação do AzureSite** | Recuperação do site Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,** **GuestAndHybridManagement** and **Storage.** | Saída | Não | Não |
+| **Recuperação do AzureSite** | Azure Site Recovery.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,****GuestAndHybridManagement** and **Storage.** | Saída | Não | Não |
 | **AzureTrafficManager** | Endereços IP do Gestor de Tráfego Azure.<br/><br/>Para obter mais informações sobre os endereços IP do Gestor de Tráfego, consulte [o Gestor de Tráfego do Azure FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Entrada | Não | Sim |  
 | **Gestão de BatchNode** | Tráfego de gestão para implantações dedicadas ao Lote Azure. | Ambos | Não | Sim |
 | **CognitiveServicesManagement** | O endereço varia para tráfego para Serviços Cognitivos Azure. | Saída | Não | Não |
-| **DataFactory**  | Azure Data Factory | Saída | Não | Não |
-| **Gestão dataFactory** | Tráfego de gestão para a Azure Data Factory. | Entrada | Não | Não |
+| **DataFactory**  | Azure Data Factory | Ambos | Não | Não |
+| **Gestão dataFactory** | Tráfego de gestão para a Azure Data Factory. | Saída | Não | Não |
 | **Dynamics365ForMarketingEmail** | O endereço varia para o serviço de e-mail de marketing da Dynamics 365. | Saída | Sim | Não |
 | **ElasticafD** | Porta da frente elástico Azure. | Ambos | Não | Não |
 | **EventHub** | Hubs de eventos Azure. | Saída | Sim | Sim |
@@ -96,12 +96,12 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **PowerQueryOnline** | Consulta de energia online. | Ambos | Não | Não |
 | **ServiceBus** | Tráfego de ônibus de serviço Azure que utiliza o nível de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Tecido de serviço Azure.<br/><br/>*Nota:* Esta etiqueta representa o ponto final do serviço Service Fabric para o plano de controlo por região. Isto permite que os clientes realizem operações de gestão para os seus clusters de Tecido de Serviço a partir do seu VNET (ponto final, por exemplo. https:// westus.servicefabric.azure.com) | Ambos | Não | Não |
-| **Sql** | Base de Dados Azure SQL, Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL e Armazém de Dados Azure SQL.<br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. Esta etiqueta não se aplica à instância gerida pela SQL. | Saída | Sim | Sim |
+| **Rio Sql** | Base de Dados Azure SQL, Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL e Armazém de Dados Azure SQL.<br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. Esta etiqueta não se aplica à instância gerida pela SQL. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gestão para implementações dedicadas à SQL. | Ambos | Não | Sim |
 | **Armazenamento** | Armazém Azure. <br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
 | **Serviço de Sincronização de Armazenamento** | Serviço de Sincronização de Armazenamento. | Ambos | Não | Não |
 | **WindowsVirtualDesktop** | Windows Virtual Desktop. | Ambos | Não | Não |
-| **Rede Virtual** | O espaço de endereço seletiva da rede virtual (todas as gamas de endereços IP definidas para a rede virtual), todos os espaços de endereços ligados no local, redes [virtuais,](virtual-network-peering-overview.md) redes virtuais ligadas a um portal de [rede virtual,](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)o [endereço IP virtual do anfitrião,](security-overview.md#azure-platform-considerations)e prefixos de endereço utilizados nas rotas definidas pelo [utilizador.](virtual-networks-udr-overview.md) Esta etiqueta também pode conter rotas predefinidas. | Ambos | Não | Não |
+| **VirtualNetwork** | O espaço de endereço seletiva da rede virtual (todas as gamas de endereços IP definidas para a rede virtual), todos os espaços de endereços ligados no local, redes [virtuais,](virtual-network-peering-overview.md) redes virtuais ligadas a um portal de [rede virtual,](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)o [endereço IP virtual do anfitrião,](security-overview.md#azure-platform-considerations)e prefixos de endereço utilizados nas rotas definidas pelo [utilizador.](virtual-networks-udr-overview.md) Esta etiqueta também pode conter rotas predefinidas. | Ambos | Não | Não |
 
 >[!NOTE]
 >No modelo de implantação clássico (antes do Azure Resource Manager), é suportado um subconjunto das etiquetas listadas na tabela anterior. Estas etiquetas são escritas de forma diferente:
@@ -126,7 +126,7 @@ Pode recuperar programáticamente a lista atual de tags de serviço juntamente c
 
 - [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
 > Enquanto está em pré-visualização pública, a Discovery API pode devolver informações menos atuais do que as informações devolvidas pelos downloads da JSON. (Ver a próxima secção.)

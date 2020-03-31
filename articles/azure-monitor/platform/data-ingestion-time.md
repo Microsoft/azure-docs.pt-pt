@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666642"
 ---
-# <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de registo no Monitor Azure
+# <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. Muitas vezes existem dúvidas sobre o tempo que os dados de registo demoram a ficar disponíveis após a sua recolha. Este artigo explica os diferentes fatores que afetam esta latência.
 
 ## <a name="typical-latency"></a>Latência típica
@@ -29,14 +29,14 @@ O tempo total de ingestão de um determinado conjunto de dados pode ser dividido
 
 Os detalhes sobre a latência diferente introduzida neste processo são descritos abaixo.
 
-### <a name="agent-collection-latency"></a>Latência de coleção de agentes
+### <a name="agent-collection-latency"></a>Agent collection latency (Latência de recolha do agente)
 Agentes e soluções de gestão usam diferentes estratégias para recolher dados de uma máquina virtual, o que pode afetar a latência. Alguns exemplos específicos incluem o seguinte:
 
 - Eventos windows, eventos syslog e métricas de desempenho são recolhidos imediatamente. Os contadores de desempenho do Linux são sondados em intervalos de 30 segundos.
 - Os registos iIS e os registos personalizados são recolhidos assim que o seu carimbo de tempo muda. Para os registos IIS, isto é influenciado pelo calendário de [capotamento configurado no IIS](data-sources-iis-logs.md). 
 - A solução de replicação de directórioativo ativo realiza a sua avaliação de cinco em cinco dias, enquanto a solução ative directory Assessment realiza uma avaliação semanal da sua infraestrutura de Diretório Ativo. O agente recolherá estes registos apenas quando a avaliação estiver completa.
 
-### <a name="agent-upload-frequency"></a>Frequência de upload do agente
+### <a name="agent-upload-frequency"></a>Agent upload frequency (Frequência de carregamento do agente)
 Para garantir que o agente Log Analytics é leve, o agente regista e envia-os periodicamente para o Monitor Azure. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é carregado em menos de 1 minuto. As condições de rede podem afetar negativamente a latência destes dados para chegar ao ponto de ingestão do Monitor Azure.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Registos de atividade sinuosos, registos de recursos e métricas
@@ -77,7 +77,7 @@ O tempo de ingestão pode variar para diferentes recursos em circunstâncias dif
 
 | Passo | Propriedade ou Função | Comentários |
 |:---|:---|:---|
-| Registo criado na fonte de dados | [Gerada pelo tempo](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir este valor, então será definido ao mesmo tempo que _TimeReceived. |
+| Registo criado na fonte de dados | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir este valor, então será definido ao mesmo tempo que _TimeReceived. |
 | Recorde recebido pelo ponto final de ingestão da Monitora Azure | [_TimeReceived](log-standard-properties.md#_timereceived) | |
 | Registo armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
@@ -95,7 +95,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-Os controlos de percentil anteriores são bons para encontrar tendências gerais na latência. Para identificar um pico de latência a curto prazo, a utilização do máximo (`max()`) pode ser mais eficaz.
+Os controlos de percentil anteriores são bons para encontrar tendências gerais na latência. Para identificar um pico de latência a`max()`curto prazo, usar o máximo pode ser mais eficaz.
 
 Se pretender aprofundar o tempo de ingestão durante um determinado computador durante um período de tempo, utilize a seguinte consulta, que também visualiza os dados do dia passado num gráfico: 
 

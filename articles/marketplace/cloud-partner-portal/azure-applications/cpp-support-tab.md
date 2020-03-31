@@ -1,44 +1,43 @@
 ---
-title: Configurar o suporte a aplicativos do Azure | Azure Marketplace
-description: Configure o suporte a aplicativos do Azure para uma oferta no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Suporte de aplicação Configure Azure Mercado Azure
+description: Configure suporte de aplicação Azure para uma oferta no Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: b6616f4caed3483af9e23c7d5d1326478213f6f0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 93dd8636f60ceca0f43d806d4f5b1a037ed21ee4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289027"
 ---
-# <a name="azure-application-support-tab"></a>Guia de suporte do aplicativo do Azure
+# <a name="azure-application-support-tab"></a>Separador de suporte para aplicações Azure
 
-Use a guia suporte para fornecer informações de engenharia e suporte ao cliente.
+Utilize o separador Suporte para fornecer informações de engenharia e apoio ao cliente.
  
-## <a name="identify-contacts-and-websites"></a>Identificar contatos e sites
+## <a name="identify-contacts-and-websites"></a>Identificar contactos e websites
 
-Use a próxima captura de tela como um guia para fornecer as informações necessárias. Todos os nomes de campo acrescentados com um asterisco vermelho (*) devem ser concluídos.
+Utilize a próxima captura do ecrã como guia para fornecer as informações necessárias. Todos os nomes de campo anexados com um asterisco vermelho (*) devem ser preenchidos.
 
-  ![Formulário de suporte para a oferta](./media/azureapp-support-tab.png)
+  ![Formulário de suporte para oferta](./media/azureapp-support-tab.png)
 
-1. Em **contato de engenharia**, forneça informações para os seguintes campos:
+1. Em contacto com **a Engenharia,** forneça informações para os seguintes campos:
 
-   - **Nome\*** -Insira o nome do contato de engenharia para seu aplicativo. Este contato receberá comunicações técnicas da Microsoft.
-   - **\*de email** – Insira o endereço de email do contato de engenharia.
-   - **\*de telefone** – Insira o número de telefone do contato de engenharia.
+   - **Nome\* ** - Introduza o nome do contacto de engenharia para a sua aplicação. Este contacto receberá comunicações técnicas da Microsoft.
+   - **Email\* ** - Introduza o endereço de e-mail do contacto com a engenharia.
+   - **Telefone\* ** - Introduza o número de telefone do contacto de engenharia.
   
-2. Em **contato de suporte**, forneça informações para os seguintes campos:
+2. Em contato de **suporte,** forneça informações para os seguintes campos:
 
-   - **Nome\*** -Insira o nome do contato de suporte para seu aplicativo. Este contato receberá comunicações relacionadas com o suporte da Microsoft.
-   - **\*de email** – Insira o endereço de email do contato de suporte para seu aplicativo.
-   - **\*de telefone** – Insira o número de telefone do contato de suporte.
+   - **Nome\* ** - Introduza o nome do contacto de suporte para a sua aplicação. Este contacto receberá comunicações relacionadas com o suporte da Microsoft.
+   - **Email\* ** - Introduza o endereço de e-mail do contacto de suporte para a sua aplicação.
+   - **Telefone\* ** - Introduza o número de telefone do contacto de suporte.
  
-3. Em **URLs de suporte**, forneça as URLs de suporte apropriadas que a Microsoft usará quando os clientes abrirem tíquetes de suporte. Essas URLs serão para o Azure público ou a nuvem do Azure governamental.
-4. Selecione **salvar** quando terminar.
+3. No âmbito **dos Urls**de Suporte, forneça os URLs de suporte adequados que a Microsoft utilizará quando os seus clientes abrirem bilhetes de suporte. Estes Urls serão para o Azure Público ou para a Nuvem do Governo Azure.
+4. Selecione **Guardar** quando terminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

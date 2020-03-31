@@ -1,14 +1,14 @@
 ---
-title: Teste de desempenho e carga com Insights de Aplicação Azure  Microsoft Docs
+title: Teste de desempenho e carga com Insights de Aplicação Azure [ Microsoft Docs
 description: Configurar testes de desempenho e carga com insights de aplicação azure
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669867"
 ---
 # <a name="performance-testing"></a>Teste de desempenho
@@ -22,7 +22,7 @@ Os Insights de Aplicação permitem-lhe gerar testes de carga para os seus websi
 
 Para criar um teste de desempenho, primeiro é necessário criar um recurso Application Insights. Se já criou um recurso, proceda à secção seguinte.
 
-A partir do portal Azure, selecione **Criar um recurso** > **Ferramentas de Desenvolvimento** > Insights de **Aplicação** e criar um recurso Deinsights de Aplicação.
+A partir do portal Azure, selecione **Criar um recurso** > **Developer Tools** > **Application Insights** e criar um recurso Deinsights de Aplicação.
 
 ## <a name="configure-performance-testing"></a>Configure testes de desempenho
 
@@ -36,7 +36,7 @@ Para criar um teste de desempenho básico, selecione um tipo de teste de **teste
 
 |Definição| Valor máximo
 |----------|------------|
-| Carga do utilizador | 20,000 |
+| Carga do utilizador | 20 000 |
 | Duração (Ata)  | 60 |  
 
 Depois de criado o teste, clique no **teste executar**.
@@ -53,5 +53,5 @@ As capacidades avançadas de teste de desempenho da Application Insights são co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Testes web em várias etapas](availability-multistep.md)
+* [Testes Web com vários passos](availability-multistep.md)
 * [Testes de ping de url](monitor-web-app-availability.md)

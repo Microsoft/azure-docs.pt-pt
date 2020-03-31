@@ -14,13 +14,13 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471827"
 ---
-# <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções para migrar dados da série StorSimple 5000-7000 
+# <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options to migrate data from StorSimple 5000-7000 series (Opções para migrar dados das séries 5000-7000 do StorSimple) 
 
 > [!IMPORTANT]
 > Em 9 de julho de 2019, a série StorSimple 5000/7000 chegará ao fim do estatuto de suporte (EOS). Recomendamos que os clientes da série StorSimple 5000/7000 migram para uma das alternativas descritas no documento.
@@ -31,7 +31,7 @@ A série StorSimple 5000-7000 está a chegar ao [fim do Suporte](https://support
 
 Os clientes que utilizam a série StorSimple 5000-7000 têm opções Azure ou de terceiros.
 
-### <a name="azure-options"></a>Opções azure
+### <a name="azure-options"></a>Opções do Azure
 
 #### <a name="upgrade-to-storsimple-8000-series"></a>Upgrade para StorSimple 8000 Series
 
@@ -63,13 +63,13 @@ Saiba mais sobre migração para a Plataforma de [Dados coesos.](https://info.co
 
 A Nasuni facilita a migração e a manutenção dos seus dados no Azure.  A Nasuni é uma solução líder de armazenamento nas naazur, dando aos clientes o desempenho e segurança que esperam das soluções on-prem, com economia na nuvem e escala.  Além do armazenamento de ficheiros de alto desempenho, a Nasuni e a Azure manuseiam backup e DR, permitindo-lhe partilhar e colaborar nos seus dados em todo o mundo com a gestão centralizada de armazenamento de ficheiros. 
 
-Nasuni tem a experiência de facilitar a sua migração – começar hoje: https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni tem a experiência de facilitar a sua migração – começar hoje:https://info.nasuni.com/nasuni-storsimple-migration
 
 #### <a name="migrate-to-talon-fast"></a>Migrar para Talon FAST
 
 Talon facilita que os clientes StorSimple 5000-7000 continuem a aproveitar os benefícios que tanto valorizavam na plataforma StorSimple (pequena pegada no local apoiada por recursos de nuvem ilimitados) com uma função ainda maior.  Com a solução Talon FAST, os clientes podem migrar e manter os seus dados no Azure, ao mesmo tempo que têm agora uma pegada de software ainda menor no local e adicionam benefícios como o bloqueio global de ficheiros, o espaço de nome global e a colaboração multi-site.  A Talon é uma solução líder do ecossistema Azure, trabalhando com clientes globais para migrar as suas cargas de trabalho de servidores de ficheiros no local para uma pegada consolidada, baseada no Azure, sem comprometer o fluxo de trabalho ou a experiência do utilizador.  
 
-Saiba mais sobre como evoluir para uma empresa consolidada em nuvem no https://www.talonstorage.com/alliances/microsoft-storsimple.
+Saiba mais sobre como evoluir para uma https://www.talonstorage.com/alliances/microsoft-storsimpleempresa consolidada em nuvem em .
 
 
 ## <a name="migration---frequently-asked-questions"></a>Migração - Perguntas frequentes

@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257748"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Erros de resolução de problemas ao falhar em VMware VM ou máquina física para o Azure
@@ -24,7 +24,7 @@ Pode receber um dos seguintes erros ao mesmo tempo que faz a falha de uma máqui
 
 A Recuperação do Site não foi capaz de criar uma máquina virtual falhada em Azure. Pode acontecer por uma das seguintes razões:
 
-* Não existe quota suficiente para criar a máquina virtual: Pode verificar a quota disponível indo para Subscrição -> Utilização + quotas. Pode abrir um [novo pedido](https://aka.ms/getazuresupport) de apoio para aumentar a quota.
+* Não existe quota suficiente para criar a máquina virtual: Pode verificar a quota disponível indo para Assinatura -> Use + quotas. Pode abrir um [novo pedido](https://aka.ms/getazuresupport) de apoio para aumentar a quota.
 
 * Está a tentar falhar máquinas virtuais de diferentes famílias de tamanhos no mesmo conjunto de disponibilidade. Certifique-se de que escolhe a família do mesmo tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Mude o tamanho indo para as definições de Compute e Rede da máquina virtual e, em seguida, retentar a falha.
 
@@ -32,7 +32,7 @@ A Recuperação do Site não foi capaz de criar uma máquina virtual falhada em 
 
 ## <a name="failover-failed-with-error-id-28092"></a>Falha falhou com error ID 28092
 
-A Recuperação do Site não foi capaz de criar uma interface de rede para a falha sobre a máquina virtual. Certifique-se de que dispõe de quota suficiente para criar interfaces de rede na subscrição. Pode verificar a quota disponível indo para Subscrição -> Utilização + quotas. Pode abrir um [novo pedido](https://aka.ms/getazuresupport) de apoio para aumentar a quota. Se tiver quota suficiente, então esta pode ser uma questão intermitente, tente novamente a operação. Se a questão persistir mesmo após as tentativas de tentativas, deixe um comentário no final deste documento.  
+A Recuperação do Site não foi capaz de criar uma interface de rede para a falha sobre a máquina virtual. Certifique-se de que dispõe de quota suficiente para criar interfaces de rede na subscrição. Pode verificar a quota disponível indo para Assinatura -> Utilização + quotas. Pode abrir um [novo pedido](https://aka.ms/getazuresupport) de apoio para aumentar a quota. Se tiver quota suficiente, então esta pode ser uma questão intermitente, tente novamente a operação. Se a questão persistir mesmo após as tentativas de tentativas, deixe um comentário no final deste documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Falha falhou com erro ID 70038
 
@@ -76,9 +76,9 @@ Para alterar manualmente o tipo de controladores de arranque para **o Windows Gu
 
 Se o botão **Connect** no VM falhado em Azure estiver acinzentado e não estiver ligado ao Azure através de uma rota expressa ou ligação VPN local-para-local, então,
 
-1. Vá à **máquina Virtual** > **Networking,** clique no nome da interface de rede necessária.  ![](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG) de interface de rede
-2. Navegue para **configurações ip**e clique no campo de nome da configuração IP necessária. ![IPConfigurações](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Para ativar o endereço IP público, clique em **Ativar**. ![ativar](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png) IP
+1. Vá à > **rede de** **máquinas virtuais,** clique no nome da interface de rede necessária.  ![interface de rede](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navegue para **configurações ip**e clique no campo de nome da configuração IP necessária. ![Configurações IP](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Para ativar o endereço IP público, clique em **Ativar**. ![Ativar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Clique em **Configurar as definições necessárias** > **Criar novas**. ![Criar novos](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Introduza o nome do endereço público, escolha as opções predefinidas para **SKU** e **atribuição,** em seguida, **clique**OK .
 6. Agora, para guardar as alterações feitas, clique em **Guardar**.
@@ -152,7 +152,7 @@ Para resolver a questão:
  
 1. No VM do servidor de configuração, abra um pedido de comando e verifique as definições de procuração utilizando os seguintes comandos:
 
-    cat /etc/environment  echo $http_proxy  echo $https_proxy 
+    gato /etc/ambiente eco $http_proxy eco $https_proxy 
 
 2. Se a saída dos comandos anteriores mostrar que as definições de http_proxy ou https_proxy são definidas, utilize um dos seguintes métodos para desbloquear as comunicações Master Target com o servidor de configuração:
    
@@ -169,7 +169,7 @@ Para resolver a questão:
      - Desative o proxy no servidor Master Target. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Ligação RDP de resolução de problemas [ao Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Ligação SSH de resolução de problemas [ao Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 

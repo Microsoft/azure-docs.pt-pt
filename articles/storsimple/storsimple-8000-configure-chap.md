@@ -1,5 +1,5 @@
 ---
-title: Configure CHAP para dispositivo da série StorSimple 8000  Microsoft Docs
+title: Configure CHAP para dispositivo da série StorSimple 8000 [ Microsoft Docs
 description: Descreve como configurar o Protocolo de Autenticação do Aperto de Mão (CHAP) num dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267966"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configure CHAP para o seu dispositivo StorSimple
@@ -45,7 +45,7 @@ Na autenticação unidirecional, o alvo autentica o iniciador. Esta autenticaç�
 
 #### <a name="to-configure-your-device-for-one-way-authentication"></a>Para configurar o seu dispositivo para autenticação de ida
 
-1. No portal Azure, vá ao seu serviço StorSimple Device Manager. Clique em **Dispositivos** e selecione e clique num dispositivo para o quais pretende configurar o CHAP. Vá para **as definições do Dispositivo > Segurança**. Na lâmina de **definições de Segurança,** clique em **CHAP**.
+1. No portal Azure, vá ao seu serviço StorSimple Device Manager. Clique em **Dispositivos** e selecione e clique num dispositivo para o quais pretende configurar o CHAP. Vá às **definições do dispositivo > Security**. Na lâmina de **definições de Segurança,** clique em **CHAP**.
    
     ![Iniciador CHAP](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. Na lâmina **CHAP,** e na secção **CHAP Initiator:**
@@ -72,7 +72,7 @@ Na autenticação unidirecional, o alvo autentica o iniciador. Esta autenticaç�
 3. Na caixa de diálogo **Discover Target Portal:**
    
    1. Especifique o endereço IP do seu dispositivo.
-   2. Clique **em Avançado**.
+   2. Clique em **Avançadas**.
       
        ![Descubra o portal alvo](./media/storsimple-configure-chap/IC740945.png)
 4. Na caixa de diálogo **Definições Avançadas:**
@@ -98,7 +98,7 @@ Na autenticação bidirecional, o alvo autentica o iniciador e, em seguida, o in
 
 #### <a name="to-configure-your-device-for-mutual-authentication"></a>Para configurar o seu dispositivo para autenticação mútua
 
-1. No portal Azure, vá ao seu serviço StorSimple Device Manager. Clique em **Dispositivos** e selecione e clique num dispositivo para o quais pretende configurar o CHAP. Vá para **as definições do Dispositivo > Segurança**. Na lâmina de **definições de Segurança,** clique em **CHAP**.
+1. No portal Azure, vá ao seu serviço StorSimple Device Manager. Clique em **Dispositivos** e selecione e clique num dispositivo para o quais pretende configurar o CHAP. Vá às **definições do dispositivo > Security**. Na lâmina de **definições de Segurança,** clique em **CHAP**.
    
     ![Alvo CHAP](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. Percorra esta página e na secção **CHAP Target:**

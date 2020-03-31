@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240633"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
@@ -26,7 +26,7 @@ Os dados são transferidos entre diferentes aplicações e serviços utilizando 
 
 Alguns cenários comuns de mensagens são:
 
-* *Mensagens*. Transfira dados empresariais, tais como vendas ou compras, revistas ou movimentos de inventário.
+* *Mensagens.* Transfira dados empresariais, tais como vendas ou compras, revistas ou movimentos de inventário.
 * *Desagregar aplicações*. Melhorar a fiabilidade e a escalabilidade das aplicações e serviços. O cliente e o serviço não têm de estar online ao mesmo tempo.
 * *Tópicos e subscrições.* Habilitar 1:*n* relações entre editores e assinantes.
 * *Sessões de mensagens.* Implementar fluxos de trabalho que exijam pedido de mensagens ou diferimento de mensagem.
@@ -39,7 +39,7 @@ Um espaço de nome é um recipiente para todos os componentes de mensagens. Vár
 
 As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que a aplicação recetora esteja disponível para recebê-las e processá-las.
 
-![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
 As mensagens nas filas são encomendadas e marcadas à chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo *pull,* apenas entregando mensagens quando solicitadas.
 
@@ -59,7 +59,7 @@ O Service Bus inclui funcionalidades avançadas que lhe permitem resolver proble
 
 ### <a name="message-sessions"></a>Sessões de mensagens
 
-Para criar uma garantia de primeira in,first-out (FIFO) no Service Bus, utilize sessões. As sessões de mensagens permitem o manuseamento conjunto e ordenado de sequências não limitadas de mensagens relacionadas. Para mais informações, consulte [as sessões de mensagem: primeiro a entrar, primeiro a sair (FIFO)](message-sessions.md).
+Para criar uma garantia de primeira in,first-out (FIFO) no Service Bus, utilize sessões. As sessões de mensagens permitem o manuseamento conjunto e ordenado de sequências não vinculadas de mensagens relacionadas. Para mais informações, consulte [as sessões de mensagem: primeiro a entrar, primeiro a sair (FIFO)](message-sessions.md).
 
 ### <a name="autoforwarding"></a>Auto-encaminhamento
 
@@ -79,7 +79,7 @@ Um cliente de fila ou subscrição pode adiar a recuperação de uma mensagem at
 
 ### <a name="batching"></a>Lotes
 
-O lote do lado do cliente permite que um cliente de fila ou tópico atrase o envio de uma mensagem por um determinado período de tempo. Se o cliente enviar mensagens adicionais durante este período de tempo, transmitirá as mensagens num único lote. Para mais informações, consulte o [lote do lado do Cliente](service-bus-performance-improvements.md#client-side-batching).
+A criação de lotes do lado do cliente permite que um cliente de fila ou tópico adie o envio de uma mensagem por determinado período de tempo. Se o cliente enviar mensagens adicionais durante este período de tempo, transmitirá as mensagens num único lote. Para mais informações, consulte o [lote do lado do Cliente](service-bus-performance-improvements.md#client-side-batching).
 
 ### <a name="transactions"></a>Transações
 
@@ -87,7 +87,7 @@ Uma transação agrupa duas ou mais operações em conjunto num âmbito de *exec
 
 ### <a name="filtering-and-actions"></a>Filtragem e ações
 
-Os subscritores podem definir as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas sob a forma de uma ou mais regras de subscrição nomeadas. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente. Para mais informações, consulte [os filtros e ações](topic-filters.md)do Tópico.
+Os subscritores podem definir as mensagens que pretendem receber de um tópico. Estas mensagens são especificadas na forma de uma ou mais regras de subscrição denominadas. Para cada condição de regra correspondente, a subscrição produz uma cópia da mensagem, que pode ser anotada de forma diferente para cada regra correspondente. Para mais informações, consulte [os filtros e ações](topic-filters.md)do Tópico.
 
 ### <a name="autodelete-on-idle"></a>Autodelete em ocioso
 
@@ -104,7 +104,7 @@ O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Parti
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 
-Quando as regiões do Azure ou datacenters experimentam o tempo de inatividade, a recuperação de geo-desastres permite que o processamento de dados continue a operar numa região ou datacenter diferente. Para mais informações, consulte [a recuperação geo-desastre do Azure Service Bus.](service-bus-geo-dr.md)
+Quando as regiões ou centros de dados do Azure sofrem um período de inatividade, a recuperação após desastre geográfica permite o processamento de dados para continuar a operar numa região ou centro de dados diferente. Para mais informações, consulte [a recuperação geo-desastre do Azure Service Bus.](service-bus-geo-dr.md)
 
 ### <a name="security"></a>Segurança
 
@@ -119,12 +119,12 @@ Service Bus suporta bibliotecas de clientes para [.NET,](https://github.com/Azur
 O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Aplicações Lógicas](https://azure.microsoft.com/services/logic-apps/)
+* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a utilizar as mensagens do Service Bus, consulte os seguintes artigos:
 

@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240507"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Quickstart: Biblioteca de clientes de armazenamento Azure Blob v12 para .NET
@@ -29,7 +29,7 @@ Utilize a biblioteca de clientes de armazenamento Azure Blob v12 para.NET para:
 * Descarregue a bolha para o seu computador local
 * Eliminar um contentor
 
-[Documentação de referência da API](/dotnet/api/azure.storage.blobs) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | Pacote [(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[Documentação de](/dotnet/api/azure.storage.blobs) | referência API[Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -47,7 +47,7 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 Crie uma aplicação .NET Core chamada *BlobQuickstartV12*.
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando `dotnet new` para criar uma nova aplicação de consola com o nome *BlobQuickstartV12*. Este comando cria um simples C# projeto "Hello World" com um único ficheiro fonte: *Program.cs*.
+1. Numa janela de consola (como cmd, PowerShell `dotnet new` ou Bash), utilize o comando para criar uma nova aplicação de consola com o nome *BlobQuickstartV12*. Este comando cria um simples projeto C# "Hello World" com um único ficheiro fonte: *Program.cs*.
 
    ```console
    dotnet new console -n BlobQuickstartV12
@@ -67,7 +67,7 @@ Crie uma aplicação .NET Core chamada *BlobQuickstartV12*.
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Ainda no diretório de aplicações, instale a biblioteca de clientes de armazenamento Azure Blob para o pacote .NET utilizando o comando `dotnet add package`.
+Ainda no diretório de aplicações, instale a biblioteca de clientes `dotnet add package` de armazenamento Azure Blob para o pacote .NET utilizando o comando.
 
 ```console
 dotnet add package Azure.Storage.Blobs
@@ -78,9 +78,9 @@ dotnet add package Azure.Storage.Blobs
 Do diretório do projeto:
 
 1. Abra o ficheiro *Program.cs* no seu editor
-1. Remova a declaração de `Console.WriteLine("Hello World!");`
-1. Adicionar diretivas `using`
-1. Atualizar a declaração de método `Main` para apoiar o código assinizador
+1. Remova `Console.WriteLine("Hello World!");` a declaração
+1. Adicionar `using` diretivas
+1. Atualizar `Main` a declaração de método para apoiar o código assync
 
 Aqui está o código:
 
@@ -106,7 +106,7 @@ namespace BlobQuickstartV12
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento da Blob Azure está otimizado para armazenar quantidades massivas de dados não estruturados. Dados não estruturados são dados que não aderem a um determinado modelo ou definição de dados, tais como texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
+O armazenamento da Blob Azure está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um recipiente na conta de armazenamento
@@ -118,27 +118,27 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Utilize as seguintes classes .NET para interagir com estes recursos:
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): A classe `BlobServiceClient` permite manipular os recursos de Armazenamento Azure e os recipientes blob.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): A classe `BlobContainerClient` permite manipular os recipientes de armazenamento Azure e as suas bolhas.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): A classe `BlobClient` permite manipular as bolhas de Armazenamento Azure.
-* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): A classe `BlobDownloadInfo` representa as propriedades e conteúdos devolvidos ao descarregar uma bolha.
+* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` A classe permite-lhe manipular os recursos de Armazenamento Azure e os recipientes blob.
+* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` A classe permite-lhe manipular os recipientes de armazenamento Azure e as suas bolhas.
+* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` A classe permite-lhe manipular bolhas de Armazenamento Azure.
+* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): `BlobDownloadInfo` A classe representa as propriedades e conteúdos devolvidos ao descarregar uma bolha.
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Estes snippets de código de exemplo mostram-lhe como executar o seguinte com a biblioteca de clientes de armazenamento Azure Blob para .NET:
 
-* [Obter a corda de ligação](#get-the-connection-string)
-* [Criar um recipiente](#create-a-container)
+* [Obter a cadeia de ligação](#get-the-connection-string)
+* [Criar um contentor](#create-a-container)
 * [Faça upload de bolhas para um recipiente](#upload-blobs-to-a-container)
-* [Lista rindo as bolhas num recipiente](#list-the-blobs-in-a-container)
-* [Baixar bolhas](#download-blobs)
+* [Listar os blobs num contentor](#list-the-blobs-in-a-container)
+* [Transferir blobs](#download-blobs)
 * [Eliminar um contentor](#delete-a-container)
 
 ### <a name="get-the-connection-string"></a>Obter a cadeia de ligação
 
 O código abaixo recupera a cadeia de ligação para a conta de armazenamento a partir da variável ambiental criada na secção de cadeias de ligação de [armazenamento Configure.](#configure-your-storage-connection-string)
 
-Adicione este código dentro do método `Main`:
+Adicione este código `Main` dentro do método:
 
 ```csharp
 Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
@@ -161,7 +161,7 @@ Decida um nome para o novo contentor. O código abaixo anexa um valor GUID para 
 
 Crie uma instância da classe [BlobServiceClient.](/dotnet/api/azure.storage.blobs.blobserviceclient) Em seguida, ligue para o método [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) para criar o recipiente na sua conta de armazenamento.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 // Create a BlobServiceClient object which will be used to create a container client
@@ -182,7 +182,7 @@ O seguinte código snippet:
 1. Obtém uma referência a um objeto [BlobClient,](/dotnet/api/azure.storage.blobs.blobclient) ligando para o método [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) no recipiente a partir da secção [Criar um recipiente.](#create-a-container)
 1. Envia o ficheiro de texto local para a bolha, ligando para o método [UploadAsync.](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) Este método cria o blob, caso ainda não exista, ou substitui-o se o mesmo já existir.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 // Create a local file in the ./data/ directory for uploading and downloading
@@ -208,7 +208,7 @@ uploadFileStream.Close();
 
 Enumera as bolhas no recipiente, chamando o método [GetBlobsAsync.](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) Neste caso, apenas uma bolha foi adicionada ao recipiente, pelo que a operação de listagem devolve apenas uma bolha.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 Console.WriteLine("Listing blobs...");
@@ -224,7 +224,7 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 
 Descarregue a bolha anteriormente criada, ligando para o método [DownloadAsync.](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) O código de exemplo adiciona um sufixo de "DOWNLOAD" ao nome do ficheiro para que possa ver ambos os ficheiros no sistema de ficheiros local.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 // Download the blob to a local file
@@ -248,9 +248,9 @@ using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
 
 O código que se segue limpa os recursos que a app criou eliminando todo o recipiente utilizando [o DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). Também elimina os ficheiros locais criados pela aplicação.
 
-A aplicação faz uma pausa para a entrada do utilizador, ligando para `Console.ReadLine` antes de eliminar a bolha, o contentor e os ficheiros locais. Esta é uma boa oportunidade para verificar se os recursos foram efetivamente criados corretamente, antes de serem eliminados.
+A aplicação faz uma pausa `Console.ReadLine` para a entrada do utilizador, ligando antes de eliminar a bolha, o contentor e os ficheiros locais. Esta é uma boa oportunidade para verificar se os recursos foram efetivamente criados corretamente, antes de serem eliminados.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 // Clean up

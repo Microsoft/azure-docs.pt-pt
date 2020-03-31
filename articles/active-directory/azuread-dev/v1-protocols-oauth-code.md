@@ -5,23 +5,21 @@ services: active-directory
 documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc303dc62892f8fac67bb6869e72db0e40f19779
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ec7cf5a45ce31cde923dce521636589cfcda786
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154462"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações Web do Azure Active Directory através do fluxo de concessão de código do OAuth 2.0
 
@@ -31,14 +29,14 @@ ms.locfileid: "79263546"
 >  Se não disser ao servidor que recurso pretende ligar, o servidor não irá acionar as políticas de Acesso Condicional para esse recurso. Assim, para ter o gatilho do MFA, terá de incluir um recurso no seu URL. 
 >
 
-O Azure Ative Directory (Azure AD) utiliza o OAuth 2.0 para permitir autorizar o acesso a aplicações web e APIs web no seu inquilino Azure AD. Este guia é independente de linguagem e descreve como enviar e receber mensagens HTTP sem utilizar nenhuma das [nossas bibliotecas de código aberto.](active-directory-authentication-libraries.md)
+O Azure Active Directory (Azure AD) utiliza o OAuth 2.0 para lhe permitir autorizar o acesso a aplicações Web e a APIs Web no seu inquilino do Azure AD. Este guia é independente de linguagem e descreve como enviar e receber mensagens HTTP sem utilizar nenhuma das [nossas bibliotecas de código aberto.](active-directory-authentication-libraries.md)
 
 O fluxo de código de autorização OAuth 2.0 é descrito na [secção 4.1 da especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). É utilizado para realizar a autenticação e autorização na maioria dos tipos de aplicações, incluindo aplicações web e aplicações instaladas de forma nativa.
 
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registar a aplicação com o inquilino do AD
 Em primeiro lugar, registe a sua candidatura junto do seu inquilino azure Ative Directory (Azure AD). Esta ação dar-lhe-á um ID de Aplicação para a aplicação e ativá-lo-á para receber tokens.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
    
 1. Escolha o seu inquilino Azure AD selecionando a sua conta no canto superior direito da página, seguido selecionando a navegação do **Diretório switch** e, em seguida, selecionando o inquilino apropriado. 
    - Ignore este passo se tiver apenas um inquilino Azure AD sob a sua conta, ou se já selecionou o inquilino da AD Azure apropriado.
@@ -51,7 +49,7 @@ Em primeiro lugar, registe a sua candidatura junto do seu inquilino azure Ative 
    
    - **Nome** é o nome da aplicação e descreve a sua aplicação aos utilizadores finais.
    - Nos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais**da Microsoft .
-   - Forneça o **Redirect URI**. Para aplicações web, este é o URL base da sua aplicação onde os utilizadores podem iniciar sessão.  Por exemplo, `http://localhost:12345`. Para cliente público (mobile & desktop), a Azure AD usa-o para devolver respostas simbólicas. Insira um valor específico da sua aplicação.  Por exemplo, `http://MyFirstAADApp`.
+   - Forneça o **Redirect URI**. Para aplicações web, este é o URL base da sua aplicação onde os utilizadores podem iniciar sessão.  Por exemplo, `http://localhost:12345`. Para clientes públicos (mobile & desktop), a Azure AD usa-o para devolver respostas simbólicas. Introduza um valor específico na aplicação.  Por exemplo, `http://MyFirstAADApp`.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
 1. Assim que tiver concluído o registo, a Azure AD atribuirá à sua aplicação um identificador de cliente único (o ID de **aplicação).** Precisa deste valor nas secções seguintes, por isso copie-o a partir da página de candidatura.
@@ -66,7 +64,7 @@ A um nível elevado, todo o fluxo de autorização para um pedido é um pouco as
 
 ## <a name="request-an-authorization-code"></a>Solicitar um código de autorização
 
-O fluxo de código de autorização começa com o cliente a direcionar o utilizador para o ponto final `/authorize`. Neste pedido, o cliente indica as permissões que necessita para adquirir ao utilizador. Você pode obter o ponto final de autorização OAuth 2.0 para o seu inquilino, selecionando inscrições de **App > Endpoints** no portal Azure.
+O fluxo de código de autorização começa `/authorize` com o cliente a direcionar o utilizador para o ponto final. Neste pedido, o cliente indica as permissões que necessita para adquirir ao utilizador. Você pode obter o ponto final de autorização OAuth 2.0 para o seu inquilino, selecionando as inscrições da **App > Endpoints** no portal Azure.
 
 ```
 // Line breaks for legibility only
@@ -82,26 +80,26 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| tenant |Necessário |O valor `{tenant}` no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para fichas independentes de inquilinos |
-| client_id |Necessário |O ID de aplicação atribuído à sua aplicação quando o registou no Azure AD. Pode encontrar isso no Portal Azure. Clique no **Diretório Ativo Azure** na barra lateral dos **serviços,** clique nos registos da App e escolha a aplicação. |
-| response_type |Necessário |Deve incluir `code` para o fluxo do código de autorização. |
-| redirect_uri |recomendado |O redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a uma das redirect_uris que registou no portal, exceto que deve ser codificada. Para aplicações nativas e móveis, deve utilizar o valor padrão de `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
-| response_mode |opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Pode ser `query`, `fragment`ou `form_post`. `query` fornece o código como parâmetro de corda de consulta no seu URI redirecionamento. Se estiver a solicitar um símbolo de identificação utilizando o fluxo implícito, não pode utilizar `query` conforme especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver a pedir apenas o código, pode usar `query`, `fragment`ou `form_post`. `form_post` executa um POST contendo o código para o seu redirecionamento URI. O padrão é `query` para um fluxo de código.  |
+| inquilino |necessário |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores `contoso.onmicrosoft.com` `common` de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou para fichas independentes de inquilinos |
+| client_id |necessário |O ID de aplicação atribuído à sua aplicação quando o registou no Azure AD. Pode encontrar isso no Portal Azure. Clique no **Diretório Ativo Azure** na barra lateral dos **serviços,** clique nos registos da App e escolha a aplicação. |
+| response_type |necessário |Deve `code` incluir o fluxo do código de autorização. |
+| redirect_uri |recomendado |O redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a uma das redirect_uris que registou no portal, exceto que deve ser codificada. Para aplicações móveis nativas &, `https://login.microsoftonline.com/common/oauth2/nativeclient`deve utilizar o valor padrão de . |
+| response_mode |opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Pode `query`ser, `fragment` `form_post`ou . `query`fornece o código como parâmetro de corda de consulta no seu URI redirecionamento. Se estiver a solicitar um símbolo de identificação utilizando `query` o fluxo implícito, não pode utilizar como especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver a pedir apenas o `query`código, pode usar, `fragment`ou `form_post`. `form_post`executa um POST contendo o código para o seu redirecionamento URI. O padrão `query` é para um fluxo de código.  |
 | state |recomendado |Um valor incluído no pedido que também é devolvido na resposta simbólica. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de local.](https://tools.ietf.org/html/rfc6749#section-10.12) O Estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que estavam. |
-| resource | recomendado |O ID da aplicação URI da API web-alvo (recurso seguro). Para encontrar o ID da aplicação URI, no Portal Azure, clique no **Diretório Ativo do Azure,** clique nos registos de **aplicação,** abra a página **Definições** da aplicação e, em seguida, clique em **Propriedades**. Pode também ser um recurso externo como `https://graph.microsoft.com`. Isto é exigido num dos pedidos de autorização ou ficha. Para garantir menos pedidos de autenticação coloca-o no pedido de autorização para garantir que o consentimento seja recebido do utilizador. |
+| recurso | recomendado |O ID da aplicação URI da API web-alvo (recurso seguro). Para encontrar o ID da aplicação URI, no Portal Azure, clique no **Diretório Ativo do Azure,** clique nos registos de **aplicação,** abra a página **Definições** da aplicação e, em seguida, clique em **Propriedades**. Também pode ser um `https://graph.microsoft.com`recurso externo como . Isto é exigido num dos pedidos de autorização ou ficha. Para garantir menos pedidos de autenticação coloca-o no pedido de autorização para garantir que o consentimento seja recebido do utilizador. |
 | scope | **ignorado** | Para aplicações V1 Azure AD, os âmbitos devem ser configurados estáticamente no Portal Azure sob as **Definições**de aplicações , **Permissões Necessárias**. |
 | pronta |opcional |Indique o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> início de *sessão*: O utilizador deve ser solicitado a reautenticar. <p> *select_account:* O utilizador é solicitado a selecionar uma conta, interrompendo o único sinal. O utilizador pode selecionar uma conta de entrada assinada existente, introduzir as suas credenciais para uma conta lembrada ou optar por utilizar uma conta diferente. <p> *consentimento*: O consentimento do utilizador foi concedido, mas precisa de ser atualizado. O utilizador deve ser solicitado a consentir. <p> *admin_consent*: Um administrador deve ser solicitado a consentir em nome de todos os utilizadores da sua organização |
-| login_hint |opcional |Pode ser usado para pré-preencher o campo de endereços de utilizador/e-mail da página de sessão para o utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações utilizam este parâmetro durante a reautenticação, tendo já extraído o nome de utilizador de um início de sessão anterior utilizando a `preferred_username` reivindicação. |
+| login_hint |opcional |Pode ser usado para pré-preencher o campo de endereços de utilizador/e-mail da página de sessão para o utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações utilizam este parâmetro durante a reautenticação, `preferred_username` tendo já extraído o nome de utilizador de um início de sessão anterior utilizando a reclamação. |
 | domain_hint |opcional |Fornece uma dica sobre o inquilino ou domínio que o utilizador deve usar para iniciar sessão. O valor do domain_hint é um domínio registado para o inquilino. Se o inquilino for federado para um diretório no local, a AAD redireciona para o servidor da federação de inquilinos especificado. |
-| code_challenge_method | recomendado    | O método utilizado para codificar o `code_verifier` para o parâmetro `code_challenge`. Pode ser um dos `plain` ou `S256`. Se for excluído, assume-se `code_challenge` texto simples se `code_challenge` estiver incluído. O Azure AAD v1.0 suporta tanto `plain` como `S256`. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | recomendado    | Usado para garantir subsídios de código de autorização através da Chave Comprovativa para Troca de Códigos (PKCE) de um cliente nativo ou público. Necessário se `code_challenge_method` estiver incluído. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | recomendado    | O método utilizado para `code_verifier` codificar o `code_challenge` parâmetro. Pode ser `plain` um `S256`de ou . Se for `code_challenge` excluído, assume-se `code_challenge` que é um texto simples se estiver incluído. Azure AAD v1.0 `plain` suporta `S256`ambos e . Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | recomendado    | Usado para garantir subsídios de código de autorização através da Chave Comprovativa para Troca de Códigos (PKCE) de um cliente nativo ou público. Obrigatório se `code_challenge_method` estiver incluído. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Se o utilizador fizer parte de uma organização, um administrador da organização pode consentir ou recusar em nome do utilizador, ou permitir que o utilizador consinta. O utilizador só tem a opção de consentir quando o administrador o autoriza.
 >
 >
 
-Neste momento, é solicitado ao utilizador que insira as suas credenciais e consinta nas permissões solicitadas pela app no Portal Do Azure. Assim que o utilizador autentica e concede o consentimento, a Azure AD envia uma resposta à sua aplicação no endereço `redirect_uri` no seu pedido com o código.
+Neste momento, é solicitado ao utilizador que insira as suas credenciais e consinta nas permissões solicitadas pela app no Portal Do Azure. Assim que o utilizador autentica e concede o consentimento, a Azure AD envia uma resposta à sua aplicação no `redirect_uri` endereço no seu pedido com o código.
 
 ### <a name="successful-response"></a>Resposta bem sucedida
 Uma resposta bem sucedida pode parecer assim:
@@ -119,7 +117,7 @@ Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | state |Se um parâmetro estatal estiver incluído no pedido, o mesmo valor deve figurar na resposta. É uma boa prática para a aplicação verificar que os valores do Estado no pedido e resposta são idênticos antes de usar a resposta. Isto ajuda a detetar ataques de [falsificação de pedido de cross-site (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) contra o cliente. |
 
 ### <a name="error-response"></a>Resposta de erro
-As respostas de erro também podem ser enviadas para o `redirect_uri` para que a aplicação possa manuseá-las adequadamente.
+As respostas de erro `redirect_uri` também podem ser enviadas para o local para que a aplicação possa manuseá-las adequadamente.
 
 ```
 GET http://localhost:12345/?
@@ -134,7 +132,7 @@ error=access_denied
 | state |O valor do Estado é um valor não reutilizado gerado aleatoriamente que é enviado no pedido e devolvido na resposta para evitar ataques de falsificação de pedidos de local transversal (CSRF). |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
-A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no parâmetro `error` da resposta ao erro.
+A tabela seguinte descreve os vários códigos `error` de erro que podem ser devolvidos no parâmetro da resposta ao erro.
 
 | Código de Erro | Descrição | Ação do Cliente |
 | --- | --- | --- |
@@ -147,7 +145,7 @@ A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos 
 | invalid_resource |O recurso-alvo é inválido porque não existe, a AD Azure não o encontra, ou não está corretamente configurado. |Isto indica que o recurso, caso exista, não foi configurado no inquilino. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
 
 ## <a name="use-the-authorization-code-to-request-an-access-token"></a>Utilize o código de autorização para solicitar um sinal de acesso
-Agora que adquiriu um código de autorização e foi-lhe concedida autorização pelo utilizador, pode resgatar o código para um sinal de acesso ao recurso pretendido, enviando um pedido de CORREIO para o `/token` ponto final:
+Agora que adquiriu um código de autorização e foi-lhe concedida permissão pelo utilizador, pode resgatar o código para um `/token` sinal de acesso ao recurso pretendido, enviando um pedido de CORREIO para o ponto final:
 
 ```
 // Line breaks for legibility only
@@ -167,21 +165,21 @@ grant_type=authorization_code
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| tenant |Necessário |O valor `{tenant}` no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para fichas independentes de inquilinos |
-| client_id |Necessário |O Id de aplicação atribuído à sua aplicação quando o registou no Azure AD. Pode encontrar isso no portal Azure. O Id da Aplicação é apresentado nas definições do registo da aplicação. |
-| grant_type |Necessário |Deve ser `authorization_code` para o fluxo do código de autorização. |
-| code |Necessário |O `authorization_code` que adquiriu na secção anterior |
-| redirect_uri |Necessário | Um `redirect_uri`registado no pedido de cliente. |
-| client_secret |necessário para aplicações web, não permitido para clientes públicos |O segredo de aplicação que criou no Portal Azure para a sua aplicação em **Keys**. Não pode ser usado numa aplicação nativa (cliente público), porque client_secrets não pode ser armazenado de forma fiável em dispositivos. É necessário para aplicações web e APIs web (todos os clientes confidenciais), que têm a capacidade de armazenar o `client_secret` de forma segura no lado do servidor. O client_secret deve ser codificado por URL antes de ser enviado. |
-| resource | recomendado |O ID da aplicação URI da API web-alvo (recurso seguro). Para encontrar o ID da aplicação URI, no Portal Azure, clique no **Diretório Ativo do Azure,** clique nos registos de **aplicação,** abra a página **Definições** da aplicação e, em seguida, clique em **Propriedades**. Pode também ser um recurso externo como `https://graph.microsoft.com`. Isto é exigido num dos pedidos de autorização ou ficha. Para garantir menos pedidos de autenticação coloca-o no pedido de autorização para garantir que o consentimento seja recebido do utilizador. Se, tanto no pedido de autorização como no pedido de ficha, os parâmetros do recurso devem coincidir. | 
+| inquilino |necessário |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores `contoso.onmicrosoft.com` `common` de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou para fichas independentes de inquilinos |
+| client_id |necessário |O Id de aplicação atribuído à sua aplicação quando o registou no Azure AD. Pode encontrar isso no portal Azure. O Id da Aplicação é apresentado nas definições do registo da aplicação. |
+| grant_type |necessário |Deve `authorization_code` ser para o fluxo de código de autorização. |
+| code |necessário |O `authorization_code` que adquiriu na secção anterior |
+| redirect_uri |necessário | Um `redirect_uri`registo no pedido de cliente. |
+| client_secret |necessário para aplicações web, não permitido para clientes públicos |O segredo de aplicação que criou no Portal Azure para a sua aplicação em **Keys**. Não pode ser usado numa aplicação nativa (cliente público), porque client_secrets não pode ser armazenado de forma fiável em dispositivos. É necessário para aplicações web e APIs web (todos os clientes `client_secret` confidenciais), que têm a capacidade de armazenar o de forma segura no lado do servidor. O client_secret deve ser codificado por URL antes de ser enviado. |
+| recurso | recomendado |O ID da aplicação URI da API web-alvo (recurso seguro). Para encontrar o ID da aplicação URI, no Portal Azure, clique no **Diretório Ativo do Azure,** clique nos registos de **aplicação,** abra a página **Definições** da aplicação e, em seguida, clique em **Propriedades**. Também pode ser um `https://graph.microsoft.com`recurso externo como . Isto é exigido num dos pedidos de autorização ou ficha. Para garantir menos pedidos de autenticação coloca-o no pedido de autorização para garantir que o consentimento seja recebido do utilizador. Se, tanto no pedido de autorização como no pedido de ficha, os parâmetros do recurso devem coincidir. | 
 | code_verifier | opcional | O mesmo code_verifier que foi usado para obter o authorization_code. Necessário se o PKCE foi utilizado no pedido de concessão de código de autorização. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Para encontrar o ID da aplicação URI, no Portal Azure, clique no **Diretório Ativo do Azure,** clique nos registos de **aplicação,** abra a página **Definições** da aplicação e, em seguida, clique em **Propriedades**.
 
 ### <a name="successful-response"></a>Resposta bem sucedida
-A Azure AD devolve um sinal de [acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) a uma resposta bem sucedida. Para minimizar as chamadas de rede da aplicação do cliente e a sua latência associada, a aplicação do cliente deve cache acessos de acesso para o período de vida simbólico especificado na resposta OAuth 2.0. Para determinar a vida útil do símbolo, utilize os valores `expires_in` ou `expires_on` parâmetros.
+A Azure AD devolve um sinal de [acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) a uma resposta bem sucedida. Para minimizar as chamadas de rede da aplicação do cliente e a sua latência associada, a aplicação do cliente deve cache acessos de acesso para o período de vida simbólico especificado na resposta OAuth 2.0. Para determinar a vida útil `expires_in` do `expires_on` símbolo, utilize os valores ou parâmetros.
 
-Se um recurso Web API devolver um código de erro `invalid_token`, isto pode indicar que o recurso determinou que o token está expirado. Se os tempos do cliente e do relógio de recursos forem diferentes (conhecidos como "time skew"), o recurso pode considerar que o símbolo deve ser expirado antes de o token ser retirado da cache do cliente. Se isto ocorrer, retire o símbolo da cache, mesmo que ainda esteja dentro do seu tempo de vida calculado.
+Se um recurso Web `invalid_token` API devolver um código de erro, isto pode indicar que o recurso determinou que o token está expirado. Se os tempos do cliente e do relógio de recursos forem diferentes (conhecidos como "time skew"), o recurso pode considerar que o símbolo deve ser expirado antes de o token ser retirado da cache do cliente. Se isto ocorrer, retire o símbolo da cache, mesmo que ainda esteja dentro do seu tempo de vida calculado.
 
 Uma resposta bem sucedida pode parecer assim:
 
@@ -205,12 +203,12 @@ Uma resposta bem sucedida pode parecer assim:
 | token_type |Indica o valor do tipo simbólico. O único tipo que a Azure AD suporta é o Bearer. Para mais informações sobre tokens bearer, consulte [OAuth2.0 Quadro de Autorização: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Quanto tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo em que o sinal de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até ao tempo de validade. Este valor é usado para determinar a vida útil de fichas em cache. |
-| resource |O App ID URI da Web API (recurso seguro). |
-| scope |Permissões de personificação concedidas ao pedido do cliente. A permissão padrão é `user_impersonation`. O proprietário do recurso seguro pode registar valores adicionais em Azure AD. |
+| recurso |O App ID URI da Web API (recurso seguro). |
+| scope |Permissões de personificação concedidas ao pedido do cliente. A permissão `user_impersonation`padrão é . O proprietário do recurso seguro pode registar valores adicionais em Azure AD. |
 | refresh_token |Um token refresh OAuth 2.0. A aplicação pode usar este token para adquirir fichas de acesso adicionais após o termo do token de acesso atual. As fichas de atualização são de longa duração, e podem ser usadas para manter o acesso aos recursos por longos períodos de tempo. |
 | id_token |Um JSON Web Token (JWT) não assinado que representa um [símbolo de identificação](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). A aplicação pode descodificar os segmentos deste token para solicitar informações sobre o utilizador que assinou. A aplicação pode cache os valores e exibi-los, mas não deve confiar neles para qualquer autorização ou limites de segurança. |
 
-Para obter mais informações sobre as fichas web da JSON, consulte a especificação de [projeto JWT IETF](https://go.microsoft.com/fwlink/?LinkId=392344).   Para saber mais sobre `id_tokens`, consulte o [fluxo v1.0 OpenID Connect](v1-protocols-openid-connect-code.md).
+Para obter mais informações sobre as fichas web da JSON, consulte a especificação de [projeto JWT IETF](https://go.microsoft.com/fwlink/?LinkId=392344).   Para saber `id_tokens`mais sobre , consulte o [fluxo v1.0 OpenID Connect](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Resposta de erro
 Os erros finais da emissão de token são códigos de erro HTTP, porque o cliente chama o ponto final da emissão de token diretamente. Além do código de estado HTTP, o ponto final de emissão de fichas Azure AD também devolve um documento JSON com objetos que descrevem o erro.
@@ -245,15 +243,15 @@ A tabela que se segue lista os códigos de estado HTTP que o ponto final da emis
 | Código HTTP | Descrição |
 | --- | --- |
 | 400 |Código HTTP predefinido. Usado na maioria dos casos e é normalmente devido a um pedido mal formado. Corrija e reenvie o pedido. |
-| 401 |A autenticação falhou. Por exemplo, o pedido está a faltar ao parâmetro client_secret. |
-| 403 |Falha na autorização. Por exemplo, o utilizador não tem permissão para aceder ao recurso. |
+| 401 |Falha na autenticação. Por exemplo, o pedido está a faltar ao parâmetro client_secret. |
+| 403 |A autorização falhou. Por exemplo, o utilizador não tem permissão para aceder ao recurso. |
 | 500 |Ocorreu um erro interno no serviço. Tente o pedido. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de erro para erros de ponto final simbólicos
 | Código de Erro | Descrição | Ação do Cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro em falta necessário. |Corrigir e reenviar o pedido |
-| invalid_grant |O código de autorização é inválido ou expirou. |Experimente um novo pedido para o ponto final `/authorize` |
+| invalid_grant |O código de autorização é inválido ou expirou. |Experimente um novo `/authorize` pedido para o ponto final |
 | unauthorized_client |O cliente autenticado não está autorizado a utilizar este tipo de concessão de autorização. |Isto ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino Azure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
 | invalid_client |A autenticação do cliente falhou. |As credenciais do cliente não são válidas. Para corrigir, o administrador de aplicação atualiza as credenciais. |
 | unsupported_grant_type |O servidor de autorização não suporta o tipo de concessão de autorização. |Alterar o tipo de subvenção no pedido. Este tipo de erro só deve ocorrer durante o desenvolvimento e ser detetado durante os testes iniciais. |
@@ -262,9 +260,9 @@ A tabela que se segue lista os códigos de estado HTTP que o ponto final da emis
 | temporarily_unavailable |O servidor está temporariamente demasiado ocupado para lidar com o pedido. |Tente o pedido. A aplicação do cliente pode explicar ao utilizador que a sua resposta é adiada devido a uma condição temporária. |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>Use o sinal de acesso para aceder ao recurso
-Agora que adquiriu com sucesso uma `access_token`, pode usar o símbolo em pedidos de APIs web, incluindo-o no cabeçalho `Authorization`. A especificação [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) explica como utilizar fichas ao portador em pedidos HTTP para aceder a recursos protegidos.
+Agora que adquiriu um, `access_token`pode usar o símbolo em pedidos de APIs web, `Authorization` incluindo-o no cabeçalho. A especificação [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) explica como utilizar fichas ao portador em pedidos HTTP para aceder a recursos protegidos.
 
-### <a name="sample-request"></a>Pedido de exemplo
+### <a name="sample-request"></a>Pedido de amostra
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
@@ -272,7 +270,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### <a name="error-response"></a>Resposta ao Erro
-Recursos seguros que implementam rFC 6750 emitem códigos de estado HTTP. Se o pedido não incluir credenciais de autenticação ou faltar ao símbolo, a resposta inclui um cabeçalho `WWW-Authenticate`. Quando um pedido falha, o servidor de recursos responde com o código de estado HTTP e um código de erro.
+Recursos seguros que implementam rFC 6750 emitem códigos de estado HTTP. Se o pedido não incluir credenciais de autenticação ou `WWW-Authenticate` faltar ao símbolo, a resposta inclui um cabeçalho. Quando um pedido falha, o servidor de recursos responde com o código de estado HTTP e um código de erro.
 
 Segue-se um exemplo de uma resposta infrutífera quando o pedido do cliente não inclui o token do portador:
 
@@ -284,15 +282,15 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Parâmetros de erro
 | Parâmetro | Descrição |
 | --- | --- |
-| authorization_uri |O URI (ponto final físico) do servidor de autorização. Este valor também é usado como uma chave de procura para obter mais informações sobre o servidor a partir de um ponto final de descoberta. <p><p> O cliente deve validar que o servidor de autorização é de confiança. Quando o recurso é protegido por Azure AD, é suficiente verificar se o URL começa com https://login.microsoftonline.com ou outro nome de anfitrião que a AD Azure suporta. Um recurso específico para o inquilino deve sempre devolver uma autorização específica para o arrendatário URI. |
+| authorization_uri |O URI (ponto final físico) do servidor de autorização. Este valor também é usado como uma chave de procura para obter mais informações sobre o servidor a partir de um ponto final de descoberta. <p><p> O cliente deve validar que o servidor de autorização é de confiança. Quando o recurso é protegido por Azure AD, é suficiente `https://login.microsoftonline.com` verificar se o URL começa com ou outro nome de anfitrião que a AD Azure suporta. Um recurso específico para o inquilino deve sempre devolver uma autorização específica para o arrendatário URI. |
 | erro |Um valor de código de erro definido na secção 5.2 do Quadro de [Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). |
 | error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser fácil de utilizar. |
-| resource_id |Devolve o identificador único do recurso. A aplicação do cliente pode usar este identificador como o valor do parâmetro `resource` quando solicita um símbolo para o recurso. <p><p> É importante que a aplicação do cliente verifique este valor, caso contrário, um serviço malicioso pode ser capaz de induzir um ataque **de elevação de privilégios** <p><p> A estratégia recomendada para prevenir um ataque é verificar se o `resource_id` corresponde à base do URL API web a que está a ser acedido. Por exemplo, se https://service.contoso.com/data estiver a ser acedida, o `resource_id` pode ser https://service.contoso.com/. A aplicação do cliente deve rejeitar uma `resource_id` que não comece com o URL base a menos que exista uma forma alternativa fiável de verificar o id. |
+| resource_id |Devolve o identificador único do recurso. A aplicação do cliente pode usar `resource` este identificador como o valor do parâmetro quando solicita um símbolo para o recurso. <p><p> É importante que a aplicação do cliente verifique este valor, caso contrário, um serviço malicioso pode ser capaz de induzir um ataque **de elevação de privilégios** <p><p> A estratégia recomendada para prevenir um ataque `resource_id` é verificar se a base do URL da Web API a que está a ser acedido. Por exemplo, `https://service.contoso.com/data` se for acedido, pode `resource_id` ser `https://service.contoso.com/`. A aplicação do `resource_id` cliente deve rejeitar um que não comece com o URL base a menos que exista uma forma alternativa fiável de verificar o id. |
 
 #### <a name="bearer-scheme-error-codes"></a>Códigos de erro do esquema do portador
 A especificação RFC 6750 define os seguintes erros para os recursos que utilizam o cabeçalho WWW-Authenticate e o regime Bearer na resposta.
 
-| Código de Estado de HTTP | Código de Erro | Descrição | Ação do Cliente |
+| Código de Estado HTTP | Código de Erro | Descrição | Ação do Cliente |
 | --- | --- | --- | --- |
 | 400 |invalid_request |O pedido não está bem formado. Por exemplo, pode estar a faltar um parâmetro ou a utilizar o mesmo parâmetro duas vezes. |Corrija o erro e tente novamente o pedido. Este tipo de erro só deve ocorrer durante o desenvolvimento e ser detetado nos testes iniciais. |
 | 401 |invalid_token |O sinal de acesso está em falta, inválido ou é revogado. O valor do parâmetro error_description fornece detalhes adicionais. |Solicite um novo sinal do servidor de autorização. Se o novo símbolo falhar, ocorreu um erro inesperado. Envie uma mensagem de erro ao utilizador e tente novamente após atrasos aleatórios. |
@@ -301,11 +299,11 @@ A especificação RFC 6750 define os seguintes erros para os recursos que utiliz
 
 ## <a name="refreshing-the-access-tokens"></a>Refrescar os tokens de acesso
 
-Os Tokens de acesso são de curta duração e devem ser renovados depois de expirarem para continuar a aceder aos recursos. Pode refrescar a `access_token` submetendo outro pedido de `POST` ao `/token` ponto final, mas desta vez fornecendo o `refresh_token` em vez do `code`.  Os tokens de atualização são válidos para todos os recursos a que o seu cliente já recebeu o consentimento para aceder - assim, um token de atualização emitido sobre um pedido de `resource=https://graph.microsoft.com` pode ser usado para solicitar um novo sinal de acesso para `resource=https://contoso.com/api`. 
+Os Tokens de acesso são de curta duração e devem ser renovados depois de expirarem para continuar a aceder aos recursos. Pode refrescar `access_token` o envio `POST` de outro `/token` pedido para o ponto `refresh_token` final, `code`mas desta vez fornecendo o em vez do .  Os tokens de atualização são válidos para todos os recursos a que o seu `resource=https://graph.microsoft.com` cliente já recebeu o consentimento para `resource=https://contoso.com/api`aceder - assim, um token de atualização emitido sobre um pedido para pode ser usado para solicitar um novo sinal de acesso para . 
 
 As fichas de atualização não têm uma vida útil especificada. Tipicamente, as vidas de tokens refrescantes são relativamente longas. No entanto, em alguns casos, as fichas de atualização expiram, são revogadas ou carecem de privilégios suficientes para a ação desejada. A sua aplicação precisa de esperar e lidar com erros devolvidos corretamente pelo ponto final da emissão de fichas.
 
-Quando receber uma resposta com um erro de ficha de atualização, deite fora o token de atualização atual e solicite um novo código de autorização ou ficha de acesso. Em particular, ao utilizar um token de atualização no fluxo de concessão do código de autorização, se receber uma resposta com os códigos de erro `interaction_required` ou `invalid_grant`, deite fora o token de atualização e solicite um novo código de autorização.
+Quando receber uma resposta com um erro de ficha de atualização, deite fora o token de atualização atual e solicite um novo código de autorização ou ficha de acesso. Em particular, ao utilizar um token de atualização no fluxo `interaction_required` de `invalid_grant` concessão do código de autorização, se receber uma resposta com os códigos de erro ou códigos de erro, deite fora o token de atualização e solicite um novo código de autorização.
 
 Um pedido de amostra para o ponto final específico do **inquilino** (você também pode usar o ponto final **comum)** para obter um novo sinal de acesso usando um token refrescante parece este:
 
@@ -341,7 +339,7 @@ Uma resposta simbólica bem sucedida será como:
 | token_type |Do tipo de símbolo. O único valor suportado é **o portador.** |
 | expires_in |A vida restante do símbolo em segundos. Um valor típico é de 3600 (uma hora). |
 | expires_on |A data e a hora em que o símbolo expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até ao tempo de validade. |
-| resource |Identifica o recurso seguro a que o token de acesso pode ser usado para aceder. |
+| recurso |Identifica o recurso seguro a que o token de acesso pode ser usado para aceder. |
 | scope |Permissões de personificação concedidas ao pedido de cliente nativo. A permissão padrão é **user_impersonation.** O proprietário do recurso-alvo pode registar valores alternativos em Azure AD. |
 | access_token |O novo sinal de acesso que foi solicitado. |
 | refresh_token |Um novo OAuth 2.0 refresh_token que pode ser usado para solicitar novos tokens de acesso quando o desta resposta expirar. |

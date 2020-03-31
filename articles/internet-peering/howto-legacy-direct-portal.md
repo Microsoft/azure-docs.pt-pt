@@ -1,7 +1,7 @@
 ---
-title: Converter um emparelhamento direto herdado para o recurso do Azure usando o portal
+title: Converter um peering Direto legado para o recurso do Azure com o portal
 titleSuffix: Azure
-description: Converter um emparelhamento direto herdado para o recurso do Azure usando o portal
+description: Converter um peering Direto legado para o recurso do Azure com o portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,44 +9,44 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9900414d38bd597d08a80d15e908228c06ce06ea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775059"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-the-portal"></a>Converter um emparelhamento direto herdado para o recurso do Azure usando o portal
+# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-the-portal"></a>Converter um peering Direto legado para o recurso do Azure com o portal
 
-Este artigo descreve como converter um emparelhamento direto herdado existente para recursos do Azure usando o Portal.
+Este artigo descreve como converter um legado existente Espreitar diretamente para o recurso Azure usando o portal.
 
-Se preferir, você pode concluir este guia usando o [PowerShell](howto-legacy-direct-powershell.md).
+Se preferir, pode completar este guia utilizando o [PowerShell](howto-legacy-direct-powershell.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Examine [pré-requisitos](prerequisites.md) e [direcionamento direto de emparelhamento](walkthrough-direct-all.md) antes de começar a configuração.
+* Reveja os [pré-requisitos](prerequisites.md) e [o direct peering walkthrough](walkthrough-direct-all.md) antes de iniciar a configuração.
 
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Converter o emparelhamento direto herdado para o recurso do Azure
+## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Converter o legado Direto espreitando para o recurso Azure
 
-### <a name="sign-in-to-portal-and-select-your-subscription"></a>Entre no portal e selecione sua assinatura
+### <a name="sign-in-to-portal-and-select-your-subscription"></a>Inscreva-se no portal e selecione a sua subscrição
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name=create></a>Converter emparelhamento direto herdado
+### <a name="convert-legacy-direct-peering"></a><a name=create></a>Converter o legado De espreitar direto
 
-Você pode converter conexões de emparelhamento herdadas usando o recurso de **emparelhamento** .
+Pode converter ligações de observação de legados utilizando recurso **Peering.**
 
-#### <a name="launch-resource-and-configure-basic-settings"></a>Iniciar recurso e definir configurações básicas
+#### <a name="launch-resource-and-configure-basic-settings"></a>Lançar recurso e configurar definições básicas
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 
-#### <a name="configure-connections-and-submit"></a>Configurar conexões e enviar
+#### <a name="configure-connections-and-submit"></a>Configurar ligações e submeter
 [!INCLUDE [direct-peering-configuration](./includes/direct-portal-configuration-legacy.md)]
 
-### <a name=get></a>Verificar emparelhamento direto
+### <a name="verify-direct-peering"></a><a name=get></a>Verificar o peering direto
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, visite [perguntas frequentes sobre emparelhamento da Internet](faqs.md)
+Para mais informações, visite [faQs de observação de Internet](faqs.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Crie ou modifique um emparelhamento direto usando o portal](howto-direct-portal.md).
+* [Crie ou modifique um epeering direto utilizando o portal](howto-direct-portal.md).

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282786"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Criar um índice básico na Pesquisa Cognitiva Azure
@@ -27,7 +27,7 @@ Pode criar um índice no portal, [REST API,](search-create-index-rest-api.md)ou 
 
 Chegar ao design de índice certo é tipicamente alcançado através de múltiplas iterações. Usar uma combinação de ferramentas e APIs pode ajudá-lo a finalizar o seu design rapidamente.
 
-1. Determine se pode usar um [indexador](search-indexer-overview.md#supported-data-sources). Se os seus dados externos forem uma das fontes de dados suportadas, pode protótipo e carregar um índice utilizando o assistente de [**dados da Importação.** ](search-import-data-portal.md)
+1. Determine se pode usar um [indexador](search-indexer-overview.md#supported-data-sources). Se os seus dados externos forem uma das fontes de dados suportadas, pode protótipo e carregar um índice utilizando o assistente de [**dados da Importação.**](search-import-data-portal.md)
 
 2. Se não puder utilizar **dados de Importação,** ainda pode [criar um índice inicial no portal,](search-create-index-portal.md)adicionar campos, tipos de dados e atribuir atributos utilizando controlos na página **Add Index.** O portal mostra quais os atributos disponíveis para diferentes tipos de dados. Se é novo no design de índices, isto é útil.
 
@@ -158,7 +158,7 @@ Na definição do esquema, tem de especificar o nome, o tipo e os atributos de c
 
 Pode encontrar informações mais detalhadas sobre os tipos de [dados suportados](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)pela Azure Cognitive Search aqui .
 
-### <a name="index-attributes"></a>Atributos indexados
+### <a name="index-attributes"></a>Atributos do índice
 
 Exatamente um campo no seu índice deve ser designado como um campo **chave** que identifica exclusivamente cada documento.
 
@@ -170,7 +170,7 @@ As APIs que usa para construir um índice têm comportamentos padrão variados. 
 | --- | --- |
 | `key` |Uma cadeia que fornece o ID único de cada documento, utilizada para a procura de documentos. Todos os índices devem ter uma chave. Apenas um campo pode ser uma chave e o tipo deve ser definido para Edm.String. |
 | `retrievable` |Especifica se um campo pode ser devolvido num resultado da pesquisa. |
-| `filterable` |Permite que o campo seja utilizado nas consultas de filtro. |
+| `filterable` |Permite que o campo seja utilizado nas consultas de filtro.  |
 | `Sortable` |Permite a uma consulta ordenar os resultados da pesquisa através deste campo. |
 | `facetable` |Permite a um campo ser utilizado numa estrutura de [navegação por facetas](search-faceted-navigation.md) para filtragem do utilizador auto-direcionada. Geralmente os campos com valores repetitivos que pode utilizar para agrupar vários documentos (por exemplo, vários documentos que se inserem numa única marca ou categoria de serviço) funcionam melhor como facetas. |
 | `searchable` |Marca o campo como pesquisável no texto completo. |
@@ -211,13 +211,13 @@ O JavaScript do lado do cliente não pode ligar para nenhuma APIs por padrão, u
 
 As seguintes opções podem ser definidas para CORS:
 
-+ **allowedOrigins** (obrigatório): Esta é uma lista de origens que terá acesso ao seu índice. Isto significa que qualquer código JavaScript servido a partir dessas origens será autorizado a consultar o seu índice (assumindo que fornece a chave api correta). Cada origem é tipicamente da forma `protocol://<fully-qualified-domain-name>:<port>` embora `<port>` seja frequentemente omitida. Consulte a [partilha de recursos de origem cruzada (Wikipédia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para obter mais detalhes.
++ **allowedOrigins** (obrigatório): Esta é uma lista de origens que terá acesso ao seu índice. Isto significa que qualquer código JavaScript servido a partir dessas origens será autorizado a consultar o seu índice (assumindo que fornece a chave api correta). Cada origem é tipicamente `protocol://<fully-qualified-domain-name>:<port>` `<port>` da forma, embora muitas vezes seja omitida. Consulte a [partilha de recursos de origem cruzada (Wikipédia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para obter mais detalhes.
 
-  Se quiser permitir o acesso a todas as origens, inclua `*` como um único item na matriz **de Origems permitidas.** *Esta não é uma prática recomendada para serviços* de pesquisa de produção, mas é muitas vezes útil para o desenvolvimento e depuração.
+  Se quiser permitir o acesso a `*` todas as origens, inclua como um único item na matriz **de Origems permitidas.** *Esta não é uma prática recomendada para serviços* de pesquisa de produção, mas é muitas vezes útil para o desenvolvimento e depuração.
 
 + **maxAgeInSeconds** (opcional): Os navegadores usam este valor para determinar a duração (em segundos) para cache respostas pré-voo CORS. Isto deve ser um inteiro não negativo. Quanto maior for este valor, melhor desempenho será, mas quanto mais tempo demorarem as alterações da política cors a produzirem efeitos. Se não estiver definido, será utilizada uma duração predefinida de 5 minutos.
 
-## <a name="encryption-key"></a>Chave de Encriptação
+## <a name="encryption-key"></a>Chave de encriptação
 
 Embora todos os índices de Pesquisa Cognitiva Azure sejam encriptados por padrão utilizando chaves geridas pela Microsoft, os índices podem ser configurados para serem encriptados com **chaves geridas pelo cliente** no Key Vault. Para saber mais, consulte [Gerir chaves de encriptação em Pesquisa Cognitiva Azure](search-security-manage-encryption-keys.md).
 

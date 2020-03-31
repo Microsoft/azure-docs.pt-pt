@@ -4,10 +4,10 @@ description: Aborda questões comuns sobre o backup de ficheiros e pastas com o 
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273426"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre o backup de ficheiros e pastas
@@ -95,7 +95,7 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de risco é válida e acessível?
 
-1. Por padrão, a pasta de risco está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Por padrão, a pasta de risco está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Certifique-se de que o caminho da localização da pasta de risco corresponde aos valores das entradas da chave de registo abaixo indicados:
 
     | Caminho do registo | Chave do Registo | Valor |
@@ -108,9 +108,9 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
 1. Executar este comando num pedido de comando elevado para parar o motor de reserva:
 
     ```Net stop obengine```
-2. Se tiver configurado a cópia de segurança do Estado do Sistema, abra a Gestão do Disco e desmonte o disco com nomes no formato `"CBSSBVol_<ID>"`.
-3. Por predefinição, a pasta de risco está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-4. Copie toda a pasta `\Scratch` para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo é copiado, não movido.
+2. Se tiver configurado a cópia de segurança do Estado do Sistema, abra `"CBSSBVol_<ID>"`a Gestão do Disco e desmonte o disco com nomes no formato .
+3. Por padrão, a pasta de risco está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. Copie `\Scratch` toda a pasta para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo é copiado, não movido.
 5. Atualize as seguintes entradas de registo com o caminho da pasta de risco recém-movida.
 
     | Caminho do registo | Chave do Registo | Valor |
@@ -142,7 +142,7 @@ Os atributos ou respetivas combinações seguintes não são suportadas para a p
 * Encriptados
 * Duplicados eliminados
 * Comprimidos
-* Dispersos
+* Disperso
 * Ponto de Reanálise
 
 A pasta cache e os metadados VHD não têm os atributos necessários para o agente de backup Azure.
@@ -158,7 +158,7 @@ Sim, pode utilizar a opção **Change Properties** no agente MARS para ajustar a
 **Posso recuperar se me esqueci da minha frase de passe?**
 O agente de backup Azure requer uma palavra-passe (que forneceu durante o registo) para desencriptar os dados de backup durante a restauração. Reveja os cenários abaixo para compreender as suas opções para lidar com uma frase de passe perdida:
 
-| Máquina Original <br> *(máquina de origem onde foram tomadas cópias de segurança)* | Passphrase | Opções Disponíveis |
+| Máquina Original <br> *(máquina de origem onde foram tomadas cópias de segurança)* | Frase-passe | Opções Disponíveis |
 | --- | --- | --- |
 | Disponível |Perdido |Se a sua máquina original (onde foram tomadas as cópias de segurança) estiver disponível e ainda estiver registada com o mesmo cofre dos Serviços de Recuperação, então pode regenerar a frase-passe seguindo estes [passos](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
 | Perdido |Perdido |Não é possível recuperar os dados ou dados não disponíveis |
@@ -177,9 +177,9 @@ Considere as seguintes condições:
 
 Se tiver a mesma frase de passe (que forneceu durante o registo) da máquina original, então pode restaurar os dados de back-up a uma máquina alternativa. Reveja os cenários abaixo para entender as suas opções de restauro.
 
-| Máquina Original | Passphrase | Opções Disponíveis |
+| Máquina Original | Frase-passe | Opções Disponíveis |
 | --- | --- | --- |
-| Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase que forneceu durante o registo da máquina original. Escolha **opção de recuperação** > **Outro local** para realizar o seu restauro. Para obter mais informações, veja [este](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine) artigo.
+| Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase que forneceu durante o registo da máquina original. Escolha **Opção** > de Recuperação**Outro local** para realizar o seu restauro. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)
 | Perdido |Perdido |Não é possível recuperar os dados ou dados não disponíveis |
 
 

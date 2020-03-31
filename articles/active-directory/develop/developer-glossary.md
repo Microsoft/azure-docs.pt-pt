@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: ce98d2db86c87ac6aa8fa4872bc076714467d32f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263052"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvedor de plataforma de identidade microsoft
@@ -42,7 +42,7 @@ O identificador único Azure AD emite para um registo de aplicação que identif
 
 Uma funcionalidade fornecida pelo [portal Azure,][AZURE-portal]que produz uma representação JSON da configuração de identidade da aplicação, utilizada como mecanismo de atualização das suas entidades associadas de [Aplicação][Graph-App-Resource] e [Serviços Principais.][Graph-Sp-Resource] Consulte [o manifesto de candidatura do Azure Ative Directory][AAD-App-Manifest] para obter mais detalhes.
 
-## <a name="application-object"></a>Objeto de aplicação
+## <a name="application-object"></a>objeto de aplicação
 
 Ao registar/atualizar uma aplicação no [portal Azure,][AZURE-portal]o portal cria/atualiza tanto um objeto de aplicação como um [objeto principal](#service-principal-object) de serviço correspondente para esse inquilino. O objeto de aplicação *define* a configuração de identidade da aplicação a nível global (em todos os inquilinos onde tem acesso), fornecendo um modelo a partir do qual o seu(s) principal objeto de serviço correspondente é *derivado* para uso local no tempo de funcionamento (em um inquilino específico).
 
@@ -62,7 +62,7 @@ Consulte a Integração de [aplicações com o Diretório Ativo Azure][AAD-Integ
 
 O ato de desafiar uma parte por credenciais legítimas, fornecendo as bases para a criação de um diretor de segurança para ser usado para o controlo de identidade e acesso. Durante uma concessão de [autorização OAuth2,](#authorization-grant) por exemplo, a parte autenticada está a preencher o papel de proprietário de [recursos](#resource-owner) ou aplicação de [cliente,](#client-application)dependendo da subvenção utilizada.
 
-## <a name="authorization"></a>authorization
+## <a name="authorization"></a>autorização
 
 O ato de conceder a um diretor de segurança autenticado permissão para fazer algo. Existem dois casos de utilização principais no modelo de programação do Azure AD:
 
@@ -73,7 +73,7 @@ O ato de conceder a um diretor de segurança autenticado permissão para fazer a
 
 Um "token" de curta duração fornecido a um pedido de [cliente](#client-application) pelo ponto final de [autorização,](#authorization-endpoint)como parte do fluxo de "código de autorização", uma das quatro [autorizações](#authorization-grant)de autorização da OAuth2. O código é devolvido à aplicação do cliente em resposta à autenticação de um proprietário de [recursos,](#resource-owner)indicando que o proprietário do recurso delegou autorização para aceder aos recursos solicitados. Como parte do fluxo, o código é posteriormente redimido para um [sinal de acesso](#access-token).
 
-## <a name="authorization-endpoint"></a>Ponto final de autorização
+## <a name="authorization-endpoint"></a>ponto final de autorização
 
 Um dos pontos finais implementados pelo servidor de [autorização,](#authorization-server)utilizado para interagir com o proprietário do [recurso](#resource-owner) para fornecer uma [concessão](#authorization-grant) de autorização durante um fluxo de autorização OAuth2. Dependendo do fluxo de concessão de autorização utilizado, a subvenção efetiva fornecida pode variar, incluindo um código de [autorização](#authorization-code) ou um símbolo de [segurança.](#security-token)
 
@@ -101,7 +101,7 @@ Tal como definido pelo Quadro de [Autorização da OAuth2,][OAuth2-Role-Def]uma 
 
 Um pedido de cliente solicita [autorização](#authorization) de um proprietário de recursos para participar num fluxo de concessão de [autorização OAuth2,](#authorization-grant) e pode aceder a APIs/dados em nome do proprietário do recurso. O Quadro de Autorização da OAuth2 [define dois tipos de clientes,][OAuth2-Client-Types]"confidenciais" e "públicos", com base na capacidade do cliente de manter a confidencialidade das suas credenciais. As aplicações podem implementar um [cliente web (confidencial)](#web-client) que funciona num servidor web, um [cliente nativo (público)](#native-client) instalado num dispositivo, ou um [cliente baseado em utilizador-agente (público)](#user-agent-based-client) que funciona no navegador de um dispositivo.
 
-## <a name="consent"></a>Consentimento
+## <a name="consent"></a>consentimento
 
 O processo de um [proprietário](#resource-owner) de recursos que concede autorização a uma [aplicação de cliente,](#client-application)para aceder a recursos protegidos sob [permissões específicas,](#permissions)em nome do proprietário do recurso. Dependendo das permissões solicitadas pelo cliente, será solicitado a um administrador ou utilizador o consentimento para permitir o acesso à sua organização/dados individuais, respectivamente. Note que, num cenário [de multi-inquilinos,](#multi-tenant-application) o diretor de [serviço](#service-principal-object) da aplicação também é registado no inquilino do utilizador que consente.
 
@@ -115,7 +115,7 @@ Consulte a referência simbólica da [plataforma de identidade da Microsoft][AAD
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma para programadores e do serviço de identidade do Azure Active Directory (Azure AD). Permite que os programadores compilem aplicações que iniciam sessão em todas as identidades da Microsoft, obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs compiladas pelos programadores. É uma plataforma completa que consiste num serviço de autenticação, bibliotecas, registo e configuração de aplicações, documentação completa do desenvolvedor, amostras de código e outros conteúdos de desenvolvedor. A plataforma de identidade da Microsoft suporta protocolos padrão da indústria, tais como OAuth 2.0 e OpenID Connect. Consulte [a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md) para obter mais detalhes.
+A plataforma de identidades da Microsoft é a evolução da plataforma para programadores e do serviço de identidades do Azure Active Directory (Azure AD). Permite que os programadores compilem aplicações que iniciam sessão em todas as identidades da Microsoft, obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs compiladas pelos programadores. É uma plataforma completa que consiste num serviço de autenticação, bibliotecas, registo e configuração de aplicações, documentação completa do desenvolvedor, amostras de código e outros conteúdos de desenvolvedor. A plataforma de identidades da Microsoft suporta protocolos norma da indústria, tais como OAuth 2.0 e o OpenID Connect. Consulte [a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md) para obter mais detalhes.
 
 ## <a name="multi-tenant-application"></a>pedido de multi-inquilino
 
@@ -150,7 +150,7 @@ Um servidor de recursos expõe APIs e impõe o acesso aos seus recursos protegid
 
 Tal como uma aplicação de cliente, a configuração de identidade da aplicação de recursos é estabelecida através do [registo](#application-registration) num inquilino da AD Azure, fornecendo tanto o objeto principal de aplicação como de serviço. Algumas APIs fornecidas pela Microsoft, como a Microsoft Graph API, têm os principais de serviçopré-registados disponibilizados em todos os inquilinos durante o provisionamento.
 
-## <a name="roles"></a>roles
+## <a name="roles"></a>funções
 
 Tal como [os âmbitos,](#scopes)as funções fornecem uma forma de um servidor de [recursos](#resource-server) governar o acesso aos seus recursos protegidos. Existem dois tipos: uma função de "utilizador" implementa o controlo de acesso baseado em funções para utilizadores/grupos que exigem o acesso ao recurso, enquanto uma função de "aplicação" implementa o mesmo para [aplicações de clientes](#client-application) que requerem acesso.
 
@@ -170,13 +170,13 @@ Uma convenção de nomeação de boas práticas é usar um formato de "recurso.o
 
 Um documento assinado contendo reclamações, tais como um token OAuth2 ou uma afirmação SAML 2.0. Para uma [concessão](#authorization-grant)de autorização OAuth2, um [token](#access-token) de acesso (OAuth2) e um [ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) são tipos de fichas de segurança, ambas implementadas como um [JSON Web Token (JWT)][JWT].
 
-## <a name="service-principal-object"></a>Objeto principal de serviço
+## <a name="service-principal-object"></a>objeto principal de serviço
 
 Ao registar/atualizar uma aplicação no [portal Azure,][AZURE-portal]o portal cria/atualiza tanto um objeto de [aplicação](#application-object) como um objeto principal de serviço correspondente para esse inquilino. O objeto de aplicação *define* a configuração de identidade da aplicação a nível global (em todos os inquilinos onde a aplicação associada foi concedida acesso), e é o modelo a partir do qual o seu principal objeto de serviço correspondente é *derivado* para uso local no tempo de execução (em um inquilino específico).
 
 Para mais informações, consulte [Objetos Principais][AAD-App-SP-Objects]de Aplicação e Serviço .
 
-## <a name="sign-in"></a>inscrição
+## <a name="sign-in"></a>sign-in
 
 O processo de [aplicação](#client-application) de um cliente que inicie a autenticação do utilizador final e a captura do estado conexo, com o objetivo de adquirir um [token](#security-token) de segurança e de analisar a sessão de candidatura a esse estado. O Estado pode incluir artefactos como informações de perfil do utilizador e informações derivadas de alegações simbólicas.
 
@@ -186,7 +186,7 @@ A função de inscrição de uma aplicação é normalmente utilizada para imple
 
 O processo de não autenticação de um utilizador final, desvinculando o estado de utilizador associado à sessão de [aplicação](#client-application) do cliente durante o [login](#sign-in)
 
-## <a name="tenant"></a>tenant
+## <a name="tenant"></a>inquilino
 
 Um exemplo de um diretório Azure AD é referido como um inquilino da AD Azure. Fornece várias funcionalidades, incluindo:
 
@@ -194,9 +194,9 @@ Um exemplo de um diretório Azure AD é referido como um inquilino da AD Azure. 
 * autenticação das contas de utilizador e das aplicações registadas
 * Pontos finais REST necessários para apoiar vários protocolos, incluindo o OAuth2 e o SAML, incluindo o ponto final de [autorização,](#authorization-endpoint)o [ponto final simbólico](#token-endpoint) e o ponto final "comum" utilizado por [aplicações multi-arrendatárias.](#multi-tenant-application)
 
-Os inquilinos da Azure AD são criados/associados com assinaturas Azure e Office 365 durante a inscrição, fornecendo funcionalidades de Gestão de Identidade e Acesso para a subscrição. Os administradores de subscrição do Azure também podem criar inquilinos adicionais da AD Azure através do portal Azure. Veja como obter um inquilino do [Azure Ative Directory][AAD-How-To-Tenant] para obter detalhes sobre as várias formas de acesso a um inquilino. Veja como as [subscrições do Azure estão associadas ao Azure Ative Directory][AAD-How-Subscriptions-Assoc] para mais detalhes sobre a relação entre subscrições e um inquilino da AD Azure.
+Os inquilinos da Azure AD são criados/associados com assinaturas Azure e Office 365 durante a inscrição, fornecendo funcionalidades de Gestão de Acesso & identidade para a subscrição. Os administradores de subscrição do Azure também podem criar inquilinos adicionais da AD Azure através do portal Azure. Veja como obter um inquilino do [Azure Ative Directory][AAD-How-To-Tenant] para obter detalhes sobre as várias formas de acesso a um inquilino. Veja como as [subscrições do Azure estão associadas ao Azure Ative Directory][AAD-How-Subscriptions-Assoc] para mais detalhes sobre a relação entre subscrições e um inquilino da AD Azure.
 
-## <a name="token-endpoint"></a>Ponto final de token
+## <a name="token-endpoint"></a>ponto final simbólico
 
 Um dos pontos finais implementados pelo servidor de [autorização](#authorization-server) para suportar [as subvenções](#authorization-grant)de autorização da OAuth2. Dependendo da subvenção, pode ser usado para adquirir um [token](#access-token) de acesso (e ficha de "atualização" relacionada) a um [cliente](#client-application), ou [ficha de identificação](#id-token) quando usado com o protocolo [OpenID Connect.][OpenIDConnect]
 
@@ -214,7 +214,7 @@ Um tipo de [aplicação](#client-application) de cliente que executa todo o cód
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O [Guia do Desenvolvedor da plataforma de identidade microsoft][AAD-Dev-Guide] é a página de aterragem a utilizar para todos os tópicos relacionados com o desenvolvimento da plataforma de identidade da Microsoft, incluindo uma visão geral da integração de [aplicações][AAD-How-To-Integrate] e os fundamentos da autenticação da [plataforma de identidade microsoft e cenários de autenticação suportados.][AAD-Auth-Scenarios] Também pode encontrar amostras de código e tutoriais sobre como se levantar e funcionar rapidamente no [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do Desenvolvedor da plataforma de identidade microsoft][AAD-Dev-Guide] é a página de aterragem a utilizar para todos os tópicos relacionados com o desenvolvimento da plataforma de identidade da Microsoft, incluindo uma visão geral da integração de [aplicações][AAD-How-To-Integrate] e os fundamentos da autenticação da [plataforma de identidade microsoft e cenários de autenticação suportados.][AAD-Auth-Scenarios] Também pode encontrar amostras de código & tutoriais sobre como se levantar e funcionar rapidamente no [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Utilize a secção de comentários seguintes para fornecer feedback e ajudar a aperfeiçoar e moldar este conteúdo, incluindo pedidos de novas definições ou atualização das existentes!
 

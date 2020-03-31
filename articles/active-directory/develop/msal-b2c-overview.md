@@ -1,5 +1,5 @@
 ---
-title: Utilize mSAL com diretório ativo Azure B2CLearn  Azure
+title: Utilize mSAL com diretório ativo Azure B2CLearn [ Azure
 titleSuffix: Microsoft identity platform
 description: A Microsoft Authentication Library (MSAL) permite que as aplicações interoperassem com o Azure AD B2C e adquiram fichas para ligar para APIs web seguros. Estas APIs web podem ser Microsoft Graph, outras APIs da Microsoft, APIs web de outros, ou a sua própria Web API.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: e25564e64410701754390024a5bcfd39321343e2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696457"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Utilize a Biblioteca de Autenticação da Microsoft para interoperar com o Diretório Ativo Azure B2C
@@ -80,18 +80,18 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 O nome do fluxo do [utilizador](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) neste tutorial é **B2C_1_signupsignin1**. Se estiver a usar um nome de fluxo de utilizador diferente, detete o valor da **autoridade** para esse nome.
 
-### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Passo 4: Configure a sua aplicação para utilizar `b2clogin.com`
+### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Passo 4: Configure a sua aplicação para usar`b2clogin.com`
 
-Pode utilizar `b2clogin.com` no lugar de `login.microsoftonline.com` como URL redirecionado. Fá-lo no seu pedido Azure AD B2C quando configura um fornecedor de identidade para inscrição e inscrição.
+Pode utilizar `b2clogin.com` no `login.microsoftonline.com` lugar de um URL redirecionado. Fá-lo no seu pedido Azure AD B2C quando configura um fornecedor de identidade para inscrição e inscrição.
 
-A utilização de `b2clogin.com` no contexto de `https://your-tenant-name.b2clogin.com/your-tenant-guid` tem os seguintes efeitos:
+A `b2clogin.com` utilização no `https://your-tenant-name.b2clogin.com/your-tenant-guid` contexto dos seguintes efeitos:
 
 - Os serviços da Microsoft consomem menos espaço no cabeçalho dos cookies.
 - Os seus URLs já não incluem uma referência à Microsoft. Por exemplo, a sua aplicação Azure AD AD B2C provavelmente refere-se a `login.microsoftonline.com`.
 
- Para utilizar `b2clogin.com`, precisa de atualizar a configuração da sua aplicação.  
+ Para `b2clogin.com`utilizar, precisa de atualizar a configuração da sua aplicação.  
 
-- Desloque a propriedade **validada DaAutoridade** para `false`, de modo a que possam ocorrer redirecionamentos usando `b2clogin.com`.
+- Desloque a `false`propriedade `b2clogin.com` **validadaDa para,** de modo a que possam ocorrer redirecionamentos de utilização.
 
 O exemplo que se segue mostra como pode definir a propriedade:
 
@@ -112,7 +112,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 ```
 
 > [!NOTE]
-> A sua aplicação Azure AD B2C provavelmente refere-se a `login.microsoftonline.com` em vários locais, tais como referências de fluxo de utilizador e pontos finais simbólicos. Certifique-se de que o seu ponto final de autorização, ponto final simbólico e emitente foram atualizados para utilizar `your-tenant-name.b2clogin.com`.
+> A sua aplicação Azure AD `login.microsoftonline.com` B2C provavelmente refere-se em vários locais, tais como referências de fluxo de utilizador e pontos finais simbólicos. Certifique-se de que o seu ponto final de autorização, `your-tenant-name.b2clogin.com`ponto final simbólico e emitente foram atualizados para utilização .
 
 Siga [esta amostra Do MSAL JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) sobre como utilizar a pré-visualização MSAL para JavaScript (MSAL.js). A amostra obtém um sinal de acesso e chama uma API segura por Azure AD B2C.
 

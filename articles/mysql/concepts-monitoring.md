@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e9ae19e503b6b54e881af3c6477f77ffa1c930b0
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 3/18/2020
+ms.openlocfilehash: 2de04bbb1523151ac566b78bf99eba34c437fccd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252620"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537096"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na Base de Dados Azure para MySQL
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar para a sua carga de trabalho. A Base de Dados Azure para MySQL fornece várias métricas que dão uma visão do comportamento do seu servidor.
@@ -22,7 +22,7 @@ Todas as métricas azure têm uma frequência de um minuto, e cada métrica forn
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para a Base de Dados Azure para o MySQL:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Por cento do CPU|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -33,7 +33,7 @@ Estas métricas estão disponíveis para a Base de Dados Azure para o MySQL:
 |serverlog_storage_usage|Armazenamento de registo do servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento máximo de registo do servidor para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Conexões ativas|Contagem|O número de ligações ativas ao servidor.|
+|active_connections|Conexões Ativas|Contagem|O número de ligações ativas ao servidor.|
 |connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas ao servidor.|
 |seconds_behind_master|Rema de replicação em segundos|Contagem|O número de segundos em que o servidor de réplica está atrasado contra o servidor principal.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede Para fora através de conexões ativas.|

@@ -1,5 +1,5 @@
 ---
-title: HANA failover procedure to a disaster site for SAP HANA on Azure (Grandes Instâncias)  Microsoft Docs
+title: HANA failover procedure to a disaster site for SAP HANA on Azure (Grandes Instâncias) [ Microsoft Docs
 description: Como realizar falhas num local de recuperação de desastres para o SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617146"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de ativação pós-falha de recuperação após desastre
@@ -115,7 +115,7 @@ Siga estes passos.
 
 ## <a name="monitor-disaster-recovery-replication"></a>Monitorizar a replicação da recuperação de desastres
 
-Para monitorizar o estado do progresso da sua replicação de armazenamento, execute o guião `azure_hana_replication_status`. Este comando deve ser executado a partir de uma unidade que funciona no local de recuperação de desastres para funcionar como esperado. O comando funciona independentemente de a replicação estar ativa. O comando pode ser executado para cada unidade hana grande instância do seu inquilino no local de recuperação de desastres. Não pode ser usado para obter detalhes sobre o volume de botas. 
+Para monitorizar o estado do progresso da `azure_hana_replication_status`sua replicação de armazenamento, execute o script . Este comando deve ser executado a partir de uma unidade que funciona no local de recuperação de desastres para funcionar como esperado. O comando funciona independentemente de a replicação estar ativa. O comando pode ser executado para cada unidade hana grande instância do seu inquilino no local de recuperação de desastres. Não pode ser usado para obter detalhes sobre o volume de botas. 
 
 Para obter mais informações sobre o comando e a sua saída, consulte "Obter o estado de replicação de DR - azure_hana_replication_status" nas [ferramentas instantâneas da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
 

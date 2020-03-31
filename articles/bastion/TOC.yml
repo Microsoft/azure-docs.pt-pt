@@ -8,6 +8,10 @@
   items:
     - name: Criar um anfitrião do Bastion a partir das definições de VM
       href: quickstart-host-portal.md
+- name: Conceitos
+  items:
+    - name: Trabalhar remotamente
+      href: work-remotely-support.md
 - name: Guias de procedimentos
   items:
     - name: Criar um anfitrião do Bastion
@@ -16,6 +20,8 @@
           href: bastion-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
+        - name: CLI do Azure
+          href: create-host-cli.md
     - name: Ligar a uma máquina virtual
       items:
         - name: SSH (Linux)
@@ -40,6 +46,14 @@
       href: session-monitoring.md
     - name: Resolução de problemas
       href: troubleshoot.md
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: REST
+      href: /rest/api/virtualnetwork/bastionhosts
+    - name: CLI do Azure
+      href: /cli/azure/network/bastion
 - name: Recursos
   items:
     - name: FAQ do Bastion

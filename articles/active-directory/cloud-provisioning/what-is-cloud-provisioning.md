@@ -1,71 +1,71 @@
 ---
-title: O que é Azure AD Connect provisionamento de nuvem. | Microsoft Docs
-description: Descreve Azure AD Connect provisionamento de nuvem.
+title: O que é o fornecimento de nuvem Azure AD Connect. | Microsoft Docs
+description: Descreve o fornecimento de nuvem Azure AD Connect.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b8cbdba018b9d03dca67573b1f4fe6efa546b6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a86d34fca9a88b0df601533a0f3de1cc97ad1a2f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024046"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050588"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>O que é o aprovisionamento na cloud do Azure AD Connect?
-Azure AD Connect provisionamento em nuvem é um novo agente da Microsoft projetado para atender e atingir suas metas de identidade híbrida para a sincronização de usuários, grupos e contatos com o Azure AD.  Ele pode ser usado junto com Azure AD Connect sincronização e oferece os seguintes benefícios:
+O fornecimento de nuvem Azure AD Connect é um novo agente da Microsoft projetado para cumprir e cumprir os seus objetivos de identidade híbrida para sincronização de utilizadores, grupos e contactos para a AD Azure.  Pode ser usado ao lado da sincronização Azure AD Connect, e proporciona os seguintes benefícios:
     
-- Suporte para sincronização para um locatário do Azure AD de um ambiente de floresta Active Directory desconectado de várias florestas: os cenários comuns incluem a fusão & aquisição, em que as florestas do AD da empresa adquiridas são isoladas do AD da empresa pai florestas e empresas que têm historicamente várias florestas do AD.
-- Instalação simplificada com agentes de provisionamento leves: os agentes atuam como uma ponte do AD para o Azure AD, com todas as configurações de sincronização gerenciadas na nuvem. 
-- Vários agentes de provisionamento podem ser usados para simplificar implantações de alta disponibilidade, especialmente críticas para as organizações que dependem da sincronização de hash de senha do AD para o Azure AD.
+- Apoio à sincronização de um inquilino da Azure AD de um ambiente florestal de diretório ativo desligado de várias florestas: Os cenários comuns incluem a fusão & aquisição, onde as florestas ad's da empresa adquirida estão isoladas das florestas e empresas da empresa-mãe que historicamente tiveram múltiplas florestas ad.
+- Instalação simplificada com agentes de fornecimento de peso leve: Os agentes funcionam como uma ponte de AD para Azure AD, com toda a configuração de sincronização gerida na nuvem. 
+- Vários agentes de provisionamento podem ser usados para simplificar implementações de alta disponibilidade, particularmente críticas para organizações que dependem da sincronização de hash de senha de AD para Azure AD.
 
 
 ![O que é o Azure AD Connect](media/what-is-cloud-provisioning/architecture.png)
 
-## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>Como Azure AD Connect o provisionamento de nuvem diferente do Azure AD Connect sincronização?
-Com o provisionamento Azure AD Connect Cloud, o provisionamento do AD para o Azure AD é orquestrado no Microsoft Online Services. Uma organização só precisa implantar, em seu ambiente local e de IaaS, um agente leve que atue como uma ponte entre o Azure AD e o AD. A configuração de provisionamento é armazenada no Azure AD e gerenciada como parte do serviço.
+## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>Como é que o fornecimento de nuvem Azure AD Connect é diferente do sincronizado Azure AD Connect?
+Com o fornecimento de cloud Azure AD Connect, o fornecimento de AD para Azure AD é orquestrado nos Serviços Online da Microsoft. Uma organização só precisa de implantar, no seu local e no ambiente organizado pela IaaS, um agente leve que atua como uma ponte entre a Azure AD e a AD. A configuração de provisionamento é armazenada em Azure AD e gerida como parte do serviço.
 
-A tabela a seguir fornece uma comparação entre Azure AD Connect e Azure AD Connect o provisionamento de nuvem:
+O quadro seguinte fornece uma comparação entre o fornecimento de nuvem Azure AD Connect e Azure AD Connect:
 
-| Funcionalidade | Sincronização de Azure Active Directory Connect| Provisionamento Azure Active Directory Connect nuvem |
+| Funcionalidade | Sincronização de ligação de diretório ativo Azure| Fornecimento de nuvem de ligação de diretório ativo Azure |
 |:--- |:---:|:---:|
 |Ligar a uma única floresta do AD no local|● |● |
 | Ligar a várias florestas do AD no local |● |● |
-| Conectar-se a várias florestas locais desconectadas do AD | |● |
-| Modelo de instalação do agente leve | |● |
-| Vários agentes ativos para alta disponibilidade | |● |
-| Conectar-se a diretórios LDAP|●| | 
-| Suporte para objetos de usuário |● |● |
+| Ligar a várias florestas ad-locais desligadas | |● |
+| Modelo de instalação de agente leve | |● |
+| Múltiplos agentes ativos para alta disponibilidade | |● |
+| Ligar aos diretórios LDAP|●| | 
+| Suporte para objetos de utilizador |● |● |
 | Suporte para objetos de grupo |● |● |
-| Suporte para objetos de contato |● |● |
+| Suporte para objetos de contacto |● |● |
 | Suporte para objetos de dispositivo |● | |
-| Permitir personalização básica para fluxos de atributo |● |● |
+| Permitir personalização básica para fluxos de atributos |● |● |
 | Sychronize Exchange atributos on-line |● |● |
 | Synchronize atributos de extensão 1-15 |● |● |
-| Sincronizar atributos do AD definidos pelo cliente (extensões de diretório) |● | |
-| Suporte para sincronização de hash de senha |●|●|
-| Suporte para autenticação de passagem |●||
-| Suporte para Federação |●|●|
+| Synchronize atributos AD definidos pelo cliente (extensões de diretório) |● | |
+| Suporte para Password Hash Sync |●|●|
+| Suporte para autenticação pass-through |●||
+| Apoio à federação |●|●|
 | Início de Sessão Único totalmente integrado|● |●|
 | Suporta a instalação num Controlador de Domínio |● |● |
 | Suporte para Windows Server 2012 e Windows Server 2012 R2 |● |● |
-| Filtrar em domínios/UOs/grupos |● |● |
-| Filtrar valores de atributo dos objetos |● | |
+| Filtro em Domínios/OUs/grupos |● |● |
+| Filtrar os valores de atributo dos objetos |● | |
 | Permitir que um conjunto mínimo de atributos seja sincronizado (MinSync) |● |● |
 | Permitir a remoção de atributos no sentido do AD para o Azure AD |● |● |
 | Permitir a personalização avançada de fluxos de atributos |● | |
-| Suporte para Write-back (senhas, dispositivos, grupos) |● | |
-| Suporte a Azure AD Domain Services|● | |
+| Suporte para reprodução (palavras-passe, dispositivos, grupos) |● | |
+| Suporte dos Serviços de Domínio da AD Azure|● | |
 | [Troca de recoudação híbrida](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
-| Suporte para mais de 50.000 objetos por domínio do AD |● | |
+| Suporte para mais de 50.000 objetos por domínio ad |● | |
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é provisionamento?](what-is-provisioning.md)
-- [Instalar o provisionamento de nuvem](how-to-install.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [Instalar o fornecimento de nuvem](how-to-install.md)

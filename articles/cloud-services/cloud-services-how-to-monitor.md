@@ -1,5 +1,5 @@
 ---
-title: Monitor ize um Serviço de Nuvem Azure  Microsoft Docs
+title: Monitor ize um Serviço de Nuvem Azure [ Microsoft Docs
 description: Descreve o que a monitorização de um Serviço Azure Cloud envolve e quais são algumas das suas opções.
 services: cloud-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273101"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à Monitorização do Serviço de Nuvem
 
-Pode monitorizar as métricas de desempenho das teclas para qualquer serviço na nuvem. Cada função de serviço na nuvem recolhe dados mínimos: utilização de CPU, utilização da rede e utilização do disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função pode recolher pontos adicionais de dados. Este artigo fornece uma introdução ao Azure Diagnostics for Cloud Services.
+Pode monitorizar as métricas de desempenho das teclas para qualquer serviço na nuvem. Cada função de serviço na nuvem recolhe dados mínimos: utilização de CPU, utilização da rede e utilização do disco. Se o serviço `Microsoft.Azure.Diagnostics` de nuvem tiver a extensão aplicada a uma função, essa função pode recolher pontos adicionais de dados. Este artigo fornece uma introdução ao Azure Diagnostics for Cloud Services.
 
 Com monitorização básica, os dados do contador de desempenho das instâncias de funções são recolhidos e recolhidos em intervalos de 3 minutos. Estes dados básicos de monitorização não são armazenados na sua conta de armazenamento e não têm custos adicionais associados a ele.
 
@@ -36,7 +36,7 @@ A monitorização básica não requer uma conta de armazenamento.
 
 A monitorização avançada envolve a utilização da extensão de Diagnóstico Sinuoso **(e** opcionalmente o SDK de Insights de Aplicação) sobre a função que pretende monitorizar. A extensão de diagnóstico utiliza um ficheiro config (por função) chamado **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitorizadas. A extensão Azure Diagnostic recolhe e armazena dados numa conta de Armazenamento Azure. Estas definições estão configuradas nos ficheiros **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)e [.cscfg.](cloud-services-model-and-package.md#serviceconfigurationcscfg) Isto significa que existe um custo extra associado à monitorização avançada.
 
-À medida que cada função é criada, o Visual Studio adiciona-lhe a extensão de Diagnóstico. Esta extensão de diagnóstico pode recolher os seguintes tipos de informação:
+À medida que cada função é criada, o Visual Studio adiciona-lhe a extensão de Diagnóstico Sacana. Esta extensão de diagnóstico pode recolher os seguintes tipos de informação:
 
 * Contadores de desempenho personalizados
 * Registos de aplicação
@@ -54,13 +54,13 @@ A monitorização avançada envolve a utilização da extensão de Diagnóstico 
 
 Primeiro, se não tiver uma conta de armazenamento **clássica,** [crie uma](../storage/common/storage-account-create.md). Certifique-se de que a conta de armazenamento é criada com o modelo de **implementação Classic** especificado.
 
-Em seguida, navegue para o recurso **da conta de Armazenamento (clássico).** Selecione **Definições** > **Teclas de acesso** e copie o valor de cadeia de **ligação primária.** Precisa deste valor para o serviço de nuvem. 
+Em seguida, navegue para o recurso **da conta de Armazenamento (clássico).** Selecione **Definições** > **As teclas de acesso** e copie o valor de cadeia de **ligação primária.** Precisa deste valor para o serviço de nuvem. 
 
 Existem dois ficheiros config que deve alterar para que os diagnósticos avançados sejam ativados, **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
-No ficheiro **ServiceDefinition.csdef,** adicione uma nova definição chamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` para cada função que utilize diagnósticos avançados. O Visual Studio adiciona este valor ao ficheiro quando cria um novo projeto. Caso falte, pode adicioná-lo agora. 
+No ficheiro **ServiceDefinition.csdef,** adicione uma `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` nova definição nomeada para cada função que utilize diagnósticos avançados. O Visual Studio adiciona este valor ao ficheiro quando cria um novo projeto. Caso falte, pode adicioná-lo agora. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -71,7 +71,7 @@ No ficheiro **ServiceDefinition.csdef,** adicione uma nova definição chamada `
 
 Isto define uma nova definição que deve ser adicionada a todos os ficheiros **ServiceConfiguration.cscfg.** 
 
-Provavelmente tem dois **ficheiros .cscfg,** um chamado **ServiceConfiguration.cloud.cscfg** para implantação para Azure, e um chamado **ServiceConfiguration.local.cscfg** que é usado para implementações locais no ambiente emulado. Abra e altere cada ficheiro **.cscfg.** Adicione uma definição com o nome `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Delineie o valor para a cadeia de **ligação primária** da conta de armazenamento clássica. Se quiser utilizar o armazenamento local na sua máquina de desenvolvimento, utilize `UseDevelopmentStorage=true`.
+Provavelmente tem dois **ficheiros .cscfg,** um chamado **ServiceConfiguration.cloud.cscfg** para implantação para Azure, e um chamado **ServiceConfiguration.local.cscfg** que é usado para implementações locais no ambiente emulado. Abra e altere cada ficheiro **.cscfg.** Adicione uma `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`definição chamada . Delineie o valor para a cadeia de **ligação primária** da conta de armazenamento clássica. Se quiser utilizar o armazenamento local na `UseDevelopmentStorage=true`sua máquina de desenvolvimento, utilize .
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

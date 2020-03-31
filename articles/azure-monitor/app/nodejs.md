@@ -4,10 +4,10 @@ description: Monitorize o desempenho e diagnostique problemas em serviços Node.
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670020"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
@@ -26,21 +26,21 @@ Conclua as tarefas seguintes para configurar a monitorização para uma aplicaç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que tem uma subscrição Azure, ou [obtenha uma nova de graça.][azure-free-offer] Se a sua organização já tiver uma subscrição Azure, um administrador pode seguir [estas instruções][add-aad-user] para adicioná-lo a ele.
+Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma nova gratuitamente][azure-free-offer]. Se a sua organização já tiver uma subscrição do Azure, um administrador pode seguir [estas instruções][add-aad-user] para o adicionar à mesma.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
-### <a name="resource"></a> Configurar um recurso do Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurar um recurso do Application Insights
 
 
-1. Inicie sessão no [portal do Azure][portal].
-2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
+1. Inicie sessão no [Portal do Azure][portal].
+2. Selecione **Criar um programador de recursos** > **Ferramentas** > **De aplicação Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
 
 3. Na página de criação do recurso, na caixa **Tipo de Aplicação**, selecione **Aplicação Node.js**. O tipo de aplicação determina os dashboards e relatórios predefinidos que são criados por si. (Os recursos do Application Insights podem recolher dados de qualquer linguagem e plataforma.)
 
-### <a name="sdk"></a> Configurar o SDK para Node.js
+### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Configurar o SDK para Node.js
 
 Inclua o SDK na sua aplicação, para que esta possa recolher dados. 
 
@@ -70,11 +70,11 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
 
    Pode definir `appInsights.defaultClient.config.disableAppInsights = true` para experimentar o SDK sem enviar telemetria.
 
-### <a name="monitor"></a> Monitorizar a sua aplicação
+### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorize a sua aplicação
 
 O SDK recolhe automaticamente telemetria sobre o runtime de Node.js e sobre alguns módulos de terceiros comuns. Utilize a sua aplicação para gerar alguns destes dados.
 
-Em seguida, no [portal Azure][portal] vá para o recurso Application Insights que criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
+Em seguida, no [portal do Azure][portal], aceda ao recurso do Application Insights que criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
 
 Para ver a topologia que é detetada para a sua aplicação, selecione o botão **Mapa da aplicação**. Selecione os componentes no mapa para ver mais detalhes.
 
@@ -92,7 +92,7 @@ Visto que o SDK põe os dados em lotes para a submissão, poderá haver um atras
 * Clique em **Atualizar** na vista de recursos do portal. Os gráficos atualizam-se periodicamente por si próprios, mas atualizá-los manualmente força-os a fazer a atualização de imediato.
 * Confirme que as [portas de saída necessárias](../../azure-monitor/app/ip-addresses.md) estão abertas.
 * Utilize a [Pesquisa](../../azure-monitor/app/diagnostic-search.md) para procurar eventos específicos.
-* Veja as [FAQ][FAQ].
+* Verifique as [FAQ][FAQ].
 
 
 ## <a name="sdk-configuration"></a>Configuração do SDK

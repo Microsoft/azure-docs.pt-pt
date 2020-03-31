@@ -3,16 +3,16 @@ title: Implementar recursos com API rest e modelo
 description: Utilize o Gestor de Recursos Azure e o Gestor de Recursos REST API para mobilizar recursos para o Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9cdb7b668e5170917b41ef49639bd9a17e538766
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153238"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
+# <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos ARM e Gestor de Recursos REST API
 
-Este artigo explica como usar a API REST API do Gestor de Recursos com modelos de Gestor de Recursos para implantar os seus recursos para o Azure.
+Este artigo explica como usar o Gestor de Recursos REST API com modelos de Gestor de Recursos Azure (ARM) para implantar os seus recursos para o Azure.
 
 Pode incluir o seu modelo no corpo de pedido ou ligar-se a um ficheiro. Ao utilizar um ficheiro, pode ser um ficheiro local ou um ficheiro externo que está disponível através de um URI. Quando o seu modelo está numa conta de armazenamento, pode restringir o acesso ao modelo e fornecer um símbolo de assinatura de acesso partilhado (SAS) durante a implementação.
 
@@ -44,7 +44,7 @@ Para obter mais informações sobre as implementações a nível do grupo de ges
 
 Os exemplos deste artigo utilizam as implantações de grupos de recursos.
 
-## <a name="deploy-with-the-rest-api"></a>Implementar com a API REST
+## <a name="deploy-with-the-rest-api"></a>Implementar com a API REST
 
 1. Defina [parâmetros e cabeçalhos comuns,](/rest/api/azure/)incluindo fichas de autenticação.
 
@@ -192,5 +192,5 @@ Os exemplos deste artigo utilizam as implantações de grupos de recursos.
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Rollback no erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os modos de implementação do Gestor de [Recursos Do Azure](deployment-modes.md).
 - Para aprender sobre como lidar com operações de REST assíncronos, consulte as operações de [Track assíncronos Azure](../management/async-operations.md).
-- Para saber mais sobre os modelos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure.](template-syntax.md)
+- Para saber mais sobre os modelos, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 

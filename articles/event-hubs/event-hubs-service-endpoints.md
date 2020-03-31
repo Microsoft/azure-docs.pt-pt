@@ -1,6 +1,6 @@
 ---
-title: Virtual rede pontos finais de serviço - Event Hubs do Azure | Documentos da Microsoft
-description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço do Microsoft. EventHub a uma rede virtual.
+title: Pontos finais do serviço de Rede Virtual - Hubs de Eventos Azure / Microsoft Docs
+description: Este artigo fornece informações sobre como adicionar um ponto final do serviço Microsoft.EventHub a uma rede virtual.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,72 +11,81 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 2ac89444bde4e2efc918aced9d76c099eb792557
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966002"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064900"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilizar pontos finais de serviço de rede Virtual com o Event Hubs do Azure
+# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilize pontos finais de serviço de rede virtual com hubs de eventos Azure
 
-A integração dos hubs de eventos com [pontos de extremidade de serviço de rede virtual (VNet)][vnet-sep] permite o acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede protegido em ambas as extremidades.
+A integração de Hubs de Eventos com Pontos finais de Serviço de [Rede Virtual (VNet)][vnet-sep] permite o acesso seguro a capacidades de mensagens a partir de cargas de trabalho como máquinas virtuais que estão ligadas a redes virtuais, com a trajetória de tráfego da rede a ser protegida em ambas as extremidades.
 
-Uma vez configurado para ser associado a pelo menos um ponto de extremidade de serviço de sub-rede de rede virtual, o respectivo namespace de hubs de eventos não aceitará mais o tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva de rede virtual, ligando um espaço de nomes de Hubs de eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de mensagens. 
+Uma vez configurado para vincular-se a pelo menos um ponto final de serviço de rede virtual, o respetivo espaço de nome sem nome do Event Hubs já não aceita tráfego de qualquer lugar, mas autorizado subredes em redes virtuais. Do ponto de vista da rede virtual, vincular um espaço de nome do Event Hubs a um ponto final de serviço configura um túnel de rede isolado da subnet da rede virtual para o serviço de mensagens. 
 
-O resultado é uma relação isolada e privada entre as cargas de trabalho ligada à sub-rede e o namespace respectivo do Hubs de eventos, apesar do endereço de rede observable do sistema de mensagens serviço ponto final que está a ser num intervalo IP público. Há uma exceção a esse comportamento. Habilitar um ponto de extremidade de serviço, por padrão, habilita a regra denyall no firewall IP associado à rede virtual. Você pode adicionar endereços IP específicos no firewall de IP para habilitar o acesso ao ponto de extremidade público do hub de eventos. 
-
-
->[!WARNING]
-> A implementação da integração de redes virtuais pode impedir que outros serviços do Azure interajam com os hubs de eventos.
->
-> Os serviços confiáveis da Microsoft não têm suporte quando as redes virtuais são implementadas.
->
-> Cenários comuns do Azure que não funcionam com redes virtuais (Observe que a lista **não** é exaustiva) –
-> - Integração com o Azure Monitor. Não é possível transmitir logs de diagnóstico de **outros** serviços do Azure para os hubs de eventos. No entanto, você pode habilitar os logs de diagnóstico do Azure no próprio Hub de eventos. É o mesmo caso em que o firewall (filtragem de IP) está habilitado.
-> - Azure Stream Analytics
-> - Integração com a grade de eventos do Azure
-> - Rotas do Hub IoT do Azure
-> - Device Explorer de IoT do Azure
->
-> Os serviços da Microsoft a seguir devem estar em uma rede virtual
-> - Aplicações Web do Azure
-> - Funções do Azure
+O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à subnet e o respetivo espaço de nome sem nome do Event Hubs, apesar do endereço de rede observável do ponto final do serviço de mensagens estar numa gama de IP pública. Há uma exceção a este comportamento. Ativar um ponto final de serviço, `denyall` por defeito, permite a regra na [firewall IP](event-hubs-ip-filtering.md) associada à rede virtual. Pode adicionar endereços IP específicos na firewall IP para permitir o acesso ao ponto final do Event Hub. 
 
 > [!IMPORTANT]
-> Redes virtuais são suportadas no **padrão** e **dedicado** escalões de Hubs de eventos. Não é suportada no escalão básico.
+> As redes virtuais são suportadas em níveis **standard** e **dedicados** de Centros de Eventos. Não é suportado no nível **básico.**
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada ativados pela integração de VNet 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançados possibilitados pela integração vnet 
 
-Soluções que exigem segurança rígida e segmentada e onde as sub-redes da rede virtual fornecem a segmentação entre os serviços compartimentalizados, ainda precisam de caminhos de comunicação entre os serviços que residem nesses compartimentos.
+As soluções que requerem segurança apertada e compartimentada, e onde as redes virtuais fornecem a segmentação entre os serviços compartimentados, ainda precisam de caminhos de comunicação entre os serviços residentes nesses compartimentos.
 
-Qualquer rotas IP imediata entre compartimentos, incluindo aquelas com HTTPS por TCP/IP, carrega o risco de exploração de vulnerabilidades da camada de rede em segurança. Serviços de mensagens fornecem caminhos de comunicação completamente isolado, onde as mensagens até mesmo são escritas no disco à medida que eles fazem a transição entre partes. Cargas de trabalho em duas redes virtuais diferentes que estão ambos vinculadas para a mesma instância de Hubs de eventos podem comunicar com eficiência e fiável através de mensagens, enquanto a integridade de limite de isolamento de rede correspondentes é preservada.
+Qualquer rota IP imediata entre os compartimentos, incluindo os que transportam HTTPS sobre TCP/IP, acarreta o risco de exploração de vulnerabilidades da camada de rede para cima. Os serviços de mensagens fornecem caminhos de comunicação isolados, onde as mensagens são até escritas em disco à medida que transitam entre as partes. As cargas de trabalho em duas redes virtuais distintas que estão ambas ligadas ao mesmo caso de Hubs de Eventos podem comunicar de forma eficiente e fiável através de mensagens, enquanto a respetiva integridade de fronteira de isolamento da rede é preservada.
  
-Isso significa que a segurança confidencial soluções na cloud não ganhará acesso apenas às capacidades do Azure líder da indústria fiáveis e escaláveis assíncronas mensagens, mas agora podem utilizar mensagens para criar caminhos de comunicação entre a solução segura compartments que são inerentemente mais seguro do que o que é conseguido com qualquer modo de comunicação de ponto-a-ponto, incluindo o HTTPS e outros protocolos de socket protegida por TLS.
+Isto significa que as suas soluções de nuvem sensíveis à segurança não só têm acesso a capacidades de mensagens assíncronas fiáveis e escaláveis da indústria Azure, como podem agora usar mensagens para criar caminhos de comunicação entre compartimentos de solução segura que são inerentemente mais seguros do que o que é alcançável com qualquer modo de comunicação peer-to-peer, incluindo HTTPS e outros protocolos de tomada seleções protegidos por TLS.
 
-## <a name="bind-event-hubs-to-virtual-networks"></a>Ligar Hubs de eventos para redes virtuais
+## <a name="bind-event-hubs-to-virtual-networks"></a>Ligar centros de eventos a redes virtuais
 
-*Regras de rede virtual* são o recurso de segurança de firewall que controla se o seu espaço de nomes de Hubs de eventos do Azure aceita ligações a partir de uma sub-rede de rede virtual específico.
+**As regras** de rede virtuais são a funcionalidade de segurança da firewall que controla se o seu espaço de nome sem nome do Azure Event Hubs aceita ligações a partir de uma determinada subnet de rede virtual.
 
-Um espaço de nomes de Hubs de eventos de enlace a uma rede virtual é um processo de dois passos. Primeiro, você precisa criar um **ponto de extremidade de serviço de rede virtual** em uma sub-rede de rede virtual e habilitá-la para "Microsoft. EventHub", conforme explicado na [visão geral do ponto de extremidade do serviço][vnet-sep]. Depois de adicionar o ponto final de serviço, vincular o espaço de nomes de Hubs de eventos ao mesmo com um *regra de rede virtual*.
+Vincular um espaço de nome de Event Hubs a uma rede virtual é um processo em duas etapas. Primeiro é necessário criar um **ponto final** de serviço de rede virtual na subnet de uma rede virtual e capacitá-lo para o **Microsoft.EventHub,** conforme explicado no artigo de visão geral do ponto final do [serviço.][vnet-sep] Uma vez adicionado o ponto final do serviço, ligue o espaço de nome do Event Hubs a ele com uma regra de **rede virtual**.
 
-A regra de rede virtual é uma associação do namespace de hubs de eventos com uma sub-rede de rede virtual. Embora exista a regra, todas as cargas de trabalho ligadas à sub-rede são concedidas acesso ao espaço de nomes dos Hubs de eventos. Os Hubs de eventos em si nunca estabelece as ligações de saída, não precisa de obter acesso e é, portanto, nunca concedida acesso à sua sub-rede, permitindo que esta regra.
+A regra da rede virtual é uma associação do espaço de nome do Event Hubs com uma subnet de rede virtual. Enquanto a regra existe, todas as cargas de trabalho ligadas à subnet têm acesso ao espaço de nome do Event Hubs. O Próprio Event Hubs nunca estabelece ligações de saída, não precisa de ter acesso, pelo que nunca é concedido acesso à sua subnet, permitindo esta regra.
 
-### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos Azure Resource Manager
+## <a name="use-azure-portal"></a>Utilizar o portal do Azure
+Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final de serviço de rede virtual. Para limitar o acesso, precisa de integrar o ponto final do serviço de rede virtual para este espaço de nome Sem Eventos Hubs.
 
-O modelo do Resource Manager seguinte permite adicionar uma regra de rede virtual para um espaço de nomes de Hubs de eventos existente.
+1. Navegue para o seu espaço de **nome Sem Nome Do seu Evento Hubs** no [portal Azure](https://portal.azure.com).
+2. No menu esquerdo, selecione a opção **Networking.** Se selecionar a opção **Todas as redes,** o hub do evento aceita ligações a partir de qualquer endereço IP. Esta definição equivale a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+
+    ![Firewall - Todas as redes selecionadas](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Para repousar o acesso a redes específicas, selecione a opção **Redes Selecionadas** no topo da página.
+2. Na secção **Rede Virtual** da página, selecione **+Adicionar rede virtual existente***. Selecione **+ Crie uma nova rede virtual** se quiser criar um novo VNet. 
+
+    ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+3. Selecione a rede virtual a partir da lista de redes virtuais e, em seguida, escolha a **sub-rede**. Tem de ativar o ponto final do serviço antes de adicionar a rede virtual à lista. Se o ponto final do serviço não estiver ativado, o portal irá pedir-lhe para o ativar.
+   
+   ![selecionar sub-rede](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
+
+4. Deve ver a seguinte mensagem de sucesso após o ponto final do serviço para a sub-rede estar ativado para **microsoft.EventHub**. Selecione **Adicionar** na parte inferior da página para adicionar a rede. 
+
+    ![selecionar sub-rede e ativar ponto final](./media/event-hubs-tutorial-vnet-and-firewalls/subnet-service-endpoint-enabled.png)
+
+    > [!NOTE]
+    > Se não conseguir ativar o ponto final do serviço, poderá ignorar o ponto final do serviço de rede virtual em falta utilizando o modelo de Gestor de Recursos. Esta funcionalidade não está disponível no portal.
+6. Selecione **Guardar** na barra de ferramentas para guardar as definições. Aguarde alguns minutos para que a confirmação apareça nas notificações do portal.
+
+    ![Salvar rede](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
+
+
+## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
+
+O seguinte modelo de Gestor de Recursos permite adicionar uma regra de rede virtual a um espaço de nome existente para os Hubs de Eventos.
 
 Parâmetros do modelo:
 
-* **namespaceName**: espaço de nomes de Hubs de eventos.
-* **vnetRuleName**: nome para a regra de rede Virtual a ser criada.
-* **virtualNetworkingSubnetId**: caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
+* **nomenome nome**: Espaço de nome de Centros de Eventos.
+* **vnetRuleName**: Nome para a regra da Rede Virtual a criar.
+* **virtualNetworkingSubnetId**: Caminho de Gestor de Recursos totalmente qualificado para a subnet de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.
-> Ao tornar as regras de rede virtual ou firewalls, devemos alterar o ***"DefaultAction"***
+> Embora não existam regras de negação possíveis, o modelo do Gestor de Recursos Do Azure tem o conjunto de ação padrão para **"Permitir"** que não restringe as ligações.
+> Ao fazer regras de Rede Virtual ou Firewalls, temos de alterar a ***"defaultAction"***
 > 
-> de
+> De
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -176,6 +185,7 @@ Parâmetros do modelo:
             }
           ],
           "ipRules":[<YOUR EXISTING IP RULES>],
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }
@@ -184,14 +194,14 @@ Parâmetros do modelo:
   }
 ```
 
-Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-deploy].
+Para implementar o modelo, siga as instruções para o Gestor de [Recursos Azure][lnk-deploy].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as redes virtuais, consulte as seguintes ligações:
+Para obter mais informações sobre redes virtuais, consulte os seguintes links:
 
-- [Pontos de extremidade de serviço de rede virtual do Azure][vnet-sep]
-- [Filtragem de IP dos hubs de eventos do Azure][ip-filtering]
+- [Pontos finais do serviço de rede virtual Azure][vnet-sep]
+- [Filtragem IP do Azure Event Hubs][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md

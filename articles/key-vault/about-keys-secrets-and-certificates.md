@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271736"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
@@ -60,7 +60,7 @@ Consulte as especificações JOSE para os tipos de dados relevantes para chaves,
 
 Os objetos armazenados no Cofre chave são versonizados sempre que for criada uma nova instância de um objeto. A cada versão é atribuída a um identificador e URL únicos. Quando um objeto é criado pela primeira vez, é dado um identificador de versão única e marcado como a versão atual do objeto. A criação de um novo exemplo com o mesmo nome de objeto dá ao novo objeto um identificador de versão único, fazendo com que se torne a versão atual.  
 
-Os objetos no Cofre-Chave podem ser abordados utilizando o identificador atual ou um identificador específico da versão. Por exemplo, dada uma Chave com o nome `MasterKey`, realizar operações com o identificador atual faz com que o sistema utilize a versão mais recente disponível. A realização de operações com o identificador específico da versão faz com que o sistema utilize essa versão específica do objeto.  
+Os objetos no Cofre-Chave podem ser abordados utilizando o identificador atual ou um identificador específico da versão. Por exemplo, dada uma `MasterKey`Chave com o nome, executar operações com o identificador atual faz com que o sistema utilize a versão mais recente disponível. A realização de operações com o identificador específico da versão faz com que o sistema utilize essa versão específica do objeto.  
 
 Os objetos são identificados exclusivamente dentro do Cofre chave utilizando um URL. Nenhum dos dois objetos no sistema tem o mesmo URL, independentemente da geolocalização. O URL completo de um objeto chama-se Identificador de Objetos. O URL consiste num prefixo que identifica o Cofre de Chave, tipo de objeto, utilizador fornecido Nome do Objeto e uma Versão de Objeto. O Nome do Objeto é insensível e imutável. Os identificadores que não incluem a Versão do Objeto são referidos como Identificadores de Base.  
 
@@ -74,7 +74,7 @@ Em que:
 
 |||  
 |-|-|  
-|`keyvault-name`|O nome de um cofre chave no serviço Microsoft Azure Key Vault.<br /><br /> Os nomes key vault são selecionados pelo utilizador e são globalmente únicos.<br /><br /> O nome do cofre de chaves deve ser uma corda de caracteres 3-24, contendo apenas 0-9, a-z, A-Z, e .|  
+|`keyvault-name`|O nome de um cofre chave no serviço Microsoft Azure Key Vault.<br /><br /> Os nomes key vault são selecionados pelo utilizador e são globalmente únicos.<br /><br /> O nome do cofre de chaves deve ser uma corda de caracteres 3-24, contendo apenas 0-9, a-z, A-Z, e ..|  
 |`object-type`|O tipo de objeto, "chaves" ou "segredos".|  
 |`object-name`|Um `object-name` é um utilizador fornecido nome e deve ser único dentro de um Cofre chave. O nome deve ser uma cadeia de caracteres 1-127, contendo apenas 0-9, a-z, A-Z, e - .|  
 |`object-version`|Um `object-version` é um identificador de cadeia de 32 caracteres gerado pelo sistema que é opcionalmente usado para abordar uma versão única de um objeto.|  
@@ -85,8 +85,8 @@ Em que:
 
 As teclas criptográficas no Cofre chave são representadas como objetos jSON Web Key [JWK]. As especificações base JWK/JWA também são estendidas para permitir tipos-chave exclusivos da implementação do Cofre Chave. Por exemplo, a importação de chaves utilizando embalagens específicas do fornecedor HSM, permite o transporte seguro de chaves que só podem ser utilizadas em HSMs key vault.  
 
-- **Teclas "soft"** : Uma chave processada em software pela Key Vault, mas é encriptada em repouso utilizando uma chave de sistema que está num HSM. Os clientes podem importar uma chave RSA ou EC (Curva Elíptica) existente, ou solicitar que o Cofre chave gere uma.
-- **Teclas "hard"** : Uma chave processada num HSM (Módulo de Segurança de Hardware). Estas chaves estão protegidas num dos Principais Mundos de Segurança HSM (há um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou CE, de forma suave ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar o Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material chave HSM.
+- **Teclas "soft"**: Uma chave processada em software pela Key Vault, mas é encriptada em repouso utilizando uma chave de sistema que está num HSM. Os clientes podem importar uma chave RSA ou EC (Curva Elíptica) existente, ou solicitar que o Cofre chave gere uma.
+- **Teclas "hard"**: Uma chave processada num HSM (Módulo de Segurança de Hardware). Estas chaves estão protegidas num dos Principais Mundos de Segurança HSM (há um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou CE, de forma suave ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar o Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material chave HSM.
 
      Para obter mais informações sobre fronteiras geográficas, consulte [o Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -171,9 +171,9 @@ Para obter mais informações sobre objetos JWK, consulte [jSON Web Key (JWK)](h
 
 ###  <a name="key-attributes"></a>Principais atributos
 
-Além do material-chave, podem ser especificados os seguintes atributos. Num Pedido JSON, as palavras-chave e aparelhos atributos, '{' '}', são necessários mesmo que não existam atributos especificados.  
+Para além do material de chave, é possível especificar os seguintes atributos. Num Pedido JSON, as palavras-chave e aparelhos atributos, '{' '}', são necessários mesmo que não existam atributos especificados.  
 
-- *ativado:* booleano, opcional, padrão é **verdade**. Especifica se a chave está ativada e utilizável para operações criptográficas. O atributo *ativado* é utilizado em conjunto com *nbf* e *exp*. Quando ocorrer uma operação entre *a nbf* e a *ex-exp,* só será permitida se *ativada* for **verdadeira**. As operações fora da janela de *exp* *nbf* / são automaticamente proibidas, com exceção de certos tipos de funcionamento em [condições específicas](#date-time-controlled-operations).
+- *ativado:* booleano, opcional, padrão é **verdade**. Especifica se a chave está ativada e utilizável para operações criptográficas. O atributo *ativado* é utilizado em conjunto com *nbf* e *exp*. Quando ocorrer uma operação entre *a nbf* e a *ex-exp,* só será permitida se *ativada* for **verdadeira**. As operações fora da janela *nbf* / *exp* são automaticamente proibidas, com exceção de certos tipos de funcionamento em [condições específicas](#date-time-controlled-operations).
 - *nbf*: IntDate, opcional, o padrão é agora. O atributo *nbf* (não antes) identifica o tempo anterior ao qual a chave NÃO DEVE SER utilizada para operações criptográficas, com exceção de certos tipos de funcionamento em [condições específicas](#date-time-controlled-operations). O processamento do atributo *nbf* requer que a data/hora atual DEVE seja posterior ou igual à data/hora não antes enumerada no atributo *nbf.* O Cofre chave pode providenciar uma pequena margem de manobra, normalmente não mais do que alguns minutos, para explicar a distorção do relógio. O seu valor DEVE ser um número que contenha um valor IntDate.  
 - *exp*: IntDate, opcional, o padrão é "para sempre". O *atributo exp* (tempo de validade) identifica o tempo de validade em ou após o qual a chave NÃO DEVE SER utilizada para o funcionamento criptográfico, exceto para certos tipos de funcionamento em [condições específicas](#date-time-controlled-operations). O processamento do atributo *exp* exige que a data/hora atual DEVE seja antes da data/hora de validade enumerada no atributo *exp.* O Cofre chave pode fornecer alguma pequena margem de manobra, normalmente não mais do que alguns minutos, para explicar a distorção do relógio. O seu valor DEVE ser um número que contenha um valor IntDate.  
 
@@ -186,7 +186,7 @@ Para obter mais informações sobre o IntDate e outros tipos de dados, consulte 
 
 #### <a name="date-time-controlled-operations"></a>Operações controladas por data
 
-As chaves ainda não válidas e expiradas, fora da *janela* de exp *nbf* / , funcionarão para **desencriptar,** **desembrulhar,** e **verificar** as operações (não devolverão 403, Proibido). A razão para a utilização do estado ainda não válido é permitir que uma chave seja testada antes da utilização da produção. A razão para a utilização do estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, pode desativar o acesso a uma chave utilizando as políticas do Cofre chave, ou atualizando o atributo-chave *ativado* a **falso**.
+As chaves ainda não válidas e expiradas, fora da janela *da NBF* / *exp,* funcionarão para **desencriptar,** **desembrulhar,** e **verificar** as operações (não devolverão 403, Proibido). A razão para a utilização do estado ainda não válido é permitir que uma chave seja testada antes da utilização da produção. A razão para a utilização do estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, pode desativar o acesso a uma chave utilizando as políticas do Cofre chave, ou atualizando o atributo-chave *ativado* a **falso**.
 
 Para obter mais informações sobre os tipos de dados, consulte [os tipos de dados](#data-types).
 
@@ -235,7 +235,7 @@ Para obter mais informações sobre o trabalho com as chaves, consulte [as opera
 
 Do ponto de vista de um desenvolvedor, as APIs do Cofre Chave aceitam e devolvem valores secretos como cordas. Internamente, key vault armazena e gere segredos como sequências de octetos (bytes de 8 bits), com um tamanho máximo de 25 k bytes cada. O serviço Key Vault não fornece semântica para segredos. Apenas aceita os dados, encripta-os, armazena-os e devolve um identificador secreto ("id"). O identificador pode ser usado para recuperar o segredo mais tarde.  
 
-Para dados altamente sensíveis, os clientes devem considerar camadas adicionais de proteção para dados. Encriptar dados utilizando uma chave de proteção separada antes do armazenamento no Cofre chave é um exemplo.  
+Para dados altamente confidenciais, os clientes devem considerar camadas adicionais de proteção para os dados. A encriptação de dados com uma chave de proteção separada antes do armazenamento no Key Vault é um exemplo disso.  
 
 O Key Vault também suporta um campo de conteúdoType para segredos. Os clientes podem especificar o tipo de conteúdo de um segredo para ajudar na interpretação dos dados secretos quando são recuperados. O comprimento máximo deste campo é de 255 caracteres. Não há valores pré-definidos. O uso sugerido é uma dica para interpretar os dados secretos. Por exemplo, uma implementação pode armazenar palavras-passe e certificados como segredos, em seguida, usar este campo para diferenciar. Não há valores predefinidos.  
 
@@ -245,7 +245,7 @@ Além dos dados secretos, podem ser especificados os seguintes atributos:
 
 - *exp*: IntDate, opcional, o padrão é **para sempre**. O atributo *exp* (tempo de validade) identifica o tempo de validade em ou após o qual os dados secretos NÃO devem ser recuperados, exceto em [situações específicas](#date-time-controlled-operations). Este campo destina-se apenas a fins **informantes,** uma vez que informa os utilizadores do serviço de cofre seletiva que um determinado segredo pode não ser utilizado. O seu valor DEVE ser um número que contenha um valor IntDate.   
 - *nbf*: IntDate, opcional, por defeito é **agora**. O atributo *nbf* (não antes) identifica o tempo anterior ao qual os dados secretos NÃO devem ser recuperados, exceto em [situações específicas](#date-time-controlled-operations). Este campo é apenas para fins **informantes.** O seu valor DEVE ser um número que contenha um valor IntDate. 
-- *ativado:* booleano, opcional, padrão é **verdade**. Este atributo especifica se os dados secretos podem ser recuperados. O atributo ativado é utilizado em conjunto com a *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp,* só será permitido se estiver ativado. As operações fora da janela *nbf* e *exp* são automaticamente proibidas, exceto em [situações específicas](#date-time-controlled-operations).  
+- *ativado:* booleano, opcional, padrão é **verdade**. Este atributo especifica se os dados secretos podem ser recuperados. O atributo ativado é utilizado em conjunto com a *nbf* e *exp* quando ocorre uma operação entre **true** *nbf* e *exp,* só será permitido se estiver ativado. As operações fora da janela *nbf* e *exp* são automaticamente proibidas, exceto em [situações específicas](#date-time-controlled-operations).  
 
 Existem atributos adicionais de leitura que estão incluídos em qualquer resposta que inclua atributos secretos:  
 
@@ -254,7 +254,7 @@ Existem atributos adicionais de leitura que estão incluídos em qualquer respos
 
 #### <a name="date-time-controlled-operations"></a>Operações controladas por data
 
-Uma **operação** secreta funcionará por segredos ainda não válidos e expirados, fora da janela de *exp* da *NBF* / . Chamar uma **operação** secreta para um segredo ainda não válido, pode ser usado para fins de teste. Recuperar **(obter**ting) um segredo expirado, pode ser usado para operações de recuperação.
+Uma **operação** secreta funcionará por segredos ainda não válidos e expirados, fora da janela da *NBF* / *Exp.* Chamar uma **operação** secreta para um segredo ainda não válido, pode ser usado para fins de teste. Recuperar **(obter**ting) um segredo expirado, pode ser usado para operações de recuperação.
 
 Para obter mais informações sobre os tipos de dados, consulte [os tipos de dados](#data-types).  
 
@@ -366,7 +366,7 @@ A um nível elevado, uma política de certificados contém as seguintes informa�
 
 O quadro seguinte representa o mapeamento da política de utilização chave x509 para operações-chave eficazes de uma chave criada como parte de uma criação de certificado key vault.
 
-|**Bandeiras de utilização da chave X509**|**Operações chave do cofre chave**|**Comportamento padrão**|
+|**Bandeiras de utilização da chave X509**|**Operações chave do cofre chave**|**Comportamento predefinido**|
 |----------|--------|--------|
 |DataEncipherment|encriptar, desencriptar| N/D |
 |Decifração|desencriptação| N/D  |
@@ -377,7 +377,7 @@ O quadro seguinte representa o mapeamento da política de utilização chave x50
 |Não Repudiação|assinar, verificar| N/D |
 |crlsign|assinar, verificar| N/D |
 
-### <a name="certificate-issuer"></a>Emissor do Certificado
+### <a name="certificate-issuer"></a>Emitente de certificado
 
 Um objeto de certificado Key Vault contém uma configuração utilizada para comunicar com um fornecedor de emitente de certificado selecionado para encomendar certificados x509.  
 
@@ -478,7 +478,7 @@ As seguintes permissões podem ser utilizadas ao autorizar um utilizador ou um r
 
 Para mais informações, consulte as operações da [conta de armazenamento na referência aadia](/rest/api/keyvault)do cofre de chaves . Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres - Atualizar a Política](/rest/api/keyvault/vaults/updateaccesspolicy)de Acesso .
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 - [Autenticação, pedidos e respostas](authentication-requests-and-responses.md)
-- [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)
+- [Guia do Programador do Cofre de Chaves](/azure/key-vault/key-vault-developers-guide)

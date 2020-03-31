@@ -1,134 +1,134 @@
 ---
-title: Azure Functions o processamento confiável de eventos
-description: Evitar mensagens do hub de eventos ausentes no Azure Functions
+title: Processamento fiável de eventos da Azure Functions
+description: Evite faltar mensagens do Hub de Eventos nas Funções Azure
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
 ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561872"
 ---
-# <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos
+# <a name="azure-functions-reliable-event-processing"></a>Processamento fiável de eventos da Azure Functions
 
-O processamento de eventos é um dos cenários mais comuns associados à arquitetura sem servidor. Este artigo descreve como criar um processador de mensagens confiável com Azure Functions para evitar a perda de mensagens.
+O processamento de eventos é um dos cenários mais comuns associados à arquitetura sem servidores. Este artigo descreve como criar um processador de mensagens fiável com funções Azure para evitar perder mensagens.
 
 ## <a name="challenges-of-event-streams-in-distributed-systems"></a>Desafios dos fluxos de eventos em sistemas distribuídos
 
-Considere um sistema que envia eventos a uma taxa constante de 100 eventos por segundo. A essa taxa, em minutos, várias instâncias de funções paralelas podem consumir os eventos 100 de entrada a cada segundo.
+Considere um sistema que envia eventos a uma taxa constante de 100 eventos por segundo. A este ritmo, em minutos várias funções paralelas podem consumir os 100 eventos de entrada a cada segundo.
 
-No entanto, qualquer uma das seguintes condições menos ideais é possível:
+No entanto, qualquer uma das seguintes condições menos ótimas é possível:
 
-- E se o Publicador de eventos enviar um evento corrompido?
-- E se sua instância do Functions encontrar exceções sem tratamento?
-- E se um sistema downstream ficar offline?
+- E se a editora do evento enviar um evento corrupto?
+- E se a sua instância funções encontrar exceções não tratadas?
+- E se um sistema a jusante ficar offline?
 
-Como lidar com essas situações enquanto preserva a taxa de transferência de seu aplicativo?
+Como lida com estas situações preservando a entrada da sua aplicação?
 
-Com as filas, as mensagens confiáveis são naturalmente. Quando emparelhado com um gatilho functions, a função cria um bloqueio na mensagem da fila. Se o processamento falhar, o bloqueio será liberado para permitir que outra instância seja processada novamente. Em seguida, o processamento continua até que a mensagem seja avaliada com êxito ou adicionada a uma fila de suspeitas.
+Com filas, mensagens fiáveis vêm naturalmente. Quando emparelhada com um gatilho functions, a função cria um bloqueio na mensagem da fila. Se o processamento falhar, o bloqueio é libertado para permitir que outra instância retente o processamento. O processamento continua até que a mensagem seja avaliada com sucesso, ou é adicionada a uma fila de veneno.
 
-Mesmo que uma única mensagem de fila possa permanecer em um ciclo de repetição, outras execuções paralelas continuam a manter a remoção da fila de mensagens restantes. O resultado é que a taxa de transferência geral permanece em grande parte não afetada por uma mensagem inadequada. No entanto, as filas de armazenamento não garantem pedidos e não são otimizadas para as demandas de alta taxa de transferência exigidas pelos hubs de eventos
+Mesmo que uma única mensagem de fila possa permanecer num ciclo de retry, outras execuções paralelas continuam a impedir as mensagens restantes. O resultado é que a produção global permanece em grande parte inalterada por uma má mensagem. No entanto, as filas de armazenamento não garantem a encomenda e não estão otimizadas para as elevadas exigências de produção exigidas pelos Hubs de Evento.
 
-Por outro lado, os hubs de eventos do Azure não incluem um conceito de bloqueio. Para permitir recursos como alta taxa de transferência, vários grupos de consumidores e capacidade de reprodução, os eventos de hubs de eventos se comportam mais como um player de vídeo. Os eventos são lidos de um único ponto no fluxo por partição. No ponteiro, você pode ler ou retroceder a partir desse local, mas você precisa escolher mover o ponteiro para eventos a serem processados.
+Em contraste, o Azure Event Hubs não inclui um conceito de bloqueio. Para permitir funcionalidades como alta produção, vários grupos de consumidores e capacidade de repetição, os eventos do Event Hubs comportam-se mais como um leitor de vídeo. Os eventos são lidos a partir de um único ponto no fluxo por partição. A partir do ponteiro pode ler para a frente ou para trás a partir desse local, mas você tem que escolher mover o ponteiro para os eventos processarem.
 
-Quando ocorrerem erros em um fluxo, se você decidir manter o ponteiro no mesmo ponto, o processamento de eventos será bloqueado até que o ponteiro seja avançado. Em outras palavras, se o ponteiro for interrompido para lidar com problemas de processamento de um único evento, os eventos não processados começarão a empilhando-los.
+Quando ocorrem erros num fluxo, se decidir manter o ponteiro no mesmo local, o processamento do evento é bloqueado até que o ponteiro seja avançado. Por outras palavras, se o ponteiro for parado para lidar com problemas de processamento de um único evento, os eventos não processados começam a acumular-se.
 
-Azure Functions evita deadlocks avançando o ponteiro do fluxo, independentemente de êxito ou falha. Como o ponteiro continua avançando, suas funções precisam lidar com falhas adequadamente.
+A Azure Functions evita impasses avançando o ponteiro do fluxo, independentemente do sucesso ou fracasso. Uma vez que o ponteiro continua a avançar, as suas funções precisam de lidar adequadamente com falhas.
 
-## <a name="how-azure-functions-consumes-event-hubs-events"></a>Como o Azure Functions consome eventos de hubs de eventos
+## <a name="how-azure-functions-consumes-event-hubs-events"></a>Como funciona o Azure consome eventos de Hubs de Eventos
 
-O Azure Functions consome eventos do hub de eventos ao percorrer as seguintes etapas:
+As Funções Azure consomem eventos do Event Hub enquanto pedalam pelos seguintes passos:
 
-1. Um ponteiro é criado e mantido no armazenamento do Azure para cada partição do hub de eventos.
-2. Quando novas mensagens são recebidas (em um lote por padrão), o host tenta disparar a função com o lote de mensagens.
-3. Se a função concluir a execução (com ou sem exceção), o ponteiro avançará e um ponto de verificação será salvo na conta de armazenamento.
-4. Se as condições impedirem a conclusão da execução da função, o host não conseguirá progredir o ponteiro. Se o ponteiro não for avançado, as verificações posteriores acabarão processando as mesmas mensagens.
-5. Repita as etapas 2 a 4
+1. Um ponteiro é criado e persistido no Armazenamento Azure para cada partição do centro de eventos.
+2. Quando novas mensagens são recebidas (num lote por padrão), o anfitrião tenta desencadear a função com o lote de mensagens.
+3. Se a função completar a execução (com ou sem exceção) o ponteiro avança e um ponto de verificação é guardado na conta de armazenamento.
+4. Se as condições impedirem a execução da função de ser concluída, o hospedeiro não progredirá no ponteiro. Se o ponteiro não for avançado, então os controlos posteriores acabam por processar as mesmas mensagens.
+5. Repita os passos 2-4
 
-Esse comportamento revela alguns pontos importantes:
+Este comportamento revela alguns pontos importantes:
 
-- *Exceções sem tratamento podem causar a perda de mensagens.* As execuções que resultam em uma exceção continuarão a progredir o ponteiro.
-- *As funções garantem a entrega pelo menos uma vez.* Seu código e sistemas dependentes podem precisar [considerar o fato de que a mesma mensagem pode ser recebida duas vezes](./functions-idempotent.md).
+- *Exceções não tratadas podem fazer com que perca mensagens.* Execuções que resultem numa exceção continuarão a progredir no ponteiro.
+- *As funções garantem pelo menos uma vez a entrega.* O seu código e sistemas dependentes podem ter de ter em conta o facto de [que a mesma mensagem pode ser recebida duas vezes](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Processamento de exceções
 
-Como regra geral, cada função deve incluir um [bloco try/catch](./functions-bindings-error-pages.md) no nível mais alto de código. Especificamente, todas as funções que consomem eventos de hubs de eventos devem ter um bloco de `catch`. Dessa forma, quando uma exceção é gerada, o bloco catch trata o erro antes de o ponteiro progredir.
+Regra geral, todas as funções devem incluir um [bloco de tentativa/captura](./functions-bindings-error-pages.md) ao mais alto nível de código. Especificamente, todas as funções que consomem eventos do Event Hubs devem ter um `catch` bloco. Dessa forma, quando se levanta uma exceção, o bloco de captura suprime o erro antes que o ponteiro progrida.
 
-### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de repetição
+### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de retry
 
-Algumas exceções são transitórias por natureza e não são reexibidas quando uma operação é tentada novamente mais tarde. É por isso que a primeira etapa é sempre repetir a operação. Você pode escrever novas regras de processamento, mas elas são tão comuns que várias ferramentas estão disponíveis. O uso dessas bibliotecas permite que você defina políticas de repetição robustas, que também podem ajudar a preservar a ordem de processamento.
+Algumas exceções são de natureza transitória e não reaparecem quando uma operação é tentada novamente momentos depois. É por isso que o primeiro passo é sempre voltar a tentar a operação. Você poderia escrever regras de processamento de retry, mas são tão comuns que várias ferramentas estão disponíveis. A utilização destas bibliotecas permite-lhe definir políticas robustas de retry, que também podem ajudar a preservar a ordem de processamento.
 
-A introdução de bibliotecas de tratamento de falhas às suas funções permite que você defina políticas básicas e avançadas de repetição. Por exemplo, você pode implementar uma política que segue um fluxo de trabalho ilustrado pelas seguintes regras:
+Introduzir bibliotecas de tratamento de falhas nas suas funções permite-lhe definir políticas básicas e avançadas de retry. Por exemplo, poderia implementar uma política que seguisse um fluxo de trabalho ilustrado pelas seguintes regras:
 
 - Tente inserir uma mensagem três vezes (potencialmente com um atraso entre repetições).
-- Se o resultado eventual de todas as novas tentativas for uma falha, adicione uma mensagem a uma fila para que o processamento possa continuar no fluxo.
-- As mensagens corrompidas ou não processadas são tratadas posteriormente.
+- Se o resultado eventual de todas as tentativas for uma falha, adicione uma mensagem a uma fila para que o processamento possa continuar no fluxo.
+- As mensagens corruptas ou não processadas são tratadas mais tarde.
 
 > [!NOTE]
-> [Polly](https://github.com/App-vNext/Polly) é um exemplo de uma biblioteca de resiliência e de tratamento de falhas transitórias C# para aplicativos.
+> [Polly](https://github.com/App-vNext/Polly) é um exemplo de uma biblioteca de resiliência e manipulação transitória de falhas para aplicações C#.
 
-Ao trabalhar com bibliotecas de C# classes previamente compatíveis, os [filtros de exceção](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) permitem que você execute o código sempre que uma exceção sem tratamento ocorrer.
+Ao trabalhar com bibliotecas de classe C# pré-cumpridas, [os filtros](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) de exceção permitem-lhe executar código sempre que ocorre uma exceção não tratada.
 
-Exemplos que demonstram como usar filtros de exceção estão disponíveis no repositório [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) .
+Amostras que demonstram como usar filtros de exceção estão disponíveis no repo [Azure WebJobs SDK.](https://github.com/Azure/azure-webjobs-sdk/wiki)
 
 ## <a name="non-exception-errors"></a>Erros de não exceção
 
-Alguns problemas surgem mesmo quando um erro não está presente. Por exemplo, considere uma falha que ocorra no meio de uma execução. Nesse caso, se uma função não concluir a execução, o ponteiro de deslocamento nunca será progredido. Se o ponteiro não avançar, qualquer instância que for executada após uma falha de execução continuará lendo as mesmas mensagens. Essa situação fornece uma garantia "pelo menos uma vez".
+Algumas questões surgem mesmo quando um erro não está presente. Por exemplo, considere uma falha que ocorre no meio de uma execução. Neste caso, se uma função não completar a execução, o ponteiro de compensação nunca é progredido. Se o ponteiro não avançar, qualquer instância que corra depois de uma execução falhada continua a ler as mesmas mensagens. Esta situação fornece uma garantia "pelo menos uma vez".
 
-A garantia de que cada mensagem seja processada pelo menos uma vez implica que algumas mensagens podem ser processadas mais de uma vez. Seus aplicativos de funções precisam estar cientes dessa possibilidade e devem ser criados com base nos [princípios do Idempotência](./functions-idempotent.md).
+A garantia de que cada mensagem é processada pelo menos uma vez implica que algumas mensagens podem ser processadas mais de uma vez. As suas aplicações de função devem estar cientes desta possibilidade e devem ser construídas em torno [dos princípios da idempotency](./functions-idempotent.md).
 
 ## <a name="stop-and-restart-execution"></a>Parar e reiniciar a execução
 
-Embora alguns erros possam ser aceitáveis, e se seu aplicativo apresentar falhas significativas? Talvez você queira parar de disparar eventos até que o sistema alcance um estado íntegro. A oportunidade de pausar o processamento geralmente é obtida com um padrão de disjuntor. O padrão de disjuntor permite que seu aplicativo "quebre o circuito" do processo de evento e retome em um momento posterior.
+Embora alguns erros possam ser aceitáveis, e se a sua aplicação experimentar falhas significativas? É melhor parar de desencadear eventos até que o sistema atinja um estado saudável. Ter a oportunidade de parar o processamento é muitas vezes alcançado com um padrão de disjuntor. O padrão de disjuntor permite que a sua aplicação "quebre o circuito" do processo do evento e retome mais tarde.
 
-Há duas partes necessárias para implementar um disjuntor em um processo de evento:
+São necessárias duas peças para implementar um disjuntor num processo de evento:
 
-- Estado compartilhado em todas as instâncias para acompanhar e monitorar a integridade do circuito
-- Processo mestre que pode gerenciar o estado do circuito (aberto ou fechado)
+- Estado partilhado em todas as instâncias para acompanhar e monitorizar a saúde do circuito
+- Processo principal que pode gerir o estado do circuito (aberto ou fechado)
 
-Os detalhes da implementação podem variar, mas para compartilhar o estado entre as instâncias, você precisa de um mecanismo de armazenamento. Você pode optar por armazenar o estado no armazenamento do Azure, um cache Redis ou qualquer outra conta que possa ser acessada por uma coleção de funções.
+Os detalhes da implementação podem variar, mas para partilhar o estado entre as instâncias é necessário um mecanismo de armazenamento. Pode optar por armazenar o estado em Azure Storage, uma cache Redis ou qualquer outra conta acessível por uma coleção de funções.
 
-Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ou as [entidades duráveis](./durable/durable-functions-overview.md) são uma opção natural para gerenciar o fluxo de trabalho e o estado do circuito. Outros serviços também podem funcionar, mas os aplicativos lógicos são usados para este exemplo. Usando aplicativos lógicos, você pode pausar e reiniciar a execução de uma função, dando a você o controle necessário para implementar o padrão de disjuntor.
+[As Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) ou [entidades duráveis](./durable/durable-functions-overview.md) são um ajuste natural para gerir o fluxo de trabalho e o estado do circuito. Outros serviços podem funcionar tão bem, mas aplicações lógicas são usadas para este exemplo. Utilizando aplicações lógicas, pode parar e reiniciar a execução de uma função, dando-lhe o controlo necessário para implementar o padrão de disjuntor.
 
-### <a name="define-a-failure-threshold-across-instances"></a>Definir um limite de falha entre instâncias
+### <a name="define-a-failure-threshold-across-instances"></a>Defina um limiar de falha entre instâncias
 
-Para considerar várias instâncias processando eventos simultaneamente, é necessário persistir o estado externo compartilhado para monitorar a integridade do circuito.
+Para responder a vários casos de processamento de eventos simultaneamente, é necessário um estado externo partilhado para monitorizar a saúde do circuito.
 
-Uma regra que você pode optar por implementar pode impor isso:
+Uma regra que pode supor implementar pode impor isso:
 
-- Se houver mais de 100 falhas eventuals dentro de 30 segundos em todas as instâncias, quebre o circuito e pare de disparar em novas mensagens.
+- Se houver mais de 100 falhas em 30 segundos em todas as instâncias, então quebre o circuito e pare de acionar novas mensagens.
 
-Os detalhes da implementação variam de acordo com suas necessidades, mas, em geral, você pode criar um sistema que:
+Os detalhes de implementação variarão dadas as suas necessidades, mas em geral pode criar um sistema que:
 
-1. Registrar falhas em uma conta de armazenamento (armazenamento do Azure, Redis, etc.)
-1. Quando uma nova falha for registrada, inspecione a contagem de rolagem para ver se o limite foi atingido (por exemplo, mais de 100 nos últimos 30 segundos).
-1. Se o limite for atingido, emita um evento para a grade de eventos do Azure informando ao sistema para interromper o circuito.
+1. Falhas de registo numa conta de armazenamento (Armazenamento Azure, Redis, etc.)
+1. Quando estiver registada nova falha, inspecione a contagem de rolos para ver se o limiar é cumprido (por exemplo, mais de 100 nos últimos 30 segundos).
+1. Se o limiar for atingido, emita um evento para a Rede de Eventos Azure, dizendo ao sistema para quebrar o circuito.
 
-### <a name="managing-circuit-state-with-azure-logic-apps"></a>Gerenciando o estado do circuito com os aplicativos lógicos do Azure
+### <a name="managing-circuit-state-with-azure-logic-apps"></a>Gerir o estado do circuito com apps azure logic
 
-A descrição a seguir destaca uma maneira de criar um aplicativo lógico do Azure para interromper o processamento de um aplicativo de funções.
+A seguinte descrição destaca uma forma de criar uma App Azure Logic para travar uma aplicação Functions do processamento.
 
-Os aplicativos lógicos do Azure vêm com conectores internos para diferentes serviços, recursos de orquestrações com monitoração de estado e é uma opção natural para gerenciar o estado do circuito. Depois de detectar que o circuito precisa ser interrompido, você pode criar um aplicativo lógico para implementar o seguinte fluxo de trabalho:
+As Aplicações Lógicas Azure vêm com conectores incorporados a diferentes serviços, apresenta orquestrações imponentes, e é uma escolha natural para gerir o estado do circuito. Depois de detetar que o circuito precisa de quebrar, pode construir uma aplicação lógica para implementar o seguinte fluxo de trabalho:
 
-1. Disparar um fluxo de trabalho de grade de eventos e parar a função do Azure (com o conector de recursos do Azure)
-1. Enviar um email de notificação que inclui uma opção para reiniciar o fluxo de trabalho
+1. Desencadear um fluxo de trabalho da Rede de Eventos e parar a função Azure (com o conector de recursos Azure)
+1. Envie um e-mail de notificação que inclui uma opção para reiniciar o fluxo de trabalho
 
-O destinatário do email pode investigar a integridade do circuito e, quando apropriado, reiniciar o circuito por meio de um link no email de notificação. À medida que o fluxo de trabalho reinicia a função, as mensagens são processadas a partir do último ponto de verificação do hub de eventos.
+O destinatário do e-mail pode investigar a saúde do circuito e, quando apropriado, reiniciar o circuito através de um link no e-mail de notificação. À medida que o fluxo de trabalho reinicia a função, as mensagens são processadas a partir do último ponto de verificação do Event Hub.
 
-Usando essa abordagem, nenhuma mensagem é perdida, todas as mensagens são processadas em ordem e você pode dividir o circuito, desde que seja necessário.
+Utilizando esta abordagem, não se perdem mensagens, todas as mensagens são processadas por ordem, e pode quebrar o circuito o tempo necessário.
 
 ## <a name="resources"></a>Recursos
 
-- [Exemplos de processamento de eventos confiáveis](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Disjuntor de Durable Functions do Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Amostras fiáveis de processamento de eventos](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
+- [Disjuntor de funções duráveis azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
-- [Tratamento de erros de funções do Azure](./functions-bindings-error-pages.md)
-- [Utilizar o Event Grid para automatizar o redimensionamento de imagens carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
-- [Criar uma função que se integra nas Azure Logic Apps](./functions-twitter-email.md)
+- [Manipulação de erros das Funções Azure](./functions-bindings-error-pages.md)
+- [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
+- [Criar uma função que se integra no Azure Logic Apps](./functions-twitter-email.md)

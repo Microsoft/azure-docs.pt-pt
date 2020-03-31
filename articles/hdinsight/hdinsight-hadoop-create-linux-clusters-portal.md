@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/19/2020
 ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623216"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Crie clusters baseados em Linux no HDInsight utilizando o portal Azure
@@ -25,13 +25,13 @@ O portal Azure é uma ferramenta de gestão baseada na web para serviços e recu
 
 O portal Azure expõe a maioria das propriedades do cluster. Ao utilizar modelos de Gestor de Recursos Azure, pode ocultar muitos detalhes. Para obter mais informações, consulte [Create Apache Hadoop clusters in HDInsight utilizando modelos](hdinsight-hadoop-create-linux-clusters-arm-templates.md)de Gestor de Recursos .
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-clusters"></a>Criar clusters
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. A partir do menu superior, selecione **+ Criar um recurso**.
 
@@ -49,7 +49,7 @@ A partir do separador **Basics,** forneça as seguintes informações:
 |---|---|
 |Subscrição|A partir da lista de lançamentos, selecione a subscrição Azure que é usada para o cluster.|
 |Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente, ou selecione **Criar novo**.|
-|Nome do cluster|Introduza um nome globalmente único.|
+|Nome do cluster|Introduza um nome globalmente exclusivo.|
 |Região|A partir da lista de abandono, selecione uma região onde o cluster é criado.|
 |Tipo de cluster|Selecione o tipo de **cluster selecione** para abrir uma lista. A partir da lista, selecione o tipo de cluster desejado. Os clusters HDInsight vêm em vários tipos. Correspondem à carga de trabalho ou à tecnologia para a que o cluster está sintonizado. Não há nenhum método suportado para criar um cluster que combine vários tipos.|
 |Versão|A partir da lista de lançamentos, selecione uma **versão**. Utilize a versão predefinida se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).|
@@ -61,7 +61,7 @@ A partir do separador **Basics,** forneça as seguintes informações:
 
 Selecione **Seguinte: Armazenamento >>** para avançar para o separador seguinte.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 ![HDInsight cria armazenamento de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Criação de um novo cluster no portal Azure - armazenamento")
 
@@ -83,7 +83,7 @@ Opcional: **Selecione Adicionar armazenamento Azure** para armazenamento adicion
 
 Opcional: Especifique uma base de dados SQL existente para salvar os metadados Apache Hive, Apache Oozie e/ou Apache Ambari fora do cluster. A Base de Dados Azure SQL que é utilizada para a metaloja deve permitir a conectividade com outros serviços Azure, incluindo o Azure HDInsight. Quando criar uma metaloja, não nomeie uma base de dados com traços ou hífenes. Estes caracteres podem fazer com que o processo de criação do cluster falhe.
 
-Selecione **Seguinte: Segurança + networking >>** para avançar para o separador seguinte.
+Selecione **Seguinte: Segurança + rede >>** para avançar para o separador seguinte.
 
 ## <a name="security--networking"></a>Segurança + networking
 
@@ -100,7 +100,7 @@ A partir do separador **De Segurança + networking,** forneça as seguintes info
 |Proxy REST do Kafka|Esta definição só está disponível para o tipo de cluster Kafka. Para mais informações, consulte [Utilizar um proxy REST](./kafka/rest-proxy.md).|
 |Identidade|Opcional: Selecione uma identidade de serviço atribuída ao utilizador existente na lista de lançamentos. Para mais informações, consulte [identidades geridas no Azure HDInsight](./hdinsight-managed-identities.md).|
 
-Selecione **Seguinte: Configuração + preços >>** para avançar para o separador seguinte.
+Selecione **Seguinte: Configuração + >>de preços** para avançar para o separador seguinte.
 
 ## <a name="configuration--pricing"></a>Configuração + preços
 
@@ -116,7 +116,7 @@ A partir do separador **de preços Configuração +,** forneça as seguintes inf
 |Ativar a escala automática|Opcional: Selecione a caixa de verificação para ativar a funcionalidade. Para mais informações, consulte automaticamente a escala dos [clusters Azure HDInsight](./hdinsight-autoscale-clusters.md).|
 |+ Adicionar ação de script|Opcional: Esta opção funciona se quiser usar um script personalizado para personalizar um cluster, uma vez que o cluster está a ser criado. Para obter mais informações sobre as ações do script, consulte os [clusters HDInsight baseados em Linux utilizando ações](hdinsight-hadoop-customize-cluster-linux.md)de script .|
 
-Selecione **Review + create >>** para validar a configuração do cluster e avançar para o separador final.
+Selecione **Review + crie >>** para validar a configuração do cluster e avançar para o separador final.
 
 ## <a name="review--create"></a>Rever + criar
 
@@ -137,7 +137,7 @@ Alguns dos ícones da janela são explicados da seguinte forma:
 |Propriedade | Descrição |
 |---|---|
 |Descrição geral|Fornece todas as informações essenciais sobre o cluster. Exemplos são o nome, o grupo de recursos a que pertence, a localização, o sistema operativo e o URL para o painel de cluster.|
-|Dashboards de clusters|Direciona-o para o portal Ambari associado ao cluster.|
+|Dashboards de cluster|Direciona-o para o portal Ambari associado ao cluster.|
 |SSH + Login cluster|Fornece informações necessárias para aceder ao cluster utilizando o SSH.|
 |Eliminar|Elimina o cluster HDInsight.|
 

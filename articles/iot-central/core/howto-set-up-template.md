@@ -1,19 +1,19 @@
 ---
 title: Defina um novo tipo de dispositivo IoT no Azure IoT Central [ Central] Microsoft Docs
-description: Este tutorial mostra-lhe, como construtor, como criar um novo modelo de dispositivo Azure IoT na sua aplicação Azure IoT Central. Define a telemetria, estado, propriedades e comandos para o seu tipo.
+description: Este artigo mostra-lhe, como construtor, como criar um novo modelo de dispositivo Azure IoT na sua aplicação Azure IoT Central. Define a telemetria, estado, propriedades e comandos para o seu tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2313c347e3836b6fa9d6055f99c258624e44c51f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239505"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157675"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo IoT na sua aplicação Azure IoT Central
 
@@ -64,9 +64,9 @@ Um modelo de dispositivo contém:
 Para criar um modelo de dispositivo em IoT Central:
 
 1. Aceda à página **de Modelos** de Dispositivos na sua aplicação IoT Central.
-1. Selecione **+ New** > **Custom**.
+1. Selecione **+ Novo** > **Costume**.
 1. Introduza um nome para o seu modelo, como **Sensor Ambiental**.
-1. Prima **Enter**. IoT Central cria um modelo de dispositivo vazio.
+1. Pressione **Entrar**. IoT Central cria um modelo de dispositivo vazio.
 
 ## <a name="manage-a-device-template"></a>Gerir um modelo de dispositivo
 
@@ -118,12 +118,12 @@ A tabela que se segue mostra as definições de configuração para uma capacida
 | ----- | ----------- |
 | Nome a Apresentar | O nome do visor para o valor da telemetria utilizado nos tabliers e formulários. |
 | Nome | O nome do campo na mensagem de telemetria. A IoT Central gera um valor para este campo a partir do nome de exibição, mas pode escolher o seu próprio valor se necessário. |
-| Tipo de capacidade | A telemetria. |
+| Tipo de Capacidade | A telemetria. |
 | Tipo semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina qual dos seguintes campos está disponível. |
 | Esquema | O tipo de dados de telemetria, como duplo, corda ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado. |
 | Gravidade | Disponível apenas para o tipo semântico do evento. As severidades são **Error,** **Information**ou **Warning**. |
 | Valores do Estado | Disponível apenas para o tipo semântico do estado. Defina os possíveis valores de estado, cada um dos quais tem nome de exibição, nome, tipo de enumeração e valor. |
-| Unidade | Uma unidade para o valor da telemetria, como **mph,** **%** ou **&deg;C**. |
+| Unidade | Uma unidade para o valor da telemetria, como **mph,** **%** ou ** &deg;C**. |
 | Unidade de exibição | Uma unidade de visualização para utilização em tabliers e formulários. |
 | Comentário | Qualquer comentário sobre a capacidade de telemetria. |
 | Descrição | Uma descrição da capacidade de telemetria. |
@@ -138,13 +138,13 @@ A tabela que se segue mostra as definições de configuração para uma capacida
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade utilizado em tabliers e formulários. |
 | Nome | O nome da propriedade. A IoT Central gera um valor para este campo a partir do nome de exibição, mas pode escolher o seu próprio valor se necessário. |
-| Tipo de capacidade | A propriedade. |
+| Tipo de Capacidade | A propriedade. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina qual dos seguintes campos está disponível. |
 | Esquema | O tipo de dados da propriedade, como duplo, corda ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado. |
-| Repreensível | Se a propriedade não for reempreciável, o dispositivo pode reportar valores de propriedade à IoT Central. Se a propriedade for reempreensível, o dispositivo pode reportar valores de propriedade à IoT Central e ioT Central pode enviar atualizações de propriedade para o dispositivo.
+| Gravável | Se a propriedade não for reempreciável, o dispositivo pode reportar valores de propriedade à IoT Central. Se a propriedade for reempreensível, o dispositivo pode reportar valores de propriedade à IoT Central e ioT Central pode enviar atualizações de propriedade para o dispositivo.
 | Gravidade | Disponível apenas para o tipo semântico do evento. As severidades são **Error,** **Information**ou **Warning**. |
 | Valores do Estado | Disponível apenas para o tipo semântico do estado. Defina os possíveis valores de estado, cada um dos quais tem nome de exibição, nome, tipo de enumeração e valor. |
-| Unidade | Uma unidade para o valor da propriedade, como **mph,** **%,** ou **&deg;C**. |
+| Unidade | Uma unidade para o valor da **%** propriedade, como **mph,** ou ** &deg;C**. |
 | Unidade de exibição | Uma unidade de visualização para utilização em tabliers e formulários. |
 | Comentário | Qualquer comentário sobre a capacidade da propriedade. |
 | Descrição | Uma descrição da capacidade da propriedade. |
@@ -159,7 +159,7 @@ A tabela que se segue mostra as definições de configuração para uma capacida
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do comando utilizado nos tabliers e formulários. |
 | Nome | O nome do comando. A IoT Central gera um valor para este campo a partir do nome de exibição, mas pode escolher o seu próprio valor se necessário. |
-| Tipo de capacidade | O comando. |
+| Tipo de Capacidade | O comando. |
 | Comando | `SynchronousExecutionType`. |
 | Comentário | Qualquer comentário sobre a capacidade de comando. |
 | Descrição | Uma descrição da capacidade de comando. |
@@ -222,7 +222,7 @@ Para adicionar um dashboard a um modelo de dispositivo:
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Configure o dispositivo de pré-visualização para ver o painel de instrumentos
 
-Para visualizar e testar o seu painel de instrumentos, selecione configurar o dispositivo de **pré-visualização**. Isto permite-lhe ver o painel de instrumentos como o seu operador o vê depois de publicado. Utilize esta opção para validar que as suas opiniões mostram os dados corretos. Pode escolher entre os seguintes:
+Para visualizar e testar o seu painel de instrumentos, selecione configurar o dispositivo de **pré-visualização**. Isto permite-lhe ver o painel de instrumentos como o seu operador o vê depois de publicado. Utilize esta opção para validar que as suas opiniões mostram os dados corretos. Pode selecionar de entre o seguinte:
 
 - Sem dispositivo de pré-visualização.
 - O verdadeiro dispositivo de teste que configurapara o modelo do seu dispositivo.

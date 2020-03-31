@@ -1,7 +1,7 @@
 ---
-title: Monitorar o status e os resultados do indexador
+title: Monitorizar o estado do indexador e os resultados
 titleSuffix: Azure Cognitive Search
-description: Monitore o status, o progresso e os resultados dos indexadores do Azure Pesquisa Cognitiva no portal do Azure, usando a API REST ou o SDK do .NET.
+description: Monitorize o estado, o progresso e os resultados dos indexadores de Pesquisa Cognitiva Azure no portal Azure, utilizando a API REST, ou o .NET SDK.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,82 +10,82 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112990"
 ---
-# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorar o status e os resultados do indexador Pesquisa Cognitiva do Azure
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorizar o estado do indexador de pesquisa cognitiva Azure e os resultados
 
-O Azure Pesquisa Cognitiva fornece informações de status e monitoramento sobre as execuções atuais e históricas de todos os indexadores.
+A Pesquisa Cognitiva Azure fornece estado e monitorização de informações sobre as corridas atuais e históricas de cada indexante.
 
-O monitoramento do indexador é útil quando você deseja:
+A monitorização do indexante é útil quando deseja:
 
-* Acompanhe o progresso de um indexador durante uma execução em andamento.
-* Examine os resultados da execução do indexador em andamento ou anterior.
-* Identificar erros de indexador de nível superior e erros ou avisos sobre documentos individuais que estão sendo indexados.
+* Acompanhe o progresso de um indexante durante uma corrida em curso.
+* Reveja os resultados da execução do indexador em curso ou anterior.
+* Identifique erros indexadores de alto nível e erros ou avisos sobre a indexação de documentos individuais.
 
-## <a name="get-status-and-history"></a>Obter status e histórico
+## <a name="get-status-and-history"></a>Obter estatuto e história
 
-Você pode acessar as informações de monitoramento do indexador de várias maneiras, incluindo:
+Pode aceder a informações de monitorização de indexantes de várias formas, incluindo:
 
 * No [portal do Azure](#portal)
 * Usando a [API REST](#restapi)
-* Usando o [SDK do .net](#dotnetsdk)
+* Usando o [.NET SDK](#dotnetsdk)
 
-As informações de monitoramento do indexador disponíveis incluem todos os itens a seguir (embora os formatos de dados sejam diferentes com base no método de acesso usado):
+As informações de monitorização do indexante disponíveis incluem todos os seguintes (embora os formatos de dados diferam com base no método de acesso utilizado):
 
-* Informações de status sobre o próprio indexador
-* Informações sobre a execução mais recente do indexador, incluindo seu status, horários de início e de término e erros e avisos detalhados.
-* Uma lista de execuções do indexador histórico e seus status, resultados, erros e avisos.
+* Informação de estado sobre o próprio indexante
+* Informações sobre a mais recente execução do indexante, incluindo o seu estado, tempos de início e fim, e erros e avisos detalhados.
+* Uma lista de indexantes históricos corre, e os seus estatutos, resultados, erros e avisos.
 
-Os indexadores que processam grandes volumes de dados podem levar muito tempo para serem executados. Por exemplo, indexadores que manipulam milhões de documentos de origem podem ser executados por 24 horas e, em seguida, reiniciam quase imediatamente. O status de indexadores de alto volume pode sempre dizer **em andamento** no Portal. Mesmo quando um indexador estiver em execução, os detalhes estarão disponíveis sobre o progresso em andamento e as execuções anteriores.
+Os indexadores que processam grandes volumes de dados podem demorar muito tempo a ser executados. Por exemplo, os indexadores que lidam com milhões de documentos de origem podem funcionar durante 24 horas e, em seguida, reiniciar quase imediatamente. O estatuto dos indexadores de alto volume pode sempre dizer **in Progress** no portal. Mesmo quando um indexante está em execução, existem detalhes sobre o progresso em curso e as execuções anteriores.
 
 <a name="portal"></a>
 
-## <a name="monitor-using-the-portal"></a>Monitorar usando o portal
+## <a name="monitor-using-the-portal"></a>Monitor usando o portal
 
-Você pode ver o status atual de todos os seus indexadores na lista de **indexadores** na página de visão geral do serviço de pesquisa.
+Pode ver o estado atual de todos os seus indexers na lista **de Indexers** na página de visão geral do seu serviço de pesquisa.
 
    ![Lista de indexadores](media/search-monitor-indexers/indexers-list.png "Lista de indexadores")
 
-Quando um indexador está em execução, o status na lista mostra **em andamento**e o valor **documentos com êxito** mostra o número de documentos processados até o momento. Pode levar alguns minutos para que o portal atualize os valores de status e contagens de documentos do indexador.
+Quando um indexante está a executar, o estado na lista mostra **in Progress**, e o valor bem sucedido do **Docs** mostra o número de documentos processados até agora. Pode levar alguns minutos para o portal atualizar os valores de estado do indexador e contagens de documentos.
 
-Um indexador cuja execução mais recente foi bem-sucedida mostra **êxito**. Uma execução de indexador pode ser bem-sucedida mesmo que documentos individuais tenham erros, se o número de erros for menor que a configuração de **itens de falha máximo** do indexador.
+Um indexante cuja mais recente execução foi bem sucedida mostra **sucesso.** Uma execução de indexante pode ser bem sucedida mesmo que os documentos individuais tenham erros, se o número de erros for inferior à definição de **itens de itens falhados** do indexante Max.
 
-Se a execução mais recente terminar com um erro, o status mostrará **falha**. Um status de **Redefinir** significa que o estado de controle de alterações do indexador foi redefinido.
+Se a execução mais recente terminou com um erro, o estado mostra **falhado**. Um estado de **Reset** significa que o estado de rastreio de mudança do indexante foi reposto.
 
-Clique em um indexador na lista para ver mais detalhes sobre as execuções atuais e recentes do indexador.
+Clique num indexador na lista para ver mais detalhes sobre as correntes e recentes corridas do indexante.
 
-   ![Resumo do indexador e histórico de execução](media/search-monitor-indexers/indexer-summary.png "Resumo do indexador e histórico de execução")
+   ![Resumo indexante e história de execução](media/search-monitor-indexers/indexer-summary.png "Resumo indexante e história de execução")
 
-O gráfico de **Resumo do indexador** exibe um grafo do número de documentos processados em suas execuções mais recentes.
+O gráfico **resumo do Indexer** apresenta um gráfico do número de documentos processados nas suas mais recentes execuções.
 
-A lista **detalhes da execução** mostra até 50 dos resultados de execução mais recentes.
+A lista de detalhes da **Execução** mostra 50 dos resultados mais recentes da execução.
 
-Clique em um resultado de execução na lista para ver as informações específicas sobre essa execução. Isso inclui os horários de início e término e quaisquer erros e avisos ocorridos.
+Clique num resultado de execução na lista para ver detalhes sobre essa execução. Isto inclui os seus tempos de início e fim, e quaisquer erros e avisos que ocorreram.
 
-   ![Detalhes de execução do indexador](media/search-monitor-indexers/indexer-execution.png "Detalhes de execução do indexador")
+   ![Detalhes de execução do indexante](media/search-monitor-indexers/indexer-execution.png "Detalhes de execução do indexante")
 
-Se houver problemas específicos ao documento durante a execução, eles serão listados nos campos erros e avisos.
+Se houver problemas específicos do documento durante a execução, serão listados nos campos De erros e avisos.
 
-   ![Detalhes do indexador com erros](media/search-monitor-indexers/indexer-execution-error.png "Detalhes do indexador com erros")
+   ![Detalhes do indexante com erros](media/search-monitor-indexers/indexer-execution-error.png "Detalhes do indexante com erros")
 
-Os avisos são comuns com alguns tipos de indexadores e nem sempre indicam um problema. Por exemplo indexadores que usam serviços cognitivas podem relatar avisos quando arquivos de imagem ou PDF não contêm nenhum texto para processar.
+Os avisos são comuns a alguns tipos de indexantes, e nem sempre indicam um problema. Por exemplo, os indexadores que utilizam serviços cognitivos podem relatar avisos quando os ficheiros de imagem ou PDF não contêm qualquer texto para processar.
 
-Para obter mais informações sobre como investigar erros e avisos do indexador, consulte [Solucionando problemas comuns do indexador no Azure pesquisa cognitiva](search-indexer-troubleshooting.md).
+Para obter mais informações sobre a investigação de erros e avisos de [indexantes, consulte problemas comuns de resolução de problemas na Pesquisa Cognitiva de Azure](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
-## <a name="monitor-using-rest-apis"></a>Monitorar usando APIs REST
+## <a name="monitor-using-rest-apis"></a>Monitor utilizando APIs REST
 
-Você pode recuperar o status e o histórico de execução de um indexador usando o [comando obter status do indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Pode recuperar o estado e o histórico de execução de um indexante utilizando o [comando Get Indexer Status:](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
-A resposta contém o status geral do indexador, a última invocação (ou em andamento) do indexador e o histórico de invocações recentes do indexador.
+A resposta contém o estatuto global do indexante, a última (ou em curso) invocação do indexante, e a história das recentes invocações indexadas.
 
     {
         "status":"running",
@@ -113,23 +113,23 @@ A resposta contém o status geral do indexador, a última invocação (ou em and
         }]
     }
 
-O histórico de execução contém até as 50 execuções mais recentes, que são classificadas em ordem cronológica inversa (mais recente primeiro).
+O histórico de execução contém até 50 runs mais recentes, que são classificados por ordem cronológica inversa (o primeiro mais recente).
 
-Observe que há dois valores de status diferentes. O status de nível superior é para o indexador em si. Um status de indexador de **em execução** significa que o indexador está configurado corretamente e disponível para execução, mas não está em execução no momento.
+Note que existem dois valores de estado diferentes. O estatuto de nível superior é para o próprio indexante. Um estado indexador de **funcionamento** significa que o indexante está configurado corretamente e disponível para funcionar, mas não que esteja atualmente em execução.
 
-Cada execução do indexador também tem seu próprio status que indica se a execução específica está em andamento (**em execução**) ou já concluída com o status **êxito**, **transientFailure**ou **persistentFailure** . 
+Cada execução do indexante também tem o seu próprio estatuto que indica se essa execução específica está em curso (**em execução)** ou já completada com um **sucesso**, **transientFailure**ou **persistenteEstado de Falha.** 
 
-Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico de execução separada é adicionada com um status de **redefinição** .
+Quando um indexante é reposto para refrescar o seu estado de rastreio de mudança, uma entrada separada do histórico de execução é adicionada com um estado de **reset.**
 
-Para obter mais detalhes sobre códigos de status e dados de monitoramento do indexador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Para obter mais detalhes sobre códigos de estado e dados de monitorização do indexante, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-using-the-net-sdk"></a>Monitorar usando o SDK do .NET
+## <a name="monitor-using-the-net-sdk"></a>Monitor utilizando o .NET SDK
 
-Você pode definir o agendamento de um indexador usando o SDK do .NET Pesquisa Cognitiva do Azure. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
+Pode definir o calendário para um indexante utilizando o Azure Cognitive Search .NET SDK. Para isso, inclua a propriedade de **horário** ao criar ou atualizar um Indexer.
 
-O exemplo C# a seguir grava informações sobre o status de um indexador e os resultados de sua execução mais recente (ou contínua) no console.
+O exemplo C# seguinte escreve informações sobre o estado de um indexante e os resultados da sua mais recente (ou em curso) corrida para a consola.
 
 ```csharp
 static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchService)
@@ -161,7 +161,7 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 }
 ```
 
-A saída no console terá uma aparência semelhante a esta:
+A saída na consola será parecida com esta:
 
     Indexer has run 18 times.
     Indexer Status: Running
@@ -172,14 +172,14 @@ A saída no console terá uma aparência semelhante a esta:
       ErrorMessage: none
       Document Errors: 0, Warnings: 0
 
-Observe que há dois valores de status diferentes. O status de nível superior é o status do próprio indexador. Um status de indexador de **em execução** significa que o indexador está configurado corretamente e disponível para execução, mas não está em execução no momento.
+Note que existem dois valores de estado diferentes. O estatuto de nível superior é o estatuto do próprio indexante. Um estado indexador de **Execução** significa que o indexante está corretamente configurado e disponível para execução, mas não que esteja atualmente a executar.
 
-Cada execução do indexador também tem seu próprio status para se a execução específica está em andamento (**em execução**) ou já foi concluída com um status de **êxito** ou **TransientError** . 
+Cada execução do indexante também tem o seu próprio estatuto para saber se essa execução específica está em curso (**Running),** ou se já foi concluída com um estado de **Sucesso** ou **TransientError.** 
 
-Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico separada é adicionada com um status de **redefinição** .
+Quando um indexante é reposto para refrescar o seu estado de rastreio de mudança, uma entrada de histórico separada é adicionada com um estado de **reset.**
 
-Para obter mais detalhes sobre códigos de status e informações de monitoramento do indexador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) na API REST.
+Para obter mais detalhes sobre códigos de estado e informações de monitorização do indexante, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) na API REST.
 
-Detalhes sobre erros ou avisos específicos do documento podem ser recuperados enumerando as listas `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings`.
+Os detalhes sobre erros ou advertências específicos do `IndexerExecutionResult.Errors` `IndexerExecutionResult.Warnings`documento podem ser recuperados enumerando as listas e .
 
-Para obter mais informações sobre as classes do SDK do .NET usadas para monitorar indexadores, consulte [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Para obter mais informações sobre as classes .NET SDK utilizadas para monitorizar os indexadores, consulte [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283163"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar navegação faceada na Pesquisa Cognitiva Azure
@@ -27,7 +27,7 @@ A implementação da navegação faceada difere em todas as tecnologias de pesqu
 
 -   Nas consultas que a sua aplicação constrói, uma consulta deve enviar parâmetros de consulta de *facet* para obter os valores de filtro de faceta disponíveis para esse conjunto de resultados do documento.
 
--   Para realmente aparar o conjunto de resultados do documento, a aplicação também deve aplicar uma expressão `$filter`.
+-   Para realmente aparar o conjunto de resultados do documento, a aplicação também deve aplicar uma `$filter` expressão.
 
 No desenvolvimento da sua aplicação, o código de escrita que constrói consultas constitui a maior parte da obra. Muitos dos comportamentos de aplicação que seria de esperar da navegação facetada são fornecidos pelo serviço, incluindo suporte incorporado para definir gamas e obter contagens para resultados de faceta. O serviço também inclui incumprimentos sensatos que o ajudam a evitar estruturas de navegação desequilibradas. 
 
@@ -47,19 +47,19 @@ A experiência de pesquisa para navegação facetada é iterativa, por isso vamo
 
 O ponto de partida é uma página de aplicação que fornece navegação faceada, tipicamente colocada na periferia. A navegação facetada é muitas vezes uma estrutura de árvore, com caixas de verificação para cada valor, ou texto clicável. 
 
-1. Uma consulta enviada para a Pesquisa Cognitiva Azure especifica a estrutura de navegação faceada através de um ou mais parâmetros de consulta de faceta. Por exemplo, a consulta pode incluir `facet=Rating`, talvez com uma opção `:values` ou `:sort` para aperfeiçoar ainda mais a apresentação.
+1. Uma consulta enviada para a Pesquisa Cognitiva Azure especifica a estrutura de navegação faceada através de um ou mais parâmetros de consulta de faceta. Por exemplo, a consulta `facet=Rating`pode incluir, `:values` `:sort` talvez com uma ou opção para aperfeiçoar ainda mais a apresentação.
 2. A camada de apresentação torna uma página de pesquisa que fornece navegação faceada, utilizando as facetas especificadas no pedido.
 3. Dada uma estrutura de navegação facetada que inclui rating, clique em "4" para indicar que apenas devem ser mostrados produtos com uma classificação de 4 ou superior. 
-4. Em resposta, o pedido envia uma consulta que inclui `$filter=Rating ge 4` 
+4. Em resposta, a aplicação envia uma consulta que inclui`$filter=Rating ge 4` 
 5. A camada de apresentação atualiza a página, mostrando um conjunto de resultados reduzido, contendo apenas os itens que satisfazem os novos critérios (neste caso, os produtos avaliados em 4 e acima).
 
 Uma faceta é um parâmetro de consulta, mas não a confunde com a entrada de consulta. Nunca é usado como critério de seleção numa consulta. Em vez disso, pense nos parâmetros de consulta de faceta como inputs para a estrutura de navegação que volta na resposta. Para cada parâmetro de consulta facial que fornece, a Pesquisa Cognitiva Azure avalia quantos documentos estão nos resultados parciais para cada valor faceta.
 
-Reparem na `$filter` no passo 4. O filtro é um aspeto importante da navegação faceada. Embora as facetas e filtros sejam independentes na API, você precisa de ambos para fornecer a experiência que pretende. 
+Reparem `$filter` no passo 4. O filtro é um aspeto importante da navegação faceada. Embora as facetas e filtros sejam independentes na API, você precisa de ambos para fornecer a experiência que pretende. 
 
 ### <a name="app-design-pattern"></a>Padrão de design de aplicativos
 
-No código de aplicação, o padrão é usar parâmetros de consulta de faceta para devolver a estrutura de navegação facetada juntamente com os resultados da faceta, além de uma expressão $filter.  A expressão do filtro trata do clique no valor da faceta. Pense na expressão `$filter` como o código por trás do corte real dos resultados da pesquisa voltou à camada de apresentação. Dada a faceta das Cores, clicar na cor Vermelha é implementada através de uma expressão `$filter` que seleciona apenas os itens que têm uma cor de vermelho. 
+No código de aplicação, o padrão é usar parâmetros de consulta de faceta para devolver a estrutura de navegação facetada juntamente com os resultados da faceta, além de uma expressão $filter.  A expressão do filtro trata do clique no valor da faceta. Pense na `$filter` expressão como o código por trás do corte real dos resultados da pesquisa voltou à camada de apresentação. Dada a faceta das Cores, clicar `$filter` na cor Vermelha é implementada através de uma expressão que seleciona apenas os itens que têm uma cor de vermelho. 
 
 ### <a name="query-basics"></a>Básicos de consulta
 
@@ -68,10 +68,10 @@ Na Pesquisa Cognitiva Azure, um pedido é especificado através de um ou mais pa
 A precisão, entendida como a capacidade de filtrar sucessos irrelevantes, é conseguida através de uma ou ambas as expressões:
 
 -   **pesquisa=**  
-    O valor deste parâmetro constitui a expressão de pesquisa. Pode ser uma única peça de texto, ou uma expressão de pesquisa complexa que inclui vários termos e operadores. No servidor, uma expressão de pesquisa é usada para pesquisa de texto completo, consultando campos pesquisáveis no índice para termos correspondentes, devolvendo resultados na ordem de classificação. Se você definir `search` a nula, a execução de consulta é sobre todo o índice (isto é, `search=*`). Neste caso, outros elementos da consulta, como um `$filter` ou perfil de pontuação, são os principais fatores que afetam os documentos que são devolvidos `($filter`) e em que ordem (`scoringProfile` ou `$orderby`).
+    O valor deste parâmetro constitui a expressão de pesquisa. Pode ser uma única peça de texto, ou uma expressão de pesquisa complexa que inclui vários termos e operadores. No servidor, uma expressão de pesquisa é usada para pesquisa de texto completo, consultando campos pesquisáveis no índice para termos correspondentes, devolvendo resultados na ordem de classificação. Se você `search` se definir para nulo, a execução `search=*`da consulta é sobre todo o índice (isto é, ). Neste caso, outros elementos da consulta, `$filter` como um ou perfil de pontuação, são `($filter`os principais fatores que afetam os documentos devolvidos e em que ordem (`scoringProfile` ou `$orderby`).
 
 -   **$filter=**  
-    Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados de pesquisa com base nos valores de atributos específicos do documento. Um `$filter` é avaliado primeiro, seguido por uma lógica de faceta que gera os valores disponíveis e as contagens correspondentes para cada valor
+    Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados de pesquisa com base nos valores de atributos específicos do documento. A `$filter` é avaliado primeiro, seguido por uma lógica de faceta que gera os valores disponíveis e as contagens correspondentes para cada valor
 
 Expressões de pesquisa complexas diminuem o desempenho da consulta. Sempre que possível, utilize expressões de filtro bem construídas para aumentar a precisão e melhorar o desempenho da consulta.
 
@@ -91,13 +91,13 @@ Nas aplicações que incluem navegação facetada, certifique-se de que cada aç
 ## <a name="build-a-faceted-navigation-app"></a>Construir uma aplicação de navegação facetada
 Implementa navegação faceada com a Pesquisa Cognitiva Azure no seu código de aplicação que constrói o pedido de pesquisa. A navegação facetada baseia-se em elementos do seu esquema que definiu anteriormente.
 
-Predefinido no seu índice de pesquisa é o atributo de índice `Facetable [true|false]`, definido em campos selecionados para ativar ou desativar a sua utilização numa estrutura de navegação facetada. Sem `"Facetable" = true`, um campo não pode ser utilizado na navegação de faceta.
+Predefinido no seu índice `Facetable [true|false]` de pesquisa é o atributo indexado, definido em campos selecionados para permitir ou desativar a sua utilização numa estrutura de navegação facetada. Sem, `"Facetable" = true`um campo não pode ser utilizado na navegação de faceta.
 
 A camada de apresentação do seu código proporciona a experiência do utilizador. Deve enumerar as partes constituintes da navegação facetada, tais como o rótulo, os valores, as caixas de verificação e a contagem. A API de pesquisa cognitiva Azure É agnóstica de plataforma, por isso use qualquer idioma e plataforma que queira. O importante é incluir elementos ui que suportem a atualização incremental, com estado ui atualizado à medida que cada faceta adicional é selecionada. 
 
-No momento da consulta, o seu código de candidatura cria um pedido que inclui `facet=[string]`, um parâmetro de pedido que fornece o campo para enfrentar. Uma consulta pode ter múltiplas facetas, como `&facet=color&facet=category&facet=rating`, cada uma separada por um caráter ampersand (&).
+No momento da consulta, o seu `facet=[string]`código de candidatura cria um pedido que inclui , um parâmetro de pedido que fornece o campo para enfrentar. Uma consulta pode ter múltiplas facetas, tais como, `&facet=color&facet=category&facet=rating`cada uma separada por um caráter ampersand (&).
 
-O código de aplicação também deve construir uma expressão `$filter` para lidar com os eventos de clique na navegação faceada. Um `$filter` reduz os resultados da pesquisa, utilizando o valor faceta como critérios de filtro.
+O código de `$filter` aplicação também deve construir uma expressão para lidar com os eventos de clique na navegação faceada. A `$filter` reduz os resultados da pesquisa, utilizando o valor faceta como critérios de filtro.
 
 A Pesquisa Cognitiva Azure devolve os resultados da pesquisa, com base num ou mais termos em que entra, juntamente com atualizações para a estrutura de navegação facetada. Na Pesquisa Cognitiva Azure, a navegação facetada é uma construção de nível único, com valores de faceta, e conta quantos resultados são encontrados para cada um.
 
@@ -106,10 +106,10 @@ Nas seguintes secções, olhamos mais de perto como construir cada parte.
 <a name="buildindex"></a>
 
 ## <a name="build-the-index"></a>Construir o índice
-O faceting é ativado numa base de campo a campo no índice, através deste atributo indicador: `"Facetable": true`.  
-Todos os tipos de campo que possam ser utilizados na navegação faceada são `Facetable` por defeito. Estes tipos de campo incluem `Edm.String`, `Edm.DateTimeOffset`, e todos os tipos de campo numéricos (essencialmente, todos os tipos de campo são frontáveis exceto `Edm.GeographyPoint`, que não podem ser usados na navegação facial). 
+O faceting é ativado numa base de campo a campo no `"Facetable": true`índice, através deste atributo indicador: .  
+Todos os tipos de campo que possam `Facetable` ser utilizados na navegação faceada são por defeito. Tais tipos `Edm.String`de `Edm.DateTimeOffset`campo incluem, e todos os tipos de campo `Edm.GeographyPoint`numéricos (essencialmente, todos os tipos de campo são frontáveis exceto , que não podem ser usados na navegação facial). 
 
-Ao construir um índice, a melhor prática para a navegação facetada é desligar explicitamente os campos que nunca devem ser usados como faceta.  Em especial, os campos de cordas para valores singleton, tais como identificação ou nome do produto, devem ser definidos para `"Facetable": false` para evitar a sua utilização acidental (e ineficaz) na navegação facial. Desligar-se onde não precisa ajuda a manter o tamanho do índice pequeno, e tipicamente melhora o desempenho.
+Ao construir um índice, a melhor prática para a navegação facetada é desligar explicitamente os campos que nunca devem ser usados como faceta.  Em especial, devem ser definidos campos de cordas para valores singleton, tais como identificação ou nome do produto, para `"Facetable": false` evitar a sua utilização acidental (e ineficaz) na navegação facial. Desligar-se onde não precisa ajuda a manter o tamanho do índice pequeno, e tipicamente melhora o desempenho.
 
 Segue-se parte do esquema para a aplicação de amostra seletiva Do Portal de Trabalho, aparada de alguns atributos para reduzir o tamanho:
 
@@ -139,10 +139,10 @@ Segue-se parte do esquema para a aplicação de amostra seletiva Do Portal de Tr
 }
 ```
 
-Como pode ver no esquema da amostra, `Facetable` é desligado para campos de cordas que não devem ser usados como facetas, como valores de identificação. Desligar-se onde não precisa ajuda a manter o tamanho do índice pequeno, e tipicamente melhora o desempenho.
+Como pode ver no esquema da `Facetable` amostra, é desligado para campos de cordas que não devem ser usados como facetas, como valores de identificação. Desligar-se onde não precisa ajuda a manter o tamanho do índice pequeno, e tipicamente melhora o desempenho.
 
 > [!TIP]
-> Como uma boa prática, inclua o conjunto completo de atributos de índice para cada campo. Embora `Facetable` esteja por defeito em quase todos os campos, a definição propositada de cada atributo pode ajudá-lo a pensar através das implicações de cada decisão do esquema. 
+> Como uma boa prática, inclua o conjunto completo de atributos de índice para cada campo. Embora `Facetable` esteja ligado por padrão para quase todos os campos, definir propositadamente cada atributo pode ajudá-lo a pensar através das implicações de cada decisão do esquema. 
 
 <a name="checkdata"></a>
 
@@ -169,7 +169,7 @@ Em termos de navegação faceada, a sua página web ou aplicação exibe a estru
 
 Para aplicações web, o AJAX é comumente usado na camada de apresentação porque permite atualizar alterações incrementais. Também pode utilizar ASP.NET MVC ou qualquer outra plataforma de visualização que possa ligar-se a um serviço de Pesquisa Cognitiva Azure em HTTP. A aplicação da amostra referenciada ao longo deste artigo -- a Demonstração do Portal de Trabalho de **Pesquisa Cognitiva Azure** - passa a ser uma aplicação ASP.NET MVC.
 
-Na amostra, a navegação facetada é incorporada na página de resultados da pesquisa. O exemplo seguinte, retirado do ficheiro `index.cshtml` da aplicação da amostra, mostra a estrutura html estática para exibir navegação facial na página de resultados da pesquisa. A lista de facetas é construída ou reconstruída dinamicamente quando submete um termo de pesquisa, ou selecione ou limpe uma faceta.
+Na amostra, a navegação facetada é incorporada na página de resultados da pesquisa. O exemplo seguinte, `index.cshtml` retirado do ficheiro da aplicação da amostra, mostra a estrutura html estática para exibir navegação facetada na página de resultados da pesquisa. A lista de facetas é construída ou reconstruída dinamicamente quando submete um termo de pesquisa, ou selecione ou limpe uma faceta.
 
 ```html
 <div class="widget sidebar-widget jobs-filter-widget">
@@ -196,7 +196,7 @@ Na amostra, a navegação facetada é incorporada na página de resultados da pe
 </div>
 ```
 
-O seguinte código da página `index.cshtml` constrói dinamicamente o HTML para exibir a primeira faceta, Título de Negócios. Funções semelhantes constroem dinamicamente o HTML para as outras facetas. Cada faceta tem uma etiqueta e uma contagem, que mostra o número de itens encontrados para esse resultado faceta.
+O seguinte código da `index.cshtml` página constrói dinamicamente o HTML para exibir a primeira faceta, Título de Negócios. Funções semelhantes constroem dinamicamente o HTML para as outras facetas. Cada faceta tem uma etiqueta e uma contagem, que mostra o número de itens encontrados para esse resultado faceta.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -210,7 +210,7 @@ function UpdateBusinessTitleFacets(data) {
 ```
 
 > [!TIP]
-> Quando desenhar a página de resultados da pesquisa, lembre-se de adicionar um mecanismo para limpar facetas. Se adicionar caixas de verificação, pode facilmente ver como limpar os filtros. Para outros layouts, você pode precisar de um padrão de migalhas de pão ou outra abordagem criativa. Por exemplo, na aplicação de amostra do Portal de Pesquisa de Emprego, pode clicar no `[X]` depois de uma faceta selecionada para limpar a faceta.
+> Quando desenhar a página de resultados da pesquisa, lembre-se de adicionar um mecanismo para limpar facetas. Se adicionar caixas de verificação, pode facilmente ver como limpar os filtros. Para outros layouts, você pode precisar de um padrão de migalhas de pão ou outra abordagem criativa. Por exemplo, na aplicação de amostra do `[X]` Portal de Pesquisa de Emprego, pode clicar na faceta selecionada para limpar a faceta.
 
 <a name="buildquery"></a>
 
@@ -219,7 +219,7 @@ O código que escreve para consultas de construção deve especificar todas as p
 
 Note que as facetas são integrais nesta aplicação de amostra. A experiência de pesquisa na Demo do Portal de Trabalho é projetada em torno de navegação e filtros facetados. A colocação proeminente da navegação faceada na página demonstra a sua importância. 
 
-Um exemplo é muitas vezes um bom lugar para começar. O exemplo seguinte, retirado do ficheiro `JobsSearch.cs`, constrói um pedido que cria navegação faceta com base no Título de Negócio, Localização, Tipo de Publicação e Salário Mínimo. 
+Um exemplo é muitas vezes um bom lugar para começar. O exemplo seguinte, `JobsSearch.cs` retirado do ficheiro, constrói um pedido que cria navegação faceta com base no Título de Negócio, Localização, Tipo de Publicação e Salário Mínimo. 
 
 ```cs
 SearchParameters sp = new SearchParameters()
@@ -230,11 +230,11 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Um parâmetro de consulta facial é definido para um campo e, dependendo do tipo de dados, pode ser paralisado por lista de comma-delimitada que inclui `count:<integer>`, `sort:<>`, `interval:<integer>`e `values:<list>`. Uma lista de valores é suportada para dados numéricos ao configurar intervalos. Consulte documentos de [pesquisa (API de pesquisa cognitiva azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter detalhes de utilização.
+Um parâmetro de consulta facial é definido para um campo e, dependendo do tipo de dados, pode `count:<integer>` `sort:<>`ser `interval:<integer>`ainda `values:<list>`parametrizado por lista de comma-delimitada que inclui, , , e . Uma lista de valores é suportada para dados numéricos ao configurar intervalos. Consulte documentos de [pesquisa (API de pesquisa cognitiva azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter detalhes de utilização.
 
 Juntamente com as facetas, o pedido formulado pela sua aplicação também deve construir filtros para reduzir o conjunto de documentos candidatos com base numa seleção de valor faceta. Para uma loja de bicicletas, a navegação facetada fornece pistas para questões como *que cores, fabricantes e tipos de bicicletas estão disponíveis?* Filtrar responde a perguntas como *quais bicicletas exatas são vermelhas, bicicletas de montanha, nesta gama de preços?* Quando clica em "Vermelho" para indicar que apenas devem ser mostrados produtos Vermelhos, a próxima consulta que a aplicação envia inclui `$filter=Color eq 'Red'`.
 
-O seguinte código da página `JobsSearch.cs` adiciona o Título de Negócio selecionado ao filtro se selecionar um valor a partir da faceta do Título de Negócio.
+O seguinte código da `JobsSearch.cs` página adiciona o Título de Negócio selecionado ao filtro se selecionar um valor a partir da faceta do Título de Negócio.
 
 ```cs
 if (businessTitleFacet != "")
@@ -248,7 +248,7 @@ if (businessTitleFacet != "")
 ### <a name="indexing-tips"></a>Dicas de indexação
 **Melhore a eficiência do índice se não utilizar uma caixa de pesquisa**
 
-Se a sua aplicação utilizar a navegação facetada exclusivamente (isto é, sem caixa de pesquisa), pode marcar o campo como `searchable=false`, `facetable=true` produzir um índice mais compacto. Além disso, a indexação ocorre apenas em valores inteiros de faceta, sem quebra de palavras ou indexação das partes componentes de um valor de várias palavras.
+Se a sua aplicação utilizar a navegação facetada exclusivamente `searchable=false` `facetable=true` (isto é, sem caixa de pesquisa), pode marcar o campo como, para produzir um índice mais compacto. Além disso, a indexação ocorre apenas em valores inteiros de faceta, sem quebra de palavras ou indexação das partes componentes de um valor de várias palavras.
 
 **Especificar quais os campos que podem ser usados como facetas**
 
@@ -265,7 +265,7 @@ Como notado, não há apoio direto para as facetas nidificantes numa hierarquia.
 ### <a name="querying-tips"></a>Dicas de consulta
 **Verlidar campos**
 
-Se construir a lista de facetas dinamicamente com base na entrada de utilizador não confiável, valide que os nomes dos campos facetados são válidos. Ou, escapar aos nomes ao construir URLs utilizando `Uri.EscapeDataString()` em .NET, ou o equivalente na sua plataforma de eleição.
+Se construir a lista de facetas dinamicamente com base na entrada de utilizador não confiável, valide que os nomes dos campos facetados são válidos. Ou, escapar aos nomes ao construir `Uri.EscapeDataString()` URLs utilizando ou em .NET, ou o equivalente na sua plataforma de eleição.
 
 ### <a name="filtering-tips"></a>Dicas de filtragem
 **Aumentar a precisão de pesquisa com filtros**
@@ -282,7 +282,7 @@ Em perfuração facetada, você normalmente quer incluir apenas documentos que t
 
 **Aparar resultados da faceta com mais filtros**
 
-Os resultados da faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo faceta. No exemplo seguinte, nos resultados de pesquisa para *computação em nuvem,* 254 itens também têm *especificação interna* como tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item satisfaz os critérios de ambos os filtros, é contado em cada um. Esta duplicação é possível quando se enfrenta em campos `Collection(Edm.String)`, que são frequentemente utilizados para implementar a marcação de documentos.
+Os resultados da faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo faceta. No exemplo seguinte, nos resultados de pesquisa para *computação em nuvem,* 254 itens também têm *especificação interna* como tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item satisfaz os critérios de ambos os filtros, é contado em cada um. Esta duplicação é possível `Collection(Edm.String)` quando se enfrenta em campos, que são frequentemente utilizados para implementar a marcação de documentos.
 
         Search term: "cloud computing"
         Content type
@@ -297,7 +297,7 @@ Em geral, se descobrir que os resultados da faceta são consistentemente demasia
 
 Para cada campo facetado na árvore de navegação, há um limite padrão de 10 valores. Este padrão faz sentido para as estruturas de navegação porque mantém a lista de valores num tamanho manejável. Pode anular o padrão atribuindo um valor a contar.
 
-* `&facet=city,count:5` especifica que apenas as cinco primeiras cidades encontradas nos melhores resultados são devolvidas como resultado de faceta. Considere uma consulta de amostra com um termo de pesquisa de "aeroporto" e 32 fósforos. Se a consulta especificar `&facet=city,count:5`, apenas as cinco primeiras cidades únicas com mais documentos nos resultados da pesquisa estão incluídas nos resultados da faceta.
+* `&facet=city,count:5`especifica que apenas as cinco primeiras cidades encontradas nos resultados mais bem classificados são devolvidas como resultado faceta. Considere uma consulta de amostra com um termo de pesquisa de "aeroporto" e 32 fósforos. Se a consulta `&facet=city,count:5`especificar , apenas as cinco primeiras cidades únicas com mais documentos nos resultados da pesquisa estão incluídas nos resultados da faceta.
 
 Note a distinção entre resultados de faceta e resultados de pesquisa. Os resultados da pesquisa são todos os documentos que coincidem com a consulta. Os resultados da faceta são os fósforos para cada valor faceta. No exemplo, os resultados da pesquisa incluem nomes da Cidade que não estão na lista de classificação faceta (5 no nosso exemplo). Os resultados filtrados através da navegação faceta tornam-se visíveis quando se limpam as facetas, ou escolhem outras facetas para além da Cidade. 
 
@@ -307,13 +307,13 @@ Note a distinção entre resultados de faceta e resultados de pesquisa. Os resul
 * `@colorFacet.count`<br/>
   No código de apresentação, deve ver um parâmetro de contagem na faceta, utilizado para apresentar o número de resultados da faceta. Nos resultados da faceta, a contagem indica o número de documentos que correspondem ao termo ou intervalo faceta.
 * `&facet=City,count:12`<br/>
-  Numa consulta de rosto, pode definir a contagem para um valor.  O padrão é de 10, mas pode defini-lo mais alto ou inferior. Definição `count:12` obtém os 12 melhores jogos em resultados de faceta por contagem de documentos.
+  Numa consulta de rosto, pode definir a contagem para um valor.  O padrão é de 10, mas pode defini-lo mais alto ou inferior. A `count:12` definição obtém os 12 melhores jogos em resultados de faceta por contagem de documentos.
 * "`@odata.count`"<br/>
   Na resposta à consulta, este valor indica o número de itens correspondentes nos resultados da pesquisa. Em média, é maior do que a soma de todos os resultados da faceta combinados, devido à presença de itens que correspondem ao termo de pesquisa, mas não têm correspondência de valor faceta.
 
 **Obtenha contagens nos resultados da faceta**
 
-Quando adicionar um filtro a uma consulta facetada, é melhor reter a declaração de faceta (por exemplo, `facet=Rating&$filter=Rating ge 4`). Tecnicamente, facet=Rating não é necessário, mas mantê-lo devolve as contagens de valores faciais para classificações 4 e superiores. Por exemplo, se clicar em "4" e a consulta incluir um filtro maior ou igual a "4", as contagens são devolvidas para cada classificação que seja 4 e superior.  
+Quando adicionar um filtro a uma consulta facetada, é melhor reter `facet=Rating&$filter=Rating ge 4`a declaração de faceta (por exemplo, ). Tecnicamente, facet=Rating não é necessário, mas mantê-lo devolve as contagens de valores faciais para classificações 4 e superiores. Por exemplo, se clicar em "4" e a consulta incluir um filtro maior ou igual a "4", as contagens são devolvidas para cada classificação que seja 4 e superior.  
 
 **Certifique-se de obter contas precisas de faceta**
 
@@ -321,12 +321,12 @@ Em certas circunstâncias, pode descobrir que as contagens de faceta não corres
 
 As contagens de faceta podem ser imprecisas devido à arquitetura sharding. Cada índice de pesquisa tem vários fragmentos, e cada fragmento reporta as facetas N superiores por contagem de documentos, que é então combinado em um único resultado. Se alguns fragmentos tiverem muitos valores correspondentes, enquanto outros têm menos, pode descobrir que alguns valores de faceta estão em falta ou sub-contados nos resultados.
 
-Embora este comportamento possa mudar a qualquer momento, se você encontrar este comportamento hoje, você pode trabalhar em torno dele inflacionando artificialmente a contagem:\<número> para um grande número para impor relatórios completos de cada fragmento. Se o valor da contagem: é maior ou igual ao número de valores únicos no campo, é garantido resultados precisos. No entanto, quando as contagens de documentos são elevadas, há uma penalidade de desempenho, por isso use esta opção criteriosamente.
+Embora este comportamento possa mudar a qualquer momento, se você encontrar este comportamento hoje,\<você pode trabalhar em torno dele inflacionando artificialmente a contagem: número> a um grande número para impor relatórios completos de cada fragmento. Se o valor da contagem: é maior ou igual ao número de valores únicos no campo, é garantido resultados precisos. No entanto, quando as contagens de documentos são elevadas, há uma penalidade de desempenho, por isso use esta opção criteriosamente.
 
 ### <a name="user-interface-tips"></a>Dicas de interface do utilizador
 **Adicione etiquetas para cada campo na navegação faceta**
 
-As etiquetas são tipicamente definidas no HTML ou na forma (`index.cshtml` na aplicação da amostra). Não existe API na Pesquisa Cognitiva Azure para etiquetas de navegação de facetas ou quaisquer outros metadados.
+As etiquetas são tipicamente definidas`index.cshtml` no HTML ou na forma (na aplicação da amostra). Não existe API na Pesquisa Cognitiva Azure para etiquetas de navegação de facetas ou quaisquer outros metadados.
 
 <a name="rangefacets"></a>
 
@@ -336,10 +336,10 @@ Enfrentar uma série de valores é um requisito comum de aplicação de pesquisa
 A Pesquisa Cognitiva Azure simplifica a construção de gama, fornecendo duas abordagens para a computação de uma gama. Para ambas as abordagens, a Pesquisa Cognitiva Azure cria as gamas adequadas dadas as inputs que forneceu. Por exemplo, se especificar valores de intervalo de 10/20/30, cria automaticamente intervalos de 0-10, 10-20, 20-30. A sua aplicação pode remover opcionalmente quaisquer intervalos que estejam vazios. 
 
 **Abordagem 1: Utilize o parâmetro de intervalo**  
-Para definir facetas de preço em incrementos de $10, especifica: `&facet=price,interval:10`
+Para definir facetas de preço em incrementos de $10, especificaria:`&facet=price,interval:10`
 
 **Abordagem 2: Utilize uma lista de valores**  
-Para dados numéricos, pode utilizar uma lista de valores.  Considere a gama de facetas para um campo `listPrice`, prestado da seguinte forma:
+Para dados numéricos, pode utilizar uma lista de valores.  Considere a gama de `listPrice` facetas para um campo, prestado da seguinte forma:
 
   ![Lista de valores da amostra](media/search-faceted-navigation/Facet-5-Prices.PNG "Lista de valores da amostra")
 
@@ -350,7 +350,7 @@ Para especificar uma gama de facetas como a da imagem anterior, utilize uma list
 Cada gama é construída usando 0 como ponto de partida, um valor da lista como ponto final, e depois aparada da gama anterior para criar intervalos discretos. A Pesquisa Cognitiva Azure faz estas coisas como parte da navegação facial. Não é preciso escrever código para estruturar cada intervalo.
 
 ### <a name="build-a-filter-for-a-range"></a>Construa um filtro para uma gama
-Para filtrar documentos com base numa gama selecionada, pode utilizar os operadores de filtro `"ge"` e `"lt"` numa expressão em duas partes que define os pontos finais da gama. Por exemplo, se escolher o intervalo 10-25 para um campo de `listPrice`, o filtro seria `$filter=listPrice ge 10 and listPrice lt 25`. No código da amostra, a expressão do filtro utiliza **preçosFrom** e **preçosPara** definir os pontos finais. 
+Para filtrar documentos com base numa `"ge"` gama `"lt"` selecionada, pode utilizar os operadores e filtrar numa expressão em duas partes que define os pontos finais da gama. Por exemplo, se escolher o intervalo 10-25 para `listPrice` `$filter=listPrice ge 10 and listPrice lt 25`um campo, o filtro seria . No código da amostra, a expressão do filtro utiliza **preçosFrom** e **preçosPara** definir os pontos finais. 
 
   ![Consulta para uma gama de valores](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Consulta para uma gama de valores")
 
@@ -377,7 +377,7 @@ A Demo do Portal de Trabalho de Pesquisa Cognitiva Azure contém os exemplos ref
 
 Enquanto trabalha com os resultados da pesquisa, observe o URL para obter alterações na construção de consultas. Esta aplicação acontece para anexar facetas ao URI à medida que seleciona cada uma.
 
-1. Para utilizar a funcionalidade de mapeamento da aplicação de demonstração, obtenha uma chave Bing Maps do [Bing Maps Dev Center](https://www.bingmapsportal.com/). Colá-lo sobre a chave existente na página `index.cshtml`. A definição `BingApiKey` no ficheiro `Web.config` não é utilizada. 
+1. Para utilizar a funcionalidade de mapeamento da aplicação de demonstração, obtenha uma chave Bing Maps do [Bing Maps Dev Center](https://www.bingmapsportal.com/). Colá-lo sobre a chave `index.cshtml` existente na página. A `BingApiKey` definição `Web.config` do ficheiro não é utilizada. 
 
 2. Execute a aplicação. Faça o passeio opcional ou dispense a caixa de diálogo.
    
@@ -391,7 +391,7 @@ Enquanto trabalha com os resultados da pesquisa, observe o URL para obter altera
    
    ![Pesquisar resultados após selecionar facetas](media/search-faceted-navigation/faceted-search-after-facets.png "Pesquisar resultados após selecionar facetas")
 
-5. Para limpar a consulta facetada para que possa experimentar diferentes comportamentos de consulta, clique no `[X]` após as facetas selecionadas para limpar as facetas.
+5. Para limpar a consulta facetada para que possa experimentar `[X]` diferentes comportamentos de consulta, clique no seguinte as facetas selecionadas para limpar as facetas.
    
 <a name="nextstep"></a>
 

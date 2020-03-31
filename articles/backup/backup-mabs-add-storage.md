@@ -1,85 +1,85 @@
 ---
-title: Usar Armazenamento de Backup Moderno com Servidor de Backup do Azure
-description: Saiba mais sobre os novos recursos do Servidor de Backup do Azure. Este artigo descreve como atualizar a instalação do servidor de backup.
+title: Utilize armazenamento de backup moderno com servidor de backup Azure
+description: Conheça as novidades no Azure Backup Server. Este artigo descreve como atualizar a instalação do Seu Servidor de Backup.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172385"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
-O Servidor de Backup do Azure V2 e posterior dá suporte a Armazenamento de Backup Moderno que oferece economia de armazenamento de 50%, backups que são três vezes mais rápidos e armazenamento mais eficiente. Ele também oferece armazenamento com reconhecimento de carga de trabalho.
+O Azure Backup Server V2 e mais tarde suporta o Armazenamento de Backup Moderno que oferece uma poupança de armazenamento de 50%, backups que são três vezes mais rápidos e armazenamento mais eficiente. Também oferece armazenamento consciente da carga de trabalho.
 
 > [!NOTE]
-> Para usar Armazenamento de Backup Moderno, você deve executar o servidor de backup v2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
-> Se você executar o servidor de backup V2 em uma versão anterior do Windows Server, Servidor de Backup do Azure não poderá aproveitar Armazenamento de Backup Moderno. Em vez disso, ele protege as cargas de trabalho como faz com o servidor de backup v1. Para obter mais informações, consulte a matriz de [proteção](backup-mabs-protection-matrix.md)de versão do servidor de backup.
+> Para utilizar o Armazenamento de Backup Moderno, tem de executar o Servidor de Backup V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
+> Se executar o Backup Server V2 numa versão anterior do Windows Server, o Azure Backup Server não pode tirar partido do Armazenamento de Backup Moderno. Em vez disso, protege as cargas de trabalho como faz com o Servidor de Backup V1. Para mais informações, consulte a matriz de [proteção](backup-mabs-protection-matrix.md)da versão 'Backup Server'.
 >
-> Para obter desempenho de backup aprimorado, recomendamos implantar o MABS v3 com armazenamento em camadas no Windows Server 2019. Veja o artigo do DPM "[Configurar MBS com armazenamento em camadas](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter as etapas para configurar o armazenamento em camadas.
+> Para obter desempenhos de backup melhorados, recomendamos implementar MABS v3 com armazenamento hierárquico no Windows Server 2019. Consulte o artigo do DPM "[Configure MBS com Armazenamento Hierárquico](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para os passos para configurar o armazenamento hierárquico.
 
-## <a name="volumes-in-backup-server"></a>Volumes no servidor de backup
+## <a name="volumes-in-backup-server"></a>Volumes no Servidor de Backup
 
-O servidor de backup v2 ou posterior aceita volumes de armazenamento. Quando você adiciona um volume, o servidor de backup formata o volume para o ReFS (sistema de arquivos resiliente), que Armazenamento de Backup Moderno requer. Para adicionar um volume e expandi-lo mais tarde, se necessário, sugerimos que você use este fluxo de trabalho:
+O Servidor de Backup V2 ou mais tarde aceita volumes de armazenamento. Quando adiciona um volume, o Servidor de Backup formata o volume para o Sistema de Ficheiros Resiliente (ReFS), que o Armazenamento de Backup moderno requer. Para adicionar um volume, e expandi-lo mais tarde, se precisar, sugerimos que use este fluxo de trabalho:
 
-1. Configure o servidor de backup em uma VM.
-2. Criar um volume em um disco virtual em um pool de armazenamento:
-    1. Adicione um disco a um pool de armazenamento e crie um disco virtual com layout simples.
-    2. Adicione discos adicionais e estenda o disco virtual.
+1. Configurar o Servidor de Backup num VM.
+2. Crie um volume num disco virtual numa piscina de armazenamento:
+    1. Adicione um disco a uma piscina de armazenamento e crie um disco virtual com layout simples.
+    2. Adicione quaisquer discos adicionais e estenda o disco virtual.
     3. Crie volumes no disco virtual.
-3. Adicione os volumes ao servidor de backup.
-4. Configure o armazenamento com reconhecimento de carga de trabalho.
+3. Adicione os volumes ao Servidor de Backup.
+4. Configure o armazenamento consciente da carga de trabalho.
 
-## <a name="create-a-volume-for-modern-backup-storage"></a>Criar um volume para Armazenamento de Backup Moderno
+## <a name="create-a-volume-for-modern-backup-storage"></a>Criar um volume para armazenamento de backup moderno
 
-O uso do servidor de backup v2 ou posterior com volumes como armazenamento em disco pode ajudá-lo a manter o controle do armazenamento. Um volume pode ser um único disco. No entanto, se você quiser estender o armazenamento no futuro, crie um volume a partir de um disco criado usando espaços de armazenamento. Isso pode ajudar se você quiser expandir o volume para armazenamento de backup. Esta seção oferece as práticas recomendadas para a criação de um volume com essa configuração.
+Utilizar o Servidor de Backup V2 ou mais tarde com volumes, uma vez que o armazenamento em disco pode ajudá-lo a manter o controlo sobre o armazenamento. Um volume pode ser um único disco. No entanto, se quiser estender o armazenamento no futuro, crie um volume a partir de um disco criado utilizando espaços de armazenamento. Isto pode ajudar se quiser expandir o volume para armazenamento de cópia de segurança. Esta secção oferece as melhores práticas para criar um volume com esta configuração.
 
-1. Em Gerenciador do Servidor, selecione **serviços de arquivo e armazenamento** > **volumes** > **pools de armazenamento**. Em **discos físicos**, selecione **novo pool de armazenamento**.
+1. No Gestor do Servidor, selecione **File and Storage Services** > **Volumes** > **Storage Pools**. Em **DISCOS FÍSICOS,** selecione **New Storage Pool**.
 
-    ![Criar um novo pool de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Criar uma nova piscina de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-2. Na caixa suspensa **tarefas** , selecione **novo disco virtual**.
+2. Na caixa de lançamento **tasks,** selecione **Novo Disco Virtual**.
 
-    ![Adicionar um disco virtual](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
+    ![Adicione um disco virtual](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
-3. Selecione o pool de armazenamento e, em seguida, selecione **adicionar disco físico**.
+3. Selecione a piscina de armazenamento e, em seguida, **selecione Adicionar Disco Físico**.
 
-    ![Adicionar um disco físico](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+    ![Adicione um disco físico](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
-4. Selecione o disco físico e, em seguida, selecione **estender disco virtual**.
+4. Selecione o disco físico e, em seguida, **selecione Extend Virtual Disk**.
 
     ![Estender o disco virtual](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
-5. Selecione o disco virtual e, em seguida, selecione **novo volume**.
+5. Selecione o disco virtual e, em seguida, selecione **Novo Volume**.
 
     ![Criar um novo volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. Na caixa de diálogo **selecionar servidor e disco** , selecione o servidor e o novo disco. Em seguida, selecione **Seguinte**.
+6. No diálogo **Selecione o servidor e o** diálogo do disco, selecione o servidor e o novo disco. Em seguida, selecione **Next**.
 
-    ![Selecionar o servidor e o disco](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
+    ![Selecione o servidor e o disco](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
-## <a name="add-volumes-to-backup-server-disk-storage"></a>Adicionar volumes ao armazenamento de disco do servidor de backup
+## <a name="add-volumes-to-backup-server-disk-storage"></a>Adicione volumes ao armazenamento de discos do Servidor de Backup
 
 > [!NOTE]
 >
-> - Adicione apenas um disco ao pool para manter a contagem de colunas como 1. Em seguida, você pode adicionar discos conforme necessário posteriormente.
-> - Se você adicionar vários discos ao pool de armazenamento em um lugar, o número de discos será armazenado como o número de colunas. Quando mais discos são adicionados, eles só podem ser um múltiplo do número de colunas.
+> - Adicione apenas um disco à piscina para manter a contagem de colunas a 1. Em seguida, pode adicionar discos conforme necessário depois.
+> - Se adicionar vários discos ao depósito de uma vez, o número de discos é armazenado como o número de colunas. Quando mais discos são adicionados, só podem ser um múltiplo do número de colunas.
 
-Para adicionar um volume ao servidor de backup, no painel **Gerenciamento** , examine novamente o armazenamento e, em seguida, selecione **Adicionar**. É exibida uma lista de todos os volumes disponíveis a serem adicionados para o armazenamento do servidor de backup. Depois que os volumes disponíveis são adicionados à lista de volumes selecionados, você pode dar a eles um nome amigável para ajudá-lo a gerenciá-los. Para formatar esses volumes para ReFS, para que o servidor de backup possa usar os benefícios de Armazenamento de Backup Moderno, selecione **OK**.
+Para adicionar um volume ao Backup Server, no painel **de gestão,** rescante o armazenamento e, em seguida, selecione **Adicionar**. Aparece uma lista de todos os volumes disponíveis para armazenamento de servidor de backup. Depois de serem adicionados volumes disponíveis à lista de volumes selecionados, pode dar-lhes um nome amigável para ajudá-los a geri-los. Para formatar estes volumes para ReFS para que o Servidor de Backup possa utilizar os benefícios do Armazenamento de Backup Moderno, selecione **OK**.
 
-![Adicionar volumes disponíveis](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
+![Adicionar Volumes Disponíveis](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-## <a name="set-up-workload-aware-storage"></a>Configurar o armazenamento com reconhecimento de carga de trabalho
+## <a name="set-up-workload-aware-storage"></a>Configurar armazenamento consciente da carga de trabalho
 
-Com o armazenamento com reconhecimento de carga de trabalho, você pode selecionar os volumes que armazenam preferencialmente determinados tipos de cargas de trabalho. Por exemplo, você pode definir volumes caros que dão suporte a um grande número de operações de entrada/saída por segundo (IOPS) para armazenar somente as cargas de trabalho que exigem backups frequentes de alto volume. Um exemplo é SQL Server com logs de transação. Outras cargas de trabalho que são submetidas a backup com menos frequência, como VMs, podem ser submetidas a backup em volumes de baixo custo.
+Com armazenamento consciente da carga de trabalho, pode selecionar os volumes que preferencialmente armazenam certos tipos de carga seletiva. Por exemplo, pode definir volumes caros que suportam um elevado número de operações de entrada/saída por segundo (IOPS) para armazenar apenas as cargas de trabalho que requerem cópias de segurança frequentes e de alto volume. Um exemplo é o SQL Server com registos de transações. Outras cargas de trabalho que são apoiadas com menos frequência, como os VMs, podem ser apoiadas até volumes de baixo custo.
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de Backup do Azure.
+Pode configurar o armazenamento consciente da carga de trabalho utilizando o PowerShell cmdlet Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento num Servidor de Backup Azure.
 
-Sintaxe
+Sintaxe:
 
 `Parameter Set: Volume`
 
@@ -87,50 +87,50 @@ Sintaxe
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 
-A captura de tela a seguir mostra o cmdlet Update-DPMDiskStorage na janela do PowerShell.
+A imagem seguinte mostra o cmdlet Update-DPMDiskStorage na janela PowerShell.
 
-![O comando Update-DPMDiskStorage na janela do PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
+![O comando Update-DPMDiskStorage na janela PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
-As alterações feitas usando o PowerShell são refletidas no servidor de backup Console do Administrador.
+As alterações que fizer ao utilizar o PowerShell refletem-se na Consola de Administrador do Servidor de Backup.
 
-![Discos e volumes no Console do Administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
+![Discos e volumes na Consola de Administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrar armazenamento herdado para Armazenamento de Backup Moderno
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrar armazenamento legado para armazenamento de backup moderno
 
-Depois de atualizar para o ou instalar o servidor de backup V2 e atualizar o sistema operacional para o Windows Server 2016, atualize seus grupos de proteção para usar Armazenamento de Backup Moderno. Por padrão, os grupos de proteção não são alterados. Eles continuam a funcionar como foram inicialmente configurados.
+Depois de atualizar ou instalar o V2 do Servidor de Backup e atualizar o sistema operativo para o Windows Server 2016, atualize os seus grupos de proteção para utilizar o Armazenamento de Backup Moderno. Por padrão, os grupos de proteção não são alterados. Continuam a funcionar como foram inicialmente configurados.
 
-A atualização de grupos de proteção para usar Armazenamento de Backup Moderno é opcional. Para atualizar o grupo de proteção, interrompa a proteção de todas as fontes de dados usando a opção manter dados. Em seguida, adicione as fontes de dados a um novo grupo de proteção.
+A atualização dos grupos de proteção para utilizar o Armazenamento de Cópia de Segurança Moderno é opcional. Para atualizar o grupo de proteção, pare a proteção de todas as fontes de dados utilizando a opção de reter dados. Em seguida, adicione as fontes de dados a um novo grupo de proteção.
 
-1. No Console do Administrador, selecione o recurso **proteção** . Na lista de **membros do grupo de proteção** , clique com o botão direito do mouse no membro e selecione **parar proteção do membro**.
+1. Na Consola do Administrador, selecione a função **Protection.** Na lista do Grupo de **Proteção,** clique no membro e, em seguida, selecione **a proteção stop do membro**.
 
-   ![Interromper a proteção do membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Parar a proteção do membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. Na caixa **de diálogo remover do grupo** , examine o espaço em disco usado e o espaço livre disponível para o pool de armazenamento. O padrão é deixar os pontos de recuperação no disco e permitir que eles expirem de acordo com a política de retenção associada. Clique em **OK**.
+2. Na caixa de diálogo **Remover do Grupo,** reveja o espaço utilizado do disco e o espaço livre disponível para a piscina de armazenamento. A predefinição é deixar os pontos de recuperação no disco e permitir que os mesmos expirem, conforme a política de retenção associada. Clique em **OK**.
 
-   Se você quiser retornar imediatamente o espaço em disco usado para o pool de armazenamento livre, marque a caixa de seleção **excluir réplica no disco** para excluir os dados de backup (e os pontos de recuperação) associados a esse membro.
+   Se pretender devolver imediatamente o espaço de disco utilizado ao pool de armazenamento gratuito, selecione a **réplica Delete na** caixa de verificação do disco para eliminar os dados de backup (e pontos de recuperação) associados a esse membro.
 
-   ![Caixa de diálogo remover do grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Remover da caixa de diálogo do Grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
-3. Crie um grupo de proteção que usa Armazenamento de Backup Moderno. Inclua as fontes de dados desprotegidas.
+3. Crie um grupo de proteção que utilize o Armazenamento de Backup Moderno. Inclua as fontes de dados desprotegidas.
 
-## <a name="add-disks-to-increase-legacy-storage"></a>Adicionar discos para aumentar o armazenamento herdado
+## <a name="add-disks-to-increase-legacy-storage"></a>Adicione discos para aumentar o armazenamento do legado
 
-Se você quiser usar o armazenamento herdado com o servidor de backup, talvez seja necessário adicionar discos para aumentar o armazenamento herdado.
+Se quiser utilizar o armazenamento legado com o Backup Server, poderá ter de adicionar discos para aumentar o armazenamento do legado.
 
-Para adicionar armazenamento em disco:
+Adicionar armazenamento no disco:
 
-1. No Console do Administrador, selecione >  de gerenciamento **armazenamento em disco** > **Adicionar**.
+1. Na Consola do Administrador, selecione **Management** > **Disk Storage** > **Add**.
 
-    ![Caixa de diálogo Adicionar Armazenamento em Disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Adicionar diálogo de armazenamento de disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-2. Na caixa de diálogo **adicionar armazenamento em disco** , selecione **adicionar discos**.
+2. No diálogo de armazenamento de **disco adicionar,** selecione **Adicionar discos**.
 
-3. Na lista de discos disponíveis, selecione os discos que você deseja adicionar, selecione **Adicionar**e, em seguida, selecione **OK**.
+3. Na lista de discos disponíveis, selecione os discos que pretende adicionar, selecione **Adicionar**, e, em seguida, selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de instalar o servidor de backup, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
+Depois de instalar o Backup Server, aprenda a preparar o seu servidor ou comece a proteger uma carga de trabalho.
 
-- [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)
-- [Usar o servidor de backup para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
-- [Usar o servidor de backup para fazer backup de SQL Server](backup-azure-sql-mabs.md)
+- [Preparar cargas de trabalho do Servidor de Backup](backup-azure-microsoft-azure-backup.md)
+- [Utilize o Servidor de Backup para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
+- [Utilize o Servidor de Backup para fazer backup do Servidor SQL](backup-azure-sql-mabs.md)

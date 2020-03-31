@@ -1,52 +1,52 @@
 ---
-title: Armazenamento de imagem de contêiner
-description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no registro de contêiner do Azure, incluindo segurança, redundância e capacidade.
+title: Armazenamento de imagem de recipiente
+description: Detalhes sobre como as imagens do seu contentor Docker são armazenadas no Registo de Contentores Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
 ms.date: 03/21/2018
 ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456202"
 ---
-# <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contêiner no registro de contêiner do Azure
+# <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no Registo de Contentores de Azure
 
-Cada registro de contêiner do Azure [básico, Standard e Premium](container-registry-skus.md) se beneficia dos recursos avançados de armazenamento do Azure, como criptografia em repouso para segurança de dados de imagem e redundância geográfica para proteção de dados de imagem. As seções a seguir descrevem os recursos e os limites do armazenamento de imagem no ACR (registro de contêiner do Azure).
+Todos os registos de contentores [Basic, Standard e Premium](container-registry-skus.md) Azure beneficiam de funcionalidades avançadas de armazenamento azure, como encriptação em repouso para segurança de dados de imagem e georedundância para proteção de dados de imagem. As seguintes secções descrevem tanto as características como os limites do armazenamento de imagem no Registo de Contentores Azure (ACR).
 
-## <a name="encryption-at-rest"></a>Criptografia em repouso
+## <a name="encryption-at-rest"></a>Encriptação em repouso
 
-Todas as imagens de contêiner em seu registro são criptografadas em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e a descriptografa imediatamente quando você ou seus aplicativos e serviços efetuam pull da imagem.
+Todas as imagens do contentor no seu registo estão encriptadas em repouso. O Azure encripta automaticamente uma imagem antes de a armazenar e desencripta-a no voo quando você ou as suas aplicações e serviços puxam a imagem.
 
 ## <a name="geo-redundant-storage"></a>Armazenamento georredundante
 
-O Azure usa um esquema de armazenamento com redundância geográfica para proteger contra perda de suas imagens de contêiner. O registro de contêiner do Azure replica automaticamente suas imagens de contêiner para vários data centers distantes geograficamente, evitando sua perda no caso de uma falha de armazenamento regional.
+O Azure usa um esquema de armazenamento geo-redundante para se proteger da perda das imagens do seu contentor. O Registo de Contentores Azure replica automaticamente as imagens do seu contentor a múltiplos centros de dados geograficamente distantes, evitando a sua perda em caso de falha de armazenamento regional.
 
 ## <a name="geo-replication"></a>Georreplicação
 
-Para cenários que exigem ainda mais garantia de alta disponibilidade, considere o uso do recurso de [replicação geográfica](container-registry-geo-replication.md) de registros Premium. A replicação geográfica ajuda a proteger contra a perda de acesso ao registro no caso de uma falha regional *total* , não apenas uma falha de armazenamento. A replicação geográfica também fornece outros benefícios, como o armazenamento de imagem de fechamento de rede para envios por push e pull mais rápidos em cenários de desenvolvimento ou implantação distribuídos.
+Para cenários que requerem ainda mais garantia de alta disponibilidade, considere utilizar a característica de [geo-replicação](container-registry-geo-replication.md) dos registos Premium. A geo-replicação ajuda a evitar perder o acesso ao seu registo em caso de falha *total* regional, e não apenas uma falha de armazenamento. A geo-replicação também proporciona outros benefícios, como o armazenamento de imagem de proximidade da rede para impulsos mais rápidos e puxa em cenários de desenvolvimento ou implementação distribuídos.
 
 ## <a name="image-limits"></a>Limites de imagem
 
-A tabela a seguir descreve a imagem de contêiner e os limites de armazenamento em vigor para registros de contêiner do Azure.
+A tabela seguinte descreve os limites de imagem e armazenamento do contentor em vigor para os registos de contentores Azure.
 
 | Recurso | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |
-| Layer | Sem limite |
+| Camadas | Sem limite |
 | Etiquetas | Sem limite|
 | Storage | 5 TB |
 
-Números muito altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não utilizados como parte da rotina de manutenção do registro. Os recursos de registro excluídos, como repositórios, imagens e marcas, *não podem* ser recuperados após a exclusão. Para obter mais informações sobre como excluir recursos do registro, consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
+Um número muito elevado de repositórios e etiquetas pode ter impacto no desempenho do seu registo. Elimine periodicamente repositórios, etiquetas e imagens não utilizados como parte da sua rotina de manutenção do registo. Os recursos de registo apagados, como repositórios, imagens e *etiquetas, não podem* ser recuperados após a eliminação. Para obter mais informações sobre a eliminação de recursos de registo, consulte Apagar imagens de contentores no Registo de [Contentores de Azure](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Custo do armazenamento
 
-Para obter detalhes completos sobre os preços, consulte [preços do registro de contêiner do Azure][pricing].
+Para mais detalhes sobre os preços, consulte o preço do Registo de [Contentores De Azure][pricing].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as diferentes SKUs do registro de contêiner do Azure (Basic, Standard, Premium), consulte [SKUs do registro de contêiner do Azure](container-registry-skus.md).
+Para obter mais informações sobre as diferentes SKUs do Registo de Contentores Azure (Básico, Standard, Premium), consulte O Registo de [Contentores Azure SKUs](container-registry-skus.md).
 
 <!-- IMAGES -->
 

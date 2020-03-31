@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: aa2b0013818f897f01945d394266a57016ecb0bb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 99ad4249a4134bcc1b1cf5aba92b8a95a034db33
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250767"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534427"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreenda as IDs de instância para vm sde de escala Azure
 Este artigo descreve iDs de exemplo para conjuntos de escala e as várias maneiras que aparecem.
@@ -22,17 +22,17 @@ Este artigo descreve iDs de exemplo para conjuntos de escala e as várias maneir
 
 Cada VM num conjunto de escala obtém um ID de instância que o identifica exclusivamente. Este ID de instância é utilizado na escala definida APIs para fazer operações num VM específico no conjunto de escala. Por exemplo, pode especificar um ID de instância específica para reimagem ao utilizar a API de reimagem:
 
-REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para mais informações, consulte a documentação rest [API)](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage)
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para mais informações, consulte a documentação REST [API)](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage)
 
-Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para mais informações, consulte a [documentação powershell)](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm)
+Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para mais informações, consulte a [documentação Powershell)](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm)
 
 CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para mais informações, consulte a [documentação CLI).](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)
 
 Você pode obter a lista de iDs de instância, listando todas as instâncias em um conjunto de escala:
 
-REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para mais informações, consulte a documentação rest [API)](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list)
+REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para mais informações, consulte a documentação REST [API)](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list)
 
-Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para mais informações, consulte a [documentação powershell)](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)
+Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para mais informações, consulte a [documentação Powershell)](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)
 
 CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para mais informações, consulte a [documentação CLI).](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)
 
@@ -40,8 +40,11 @@ Também pode utilizar [resources.azure.com](https://resources.azure.com) ou os [
 
 A apresentação exata da saída depende das opções que fornece ao comando, mas aqui está uma saída de amostra do CLI:
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -70,7 +73,7 @@ A parte {instance-id} do nome é o mesmo número decimal que a propriedade "inst
 
 Se consultar os [metadados](../virtual-machines/windows/instance-metadata-service.md) da ocorrência dentro de um conjunto de escala VM, verá um "nome" na saída:
 
-```
+```output
 {
   "compute": {
     "location": "westus",

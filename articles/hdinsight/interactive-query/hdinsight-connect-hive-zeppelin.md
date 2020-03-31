@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
 ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79367929"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas de Hive Apache em Azure HDInsight com Apache Zeppelin
 
 Neste arranque rápido, aprende-se a usar o Apache Zeppelin para executar consultas [apache hive](https://hive.apache.org/) em Azure HDInsight. Os clusters de consulta interativa HDInsight incluem os cadernos [Apache Zeppelin](https://zeppelin.apache.org/) que pode usar para executar consultas interativas da Hive.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Um cluster de consulta interativa HDInsight. Consulte [o cluster Create](../hado
 
 ## <a name="create-an-apache-zeppelin-note"></a>Crie uma Nota Apache Zeppelin
 
-1. Substitua `CLUSTERNAME` pelo nome do seu cluster no seguinte URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Em seguida, introduza o URL num navegador web.
+1. Substitua-a `CLUSTERNAME` com o nome `https://CLUSTERNAME.azurehdinsight.net/zeppelin`do seu cluster no seguinte URL . Em seguida, introduza o URL num navegador web.
 
 2. Introduza o nome de utilizador e a palavra-passe do seu cluster. A partir da página zeppelin, você pode criar uma nova nota ou abrir notas existentes. **A HiveSample** contém algumas consultas de colmeia.  
 

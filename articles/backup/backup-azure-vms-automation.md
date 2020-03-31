@@ -4,22 +4,22 @@ description: Descreve como fazer backup e recuperar VMs Azure usando backup Azur
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247985"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back up e restaurar VMs Azure com PowerShell
 
 Este artigo explica como fazer backup e restaurar um VM Azure num cofre dos Serviços de Recuperação de [Backup Azure](backup-overview.md) usando cmdlets PowerShell.
 
-Neste artigo, vai aprender a:
+Neste artigo, saiba como:
 
 > [!div class="checklist"]
 >
 > * Crie um cofre de Serviços de Recuperação e detetete o contexto do cofre.
-> * Definir uma política de cópia de segurança
+> * Definir uma política de cópias de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
 > * Desencadeie um trabalho de backup a pedido para as máquinas virtuais protegidas Antes de poder fazer backup (ou proteger) uma máquina virtual, deve completar os [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o seu ambiente para proteger os seus VMs.
 
@@ -80,7 +80,7 @@ Para começar:
 
     Na saída de comando, o **Estado de Registo** deve alterar-se para **Registro**. Caso contrário, basta executar o **[cmdlet Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** novamente.
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 Os seguintes passos levam-no através da criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de reserva.
 
@@ -247,7 +247,7 @@ $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $
 Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1" -VaultId $targetVault.ID
 ```
 
-Para permitir a proteção em **VMs encriptados (encriptados apenas utilizando BEK)** , deve dar ao serviço de backup Azure permissão para ler segredos do cofre da chave.
+Para permitir a proteção em **VMs encriptados (encriptados apenas utilizando BEK)**, deve dar ao serviço de backup Azure permissão para ler segredos do cofre da chave.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -367,9 +367,9 @@ WorkloadName     Operation            Status               StartTime            
 TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### <a name="stop-protection"></a>Parar a proteção
+### <a name="stop-protection"></a>Parar proteção
 
-#### <a name="retain-data"></a>Reter dados
+#### <a name="retain-data"></a>Manter dados
 
 Se o utilizador quiser parar a proteção, pode utilizar o cmdlet [DESactivação-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Isto irá parar as cópias de segurança programadas, mas os dados apoiados até agora são mantidos para sempre.
 
@@ -704,7 +704,7 @@ Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageP
 
 Depois de os segredos estarem disponíveis e os detalhes de encriptação serem definidos no disco OS, para anexar os discos geridos restaurados, consulte a anexação de um disco de [dados a um VM do Windows utilizando](../virtual-machines/windows/attach-disk-ps.md)o PowerShell .
 
-* **VMs geridos e encriptados sem AD Azure (BEK e KEK)** - Para VMs geridos e encriptados sem AD Azure (encriptados usando BEK & KEK), se a chave de **origemVault/key/secret não estiver disponível** restaurar a chave e segredos para o cofre chave usando o procedimento em [Restaurar uma máquina virtual não encriptada a partir de um ponto de recuperação](backup-azure-restore-key-secret.md)de backup Azure . Em seguida, execute os seguintes scripts para definir detalhes de encriptação no disco OS restaurado (este passo não é necessário para discos de dados). A $dekurl e $kekurl podem ser recolhidas a partir do cofre de chaves restaurado.
+* **VMs geridos e encriptados sem AD Azure (BEK e KEK)** - Para VMs geridos e encriptados sem AD Azure (encriptados usando BEK & KEK), se a chave de **origemVault/key/secret não estiver disponível** restaurar a chave e segredos para o cofre chave usando o procedimento em [Restaurar uma máquina virtual não encriptada a partir de um ponto de recuperação Azure](backup-azure-restore-key-secret.md)Backup . Em seguida, execute os seguintes scripts para definir detalhes de encriptação no disco OS restaurado (este passo não é necessário para discos de dados). A $dekurl e $kekurl podem ser recolhidas a partir do cofre de chaves restaurado.
 
 O script abaixo só precisa de ser executado quando a chave de origemVault/key/secret não estiver disponível.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257072"
 ---
 # <a name="monitor-the-process-server"></a>Monitorize o servidor de processos
@@ -55,12 +55,12 @@ O servidor de processo gera uma série de alertas de saúde, resumidos na tabela
 --- | ---
 ![Bom estado de funcionamento][green] | O servidor de processos está conectado e saudável.
 ![Aviso][yellow] | Utilização de CPU > 80% nos últimos 15 minutos
-![Aviso][yellow] | Utilização da memória > 80% nos últimos 15 minutos
+![Aviso][yellow] | O uso da memória > 80% nos últimos 15 minutos
 ![Aviso][yellow] | Espaço livre de pasta cache < 30% nos últimos 15 minutos
 ![Aviso][yellow] | A Recuperação do Site monitoriza os dados pendentes/de saída a cada cinco minutos, e estima que os dados na cache do servidor de processo não podem ser enviados para o Azure dentro de 30 minutos.
 ![Aviso][yellow] | Os serviços de servidores de processo sem funcionar nos últimos 15 minutos
 ![Crítica][red] | Utilização de CPU > 95% nos últimos 15 minutos
-![Crítica][red] | Utilização da memória > 95% nos últimos 15 minutos
+![Crítica][red] | O uso da memória > 95% nos últimos 15 minutos
 ![Crítica][red] | Espaço livre de pasta cache < 25% nos últimos 15 minutos
 ![Crítica][red] | A Recuperação do Site monitoriza os dados pendentes/de saída a cada cinco minutos, e estima que os dados na cache do servidor de processo não podem ser enviados para o Azure dentro de 45 minutos.
 ![Crítica][red] | Não há batimentos cardíacos do servidor de processos durante 15 minutos.
@@ -76,7 +76,7 @@ O servidor de processo gera uma série de alertas de saúde, resumidos na tabela
 
 Pode monitorizar o estado de saúde dos seus servidores de processo seguem-se: 
 
-1. Para monitorizar a saúde e o estado de replicação de uma máquina replicada, e do seu servidor de processos, em vault > **Itens replicados,** clique na máquina que pretende monitorizar.
+1. Para monitorizar a saúde e o estado de replicação de uma máquina replicada, e do seu servidor de processos, no cofre > **itens replicados,** clique na máquina que pretende monitorizar.
 2. Na Saúde de **Replicação,** pode monitorizar o estado de saúde vm. Clique no estado para perfurar para obter detalhes de erro.
 
     ![Processar a saúde do servidor no dashboard VM](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)

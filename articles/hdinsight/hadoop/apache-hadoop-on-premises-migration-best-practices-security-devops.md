@@ -1,6 +1,6 @@
 ---
-title: 'Segurança: migrar Apache Hadoop locais para o Azure HDInsight'
-description: Aprenda as práticas recomendadas de segurança e DevOps para migrar clusters Hadoop locais para o Azure HDInsight.
+title: 'Segurança: Migrar no local Apache Hadoop para Azure HDInsight'
+description: Aprenda segurança e DevOps as melhores práticas para migrar no local aglomerados Hadoop para Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
@@ -9,119 +9,119 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75974411"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters de Apache Hadoop locais para as práticas recomendadas do Azure HDInsight-Security e DevOps
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar no local Apache Hadoop clusters para Azure HDInsight - segurança e DevOps boas práticas
 
-Este artigo fornece recomendações de segurança e DevOps em sistemas do Azure HDInsight. É parte de uma série que fornece as práticas recomendadas para ajudar na migração de sistemas locais Apache Hadoop para o Azure HDInsight.
+Este artigo dá recomendações para segurança e DevOps em sistemas Azure HDInsight. Faz parte de uma série que fornece as melhores práticas para ajudar na migração dos sistemas Apache Hadoop para o Azure HDInsight.
 
-## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Proteger e controlar o cluster com o Enterprise Security Package
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>Seguro e governar cluster com pacote de segurança empresarial
 
-O Enterprise Security Package (ESP) dá suporte à autenticação baseada em Active Directory, ao suporte multiusuário e ao controle de acesso baseado em função. Com a opção ESP escolhida, o cluster HDInsight é Unido ao domínio de Active Directory e o administrador corporativo pode configurar o RBAC (controle de acesso baseado em função) para segurança de Apache Hive usando o Apache Ranger. O administrador também pode auditar o acesso a dados por funcionários e quaisquer alterações feitas nas políticas de controle de acesso.
+O Pacote de Segurança Empresarial (ESP) suporta a autenticação baseada no Diretório Ativo, suporte multiutilizador e controlo de acesso baseado em funções. Com a opção ESP escolhida, o cluster HDInsight é unido ao domínio Ative Directory e o administrador da empresa pode configurar o controlo de acesso baseado em funções (RBAC) para a segurança da Apache Hive utilizando o Apache Ranger. O administrador também pode auditar o acesso de dados pelos colaboradores e quaisquer alterações feitas para aceder às políticas de controlo.
 
-O ESP está disponível nos seguintes tipos de cluster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e consulta interativa (Hive LLAP).
+EsP está disponível nos seguintes tipos de cluster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Interactive Query (Hive LLAP).
 
-Use as etapas a seguir para implantar o cluster HDInsight ingressado no domínio:
+Utilize os seguintes passos para implementar o cluster HDInsight, filiado no domínio:
 
-- Implante Azure Active Directory (AAD) passando o nome de domínio.
-- Implantar Azure Active Directory Domain Services (AAD DS).
+- Implementar o Diretório Ativo Azure (AAD) passando o nome de Domínio.
+- Implemente serviços de domínio de diretório ativo azure (AAD DS).
 - Crie a rede virtual e a sub-rede necessárias.
-- Implante uma VM na rede virtual para gerenciar o AAD DS.
-- Ingresse a VM no domínio.
-- Instale as ferramentas de AD e DNS.
-- Faça com que o administrador do AAD DS crie uma UO (unidade organizacional).
-- Habilite LDAPs para o AAD DS.
-- Crie uma conta de serviço no Azure Active Directory com permissão de administrador de gravação & de leitura delegada para a UO, para que ela possa. Essa conta de serviço pode então unir computadores ao domínio e posicionar entidades de segurança na UO. Ele também pode criar entidades de serviço dentro da UO que você especificar durante a criação do cluster.
+- Implemente um VM na Rede Virtual para gerir o AAD DS.
+- Junte-se ao VM ao domínio.
+- Instale ferramentas AD e DNS.
+- Mande o Administrador AAD DS criar uma Unidade Organizacional (OU).
+- Ativar o LDAPS para AAD DS.
+- Crie uma conta de serviço no Azure Ative Directory com leitura delegada & escrever permissão de administração para a U, para que possa. Esta conta de serviço pode então juntar máquinas ao domínio e colocar os diretores da máquina dentro da U. Também pode criar diretores de serviço dentro da Ou que especifica durante a criação de clusters.
 
     > [!Note]
-    > A conta de serviço não precisa ser uma conta de administrador de domínio do AD.
+    > A conta de serviço não precisa de ser uma conta de administração de domínio AD.
 
-- Implante o cluster do HDInsight ESP definindo os seguintes parâmetros:
+- Implementar o cluster ESP HDInsight definindo os seguintes parâmetros:
 
     |Parâmetro |Descrição |
     |---|---|
-    |Nome de domínio|O nome de domínio associado ao AD DS do Azure.|
-    |Nome de usuário de domínio|A conta de serviço no domínio gerenciado pelo DC AD DS do Azure que você criou na seção anterior, por exemplo: `hdiadmin@contoso.onmicrosoft.com`. Esse usuário de domínio será o administrador deste cluster HDInsight.|
-    |Senha do domínio|A senha da conta de serviço.|
-    |Unidade organizacional|O nome distinto da UO que você deseja usar com o cluster HDInsight, por exemplo: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se essa UO não existir, o cluster HDInsight tentará criar a UO usando os privilégios da conta de serviço.|
-    |URL DE LDAPS|por exemplo, `ldaps://contoso.onmicrosoft.com:636`.|
-    |Acessar grupo de usuários|Os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula '; '. Os grupos devem existir no diretório antes da criação do cluster ESP.|
+    |Nome de domínio|O nome de domínio que está associado ao Azure AD DS.|
+    |Nome do utilizador do domínio|A conta de serviço no domínio gerido por Azure AD DS DC `hdiadmin@contoso.onmicrosoft.com`que criou na secção anterior, por exemplo: . Este utilizador de domínio será o administrador deste cluster HDInsight.|
+    |Senha de domínio|A senha da conta de serviço.|
+    |Unidade organizacional|O nome distinto da Ou que pretende utilizar com o cluster `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`HDInsight, por exemplo: . Se este OU não existir, o cluster HDInsight tenta criar a Ou usando os privilégios da conta de serviço.|
+    |LDAPS URL|por exemplo, `ldaps://contoso.onmicrosoft.com:636`.|
+    |Grupo de utilizadores de acesso|Os grupos de segurança cujos utilizadores pretende sincronizar com o cluster, por exemplo: `HiveUsers`. Se pretender especificar vários grupos de utilizadores, separe-os por ponto e vírgula ';'. O(s) grupo(s) deve existir no diretório antes de criar o cluster ESP.|
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Uma introdução à segurança de Apache Hadoop com clusters HDInsight ingressados no domínio](../domain-joined/hdinsight-security-overview.md)
-- [Planejar clusters de Apache Hadoop ingressados no domínio do Azure no HDInsight](../domain-joined/apache-domain-joined-architecture.md)
-- [Configurar um cluster HDInsight ingressado no domínio usando Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-- [Sincronizar Azure Active Directory usuários com um cluster HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
-- [Configurar políticas de Apache Hive no HDInsight ingressado no domínio](../domain-joined/apache-domain-joined-run-hive.md)
-- [Executar o Apache Oozie em clusters Hadoop do HDInsight ingressados no domínio](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
+- [Uma introdução à segurança apache Hadoop com clusters HDInsight unidos pelo domínio](../domain-joined/hdinsight-security-overview.md)
+- [Grupos Apache Hadoop unidos pelo domínio do Plan Azure em HDInsight](../domain-joined/apache-domain-joined-architecture.md)
+- [Configure um cluster HDInsight associado ao domínio utilizando serviços de domínio de diretório ativo Azure](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+- [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
+- [Configure as políticas da Hive Apache no HDInsight filiado em domínio](../domain-joined/apache-domain-joined-run-hive.md)
+- [Executar Apache Oozie em clusters Hadoop HDInsight unidos pelo domínio](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
-## <a name="implement-end-to-end-enterprise-security"></a>Implemente segurança empresarial de ponta a ponta
+## <a name="implement-end-to-end-enterprise-security"></a>Implementar fim para acabar com a segurança da empresa
 
-A segurança empresarial de ponta a ponta pode ser obtida usando os seguintes controles:
+A segurança da empresa final pode ser alcançada utilizando os seguintes controlos:
 
-**Pipeline de dados particular e protegido (segurança em nível de perímetro)**
-    - A segurança de nível de perímetro pode ser obtida por meio de redes virtuais do Azure, grupos de segurança de rede e serviço de gateway.
+**Gasoduto de dados privado e protegido (segurança do nível do perímetro)**
+    - Nível de perímetro A segurança pode ser alcançada através de Redes Virtuais Azure, Grupos de Segurança de Rede e serviço Gateway.
 
 **Autenticação e autorização para acesso a dados**
-    - Crie um cluster HDInsight ingressado no domínio usando Azure Active Directory Domain Services. (Enterprise Security Package).
-    - Use o Ambari para fornecer acesso baseado em função aos recursos de cluster para usuários do AD.
-    - Use o Apache Ranger para definir políticas de controle de acesso para o hive no nível de tabela/coluna/linha.
-    - O acesso do SSH ao cluster pode ser restrito apenas ao administrador.
+    - Crie um cluster HDInsight associado ao domínio utilizando serviços de domínio de diretório ativo Azure. (Pacote de Segurança Empresarial).
+    - Utilize a Ambari para fornecer acesso baseado em funções aos recursos de cluster para utilizadores de Anúncios.
+    - Utilize o Apache Ranger para definir as políticas de controlo de acesso para a Colmeia no nível de mesa/coluna/linha.
+    - O acesso sSH ao cluster só pode ser restringido ao administrador.
 
 **Auditoria**
-    - Exibir e relatar todo o acesso aos dados e recursos do cluster HDInsight.
-    - Exibir e relatar todas as alterações para as políticas de controle de acesso.
+    - Ver e reportar todo o acesso aos recursos e dados do cluster HDInsight.
+    - Ver e reportar todas as alterações às políticas de controlo de acesso.
 
 **Encriptação**
-    - Criptografia transparente do lado do servidor usando chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente.
-    - Criptografia em trânsito usando criptografia do lado do cliente, HTTPS e TLS.
+    - Encriptação transparente do Lado do Servidor utilizando chaves geridas pela Microsoft ou chaves geridas pelo cliente.
+    - Na encriptação transit usando encriptação do lado do cliente, https e TLS.
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Visão geral das redes virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
-- [Visão geral dos grupos de segurança de rede do Azure](../../virtual-network/security-overview.md)
-- [Emparelhamento de rede virtual do Azure](../../virtual-network/virtual-network-peering-overview.md)
-- [Guia de segurança do Armazenamento do Azure](../../storage/blobs/security-recommendations.md)
-- [Criptografia do Serviço de Armazenamento do Azure em repouso](../../storage/common/storage-service-encryption.md)
+- [Visão geral das Redes Virtuais Azure](../../virtual-network/virtual-networks-overview.md)
+- [Visão geral dos Grupos de Segurança da Rede Azure](../../virtual-network/security-overview.md)
+- [Peering da Rede Virtual Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Guia de segurança de armazenamento azure](../../storage/blobs/security-recommendations.md)
+- [Encriptação do serviço de armazenamento Azure em repouso](../../storage/common/storage-service-encryption.md)
 
-## <a name="use-monitoring--alerting"></a>Usar monitoramento & alertas
+## <a name="use-monitoring--alerting"></a>Utilizar alerta de monitorização &
 
-Para obter mais informações, consulte o artigo:
+Para mais informações, consulte o artigo:
 
 [Descrição Geral do Azure Monitor](../../azure-monitor/overview.md)
 
-## <a name="upgrade-clusters"></a>Atualizar clusters
+## <a name="upgrade-clusters"></a>Agrupamentos de upgrade
 
-Atualize regularmente para a versão mais recente do HDInsight para aproveitar os recursos mais recentes. As etapas a seguir podem ser usadas para atualizar o cluster para a versão mais recente:
+Atualize regularmente para a mais recente versão HDInsight para tirar partido das funcionalidades mais recentes. Os seguintes passos podem ser usados para atualizar o cluster para a versão mais recente:
 
-1. Crie um novo cluster de teste do HDInsight usando a versão mais recente do HDInsight disponível.
-1. Teste no novo cluster para certificar-se de que os trabalhos e as cargas de trabalho funcionam conforme o esperado.
-1. Modifique trabalhos ou aplicativos ou cargas de trabalho conforme necessário.
-1. Faça backup de todos os dados transitórios armazenados localmente nos nós do cluster.
-1. Exclua o cluster existente.
-1. Crie um cluster da versão mais recente do HDInsight na mesma sub-rede de rede virtual, usando os mesmos dados padrão e meta Store que o cluster anterior.
-1. Importe os dados transitórios dos quais foi feito backup.
-1. Iniciar trabalhos/continuar o processamento usando o novo cluster.
+1. Crie um novo cluster TEST HDInsight utilizando a mais recente versão HDInsight disponível.
+1. Teste o novo cluster para garantir que os empregos e as cargas de trabalho funcionem como esperado.
+1. Modificar empregos ou aplicações ou cargas de trabalho conforme necessário.
+1. Recue quaisquer dados transitórios armazenados localmente nos nós do cluster.
+1. Elimine o aglomerado existente.
+1. Crie um cluster da mais recente versão HDInsight na mesma subnet de rede virtual, utilizando os mesmos dados padrão e metaloja do cluster anterior.
+1. Importar quaisquer dados transitórios que foram apoiados.
+1. Inicie empregos/continue a processar usando o novo cluster.
 
-Para obter mais informações, consulte o artigo: [atualizar o cluster HDInsight para uma nova versão](../hdinsight-upgrade-cluster.md).
+Para mais informações, consulte o artigo: Atualize o [cluster HDInsight para uma nova versão](../hdinsight-upgrade-cluster.md).
 
-## <a name="patch-cluster-operating-systems"></a>Sistemas operacionais de cluster de patch
+## <a name="patch-cluster-operating-systems"></a>Sistemas operativos de cluster de patch
 
-Como um serviço Hadoop gerenciado, o HDInsight cuida da aplicação de patch no sistema operacional das VMs usadas por clusters HDInsight.
+Como um serviço Hadoop gerido, o HDInsight cuida de corrigir o Os dos VMs usados pelos clusters HDInsight.
 
-Para obter mais informações, consulte o artigo: [aplicação de patch de so para HDInsight](../hdinsight-os-patching.md).
+Para mais informações, consulte o artigo: [Os patching para HDInsight](../hdinsight-os-patching.md).
 
-## <a name="post-migration"></a>Pós-migração
+## <a name="post-migration"></a>Pós-Migração
 
-1. **Corrigir aplicativos** – faça as alterações necessárias de forma iterativa nos trabalhos, processos e scripts.
-2. **Executar testes** -execução iterativa de testes funcionais e de desempenho.
-3. **Otimize** -resolva os problemas de desempenho com base nos resultados do teste acima e, em seguida, teste novamente para confirmar as melhorias de desempenho.
+1. **Remediar as aplicações** - Iterativamente fazer as alterações necessárias aos empregos, processos e scripts.
+2. **Realizar Testes** - Realizar testes funcionais e de desempenho iterativamente.
+3. **Otimizar** - Abordar quaisquer problemas de desempenho com base nos resultados dos testes acima e, em seguida, testar novamente para confirmar as melhorias de desempenho.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia mais sobre o [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Leia mais sobre [hDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).

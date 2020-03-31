@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas da extensão de VM do Azure para recuperação de desastre com Azure Site Recovery
-description: Solucionar problemas com a extensão de VM do Azure para recuperação de desastre com Azure Site Recovery.
+title: Resolução de problemas a extensão Azure VM para recuperação de desastres com recuperação do site Azure
+description: Problemas com a extensão Azure VM para recuperação de desastres com a Recuperação do Site Azure.
 author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190730"
 ---
-# <a name="troubleshoot-azure-vm-extension-issues"></a>Solucionar problemas de extensão de VM do Azure
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Problemas de resolução de problemas De tedição de VM Azure
 
 Este artigo fornece passos de resolução de problemas que podem ajudá-lo a resolver erros de recuperação do site azure relacionados com o agente VM e extensão.
 
@@ -28,7 +28,7 @@ Código de erro: "151076"
 - [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 - [A extensão de recuperação do site não atualiza ou carrega](#the-site-recovery-extension-fails-to-update-or-load)
 
-Mensagem de erro: "a operação de extensão de Site Recovery anterior está levando mais tempo do que o esperado".<br>
+Mensagem de erro: "A operação de extensão de recuperação do local anterior está a demorar mais tempo do que o esperado."<br>
 Código de erro: "150066"
 
 - [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
@@ -42,7 +42,7 @@ Código de erro: "151099"
 
 Este erro pode acontecer se o agente convidado azure na máquina virtual não estiver em estado de preparação.
 
-Pode verificar o estado do agente convidado Azure no [portal Azure.](https://portal.azure.com/) Vá à máquina virtual que está a tentar proteger e verifique o estado em **Definições** **de > VM** > **Propriedades** > Estado **do Agente**. Na maior parte do tempo, o estado do agente está pronto depois de reiniciar a máquina virtual. No entanto, se não conseguir reiniciar ou ainda estiver de frente para o problema, então complete os seguintes passos de resolução de problemas:
+Pode verificar o estado do agente convidado Azure no [portal Azure.](https://portal.azure.com/) Vá à máquina virtual que está a tentar proteger e verifique o estado no estado do**Agente****de Propriedades** > de**Definições** >  **VM** > . Na maior parte do tempo, o estado do agente está pronto depois de reiniciar a máquina virtual. No entanto, se não conseguir reiniciar ou ainda estiver de frente para o problema, então complete os seguintes passos de resolução de problemas:
 
 - [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -57,7 +57,7 @@ Este erro ocorre quando a versão do agente na máquina Linux está desatualizad
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
 
-### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado no VM, mas não responde (para VMs do Windows)
+### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado no VM, mas não responde (para VMs do Windows)
 
 #### <a name="solution"></a>Solução
 O agente vm pode ter sido corrompido, ou o serviço pode ter sido interrompido. Reinstalar o agente VM ajuda a obter a versão mais recente. Também ajuda a reiniciar a comunicação com o serviço.
@@ -81,12 +81,12 @@ A maioria das falhas relacionadas com o agente ou as falhas relacionadas com a e
    > [!NOTE]
    > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos descarregar o código do agente diretamente do GitHub e atualizá-lo. Se o mais recente agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página de [agente do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório GitHub.
 
-1. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando: `ps -e`
+1. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando:`ps -e`
 
    Se o processo não estiver em execução, reinicie-o utilizando os seguintes comandos:
 
-   - Para Ubuntu: `service walinuxagent start`
-   - Para outras distribuições: `service waagent start`
+   - Para Ubuntu:`service walinuxagent start`
+   - Para outras distribuições:`service waagent start`
 
 1. [Configure o reinício automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 1. Ativar a proteção da máquina virtual.

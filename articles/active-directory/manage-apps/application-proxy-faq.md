@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
-ms.translationtype: MT
+ms.openlocfilehash: 8bb77a217546f1abe2c28925e32464b8d61702b2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367913"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481284"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Ative Directory (Azure AD) Application Proxy frequentemente feito perguntas
 
@@ -53,9 +53,9 @@ Para recomendações, consulte [Alta disponibilidade e equilíbrio de carga dos 
 
 Não, este cenário não é apoiado. Apenas os serviços de conector e atualização podem ser configurados para utilizar um proxy avançado para tráfego de saída para O Azure. Ver [Trabalhar com servidores proxy existentes no local](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>A terminação SSL (inspeção ou aceleração SSL/HTTPS) no tráfego dos servidores do conector para o Azure suportado?
+### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>A terminação tLS (inspeção ou aceleração TLS/HTTPS) está no tráfego dos servidores do conector para o Azure suportado?
 
-O Conector proxy de aplicação executa a autenticação baseada em certificados para o Azure. A Rescisão SSL (inspeção ou aceleração SSL/HTTPS) quebra este método de autenticação e não é suportada. O tráfego do conector para o Azure deve contornar todos os dispositivos que estejam a realizar a Rescisão SSL.  
+O Conector proxy de aplicação executa a autenticação baseada em certificados para o Azure. TLS Termination (inspeção ou aceleração TLS/HTTPS) quebra este método de autenticação e não é suportado. O tráfego do conector para o Azure deve contornar todos os dispositivos que estejam a executar a Rescisão de TLS.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Devo criar uma conta dedicada para registar o conector com o Procurador de Aplicação AD Azure?
 
@@ -63,10 +63,10 @@ Não há razão para isso. Qualquer conta global de administrador ou administrad
 
 ### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>Como posso monitorizar o desempenho do conector de procuração de aplicação AD Azure?
 
-Existem contadores de Monitor de Desempenho que são instalados juntamente com o conector. Para as visualizar:  
+Existem contadores de Monitor de Desempenho que são instalados juntamente com o conector. Para os visualizar:  
 
 1. Selecione **Iniciar**, escreva "Perfmon", e prima ENTER.
-2. Selecione **Performance Monitor** e clique no ícone **+** verde.
+2. Selecione **Performance** Monitor **+** e clique no ícone verde.
 3. Adicione os contadores proxy de proxy de aplicação da **Microsoft AAD** que pretende monitorizar.
 
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>O conector Proxy de Aplicação AD Azure tem de estar na mesma sub-rede que o recurso?
@@ -87,7 +87,7 @@ A partir da página de Registos de Aplicação, pode alterar o URL da página in
 
 Não, não há requisito sido para candidaturas que sejam publicadas. Pode publicar aplicações web em servidores que não o Windows Server. No entanto, poderá não ser possível utilizar a pré-autenticação com um Servidor não Windows, dependendo se o servidor web suporta Negociar (autenticação Kerberos). O IIS não é necessário no servidor onde o conector está instalado.
 
-## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
+## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows.
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando devo utilizar o método DirectorallowedToDelegateToAccount ao criar a Delegação Limitada kerberos (KCD)?
 
@@ -145,9 +145,9 @@ Não. A Procuração de Aplicações Azure AD foi concebida para trabalhar com a
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>O suporte webSocket funciona para aplicações que não o QlikSense?
 
-Atualmente, o suporte ao protocolo WebSocket ainda se encontra em pré-visualização pública e pode não funcionar para outras aplicações. Alguns clientes tiveram sucesso misto usando o protocolo WebSocket com outras aplicações. Se testar tais cenários, adoraríamos ouvir os seus resultados. Por favor, envie-nos o seu feedback para aadapfeedback@microsoft.com.
+Atualmente, o suporte ao protocolo WebSocket ainda se encontra em pré-visualização pública e pode não funcionar para outras aplicações. Alguns clientes tiveram sucesso misto usando o protocolo WebSocket com outras aplicações. Se testar tais cenários, adoraríamos ouvir os seus resultados. Por favor envie-nos o seu feedback em aadapfeedback@microsoft.com.
 
-As funcionalidades (Eventlogs, Powershell e Remote Desktop Services) no Windows Admin Center (WAC) ou no Remote Desktop Web Client não funcionam através do Proxy de Aplicação AD Azure atualmente.
+As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows Admin Center (WAC) ou no Remote Desktop Web Client não funcionam através do Proxy de Aplicação AD Azure atualmente.
 
 ## <a name="link-translation"></a>Tradução de ligação
 

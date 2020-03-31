@@ -1,94 +1,94 @@
 ---
-title: Despejar e restaurar-banco de dados do Azure para PostgreSQL-servidor único
-description: Descreve como extrair um banco de dados PostgreSQL em um arquivo de despejo e restaurá-lo a partir de um arquivo criado por pg_dump no banco de dados do Azure para PostgreSQL-servidor único.
+title: Despejo e restauro - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Descreve como extrair uma base de dados PostgreSQL num ficheiro de despejo e restaurar a partir de um ficheiro criado por pg_dump na Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: 4365338efa56593e80edcc19cba5944b213d2b72
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770242"
 ---
-# <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejo e restauração
-Você pode usar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair um banco de dados PostgreSQL em um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) restaurar o banco de dados PostgreSQL de um arquivo morto criado pelo pg_dump.
+# <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a base de dados de PostgreSQL através da captura e do restauro
+Pode utilizar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair uma base de dados PostgreSQL num ficheiro de despejo e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) restaurar a base de dados PostgreSQL a partir de um ficheiro de arquivo criado por pg_dump.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para percorrer este guia de instruções, você precisa de:
-- Um [banco de dados do Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md) com regras de firewall para permitir o acesso e o banco de dados sob ele.
+Para passar por este guia de como guiar, você precisa:
+- Uma Base de [Dados Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md) com regras de firewall para permitir o acesso e a base de dados sob o mesmo.
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) utilitários de linha de comando instalados
 
-Siga estas etapas para despejar e restaurar o banco de dados PostgreSQL:
+Siga estes passos para despejar e restaurar a sua base de dados PostgreSQL:
 
-## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Criar um arquivo de despejo usando pg_dump que contém os dados a serem carregados
-Para fazer backup de um banco de dados PostgreSQL existente localmente ou em uma VM, execute o seguinte comando:
+## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Crie um ficheiro de despejo utilizando pg_dump que contenha os dados a serem carregados
+Para fazer o apoio a uma base de dados postgresql existente no local ou num VM, executar o seguinte comando:
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> -f <database>.dump
 ```
-Por exemplo, se você tiver um servidor local e um banco de dados chamado **TestDB** nele
+Por exemplo, se tiver um servidor local e uma base de dados chamada **testdb** nele
 ```bash
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb.dump
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Restaurar os dados para o banco de dado de destino do Azure para PostgreSQL usando pg_restore
-Depois de criar o banco de dados de destino, você pode usar o comando pg_restore e o parâmetro-d,--dbname para restaurar os dados no banco de dado de destino do arquivo de despejo.
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Restaurar os dados na base de dados azure-alvo para postgreSQL utilizando pg_restore
+Depois de criar a base de dados do alvo, pode utilizar o comando pg_restore e o parâmetro-d,-dbname para restaurar os dados na base de dados do alvo a partir do ficheiro de despejo.
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
-A inclusão do parâmetro--no-Owner faz com que todos os objetos criados durante a restauração sejam de Propriedade do usuário especificado com--username. Para obter mais informações, consulte a documentação oficial do PostgreSQL em [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+Incluindo o parâmetro --sem proprietário faz com que todos os objetos criados durante a restauração sejam propriedade do utilizador especificado com o nome de utilizador. Para mais informações, consulte a documentação oficial do PostgreSQL sobre [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
-> Se o seu servidor PostgreSQL exigir conexões SSL (ativadas por padrão no banco de dados do Azure para servidores PostgreSQL), defina uma variável de ambiente `PGSSLMODE=require` para que a ferramenta pg_restore se conecte ao SSL. Sem o SSL, o erro pode ser lido `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> Se o seu servidor PostgreSQL necessitar de ligações SSL (por padrão na Base de `PGSSLMODE=require` Dados Azure para servidores PostgreSQL), delineie uma variável ambiental para que a ferramenta pg_restore se conectem com o SSL. Sem SSL, o erro pode ser lido`FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
-> Na linha de comando do Windows, execute o comando `SET PGSSLMODE=require` antes de executar o comando pg_restore. No Linux ou bash, execute o comando `export PGSSLMODE=require` antes de executar o comando pg_restore.
+> Na linha de comando Windows, execute o comando `SET PGSSLMODE=require` antes de executar o comando pg_restore. Em Linux ou Bash `export PGSSLMODE=require` comande o comando antes de executar o comando pg_restore.
 >
 
-Neste exemplo, restaure os dados do arquivo de despejo **TestDB. dump** no banco de dados **mypgsqldb** no servidor de destino **mydemoserver.Postgres.Database.Azure.com**. 
+Neste exemplo, restaure os dados do **testdb.dump** do ficheiro de despejo na base de dados **mypgsqldb** no servidor **alvo mydemoserver.postgres.database.azure.com**. 
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
 
-## <a name="optimizing-the-migration-process"></a>Otimizando o processo de migração
+## <a name="optimizing-the-migration-process"></a>Otimização do processo de migração
 
-Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço banco de dados do Azure para PostgreSQL é fazer backup do banco de dados na origem e restaurá-lo no Azure. Para minimizar o tempo necessário para concluir a migração, considere usar os parâmetros a seguir com os comandos backup e Restore.
+Uma forma de migrar a base de dados postgresql existente para a Base de Dados Azure para o serviço PostgreSQL é fazer o backup a base de dados da fonte e restaurá-la em Azure. Para minimizar o tempo necessário para completar a migração, considere utilizar os seguintes parâmetros com os comandos de backup e restaurar.
 
 > [!NOTE]
-> Para obter informações detalhadas de sintaxe, consulte os artigos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html).
+> Para obter informações detalhadas sobre sintaxe, consulte os artigos [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html).
 >
 
 ### <a name="for-the-backup"></a>Para o backup
-- Faça o backup com a opção-FC para que você possa executar a restauração em paralelo para acelerar a ti. Por exemplo:
+- Pegue a cópia de segurança com o interruptor -Fc para que possa efetuar o restauro paralelamente para acelerar. Por exemplo:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
-### <a name="for-the-restore"></a>Para a restauração
-- Sugerimos que você mova o arquivo de backup para uma VM do Azure na mesma região que o banco de dados do Azure para o servidor PostgreSQL para o qual você está migrando e faça o pg_restore dessa VM para reduzir a latência de rede. Também recomendamos que a VM seja criada com a [rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) habilitada.
+### <a name="for-the-restore"></a>Para o restauro
+- Sugerimos que mude o ficheiro de reserva para um VM Azure na mesma região que a Base de Dados Azure para o servidor PostgreSQL para onde está a migrar, e faça o pg_restore desse VM para reduzir a latência da rede. Recomendamos também que o VM seja criado com [rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) ativada.
 
-- Ele já deve ser feito por padrão, mas abra o arquivo de despejo para verificar se as instruções CREATE INDEX são posteriores à inserção dos dados. Se não for o caso, mova as instruções CREATE INDEX depois que os dados forem inseridos.
+- Deve já ser feito por padrão, mas abra o ficheiro de despejo para verificar se as declarações de índice de criação estão após a inserção dos dados. Se não for o caso, mova as declarações do índice de criação após a inserção dos dados.
 
-- Restaure com os *#* switches-FC e-j para paralelizar a restauração. *#* é o número de núcleos no servidor de destino. Você também pode tentar com *#* definido como duas vezes o número de núcleos do servidor de destino para ver o impacto. Por exemplo:
+- Restaurar com os interruptores -Fc e -j *#* para paralelo restabelecimento. *#* é o número de núcleos no servidor alvo. Também pode tentar *#* com o dobro do número de núcleos do servidor alvo para ver o impacto. Por exemplo:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
-- Você também pode editar o arquivo de despejo adicionando o comando *set synchronous_commit = off;* no início e no conjunto de comandos *synchronous_commit = on;* no final. Não ligá-lo no final, antes que os aplicativos alterem os dados, pode resultar em perda subsequente de dados.
+- Também pode editar o ficheiro de despejo adicionando o conjunto de comando *synchronous_commit = desligado;* no início e o conjunto de comando *synchronous_commit = ligado;* no final. Não ligá-lo no final, antes que as aplicações alterem os dados, pode resultar na perda subsequente de dados.
 
-- No banco de dados do Azure de destino para o servidor PostgreSQL, considere fazer o seguinte antes da restauração:
-    - Desative o rastreamento de desempenho de consultas, já que essas estatísticas não são necessárias durante a migração. Você pode fazer isso definindo pg_stat_statements. Track, pg_qs. query_capture_mode e pgms_wait_sampling. query_capture_mode como NONE.
+- Na base de dados Azure-alvo para servidor PostgreSQL, considere fazer o seguinte antes da restauração:
+    - Desligue o rastreio do desempenho da consulta, uma vez que estas estatísticas não são necessárias durante a migração. Pode fazê-lo definindo pg_stat_statements.track, pg_qs.query_capture_mode e pgms_wait_sampling.query_capture_mode para a NONE.
 
-    - Use uma alta computação e um SKU de memória alta, como a memória vCore de 32, para acelerar a migração. Você pode dimensionar facilmente de volta para o SKU preferencial depois que a restauração for concluída. Quanto maior a SKU, mais paralelismo você pode obter aumentando o parâmetro `-j` correspondente no comando pg_restore. 
+    - Use uma alta computação e sku de alta memória, como 32 vCore Memory Otimizada, para acelerar a migração. Pode facilmente reduzir a sua sku preferida depois de o restauro estar completo. Quanto maior for o sku, mais paralelismo `-j` se pode alcançar aumentando o parâmetro correspondente no comando pg_restore. 
 
-    - Mais IOPS no servidor de destino pode melhorar o desempenho de restauração. Você pode provisionar mais IOPS aumentando o tamanho de armazenamento do servidor. Essa configuração não é reversível, mas considere se um IOPS maior beneficiaria sua carga de trabalho real no futuro.
+    - Mais IOPS no servidor alvo poderia melhorar o desempenho de restauro. Pode fornecer mais IOPS aumentando o tamanho de armazenamento do servidor. Esta definição não é reversível, mas considere se um IOPS mais elevado beneficiaria a sua carga de trabalho real no futuro.
 
-Lembre-se de testar e validar esses comandos em um ambiente de teste antes de usá-los na produção.
+Lembre-se de testar e validar estes comandos num ambiente de teste antes de os utilizar na produção.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para migrar um banco de dados PostgreSQL usando exportar e importar, consulte [migrar seu banco de dados PostgreSQL usando exportar e importar](howto-migrate-using-export-and-import.md).
-- Para obter mais informações sobre como migrar bancos de dados do para o Azure para PostgreSQL, consulte o [Guia de migração de banco de dados](https://aka.ms/datamigration).
+- Para migrar uma base de dados PostgreSQL utilizando exportação e importação, consulte migrar a sua base de [dados PostgreSQL utilizando exportação e importação](howto-migrate-using-export-and-import.md).
+- Para mais informações sobre bases de dados migratórias para a Base de Dados Azure para PostgreSQL, consulte o Guia de [Migração da Base de Dados](https://aka.ms/datamigration).

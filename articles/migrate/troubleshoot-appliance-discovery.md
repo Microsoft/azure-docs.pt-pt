@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080395"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336728"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Problemas de resolução do aparelho e descoberta do Azure Migrate
 
@@ -30,8 +30,8 @@ Se receber o erro "O ficheiro manifesto fornecido é inválido: entrada manifest
 1. Verifique se o ficheiro OVA do eletrodoméstico Azure é descarregado corretamente verificando o seu valor de haxixe. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor do haxixe não corresponder, baixe novamente o ficheiro OVA e volte a tentar a implementação.
 2. Se a implementação ainda falhar, e estiver a usar o cliente VMware vSphere para implementar o ficheiro OVF, tente implementá-lo através do cliente web vSphere. Se a implementação ainda falhar, tente utilizar um navegador web diferente.
 3. Se estiver a utilizar o cliente web da vSphere e a tentar implementá-lo no vCenter Server 6.5 ou 6.7, tente implementar o OVA diretamente no hospedeiro ESXi:
-   - Ligue-se diretamente ao anfitrião ESXi (em vez de vCenter Server) com o cliente web (https://<*host IP Address*>/ui).
-   - No **inventário**de > **em casa,** selecione **File** > Implementar **modelo OVF**. Navegue no OVA e complete a implementação.
+   - Ligue-se diretamente ao anfitrião ESXi (em vez do VCenter Server) com o cliente web (https://<endereço IP de *anfitrião*>/ui).
+   - No**Inventário** **Inicial,** > selecione modelo**OVF de implementação**de **ficheiros** > . Navegue no OVA e complete a implementação.
 4. Se a implantação ainda falhar, contacte o suporte da Migração Azure.
 
 ## <a name="cant-connect-to-the-internet"></a>Não se pode ligar à internet
@@ -53,7 +53,7 @@ Um erro sobre a sincronização da data e da hora (802) indica que o relógio do
 
 ## <a name="unabletoconnecttoserver"></a>"UnableToConnectToServer"
 
-Se tiver este erro de ligação, poderá não conseguir ligar-se ao vCenter *Server Servername*.com:9443. Os detalhes do erro indicam que não há ponto final a ouvir o nome de*servidor*https://.com:9443/sdk que pode aceitar a mensagem.
+Se tiver este erro de ligação, poderá não conseguir ligar-se ao vCenter *Server Servername*.com:9443. Os detalhes do erro indicam que não `https://\*servername*.com:9443/sdk` há ponto final de escuta que possa aceitar a mensagem.
 
 - Verifique se está a executar a versão mais recente do aparelho. Se não estiver, atualize o aparelho para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 - Se o problema ainda ocorrer na versão mais recente, o aparelho poderá não conseguir resolver o nome de servidor de vCenter especificado, ou a porta especificada pode estar errada. Por defeito, se a porta não for especificada, o coletor tentará ligar-se à porta número 443.
@@ -106,7 +106,7 @@ Erro 50004: "Não pode ligar-se a um hospedeiro ou cluster porque o nome do serv
     1. Abra o bloco de notas como administrador.
     2. Abra o ficheiro C:\Windows\System32\Drivers\etc\hosts.
     3. Adicione o endereço IP e o nome do anfitrião em sequência. Repita para cada hospedeiro ou aglomerado onde vê este erro.
-    4. Guarde e feche o ficheiro de anfitriões.
+    4. Guarde e feche o ficheiro hosts.
     5. Verifique se o aparelho pode ligar-se aos anfitriões, utilizando a aplicação de gestão de aparelhos. Após 30 minutos, deverá ver as últimas informações para estes anfitriões no portal Azure.
 
 ## <a name="discovered-vms-not-in-portal"></a>VMs descobertos não no portal
@@ -120,13 +120,13 @@ Se esperar e o estado não mudar, selecione **Refresh** no separador **Servidore
 Se isto não funcionar e estiver a descobrir servidores VMware:
 
 - Verifique se a conta vCenter que especificou tem permissões definidas corretamente, com acesso a pelo menos um VM.
-- O Azure Migrate não consegue descobrir VMware VMs se a conta vCenter tiver acesso concedido ao nível da pasta VCenter VM. [Saiba mais](tutorial-assess-vmware.md#set-the-scope-of-discovery) sobre a descoberta de scoping.
+- O Azure Migrate não consegue descobrir VMware VMs se a conta vCenter tiver acesso concedido ao nível da pasta VCenter VM. [Saiba mais](set-discovery-scope.md) sobre a descoberta de scoping.
 
 ## <a name="vm-data-not-in-portal"></a>Dados vM não no portal
 
 Se os VM saem descobertos não aparecem no portal ou se os dados vm estão desatualizados, aguarde alguns minutos. Leva até 30 minutos para que as alterações nos dados de configuração VM descobertos apareçam no portal. Pode levar algumas horas para que as alterações nos dados da aplicação apareçam. Se não houver dados depois deste tempo, tente refrescar,como se segue
 
-1. Nos **servidores** > Avaliação do **Servidor Migrador Azure,** selecione **visão geral**.
+1. Nos **servidores** > **Azure Migrate Server Assessment**, selecione visão **geral**.
 2. Em **'Gerir',** selecione **Agent Health**.
 3. Selecione **Agente Refresh**.
 4. Aguarde a operação de atualização. Agora deve ver informações atualizadas.
@@ -147,7 +147,7 @@ Erros típicos de descoberta de aplicativos são resumidos na tabela.
 10001: "Incapaz de recuperar as aplicações instaladas no servidor". | Erro interno - alguns ficheiros em falta no aparelho. | Contacte o Suporte da Microsoft.
 10002: "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
 10003 "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
-10004: "Incapaz de descobrir aplicações instaladas para máquinas <Windows/Linux&gt." |  Credenciais de acesso <Windows/Linux> as máquinas não foram fornecidas no aparelho.| Adicione uma credencial ao aparelho que tenha acesso às máquinas <Windows/Linux>
+10004: "Incapaz de descobrir aplicações instaladas para <máquinas> Windows/Linux." |  As credenciais de acesso <Windows/Linux> máquinas não foram fornecidas no aparelho.| Adicione uma credencial ao aparelho que tenha acesso às máquinas <Windows/Linux>.
 10005: "Incapaz de aceder ao servidor no local". | As credenciais de acesso podem estar erradas. | Atualize as credenciais do aparelho certifique-se de que pode aceder à máquina relevante com elas. 
 10006: "Incapaz de aceder ao servidor no local". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux.|  Utilize apenas a descoberta de aplicativos para Windows/Linux.
 10007: "Incapaz de processar os metadados recuperados" | Este erro interno ocorreu enquanto tentava desserializar a JSON | Entrar em contato com o Suporte da Microsoft para uma resolução
@@ -173,7 +173,7 @@ Erros típicos de descoberta de aplicativos são resumidos na tabela.
 9023: "SystemRoot ambiente valor variável está vazio." | Não é conhecido | Contacte o Suporte da Microsoft.
 9024: "O valor variável do ambiente temp está vazio." | Não é conhecido | Contacte o Suporte da Microsoft.
 9025: "PowerShell é corrupto nos VMs convidados." | Não é conhecido | Reinstale a PowerShell no VM de hóspedes e verifique se a PowerShell pode ser executada no VM de hóspedes.
-8084: "Incapaz de descobrir aplicações devido a erro de VMware: <Exception from VMware>" | O aparelho Azure Migrate utiliza APIs VMware para descobrir aplicações. Este problema pode acontecer se uma exceção for lançada pelo vCenter Server enquanto tenta descobrir aplicações. A mensagem de falha da VMware é exibida na mensagem de erro mostrada no portal. | Procure a mensagem na [documentação vMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se não conseguir reparar, contacte o suporte da Microsoft.
+8084: "Incapaz de descobrir aplicações devido a <Exception from VMware>erro de VMware: " | O aparelho Azure Migrate utiliza APIs VMware para descobrir aplicações. Este problema pode acontecer se uma exceção for lançada pelo vCenter Server enquanto tenta descobrir aplicações. A mensagem de falha da VMware é exibida na mensagem de erro mostrada no portal. | Procure a mensagem na [documentação vMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se não conseguir reparar, contacte o suporte da Microsoft.
 
 
 

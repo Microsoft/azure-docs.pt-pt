@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209500"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Criar alertas para bases de dados Azure SQL e Azure Synapse Analytics usando o portal Azure
@@ -40,10 +40,10 @@ Pode configurar um alerta para fazer o seguinte quando aciona:
 
 Pode configurar e obter informações sobre as regras de alerta usando
 
-* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Portal Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [interface de linha de comando (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica com o portal Azure
 
@@ -53,22 +53,22 @@ Pode configurar e obter informações sobre as regras de alerta usando
    ![Monitorização](media/sql-database-insights-alerts-portal/Alerts.png)
   
 3. Selecione o novo botão de regra de **alerta** para abrir a página de **regra Criar.**
-  ![Criar](media/sql-database-insights-alerts-portal/create-rule.png) de regra
+  ![Criar regra](media/sql-database-insights-alerts-portal/create-rule.png)
 
 4. Na secção **Condição,** clique em **Adicionar**.
-  ![definir condição](media/sql-database-insights-alerts-portal/create-rule.png)
+  ![Definir condição](media/sql-database-insights-alerts-portal/create-rule.png)
 5. Na página lógica do **sinal Configurar,** selecione um sinal.
-  ![Selecione](media/sql-database-insights-alerts-portal/select-signal.png)de sinal .
+  ![Selecione sinal](media/sql-database-insights-alerts-portal/select-signal.png).
 6. Depois de selecionar um sinal, como a percentagem de **CPU,** aparece a página lógica do **sinal Configurar.**
-  ![Configurar a lógica da lógica do sinal](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
-7. Nesta página, configure esse tipo de limiar, operador, tipo de agregação, valor limiar, granularidade de agregação e frequência de avaliação. Em seguida, clique em **Guardar**.
+  ![Configurar lógica de sinal](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+7. Nesta página, configure esse tipo de limiar, operador, tipo de agregação, valor limiar, granularidade de agregação e frequência de avaliação. Em seguida, clique em **Done**.
 8. Na **regra Criar,** selecione um grupo de **Ação** existente ou crie um novo grupo. Um grupo de ação permite definir a ação a ser tomada quando ocorre uma condição de alerta.
-  ![Definir](media/sql-database-insights-alerts-portal/action-group.png) grupo de ação
+  ![Definir grupo de ação](media/sql-database-insights-alerts-portal/action-group.png)
 
 9. Defina um nome para a regra, forneça uma descrição opcional, escolha um nível de gravidade para a regra, escolha se permite a regra sobre a criação de regras e, em seguida, clique em **Criar alerta** de regra para criar o alerta de regra métrica.
 
 Dentro de 10 minutos, o alerta está ativo e dispara como descrito anteriormente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).

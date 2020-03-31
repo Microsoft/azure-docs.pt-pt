@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implementar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.date: 03/16/2020
+ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942757"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460318"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
@@ -45,13 +45,24 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Os comandos para destacamentos de grupos de gestão são diferentes dos comandos para implantações de grupos de recursos.
 
-Para a Azure PowerShell, utilize a [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+Para o Azure CLI, utilize [az deployment mg criar:](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create)
+
+```azurecli-interactive
+az deployment mg create \
+  --name demoMGDeployment \
+  --location WestUS \
+  --management-group-id myMG \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
+```
+
+Para a Azure PowerShell, utilize a [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
 New-AzManagementGroupDeployment `
-  -ManagementGroupId "myMG" `
+  -Name demoMGDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+  -ManagementGroupId "myMG" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
 Para a API REST, utilize [implementações - Crie no âmbito do grupo](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)de gestão .
@@ -62,7 +73,7 @@ Para implementações de nível de grupo de gestão, você deve fornecer um loca
 
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome padrão é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo com o código de erro `InvalidDeploymentLocation`, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
+Para cada nome de implantação, a localização é imutável. Não se pode criar uma implantação num local quando existe uma implantação existente com o mesmo nome num local diferente. Se obtê-lo o código `InvalidDeploymentLocation`de erro, utilize um nome diferente ou o mesmo local que a implementação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Funções de modelo de utilização
 
@@ -159,7 +170,7 @@ O exemplo que se segue atribui uma definição de política existente ao grupo d
 
 * Criar um grupo de [recursos, uma política e uma atribuição de políticas.](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implementação de definições de espaço de trabalho para o Centro de Segurança Azure, consulte [o deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

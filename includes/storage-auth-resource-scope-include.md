@@ -9,21 +9,21 @@ ms.date: 12/17/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 74ef8270b5efcd3b7cdf756c103dcc2e1c935508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75460519"
 ---
-Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o escopo de acesso que a entidade de segurança deve ter. As práticas recomendadas ditam que é sempre melhor conceder apenas o escopo mais estreito possível.
+Antes de atribuir uma função RBAC a um diretor de segurança, determine o alcance de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.
 
-A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso a recursos de BLOB e fila do Azure, começando com o escopo mais estreito:
+A lista seguinte descreve os níveis a que pode aceder ao blob Azure e aos recursos de fila, começando pelo âmbito mais restrito:
 
-- **Um contêiner individual.** Nesse escopo, uma atribuição de função se aplica a todos os BLOBs no contêiner, bem como propriedades e metadados do contêiner.
-- **Uma fila individual.** Nesse escopo, uma atribuição de função se aplica a mensagens na fila, bem como propriedades de fila e metadados.
-- **A conta de armazenamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres e seus BLOBs, ou a todas as filas e suas mensagens.
-- **O grupo de recursos.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento no grupo de recursos.
-- **A assinatura.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento em todos os grupos de recursos na assinatura.
+- **Um recipiente individual.** Neste âmbito, uma atribuição de funções aplica-se a todas as bolhas do contentor, bem como propriedades de contentores e metadados.
+- **Uma fila individual.** Neste âmbito, uma atribuição de funções aplica-se a mensagens na fila, bem como propriedades de fila e metadados.
+- **A conta de armazenamento.** Neste âmbito, uma atribuição de funções aplica-se a todos os contentores e suas bolhas, ou a todas as filas e mensagens.
+- **o grupo de recursos.** Neste âmbito, uma atribuição de funções aplica-se a todos os contentores ou filas em todas as contas de armazenamento do grupo de recursos.
+- **A assinatura.** Neste âmbito, uma atribuição de funções aplica-se a todos os contentores ou filas em todas as contas de armazenamento em todos os grupos de recursos da subscrição.
 
 > [!IMPORTANT]
-> Se sua assinatura incluir um namespace do Azure databricks, as funções que têm o escopo para a assinatura não concederão acesso aos dados de BLOB e de fila. Em vez disso, as funções de escopo para o grupo de recursos, a conta de armazenamento ou o contêiner ou a fila.     
+> Se a sua subscrição incluir um espaço de nome Azure DataBricks, as funções que são consultadas à subscrição não permitirão o acesso aos dados blob e fila. As funções de âmbito para o grupo de recursos, conta de armazenamento, ou contentor ou fila.     

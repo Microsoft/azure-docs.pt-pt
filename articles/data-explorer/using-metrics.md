@@ -1,5 +1,5 @@
 ---
-title: Monitor Desempenho, saúde e utilização do Explorador de Dados do Azure com métricas
+title: Monitor Desempenho do Explorador de Dados do Azure, utilização de & de saúde com métricas
 description: Aprenda a usar as métricas do Azure Data Explorer para monitorizar o desempenho, saúde e utilização do cluster.
 author: orspod
 ms.author: orspodek
@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.openlocfilehash: 1319b8cd6ac8a0eb83381c24bcde9996458e47a7
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560309"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitor Azure Data Explorer desempenho, saúde e uso com métricas
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, cria-se primeiro um cluster e cria-se uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa base de dados para que possa fazer perguntas contra ele. As métricas do Azure Data Explorer fornecem indicadores-chave sobre a saúde e desempenho dos recursos do cluster. Utilize as métricas detalhadas neste artigo para monitorizar a saúde e desempenho do cluster Azure Data Explorer no seu cenário específico como métricas autónomas. Também pode utilizar métricas como base para os [painéis azure](/azure/azure-portal/azure-portal-dashboards) operacionais e [alertas Azure.](/azure/azure-monitor/platform/alerts-metric-overview)
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, primeiro crie um cluster e crie uma ou mais bases de dados nesse cluster. Em seguida, ingira (carregue) os dados para uma base de dados, de modo a poder executar consultas neles. As métricas do Azure Data Explorer fornecem indicadores-chave sobre a saúde e desempenho dos recursos do cluster. Utilize as métricas detalhadas neste artigo para monitorizar a saúde e desempenho do cluster Azure Data Explorer no seu cenário específico como métricas autónomas. Também pode utilizar métricas como base para os [painéis azure](/azure/azure-portal/azure-portal-dashboards) operacionais e [alertas Azure.](/azure/azure-monitor/platform/alerts-metric-overview)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,10 +25,10 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
 
 ## <a name="using-metrics"></a>Usando métricas
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. No seu cluster Azure Data Explorer, selecione **Métricas** para abrir o painel de métricas e começar a analisar o seu cluster.
-    ![Selecione métricas](media/using-metrics/select-metrics.png).
-1. No painel de métricas: painel de métricas ![](media/using-metrics/metrics-pane.png)
+    ![Selecione](media/using-metrics/select-metrics.png)Métricas .
+1. No painel de métricas: ![Painel de métricas](media/using-metrics/metrics-pane.png)
     1. Para criar um gráfico métrico, selecione o nome **métrico** e a **agregação** relevante por métrica. Os pick-ups **De Recurso** e **Nomes Métricos** são pré-selecionados para o seu cluster Azure Data Explorer. Para obter mais informações sobre métricas diferentes, consulte [as métricas suportadas do Azure Data Explorer.](#supported-azure-data-explorer-metrics)
     1. **Selecione Adicionar métrica** para ver várias métricas traçadas no mesmo gráfico.
     1. Selecione **+ Novo gráfico** para ver vários gráficos numa só vista.
@@ -49,12 +49,12 @@ As métricas de saúde do cluster acompanham a saúde geral do cluster. Isto inc
 
 **Métricas** | **Unidade** | **Agregação** | **Descrição métrica** | **Dimensões** |
 |---|---|---|---|---|
-| Utilização de cache | Percentagem | Avg, Max, Min | Percentagem dos recursos de cache atribuídos atualmente em uso pelo cluster. Cache é o tamanho do SSD atribuído à atividade do utilizador de acordo com a política de cache definida. Uma utilização média de cache de 80% ou menos é um estado sustentável para um cluster. Se a utilização média do cache for superior a 80%, o cluster deve ser [dimensionado até](manage-cluster-vertical-scaling.md) um nível de preços otimizado de armazenamento ou [dimensionado](manage-cluster-horizontal-scaling.md) para mais instâncias. Alternativamente, adapte a política de cache (menos dias em cache). Se a utilização do cache for superior a 100%, o tamanho dos dados a serem cache, de acordo com a política de cache, é maior que o tamanho total da cache no cluster. | Nenhum |
-| CPU | Percentagem | Avg, Max, Min | Percentagem dos recursos calculados atribuídos atualmente em uso por máquinas no cluster. Um CpU médio de 80% ou menos é sustentável para um cluster. O valor máximo da CPU é de 100%, o que significa que não existem recursos de computação adicionais para processar dados. Quando um cluster não estiver a funcionar bem, verifique o valor máximo do CPU para determinar se existem CPUs específicos que estão bloqueados. | Nenhum |
-| Utilização de ingestão | Percentagem | Avg, Max, Min | Percentagem de recursos reais utilizados para ingerir dados do total dos recursos atribuídos, na política de capacidade, para a realização da ingestão. A política de capacidade de incumprimento não é superior a 512 operações de ingestão simultâneas ou 75% dos recursos de cluster investidos na ingestão. A utilização média da ingestão de 80% ou menos é um estado sustentável para um cluster. O valor máximo da utilização da ingestão é de 100%, o que significa que toda a capacidade de ingestão de clusters é utilizada e pode resultar uma fila de ingestão. | Nenhum |
-| Mantenha-se vivo | Contagem | Rio Avg | Rastreia a capacidade de resposta do cluster. Um cluster totalmente responsivo devolve o valor 1 e um cluster bloqueado ou desligado retorna 0. |
-| Número total de comandos estrangulados | Contagem | Avg, Max, Min, Sum | O número de comandos estrangulados (rejeitados) no cluster, uma vez que o número máximo permitido de comandos simultâneos (paralelos) foi atingido. | Nenhum |
-| Número total de extensões | Contagem | Avg, Max, Min, Sum | Número total de extensões de dados no cluster. As mudanças nesta métrica podem implicar mudanças maciças na estrutura de dados e alta carga no cluster, uma vez que a fusão das extensões de dados é uma atividade pesada de CPU. | Nenhum |
+| Utilização de cache | Percentagem | Avg, Max, Min | Percentagem dos recursos de cache atribuídos atualmente em uso pelo cluster. Cache é o tamanho do SSD atribuído à atividade do utilizador de acordo com a política de cache definida. Uma utilização média de cache de 80% ou menos é um estado sustentável para um cluster. Se a utilização média do cache for superior a 80%, o cluster deve ser [dimensionado até](manage-cluster-vertical-scaling.md) um nível de preços otimizado de armazenamento ou [dimensionado](manage-cluster-horizontal-scaling.md) para mais instâncias. Alternativamente, adapte a política de cache (menos dias em cache). Se a utilização do cache for superior a 100%, o tamanho dos dados a serem cache, de acordo com a política de cache, é maior que o tamanho total da cache no cluster. | Nenhuma |
+| CPU | Percentagem | Avg, Max, Min | Percentagem dos recursos calculados atribuídos atualmente em uso por máquinas no cluster. Um CpU médio de 80% ou menos é sustentável para um cluster. O valor máximo da CPU é de 100%, o que significa que não existem recursos de computação adicionais para processar dados. Quando um cluster não estiver a funcionar bem, verifique o valor máximo do CPU para determinar se existem CPUs específicos que estão bloqueados. | Nenhuma |
+| Utilização de ingestão | Percentagem | Avg, Max, Min | Percentagem de recursos reais utilizados para ingerir dados do total dos recursos atribuídos, na política de capacidade, para a realização da ingestão. A política de capacidade de incumprimento não é superior a 512 operações de ingestão simultâneas ou 75% dos recursos de cluster investidos na ingestão. A utilização média da ingestão de 80% ou menos é um estado sustentável para um cluster. O valor máximo da utilização da ingestão é de 100%, o que significa que toda a capacidade de ingestão de clusters é utilizada e pode resultar uma fila de ingestão. | Nenhuma |
+| Mantenha-se vivo | Contagem | Méd. | Rastreia a capacidade de resposta do cluster. Um cluster totalmente responsivo devolve o valor 1 e um cluster bloqueado ou desligado retorna 0. |
+| Número total de comandos estrangulados | Contagem | Avg, Max, Min, Sum | O número de comandos estrangulados (rejeitados) no cluster, uma vez que o número máximo permitido de comandos simultâneos (paralelos) foi atingido. | Nenhuma |
+| Número total de extensões | Contagem | Avg, Max, Min, Sum | Número total de extensões de dados no cluster. As mudanças nesta métrica podem implicar mudanças maciças na estrutura de dados e alta carga no cluster, uma vez que a fusão das extensões de dados é uma atividade pesada de CPU. | Nenhuma |
 | | | | |
 
 ### <a name="export-health-and-performance-metrics"></a>Métricas de saúde e desempenho de exportação
@@ -63,11 +63,11 @@ As métricas de saúde e desempenho das exportações acompanham a saúde geral 
 
 **Métricas** | **Unidade** | **Agregação** | **Descrição métrica** | **Dimensões** |
 |---|---|---|---|---|
-Número contínuo de exportação de registos exportados    | Contagem | Soma | O número de registos exportados em todos os postos de trabalho de exportação contínuos. | Nenhum |
-Atraso máximo de exportação contínua |    Contagem   | Máx.   | O atraso (em minutos) relatado pelos contínuos trabalhos de exportação no cluster. | Nenhum |
+Número contínuo de exportação de registos exportados    | Contagem | Soma | O número de registos exportados em todos os postos de trabalho de exportação contínuos. | Nenhuma |
+Atraso máximo de exportação contínua |    Contagem   | Máx.   | O atraso (em minutos) relatado pelos contínuos trabalhos de exportação no cluster. | Nenhuma |
 Contagem contínua de exportação pendente | Contagem | Máx.   | O número de postos de trabalho de exportação continuados pendentes. Estes postos de trabalho estão prontos para funcionar, mas esperam numa fila, possivelmente devido à falta de capacidade). 
 Resultado contínuo das exportações    | Contagem |   Contagem   | O resultado de falha/sucesso de cada exportação contínua. | Nome de Exportação Contínua |
-Utilização das exportações |    Percentagem | Máx.   | Capacidade de exportação utilizada, fora da capacidade total de exportação do cluster (entre 0 e 100). | Nenhum |
+Utilização das exportações |    Percentagem | Máx.   | Capacidade de exportação utilizada, fora da capacidade total de exportação do cluster (entre 0 e 100). | Nenhuma |
 | | | | |
 
 ### <a name="ingestion-health-and-performance-metrics"></a>Métricas de saúde e desempenho
@@ -77,8 +77,8 @@ As métricas de saúde e desempenho da ingestão acompanham a saúde geral e o d
 **Métricas** | **Unidade** | **Agregação** | **Descrição métrica** | **Dimensões** |
 |---|---|---|---|---|
 | Eventos processados (para Hubs de Evento/IoT) | Contagem | Max, Min, Sum | Número total de eventos lidos a partir de centros de eventos e processados pelo cluster. Os eventos são divididos em eventos rejeitados e eventos aceites pelo motor de cluster. | EventStatus |
-| Latência de ingestão | Segundos | Avg, Max, Min | Latência de dados ingeridos, desde o momento em que os dados foram recebidos no cluster até estar pronto para consulta. O período de latência depende do cenário de ingestão. | Nenhum |
-| Resultado da ingestão | Contagem | Contagem | Número total de operações de ingestão que falharam e conseguiram. Utilize **a divisão** para criar baldes de sucesso e falhar resultados e analisar as dimensões **(Valor** > **Estado).**| IngestionResultDetails |
+| Latência de ingestão | Segundos | Avg, Max, Min | Latência de dados ingeridos, desde o momento em que os dados foram recebidos no cluster até estar pronto para consulta. O período de latência depende do cenário de ingestão. | Nenhuma |
+| Resultado da ingestão | Contagem | Contagem | Número total de operações de ingestão que falharam e conseguiram. Utilize a divisão de **aplicação** para criar baldes de sucesso e falhar resultados e analisar as dimensões **(Estado****de Valor).** > | IngestionResultDetails |
 | Volume de ingestão (em MB) | Contagem | Max | O tamanho total dos dados ingeridos para o cluster (em MB) antes da compressão. | Base de Dados |
 | | | | |  
 
@@ -89,8 +89,8 @@ As métricas de desempenho da consulta acompanham a duração da consulta e o n�
 **Métricas** | **Unidade** | **Agregação** | **Descrição métrica** | **Dimensões** |
 |---|---|---|---|---|
 | Duração da consulta | Milissegundos | Avg, Min, Max, Sum | O tempo total até que os resultados da consulta sejam recebidos (não inclui latência da rede). | ConsultaStatus |
-| Número total de consultas simultâneas | Contagem | Avg, Max, Min, Sum | O número de consultas corre paralelamente no aglomerado. Esta métrica é uma boa maneira de estimar a carga no cluster. | Nenhum |
-| Número total de consultas estranguladas | Contagem | Avg, Max, Min, Sum | O número de consultas estranguladas (rejeitadas) no cluster. O número máximo de consultas simultâneas (paralelas) permitidas é definido na política de consulta simultânea. | Nenhum |
+| Número total de consultas simultâneas | Contagem | Avg, Max, Min, Sum | O número de consultas corre paralelamente no aglomerado. Esta métrica é uma boa maneira de estimar a carga no cluster. | Nenhuma |
+| Número total de consultas estranguladas | Contagem | Avg, Max, Min, Sum | O número de consultas estranguladas (rejeitadas) no cluster. O número máximo de consultas simultâneas (paralelas) permitidas é definido na política de consulta simultânea. | Nenhuma |
 | | | | |
 
 ### <a name="streaming-ingest-metrics"></a>Streaming de métricas de ingestão
@@ -99,10 +99,10 @@ O streaming de métricas de fluxo de dados de ingestão e taxa de pedido, duraç
 
 **Métricas** | **Unidade** | **Agregação** | **Descrição métrica** | **Dimensões** |
 |---|---|---|---|---|
-Taxa de dados de ingestão de streaming |    Contagem   | RateRequestsPerSecond | Volume total de dados ingeridos para o cluster. | Nenhum |
-Duração do ingest de streaming   | Milissegundos  | Avg, Max, Min | Duração total de todos os pedidos de ingestão de streaming. | Nenhum |
-Taxa de pedido de ingestão de streaming   | Contagem | Conde, Avg, Max, Min, Sum | Número total de pedidos de ingestão de streaming. | Nenhum |
-Resultado da ingest de streaming | Contagem | Rio Avg   | Número total de pedidos de ingestão de streaming por tipo de resultado. | Resultado |
+Taxa de dados de ingestão de streaming |    Contagem   | RateRequestsPerSecond | Volume total de dados ingeridos para o cluster. | Nenhuma |
+Duração do ingest de streaming   | Milissegundos  | Avg, Max, Min | Duração total de todos os pedidos de ingestão de streaming. | Nenhuma |
+Taxa de pedido de ingestão de streaming   | Contagem | Conde, Avg, Max, Min, Sum | Número total de pedidos de ingestão de streaming. | Nenhuma |
+Resultado da ingest de streaming | Contagem | Méd.   | Número total de pedidos de ingestão de streaming por tipo de resultado. | Resultado |
 | | | | |
 
 Informações adicionais sobre [métricas de cluster do Azure Data Explorer suportadas.](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
@@ -112,4 +112,4 @@ Informações adicionais sobre [métricas de cluster do Azure Data Explorer supo
 
 * [Tutorial: Ingerir e consultar dados de monitorização no Azure Data Explorer](/azure/data-explorer/ingest-data-no-code)
 * [Monitorize operações de ingestão do Explorador de Dados do Azure utilizando registos de diagnóstico](/azure/data-explorer/using-diagnostic-logs)
-* [Início Rápido: consultar dados no Azure Data Explorer](web-query-data.md)
+* [Início Rápido: Consultar dados no Azure Data Explorer](web-query-data.md)

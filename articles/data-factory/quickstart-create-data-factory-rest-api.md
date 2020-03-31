@@ -14,10 +14,10 @@ ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
 ms.openlocfilehash: fbfd3e2577655e8cfccd84fffe2971ff509bd2f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240773"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Quickstart: Criar uma fábrica de dados Azure e um oleoduto utilizando a API REST
@@ -30,21 +30,21 @@ O Azure Data Factory é um serviço de integração de dados baseado na cloud qu
 
 Este início rápido descreve como utilizar a API REST para criar uma fábrica de dados do Azure. O pipeline nesta fábrica de dados copia dados de uma localização para outra localização num armazenamento de blobs do Azure.
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Subscrição do Azure**. Se não tiver uma subscrição, pode criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
+* **Assinatura Azure.** Se não tiver uma subscrição, pode criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* **Conta de Armazenamento Azure.** Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
 * Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar ao Armazenamento de Blobs do Azure, criar contentores de blobs, carregar o ficheiro de entrada e verificar o ficheiro de saída.
-* Instale o **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps). Este início rápido utiliza o PowerShell para invocar chamadas à API REST.
+* Instale **o Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps). Este início rápido utiliza o PowerShell para invocar chamadas à API REST.
 * **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que utiliza em etapas posteriores: ID da **aplicação,** **clientSecrets,** e ID do **inquilino**. Atribua a aplicação à função "**Contribuidor**".
 
 ## <a name="set-global-variables"></a>Definir variáveis globais
 
-1. Inicie o **Azure PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
+1. Lançamento **PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
 
     Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
 
@@ -56,7 +56,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```powershell
     Get-AzSubscription
     ```
-    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **SubscriptionId** pelo ID da sua subscrição do Azure:
+    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -190,7 +190,7 @@ Segue-se o resultado do exemplo:
 ```
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Defina um conjunto de dados que represente os dados a copiar de uma origem para um sink. Neste exemplo, cria-se dois conjuntos de dados: InputDataset e OutputDataset. Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior. O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição de conjunto de dados de entrada, especifica o recipiente blob (adftutorial), a pasta (entrada) e o ficheiro (emp.txt) que contêm os dados de origem. O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição de conjunto de dados de saída, especifica o recipiente blob (adftutorial), a pasta (saída) e o ficheiro para o qual os dados são copiados.
+Defina um conjunto de dados que represente os dados a copiar de uma origem para um sink. Neste exemplo, cria-se dois conjuntos de dados: InputDataset e OutputDataset. Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior. O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs (adftutorial), a pasta (input) e o ficheiro (emp.txt) que contêm os dados de origem. O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs (adftutorial), a pasta (output) e o ficheiro para o qual os dados vão ser copiados.
 
 **Criar InputDataset**
 
@@ -383,7 +383,7 @@ Segue-se o resultado do exemplo:
 
 Neste passo, defina os valores dos parâmetros **inputPath** e **outputPath** especificados no pipeline com os valores reais dos caminhos dos blobs de origem e de sink e acione uma execução de pipeline. O ID da execução de pipeline devolvido no corpo da resposta é utilizado em monitorizações da API posteriores.
 
-Substitua o valor de **inputPath** e **outputPath** pelos caminhos dos blobs de origem e de sink para copiar dados entre os mesmos antes de guardar o ficheiro.
+Substitua o valor do **inputPath** e **do outputPath** pela sua fonte e afunde o caminho blob para copiar dados de e para antes de guardar o ficheiro.
 
 
 ```powershell

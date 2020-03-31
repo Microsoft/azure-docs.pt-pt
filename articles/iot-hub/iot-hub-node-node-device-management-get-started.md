@@ -1,6 +1,6 @@
 ---
-title: Inicie-se com a gestão de dispositivos Azure IoT Hub (Nó)  Microsoft Docs
-description: Como usar o gerenciamento de dispositivos do Hub IoT para iniciar uma reinicialização remota do dispositivo. Utiliza o Azure IoT SDK para o Node.js implementar uma aplicação simulada de dispositivo que inclui um método direto e uma aplicação de serviço que invoca o método direto.
+title: Inicie-se com a gestão de dispositivos Azure IoT Hub (Nó) [ Microsoft Docs
+description: Como utilizar a gestão do dispositivo IoT Hub para iniciar um reboot remoto do dispositivo. Utiliza o Azure IoT SDK para o Node.js implementar uma aplicação simulada de dispositivo que inclui um método direto e uma aplicação de serviço que invoca o método direto.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 5b2e4c03347020b5d5fc67927165403f06854e0b
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110910"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Começar com a gestão do dispositivo (Node.js)
@@ -23,7 +23,7 @@ Este tutorial mostrar-lhe como:
 
 * Utilize o [portal Azure](https://portal.azure.com) para criar um Hub IoT e criar uma identidade de dispositivo no seu hub IoT.
 
-* Crie um aplicativo de dispositivo simulado que contenha um método direto que reinicie esse dispositivo. Os métodos diretos são invocados da nuvem.
+* Crie uma aplicação simulada de dispositivo que contenha um método direto que reinicie esse dispositivo. Os métodos diretos são invocados da nuvem.
 
 * Crie uma aplicação de consola Node.js que chame o método direto de reinicialização na aplicação simulada do dispositivo através do seu hub IoT.
 
@@ -57,7 +57,7 @@ Nesta secção, pode:
 
 * Desencadear um reboot simulado do dispositivo
 
-* Usar as propriedades relatadas para habilitar consultas de dispositivo de dispositivos para identificar os dispositivos e quando eles foram reinicializados pela última vez
+* Utilize as propriedades reportadas para permitir que as consultas gémeas do dispositivo identifiquem dispositivos e quando foram reiniciados pela última vez
 
 1. Crie uma pasta vazia designada **manageddevice**.  Na pasta **manageddevice**, crie um ficheiro package.json com o seguinte comando na sua linha de comandos.  Aceite todas as predefinições:
 
@@ -82,7 +82,7 @@ Nesta secção, pode:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**.  Substitua o valor do espaço reservado `{yourdeviceconnectionstring}` pela cadeia de ligação do dispositivo que copiou anteriormente no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).  
+5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**.  Substitua `{yourdeviceconnectionstring}` o valor do espaço reservado pela cadeia de ligação do dispositivo que copiou anteriormente no [Registo de um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -149,15 +149,15 @@ Nesta secção, pode:
 > [!NOTE]
 > Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar políticas de retry (como um backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Disparar uma reinicialização remota no dispositivo usando um método direto
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Desencadear um reboot remoto no dispositivo utilizando um método direto
 
-Nesta secção, cria-se uma aplicação de consola Node.js que inicia um reboot remoto num dispositivo utilizando um método direto. O aplicativo usa consultas de dispositivo de dispositivos para descobrir a hora da última reinicialização para esse dispositivo.
+Nesta secção, cria-se uma aplicação de consola Node.js que inicia um reboot remoto num dispositivo utilizando um método direto. A aplicação utiliza consultas de gémeos dispositivos para descobrir o último tempo de reinício para esse dispositivo.
 
 1. Crie uma pasta vazia chamada **triggerrebootondevice**. Na pasta **do triggerrebootondevice,** crie um ficheiro package.json utilizando o seguinte comando no seu pedido de comando. Aceite todas as predefinições:
 
@@ -182,7 +182,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que inicia um reboot 
     var Client = require('azure-iothub').Client;
     ```
 
-5. Adicione as seguintes declarações variáveis e substitua o valor do espaço reservado `{iothubconnectionstring}` pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
+5. Adicione as seguintes declarações `{iothubconnectionstring}` variáveis e substitua o valor do espaço reservado pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -246,7 +246,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que inicia um reboot 
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 
-Agora você está pronto para executar os aplicativos.
+Está pronto para executar as aplicações.
 
 1. No pedido de comando na pasta do **dispositivo gerido,** execute o seguinte comando para começar a ouvir o método direct de reinicialização.
 

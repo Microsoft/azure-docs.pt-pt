@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297045"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Encriptação de dados de resolução de problemas na Base de Dados Azure para MySQL
@@ -21,7 +21,7 @@ Este artigo descreve como identificar e resolver problemas comuns que podem ocor
 
 Quando configura a encriptação de dados para utilizar uma chave gerida pelo cliente no Cofre de Chaves Azure, os servidores requerem acesso contínuo à chave. Se o servidor perder o acesso à chave gerida pelo cliente no Cofre de Chaves Azure, negará todas as ligações, devolverá a mensagem de erro apropriada e mudará o seu estado para ***Inacessível*** no portal Azure.
 
-Se já não necessitar de uma base de dados Azure inacessível para o servidor MySQL, pode eliminá-la para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre da chave seja restaurado e o servidor esteja disponível. Também não é possível alterar a opção de encriptação de dados de `Yes`(gerida pelo cliente) para `No` (gerido pelo serviço) num servidor inacessível quando é encriptado com uma chave gerida pelo cliente. Terá de revalidar a chave manualmente antes de o servidor voltar a estar acessível. Esta ação é necessária para proteger os dados de acesso não autorizado enquanto as permissões à chave gerida pelo cliente são revogadas.
+Se já não necessitar de uma base de dados Azure inacessível para o servidor MySQL, pode eliminá-la para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre da chave seja restaurado e o servidor esteja disponível. Também não é possível alterar a opção de encriptação de dados de `Yes`(gerido pelo cliente) para `No` (gerido pelo serviço) num servidor inacessível quando é encriptado com uma chave gerida pelo cliente. Terá de revalidar a chave manualmente antes de o servidor voltar a estar acessível. Esta ação é necessária para proteger os dados de acesso não autorizado enquanto as permissões à chave gerida pelo cliente são revogadas.
 
 ## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Erros comuns que fazem com que o servidor se torne inacessível
 
@@ -57,6 +57,6 @@ As seguintes configurações causam a maioria dos problemas com encriptação de
 - Identifique o cofre da chave e vá ao cofre chave no portal Azure.
 - Certifique-se de que a chave URI identifica uma chave que está presente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o portal Azure para configurar encriptação de dados com uma chave gerida pelo cliente na Base de Dados Azure para MySQL](howto-data-encryption-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Planeamento de rede e ligações para serviços de domínio azure AD  Microsoft Docs
+title: Planeamento de rede e ligações para serviços de domínio azure AD [ Microsoft Docs
 description: Conheça algumas das considerações de design de rede virtual e recursos utilizados para a conectividade quando executa os Serviços de Domínio de Diretório Ativo Azure.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264196"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Serviços de Domínio AD Azure
@@ -94,7 +94,7 @@ Um domínio gerido por AD DS Azure cria alguns recursos de networking durante a 
 | Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público padrão SKU. Para mais informações sobre endereços IP públicos, consulte os tipos de [endereços IP e os métodos](../virtual-network/virtual-network-ip-addresses-overview-arm.md)de atribuição em Azure . |
 | Equilibrador de carga padrão Azure            | O Azure AD DS utiliza um equilíbrio de carga SKU padrão para tradução de endereços de rede (NAT) e equilíbrio de carga (quando utilizado com LDAP seguro). Para obter mais informações sobre os equilibradores de carga Azure, consulte [o que é o Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regras de tradução de endereços de rede (NAT) | O Azure AD DS cria e utiliza três regras NAT no equilibrista de carga - uma regra para o tráfego http seguro, e duas regras para o remo powerShell seguro. |
-| Regras do equilibrador de carga                     | Quando um domínio gerido por DS Azure AD é configurado para LDAP seguro na porta TCP 636, são criadas três regras e usadas num equilibrista de carga para distribuir o tráfego. |
+| Regras do balanceador de carga                     | Quando um domínio gerido por DS Azure AD é configurado para LDAP seguro na porta TCP 636, são criadas três regras e usadas num equilibrista de carga para distribuir o tráfego. |
 
 > [!WARNING]
 > Não elimine nenhum dos recursos de rede criados pela Azure AD DS. Se eliminar algum dos recursos da rede, ocorre uma falha no serviço Azure AD DS.
@@ -105,12 +105,12 @@ Um grupo de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o Azure AD DS forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança da rede para a subnet de rede virtual em que o seu domínio gerido pelo Azure AD DS é implantado.
 
-| Número da porta | Protocol | Origem                             | Destination | Ação | Required | Objetivo |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Permitir  | Sim      | Sincronização com o seu inquilino Azure AD. |
-| 3389        | TCP      | Corpnetsaw                         | Any         | Permitir  | Sim      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Permitir  | Sim      | Gestão do seu domínio. |
-| 636         | TCP      | Any                                | Any         | Permitir  | Não       | Só ativado quando configurar o LDAP seguro (LDAPS). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino Azure AD. |
+| 3389        | TCP      | Corpnetsaw                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 636         | TCP      | Qualquer                                | Qualquer         | Permitir  | Não       | Só ativado quando configurar o LDAP seguro (LDAPS). |
 
 > [!WARNING]
 > Não edite manualmente estes recursos e configurações de rede. Quando associar um grupo de segurança de rede mal configurado ou uma tabela de rotas definida pelo utilizador com a subnet na qual o Azure AD DS é implantado, poderá perturbar a capacidade da Microsoft de servir e gerir o domínio. A sincronização entre o seu inquilino Azure AD e o seu domínio gerido pela Azure AD DS também é interrompida.
@@ -158,10 +158,10 @@ Deve também encaminhar o tráfego de entrada a partir dos endereços IP incluí
 > [!CAUTION]
 > Estas gamas IP do centro de dados Azure podem ser alteradas sem aviso prévio. Certifique-se de que tem processos para validar que tem os mais recentes endereços IP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre alguns dos recursos de rede e opções de conexão utilizadas pela Azure AD DS, consulte os seguintes artigos:
 
 * [Peering de rede virtual Azure](../virtual-network/virtual-network-peering-overview.md)
-* [Gateways Azure VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Grupos de segurança da rede Azure](../virtual-network/security-overview.md)
+* [Gateways de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
+* [Grupos de segurança de rede do Azure](../virtual-network/security-overview.md)

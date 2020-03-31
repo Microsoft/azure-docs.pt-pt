@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
 ms.openlocfilehash: f7b1b294e9500ef9e0aadd24cfe3cd4e61fddda1
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68426939"
 ---
 > [!IMPORTANT]
-> **Habilite a sincronização de hash de senha para Azure AD Domain Services, antes de concluir as tarefas neste artigo.**
+> **Ative a sincronização de hash de palavra-passe para os Serviços de Domínio AD Azure, antes de completar as tarefas neste artigo.**
 >
-> Siga as instruções abaixo, dependendo do tipo de usuário em seu diretório do Azure AD. Conclua os dois conjuntos de instruções se você tiver uma mistura de contas de usuário sincronizadas somente na nuvem e em seu diretório do Azure AD. Talvez você não consiga realizar as seguintes operações caso esteja tentando usar uma conta de convidado B2B (exemplo, seu Gmail ou MSA de um provedor de identidade diferente que permitimos) porque não temos a senha para esses usuários sincronizados com o domínio gerenciado como estes são contas de convidado no diretório. As informações completas sobre essas contas, incluindo suas senhas, estão fora do Azure AD e, como essas informações não estão no Azure AD, portanto, nem mesmo são sincronizadas com o domínio gerenciado. 
-> - [Instruções para contas de usuário somente em nuvem](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
-> - [Instruções para contas de usuário sincronizadas de um diretório local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> Siga as instruções abaixo, dependendo do tipo de utilizadores no seu diretório Azure AD. Complete ambos os conjuntos de instruções se tiver uma mistura de contas de utilizador apenas em nuvem e sincronizadas no seu diretório Azure AD. Pode não ser capaz de realizar as seguintes operações no caso de estar a tentar utilizar uma conta De hóspedes B2B (exemplo, o seu gmail ou MSA de um fornecedor de identidade diferente que permitimos) porque não temos a palavra-passe para estes utilizadores sincronizados com o domínio gerido como estes são contas de hóspedes no diretório. A informação completa sobre estas contas, incluindo as suas palavras-passe, estaria fora da AD Azure e como esta informação não está em Azure AD, por isso nem sequer é sincronizada com o domínio gerido. 
+> - [Instruções para contas de utilizadores apenas na nuvem](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
+> - [Instruções para contas de utilizador sincronizadas a partir de um diretório no local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)
