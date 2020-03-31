@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2c074cbd99620a482b18cbe2dfcce8f987d78bd5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278275"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056872"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
 A Configuração de Aplicações Azure suporta operações de importação e exportação de dados. Utilize estas operações para trabalhar com dados de configuração a granel e trocar dados entre a sua loja de configuração de aplicações e o projeto de código. Por exemplo, pode configurar uma loja de configuração de aplicações para testes e outra para produção. Pode copiar as definições de aplicação entre elas para que não tenha de introduzir os dados duas vezes.
 
-Este artigo fornece um guia para importar e exportar dados com configuração de aplicações.
+Este artigo fornece um guia para importar e exportar dados com configuração de aplicações. Se quiser estabelecer uma sincronização contínua com o seu repo GitHub, dê uma olhada na nossa [Ação GitHub.](https://aka.ms/azconfig-gha1)
 
 ## <a name="import-data"></a>Importar dados
 
@@ -28,7 +28,7 @@ Importar dados utilizando o [portal Azure](https://portal.azure.com) ou o [Azure
 
 1. Navegue na sua loja de Configuração de Aplicações e selecione **Import/Export** a partir do menu **Operações.**
 
-1. No separador **Import,** selecione **Source service** > **Configuração .**
+1. No separador **Import,** selecione Ficheiro de**Configuração**do **serviço** > fonte .
 
 1. Selecione **Para idioma** e selecione o tipo de entrada pretendido.
 
@@ -52,11 +52,11 @@ Exportar dados utilizando o [portal Azure](https://portal.azure.com) ou o [Azure
 
 1. Navegue na sua loja de configuração de aplicações e selecione **Import/Export**.
 
-1. No separador **Export,** selecione **o serviço Target** > Ficheiro de **Configuração**.
+1. No separador **Export,** selecione Ficheiro de**Configuração**do **serviço** > Target .
 
 1. Introduza opcionalmente um **Prefixo** e selecione um **Rótulo** e um ponto-a-tempo para as chaves serem exportadas.
 
-1. Selecione um **separador** > **do tipo de ficheiro** .
+1. Selecione um**separador** **de tipo de** > ficheiro .
 
 1. Selecione **Aplicar** para terminar a exportação.
 
@@ -65,4 +65,4 @@ Exportar dados utilizando o [portal Azure](https://portal.azure.com) ou o [Azure
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Criar uma aplicação Web ASP.NET Core](./quickstart-aspnet-core-app.md)  

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281070"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução da fábrica de dados
@@ -24,7 +24,7 @@ ms.locfileid: "79281070"
 
 Este artigo explica os aspetos de agendamento e execução do modelo de aplicação do Azure Data Factory. Este artigo assume que compreende os conceitos básicos dos conceitos de modelos de aplicação data Factory, incluindo atividade, oleodutos, serviços ligados e conjuntos de dados. Para conceitos básicos da Azure Data Factory, consulte os seguintes artigos:
 
-* [Introdução à Fábrica de Dados](data-factory-introduction.md)
+* [Introdução ao Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
 * [Conjuntos de dados](data-factory-create-datasets.md) 
 
@@ -61,7 +61,7 @@ Uma atividade num pipeline data Factory pode tomar zero ou mais **conjuntos** de
 
 **A frequência** na secção **de disponibilidade** especifica a unidade de tempo. Os valores permitidos para a frequência são: Minuto, Hora, Dia, Semana e Mês. A propriedade **de intervalo** na secção de disponibilidade especifica um multiplicador para a frequência. Por exemplo: se a frequência for definida para o Dia e o intervalo for definido para 1 para um conjunto de dados de saída, os dados de saída são produzidos diariamente. Se especificar a frequência como minuto, recomendamos que detetete o intervalo para pelo menos 15. 
 
-No exemplo seguinte, os dados de entrada estão disponíveis de hora em hora e os dados de saída são produzidos de hora em hora (`"frequency": "Hour", "interval": 1`). 
+No exemplo seguinte, os dados de entrada estão disponíveis de hora`"frequency": "Hour", "interval": 1`em hora e os dados de saída são produzidos de hora em hora (). 
 
 **Conjunto de dados de entrada:** 
 
@@ -182,16 +182,16 @@ Viu o uso de propriedades de frequência e intervalo na secção de disponibilid
 ### <a name="dataset-availability"></a>Disponibilidade de conjunto de dados 
 A tabela seguinte descreve propriedades que pode utilizar na secção **de disponibilidade:**
 
-| Propriedade | Descrição | Required | Predefinição |
+| Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequency |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| interval |Especifica um multiplicador para a frequência<br/><br/>O "intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se precisar que o conjunto de dados seja cortado de hora em hora, coloque <b>a Frequência</b> para <b>hora</b> <b>e</b> intervalo para <b>1</b>.<br/><br/><b>Nota:</b>Se especificar frequência como Minuto, recomendamos que detetete o intervalo para pelo menos 15 |Sim |ND |
-| style |Especifica se a fatia deve ser produzida no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a Frequência estiver definida para mês e o estilo estiver definido para EndOfInterval, a fatia é produzida no último dia do mês. Se o estilo estiver definido para o StartOfInterval, a fatia é produzida no primeiro dia do mês.<br/><br/>Se a frequência estiver definida para o Dia e o estilo estiver definido para EndOfInterval, a fatia é produzida na última hora do dia.<br/><br/>Se a frequência estiver definida para hora e o estilo estiver definido para EndOfInterval, a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00 horas, a fatia é produzida às 14:00. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/><b>Nota:</b>Se o AnchorDateTime tiver peças de data mais granulares do que a frequência, as peças mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>de hora em hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos,</b>então as partes dos <b>minutos e segundos</b> do AnchorDateTime são ignoradas. |Não |01/01/0001 |
-| compensado |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Nota:</b>Se forem especificados o âncoraDateTime e offset, o resultado é o turno combinado. |Não |ND |
+| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| intervalo |Especifica um multiplicador para a frequência<br/><br/>O "intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se precisar que o conjunto de dados seja cortado de hora em hora, coloque <b>a Frequência</b> para <b>hora</b> <b>e</b> intervalo para <b>1</b>.<br/><br/><b>Nota:</b>Se especificar frequência como Minuto, recomendamos que detetete o intervalo para pelo menos 15 |Sim |ND |
+| estilo |Especifica se a fatia deve ser produzida no início/fim do intervalo.<ul><li>Início do intervalo</li><li>Fim do intervalo</li></ul><br/><br/>Se a Frequência estiver definida para mês e o estilo estiver definido para EndOfInterval, a fatia é produzida no último dia do mês. Se o estilo estiver definido para o StartOfInterval, a fatia é produzida no primeiro dia do mês.<br/><br/>Se a frequência estiver definida para o Dia e o estilo estiver definido para EndOfInterval, a fatia é produzida na última hora do dia.<br/><br/>Se a frequência estiver definida para hora e o estilo estiver definido para EndOfInterval, a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00 horas, a fatia é produzida às 14:00. |Não |Fim do intervalo |
+| âncoraDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/><b>Nota:</b>Se o AnchorDateTime tiver peças de data mais granulares do que a frequência, as peças mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>de hora em hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos,</b>então as partes dos <b>minutos e segundos</b> do AnchorDateTime são ignoradas. |Não |01/01/0001 |
+| offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Nota:</b>Se forem especificados o âncoraDateTime e offset, o resultado é o turno combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de compensação
-Por predefinição, as fatias diárias (`"frequency": "Day", "interval": 1`) começam às 12 horas utc (meia-noite). Se pretender que a hora de início seja de 6 AM UTC, em vez disso, detete a contrapartida como mostrado no seguinte corte: 
+Por padrão,`"frequency": "Day", "interval": 1`as fatias diárias () começam às 12 horas UTC (meia-noite). Se pretender que a hora de início seja de 6 AM UTC, em vez disso, detete a contrapartida como mostrado no seguinte corte: 
 
 ```json
 "availability":
@@ -214,7 +214,7 @@ No exemplo seguinte, o conjunto de dados é produzido uma vez a cada 23 horas. A
 ```
 
 ### <a name="offsetstyle-example"></a>exemplo de compensação/estilo
-O conjunto de dados seguinte é um conjunto de dados mensal e é produzido no dia 3 de cada mês às 8:00 am (`3.08:00:00`):
+O conjunto de dados seguinte é um conjunto de dados mensal e é produzido`3.08:00:00`no dia 3 de cada mês às 8:00 am ( ):
 
 ```json
 "availability": {
@@ -230,10 +230,10 @@ Um conjunto de dados pode ter uma política de validação definida que especifi
 
 A secção **de política** na definição de conjunto de dados define os critérios ou a condição que as fatias de conjunto de dados devem cumprir. A tabela seguinte descreve propriedades que pode utilizar na secção **política:**
 
-| Nome da Política | Descrição | Aplicado a | Required | Predefinição |
+| Nome da Política | Descrição | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | Valida que os dados de uma **bolha Azure** satisfazem os requisitos mínimos de tamanho (em megabytes). |Blob do Azure |Não |ND |
-| minimumRows | Valida que os dados numa base de **dados Azure SQL** ou numa **tabela Azure** contenham o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
+| mínimoTamanhoMB | Valida que os dados de uma **bolha Azure** satisfazem os requisitos mínimos de tamanho (em megabytes). |Blob do Azure |Não |ND |
+| mínimoS filas | Valida que os dados numa base de **dados Azure SQL** ou numa **tabela Azure** contenham o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
 
 #### <a name="examples"></a>Exemplos
 **mínimoTamanhoMB:**
@@ -266,13 +266,13 @@ Para obter mais informações sobre estas propriedades e exemplos, consulte o ar
 ## <a name="activity-policies"></a>Políticas de atividade
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando a fatia de uma mesa é processada. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Default Value | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
 | --- | --- | --- | --- |
-| concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de condivisa maior acelera o processamento de dados. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver 2 fatias (uma a acontecer às 16h, e outra às 17h), e ambas estão pendentes de execução. Se definir a execuçãoPriorityOrder para ser NewestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como O FIrst mais antigo, então a fatia às 16:00 é processada. |
+| conmoeda |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de condivisa maior acelera o processamento de dados. |
+| execuçãoPriorityOrder |Mais recente<br/><br/>O primeiro mais velho |O primeiro mais velho |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver 2 fatias (uma a acontecer às 16h, e outra às 17h), e ambas estão pendentes de execução. Se definir a execuçãoPriorityOrder para ser NewestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como O FIrst mais antigo, então a fatia às 16:00 é processada. |
 | retry |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |O número de repetições antes do processamento de dados para a fatia é marcado como Falha. A execução da atividade para uma fatia de dados é novamente experimentada até à contagem de retry especificada. A reprovação é feita o mais rápido possível após o fracasso. |
-| timeout |TimeSpan |00:00:00 |Intervalo para a atividade. Exemplo: 00:10:00 (implica tempo de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados numa fatia exceder o valor de tempo limite, é cancelado e o sistema tenta voltar a tentar o processamento. O número de tentativas depende da propriedade de retry. Quando o tempo de tempo ocorre, o estado é definido para TimedOut. |
-| delay |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da fatia.<br/><br/>A execução da atividade para uma fatia de dados é iniciada após o atraso ter passado o tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
+| tempo limite |TimeSpan |00:00:00 |Intervalo para a atividade. Exemplo: 00:10:00 (implica tempo de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados numa fatia exceder o valor de tempo limite, é cancelado e o sistema tenta voltar a tentar o processamento. O número de tentativas depende da propriedade de retry. Quando o tempo de tempo ocorre, o estado é definido para TimedOut. |
+| atraso |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da fatia.<br/><br/>A execução da atividade para uma fatia de dados é iniciada após o atraso ter passado o tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
 | longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de retry longas antes da execução da fatia é falhado.<br/><br/>as tentativas de longRetry são espaçadas por longRetryInterval. Por isso, se precisar especificar um tempo entre tentativas de retry, use longRetry. Se forespecificado tanto o Retry como o longRetry, cada tentativa de longa-retry inclui tentativas de retry e o número máximo de tentativas é Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Assuma que só há uma fatia para executar (o estado é espera) e a execução da atividade falha sempre. Inicialmente haveria 3 tentativas de execução consecutivas. Após cada tentativa, o estado da fatia seria Retry. Depois de terminarem as primeiras 3 tentativas, o estado da fatia seria LongRetry.<br/><br/>Após uma hora (isto é, valor de LongRetryInteval), haveria outro conjunto de 3 tentativas de execução consecutivas. Depois disso, o estado da fatia seria falhado e não se tentariam mais tentativas de tentativa. Daí que no total foram feitas 6 tentativas.<br/><br/>Se qualquer execução for bem sucedida, o estado da fatia estará pronto e não se tentarem mais tentativas de tentativas.<br/><br/>O longRetry pode ser utilizado em situações em que os dados dependentes chegam a tempos não determinísticos ou o ambiente global é excêntrico sob o qual ocorre o tratamento de dados. Nesses casos, fazer repetições um após o outro pode não ajudar e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Palavra de precaução: não detete valores elevados para longRetry ou longRetryInterval. Tipicamente, valores mais elevados implicam outras questões sistémicas. |
 | longRetryInterval |TimeSpan |00:00:00 |O atraso entre longas tentativas de retry |
 

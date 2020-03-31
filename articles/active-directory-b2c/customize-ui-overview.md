@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dad4c156b088c28ccf199cb155278ac9a189e4be
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 839e13dffc7d15b8cd258dd4b7dda6776223d052
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189060"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051728"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
 
@@ -41,7 +41,7 @@ Se estiver a utilizar [políticas personalizadas](custom-policy-overview.md) par
 
 Se precisar de fornecer conteúdo dinâmico com base na decisão do cliente, utilize políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro que passa da sua aplicação web ou móvel.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 Pode ativar o código JavaScript do lado do cliente tanto nos [fluxos](user-flow-javascript-overview.md) do utilizador como nas [políticas personalizadas.](page-layout.md)
 
@@ -84,6 +84,7 @@ Reveja as seguintes orientações antes de utilizar os seus próprios ficheiros 
   - Suporte limitado para Internet Explorer 9 e 8
   - Google Chrome 42.0 e acima
   - Mozilla Firefox 38.0 e acima
+  - Safari para iOS e macOS, versão 12 e superior
 - Não inclua **etiquetas** de formulário no seu HTML. As etiquetas de formulário interferem com as operações POST geradas pelo HTML injetadas pelo Azure AD B2C.
 
 ### <a name="where-do-i-store-ui-content"></a>Onde guardo conteúdo ui?
@@ -96,7 +97,7 @@ O importante é que você hospeda o conteúdo num ponto final HTTPS disponível 
 
 Começa a usar o seu próprio HTML e CSS nas páginas da experiência do utilizador seguindo estas orientações.
 
-- Crie conteúdo HTML bem formado com um elemento `<div id="api"></div>` vazio localizado algures no `<body>`. Este elemento marca onde o conteúdo Azure AD B2C é inserido. O exemplo seguinte mostra uma página mínima:
+- Crie conteúdo HTML bem `<div id="api"></div>` formado com `<body>`um elemento vazio localizado algures na . Este elemento marca onde o conteúdo Azure AD B2C é inserido. O exemplo seguinte mostra uma página mínima:
 
     ```html
     <!DOCTYPE html>
@@ -142,7 +143,7 @@ Começa a usar o seu próprio HTML e CSS nas páginas da experiência do utiliza
 
 ### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmentos HTML de Azure AD B2C
 
-A tabela seguinte lista os fragmentos HTML que o Azure AD B2C se funde no elemento `<div id="api"></div>` localizado no seu conteúdo.
+A tabela seguinte lista os fragmentos HTML que o Azure AD B2C se funde no `<div id="api"></div>` elemento localizado no seu conteúdo.
 
 | Página inserida | Descrição do HTML |
 | ------------- | ------------------- |
@@ -165,7 +166,7 @@ Para personalizar as páginas de fluxo do utilizador, configura primeiro a marca
 
 Comece por definir o logotipo do banner, imagem de fundo e cor de fundo dentro **da marca da Empresa.**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Under **Manage**, selecione **marca da Empresa.**
@@ -182,10 +183,10 @@ Tenha em mente estas coisas quando configura ruminar a marca da empresa no Azure
 Depois de configurar a marca da empresa, ative-a nos fluxos de utilizador.
 
 1. No menu esquerdo do portal Azure, **selecione Azure AD B2C**.
-1. Em **Termos de Políticas,** selecione **fluxos de utilizador (políticas)** .
+1. Em **Termos de Políticas,** selecione **fluxos de utilizador (políticas)**.
 1. Selecione o fluxo de utilizador para o qual deseja ativar a marca da empresa. A marca da empresa não é **suportada** para o *Sign in v1* e *profile editando* tipos de fluxo de utilizador v1.
 1. Em **Custom**, selecione **layouts de página,** e, em seguida, selecione o layout que gostaria de marcar. Por exemplo, selecione **Unificado inscrever-se ou iniciar sessão na página**.
-1. Para a versão de layout da **página (Pré-visualização)** , escolha a versão **1.2.0** ou superior.
+1. Para a versão de layout da **página (Pré-visualização)**, escolha a versão **1.2.0** ou superior.
 1. Selecione **Guardar**.
 
 Se quiser marcar todas as páginas no fluxo do utilizador, delineie a versão de layout da página para cada layout de página no fluxo do utilizador.
@@ -198,7 +199,7 @@ Este exemplo anotado mostra um logotipo de banner personalizado e imagem de fund
 
 ### <a name="use-company-branding-assets-in-custom-html"></a>Utilize os ativos de marca da empresa em HTML personalizado
 
-Para utilizar os ativos de marca da sua empresa em HTML personalizado, adicione as seguintes etiquetas fora da etiqueta `<div id="api">`:
+Para utilizar os ativos de marca da sua empresa `<div id="api">` em HTML personalizado, adicione as seguintes etiquetas fora da etiqueta:
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -209,9 +210,9 @@ A fonte de imagem é substituída pela da imagem de fundo e do logotipo do banne
 
 ## <a name="localize-content"></a>Conteúdo localize
 
-Localiza o seu conteúdo HTML permitindo a [personalização](user-flow-language-customization.md) da linguagem no seu inquilino Azure AD B2C. Ativar esta funcionalidade permite que o Azure AD B2C encaminhou o parâmetro OpenID Connect `ui-locales` para o seu ponto final. O seu servidor de conteúdo pode utilizar este parâmetro para fornecer páginas HTML específicas do idioma.
+Localiza o seu conteúdo HTML permitindo a [personalização](user-flow-language-customization.md) da linguagem no seu inquilino Azure AD B2C. Ativar esta funcionalidade permite que o Azure AD B2C encaminhou o parâmetro `ui-locales` OpenID Connect para o seu ponto final. O seu servidor de conteúdo pode utilizar este parâmetro para fornecer páginas HTML específicas do idioma.
 
-O conteúdo pode ser retirado de diferentes lugares com base no local que é usado. No seu ponto final ativado pelo CORS, cria uma estrutura de pasta para hospedar conteúdo para idiomas específicos. Chamará o certo se usar o valor wildcard `{Culture:RFC5646}`.
+O conteúdo pode ser retirado de diferentes lugares com base no local que é usado. No seu ponto final ativado pelo CORS, cria uma estrutura de pasta para hospedar conteúdo para idiomas específicos. Chamará o certo se usar o `{Culture:RFC5646}`valor wildcard.
 
 Por exemplo, a sua página personalizada URI pode parecer:
 

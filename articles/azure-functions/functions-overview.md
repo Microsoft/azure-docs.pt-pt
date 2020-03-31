@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77621011"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure
@@ -27,7 +27,7 @@ Algumas características-chave das Funções Azure incluem:
 
 - **Aplicações sem servidores**: As funções permitem desenvolver aplicações [sem servidor estoirar](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
 
-- **Escolha da linguagem**: Escreva funções utilizando a sua escolha de [ C#Java, JavaScript, Python e PowerShell](supported-languages.md).
+- **Escolha da linguagem**: Escreva funções utilizando a sua escolha de [C#, Java, JavaScript, Python e PowerShell](supported-languages.md).
 
 - **Modelo de preços pay-per-use**: Pague apenas pelo tempo gasto a executar o seu código. Veja a opção do plano de alojamento de Consumo na [secção preços](#pricing).  
 
@@ -67,7 +67,7 @@ Uma série de modelos está disponível para começar com cenários-chave, inclu
 
 - Tópico de **ônibus de serviço**: Ligue outros serviços Azure ou no local [respondendo a mensagens de tópico](./functions-bindings-service-bus.md) de ônibus de serviço
 
-## <a name="pricing"></a>Quanto custam as Funções?
+## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Quanto custam as Funções?
 
 A Azure Functions tem três tipos de planos de preços. Escolha o que melhor se adequa às suas necessidades:
 

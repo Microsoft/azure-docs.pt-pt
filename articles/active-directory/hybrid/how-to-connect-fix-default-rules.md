@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79036982"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras de predefinição modificadas no Azure AD Connect
@@ -49,7 +49,7 @@ Seguem-se personalizações comuns às regras predefinidas:
 
 Antes de alterar quaisquer regras:
 
-- Desative o programador de sincronização. O programador funciona a cada 30 minutos por defeito. Certifica-te de que não começa enquanto estás a fazer mudanças e a resolver problemas com as tuas novas regras. Para desativar temporariamente o programador, inicie a PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+- Desative o programador de sincronização. O programador funciona a cada 30 minutos por defeito. Certifica-te de que não começa enquanto estás a fazer mudanças e a resolver problemas com as tuas novas regras. Para desativar temporariamente o programador, `Set-ADSyncScheduler -SyncCycleEnabled $false`inicie a PowerShell e corra .
  ![PowerShell ordena desativar o programador de sincronização](media/how-to-connect-fix-default-rules/default3.png)
 
 - A alteração do filtro de deteção pode resultar na eliminação de objetos no directório-alvo. Tenha cuidado antes de efazer quaisquer alterações na deteção de objetos. Recomendamos que efaça alterações num servidor de encenação antes de efazer alterações no servidor ativo.
@@ -105,10 +105,10 @@ Mantenha **o filtro de deteção** e junte as **regras** vazias. Preencha a tran
 Agora sabe como fazer um novo atributo para um fluxo de objeto de utilizador do Ative Directory para o Azure Ative Directory. Pode utilizar estes passos para mapear qualquer atributo de qualquer objeto para fonte e alvo. Para mais informações, consulte Criar regras de [sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [preparar-se para fornecer aos utilizadores](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Anular o valor de um atributo existente
-Talvez queira anular o valor de um atributo que já foi mapeado. Por exemplo, se quiser sempre definir um valor nulo a um atributo em Azure AD, basta criar uma regra de entrada apenas. Faça o valor constante, `AuthoritativeNull`, fluir para o atributo-alvo. 
+Talvez queira anular o valor de um atributo que já foi mapeado. Por exemplo, se quiser sempre definir um valor nulo a um atributo em Azure AD, basta criar uma regra de entrada apenas. Faça o valor `AuthoritativeNull`constante, flua para o atributo alvo. 
 
 >[!NOTE] 
-> Use `AuthoritativeNull` em vez de `Null` neste caso. Isto porque o valor não nulo substitui o valor nulo, mesmo que tenha precedência mais baixa (um valor de número mais elevado na regra). `AuthoritativeNull`, por outro lado, não é substituído por um valor não nulo por outras regras. 
+> Use `AuthoritativeNull` em `Null` vez de neste caso. Isto porque o valor não nulo substitui o valor nulo, mesmo que tenha precedência mais baixa (um valor de número mais elevado na regra). `AuthoritativeNull`Por outro lado, não é substituído por um valor não nulo por outras regras. 
 
 ### <a name="dont-sync-existing-attribute"></a>Não sincronize o atributo existente
 Se pretender excluir um atributo da sincronização, utilize a função de filtragem do atributo fornecida no Azure AD Connect. Lance **o Azure AD Connect** a partir do ícone do ambiente de trabalho e, em seguida, selecione Personalizar opções de **sincronização**.
@@ -141,7 +141,7 @@ Não pode definir este atributo no Diretório Ativo. Desestabeleça o valor dest
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Primeiro convertemos o departamento de fonte (Diretório Ativo) para minúscula. Depois, usando a função `Left`, pegamos apenas nos três primeiros caracteres e comparámos com `hrd`. Se coincidir, o valor está definido para `True`, caso contrário `NULL`. Ao definir o valor a nulo, alguma outra regra com precedência mais baixa (um valor de número mais elevado) pode escrever-lhe com uma condição diferente. Executar a pré-visualização de um objeto para validar a regra de sincronização, conforme mencionado na secção de regra de [sincronização validada.](#validate-sync-rule)
+Primeiro convertemos o departamento de fonte (Diretório Ativo) para minúscula. Depois, usando `Left` a função, pegamos apenas nos `hrd`três primeiros caracteres e comparamos com . Se coincidir, o valor é `True`definido `NULL`para, caso contrário. Ao definir o valor a nulo, alguma outra regra com precedência mais baixa (um valor de número mais elevado) pode escrever-lhe com uma condição diferente. Executar a pré-visualização de um objeto para validar a regra de sincronização, conforme mencionado na secção de regra de [sincronização validada.](#validate-sync-rule)
 
 ![Criar opções de regra de sincronização de entrada](media/how-to-connect-fix-default-rules/default7a.png)
 
@@ -166,25 +166,25 @@ Selecione **Procura metaversa**. Selecione o objeto de âmbito como **pessoa,** 
 
 ![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 
-Em **Propriedades de Objetos Metaversos,** selecione **Conectores,** selecione o objeto no conector correspondente (floresta) e selecione **Propriedades...** .
+Em **Propriedades de Objetos Metaversos,** selecione **Conectores,** selecione o objeto no conector correspondente (floresta) e selecione **Propriedades...**.
 
-![Propriedades de Objeto de Metaverso](media/how-to-connect-fix-default-rules/default12.png)
+![Propriedades de objetos metaversos](media/how-to-connect-fix-default-rules/default12.png)
 
 Selecione **Pré-visualização...**
 
-![Propriedades de Objetos de Espaço Conector](media/how-to-connect-fix-default-rules/default13a.png)
+![Propriedades de objetos espaciais conector](media/how-to-connect-fix-default-rules/default13a.png)
 
 Na janela Preview, **selecione Generate Preview** e Import **Attribute Flow** no painel esquerdo.
 
 ![Pré-visualização](media/how-to-connect-fix-default-rules/default14.png)
  
-Aqui, note que a regra recém-adicionada é executada sobre o objeto, e estabeleceu o `cloudFiltered` atributo verdadeiro.
+Aqui, note que a regra recém-adicionada é `cloudFiltered` executada sobre o objeto, e estabeleceu o atributo como verdadeiro.
 
 ![Pré-visualização](media/how-to-connect-fix-default-rules/default15a.png)
  
 Para comparar a regra modificada com a regra de incumprimento, exporte ambas as regras separadamente, como ficheiros de texto. Estas regras são exportadas como um ficheiro de script PowerShell. Pode compará-las utilizando qualquer ferramenta de comparação de ficheiros (por exemplo, windiff) para ver as alterações. 
  
-Note que na regra modificada, o atributo `msExchMailboxGuid` é alterado para o tipo **expressão,** em vez de **Direct**. Além disso, o valor é alterado para a opção **NULL** e **ExecuteOnce.** Pode ignorar as diferenças identificadas e precedência. 
+Note que na regra `msExchMailboxGuid` modificada, o atributo é alterado para o tipo **expressão,** em vez de **Direct**. Além disso, o valor é alterado para a opção **NULL** e **ExecuteOnce.** Pode ignorar as diferenças identificadas e precedência. 
 
 ![saída de ferramenta windiff](media/how-to-connect-fix-default-rules/default17.png)
  
@@ -192,7 +192,7 @@ Para corrigir as suas regras para as alterar de volta às definições predefini
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
-- [Definições rápidas](how-to-connect-install-express.md)
+- [Configurações expressas](how-to-connect-install-express.md)
 - [Definições personalizadas](how-to-connect-install-custom.md)
 
 

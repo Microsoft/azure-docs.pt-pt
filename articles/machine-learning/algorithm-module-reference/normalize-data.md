@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 2cf0efb24a10da602ac0c26276a081342776cdcc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a740c81aa165e221bca19987c7b3c62da56b0402
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920404"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477532"
 ---
 # <a name="normalize-data-module"></a>Normalizar o módulo de dados
 
@@ -62,7 +62,7 @@ Só pode aplicar um método de normalização de cada vez utilizando este módul
     
       Os valores da coluna são transformados utilizando a seguinte fórmula:  
   
-      ![normalização usando&#45;pontuações z](media/module/aml-normalization-z-score.png)
+      ![normalização usando pontuações de z&#45;](media/module/aml-normalization-z-score.png)
   
       O desvio médio e padrão é calculado para cada coluna separadamente. O desvio padrão da população é utilizado.
   
@@ -72,7 +72,7 @@ Só pode aplicar um método de normalização de cada vez utilizando este módul
       
       Os valores da coluna são transformados utilizando a seguinte fórmula:  
   
-      ![normalização usando a&#45;função min max](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![normalização usando o min&#45;função máx](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
     - **Logística**: Os valores da coluna são transformados utilizando a seguinte fórmula:
 
@@ -82,7 +82,7 @@ Só pode aplicar um método de normalização de cada vez utilizando este módul
   
       Os valores da coluna são transformados utilizando a seguinte fórmula:
   
-      ![fórmula&#45;log distribuição normal](media/module/aml-normalization-lognormal.png "lognormal AML_normalization")
+      ![registo de fórmula&#45;distribuição normal](media/module/aml-normalization-lognormal.png "lognormal AML_normalization")
     
       Aqui μ e σ são os parâmetros da distribuição, calculados empiricamente a partir dos dados como estimativas de probabilidade máxima, para cada coluna separadamente.  
   
@@ -92,7 +92,7 @@ Só pode aplicar um método de normalização de cada vez utilizando este módul
     
       ![normalização usando a função tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Executar o pipeline ou clicar duas vezes no módulo **Normalize Data** e selecione **Executar Selecionado**. 
+6. Submeta o pipeline ou clique duas vezes no módulo **Normalize Data** e selecione **Executar Selecionado**. 
 
 ## <a name="results"></a>Resultados
 

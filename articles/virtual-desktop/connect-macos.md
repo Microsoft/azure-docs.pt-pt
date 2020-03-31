@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 673c20355e9ad4abf2c8318b3eb2ebbcc36ed8fd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128241"
 ---
 # <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
@@ -33,7 +33,7 @@ Para subscrever um feed:
 
 1. Selecione **Adicionar Feed** na página principal para ligar ao serviço e recuperar os seus recursos.
 2. Introduza o URL de Alimentação. Este pode ser um URL ou endereço de e-mail:
-   - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o URL é <https://rdweb.wvd.microsoft.com>.
+   - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o <https://rdweb.wvd.microsoft.com>URL é .
    - Para utilizar o seu email, insira o seu endereço de e-mail. Isto diz ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
 3. **Selecione Subscrever**.
 4. Inscreva-se na sua conta de utilizador quando solicitado.

@@ -1,5 +1,5 @@
 ---
-title: Gerir funções de base de dados e utilizadores em Serviços de Análise Azure  Microsoft Docs
+title: Gerir funções de base de dados e utilizadores em Serviços de Análise Azure [ Microsoft Docs
 description: Saiba como gerir funções de base de dados e utilizadores num servidor de Serviços de Análise em Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273707"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
@@ -27,14 +27,14 @@ As permissões de funções incluem:
 
 Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando o Role Manager em Visual Studio com projetos de Serviços de Análise. Quando implantado num servidor, utiliza o Estúdio de Gestão de Servidores SQL (SSMS), serviços de [análise PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou Linguagem de [Scripts de Modelo Tabular](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
 
-**Os grupos** de segurança devem ser [ativados por correio](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a `MailEnabled` imóvel definida para `True`. Ao especificar um grupo por endereço de e-mail, utilize `obj:groupid@tenantid`.
+**Os grupos** de segurança devem `MailEnabled` ser `True` [ativados por correio](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade definida para . Ao especificar um grupo por `obj:groupid@tenantid`e-mail a utilizar .
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerir papéis e utilizadores no Estúdio Visual  
   
 1.  No **Tabular Model Explorer,** clique direito **em Papéis**.  
   
-2.  No **Gestor de Funções**, clique em **Nova**.  
+2.  No **Role Manager,** clique em **New**.  
   
 3.  Escreva um nome para o papel.  
   
@@ -44,7 +44,7 @@ Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhuma.**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar os dados.|  
+    |**Nenhum**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar os dados.|  
     |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
     |**Ler e Processar**|Os membros podem consultar dados (com base em filtros ao nível da linha) e executar o Processo e o Processo Todas as operações, mas não podem modificar o esquema do modelo.|  
     |**Processo**|Os membros podem executar processando e processar todas as operações. Não é possível ler ou modificar o esquema do modelo e não pode consultar dados.|  
@@ -52,7 +52,7 @@ Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou
   
 5.  Se o papel que está a criar tiver permissão de Leitura ou Leitura e Processo, pode adicionar filtros de linha utilizando uma fórmula DAX. Clique no separador **Filtros de Linha,** depois selecione uma tabela, clique no campo **de filtro DAX** e, em seguida, digite uma fórmula DAX.
   
-6.  Clique em **Membros** > **adicionar externo**.  
+6.  Clique em **Membros** > **Adicionar Externo**.  
   
 8.  Em **Adicionar Membro Externo,** insira utilizadores ou grupos no seu inquilino Azure AD por endereço de e-mail. Depois de clicar em OK e fechar role Manager, as funções e membros de papéis aparecem no Tabular Model Explorer. 
  
@@ -65,7 +65,7 @@ Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou
 
 Para adicionar funções e utilizadores a uma base de dados de modelos implementado, deve estar ligado ao servidor como administrador do Servidor ou já numa função de base de dados com permissões de administrador.
 
-1. Em Object Exporer, os **papéis** do clique direito > **novo papel.**
+1. Em Object Exporer, clique direito **funções** > **novo papel**.
 
 2. In **Create Role,** insira um nome e descrição de papel.
 
@@ -74,7 +74,7 @@ Para adicionar funções e utilizadores a uma base de dados de modelos implement
    |Permissão|Descrição|  
    |----------------|-----------------|  
    |**Controlo total (Administrador)**|Os membros podem modificar o esquema do modelo, processar e consultar todos os dados.| 
-   |**Base de dados de processos**|Os membros podem executar processando e processar todas as operações. Não pode modificar o esquema do modelo e não pode consultar dados.|  
+   |**Process database**|Os membros podem executar processando e processar todas as operações. Não pode modificar o esquema do modelo e não pode consultar dados.|  
    |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
   
 4. Clique em **Adesão**e, em seguida, insira um utilizador ou grupo no seu inquilino Azure AD por endereço de e-mail.
@@ -135,12 +135,12 @@ Os filtros de linha só podem ser definidos para funções com permissões de Le
   
  Os filtros de linha requerem uma fórmula DAX, que deve avaliar para um valor VERDADEIRO/FALSO, para definir as linhas que podem ser consultadas por membros desse papel específico. As filas não incluídas na fórmula DAX não podem ser consultadas. Por exemplo, a tabela Clientes com a seguinte expressão de filtros de linha, *=Clientes [País] = "EUA",* os membros da função De venda só podem ver clientes nos EUA.  
   
-Os filtros de remo aplicam-se às linhas especificadas e às linhas relacionadas. Quando uma mesa tem múltiplas relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filetes de linha definidos para tabelas relacionadas, por exemplo:  
+Os filtros de remo aplicam-se às linhas especificadas e às linhas relacionadas. Quando uma tabela tem múltiplas relações, os filtros aplicam segurança à relação que está ativa. Os filtros de linha são interseccionados com outros filetes de linha definidos para tabelas relacionadas, por exemplo:  
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
 |Região|=Região[País]="EUA"|  
-|Categoria de Produtos|=Categoria de Produto[Nome]="Bicicletas"|  
+|ProductCategory|=Categoria de Produto[Nome]="Bicicletas"|  
 |Transações|=Transações[Ano]=2016|  
   
  O efeito líquido é que os membros podem consultar filas de dados onde o cliente está nos EUA, a categoria do produto é bicicletas, e o ano é 2016. Os utilizadores não podem consultar transações fora dos EUA, transações que não são bicicletas, ou transações não em 2016, a menos que sejam membros de outra função que conceda essas permissões.
@@ -149,7 +149,7 @@ Os filtros de remo aplicam-se às linhas especificadas e às linhas relacionadas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-  [Gerir os administradores do servidor](analysis-services-server-admins.md)   
-  [Gerir serviços de análise azure com powerShell](analysis-services-powershell.md)  
+  [Gerir administradores de servidores](analysis-services-server-admins.md)   
+  [Gerir o Azure Analysis Services com o PowerShell](analysis-services-powershell.md)  
   [Referência tabular modelo scripting (TMSL)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

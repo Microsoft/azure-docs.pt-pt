@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726395"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com PHP
@@ -21,15 +21,15 @@ Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e l
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Verifique se você tem os seguintes pré-requisitos adicionais instalados:
+Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
 
 * [PHP](https://php.net/downloads.php)
-* [SDK do armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
+* [SDK de armazenamento azure para PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) utilizado neste início rápido é uma aplicação PHP básica.  
 
-Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. 
+Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para o seu ambiente de desenvolvimento. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
@@ -42,14 +42,14 @@ Este comando clona o repositório para a sua pasta local do git. Para abrir a ap
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 Na aplicação, tem de indicar o nome da conta de armazenamento e a chave de conta para criar a instância **BlobRestProxy** para a aplicação. É recomendado armazenar estes identificadores numa variável de ambiente no computador local que está a executar a aplicação. Utilize um dos exemplos seguintes, consoante o Sistema Operativo para criar a variável de ambiente. Substitua os valores **youraccountname** e **youraccountkey** pelo nome da conta e a chave.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>
@@ -86,7 +86,7 @@ A primeira coisa a fazer é criar as referências para os objetos utilizados par
 
 * Crie uma instância do objeto do armazenamento do Azure **BlobRestProxy** para configurar as credenciais de ligação. 
 * Crie o objeto **BlobService**, que aponta para o serviço Blob na sua conta de armazenamento. 
-* Crie o objeto **Container**, que represente o contentor a que está aceder. Os contentores servem para organizar os blobs, da mesma forma como utiliza pastas para organizar os ficheiros.
+* Crie o objeto **Container**, que represente o contentor a que está aceder. Os contentores são utilizados para organizar os blobs, da mesma forma como utiliza pastas para organizar os ficheiros.
 
 Quando tiver o objeto de contentor **blobClient**, pode criar o objeto de blob **Block** que aponta para o blob específico no qual está interessado. Em seguida, pode efetuar operações como carregar, transferir e copiar.
 
@@ -122,7 +122,7 @@ Nesta secção, vai configurar uma instância do cliente de armazenamento do Azu
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são os mais utilizados e vamos utilizá-los neste guia de introdução.  
 
-Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório e o nome de ficheiro no disco local. Em seguida, pode carregar o ficheiro para o caminho especificado, com o método **createBlockBlob()** . 
+Para carregar um ficheiro para um blob, obtenha o caminho completo do ficheiro ao associar o nome de diretório e o nome de ficheiro no disco local. Em seguida, pode carregar o ficheiro para o caminho especificado, com o método **createBlockBlob()**. 
 
 O código de exemplo utiliza um ficheiro local e carrega-o para o Azure. O ficheiro é armazenado como **myfile** e o nome do blob como **fileToUpload** no código. O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartblobs**.
 
@@ -141,11 +141,11 @@ O código de exemplo utiliza um ficheiro local e carrega-o para o Azure. O fiche
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-Para efetuar uma atualização parcial do conteúdo de um blob de blocos, utilize o método **createblocklist()** . Os blobs de blocos podem ter no máximo 4,7 TB e podem ser qualquer coisa, desde folhas de cálculo do Excel a ficheiros grandes de vídeo. Os blobs de páginas utilizam-se principalmente para os ficheiros VHD utilizados para fazer cópias de VMs de IaaS. Os blobs de acréscimo servem para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. Deve anexar o blob num único modelo de escritor. A maioria dos objetos guardados no armazenamento de Blobs são blobs de blocos.
+Para efetuar uma atualização parcial do conteúdo de um blob de blocos, utilize o método **createblocklist()**. Os blobs de blocos podem ter no máximo 4,7 TB e podem ser qualquer coisa, desde folhas de cálculo do Excel a ficheiros grandes de vídeo. Os blobs de páginas utilizam-se principalmente para os ficheiros VHD utilizados para fazer cópias de VMs de IaaS. Os blobs de acréscimo servem para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. Deve anexar o blob num único modelo de escritor. A maioria dos objetos guardados no armazenamento de Blobs são blobs de blocos.
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Pode obter uma lista de ficheiros no contentor com o método **listBlobs()** . O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
+Pode obter uma lista de ficheiros no contentor com o método **listBlobs()**. O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
 
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
@@ -166,7 +166,7 @@ Pode obter uma lista de ficheiros no contentor com o método **listBlobs()** . O
 
 ### <a name="get-the-content-of-your-blobs"></a>Obter o conteúdo dos blobs
 
-Obtenha o conteúdo dos blobs com o método **getBlob()** . O código seguinte apresenta o conteúdo do blob atualizado numa secção anterior.
+Obtenha o conteúdo dos blobs com o método **getBlob()**. O código seguinte apresenta o conteúdo do blob atualizado numa secção anterior.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -174,7 +174,7 @@ Obtenha o conteúdo dos blobs com o método **getBlob()** . O código seguinte a
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos
-Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método **deleteContainer()** . Se os ficheiros criados já não forem necessários, utilize o método **deleteBlob()** para eliminar os ficheiros.
+Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método **deleteContainer()**. Se os ficheiros criados já não forem necessários, utilize o método **deleteBlob()** para eliminar os ficheiros.
 
 ```PHP
     // Delete blob.
@@ -202,12 +202,12 @@ Consulte estes recursos adicionais para o desenvolvimento de PHP com armazenamen
 - Veja, transfira e instale o [código fonte em PHP da biblioteca cliente](https://github.com/Azure/azure-storage-php) do Armazenamento do Azure no GitHub.
 - Explore os [exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) escritos com a biblioteca de cliente PHP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
  
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com PHP. Para obter mais informações sobre como trabalhar com o PHP, avance para o nosso Centro de programadores de PHP.
 
 > [!div class="nextstepaction"]
-> [Centro de Programadores de PHP](https://azure.microsoft.com/develop/php/)
+> [Centro de Desenvolvedores PHP](https://azure.microsoft.com/develop/php/)
 
 
 Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Gerir recursos do armazenamento de Blobs do Azure com o Explorador de Armazenamento).

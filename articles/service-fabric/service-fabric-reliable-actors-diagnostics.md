@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282331"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
@@ -46,22 +46,22 @@ A aplicação [Do Windows Performance Monitor,](https://technet.microsoft.com/li
 Um cluster que tem um grande número de serviços de ator ou partições de serviços de ator terá um grande número de casos de desempenho de ator. Os nomes de contra-instância de desempenho podem ajudar na identificação do método específico [de partição](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) e ator (se aplicável) com o qual a contra-instância de desempenho está associada.
 
 #### <a name="service-fabric-actor-category"></a>Categoria ator de tecido de serviço
-Para a categoria `Service Fabric Actor`, os nomes de contra-instância estão no seguinte formato:
+Para a `Service Fabric Actor`categoria, os nomes de contra-instância estão no seguinte formato:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e a sua representação de cordas é gerada através do método com o especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação de cordas de um inteiro de 64 bits que é gerado pelo tempo de execução dos Atores de Tecido para o seu uso interno. Isto está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome da contra-instância de desempenho.
 
-Segue-se um exemplo de um nome de contra-instância para um contador que pertence à categoria `Service Fabric Actor`:
+Segue-se um exemplo de um nome de contra-instância para um contador que pertence à `Service Fabric Actor` categoria:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
-No exemplo acima, `2740af29-78aa-44bc-a20b-7e60fb783264` é a representação de cordas do ID de partição de tecido de serviço, e `635650083799324046` é o ID de 64 bits que é gerado para o uso interno do tempo de execução.
+No exemplo acima, `2740af29-78aa-44bc-a20b-7e60fb783264` está a representação de cordas `635650083799324046` do ID de partição de tecido de serviço, e é o ID de 64 bits que é gerado para o uso interno do tempo de execução.
 
 #### <a name="service-fabric-actor-method-category"></a>Categoria de Método de Ator de Tecido de Serviço
-Para a categoria `Service Fabric Actor Method`, os nomes de contra-instância estão no seguinte formato:
+Para a `Service Fabric Actor Method`categoria, os nomes de contra-instância estão no seguinte formato:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
@@ -69,15 +69,15 @@ Para a categoria `Service Fabric Actor Method`, os nomes de contra-instância es
 
 *ActorsRuntimeMethodId* é a representação de uma prótese de 32 bits que é gerada pelo tempo de execução dos Atores de Tecido para o seu uso interno. Isto está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome da contra-instância de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição de tecido de serviço a que a contra-instância de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e a sua representação de cordas é gerada através do método com o especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação de cordas de um inteiro de 64 bits que é gerado pelo tempo de execução dos Atores de Tecido para o seu uso interno. Isto está incluído no nome de contador de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome da contra-instância de desempenho.
 
-Segue-se um exemplo de um nome de contra-instância para um contador que pertence à categoria `Service Fabric Actor Method`:
+Segue-se um exemplo de um nome de contra-instância para um contador que pertence à `Service Fabric Actor Method` categoria:
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
-No exemplo acima, `ivoicemailboxactor.leavemessageasync` é o nome do método, `2` é o ID de 32 bits gerado para o uso interno do tempo de execução, `89383d32-e57e-4a9b-a6ad-57c6792aa521` é a representação de cordas do ID de divisória de tecido de serviço, e `635650083804480486` é o ID de 64 bits gerado para o uso interno do tempo de execução.
+No exemplo `ivoicemailboxactor.leavemessageasync` acima, é o `2` nome do método, é o ID de 32 `89383d32-e57e-4a9b-a6ad-57c6792aa521` bits gerado para o uso `635650083804480486` interno do tempo de execução, é a representação de cadeia do ID de divisória de tecido de serviço, e é o ID de 64 bits gerado para o uso interno do tempo de execução.
 
 ## <a name="list-of-events-and-performance-counters"></a>Lista de eventos e contadores de desempenho
 ### <a name="actor-method-events-and-performance-counters"></a>Eventos de método de ator e contadores de desempenho
@@ -132,8 +132,8 @@ The Reliable Actors runtime emite os seguintes eventos relacionados com réplica
 
 | Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
-| ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator mudou de papel para Primária. Isto implica que os atores desta partição serão criados dentro desta réplica. |
-| ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator mudou de papel para não-Primária. Isto implica que os atores desta partição deixarão de ser criados dentro desta réplica. Não serão entregues novos pedidos aos atores já criados dentro desta réplica. Os atores serão destruídos depois de todos os pedidos em curso estarem concluídos. |
+| RéplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator mudou de papel para Primária. Isto implica que os atores desta partição serão criados dentro desta réplica. |
+| RéplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator mudou de papel para não-Primária. Isto implica que os atores desta partição deixarão de ser criados dentro desta réplica. Não serão entregues novos pedidos aos atores já criados dentro desta réplica. Os atores serão destruídos depois de todos os pedidos em curso estarem concluídos. |
 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Ativação de atores e desativação de eventos e contadores de desempenho
 O tempo de execução dos Atores Fiáveis emite os seguintes eventos relacionados com a [ativação e desativação](service-fabric-reliable-actors-lifecycle.md)do ator.
@@ -162,5 +162,5 @@ Quando um cliente invoca um método através de um objeto de procuração de ato
 ## <a name="next-steps"></a>Passos seguintes
 * [Como os atores confiáveis usam a plataforma De Tecido de Serviço](service-fabric-reliable-actors-platform.md)
 * [Documentação de referência do ator API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código da amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

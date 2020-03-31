@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257930"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar recuperação de desastres para Azure para servidores físicos no local
@@ -85,7 +85,7 @@ O serviço de Mobilidade deve ser instalado em cada servidor que pretende replic
 
 - Você pode usar um domínio ou conta local
 - Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso remoto ao utilizador na máquina local. Para tal, no registo em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,** adicione a entrada DWORD **LocalAccountTokenFilterPolicy,** com um valor de 1.
-- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para o Linux, a conta deve estar na raiz do servidor Linux fonte.
 
 
@@ -98,14 +98,14 @@ O serviço de Mobilidade deve ser instalado em cada servidor que pretende replic
 Selecione o que replicar e replicá-lo.
 
 1. Clique em **Cofres dos Serviços de Recuperação** > cofre.
-2. No Menu de Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Objetivo de proteção**.
-3. Na **meta de Proteção**, selecione **To Azure** > **Não virtualizado/Outros**.
+2. No Menu de Recursos, clique em **Preparação** > de**Infraestruturas** > **de**Recuperação do Site .
+3. Na **meta de Proteção**, selecione **Para Azul** > **Não virtualizado/Outros**.
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
 Instale o servidor de configuração, registe-o no cofre e descubra os VMs.
 
-1. Clique na **recuperação** do local > preparar a > **Fonte**de **infraestruturas** .
+1. Clique em **recuperação** > do site Preparar**Fonte de****Infraestrutura** > .
 2. Se não tiver um servidor de configuração, clique em **+Configuração do servidor**.
 3. No **Servidor adicionar,** verifique se o Servidor de **Configuração** aparece no **tipo servidor**.
 4. Descarregue o ficheiro de instalação unificada de recuperação do site.
@@ -136,13 +136,13 @@ Executar configuração unificada como administrador local, para instalar o serv
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após o registo terminar, o servidor de configuração é apresentado na página **Definições** > **Servidores** no cofre.
+Após o registo terminar, o servidor de configuração é apresentado na página **'Servidores** de **Definições'** > no cofre.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
 Selecione e verifique os recursos de destino.
 
-1. Clique em **Preparar a infraestrutura** > **Destino** e selecione a subscrição do Azure que pretende utilizar.
+1. Clique em Preparar**o Target** **de Infraestruturas** > e selecione a subscrição Azure que pretende utilizar.
 2. Especifique o modelo de implementação do alvo.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
@@ -151,7 +151,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
+1. Para criar uma nova política de replicação, clique em Políticas > de Replicação de **Infraestruturas** > de**Recuperação**do Site **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Este valor especifica a frequência com que os pontos de recuperação de dados são criados. Será gerado um alerta se a replicação contínua exceder este limite.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
@@ -169,21 +169,21 @@ Ativar a replicação para cada servidor.
 - A Recuperação do Site instalará o serviço de Mobilidade quando a replicação estiver ativada.
 - Quando ativa a replicação de um servidor, pode demorar 15 minutos ou mais para que as alterações produzam efeito e apareçam no portal.
 
-1. Clique em **Replicar aplicação** > **Origem**.
+1. Clique em **Replicate aplicação** > **Origem**.
 2. Em **Origem**, selecione o servidor de configuração.
 3. No **tipo máquina,** selecione **Máquinas Físicas**.
 4. Selecione o servidor de processo (o servidor de configuração). Em seguida, clique em **OK**.
 5. No **Target,** selecione a subscrição e o grupo de recursos em que pretende criar os VMs Azure após a falha. Escolha o modelo de implementação que pretende utilizar no Azure (gestão clássica ou de recursos).
 6. Selecione a conta de armazenamento do Azure que pretende utilizar para replicar os dados. 
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se vão ligar quando forem criadas após a ativação pós-falha.
-8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede a todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. 
+8. **Selecione configurar agora para máquinas selecionadas,** para aplicar a definição de rede em todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. 
 9. Em **Máquinas Físicas**, e clique em **+Máquina Física**. Especifique o nome e o endereço IP. Selecione o sistema operativo da máquina que pretende replicar. Leva alguns minutos para os servidores serem descobertos e listados. 
-10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será utilizada pelo servidor de processos para instalar automaticamente o serviço de Mobilidade na máquina.
-11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. 
-12. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois da tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
+10. Em **propriedades** > **Configurar propriedades,** selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço mobility na máquina.
+11. Nas **definições** > de replicação**Configure as definições de replicação,** verifique se a política de replicação correta é selecionada. 
+12. Clique na **replicação de ativação**. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Cenários** > **Empregos** > de Recuperação de**Locais**. Após o trabalho de **Proteção final,** a máquina está pronta para a falha.
 
 
-Para monitorizar os servidores que adiciona, pode verificar a última hora descoberta para eles em Servidores de **Configuração** > **Último Contacto Em**. Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
+Para monitorizar os servidores que adiciona, pode verificar a última hora descoberta para eles em **Servidores** > de Configuração**Último Contacto Em**. Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

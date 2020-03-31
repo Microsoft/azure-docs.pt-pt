@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268980"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adicione uma piscina elástica Azure SQL Database a um grupo de failover
@@ -55,9 +55,9 @@ Crie a sua piscina elástica utilizando o portal Azure.
     ![Selecione piscina elástica](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Configure a sua piscina elástica com os seguintes valores:
-   - **Nome**: Forneça um nome único para a sua piscina elástica, como `myElasticPool`. 
+   - **Nome**: Forneça um nome único para `myElasticPool`a sua piscina elástica, como . 
    - **Subscrição**: Selecione a sua subscrição a partir da entrega.
-   - **ResourceGroup**: Selecione `myResourceGroup` a partir da queda, o grupo de recursos que criou na secção 1. 
+   - **ResourceGroup**: `myResourceGroup` Selecione a partir da queda, o grupo de recursos que criou na secção 1. 
    - **Servidor**: Selecione o servidor criado na secção 1 a partir da queda.  
 
        ![Criar novo servidor para piscina elástica](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
@@ -134,7 +134,7 @@ Neste passo, irá criar um grupo de [falhas](sql-database-auto-failover-group.md
 Crie o seu grupo de failover utilizando o portal Azure. 
 
 1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
-1. Selecione a piscina elástica criada na secção anterior, como `myElasticPool`. 
+1. Selecione a piscina elástica criada `myElasticPool`na secção anterior, como . 
 1. No painel **'Visão Geral',** selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
   
     ![Servidor aberto para piscina elástica](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
@@ -144,12 +144,12 @@ Crie o seu grupo de failover utilizando o portal Azure.
     ![Adicione novo grupo de failover](media/sql-database-elastic-pool-failover-group-tutorial/elastic-pool-failover-group.png)
 
 1. Na página do **Grupo Failover,** introduza ou selecione os seguintes valores e, em seguida, selecione **Criar:**
-    - **Nome de grupo failover**: Digite um nome de grupo de failover único, como `failovergrouptutorial`. 
+    - **Nome de grupo failover**: Digite um `failovergrouptutorial`nome de grupo de failover único, como . 
     - **Servidor secundário**: Selecione a opção para *configurar as definições necessárias* e, em seguida, escolha **criar um novo servidor**. Em alternativa, pode escolher um servidor já existente como servidor secundário. Depois de introduzir os seguintes valores para o seu novo servidor secundário, **selecione Selecione**. 
-        - **Nome do servidor**: Digite um nome único para o servidor secundário, como `mysqlsecondary`. 
-        - **Login de administrador**do servidor : Tipo `azureuser`
+        - **Nome**do servidor : Digite um nome único `mysqlsecondary`para o servidor secundário, como . 
+        - **Login de administrador do servidor**: Tipo`azureuser`
         - **Palavra-passe**: Digite uma senha complexa que satisfaça os requisitos da palavra-passe.
-        - **Localização**: Escolha um local a partir da entrega, como `East US`. Esta localização não pode ser a mesma localização que o seu servidor principal.
+        - **Localização**: Escolha um local a partir `East US`da entrega, como . Esta localização não pode ser a mesma localização que o seu servidor principal.
 
        > [!NOTE]
        > As definições de login do servidor e firewall devem corresponder às do seu servidor principal. 
@@ -257,7 +257,7 @@ Neste passo, falhará o seu grupo de failover para o servidor secundário e, em 
 Teste falha do seu grupo de failover usando o portal Azure. 
 
 1. Selecione **Azure SQL** no menu à esquerda do [portal Azure](https://portal.azure.com). Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
-1. Selecione a piscina elástica criada na secção anterior, como `myElasticPool`. 
+1. Selecione a piscina elástica criada `myElasticPool`na secção anterior, como . 
 1. Selecione o nome do servidor sob **o nome do Servidor** para abrir as definições para o servidor.
 
     ![Servidor aberto para piscina elástica](media/sql-database-elastic-pool-failover-group-tutorial/server-for-elastic-pool.png)
@@ -362,7 +362,7 @@ Limpe os recursos, apagando o grupo de recursos.
 
 1. Navegue para o seu grupo de recursos no [portal Azure.](https://portal.azure.com)
 1. **Selecione Eliminar o grupo de recursos** para eliminar todos os recursos do grupo, bem como o próprio grupo de recursos. 
-1. Digite o nome do grupo de recursos, `myResourceGroup`, na caixa de texto, e, em seguida, **selecione Eliminar** para eliminar o grupo de recursos. 
+1. Digite o nome do `myResourceGroup`grupo de recursos, na caixa de texto, e, em seguida, selecione **Eliminar** para eliminar o grupo de recursos. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

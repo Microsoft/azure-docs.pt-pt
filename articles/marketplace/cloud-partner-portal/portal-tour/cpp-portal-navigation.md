@@ -1,92 +1,91 @@
 ---
-title: Navegação Portal do Cloud Partner para o Azure Marketplace
-description: Explicação da navegação dentro do Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Navegação no Portal do Parceiro cloud para o Mercado Azure
+description: Explicação da navegação dentro do Portal do Parceiro cloud para o Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 57ccc7fb738dc23956e56e70c68405cc995a9a99
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278421"
 ---
-# <a name="cloud-partner-portal-navigation"></a>Navegação Portal do Cloud Partner
+# <a name="cloud-partner-portal-navigation"></a>Navegação no Portal do Parceiro de Nuvem
 
-Há dois mecanismos de interface do usuário (IU) principais para navegar no [portal do Cloud Partner](https://cloudpartner.azure.com): a barra de menus superior e o painel de navegação do lado esquerdo.  Esses elementos da interface do usuário são invariáveis, disponíveis independentemente da página no portal para onde você navega.
-
-
-## <a name="menu-bar"></a>Barra de menus
-
-A barra de menus é executada na parte superior do site do Portal.  Ele tem as quatro áreas ativas a seguir:
-
-![Barra de menus](./media/top-menubar1.png)
-
-Clicar nessas áreas resulta nas seguintes ações:
-
-1. Área de título – navega até o portal home page.
-2. Botão **ajuda** – exibe o menu ajuda, que fornece recursos para auxiliar o usuário.
-3. Botão de **comentários** – exibe o formulário **enviar comentários** .
-4. Botão **Editor** – exibe um menu que permite que o usuário gerencie seu perfil.
-
-Esses menus e formulários são descritos a seguir.
-
-### <a name="help-menu"></a>Menu ajuda
-
-O menu **ajuda** fornece recursos para ajudar o usuário com a Portal do Cloud Partner.
-
-![Barra de menus superior](./media/top-menubar2.png)
-
-O menu ajuda contém os seguintes itens:
-
-- **Documentação** – inicia uma nova guia no navegador e navega até a documentação Home Page para o portal do Cloud Partner. 
-- **Fórum** – inicia uma nova guia e navega até a documentação Home Page para a comunidade de parceiros para o AppSource e o Azure Marketplaces.
-- **Suporte** – inicia uma nova guia e navega até a página de suporte para publicação no Marketplace, onde você pode criar um relatório de incidente.  Fazemos a triagem e examinamos todos os comentários, e sempre respeitaremos sua privacidade. Entraremos em contato apenas se você solicitar ou solicitar mais informações.
+Existem dois mecanismos primários de interface de utilizador (UI) para navegar em torno do Portal do [Parceiro cloud](https://cloudpartner.azure.com): a barra de menu superior e o painel de navegação do lado esquerdo.  Estes elementos ui são invariantes, disponíveis independentemente da página no portal para onde navega.
 
 
-### <a name="send-us-feedback-form"></a>Formulário enviar comentários para nós
+## <a name="menu-bar"></a>Barra de menu
 
-O formulário **enviar comentários** fornece um método direto para fornecer comentários para a equipe de integração do editor do Marketplace.  Só entraremos em contato com você para obter informações adicionais se tiver marcado a caixa de seleção **OK para contatá-lo sobre seus comentários** .
+A barra de menu salta por cima do site do portal.  Tem as seguintes quatro áreas ativas:
 
-![Formulário de comentários](./media/feedback-form.png)
+![Barra de menu](./media/top-menubar1.png)
+
+Clicar nestas áreas resulta nas seguintes ações:
+
+1. Área do título - navega para a página inicial do portal.
+2. **Botão de ajuda** - exibe o menu de ajuda, que fornece recursos para ajudar o utilizador.
+3. **Botão de feedback** - exibe o formulário **de feedback Enviar-nos.**
+4. **Botão editor** - exibe um menu que permite ao utilizador gerir o seu perfil.
+
+Estes menus e formulários são descritos em seguida.
+
+### <a name="help-menu"></a>Menu Ajuda
+
+O menu **Ajuda** fornece recursos para ajudar o utilizador com o Portal do Parceiro cloud.
+
+![Barra de menu superior](./media/top-menubar2.png)
+
+O menu Ajuda contém os seguintes itens:
+
+- **Documentação** - Lança um novo separador no navegador e navega para a página inicial da documentação para o Portal do Parceiro cloud. 
+- **Forum** - Lança um novo separador e navega para a página inicial da documentação para a Comunidade parceira para o AppSource e Azure Marketplaces.
+- **Suporte** - Lança um novo separador e navega para a página de suporte para a Marketplace Publishing, onde pode criar um relatório de incidentes.  Triagem e revemos todos os comentários, e respeitaremos sempre a sua privacidade. Só o contactaremos se pedir ou pedir mais informações.
+
+
+### <a name="send-us-feedback-form"></a>Envie-nos formulário de feedback
+
+O formulário **de feedback enviar-nos** fornece-lhe um método direto para fornecer feedback à Equipa de Onboarding da Editora do Mercado.  Só o contactaremos para obter informações adicionais se tiver verificado o **OK para contactá-lo sobre** a sua caixa de verificação de feedback.
+
+![Formulário de feedback](./media/feedback-form.png)
 
 > [!TIP]
-> Se seus comentários forem sobre uma página específica na Portal do Cloud Partner, navegue até essa página antes de clicar no botão de **comentários** .  Verifique se a caixa de seleção **incluir captura de tela** está selecionada antes de enviar seus comentários para que o estado da interface do usuário da sessão possa ser capturado. 
+> Se o seu feedback for sobre uma página específica no Portal do Parceiro cloud, por favor navegue para essa página antes de clicar no botão **Feedback.**  Verifique se a caixa de verificação **de screenshot incluir** é selecionada antes de submeter o seu feedback para que o estado uI da sua sessão possa ser capturado. 
 
 
-### <a name="publisher-menu"></a>Menu do Publicador
+### <a name="publisher-menu"></a>Menu de editor
 
-Esse menu permite que você gerencie seu perfil e sessão: acesso direto à página de perfil do Publicador, exibir o contrato do Microsoft Publisher ou sair da sessão atual. 
+Este menu permite-lhe gerir o seu perfil e sessão: acesso direto à página de perfil da sua editora, ver o Acordo de Editor da Microsoft ou assinar fora da sessão atual. 
 
-![Menu do Publicador](./media/publisher-menu.png)
-
-
-## <a name="left-navigation-pane"></a>Painel de navegação esquerdo
-
-Um painel de navegação recolhível ocupa o lado esquerdo do Portal.  Ele contém uma BarraDeMenu com os seguintes itens que permitem aos parceiros:
+![Menu de editor](./media/publisher-menu.png)
 
 
-|    **Item de menu**     |      **Descrição**                       |
+## <a name="left-navigation-pane"></a>Painel de navegação à esquerda
+
+Um painel de navegação desmontável ocupa o lado esquerdo do portal.  Contém uma barra de menucom os seguintes itens que permitem aos parceiros:
+
+
+|    **Item do menu**     |      **Descrição**                       |
 |    -------------     |      ---------------                       |
-| ![Novo item de oferta](./media/left-navbar1.png) | [Novo menu de oferta](./cpp-new-offer-menu.md) para criar novas ofertas do tipo especificado. |
-| ![Item de todas as ofertas](./media/left-navbar2.png) | [Todas as](./cpp-all-offers-page.md) páginas de ofertas para exibir todas as ofertas enviadas e algumas de suas características principais. |
-| ![Item de aprovações](./media/left-navbar3.png) | [Aprovações](./cpp-approvals-page.md) para exibir todas as ofertas aprovadas no momento. |
-| ![Item de todos os Publicadores](./media/left-navbar4.png) | Página [todos os Publicadores](./cpp-all-publishers-page.md) lista todos os Publicadores de parceiros de nuvem registrados atualmente. |
-| ![Item de usuários](./media/left-navbar5.png) | Página [usuários](./cpp-users-page.md) lista todas as contas de usuário atuais associadas a parceiros de nuvem registrados. |
-| ![Item de histórico](./media/left-navbar6.png) | Página [histórico](./cpp-history-page.md) lista os eventos de publicação e modificação da oferta para todos os Publicadores. |
-| ![Item de informações](./media/left-navbar7.png) | a página de [informações](./cpp-insights-page.md) contém os vários dashboards que compõem o recurso de *informações do vendedor* deste portal. |
-| ![Item de documentação](./media/left-navbar8.png) | Inicia uma nova guia para a documentação home page para a Portal do Cloud Partner (duplicar entrada no menu **ajuda** ). |
-| ![Item de fórum](./media/left-navbar9.png)  | Inicia uma nova guia para a documentação home page da comunidade de parceiros para o AppSource e o Azure Marketplaces (entradas duplicadas no menu **ajuda** ). |
+| ![Novo item de Oferta](./media/left-navbar1.png) | [Novo menu oferta](./cpp-new-offer-menu.md) para criar novas ofertas do tipo especificado. |
+| ![Itens de todas as ofertas](./media/left-navbar2.png) | [Todas as ofertas](./cpp-all-offers-page.md) de página para visualizar todas as ofertas submetidas e algumas das suas características primárias. |
+| ![Artigo de aprovação](./media/left-navbar3.png) | [Página de aprovações](./cpp-approvals-page.md) para ver todas as suas ofertas atualmente aprovadas. |
+| ![Todos os artigos da Publishers](./media/left-navbar4.png) | Todas as páginas [da Publishers](./cpp-all-publishers-page.md) listam todos os editores de parceiros de nuvem registados. |
+| ![Itens de utilizadores](./media/left-navbar5.png) | [A](./cpp-users-page.md) página do utilizador lista todas as contas de utilizador correntes associadas a parceiros de nuvem registados. |
+| ![Item história](./media/left-navbar6.png) | [A](./cpp-history-page.md) página de história lista a oferta de eventos de publicação e modificação para todos os editores. |
+| ![Itens insights](./media/left-navbar7.png) | [a](./cpp-insights-page.md) página insights contém os vários dashboards que compõem a funcionalidade *Seller Insights* deste portal. |
+| ![Artigo de documentação](./media/left-navbar8.png) | Lança um novo separador para a página inicial da documentação para o Portal do Parceiro cloud (duplica a entrada no menu **Ajuda).** |
+| ![Item do fórum](./media/left-navbar9.png)  | Lança um novo separador para a página inicial da documentação para a Comunidade parceira para o AppSource e Azure Marketplaces (duplica a entrada no menu **Ajuda).** |
 |  |  |
 
 > [!NOTE]
-> Como essa BarraDeMenu é atualizada periodicamente para refletir os novos recursos do portal, os itens que você vê podem não corresponder exatamente aos da tabela acima.
+> Como esta barra de menus é periodicamente atualizada para refletir novas funcionalidades do portal, os itens que você vê podem não corresponder exatamente aos da tabela acima.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O próximo artigo, [novo menu oferta](./cpp-new-offer-menu.md), lista os tipos de ofertas que você pode criar com o **novo menu oferta** .
+O próximo artigo, [menu New Offer,](./cpp-new-offer-menu.md)lista os tipos de ofertas que pode criar com o menu **New Offer.**

@@ -7,10 +7,10 @@ ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255139"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar uma aplicação em Azure a partir de um instantâneo

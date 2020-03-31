@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299419"
 ---
 # <a name="design-secure-applications-on-azure"></a>Aplicações seguras de design no Azure
@@ -153,12 +153,12 @@ Modelar o design da aplicação e enumerar ameaças [stride](https://docs.google
 
 | Ameaça | Propriedade de segurança | Potencial mitigação da plataforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Falsificação               | Autenticação        | [Requerer ligações HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Spoofing               | Autenticação        | [Requerer ligações HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Adulteração              | Integridade             | Valide os certificados SSL/TLS. As aplicações que utilizam o SSL/TLS devem verificar plenamente os certificados X.509 das entidades a que se ligam. Utilize certificados Azure Key Vault para [gerir os seus certificados x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Repúdio            | Não-repústação       | Ativar [a monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)do Azure.|
 | Divulgação de Informação | Confidencialidade       | Criptografe dados sensíveis [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito.](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) |
 | Negação de Serviço      | Disponibilidade          | Monitorize as métricas de desempenho para potenciais condições de negação das condições de serviço. Implementar filtros de ligação. [A proteção Azure DDoS,](../../virtual-network/ddos-protection-overview.md#next-steps)combinada com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
-| Elevação do Privilégio | Autorização         | Utilize <span class="underline"></span> [a Gestão](../../active-directory/privileged-identity-management/pim-configure.md)de Identidade Privilegiada do Diretório Ativo Azure.|
+| Elevação do Privilégio | Autorização         | Utilize <span class="underline"> </span> [a Gestão](../../active-directory/privileged-identity-management/pim-configure.md)de Identidade Privilegiada do Diretório Ativo Azure.|
 
 ### <a name="reduce-your-attack-surface"></a>Reduza a sua superfície de ataque
 
@@ -249,7 +249,7 @@ Key Vault é uma *loja secreta:* é um serviço de nuvem centralizado para armaz
 Segredos são guardados em *cofres*individuais. Cada cofre tem a sua própria configuração e políticas de segurança para controlar o acesso. Você chega aos seus dados através de uma API REST ou através de um SDK cliente que está disponível para a maioria dos idiomas de programação.
 
 > [!IMPORTANT]
-> O Azure Key Vault foi concebido para armazenar segredos de configuração para aplicações de servidores. Não se destina a armazenar dados que pertençam aos utilizadores de aplicações. Isto reflete-se nas suas características de desempenho, API e modelo de custos.
+> O Azure Key Vault foi concebido para armazenar segredos de configuração para aplicações de servidores. Não se destina a armazenar dados que pertençam aos utilizadores de aplicações. Tal reflete-se nas suas características de desempenho, na API e no modelo de custos.
 >
 > Os dados dos utilizadores devem ser armazenados noutros locais, como numa instância de Base de Dados Azure SQL que tenha encriptação transparente de dados (TDE) ou numa conta de armazenamento que utilize encriptação do Serviço de Armazenamento Azure. Os segredos que são utilizados pela sua aplicação para aceder a estas lojas de dados podem ser guardados no Cofre chave do Azure.
 

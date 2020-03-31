@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672638"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token De Refresco Primário?
@@ -39,7 +39,7 @@ Os seguintes componentes do Windows desempenham um papel fundamental na solicita
 
 Um PRT contém alegações geralmente contidas em qualquer token de atualização da AD Azure. Além disso, existem algumas reclamações específicas do dispositivo incluídas no PrT. São os seguintes:
 
-* **ID do dispositivo**: Um PRT é emitido a um utilizador num dispositivo específico. A alegação de identificação do dispositivo `deviceID` determina o dispositivo em que o PRT foi emitido para o utilizador. Esta alegação é posteriormente emitida a fichas obtidas através da PrT. A alegação de ID do dispositivo é utilizada para determinar a autorização de Acesso Condicional com base no estado do dispositivo ou na conformidade.
+* **ID do dispositivo**: Um PRT é emitido a um utilizador num dispositivo específico. A alegação `deviceID` de ID do dispositivo determina o dispositivo em que o PRT foi emitido para o utilizador. Esta alegação é posteriormente emitida a fichas obtidas através da PrT. A alegação de ID do dispositivo é utilizada para determinar a autorização de Acesso Condicional com base no estado do dispositivo ou na conformidade.
 * **Chave da sessão**: A chave da sessão é uma chave simétrica encriptada, gerada pelo serviço de autenticação Azure AD, emitida como parte do PRT. A chave da sessão funciona como prova de posse quando um PRT é usado para obter fichas para outras aplicações.
 
 ### <a name="can-i-see-whats-in-a-prt"></a>Posso ver o que há numa prt?
@@ -60,7 +60,7 @@ O PRT é emitido durante a autenticação do utilizador num dispositivo Windows 
 * **Azure AD juntou-se** ou **Hybrid Azure AD juntou-se**: A PRT é emitida durante o logon do Windows quando um utilizador inicia sessão com as suas credenciais de organização. É emitida uma PRT com todas as credenciais suportadas pelo Windows 10, por exemplo, palavra-passe e Windows Hello for Business. Neste cenário, o plugin Azure AD CloudAP é a principal autoridade para o PRT.
 * **Dispositivo registado em Azure AD**: Um PRT é emitido quando um utilizador adiciona uma conta de trabalho secundária ao seu dispositivo Windows 10. Os utilizadores podem adicionar uma conta ao Windows 10 de duas maneiras diferentes -  
    * Adicionar uma conta através da **utilização desta conta em todo o lado neste dispositivo** solicita-se depois de iniciar sessão numa app (por exemplo, Outlook)
-   * Adicionar uma conta a partir de **Definições** > **Contas** > Trabalho de **Acesso ou** > **Escola Connect**
+   * Adicionar uma conta a partir de **Definições** > **Accounts** > Contas**Trabalho de Acesso ou** > **Ligação** Escolar
 
 Nos cenários do dispositivo registado pela Azure AD, o plugin WAM Azure AD é a principal autoridade para o PRT, uma vez que o logon do Windows não está a acontecer com esta conta Azure AD.
 

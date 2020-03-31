@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
 ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78894820"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
@@ -32,17 +32,17 @@ Para concluir este guia de início rápido:
 
 Se não tiver uma aplicação web ASP.NET Core, pode usar o nosso guia passo a passo para criar uma aplicação ASP.NET Core e adicionar Insights de [Aplicação.](../../azure-monitor/app/asp-net-core.md)
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
 O Application Insights pode recolher dados telemétricos de qualquer aplicação ligada à Internet, independentemente de estar a ser executado no local ou na cloud. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**.
+1. Selecione **Criar um programador de recursos** > **Ferramentas** > **De aplicação Insights**.
 
    > [!NOTE]
    >Se for a primeira vez que cria um recurso de Insights de Aplicação, pode aprender mais visitando o [Create a Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
@@ -67,11 +67,11 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 2. Clique no botão **Iniciar**
 
-3. Selecione a sua conta e subscrição > Selecione o **recurso existente** que criou no portal Azure > Click **Register**.
+3. Selecione a sua conta e > de subscrição Selecione o **recurso existente** que criou no portal Azure > Click **Register**.
 
-4. Selecione **Project** > **Manage NuGet Packages** > **Package source: nuget.org > ** **Atualizar** os pacotes SDK de Aplicação Insights para a mais recente versão estável.
+4. Selecione **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
 
-5. Selecione **Depurar** > **Iniciar sem Depuração** (Ctrl + F5) para Iniciar a sua aplicação
+5. Selecione **Debug** > **Start sem Debugging** (Ctrl+F5) para lançar a sua aplicação
 
     ![Menu de Descrição Geral do Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
@@ -84,11 +84,11 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Menu de Descrição Geral do Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
-2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
+2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
    ![Mapeamento de Aplicações](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Clique no ícone do **aplicativo Analytics** ![ícone do mapa de aplicações](./media/dotnetcore-quick-start/006.png) **Visualização no Analytics**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no](./media/dotnetcore-quick-start/006.png) ícone ![do ícone app **Analytics** Ícone **Ícone Visualização no Analytics**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/dotnetcore-quick-start/6analytics.png)
 

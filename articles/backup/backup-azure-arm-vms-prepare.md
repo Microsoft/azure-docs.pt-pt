@@ -4,10 +4,10 @@ description: Descreve como fazer backup de VMs Azure num cofre de Serviços de R
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273517"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back up VMs Azure em um cofre de serviços de recuperação
@@ -41,7 +41,7 @@ Além disso, há algumas coisas que talvez precises de fazer em algumas circunst
 
  Um cofre armazena backups e pontos de recuperação criados ao longo do tempo, e armazena políticas de backup associadas a máquinas de reserva. Crie um cofre da seguinte forma:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Em busca, digite Serviços de **Recuperação.** Em **Serviços,** clique em **cofres de Serviços**de Recuperação .
 
      ![Pesquisa de cofres de Serviços de Recuperação](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
@@ -91,7 +91,7 @@ Configure uma política de reserva para o cofre.
 
    ![Botão de backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-2. No ** > De Backup Goal** Ondeestá a sua carga **de trabalho?** Em **O que quer fazer de volta?** Selecione máquina **Virtual** >  **OK**. Isto regista a extensão VM no cofre.
+2. Em **Backup Goal** > Onde está **Azure**a sua carga**de trabalho?** Em O que quer fazer **Virtual machine** >  **OK** **de volta?** Isto regista a extensão VM no cofre.
 
    ![Painel de backup e backup Goal](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -149,7 +149,7 @@ O backup inicial será executado de acordo com o horário, mas você pode execut
 3. Na lista **de Itens de Backup,** clique nas elipses (...).
 4. Clique em **Backup agora**.
 5. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de abóbadas > **Backup Jobs** > **Em andamento**. Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
+6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs** > **Em andamento.** Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
 ## <a name="verify-backup-job-status"></a>Verificar o estado do trabalho de backup
 
@@ -168,10 +168,10 @@ O estatuto de trabalho pode variar dependendo dos seguintes cenários:
 
 **Instantâneo** | **Transferir dados para o cofre** | **Estatuto do Emprego**
 --- | --- | ---
-Concluída | Em curso | Em curso
-Concluída | Ignorado | Concluída
-Concluída | Concluída | Concluída
-Concluída | Falhou | Concluído com aviso
+Concluído | Em curso | Em curso
+Concluído | Ignorado | Concluído
+Concluído | Concluído | Concluído
+Concluído | Falhou | Concluído com aviso
 Falhou | Falhou | Falhou
 
 Agora, com esta capacidade, para o mesmo VM, duas cópias de segurança podem ser executadas paralelamente, mas em ambas as fases (instantâneo, dados de transferência para cofre) apenas uma sub tarefa pode estar em execução. Assim, em cenários foram um trabalho de backup em andamento resultou no backup do dia seguinte para falhar será evitado com esta funcionalidade de dissociação. As cópias de segurança do dia seguinte podem ter instantâneos concluídos enquanto os dados de **transferência para o cofre** saltaram se o trabalho de reserva de um dia anterior estiver em andamento.
@@ -179,7 +179,7 @@ O ponto de recuperação incremental criado no cofre capturará todo o barulho d
 
 ## <a name="optional-steps"></a>Passos opcionais
 
-### <a name="install-the-vm-agent"></a>Instale o agente VM
+### <a name="install-the-vm-agent"></a>Instalar o agente da VM
 
 O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Se criar um VM personalizado, ou migrar uma máquina no local, poderá ter de instalar o agente manualmente, como resumiu a tabela.
 
@@ -193,9 +193,9 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 >
 >Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM juntos utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão de disco, obtém-se a opção de fazer backup de um ou alguns dos muitos discos de dados de um VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurado sabotado a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto a partir do instantâneo como do cofre.
 >
->**Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com**
+>**Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Problemas de resolução de problemas com [agentes Da VM Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup Azure VM](backup-azure-vms-troubleshoot.md).
 * [Restaurar](backup-azure-arm-restore-vms.md) VMs azure.

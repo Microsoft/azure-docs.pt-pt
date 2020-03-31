@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269812"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ligue-se aos Media Services v3 API - .NET
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como se conectar ao Azure Media Services v3 .NET SDK util
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar uma conta de Media Services.](create-account-cli-how-to.md) Lembre-se do nome do grupo de recursos e do nome da conta Media Services
-- Instale uma ferramenta que gostaria de utilizar para o desenvolvimento .NET. Os passos deste artigo mostram como usar o [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Pode usar o Código do Estúdio Visual, ver [Trabalhar com C# ](https://code.visualstudio.com/docs/languages/csharp). Ou podes usar um editor de código diferente.
+- Instale uma ferramenta que gostaria de utilizar para o desenvolvimento .NET. Os passos deste artigo mostram como usar o [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Pode usar o Código do Estúdio Visual, ver [Trabalhar com C#](https://code.visualstudio.com/docs/languages/csharp). Ou podes usar um editor de código diferente.
 
 > [!IMPORTANT]
 > Rever convenções de [nomeação.](media-services-apis-overview.md#naming-conventions)
@@ -35,15 +35,15 @@ Este artigo mostra-lhe como se conectar ao Azure Media Services v3 .NET SDK util
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
 1. Inicie o Visual Studio. 
-1. A partir do menu **'Ficheiro',** clique em **New** > **Project**. 
+1. A partir do menu **'Ficheiro',** clique em **Novo** > **Projeto**. 
 1. Crie uma aplicação de consola **.NET Core.**
 
-A aplicação de amostras neste tópico, visa `netcoreapp2.0`. O código utiliza 'assync main', que C# está disponível a partir de 7.1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para mais detalhes.
+A aplicação de amostras `netcoreapp2.0`neste tópico, alvos. O código utiliza 'assync main', que está disponível a partir de C# 7.1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para mais detalhes.
 
 ## <a name="add-required-nuget-packages"></a>Adicione os pacotes NuGet necessários
 
 1. No Estúdio Visual, selecione **Tools** > **NuGet Package Manager** > **NuGet Manager Console**.
-2. Na janela consola do Gestor de **Pacotes,** utilize `Install-Package` comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
+2. Na janela consola do `Install-Package` Gestor de **Pacotes,** utilize o comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
 
 |Pacote|Descrição|
 |---|---|
@@ -57,20 +57,20 @@ A aplicação de amostras neste tópico, visa `netcoreapp2.0`. O código utiliza
 
 ### <a name="create-appsettingsjson"></a>Criar appssettings.json
 
-1. Vá ao **arquivo**de texto **geral** > .
+1. Vá ao**arquivo de Texto** **Geral.** > 
 1. Nomeie-o "appsettings.json".
 1. Detete a propriedade "Copy to Output Directory" do ficheiro .json para "Copiar se for mais recente" (para que a aplicação possa aceder-lhe quando publicada).
 
 ### <a name="set-values-in-appsettingsjson"></a>Definir valores em apps.json
 
-Executar o comando `az ams account sp create` conforme descrito nas [APIs](access-api-cli-how-to.md)de acesso . O comando devolve a JSOn que deve copiar para as suas "definições de apps.json".
+Executar `az ams account sp create` o comando conforme descrito nas [APIs](access-api-cli-how-to.md)de acesso . O comando devolve a JSOn que deve copiar para as suas "definições de apps.json".
  
 ## <a name="add-configuration-file"></a>Adicionar o ficheiro de configuração
 
 Por conveniência, adicione um ficheiro de configuração responsável pela leitura de valores de "appsettings.json".
 
 1. Adicione uma nova classe .cs ao seu projeto. Dê-lhe o nome `ConfigWrapper`. 
-1. Colar o seguinte código neste ficheiro (este exemplo pressupõe que tem o espaço de nome é `ConsoleApp1`).
+1. Colar o seguinte código neste ficheiro (este exemplo pressupõe que tem o espaço de nome `ConsoleApp1`é).
 
 ```csharp
 using System;

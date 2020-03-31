@@ -1,13 +1,13 @@
 ---
-title: Monitorização contínua do seu gasoduto de lançamento de DevOps com Pipelines Azure e Insights de Aplicação Azure  Microsoft Docs
+title: Monitorização contínua do seu gasoduto de lançamento de DevOps com Pipelines Azure e Insights de Aplicação Azure [ Microsoft Docs
 description: Fornece instruções para configurar rapidamente a monitorização contínua com insights de aplicação
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655400"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicione monitorização contínua ao seu gasoduto de libertação
@@ -20,7 +20,7 @@ Com monitorização contínua, os gasodutos de libertação podem incorporar dad
 
 1. Em [Azure DevOps,](https://dev.azure.com)selecione uma organização e projeto.
    
-1. No menu esquerdo da página do projeto, selecione **Pipelines** > **Lançamentos**. 
+1. No menu esquerdo da página do projeto, selecione **Lançamentos** > de**Pipelines**. 
    
 1. Deite a seta ao lado de **New** e selecione Novo oleoduto de **libertação**. Ou, se ainda não tiver um oleoduto, selecione **Novo oleoduto** na página que aparece.
    
@@ -36,7 +36,7 @@ Com monitorização contínua, os gasodutos de libertação podem incorporar dad
 
     | Parâmetro        | Valor |
    | ------------- |:-----|
-   | **Nome artístico**      | Forneça um nome artístico ou deixe-o no **estágio 1**. |
+   | **Nome da fase**      | Forneça um nome artístico ou deixe-o no **estágio 1**. |
    | **Subscrição do Azure** | Desça e selecione a subscrição Azure ligada que pretende utilizar.|
    | **Tipo de aplicação** | Desça e selecione o seu tipo de aplicação. |
    | **Nome do serviço de aplicações** | Insira o nome do seu Serviço de Aplicações Azure. |
@@ -53,7 +53,7 @@ Para modificar as definições de regra de alerta:
 
 1. No painel esquerdo da página do pipeline de lançamento, **selecione Configurar Alertas**de Insights de Aplicação .
 
-1. No painel **de alertas do Monitor Azure,** selecione a elipse... ao lado das **regras de Alerta.**
+1. No painel **de alertas do Monitor Azure,** selecione a elipse... ao lado das **regras de Alerta.** **...**
    
 1. No diálogo das **regras de alerta,** selecione o símbolo de drop-down ao lado de uma regra de alerta, como **disponibilidade**. 
    

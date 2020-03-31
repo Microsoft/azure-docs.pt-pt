@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 8f3a6f002fbebe215699c9b97a6dce63177c446f
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599330"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização da conectividade da rede com monitor de ligação (pré-visualização)
@@ -92,7 +92,7 @@ As fontes podem ser VMs Azure ou máquinas no local que tenham um agente de moni
 ### <a name="access-connection-monitor-preview"></a>Monitor de ligação de acesso (Pré-visualização)
 
 1. Na página inicial do portal Azure, vá ao **Network Watcher.**
-1. À esquerda, na secção **de monitorização,** selecione Monitor de **Ligação (Pré-visualização)** .
+1. À esquerda, na secção **de monitorização,** selecione Monitor de **Ligação (Pré-visualização)**.
 1. Você vê todos os monitores de ligação que foram criados no Monitor de Ligação (Pré-visualização). Para ver os monitores de ligação que foram criados na experiência clássica do Monitor de Ligação, vá ao separador Monitor de **Ligação.**
 
     ![Screenshot mostrando monitores de ligação que foram criados no Monitor de Ligação (Pré-visualização)](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -400,7 +400,7 @@ A partir do portal Azure, para criar um grupo de teste num monitor de ligação,
    
        Pode reduzir do nível de Subscrição para outros níveis na hierarquia:
 
-      **Grupos de** recursos de > de assinatura > **VNETs** > **Subnets** > **VMs com agentes**
+      **Grupos** >  > **de recursos**de subscrição**VNETs** > **Subnets** > **VMs com agentes**
 
       Também pode alterar o valor do **Grupo por** campo para iniciar a árvore a partir de qualquer outro nível. Por exemplo, se você agrupa por rede virtual, você vê os VMs que têm agentes na hierarquia **VNETs** > **Subnets** > **VMs com agentes**.
 
@@ -442,7 +442,7 @@ A partir do portal Azure, para criar um grupo de teste num monitor de ligação,
 
     * **Nome** – Nome da configuração do teste.
     * **Protocolo** – Escolha TCP, ICMP ou HTTP. Para alterar HTTP para HTTPS, selecione **HTTP** como protocolo e selecione **443** como porta.
-        * **Criar configuração de teste** de rede – Esta caixa de verificação só aparece se selecionar **HTTP** no campo **Protocol.** Selecione esta caixa para criar outra configuração de teste que utilize as mesmas fontes e destinos que especificou noutros locais da sua configuração. A configuração de teste recém-criada chama-se `<the name of your test configuration>_networkTestConfig`.
+        * **Criar configuração de teste** de rede – Esta caixa de verificação só aparece se selecionar **HTTP** no campo **Protocol.** Selecione esta caixa para criar outra configuração de teste que utilize as mesmas fontes e destinos que especificou noutros locais da sua configuração. A configuração de `<the name of your test configuration>_networkTestConfig`teste recém-criada é nomeada .
         * **Desativar a via de rastreio** – Este campo aplica-se a grupos de teste cujo protocolo seja TCP ou ICMP. Selecione esta caixa para impedir que as fontes descubram topologia e RTT hop-by-hop.
     * **Porta** de destino – Pode personalizar este campo com um porto de destino à sua escolha.
     * **Frequência** de Teste – Utilize este campo para escolher a frequência com que as fontes irão pingdestinos no protocolo e na porta que especificou. Pode escolher 30 segundos, 1 minuto, 5 minutos, 15 minutos ou 30 minutos. As fontes vão testar a conectividade com destinos com base no valor que escolher.  Por exemplo, se selecionar 30 segundos, as fontes verificarão a conectividade com o destino pelo menos uma vez num período de 30 segundos.
@@ -571,7 +571,7 @@ Para ver as tendências da RTT e a percentagem de controlos falhados para um mon
 
 1. Mude o intervalo de tempo para ver mais dados.
 1. Altere a vista para ver fontes, destinos ou configurações de teste. 
-1. Escolha uma fonte baseada em testes falhados e investigue os cinco testes falhados. Por exemplo, escolha **Visualização por** **fontes** e **visualização de** > Por > **Destinos** para investigar os testes relevantes no monitor de ligação.
+1. Escolha uma fonte baseada em testes falhados e investigue os cinco testes falhados. Por exemplo, escolha **'Ver por** > **Fontes** e **Ver por** > **Destinos'** para investigar os testes relevantes no monitor de ligação.
 
    ![Screenshot mostrando métricas de desempenho para os cinco melhores testes falhados](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
@@ -608,7 +608,7 @@ Utilize o Log Analytics para criar vistas personalizadas dos seus dados de monit
 
 #### <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
-Nos monitores de ligação criados antes da experiência do Monitor de Ligação (Pré-visualização), todas as quatro métricas estão disponíveis: % sondas falhadas, AverageRoundtripMs, ChecksFailedPercent (Pré-visualização) e RoundTripTimeMs (Pré-visualização). Nos monitores de ligação criados na experiência Do Monitor de Ligação (Pré-visualização), os dados só estão disponíveis para as métricas que estão marcadas com *(Pré-visualização)* .
+Nos monitores de ligação criados antes da experiência do Monitor de Ligação (Pré-visualização), todas as quatro métricas estão disponíveis: % sondas falhadas, AverageRoundtripMs, ChecksFailedPercent (Pré-visualização) e RoundTripTimeMs (Pré-visualização). Nos monitores de ligação criados na experiência Do Monitor de Ligação (Pré-visualização), os dados só estão disponíveis para as métricas que estão marcadas com *(Pré-visualização)*.
 
 ![Screenshot mostrando métricas no Monitor de Ligação (Pré-visualização)](./media/connection-monitor-2-preview/monitor-metrics.png)
 
@@ -616,10 +616,10 @@ Quando utilizar métricas, detete o tipo de recurso como Microsoft.Network/Netwo
 
 | Métrica | Nome a apresentar | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % sondas falhadas | Percentagem | Média | A percentagem de sondas de monitorização da conectividade falhou. | Sem dimensões |
+| SondasFailedPercent | % sondas falhadas | Percentagem | Média | A percentagem de sondas de monitorização da conectividade falhou. | Sem dimensões |
 | AverageRoundtripMs | Avg. Tempo de ida e volta (ms) | Milissegundos | Média | Rede rtt média para sondas de monitorização de conectividade enviadas entre fonte e destino. |             Sem dimensões |
-| ChecksFailedPercent (Pré-visualização) | % de verificações falhadas (pré-visualização) | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceid <br>Endereço de origem <br>Nome de origem <br>SourceResourceId <br>sourceType <br>Protocolo <br>DestinationAddress <br>Nome de destino <br>DestinationResourceid <br>DestinoTipo <br>DestinationPort <br>TestGroupName <br>Nome de Configuração de Teste <br>Região |
-| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | RTT para verificações enviadas entre fonte e destino. Este valor não é mediado. | ConnectionMonitorResourceid <br>Endereço de origem <br>Nome de origem <br>SourceResourceId <br>sourceType <br>Protocolo <br>DestinationAddress <br>Nome de destino <br>DestinationResourceid <br>DestinoTipo <br>DestinationPort <br>TestGroupName <br>Nome de Configuração de Teste <br>Região |
+| ChecksFailedPercent (Pré-visualização) | % de verificações falhadas (pré-visualização) | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceid <br>Endereço de origem <br>Nome de origem <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoEndereço <br>Nome de destino <br>DestinationResourceid <br>DestinoTipo <br>DestinationPort <br>TestGroupName <br>Nome de Configuração de Teste <br>Região |
+| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | RTT para verificações enviadas entre fonte e destino. Este valor não é mediado. | ConnectionMonitorResourceid <br>Endereço de origem <br>Nome de origem <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoEndereço <br>Nome de destino <br>DestinationResourceid <br>DestinoTipo <br>DestinationPort <br>TestGroupName <br>Nome de Configuração de Teste <br>Região |
 
 #### <a name="metric-alerts-in-azure-monitor"></a>Alertas métricos no Monitor Azure
 
@@ -627,8 +627,8 @@ Para criar um alerta no Monitor Azure:
 
 1. Escolha o recurso do monitor de ligação que criou no Monitor de Ligação (Pré-visualização).
 1. Certifique-se de que a **Métrica** aparece como tipo de sinal para o monitor de ligação.
-1. Na **condição de adição**, para o nome do **sinal,** selecione **ChecksFailedPercent (Pré-visualização)** ou **RoundTripTimeMs (Pré-visualização)** .
-1. Para **o tipo de sinal,** escolha **Métricas**. Por exemplo, selecione **ChecksFailedPercent (Pré-visualização)** .
+1. Na **condição de adição**, para o nome do **sinal,** selecione **ChecksFailedPercent (Pré-visualização)** ou **RoundTripTimeMs (Pré-visualização)**.
+1. Para **o tipo de sinal,** escolha **Métricas**. Por exemplo, selecione **ChecksFailedPercent (Pré-visualização)**.
 1. Todas as dimensões da métrica estão listadas. Escolha o nome de dimensão e o valor de dimensão. Por exemplo, selecione **O Endereço fonte** e introduza o endereço IP de qualquer fonte no seu monitor de ligação.
 1. Na Lógica de **Alerta,** preencha os seguintes detalhes:
    * **Tipo de condição**: **Estática**.

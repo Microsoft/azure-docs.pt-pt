@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: juliako
 ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654584"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos ao vivo dos Media Services
 
 As tabelas desta secção listam os códigos de erro [do Evento Ao Vivo.](live-events-outputs-concept.md)
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejeitado
 
 Ao subscrever os eventos da Grelha de [Eventos](https://docs.microsoft.com/azure/event-grid/) para um evento ao vivo, poderá ver um dos seguintes erros do evento [LiveEventConnectionRejected.](media-services-event-schemas.md#liveeventconnectionrejected)
 
-| Código de resultados | Descrição |
+| Código do resultado | Descrição |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | URL incorreto |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | O IP do codificador não está presente na lista de permitir IP configurada |
@@ -41,11 +41,11 @@ Ao subscrever os eventos da Grelha de [Eventos](https://docs.microsoft.com/azure
 | MPE_INGEST_FRAMERATE_EXCEEDED | Os fluxos codificadores ingeridos com emoldurações excediam o máximo permitido de 30fps para codificar eventos/canais ao vivo.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Os fluxos codificadores ingeridos ultrapassaram as seguintes resoluções permitidas: 1920x1088 para codificação de eventos/canais ao vivo e 4096 x 2160 para eventos/canais ao vivo pass-through.|
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDesligado
 
 Pode ver um dos seguintes erros do evento [LiveEventEncoderDisconnected.](media-services-event-schemas.md#liveeventencoderdisconnected)
 
-|Código de resultados|Descrição|
+|Código do resultado|Descrição|
 |---|---|
 |MPE_RTMP_SESSION_IDLE_TIMEOUT|A sessão de RTMP foi cronometrada depois de estar inativa para o prazo permitido.|
 |MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|A marca de tempo para vídeo ou áudio FLVTag é inválida a partir do codificador RTMP.|

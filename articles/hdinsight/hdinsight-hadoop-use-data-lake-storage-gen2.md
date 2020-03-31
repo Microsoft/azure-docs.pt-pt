@@ -1,5 +1,5 @@
 ---
-title: Utilize o Azure Data Lake Storage Gen2 com clusters Azure HDInsight
+title: Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 description: Saiba como utilizar o Azure Data Lake Storage Gen2 com clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/20/2020
 ms.openlocfilehash: d711cc7e58fb055eda62cfc364a5552a7d10f7bd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272295"
 ---
-# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize o Azure Data Lake Storage Gen2 com clusters Azure HDInsight
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
 Azure Data Lake Storage Gen2 é um serviço de armazenamento em nuvem dedicado à análise de big data, construído no armazenamento azure Blob. Data Lake Storage Gen2 combina as capacidades do armazenamento Azure Blob e do Armazenamento do Lago Azure Gen1. O serviço resultante oferece funcionalidades do Azure Data Lake Storage Gen1, tais como semântica do sistema de ficheiros, segurança de nível de diretório e nível de ficheiro, e escalabilidade, juntamente com as capacidades de armazenamento de baixo custo, hierárquicos, alta disponibilidade e capacidades de recuperação de desastres do armazenamento Azure Blob.
 
@@ -36,7 +36,7 @@ Para criar um cluster HDInsight que utiliza data lake storage Gen2 para armazena
 
 Crie uma identidade gerida atribuída ao utilizador, se ainda não tiver uma.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, digite **o utilizador atribuído** e clique em Identidade Gerida Atribuída pelo **Utilizador**.
 1. Clique em **Criar**.
@@ -47,11 +47,11 @@ Para obter mais informações sobre como as identidades geridas funcionam no Azu
 
 ![Criar uma identidade gerida atribuída pelo utilizador](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-### <a name="create-a-data-lake-storage-gen2-account"></a>Criar uma conta Gen2 de Armazenamento de Data Lake
+### <a name="create-a-data-lake-storage-gen2-account"></a>Criar uma conta do Data Lake Storage Gen2
 
 Crie uma conta de armazenamento de Gen2 de armazenamento de lago de dados Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, digite **o armazenamento** e clique na conta **de armazenamento**.
 1. Clique em **Criar**.
@@ -61,7 +61,7 @@ Crie uma conta de armazenamento de Gen2 de armazenamento de lago de dados Azure.
     1. Clique no separador **Avançado.**
     1. Clique **ativado** ao lado do espaço de **nome hierárquico** sob data **lake storage Gen2**.
     1. Clique em **Rever + criar**.
-    1. Clique em **Criar**.
+    1. Clique em **Criar**
 
 Para obter mais informações sobre outras opções durante a criação de conta de armazenamento, consulte [Quickstart: Create a Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
@@ -116,7 +116,7 @@ O código abaixo faz os seguintes passos iniciais:
 1. Cria um novo grupo de recursos para as novas atividades de implantação.
 1. Cria uma identidade gerida atribuída ao utilizador.
 1. Adiciona uma extensão ao Azure CLI para utilizar funcionalidades para data lake storage Gen2.
-1. Cria uma nova conta data Lake Storage Gen2 usando a bandeira `--hierarchical-namespace true`.
+1. Cria uma nova conta data Lake `--hierarchical-namespace true` Storage Gen2 usando a bandeira.
 
 ```azurecli
 az login
@@ -167,7 +167,7 @@ Para obter mais informações sobre permissões de ficheiros com ACLs, consulte 
 
 A capacidade do seu cluster HDInsight de aceder a ficheiros em Data Lake Storage Gen2 é controlada através de identidades geridas. Uma identidade gerida é uma identidade registada no Azure Ative Directory (Azure AD) cujas credenciais são geridas pelo Azure. Com identidades geridas, não precisa de registar os principais de serviço sintetários em Azure AD ou manter credenciais como certificados.
 
-Os serviços Azure têm dois tipos de identidades geridas: atribuídos pelo sistema e atribuídos ao utilizador. O HDInsight utiliza identidades geridas atribuídas ao utilizador para aceder ao Data Lake Storage Gen2. Uma identidade gerida atribuída ao utilizador é criada como um recurso Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure.
+Os serviços Azure têm dois tipos de identidades geridas: atribuídos pelo sistema e atribuídos ao utilizador. O HDInsight utiliza identidades geridas atribuídas ao utilizador para aceder ao Data Lake Storage Gen2. Uma identidade gerida atribuída pelo utilizador, que é criada como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure.
 
 O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas. Para obter mais informações sobre identidades geridas, veja [como funcionam as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
 
@@ -199,7 +199,7 @@ Existem várias formas de aceder aos ficheiros em Data Lake Storage Gen2 a parti
 
 ### <a name="data-access-examples"></a>Exemplos de acesso a dados
 
-Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó da cabeça do cluster. Os exemplos utilizam os três esquemas URI. Substitua `CONTAINERNAME` e `STORAGEACCOUNT` com os valores relevantes
+Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) ao nó da cabeça do cluster. Os exemplos utilizam os três esquemas URI. Substituir `CONTAINERNAME` `STORAGEACCOUNT` e com os valores relevantes
 
 #### <a name="a-few-hdfs-commands"></a>Alguns comandos hdfs
 
@@ -235,7 +235,7 @@ Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-uni
 
 #### <a name="creating-a-hive-table"></a>Criando uma mesa de colmeia
 
-Três localizações de ficheiros são mostradas para fins ilustrativos. Para a execução real, utilize apenas uma das entradas `LOCATION`.
+Três localizações de ficheiros são mostradas para fins ilustrativos. Para a execução real, `LOCATION` utilize apenas uma das entradas.
 
 ```hql
 DROP TABLE myTable;

@@ -1,5 +1,5 @@
 ---
-title: Autenticação multi-factor no Diretório Ativo Azure B2C  Microsoft Docs
+title: Autenticação multi-factor no Diretório Ativo Azure B2C [ Microsoft Docs
 description: Como permitir a autenticação multi-factor em aplicações viradas para o consumidor garantidas pelo Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 25724ba82e57c5e3800fa1a989dd4f504df1c163
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189281"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Diretório Ativo Azure B2C

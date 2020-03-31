@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670870"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio
@@ -86,7 +86,7 @@ Para anular a aplicação de um destes filtros, clique no botão **Remover filtr
 ![Vários filtros](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Localizar anomalias
-A ferramenta Trends pode realçar bolhas de eventos que são anómalos em comparação com outras bolhas na mesma série de tempo. Na lista pendente Tipo de vista, selecione **Contagens no registo de tempo (realçar anomalias)** ou **Percentagens no registo de tempo (realçar anomalias)** . As bolhas vermelhas são anómalas. As anomalias são definidas como bolhas com contagem/percentagens superiores a 2,1 vezes o desvio padrão das contagens/percentagens ocorridas nos últimos dois períodos de tempo (48 horas se estiver a ver as últimas 24 horas, etc.).
+A ferramenta Trends pode realçar bolhas de eventos que são anómalos em comparação com outras bolhas na mesma série de tempo. Na lista pendente Tipo de vista, selecione **Contagens no registo de tempo (realçar anomalias)** ou **Percentagens no registo de tempo (realçar anomalias)**. As bolhas vermelhas são anómalas. As anomalias são definidas como bolhas com contagem/percentagens superiores a 2,1 vezes o desvio padrão das contagens/percentagens ocorridas nos últimos dois períodos de tempo (48 horas se estiver a ver as últimas 24 horas, etc.).
 
 ![Os pontos coloridos indicam anomalias](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -95,7 +95,7 @@ A ferramenta Trends pode realçar bolhas de eventos que são anómalos em compar
 > 
 > 
 
-## <a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 |  |  |
 | --- | --- |
 | **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Procure telemetria, veja dados no CodeLens e configure o Application Insights. Tudo isto no Visual Studio. |![Clique com o botão direito do rato no projeto e escolha Application Insights, Pesquisa](./media/visual-studio-trends/34.png) |

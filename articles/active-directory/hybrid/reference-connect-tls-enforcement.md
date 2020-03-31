@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ff5c75785622b43e66b808009c4674d4b2f2b50
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300853"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Aplicação tLS 1.2 para Azure AD Connect
@@ -33,13 +33,13 @@ Para forçar o servidor Azure AD Connect a utilizar apenas o TLS 1.2, o registo 
 >Depois de ter atualizado o registo, tem de reiniciar o servidor do Windows para que as alterações se afetem.
 
 
-### <a name="enable-tls-12"></a>Ativar TLS 1.2
+### <a name="enable-tls-12"></a>Ativar o TLS 1.2
 - [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions"=dword:000000001
   - "SchUseStrongCrypto"=dword:00000001
 - [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions"=dword:000000001
-  - "SchUseStrongCrypto"=dword:00000001
+  - "SchUseStrongCrypto"=dword:000000001
 - [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
   - "Habilitado"=dword:0000000001
 - [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 02/24/2020
-ms.openlocfilehash: c221ab793fb71169b62d81341d93fb95a018cc91
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 7e4744627cfd08874e07bb126df048ea3e644f39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273939"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473749"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transaccionalmente consistente de uma base de dados Azure SQL
 
@@ -65,9 +65,9 @@ A cópia da base de dados é uma operação assíncrona, mas a base de dados do 
 
 Para obter um script powerShell de amostra completa, consulte [Copiar uma base de dados para um novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azure-cli
+```azurecli
 az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver `
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
@@ -104,7 +104,7 @@ Se quiser ver as operações em implementação no grupo de recursos no portal, 
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copiar uma base de dados utilizando a Transact-SQL
 
-Inicie sessão na base de dados principal com o administrador do servidor ou o login que criou a base de dados que pretende copiar. Para que a cópia da base de dados tenha sucesso, os logins que não são o administrador do servidor devem ser membros da função `dbmanager`. Para obter mais informações sobre logins e ligação ao servidor, consulte [Gerir logins](sql-database-manage-logins.md).
+Inicie sessão na base de dados principal com o administrador do servidor ou o login que criou a base de dados que pretende copiar. Para que a cópia da base de dados tenha sucesso, `dbmanager` os logins que não são o administrador do servidor devem ser membros da função. Para obter mais informações sobre logins e ligação ao servidor, consulte [Gerir logins](sql-database-manage-logins.md).
 
 Comece a copiar a base de dados de origem com a [BASE DE DADOS CREATE ... COMO CÓPIA DA](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) DECLARAÇÃO. A declaração T-SQL continua a funcionar até que a operação de cópia da base de dados esteja concluída.
 
@@ -114,7 +114,7 @@ Comece a copiar a base de dados de origem com a [BASE DE DADOS CREATE ... COMO C
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Copiar uma base de dados SQL para o mesmo servidor
 
-Inicie sessão na base de dados principal com o administrador do servidor ou o login que criou a base de dados que pretende copiar. Para que a cópia da base de dados tenha sucesso, os logins que não são o administrador do servidor devem ser membros da função `dbmanager`.
+Inicie sessão na base de dados principal com o administrador do servidor ou o login que criou a base de dados que pretende copiar. Para que a cópia da base de dados tenha sucesso, `dbmanager` os logins que não são o administrador do servidor devem ser membros da função.
 
 Este comando copia base de dados 1 para uma nova base de dados chamada Database2 no mesmo servidor. Dependendo do tamanho da sua base de dados, a operação de cópia pode demorar algum tempo a ser concluída.
 
@@ -125,7 +125,7 @@ Este comando copia base de dados 1 para uma nova base de dados chamada Database2
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Copiar uma base de dados SQL para um servidor diferente
 
-Inicie sessão na base de dados principal do servidor alvo onde será criada a nova base de dados. Utilize um login com o mesmo nome e senha que o dono da base de dados da base de dados de origem no servidor de origem. O login no servidor alvo também deve ser um membro da função `dbmanager`, ou ser o administrador do servidor iniciar sessão.
+Inicie sessão na base de dados principal do servidor alvo onde será criada a nova base de dados. Utilize um login com o mesmo nome e senha que o dono da base de dados da base de dados de origem no servidor de origem. O login no servidor alvo também deve `dbmanager` ser um membro da função, ou ser o administrador do servidor iniciar sessão.
 
 Este comando copia base de dados 1 no servidor1 para uma nova base de dados chamada Database2 no servidor2. Dependendo do tamanho da sua base de dados, a operação de cópia pode demorar algum tempo a ser concluída.
 
@@ -139,7 +139,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar uma base de dados SQL para uma subscrição diferente
 
-Pode utilizar os passos na [base de dados Copy a SQL para uma](#copy-a-sql-database-to-a-different-server) secção de servidor diferente para copiar a sua base de dados para um servidor de base de dados SQL numa subscrição diferente utilizando o T-SQL. Certifique-se de que utiliza um login com o mesmo nome e senha que o dono da base de dados da base de dados fonte. Além disso, o login deve ser um membro da função `dbmanager` ou um administrador de servidor, tanto nos servidores de origem como nos servidores-alvo.
+Pode utilizar os passos na [base de dados Copy a SQL para uma](#copy-a-sql-database-to-a-different-server) secção de servidor diferente para copiar a sua base de dados para um servidor de base de dados SQL numa subscrição diferente utilizando o T-SQL. Certifique-se de que utiliza um login com o mesmo nome e senha que o dono da base de dados da base de dados fonte. Além disso, o login deve `dbmanager` ser um membro da função ou um administrador do servidor, tanto nos servidores de origem como nos servidores-alvo.
 
 > [!NOTE]
 > O [portal Azure,](https://portal.azure.com)PowerShell e Azure CLI não suportam cópia de base de dados para uma subscrição diferente.
@@ -171,7 +171,7 @@ Os seguintes erros podem ser encontrados enquanto copiamos uma base de dados na 
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 40635 |16 |Cliente com o endereço IP '%.&#x2a;ls' está temporariamente desativada. |
+| 40635 |16 |Cliente com endereço IP '%.&#x2a;ls' está temporariamente incapacitado. |
 | 40637 |16 |Criar cópia de base de dados está atualmente desativada. |
 | 40561 |16 |A cópia da base de dados falhou. Ou a base de dados de origem ou alvo não existe. |
 | 40562 |16 |A cópia da base de dados falhou. A base de dados de origem foi retirada. |

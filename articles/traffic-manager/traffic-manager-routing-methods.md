@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250910"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
@@ -26,7 +26,7 @@ Os seguintes métodos de encaminhamento de tráfego estão disponíveis no Traff
 * **[Prioridade](#priority-traffic-routing-method):** Selecione **Prioridade** quando pretender utilizar um ponto final de serviço primário para todo o tráfego e forneça cópias de segurança caso os pontos finais primários ou de backup não estejam disponíveis.
 * **[Ponderado](#weighted):** Selecione **Ponderado** quando pretender distribuir o tráfego através de um conjunto de pontos finais, uniformemente ou de acordo com os pesos, que define.
 * **[Desempenho](#performance):** Selecione **O desempenho** quando tiver pontos finais em diferentes localizações geográficas e pretende que os utilizadores finais utilizem o ponto final "mais próximo" em termos da menor latência da rede.
-* **[Geographic](#geographic):** Select **Geographic** para que os utilizadores sejam direcionados para pontos finais específicos (Azure, External ou Nested) com base na localização geográfica de onde provém a sua consulta de DNS. Isto capacita os clientes do Traffic Manager a permitir cenários em que conhecer a região geográfica de um utilizador e encaminhar-se com base nisso é importante. Exemplos incluem o cumprimento de mandatos de soberania de dados, a localização de conteúdos e experiência de utilizador e a medição do tráfego de diferentes regiões.
+* **[Geographic](#geographic):** Select **Geographic** para que os utilizadores sejam direcionados para pontos finais específicos (Azure, External ou Nested) com base na localização geográfica de onde provém a sua consulta de DNS. Isto capacita os clientes do Traffic Manager a permitir cenários em que conhecer a região geográfica de um utilizador e encaminhar-se com base nisso é importante. Exemplos incluem o cumprimento de mandatos de soberania de dados, a localização de conteúdos & experiência do utilizador e a medição do tráfego de diferentes regiões.
 * **[Multivalor](#multivalue):** Selecione **MultiValue** para perfis de Gestor de Tráfego que só podem ter endereços IPv4/IPv6 como pontos finais. Quando uma consulta é recebida para este perfil, todos os pontos finais saudáveis são devolvidos.
 * **[Subnet](#subnet):** Selecione o método de encaminhamento de tráfego **subnet** para mapear conjuntos de endereços IP do utilizador final para um ponto final específico dentro de um perfil do Gestor de Tráfego. Quando um pedido é recebido, o ponto final devolvido será o traçado para o endereço IP de origem desse pedido. 
 
@@ -39,20 +39,20 @@ Muitas vezes, uma organização quer fornecer fiabilidade aos seus serviços, im
 
 ![Método de encaminhamento de tráfego "prioritário" do Gestor de Tráfego do Azure](media/traffic-manager-routing-methods/priority.png)
 
-O perfil do Gestor de Tráfego contém uma lista prioritária de pontos finais de serviço. Por padrão, o Gestor de Tráfego envia todo o tráfego para o ponto final primário (de maior prioridade). Se o ponto final principal não estiver disponível, o Traffic Manager encaminha o tráfego para o segundo ponto final. Se os pontos finais primários e secundários não estiverem disponíveis, o tráfego vai para o terceiro, e assim por diante. A disponibilidade do ponto final baseia-se no estado configurado (ativado ou desativado) e na monitorização do ponto final em curso.
+O perfil do Gestor de Tráfego contém uma lista prioritária de pontos finais de serviço. Por predefinição, o Gestor de Tráfego envia todo o tráfego para o ponto final primário (com a prioridade mais alta). Se o ponto final primário não estiver disponível, o Gestor de Tráfego encaminha o tráfego para o segundo ponto final. Se os pontos finais primário e secundário não estiverem disponíveis, o tráfego passa para o terceiro e assim por diante. A disponibilidade do ponto final baseia-se no estado configurado (ativado ou desativado) e na monitorização contínua do ponto final.
 
 ### <a name="configuring-endpoints"></a>Configurar pontos finais
 
 Com o Gestor de Recursos Azure, configura a prioridade do ponto final utilizando explicitamente a propriedade "prioritária" para cada ponto final. Esta propriedade tem um valor entre 1 e 1000. Valores mais baixos representam uma prioridade maior. Os pontos finais não podem partilhar valores prioritários. A definição da propriedade é opcional. Quando omitida, é utilizada uma prioridade predefinida com base na ordem final.
 
-## <a name = "weighted"></a>Método ponderado de encaminhamento de tráfego
+## <a name="weighted-traffic-routing-method"></a><a name = "weighted"></a>Método ponderado de encaminhamento de tráfego
 O método de encaminhamento de tráfego 'ponderado' permite-lhe distribuir o tráfego uniformemente ou utilizar uma ponderação pré-definida.
 
 ![Método de encaminhamento de tráfego 'ponderado' do gestor de tráfego da Azure](media/traffic-manager-routing-methods/weighted.png)
 
 No método de encaminhamento de tráfego ponderado, atribui um peso a cada ponto final na configuração do perfil do Gestor de Tráfego. A ponderação é um número inteiro entre 1 e 1000. Este parâmetro é opcional. Se omitir, os Gestores de Tráfego utilizam um peso padrão de '1'. Quanto maior o peso, maior a prioridade.
 
-Para cada consulta de DNS recebida, o Traffic Manager escolhe aleatoriamente um ponto final disponível. A probabilidade de escolher um ponto final baseia-se nos pesos atribuídos a todos os pontos finais disponíveis. Usar o mesmo peso em todos os pontos finais resulta numa distribuição uniforme do tráfego. A utilização de pesos mais altos ou mais baixos em pontos finais específicos faz com que esses pontos finais sejam devolvidos com mais ou menos frequência nas respostas do DNS.
+Para cada consulta DNS recebida, o Gestor de Tráfego seleciona aleatoriamente um ponto final disponível. A probabilidade de um ponto final ser selecionado baseia-se nos pesos atribuídos a todos os pontos finais disponíveis. Usar o mesmo peso em todos os pontos finais resulta numa distribuição uniforme do tráfego. A utilização de pesos mais altos ou mais baixos em pontos finais específicos faz com que esses pontos finais sejam devolvidos com mais ou menos frequência nas respostas do DNS.
 
 O método ponderado permite alguns cenários úteis:
 
@@ -72,7 +72,7 @@ Os casos de utilização comum incluem:
 
 Estes efeitos de cache dNS são comuns a todos os sistemas de encaminhamento de tráfego baseados em DNS, e não apenas ao Azure Traffic Manager. Em alguns casos, limpar explicitamente a cache DNS pode fornecer uma supor. Noutros casos, um método alternativo de encaminhamento de tráfego pode ser mais adequado.
 
-## <a name = "performance"></a>Método de encaminhamento de tráfego de desempenho
+## <a name="performance-traffic-routing-method"></a><a name = "performance"></a>Método de encaminhamento de tráfego de desempenho
 
 A implantação de pontos finais em dois ou mais locais em todo o mundo pode melhorar a capacidade de resposta de muitas aplicações, encaminhando o tráfego para o local que está "mais próximo" de si. O método de encaminhamento de tráfego 'Performance' fornece esta capacidade.
 
@@ -88,7 +88,7 @@ Como explicado em Como funciona o Gestor de [Tráfego,](traffic-manager-how-it-w
 O Traffic Manager atualiza regularmente a Tabela de Latência da Internet para ter em conta as mudanças na Internet global e nas novas regiões do Azure. No entanto, o desempenho da aplicação varia em função das variações em tempo real na carga através da Internet. O encaminhamento de tráfego de desempenho não monitoriza a carga num determinado ponto final de serviço. No entanto, se um ponto final ficar indisponível, o Gestor de Tráfego não o inclui nas respostas de consulta do DNS.
 
 
-Pontos a serem observados:
+Pontos a notar:
 
 * Se o seu perfil contiver vários pontos finais na mesma região de Azure, então o Traffic Manager distribui o tráfego uniformemente pelos pontos finais disponíveis naquela região. Se preferir uma distribuição de tráfego diferente dentro de uma região, pode utilizar [perfis aninhados do Traffic Manager](traffic-manager-nested-profiles.md).
 * Se todos os pontos finais habilitados na região de Azure mais próxima estiverem degradados, o Gestor de Tráfego desloca o tráfego para os pontos finais da região de Azure mais próxima. Se quiser definir uma sequência de failover preferida, utilize [perfis aninhados do Traffic Manager](traffic-manager-nested-profiles.md).
@@ -96,9 +96,9 @@ Pontos a serem observados:
 * O algoritmo que escolhe o ponto final é determinista. As consultas repetidas de DNS do mesmo cliente são direcionadas para o mesmo ponto final. Normalmente, os clientes usam diferentes servidores DNS recursivos durante a viagem. O cliente pode ser encaminhado para outro ponto final. O encaminhamento também pode ser afetado por atualizações para a Tabela de Latência da Internet. Por isso, o método de encaminhamento de tráfego de desempenho não garante que um cliente seja sempre encaminhado para o mesmo ponto final.
 * Quando a Tabela de Latência da Internet mudar, poderá notar que alguns clientes são direcionados para um ponto final diferente. Esta mudança de encaminhamento é mais precisa com base nos dados atuais da latência. Estas atualizações são essenciais para manter a precisão do tráfego de desempenho à medida que a Internet evolui continuamente.
 
-## <a name = "geographic"></a>Método geográfico de encaminhamento de tráfego
+## <a name="geographic-traffic-routing-method"></a><a name = "geographic"></a>Método geográfico de encaminhamento de tráfego
 
-Os perfis do Traffic Manager podem ser configurados para utilizar o método de encaminhamento Geográfico para que os utilizadores sejam direcionados para pontos finais específicos (Azure, External ou Nested) com base na localização geográfica de onde provém a sua consulta de DNS. Isto capacita os clientes do Traffic Manager a permitir cenários em que conhecer a região geográfica de um utilizador e encaminhar-se com base nisso é importante. Exemplos incluem o cumprimento de mandatos de soberania de dados, a localização de conteúdos e experiência de utilizador e a medição do tráfego de diferentes regiões.
+Os perfis do Traffic Manager podem ser configurados para utilizar o método de encaminhamento Geográfico para que os utilizadores sejam direcionados para pontos finais específicos (Azure, External ou Nested) com base na localização geográfica de onde provém a sua consulta de DNS. Isto capacita os clientes do Traffic Manager a permitir cenários em que conhecer a região geográfica de um utilizador e encaminhar-se com base nisso é importante. Exemplos incluem o cumprimento de mandatos de soberania de dados, a localização de conteúdos & experiência do utilizador e a medição do tráfego de diferentes regiões.
 Quando um perfil é configurado para encaminhamento geográfico, cada ponto final associado a esse perfil precisa de ter um conjunto de regiões geográficas atribuídas a ele. Uma região geográfica pode estar a seguir níveis de granularidade 
 - Mundo: qualquer região
 - Agrupamento Regional – por exemplo, África, Médio Oriente, Austrália/Pacífico, etc. 
@@ -123,7 +123,7 @@ O Gestor de Tráfego lê o endereço IP de origem da consulta do DNS e decide de
 
 Como explicado em Como funciona o Gestor de [Tráfego,](traffic-manager-how-it-works.md)o Gestor de Tráfego não recebe consultas de DNS diretamente dos clientes. Pelo contrário, as consultas dNS provêm do serviço DNS recursivo que os clientes estão configurados para usar. Portanto, o endereço IP utilizado para determinar a região não é o endereço IP do cliente, mas é o endereço IP do serviço DNS recursivo. Na prática, este endereço IP é um bom representante para o cliente.
 
-### <a name="faqs"></a>Perguntas mais frequentes
+### <a name="faqs"></a>FAQs
 
 * [Quais são os casos de uso em que o encaminhamento geográfico é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
 
@@ -145,10 +145,10 @@ Como explicado em Como funciona o Gestor de [Tráfego,](traffic-manager-how-it-w
 
 * [Existem restrições na versão API que suporte este tipo de encaminhamento?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
-## <a name = "multivalue"></a>Método de encaminhamento de tráfego multivalorizado
-O método de encaminhamento de tráfego **Multivalue** permite-lhe obter múltiplos pontos finais saudáveis numa única resposta de consulta dNS. Isto permite ao ouvinte fazer repetições do lado do cliente com outros pontos finais em caso de um ponto final devolvido não ser respondido. Este padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta de DNS para obter um ponto final saudável. O método de encaminhamento MultiValue só funciona se todos os pontos finais do tipo 'Externo' e forem especificados como endereços IPv4 ou IPv6. Quando uma consulta é recebida para este perfil, todos os pontos finais saudáveis são devolvidos e estão sujeitos a uma contagem máxima de retorno configurável.
+## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Método de encaminhamento de tráfego multivalorizado
+O método de encaminhamento de tráfego **Multivalue** permite-lhe obter múltiplos pontos finais saudáveis numa única resposta de consulta dNS. Isto permite ao ouvinte fazer repetições do lado do cliente com outros pontos finais em caso de um ponto final devolvido não ser respondido. Este padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta DNS para obter um ponto final em bom estado de funcionamento. O método de encaminhamento MultiValue só funciona se todos os pontos finais do tipo 'Externo' e forem especificados como endereços IPv4 ou IPv6. Quando uma consulta é recebida para este perfil, todos os pontos finais saudáveis são devolvidos e estão sujeitos a uma contagem máxima de retorno configurável.
 
-### <a name="faqs"></a>Perguntas mais frequentes
+### <a name="faqs"></a>FAQs
 
 * [Quais são os casos de utilização em que o encaminhamento MultiValue é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
@@ -156,15 +156,15 @@ O método de encaminhamento de tráfego **Multivalue** permite-lhe obter múltip
 
 * [Vou ter o mesmo conjunto de pontos finais quando o encaminhamento MultiValue for usado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
-## <a name = "subnet"></a>Método de encaminhamento de tráfego de sub-rede
-O método de encaminhamento de tráfego **subnet** permite-lhe mapear um conjunto de endereços IP do utilizador final para pontos finais específicos num perfil. Depois disso, se o Gestor de Tráfego receber uma consulta de DNS para esse perfil, irá inspecionar o endereço IP de origem desse pedido (na maioria dos casos este será o endereço IP de saída do DNS utilizado pelo chamador), determinará a que ponto final está mapeado e devolverá t ponto final do chapéu na resposta da consulta. 
+## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Método de encaminhamento de tráfego de sub-rede
+O método de encaminhamento de tráfego **subnet** permite-lhe mapear um conjunto de endereços IP do utilizador final para pontos finais específicos num perfil. Depois disso, se o Gestor de Tráfego receber uma consulta de DNS para esse perfil, irá inspecionar o endereço IP de origem desse pedido (na maioria dos casos este será o endereço IP de saída do DNS utilizado pelo chamador), determinará a que ponto final está mapeado e devolverá que ponto final na resposta de consulta. 
 
 O endereço IP a ser mapeado para um ponto final pode ser especificado como gamas CIDR (por exemplo, 1.2.3.0/24) ou como uma gama de endereços (por exemplo, 1.2.3.4-5.6.7.8). As gamas IP associadas a um ponto final têm de ser únicas dentro desse perfil e não podem ter uma sobreposição com o conjunto de endereçoIP de um ponto final diferente no mesmo perfil.
 Se definir um ponto final sem alcance de endereço, isso funciona como um recuo e retira o tráfego de quaisquer subredes restantes. Se não for incluído nenhum ponto final de recuo, o Traffic Manager envia uma resposta NODATA para quaisquer intervalos indefinidas. Por isso, é altamente recomendável que defina um ponto final de recuo, ou então certifique-se de que todas as gamas ip possíveis são especificadas em todos os seus pontos finais.
 
-O encaminhamento de sub-redes pode ser usado para proporcionar uma experiência diferente para os utilizadores que se conectam a partir de um espaço IP específico. Por exemplo, utilizando o encaminhamento de sub-rede, um cliente pode fazer com que todos os pedidos do seu escritório corporativo sejam encaminhados para um ponto final diferente, onde podem estar a testar uma versão interna apenas da sua app. Outro cenário é se pretender proporcionar uma experiência diferente aos utilizadores que se conectam a partir de um ISP específico (por exemplo, bloqueie os utilizadores de um determinado ISP).
+O encaminhamento de sub-redes pode ser usado para proporcionar uma experiência diferente para os utilizadores que se conectam a partir de um espaço IP específico. Por exemplo, ao utilizar o encaminhamento de sub-rede, um cliente pode fazer com que todos os pedidos do escritório empresarial sejam encaminhados para um ponto final diferente onde podem estar a testar uma versão apenas interna da sua aplicação. Outro cenário possível seria se quisesse fornecer uma experiência diferente aos utilizadores que estabelecem ligação a um ISP específico (por exemplo, bloquear utilizadores de um determinado ISP).
 
-### <a name="faqs"></a>Perguntas mais frequentes
+### <a name="faqs"></a>FAQs
 
 * [Quais são os casos de utilização em que o encaminhamento de sub-rede é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
 

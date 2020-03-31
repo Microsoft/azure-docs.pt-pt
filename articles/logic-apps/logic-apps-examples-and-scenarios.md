@@ -1,5 +1,5 @@
 ---
-title: Exemplos e cenários comuns
+title: Exemplos & cenários comuns
 description: Encontre exemplos, cenários comuns, tutoriais e walkthroughs para Apps Lógicas Azure
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: c64483f18b2deb061704a4eb7171e575fdd561e8
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164632"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e walkthroughs para Apps Lógicas Azure
@@ -31,12 +31,12 @@ Aqui estão exemplos que descrevem gatilhos comumente usados:
 
 * Os gatilhos *das sondagens:*
 
-  * O gatilho de [ **recorrência** ](../connectors/connectors-native-recurrence.md) permite definir a data e a hora de início mais a recorrência para disparar a sua aplicação lógica. Por exemplo, pode selecionar os dias da semana e as horas do dia para desencadear a sua aplicação lógica. Para mais informações, consulte estes tópicos:<p>
+  * O gatilho de [ **recorrência** ](../connectors/connectors-native-recurrence.md) permite definir a data e a hora de início mais a recorrência para disparar a sua aplicação lógica. Por exemplo, pode selecionar os dias da semana e as horas do dia para desencadear a sua aplicação lógica. Para obter mais informações, veja estes tópicos:<p>
 
     * [Agendar e executar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Tutorial: Criar fluxos de trabalho recorrentes automatizados e baseados em horários utilizando aplicações lógicas azure](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * O **Trigger Quando um e-mail é recebido** permite que a sua aplicação lógica verifique por qualquer novo e-mail de qualquer fornecedor de correio que seja suportado por Apps Lógicas, por exemplo, Office [365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail,](https://docs.microsoft.com/connectors/gmail/) [Outlook.com](https://docs.microsoft.com/connectors/outlook/), e assim por diante. Para mais informações, consulte estes tópicos:<p>
+  * O **Trigger Quando um e-mail é recebido** permite que a sua aplicação lógica verifique por qualquer novo e-mail de qualquer fornecedor de correio que seja suportado por Apps Lógicas, por exemplo, Office [365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail,](https://docs.microsoft.com/connectors/gmail/) [Outlook.com](https://docs.microsoft.com/connectors/outlook/), e assim por diante. Para obter mais informações, veja estes tópicos:<p>
 
     * [Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação utilizando aplicações da Lógica Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Tutorial: Automatizar tarefas para processar e-mails utilizando aplicações da Lógica Azure, Funções Azure e Armazenamento Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
@@ -121,9 +121,9 @@ Pode desenvolver e implementar aplicações lógicas com o Visual Studio, o Azur
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Lidar com tipos de conteúdo, conversões e transformações
 
-Pode aceder, converter e transformar vários tipos de conteúdo utilizando as muitas funções na linguagem de [definição](https://aka.ms/logicappsdocs)de fluxo de trabalho das Aplicações Lógicas Azure . Por exemplo, pode converter entre uma cadeia, JSON e XML com as expressões de fluxo de trabalho `@json()` e `@xml()`. O motor Logic Apps preserva os tipos de conteúdo para suportar a transferência de conteúdos de forma sem perdas entre os serviços.
+Pode aceder, converter e transformar vários tipos de conteúdo utilizando as muitas funções na linguagem de [definição](https://aka.ms/logicappsdocs)de fluxo de trabalho das Aplicações Lógicas Azure . Por exemplo, pode converter entre uma corda, JSON `@json()` `@xml()` e XML com as expressões de fluxo de trabalho e fluxo de trabalho. O motor Logic Apps preserva os tipos de conteúdo para suportar a transferência de conteúdos de forma sem perdas entre os serviços.
 
-* [Manuseie tipos de conteúdo em Aplicações Lógicas Azure](../logic-apps/logic-apps-content-type.md), como `application/`, `application/octet-stream`e `multipart/formdata`
+* [Lidar com tipos de conteúdo em Aplicações Lógicas Azure](../logic-apps/logic-apps-content-type.md), tais como, `application/` `application/octet-stream`e`multipart/formdata`
 * [Guia de referência para a utilização de funções em expressões para aplicações lógicas azure e automatização de potência](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Esquema de linguagem de definição de fluxo de trabalho para aplicações lógicas azure](../logic-apps/logic-apps-workflow-definition-language.md)
 

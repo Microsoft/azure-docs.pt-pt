@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78970177"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabalho do Chapéu Vermelho em Azure
@@ -36,7 +36,7 @@ Você pode querer usar as imagens pay-as-you-go se você não quiser se preocupa
 
 ### <a name="red-hat-gold-images"></a>Imagens de ouro do chapéu vermelho
 
-Azure também oferece Red Hat Gold Images (`rhel-byos`). Estas imagens podem ser úteis para os clientes que têm subscrições de Red Hat existentes e querem usá-las em Azure. É necessário ativar as subscrições do Red Hat existentes para o Red Hat Cloud Access antes de as poder utilizar em Azure. O acesso a estas imagens é concedido automaticamente quando as suas subscrições de Chapéu Vermelho estão ativadas para o Cloud Access e cumprem os requisitos de elegibilidade. A utilização destas imagens permite que um cliente evite faturação dupla que possa ser incorrida com a utilização das imagens pay-as-you-go.
+Azure também oferece Red`rhel-byos`Hat Gold Images (). Estas imagens podem ser úteis para os clientes que têm subscrições de Red Hat existentes e querem usá-las em Azure. É necessário ativar as subscrições do Red Hat existentes para o Red Hat Cloud Access antes de as poder utilizar em Azure. O acesso a estas imagens é concedido automaticamente quando as suas subscrições de Chapéu Vermelho estão ativadas para o Cloud Access e cumprem os requisitos de elegibilidade. A utilização destas imagens permite que um cliente evite faturação dupla que possa ser incorrida com a utilização das imagens pay-as-you-go.
 * Saiba como [ativar as suas subscrições de Chapéu Vermelho para Cloud Access com Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
 * Saiba como [localizar Imagens De Ouro do Chapéu Vermelho no portal Azure, no Azure CLI ou no Cmdlet PowerShell](./byos.md).
 
@@ -55,10 +55,10 @@ O Azure fornece infraestruturas de atualização do chapéu vermelho apenas para
 
 ### <a name="rhui-update-behavior"></a>Comportamento de atualização rHUI
 
-Imagens RHEL ligadas à atualização RHUI por padrão à versão menor mais recente do RHEL quando um `yum update` é executado. Este comportamento significa que um RHEL 7.4 VM pode ser atualizado para RHEL 7.7 se uma operação `yum update` for executada nele. Este comportamento é por design para RHUI. Para mitigar este comportamento de atualização, mude de repositórios RHEL regulares para [repositórios de suporte](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms)de atualização estendida .
+Imagens RHEL ligadas à atualização RHUI por padrão `yum update` à versão menor mais recente do RHEL quando a é executada. Este comportamento significa que um RHEL 7.4 VM pode ser atualizado `yum update` para RHEL 7.7 se uma operação for executada nele. Este comportamento é por design para RHUI. Para mitigar este comportamento de atualização, mude de repositórios RHEL regulares para [repositórios de suporte](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms)de atualização estendida .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [as imagens RHEL no Azure.](./redhat-images.md)
 * Saiba mais sobre a Infraestrutura de Atualização do [Chapéu Vermelho.](./redhat-rhui.md)
-* Saiba mais sobre a oferta de [Gold Image (`rhel-byos`)](./byos.md)do Chapéu Vermelho.
+* Saiba mais sobre a [imagem`rhel-byos`](./byos.md)de ouro do chapéu vermelho .

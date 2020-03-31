@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717993"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Use laboratórios de sala de aula para treinos
@@ -54,5 +54,5 @@ Um modelo num laboratório é a imagem de máquina virtual de base da qual todas
 ## <a name="use-vms-in-the-classroom-lab"></a>Use VMs no laboratório de sala de aula
 Um aluno ou participante de formação registra-se no laboratório, e conecta-se ao VM para fazer exercícios para o curso. Para mais detalhes, consulte [Como aceder a um laboratório de sala de aula.](how-to-use-classroom-lab.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Comece com a criação de uma conta de laboratório em Laboratórios de Sala de Aula seguindo instruções no artigo: [Tutorial: Configurar uma conta](tutorial-setup-lab-account.md)de laboratório com os Serviços de Laboratório Azure .

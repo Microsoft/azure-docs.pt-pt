@@ -11,13 +11,13 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256162"
 ---
-# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configure ponto final público em caso gerido na Base de Dados Azure SQL
+# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar o ponto final público na instância gerida da Base de Dados SQL do Azure
 
 O ponto final público para uma [instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permite o acesso de dados à sua instância gerida de fora da [rede virtual](../virtual-network/virtual-networks-overview.md). Você pode aceder a sua instância gerida a partir de serviços azure multi-inquilinos como Power BI, Azure App Service ou uma rede no local. Ao utilizar o ponto final público numa instância gerida, não precisa de utilizar uma VPN, que pode ajudar a evitar problemas de entrada de VPN.
 
@@ -38,7 +38,7 @@ Devido à sensibilidade dos dados que se encontra numa instância gerida, a conf
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Habilitar o ponto final público para uma instância gerida no portal Azure
 
-1. Lançar o portal Azure em <https://portal.azure.com/.>
+1. Lançar o portal Azure em<https://portal.azure.com/.>
 1. Abra o grupo de recursos com a instância gerida e selecione a instância gerida pelo **SQL** em que pretende configurar o ponto final público.
 1. Nas definições de **Segurança,** selecione o separador de **rede Virtual.**
 1. Na página de configuração da rede Virtual, selecione **'Activar'** e, em seguida, o ícone **Guardar** para atualizar a configuração.
@@ -95,9 +95,9 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |Definição  |Valor sugerido  |Descrição  |
     |---------|---------|---------|
     |**Origem**     |Qualquer endereço IP ou etiqueta de serviço         |<ul><li>Para serviços Azure como Power BI, selecione a etiqueta de serviço Azure Cloud</li> <li>Para o seu computador ou Azure VM, utilize o endereço IP NAT</li></ul> |
-    |**Gamas de portas de origem**     |*         |Deixe isto para * (qualquer) como as portas de origem são geralmente dinamicamente atribuídas e, como tal, imprevisíveis |
-    |**Destino**     |Any         |Deixando o destino como Qualquer para permitir o tráfego na subnet de instância gerida |
-    |**Gamas portuárias de destino**     |3342         |Porta de destino de âmbito para 3342, que é o ponto final público tDS de instância gerida |
+    |**Intervalo de portas de origem**     |*         |Deixe isto para * (qualquer) como as portas de origem são geralmente dinamicamente atribuídas e, como tal, imprevisíveis |
+    |**Destino**     |Qualquer         |Deixando o destino como Qualquer para permitir o tráfego na subnet de instância gerida |
+    |**Intervalos de portas de destino**     |3342         |Porta de destino de âmbito para 3342, que é o ponto final público tDS de instância gerida |
     |**Protocolo**     |TCP         |Instância gerida usa protocolo TCP para TDS |
     |**Ação**     |Permitir         |Permitir que o tráfego de entrada gerencie a instância através do ponto final público |
     |**Prioridade**     |1300         |Certifique-se de que esta regra é mais prioritária do que a **regra deny_all_inbound** |
@@ -110,10 +110,10 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtenção da cadeia de ligação de ponto final de instância gerida
 
 1. Navegue para a página de configuração de instância gerida pela SQL que foi ativada para ponto final público. Selecione o separador de **cordas de ligação** sob a configuração **Definições.**
-1. Note que o nome do anfitrião do ponto final do público vem no formato <mi_name>. **público**.<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342.
+1. Note que o nome do anfitrião do ponto final do público vem no formato <mi_name>. **público**.<dns_zone>.windows.net e que a porta utilizada para a ligação é 3342.
 
-    ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![mi-público-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a utilização da Base de [Dados Azure SQL gerida](sql-database-managed-instance-public-endpoint-securely.md)de forma segura com ponto final público .

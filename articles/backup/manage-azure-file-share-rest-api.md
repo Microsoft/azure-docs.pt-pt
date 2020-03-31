@@ -4,10 +4,10 @@ description: Aprenda a usar a REST API para gerir e monitorizar as ações de fi
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444735"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir o Backup de partilha de ficheiros Azure com a REST API
@@ -172,7 +172,7 @@ Em seguida, rastreie a operação resultante utilizando o cabeçalho de localiza
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
 ```
 
-### <a name="response-body"></a>Corpo de resposta
+### <a name="response-body"></a>Corpo da resposta
 
 ```json
 {

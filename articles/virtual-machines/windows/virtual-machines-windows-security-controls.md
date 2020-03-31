@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190552"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Controlos de segurança para máquinas virtuais do Windows
@@ -31,7 +31,7 @@ Este artigo documenta os controlos de segurança incorporados nas Máquinas Virt
 | Suporte de isolamento de rede e firewalling| Sim |  |
 | Apoio de túnel forçado| Sim | Consulte [a configuração de túneis forçados utilizando o modelo](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm)de implantação do Gestor de Recursos Azure . |
 
-## <a name="monitoring--logging"></a>Monitorização e exploração madeireira
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|

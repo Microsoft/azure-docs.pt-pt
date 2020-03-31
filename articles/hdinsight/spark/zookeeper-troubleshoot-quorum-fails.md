@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
 ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250228"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Servidor Apache ZooKeeper falha em formar quórum no Azure HDInsight
@@ -20,7 +20,7 @@ Este artigo descreve etapas de resolução de problemas e possíveis resoluçõe
 
 ## <a name="issue"></a>Problema
 
-O servidor Apache ZooKeeper não é saudável, os sintomas podem incluir: ambos os Gestores de Recursos/Nódeos de Nome estão em modo de espera, as operações simples de HDFS não funcionam, `zkFailoverController` é parada e não pode ser iniciada, os trabalhos de Yarn/Spark/Livy falham devido a erros do Zookeeper. Os Daemons LLAP também podem não conseguir iniciar os clusters Secure Spark ou Interactive Hive. Pode ver uma mensagem de erro semelhante a:
+O servidor Apache ZooKeeper não é saudável, os sintomas podem incluir: ambos os Gestores de Recursos/Nódeos de Nome estão em modo de espera, as operações simples de HDFS não funcionam, `zkFailoverController` é interrompida e não pode ser iniciada, os trabalhos de Yarn/Spark/Livy falham devido a erros do Zookeeper. Os Daemons LLAP também podem não conseguir iniciar os clusters Secure Spark ou Interactive Hive. Pode ver uma mensagem de erro semelhante a:
 
 ```
 19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
@@ -40,11 +40,11 @@ Quando o volume de ficheiros instantâneos é grande ou os ficheiros instantâne
 
 ## <a name="resolution"></a>Resolução
 
-Consulte o diretório de dados do ZooKeeper `/hadoop/zookeeper/version-2` e `/hadoop/hdinsight-zookeeper/version-2` para saber se o tamanho do ficheiro de instantâneos é grande. Tome os seguintes passos se existirem grandes instantâneos:
+Consulte o diretório `/hadoop/zookeeper/version-2` `/hadoop/hdinsight-zookeeper/version-2` de dados do ZooKeeper e descubra se o tamanho do ficheiro de instantâneos é grande. Tome os seguintes passos se existirem grandes instantâneos:
 
-1. Recue as fotos em `/hadoop/zookeeper/version-2` e `/hadoop/hdinsight-zookeeper/version-2`.
+1. Recua as fotos `/hadoop/zookeeper/version-2` `/hadoop/hdinsight-zookeeper/version-2`e.
 
-1. Limpe as fotos em `/hadoop/zookeeper/version-2` e `/hadoop/hdinsight-zookeeper/version-2`.
+1. Limpe as `/hadoop/zookeeper/version-2` fotos `/hadoop/hdinsight-zookeeper/version-2`dentro e.
 
 1. Reinicie todos os servidores do ZooKeeper da Apache Ambari UI.
 

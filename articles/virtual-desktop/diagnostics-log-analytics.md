@@ -9,10 +9,10 @@ ms.date: 12/18/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 355acb081afef8c78cdf971c7a82acdb91ab5593
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127959"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
@@ -59,7 +59,7 @@ Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnaly
 Você precisará executar estes cmdlets para cada inquilino que você quiser ligar ao Log Analytics. 
 
 >[!NOTE]
->Se não quiser ligar o espaço de trabalho do Log Analytics quando criar um inquilino, faça a `New-RdsTenant` cmdlet. 
+>Se não quiser ligar o espaço de trabalho do Log Analytics `New-RdsTenant` quando criar um inquilino, faça o cmdlet em vez disso. 
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadência para envio de eventos de diagnóstico
 

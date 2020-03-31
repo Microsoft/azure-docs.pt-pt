@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672355"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas configurações de roaming do Estado da Empresa em Diretório Ativo Azure
@@ -37,7 +37,7 @@ Antes de iniciar a resolução de problemas, verifique se o utilizador e o dispo
 1. Foi atribuído ao utilizador uma licença Azure Ative Directory Premium.  
 1. O dispositivo deve ser reiniciado e o utilizador deve voltar a entrar para aceder às funcionalidades de Roaming do Estado da Empresa.
 
-## <a name="information-to-include-when-you-need-help"></a>Informações para incluir quando precisa de ajuda
+## <a name="information-to-include-when-you-need-help"></a>Information to include when you need help (Informações a incluir se precisar de ajuda)
 Se não conseguir resolver o seu problema com as orientações abaixo, pode contactar os nossos engenheiros de suporte. Quando os contactar, inclua as seguintes informações:
 
 * **Descrição geral do erro**: Existem mensagens de erro vistas pelo utilizador? Se não houve uma mensagem de erro, descreva o comportamento inesperado que notou, em detalhe. Quais as funcionalidades ativadas para sincronização e o que espera o utilizador sincronizar? As múltiplas funcionalidades não estão a sincronizar ou está isolada a uma?
@@ -54,7 +54,7 @@ Esta secção dá sugestões sobre como resolver problemas e diagnosticar proble
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Verifique a sincronização e a página de definições "Sync your Settings" 
 
-1. Depois de juntar o seu PC Windows 10 a um domínio configurado para permitir o Roaming do Estado Da Empresa, inscreva-se na sua conta de trabalho. Vá a **Definições** > **Contas** > Sincronizar as **definições** e confirmar que o sincronização e as definições individuais estão ligados, e que o topo da página de definições indica que está a sincronizar com a sua conta de trabalho. Confirme que a mesma conta também é utilizada como conta de login em **Definições** > **Contas** > **Sua Informação**. 
+1. Depois de juntar o seu PC Windows 10 a um domínio configurado para permitir o Roaming do Estado Da Empresa, inscreva-se na sua conta de trabalho. Vá para as**Contas** >  **de Definições** > **Sincronizar as suas Definições** e confirmar que o sincronização e as definições individuais estão ligados, e que o topo da página de definições indica que está a sincronizar com a sua conta de trabalho. Confirme que a mesma conta também é utilizada como conta de login nas Contas de **Definições** > As suas**Informações** > **Your Info**. 
 1. Verifique se a sincronização funciona através de várias máquinas fazendo algumas alterações na máquina original, tais como mover a barra de tarefas para o lado direito ou superior do ecrã. Observe a mudança propagar para a segunda máquina dentro de cinco minutos. 
 
    * Bloquear e desbloquear o ecrã (Win + L) pode ajudar a desencadear uma sincronização.
@@ -72,7 +72,7 @@ Enterprise State Roaming requer que o dispositivo seja registado na Azure AD. Em
 
 **Problema potencial**: **WamDefaultSet** e **AzureAdJoined** ambos têm "NO" no valor de campo, o dispositivo foi unido e registado com AD Azure, e o dispositivo não sincroniza. Se o apresentar, o dispositivo poderá ter de esperar pela aplicação da política ou a autenticação do dispositivo falhou ao ligar-se ao Azure AD. O utilizador pode ter de esperar algumas horas para que a apólice seja aplicada. Outras etapas de resolução de problemas podem incluir a reexperimentação do registo automático, assinando e voltando a entrar, ou lançando a tarefa no Agendador de Tarefas. Em alguns casos, correr "*dsregcmd.exe /leave*" em uma janela de comando elevado, reiniciar e tentar registrar novamente pode ajudar com este problema.
 
-**Problema potencial**: O campo para **DefiniçõesUrl** está vazio e o dispositivo não sincroniza. O utilizador pode ter entrado pela última vez no dispositivo antes de o Enterprise State Roaming ter sido ativado no Portal do Diretório Ativo Azure. Reinicie o dispositivo e faça o login do utilizador. Opcionalmente, no portal, tente que o Administrador de TI navegue para **o Azure Ative Directory** > **Dispositivos** > **Desativação** do Roaming do Estado Empresarial e reativar **os Utilizadores podem sincronizar definições e dados de aplicações através de dispositivos.** Uma vez reativado, reinicie o dispositivo e faça o login do utilizador. Se isto não resolver o problema, **o DefiniçõesUrl** pode ficar vazio se houver um mau certificado de dispositivo. Neste caso, executar "*dsregcmd.exe /leave*" numa janela de comando elevado, reiniciar e tentar registo novamente pode ajudar nesta questão.
+**Problema potencial**: O campo para **DefiniçõesUrl** está vazio e o dispositivo não sincroniza. O utilizador pode ter entrado pela última vez no dispositivo antes de o Enterprise State Roaming ter sido ativado no Portal do Diretório Ativo Azure. Reinicie o dispositivo e faça o login do utilizador. Opcionalmente, no portal, tente que o Administrador de TI navegue para **o Azure Ative Directory** > **Devices** > **Enterprise Roaming** desativar e reativar os Utilizadores podem sincronizar definições e dados de **aplicações através de dispositivos.** Uma vez reativado, reinicie o dispositivo e faça o login do utilizador. Se isto não resolver o problema, **o DefiniçõesUrl** pode ficar vazio se houver um mau certificado de dispositivo. Neste caso, executar "*dsregcmd.exe /leave*" numa janela de comando elevado, reiniciar e tentar registo novamente pode ajudar nesta questão.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Roaming do Estado Empresarial e Autenticação multi-factor 
 
@@ -82,9 +82,9 @@ Em determinadas condições, o Roaming do Estado da Empresa pode não sincroniza
 
 **Problema potencial**: O Sync pode falhar se o administrador configurar a política de acesso condicional de autenticação multi-factor da Federação de Diretórios Ativos e o token de acesso no dispositivo expirar. Certifique-se de que inscreveu e assina utilizando o Microsoft Passport para O PIN de Trabalho ou complete a Autenticação Multi-Factor ao aceder a outros serviços do Azure, como o Office 365.
 
-### <a name="event-viewer"></a>Espectador de Eventos
+### <a name="event-viewer"></a>Visualizador de Eventos
 
-Para resolução avançada de problemas, o Espectador de Eventos pode ser usado para encontrar erros específicos. Estes estão documentados na tabela abaixo. Os eventos podem ser encontrados no Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **DefiniçãoSync-Azure** e para problemas relacionados com a identidade com a Sincronização **microsoft** > **Windows** > **AAD**.
+Para resolução avançada de problemas, o Espectador de Eventos pode ser usado para encontrar erros específicos. Estes estão documentados na tabela abaixo. Os eventos podem ser encontrados em registos de aplicações e serviços do Espectador > de Eventos > **Microsoft** > **Windows** > **SettingSync-Azure** e para problemas relacionados com a identidade com sincronização do **Microsoft** > **Windows** > **AAD**.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -156,11 +156,11 @@ Ligue o dispositivo a uma rede corporativa para que a sincronização possa ser 
 Se o utilizador tiver um caso misto UPN (por exemplo, UserName em vez de username) e o utilizador estiver num dispositivo Azure AD Joined, que atualizou do Windows 10 Build 10586 para 14393, o dispositivo do utilizador pode não conseguir sincronizar. 
 
 **Ação recomendada**  
-O utilizador terá de se desjuntar e voltar a juntar o dispositivo à nuvem. Para isso, inicie o login como utilizador do Administrador Local e desintegre o dispositivo indo para **Definições** > **Sistema** > **Sobre** e selecione "Gerir ou desligar do trabalho ou da escola". Limpe os ficheiros abaixo e, em seguida, Azure AD Junte-se ao dispositivo novamente em **Definições** > **Sistema** > **Sobre** e selecione "Connect to Work or School". Continue a juntar o dispositivo ao Azure Ative Directory e complete o fluxo.
+O utilizador terá de se desjuntar e voltar a juntar o dispositivo à nuvem. Para isso, inicie o login como utilizador do Administrador Local e desintegre o dispositivo indo para o**Sistema** > de **Definições** > **Sobre** e selecione "Gerir ou desligar do trabalho ou da escola". Limpe os ficheiros abaixo e, em seguida, Azure AD Junte o dispositivo novamente no**Sistema** > de **Definições** > **Sobre** e selecione "Connect to Work or School". Continue a juntar o dispositivo ao Azure Ative Directory e complete o fluxo.
 
 Na etapa de limpeza, limpe os seguintes ficheiros:
-- Definições.dat em `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Todos os ficheiros sob a pasta `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Definições.dat em`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Todos os ficheiros sob a pasta`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

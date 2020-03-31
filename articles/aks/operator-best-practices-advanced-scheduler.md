@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252899"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Boas práticas para funcionalidades avançadas de programadores no Serviço Azure Kubernetes (AKS)
@@ -41,7 +41,7 @@ Quando se implanta uma cápsula para um cluster AKS, a Kubernetes apenas program
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com uma mancha aplicada aos nós, define-se então uma tolerância na especificação da cápsula que permite agendar os nós. O exemplo que se segue define o `sku: gpu` e `effect: NoSchedule` tolerar a mancha aplicada ao nó no passo anterior:
+Com uma mancha aplicada aos nós, define-se então uma tolerância na especificação da cápsula que permite agendar os nós. O exemplo que `sku: gpu` se `effect: NoSchedule` segue define o e tolerar a mancha aplicada ao nó no passo anterior:
 
 ```yaml
 kind: Pod
@@ -66,7 +66,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-Quando esta cápsula é implantada, como a utilização de `kubectl apply -f gpu-toleration.yaml`, os Kubernetes podem agendar com sucesso a cápsula nos nós com a mancha aplicada. Este isolamento lógico permite controlar o acesso aos recursos dentro de um aglomerado.
+Quando esta cápsula é implantada, como a utilização, `kubectl apply -f gpu-toleration.yaml`os Kubernetes podem agendar com sucesso a cápsula nos nós com a mancha aplicada. Este isolamento lógico permite controlar o acesso aos recursos dentro de um aglomerado.
 
 Quando aplicar manchas, trabalhe com os desenvolvedores e proprietários de aplicações para permitir que definam as tolerâncias necessárias nas suas implementações.
 
@@ -103,7 +103,7 @@ Vejamos um exemplo de nódosos com uma alta quantidade de memória. Estes nódos
 kubectl label node aks-nodepool1 hardware:highmem
 ```
 
-Uma especificação de casulo adiciona então a propriedade `nodeSelector` para definir um seletor de nó que corresponda ao rótulo definido num nó:
+Uma especificação de `nodeSelector` pod adiciona então a propriedade para definir um seletor de nó que corresponde ao rótulo definido num nó:
 
 ```yaml
 kind: Pod
@@ -182,7 +182,7 @@ Este exemplo é uma implantação mais complexa do que a utilização de seletor
 
 Este artigo focou-se nas funcionalidades avançadas do programador kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes boas práticas:
 
-* [Multi-arrendamento e isolamento de clusters][aks-best-practices-scheduler]
+* [Isolamento multi-inquilinos e de clusters][aks-best-practices-scheduler]
 * [Funcionalidades básicas do programador Kubernetes][aks-best-practices-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 

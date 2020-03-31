@@ -1,40 +1,40 @@
 ---
-title: Compilar um aplicativo Xamarin com o .NET e a API do Azure Cosmos DB para MongoDB
-description: Apresenta um exemplo de código do Xamarin que você pode usar para se conectar e consultar com a API do Azure Cosmos DB para MongoDB
+title: Construa uma app Xamarin com .NET e API da Azure Cosmos DB para MongoDB
+description: Apresenta uma amostra de código Xamarin que pode usar para ligar e consultar a API da Azure Cosmos DB para MongoDB
 author: codemillmatt
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2018
+ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445453"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481692"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Início rápido: criar um aplicativo Xamarin. Forms com o SDK do .NET e a API do Azure Cosmos DB para MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>QuickStart: Construa uma aplicação Xamarin.Forms com .NET SDK e Azure Cosmos DB's API para MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Nó.js](create-mongodb-nodejs.md)
+> * [Pitão](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
 
-Este guia de início rápido demonstra como criar uma [conta do cosmos configurada com a API do Azure Cosmos DB para MongoDB](mongodb-introduction.md), banco de dados de documentos e coleção usando o portal do Azure. Em seguida, você criará um aplicativo Xamarin. Forms do aplicativo todo usando o [Driver .net do MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Este quickstart demonstra como criar uma [conta Cosmos configurada com a API da Azure Cosmos DB para MongoDB,](mongodb-introduction.md)base de dados de documentos e recolha usando o portal Azure. Em seguida, você vai construir uma aplicação de todo o lado Xamarin.Forms app usando o [controlador MongoDB .NET](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Pré-requisitos para executar a aplicação de exemplo
 
 Para executar o exemplo, precisa do [Visual Studio](https://www.visualstudio.com/downloads/) ou do [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) e de uma conta válida do Azure CosmosDB.
 
-Se você ainda não tiver o Visual Studio, baixe o [visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/) com o **desenvolvimento móvel com** carga de trabalho do .net instalada com a instalação.
+Se ainda não tem o Visual Studio, baixe a [Edição Comunitária visual 2019](https://www.visualstudio.com/downloads/) com o desenvolvimento mobile com a carga de trabalho **.NET** instalada com configuração.
 
 Se preferir trabalhar num Mac, transfira o [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) e execute a configuração.
 
@@ -50,12 +50,20 @@ O exemplo descrito neste artigo é compatível com MongoDB.Driver versão 2.6.1.
 
 ## <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
-Primeiro, baixe o aplicativo de exemplo do GitHub. Esta implementa uma aplicação de tarefas com o modelo de armazenamento de documentos do MongoDB.
+Primeiro, descarregue a aplicação de amostra saque a partir do GitHub. Esta implementa uma aplicação de tarefas com o modelo de armazenamento de documentos do MongoDB.
 
-1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
+
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+1. No Windows abra um pedido de comando ou em Mac abra o terminal, crie uma nova pasta chamada git-samples e, em seguida, feche a janela.
+
+    ```batch
+    md "C:\git-samples"
+    ```
 
     ```bash
-    md "C:\git-samples"
+    mkdir '$home\git-samples\
     ```
 
 2. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma nova pasta e instalar a aplicação de exemplo.
@@ -70,13 +78,13 @@ Primeiro, baixe o aplicativo de exemplo do GitHub. Esta implementa uma aplicaç�
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started.git
     ```
 
-Se ainda não pretende utilizar o git, também pode [transferir o projeto como um ficheiro ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
+Se não quiser usar git, também pode [descarregar o projeto como um ficheiro ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
 
 ## <a name="review-the-code"></a>Rever o código
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-Os seguintes fragmentos são retirados do `MongoService` classe, encontrada no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
+Os seguintes cortes são todos `MongoService` retirados da classe, encontrados no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
 
 * Inicializar o cliente Mongo.
     ```cs
@@ -86,6 +94,8 @@ Os seguintes fragmentos são retirados do `MongoService` classe, encontrada no s
 
     settings.SslSettings =
         new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+    settings.RetryWrites = false;
 
     MongoClient mongoClient = new MongoClient(settings);
     ```
@@ -124,7 +134,7 @@ Os seguintes fragmentos são retirados do `MongoService` classe, encontrada no s
     }
     ```
 
-* Criar uma tarefa e inseri-la na coleção.
+* Crie uma tarefa e insira-a na coleção.
     ```cs
     public async Task CreateTask(MyTask task)
     {
@@ -132,7 +142,7 @@ Os seguintes fragmentos são retirados do `MongoService` classe, encontrada no s
     }
     ```
 
-* Atualizar uma tarefa em uma coleção.
+* Atualize uma tarefa numa coleção.
     ```cs
     public async Task UpdateTask(MyTask task)
     {
@@ -140,7 +150,7 @@ Os seguintes fragmentos são retirados do `MongoService` classe, encontrada no s
     }
     ```
 
-* Excluir uma tarefa de uma coleção.
+* Apagar uma tarefa de uma coleção.
     ```cs
     public async Task DeleteTask(MyTask task)
     {
@@ -159,6 +169,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 2. Abra o ficheiro **APIKeys.cs** no diretório **Programas Auxiliares** do projeto **TaskList.Core**.
 
 3. Copie o seu valor da **cadeia de ligação primária** do portal (com o botão de cópia) e torne-o o valor do campo **ConnectionString** no seu ficheiro **APIKeys.cs**.
+
+4. Retire `&replicaSet=globaldb` da corda de ligação. Terá um erro de tempo de execução se não remover esse valor da cadeia de consulta.
+
+> [!IMPORTANT]
+> Deve remover `&replicaSet=globaldb` o par chave/valor da corda de consulta da corda de ligação para evitar um erro de tempo de execução.
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
@@ -192,4 +207,4 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Xamarin.Forms com a API do MongoDB. Agora, pode importar dados adicionais à sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importar dados para Azure Cosmos DB configurados com a API do Azure Cosmos DB para MongoDB](mongodb-migrate.md)
+> [Dados de importação para O BD Do MongoDB da Azure Cosmos configurados com a API da Azure Cosmos DB para o MongoDB](mongodb-migrate.md)

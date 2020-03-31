@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252143"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Desdobre para as instâncias de contentores azure do registo de contentores de Azure
@@ -38,9 +38,9 @@ Na secção seguinte, cria-se um cofre chave Azure e um diretor de serviço, e a
 
 Se ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure através dos comandos seguintes.
 
-Atualize a variável `RES_GROUP` com o nome de um grupo de recursos existente para criar o cofre chave, e `ACR_NAME` com o nome do seu registo de contentores. Para a brevidade, os comandos neste artigo assumem que o seu registo, cofre chave e instâncias de contentores são todos criados no mesmo grupo de recursos.
+Atualize `RES_GROUP` a variável com o nome de um grupo de `ACR_NAME` recursos existente para criar o cofre chave, e com o nome do seu registo de contentores. Para a brevidade, os comandos neste artigo assumem que o seu registo, cofre chave e instâncias de contentores são todos criados no mesmo grupo de recursos.
 
- Especifique um nome para o seu novo cofre de chaves em `AKV_NAME`. O nome do cofre deve ser único dentro de Azure e deve ter 3-24 caracteres alfanuméricos de comprimento, começar com uma letra, terminar com uma letra ou um dígito, e não pode conter hífenes consecutivos.
+ Especifique um nome `AKV_NAME`para o seu novo cofre em . O nome do cofre deve ser único dentro de Azure e deve ter 3-24 caracteres alfanuméricos de comprimento, começar com uma letra, terminar com uma letra ou um dígito, e não pode conter hífenes consecutivos.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -69,7 +69,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O `--role` argumento no comando anterior configura o principal de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto o impulso como puxar o acesso, mude o argumento `--role` para *acrpush*.
+O `--role` argumento no comando anterior confunde o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto empurrar e `--role` puxar o acesso, mude o argumento para *acrpush*.
 
 Em seguida, guarde a *appId* do diretor de serviço no cofre, que é o nome de **utilizador** que passa para o Registo de Contentores Azure para autenticação.
 
@@ -81,7 +81,7 @@ az keyvault secret set \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Criaste um cofre azure e guardaste dois segredos nele:
+Acabou de criar um cofre de chaves do Azure e de armazenar dois segredos nele:
 
 * `$ACR_NAME-pull-usr`: o ID do principal de serviço, para utilização como o **nome de utilizador** do registo de contentor.
 * `$ACR_NAME-pull-pwd`: a palavra-passe do principal de serviço, para utilização como a **palavra-passe** do registo de contentor.
@@ -92,13 +92,13 @@ Agora, pode referenciar estes segredos por nome quando você ou as suas aplicaç
 
 Agora que as credenciais principais do serviço estão armazenadas em segredos do Cofre chave azure, as suas aplicações e serviços podem usá-los para aceder ao seu registo privado.
 
-Primeiro obtenha o nome do servidor de login do registo usando o comando de [show az acr.][az-acr-show] O nome do servidor de login é todo minúsculo e semelhante ao `myregistry.azurecr.io`.
+Primeiro obtenha o nome do servidor de login do registo usando o comando de [show az acr.][az-acr-show] O nome do servidor de login `myregistry.azurecr.io`é todo minúsculo e semelhante a .
 
 ```azurecli
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-Execute o [seguinte recipiente az criar][az-container-create] comando para implantar uma instância de contentor. O comando utiliza as credenciais do diretor de serviço armazenadas no Cofre chave azure para autenticar o seu registo de contentores, e assume que já empurrou a imagem [aci-helloworld](container-instances-quickstart.md) para o seu registo. Atualize o valor `--image` se quiser utilizar uma imagem diferente do seu registo.
+Execute o comando seguinte [az container create][az-container-create] para implementar uma instância de contentor. O comando utiliza as credenciais do diretor de serviço armazenadas no Cofre chave azure para autenticar o seu registo de contentores, e assume que já empurrou a imagem [aci-helloworld](container-instances-quickstart.md) para o seu registo. Atualize `--image` o valor se quiser utilizar uma imagem diferente do seu registo.
 
 ```azurecli
 az container create \
@@ -112,7 +112,7 @@ az container create \
     --query ipAddress.fqdn
 ```
 
-O valor `--dns-name-label` deve ser único dentro do Azure, pelo que o comando anterior anexa um número aleatório à etiqueta de nome DNS do contentor. O resultado do comando apresenta o nome de domínio completamente qualificado (FQDN) do contentor, por exemplo:
+O `--dns-name-label` valor deve ser único dentro do Azure, pelo que o comando anterior anexa um número aleatório à etiqueta de nome DNS do contentor. O resultado do comando apresenta o nome de domínio completamente qualificado (FQDN) do contentor, por exemplo:
 
 ```output
 "aci-demo-25007.eastus.azurecontainer.io"
@@ -122,7 +122,7 @@ Uma vez que o recipiente tenha começado com sucesso, pode navegar para o fQDN n
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Implementar com o modelo de Gestor de Recursos Azure
 
-Pode especificar as propriedades do seu registo de contentores Azure num modelo de Gestor de Recursos Azure, incluindo a propriedade `imageRegistryCredentials` na definição do grupo de contentores. Por exemplo, pode especificar as credenciais de registo diretamente:
+Pode especificar as propriedades do seu registo de contentores Azure `imageRegistryCredentials` num modelo de Gestor de Recursos Azure, incluindo a propriedade na definição de grupo de contentores. Por exemplo, pode especificar as credenciais de registo diretamente:
 
 ```JSON
 [...]

@@ -1,5 +1,5 @@
 ---
-title: Criar e gerir a política de grupo sintetizar nos Serviços de Domínio Da Azure AD  Microsoft Docs
+title: Criar e gerir a política de grupo sintetizar nos Serviços de Domínio Da Azure AD [ Microsoft Docs
 description: Aprenda a editar os objetos políticos de grupo incorporados (GPOs) e crie as suas próprias políticas personalizadas num domínio gerido pelo Azure Ative Directory Domain Services.
 author: iainfoulds
 manager: daveba
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: iainfou
 ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946413"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar a Política de Grupo num domínio gerido pelos Serviços de Domínio Azure AD
@@ -42,9 +42,9 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 * Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
 
 > [!NOTE]
-> Pode utilizar modelos administrativos de política de grupo copiando os novos modelos para a estação de trabalho de gestão. Copie os ficheiros *.admx* em `%SYSTEMROOT%\PolicyDefinitions` e copie os ficheiros *.adml* específicos do local para `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, onde `Language-CountryRegion` corresponde ao idioma e região dos ficheiros *.adml.*
+> Pode utilizar modelos administrativos de política de grupo copiando os novos modelos para a estação de trabalho de gestão. Copie os ficheiros `%SYSTEMROOT%\PolicyDefinitions` *.admx* e copie os `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`ficheiros `Language-CountryRegion` *.adml* específicos do local para, onde corresponda ao idioma e região dos ficheiros *.adml.*
 >
-> Por exemplo, copiar a versão inglesa e americana dos ficheiros *.adml* na pasta `\en-us`.
+> Por exemplo, copiar a versão inglesa e americana dos `\en-us` ficheiros *.adml* na pasta.
 >
 > Em alternativa, pode armazenar centralmente o seu Modelo Administrativo de Política de Grupo nos controladores de domínio que fazem parte do domínio gerido pelo Azure AD DS. Para mais informações, consulte [como criar e gerir a Loja Central para Modelos Administrativos](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)de Política de Grupo no Windows .
 
@@ -86,7 +86,7 @@ Existem dois Objetos políticos de grupo incorporados (GPOs) num domínio gerido
 
     ![GPOs incorporados aplicados aos recipientes 'AADDC Computers' e 'Utilizadores AADDC'](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Estes GPOs incorporados podem ser personalizados para configurar políticas específicas de grupo no seu domínio gerido pelo Azure AD DS. Selecione um dos GPOs, como gpo de *computadores AADDC,* em seguida, escolha **Editar...** .
+1. Estes GPOs incorporados podem ser personalizados para configurar políticas específicas de grupo no seu domínio gerido pelo Azure AD DS. Selecione um dos GPOs, como gpo de *computadores AADDC,* em seguida, escolha **Editar...**.
 
     ![Escolha a opção de 'Editar' um dos GPOs incorporados](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 
@@ -94,7 +94,7 @@ Existem dois Objetos políticos de grupo incorporados (GPOs) num domínio gerido
 
     ![Personalize o GPO para configurar as definições conforme necessário](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-    Quando terminar, escolha **File > Poupe** para salvar a apólice. Os computadores atualizam a Política do Grupo por padrão a cada 90 minutos e aplicam as alterações que fez.
+    Quando terminar, escolha **File > Guardar** para salvar a apólice. Os computadores atualizam a Política do Grupo por padrão a cada 90 minutos e aplicam as alterações que fez.
 
 ## <a name="create-a-custom-group-policy-object"></a>Criar um objeto de política de grupo personalizado
 
@@ -116,9 +116,9 @@ Para agrupar configurações de políticas semelhantes, muitas vezes cria GPOs a
 
     ![Personalize o GPO para configurar as definições conforme necessário](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
-    Quando terminar, escolha **File > Poupe** para salvar a apólice. Os computadores atualizam a Política do Grupo por padrão a cada 90 minutos e aplicam as alterações que fez.
+    Quando terminar, escolha **File > Guardar** para salvar a apólice. Os computadores atualizam a Política do Grupo por padrão a cada 90 minutos e aplicam as alterações que fez.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as definições de Política de Grupo disponíveis que pode configurar utilizando a Consola de Gestão de Políticas de Grupo, consulte [O Trabalho com itens preferenciais][group-policy-console]de política de grupo .
 

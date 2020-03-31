@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759982"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Use azure DevTest Labs para formação
@@ -45,7 +45,7 @@ Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs 
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar um laboratório em Azure DevTest Labs](devtest-lab-create-lab.md) |Aprenda a criar um laboratório em Azure DevTest Labs no portal Azure. |
+   | [Criar um laboratório no Azure DevTest Labs](devtest-lab-create-lab.md) |Aprenda a criar um laboratório em Azure DevTest Labs no portal Azure. |
 2. **Crie VMs de treino em minutos usando imagens de mercado prontas e imagens personalizadas** 
    
     Você pode escolher imagens prontas a partir de uma grande variedade de imagens no Mercado Azure e disponibilizá-las para os estagiários no laboratório. Se as imagens prontas não cumprirem os seus requisitos, pode criar uma imagem personalizada criando um VM de laboratório utilizando uma imagem pronta do Azure Marketplace, instalando todo o software que precisa para o treino e salvando o VM como imagem personalizada no laboratório. 
@@ -54,7 +54,7 @@ Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs 
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configure imagens do Mercado Azure](devtest-lab-configure-marketplace-images.md) |Saiba como pode whitelist Imagens do Azure Marketplace; disponibilizando para seleção apenas as imagens que deseja para o treino. |
+   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode whitelist Imagens do Azure Marketplace; disponibilizando para seleção apenas as imagens que deseja para o treino. |
    | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada pré-instalando o software de que necessita para o treino para que os estagiários possam criar rapidamente um VM usando a imagem personalizada. |
 3. **Criar modelos reutilizáveis para máquinas de treino** 
    

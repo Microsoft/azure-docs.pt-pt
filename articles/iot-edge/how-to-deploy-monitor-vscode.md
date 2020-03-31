@@ -1,6 +1,6 @@
 ---
-title: Implantar módulos em escala usando o Visual Studio Code-Azure IoT Edge
-description: Use a extensão de IoT para Visual Studio Code para criar implantações automáticas para grupos de dispositivos IoT Edge.
+title: Implementar módulos em escala utilizando o Código do Estúdio Visual - Borda Azure IoT
+description: Utilize a extensão IoT para o Código do Estúdio Visual para criar implementações automáticas para grupos de dispositivos IoT Edge.
 keywords: ''
 author: kgremban
 manager: philmea
@@ -10,52 +10,52 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 08299a589dc6e8f768cba7ef976e109ef1fb69d7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774136"
 ---
-# <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implantar módulos IoT Edge em escala usando Visual Studio Code
+# <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implementar módulos IoT Edge em escala usando o Código do Estúdio Visual
 
-Você pode criar uma **IOT Edge implantação automática** usando Visual Studio Code para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso de [gerenciamento automático de dispositivo](/azure/iot-hub/iot-hub-automatic-device-management) do Hub IOT. As implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Você também pode acompanhar o status e a integridade dos módulos e fazer alterações quando necessário.
+Pode criar uma **implementação automática IoT Edge** utilizando o Visual Studio Code para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para IoT Edge fazem parte da funcionalidade [de gestão automática](/azure/iot-hub/iot-hub-automatic-device-management) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implementar vários módulos em vários dispositivos. Também pode rastrear o estado e a saúde dos módulos e fazer alterações quando necessário.
 
-Para obter mais informações, consulte [entender IOT Edge implantações automáticas para dispositivos únicos ou em escala](module-deployment-monitoring.md).
+Para obter mais informações, consulte [as implementações automáticas De IoT Edge para dispositivos individuais ou em escala](module-deployment-monitoring.md).
 
-Neste artigo, você configura Visual Studio Code e a extensão de IoT. Em seguida, você aprenderá a implantar módulos em um conjunto de dispositivos IoT Edge.
+Neste artigo, crias o Código do Estúdio Visual e a extensão IoT. Em seguida, aprende a implementar módulos para um conjunto de dispositivos IoT Edge.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [IoT hub](../iot-hub/iot-hub-create-through-portal.md) na sua subscrição do Azure.
-* Uma [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o runtime do IoT Edge instalado.
-* [Visual Studio Code](https://code.visualstudio.com/).
-* [Ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
+* Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua assinatura Azure.
+* Um [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o tempo de execução do IoT Edge instalado.
+* [Código de estúdio visual.](https://code.visualstudio.com/)
+* [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Código de Estúdio Visual.
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o seu hub IoT
+## <a name="sign-in-to-access-your-iot-hub"></a>Inscreva-se para aceder ao seu hub IoT
 
-Você pode usar as extensões do Azure IoT para Visual Studio Code para realizar operações com seu hub. Para que essas operações funcionem, você precisa entrar em sua conta do Azure e selecionar o Hub IoT no qual você está trabalhando.
+Pode utilizar as extensões Azure IoT para O Código do Estúdio Visual para fazer operações com o seu Hub. Para que estas operações funcionem, tem de assinar na sua conta Azure e selecionar o hub IoT em que está a trabalhar.
 
-1. No Visual Studio Code, abra a **Explorer** vista.
+1. No Visual Studio Code, abra a vista **Explorer.**
 
-1. Na parte inferior do Explorer, expanda a seção **Hub IOT do Azure** .
+1. Na parte inferior do Explorer, expanda a secção **Azure IoT Hub.**
 
-1. Clique no cabeçalho da seção **...** no **Hub IOT do Azure** . Se não vir o botão de reticências, Paire o rato sobre o cabeçalho.
+1. Clique no **...** no cabeçalho da secção **Azure IoT Hub.** Se não vires a elipse, paira sobre o cabeceamento.
 
-1. Escolher **selecione o IoT Hub**.
+1. Escolha **Selecione Selecione IoT Hub**.
 
-1. Se você não estiver conectado à sua conta do Azure, siga os prompts para fazer isso.
+1. Se não estiver inscrito na sua conta Azure, siga as instruções para o fazer.
 
 1. Selecione a sua subscrição do Azure.
 
-1. Selecione o seu hub IoT.
+1. Selecione o seu hub ioT.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos serão implantados. Ele também descreve como os dados fluem entre os módulos e as propriedades desejadas do módulo gêmeos. Para obter mais informações, consulte [saiba como implantar módulos e estabelecer rotas no IOT Edge](module-composition.md).
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implantar. Também descreve como os dados fluem entre os módulos, e as propriedades desejadas dos gémeos módulos. Para mais informações, consulte [Saiba como implementar módulos e estabelecer rotas em IoT Edge](module-composition.md).
 
-Para implementar módulos com o Visual Studio Code, guarde o manifesto de implantação localmente como um. Ficheiro JSON. Você precisará fornecer seu local ao executar o comando para aplicar a configuração ao seu dispositivo.
+Para implementar módulos utilizando o Código do Estúdio Visual, guarde o manifesto de implantação localmente como a . Ficheiro JSON. Terá de fornecer a sua localização quando executar o comando para aplicar a configuração no seu dispositivo.
 
-Aqui está um manifesto de implantação básico com um módulo como exemplo:
+Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
 ```json
 {
@@ -126,13 +126,13 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
 }
 ```
 
-Se você precisar determinar quais dispositivos IoT Edge você pode configurar no momento, execute o comando **IOT Edge: obter informações do dispositivo** .
+Se precisar de determinar quais os dispositivos IoT Edge que pode configurar atualmente, execute o comando **IoT Edge: Get Device Info.**
 
 ## <a name="identify-devices-with-target-conditions"></a>Identificar dispositivos com condições de destino
 
-Para identificar os dispositivos IoT Edge que devem receber a implantação, você deve especificar uma condição de destino. Uma condição de destino é atendida quando os critérios especificados são correspondidos por um DeviceID, um valor de marca ou um valor de propriedade relatado.
+Para identificar os dispositivos IoT Edge que devem receber a implementação, deve especificar uma condição de destino. Uma condição-alvo é satisfeita quando critérios especificados são comparados por um dispositivoId, valor de etiqueta ou um valor de propriedade reportado.
 
-Você configura marcas no dispositivo. Aqui está um exemplo de um dispositivo de r com marcas:
+Configurar etiquetas no dispositivo twin. Aqui está um exemplo de um dispositivo twin que tem tags:
 
 ```json
 "tags":{
@@ -145,26 +145,26 @@ Você configura marcas no dispositivo. Aqui está um exemplo de um dispositivo d
 }
 ```
 
-Esse dispositivo receberá uma implantação se a condição de destino da implantação contiver uma expressão que corresponda a um dos valores da marca, como `tag.location.building = '20'`.
+Este dispositivo receberá uma implementação se a condição-alvo para a implementação contiver `tag.location.building = '20'`uma expressão que corresponda a um dos valores da etiqueta, como .
 
-Se você quiser direcionar um dispositivo específico independentemente de suas marcas ou outros valores, basta especificar o `deviceId` para a condição de destino.
+Se pretender direcionar um dispositivo específico independentemente das suas etiquetas `deviceId` ou outros valores, apenas especifique o estado de destino.
 
-Aqui estão alguns exemplos:
+Aqui estão mais alguns exemplos:
 
-* deviceId = 'linuxprod1'
-* DeviceID = ' linuxprod1 ' ou DeviceID = ' linuxprod2 ' ou DeviceID = ' linuxprod3 '
-* tags.Environment = 'prod'
-* Tags. Environment = ' prod ' e Tags. Location = ' westus2 '
-* Tags. Environment = ' prod ' ou Tags. Location = ' westus2 '
-* Tags. Operator = ' John ' e Tags. Environment = ' prod ' e NOT DeviceID = ' linuxprod1 '
+* dispositivoId ='linuxprod1'
+* dispositivoId = 'linuxprod1' OR dispositivoId = 'linuxprod2' OR dispositivoId = 'linuxprod3'
+* tags.environment ='prod'
+* tags.environment = 'prod' And tags.location = 'westus2'
+* tags.environment = 'prod' OR tags.location = 'westus2'
+* tags.operator = 'John' And tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 
-Consulte [condição de destino](module-deployment-monitoring.md#target-condition) para obter detalhes. Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [compreender e utilizar dispositivos duplos no IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+Consulte a [condição do alvo](module-deployment-monitoring.md#target-condition) para obter detalhes. Para obter mais informações sobre gémeos e tags de dispositivos, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
-### <a name="edit-the-device-twin"></a>Editar o dispositivo.
+### <a name="edit-the-device-twin"></a>Editar o dispositivo twin
 
-Você pode editar as configurações de dispositivo no Visual Studio Code para configurar as marcas. No menu **Exibir** , selecione **paleta de comandos** e execute o comando **IOT Edge: editar dispositivo** . Selecione o dispositivo de IoT Edge e o dispositivo de dispositivos aparecerá.
+Pode editar o dispositivo twin no Visual Studio Code para configurar as etiquetas. A partir do menu **'Ver',** selecione 'Paleta de **Comando'** e executa o comando **IoT Edge: Editar dispositivo twin.** Selecione o seu dispositivo IoT Edge e aparece o dispositivo twin.
 
-Neste exemplo, nenhuma marca foi definida. Substitua a seção vazia atual `"tags": {}` pela sua própria definição de marcações.
+Neste exemplo, não foram definidas etiquetas. Substitua a `"tags": {}` secção vazia atual com a definição de etiquetas próprias.
 
 ```json
 {
@@ -204,39 +204,39 @@ Neste exemplo, nenhuma marca foi definida. Substitua a seção vazia atual `"tag
 }
 ```
 
-Depois de salvar o arquivo local, execute o comando **IOT Edge: atualizar o dispositivo** .
+Depois de guardar o ficheiro local, execute o comando **IoT Edge: Update Device Twin.**
 
 ## <a name="create-deployment-at-scale"></a>Criar implantação em escala
 
-Depois de configurar o manifesto de implantação e as marcas configuradas no dispositivo "d", você estará pronto para implantar.
+Depois de configurar o manifesto de implementação e as etiquetas configuradas no dispositivo twin, está pronto para ser implementado.
 
-1. No menu **Exibir** , selecione **paleta de comandos** e selecione o comando **Azure IOT Edge: criar implantação em escala** .
+1. A partir do menu **'Ver',** selecione 'Paleta de **Comando'** e selecione o **Edge Azure IoT: Criar a implantação à escala.**
 
-1. Navegue para o manifesto JSON ficheiro de implementação que pretende utilizar e clique em **selecionar o manifesto de implantação do Edge**.
+1. Navegue para o ficheiro JSON manifesto de implementação que pretende utilizar e clique em **Select Edge Deployment Manifest**.
 
-1. Forneça valores conforme solicitado, começando com a **ID de implantação**.
+1. Forneça valores conforme solicitado, começando pelo id de **implantação**.
 
-   ![Especificar uma ID de implantação](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
+   ![Especificar um id de implantação](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
 
-   Especifique valores para estes parâmetros:
+   Especificar valores para estes parâmetros:
 
   | Parâmetro | Descrição |
   | --- | --- |
-  | ID da implantação | O nome da implantação que será criada no Hub IoT. Dê um nome exclusivo que é até 128 minúsculas de sua implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`. |
-  | Condição de destino | Insira uma condição de destino para determinar quais dispositivos serão direcionados a essa implantação. A condição é baseada nas marcas de dispositivo ou nas propriedades relatadas do dispositivo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
-  | Prioridade |  Um inteiro positivo. Se duas ou mais implantações forem direcionadas ao mesmo dispositivo, a implantação com o maior valor numérico para prioridade será aplicada. |
+  | Id de implantação | O nome da implantação que será criado no centro ioT. Dê à sua implantação um nome único que seja até 128 letras minúsculas. Evite espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`. |
+  | Condição do alvo | Introduza uma condição de destino para determinar quais os dispositivos que serão alvo com esta implementação.A condição baseia-se em etiquetas duplas do dispositivo ou propriedades reportadas de dispositivos twin e deve corresponder ao formato de expressão.Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
+  | Prioridade |  Um inteiro positivo. Se duas ou mais implementações forem direcionadas para o mesmo dispositivo, aplicar-se-á a implantação com o valor numérico mais elevado para a Priority. |
 
-  Depois de especificar a prioridade, o terminal deve exibir uma saída semelhante à seguinte descrição:
+  Depois de especificar a prioridade, o terminal deve apresentar saída semelhante à seguinte representação:
 
    ```cmd
    [Edge] Start deployment with deployment id [{specified-value}] and target condition [{specified-value}]
    [Edge] Deployment with deployment id [{specified-value}] succeeded.
    ```
 
-## <a name="monitoring-and-modifying-deployments"></a>Monitorando e modificando implantações
+## <a name="monitoring-and-modifying-deployments"></a>Monitorização e modificação de implantações
 
-Use o [CLI do Azure](how-to-deploy-monitor-cli.md#monitor-a-deployment) ou o [portal do Azure](how-to-deploy-monitor.md#monitor-a-deployment) para monitorar, modificar e excluir implantações. Ambos fornecem métricas sobre suas implantações.
+Utilize o [Azure CLI](how-to-deploy-monitor-cli.md#monitor-a-deployment) ou o [portal Azure](how-to-deploy-monitor.md#monitor-a-deployment) para monitorizar, modificar e eliminar as implementações. Ambos fornecem métricas nas suas implementações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [a implantação de módulos em dispositivos IOT Edge](module-deployment-monitoring.md).
+Saiba mais sobre [a implementação de módulos para dispositivos IoT Edge](module-deployment-monitoring.md).

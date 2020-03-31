@@ -12,10 +12,10 @@ ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136164"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Diretório Ativo Azure B2C
@@ -30,7 +30,7 @@ As seguintes boas práticas e recomendações abrangem alguns dos aspetos primá
 | Registos de aplicações | Todas as aplicações (web, nativas) e API que estão a ser protegidas devem ser registadas em Azure AD B2C. Se uma aplicação tiver uma versão web e nativa do iOS e Android, pode registá-las como uma aplicação no Azure AD B2C com o mesmo ID do cliente. Saiba como [registar aplicações OIDC, SAML, web e nativas.](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications) Saiba mais sobre os tipos de [aplicação que podem ser usados em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types). |
 | Passe para faturação mensal de utilizadores ativos | O Azure AD B2C passou de autenticações ativas mensais para faturação mensal de utilizadores ativos (MAU). A maioria dos clientes achará este modelo rentável. [Saiba mais sobre a faturação mensal](https://azure.microsoft.com/updates/mau-billing/)de utilizadores ativos. |
 
-## <a name="planning-and-design"></a>Planeamento e estrutura
+## <a name="planning-and-design"></a>Planeamento e design
 
 Defina a sua aplicação e arquitetura de serviço, inventário de sistemas atuais e planeje a sua migração para Azure AD B2C.
 
@@ -67,7 +67,7 @@ Teste e mate automaticamente a sua implementação Azure AD AD B2C.
 | Teste de canetas | Antes de entrar em direto com a sua solução, realize exercícios de teste de penetração para verificar se todos os componentes estão seguros, incluindo quaisquer dependências de terceiros. Verifique se garantiu as suas APIs com fichas de acesso e utilizou o protocolo de autenticação certo para o seu cenário de candidatura. Saiba mais sobre os testes de [penetração](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) e as [Regras de Teste de Penetração Unificadas da Microsoft Cloud.](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) |
 | Testes A/B | Voe com as suas novas funcionalidades com um pequeno e aleatório conjunto de utilizadores antes de passar para toda a sua população. Com o JavaScript ativado no Azure AD B2C, pode integrar-se com ferramentas de teste A/B como Optimizely, Clarity, entre outras. |
 | Teste de carga | O Azure AD B2C pode escalar, mas a sua aplicação só pode escalar se todas as suas dependências puderem escalar. Teste a carga das suas APIs e CDN. |
-| Limitação |  O Azure AD B2C acelera o tráfego se muitos pedidos forem enviados da mesma fonte num curto espaço de tempo. Utilize várias fontes de tráfego durante os testes de carga e manuseie o código de erro `AADB2C90229` graciosamente nas suas aplicações. |
+| Limitação |  O Azure AD B2C acelera o tráfego se muitos pedidos forem enviados da mesma fonte num curto espaço de tempo. Utilize várias fontes de tráfego `AADB2C90229` durante os testes de carga e manuseie o código de erro graciosamente nas suas aplicações. |
 | Automatização | Utilize gasodutos de integração e entrega contínuos (CI/CD) para automatizar testes e implementações, por exemplo, [Azure DevOps](deploy-custom-policies-devops.md). |
 
 ## <a name="operations"></a>Operações
@@ -91,5 +91,5 @@ Mantenha-se atualizado com o estado do serviço e encontre opções de suporte.
 |  |  |
 |--|--|
 | [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Mantenha-se atualizado com as atualizações e anúncios do produto Azure AD B2C. |
-| [Suporte da Microsoft](support-options.md) | Apresente um pedido de apoio para questões técnicas Azure AD B2C. O suporte de gestão da faturação e subscrição é fornecido sem custos. |
+| [Suporte da Microsoft](support-options.md) | Apresente um pedido de apoio para questões técnicas Azure AD B2C. O apoio à gestão de faturação e subscrição não é fornecido a qualquer custo. |
 | [Estado do Azure](https://status.azure.com/status) | Veja o estado de saúde atual de todos os serviços Azure. |

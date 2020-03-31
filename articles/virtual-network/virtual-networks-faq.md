@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244813"
 ---
-# <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual Azure frequentemente colocada perguntas (FAQ)
+# <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
 ## <a name="virtual-network-basics"></a>Básicos da Rede Virtual
 
@@ -63,7 +63,7 @@ Qualquer gama de endereços IP definida no [RFC 1918](https://tools.ietf.org/htm
 * 168.63.129.16/32 (DNS Interno)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Posso ter endereços IP públicos nos meus VNets?
-Sim. Para mais informações sobre as gamas públicas de endereços IP, consulte [Criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
+Sim. Para mais informações sobre as gamas públicas de endereços IP, consulte [Criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Os endereços IP públicos não são acessíveis diretamente a partir da internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Há um limite para o número de subredes no meu VNet?
 Sim. Consulte [os limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para mais detalhes. Os espaços de endereço subnet não se sobrepõem uns aos outros.
@@ -100,7 +100,7 @@ Não.
 Sim. As subredes podem ser adicionadas aos VNets a qualquer momento, desde que a gama de endereços de sub-rede não faça parte de outra subrede e exista espaço disponível na gama de endereços da rede virtual.
 
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>Posso modificar o tamanho da minha subnet depois de criá-la?
-Sim. Pode adicionar, remover, expandir ou encolher uma sub-rede se não houver VMs ou serviços implantados dentro dela.
+Sim. Pode adicionar, remover, expandir ou encolher uma sub-rede se não houver VMs ou serviços implementados na mesma.
 
 ### <a name="can-i-modify-subnets-after-i-created-them"></a>Posso modificar as subredes depois de as ter criado?
 Sim. Pode adicionar, remover e modificar os blocos CIDR utilizados por um VNet.
@@ -131,7 +131,7 @@ Sim. Pode especificar os endereços IP do servidor DNS nas definições vNet. A 
 Limites de referência [Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Posso modificar os meus servidores DNS depois de ter criado a rede?
-Sim. Pode alterar a lista de servidores DNS para o seu VNet a qualquer momento. Se alterar a sua lista de servidores DNS, necessita de realizar uma renovação de locação DHCP em todos os VMs afetados no VNet, para que as novas definições de DNS entrem em vigor. Para vMs que executam o Sistema Operativo Windows, pode fazê-lo digitando `ipconfig /renew` diretamente no VM. Para outros tipos de S, consulte a documentação de renovação de contrato de arrendamento DHCP para o tipo de Os específico. 
+Sim. Pode alterar a lista de servidores DNS para o seu VNet a qualquer momento. Se alterar a sua lista de servidores DNS, necessita de realizar uma renovação de locação DHCP em todos os VMs afetados no VNet, para que as novas definições de DNS entrem em vigor. Para vMs que executam o `ipconfig /renew` Sistema Operativo Windows, pode fazê-lo digitando diretamente no VM. Para outros tipos de S, consulte a documentação de renovação de contrato de arrendamento DHCP para o tipo de Os específico. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>O que é DNS fornecido pelo Azure e funciona com VNets?
 O DNS fornecido pelo Azure é um serviço DNS multi-inquilino oferecido pela Microsoft. O Azure regista todos os seus VMs e exemplos de serviço na nuvem neste serviço. Este serviço fornece resolução de nome de anfitrião para VMs e instâncias de papéis contidas no mesmo serviço na nuvem, e por FQDN para VMs e exemplos de papéis no mesmo VNet. Para saber mais sobre o DNS, consulte a [Resolução de Nomes para VMs e casos](virtual-networks-name-resolution-for-vms-and-role-instances.md)de papel de Serviços cloud .
@@ -167,7 +167,7 @@ Depende. Se o VM foi implantado através do Gestor de Recursos, não, independen
 Sim, mas não é recomendado a menos que seja necessário, como quando atribuir vários endereços IP a uma máquina virtual. Para mais detalhes, consulte [Adicionar vários endereços IP a uma máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Se o endereço IP atribuído a um Nic Azure ligado a alterações vm, e o endereço IP dentro do sistema operativo VM for diferente, perde conectividade com o VM.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Se eu parar uma ranhura de implantação do Serviço cloud ou desligar um VM dentro do sistema operativo, o que acontece com os meus endereços IP?
-Nada, nada. Os endereços IP (VIP público, público e privado) permanecem atribuídos à ranhura de implantação do serviço na nuvem ou VM.
+Nada. Os endereços IP (VIP público, público e privado) permanecem atribuídos à ranhura de implantação do serviço na nuvem ou VM.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Posso mover VMs de uma subnet para outra subnet a uma VNet sem reimplantar?
 Sim. Pode encontrar mais informações sobre como [mover um VM ou exemplo de papel para um artigo de sub-rede diferente.](virtual-networks-move-vm-role-to-subnet.md)
@@ -385,7 +385,7 @@ Os pontos finais do serviço adicionam uma rota do sistema que tem precedência 
 Para chegar ao serviço Azure, os NSGs precisam de permitir a conectividade de saída. Se os seus NSGs forem abertos a todo o tráfego de saída da Internet, então o tráfego de ponto final de serviço deve funcionar. Também pode limitar o tráfego de saída aos IPs de serviço apenas utilizando as etiquetas de Serviço.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Que permissões preciso para criar pontos finais de serviço?
-Os pontos finais do serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso por escrito à rede virtual. Para garantir os recursos de serviço do Azure a um VNet, o utilizador deve ter permissão **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. Esta permissão está incluída na função de administrador de serviço incorporada por padrão e pode ser modificada através da criação de funções personalizadas. Saiba mais sobre papéis incorporados e atribuindo permissões específicas para [papéis personalizados.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Os pontos finais do serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso por escrito à rede virtual. Para garantir os recursos de serviço do Azure a um VNet, o utilizador deve ter permissão **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. Esta permissão está incluída na função de administrador de serviço incorporada por padrão e pode ser modificada através da criação de funções personalizadas. Saiba mais sobre funções incorporadas e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Posso filtrar o tráfego de rede virtual para os serviços Azure, permitindo apenas recursos específicos de serviço azul, sobre os pontos finais do serviço VNet? 
@@ -405,7 +405,7 @@ Não existe limite para o número total de pontos finais do serviço VNet numa r
 |Storage do Azure| 100|
 |SQL do Azure| 128|
 |Azure SQL Data Warehouse|  128|
-|Cofre de Chaves Azure|    127|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
 |Service Bus do Azure| 128|

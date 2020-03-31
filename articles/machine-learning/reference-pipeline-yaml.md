@@ -11,10 +11,10 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
 ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368830"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Defina os gasodutos de aprendizagem automática em YAML
@@ -50,14 +50,14 @@ Uma definição de gasoduto utiliza as seguintes teclas, que correspondem à cla
 
 ## <a name="parameters"></a>Parâmetros
 
-A secção `parameters` utiliza as seguintes teclas, que correspondem à classe [PipelineParameter:](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)
+A `parameters` secção utiliza as seguintes teclas, que correspondem à classe [PipelineParameter:](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)
 
 | Chave YAML | Descrição |
 | ---- | ---- |
-| `type` | O tipo de valor do parâmetro. Os tipos válidos são `string`, `int`, `float`, `bool`ou `datapath`. |
+| `type` | O tipo de valor do parâmetro. Os tipos `string` `int`válidos são, , `float`ou `bool` `datapath`. |
 | `default` | O valor padrão. |
 
-Cada parâmetro é nomeado. Por exemplo, o seguinte snippet YAML define três parâmetros chamados `NumIterationsParameter`, `DataPathParameter`e `NodeCountParameter`:
+Cada parâmetro é nomeado. Por exemplo, o seguinte snippet YAML `NumIterationsParameter`define `DataPathParameter`três `NodeCountParameter`parâmetros nomeados, e:
 
 ```yaml
 pipeline:
@@ -78,14 +78,14 @@ pipeline:
 
 ## <a name="data-reference"></a>Referência de dados
 
-A secção `data_references` utiliza as seguintes teclas, que correspondem à [DataReference:](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)
+A `data_references` secção utiliza as seguintes teclas, que correspondem à [DataReference:](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)
 
 | Chave YAML | Descrição |
 | ----- | ----- |
 | `datastore` | A loja de dados para referência. |
 | `path_on_datastore` | O caminho relativo no armazenamento de apoio para a referência de dados. |
 
-Cada referência de dados está contida numa chave. Por exemplo, o seguinte snippet YAML define uma referência de dados armazenada na chave denominada `employee_data`:
+Cada referência de dados está contida numa chave. Por exemplo, o seguinte snippet YAML define uma referência `employee_data`de dados armazenada na chave denominada:
 
 ```yaml
 pipeline:
@@ -102,7 +102,7 @@ pipeline:
 
 ## <a name="steps"></a>Passos
 
-Os passos definem um ambiente computacional, juntamente com os ficheiros para executar no ambiente. Para definir o tipo de passo, utilize a chave `type`:
+Os passos definem um ambiente computacional, juntamente com os ficheiros para executar no ambiente. Para definir o tipo de `type` passo, use a chave:
 
 | Tipo de passo | Descrição |
 | ----- | ----- |
@@ -116,7 +116,7 @@ Os passos definem um ambiente computacional, juntamente com os ficheiros para ex
 
 | Chave YAML | Descrição |
 | ----- | ----- |
-| `script_name` | O nome do script U-SQL (em relação ao `source_directory`). |
+| `script_name` | O nome do script U-SQL `source_directory`(em relação ao ). |
 | `compute_target` | O objetivo de computação do Lago de Dados Azure é usado para este passo. |
 | `parameters` | [Parâmetros](#parameters) para o oleoduto. |
 | `inputs` | As inputs podem ser [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)ou [PipelineDataset .](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py) |
@@ -176,7 +176,7 @@ pipeline:
 | `delete_batch_job_after_finish` | Bandeira booleana para indicar se deve apagar o trabalho da conta Batch depois de terminado. |
 | `delete_batch_pool_after_finish` | Bandeira booleana para indicar se deve apagar a piscina após o trabalho terminar. |
 | `is_positive_exit_code_failure` | Bandeira booleana para indicar se o trabalho falhar se a tarefa sair com um código positivo. |
-| `vm_image_urn` | Se `create_pool` for `True`, e a VM utilizar `VirtualMachineConfiguration`. |
+| `vm_image_urn` | Se `create_pool` `True`for, e `VirtualMachineConfiguration`vM usa . |
 | `pool_id` | A identificação da piscina onde o trabalho vai funcionar. |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
@@ -227,7 +227,7 @@ pipeline:
 | `run_name` | O nome em Databricks para esta corrida. |
 | `source_directory` | Diretório que contém o guião e outros ficheiros. |
 | `num_workers` | O número estático de trabalhadores para os Databricks funcionam. |
-| `runconfig` | O caminho para um ficheiro `.runconfig`. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | O caminho `.runconfig` para um arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo que se segue contém um passo de Databricks:
@@ -322,9 +322,9 @@ pipeline:
 | `compute_target` | O alvo da computação a usar para este passo. O alvo da computação pode ser uma Computação de Aprendizagem automática Azure, Máquina Virtual (como o Data Science VM) ou HDInsight. |
 | `inputs` | As inputs podem ser [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)ou [PipelineDataset .](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py) |
 | `outputs` | As saídas podem ser [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) ou [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
-| `script_name` | O nome do guião python (relativo a `source_directory`). |
+| `script_name` | O nome do guião `source_directory`python (em relação a). |
 | `source_directory` | Diretório que contém o guião, ambiente Conda, etc. |
-| `runconfig` | O caminho para um ficheiro `.runconfig`. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfig.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | O caminho `.runconfig` para um arquivo. Este ficheiro é uma representação YAML da classe [RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) Para obter mais informações sobre a estrutura deste ficheiro, consulte [runconfig.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se o passo deve reutilizar os resultados anteriores quando for executado novamente com as mesmas definições. |
 
 O exemplo seguinte contém um passo de guião python:
@@ -377,8 +377,8 @@ Ao definir o horário de um pipeline, pode ser acionado por uma loja de dados ou
 | `datastore_name` | A loja de dados para monitorizar as bolhas modificadas/adicionadas. |
 | `polling_interval` | Quanto tempo, em minutos, entre as sondagens para bolhas modificadas/adicionadas. Valor predefinido: 5 minutos. Apenas suportado para horários de datastore. |
 | `data_path_parameter_name` | O nome do parâmetro do gasoduto da trajetória de dados para definir com o caminho de bolha alterado. Apenas suportado para horários de datastore. |
-| `continue_on_step_failure` | Se continuar a executar outras etapas no PipelineRun submetido se um passo falhar. Se fornecido, anulará a definição `continue_on_step_failure` do gasoduto.
-| `path_on_datastore` | Opcional. O caminho na loja de dados para monitorizar as bolhas modificadas/adicionadas. O caminho está sob o recipiente para o datastore, por isso o caminho real que os monitores de horário supor é contentor/`path_on_datastore`. Em caso afirmativo, o recipiente da loja de dados é monitorizado. Não são monitorizadas aditamentos/modificações efetuadas numa subpasta do `path_on_datastore`. Apenas suportado para horários de datastore. |
+| `continue_on_step_failure` | Se continuar a executar outras etapas no PipelineRun submetido se um passo falhar. Se fornecido, anulará `continue_on_step_failure` a regulação do gasoduto.
+| `path_on_datastore` | Opcional. O caminho na loja de dados para monitorizar as bolhas modificadas/adicionadas. O caminho está sob o recipiente para o datastore, por isso`path_on_datastore`o caminho real que os monitores de horário supor é recipiente/ . Em caso afirmativo, o recipiente da loja de dados é monitorizado. Não são monitorizadas aditamentos/modificações efetuadas numa subpasta da subpasta. `path_on_datastore` Apenas suportado para horários de datastore. |
 
 O exemplo que se segue contém a definição para um horário desencadeado por uma loja de dados:
 
@@ -396,18 +396,18 @@ Schedule:
       path_on_datastore: "file/path" 
 ```
 
-Ao definir um **horário recorrente,** utilize as seguintes teclas sob `recurrence`:
+Ao definir um **horário recorrente,** utilize `recurrence`as seguintes teclas em :
 
 | Chave YAML | Descrição |
 | ----- | ----- |
-| `frequency` | Quantas vezes o horário repete-se. Os valores válidos são `"Minute"`, `"Hour"`, `"Day"`, `"Week"`ou `"Month"`. |
+| `frequency` | Quantas vezes o horário repete-se. Os valores `"Hour"` `"Day"`válidos `"Month"`são, `"Minute"`, ou `"Week"`. |
 | `interval` | Quantas vezes o horário dispara. O valor inteiro é o número de unidades de tempo para esperar até que o horário volte a disparar. |
-| `start_time` | A hora de início da agenda. O formato de cadeia do valor é `YYYY-MM-DDThh:mm:ss`. Se não for fornecida a hora de início, a primeira carga de trabalho é executada instantaneamente e futuras cargas de trabalho são executadas com base no horário. Se a hora de início for no passado, a primeira carga de trabalho é executada no próximo tempo de execução calculado. |
+| `start_time` | A hora de início da agenda. O formato de `YYYY-MM-DDThh:mm:ss`cadeia do valor é . Se não for fornecida a hora de início, a primeira carga de trabalho é executada instantaneamente e futuras cargas de trabalho são executadas com base no horário. Se a hora de início for no passado, a primeira carga de trabalho é executada no próximo tempo de execução calculado. |
 | `time_zone` | O fuso horário para a hora de início. Se não for fornecido um fuso horário, a UTC é utilizada. |
-| `hours` | Se `frequency` for `"Day"` ou `"Week"`, pode especificar um ou mais inteiros de 0 a 23, separados por vírgulas, como as horas do dia em que o gasoduto deve funcionar. Só podem ser utilizados `time_of_day` ou `hours` e `minutes`. |
-| `minutes` | Se `frequency` for `"Day"` ou `"Week"`, pode especificar um ou mais inteiros de 0 a 59, separados por vírgulas, como os minutos da hora em que o gasoduto deve funcionar. Só podem ser utilizados `time_of_day` ou `hours` e `minutes`. |
-| `time_of_day` | Se `frequency` for `"Day"` ou `"Week"`, pode especificar uma hora do dia para o horário ser executado. O formato de cadeia do valor é `hh:mm`. Só podem ser utilizados `time_of_day` ou `hours` e `minutes`. |
-| `week_days` | Se `frequency` for `"Week"`, pode especificar um ou mais dias, separados por vírgulas, quando o horário deve ser executado. Os valores válidos são `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`e `"Sunday"`. |
+| `hours` | Se `frequency` `"Day"` for `"Week"`ou , pode especificar um ou mais inteiros de 0 a 23, separados por vírgulas, como as horas do dia em que o gasoduto deve funcionar. `time_of_day` Apenas `hours` `minutes` ou e pode ser usado. |
+| `minutes` | Se `frequency` `"Day"` for `"Week"`ou , pode especificar um ou mais inteiros de 0 a 59, separados por vírgulas, como os minutos da hora em que o gasoduto deve funcionar. `time_of_day` Apenas `hours` `minutes` ou e pode ser usado. |
+| `time_of_day` | Se `frequency` `"Day"` for `"Week"`ou , pode especificar uma hora do dia para o horário de execução. O formato de `hh:mm`cadeia do valor é . `time_of_day` Apenas `hours` `minutes` ou e pode ser usado. |
+| `week_days` | Se `frequency` `"Week"`for, pode especificar um ou mais dias, separados por vírgulas, quando o horário deve ser executado. Os valores `"Tuesday"` `"Wednesday"`válidos `"Saturday"`são, `"Sunday"` `"Monday"`, `"Thursday"`, `"Friday"`, e . |
 
 O exemplo que se segue contém a definição para um calendário recorrente:
 

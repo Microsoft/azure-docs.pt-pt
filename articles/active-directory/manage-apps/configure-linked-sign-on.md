@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063548"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o início de sessão ligado
@@ -31,7 +31,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de aplicação em nuvem ou administrador de candidatura para o seu inquilino Azure AD.
 
-1. Navegue para **as aplicações**de Diretório Ativo > **Azure.** Aparece uma amostra aleatória das aplicações no seu inquilino DaD Azure. 
+1. Navegue para aplicações **da Azure Ative Directory** > **Enterprise.** Aparece uma amostra aleatória das aplicações no seu inquilino DaD Azure. 
 
 1. No menu **Tipo de Aplicação,** selecione **Todas as aplicações,** e, em seguida, selecione **Aplicar**.
 

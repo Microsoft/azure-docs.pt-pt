@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78399221"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(DEPRECIADO) Implementar um cluster DC/OS
@@ -20,7 +20,7 @@ ms.locfileid: "78399221"
 
 O DC/OS oferece uma plataforma distribuída para executar aplicações modernas em contentores. Com o Azure Container Service, o aprovisionamento de um cluster DC/OS pronto para produção é simples e rápido. Este arranque rápido detalha os passos básicos necessários para implantar um cluster DC/S e executar carga de trabalho básica.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
@@ -32,7 +32,7 @@ Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 

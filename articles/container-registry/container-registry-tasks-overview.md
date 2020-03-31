@@ -4,10 +4,10 @@ description: Uma introdução às Tarefas ACR, um conjunto de funcionalidades no
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087282"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar construções e manutenção de contentores com Tarefas ACR
@@ -22,7 +22,7 @@ Os contentores proporcionam novos níveis de virtualização, isolando a aplica�
 
 A ACR Tasks apoia vários cenários para construir e manter imagens de contentores e outros artefactos. Consulte as seguintes secções deste artigo para mais detalhes.
 
-* **[Tarefa rápida](#quick-task)** - Construa e empurre uma única imagem de contentor para um registo de contentores a pedido, em Azure, sem precisar de uma instalação local do Motor Docker. Pense `docker build`, `docker push` na nuvem.
+* **[Tarefa rápida](#quick-task)** - Construa e empurre uma única imagem de contentor para um registo de contentores a pedido, em Azure, sem precisar de uma instalação local do Motor Docker. `docker build`Pense, `docker push` na nuvem.
 * **Tarefas ativadas automaticamente** - Ative um ou mais *gatilhos* para construir uma imagem:
   * **[Desencadear na atualização do código fonte](#trigger-task-on-source-code-update)** 
   * **[Desencadear na atualização da imagem base](#automate-os-and-framework-patching)** 
@@ -39,7 +39,7 @@ O ciclo de desenvolvimento do ciclo interno, o processo iterativo de escrita de 
 
 Antes de comprometer a sua primeira linha de código, a funcionalidade de [tarefa rápida](container-registry-tutorial-quick-task.md) da ACR Tasks pode proporcionar uma experiência de desenvolvimento integrada, descarregando as construções de imagem do seu recipiente para o Azure. Com tarefas rápidas, pode verificar as definições de construção automatizadas e apanhar potenciais problemas antes de comprometer o seu código.
 
-Utilizando o formato familiar `docker build`, o comando de [construção az acr][az-acr-build] no Azure CLI assume um [contexto](#context-locations) (o conjunto de ficheiros para construir), envia-lhe Tarefas ACR e, por padrão, empurra a imagem construída para o seu registo após a conclusão.
+Utilizando o `docker build` formato familiar, o comando de [construção az acr][az-acr-build] no Azure CLI assume um [contexto](#context-locations) (o conjunto de ficheiros para construir), envia-lhe Tarefas ACR e, por padrão, empurra a imagem construída para o seu registo após a conclusão.
 
 Para uma introdução, consulte o quickstart para [construir e executar uma imagem](container-registry-quickstart-task-cli.md) de contentor no Registo de Contentores Azure.  
 
@@ -59,7 +59,7 @@ A Cr Tasks suporta os seguintes gatilhos quando define um repo Git como contexto
 | Acionador | Ativado por predefinição |
 | ------- | ------------------ |
 | Consolidação | Sim |
-| Pedido de puxar | Não |
+| Pedido Pull | Não |
 
 Para configurar um gatilho de atualização de código fonte, é necessário fornecer à tarefa um token de acesso pessoal (PAT) para definir o webhook no repto de GitHub ou Azure DevOps público ou privado.
 
@@ -92,7 +92,7 @@ Por exemplo, pode criar uma tarefa em várias etapas que automatiza o seguinte:
 1. Construir uma imagem de teste de aplicação web
 1. Executar o recipiente de teste de aplicação web, que realiza testes contra o recipiente de aplicação em execução
 1. Se os testes passarem, construa um pacote de arquivo de gráfico helm
-1. Execute uma `helm upgrade` usando o novo pacote de arquivo de gráficos Helm
+1. Execute `helm upgrade` um usando o novo pacote de arquivo de gráficohelm
 
 Tarefas em várias etapas permitem dividir o edifício, correr e testar uma imagem em passos mais comportáveis, com suporte inter-passo de dependência. Com tarefas em várias etapas em Tarefas ACR, você tem mais controlo granular sobre a construção de imagem, testes e SISTEMA e fluxos de trabalho de correção de quadros.
 
@@ -117,11 +117,11 @@ A tabela que se segue apresenta alguns exemplos de localizações de contexto su
 
 ## <a name="image-platforms"></a>Plataformas de imagem
 
-Por padrão, a ACR Tasks constrói imagens para o Sistema Linux OS e para a arquitetura amd64. Especifique a etiqueta `--platform` para construir imagens do Windows ou imagens Linux para outras arquiteturas. Especifique o S e opcionalmente uma arquitetura apoiada em formato OS/arquitetura (por exemplo, `--platform Linux/arm`). Para as arquiteturas ARM, especifique opcionalmente uma variante em formato OS/arquitetura/variante (por exemplo, `--platform Linux/arm64/v8`):
+Por padrão, a ACR Tasks constrói imagens para o Sistema Linux OS e para a arquitetura amd64. Especifique a `--platform` etiqueta para construir imagens do Windows ou imagens Linux para outras arquiteturas. Especifique o S e, opcionalmente, uma arquitetura `--platform Linux/arm`apoiada em formato OS/arquitetura (por exemplo, ). Para as arquiteturas ARM, especifique opcionalmente uma variante `--platform Linux/arm64/v8`em formato OS/arquitetura/variante (por exemplo, ):
 
 | SO | Arquitetura|
 | --- | ------- | 
-| Linux | amd64<br/>braço<br/>arm64<br/>386 |
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |
 
 ## <a name="view-task-output"></a>Ver resultado das tarefas

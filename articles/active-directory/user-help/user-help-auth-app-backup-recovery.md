@@ -12,10 +12,10 @@ ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 2ac761355fc528fe3e4b4b5f05ee0a6e317ff99a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298005"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Back up e recuperar credenciais de conta usando a app Microsoft Authenticator

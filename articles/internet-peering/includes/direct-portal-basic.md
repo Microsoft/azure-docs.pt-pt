@@ -9,47 +9,47 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 79cf4b2edd1a25df427cf15f9ee7f2f331ebd2df
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774643"
 ---
-1. Clique em **criar um recurso** > **ver tudo**.
+1. Clique **em Criar um recurso** > **Ver tudo.**
 
     > [!div class="mx-imgBorder"]
-    > ](../media/setup-seeall.png) de emparelhamento de pesquisa ![
+    > ![Pesquisar Peering](../media/setup-seeall.png)
 
-1. Pesquise *emparelhamento* na caixa de pesquisa e pressione *Enter* no teclado. Nos resultados, clique em recurso de **emparelhamento** .
-
-    > [!div class="mx-imgBorder"]
-    > ![iniciar o emparelhamento](../media/setup-launch.png)
-
-1. Quando o **emparelhamento** for iniciado, examine a página para entender os detalhes. Quando estiver pronto, clique em **criar**.
+1. Procure *o Peering* na caixa de pesquisa e bata *enter* no seu teclado. A partir dos resultados, clique no recurso **Peering.**
 
     > [!div class="mx-imgBorder"]
-    > ![criar emparelhamento](../media/setup-create.png)
+    > ![Peering de lançamento](../media/setup-launch.png)
 
-1. Na página **criar um emparelhamento** , na guia **conceitos básicos** , preencha os campos conforme mostrado abaixo.
+1. Assim que o **Peering** for lançado, reveja a página para compreender os detalhes. Quando estiver pronto, clique em **Criar**.
 
     > [!div class="mx-imgBorder"]
-    > Noções básicas de emparelhamento ![](../media/setup-basics-tab.png)
+    > ![Criar peering](../media/setup-create.png)
 
-    * Escolha sua **assinatura**do Azure.
-    * Para o **grupo de recursos**, você pode escolher um grupo de recursos existente na lista suspensa ou criar um novo grupo clicando em **criar novo**. Criaremos um novo grupo de recursos para este exemplo.
-    * **Nome** corresponde ao nome do recurso e pode ser qualquer coisa que você escolher.
-    * A **região** será selecionada automaticamente se você escolher um grupo de recursos existente na etapa anterior. Se você optar por criar um novo grupo de recursos, também precisará escolher a região do Azure onde deseja que o recurso resida. E.U.A. Leste
+1. Na página **Criar uma página de Peering,** sob o separador **Basics,** preencha os campos como mostrado abaixo.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering Basics](../media/setup-basics-tab.png)
+
+    * Escolha a sua **Assinatura**Azure.
+    * Para **o grupo Recursos,** pode escolher um grupo de recursos existente a partir do drop-down ou criar um novo grupo clicando **em Criar novo**. Criaremos um novo grupo de recursos para este exemplo.
+    * **O nome** corresponde ao nome do recurso e pode ser tudo o que escolher.
+    * **A região** é selecionada automaticamente se escolher um grupo de recursos existente no degrau acima. Se escolheu criar um novo grupo de recursos, então também precisa escolher a região azure onde quer que o recurso resida. E.U.A. Leste
 
         > [!NOTE]
-        > A região onde o grupo de recursos reside é independente do local onde você deseja criar o emparelhamento com a Microsoft. Mas é uma prática recomendada organizar seus recursos de emparelhamento em grupos de recursos que residem nas regiões do Azure mais próximas. Por exemplo: para emparelhamentos no Ashburn, você pode criar um grupo de recursos no *leste dos EUA* ou no *leste dos EUA 2*
+        > Região onde o grupo de recursos reside é independente do local onde pretende criar o peering com a Microsoft. Mas é uma boa prática organizar os seus recursos de observação dentro de grupos de recursos que residem nas regiões mais próximas do Azure. Por exemplo: para espreitar em Ashburn, você pode criar um grupo de recursos no *Leste dos EUA* ou LESTE *US2*
 
-    * Escolha seu ASN no campo **ASN par** .
+    * Escolha o seu ASN no campo **Peer ASN.**
 
         > [!IMPORTANT]
-        > * Você só pode escolher um ASN com ValidationState como "aprovado" antes de enviar uma solicitação de emparelhamento. Se você acabou de enviar sua solicitação PeerAsn, aguarde 12 horas ou para que a associação ASN seja "aprovada". Se o ASN selecionado tiver uma validação pendente, você verá uma mensagem de erro. 
-        > * Se você não vir o ASN que precisa escolher, verifique se você selecionou a assinatura correta. Nesse caso, verifique se você já criou o PeerAsn usando [associar o ASN do peer à assinatura do Azure](../howto-subscription-association-portal.md).
+        > * Só pode escolher um ASN com Validação state como "Aprovado" antes de submeter um pedido de peering. Se acabou de apresentar o seu pedido de PeerAsn, aguarde cerca de 12 horas para que a associação ASN seja "Aprovada". Se o ASN selecionar estiver pendente de validação, verá uma mensagem de erro. 
+        > * Se não vir a ASN, verifique se selecionou a subscrição correta. Em caso afirmativo, verifique se já criou o PeerAsn usando [o Associate Peer ASN para a Assinatura Azure](../howto-subscription-association-portal.md).
 
         > [!div class="mx-imgBorder"]
-        > Noções básicas de emparelhamento ![preenchidas](../media/setup-direct-basics-filled-tab.png)
+        > ![Peering Basics preenchido](../media/setup-direct-basics-filled-tab.png)
 
-    * Clique em **Avançar: configuração >** para continuar.
+    * Clique no **Seguinte: Configuração >** para continuar.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587962"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar a chave gerida pelo cliente Azure Sentinel
@@ -27,7 +27,7 @@ ms.locfileid: "77587962"
 Este artigo fornece informações e passos de fundo para configurar uma chave gerida pelo cliente (CMK) para o Azure Sentinel. A CMK permite que todos os dados guardados ou enviados ao Azure Sentinel sejam encriptados em todos os recursos de armazenamento relevantes com uma chave Azure Key Vault criada ou detida por si.
 
 > [!NOTE]
-> -   A capacidade da CMK Azure Sentinel é fornecida apenas a clientes **novos** e o acesso a esta capacidade é controlado pelo registo de funcionalidades Azure. Pode solicitar acesso contactando azuresentinelCMK@microsoft.com, e como a capacidade está disponível, os pedidos pendentes serão aprovados.
+> -   A capacidade da CMK Azure Sentinel é fornecida apenas a clientes **novos** e o acesso a esta capacidade é controlado pelo registo de funcionalidades Azure.Pode solicitar acesso contactando, azuresentinelCMK@microsoft.come como a capacidade está disponível, os pedidos pendentes serão aprovados.
 > -   A capacidade da CMK Azure Sentinel só está disponível nas regiões leste dos EUA, West US 2 e Sul-Centro dos EUA.
 > -   A capacidade cmk só está disponível para os clientes que enviam 1TB por dia ou mais. Receberá informações sobre preços adicionais quando se candidatar à Microsoft para fornecer CMK na sua subscrição Azure. Saiba mais sobre o carregamento [de Log Analytics.](../azure-monitor/platform/customer-managed-keys.md#disclaimers)
 

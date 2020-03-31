@@ -1,5 +1,5 @@
 ---
-title: Capture dados dos Hubs de Eventos em Azure Data Lake Storage Gen1  Microsoft Docs
+title: Capture dados dos Hubs de Eventos em Azure Data Lake Storage Gen1 [ Microsoft Docs
 description: Use o Azure Data Lake Storage Gen1 para capturar dados dos Centros de Eventos
 services: data-lake-store
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265665"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Use o Azure Data Lake Storage Gen1 para capturar dados dos Centros de Eventos
@@ -24,7 +24,7 @@ Saiba como usar o Azure Data Lake Storage Gen1 para capturar os dados recebidos 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Uma conta De Armazenamento de **Lago Azure Gen1.** Para obter instruções sobre como criar um, consulte Iniciar com [Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
@@ -49,7 +49,7 @@ Nesta secção, cria-se uma pasta dentro da conta onde pretende capturar os dado
 
     ![Atribua permissões para a raiz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Atribua permissões para a raiz de Data Lake Storage Gen1")
 
-    b. Em **'Acesso',** clique em **Adicionar,** clique em **Selecionar utilizador ou grupo,** e depois procure `Microsoft.EventHubs`. 
+    b. Em **'Acesso',** clique em **Adicionar,** clique `Microsoft.EventHubs`em Selecionar utilizador ou **grupo,** e depois procure por . 
 
     ![Atribua permissões para a raiz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Atribua permissões para a raiz de Data Lake Storage Gen1")
     
@@ -58,7 +58,7 @@ Nesta secção, cria-se uma pasta dentro da conta onde pretende capturar os dado
     c. Em **permissões**de atribuição, clique em **Selecionar Permissões**. Definir **permissões** para **executar**. **Desloque-se a** **esta pasta e a todas as crianças**. Definir **Adicionar quanto** a uma entrada de permissão de acesso e uma entrada de **permissão por defeito**.
 
     > [!IMPORTANT]
-    > Ao criar uma nova hierarquia de pastas para capturar dados recebidos pelo Azure Event Hubs, esta é uma forma fácil de garantir o acesso à pasta de destino.  No entanto, adicionar permissões a todas as crianças de uma pasta de alto nível com muitos ficheiros e pastas infantis pode demorar muito tempo.  Se a sua pasta de raiz contiver um grande número de ficheiros e pastas, pode ser mais rápido adicionar permissões **executar** para `Microsoft.EventHubs` individualmente a cada pasta no caminho para a sua pasta de destino final. 
+    > Ao criar uma nova hierarquia de pastas para capturar dados recebidos pelo Azure Event Hubs, esta é uma forma fácil de garantir o acesso à pasta de destino.  No entanto, adicionar permissões a todas as crianças de uma pasta de alto nível com muitos ficheiros e pastas infantis pode demorar muito tempo.  Se a sua pasta de raiz contiver um grande número de ficheiros e pastas, pode ser mais rápido adicionar permissões **executar** individualmente `Microsoft.EventHubs` a cada pasta no caminho para a sua pasta de destino final. 
 
     ![Atribua permissões para a raiz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Atribua permissões para a raiz de Data Lake Storage Gen1")
 
@@ -70,7 +70,7 @@ Nesta secção, cria-se uma pasta dentro da conta onde pretende capturar os dado
 
     ![Atribuir permissões para a pasta Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Atribuir permissões para a pasta Data Lake Storage Gen1")
 
-    b. Em **'Acesso',** clique em **Adicionar,** clique em **Selecionar utilizador ou grupo,** e depois procure `Microsoft.EventHubs`. 
+    b. Em **'Acesso',** clique em **Adicionar,** clique `Microsoft.EventHubs`em Selecionar utilizador ou **grupo,** e depois procure por . 
 
     ![Atribuir permissões para a pasta Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Atribuir permissões para a pasta Data Lake Storage Gen1")
     
@@ -88,11 +88,11 @@ Nesta secção, você cria um Event Hub dentro de um espaço de nome de Event Hu
 
 1. A partir do painel **de visão geral** do espaço de nome do Event Hubs, clique em + Centro de **Eventos**.
 
-    ![Criar hub de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Criar Hub de Eventos")
+    ![Criar Hub de Eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Criar Hub de Eventos")
 
 1. Forneça os seguintes valores para configurar os Centros de Eventos para capturar dados para data Lake Storage Gen1.
 
-    ![Criar hub de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Criar Hub de Eventos")
+    ![Criar Hub de Eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Criar Hub de Eventos")
 
     a. Forneça um nome para o Centro de Eventos.
     

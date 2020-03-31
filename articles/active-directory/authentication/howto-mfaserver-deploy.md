@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53428039055005693f30f63a709105b77fe65f8f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263702"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor Multi-Factor Authentication do Azure
@@ -54,7 +54,7 @@ Verifique se o servidor que está a utilizar para o Multi-Factor Authentication 
 | Requisitos do Servidor Multi-Factor Authentication do Azure | Descrição |
 |:--- |:--- |
 | Hardware |<li>200 MB de espaço no disco rígido</li><li>processador com capacidade de 32 ou 64 bits</li><li>1 GB de RAM ou superior</li> |
-| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições</li><li>Windows Vista, todas as edições, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>O IIS 7.0 ou superior, se estiver a instalar o portal de utilizador ou o SDK do serviço Web</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições</li><li>Windows Vista, todas as edições, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>O IIS 7.0 ou superior, se estiver a instalar o portal de utilizador ou o SDK do serviço Web</li> |
 | Permissões | Conta de Administrador de Domínio ou Administrador de Empresa para se registar no Ative Directory |
 
 ### <a name="azure-mfa-server-components"></a>Componentes de Servidor MFA do Azure
@@ -96,7 +96,7 @@ Se não estiver a utilizar a funcionalidade Confirmação de Eventos e os seus u
 Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azure a partir do portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. Procure e selecione *Azure Ative Directory*. Selecione **Segurança** > **MFA**.
+2. Procure e selecione *Azure Active Directory*. Selecione **Segurança** > **MFA**.
 3. Sob **o Servidor Manager MFA,** selecione as **definições do Servidor**.
 4. Selecione **Transferir** e siga as instruções na página de transferência para guardar o instalador. 
 
@@ -109,7 +109,7 @@ Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azur
 Agora que transferiu o servidor, pode instalá-lo e configurá-lo. Certifique-se de que o servidor no qual o está a instalar cumpre os requisitos listados na secção de planeamento.
 
 1. Faça duplo clique no executável.
-2. No ecrã Selecionar Pasta de Instalação, certifique-se de que a pasta está correta e clique em **Seguinte**.
+2. No ecrã da pasta de instalação Selecione, certifique-se de que a pasta está correta e clique **em Seguinte**.
 3. Quando concluir a instalação, clique em **Concluir**. O assistente de configuração é iniciado.
 4. No ecrã de boas-vindas do assistente de configuração, assinale **Não utilizar o Assistente de Configuração da Autenticação** e clique em **Seguinte**. O assistente fecha e o servidor é iniciado.
 
@@ -204,5 +204,5 @@ Depois de ter atualizado ou instalado a versão do Servidor MFA 8.x ou superior,
 - Defina e configure o [Portal do Utilizador](howto-mfaserver-deploy-userportal.md) para personalização por utilizadores.
 - Configure e defina o Servidor MFA do Azure com o [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), a [Autenticação RADIUS](howto-mfaserver-dir-radius.md) ou a [Autenticação LDAP](howto-mfaserver-dir-ldap.md).
 - Defina e configure o [Gateway de Ambiente de Trabalho Remoto e o Servidor Multi-Factor Authentication do Azure com o RADIUS](howto-mfaserver-nps-rdg.md).
-- [Implemente o Serviço Web de Aplicações Móveis do Servidor Multi-Factor Authentication do Azure](howto-mfaserver-deploy-mobileapp.md).
-- [Cenários avançados com Multi-Factor Authentication do Azure e VPNs de terceiros](howto-mfaserver-nps-vpn.md).
+- Implemente o Serviço Web web do servidor de [autenticação multi-factor Azure](howto-mfaserver-deploy-mobileapp.md).
+- [Cenários avançados com autenticação multi-factor Azure e VPNs de terceiros.](howto-mfaserver-nps-vpn.md)

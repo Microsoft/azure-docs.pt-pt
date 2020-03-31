@@ -1,62 +1,62 @@
 ---
-title: Use inteligência artificial para resolver problemas de negócios com os serviços cognitivas do Azure
-description: Saiba mais sobre o serviço para criar aplicativos móveis inteligentes equipados pela inteligência artificial.
-author: elamalani
+title: Usar inteligência artificial para resolver problemas de negócio com serviços cognitivos Azure
+description: Conheça o serviço para construir aplicações móveis inteligentes alimentadas por inteligência artificial.
+author: codemillmatt
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: ad4babc68f39851beeb3a5c46d295a3342c63026
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: a3955379248c284066ec57d67e61654ac664bfa5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453211"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240950"
 ---
-# <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Os serviços cognitivas ajudam a resolver problemas de negócios usando o ia
-Os [Serviços cognitivas do Azure](https://azure.microsoft.com/services/cognitive-services/) fornecem serviços avançados para Turbine seus aplicativos com algoritmos inteligentes para ver, ouvir, falar, entender e interpretar suas necessidades de usuário para transformar seus negócios com inteligência artificial (ia). Você pode tornar seus aplicativos móveis inteligentes, atraentes e contextualmente relevantes para seus usuários. Os desenvolvedores podem usar as APIs, os SDKs e os serviços para adicionar o ia às suas ofertas e ajudar a criar aplicativos inteligentes sem ter habilidades diretas de ia ou ciência de dados.
+# <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Serviços Cognitivos ajudam a resolver problemas de negócio usando IA
+[O Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) fornece serviços poderosos para infundir as suas apps com algoritmos inteligentes para ver, ouvir, falar, compreender e interpretar as necessidades do seu utilizador para transformar o seu negócio com inteligência artificial (IA). Pode tornar as suas aplicações móveis inteligentes, envolventes e contextualizaçãomente relevantes para os seus utilizadores. Os desenvolvedores podem usar as APIs, SDKs e serviços para adicionar IA às suas ofertas e ajudar a construir aplicações inteligentes sem ter competências diretas de IA ou ciência de dados.
 
-## <a name="cognitive-services-capabilities"></a>Recursos de serviços cognitivas
+## <a name="cognitive-services-capabilities"></a>Capacidades de Serviços Cognitivos
 - **Visão**
     - Marcação de imagem, miniaturas
-    - OCR (reconhecimento de manuscrito)
+    - OCR (reconhecimento de caligrafia)
     - Deteção de rostos
-    - Detecção de emoções
-    - Informações de vídeo
+    - Deteção de emoção
+    - Insights de vídeo
     - Moderação de imagem e vídeo
     - Reconhecimento de imagem personalizado
 
-- **Reconhecimento de voz**
-    - Conversão de fala em texto (transcrição de fala)
-    - Transcrição de fala personalizada (palavras complexas, ambiente barulhento)
+- **Voz**
+    - Discurso ao texto (transcrição da fala)
+    - Transcrição personalizada da fala (palavras complexas, ambiente ruidoso)
     - Conversão de texto em voz
     - ID do orador e autenticação
-    - Tradução de voz em tempo real
+    - Tradução da fala em tempo real
 
-- **Language** (Idioma)
-    - Reconhecimento de linguagem contextual, análise de intenção personalizada
-    - Análise de sentimentos, detecção de frases-chave
+- **Língua**
+    - Compreensão linguística contextual, análise de intenção personalizada
+    - Análise de sentimentos, deteção de frases-chave
     - Tradução de texto até 60 idiomas
-    - Moderação de textos
+    - Moderação de texto
     - Verificação ortográfica
 
-- **Tomada** 
+- **Decisão** 
     - Moderador de conteúdo
-    - Fornecimento de conteúdo personalizado
-    - Detector de anomalias
+    - Entrega de conteúdo personalizado
+    - Detetor de anomalias
 
-- **Pesquisa**
+- **Procurar**
     - Sugestões de pesquisa automática 
-    - Aumento de informações da entidade
-    - Pesquisa abrangente de notícias, imagem, vídeo, Web e localização de entidades comerciais locais
-    - Experiências de pesquisa personalizadas e personalizada
+    - Aumento da informação da entidade
+    - Pesquisa completa de notícias, imagens, vídeo, web e entidade seleções locais
+    - Experiências de pesquisa personalizadas e personalizadas
 
-- Suporte para contêineres para serviços cognitivas
+- Suporte para contentores para serviços cognitivos
 
  ## <a name="references"></a>Referências
-   - [Portal do Azure](https://portal.azure.com) 
+   - [Portal Azure](https://portal.azure.com) 
    - [Documentação dos Serviços Cognitivos (Cognitive Services documentation)](/azure/cognitive-services/welcome)
-   - [Inícios rápidos](/azure/cognitive-services/cognitive-services-apis-create-account)
-   - [Suporte a contêiner](/azure/cognitive-services/cognitive-services-container-support)
-   - [Inícios rápidos](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
+   - [Arranques rápidos](/azure/cognitive-services/cognitive-services-apis-create-account)
+   - [Suporte de contentor](/azure/cognitive-services/cognitive-services-container-support)
+   - [Arranques rápidos](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)

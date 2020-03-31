@@ -5,13 +5,13 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: e66e7d4646b650d2d811d3807db04605dfddeded
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184773"
 ---
-1. No seu **app** do projeto, abra o arquivo `AndroidManifest.xml`. Adicione o seguinte código após o `application` tag de início:
+1. No seu projeto de `AndroidManifest.xml` **aplicação,** abra o ficheiro. Adicione o seguinte `application` código após a etiqueta de abertura:
 
     ```xml
     <service android:name=".ToDoMessagingService">
@@ -26,15 +26,15 @@ ms.locfileid: "67184773"
     </service>
     ```
 
-2. Abra o ficheiro `ToDoActivity.java`e certifique-se ao seguir as alterações:
+2. Abra o `ToDoActivity.java`ficheiro e faça as seguintes alterações:
 
-    - Adicione a instrução de importação:
+    - Adicione a declaração de importação:
 
         ```java
         import com.google.firebase.iid.FirebaseInstanceId;
         ```
 
-    - Alterar a definição do `MobileServiceClient` partir **privada** para **estático privado**, por isso, ele agora esta aparência:
+    - Mude a `MobileServiceClient` definição de estática **privada** para **privada,** por isso agora se parece com isto:
 
         ```java
         private static MobileServiceClient mClient;
@@ -56,13 +56,13 @@ ms.locfileid: "67184773"
         }
         ```
 
-    - Atualização do **onCreate** método o `ToDoActivity` classe. Certifique-se de adicionar esse código após o `MobileServiceClient` é instanciado.
+    - Atualizar o método **onCreate** da `ToDoActivity` classe. Certifique-se de adicionar `MobileServiceClient` este código depois de o instantâneo.
 
         ```java
         registerPush();
         ```
 
-3. Adicione uma nova classe para processar as notificações. No Explorador de projeto, abra a **app** > **java** > **namespace seu projeto** nós e o botão direito do mouse no nó de nome de pacote. Clique em **New**e, em seguida, clique em **classe Java**. Em nome, digite `ToDoMessagingService`e, em seguida, clique em OK. Em seguida, substitua a declaração da classe com:
+3. Adicione uma nova classe para lidar com notificações. No Project Explorer, abra a **app** > **java** > os seus nós**de espaço de nome do projeto** e clique no nó de nome do pacote. Clique em **Novo**e, em seguida, clique na **Classe Java.** Em Nome, `ToDoMessagingService`escreva, e, em seguida, clique OK. Em seguida, substitua a declaração de classe por:
 
     ```java
     import android.app.Notification;
@@ -101,7 +101,7 @@ ms.locfileid: "67184773"
     }
     ```
 
-4. Adicione outra classe para lidar com atualizações de token. Criar `ToDoInstanceIdService` java de classe e substitua a declaração da classe com:
+4. Adicione outra classe para lidar com atualizações de token. Crie `ToDoInstanceIdService` a classe java e substitua a declaração de classe por:
 
     ```java
     import com.google.firebase.iid.FirebaseInstanceIdService;
@@ -115,4 +115,4 @@ ms.locfileid: "67184773"
     }
     ```
 
-A aplicação foi atualizada para suportar notificações push.
+A sua aplicação está agora atualizada para suportar notificações push.

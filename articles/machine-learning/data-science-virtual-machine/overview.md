@@ -10,20 +10,20 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 12/31/2019
-ms.openlocfilehash: ea53ee3f3c1d39652982b6343b1e634dac1fbc75
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a5fbcc1eef8717fdb1aa7f914c3e0ba6594fc27a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241627"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281804"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual de Ciência de Dados Azure para Linux e Windows?
 
 A Máquina Virtual de Ciência de Dados (DSVM) é uma imagem VM personalizada na plataforma de nuvem Azure construída especificamente para fazer ciência de dados. Tem muitas ferramentas populares de ciência de dados pré-instaladas e pré-configuradas para iniciar a construção de aplicações inteligentes para análise avançada. 
 
 O DSVM está disponível em:
-+ **Windows Server 2019 (Pré-visualização)**
-+ **Ubuntu 18.04 LTS (Pré-visualização)**
++ **Windows Server 2019**
++ **Ubuntu 18.04 LTS**
 + Windows Server 2016
 + Ubuntu 16.04 LTS e CentOS 7.4
 

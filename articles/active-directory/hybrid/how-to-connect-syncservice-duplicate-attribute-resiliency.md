@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5585f0cd04dca4145f0322db9d625e35372b24b5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298348"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
@@ -40,7 +40,7 @@ Se houver uma tentativa de fornecer um novo objeto com um valor UPN ou ProxyAddr
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportamento com Resistência do Atributo Duplicado
 Em vez de não fornecer ou atualizar completamente um objeto com um atributo duplicado, o Diretório Ativo do Azure "põe em quarentena" o atributo duplicado que violaria a restrição de singularidade. Se este atributo for necessário para o fornecimento, como userPrincipalName, o serviço atribui um valor de espaço reservado. O formato destes valores temporários é  
-_**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com**_ .
+OriginalPrefix>_**+\<4DigitNumber \@ \<>InitialTenantDomain>.onmicrosoft.com . \<**_
 
 O processo de resiliência do atributo trata apenas dos valores UPN e SMTP **ProxyAddress.**
 
@@ -68,7 +68,7 @@ Para verificar se a funcionalidade está ativada para o seu inquilino, pode faz�
 > [!NOTE]
 > Já não pode utilizar o cmdlet Set-MsolDirSyncFeature para ativar proactivamente a funcionalidade de resiliência do Atributo Duplicate antes de ser ativada para o seu inquilino. Para poder testar a funcionalidade, terá de criar um novo inquilino do Azure Ative Directory.
 
-## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identificar objetos com Erros de Fornecimento dirSync
+## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identificação de Objetos com DirSyncProvisioningErrors
 Existem atualmente dois métodos para identificar objetos que têm estes erros devido a duplicados conflitos de propriedades, O Diretório Ativo Azure PowerShell e o centro de administração microsoft [365](https://admin.microsoft.com). Há planos para estender a informação adicional baseada em portal no futuro.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory do PowerShell
@@ -88,7 +88,7 @@ Em seguida, utilize os seguintes cmdlets e operadores para ver erros de diferent
 5. Ordenado
 6. [Em uma quantidade limitada ou tudo](#in-a-limited-quantity-or-all)
 
-#### <a name="see-all"></a>Ver tudo
+#### <a name="see-all"></a>Ver todos
 Uma vez ligado, para ver uma lista geral de erros de provisão de atributos na execução do arrendatário:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
@@ -121,7 +121,7 @@ Para fazer uma pesquisa de cordas largas, use a bandeira **-SearchString.** Isto
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="microsoft-365-admin-center"></a>Centro de administração da Microsoft 365
+## <a name="microsoft-365-admin-center"></a>Centro de administração do Microsoft 365
 Pode ver erros de sincronização de diretórios no centro de administração da Microsoft 365. O relatório no centro de administração da Microsoft 365 apenas exibe objetos **de utilizador** que tenham estes erros. Não mostra informações sobre conflitos entre **Grupos** e **Contactos.**
 
 ![Utilizadores Ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Utilizadores Ativos")
@@ -147,7 +147,7 @@ Nenhuma destas questões conhecidas causa perda de dados ou degradação do serv
 1. Os objetos com configurações específicas do atributo continuam a receber erros de exportação em oposição ao ou atributo duplicado em quarentena.  
    Por exemplo:
    
-    a. Novo utilizador é criado em AD com uma UPN de **Joe\@contoso.com** e ProxyAddress **smtp:Joe\@contoso.com**
+    a. Novo utilizador é criado em AD com uma UPN de **Joe\@contoso.com** e ProxyAddress **\@smtp:Joe contoso.com**
    
     b. As propriedades deste objeto entram em conflito com um grupo existente, onde proxyAddress é **SMTP:Joe\@contoso.com**.
    
@@ -159,23 +159,23 @@ Nenhuma destas questões conhecidas causa perda de dados ou degradação do serv
 1. A mensagem de erro detalhada para dois objetos num conjunto de conflitos da UPN é a mesma. Isto indica que ambos tiveram a sua UPN alterada/quarentena, quando na verdade apenas um deles tinha qualquer alteração de dados.
 2. A mensagem de erro detalhada para um conflito UPN mostra o nome de exibição errado para um utilizador que teve a sua UPN alterada/quarentena. Por exemplo:
    
-    a. **Utilizador A** sincroniza-se primeiro com **UPN = utilizador\@contoso.com**.
+    a. **Utilizador A** sincroniza-se primeiro com **UPN\@= utilizador contoso.com**.
    
-    b. **O utilizador B** é tentado a ser sincronizado a seguir com **UPN = utilizador\@contoso.com**.
+    b. **O utilizador B** é tentado a ser sincronizado a seguir com **UPN =\@Utilizador contoso.com**.
    
-    c. **Utilizadores B's** A UPN é alterada para **User1234\@contoso.onmicrosoft.com** e **user\@contoso.com** é adicionado aos Erros de Fornecimento de **DirSync.**
+    c. **Utilizadores B's** A UPN é alterada para **User1234\@contoso.onmicrosoft.com** e **user\@contoso.com** é adicionado ao **DirSyncProvisioningErrors**.
    
-    d. A mensagem de erro do **Utilizador B** deve indicar que o **Utilizador A** já tem contoso.com de utilizador **\@** como UPN, mas mostra o próprio nome de visualização do **Utilizador B.**
+    d. A mensagem de erro do **Utilizador B** deve indicar que o **Utilizador A** já tem contoso.com **utilizador\@** como UPN, mas mostra o próprio nome de visualização **do Utilizador B.**
 
 **Relatório de erro**de sincronização de identidade:
 
 O link para *as etapas sobre a forma de resolver esta questão* é incorreto:  
     ![Utilizadores Ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Utilizadores Ativos")  
 
-Deve apontar para [https://aka.ms/duplicateattributeresiliency. ](https://aka.ms/duplicateattributeresiliency)
+Deve apontar [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)para.
 
 ## <a name="see-also"></a>Consulte também
-* [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Sincronização azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 * [Identificar erros de sincronização de diretório sincronia no Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

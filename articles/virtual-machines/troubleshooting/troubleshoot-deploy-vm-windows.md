@@ -15,32 +15,32 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921416"
 ---
-# <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Problemas implementam problemas de máquinas virtuais do Windows em Azure
+# <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Resolver problemas de implementação de máquinas virtuais do Windows no Azure
 
 Para resolver problemas de implantação de máquinas virtuais (VM) em Azure, reveja as [principais questões](#top-issues) para falhas e resoluções comuns.
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
 
 ## <a name="top-issues"></a>Principais questões
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>O cluster não pode suportar o tamanho de VM solicitado
-\<propriedades suportamTopicIds="123456789" recursoTags="windows" produtoPesIds="1234, 5678" />
+\<propriedades suportatids="123456789" recursosTags="windows" produtoPesIds="1234, 5678" />
 - Tente novamente o pedido utilizando um tamanho VM menor.
 - Se o tamanho do VM solicitado não puder ser alterado:
-    - Pare todos os VMs no conjunto de disponibilidade. Clique em **Grupos de Recursos** > o seu grupo de recursos > **Recursos** > o seu conjunto de disponibilidade > **Máquinas Virtuais** > a sua máquina virtual > **Stop**.
+    - Pare todos os VMs no conjunto de disponibilidade. Clique em **grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Stop**.
     - Depois de todos os VMs pararem, crie o VM no tamanho desejado.
     - Inicie primeiro o novo VM e, em seguida, selecione cada um dos VMs parados e clique em Iniciar.
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>O cluster não tem recursos livres
-\<propriedades suportamTopicIds="123456789" recursoTags="windows" produtoPesIds="1234, 5678" />
+\<propriedades suportatids="123456789" recursosTags="windows" produtoPesIds="1234, 5678" />
 - Tente o pedido mais tarde.
 - Se o novo VM pode fazer parte de um conjunto de disponibilidade diferente
     - Crie um VM num conjunto de disponibilidade diferente (na mesma região).
@@ -123,4 +123,4 @@ Sim. Pode adicionar um VM clássico existente a um novo conjunto de disponibilid
 ## <a name="next-steps"></a>Passos seguintes
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+Em alternativa, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

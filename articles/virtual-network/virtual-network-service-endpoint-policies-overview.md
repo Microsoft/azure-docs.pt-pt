@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651304"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de endpoint de serviço de rede virtual para armazenamento Azure

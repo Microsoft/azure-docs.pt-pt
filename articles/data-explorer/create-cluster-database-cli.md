@@ -1,5 +1,5 @@
 ---
-title: Crie um cluster e DB do Azure Data Explorer com o Azure CLI
+title: Criar um cluster Azure Data Explorer & DB com o Azure CLI
 description: Saiba como criar um cluster e base de dados azure Data Explorer utilizando o Azure CLI
 author: radennis
 ms.author: radennis
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 6b8c2924e50da095c3bc5c7db2d2bf48ef5a27c2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77561940"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Criar um cluster e base de dados Azure Data Explorer utilizando o Azure CLI
@@ -20,11 +20,11 @@ ms.locfileid: "77561940"
 > * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
-> * [python](create-cluster-database-python.md)
-> * [Modelo ARM](create-cluster-database-resource-manager.md)
+> * [C #](create-cluster-database-csharp.md)
+> * [Pitão](create-cluster-database-python.md)
+> * [Modelo de BRAÇO](create-cluster-database-resource-manager.md)
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, cria-se primeiro um cluster e cria-se uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa base de dados para que possa fazer perguntas contra ele. Neste artigo, cria um cluster e uma base de dados utilizando o Azure CLI.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Azure Data Explorer, primeiro crie um cluster e crie uma ou mais bases de dados nesse cluster. Em seguida, ingira (carregue) os dados para uma base de dados, de modo a poder executar consultas neles. Neste artigo, cria um cluster e uma base de dados utilizando o Azure CLI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,7 +72,7 @@ Os seguintes passos não são necessários se estiver a comandar comandos em Azu
     az kusto cluster show --name azureclitest --resource-group testrg
     ```
 
-Se o resultado contiver `provisioningState` com o valor `Succeeded`, então o cluster foi criado com sucesso.
+Se o `provisioningState` resultado `Succeeded` contiver o valor, então o cluster foi criado com sucesso.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar a base de dados no cluster Azure Data Explorer
 

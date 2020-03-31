@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
 ms.openlocfilehash: beb1562738699bbcede58d8214e69342abbb7c93
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266939"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mostra erro de ecrã azul ao iniciar um VM Azure
@@ -44,7 +44,7 @@ Pode haver várias razões para ter um erro de paragem. As causas mais comuns s�
 
 Para resolver este problema, você precisaria primeiro de recolher o ficheiro de despejo para o acidente e o suporte de contato com o ficheiro de despejo. Para recolher o ficheiro Dump, siga estes passos:
 
-### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
+### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Fixe o disco OS a um VM de recuperação
 
 1. Tire uma foto do disco operativo do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 2. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação . 
@@ -57,9 +57,9 @@ Para resolver este problema, você precisaria primeiro de recolher o ficheiro de
 
 Se não encontrar o ficheiro de despejo, desloque o próximo passo para ativar o registo de despejo e a Consola em Série.
 
-### <a name="enable-dump-log-and-serial-console"></a>Ativar o registo de informação e a consola de série
+### <a name="enable-dump-log-and-serial-console"></a>Ativar o registo de despejo e a consola em série
 
-Para ativar o registo de despejo e consola de série, execute o seguinte script.
+Para ativar o registo de despejo e a Consola em Série, execute o seguinte script.
 
 1. Abrir a sessão de solicitação de comando elevado (Executar como administrador).
 2. Execute o seguintes script:

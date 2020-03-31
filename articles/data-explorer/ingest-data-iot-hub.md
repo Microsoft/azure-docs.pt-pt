@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 78455c90bab694b77a5e4a56d0b40518867d8d8c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77188353"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Ingerir dados do IoT Hub no Azure Data Explorer 
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-iot-hub.md)
-> * [C#](data-connection-iot-hub-csharp.md)
-> * [python](data-connection-iot-hub-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
+> * [C #](data-connection-iot-hub-csharp.md)
+> * [Pitão](data-connection-iot-hub-python.md)
+> * [Modelo Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) do IoT Hub, uma plataforma de streaming de big data e serviço de ingestão de IoT.
 
@@ -41,7 +41,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Criar uma tabela de destino no Azure Data Explorer
 
-Agora cria-se uma tabela no Azure Data Explorer para o qual o IoT Hubs enviará dados. Cria a tabela no cluster e na base de dados aprovisionada em [**Pré-requisitos.** ](#prerequisites)
+Agora cria-se uma tabela no Azure Data Explorer para o qual o IoT Hubs enviará dados. Cria a tabela no cluster e na base de dados aprovisionada em [**Pré-requisitos.**](#prerequisites)
 
 1. No portal Azure, navegue para o seu cluster e selecione **Consulta**.
 
@@ -96,7 +96,7 @@ Agora ligue-se ao Hub IoT do Azure Data Explorer. Quando esta ligação estiver 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A mesa que criou no **testdb.** |
-    | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
+    | Formato de dados | *Rio JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
     | Mapeamento de colunas | *TestMapping* | O [mapeamento](/azure/kusto/management/mappings) que criou no **testdb,** que mapeia os dados jSON que chegam aos nomes das colunas e tipos de dados de **testdb**. Necessário para JSON, MULTILINE JSON e AVRO, e opcional para outros formatos.|
     | | |
 
@@ -116,7 +116,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 1. Abra o ficheiro **SimulatedDevice.cs** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `s_connectionString` com a cadeia de ligação do dispositivo do [Registo de um dispositivo ao Hub IoT](#register-a-device-to-the-iot-hub). Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.cs**.
+    Substitua o `s_connectionString` valor da variável pela cadeia de ligação do dispositivo do [Registo de um dispositivo ao Hub IoT](#register-a-device-to-the-iot-hub). Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.cs**.
 
 1. Na janela de terminal local, execute os seguintes comandos para instalar os pacotes exigidos para a aplicação de dispositivo simulado:
 

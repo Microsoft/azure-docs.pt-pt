@@ -1,6 +1,6 @@
 ---
-title: Adicionar um repositório git a um laboratório no Azure DevTest Labs | Microsoft Docs
-description: Saiba como adicionar um repositório do GitHub ou Azure DevOps Services git para sua fonte de artefatos personalizados no Azure DevTest Labs.
+title: Adicione um repositório Git a um laboratório em Azure DevTest Labs [ Microsoft Docs
+description: Aprenda a adicionar um repositório GitHub ou Azure DevOps Services Git para a sua fonte de artefactos personalizados em Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1e7587c60e180fb35e1a2bed735b053b6b0c388a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755822"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294612"
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório Git para armazenar artefatos personalizados e modelos do Resource Manager
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicione um repositório Git para armazenar artefactos personalizados e modelos de Gestor de Recursos
 
-Você pode [criar artefatos personalizados](devtest-lab-artifact-author.md) para as VMs em seu laboratório ou [usar Azure Resource Manager modelos para criar um ambiente de teste personalizado](devtest-lab-create-environment-from-arm.md). Você deve adicionar um repositório git privado para os artefatos ou modelos do Resource Manager que sua equipe cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou em [Azure DevOps Services](https://visualstudio.com).
+Você pode [criar artefactos personalizados](devtest-lab-artifact-author.md) para os VMs no seu laboratório, ou [usar modelos de Gestor de Recursos Azure para criar um ambiente](devtest-lab-create-environment-from-arm.md)de teste personalizado . Você deve adicionar um repositório git privado para os artefactos ou modelos de Gestor de Recursos que a sua equipa cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou nos [Serviços Azure DevOps.](https://visualstudio.com)
 
-Oferecemos um [repositório GitHub de artefatos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) que podem ser implantados no estado em que se encontram ou você pode personalizá-los para seus laboratórios. Ao personalizar ou criar um artefato, você não pode armazenar o artefato no repositório público. Você deve criar seu próprio repositório privado para artefatos personalizados e para artefatos que você criar. 
+Oferecemos um [repositório GitHub de artefactos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) que pode implementar como está, ou pode personalizá-los para os seus laboratórios. Quando se personaliza ou cria um artefacto, não se pode armazenar o artefacto no repositório público. Você deve criar seu próprio repo privado para artefactos personalizados e para artefactos que você cria. 
 
-Ao criar uma VM, você pode salvar o modelo do Resource Manager, personalizá-lo, se desejar, e usá-lo posteriormente para criar mais VMs. Você deve criar seu próprio repositório privado para armazenar seus modelos personalizados do Resource Manager.  
+Quando criar um VM, pode guardar o modelo de Gestor de Recursos, personalizá-lo se quiser e depois usá-lo mais tarde para criar mais VMs. Você deve criar o seu próprio repositório privado para armazenar os seus modelos personalizados de Gestor de Recursos.  
 
-* Para saber como criar um repositório GitHub, consulte [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Para saber como criar um projeto Azure DevOps Services que tenha um repositório git, consulte [conectar-se ao Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Para aprender a criar um repositório GitHub, consulte [gitHub Bootcamp](https://help.github.com/categories/bootcamp/).
+* Para aprender a criar um projeto Azure DevOps Services que tenha um repositório Git, consulte [Connect to Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-A figura a seguir é um exemplo de como um repositório com artefatos pode parecer no GitHub:  
+A figura que se segue é um exemplo de como um repositório que tem artefactos pode parecer no GitHub:  
 
-![Repositório de artefatos do GitHub de exemplo](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
+![Amostra GitHub artefactos repo](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
-## <a name="get-the-repository-information-and-credentials"></a>Obter as informações e as credenciais do repositório
-Para adicionar um repositório ao seu laboratório, primeiro, obtenha informações de chave do seu repositório. As seções a seguir descrevem como obter informações necessárias para repositórios hospedados no GitHub ou Azure DevOps Services.
+## <a name="get-the-repository-information-and-credentials"></a>Obtenha as informações e credenciais do repositório
+Para adicionar um repositório ao seu laboratório, primeiro, obtenha informações chave do seu repositório. As seguintes secções descrevem como obter informações necessárias para repositórios que estão hospedados nos Serviços GitHub ou Azure DevOps.
 
-### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obter a URL de clone do repositório do GitHub e o token de acesso pessoal
+### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtenha o URL de clone de clone do gitHub e o token de acesso pessoal
 
-1. Vá para a home page do repositório GitHub que contém as definições de modelo de artefato ou do Resource Manager.
+1. Vá à página inicial do repositório GitHub que contém as definições de modelo de artefacto ou gestor de recursos.
 2. Selecione **Clone or download** (Clonar ou transferir).
-3. Para copiar a URL para a área de transferência, selecione o botão **URL de clone https** . Salve a URL para uso posterior.
-4. No canto superior direito do GitHub, selecione a imagem do perfil e, em seguida, selecione **configurações**.
-5. No menu **configurações pessoais** à esquerda, selecione **tokens de acesso pessoal**.
-6. Selecione **gerar novo token**.
-7. Na página **novo token de acesso pessoal** , em **Descrição do token**, insira uma descrição. Aceite os itens padrão em **selecionar escopos**e, em seguida, selecione **gerar token**.
-8. Salve o token gerado. Você usará o token mais tarde.
+3. Para copiar o URL para a área de cópia, selecione o botão de url do **clone HTTPS.** Guarde o URL para posterior utilização.
+4. No canto superior direito do GitHub, selecione a imagem de perfil e, em seguida, selecione **Definições**.
+5. No menu de **definições pessoais** à esquerda, selecione **fichas**de acesso pessoal .
+6. **Selecione Gerar novo símbolo**.
+7. Na nova página de ficha de **acesso pessoal,** sob **a descrição de Token,** introduza uma descrição. Aceite os itens predefinidos em **âmbitos Select**, e, em seguida, selecione **Generate Token**.
+8. Guarde o símbolo gerado. Usa o símbolo mais tarde.
 9. Feche o GitHub.   
-10. Vá para a seção [conectar seu laboratório ao repositório](#connect-your-lab-to-the-repository) .
+10. Continue a ligar o seu laboratório à secção de [repositório.](#connect-your-lab-to-the-repository)
 
-### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obter a URL de clone de Azure Repos e o token de acesso pessoal
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtenha o URL clone azure Repos e ficha de acesso pessoal
 
-1. Vá para a home page da sua coleção de equipe (por exemplo, https://contoso-web-team.visualstudio.com) e, em seguida, selecione seu projeto.
-2. No home page do projeto, selecione **código**.
-3. Para exibir a URL de clone, na página de **código** do projeto, selecione **clonar**.
-4. Salve a URL. Você usará a URL mais tarde.
-5. Para criar um token de acesso pessoal, no menu suspenso conta de usuário, selecione **meu perfil**.
-6. Na página informações do perfil, selecione **segurança**.
-7. Na guia **segurança** , selecione **Adicionar**.
-8. Na página **criar um token de acesso pessoal** :
-   1. Insira uma **Descrição** para o token.
-   2. Na lista **expira em** , selecione **180 dias**.
-   3. Na lista **contas** , selecione **todas as contas acessíveis**.
-   4. Selecione a opção **somente leitura** .
-   5. Selecione **criar token**.
-9. O novo token aparece na lista de **tokens de acesso pessoal** . Selecione **copiar token**e, em seguida, salve o valor do token para uso posterior.
-10. Vá para a seção [conectar seu laboratório ao repositório](#connect-your-lab-to-the-repository) .
+1. Vá à página inicial da sua coleção `https://contoso-web-team.visualstudio.com`de equipas (por exemplo, e depois selecione o seu projeto.
+2. Na página inicial do projeto, selecione **Código**.
+3. Para visualizar o URL do clone, na página **código** do projeto, selecione **Clone**.
+4. Guarde a URL. Usa o URL mais tarde.
+5. Para criar um sinal de acesso pessoal, no menu de entrega da conta de utilizador, **selecione O meu perfil**.
+6. Na página de informações do perfil, selecione **Segurança**.
+7. No separador **Segurança,** selecione **Adicionar**.
+8. Na página **criar um token** de acesso pessoal:
+   1. Insira uma **descrição** para o símbolo.
+   2. Na lista **Expira,** selecione **180 dias**.
+   3. Na lista **de Contas,** selecione **Todas as contas acessíveis**.
+   4. Selecione a opção **Ler Apenas.**
+   5. Selecione **Criar Token**.
+9. O novo símbolo aparece na lista de Fichas de **Acesso Pessoal.** Selecione **Copy Token**e, em seguida, guarde o valor do símbolo para utilização posterior.
+10. Continue a ligar o seu laboratório à secção de [repositório.](#connect-your-lab-to-the-repository)
 
-## <a name="connect-your-lab-to-the-repository"></a>Conectar seu laboratório ao repositório
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** na lista de serviços.
-3. Na lista de laboratórios, selecione seu laboratório. 
-4. Selecione **configuração e políticas**  > **repositórios**  >  **+ Adicionar**.
+## <a name="connect-your-lab-to-the-repository"></a>Ligue o seu laboratório ao repositório
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selecione **Mais Serviços**e, em seguida, selecione **DevTest Labs** da lista de serviços.
+3. Da lista de laboratórios, selecione o seu laboratório. 
+4. **Selecione Configuração e políticas** > **Repositórios** > **+ Adicionar**.
 
-    ![O botão Adicionar repositório](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-5. Na segunda página **repositórios** , especifique as seguintes informações:
-   1. **Nome**. Insira um nome para o repositório.
-   2. **URL de git clone**. Insira a URL de clone HTTPS do git que você copiou anteriormente do GitHub ou Azure DevOps Services.
-   3. **Ramificação**. Para obter suas definições, insira a ramificação.
-   4. **Token de acesso pessoal**. Insira o token de acesso pessoal que você obteve anteriormente do GitHub ou Azure DevOps Services.
-   5. **Caminhos de pasta**. Insira pelo menos um caminho de pasta relativo à URL de clone que contém suas definições de modelo de artefato ou do Resource Manager. Ao especificar um subdiretório, certifique-se de incluir a barra no caminho da pasta.
+    ![Botão de repositório Adicionar](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
+5. Na segunda página dos **Repositórios,** especifique as seguintes informações:
+   1. **Nome.** Insira um nome para o repositório.
+   2. **Git Clone Url**. Introduza o URL de clone Git HTTPS que copiou anteriormente dos Serviços GitHub ou Azure DevOps.
+   3. **Ramo.** Para obter as suas definições, entre no ramo.
+   4. Ficha de **Acesso Pessoal.** Introduza o sinal de acesso pessoal que obteve mais cedo dos Serviços GitHub ou Azure DevOps.
+   5. **Caminhos da Pasta**. Introduza pelo menos um caminho de pasta em relação ao URL do clone que contém as definições do seu artefacto ou do modelo do Gestor de Recursos. Quando especificar um subdiretório, certifique-se de que inclui o corte dianteiro no caminho da pasta.
 
-      ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Área dos repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Selecione **Guardar**.
 
-### <a name="related-blog-posts"></a>Postagens de blog relacionadas
-* [Solucionar problemas de artefatos com falha no DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Ingressar uma VM em um domínio Active Directory existente usando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+### <a name="related-blog-posts"></a>Posts de blog relacionados
+* [Problemas falham artefactos em Laboratórios DevTest](devtest-lab-troubleshoot-artifact-failure.md)
+* [Junte-se a um VM a um domínio de Diretório Ativo existente usando um modelo de Gestor de Recursos em Laboratórios DevTest](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de criar seu repositório git privado, você pode executar um dos seguintes procedimentos, dependendo de suas necessidades:
-* Armazene seus [artefatos personalizados](devtest-lab-artifact-author.md). Você pode usá-los posteriormente para criar novas VMs.
-* [Crie ambientes de várias VMs e recursos de PaaS usando modelos do Resource Manager](devtest-lab-create-environment-from-arm.md). Em seguida, você pode armazenar os modelos em seu repositório privado.
+Depois de ter criado o seu repositório privado Git, pode fazer um ou ambos os seguintes, dependendo das suas necessidades:
+* Guarde os seus [artefactos personalizados.](devtest-lab-artifact-author.md) Pode usá-los mais tarde para criar novos VMs.
+* [Crie ambientes multi-VM e recursos PaaS utilizando modelos](devtest-lab-create-environment-from-arm.md)de Gestor de Recursos . Depois, pode armazenar os modelos no seu repo privado.
 
-Ao criar uma VM, você pode verificar se os artefatos ou modelos são adicionados ao repositório git. Eles ficam imediatamente disponíveis na lista de artefatos ou modelos. O nome do seu repositório privado é mostrado na coluna que especifica a origem. 
+Quando criar um VM, pode verificar se os artefactos ou modelos são adicionados ao seu repositório Git. Estão imediatamente disponíveis na lista de artefactos ou modelos. O nome do seu repo privado é mostrado na coluna que especifica a fonte. 

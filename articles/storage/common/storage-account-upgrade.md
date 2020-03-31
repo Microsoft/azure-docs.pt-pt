@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 42cef26143eaeb49c4aa80dc5e1b05eb7be943cc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268460"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067221"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Upgrade para uma conta de armazenamento v2 de uso geral
 
@@ -26,7 +26,7 @@ A atualização para uma conta de armazenamento v2 de propósito geral a partir 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue até à sua conta de armazenamento.
 3. Na secção **Definições,** clique em **Configuração**.
 4. Em **Tipo de conta**, clique em **Atualizar**.
@@ -46,13 +46,13 @@ Em seguida, ligue para o seguinte comando para atualizar a conta, substituindo o
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para atualizar uma conta v1 de uso geral para uma conta v2 de uso geral utilizando o Azure CLI, instale primeiro a versão mais recente do Azure CLI. Veja [Install the Azure CLI 2.0 ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalar a CLI 2.0 do Azure) para obter informações sobre a instalação da CLI.
 
 Em seguida, ligue para o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos, o nome da conta de armazenamento e o nível de acesso à conta pretendido.
 
-```cli
+```azurecli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
@@ -140,12 +140,12 @@ Esta capacidade total consumida pelos dados de utilizador e pelos registos de an
 
 #### <a name="transaction-costs"></a>Custos de transação
 
-A soma dos *'TotalBillableRequests'* , em todas as entradas de uma API na tabela de métricas de transação indica o número total de transações para essa API específica. *Por exemplo,* , o número total de transações *'GetBlob'* num determinado período pode ser calculado pela soma do total de pedidos faturáveis para todas as entradas com a chave de linha *'user;GetBlob'* .
+A soma dos *'TotalBillableRequests'*, em todas as entradas de uma API na tabela de métricas de transação indica o número total de transações para essa API específica. *Por exemplo,*, o número total de transações *'GetBlob'* num determinado período pode ser calculado pela soma do total de pedidos faturáveis para todas as entradas com a chave de linha *'user;GetBlob'*.
 
 Para que possa estimar os custos de transação para as contas do Armazenamento de blobs, tem de dividir as transações em três grupos, uma vez que têm um preço diferente.
 
-* Transações de escrita como *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* e *'CopyBlob'* .
-* Transações de eliminação como *'DeleteBlob'* e *'DeleteContainer'* .
+* Transações de escrita como *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
+* Transações de eliminação como *'DeleteBlob'* e *'DeleteContainer'*.
 * Todas as outras transações.
 
 Para estimar os custos de transação nas contas de armazenamento GPv1, tem de agregar todas as transações, independentemente da operação/API.
@@ -156,9 +156,9 @@ Embora a análise de armazenamento não forneça a quantidade de dados lidos e e
 
 Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos.
 
-* A quantidade de dados obtidos a partir da conta de armazenamento pode ser estimada ao ver a soma de *'TotalEgress'* para, principalmente, as operações *'GetBlob'* e *'CopyBlob'* .
+* A quantidade de dados obtidos a partir da conta de armazenamento pode ser estimada ao ver a soma de *'TotalEgress'* para, principalmente, as operações *'GetBlob'* e *'CopyBlob'*.
 
-* A quantidade de dados escritos na conta de armazenamento pode ser estimada ao ver a soma de *'TotalIngress'* para, principalmente, as operações *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* e *'AppendBlock'* .
+* A quantidade de dados escritos na conta de armazenamento pode ser estimada ao ver a soma de *'TotalIngress'* para, principalmente, as operações *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
 
 Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de blobs mediante a utilização da estimativa da quantidade de dados escritos se for utilizada uma conta de armazenamento GRS ou RA-GRS.
 

@@ -5,10 +5,10 @@ keywords: azure, chef, devops, cliente, instalação, portal
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586364"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instale o cliente Chef do portal Azure
@@ -26,7 +26,7 @@ Você pode adicionar a extensão do cliente Chef diretamente em uma máquina Lin
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instale a extensão do Chef numa nova máquina virtual Linux
 Nesta secção, você primeiro usará o portal Azure para criar uma máquina Linux. Durante o processo, você também vai ver como instalar a extensão chef na nova máquina virtual.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
 1. A partir do menu à esquerda, selecione a opção **máquinas Virtuais.** Se a opção **máquinas Virtuais** não estiver presente, selecione Todos os **serviços** e, em seguida, selecione **máquinas Virtuais**.
 
@@ -70,7 +70,7 @@ Nesta secção, você primeiro usará o portal Azure para criar uma máquina Lin
 
      ![Selecione Adicionar extensão para adicionar uma extensão a uma máquina virtual](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. No **separador de recursos Novo,** selecione **Extensão do Chef Linux (1.2.3)** .
+1. No **separador de recursos Novo,** selecione **Extensão do Chef Linux (1.2.3)**.
 
      ![Chef tem extensões para máquinas virtuais Linux e Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
@@ -78,10 +78,10 @@ Nesta secção, você primeiro usará o portal Azure para criar uma máquina Lin
 
 1. No separador **de extensão Instalar,** especifique os seguintes valores e, em seguida, selecione **OK**.
 
-    - **Chef Server URL** - Introduza o URL do Chef Server que inclui o nome da organização, por exemplo, *https://api.chef.io/organization/mycompany* .
+    - **Chef Server URL** - Introduza o URL do Chef *https://api.chef.io/organization/mycompany*Server que inclui o nome da organização, por exemplo, .
     - **Nome do Chef Node** - Insira o nome do Chef Node.
     - Lista de **corridas** - Insira a lista de corridas do Chef que é adicionada à máquina. Este valor pode ser deixado em branco.
-    - **Validação nome do cliente** - Insira o Nome do Cliente de Validação do Chef. Por exemplo, `tarcher-validator`.
+    - **Validação nome do cliente** - Insira o Nome do Cliente de Validação do Chef. por exemplo, `tarcher-validator`.
     - **Chave de validação** - Selecione um ficheiro que contenha a chave de validação utilizada ao amarrar as suas máquinas.
     - Arquivo de **configuração do cliente** - Selecione um ficheiro de configuração para chef-cliente. Este valor pode ser deixado em branco.
     - **Versão chef Cliente** - Insira a versão do cliente chef para instalar. Este valor pode ser deixado em branco, que instala a versão mais recente.

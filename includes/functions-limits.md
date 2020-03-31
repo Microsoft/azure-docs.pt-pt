@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
 ms.openlocfilehash: 4643bb7f95e4fd1249d3ab6699c1f835c77f18fe
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77198348"
 ---
-| Recurso | [Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plano premium](../articles/azure-functions/functions-scale.md#premium-plan) | Plano de [Serviço de Aplicações](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Recurso | [Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | Plano de [Serviço de Aplicações](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| Aumentar horizontalmente | Evento impulsionado | Evento impulsionado | [Manual/escala automática](../articles/app-service/manage-scale-up.md) | 
+| Aumentar horizontalmente | Orientada por eventos | Orientada por eventos | [Manual/escala automática](../articles/app-service/manage-scale-up.md) | 
 | Casos max | 200 | 100 | 10-20 |
 |Duração do tempo de [paragem](../articles/azure-functions/functions-scale.md#timeout) por defeito (min) |5 | 30 |30<sup>2</sup> |
 |Duração máxima [do tempo](../articles/azure-functions/functions-scale.md#timeout) limite (min) |10 | ilimitada<sup>8</sup> | sem<sup>limites 3</sup> |

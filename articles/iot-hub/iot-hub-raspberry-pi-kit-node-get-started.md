@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
 ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371511"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligue raspberry Pi ao Hub Azure IoT (Node.js)
@@ -51,7 +51,7 @@ Ainda não tem um kit? Experimente [o simulador online Raspberry Pi.](iot-hub-ra
 
 * Uma placa de Framboesa Pi 2 ou Raspberry Pi 3.
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Um monitor, um teclado USB e um rato que se conecta ao Pi.
 
@@ -116,9 +116,9 @@ Prepare o cartão microSD para a instalação da imagem raspbiana.
 
 1. Ligue pi ao monitor, teclado e rato.
 
-2. Inicie pi e, em seguida, assine em Raspbian usando `pi` como nome de utilizador e `raspberry` como palavra-passe.
+2. Inicie pi e, em seguida, `pi` assine em `raspberry` Raspbian usando como nome de utilizador e como palavra-passe.
 
-3. Clique no ícone framboesa > **Preferências** > **Configuração Raspberry Pi**.
+3. Clique no ícone framboesa > **Preferências** > **De Framboesa Pi Configuração**.
 
    ![O menu Preferências Raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -139,7 +139,7 @@ O sensor BME280 pode recolher dados de temperatura e humidade. O LED pisca quand
 
 Para os pinos do sensor, utilize as seguintes cablagens:
 
-| Início (Sensor e LED)     | Fim (Placa)            | Cor do cabo   |
+| Iniciar (Sensor & LED)     | Fim (Placa)            | Cor do cabo   |
 | -----------------------  | ---------------------- | ------------: |
 | VDD (Pin 5G)             | 3.3V PWR (Pin 1)       | Cabo branco   |
 | GND (Pin 7G)             | GND (Pin o pino 6)            | Cabo marrom   |
@@ -148,7 +148,7 @@ Para os pinos do sensor, utilize as seguintes cablagens:
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | Cabo branco   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Cabo preto   |
 
-Clique para ver [mapeamentos de pinos Raspberry Pi 2 e 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para a sua referência.
+Clique para ver [Raspberry Pi 2 & mapeamento sinuoso](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) de 3 pinos para a sua referência.
 
 Depois de ter ligado o BME280 com sucesso ao seu Raspberry Pi, deve ser como abaixo da imagem.
 
@@ -179,10 +179,10 @@ Ligue pi utilizando o cabo micro USB e a alimentação elétrica. Utilize o cabo
 
    **Utilizadores de Mac e Ubuntu**
 
-   Utilize o cliente SSH incorporado em Ubuntu ou macOS. Talvez precise sê-`ssh pi@<ip address of pi>` para ligar pi via SSH.
+   Utilize o cliente SSH incorporado em Ubuntu ou macOS. Talvez precise saquear `ssh pi@<ip address of pi>` para ligar Pi via SSH.
 
    > [!NOTE]
-   > O nome de utilizador predefinido é `pi` e a palavra-passe é `raspberry`.
+   > O nome de `pi` utilizador predefinido é e a palavra-passe é `raspberry`.
 
 2. Instale o Nó.js e o NPM no seu Pi.
 
@@ -225,11 +225,11 @@ Ligue pi utilizando o cabo micro USB e a alimentação elétrica. Utilize o cabo
 
    ![Arquivo Config](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
-   Há dois itens neste ficheiro que pode configurar. O primeiro é `interval`, que define o intervalo de tempo (em milissegundos) entre mensagens enviadas para a nuvem. A segunda é `simulatedData`, que é um valor booleano para usar dados de sensores simulados ou não.
+   Há dois itens neste ficheiro que pode configurar. O primeiro `interval`é , que define o intervalo de tempo (em milissegundos) entre mensagens enviadas para a nuvem. A segunda `simulatedData`é , que é um valor booleano para usar dados de sensores simulados ou não.
 
-   Se **não tiver o sensor,** detete o valor `simulatedData` para `true` para fazer com que a aplicação da amostra crie e utilize dados de sensores simulados.
+   Se **não tiver o sensor,** `simulatedData` detete o valor para `true` que a aplicação da amostra crie e utilize dados de sensores simulados.
 
-   *Nota: O endereço i2c utilizado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, também pode ser 0x76: se encontrar um erro i2c, tente alterar o valor para 118 e veja se funciona melhor. Para ver qual o endereço usado pelo seu sensor, corra `sudo i2cdetect -y 1` numa concha na framboesa pi*
+   *Nota: O endereço i2c utilizado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, também pode ser 0x76: se encontrar um erro i2c, tente alterar o valor para 118 e veja se funciona melhor. Para ver que endereço é usado `sudo i2cdetect -y 1` pelo seu sensor, corra em uma concha na framboesa pi*
 
 2. Poupe e saia digitando Control-O > Enter > Control-X.
 
@@ -244,9 +244,9 @@ Executar a aplicação da amostra executando o seguinte comando:
    > [!NOTE]
    > Certifique-se de copiar a cadeia de ligação do dispositivo às cotações individuais.
 
-Deve ver a seguinte saída que mostra os dados do sensor e as mensagens que são enviadas para o seu hub IoT.
+Deverá ver o seguinte resultado, que mostra os dados do sensor e as mensagens que são enviadas ao seu hub IoT.
 
-![Saída - dados do sensor enviados de Raspberry Pi para o seu hub IoT](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
+![Resultado – dados do sensor enviados do Raspberry Pi ao hub IoT](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leia as mensagens recebidas pelo seu centro
 

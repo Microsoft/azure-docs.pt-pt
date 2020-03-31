@@ -8,13 +8,13 @@ ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: edcde9c5192791e88da57d158bab3e79b171bfc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78944771"
 ---
-# <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos geridos pelo Azure
+# <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Introdução aos discos geridos do Azure)
 
 Os discos geridos pelo Azure são volumes de armazenamento ao nível do bloco que são geridos pelo Azure e utilizados com máquinas virtuais Azure. Os discos geridos são como um disco físico num servidor no local, mas virtualizados. Com discos geridos, tudo o que tem de fazer é especificar o tamanho do disco, o tipo de disco e fornecer o disco. Assim que fornecer o disco, Azure manuseia o resto.
 
@@ -23,4 +23,4 @@ Os tipos de discos disponíveis são discos ultra, unidades de estado sólido pr
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 
 > [!div class="nextstepaction"]
-> [Selecione um tipo de disco para VMs IaaS](disks-types.md)
+> [Selecionar um tipo de disco para VMs IaaS](disks-types.md)

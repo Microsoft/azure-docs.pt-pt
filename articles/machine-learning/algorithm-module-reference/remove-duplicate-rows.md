@@ -1,7 +1,7 @@
 ---
-title: 'Remover linhas duplicadas: referência de módulo'
+title: 'Remover linhas duplicadas: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo remover linhas duplicadas no Azure Machine Learning para remover duplicatas potenciais de um conjunto de informações.
+description: Aprenda a utilizar o módulo Remover Linhas Duplicadas em Aprendizagem automática Azure para remover potenciais duplicados de um conjunto de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,67 +9,67 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 429ddd62cccb8657aa18ec844968cc12df778f55
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456026"
 ---
-# <a name="remove-duplicate-rows-module"></a>Remover o módulo de linhas duplicadas
+# <a name="remove-duplicate-rows-module"></a>Remover módulo De Linhas Duplicadas
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para remover duplicatas potenciais de um conjunto de uma.
+Utilize este módulo para remover potenciais duplicados de um conjunto de dados.
 
-Por exemplo, suponha que seus dados sejam semelhantes ao seguinte e representem vários registros para pacientes. 
+Por exemplo, assuma que os seus dados se parecem com os seguintes, e representa vários registos para os pacientes. 
 
-| PatientID | Iniciais| Género|Idade|Verdade|
+| PatientID | Iniciais| Género|Idade|Admitido|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Jan|
 |2| F.A.M.| M| 53| Jan|
 |3| F.A.M.| M| 24| Jan|
-|3| F.M.| M| 24| Fev|
-|4| F.M.| M| 23| Fev|
+|3| F.M.| M| 24| Feb|
+|4| F.M.| M| 23| Feb|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
 |6| F.A.M.| M| NaN| |
 |7| F.A.M.| M| NaN| |
 
-Claramente, este exemplo tem várias colunas com dados potencialmente duplicados. Se eles são, na verdade, duplicatas, depende de seu conhecimento dos dados. 
+Claramente, este exemplo tem múltiplas colunas com dados potencialmente duplicados. Se são realmente duplicados depende do seu conhecimento dos dados. 
 
-+ Por exemplo, você pode saber que muitos pacientes têm o mesmo nome. Não eliminaria duplicados usando colunas de nome, apenas a coluna de **identificação.** Dessa forma, somente as linhas com valores de ID duplicados são filtradas, independentemente de os pacientes terem o mesmo nome ou não.
++ Por exemplo, pode saber que muitos pacientes têm o mesmo nome. Não eliminaria duplicados usando colunas de nome, apenas a coluna de **identificação.** Desta forma, apenas as filas com valores de IDENTIFICAção duplicados são filtradas, independentemente de os pacientes terem ou não o mesmo nome.
 
-+ Como alternativa, você pode optar por permitir duplicatas no campo ID e usar alguma outra combinação de arquivos para localizar registros exclusivos, como nome, sobrenome, idade e sexo.  
++ Em alternativa, pode decidir permitir duplicados no campo de IDENTIFICAção e utilizar alguma outra combinação de ficheiros para encontrar registos únicos, como primeiro nome, apelido, idade e género.  
 
-Para definir os critérios para se uma linha é ou não duplicada, especifice uma única coluna ou um conjunto de colunas para utilizar como **teclas**. Duas linhas só são consideradas duplicadas quando os valores em **todas as** colunas-chave são iguais. Se alguma linha tiver valor em falta para **as teclas,** não serão consideradas linhas duplicadas. Por exemplo, se sexo e idade forem definidos como chaves na tabela acima, a linha 6 e 7 não serão linhas duplicadas, dado que elas têm valor ausente na idade.
+Para definir os critérios para se uma linha é ou não duplicada, especifice uma única coluna ou um conjunto de colunas para utilizar como **teclas**. Duas linhas só são consideradas duplicadas quando os valores em **todas as** colunas-chave são iguais. Se alguma linha tiver valor em falta para **as teclas,** não serão consideradas linhas duplicadas. Por exemplo, se o género e a idade forem definidos como Chaves na tabela acima, as linhas 6 e 7 não são linhas duplicadas dado que têm valor em falta na Idade.
 
-Quando você executa o módulo, ele cria um conjunto de registros candidato e retorna um conjunto de linhas que não possuem duplicatas no conjunto de colunas especificado.
+Quando executa o módulo, cria um conjunto de dados de candidatos e devolve um conjunto de linhas que não têm duplicados através do conjunto de colunas que especificou.
 
 > [!IMPORTANT]
-> O conjunto de fonte de origem não é alterado; Esse módulo cria um novo conjunto de um que é filtrado para excluir duplicatas, com base nos critérios que você especificar.
+> O conjunto de dados de origem não é alterado; este módulo cria um novo conjunto de dados que é filtrado para excluir duplicados, com base nos critérios que especifica.
 
-## <a name="how-to-use-remove-duplicate-rows"></a>Como usar remover linhas duplicadas
+## <a name="how-to-use-remove-duplicate-rows"></a>Como utilizar remover linhas duplicadas
 
-1. Adicione o módulo ao seu pipeline. Pode encontrar o módulo **Remover Linhas Duplicadas** em transformação de **dados,** **manipulação**.  
+1. Adicione o módulo ao seu oleoduto. Pode encontrar o módulo **Remover Linhas Duplicadas** em transformação de **dados,** **manipulação**.  
 
-2. Conecte o conjunto de registros que você deseja verificar em busca de linhas duplicadas.
+2. Ligue o conjunto de dados que pretende verificar para as linhas duplicadas.
 
 3. No painel **Propriedades,** sob a expressão do filtro de **seleção da coluna Chave,** clique no seletor de colunas de **lançamento,** para escolher colunas para utilizar na identificação de duplicados.
 
-    Neste contexto, **Key** não significa um identificador único. Todas as colunas selecionadas utilizando o Seletor de Colunas são designadas como colunas de **teclas**. Todas as colunas não selecionadas são consideradas colunas não chave. A combinação de colunas que você seleciona como chaves determina a exclusividade dos registros. (Imagine-o como uma instrução SQL que usa várias junções equalities.)
+    Neste contexto, **Key** não significa um identificador único. Todas as colunas selecionadas utilizando o Seletor de Colunas são designadas como colunas de **teclas**. Todas as colunas não selecionadas são consideradas colunas não-chave. A combinação de colunas que seleciona como teclas determina a singularidade dos registos. (Pense nisso como uma declaração SQL que usa múltiplas igualdades.)
 
     Exemplos:
 
-    + "Quero garantir que as IDs sejam exclusivas": escolha apenas a coluna ID.
-    + "Desejo garantir que a combinação de nome, sobrenome e ID seja exclusiva": selecione todas as três colunas.
+    + "Quero garantir que as identidades são únicas": Escolha apenas a coluna de IDENTIFICAÇÃO.
+    + "Quero garantir que a combinação de primeiro nome, apelido e ID é única": Selecione as três colunas.
 
 4. Utilize a primeira caixa de verificação **duplicada** para indicar qual a linha a devolver quando forem encontrados duplicados:
 
-    + Se selecionado, a primeira linha será retornada e outras descartadas. 
-    + Se você desmarcar essa opção, a última linha duplicada será mantida nos resultados e outras serão descartadas. 
+    + Se selecionado, a primeira linha é devolvida e outras descartadas. 
+    + Se desverificar esta opção, a última linha duplicada é mantida nos resultados e outras são descartadas. 
 
-5. Executar o pipeline.
+5. Submeta o oleoduto.
 
 6. Para rever os resultados, clique no módulo e **selecione Visualize**. 
 

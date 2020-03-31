@@ -1,20 +1,20 @@
 ---
-title: Reagir aos eventos de mapa usando a Grelha de Eventos  Microsoft Azure Maps
+title: Reagir aos eventos de mapa usando a Grelha de Eventos [ Microsoft Azure Maps
 description: Neste artigo, aprenderá a reagir aos eventos do Microsoft Azure Maps utilizando a Event Grid.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f7e5be8d4aca85c9574db18ec9df8a7f30850d06
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210111"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335723"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reaja aos eventos do Azure Maps usando a Grelha de Eventos 
 
@@ -81,8 +81,8 @@ O exemplo que se segue mostra o esquema para geofenceResult:
 As aplicações que lidam com eventos geovetos do Azure Maps devem seguir algumas práticas recomendadas:
 
 * Configure várias subscrições para direcionar eventos para o mesmo manipulador de eventos. É importante não assumir que os eventos são de uma fonte em particular. Verifique sempre o tópico da mensagem para garantir que a mensagem veio da fonte que espera.
-* Utilize o campo `X-Correlation-id` no cabeçalho de resposta para perceber se a sua informação sobre objetos está atualizada. As mensagens podem chegar fora de ordem ou depois de um atraso.
-* Quando um pedido GET ou POST na API Geofence é chamado com o parâmetro de modo definido para `EnterAndExit`, então um evento de entrada ou saída é gerado para cada geometria na geovete para a qual o estado mudou em relação à chamada anterior da Geofence API.
+* Utilize `X-Correlation-id` o campo no cabeçalho de resposta para perceber se a sua informação sobre objetos está atualizada. As mensagens podem chegar fora de ordem ou depois de um atraso.
+* Quando um pedido GET ou POST na API Geofence é `EnterAndExit`chamado com o parâmetro de modo definido para , então um evento de entrada ou saída é gerado para cada geometria na geovete para a qual o estado mudou em relação à chamada anterior da Geofence API.
 
 ## <a name="next-steps"></a>Passos seguintes
 

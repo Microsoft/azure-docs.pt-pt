@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA apoiadas em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar as bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480067"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -32,7 +32,7 @@ Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](
 
 Os alertas são uma forma fácil de monitorizar as cópias de segurança das bases de dados SAP HANA. Os alertas ajudam-no a focar-se nos eventos com que mais se preocupa sem se perder na multiplicidade de eventos que um backup gera. O Azure Backup permite-lhe definir alertas e podem ser monitorizados da seguinte forma:
 
-* Inicie sessão no [portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 * No painel do cofre, selecione **Alertas de Backup**.
 
   ![Alertas de backup no painel do cofre](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
@@ -57,14 +57,24 @@ ToTo saiba mais sobre monitorização, vá à [Monitorização no portal Azure](
 
 A Azure Backup facilita a gestão de uma base de dados SAP HANA apoiada com uma abundância de operações de gestão que suporta. Estas operações são discutidas mais detalhadamente nas seguintes secções.
 
-### <a name="run-an-ad-hoc-backup"></a>Executar um backup ad-hoc
+### <a name="run-an-on-demand-backup"></a>Faça um backup a pedido
 
 Os backups funcionam de acordo com o calendário de apólices. Pode executar um backup a pedido da seguinte forma:
 
 1. No menu do cofre, clique em **itens de backup**.
 2. Em Itens de **Backup,** selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em **Backup agora**.
 3. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-4. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de abóbadas > **Backup Jobs** > **Em andamento**. Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
+4. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs** > **Em andamento.** Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
+
+### <a name="hana-native-client-integration"></a>Integração de clientes nativos da HANA
+
+Agora, os backups completos a pedido desencadeados por qualquer um dos clientes nativos da HANA aparecerão como um reforço completo na página de **Backup Itens.**
+
+![Última corrida de backups](./media/sap-hana-db-manage/last-backups.png)
+
+Estes backups completos ad-hoc também aparecerão na lista de pontos de restauro para restauro.
+
+![Lista de pontos de restauro](./media/sap-hana-db-manage/list-restore-points.png)
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Executar backup de cliente nativo SAP HANA em uma base de dados com backup Azure ativado
 
@@ -72,7 +82,7 @@ Se quiser obter uma cópia de segurança local (usando o HANA Studio / Cockpit) 
 
 1. Aguarde quaisquer cópias de segurança completas ou de registo para que a base de dados termine. Verifique o estado no Estúdio SAP HANA/ Cockpit.
 2. Desative as cópias de segurança e desative as cópias de segurança e desative o catálogo de cópias de segurança no sistema de ficheiros para uma base de dados relevante.
-3. Para isso, clique duplo no **sistema db** > **Configuração** > **Select Database** > **Filter (Log)** .
+3. Para isso, clique duas vezes na**configuração** > do **sistema,** > **selecione** > filtro de base de dados **(Log)**.
 4. Definir **enable_auto_log_backup** para **Nº**.
 5. Coloque **log_backup_using_backint** a **Falso**.
 6. Pegue uma cópia de segurança completa da base de dados.
@@ -112,6 +122,37 @@ Pode alterar a política subjacente a um item de reserva SAP HANA.
 > Qualquer alteração no período de retenção será aplicada retrospetivamente a todos os pontos de recuperação mais antigos, além dos novos.
 >
 > As políticas incrementais de backup não podem ser utilizadas para bases de dados SAP HANA. A cópia de segurança incremental não é atualmente suportada para estas bases de dados.
+
+### <a name="modify-policy"></a>Modificar a Política
+
+Modifique a política para alterar os tipos de backup, frequências e intervalo de retenção.
+
+>[!NOTE]
+>Qualquer alteração no período de retenção será aplicada retroativamente a todos os pontos de recuperação mais antigos, além dos novos.
+
+1. No painel de instrumentos do cofre, vá à **Manage > Backup Policies** e escolha a política que pretende editar.
+
+   ![Escolha a política para editar](./media/sap-hana-db-manage/manage-backup-policies.png)
+
+1. Selecione **Modificar**.
+
+   ![Selecione Modificar](./media/sap-hana-db-manage/modify-policy.png)
+
+1. Escolha a frequência para os tipos de cópia de segurança.
+
+   ![Escolha a frequência de backup](./media/sap-hana-db-manage/choose-frequency.png)
+
+A modificação da política afetará todos os itens de backup associados e desencadeará trabalhos de **proteção configurante** correspondentes.
+
+### <a name="inconsistent-policy"></a>Política inconsistente
+
+Ocasionalmente, uma operação política modificada pode levar a uma versão política **inconsistente** para alguns itens de backup. Isto acontece quando o trabalho de **proteção configurado** correspondente falha no item de reserva após o desencadeamento de uma operação de modificação da política. Aparece da seguinte forma na vista do item de reserva:
+
+![Política inconsistente](./media/sap-hana-db-manage/inconsistent-policy.png)
+
+Pode corrigir a versão política de todos os itens impactados num clique:
+
+![Corrigir versão política](./media/sap-hana-db-manage/fix-policy-version.png)
 
 ### <a name="stop-protection-for-an-sap-hana-database"></a>Parar a proteção para uma base de dados SAP HANA
 
@@ -167,7 +208,7 @@ Saiba como continuar a fazer backup para uma base de dados SAP HANA [após a atu
 
 Saiba como continuar a cópia de segurança de uma base de dados SAP HANA cujo [SID não mudou após](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change)a atualização .
 
-### <a name="unregister-an-sap-hana-database"></a>Desregistre uma base de dados SAP HANA
+### <a name="unregister-an-sap-hana-instance"></a>Desregistre uma instância SAP HANA
 
 Desregilhe uma instância SAP HANA depois de desativar a proteção, mas antes de eliminar o cofre:
 
@@ -185,6 +226,12 @@ Desregilhe uma instância SAP HANA depois de desativar a proteção, mas antes d
 
    ![Selecione não registar](./media/sap-hana-db-manage/unregister.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="re-register-extension-on-the-sap-hana-server-vm"></a>Re-registe a extensão do servidor SAP HANA VM
+
+Por vezes, a extensão da carga de trabalho no VM pode ser impactada por uma razão ou outra. Nesses casos, todas as operações desencadeadas no VM começarão a falhar. Poderá então ter de voltar a registar a extensão do VM. O reregisto da operação reinstala a extensão de reserva de carga de trabalho no VM para que as operações continuem.
+
+Utilize esta opção com cuidado: quando acionado num VM com uma extensão já saudável, esta operação fará com que a extensão seja reiniciada. Isto pode fazer com que todos os postos de trabalho em curso falhem. Verifique se há um ou mais [sintomas](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) antes de desencadear a operação de reregisto.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [resolver problemas comuns ao apoiar as bases de dados SAP HANA.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)

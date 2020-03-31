@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184463"
 ---
-O emulador de armazenamento suporta uma única conta fixa e uma chave de autenticação bem conhecidos para autenticação de chave partilhada. Esta conta e chave são as credenciais de chave partilhada apenas permitidas para utilização com o emulador de armazenamento. São:
+O emulador de armazenamento suporta uma única conta fixa e uma chave de autenticação bem conhecida para autenticação de chave partilhada. Esta conta e a chave são as únicas credenciais de chave partilhada saem para utilização com o emulador de armazenamento. São:
 
 ```
 Account name: devstoreaccount1
@@ -19,13 +19,13 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> A chave de autenticação suportada pelo emulador de armazenamento destina-se apenas para testar a funcionalidade do seu código de autenticação de cliente. Ele não serve qualquer finalidade de segurança. Não é possível utilizar a conta de armazenamento de produção e a chave com o emulador de armazenamento. Não deve utilizar a conta de desenvolvimento com dados de produção.
+> A chave de autenticação suportada pelo emulador de armazenamento destina-se apenas a testar a funcionalidade do código de autenticação do seu cliente. Não serve a nenhum propósito de segurança. Não é possível utilizar a sua conta de armazenamento de produção e a chave com o emulador de armazenamento. Não deve utilizar a conta de desenvolvimento com dados de produção.
 > 
-> O emulador de armazenamento suporta a ligação através de HTTP apenas. No entanto, o HTTPS é o protocolo recomendado para aceder a recursos numa conta de armazenamento do Azure de produção.
+> O emulador de armazenamento suporta a ligação apenas através de HTTP. No entanto, https é o protocolo recomendado para o acesso de recursos numa conta de armazenamento Azure de produção.
 > 
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Ligar à conta do emulador usando um atalho
-A maneira mais fácil para ligar para o emulador de armazenamento da sua aplicação consiste em configurar uma cadeia de ligação no ficheiro de configuração de seu aplicativo que referencia o atalho `UseDevelopmentStorage=true`. Eis um exemplo de uma cadeia de ligação para o emulador de armazenamento num *App. config* ficheiro: 
+#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Ligue-se à conta do emulador utilizando um atalho
+A forma mais fácil de ligar ao emulador de armazenamento da sua aplicação é configurar `UseDevelopmentStorage=true`uma cadeia de ligação no ficheiro de configuração da sua aplicação que faz referência ao atalho . Aqui está um exemplo de uma cadeia de ligação ao emulador de armazenamento num ficheiro *app.config:* 
 
 ```xml
 <appSettings>
@@ -33,8 +33,8 @@ A maneira mais fácil para ligar para o emulador de armazenamento da sua aplica�
 </appSettings>
 ```
 
-#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Ligar à conta do emulador com o nome de conta bem conhecidos e a chave
-Para criar uma cadeia de ligação que referencia o nome da conta do emulador e a chave, tem de especificar os pontos de extremidade para cada um dos serviços que deseja usar do emulador na cadeia de ligação. Isso é necessário para que a cadeia de ligação fará referência os pontos de extremidade do emulador, que são diferentes para uma conta de armazenamento de produção. Por exemplo, o valor da cadeia de ligação ficará assim:
+#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Ligue-se à conta emulador utilizando o nome e a chave bem conhecidos da conta
+Para criar uma cadeia de ligação que refira o nome e a chave da conta do emulador, deve especificar os pontos finais de cada um dos serviços que pretende utilizar a partir do emulador na cadeia de ligação. Isto é necessário para que a cadeia de ligação refira os pontos finais do emulador, que são diferentes dos de uma conta de armazenamento de produção. Por exemplo, o valor da sua cadeia de ligação será assim:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
@@ -44,10 +44,10 @@ TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-Este valor é idêntico ao atalho mostrado acima, `UseDevelopmentStorage=true`.
+Este valor é idêntico ao atalho `UseDevelopmentStorage=true`acima indicado, .
 
-#### <a name="specify-an-http-proxy"></a>Especifique um proxy de HTTP
-Também pode especificar um proxy de HTTP para utilizar quando está a testar o seu serviço contra o emulador de armazenamento. Isso pode ser útil para observar solicitações e respostas HTTP, enquanto estiver a depurar operações de acordo com os serviços de armazenamento. Para especificar um proxy, adicione o `DevelopmentStorageProxyUri` a opção de cadeia de ligação e defina seu valor para o URI de proxy. Por exemplo, aqui está uma cadeia de ligação que aponta para o emulador de armazenamento e configura um proxy de HTTP:
+#### <a name="specify-an-http-proxy"></a>Especifique um proxy HTTP
+Também pode especificar um proxy HTTP a utilizar quando estiver a testar o seu serviço contra o emulador de armazenamento. Isto pode ser útil para observar pedidos e respostas http enquanto você está depurando operações contra os serviços de armazenamento. Para especificar um proxy, adicione a opção `DevelopmentStorageProxyUri` à cadeia de ligação e detete o seu valor para o proxy URI. Por exemplo, aqui está uma cadeia de ligação que aponta para o emulador de armazenamento e confunde um proxy HTTP:
 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri

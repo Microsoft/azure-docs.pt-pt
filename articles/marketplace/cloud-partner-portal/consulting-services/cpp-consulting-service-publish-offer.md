@@ -1,37 +1,36 @@
 ---
-title: Publicação de ofertas de serviço de consultoria do Azure e Dynamics 365 | Azure Marketplace
-description: Publique uma oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner para o Azure Marketplace ou AppSource.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: O serviço de consultoria Azure e Dynamics 365 oferece a publicação de serviços de consultoria. Mercado Azure
+description: Publique uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud para o Azure Marketplace ou AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 3d2daf68bae5e24dd8ec3501befd186a50c2cb16
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1b00e177ed45762d10d0603b1d0a1fb2c1807416
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278506"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
 
-Depois de concluir **as configurações da oferta**, os **detalhes da vitrine**e os **contatos**, selecione **publicar** e forneça um endereço de email. Quando a Microsoft estiver pronta para publicar sua oferta, você receberá um email para visualizá-lo antes de ele ficar ativo. Você pode retornar ao portal para verificar o status da sua oferta a qualquer momento.
+Depois de terminar **as Definições de Oferta,** **Guarde os Detalhes**da Loja , e os **Contactos,** selecione **Publicar** e fornecer um endereço de e-mail. Quando a Microsoft estiver pronta para publicar a sua oferta, recebe um e-mail para pré-visualizar antes de ser transmitida em direto. Pode voltar ao portal para verificar o estado da sua oferta a qualquer momento.
 
-As ofertas podem aparecer em um status "publicar cancelado" ou "falha na publicação" durante o processo de publicação. Essas designações são uma parte normal do processo e permitem que a Microsoft faça edições em sua oferta. Se sua oferta aparecer como "publicar cancelada", deixe-a como esse status.
+As ofertas podem aparecer num estado de "Publicar cancelado" ou "Publicar falhado" durante o processo de publicação. Estas designações são uma parte normal do processo e permitem que a Microsoft faça edificações à sua oferta. Se a sua oferta aparecer como "Publicar cancelada", deixe-a como esse estatuto.
 
-## <a name="lead-destination"></a>Destino do cliente potencial
+## <a name="lead-destination"></a>Destino de chumbo
 
-Você pode selecionar um sistema de CRM onde as informações de Lead são armazenadas. O sistema CRM selecionado aqui é onde escrevemos informações sobre os usuários que tentam seu aplicativo no AppSource.
+Pode selecionar um sistema CRM onde as suas informações de chumbo são armazenadas. O sistema CRM que seleciona aqui é onde escrevemos informações sobre os utilizadores que experimentam a sua aplicação no AppSource.
 
-Com base no sistema CRM que você escolher, selecione a URL correspondente na lista a seguir para obter informações sobre como preencher o próximo conjunto de campos.
+Com base no sistema CRM que escolher, selecione o URL correspondente da seguinte lista para obter informações sobre como preencher o próximo conjunto de campos.
 
-Selecione [tabela do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) se você tiver um dos seguintes sistemas CRM:  
+Selecione [Tabela Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) se tiver um dos seguintes sistemas CRM:  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
 * [Microsoft Dynamics CRM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)
 * [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Continue em para saber como publicar sua oferta.
+Continue a aprender a publicar a sua oferta.

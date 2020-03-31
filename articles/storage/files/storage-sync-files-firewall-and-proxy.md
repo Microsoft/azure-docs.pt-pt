@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93681813c12f0df99909c849e57153e7a64c78fb
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299316"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294528"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização multi-site e as funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de nuvem Azure.
@@ -59,7 +59,7 @@ Para configurar as definições de procuração em toda a máquina, siga os pass
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Adicione a secção <system.net> secção nos ficheiros machine.config (abaixo da secção <system.serviceModel> ).  Altere 127.0.01:8888 para o endereço IP e porta para o servidor proxy. 
+   - Adicione a secção <system.net> nos ficheiros machine.config (abaixo da secção <system.serviceModel>).  Altere 127.0.01:8888 para o endereço IP e porta para o servidor proxy. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -89,110 +89,177 @@ Como referido numa secção anterior, o porto 443 tem de ser aberto. Com base em
 
 A tabela seguinte descreve os domínios necessários para a comunicação:
 
-| Service | Ponto final da nuvem pública | Ponto final do Governo de Azure | Utilização |
+| Serviço | Ponto final da nuvem pública | Ponto final do Governo de Azure | Utilização |
 |---------|----------------|---------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de utilizador (como powerShell) vai para/através deste URL, incluindo a chamada inicial de registo do servidor. |
-| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Gestor de Recursos Azure devem ser feitas por um utilizador autenticado. Para ter sucesso, este URL é utilizado para a autenticação do utilizador. |
-| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implementação do Azure File Sync, será criado um diretor de serviço no Diretório Ativo Azure da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar um conjunto mínimo de direitos ao serviço Desincronização de Ficheiros Azure. O utilizador que executa a configuração inicial do Azure File Sync deve ser um utilizador autenticado com privilégios do proprietário da subscrição. |
-| **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, então o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente com a parte de ficheiro Azure na Conta de Armazenamento. O servidor tem uma chave SAS que só permite o acesso à partilha de ficheiros direcionado. |
+| **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Qualquer chamada de utilizador (como powerShell) vai para/através deste URL, incluindo a chamada inicial de registo do servidor. |
+| **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | As chamadas do Gestor de Recursos Azure devem ser feitas por um utilizador autenticado. Para ter sucesso, este URL é utilizado para a autenticação do utilizador. |
+| **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Como parte da implementação do Azure File Sync, será criado um diretor de serviço no Diretório Ativo Azure da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar um conjunto mínimo de direitos ao serviço Desincronização de Ficheiros Azure. O utilizador que executa a configuração inicial do Azure File Sync deve ser um utilizador autenticado com privilégios do proprietário da subscrição. |
+| **Storage do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, então o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente com a parte de ficheiro Azure na Conta de Armazenamento. O servidor tem uma chave SAS que só permite o acesso à partilha de ficheiros direcionado. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Após o registo inicial do servidor, o servidor recebe um URL regional para a instância de serviço Azure File Sync naquela região. O servidor pode utilizar o URL para comunicar direta e eficientemente com a instância que manuseia a sua sincronização. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Uma vez instalado o agente Bluee File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Desincronização de Ficheiros Azure e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
 
 > [!Important]
-> Ao permitir que o tráfego &ast;.one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos mais serviços da Microsoft disponíveis em subdomínios.
+> Ao permitir que &ast;o tráfego one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos mais serviços da Microsoft disponíveis em subdomínios.
 
-Se &ast;.one.microsoft.com é demasiado ampla, pode limitar a comunicação do servidor, permitindo a comunicação apenas a instâncias regionais explícitas do serviço Azure Files Sync. Que instância(s) escolher depende da região do serviço de sincronização de armazenamento que implementou e registou o servidor. Esta região chama-se "URL de ponto final primário" na tabela abaixo.
+Se &ast;o .one.microsoft.com for demasiado amplo, pode limitar a comunicação do servidor, permitindo a comunicação apenas a instâncias regionais explícitas do serviço Azure Files Sync. Que instância(s) escolher depende da região do serviço de sincronização de armazenamento que implementou e registou o servidor. Esta região chama-se "URL de ponto final primário" na tabela abaixo.
 
 Por razões de continuidade de negócios e recuperação de desastres (BCDR), pode ter especificado as suas ações de ficheiro Azure numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, então as suas ações de ficheiro Saque A partir de Azure falhará na região emparelhada em caso de uma paragem regional duradoura. O Azure File Sync utiliza os mesmos pares regionais que o armazenamento. Por isso, se utilizar contas de armazenamento GRS, tem de ativar URLs adicionais para permitir que o seu servidor fale com a região emparelhada para o Azure File Sync. A tabela abaixo chama a esta "região emparelhada". Além disso, existe um URL de perfil de gestor de tráfego que precisa ser ativado também. Isto garantirá que o tráfego da rede pode ser perfeitamente reencaminhado para a região emparelhada em caso de falha e é chamado de "Discovery URL" na tabela abaixo.
 
 | Nuvem  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Sudeste da Austrália | https:\//tm-kailani-aue.one.microsoft.com |
-| Público |Sudeste da Austrália | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
-| Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | EUA Centro-Sul | https:\//tm-brazilsouth01.afs.azure.net |
+| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Austrália Sudeste | https:\//tm-kailani-aue.one.microsoft.com |
+| Público |Austrália Sudeste | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
+| Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-brazilsouth01.afs.azure.net |
 | Público | Canadá Central | https:\//kailani-cac.one.microsoft.com | Leste do Canadá | https:\//tm-kailani-cac.one.microsoft.com |
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
 | Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
-| Público | EUA Central | https:\//kailani-cus.one.microsoft.com | EUA Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
-| Público | EUA Leste | https:\//kailani1.one.microsoft.com | EUA Oeste | https:\//tm-kailani1.one.microsoft.com |
-| Público | EUA Leste 2 | https:\//kailani-ess.one.microsoft.com | EUA Central | https:\//tm-kailani-ess.one.microsoft.com |
+| Público | E.U.A. Central | https:\//kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Público | Ásia Leste | https:\//kailani11.one.microsoft.com | Ásia Sudeste | https:\//tm-kailani11.one.microsoft.com |
+| Público | E.U.A. Leste | https:\//kailani1.one.microsoft.com | E.U.A. Oeste | https:\//tm-kailani1.one.microsoft.com |
+| Público | E.U.A. Leste 2 | https:\//kailani-ess.one.microsoft.com | E.U.A. Central | https:\//tm-kailani-ess.one.microsoft.com |
 | Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
 | Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Leste do Japão | https:\//tm-japanwest01.afs.azure.net |
-| Público | Coreia do Sul Central | https:\//koreacentral01.afs.azure.net/ | Coreia do Sul | https:\//tm-koreacentral01.afs.azure.net/ |
-| Público | Coreia do Sul | https:\//koreasouth01.afs.azure.net/ | Coreia do Sul Central | https:\//tm-koreasouth01.afs.azure.net/ |
-| Público | EUA Centro-Norte | https:\//northcentralus01.afs.azure.net | EUA Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
-| Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
-| Público | EUA Centro-Sul | https:\//southcentralus01.afs.azure.net | EUA Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
+| Público | Coreia do Sul Central | https:\//koreacentral01.afs.azure.net/ | Sul da Coreia do Sul | https:\//tm-koreacentral01.afs.azure.net/ |
+| Público | Sul da Coreia do Sul | https:\//koreasouth01.afs.azure.net/ | Coreia do Sul Central | https:\//tm-koreasouth01.afs.azure.net/ |
+| Público | E.U.A. Centro-Norte | https:\//northcentralus01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
+| Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa ocidental | https:\//tm-kailani7.one.microsoft.com |
+| Público | E.U.A. Centro-Sul | https:\//southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
-| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
-| Público | Reino Unido Sul | https:\//kailani-uks.one.microsoft.com | Reino Unido Oeste | https:\//tm-kailani-uks.one.microsoft.com |
-| Público | Reino Unido Oeste | https:\//kailani-ukw.one.microsoft.com | Reino Unido Sul | https:\//tm-kailani-ukw.one.microsoft.com |
-| Público | EUA Centro-Oeste | https:\//westcentralus01.afs.azure.net | EUA Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
-| Público | Europa Ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
-| Público | EUA Oeste | https:\//kailani.one.microsoft.com | EUA Leste | https:\//tm-kailani.one.microsoft.com |
-| Público | EUA Oeste 2 | https:\//westus201.afs.azure.net | EUA Centro-Oeste | https:\//tm-westus201.afs.azure.net |
-| Governo | Gov (US) - Arizona | https:\//usgovarizona01.afs.azure.us | Gov (US) - Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Governo | Gov (US) - Texas | https:\//usgovtexas01.afs.azure.us | Gov (US) - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
+| Público | Ásia Sudeste | https:\//kailani10.one.microsoft.com | Ásia Leste | https:\//tm-kailani10.one.microsoft.com |
+| Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
+| Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
+| Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | E.U.A.Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Público | Europa ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
+| Público | E.U.A. Oeste | https:\//kailani.one.microsoft.com | E.U.A. Leste | https:\//tm-kailani.one.microsoft.com |
+| Público | E.U.A.Oeste 2 | https:\//westus201.afs.azure.net | E.U.A. Centro-Oeste | https:\//tm-westus201.afs.azure.net |
+| Governo | US Gov - Arizona | https:\//usgovarizona01.afs.azure.us | US Gov - Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Governo | US Gov - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Se utilizar contas de armazenamento redundantes localmente redundantes (LRS) ou de zona redundante (ZRS), apenas necessita de ativar o URL listado em "URL de ponto final primário".
 
 - Se utilizar contas de armazenamento globalmente redundantes (GRS), ative três URLs.
 
-**Exemplo:** Implementa um serviço de sincronização de armazenamento em `"West US"` e regista o seu servidor com ele. Os URLs para permitir que o servidor se comunique para este caso são:
+**Exemplo:** Implementa um serviço `"West US"` de sincronização de armazenamento e regista o seu servidor com ele. Os URLs para permitir que o servidor se comunique para este caso são:
 
 > - https:\//kailani.one.microsoft.com (ponto final primário: Oeste dos EUA)
 > - https:\//kailani1.one.microsoft.com (região de fail-over emparelhada: Leste dos EUA)
 > - https:\//tm-kailani.one.microsoft.com (URL de descoberta da região primária)
 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Permitir lista para endereços IP de Sincronização de Ficheiros Azure
-Se a firewall no local necessitar de adicionar endereços IP específicos a uma lista de permitir a ligação ao Azure File Sync, pode adicionar as seguintes gamas de endereços IP com base nas regiões a que está a ligar.
+O Azure File Sync suporta a utilização de etiquetas de [serviço,](../../virtual-network/service-tags-overview.md)que representam um grupo de prefixos de endereço IP para um determinado serviço Azure. Pode utilizar etiquetas de serviço para criar regras de firewall que permitam a comunicação com o serviço Dessincronização de Ficheiros Azure. A etiqueta de serviço para `StorageSyncService`O Sincronizado de Ficheiros Azure é .
 
-| Região | Intervalos de endereços IP |
-|--------|-------------------|
-| EUA Central | 52.176.149.179/32, 20.37.157.80/29 |
-| EUA Leste 2 | 40.123.47.110/32, 20.41.5.144/29 |
-| EUA Leste | 104.41.148.238/32, 20.42.4.248/29 |
-| EUA Centro-Norte | 65.52.62.167/32, 40.80.188.24/29 |
-| EUA Centro-Sul | 104.210.219.252/32, 13.73.248.112/29 |
-| EUA Oeste 2 | 52.183.27.204/32, 20.42.131.224/29 |
-| EUA Centro-Oeste | 52.161.25.233/32, 52.150.139.104/29 |
-| EUA Oeste | 40.112.150.67/32, 40.82.253.192/29 |
-| Canadá Central | 52.228.42.41/32, 52.228.81.248/29 |
-| Leste do Canadá | 52.235.36.119/32, 40.89.17.232/29 |
-| Sul do Brasil | 191.237.253.115/32, 191.235.225.216/29 |
-| Europa do Norte | 40.113.94.67/32, 20.38.85.152/29 |
-| Europa Ocidental | 104.40.191.8/32, 20.50.1.0/29 |
-| França Central | 52.143.166.54/32, 20.43.42.8/29 |
-| Sul de França | 52.136.131.99/32, 51.105.88.248/29 |
-| Reino Unido Sul | 51.140.67.72/32, 51.104.25.224/29 |
-| Reino Unido Oeste | 51.140.202.34/32, 51.137.161.240/29 |
-| Suíça Norte | 51.107.48.224/29 |
-| Suíça Oeste | 51.107.144.216/29 |
-| Noroeste da Noruega | 51.120.224.216/29 |
-| Noruega Leste | 51.120.40.224/29 |
-| Ásia Oriental | 23.102.225.54/32, 20.189.108.56/29 |
-| Sudeste Asiático | 13.76.81.46/32, 20.43.131.40/29 |
-| Austrália Central | 20.37.224.216/29 |
-| Austrália Central 2 | 20.36.120.216/29 |
-| Leste da Austrália | 13.75.153.240/32, 20.37.195.96/29 |
-| Sudeste da Austrália | 13.70.176.196/32, 20.42.227.128/29 |
-| Sul da Índia | 104.211.231.18/32, 20.41.193.160/29 |
-| Oeste da Índia | 52.136.48.216/29 |
-| Leste do Japão | 104.41.161.113/32, 20.43.66.0/29 |
-| Oeste do Japão | 23.100.106.151/32, 40.80.57.192/29 |
-| Coreia do Sul Central | 52.231.67.75/32, 20.41.65.184/29 |
-| Coreia do Sul | 52.231.159.38/32, 40.80.169.176/29 |
-| US DoD Leste | 20.140.72.152/29 |
-| Gov (US) - Arizona | 20.140.64.152/29 |
-| Gov (US) - Arizona | 52.244.75.224/32, 52.244.79.140/32 |
-| US Gov - Iowa | 52.244.79.140/32, 52.244.75.224/32 |
-| Gov (US) - Texas | 52.238.166.107/32, 52.238.79.29/32 |
-| Gov (US) - Virginia | 13.72.17.152/32, 52.227.153.92/32 |
-| África do Sul Norte | 102.133.175.72/32 |
-| África do Sul Ocidental | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
-| Central dos Emirados Emirados Unidos | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
-| Emirados Unidos norte | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
+Se estiver a utilizar o Azure File Sync dentro do Azure, pode utilizar o nome da etiqueta de serviço diretamente no seu grupo de segurança de rede para permitir o tráfego. Para saber mais sobre como fazê-lo, consulte os grupos de [segurança da Rede.](../../virtual-network/security-overview.md)
+
+Se estiver a utilizar o Azure File Sync no local, pode utilizar a etiqueta de serviço API para obter intervalos de endereçoIP específicos para a lista de autorizações da sua firewall. Existem dois métodos para obter esta informação:
+
+- A lista atual de intervalos de endereços IP para todas as etiquetas de suporte de serviços Azure é publicada semanalmente no Microsoft Download Center sob a forma de um documento JSON. Cada nuvem Azure tem o seu próprio documento JSON com as gamas de endereços IP relevantes para essa nuvem:
+    - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
+    - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
+    - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
+    - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
+- A API (pré-visualização) permite a recuperação programática da lista atual de tags de serviço. Na pré-visualização, a API de identificação da etiqueta de serviço pode devolver informações menos atuais do que as informações devolvidas dos documentos JSON publicados no Microsoft Download Center. Pode utilizar a superfície API com base na sua preferência de automação:
+    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+
+Uma vez que a API de identificação da etiqueta de serviço não é atualizada com tanta frequência como os documentos JSON publicados no Microsoft Download Center, recomendamos a utilização do documento JSON para atualizar a lista de autorização da firewall no local. Isto pode ser feito da seguinte forma:
+
+```PowerShell
+# The specific region to get the IP address ranges for. Replace westus2 with the desired region code 
+# from Get-AzLocation.
+$region = "westus2"
+
+# The service tag for Azure File Sync. Do not change unless you're adapting this
+# script for another service.
+$serviceTag = "StorageSyncService"
+
+# Download date is the string matching the JSON document on the Download Center. 
+$possibleDownloadDates = 0..7 | `
+    ForEach-Object { [System.DateTime]::Now.AddDays($_ * -1).ToString("yyyyMMdd") }
+
+# Verify the provided region
+$validRegions = Get-AzLocation | `
+    Where-Object { $_.Providers -contains "Microsoft.StorageSync" } | `
+    Select-Object -ExpandProperty Location
+
+if ($validRegions -notcontains $region) {
+    Write-Error `
+            -Message "The specified region $region is not available. Either Azure File Sync is not deployed there or the region does not exist." `
+            -ErrorAction Stop
+}
+
+# Get the Azure cloud. This should automatically based on the context of 
+# your Az PowerShell login, however if you manually need to populate, you can find
+# the correct values using Get-AzEnvironment.
+$azureCloud = Get-AzContext | `
+    Select-Object -ExpandProperty Environment | `
+    Select-Object -ExpandProperty Name
+
+# Build the download URI
+$downloadUris = @()
+switch($azureCloud) {
+    "AzureCloud" { 
+        $downloadUris = $possibleDownloadDates | ForEach-Object {  
+            "https://download.microsoft.com/download/7/1/D/71D86715-5596-4529-9B13-DA13A5DE5B63/ServiceTags_Public_$_.json"
+        }
+    }
+
+    "AzureUSGovernment" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/6/4/D/64DB03BF-895B-4173-A8B1-BA4AD5D4DF22/ServiceTags_AzureGovernment_$_.json"
+        }
+    }
+
+    "AzureChinaCloud" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/9/D/0/9D03B7E2-4B80-4BF3-9B91-DA8C7D3EE9F9/ServiceTags_China_$_.json"
+        }
+    }
+
+    "AzureGermanCloud" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/0/7/6/076274AB-4B0B-4246-A422-4BAF1E03F974/ServiceTags_AzureGermany_$_.json"
+        }
+    }
+
+    default {
+        Write-Error -Message "Unrecognized Azure Cloud: $_" -ErrorAction Stop
+    }
+}
+
+# Find most recent file
+$found = $false 
+foreach($downloadUri in $downloadUris) {
+    try { $response = Invoke-WebRequest -Uri $downloadUri -UseBasicParsing } catch { }
+    if ($response.StatusCode -eq 200) {
+        $found = $true
+        break
+    }
+}
+
+if ($found) {
+    # Get the raw JSON 
+    $content = [System.Text.Encoding]::UTF8.GetString($response.Content)
+
+    # Parse the JSON
+    $serviceTags = ConvertFrom-Json -InputObject $content -Depth 100
+
+    # Get the specific $ipAddressRanges
+    $ipAddressRanges = $serviceTags | `
+        Select-Object -ExpandProperty values | `
+        Where-Object { $_.id -eq "$serviceTag.$region" } | `
+        Select-Object -ExpandProperty properties | `
+        Select-Object -ExpandProperty addressPrefixes
+} else {
+    # If the file cannot be found, that means there hasn't been an update in
+    # more than a week. Please verify the download URIs are still accurate
+    # by checking https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+    Write-Verbose -Message "JSON service tag file not found."
+    return
+}
+```
+
+Em seguida, pode utilizar os `$ipAddressRanges` intervalos de endereçoIP para atualizar a sua firewall. Consulte o site do seu firewall/rede para obter informações sobre como atualizar a sua firewall.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade da rede aos pontos finais do serviço
 Uma vez registado um servidor com o serviço Desincronização de Ficheiros Azure, o Cmdlet de Conectividade Test-StorageSyncNetworkE e serverRegistration.exe podem ser utilizados para testar comunicações com todos os pontos finais (URLs) específicos deste servidor. Este cmdlet pode ajudar a resolver problemas quando uma comunicação incompleta impede o servidor de trabalhar totalmente com o Azure File Sync e pode ser usado para afinar configurações de proxy e firewall.
@@ -208,7 +275,7 @@ As listas anteriores neste documento contêm o URLs Azure File Sync com que comu
 
 A criação de regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e podem até mudar ao longo do tempo. Verifique este artigo periodicamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

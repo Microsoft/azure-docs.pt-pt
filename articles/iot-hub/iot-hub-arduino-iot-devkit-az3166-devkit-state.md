@@ -1,6 +1,6 @@
 ---
-title: Usar o gêmeos do dispositivo do Azure para controlar o LED de usuário do MXChip IoT DevKit | Microsoft Docs
-description: Neste tutorial, saiba como monitorar os Estados do DevKit e controlar o LED do usuário com o dispositivo gêmeos do Hub IoT do Azure.
+title: Utilize gémeos de dispositivo Saque para controlar o LED do utilizador MXChip IoT DevKit [ Microsoft Docs
+description: Neste tutorial, aprenda a monitorizar os estados de DevKit e controle o LED do utilizador com gémeos dispositivos Azure IoT Hub.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -10,27 +10,27 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73483938"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
-Você pode usar este exemplo para monitorar as informações do MXChip IoT DevKit WiFi e os Estados do sensor e controlar a cor do LED do usuário usando o dispositivo gêmeos do Hub IoT do Azure.
+Pode utilizar este exemplo para monitorizar as informações e os estados de sensores WiFi MXChip IoT DevKit e para controlar a cor do LED do utilizador utilizando gémeos dispositivos Azure IoT Hub.
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
-- Como monitorar os Estados do sensor do MXChip IoT DevKit.
+- Como monitorizar os estados do sensor MXChip IoT DevKit.
 
-- Como usar o dispositivo gêmeos do Azure para controlar a cor do LED RGB do DevKit.
+- Como utilizar gémeos do dispositivo Azure para controlar a cor do LED RGB do DevKit.
 
 ## <a name="what-you-need"></a>Do que precisa
 
-- Configure seu ambiente de desenvolvimento seguindo o [Guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Instale o seu ambiente de desenvolvimento seguindo o [Guia de Início de Partida](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 
-- Na janela do terminal do GitBash (ou outra interface de linha de comando do git), digite os seguintes comandos:
+- A partir da janela do terminal GitBash (ou outra interface de linha de comando Git), escreva os seguintes comandos:
 
    ```bash
    git clone https://github.com/DevKitExamples/DevKitState.git
@@ -38,83 +38,83 @@ Você pode usar este exemplo para monitorar as informações do MXChip IoT DevKi
    code .
    ```
 
-## <a name="provision-azure-services"></a>Provisionar serviços do Azure
+## <a name="provision-azure-services"></a>Serviços Azure de Prestação
 
-1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa...**  - **provisionar nuvem**.
+1. Clique no menu de entrega de **Tarefas** no Código do Estúdio Visual e selecione **Executar Tarefa...**  -  **fornecimento de nuvens.**
 
-2. Seu progresso é exibido na guia **terminal** do painel de **boas-vindas** .
+2. O seu progresso é apresentado sob o **separador TERMINAL** do painel **Welcome.**
 
-3. Quando receber a mensagem que a *assinatura deseja escolher*, selecione uma assinatura.
+3. Quando solicitado com a mensagem *Que subscrição gostaria*de escolher, selecione uma subscrição.
 
 4. Selecione ou escolha um grupo de recursos. 
  
    > [!NOTE]
-   > Se você já tiver um hub IoT gratuito, poderá ignorar esta etapa.
+   > Se já tem um Hub IoT gratuito, pode saltar este passo.
 
-5. Quando receber a mensagem que o *Hub IOT deseja escolher*, selecione ou crie um hub IOT.
+5. Quando solicitado com a mensagem *O hub IoT gostaria*de escolher, selecione ou crie um Hub IoT.
 
-6. Algo semelhante ao *aplicativo de funções: nome do aplicativo de funções: xxx*, é exibido. Anote o nome do aplicativo de funções; Ele será usado em uma etapa posterior.
+6. Algo semelhante à *aplicação de funções: nome da aplicação de função: xxx,* é apresentado. Escreva o nome da aplicação de função; será usado num passo posterior.
 
-7. Aguarde até que a implantação do modelo de Azure Resource Manager seja concluída, o que é indicado quando a *implantação do modelo do Resource Manager de mensagem: concluído* é exibido.
+7. Aguarde a implementação do modelo do Gestor de Recursos Azure para terminar, o que é indicado quando a implementação do modelo do Gestor de *Recursos da mensagem: Está apresentada.*
 
-## <a name="deploy-function-app"></a>Implantar Aplicativo de funções
+## <a name="deploy-function-app"></a>Implementar app de funções
 
-1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa...**  - **nuvem-implantar**.
+1. Clique no menu de entrega de **Tarefas** no Código do Estúdio Visual e selecione **Executar Tarefa...**  -  **cloud-deploy**.
 
-2. Aguarde a conclusão do processo de carregamento do código do aplicativo de funções; o aplicativo de função de mensagem *implanta: Done* é exibido.
+2. Aguarde o processo de upload do código da aplicação de função para terminar; a *aplicação* de função de mensagem é implementada: É apresentado.
 
-## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configurar a cadeia de conexão do dispositivo do Hub IoT no DevKit
+## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configure IoT Hub Device Connection String em DevKit
 
-1. Conecte seu MXChip IoT DevKit ao seu computador.
+1. Ligue o seu MXChip IoT DevKit ao seu computador.
 
-2. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa...**  - **config-Device-Connection**
+2. Clique no menu de entrega de **Tarefas** no Código do Estúdio Visual e selecione **Executar Tarefa...**  -  **config-dispositivo-ligação**
 
-3. No MXChip IoT DevKit, pressione e segure o botão **a**, pressione o botão **Redefinir** e solte o botão **a** para fazer com que o DekKit entre no modo de configuração.
+3. No MXChip IoT DevKit, prima e segure o botão **A,** prima o botão **Reset** e, em seguida, descarregue o botão **A** para que o DekKit introduza o modo de configuração.
 
-4. Aguarde o processo de configuração da cadeia de conexão ser concluído.
+4. Aguarde que o processo de configuração da cadeia de ligação esteja concluído.
 
-## <a name="upload-arduino-code-to-devkit"></a>Carregar código Arduino para DevKit
+## <a name="upload-arduino-code-to-devkit"></a>Faça upload do Código Arduino para DevKit
 
-Com seu MXChip IoT DevKit conectado ao seu computador:
+Com o seu MXChip IoT DevKit ligado ao seu computador:
 
-1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa de compilação...** O esboço Arduino é compilado e carregado no DevKit.
+1. Clique no menu de entrega de **tarefas** no Código do Estúdio Visual e selecione **Executar Build Task...** O esboço arduino é compilado e enviado para o DevKit.
 
-2. Quando o esboço foi carregado com êxito, uma mensagem *criar & carregar esboço: êxito* é exibida.
+2. Quando o esboço tiver sido carregado com sucesso, é apresentado um *Esboço de Upload de & Build:* mensagem de sucesso.
 
-## <a name="monitor-devkit-state-in-browser"></a>Monitorar o estado do DevKit no navegador
+## <a name="monitor-devkit-state-in-browser"></a>Monitor DevKit State in Browser
 
-1. Em um navegador da Web, abra o arquivo `DevKitState\web\index.html`, que foi criado durante a etapa o que você precisa.
+1. Num navegador Web, `DevKitState\web\index.html` abra o ficheiro -- que foi criado durante o passo o que precisa.
 
-2. A seguinte página da Web é exibida:![Especifique o nome do aplicativo de funções.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
+2. Aparece a seguinte página Web:![Especifique o nome da aplicação de função.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
-3. Insira o nome do aplicativo de funções que você anotou anteriormente.
+3. Insera o nome da aplicação de função que escreveste anteriormente.
 
-4. Clique no botão **conectar**
+4. Clique no botão **Ligar**
 
-5. Em alguns segundos, a página é atualizada e exibe o status da conexão WiFi do DevKit e o estado de cada um dos sensores integrados.
+5. Em poucos segundos, a página atualiza e exibe o estado de ligação Wi-Fi do DevKit e o estado de cada um dos sensores a bordo.
 
-## <a name="control-the-devkits-user-led"></a>Controlar o LED do usuário do DevKit
+## <a name="control-the-devkits-user-led"></a>Controlar o LED de Utilizador do DevKit
 
-1. Clique no gráfico de LED do usuário na ilustração da página da Web.
+1. Clique no gráfico LED do utilizador na ilustração da página Web.
 
-2. Em alguns segundos, a tela é atualizada e mostra o status de cor atual do LED do usuário.
+2. Em poucos segundos, o ecrã atualiza-se e mostra o estado atual da cor do LED do utilizador.
 
-3. Tente alterar o valor de cor do LED RGB clicando em vários locais nos controles deslizantes RGB.
+3. Tente alterar o valor de cor do LED RGB clicando em vários locais nos comandos de slider RGB.
 
 ## <a name="example-operation"></a>Operação de exemplo
 
-![Exemplo de procedimento de teste](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+![Procedimento de teste de exemplo](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Você pode ver dados brutos do dispositivo de entrada no portal do Azure: Hub IoT-\> dispositivos IoT-\> *\<seu dispositivo\>*  -dispositivo de \>.
+> Pode ver dados brutos do dispositivo twin no portal\> Azure: IoT Hub - dispositivos IoT -\> * \<o seu dispositivo\> *  - \> Device Twin.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você aprendeu como:
-- Conecte um dispositivo MXChip IoT DevKit ao acelerador de solução de monitoramento remoto do Azure IoT.
-- Use a função gêmeos do dispositivo IoT do Azure para detectar e controlar a cor do LED RGB do DevKit.
+Aprendeu a:
+- Ligue um dispositivo MXChip IoT DevKit ao seu acelerador de solução de monitorização remota Azure IoT.
+- Utilize a função de gémeos do dispositivo Azure IoT para sentir e controlar a cor do LED RGB do DevKit.
 
-Aqui estão as próximas etapas sugeridas:
+Aqui estão os próximos passos sugeridos:
 
-* [Visão geral do acelerador de solução de monitoramento remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao aplicativo IoT Central do Azure](/azure/iot-central/core/howto-connect-devkit)
+* [Visão geral do acelerador de solução de monitorização remota Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Ligue um dispositivo MXChip IoT DevKit à sua aplicação Central Azure IoT](/azure/iot-central/core/howto-connect-devkit)

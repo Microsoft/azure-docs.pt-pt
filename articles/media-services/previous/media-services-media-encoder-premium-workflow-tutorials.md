@@ -1,5 +1,5 @@
 ---
-title: Tutoriais de fluxo de trabalho premium de media avançados
+title: Advanced Media Encoder Premium Workflow tutorials (Tutoriais avançados do Media Encoder Premium Workflow)
 description: Este documento contém walkthroughs que mostram como executar tarefas avançadas com media Encoder Premium Workflow e também como criar fluxos de trabalho complexos com o Workflow Designer.
 services: media-services
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251014"
 ---
-# <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais de fluxo de trabalho premium de media avançados
+# <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Advanced Media Encoder Premium Workflow tutorials (Tutoriais avançados do Media Encoder Premium Workflow)
 ## <a name="overview"></a>Descrição geral
 Este documento contém walkthroughs que mostram como personalizar fluxos de trabalho com **Workflow Designer**. Pode encontrar os ficheiros de fluxo de trabalho [aqui.](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples)  
 
 ## <a name="toc"></a>TOC
-São abrangidos os seguintes tópicos:
+Os seguintes tópicos são abordados:
 
 * [Codificar mXF em um único BITRATE MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
   * [Iniciar um novo fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
@@ -601,7 +601,7 @@ Agora execute um teste local. Depois desta execução, inspecione (através do s
 
 O objeto do nó a que chamamos o método de registo, refere-se ao nosso "nó" atual ou ao componente que estamos a escrever dentro. Todos os componentes como tal têm a capacidade de obter dados de registo, disponíveis através do separador do sistema. Neste caso, nós produzmos a corda literal "olá mundo". Importante entender aqui é que esta pode revelar-se uma ferramenta de depuração inestimável, fornecendo-lhe uma visão sobre o que o script está realmente fazendo.
 
-A partir do nosso ambiente de scripts, também temos acesso a propriedades em outros componentes. Experimente isto:
+A partir do nosso ambiente de scripts, também temos acesso a propriedades em outros componentes. Experimente o seguinte:
 
 ```java
     //inspect current node:
@@ -761,9 +761,9 @@ Isto foi feito através de operações normais de manipulação de cordas. A lis
 
 *Registando a lista de clipes resultante*
 
-Faça um teste para ver como os fluxos de vídeo e áudio foram cortados. Como fará mais do que um teste com valores diferentes para os pontos de aparação, notará que estes não serão levados em conta no entanto! A razão para isso é que o designer, ao contrário do tempo de funcionação do Azure, NÃO sobrepor-se à lista de clipe xml em cada corrida. Isto significa que apenas a primeira vez que definir os pontos de entrada e saída, fará com que o xml se transforme, todas as outras vezes, a nossa cláusula de guarda (se,`clipListXML.indexOf("<trim>") == -1`) impedirá que o fluxo de trabalho adicione outro elemento de corte quando já existe um presente.
+Faça um teste para ver como os fluxos de vídeo e áudio foram cortados. Como fará mais do que um teste com valores diferentes para os pontos de aparação, notará que estes não serão levados em conta no entanto! A razão para isso é que o designer, ao contrário do tempo de funcionação do Azure, NÃO sobrepor-se à lista de clipe xml em cada corrida. Isto significa que apenas a primeira vez que definir os pontos de entrada e saída, fará`clipListXML.indexOf("<trim>") == -1`com que o xml se transforme, todas as outras vezes, a nossa cláusula de guarda (se, )) impedirá que o fluxo de trabalho adicione outro elemento de corte quando já existe um presente.
 
-Para tornar o nosso fluxo de trabalho conveniente para testar localmente, é melhor adicionar mos si mesmo de um código de limpeza que inspeciona se um elemento de guarnição já estava presente. Em caso afirmativo, podemos removê-lo antes de continuar modificando o xml com os novos valores. Em vez de usar manipulações de cordas simples, é provavelmente mais seguro fazê-lo através de uma análise real do modelo de objeto xml.
+Para tornar o nosso fluxo de trabalho conveniente para testar localmente, é melhor adicionar mos si mesmo sacana de um código de limpeza que inspeciona se um elemento de guarnição já estava presente. Em caso afirmativo, podemos removê-lo antes de continuar modificando o xml com os novos valores. Em vez de usar manipulações de cordas simples, é provavelmente mais seguro fazê-lo através de uma análise real do modelo de objeto xml.
 
 Antes de podermos adicionar tal código, precisamos adicionar uma série de declarações de importação no início do nosso script primeiro:
 
@@ -946,7 +946,7 @@ Com a cláusula de guarda simples abaixo, podemos verificar se é necessário ap
 
 [Codificação de conteúdos a pedido com o Serviço de Mídia Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-[Formatos e Codecs de Fluxo de Trabalho Premium do Codificador de Multimédia](media-services-premium-workflow-encoder-formats.md)
+[Media Encoder Premium Workflow Formatos e Codecs](media-services-premium-workflow-encoder-formats.md)
 
 [Ficheiros de fluxo de trabalho de amostra](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 

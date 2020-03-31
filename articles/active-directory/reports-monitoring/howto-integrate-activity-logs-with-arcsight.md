@@ -1,6 +1,6 @@
 ---
-title: Integrar logs com o ArcSight usando o Azure Monitor | Microsoft Docs
-description: Saiba como integrar logs de Azure Active Directory com o ArcSight usando Azure Monitor
+title: Integrar registos com o ArcSight utilizando o Monitor Azure [ Monitor Azul] Microsoft Docs
+description: Saiba como integrar registos de Diretórios Ativos Azure com o ArcSight usando o Monitor Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,45 +18,45 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75608385"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar logs de Azure Active Directory com o ArcSight usando Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integre os registos de DirectórioActivo Azure com o ArcSight utilizando o Monitor Azure
 
-[Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) é uma solução de Siem (gerenciamento de informações e eventos de segurança) que ajuda você a detectar e responder a ameaças de segurança em sua plataforma. Agora você pode rotear logs do Azure Active Directory (AD do Azure) para ArcSight usando Azure Monitor usando o conector do ArcSight para o Azure AD. Esse recurso permite que você monitore seu locatário quanto ao comprometimento da segurança usando o ArcSight.  
+[Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) é uma solução de informação de segurança e gestão de eventos (SIEM) que o ajuda a detetar e responder a ameaças de segurança na sua plataforma. Agora pode encaminhar os registos do Azure Ative Directory (Azure AD) para o ArcSight utilizando o Monitor Azure utilizando o conector ArcSight para AD Azure. Esta funcionalidade permite-lhe monitorizar o seu inquilino para um compromisso de segurança usando o ArcSight.  
 
-Neste artigo, você aprenderá a rotear os logs do Azure AD para o ArcSight usando Azure Monitor. 
+Neste artigo, aprende-se a encaminhar os registos da AD Azure para o ArcSight utilizando o Monitor Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar esta funcionalidade, precisa de:
-* Um hub de eventos do Azure que contém logs de atividade do Azure AD. Saiba como [transmitir seus logs de atividade para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
-* Uma instância configurada do ArcSight syslog NG daemon SmartConnector (SmartConnector) ou ArcSight Load Balancer. Se os eventos forem enviados para ArcSight Load Balancer, eles serão, consequentemente, enviados para o SmartConnector pelo Load Balancer.
+* Um centro de eventos Azure que contém registos de atividade da Azure AD. Aprenda a transmitir os seus registos de [atividade para um centro de eventos.](quickstart-azure-monitor-stream-logs-to-event-hub.md) 
+* Uma instância configurada de ArcSight Syslog NG Daemon SmartConnector (SmartConnector) ou ArcSight Load Balancer. Se os eventos forem enviados para o ArcSight Load Balancer, estes são, consequentemente, enviados para o SmartConnector pelo Balancer de Carga.
 
-Baixe e abra o [Guia de configuração do ArcSight SmartConnector para Azure monitor Hub de eventos](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Este guia contém as etapas necessárias para instalar e configurar o ArcSight SmartConnector para Azure Monitor. 
+Descarregue e abra o guia de [configuração do ArcSight SmartConnector para o Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Este guia contém os passos necessários para instalar e configurar o ArcSight SmartConnector para o Monitor Azure. 
 
-## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integrar logs do Azure AD ao ArcSight
+## <a name="integrate-azure-ad-logs-with-arcsight"></a>Integre os registos de Anúncios Azure com a ArcSight
 
-1. Primeiro, conclua as etapas na seção **pré-requisitos** do guia de configuração. Esta seção inclui as seguintes etapas:
-    * Defina permissões de usuário no Azure para garantir que haja um usuário com a função de **proprietário** para implantar e configurar o conector.
-    * Abra portas no servidor com o syslog NG daemon SmartConnector, para que ele possa ser acessado do Azure. 
-    * A implantação executa um script do Windows PowerShell, portanto, você deve habilitar o PowerShell para executar scripts no computador em que deseja implantar o conector.
+1. Primeiro, preencha os passos na secção **pré-requisitos** do guia de configuração. Esta secção inclui os seguintes passos:
+    * Detete as permissões do utilizador no Azure, para garantir que existe um utilizador com a função do **proprietário** para implementar e configurar o conector.
+    * Abra portas no servidor com Syslog NG Daemon SmartConnector, por isso é acessível a partir do Azure. 
+    * A implementação executa um script Windows PowerShell, por isso deve ativar o PowerShell para executar scripts na máquina onde pretende implementar o conector.
 
-2. Siga as etapas na seção **implantando o conector** do guia de configuração do para implantar o conector. Esta seção explica como baixar e extrair o conector, configurar as propriedades do aplicativo e executar o script de implantação da pasta extraída. 
+2. Siga os passos na implantação da secção de configuração do **Conector** para implantar o conector. Esta secção acompanha-o através de como descarregar e extrair o conector, configurar as propriedades da aplicação e executar o script de implementação a partir da pasta extraída. 
 
-3. Use as etapas em **verificando a implantação no Azure** para verificar se o conector está configurado e funcionando corretamente. Verifique o seguinte:
-    * O requisito do Azure Functions é criado em sua assinatura do Azure.
-    * Os logs do Azure AD são transmitidos para o destino correto. 
-    * As configurações do aplicativo de sua implantação são persistidas nas configurações do aplicativo em aplicativos de funções do Azure. 
-    * Um novo grupo de recursos para ArcSight é criado no Azure, com um aplicativo do Azure AD para o conector ArcSight e as contas de armazenamento que contêm os arquivos mapeados no formato CEF.
+3. Utilize os passos na **verificação da implantação em Azure** para se certificar de que o conector está configurado e funciona corretamente. Verifique o seguinte:
+    * As funções azure necessárias são criadas na sua subscrição Azure.
+    * Os registos da AD Azure são transmitidos para o destino correto. 
+    * As definições de aplicação a partir da sua implementação são persistidas nas Definições de Aplicação em Aplicações de Função Azure. 
+    * Um novo grupo de recursos para o ArcSight é criado em Azure, com uma aplicação Azure AD para as contas de conector e armazenamento ArcSight contendo os ficheiros mapeados no formato CEF.
 
-4. Por fim, conclua as etapas pós-implantação nas **configurações pós-implantação** do guia de configuração. Esta seção explica como executar uma configuração adicional se você estiver em um plano do serviço de aplicativo para impedir que os aplicativos de funções fiquem ociosos após um período de tempo limite, configurar o streaming de logs de diagnóstico do hub de eventos e atualizar o daemon do SysLog NG SmartConnector certificado de repositório de chaves para associá-lo à conta de armazenamento recém-criada.
+4. Por fim, complete os passos de pós-implantação nas **Configurações pós-implantação** do guia de configuração. Esta secção explica como executar uma configuração adicional se estiver num Plano de Serviço de Aplicações para evitar que as aplicações de função fiquem inativas após um período de tempo limite, configure o streaming de registos de diagnóstico do centro do evento e atualize o SysLog NG Daemon Certificado de keystore SmartConnector para associá-lo à conta de armazenamento recém-criada.
 
-5. O guia de configuração também explica como personalizar as propriedades do conector no Azure e como atualizar e desinstalar o conector. Também há uma seção sobre melhorias de desempenho, incluindo a atualização para um [plano de consumo do Azure](https://azure.microsoft.com/pricing/details/functions) e a configuração de um Load Balancer de ArcSight se a carga do evento for maior do que o que um único syslog do daemon ng SmartConnector pode manipular.
+5. O guia de configuração também explica como personalizar as propriedades do conector em Azure, e como atualizar e desinstalar o conector. Há também uma secção sobre melhorias de desempenho, incluindo a atualização para um plano de [consumo azure](https://azure.microsoft.com/pricing/details/functions) e configurar um Equilíbrio de Carga ArcSight se a carga do evento for maior do que o que um único Syslog NG Daemon SmartConnector pode lidar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Guia de configuração para ArcSight SmartConnector para Azure Monitor Hub de eventos](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
+[Guia de configuração do ArcSight SmartConnector para o Hub de Eventos do Monitor Azure](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

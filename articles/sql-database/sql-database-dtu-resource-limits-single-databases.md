@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256318"
 ---
-# <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra dTU
+# <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de recursos das bases de dados individuais com o modelo de compra de DTUs
 
 Este artigo fornece os limites de recursos detalhados para as bases de dados únicas da Azure SQL utilizando o modelo de compra dTU.
 
@@ -33,7 +33,7 @@ As tabelas que se seguem mostram os recursos disponíveis para uma única base d
 
 ### <a name="basic-service-tier"></a>Escalão de serviços básicos
 
-| **Tamanho da computação** | **Básica** |
+| **Tamanho da computação** | **Básico** |
 | :--- | --: |
 | Máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
@@ -71,7 +71,7 @@ As tabelas que se seguem mostram os recursos disponíveis para uma única base d
 
 | **Tamanho da computação** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
-| Máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
+| Máximo de DTUs | 200 | 400 | 800 | 1600 | 3.000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Escolhas de armazenamento max (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |N/D |
@@ -91,12 +91,12 @@ As tabelas que se seguem mostram os recursos disponíveis para uma única base d
 | Sessões simultâneas máx. | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\* De 1024 GB até 4096 GB em incrementos de 256 GB
+\*De 1024 GB até 4096 GB em incrementos de 256 GB
 
 > [!IMPORTANT]
 > Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China North, Alemanha Central, Alemanha Nordeste, Oeste Dos EUA, regiões do DoD dos EUA e Central do Governo dos EUA. Nestas regiões, o máximo de armazenamento no nível Premium está limitado a 1 TB.  Para mais informações, consulte as [limitações atuais p11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
-> Para `tempdb` limites, consulte [os limites temporários.](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)
+> Para `tempdb` limites, consulte [os limites temporários](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Passos seguintes
 

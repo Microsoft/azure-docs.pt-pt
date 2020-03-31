@@ -1,6 +1,6 @@
 ---
-title: Alta disponibilidade e balanceamento de carga-Proxy de Aplicativo do AD do Azure
-description: Como a distribuição de tráfego funciona com a implantação do proxy de aplicativo. Inclui dicas de como otimizar o desempenho do conector e usar o balanceamento de carga para servidores back-end.
+title: Alta disponibilidade e equilíbrio de carga - Procuração de aplicação ad azure
+description: Como a distribuição de tráfego funciona com a implementação do Proxy de Aplicação. Inclui dicas para otimizar o desempenho do conector e utilizar o equilíbrio de carga para servidores de back-end.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,90 +16,90 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275541"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481318"
 ---
-# <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e balanceamento de carga de seus aplicativos e conectores de proxy de aplicativo
+# <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e equilíbrio de carga dos seus conectores e aplicações do Proxy de Aplicação
 
-Este artigo explica como a distribuição de tráfego funciona com a implantação do proxy de aplicativo. Discutiremos:
+Este artigo explica como a distribuição de tráfego funciona com a sua implementação de Procuração de Aplicações. Vamos discutir:
 
-- Como o tráfego é distribuído entre usuários e conectores, juntamente com dicas para otimizar o desempenho do conector
+- Como o tráfego é distribuído entre utilizadores e conectores, juntamente com dicas para otimizar o desempenho do conector
 
-- Como o tráfego flui entre conectores e servidores de aplicativos de back-end, com recomendações para balanceamento de carga entre vários servidores back-end
+- Como o tráfego flui entre conectores e servidores de aplicações back-end, com recomendações para equilibrar a carga entre vários servidores back-end
 
-## <a name="traffic-distribution-across-connectors"></a>Distribuição de tráfego entre conectores
+## <a name="traffic-distribution-across-connectors"></a>Distribuição de tráfego através de conectores
 
-Os conectores estabelecem suas conexões com base nos princípios para alta disponibilidade. Não há nenhuma garantia de que o tráfego sempre será distribuído uniformemente entre os conectores e não há nenhuma afinidade de sessão. No entanto, o uso varia e as solicitações são enviadas aleatoriamente para instâncias de serviço de proxy de aplicativo. Como resultado, o tráfego normalmente é distribuído quase igualmente entre os conectores. O diagrama e as etapas a seguir ilustram como as conexões são estabelecidas entre usuários e conectores.
+Os conectores estabelecem as suas ligações com base em princípios de elevada disponibilidade. Não há garantias de que o tráfego será sempre distribuído uniformemente pelos conectores e não há afinidade de sessão. No entanto, o uso varia e os pedidos são enviados aleatoriamente para instâncias de serviço de Procuração de Aplicação. Como resultado, o tráfego é normalmente distribuído quase uniformemente pelos conectores. O diagrama e os passos abaixo ilustram como as ligações são estabelecidas entre utilizadores e conectores.
 
-![Diagrama mostrando conexões entre usuários e conectores](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
+![Diagrama mostrando ligações entre utilizadores e conectores](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
 
-1. Um usuário em um dispositivo cliente tenta acessar um aplicativo local publicado por meio do proxy de aplicativo.
-2. A solicitação passa por um Azure Load Balancer para determinar qual instância de serviço de proxy de aplicativo deve executar a solicitação. Por região, há dezenas de instâncias disponíveis para aceitar a solicitação. Esse método ajuda a distribuir uniformemente o tráfego entre as instâncias de serviço.
-3. A solicitação é enviada ao [barramento de serviço](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. O barramento de serviço verifica se a conexão usou anteriormente um conector existente no grupo de conectores. Nesse caso, ele reutiliza a conexão. Se nenhum conector estiver emparelhado com a conexão ainda, ele escolherá um conector disponível aleatoriamente para sinalizar. Em seguida, o conector pega a solicitação do barramento de serviço.
+1. Um utilizador de um dispositivo cliente tenta aceder a uma aplicação no local publicada através do Application Proxy.
+2. O pedido passa por um Balancer de Carga Azure para determinar qual a instância de serviço de procuração de aplicações deve atender o pedido. Por região, existem dezenas de casos disponíveis para aceitar o pedido. Este método ajuda a distribuir uniformemente o tráfego através das instâncias de serviço.
+3. O pedido é enviado para [o Service Bus.](https://docs.microsoft.com/azure/service-bus-messaging/)
+4. Serviço Bus verifica se a ligação anteriormente utilizada um conector existente no grupo de conectores. Em caso afirmativo, reutiliza a ligação. Se nenhum conector estiver emparelhado com a ligação ainda, ele escolhe um conector disponível aleatoriamente para sinalizar. Em seguida, o conector recolhe o pedido da Service Bus.
 
-   - Na etapa 2, as solicitações vão para diferentes instâncias de serviço de proxy de aplicativo, portanto, é mais provável que as conexões sejam feitas com conectores diferentes. Como resultado, os conectores são quase usados de forma uniforme dentro do grupo.
+   - Na etapa 2, os pedidos vão para diferentes instâncias de serviço de Procuração de Aplicações, pelo que as ligações são mais propensas a serem feitas com diferentes conectores. Como resultado, os conectores são quase uniformemente utilizados dentro do grupo.
 
-   - Uma conexão só será restabelecida se a conexão for interrompida ou se ocorrer um período ocioso de 10 minutos. Por exemplo, a conexão pode ser interrompida quando um serviço de computador ou conector é reiniciado ou há uma interrupção de rede.
+   - Uma ligação só é restabelecida se a ligação estiver quebrada ou ocorrer um período de 10 minutos. Por exemplo, a ligação pode ser quebrada quando uma máquina ou serviço de conector reinicia ou há uma rutura da rede.
 
-5. O conector passa a solicitação para o servidor de back-end do aplicativo. Em seguida, o aplicativo envia a resposta de volta para o conector.
-6. O conector conclui a resposta abrindo uma conexão de saída para a instância de serviço de onde a solicitação veio. Em seguida, essa conexão é fechada imediatamente. Por padrão, cada conector é limitado a 200 conexões de saída simultâneas.
-7. Em seguida, a resposta é passada de volta para o cliente da instância de serviço.
-8. As solicitações subsequentes da mesma conexão repetim as etapas acima até que essa conexão seja quebrada ou fique ociosa por 10 minutos.
+5. O conector transmite o pedido para o servidor back-end da aplicação. Em seguida, a aplicação envia a resposta de volta para o conector.
+6. O conector completa a resposta abrindo uma ligação de saída à instância de serviço de onde o pedido veio. Em seguida, esta ligação é imediatamente fechada. Por predefinição, cada conector está limitado a 200 ligações de saída simultâneas.
+7. A resposta é então transmitida de volta para o cliente a partir da instância de serviço.
+8. Os pedidos subsequentes da mesma ligação repitam os passos acima até que esta ligação esteja quebrada ou fique inativa durante 10 minutos.
 
-Um aplicativo geralmente tem muitos recursos e abre várias conexões quando ele é carregado. Cada conexão passa pelas etapas acima para ser alocada a uma instância de serviço, selecione um novo conector disponível se a conexão ainda não tiver sido emparelhada anteriormente com um conector.
+Uma aplicação muitas vezes tem muitos recursos e abre múltiplas conexões quando é carregada. Cada ligação passa pelos passos acima para ser atribuída a uma instância de serviço, selecione um novo conector disponível se a ligação ainda não tiver sido previamente emparelhada com um conector.
 
 
-## <a name="best-practices-for-high-availability-of-connectors"></a>Práticas recomendadas para alta disponibilidade de conectores
+## <a name="best-practices-for-high-availability-of-connectors"></a>Boas práticas para alta disponibilidade de conectores
 
-- Devido à maneira como o tráfego é distribuído entre conectores para alta disponibilidade, é essencial sempre ter pelo menos dois conectores em um grupo de conectores. Três conectores são preferenciais para fornecer buffer adicional entre conectores. Para determinar o número correto de conectores necessários, siga a documentação de planejamento de capacidade.
+- Devido à forma como o tráfego é distribuído entre conectores para alta disponibilidade, é essencial ter sempre pelo menos dois conectores num grupo de conectores. São preferíveis três conectores para fornecer tampão adicional entre conectores. Para determinar o número correto de conectores necessários, siga a documentação de planeamento da capacidade.
 
-- Coloque os conectores em conexões de saída diferentes para evitar um único ponto de falha. Se os conectores usarem a mesma conexão de saída, um problema de rede com a conexão poderá afetar todos os conectores que o utilizam.
+- Coloque conectores em diferentes ligações de saída para evitar um único ponto de avaria. Se os conectores utilizarem a mesma ligação de saída, um problema de rede com a ligação pode afetar todos os conectores que a utilizam.
 
-- Evite forçar os conectores a reiniciar quando conectados a aplicativos de produção. Isso pode afetar negativamente a distribuição do tráfego entre conectores. A reinicialização de conectores faz com que mais conectores não estejam disponíveis e força conexões com o conector restante disponível. O resultado é um uso desigual dos conectores inicialmente.
+- Evite forçar os conectores a reiniciar quando ligados às aplicações de produção. Ao fazê-lo, pode afetar negativamente a distribuição do tráfego através dos conectores. O reinício dos conectores faz com que mais conectores não estejam disponíveis e força as ligações ao restante conector disponível. O resultado é uma utilização desigual dos conectores inicialmente.
 
-- Evite todas as formas de inspeção embutida em comunicações TLS de saída entre conectores e o Azure. Esse tipo de inspeção embutida causa degradação no fluxo de comunicação.
+- Evite todas as formas de inspeção em linha nas comunicações TLS de saída entre conectores e Azure. Este tipo de inspeção inline causa degradação ao fluxo de comunicação.
 
-- Certifique-se de manter as atualizações automáticas em execução para seus conectores. Se o serviço de Atualizador do Conector do proxy de aplicativo estiver em execução, os conectores serão atualizados automaticamente e receberão a atualização mais recente. Se você não vir o serviço de Atualizador do Conector em seu servidor, precisará reinstalar o conector para obter todas as atualizações.
+- Certifique-se de que mantém as atualizações automáticas em funcionamento para os seus conectores. Se o serviço de atualização do Coector proxy da aplicação estiver em funcionamento, os seus conectores atualizam-se automaticamente e recebem o mais recente atualizado. Se não vir o serviço de Atualização do Conector no seu servidor, precisa de reinstalar o conector para obter quaisquer atualizações.
 
-## <a name="traffic-flow-between-connectors-and-back-end-application-servers"></a>Fluxo de tráfego entre conectores e servidores de aplicativos de back-end
+## <a name="traffic-flow-between-connectors-and-back-end-application-servers"></a>Fluxo de tráfego entre conectores e servidores de aplicações back-end
 
-Outra área principal em que a alta disponibilidade é um fator é a conexão entre os conectores e os servidores back-end. Quando um aplicativo é publicado por meio do Azure Proxy de Aplicativo do AD, o tráfego dos usuários para os aplicativos flui por três saltos:
+Outra área-chave onde a elevada disponibilidade é um fator é a ligação entre os conectores e os servidores de back-end. Quando uma aplicação é publicada através do Azure AD Application Proxy, o tráfego dos utilizadores para as aplicações flui através de três lúpulos:
 
-1. O usuário se conecta ao ponto de extremidade público do serviço de Proxy de Aplicativo do AD do Azure no Azure. A conexão é estabelecida entre o endereço IP do cliente de origem (público) do cliente e o endereço IP do ponto de extremidade do proxy de aplicativo.
-2. O conector de proxy de aplicativo efetua pull da solicitação HTTP do cliente do serviço de proxy de aplicativo.
-3. O conector de proxy de aplicativo se conecta ao aplicativo de destino. O conector usa seu próprio endereço IP para estabelecer a conexão.
+1. O utilizador liga-se ao serviço de procuração de aplicações Azure AD proxy no Azure. A ligação está estabelecida entre o endereço IP do cliente originário (público) do cliente e o endereço IP do ponto final do Proxy de Aplicação.
+2. O conector Proxy de Aplicação retira o pedido http do cliente do Serviço de Procuração de Pedidos.
+3. O conector Proxy de Aplicação liga-se à aplicação-alvo. O conector utiliza o seu próprio endereço IP para estabelecer a ligação.
 
-![Diagrama de usuário que se conecta a um aplicativo por meio do proxy de aplicativo](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
+![Diagrama de ligação do utilizador a uma aplicação via Proxy de aplicação](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
 
-### <a name="x-forwarded-for-header-field-considerations"></a>Considerações de campo de cabeçalho X-Forwarded-for
-Em algumas situações (como auditoria, balanceamento de carga etc.), o compartilhamento do endereço IP de origem do cliente externo com o ambiente local é um requisito. Para atender ao requisito, o conector de Proxy de Aplicativo do AD do Azure adiciona o campo de cabeçalho X-Forwarded-for com o endereço IP do cliente de origem (público) à solicitação HTTP. O dispositivo de rede apropriado (balanceador de carga, firewall) ou o servidor Web ou o aplicativo de back-end pode ler e usar as informações.
+### <a name="x-forwarded-for-header-field-considerations"></a>X-Forwarded-Para considerações de campo de cabeçalho
+Em algumas situações (como auditoria, equilíbrio de carga, etc.), partilhar o endereço IP originário do cliente externo com o ambiente no local é um requisito. Para responder ao requisito, o conector De procuração de aplicação Azure AD adiciona o campo de cabeçalho X-Forwarded-For com o endereço IP do cliente originário (público) ao pedido http. O dispositivo de rede apropriado (balanceor de carga, firewall) ou o servidor web ou aplicação back-end podem então ler e utilizar as informações.
 
-## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Práticas recomendadas para balanceamento de carga entre vários servidores de aplicativos
-Quando o grupo de conectores atribuído ao aplicativo de proxy de aplicativo tem dois ou mais conectores, e você está executando o aplicativo Web de back-end em vários servidores (farm de servidores), é necessária uma boa estratégia de balanceamento de carga. Uma boa estratégia garante que os servidores peguem as solicitações do cliente de maneira uniforme e impeçam o excesso ou a utilização de servidores no farm de servidores.
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Cenário 1: o aplicativo de back-end não requer persistência de sessão
-O cenário mais simples é onde o aplicativo Web de back-end não exige a adesão da sessão (persistência da sessão). Qualquer solicitação do usuário pode ser tratada por qualquer instância de aplicativo de back-end no farm de servidores. Você pode usar um balanceador de carga de camada 4 e configurá-lo sem afinidade. Algumas opções incluem o balanceamento de carga de rede da Microsoft e Azure Load Balancer ou um balanceador de carga de outro fornecedor. Como alternativa, o DNS Round Robin pode ser configurado.
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Cenário 2: o aplicativo de back-end requer persistência de sessão
-Nesse cenário, o aplicativo Web de back-end requer a adesão da sessão (persistência da sessão) durante a sessão autenticada. Todas as solicitações do usuário devem ser tratadas pela instância do aplicativo de back-end que é executada no mesmo servidor no farm de servidores.
-Esse cenário pode ser mais complicado porque o cliente geralmente estabelece várias conexões com o serviço de proxy de aplicativo. Solicitações em diferentes conexões podem chegar em diferentes conectores e servidores no farm. Como cada conector usa seu próprio endereço IP para essa comunicação, o balanceador de carga não pode garantir a adesão da sessão com base no endereço IP dos conectores. A afinidade de IP de origem não pode ser usada.
+## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>As melhores práticas para equilibrar a carga entre vários servidores de aplicações
+Quando o grupo de conector que é atribuído à aplicação Proxy de aplicação tem dois ou mais conectores, e você está executando a aplicação web back-end em vários servidores (fazenda de servidores), é necessária uma boa estratégia de equilíbrio de carga. Uma boa estratégia garante que os servidores captam os pedidos dos clientes de forma uniforme e impedem a sobreutilização ou subutilização de servidores na exploração do servidor.
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Cenário 1: Aplicação back-end não requer persistência da sessão
+O cenário mais simples é onde a aplicação web back-end não requer a cisma da sessão (persistência da sessão). Qualquer pedido do utilizador pode ser tratado por qualquer instância de aplicação de back-end na exploração do servidor. Pode utilizar um equilibrante de carga de camada 4 e configurá-lo sem afinidade. Algumas opções incluem o Equilíbrio de Carga da Rede Microsoft e o Equilíbrio de Carga Azure ou um balancer de carga de outro fornecedor. Em alternativa, o DNS de robin redondo pode ser configurado.
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Cenário 2: Aplicação back-end requer persistência de sessão
+Neste cenário, a aplicação web back-end requer a persistência da sessão (persistência da sessão) durante a sessão autenticada. Todos os pedidos do utilizador devem ser tratados pela instância de aplicação de back-end que corre no mesmo servidor na exploração do servidor.
+Este cenário pode ser mais complicado porque o cliente geralmente estabelece múltiplas ligações ao serviço Proxy de Aplicação. Pedidos sobre diferentes ligações podem chegar a diferentes conectores e servidores na quinta. Uma vez que cada conector utiliza o seu próprio endereço IP para esta comunicação, o equilibrista de carga não pode garantir a cisma da sessão com base no endereço IP dos conectores. Fonte IP Affinity também não pode ser usada.
 Aqui estão algumas opções para o cenário 2:
 
-- Opção 1: basear a persistência da sessão em um cookie de sessão definido pelo balanceador de carga. Essa opção é recomendada porque permite que a carga seja distribuída mais uniformemente entre os servidores back-end. Ele requer um balanceador de carga de camada 7 com esse recurso e que pode manipular o tráfego HTTP e encerrar a conexão SSL. Você pode usar Aplicativo Azure gateway (afinidade de sessão) ou um balanceador de carga de outro fornecedor.
+- Opção 1: Baseie a persistência da sessão numa sessão definida pelo equilibrador de carga. Esta opção é recomendada porque permite que a carga seja distribuída de forma mais homogonada entre os servidores de back-end. Requer um equilibrador de carga de camada 7 com esta capacidade e que pode lidar com o tráfego HTTP e terminar a ligação TLS. Pode utilizar o Portal de Aplicações Azure (Session Affinity) ou um equilibrador de carga de outro fornecedor.
 
-- Opção 2: basear a persistência da sessão no campo de cabeçalho X-Forwarded-for. Essa opção requer um balanceador de carga de camada 7 com esse recurso e que pode manipular o tráfego HTTP e encerrar a conexão SSL.  
+- Opção 2: Baseie a persistência da sessão no campo de cabeçalho X-Forwarded-For. Esta opção requer um equilibrador de carga de camada 7 com esta capacidade e que pode lidar com o tráfego HTTP e terminar a ligação TLS.  
 
-- Opção 3: Configure o aplicativo de back-end para não exigir persistência de sessão.
+- Opção 3: Configure a aplicação de back-end para não exigir persistência da sessão.
 
-Consulte a documentação do fornecedor do software para entender os requisitos de balanceamento de carga do aplicativo de back-end.
+Consulte a documentação do seu fornecedor de software para compreender os requisitos de equilíbrio de carga da aplicação back-end.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Habilitar o proxy de aplicativo](application-proxy-add-on-premises-application.md)
+- [Ativar proxy de aplicação](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Habilitar acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
-- [Solucionar problemas que você está tendo com o proxy de aplicativo](application-proxy-troubleshoot.md)
-- [Saiba como a arquitetura do Azure AD dá suporte à alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Ativar o acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
+- [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)
+- [Saiba como a arquitetura Azure AD suporta alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

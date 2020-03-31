@@ -1,5 +1,5 @@
 ---
-title: Enlaces do Service Bus do Azure para as funções do Azure
+title: Ligações de ônibus de serviço Azure para funções azure
 description: Aprenda a executar uma Função Azure quando forem criadas mensagens de ônibus de serviço Azure.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -7,23 +7,23 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273571"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções azure
 
-Utilize o acionador do Service Bus para responder às mensagens a partir de uma fila do Service Bus ou tópico.
+Utilize o gatilho do Ônibus de serviço para responder a mensagens de uma fila de ônibus de serviço ou tópico.
 
 Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que lê metadados de [mensagens](#message-metadata) e regista uma mensagem de fila de ônibus de serviço:
+O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que lê metadados de [mensagens](#message-metadata) e regista uma mensagem de fila de ônibus de serviço:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -42,9 +42,9 @@ public static void Run(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra um gatilho de ônibus de serviço ligando num ficheiro *function.json* e uma [ C# função de script](functions-reference-csharp.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila de ônibus de serviço.
+O exemplo seguinte mostra uma ligação do gatilho do ônibus de serviço num ficheiro *function.json* e uma [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila de ônibus de serviço.
 
 Aqui estão os dados vinculativos no ficheiro *função.json:*
 
@@ -63,7 +63,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script do c#:
+Aqui está o código de script C#:
 
 ```cs
 using System;
@@ -103,7 +103,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-Eis o código de script do JavaScript:
+Aqui está o código de script JavaScript:
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -115,11 +115,11 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 O exemplo que se segue demonstra como ler uma mensagem de fila de ônibus de serviço através de um gatilho.
 
-Uma ligação de ônibus de serviço é definida em *função.json* onde *o tipo* está definido para `serviceBusTrigger`.
+Uma ligação de ônibus de serviço é definida `serviceBusTrigger`em *função.json* onde o *tipo* está definido para .
 
 ```json
 {
@@ -136,7 +136,7 @@ Uma ligação de ônibus de serviço é definida em *função.json* onde *o tipo
 }
 ```
 
-O código no  *_\_inite_\_.py* declara um parâmetro como `func.ServiceBusMessage`, o que lhe permite ler a mensagem de fila na sua função.
+O código * _ \_inite_\_.py* declara `func.ServiceBusMessage`um parâmetro como , que lhe permite ler a mensagem de fila na sua função.
 
 ```python
 import azure.functions as func
@@ -168,7 +168,7 @@ def main(msg: func.ServiceBusMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-A função Java seguinte utiliza a `@ServiceBusQueueTrigger` anotação da [biblioteca de tempo de funcionamento](/java/api/overview/azure/functions/runtime) das funções Java para descrever a configuração para um gatilho de fila de ônibus de serviço. A função agarra a mensagem colocada na fila e adiciona-a aos registos.
+A função Java `@ServiceBusQueueTrigger` seguinte utiliza a anotação da biblioteca de [tempo de funcionamento](/java/api/overview/azure/functions/runtime) das funções Java para descrever a configuração para um gatilho de fila de ônibus de serviço. A função agarra a mensagem colocada na fila e adiciona-a aos registos.
 
 ```java
 @FunctionName("sbprocessor")
@@ -182,7 +182,7 @@ A função Java seguinte utiliza a `@ServiceBusQueueTrigger` anotação da [bibl
  }
 ```
 
-As funções java também podem ser desencadeadas quando uma mensagem é adicionada a um tópico de ônibus de serviço. O exemplo que se segue utiliza a anotação `@ServiceBusTopicTrigger` para descrever a configuração do gatilho.
+As funções java também podem ser desencadeadas quando uma mensagem é adicionada a um tópico de ônibus de serviço. O exemplo seguinte `@ServiceBusTopicTrigger` utiliza a anotação para descrever a configuração do gatilho.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -203,15 +203,15 @@ As funções java também podem ser desencadeadas quando uma mensagem é adicion
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar um gatilho de autocarro de serviço:
+Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar um gatilho de autocarro de serviço:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs)
 
-  Construtor do atributo obtém o nome da fila ou tópico e subscrição. Na versão das funções do Azure 1.x, também pode especificar direitos de acesso da ligação. Se não especificar os direitos de acesso, o predefinido é `Manage`. Para mais informações, consulte a secção [de configuração Do Gatilho.](#configuration)
+  O construtor do atributo tem o nome da fila ou do tópico e subscrição. Na versão 1.x das Funções Azure, também pode especificar os direitos de acesso da ligação. Se não especificar os direitos de `Manage`acesso, o predefinido é . Para mais informações, consulte a secção [de configuração Do Gatilho.](#configuration)
 
-  Eis um exemplo que mostra o atributo utilizado com um parâmetro de cadeia de caracteres:
+  Aqui está um exemplo que mostra o atributo usado com um parâmetro de corda:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -222,7 +222,7 @@ Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize os s
   }
   ```
 
-  Pode definir a propriedade `Connection` para especificar o nome de uma definição de aplicação que contém a cadeia de ligação service Bus a utilizar, como mostra o seguinte exemplo:
+  Pode definir `Connection` a propriedade para especificar o nome de uma definição de aplicação que contém a cadeia de ligação service Bus a utilizar, como mostra o seguinte exemplo:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -238,7 +238,7 @@ Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize os s
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
-  Proporciona outra forma de especificar a conta de barramento de serviço a utilizar. O construtor obtém o nome de uma definição de aplicação que contém uma cadeia de ligação do Service Bus. O atributo pode ser aplicado no nível de classe, método ou parâmetro. O exemplo seguinte mostra o nível de classe e método:
+  Fornece outra forma de especificar a conta De Serviço Bus a utilizar. O construtor tem o nome de uma definição de aplicação que contém uma cadeia de ligação de ônibus de serviço. O atributo pode ser aplicado no parâmetro, método ou nível de classe. O exemplo que se segue mostra o nível de classe e o nível de método:
 
   ```csharp
   [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
@@ -254,31 +254,31 @@ Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize os s
   }
   ```
 
-A conta de barramento de serviço a utilizar é determinada pela seguinte ordem:
+A conta de ônibus de serviço a utilizar é determinada na seguinte ordem:
 
-* A propriedade `Connection` do `ServiceBusTrigger` atributo.
-* O atributo `ServiceBusAccount` aplicado ao mesmo parâmetro que o atributo `ServiceBusTrigger`.
-* O atributo `ServiceBusAccount` aplicado à função.
-* O atributo `ServiceBusAccount` aplicado à classe.
-* A definição de aplicação "AzureWebJobsServiceBus".
+* A `ServiceBusTrigger` propriedade do `Connection` atributo.
+* O `ServiceBusAccount` atributo aplicado ao mesmo `ServiceBusTrigger` parâmetro que o atributo.
+* O `ServiceBusAccount` atributo aplicado à função.
+* O `ServiceBusAccount` atributo aplicado à classe.
+* A definição da aplicação "AzureWebJobsServiceBus".
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos C# não são suportados pelo Script.
+Os atributos não são suportados por C# Script.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação `ServiceBusQueueTrigger` permite criar uma função que funciona quando uma mensagem de fila de ônibus de serviço é criada. As opções de configuração disponíveis incluem o nome da fila e o nome da corda de ligação.
+A `ServiceBusQueueTrigger` anotação permite criar uma função que funciona quando uma mensagem de fila de ônibus de serviço é criada. As opções de configuração disponíveis incluem o nome da fila e o nome da corda de ligação.
 
-A anotação `ServiceBusTopicTrigger` permite-lhe designar um tópico e subscrição para direcionar o que os dados desencadeiam a função.
+A `ServiceBusTopicTrigger` anotação permite-lhe designar um tópico e subscrição para direcionar o que os dados desencadeiam a função.
 
 Consulte o [exemplo](#example) do gatilho para mais detalhes.
 
@@ -286,57 +286,57 @@ Consulte o [exemplo](#example) do gatilho para mais detalhes.
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `ServiceBusTrigger`.
+A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `ServiceBusTrigger` atributo.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
+|propriedade fun.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definido para "serviceBusTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
-|**nome** | n/d | O nome da variável que representa a mensagem de fila ou tópico no código de função. |
-|**queueName**|**Nome da fila**|Nome da fila para monitorizar.  Defina apenas se a monitorização de uma fila, não para um tópico.
-|**tópicoNome**|**Nome tópico**|Nome do tópico para monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
-|**nome de subscrição**|**Nome de subscrição**|Nome da subscrição a monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
-|**conexão**|**Conexão**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o tempo de funcionamento das Funções procura uma definição de aplicação que se chama "AzureWebJobsMyServiceBus". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de ônibus de serviço predefinido na definição da aplicação que se chama "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos mostrados no [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico. |
-|**acessoDireitos**|**Acesso**|Direitos de acesso da cadeia de ligação. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, o que indica que o `connection` tem a permissão **De gestão.** Se utilizar uma cadeia de ligação que não tenha a permissão **'Gerir',** desempente `accessRights` para "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão 2.x e superior da Azure Functions, esta propriedade não está disponível porque a versão mais recente do Service Bus SDK não suporta operações de gestão.|
-|**isSessionsEnabled**|**IsSessionsEnabled**|`true` se ligar a uma fila ou subscrição [conscientes da sessão.](../service-bus-messaging/message-sessions.md) `false` o contrário, que é o valor padrão.|
+|**tipo** | n/d | Deve ser definido para "serviceBusTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
+|**direção** | n/d | Deve ser definido para "in". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
+|**nome** | n/d | O nome da variável que representa a fila ou a mensagem de tópico no código de função. |
+|**queueName**|**Nome da fila**|Nome da fila para monitorizar.  Definir apenas se monitorizar uma fila, não para um tópico.
+|**tópicoNome**|**Nome tópico**|Nome do tópico a monitorizar. Definir apenas se monitorizar um tópico, não para uma fila.|
+|**nome de subscrição**|**Nome de subscrição**|Nome da subscrição para monitorizar. Definir apenas se monitorizar um tópico, não para uma fila.|
+|**conexão**|**Conexão**|O nome de uma definição de aplicação que contém a cadeia de ligação service Bus para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se `connection` definir para "MyServiceBus", o tempo de funcionamento das Funções procura uma definição de aplicação que se chama "AzureWebJobsMyServiceBus". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de ônibus de serviço predefinido na definição da aplicação que se chama "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos mostrados no [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação deve ser para um espaço de nome do Ônibus de serviço, não se limitando a uma fila ou tópico específico. |
+|**acessoDireitos**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` e `listen`. O padrão `manage`é , `connection` o que indica que tem a permissão **Gerir.** Se utilizar uma cadeia de ligação que `accessRights` não tenha a permissão **'Gerir',** definida para "ouvir". Caso contrário, o tempo de funcionamento das Funções pode falhar ao tentar realizar operações que requerem direitos de gestão. Na versão 2.x e superior da Azure Functions, esta propriedade não está disponível porque a versão mais recente do Service Bus SDK não suporta operações de gestão.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true`se ligar a uma fila ou subscrição [conscientes da sessão.](../service-bus-messaging/message-sessions.md) `false`caso contrário, que é o valor padrão.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem tópico:
 
-* `string` - Se a mensagem for texto.
-* `byte[]` - Útil para dados binários.
-* Um tipo personalizado - se a mensagem contém JSON, as funções do Azure tenta desserializar os dados JSON.
-* `BrokeredMessage` - Dá-lhe a mensagem desserializada com o método [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `string`- Se a mensagem for sms.
+* `byte[]`- Útil para dados binários.
+* Um tipo personalizado - Se a mensagem contiver JSON, as Funções Azure tentam desserializar os dados da JSON.
+* `BrokeredMessage`- Dá-lhe a mensagem desserializada com o método [BrokeredMessage.GetBody\<T>().](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
 
-Estes tipos de parâmetros destinam-se à versão 1.x das Funções Azure; para 2.x e mais alto, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
+Estes tipos de parâmetros destinam-se à versão 1.x das Funções Azure; para 2.x e [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) mais `BrokeredMessage`alto, use em vez de .
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem tópico:
 
-* `string` - Se a mensagem for texto.
-* `byte[]` - Útil para dados binários.
-* Um tipo personalizado - se a mensagem contém JSON, as funções do Azure tenta desserializar os dados JSON.
-* `BrokeredMessage` - Dá-lhe a mensagem desserializada com o método [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `string`- Se a mensagem for sms.
+* `byte[]`- Útil para dados binários.
+* Um tipo personalizado - Se a mensagem contiver JSON, as Funções Azure tentam desserializar os dados da JSON.
+* `BrokeredMessage`- Dá-lhe a mensagem desserializada com o método [BrokeredMessage.GetBody\<T>().](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
 
-Estes parâmetros são para a versão 1.x das Funções Azure; para 2.x e mais alto, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
+Estes parâmetros são para a versão 1.x das Funções Azure; para 2.x e [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) mais `BrokeredMessage`alto, use em vez de .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceda à fila ou à mensagem de tópico utilizando `context.bindings.<name from function.json>`. A mensagem do Service Bus é passada para a função como uma cadeia ou um objeto JSON.
+Aceda à fila ou `context.bindings.<name from function.json>`à mensagem de tópico utilizando . A mensagem do Ônibus de serviço é transmitida para a função como um objeto de corda ou JSON.
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-A mensagem de fila está disponível para a função através de um parâmetro dado como `func.ServiceBusMessage`. A mensagem do Service Bus é passada para a função como uma cadeia ou um objeto JSON.
+A mensagem de fila está disponível para `func.ServiceBusMessage`a função através de um parâmetro dado como . A mensagem do Ônibus de serviço é transmitida para a função como um objeto de corda ou JSON.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A mensagem de ônibus de serviço de entrada está disponível através de um parâmetro de `ServiceBusQueueMessage` ou `ServiceBusTopicMessage`.
+A mensagem de ônibus de `ServiceBusQueueMessage` `ServiceBusTopicMessage` serviço de entrada está disponível através de um ou parâmetro.
 
 [Veja o exemplo para mais detalhes.](#example)
 
@@ -344,31 +344,31 @@ A mensagem de ônibus de serviço de entrada está disponível através de um pa
 
 ## <a name="poison-messages"></a>Mensagens venenosas
 
-Processamento de mensagens não processáveis não pode ser controlado ou configurado nas funções do Azure. Do Service Bus processa mensagens suspeitas em si.
+O manuseamento de mensagens venenosas não pode ser controlado ou configurado nas Funções Azure. O autocarro de serviço lida com mensagens venenosas em si.
 
 ## <a name="peeklock-behavior"></a>Comportamento peekLock
 
-O tempo de execução das funções recebe uma mensagem no [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Chama `Complete` na mensagem se a função terminar com sucesso, ou chama `Abandon` se a função falhar. Se a função for mais longa do que o intervalo de tempo `PeekLock`, o bloqueio é automaticamente renovado enquanto a função estiver em funcionamento. 
+O tempo de execução das funções recebe uma mensagem no [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). A `Complete` mensagem chama a mensagem se a função terminar com sucesso, ou se `Abandon` a função falhar. Se a função `PeekLock` for mais longa do que o tempo, o bloqueio é automaticamente renovado enquanto a função estiver em funcionamento. 
 
-O `maxAutoRenewDuration` é configurável em *host.json*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta definição é de 5 minutos, de acordo com a documentação do Service Bus, ao passo que pode aumentar o limite de tempo de funções da predefinição de 5 minutos para 10 minutos. Para as funções do Service Bus não iria querer fazer isso, em seguida, porque iria exceder o limite de renovação do Service Bus.
+O `maxAutoRenewDuration` é configurável em *host.json*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta definição é de 5 minutos de acordo com a documentação do Ônibus de serviço, enquanto que pode aumentar o limite de tempo de Funções do padrão de 5 minutos para 10 minutos. Para as funções de Ônibus de serviço, você não gostaria de fazer isso então, porque você excederia o limite de renovação do Ônibus de serviço.
 
 ## <a name="message-metadata"></a>Metadados de mensagens
 
-O gatilho do Ônibus de serviço fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Essas propriedades podem ser utilizadas como parte das expressões de associação nas outras associações, ou como parâmetros no seu código. Estas propriedades são membros da classe [BrokeredMessage.](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)
+O gatilho do Ônibus de serviço fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação noutras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [BrokeredMessage.](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|O número de entregas.|
-|`DeadLetterSource`|`string`|A origem de entregues.|
-|`ExpiresAtUtc`|`DateTime`|A hora de expiração em UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|O tempo de colocados em fila em UTC.|
-|`MessageId`|`string`|Um valor definido pelo utilizador que o Service Bus pode utilizar para identificar mensagens duplicadas, se estiver ativada.|
+|`DeadLetterSource`|`string`|A fonte da carta morta.|
+|`ExpiresAtUtc`|`DateTime`|O tempo de validade na UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo enqueuado na UTC.|
+|`MessageId`|`string`|Um valor definido pelo utilizador que o Service Bus pode usar para identificar mensagens duplicadas, se ativado.|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo recetor para uma lógica específica da aplicação.|
-|`ReplyTo`|`string`|O endereço de resposta fila.|
-|`SequenceNumber`|`Int64`|O número exclusivo atribuído a uma mensagem pelo Service Bus.|
-|`To`|`string`|Enviar para endereço.|
+|`ReplyTo`|`string`|A resposta ao endereço da fila.|
+|`SequenceNumber`|`Int64`|O número único atribuído a uma mensagem pelo Ônibus de Serviço.|
+|`To`|`string`|O envio para o endereço.|
 |`Label`|`string`|O rótulo específico da aplicação.|
-|`CorrelationId`|`string`|O ID de correlação.|
+|`CorrelationId`|`string`|A identificação da correlação.|
 
 Consulte [exemplos](#example) de código que usam estas propriedades no início deste artigo.
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Netezza com o Azure Data Factory
-description: Saiba como copiar dados de Netezza para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados da Netezza utilizando a Azure Data Factory
+description: Saiba como copiar dados da Netezza para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
 ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244540"
 ---
-# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza com o Azure Data Factory
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados da Netezza utilizando a Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Netezza. O artigo baseia-se [na Copy Activity na Azure Data Factory,](copy-activity-overview.md)que apresenta uma visão geral da Atividade de Cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Netezza. O artigo baseia-se [na Copy Activity na Azure Data Factory,](copy-activity-overview.md)que apresenta uma visão geral da Atividade de Cópia.
 
 >[!TIP]
 >Para o cenário de migração de dados de Netezza para Azure, saiba mais com [a Use Azure Data Factory para migrar dados do servidor Netezza para o Azure.](data-migration-guidance-netezza-azure-sqldw.md)
@@ -30,14 +30,14 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 Este conector Netezza é suportado para as seguintes atividades:
 
 - [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
 
-Pode copiar dados de Netezza para qualquer arquivo de dados de sink suportados. Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e afunda, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
+Pode copiar dados da Netezza para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e afunda, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 O conector Netezza suporta cópias paralelas a partir da fonte. Consulte a cópia paralela da secção [Netezza](#parallel-copy-from-netezza) para obter mais detalhes.
 
-O Azure Data Factory fornece um driver incorporado para permitir a conectividade. Não precisa de instalar manualmente a qualquer driver para utilizar este conector.
+A Azure Data Factory fornece um controlador incorporado para permitir a conectividade. Não é necessário instalar manualmente qualquer controlador para utilizar este conector.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,26 +45,26 @@ O Azure Data Factory fornece um driver incorporado para permitir a conectividade
 
 ## <a name="get-started"></a>Introdução
 
-Pode criar um pipeline que utiliza uma atividade de cópia com o SDK de .NET, o SDK de Python, Azure PowerShell, a API REST ou um modelo Azure Resource Manager. Consulte o [tutorial copy activity](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
+Pode criar um pipeline que utilize uma atividade de cópia utilizando o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou um modelo de Gestor de Recursos Azure. Consulte o [tutorial copy activity](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
 
-As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para o conector de Netezza.
+As seguintes secções fornecem detalhes sobre propriedades que pode utilizar para definir entidades da Fábrica de Dados específicas do conector Netezza.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As seguintes propriedades são suportadas para o serviço de Netezza ligado:
+As seguintes propriedades são suportadas para o serviço ligado à Netezza:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **Netezza**. | Sim |
-| connectionString | Uma cadeia de ligação de ODBC para estabelecer ligação à Netezza. <br/>Também pode colocar palavra-passe no Cofre de Chaves Azure e retirar a configuração `pwd` da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) para utilizar para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
+| conexãoString | Uma cadeia de ligação ODBC para ligar a Netezza. <br/>Também pode colocar palavra-passe no Cofre `pwd` de Chaves Azure e retirar a configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no](store-credentials-in-key-vault.md) artigo do Cofre chave Azure com mais detalhes. | Sim |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) para utilizar para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, é utilizado o tempo de execução de integração azure padrão. |Não |
 
-Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. A tabela seguinte descreve mais propriedades que pode definir:
+Uma corda de `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`ligação típica é . A tabela a seguir descreve mais propriedades que pode definir:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| SecurityLevel | O nível de segurança (SSL/TLS), que o driver usa para a ligação ao arquivo de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Only unsecured** (**apenas UnSecured**): O condutor não utiliza SSL.<br/>- **Preferred unsecured (preferredUnSecured) (predefinição)** : Se o servidor fornecer uma escolha, o controlador não utiliza SSL. <br/>- **Preferred secured (preferredSecured)** : Se o servidor fornecer uma escolha, o controlador utiliza SSL. <br/>- **Apenas seguro (apenas protegido)** : O controlador não se liga a menos que esteja disponível uma ligação SSL. | Não |
-| CaCertFile | O caminho completo para o certificado SSL que é utilizado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL esteja ativado |
+| Nível de Segurança | O nível de segurança (SSL/TLS) que o condutor utiliza para a ligação ao armazém de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas não seguro** (**apenas UnSecured**): O condutor não utiliza SSL.<br/>- **Preferencialmente não seguro (preferencialMente UnSecured) (predefinição)**: Se o servidor fornecer uma escolha, o controlador não utiliza SSL. <br/>- **Preferência segura (preferredSecured)**: Se o servidor fornecer uma escolha, o controlador utiliza SSL. <br/>- **Apenas seguro (apenas Protegido)**: O controlador não se liga a menos que esteja disponível uma ligação SSL. | Não |
+| CaCertFile | O caminho completo para o certificado SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL estiver ativado |
 
 **Exemplo**
 
@@ -110,20 +110,20 @@ Uma corda de ligação típica é `Server=<server>;Port=<port>;Database=<databas
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Esta seção fornece uma lista de propriedades que suporta o conjunto de dados Netezza.
+Esta secção fornece uma lista de propriedades que o conjunto de dados Netezza suporta.
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets](concepts-datasets-linked-services.md).
 
-Para copiar dados do Netezza, detete a propriedade **do tipo** do conjunto de dados para **NetezzaTable**. São suportadas as seguintes propriedades:
+Para copiar dados do Netezza, detete a propriedade **do tipo** do conjunto de dados para **NetezzaTable**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **NetezzaTable** | Sim |
-| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
-| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
+| schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` `table` e para nova carga de trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -141,13 +141,13 @@ Para copiar dados do Netezza, detete a propriedade **do tipo** do conjunto de da
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade copy
+## <a name="copy-activity-properties"></a>Propriedades de Copy Activity
 
-Esta seção fornece uma lista de propriedades que suporta a origem de Netezza.
+Esta secção fornece uma lista de propriedades que a fonte Netezza suporta.
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md).
 
-### <a name="netezza-as-source"></a>Netezza como origem
+### <a name="netezza-as-source"></a>Netezza como fonte
 
 >[!TIP]
 >Para carregar os dados da Netezza de forma eficiente utilizando a partilha de dados, saiba mais com a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza)
@@ -157,12 +157,12 @@ Para copiar dados do Netezza, delineie o tipo de **origem** na Atividade de Cóp
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade do **tipo** da fonte de atividade de cópia deve ser definida para **NetezzaSource**. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
-| partitionOptions | Especifica as opções de partilha de dados utilizadas para carregar dados da Netezza. <br>Os valores de adesão são: **Nenhum** (padrão), **DataSlice,** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, não `None`), o grau de paralelismo para carregar simultaneamente dados de uma base de dados Netezza é controlado por [`parallelCopies`](copy-activity-performance.md#parallel-copy) definição da atividade da cópia. | Não |
-| partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não é `None`. | Não |
-| partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será utilizado por divisórias de alcance para cópia paralela. Se não especificada, a chave principal da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a opção de partição for `DynamicRange`. Se utilizar uma consulta para recuperar os dados de origem, prenda `?AdfRangePartitionColumnName` na cláusula WHERE. Consulte o exemplo na cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
-| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se utilizar a consulta para recuperar dados de origem, prenda `?AdfRangePartitionUpbound` na cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
-| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se utilizar uma consulta para recuperar os dados de origem, prenda `?AdfRangePartitionLowbound` na cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
+| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Netezza. <br>Os valores de adesão são: **Nenhum** (padrão), **DataSlice,** e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados netezza é controlado por [`parallelCopies`](copy-activity-performance.md#parallel-copy) regulação da atividade da cópia. | Não |
+| partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None`é . | Não |
+| partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será utilizado por divisórias de alcance para cópia paralela. Se não especificada, a chave principal da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a `DynamicRange`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfRangePartitionColumnName` dados de origem, ligue-se à cláusula ONDE. Consulte o exemplo na cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
+| partiçãoUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a `DynamicRange`opção de partição é . Se utilizar a consulta para recuperar `?AdfRangePartitionUpbound` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
+| partiçãoLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a `DynamicRange`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfRangePartitionLowbound` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
 
 **Exemplo:**
 
@@ -202,15 +202,15 @@ O conector Netezza data Factory fornece partição de dados incorporados para co
 
 ![Screenshot das opções de partição](./media/connector-netezza/connector-netezza-partition-options.png)
 
-Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Netezza para carregar dados por divisórias. O grau paralelo é controlado pela [definição`parallelCopies`](copy-activity-performance.md#parallel-copy) da atividade da cópia. Por exemplo, se definir `parallelCopies` a quatro, a Data Factory gera e executa simultaneamente quatro consultas com base na sua opção e definições especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Netezza.
+Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Netezza para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Netezza.
 
 É sugerido que permita cópias paralelas com partilha de dados especialmente quando carrega uma grande quantidade de dados da sua base de dados Netezza. As seguintes são configurações sugeridas para diferentes cenários. Ao copiar dados para uma loja de dados baseada em ficheiros, é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
-| Cenário                                                     | Configurações sugeridas                                           |
+| Cenário                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Carga completa de mesa grande.                                   | **Opção de partição**: Data Slice. <br><br/>Durante a execução, a Data Factory partilha automaticamente os dados com base nas [fatias de dados incorporadas da Netezza](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)e copia dados por divisórias. |
-| Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Data Slice.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>Durante a execução, a Data Factory substitui `?AdfPartitionCount` (com número de cópia paralelo definido na atividade de cópia) e `?AdfDataSliceCondition` com a lógica da partilha de fatias de dados, e envia para netezza. |
-| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, tendo uma coluna inteiro com valor uniformemente distribuído para a partilha de alcance. | **Opções de partição**: Partição dinâmica.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para os dados da partilha. Pode dividir-se contra a coluna com o tipo de dados inteiros.<br>**Divisória superior ligada** e **divisória inferior:** Especifique se pretende filtrar contra a coluna de divisórias para recuperar dados apenas entre a gama inferior e superior.<br><br>Durante a execução, a Data Factory substitui `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, e `?AdfRangePartitionLowbound` com o nome e os intervalos de valor reais para cada partição, e envia para netezza. <br>Por exemplo, se a sua coluna de partição "ID" definida com o limite inferior como 1 e o limite superior como 80, com cópia paralela definida como 4, data Factory recupera dados por 4 divisórias. As suas identificações estão entre [1,20], [21, 40], [41, 60], e [61, 80], respectivamente. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Data Slice.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>`.<br>Durante a execução, `?AdfPartitionCount` a Data Factory substitui (com `?AdfDataSliceCondition` número de cópia paralela definido na atividade de cópia) e com a lógica da partilha de fatias de dados, e envia para netezza. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, tendo uma coluna inteiro com valor uniformemente distribuído para a partilha de alcance. | **Opções de partição**: Partição dinâmica.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para os dados da partilha. Pode dividir-se contra a coluna com o tipo de dados inteiros.<br>**Divisória superior ligada** e **divisória inferior:** Especifique se pretende filtrar contra a coluna de divisórias para recuperar dados apenas entre a gama inferior e superior.<br><br>Durante a execução, `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`a `?AdfRangePartitionLowbound` Data Factory substitui, e com o nome real da coluna e gamas de valor para cada partição, e envia para Netezza. <br>Por exemplo, se a sua coluna de partição "ID" definida com o limite inferior como 1 e o limite superior como 80, com cópia paralela definida como 4, data Factory recupera dados por 4 divisórias. As suas identificações estão entre [1,20], [21, 40], [41, 60], e [61, 80], respectivamente. |
 
 **Exemplo: consulta com partição de fatias de dados**
 

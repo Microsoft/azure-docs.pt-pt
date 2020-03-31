@@ -1,26 +1,26 @@
 ---
 title: Explorar os seus recursos do Azure
-description: Aprenda a usar a linguagem de consulta do grafo de recursos para explorar seus recursos e descobrir como eles estão conectados.
+description: Aprenda a usar a linguagem de consulta do Graph de Recursos para explorar os seus recursos e descobrir como estão conectados.
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76156986"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorar os seus recursos do Azure com o Resource Graph
 
-O grafo de recursos do Azure fornece a capacidade de explorar e descobrir seus recursos do Azure rapidamente e em escala. Projetado para respostas rápidas, é uma ótima maneira de aprender sobre seu ambiente e também sobre as propriedades que compõem os recursos do Azure.
+O Azure Resource Graph fornece a capacidade de explorar e descobrir os seus recursos Azure de forma rápida e em escala. Projetado para respostas rápidas, é uma ótima maneira de aprender sobre o seu ambiente e também sobre as propriedades que compõem os seus recursos Azure.
 
-## <a name="explore-virtual-machines"></a>Explorar máquinas virtuais
+## <a name="explore-virtual-machines"></a>Explore máquinas virtuais
 
-Um recurso comum no Azure é uma máquina virtual. Como um tipo de recurso, as máquinas virtuais têm muitas propriedades que podem ser consultadas. Cada propriedade fornece uma opção para filtrar ou localizar exatamente o recurso que você está procurando.
+Um recurso comum em Azure é uma máquina virtual. Como um tipo de recurso, as máquinas virtuais têm muitas propriedades que podem ser consultadas. Cada propriedade fornece uma opção para filtrar ou encontrar exatamente o recurso que procura.
 
 ### <a name="virtual-machine-discovery"></a>Descoberta de máquina virtual
 
-Vamos começar com uma consulta simples para obter uma única VM de nosso ambiente e examinar as propriedades retornadas.
+Vamos começar com uma simples consulta para obter um único VM do nosso ambiente e olhar para as propriedades devolvidas.
 
 ```kusto
 Resources
@@ -37,9 +37,9 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ```
 
 > [!NOTE]
-> O cmdlet Azure PowerShell `Search-AzGraph` retorna um **PSCustomObject** por padrão. Para que a saída tenha a mesma aparência que é retornada por CLI do Azure, o cmdlet `ConvertTo-Json` é usado. O valor padrão para **profundidade** é _2_. Configurá-lo como _100_ deve converter todos os níveis retornados.
+> O cmdlet `Search-AzGraph` Azure PowerShell devolve um **PSCustomObject** por padrão. Para que a saída seja igual à que é `ConvertTo-Json` devolvida pelo Azure CLI, o cmdlet é utilizado. O valor predefinido para **profundidade** é _de 2_. A definição para _100_ deve converter todos os níveis devolvidos.
 
-Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
+Os resultados da JSON são estruturados de forma semelhante ao seguinte exemplo:
 
 ```json
 [
@@ -104,11 +104,11 @@ Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
 ]
 ```
 
-As propriedades informam informações adicionais sobre o recurso de máquina virtual em si, tudo, desde SKU, sistema operacional, discos, marcas e o grupo de recursos e a assinatura de que é membro.
+As propriedades dizem-nos informações adicionais sobre o próprio recurso da máquina virtual, tudo desde SKU, OS, discos, tags, e o grupo de recursos e subscrição do qual é membro.
 
-### <a name="virtual-machines-by-location"></a>Máquinas virtuais por local
+### <a name="virtual-machines-by-location"></a>Máquinas virtuais por localização
 
-Tirando o que aprendemos sobre o recurso de máquinas virtuais, vamos usar a propriedade **Location** para contar todas as máquinas virtuais por local. Para atualizar a consulta, removeremos o limite e resumiremos a contagem de valores de local.
+Tomando o que aprendemos sobre o recurso das máquinas virtuais, vamos usar a propriedade de **localização** para contar todas as máquinas virtuais por localização. Para atualizar a consulta, removeremos o limite e resumiremos a contagem dos valores de localização.
 
 ```kusto
 Resources
@@ -124,7 +124,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
-Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
+Os resultados da JSON são estruturados de forma semelhante ao seguinte exemplo:
 
 ```json
 [
@@ -143,11 +143,11 @@ Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
 ]
 ```
 
-Agora podemos ver quantas máquinas virtuais temos em cada região do Azure.
+Agora podemos ver quantas máquinas virtuais temos em cada região de Azure.
 
 ### <a name="virtual-machines-by-sku"></a>Máquinas virtuais por SKU
 
-Voltando para as propriedades originais da máquina virtual, vamos tentar localizar todas as máquinas virtuais que têm um tamanho de SKU de **Standard_B2s**. Observando o JSON retornado, vemos que ele está armazenado em **Properties. HardwareProfile. vmsize**. Atualizaremos a consulta para localizar todas as VMs que correspondam a esse tamanho e retornarão apenas o nome da VM e da região.
+Voltando às propriedades originais da máquina virtual, vamos tentar encontrar todas as máquinas virtuais que têm um tamanho SKU de **Standard_B2s**. Olhando para o regresso da JSON, vemos que está armazenado em **propriedades.hardwareprofile.vmsize**. Atualizaremos a consulta para encontrar todos os VMs que correspondam a este tamanho e devolveremos apenas o nome do VM e da região.
 
 ```kusto
 Resources
@@ -163,9 +163,9 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Máquinas virtuais conectadas a discos gerenciados Premium
+### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Máquinas virtuais ligadas a discos geridos por prémios
 
-Se quiséssemos obter os detalhes dos discos gerenciados Premium que estão anexados a essas máquinas virtuais **Standard_B2s** , podemos expandir a consulta para nos fornecer a ID de recurso desses discos gerenciados.
+Se quiséssemos obter os detalhes dos discos geridos por prémios que estão ligados a estas máquinas virtuais **Standard_B2s,** podemos expandir a consulta para nos dar a identificação de recursos desses discos geridos.
 
 ```kusto
 Resources
@@ -176,7 +176,7 @@ Resources
 ```
 
 > [!NOTE]
-> Outra maneira de obter a SKU seria usar a propriedade **aliases** **Microsoft. Compute/virtualMachines/SKU. Name**. Consulte os exemplos [Mostrar aliases](../samples/starter.md#show-aliases) e [Mostrar valores de alias distintos](../samples/starter.md#distinct-alias-values) .
+> Outra forma de obter o SKU teria sido usando **a** propriedade pseudónimo **Microsoft.Compute/virtualMachines/sku.name**. Consulte os [pseudónimos do Show](../samples/starter.md#show-aliases) e mostre exemplos [de valores distintos.](../samples/starter.md#distinct-alias-values)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -186,13 +186,13 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines'
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-O resultado é uma lista de IDs de disco.
+O resultado é uma lista de identificações de discos.
 
-### <a name="managed-disk-discovery"></a>Descoberta de disco gerenciado
+### <a name="managed-disk-discovery"></a>Descoberta de disco gerido
 
-Com o primeiro registro da consulta anterior, exploraremos as propriedades que existem no disco gerenciado que foi anexado à primeira máquina virtual. A consulta atualizada usa a ID do disco e altera o tipo.
+Com o primeiro disco da consulta anterior, vamos explorar as propriedades que existem no disco gerido que foi anexado à primeira máquina virtual. A consulta atualizada utiliza o ID do disco e altera o tipo.
 
-Exemplo de saída da consulta anterior, por exemplo:
+Por exemplo, a saída da consulta anterior, por exemplo:
 
 ```json
 [
@@ -207,11 +207,11 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Antes de executar a consulta, como sabemos que o **tipo** agora deve ser **Microsoft. Compute/disks**?
-Se você examinar a ID completa, verá **/Providers/Microsoft.Compute/disks/** como parte da cadeia de caracteres. Esse fragmento de cadeia de caracteres fornece uma dica sobre o tipo a ser procurado. Um método alternativo seria remover o limite por tipo e, em vez disso, Pesquisar apenas pelo campo ID. Como a ID é exclusiva, somente um registro seria retornado e a propriedade **Type** nele fornece esse detalhe.
+Antes de executar a consulta, como sabíamos que o **tipo** deveria agora ser **Microsoft.Compute/discos?**
+Se olhar para o ID completo, verá **/fornecedores/Microsoft.Compute/disks/** como parte da cadeia. Este fragmento de corda dá-lhe uma pista sobre que tipo procurar. Um método alternativo seria remover o limite por tipo e, em vez disso, apenas pesquisar pelo campo de identificação. Como o ID é único, apenas um disco seria devolvido e a propriedade **tipo** nele fornece esse detalhe.
 
 > [!NOTE]
-> Para que este exemplo funcione, você deve substituir o campo ID por um resultado de seu próprio ambiente.
+> Para que este exemplo funcione, tem de substituir o campo de identificação por um resultado do seu próprio ambiente.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
@@ -221,7 +221,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/disks' and id ==
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
-Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
+Os resultados da JSON são estruturados de forma semelhante ao seguinte exemplo:
 
 ```json
 [
@@ -255,9 +255,9 @@ Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
 ]
 ```
 
-## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Explorar máquinas virtuais para localizar endereços IP públicos
+## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Explore máquinas virtuais para encontrar endereços IP públicos
 
-Esse conjunto de consultas primeiro localiza e armazena todos os recursos de adaptadores de rede (NIC) conectados às máquinas virtuais. Em seguida, as consultas usam a lista de NICs para localizar cada recurso de endereço IP que é um endereço IP público e armazenar esses valores. Por fim, as consultas fornecem uma lista dos endereços IP públicos.
+Este conjunto de consultas encontra e armazena todos os recursos de interfaces de rede (NIC) ligados a máquinas virtuais. Em seguida, as consultas utilizam a lista de NICs para encontrar cada recurso de endereço IP que é um endereço IP público e armazenar esses valores. Finalmente, as consultas fornecem uma lista dos endereços IP públicos.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nics.txt' file
@@ -275,7 +275,7 @@ $nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virt
 $nics.nic
 ```
 
-Use o arquivo (CLI do Azure) ou variável (Azure PowerShell) na próxima consulta para obter os detalhes de recursos da interface de rede relacionados em que há um endereço IP público anexado à NIC.
+Utilize o ficheiro (Azure CLI) ou variável (Azure PowerShell) na consulta seguinte para obter os detalhes de recursos de interface de rede relacionados onde há um endereço IP público anexado ao NIC.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -293,7 +293,7 @@ $ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/netwo
 $ips.publicIp
 ```
 
-Por fim, use a lista de recursos de endereço IP público armazenados no arquivo (CLI do Azure) ou variável (Azure PowerShell) para obter o endereço IP público real do objeto relacionado e exibir.
+Por último, utilize a lista de recursos de endereçoIP públicos armazenados no ficheiro (Azure CLI) ou variável (Azure PowerShell) para obter o endereço IP público real do objeto e do ecrã relacionados.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
@@ -305,10 +305,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-Para ver como realizar essas etapas em uma única consulta com o operador `join`, consulte a amostra [listar máquinas virtuais com seu adaptador de rede e IP público](../samples/advanced.md#join-vmpip) .
+Para ver como realizar estes passos numa `join` única consulta com o operador, consulte as [máquinas virtuais da Lista com](../samples/advanced.md#join-vmpip) a sua interface de rede e amostra ip pública.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a [linguagem de consulta](query-language.md).
-- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
-- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
+- Saiba mais sobre a [linguagem de consulta.](query-language.md)
+- Consulte o idioma utilizado nas [consultas de arranque](../samples/starter.md).
+- Consulte [utilizações avançadas em consultas avançadas.](../samples/advanced.md)

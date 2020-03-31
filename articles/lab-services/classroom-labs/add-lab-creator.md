@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 0538747ec639b3fab1a7b38193796d80a7736170
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444774"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Adicione criadores de laboratório a uma conta de laboratório nos Serviços de Laboratório Azure
@@ -26,11 +26,11 @@ Este artigo mostra-lhe como adicionar utilizadores como criadores de laboratóri
 ## <a name="add-microsoft-user-account-to-lab-creator-role"></a>Adicione a conta de utilizador da Microsoft ao papel de Criador de Laboratório
 Para configurar um laboratório de sala de aula numa conta de laboratório, o utilizador tem de ser membro da função **Criador de Laboratório** na conta de laboratório. A conta que utilizou para criar a conta de laboratório é adicionada automaticamente a esta função. Se estiver a planear utilizar a mesma conta de utilizador para criar um laboratório de sala de aula, pode ignorar este passo. Para utilizar outra conta de utilizador para criar um laboratório de sala de aula, siga os passos abaixo: 
 
-Para dar permissão aos educadores para criarem laboratórios para as classes deles, adicione-os à função **Criador do Laboratório**:
+Para fornecer aos educadores a permissão para criar laboratórios para as suas aulas, adicione-os ao papel de Criador de **Laboratório:**
 
 1. Na página **da Conta Lab,** selecione o controlo de **acesso (IAM)** e clique + Adicione a atribuição de **funções** na barra de ferramentas. 
 
-    ![Controlo de Acesso -> Adicionar Botão de Atribuição de Funções](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+    ![Controlo de Acesso -> adicionar botão de atribuição de funções](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. Na página de atribuição de **funções Add,** selecione **Lab Creator** para **Função**, selecione o utilizador que pretende adicionar à função De Criadores de Laboratório e selecione **Save**. 
 
     ![Adicionar criador de laboratório](../media/tutorial-setup-lab-account/add-lab-creator.png)
@@ -42,7 +42,7 @@ Para dar permissão aos educadores para criarem laboratórios para as classes de
 Para adicionar um utilizador como criador de laboratório, utiliza as suas contas de e-mail. Podem ser utilizados os seguintes tipos de contas de e-mail:
 
 - Uma conta de e-mail fornecida pelo Office 365 Azure Ative Directory (AAD) da sua universidade. 
-- Uma conta de e-mail da Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com`ou `@live.com`.
+- Uma conta de e-mail `@msn.com`da `@live.com`Microsoft, como, `@outlook.com` `@hotmail.com`ou .
 - Uma conta de e-mail não-Microsoft, como a fornecida pela Yahoo ou pela Google. No entanto, este tipo de contas deve estar ligada a uma conta Microsoft.
 - Uma conta do GitHub. Esta conta deve estar ligada a uma conta Microsoft.
 

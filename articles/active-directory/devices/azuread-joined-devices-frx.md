@@ -1,6 +1,6 @@
 ---
 title: Associe um novo dispositivo do Windows 10 ao Azure AD durante a primeira execução | Microsoft Docs
-description: Como os utilizadores configurar a associação do Azure AD durante a fora de experiência.
+description: Como os utilizadores podem configurar o Azure AD Join durante a experiência fora da caixa.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67482102"
 ---
-# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Junte-se a um novo dispositivo Windows 10 com o Azure AD durante uma execução primeiro
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Adicione um novo dispositivo do Windows 10 ao Azure AD durante a primeira execução
 
 Com a gestão de dispositivos no Azure Active Directory (Azure AD), pode assegurar que os seus utilizadores acedem aos seus recursos a partir de dispositivos que cumpram as suas normas de segurança e conformidade. Para obter mais informações, veja [introdução à gestão de dispositivos no Azure Active Directory](overview.md).
 
@@ -39,7 +39,7 @@ Neste tutorial, vai aprender a associar um dispositivo ao Azure AD durante FRX:
 
 Para associar um dispositivo do Windows 10, o serviço de registo do dispositivo tem de ser configurado para que possa registar dispositivos. Além de ter permissão para associar dispositivos no seu inquilino do Azure AD, tem de ter menos dispositivos registados do que o máximo configurado. Para obter mais informações, veja [configurar definições do dispositivo](device-management-azure-portal.md#configure-device-settings).
 
-Além disso, se o seu inquilino é federado, o Fornecedor de identidade tem de suportar o ponto final de nome de utilizador/palavra-passe do WS-Fed e WS-Trust. Isto pode ser a versão 1.3 ou 2005. Este suporte de protocolo é necessário para associar o dispositivo ao Azure AD e iniciar sessão no dispositivo com uma palavra-passe.
+Além disso, se o seu inquilino é federado, o Fornecedor de identidade tem de suportar o ponto final de nome de utilizador/palavra-passe do WS-Fed e WS-Trust. Isto pode ser a versão 1.3 ou 2005. Este suporte protocolar é necessário tanto para aderir ao dispositivo à AD Azure e iniciar sessão no dispositivo com uma palavra-passe.
 
 ## <a name="joining-a-device"></a>Associar um dispositivo
 
@@ -59,7 +59,7 @@ Além disso, se o seu inquilino é federado, o Fornecedor de identidade tem de s
 
     ![Ecrã de início de sessão](./media/azuread-joined-devices-frx/03.png)
 
-1. O dispositivo localiza um inquilino correspondente no Azure AD. Se estiver num domínio federado, será redirecionado para o seu servidor de Serviço de Token Seguro (STS) no local, por exemplo, o Active Directory Federation Services (AD FS).
+1. O seu dispositivo localiza um inquilino correspondente em Azure AD. Se estiver num domínio federado, será redirecionado para o seu servidor de Serviço de Token Seguro (STS) no local, por exemplo, o Active Directory Federation Services (AD FS).
 1. Se for um utilizador num domínio não federado, introduza as credenciais diretamente na página alojada do Azure AD. 
 1. É desafiado para a autenticação multifator. 
 1. O Azure AD verifica se é precisa uma inscrição na gestão de dispositivos móveis.
@@ -74,7 +74,7 @@ Para verificar se um dispositivo está associado ao Azure AD, reveja a caixa de 
 
 ![Acesso escolar ou profissional](./media/azuread-joined-devices-frx/13.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações, veja [introdução à gestão de dispositivos no Azure Active Directory](overview.md).
 - Para obter mais informações sobre a gestão de dispositivos no portal do Azure AD, veja [gerir dispositivos com o portal do Azure](device-management-azure-portal.md).

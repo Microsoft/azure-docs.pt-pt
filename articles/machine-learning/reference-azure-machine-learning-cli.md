@@ -1,7 +1,7 @@
 ---
 title: Extensão CLI
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre a extensão da CLI do Azure Machine Learning para a CLI do Azure. A CLI do Azure é um utilitário de linha de comandos para várias plataformas que lhe permite trabalhar com os recursos na cloud do Azure. A extensão machine learning permite-lhe trabalhar com o Azure Machine Learning. O ML CLI cria e gere recursos como o seu espaço de trabalho, datastores, conjuntos de dados, oleodutos, modelos e implementações.
+description: Conheça a extensão CLI de aprendizagem automática Azure para o Azure CLI. O Azure CLI é um utilitário de linha de comando transversal que lhe permite trabalhar com recursos na nuvem Azure. A extensão machine learning permite-lhe trabalhar com o Azure Machine Learning. O ML CLI cria e gere recursos como o seu espaço de trabalho, datastores, conjuntos de dados, oleodutos, modelos e implementações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402485"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Utilize a extensão CLI para aprendizagem automática azure
@@ -23,17 +23,17 @@ ms.locfileid: "78402485"
 
 O Azure Machine Learning CLI é uma extensão do [Azure CLI,](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)uma interface de linha de comando transversal para a plataforma Azure. Esta extensão fornece comandos para trabalhar com o Azure Machine Learning. Permite automatizar as suas atividades de aprendizagem automática. A lista que se segue fornece algumas ações de exemplo que pode fazer com a extensão CLI:
 
-+ Executar experimentações para criar modelos de machine learning
++ Realizar experiências para criar modelos de aprendizagem automática
 
-+ Registe-se os modelos de aprendizagem automática para utilização do cliente
++ Registe modelos de aprendizagem automática para uso do cliente
 
-+ Empacotar, implementar e controlar o ciclo de vida de seus modelos de machine learning
++ Pacote, implementação e rastreio do ciclo de vida dos seus modelos de aprendizagem automática
 
-A CLI não é uma substituição para o SDK do Azure Machine Learning. É uma ferramenta complementar que é otimizada para lidar com tarefas altamente parametrizadas que se adequam bem à automação.
+O CLI não substitui o Azure Machine Learning SDK. É uma ferramenta complementar que é otimizada para lidar com tarefas altamente parametrizadas que se adequam bem à automação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar a CLI, tem de ter uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+* Para utilizar o CLI, deve ter uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 * O [Azure CLI.](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -43,7 +43,7 @@ Encontre os [docs de referência completos para a extensão azure-cli-ml do Azur
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 
-Para instalar a extensão da CLI do Machine Learning, utilize o seguinte comando:
+Para instalar a extensão CLI de Aprendizagem automática, utilize o seguinte comando:
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -52,9 +52,9 @@ az extension add -n azure-cli-ml
 > [!TIP]
 > Exemplo de ficheiros que pode utilizar com os comandos abaixo podem ser encontrados [aqui](https://aka.ms/azml-deploy-cloud).
 
-Quando solicitado, selecione `y` para instalar a extensão.
+Quando solicitado, `y` selecione para instalar a extensão.
 
-Para verificar se a extensão foi instalada, utilize o seguinte comando para apresentar uma lista de subcomandos do ML específicas:
+Para verificar se a extensão foi instalada, utilize o seguinte comando para apresentar uma lista de subcomandos específicos do ML:
 
 ```azurecli-interactive
 az ml -h
@@ -71,7 +71,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="remove-the-extension"></a>Remover a extensão
 
-Para remover a extensão da CLI, utilize o seguinte comando:
+Para remover a extensão CLI, utilize o seguinte comando:
 
 ```azurecli-interactive
 az extension remove -n azure-cli-ml
@@ -79,7 +79,7 @@ az extension remove -n azure-cli-ml
 
 ## <a name="resource-management"></a>Gestão de recursos
 
-Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos utilizados pelo Azure Machine Learning.
+Os seguintes comandos demonstram como usar o CLI para gerir os recursos utilizados pela Azure Machine Learning.
 
 + Se ainda não tem um, crie um grupo de recursos:
 
@@ -94,7 +94,7 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
     ```
 
     > [!TIP]
-    > Este comando cria um espaço de trabalho de edição básica. Para criar um espaço de trabalho empresarial, utilize o interruptor `--sku enterprise` com o comando `az ml workspace create`. Para mais informações sobre as edições de Machine Learning Azure, consulte [o que é o Azure Machine Learning.](overview-what-is-azure-ml.md#sku)
+    > Este comando cria um espaço de trabalho de edição básica. Para criar um espaço de `--sku enterprise` trabalho `az ml workspace create` empresarial, utilize o interruptor com o comando. Para mais informações sobre as edições de Machine Learning Azure, consulte [o que é o Azure Machine Learning.](overview-what-is-azure-ml.md#sku)
 
     Para mais informações, consulte [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
@@ -104,7 +104,7 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    Este comando cria um subdiretório `.azureml` que contém ficheiros de ambiente runconfig e conda exemplo. Contém também um ficheiro `config.json` que é usado para comunicar com o seu espaço de trabalho Azure Machine Learning.
+    Este comando `.azureml` cria um subdiretório que contém ficheiros de ambiente runconfig e conda exemplo. Também contém `config.json` um ficheiro que é usado para comunicar com o seu espaço de trabalho Azure Machine Learning.
 
     Para mais informações, consulte a anexação da [pasta Az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
@@ -140,20 +140,20 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
 
     Para mais informações, consulte [az ml computetarget criar amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-## <a id="experiments"></a>Executar experiências
+## <a name="run-experiments"></a><a id="experiments"></a>Executar experiências
 
-* Inicie uma execução da sua experimentação. Ao utilizar este comando, especifique o nome do ficheiro runconfig (o texto antes de \*.runconfig se estiver a olhar para o seu sistema de ficheiros) contra o parâmetro -c.
+* Comece uma corrida da sua experiência. Ao utilizar este comando, especifique o nome \*do ficheiro runconfig (o texto antes de .runconfig se estiver a olhar para o seu sistema de ficheiros) contra o parâmetro -c.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > O comando `az ml folder attach` cria um subdiretório `.azureml`, que contém dois exemplos de ficheiros runconfig. 
+    > O `az ml folder attach` comando `.azureml` cria um subdiretório, que contém dois exemplos de ficheiros runconfig. 
     >
     > Se tiver um script Python que cria um objeto de configuração de execução programáticamente, pode utilizar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para guardá-lo como ficheiro runconfig.
     >
-    > O esquema completo de runconfig pode ser encontrado neste [ficheiro JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). O esquema está a auto-documentar-se através da chave `description` de cada objeto. Além disso, existem enums para possíveis valores, e um corte de modelo no final.
+    > O esquema completo de runconfig pode ser encontrado neste [ficheiro JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). O esquema está a auto-documentar-se através da `description` chave de cada objeto. Além disso, existem enums para possíveis valores, e um corte de modelo no final.
 
     Para mais informações, consulte [az ml executar envie um sub-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
@@ -175,7 +175,7 @@ Os seguintes comandos demonstram como trabalhar com conjuntos de dados em Azure 
     az ml dataset register -f mydataset.json
     ```
 
-    Para obter informações sobre o formato do ficheiro JSON utilizado para definir o conjunto de dados, utilize `az ml dataset register --show-template`.
+    Para obter informações sobre o formato do ficheiro JSON utilizado para definir o conjunto de dados, utilize. `az ml dataset register --show-template`
 
     Para mais informações, consulte o [registo de dataset az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 
@@ -265,7 +265,7 @@ Os seguintes comandos demonstram como criar, registar e listar [ambientes](how-t
 
 ### <a name="environment-configuration-schema"></a>Esquema de configuração do ambiente
 
-Se usou o comando `az ml environment scaffold`, gera um modelo `azureml_environment.json` ficheiro que pode ser modificado e usado para criar configurações ambientais personalizadas com o CLI. O objeto de nível superior mapeia vagamente para a classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) no Python SDK. 
+Se usou `az ml environment scaffold` o comando, gera `azureml_environment.json` um ficheiro de modelo que pode ser modificado e usado para criar configurações ambientais personalizadas com o CLI. O objeto de nível [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) superior mapeia vagamente para a classe no Python SDK. 
 
 ```json
 {
@@ -309,7 +309,7 @@ Se usou o comando `az ml environment scaffold`, gera um modelo `azureml_environm
 }
 ```
 
-A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo e uma descrição. Se um tipo de objeto está ligado a uma classe do Python SDK, há uma correspondência solta de 1:1 entre cada campo JSON e o nome variável público na classe Python. Em alguns casos, o campo pode mapear um argumento de construtor em vez de uma variável de classe. Por exemplo, os mapas de campo `environmentVariables` para a variável `environment_variables` na classe [`Environment`.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py)
+A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo e uma descrição. Se um tipo de objeto está ligado a uma classe do Python SDK, há uma correspondência solta de 1:1 entre cada campo JSON e o nome variável público na classe Python. Em alguns casos, o campo pode mapear um argumento de construtor em vez de uma variável de classe. Por exemplo, `environmentVariables` o campo `environment_variables` mapeia a variável na [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) classe.
 
 | Campo JSON | Tipo | Descrição |
 |---|---|---|
@@ -320,7 +320,7 @@ A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo e 
 | `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Define as definições para personalizar a imagem do Docker construída de acordo com as especificações do ambiente. |
 | `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | A secção configura as definições de Faísca. Só é utilizado quando a estrutura é definida para pySpark. |
 | `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Configures databricks dependências da biblioteca. |
-| `inferencingStackVersion` | `string` | Especifica a versão da pilha de inferência adicionada à imagem. Para evitar adicionar uma pilha de inferência, deixe este campo `null`. Valor válido: "mais recente". |
+| `inferencingStackVersion` | `string` | Especifica a versão da pilha de inferência adicionada à imagem. Para evitar adicionar uma pilha de `null`inferência, deixe este campo . Valor válido: "mais recente". |
 
 ## <a name="ml-pipeline-management"></a>Gestão do gasoduto ML
 
@@ -358,9 +358,9 @@ Os seguintes comandos demonstram como trabalhar com gasodutos de aprendizagem au
 
 ## <a name="model-registration-profiling-deployment"></a>Registo de modelos, perfis, implantação
 
-Os comandos seguintes demonstram como registar um modelo preparado e, em seguida, implementá-la como um serviço de produção:
+Os seguintes comandos demonstram como registar um modelo treinado e, em seguida, implantá-lo como um serviço de produção:
 
-+ Registe um modelo com o Azure Machine Learning:
++ Registe um modelo com Aprendizagem automática Azure:
 
     ```azurecli-interactive
     az ml model register -n mymodel -p sklearn_regression_model.pkl

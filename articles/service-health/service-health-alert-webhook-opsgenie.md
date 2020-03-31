@@ -4,15 +4,15 @@ description: Obtenha notificações personalizadas sobre eventos de saúde de se
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654142"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envie alertas de saúde de serviço Azure com OpsGenie usando webhooks
 
-Este artigo mostra-lhe como configurar alertas de saúde de serviço Azure com opsGenie usando um webhook. Ao utilizar a Integração de Saúde do Serviço Azure da [OpsGenie,](https://www.opsgenie.com/)pode retransmitir os alertas de Saúde do Serviço Azure para a OpsGenie. A OpsGenie pode determinar as pessoas certas para notificar com base em horários de chamada, usando e-mail, mensagens de texto (SMS), chamadas telefónicas, notificações push iOS e Android e alertas de escalada até que o alerta seja reconhecido ou fechado.
+Este artigo mostra-lhe como configurar alertas de saúde de serviço Azure com opsGenie usando um webhook. Ao utilizar a Integração de Saúde do Serviço Azure da [OpsGenie,](https://www.opsgenie.com/)pode retransmitir os alertas de Saúde do Serviço Azure para a OpsGenie. A OpsGenie pode determinar as pessoas certas para notificar com base em horários de chamada, usando e-mail, mensagens de texto (SMS), chamadas telefónicas, notificações push iOS & Android e alertas de escalada até que o alerta seja reconhecido ou fechado.
 
 ## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>Criação de um URL de integração de saúde de serviço em OpsGenie
 1.  Certifique-se de que se inscreveu e está inscrito na sua conta [OpsGenie.](https://www.opsgenie.com/)
@@ -29,7 +29,7 @@ Este artigo mostra-lhe como configurar alertas de saúde de serviço Azure com o
 
 1.  Preencha os outros campos como **destinatários,** **habilitados**e **suprimir notificações.**
 
-1.  Copie e guarde o URL de **Integração,** que já deve conter o seu `apiKey` anexado até ao fim.
+1.  Copie e guarde o URL `apiKey` de **Integração,** que já deve conter o seu anexo até ao fim.
 
     ![O "URL de Integração" em OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 
@@ -78,7 +78,7 @@ Este artigo mostra-lhe como configurar alertas de saúde de serviço Azure com o
 
     BODY        <service health payload>
     ```
-1. Deve receber uma resposta `200 OK` com a mensagem de estatuto "bem-sucedida".
+1. Deve receber `200 OK` uma resposta com a mensagem de "sucesso".
 
 1. Vá à [OpsGenie](https://www.opsgenie.com/) para confirmar que a sua integração foi criada com sucesso.
 

@@ -8,158 +8,177 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e67a8f6b9cc175932b09e6f576148656dd9da9ba
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 8178e585ecb7b1cdfd5e530f3d3406b7397f0968
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476054"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Fique ligado à Central Azure IoT
 
-Este artigo introduz conceitos-chave relacionados com a conectividade do dispositivo na Microsoft Azure IoT Central.
+Este artigo descreve as opções para ligar os seus dispositivos a uma aplicação Azure IoT Central.
 
-A Azure IoT Central utiliza o serviço de provisionamento de [dispositivos Hub Azure IoT (DPS)](../../iot-dps/about-iot-dps.md) para gerir todo o registo e ligação do dispositivo.
+Normalmente, tem de registar um dispositivo na sua aplicação antes de se ligar. No entanto, a IoT Central suporta cenários em que [os dispositivos podem ligar-se sem que os primeiros sejam registados](#connect-without-registering-devices).
 
-A utilização de DPS permite:
+A IoT Central utiliza o serviço de provisionamento de [dispositivos Hub Azure IoT (DPS)](../../iot-dps/about-iot-dps.md) para gerir o processo de ligação. Um dispositivo liga-se primeiro a um ponto final dPS para recuperar a informação que precisa para se ligar à sua aplicação. Internamente, a sua aplicação IoT Central utiliza um hub IoT para lidar com a conectividade do dispositivo. A utilização de DPS permite:
 
 - IoT Central para apoiar dispositivos de embarque e ligação em escala.
 - Você gera credenciais de dispositivo e configurar os dispositivos offline sem registar os dispositivos através da IoT Central UI.
-- Dispositivos para se conectarem utilizando assinaturas de acesso partilhado (SAS).
-- Dispositivos para se conectarem utilizando certificados X.509 padrão da indústria.
 - Você usa as suas próprias iDs de dispositivo para registar dispositivos na IoT Central. A utilização dos seus próprios IDs de dispositivo simplifica a integração com os sistemas de back-office existentes.
 - Uma forma única e consistente de ligar os dispositivos à IoT Central.
 
+Para garantir a comunicação entre um dispositivo e a sua aplicação, a IoT Central suporta tanto as assinaturas de acesso partilhado (SAS) como os certificados X.509. Os certificados X.509 são recomendados em ambientes de produção.
+
 Este artigo descreve os seguintes casos de utilização:
 
-- [Ligue rapidamente um único dispositivo utilizando o SAS](#connect-a-single-device)
+- [Ligue um único dispositivo utilizando o SAS](#connect-a-single-device)
 - [Ligar dispositivos à escala utilizando o SAS](#connect-devices-at-scale-using-sas)
-- [Ligue os dispositivos em escala utilizando certificados X.509,](#connect-devices-using-x509-certificates) esta é a abordagem recomendada para ambientes de produção.
-- [Ligar sem primeiro sintetar dispositivos](#connect-without-registering-devices)
+- [Conecte os dispositivos em escala utilizando certificados X.509](#connect-devices-using-x509-certificates) - a abordagem recomendada para ambientes de produção.
+- [Ligar dispositivos sem primeiro registrá-los](#connect-without-registering-devices)
+- [Ligar dispositivos que utilizam matrículas individuais dPS](#individual-enrollment-based-device-connectivity)
 - [Conecte dispositivos utilizando funcionalidades IoT Plug e Play (pré-visualização)](#connect-devices-with-iot-plug-and-play-preview)
 
 ## <a name="connect-a-single-device"></a>Ligar um único dispositivo
 
-Esta abordagem é útil quando se está a experimentar com a IoT Central ou dispositivos de teste. Pode utilizar as informações de ligação do dispositivo a partir da sua aplicação IoT Central para ligar um dispositivo à sua aplicação IoT Central utilizando o Serviço de Provisionamento de Dispositivos (DPS). Pode encontrar o código cliente do dispositivo DPS para os seguintes idiomas:
+Esta abordagem é útil quando se está a experimentar com a IoT Central ou dispositivos de teste. Pode utilizar as teclas SAS de ligação ao dispositivo da sua aplicação IoT Central para ligar um dispositivo à sua aplicação IoT Central. Copiar a _chave SAS_ do dispositivo a partir das informações de ligação para um dispositivo registado:
 
-- [C\#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)
-- [Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/provisioning/Samples/device)
+![Chaves SAS para um dispositivo individual](./media/concepts-get-connected/single-device-sas.png)
+
+Para saber mais, consulte a Create e ligue uma aplicação de [cliente Node.js ao seu tutorial de aplicação Azure IoT Central.](./tutorial-connect-device.md)
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Ligar dispositivos à escala utilizando o SAS
 
-Para ligar os dispositivos à IoT Central à escala utilizando o SAS, é necessário registar-se e, em seguida, configurar os dispositivos:
+Para ligar os dispositivos à IoT Central à escala utilizando teclas SAS, é necessário registar-se e, em seguida, configurar os dispositivos:
 
 ### <a name="register-devices-in-bulk"></a>Registar dispositivos a granel
 
 Para registar um grande número de dispositivos com a sua aplicação IoT Central, utilize um ficheiro CSV para [importar iDs de dispositivos e nomes](howto-manage-devices.md#import-devices)de dispositivos .
 
-Para obter as informações de ligação para os dispositivos importados, [exporte um ficheiro CSV da sua aplicação IoT Central](howto-manage-devices.md#export-devices).
-
-> [!NOTE]
-> Para saber como pode ligar os dispositivos sem antes registrá-los na IoT Central, consulte [Connect sem primeiro sintetizar dispositivos](#connect-without-registering-devices).
+Para obter as informações de ligação para os dispositivos importados, [exporte um ficheiro CSV da sua aplicação IoT Central](howto-manage-devices.md#export-devices). O ficheiro CSV exportado inclui as iDs do dispositivo e as teclas SAS.
 
 ### <a name="set-up-your-devices"></a>Instale os seus dispositivos
 
-Utilize as informações de ligação do ficheiro de exportação no código do seu dispositivo para permitir que os seus dispositivos conectem e enviem dados para IoT para a sua aplicação IoT Central. Para obter mais informações sobre dispositivos de ligação, consulte [Os próximos passos](#next-steps).
+Utilize as informações de ligação do ficheiro de exportação no código do seu dispositivo para permitir que os seus dispositivos conectem e enviem dados para IoT para a sua aplicação IoT Central. Também precisa da **margem** de identificação do DPS para a sua aplicação. Pode encontrar este valor na ligação de > Dispositivo da **Administração.**
+
+> [!NOTE]
+> Para saber como pode ligar os dispositivos sem antes registrá-los na IoT Central, consulte [Connect sem primeiro sintetizar dispositivos](#connect-without-registering-devices).
 
 ## <a name="connect-devices-using-x509-certificates"></a>Ligar dispositivos utilizando certificados X.509
 
 Em ambiente de produção, a utilização de certificados X.509 é o mecanismo recomendado de autenticação do dispositivo para a IoT Central. Para saber mais, consulte a [Autenticação do Dispositivo utilizando certificados X.509 CA](../../iot-hub/iot-hub-x509ca-overview.md).
 
-As seguintes etapas descrevem como ligar os dispositivos à IoT Central utilizando certificados X.509:
+Antes de ligar um dispositivo com um certificado X.509, adicione e verifique um certificado X.509 intermédio ou raiz na sua aplicação. Os dispositivos devem utilizar certificados de folha X.509 gerados a partir do certificado raiz ou intermédio.
 
-1. Na sua aplicação IoT Central, _adicione e verifique o certificado intermédio ou raiz X.509_ que está a usar para gerar certificados de dispositivo:
+### <a name="add-and-verify-a-root-or-intermediate-certificate"></a>Adicione e verifique um certificado de raiz ou intermédio
 
-    - Navegue para **Administration > Device Connection > Certificates (X.509)** e adicione x.509 root ou certificado intermédio que está a usar para gerar os certificados do dispositivo de folha.
+Navegue para **a Administração > Ligação** de Dispositivos > Gerir o certificado primário e adicione o certificado de raiz ou intermédio X.509 que está a usar para gerar os certificados do dispositivo.
 
-      ![Definições de ligação](media/concepts-get-connected/connection-settings.png)
+![Definições de ligação](media/concepts-get-connected/manage-x509-certificate.png)
 
-      Se tiver uma falha de segurança ou se o seu certificado primário estiver definido para expirar, utilize o certificado secundário para reduzir o tempo de inatividade. Pode continuar a fornecer dispositivos utilizando o certificado secundário enquanto atualiza o certificado primário.
+A verificação da propriedade do certificado garante que a pessoa que faz o upload do certificado tem a chave privada do certificado. Para verificar o certificado:
 
-    - A verificação da propriedade do certificado garante que o carregador do certificado tem a chave privada do certificado. Para verificar o certificado:
-        - Selecione o botão ao lado do Código de **Verificação** para gerar um código.
-        - Crie um certificado de verificação X.509 com o código de verificação gerado no passo anterior. Guarde o certificado como ficheiro .cer.
-        - Faça upload do certificado de verificação assinado e selecione **Verificar**.
+  1. Selecione o botão ao lado do Código de **Verificação** para gerar um código.
+  1. Crie um certificado de verificação X.509 com o código de verificação gerado no passo anterior. Guarde o certificado como ficheiro .cer.
+  1. Faça upload do certificado de verificação assinado e selecione **Verificar**. O certificado é marcado como **Verificado** quando a verificação é bem sucedida.
 
-          ![Definições de ligação](media/concepts-get-connected/verify-cert.png)
+Se tiver uma falha de segurança ou se o seu certificado primário estiver definido para expirar, utilize o certificado secundário para reduzir o tempo de inatividade. Pode continuar a fornecer dispositivos utilizando o certificado secundário enquanto atualiza o certificado primário.
 
-1. Utilize um ficheiro CSV para _importar e registar dispositivos_ na sua aplicação IoT Central.
+### <a name="register-and-connect-devices"></a>Registar e ligar dispositivos
 
-1. _Instale os seus dispositivos._ Gere os certificados de folha utilizando o certificado de raiz carregado. Utilize o ID do **dispositivo** como valor CNAME nos certificados de folha. O ID do dispositivo deve ser todo minúsculo. Em seguida, programe os seus dispositivos com informações de serviço de fornecimento. Quando um dispositivo é ligado pela primeira vez, ele recupera as suas informações de ligação para a sua aplicação IoT Central a partir de DPS.
+Para ligar a granel os dispositivos utilizando certificados X.509, primeiro registe os dispositivos na sua aplicação, utilizando um ficheiro CSV para [importar as identificações do dispositivo e os nomes](howto-manage-devices.md#import-devices)do dispositivo . As identificações do dispositivo devem estar todas em minúsculas.
 
-### <a name="further-reference"></a>Outra referência
-
-- Implementação da amostra para [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
-
-- [Cliente de dispositivo de amostra em C.](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+Gere certificados de folhaX.509 para os seus dispositivos utilizando o certificado raiz ou intermédio carregado. Utilize o **ID** `CNAME` do dispositivo como valor nos certificados de folha. O código do seu dispositivo necessita do valor de âmbito de **identificação** da sua aplicação, do ID do **dispositivo**e do certificado de dispositivo correspondente.
 
 ### <a name="for-testing-purposes-only"></a>Para efeitos de teste apenas
 
-Apenas para testes, pode utilizar estes utilitários para gerar certificados ca e certificados de dispositivo.
+Apenas para testes, pode utilizar os seguintes utilitários para gerar certificados de raiz, intermédios e dispositivos:
 
+- Ferramentas para o Dispositivo de Provisionamento de [Dispositivos Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): uma coleção de ferramentas Node.js que pode utilizar para gerar e verificar certificados e chaves X.509.
 - Se estiver a utilizar um dispositivo DevKit, esta [ferramenta de linha de comando](https://aka.ms/iotcentral-docs-dicetool) gera um certificado CA que pode adicionar à sua aplicação IoT Central para verificar os certificados.
-
-- Utilize esta [ferramenta de linha de comando](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) para:
-  - Criar uma cadeia de certificados. Siga o passo 2 no artigo do GitHub.
+- [Gerir certificados ca de teste para amostras e tutoriais:](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)uma coleção de scripts PowerShell e Bash para:
+  - Criar uma cadeia de certificados.
   - Guarde os certificados como ficheiros .cer para fazer upload para a sua aplicação IoT Central.
-  - Utilize o código de verificação da aplicação IoT Central para gerar o certificado de verificação. Siga o passo 3 no artigo do GitHub.
-  - Crie certificados de folhas para os seus dispositivos utilizando os seus IDs do dispositivo como parâmetro para a ferramenta. Siga o passo 4 no artigo do GitHub.
+  - Utilize o código de verificação da aplicação IoT Central para gerar o certificado de verificação.
+  - Crie certificados de folhas para os seus dispositivos utilizando os seus IDs do dispositivo como parâmetro para a ferramenta.
+
+### <a name="further-reference"></a>Outra referência
+
+- [Implementação da amostra para RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
+- [Cliente de dispositivo de amostra em C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>Ligar sem registar dispositivos
 
-Um cenário-chave que a IoT Central permite é que os OEMs fabricem dispositivos de fabrico em massa que possam ligar-se a uma aplicação IoT Central sem serem registados primeiro. Um fabricante deve gerar credenciais adequadas e configurar os dispositivos na fábrica. Quando um dispositivo se liga pela primeira vez, liga-se automaticamente a uma aplicação IoT Central. Um operador Central IoT deve aprovar o dispositivo antes de poder apresentar dados de envio.
+Os cenários previamente descritos exigem que registe os dispositivos na sua aplicação antes de se ligarem. A IoT Central também permite que os OEMs fabricem dispositivos de fabrico em massa que podem ligar-se sem que primeiro sejam registados. Um OEM gera credenciais de dispositivo adequadas e configura os dispositivos da fábrica. Quando um cliente liga um dispositivo pela primeira vez, liga-se ao DPS, que depois liga automaticamente o dispositivo à aplicação IoT Central correta. Um operador Central IoT deve aprovar o dispositivo antes de começar a enviar dados para a aplicação.
 
-O diagrama seguinte descreve este fluxo:
+O fluxo é ligeiramente diferente dependendo se os dispositivos utilizam tokens SAS ou certificados X.509:
 
-![Definições de ligação](media/concepts-get-connected/device-connection-flow1.png)
+### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Ligar dispositivos que usam fichas SAS sem registar
 
-Os seguintes passos descrevem este processo com mais detalhes. Os passos diferem ligeiramente dependendo se está a utilizar certificados SAS ou X.509 para autenticação do dispositivo:
+1. Copiar a chave primária do grupo ioT Central:
 
-1. Configure as definições de ligação:
+    ![Chave SAS primária do grupo de aplicação](media/concepts-get-connected/group-sas-keys.png)
 
-    - **X.509 Certificados:** [Adicione e verifique o certificado raiz/intermédio](#connect-devices-using-x509-certificates) e use-o para gerar os certificados do dispositivo no passo seguinte.
-    - **SAS:** Copie a chave principal. Esta chave é a chave SAS do grupo para a aplicação IoT Central. Utilize a tecla para gerar as teclas SAS do dispositivo no passo seguinte.
-    definições de ligação ![SAS](media/concepts-get-connected/connection-settings-sas.png)
+1. Utilize a ferramenta [dps-keygen](https://www.npmjs.com/package/dps-keygen) para gerar as teclas SAS do dispositivo. Utilize a chave primária do grupo do passo anterior. As iDs do dispositivo devem ser minúsculas:
 
-1. Gere as credenciais do seu dispositivo
-    - **Certificados X.509:** Gere os certificados de folha sinuoso para os seus dispositivos utilizando o certificado raiz ou intermédio que adicionou à sua aplicação IoT Central. Certifique-se de que utiliza o ID do **dispositivo** inferior como CNAME nos certificados de folha. Apenas para efeitos de teste, utilize esta [ferramenta de linha de comando](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) para gerar certificados de dispositivo.
-    - **SAS:** Utilize esta ferramenta de linha de [comando](https://www.npmjs.com/package/dps-keygen) para gerar teclas SAS do dispositivo. Utilize a **Chave Primária** do grupo do passo anterior. O ID do dispositivo deve ser minúsculo.
+    ```cmd
+    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```
 
-      Para instalar o utilitário gerador de [chaves,](https://github.com/Azure/dps-keygen)executar o seguinte comando:
+1. O OEM pisca cada dispositivo com um ID do dispositivo, uma chave SAS do dispositivo gerado e o valor de âmbito de **identificação** da aplicação.
 
-      ```cmd/sh
-      npm i -g dps-keygen
-      ```
+1. Quando liga um dispositivo, liga-se primeiro ao DPS para recuperar as suas informações de registo IoT Central.
 
-      Para gerar uma chave de dispositivo a partir da chave primária do grupo SAS, executar o seguinte comando:
+    O dispositivo tem inicialmente um estado de dispositivo **não associado** na página **dispositivos** e não está atribuído a um modelo de dispositivo. Na página **dispositivos,** **emigra** o dispositivo para o modelo de dispositivo apropriado. O fornecimento do dispositivo está agora completo, o estado do dispositivo está agora **provisionado**e o dispositivo pode começar a enviar dados.
 
-      ```cmd/sh
-      dps-keygen -mk:<Primary_Key(GroupSAS)> -di:<device_id>
-      ```
+    Na página de **ligação do Dispositivo > Administração,** o **Auto aprova** os controlos de opção se precisa de aprovar manualmente o dispositivo antes de poder começar a enviar dados.
 
-1. Para configurar os seus dispositivos, mostre cada dispositivo com o ID de **alcance,** **id do dispositivo**e o certificado de dispositivo **X.509** ou **a tecla SAS**.
+    > [!NOTE]
+    > Para saber como associar automaticamente um dispositivo a um modelo de dispositivo, consulte [o Connect devices com ioT Plug and Play (pré-visualização)](#connect-devices-with-iot-plug-and-play-preview).
 
-1. Em seguida, ligue o dispositivo para que este se ligue à sua aplicação IoT Central. Quando liga um dispositivo, liga-se primeiro ao DPS para recuperar as suas informações de registo IoT Central.
+### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Ligar dispositivos que usam certificados X.509 sem registar
 
-1. O dispositivo ligado aparece inicialmente como **Não Associado** na página **dispositivos.** O estado de fornecimento do dispositivo está **registado**. **Emigra** o dispositivo para o modelo de dispositivo apropriado e aprove o dispositivo para se ligar à sua aplicação IoT Central. O dispositivo pode então recuperar uma cadeia de ligação do IoT Hub e começar a enviar dados. O fornecimento de dispositivos está agora completo e o estado de provisionamento está agora **provisionado.**
+1. [Adicione e verifique um certificado X.509 raiz ou intermédio](#connect-devices-using-x509-certificates) na sua aplicação IoT Central. (certificados #connect-dispositivos-utilização-x509)
+
+1. Gere os certificados de folha sinuoso para os seus dispositivos utilizando o certificado raiz ou intermédio que adicionou à sua aplicação IoT Central. Utilize iDs de dispositivo `CNAME` minúsculos como os certificados de folha.
+
+1. O OEM pisca cada dispositivo com um ID do dispositivo, um certificado x.509 esquerdo gerado e o valor de âmbito de **identificação** da aplicação.
+
+1. Quando liga um dispositivo, liga-se primeiro ao DPS para recuperar as suas informações de registo IoT Central.
+
+    O dispositivo tem inicialmente um estado de dispositivo **não associado** na página **dispositivos** e não está atribuído a um modelo de dispositivo. Na página **dispositivos,** **emigra** o dispositivo para o modelo de dispositivo apropriado. O fornecimento do dispositivo está agora completo, o estado do dispositivo está agora **provisionado**e o dispositivo pode começar a enviar dados.
+
+    Na página de **ligação do Dispositivo > Administração,** o **Auto aprova** os controlos de opção se precisa de aprovar manualmente o dispositivo antes de poder começar a enviar dados.
+
+    > [!NOTE]
+    > Para saber como associar automaticamente um dispositivo a um modelo de dispositivo, consulte [o Connect devices com ioT Plug and Play (pré-visualização)](#connect-devices-with-iot-plug-and-play-preview).
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividade individual do dispositivo baseado em inscrições
 
-Para os clientes que conectam dispositivos que tenham credenciais de autenticação que são por dispositivo individual é a opção. Uma inscrição individual é uma entrada para um único dispositivo que pode ligar. As matrículas individuais podem utilizar certificados de folhax.509 ou tokens SAS (de um TPM físico ou virtual) como mecanismos de atestado. O ID do dispositivo (também conhecido como ID de registo) numa matrícula individual é alfanumérico, minúsculo e pode conter hífenes. Saiba mais sobre as matrículas individuais [aqui.](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment)
+Para os clientes que conectam dispositivos que cada um tem as suas próprias credenciais de autenticação, utilize as matrículas individuais. Uma inscrição individual é uma entrada para um único dispositivo que é permitido ligar. As matrículas individuais podem utilizar certificados de folhax.509 ou tokens SAS (a partir de um módulo de plataforma de confiança física ou virtual) como mecanismos de atestado. O ID do dispositivo (também conhecido como ID de registo) numa matrícula individual é alfanumérico, minúsculo e pode conter hífenes. Para mais informações, consulte a [inscrição individual do DPS.](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment)
 
 > [!NOTE]
-> Quando cria uma inscrição individual para um dispositivo, tem precedência sobre as inscrições padrão do Grupo (SAS, X509) na sua aplicação.
+> Ao criar uma inscrição individual para um dispositivo, tem precedência sobre as opções de inscrição em grupo padrão na sua aplicação IoT Central.
 
 ### <a name="creating-individual-enrollments"></a>Criação de matrículas individuais
-IoT Central apoia os seguintes mecanismos de atestado
 
-1. Atestação de **chaves simétricas:** O atestado de chaves simétricas é uma abordagem simples para autenticar um dispositivo com uma instância do Serviço de Provisionamento de Dispositivos. Para criar uma inscrição individual com teclas simétricas; abrir o diálogo Connect, selecionar Individual Registration and Mechanism "SAS" e inserir as teclas Primária e Secundária. As teclas SAS devem estar codificadas na base64. Aqui está o [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) para amostras de código para ajudar a escrever o seu código de dispositivo para dispositivos de provisionamento usando chaves simétricas e inscrições individuais.
-1. **Certificados X.509:** Os certificados X.509, como o título sugere, é um mecanismo de atestado baseado em certificados, uma excelente forma de escalar a produção. Para criar uma inscrição individual com teclas simétricas selecione Individual Registration and Mechanism "X.509" e carregue os certificados primários e secundários e poupe para criar a inscrição. Aqui está o [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) para amostras de código para ajudar a escrever o seu código de dispositivo para dispositivos de provisionamento usando X509. Os certificados do dispositivo utilizados com uma [inscrição individual](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment) têm a obrigação de que o Nome do Assunto deve ser definido para o ID do dispositivo (também conhecido como ID de registo) da entrada individual de inscrição.
-1. **Atestado TPM:** TPM significa Módulo de Plataforma Fidedigna e é um tipo de módulo de segurança de hardware (HSM) e é uma das formas mais seguras de ligar os seus dispositivos.  Este artigo assume que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados pelo software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que os TPMs discretos, firmware ou integrados. Não recomendamos a utilização de TPMs de software em produção. Para criar uma inscrição individual com teclas simétricas selecione Individual Registration and Mechanism "TPM" e insere as teclas de endosso para criar a inscrição. Para mais informações sobre tipos de TPMs, pode saber mais sobre o atestado TPM [aqui](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation). Aqui está o [link](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/TpmSample) para amostras de código para ajudar a escrever o seu código de dispositivo para dispositivos de provisionamento usando TPM. Para criar um atestado baseado em TPM, digite a chave de apoio e poupe.
+A IoT Central apoia os seguintes mecanismos de atestado para as matrículas individuais:
+
+- Atestação de **chaves simétricas:** O atestado de chave simétrica é uma abordagem simples para autenticar um dispositivo com a instância DPS. Para criar uma inscrição individual que utilize teclas simétricas, abra a página de Ligação do **Dispositivo,** selecione **a inscrição individual** como método de ligação e a assinatura de acesso partilhado **(SAS)** como mecanismo. Introduza as teclas primárias e secundárias codificadas da base64 e guarde as alterações. Utilize o âmbito de **identificação,** **id do dispositivo,** e a chave primária ou secundária para ligar o seu dispositivo.
+
+    > [!TIP]
+    > Para testes, pode utilizar o **OpenSSL** para gerar teclas codificadas base64:`openssl rand -base64 64`
+
+- **Certificados X.509:** Para criar uma inscrição individual com certificados X.509, abra a página **de Ligação** de Dispositivos, selecione **a inscrição individual** como método de ligação, e **certificados (X.509)** como mecanismo. Os certificados do dispositivo utilizados com uma inscrição individual têm a obrigação de que o emitente e o sujeito CN sejam definidos para o ID do dispositivo.
+
+    > [!TIP]
+    > Para testes, pode utilizar ferramentas para o Dispositivo de Provisionamento de [Dispositivos Azure IoT SDK para node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) para gerar um certificado auto-assinado:`node create_test_cert.js device "mytestdevice"`
+
+- **Atestação de módulo de plataforma fidedigna (TPM):** Um [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) é um tipo de módulo de segurança de hardware. Usar um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo assume que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados pelo software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que os TPMs discretos, firmware ou integrados. Não use TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** de Dispositivos, selecione **a inscrição individual** como método de ligação, e **tPM** como o mecanismo. Introduza a chave de averbamento TPM e guarde as informações de ligação do dispositivo.
 
 ## <a name="connect-devices-with-iot-plug-and-play-preview"></a>Ligar dispositivos com plug e reproduzir IoT (pré-visualização)
 
-Uma das principais funcionalidades do IoT Plug and Play (pré-visualização) com o IoT Central é a capacidade de associar automaticamente os modelos do dispositivo na ligação do dispositivo. Juntamente com as credenciais do dispositivo, os dispositivos podem agora enviar o **CapabilityModelId** como parte da chamada de registo do dispositivo e a IoT Central descobrirá e associará o modelo do dispositivo. O processo de descoberta segue a seguinte ordem:
+Uma das principais funcionalidades do IoT Plug and Play (pré-visualização) com o IoT Central é a capacidade de associar automaticamente os modelos do dispositivo na ligação do dispositivo. Juntamente com as credenciais do dispositivo, os dispositivos podem agora enviar o **CapabilityModelId** como parte da chamada de registo do dispositivo. Esta capacidade permite à IoT Central descobrir e associar o modelo do dispositivo ao dispositivo. O processo de descoberta funciona da seguinte forma:
 
 1. Associa-se ao modelo do dispositivo se já estiver publicado na aplicação IoT Central.
 1. Vai buscar ao repositório público de modelos de capacidade publicados e certificados.
@@ -168,14 +187,14 @@ Abaixo está o formato da carga útil adicional que o dispositivo enviaria duran
 
 ```javascript
 '__iot:interfaces': {
-              CapabilityModelId: <this is the URN for the capability model>
-          }
+    CapabilityModelId: <this is the URN for the capability model>
+}
 ```
 
 > [!NOTE]
-> Note que a opção De Amissão Automática deve ser ativada para que os dispositivos se conectem automaticamente, descubram o modelo e comecem a enviar dados.
+> Note que o **Auto aprova** a opção na **administração > a ligação** do dispositivo deve ser ativada para que os dispositivos se conectem automaticamente, descubram o modelo do dispositivo e comecem a enviar dados.
 
-## <a name="device-status"></a>Estado do dispositivo
+## <a name="device-status-values"></a>Valores do estado do dispositivo
 
 Quando um dispositivo real se liga à sua aplicação IoT Central, o seu estado do dispositivo muda da seguinte forma:
 
@@ -183,29 +202,32 @@ Quando um dispositivo real se liga à sua aplicação IoT Central, o seu estado 
     - Um novo dispositivo real é adicionado na página **dispositivos.**
     - Um conjunto de dispositivos é adicionado usando **import na** página **dispositivos.**
 
-1. O estado do dispositivo muda para **OProvisionado** quando o dispositivo que ligou à sua aplicação IoT Central com credenciais válidas completa a etapa de provisionamento. Neste passo, o dispositivo recupera uma cadeia de ligação do IoT Hub. O dispositivo pode agora ligar-se ao IoT Hub e começar a enviar dados.
+1. O estado do dispositivo muda para **OProvisionado** quando o dispositivo que ligou à sua aplicação IoT Central com credenciais válidas completa a etapa de provisionamento. Neste passo, o dispositivo utiliza DPS para recuperar automaticamente uma cadeia de ligação do Hub IoT utilizado pela sua aplicação IoT Central. O dispositivo pode agora ligar-se à IoT Central e começar a enviar dados.
 
 1. Um operador pode bloquear um dispositivo. Quando um dispositivo está bloqueado, não pode enviar dados para a sua aplicação IoT Central. Os dispositivos bloqueados têm um estatuto de **Bloqueado**. Um operador deve redefinir o dispositivo antes de poder retomar o envio de dados. Quando um operador desbloqueia um dispositivo, o estado retorna ao seu valor anterior, **registado** ou **provisionado**.
 
-1. O estado do dispositivo está à espera de **aprovação,** o que significa que a opção **De aprovação automática** está desativada e exige que todos os dispositivos ligados à IoT Central sejam explicitamente aprovados por um operador. Os dispositivos não registados manualmente na página **dispositivos,** mas ligados com credenciais válidas terão o estado do dispositivo **à espera de aprovação**. Os operadores podem aprovar estes dispositivos a partir da página **dispositivos** utilizando o botão **'Aprovar'.**
+1. Se o estado do dispositivo estiver à espera de **aprovação,** significa que a opção **de aprovação automática** está desativada. Um operador deve aprovar explicitamente um dispositivo antes de começar a enviar dados. Os dispositivos não registados manualmente na página **dispositivos,** mas ligados com credenciais válidas terão o estado do dispositivo **à espera de aprovação**. Os operadores podem aprovar estes dispositivos a partir da página **dispositivos** utilizando o botão **'Aprovar'.**
 
-1. O estado do dispositivo não está **associado,** o que significa que os dispositivos que ligam à IoT Central não têm um Modelo de Dispositivo associado a eles. Isto normalmente acontece nos seguintes cenários:
-    - Um conjunto de dispositivos é adicionado usando **importna** página **de Dispositivos** sem especificar o modelo de dispositivo
-    - Dispositivos não registados manualmente na página **dispositivos ligados** com credenciais válidas, mas sem especificar o ID do modelo durante o registo.  
-O Operador pode associar um dispositivo a um modelo da página **dispositivos** utilizando o botão **Migrate.**
+1. Se o estado do dispositivo não estiver **associado,** significa que o dispositivo que liga à IoT Central não tem um modelo de dispositivo associado. Esta situação normalmente acontece nos seguintes cenários:
 
-## <a name="best-practices"></a>Melhores práticas 
-1.  Ao utilizar o DPS para ligar os dispositivos à IoT Central, certifique-se de que a cadeia de ligação do dispositivo (IoT Hub) não é persistiu ou está em cache. Para religar os dispositivos, passe pelo fluxo regular de registo do dispositivo DPS para obter a cadeia de ligação correta do dispositivo. Se a cadeia de ligação estiver em cache, o software do dispositivo corre o risco de ter uma cadeia de ligação velha nos cenários em que a IoT Central atualizou o Hub Azure IoT subjacente. 
+    - Um conjunto de dispositivos é adicionado usando **import na** página **dispositivos** sem especificar o modelo do dispositivo.
+    - Um dispositivo foi registado manualmente na página **dispositivos** sem especificar o modelo do dispositivo. O aparelho está então ligado a credenciais válidas.  
 
-## <a name="sdk-support"></a>Suporte SDK
+    O Operador pode associar um dispositivo a um modelo de dispositivo da página **Dispositivos** utilizando o botão **Migrate.**
+
+## <a name="best-practices"></a>Melhores práticas
+
+Não persista nem cache a cadeia de ligação do dispositivo que o DPS retorna quando ligar o dispositivo pela primeira vez. Para voltar a ligar um dispositivo, passe pelo fluxo de registo padrão do dispositivo para obter a cadeia de ligação correta do dispositivo. Se o dispositivo cachea a cadeia de ligação, o software do dispositivo corre o risco de ter uma cadeia de ligação velha se a IoT Central atualizar o hub Azure IoT subjacente que utiliza.
+
+## <a name="sdk-support"></a>Suporte de SKDs
 
 Os SDKs de Dispositivo SDKs Azure oferecem a forma mais fácil de implementar o seu código de dispositivo. Estão disponíveis os seguintes SDKs do dispositivo:
 
-- [Azure IoT SDK para C](https://github.com/azure/azure-iot-sdk-c)
-- [Azure IoT SDK para Python](https://github.com/azure/azure-iot-sdk-python)
-- [Azure IoT SDK para Node.js](https://github.com/azure/azure-iot-sdk-node)
-- [Azure IoT SDK para Java](https://github.com/azure/azure-iot-sdk-java)
-- [Azure IoT SDK para .NET](https://github.com/azure/azure-iot-sdk-csharp)
+- [SDK do Azure IoT para C](https://github.com/azure/azure-iot-sdk-c)
+- [SDK do Azure IoT para Python](https://github.com/azure/azure-iot-sdk-python)
+- [SDK do Azure IoT para Node.js](https://github.com/azure/azure-iot-sdk-node)
+- [SDK do Azure IoT para Java](https://github.com/azure/azure-iot-sdk-java)
+- [SDK do Azure IoT para .NET](https://github.com/azure/azure-iot-sdk-csharp)
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>Características sDK e conectividade IoT Hub
 
@@ -218,9 +240,10 @@ A tabela que se segue resume como o dispositivo Central Azure IoT apresenta o ma
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
-| Medição: Telemetria | Mensagens dispositivo-a-nuvem |
-| Propriedades do dispositivo | Propriedades reportadas twin dispositivo |
-| Definições | Dispositivo twin propriedades desejadas e reportadas |
+| Telemetria | Mensagens dispositivo-a-nuvem |
+| Propriedade | Propriedades reportadas twin dispositivo |
+| Propriedade (rectilável) | Dispositivo twin propriedades desejadas e reportadas |
+| Comando | Métodos diretos |
 
 Para saber mais sobre a utilização dos SDKs de Dispositivo, consulte [Connect a DevDiv kit device à sua aplicação Azure IoT Central,](howto-connect-devkit.md) por exemplo, código.
 
@@ -240,7 +263,7 @@ Se o seu dispositivo não puder utilizar nenhum dos protocolos suportados, pode 
 
 Todos os dados trocados entre dispositivos e a central do Azure IoT estão encriptados. O IoT Hub autentica todos os pedidos de um dispositivo que se conecta a qualquer um dos pontos finais do IoT Hub virado para o dispositivo. Para evitar trocar credenciais por cima do fio, um dispositivo utiliza fichas assinadas para autenticar. Para mais informações, consulte, [Controle o acesso ao IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre a conectividade do dispositivo na Central Azure IoT, aqui estão os próximos passos sugeridos:
 

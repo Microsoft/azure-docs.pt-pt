@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: victorh
 ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482190"
 ---
 # <a name="azure-firewall-certifications"></a>Certificações Azure Firewall
@@ -32,8 +32,8 @@ As seguintes certificações Azure Firewall são para o Azure global:
 - Austrália IRAP
 - CDSA
 - CFTC 1.31
-- Atestado em ESTRELA da CSA
-- Certificação em ESTRELA da CSA
+- Atestação CSA STAR
+- Certificação CSA STAR
 - Autoavaliação da CSA STAR
 - Leis de Privacidade canadianas
 - DPP (Reino Unido)
@@ -61,11 +61,11 @@ As seguintes certificações Azure Firewall são para o Azure global:
 - MAS e ABS (Singapura)
 - MPAA (EUA)
 - NBB e FSMA (Bélgica)
-- NEN 7510:2011 (Países Baixos)
+- NEN 7510:2011 (Holanda)
 - NHS IG Toolkit (Reino Unido)
-- Países Baixos BIR 2012
+- Holanda BIR 2012
 - OSFI (Canadá)
-- PCI DSS Nível 1
+- PCI DSS de Nível 1
 - RBI e IRDAI (Índia)
 - SOC 1 Tipo 2
 - SOC 2 Tipo 2
@@ -74,7 +74,7 @@ As seguintes certificações Azure Firewall são para o Azure global:
 - Espanha DPA
 - TISAX
 - TruSight
-- G-Cloud no Reino Unido
+- G-Cloud do Reino Unido
 - WCAG 2.0
 
 
@@ -84,7 +84,7 @@ As seguintes certificações Azure Firewall são para o Governo Azure:
 
 - CJIS
 - CNSSI 1253
-- Atestado em ESTRELA da CSA
+- Atestação CSA STAR
 - DFARS
 - Dod DISA SRG Level 2
 - Doe 10 CFR Parte 810
@@ -113,7 +113,7 @@ O ICSA Labs é um fornecedor líder em testes e certificação de produtos de TI
 O Azure Firewall é o primeiro serviço de firewall em nuvem a atingir a certificação de firewall corporativa icsa Labs. Para o relatório de certificação Azure Firewall, consulte o Relatório de Testes e Auditoria de [Certificação da ICSA Labs.](https://aka.ms/ICSALabsCertification) Para mais informações, consulte a página do Programa de Certificação de [Firewall icsa Labs.](https://www.icsalabs.com/technology-program/firewalls)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o cumprimento da Microsoft, consulte as seguintes informações.
 

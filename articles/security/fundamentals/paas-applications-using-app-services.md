@@ -1,5 +1,5 @@
 ---
-title: Garantir aplicações web e móveis paaS
+title: Garantir aplicações móveis de & web da PaaS
 titleSuffix: Azure App Service
 description: 'Conheça as melhores práticas de segurança do Serviço de Aplicações Azure para garantir as suas aplicações web e móveis PaaS. '
 services: security
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
 ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500283"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Boas práticas para garantir aplicações web e móveis paaS usando o Serviço de Aplicações Azure
@@ -44,8 +44,8 @@ Não importa o quão boa é a sua segurança se perder as chaves de subscrição
 Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o web.config. Para mais informações, consulte [Dynamic IP Security](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe uma coleção de boas práticas de segurança do Serviço de Aplicações para garantir as suas aplicações web e móveis PaaS. Para saber mais sobre como garantir as suas implementações paas, consulte:
 
 - [Proteger implementações PaaS](paas-deployments.md)
-- [Garantir bases de dados paaS em Azure](paas-applications-using-sql.md)
+- [Proteger bases de dados de PaaS no Azure](paas-applications-using-sql.md)

@@ -4,10 +4,10 @@ description: Aprenda a criar um modelo de Gestor de Recursos para um cluster de 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: a00f2bc505acd89d9fb9488565b6235bf7d146ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258879"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo de gestor de recursos de cluster de tecido de serviço
@@ -27,7 +27,7 @@ Os modelos do Gestor de Recursos da Amostra estão disponíveis nas [amostras Az
 Este artigo usa o modelo de exemplo de exemplo de [cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e os parâmetros do modelo. Baixe *o azuredeploy.json* e *o azuredeploy.parameters.json* para o seu computador e abra os dois ficheiros no seu editor de texto favorito.
 
 > [!NOTE]
-> Para as nuvens nacionais (Governo Azure, Azure China, Azure Alemanha), você também deve adicionar o seguinte `fabricSettings` ao seu modelo: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
+> Para as nuvens nacionais (Governo Azure, Azure China, `fabricSettings` Azure Alemanha), você também deve adicionar o seguinte ao seu modelo: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
 
 ## <a name="add-certificates"></a>Adicionar certificados
 Adicione certificados a um modelo de Gestor de Recursos de cluster, referindo-se ao cofre chave que contém as chaves do certificado. Adicione os parâmetros e valores do cofre de chaves num ficheiro de parâmetros de modelo do Gestor de Recursos *(azuredeploy.parâmetros.json*).
@@ -247,7 +247,7 @@ O diagrama que se segue ilustra onde o seu cofre chave e a configuração do An�
 
 ![Mapa de dependência do Gestor de Recursos][cluster-security-arm-dependency-map]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem um modelo para o seu cluster, aprenda a [implantar o cluster para Azure](service-fabric-cluster-creation-via-arm.md).  Se ainda não o fez, leia a lista de verificação de [prontidão](service-fabric-production-readiness-checklist.md) de produção antes de implantar um cluster de produção.
 
 Para conhecer a sintaxe da JSON e propriedades para os recursos implantados neste artigo, consulte:

@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/26/2020
 ms.author: rolyon
 ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77674873"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Criar ou atualizar funções personalizadas do Azure utilizando o portal Azure (Pré-visualização)
@@ -24,7 +24,7 @@ ms.locfileid: "77674873"
 > [!IMPORTANT]
 > As funções personalizadas azure utilizando o portal Azure estão atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Se os [papéis integrados](built-in-roles.md) do Azure não atenderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados Azure. Tal como as funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e diretores de serviços nos âmbitos de grupode subscrição e recursos. As funções personalizadas são armazenadas num diretório Azure Ative Directory (Azure AD) e podem ser partilhadas através de subscrições. Cada diretório pode ter até 5000 papéis personalizados. As funções personalizadas podem ser criadas através do portal Azure, Azure PowerShell, Azure CLI ou da REST API. Este artigo descreve como criar papéis personalizados usando o portal Azure (atualmente em pré-visualização).
 
@@ -53,7 +53,7 @@ Há três maneiras de começar a criar um papel personalizado. Pode clonar um pa
 
 Se uma função existente não tiver as permissões de que necessita, pode cloná-la e depois modificar as permissões. Siga estes passos para começar a clonar um papel.
 
-1. No portal Azure, abra uma subscrição ou grupo de recursos onde pretende que o papel personalizado seja atribuído e, em seguida, abra o controlo de **acesso (IAM)** .
+1. No portal Azure, abra uma subscrição ou grupo de recursos onde pretende que o papel personalizado seja atribuído e, em seguida, abra o controlo de **acesso (IAM)**.
 
     A imagem seguinte mostra a página de controlo de acesso (IAM) aberta para uma subscrição.
 
@@ -75,9 +75,9 @@ Se uma função existente não tiver as permissões de que necessita, pode clon�
 
 Se preferir, pode seguir estes passos para iniciar um papel personalizado do zero.
 
-1. No portal Azure, abra uma subscrição ou grupo de recursos onde pretende que o papel personalizado seja atribuído e, em seguida, abra o controlo de **acesso (IAM)** .
+1. No portal Azure, abra uma subscrição ou grupo de recursos onde pretende que o papel personalizado seja atribuído e, em seguida, abra o controlo de **acesso (IAM)**.
 
-1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada (pré-visualização)** .
+1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada (pré-visualização)**.
 
     ![Adicionar menu de papel personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -141,7 +141,7 @@ Se preferir, pode especificar a maioria dos seus valores de papel personalizados
     
 1. No portal Azure, abra a página de Controlo de **Acesso (IAM).**
 
-1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada (pré-visualização)** .
+1. Clique em **Adicionar** e, em seguida, clique em **Adicionar a função personalizada (pré-visualização)**.
 
     ![Adicionar menu de papel personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -201,7 +201,7 @@ Siga estes passos para adicionar ou remover permissões para o seu papel persona
 
 1. Clique em **Adicionar** a permissão à sua lista de permissão.
 
-    A permissão é adicionada como um `Actions` ou um `DataActions`.
+    A permissão é `Actions` adicionada `DataActions`como um ou um .
 
     ![Permissão adicionada](./media/custom-roles-portal/permissions-list-add.png)
 
@@ -209,7 +209,7 @@ Siga estes passos para adicionar ou remover permissões para o seu papel persona
 
 ### <a name="add-wildcard-permissions"></a>Adicione permissões wildcard
 
-Dependendo da forma como escolheu começar, poderá ter permissões com wildcards (\*) na sua lista de permissões. Um wildcard (\*) estende uma permissão a tudo o que corresponde à corda que fornece. Por exemplo, suponha que queria adicionar todas as permissões relacionadas com a Azure Cost Management e exportações. Pode adicionar todas estas permissões:
+Dependendo da forma como escolheu começar, poderá ter\*permissões com wildcards na sua lista de permissões. Um wildcard\*() estende uma permissão a tudo o que corresponde à corda que fornece. Por exemplo, suponha que queria adicionar todas as permissões relacionadas com a Azure Cost Management e exportações. Pode adicionar todas estas permissões:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -229,7 +229,7 @@ Se quiser adicionar uma nova permissão wildcard, não pode adicioná-la usando 
 
 ### <a name="exclude-permissions"></a>Excluir permissões
 
-Se o seu papel tiver uma permissão wildcard (\*) e quiser excluir ou subtrair permissões específicas dessa permissão wildcard, pode excluí-las. Por exemplo, digamos que tem a seguinte permissão de wildcard:
+Se o seu papel\*tiver uma permissão wildcard () e quiser excluir ou subtrair permissões específicas dessa permissão wildcard, pode excluí-las. Por exemplo, digamos que tem a seguinte permissão de wildcard:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -241,7 +241,7 @@ Se não quiser permitir que uma exportação seja eliminada, pode excluir a segu
 Microsoft.CostManagement/exports/delete
 ```
 
-Quando se exclui uma permissão, é adicionada como `NotActions` ou `NotDataActions`. As permissões de gestão eficazes são calculadas adicionando todos os `Actions` e, em seguida, subtraindo todos os `NotActions`. As permissões de dados eficazes são calculadas adicionando todos os `DataActions` e, em seguida, subtraindo todos os `NotDataActions`.
+Quando se exclui uma permissão, `NotActions` `NotDataActions`é adicionada como a ou . As permissões de gestão eficazes `Actions` são calculadas adicionando `NotActions`todas as e, em seguida, subtraindo toda a . As permissões de dados eficazes `DataActions` são calculadas adicionando `NotDataActions`todas as e, em seguida, subtraindo toda a .
 
 > [!NOTE]
 > Excluir uma permissão não é o mesmo que um negação. Excluir permissões é simplesmente uma forma conveniente de subtrair permissões de uma permissão wildcard.
@@ -254,7 +254,7 @@ Quando se exclui uma permissão, é adicionada como `NotActions` ou `NotDataActi
 
     ![Excluir painel de permissões - permissão selecionada](./media/custom-roles-portal/exclude-permissions-select.png)
 
-    A permissão é adicionada como um `NotActions` ou `NotDataActions`.
+    A permissão é `NotActions` `NotDataActions`adicionada como a ou .
 
     ![Autorização excluída](./media/custom-roles-portal/exclude-permissions-list-add.png)
 
@@ -274,7 +274,7 @@ No separador de **âmbitos designados,** especifica onde está disponível a sua
 
 ## <a name="step-6-json"></a>Passo 6: JSON
 
-No separador **JSON,** vê o seu papel personalizado formatado em JSON. Se quiser, pode editar diretamente o JSON. Se quiser adicionar uma permissão de wildcard (\*), deve utilizar este separador.
+No separador **JSON,** vê o seu papel personalizado formatado em JSON. Se quiser, pode editar diretamente o JSON. Se quiser adicionar uma\*permissão de wildcard, deve utilizar este separador.
 
 1. Para editar o JSON, clique em **Editar**.
 
@@ -312,7 +312,7 @@ No **separador Review + criar,** pode rever as definições de funções persona
 
 Siga estes passos para ver os seus papéis personalizados.
 
-1. Abra uma subscrição ou grupo de recursos e, em seguida, abra **o controlo de acesso (IAM)** .
+1. Abra uma subscrição ou grupo de recursos e, em seguida, abra **o controlo de acesso (IAM)**.
 
 1. Clique no separador **Roles** para ver uma lista de todas as funções incorporadas e personalizadas.
 
@@ -352,6 +352,6 @@ Siga estes passos para ver os seus papéis personalizados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Criar uma função personalizada com o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Custom roles in Azure](custom-roles.md) (Funções personalizadas no Azure)
 - [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)

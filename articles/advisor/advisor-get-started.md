@@ -4,10 +4,10 @@ description: Começa com o Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259633"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -19,7 +19,7 @@ Saiba como aceder ao Advisor através do portal Azure, obter recomendações e i
 
 ## <a name="get-recommendations"></a>Obter recomendações
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, clique em **Advisor**.  Se não vir o Advisor no painel esquerdo, clique em **Todos os serviços.**  No painel de menude serviço, em **Monitorização e Gestão,** clique em **Advisor**. O painel advisor é apresentado.
 
@@ -82,7 +82,7 @@ Pode ter grupos de recursos ou subscrições para as quais não deseja receber r
 
     ![Exemplo de recursos de configuração de conselheiros](./media/advisor-get-started/advisor-configure-resources.png)
 
-1. Clique no botão **Aplicar**.
+1. Clique no botão **Aplicar.**
 
 ## <a name="configure-low-usage-vm-recommendation"></a>Configurar recomendação vm de baixa utilização
 
@@ -119,7 +119,7 @@ O Advisor permite-lhe fazer o download de um resumo das suas recomendações.  P
 
 A opção de descarregamento respeita quaisquer filtros que tenha aplicado ao painel advisor.  Se selecionar a opção de descarregamento ao visualizar uma categoria ou recomendação específica, o resumo descarregado apenas inclui informações para essa categoria ou recomendação. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Advisor, consulte:
 

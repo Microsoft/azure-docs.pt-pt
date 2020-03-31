@@ -1,6 +1,6 @@
 ---
-title: Testar a latência de rede de máquina virtual do Azure em uma rede virtual do Azure | Microsoft Docs
-description: Saiba como testar a latência de rede entre as máquinas virtuais do Azure em uma rede virtual
+title: Test Azure virtual machine network latência numa rede virtual Azure Microsoft Docs
+description: Saiba testar a latência da rede entre máquinas virtuais Azure numa rede virtual
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -15,115 +15,115 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
 ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896367"
 ---
 # <a name="test-vm-network-latency"></a>Testar a latência da rede de VMs
 
-Para obter os resultados mais precisos, meça a latência de rede da VM (máquina virtual) do Azure com uma ferramenta projetada para a tarefa. Ferramentas disponíveis publicamente como SockPerf (para Linux) e expresso. exe (para Windows) podem isolar e medir a latência de rede enquanto exclui outros tipos de latência, como a latência do aplicativo. Essas ferramentas se concentram no tipo de tráfego de rede que afeta o desempenho do aplicativo (ou seja, o protocolo TCP e o tráfego do protocolo UDP). 
+Para obter os resultados mais precisos, meça a latência da sua rede de rede virtual Azure (VM) com uma ferramenta que foi concebida para a tarefa. Ferramentas publicamente disponíveis, como SockPerf (para Linux) e latte.exe (para Windows) podem isolar e medir a latência da rede, excluindo outros tipos de latência, como a latência da aplicação. Estas ferramentas focam-se no tipo de tráfego de rede que afeta o desempenho da aplicação (nomeadamente, Protocolo de Controlo de Transmissão [TCP] e Tráfego do Protocolo de Datagram de Utilizador [UDP]). 
 
-Outras ferramentas de conectividade comuns, como ping, podem medir a latência, mas seus resultados podem não representar o tráfego de rede usado em cargas de trabalho reais. Isso porque a maioria dessas ferramentas emprega o protocolo ICMP, que pode ser tratado diferentemente do tráfego do aplicativo e cujos resultados podem não se aplicar a cargas de trabalho que usam TCP e UDP. 
+Outras ferramentas comuns de conectividade, como ping, podem medir a latência, mas os seus resultados podem não representar o tráfego de rede que é usado em cargas de trabalho reais. Isto porque a maioria destas ferramentas emprega o Protocolo de Mensagem de Controlo de Internet (ICMP), que pode ser tratado de forma diferente do tráfego de aplicações e cujos resultados podem não se aplicar a cargas de trabalho que utilizam TCP e UDP. 
 
-Para um teste preciso de latência de rede dos protocolos usados pela maioria dos aplicativos, SockPerf (para Linux) e expresso. exe (para Windows) produzem os resultados mais relevantes. Este artigo aborda essas duas ferramentas.
+Para um teste preciso de latência da rede dos protocolos utilizados pela maioria das aplicações, a SockPerf (para o Linux) e o latte.exe (para windows) produzem os resultados mais relevantes. Este artigo cobre ambas as ferramentas.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Usando duas VMs, uma como remetente e outra como receptor, você cria um canal de comunicação bidirecional. Com essa abordagem, você pode enviar e receber pacotes em ambas as direções e medir o RTT (tempo de ida e volta).
+Ao utilizar dois VMs, um como remetente e outro como recetor, cria-se um canal de comunicações bidirecional. Com esta abordagem, pode enviar e receber pacotes em ambas as direções e medir o tempo de ida e volta (RTT).
 
-Você pode usar essa abordagem para medir a latência de rede entre duas VMs ou até mesmo entre dois computadores físicos. As medidas de latência podem ser úteis para os seguintes cenários:
+Pode utilizar esta abordagem para medir a latência da rede entre dois VMs ou mesmo entre dois computadores físicos. As medições de latência podem ser úteis para os seguintes cenários:
 
-- Estabeleça um parâmetro de comparação para a latência de rede entre as VMs implantadas.
-- Compare os efeitos das alterações na latência de rede depois que as alterações relacionadas forem feitas em:
-  - Software do sistema operacional (SO) ou pilha de rede, incluindo alterações de configuração.
-  - Um método de implantação de VM, como a implantação em uma zona de disponibilidade ou em um grupo de posicionamento de proximidade (PPG).
-  - Propriedades da VM, como rede acelerada ou alterações de tamanho.
-  - Uma rede virtual, como roteamento ou filtragem de alterações.
+- Estabelecer uma referência para a latência da rede entre os VMs implantados.
+- Compare os efeitos das alterações na latência da rede após alterações relacionadas:
+  - Sistema operativo (OS) ou software de pilha de rede, incluindo alterações de configuração.
+  - Um método de implantação vm, como a implantação para uma zona de disponibilidade ou grupo de colocação de proximidade (PPG).
+  - Propriedades VM, tais como alterações de networking acelerada ou alterações de tamanho.
+  - Uma rede virtual, como o encaminhamento ou as alterações de filtragem.
 
-### <a name="tools-for-testing"></a>Ferramentas para teste
-Para medir a latência, você tem duas opções de ferramenta diferentes:
+### <a name="tools-for-testing"></a>Ferramentas para testes
+Para medir a latência, tem duas opções diferentes de ferramenta:
 
-* Para sistemas baseados no Windows: [expresso. exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Para sistemas baseados no Windows: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 * Para sistemas baseados em Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
-Ao usar essas ferramentas, você ajuda a garantir que apenas os tempos de entrega de carga TCP ou UDP sejam medidos e não ICMP (ping) ou outros tipos de pacotes que não são usados por aplicativos e não afetam seu desempenho.
+Ao utilizar estas ferramentas, ajuda a garantir que apenas os prazos de entrega de carga útil TCP ou UDP são medidos e não o ICMP (Ping) ou outros tipos de pacotes que não são utilizados pelas aplicações e não afetam o seu desempenho.
 
-### <a name="tips-for-creating-an-optimal-vm-configuration"></a>Dicas para criar uma configuração de VM ideal
+### <a name="tips-for-creating-an-optimal-vm-configuration"></a>Dicas para criar uma configuração VM ideal
 
-Ao criar a configuração da VM, tenha em mente as seguintes recomendações:
-- Use a versão mais recente do Windows ou do Linux.
-- Habilite a rede acelerada para obter melhores resultados.
-- Implante VMs com um [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
-- VMs maiores geralmente têm um desempenho melhor do que as VMs menores.
+Quando criar a sua configuração VM, tenha em mente as seguintes recomendações:
+- Utilize a versão mais recente do Windows ou Do Linux.
+- Ativar o Networking Acelerado para obter os melhores resultados.
+- Implementar VMs com um grupo de colocação de [proximidade Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
+- Os VMmaiorgeralmente têm um desempenho melhor do que os VMs menores.
 
 ### <a name="tips-for-analysis"></a>Dicas para análise
 
-Conforme você está analisando os resultados do teste, tenha em mente as seguintes recomendações:
+Ao analisar os resultados dos testes, lembre-se das seguintes recomendações:
 
-- Estabeleça uma linha de base antecipadamente, assim que a implantação, a configuração e as otimizações forem concluídas.
-- Sempre Compare novos resultados com uma linha de base ou, caso contrário, de um teste para outro com alterações controladas.
-- Repita os testes sempre que as alterações forem observadas ou planejadas.
+- Estabeleça uma linha de base cedo, assim que a implementação, configuração e otimizações estiverem completas.
+- Compare sempre novos resultados com uma linha de base ou, caso contrário, de um teste para outro com alterações controladas.
+- Repita os testes sempre que as alterações forem observadas ou planeadas.
 
 
-## <a name="test-vms-that-are-running-windows"></a>Testar as VMs que estão executando o Windows
+## <a name="test-vms-that-are-running-windows"></a>VMs de teste que estão executando Janelas
 
-### <a name="get-latteexe-onto-the-vms"></a>Obter o expresso. exe nas VMs
+### <a name="get-latteexe-onto-the-vms"></a>Pegue latte.exe para os VMs
 
-Baixe a [versão mais recente do expresso. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Descarregue a [versão mais recente do latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
-Considere colocar expresso. exe em uma pasta separada, como *c:\Tools*.
+Considere colocar latte.exe em pasta separada, como *c:\tools*.
 
-### <a name="allow-latteexe-through-windows-defender-firewall"></a>Permitir expresso. exe por meio do Windows Defender firewall
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Permitir latte.exe através do Windows Defender Firewall
 
-No *receptor*, crie uma regra de permissão no Windows Defender firewall para permitir que o tráfego expresso. exe chegue. É mais fácil permitir todo o programa expresso. exe por nome em vez de permitir portas TCP específicas de entrada.
+No *recetor*, crie uma regra de permitir a firewall do Windows Defender para permitir a chegada do tráfego latte.exe. É mais fácil permitir que todo o programa latte.exe seja o nome, em vez de permitir a entrada de portas TCP específicas.
 
-Permita o expresso. exe por meio do Windows Defender firewall executando o seguinte comando:
+Permita latte.exe através do Windows Defender Firewall executando o seguinte comando:
 
 ```cmd
 netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-Por exemplo, se você copiou expresso. exe para a pasta *c:\Tools* , esse seria o comando:
+Por exemplo, se copiasse saque.exe para a pasta *c:\tools,* este seria o comando:
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Executar testes de latência
 
-* No *receptor*, inicie o expresso. exe (execute-o na janela cmd, não no PowerShell):
+* No *recetor,* inicie latte.exe (execute-o a partir da janela CMD, não da PowerShell):
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    Cerca de 65.000 iterações são longas o suficiente para retornar resultados representativos.
+    Cerca de 65.000 iterações são suficientes para devolver resultados representativos.
 
-    Qualquer número de porta disponível está correto.
+    Qualquer número de porta disponível está bom.
 
-    Se a VM tiver um endereço IP de 10.0.0.4, o comando ficaria assim:
+    Se o VM tiver um endereço IP de 10.0.0.4, o comando seria assim:
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* No *remetente*, inicie o expresso. exe (execute-o na janela cmd, não no PowerShell):
+* No *remetente,* inicie latte.exe (execute-o a partir da janela CMD, não da PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    O comando resultante é o mesmo que no receptor, exceto com a adição de&nbsp; *-c* para indicar que este é o *cliente*ou *remetente*:
+    O comando resultante é o mesmo que no&nbsp;recetor, exceto com a adição de *-c* para indicar que este é o *cliente,* ou *remetente:*
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Aguarde os resultados. Dependendo da distância entre as VMs, o teste pode levar alguns minutos para ser concluído. Considere iniciar com menos iterações para testar o sucesso antes de executar testes mais longos.
+Aguarde os resultados. Dependendo da distância dos VMs, o teste pode demorar alguns minutos a terminar. Considere começar com menos iterações para testar o sucesso antes de fazer testes mais longos.
 
-## <a name="test-vms-that-are-running-linux"></a>Testar as VMs que estão executando o Linux
+## <a name="test-vms-that-are-running-linux"></a>VMs de teste que estão executando Linux
 
-Para testar as VMs que estão executando o Linux, use [SockPerf](https://github.com/mellanox/sockperf).
+Para testar vMs que estão a executar linux, use [SockPerf](https://github.com/mellanox/sockperf).
 
-### <a name="install-sockperf-on-the-vms"></a>Instalar o SockPerf nas VMs
+### <a name="install-sockperf-on-the-vms"></a>Instale SockPerf nos VMs
 
-Nas VMs do Linux, *remetente* e *destinatário*, execute os seguintes comandos para preparar o SockPerf nas VMs. São fornecidos comandos para o distribuições principal.
+Nos VMs Linux, tanto *para remetente* como *recetor,* executa os seguintes comandos para preparar SockPerf nos VMs. Os comandos são fornecidos para as principais distros.
 
 #### <a name="for-red-hat-enterprise-linux-rhelcentos"></a>Para Red Hat Enterprise Linux (RHEL)/CentOS
 
@@ -152,9 +152,9 @@ Execute os seguintes comandos:
     sudo apt-get install -y autoconf
 ```
 
-#### <a name="for-all-distros"></a>Para todos os distribuições
+#### <a name="for-all-distros"></a>Para todos os distros
 
-Copie, compile e instale o SockPerf de acordo com as seguintes etapas:
+Copiar, compilar e instalar o SockPerf de acordo com os seguintes passos:
 
 ```bash
 #Bash - all distros
@@ -172,35 +172,35 @@ make
 sudo make install
 ```
 
-### <a name="run-sockperf-on-the-vms"></a>Executar SockPerf nas VMs
+### <a name="run-sockperf-on-the-vms"></a>Executar SockPerf nos VMs
 
-Depois que a instalação do SockPerf for concluída, as VMs estarão prontas para executar os testes de latência. 
+Após a instalação SockPerf estar completa, os VMs estão prontos para executar os testes de latência. 
 
-Primeiro, inicie o SockPerf no *receptor*.
+Primeiro, inicie sockPerf no *recetor*.
 
-Qualquer número de porta disponível está correto. Neste exemplo, usamos a porta 12345:
+Qualquer número de porta disponível está bom. Neste exemplo, utilizamos a porta 12345:
 
 ```bash
 #Server/Receiver - assumes server's IP is 10.0.0.4:
 sudo sockperf sr --tcp -i 10.0.0.4 -p 12345
 ```
 
-Agora que o servidor está escutando, o cliente pode começar a enviar pacotes para o servidor na porta em que está escutando (nesse caso, 12345).
+Agora que o servidor está a ouvir, o cliente pode começar a enviar pacotes para o servidor na porta em que está a ouvir (neste caso, 12345).
 
-Cerca de 100 segundos é longo o suficiente para retornar resultados representativos, conforme mostrado no exemplo a seguir:
+Cerca de 100 segundos é tempo suficiente para devolver resultados representativos, como mostra o seguinte exemplo:
 
 ```bash
 #Client/Sender - assumes server's IP is 10.0.0.4:
 sockperf ping-pong -i 10.0.0.4 --tcp -m 350 -t 101 -p 12345  --full-rtt
 ```
 
-Aguarde os resultados. Dependendo da distância entre as VMs, o número de iterações varia. Para testar o sucesso antes de executar os testes mais longos, considere a possibilidade de começar com testes menores de cerca de 5 segundos.
+Aguarde os resultados. Dependendo da distância dos VMs, o número de iterações variará. Para testar o sucesso antes de fazer testes mais longos, considere começar com testes mais curtos de cerca de 5 segundos.
 
-Este exemplo de SockPerf usa um tamanho de mensagem de 350 bytes, que é típico para um pacote médio. Você pode ajustar o tamanho maior ou menor para obter resultados que representem com mais precisão a carga de trabalho em execução em suas VMs.
+Este exemplo sockPerf usa um tamanho de mensagem de 350 bytes, o que é típico para um pacote médio. Pode ajustar o tamanho mais alto ou inferior para obter resultados que representam com maior precisão a carga de trabalho que está a decorrer nos seus VMs.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Melhore a latência com um [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
-* Saiba como [otimizar a rede para VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) para seu cenário.
-* Leia sobre [como a largura de banda é alocada para máquinas virtuais](../virtual-network/virtual-machine-network-throughput.md).
-* Para obter mais informações, consulte [perguntas frequentes sobre a rede virtual do Azure](../virtual-network/virtual-networks-faq.md).
+* Melhorar a latência com um grupo de colocação de [proximidade Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)
+* Saiba otimizar a [rede para VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) para o seu cenário.
+* Leia sobre como a [largura de banda é atribuída a máquinas virtuais](../virtual-network/virtual-machine-network-throughput.md).
+* Para mais informações, consulte [o Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).

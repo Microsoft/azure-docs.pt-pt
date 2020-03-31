@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668252"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Compreenda o processo de migração automática para as suas regras clássicas de alerta

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
 ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277131"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
@@ -32,7 +32,7 @@ Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implementa
 | URL do pacote externo<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip implantação |✔|✔|✔|✔|✔|✔|
 | Recipiente de estivador | | | | |✔|✔|
-| Implantação web |✔|✔|✔| | | |
+| Web Deploy |✔|✔|✔| | | |
 | Controlo de código fonte |✔|✔|✔| |✔|✔|
 | Git<sup>1</sup> local |✔|✔|✔| |✔|✔|
 | Sincronização de nuvens<sup>1</sup> |✔|✔|✔| |✔|✔|
@@ -51,21 +51,21 @@ Alguns conceitos-chave são fundamentais para entender como as implementações 
 Quando alterar qualquer um dos seus gatilhos, a infraestrutura functiondeve estar ciente das alterações. A sincronização acontece automaticamente para muitas tecnologias de implementação. No entanto, em alguns casos, deve sincronizar manualmente os seus gatilhos. Quando implementar as suas atualizações fazendo referência a um URL de pacote externo, Git local, sincronização em nuvem ou FTP, deve sincronizar manualmente os seus gatilhos. Pode sincronizar os gatilhos de uma de três maneiras:
 
 * Reinicie a sua aplicação de funções no portal Azure
-* Envie um pedido HTTP POST para `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` utilizando a [chave principal](functions-bindings-http-webhook-trigger.md#authorization-keys).
-* Envie um pedido HTTP POST para `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Substitua os espaços reservados pelo seu ID de subscrição, nome do grupo de recursos e o nome da sua aplicação de função.
+* Envie um pedido `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` HTTP POST para utilizar a [chave principal](functions-bindings-http-webhook-trigger.md#authorization-keys).
+* Envie um pedido `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`HTTP POST para . Substitua os espaços reservados pelo seu ID de subscrição, nome do grupo de recursos e o nome da sua aplicação de função.
 
 ### <a name="remote-build"></a>Construção remota
 
 As Funções Azure podem executar automaticamente as construções no código que recebe após as implementações em zip. Estas construções comportam-se de forma ligeiramente diferente, dependendo se a sua aplicação está a funcionar no Windows ou no Linux. As construções remotas não são realizadas quando uma aplicação foi previamente definida para ser executada no modo [Run From Package.](run-functions-from-deployment-package.md) Para aprender a usar a construção remota, navegue para [o zip deploy](#zip-deploy).
 
 > [!NOTE]
-> Se está a ter problemas com a construção remota, pode ser porque a sua aplicação foi criada antes de a funcionalidade ter sido disponibilizada (1 de agosto de 2019). Tente criar uma nova aplicação de funções ou executando `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` para atualizar a sua aplicação de funções. Este comando pode levar duas tentativas para ter sucesso.
+> Se está a ter problemas com a construção remota, pode ser porque a sua aplicação foi criada antes de a funcionalidade ter sido disponibilizada (1 de agosto de 2019). Tente criar uma nova aplicação de funções ou correr `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` para atualizar a sua aplicação de funções. Este comando pode levar duas tentativas para ter sucesso.
 
 #### <a name="remote-build-on-windows"></a>Construção remota no Windows
 
 Todas as aplicações de funções que funcionam no Windows têm uma pequena aplicação de gestão, o site SCM (ou [Kudu).](https://github.com/projectkudu/kudu) Este site lida com grande parte da implantação e constrói lógica para funções Azure.
 
-Quando uma aplicação é implementada para windows, comandosC#específicos do idioma, como `dotnet restore` ( ) ou `npm install` (JavaScript) são executados.
+Quando uma aplicação é implementada para windows, `dotnet restore` comandos específicos `npm install` de linguagem, como (C#) ou (JavaScript) são executados.
 
 #### <a name="remote-build-on-linux"></a>Construção remota em Linux
 
@@ -106,7 +106,7 @@ Utilize o zip deploy para empurrar um ficheiro .zip que contenha a sua aplicaç�
 
 >__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou da linha de comando utilizando as [Ferramentas Core funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implantação de zíper e [funcionam a partir da embalagem](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão do Código do Estúdio Visual permitem a [construção remota](#remote-build) ao ser implantado para o Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de funções, siga as instruções de [implantação a partir de um ficheiro .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quando implementar utilizando a implementação de zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir do pacote, defina o valor de definição de aplicação `WEBSITE_RUN_FROM_PACKAGE` para `1`. Recomendamos a implantação de zip. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para vs Code, Visual Studio e o Azure CLI. 
+>Quando implementar utilizando a implementação de zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir `WEBSITE_RUN_FROM_PACKAGE` do pacote, defina o valor de definição da aplicação para `1`. Recomendamos a implantação de zip. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para vs Code, Visual Studio e o Azure CLI. 
 
 >__Quando usá-lo:__ A implantação de zip é a tecnologia de implementação recomendada para funções Azure.
 
@@ -119,7 +119,7 @@ Pode implantar uma imagem de recipiente Linux que contenha a sua aplicação de 
 >* Crie uma aplicação de função Linux num plano de Serviço de Aplicações Azure no portal Azure. Para **publicar**, selecione **Docker Image**e, em seguida, configure o recipiente. Insira o local onde a imagem está hospedada.
 >* Crie uma aplicação de função Linux num plano de Serviço de Aplicações utilizando o Azure CLI. Para saber como, consulte [Criar uma função no Linux utilizando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
->Para implantar numa aplicação existente utilizando um recipiente personalizado, em [Ferramentas Core funções Azure,](functions-run-local.md)utilize o comando [`func deploy`.](functions-run-local.md#publish)
+>Para implantar numa aplicação existente utilizando um recipiente personalizado, em [Ferramentas Core funções Azure,](functions-run-local.md)utilize o [`func deploy`](functions-run-local.md#publish) comando.
 
 >__Quando usá-lo:__ Utilize a opção de contentor Docker quando necessitar de mais controlo sobre o ambiente Linux onde funciona a sua aplicação de funções. Este mecanismo de implantação está disponível apenas para funções em funcionamento no Linux.
 
@@ -129,7 +129,7 @@ Web Implemente pacotes e implementa as suas aplicações do Windows em qualquer 
 
 >__Como usá-lo:__ Utilize [ferramentas de Estúdio Visual para funções Azure](functions-create-your-first-function-visual-studio.md). Limpe a caixa de verificação do ficheiro de **pacote (recomendado).**
 >
->Também pode baixar o [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) e `MSDeploy.exe` ligar diretamente.
+>Também pode baixar o Web Deploy `MSDeploy.exe` [3.6](https://www.iis.net/downloads/microsoft/web-deploy) e ligar diretamente.
 
 >__Quando usá-lo:__ A Web Deploy é suportada e não tem problemas, mas o mecanismo preferido é a implementação do [zip com o Pacote Run From ativado](#zip-deploy). Para saber mais, consulte o guia de desenvolvimento do [Estúdio Visual.](functions-develop-vs.md#publish-to-azure)
 
@@ -169,11 +169,11 @@ Pode utilizar o FTP para transferir diretamente ficheiros para funções Azure.
 
 No editor baseado no portal, pode editar diretamente os ficheiros que estão na sua aplicação de função (essencialmente implementando cada vez que guarda as suas alterações).
 
->__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implementação faz a sua função apenas leitura e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode rodar manualmente o modo de edição para `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como `WEBSITE_RUN_FROM_PACKAGE`). 
+>__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implementação faz a sua função apenas leitura e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal `Read/Write` Azure, pode rodar manualmente o modo de edição e remover quaisquer definições de aplicação relacionadas com a implementação (como). `WEBSITE_RUN_FROM_PACKAGE` 
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar com as Funções Azure. Para um trabalho de desenvolvimento mais intenso, recomendamos que utilize uma das seguintes ferramentas de cliente:
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Código de estúdio visual](functions-create-first-function-vs-code.md)
 >* [Ferramentas nucleares de funções azure (linha de comando)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
@@ -182,7 +182,7 @@ A tabela que se segue mostra os sistemas operativos e idiomas que suportam a edi
 | | Consumo de janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Prémio Linux | Linux Dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C#Roteiro |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
@@ -190,7 +190,7 @@ A tabela que se segue mostra os sistemas operativos e idiomas que suportam a edi
 | PowerShell (Pré-visualização) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> A edição do portal só está ativada para os gatilhos HTTP e Timer para funções no Linux utilizando planos Premium e Dedicados.
+<sup>*</sup>A edição do portal só está ativada para os gatilhos HTTP e Timer para funções no Linux utilizando planos Premium e Dedicados.
 
 ## <a name="deployment-slots"></a>Blocos de implementação
 

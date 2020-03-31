@@ -1,17 +1,17 @@
 ---
-title: Criar um pipeline de dados com a API de Recolha de Dados do Monitor Azure  Microsoft Docs
+title: Utilizar a API do Colecionador de Dados para criar um pipeline de dados
 description: Pode utilizar a API do Colecionador de Dados Do Monitor Azure Para adicionar dados POST JSON ao espaço de trabalho do Log Analytics a partir de qualquer cliente que possa ligar para a API REST. Este artigo descreve como fazer o upload de dados armazenados em ficheiros de forma automatizada.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 0300b44577725ddb272086713220d3318f1726fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655346"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055116"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API de Recolha de Dados
 
@@ -60,7 +60,7 @@ As Aplicações Lógicas de hoje não têm capacidades incorporadas para transfo
 
 Neste exemplo, analisamos um ficheiro CSV, mas qualquer outro tipo de ficheiro pode ser processado da mesma forma. Basta modificar a parte desserialização da Função Azure para refletir a lógica correta para o seu tipo de dados específico.
 
-1.  Crie uma nova Função Azure, utilizando o tempo de funcionamento da função v1 e baseado no consumo quando solicitado.  Selecione o modelo C# de gatilho **HTTP** direcionado como um ponto de partida que configura as suas encadernações conforme exigimos. 
+1.  Crie uma nova Função Azure, utilizando o tempo de funcionamento da função v1 e baseado no consumo quando solicitado.  Selecione o modelo de **gatilho HTTP** direcionado para C# como um ponto de partida que configura as suas encadernações conforme exigimos. 
 2.  A partir do separador **'Ver Ficheiros'** no painel certo, crie um novo ficheiro chamado **project.json** e colhe o seguinte código dos pacotes NuGet que estamos a utilizar:
 
     ![Projeto de exemplo de funções azure](./media/create-pipeline-datacollector-api/functions-example-project-01.png)

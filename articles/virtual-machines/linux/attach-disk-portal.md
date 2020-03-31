@@ -8,10 +8,10 @@ ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969361"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a um VM Linux 
@@ -70,7 +70,7 @@ Para a partilha, formato e montagem do seu novo disco para que o seu VM Linux po
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Uma vez ligado ao seu VM, está pronto para anexar um disco. Primeiro, encontre o disco utilizando `dmesg` (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza dmesg para filtrar em discos *SCSI:*
+Uma vez ligado ao seu VM, está pronto para anexar um disco. Primeiro, encontre o `dmesg` disco utilizando (o método que utiliza para descobrir o seu novo disco pode variar). O exemplo seguinte utiliza dmesg para filtrar em discos *SCSI:*
 
 ```bash
 dmesg | grep SCSI
@@ -94,13 +94,13 @@ Se estiver a utilizar um disco existente que contenha dados, salte para a montag
 > [!NOTE]
 > Recomenda-se que utilize as versões mais recentes do disco ou da parte que estão disponíveis para a sua distro.
 
-Particione o disco com `fdisk`. Se o tamanho do disco for de 2 tebibytes (TiB) ou maior, então deve utilizar a divisão GPT, pode utilizar `parted` para realizar a partição de GPT. Se o tamanho do disco for inferior a 2TiB, pode utilizar divisórias MBR ou GPT. Faça-o um disco primário na divisória 1 e aceite os outros incumprimentos. O seguinte exemplo inicia o processo `fdisk` em */dev/sdc:*
+Particione o disco com `fdisk`. Se o tamanho do disco for de 2 tebibytes (TiB) ou `parted` maior, então deve utilizar a divisão GPT, pode utilizar para executar a divisão de GPT. Se o tamanho do disco for inferior a 2TiB, pode utilizar divisórias MBR ou GPT. Faça-o um disco primário na divisória 1 e aceite os outros incumprimentos. O seguinte exemplo `fdisk` inicia o processo em */dev/sdc:*
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o resto dos valores predefinidos. A saída será semelhante ao seguinte exemplo:
+Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também `p` escolhemos uma partição primária e aceitamos o resto dos valores predefinidos. O resultado vai ser semelhante ao exemplo seguinte:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -122,7 +122,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Imprima a tabela de divisórias digitando `p` e, em seguida, use `w` para escrever a tabela para o disco e saída. A saída deve ser semelhante ao seguinte exemplo:
+Imprima a tabela `p` de `w` partição digitando e, em seguida, use para escrever a tabela para o disco e saída. A saída deve ser semelhante ao seguinte exemplo:
 
 ```bash
 Command (m for help): p
@@ -144,7 +144,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Escreva um sistema de ficheiros para a partição com o comando `mkfs`. Especifique o seu tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um sistema de *ficheiros ext4* na partição */dev/sdc1* que foi criado nos passos anteriores:
+Escreva um sistema de ficheiros `mkfs` para a partição com o comando. Especifique o seu tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um sistema de *ficheiros ext4* na partição */dev/sdc1* que foi criado nos passos anteriores:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -184,7 +184,7 @@ partprobe /dev/sdc1
 Como acima visto, utilizamos o utilitário [partprobe](https://linux.die.net/man/8/partprobe) para garantir que o núcleo está imediatamente ciente da nova partilha e sistema de ficheiros. A não utilização da sonda partprobe pode fazer com que os comandos blkid ou lslbk não devolvam imediatamente o UUID para o novo sistema de ficheiros.
 
 ### <a name="mount-the-disk"></a>Monte o disco
-Crie um diretório para montar o sistema de ficheiros utilizando `mkdir`. O exemplo seguinte cria um diretório no */datadrive:*
+Crie um diretório para `mkdir`montar o sistema de ficheiros utilizando . O exemplo seguinte cria um diretório no */datadrive:*
 
 ```bash
 sudo mkdir /datadrive
@@ -196,7 +196,7 @@ Utilize `mount` para, em seguida, montar o sistema de ficheiros. O exemplo segui
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Para garantir que a unidade é montada automaticamente após uma reinicialização, deve ser adicionada ao ficheiro */etc/fstab.* Recomenda-se também que o UUID (Universalunique IDentifier) seja utilizado em */etc/fstab* para se referir à unidade em vez de apenas o nome do dispositivo (como, */dev/sdc1*). Se o SISTEMA detetar um erro de disco durante a bota, a utilização do UUID evita que o disco incorreto seja montado num determinado local. Os restantes discos de dados seriam então atribuídos aos mesmos IDs do dispositivo. Para encontrar o UUID da nova unidade, use o utilitário `blkid`:
+Para garantir que a unidade é montada automaticamente após uma reinicialização, deve ser adicionada ao ficheiro */etc/fstab.* Recomenda-se também que o UUID (Universalunique IDentifier) seja utilizado em */etc/fstab* para se referir à unidade em vez de apenas o nome do dispositivo (como, */dev/sdc1*). Se o SO detetar um erro do disco durante o arranque, ao utilizar o UUID evitará que o disco incorreto seja montado numa determinada localização. Os restantes discos de dados serão, em seguida, atribuídos aos mesmos IDs de dispositivos. Para localizar o UUID da nova unidade, utilize o utilitário `blkid`:
 
 ```bash
 sudo -i blkid
@@ -211,7 +211,7 @@ A saída é semelhante ao seguinte exemplo:
 ```
 
 > [!NOTE]
-> A edição inadequada do ficheiro **/etc/fstab** pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
+> A edição inadequada do ficheiro **/etc/fstab** pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
 
 Em seguida, abra o ficheiro */etc/fstab* num editor de texto da seguinte forma:
 
@@ -235,12 +235,12 @@ Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não
 
 Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-* Utilize a opção de montagem `discard` em */etc/fstab,* por exemplo:
+* Utilize `discard` a opção montagem em */etc/fstab,* por exemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Em alguns casos, a opção `discard` pode ter implicações no desempenho. Em alternativa, pode executar o comando `fstrim` manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
+* Em alguns `discard` casos, a opção pode ter implicações no desempenho. Em alternativa, pode `fstrim` executar o comando manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
   
     **Ubuntu**
   

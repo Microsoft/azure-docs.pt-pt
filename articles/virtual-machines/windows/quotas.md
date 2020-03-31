@@ -1,6 +1,6 @@
 ---
-title: cotas do vCPU para o Azure
-description: Saiba mais sobre as cotas do vCPU para o Azure.
+title: quotas vCPU para Azure
+description: Conheça as quotas vCPU para o Azure.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,27 +15,27 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: 20017f42031e126bbdae40f66bf4c36efd12f17c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75893469"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
-As cotas de vCPU para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais são organizadas em duas camadas para cada assinatura, em cada região. A primeira camada é o total regional de vCPUs e a segunda camada são os vários núcleos de família de tamanho de VM, como o vCPUs da série D. Sempre que uma nova VM for implantada, o vCPUs da VM não deverá exceder a cota de vCPU para a família de tamanho da VM ou a cota de vCPU regional total. Se qualquer uma dessas cotas for excedida, a implantação da VM não será permitida. Também há uma cota para o número total de máquinas virtuais na região. Os detalhes sobre cada uma dessas cotas podem ser vistos na seção **uso + cotas** da página **assinatura** no [portal do Azure](https://portal.azure.com)ou você pode consultar os valores usando o PowerShell.
+As quotas vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais estão dispostas em dois níveis para cada subscrição, em cada região. O primeiro nível é o Total Regional vCPUs, e o segundo nível são os vários núcleos familiares de tamanho VM, como os vCPUs da série D. Sempre que um novo VM for implantado, as vCPUs para o VM não devem exceder a quota vCPU para a família VM ou a quota total regional de VCPU. Se uma dessas quotas for excedida, a implantação da VM não será permitida. Existe também uma quota para o número global de máquinas virtuais na região. Os detalhes de cada uma destas quotas podem ser vistos na secção **Utilização + quotas** da página **de Subscrição** no [portal Azure,](https://portal.azure.com)ou pode consultar os valores que utilizam o PowerShell.
 
    
  
 ## <a name="check-usage"></a>Verificar utilização
 
-Você pode usar o cmdlet [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) para verificar o uso de sua cota.
+Pode utilizar o cmdlet [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) para verificar a utilização da sua quota.
 
 ```azurepowershell-interactive
 Get-AzVMUsage -Location "East US"
 ```
 
-A saída terá uma aparência semelhante a esta:
+A saída será semelhante a esta:
 
 ```
 Name                             Current Value Limit  Unit
@@ -79,10 +79,10 @@ Premium Storage Managed Disks                1 10000 Count
 
 
 ## <a name="reserved-vm-instances"></a>Instâncias de VM Reservada
-As instâncias de VM reservadas, que têm o escopo de uma única assinatura sem flexibilidade de tamanho de VM, adicionarão um novo aspecto às cotas de vCPU. Esses valores descrevem o número de instâncias do tamanho declarado que devem ser implantáveis na assinatura. Eles funcionam como um espaço reservado no sistema de cotas para garantir que a cota seja reservada para garantir que as instâncias de VM reservadas sejam implantáveis na assinatura. Por exemplo, se uma assinatura específica tiver 10 Standard_D1 instâncias de VM reservadas, o limite de usos para Standard_D1 instâncias de VM reservadas será 10. Isso fará com que o Azure Verifique se há sempre pelo menos 10 vCPUs disponíveis na cota de vCPUs regional total a ser usada para Standard_D1 instâncias e se há pelo menos 10 vCPUs disponíveis na cota de vCPU da família D padrão para serem usadas para Standard_D1 instâncias.
+As Instâncias VM reservadas, que são dimensionadas para uma única subscrição sem flexibilidade de tamanho VM, adicionarão um novo aspeto às quotas vCPU. Estes valores descrevem o número de instâncias da dimensão indicada que devem ser implantáveis na subscrição. Funcionam como espaço reservados no sistema de quotas para garantir que a quota é reservada para garantir que as instâncias VM reservadas sejam implantáveis na subscrição. Por exemplo, se uma subscrição específica tiver 10 Standard_D1 vM reservado, o limite de utilizações para Standard_D1 casos de VM reservados será de 10. Isto fará com que o Azure garanta que existem sempre pelo menos 10 vCPUs disponíveis na quota total regional de vCPUs a utilizar em Standard_D1 casos e existem pelo menos 10 vCPUs disponíveis na quota VCPU família Standard D para serem utilizadas em Standard_D1 casos.
 
-Se um aumento de cota for necessário para comprar uma única assinatura RI, você poderá [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) em sua assinatura.
+Se for necessário um aumento de quota para adquirir um RI de subscrição única, pode [solicitar um aumento](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) de quota na sua subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre cobrança e cotas, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Para obter mais informações sobre faturação e quotas, consulte os limites de subscrição e serviço do [Azure, quotas e constrangimentos.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json)

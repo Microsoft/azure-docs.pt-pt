@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 80dba57d4fe05630eb5ae4f8fc96bd0aa214c6d4
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302275"
 ---
 # <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
- Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas.  
+ Devolve uma expressão de cadeia após converter dados de caracteres maiúsculos em minúsculas.  
 
 A função do sistema LOWER não utiliza o índice. Se planeia fazer comparações frequentes de casos insensíveis, a função do sistema LOWER pode consumir uma quantidade significativa de RU's. Se for esse o caso, em vez de utilizar a função do sistema LOWER para normalizar os dados de cada vez para comparações, pode normalizar o invólucro após a inserção. Em seguida, uma consulta como SELECT * From c WHERE LOWER (c.name) = 'bob' torna-se simplesmente SELECT * DE c ONDE c.name = 'bob'.
 
@@ -32,11 +32,11 @@ LOWER(<str_expr>)
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.  
+  Devolve uma expressão de corda.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como usar `LOWER` numa consulta.  
+  O exemplo que se `LOWER` segue mostra como usar numa consulta.  
   
 ```sql
 SELECT LOWER("Abc") AS lower

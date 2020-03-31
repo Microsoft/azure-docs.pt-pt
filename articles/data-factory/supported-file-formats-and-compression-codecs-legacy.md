@@ -1,6 +1,6 @@
 ---
 title: Formatos de ficheiros suportados na Azure Data Factory (legado)
-description: Este tópico descreve os formatos de ficheiro e códigos de compressão suportados pelo conectores baseados em ficheiros no Azure Data Factory.
+description: Este tópico descreve os formatos de ficheiros e códigos de compressão que são suportados por conectores baseados em ficheiros na Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260686"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de ficheiros suportados e codificadores de compressão na Azure Data Factory (legado)
@@ -21,18 +21,18 @@ ms.locfileid: "79260686"
 *Este artigo aplica-se aos seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).*
 
 >[!IMPORTANT]
->Data Factory introduziu novo modelo de conjunto de dados baseado em formato, ver artigo de formato correspondente com detalhes: <br>formato [- Avro](format-avro.md)<br>[- formato binário](format-binary.md)<br>- [formato de texto delimitado](format-delimited-text.md)<br>formato [JSON](format-json.md) - <br>[formato ORC](format-orc.md) - <br>formato [- Parquet](format-parquet.md)<br>As configurações restantes mencionadas neste artigo ainda são suportadas como é para a compabitilidade atrasada. É-lhe sugerido que use o novo modelo para a frente. 
+>Data Factory introduziu novo modelo de conjunto de dados baseado em formato, ver artigo de formato correspondente com detalhes: <br>- [Formato Avro](format-avro.md)<br>- [Formato binário](format-binary.md)<br>- [Formato de texto delimitado](format-delimited-text.md)<br>- [Formato JSON](format-json.md)<br>- [Formato ORC](format-orc.md)<br>- [Formato Parquet](format-parquet.md)<br>As configurações restantes mencionadas neste artigo ainda são suportadas como é para a compabitilidade atrasada. É-lhe sugerido que use o novo modelo para a frente. 
 
-## <a name="text-format"></a>Formato de texto (legado)
+## <a name="text-format-legacy"></a><a name="text-format"></a>Formato de texto (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de formato de [texto Delimited.](format-delimited-text.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para a compabitilidade retrógrada. É-lhe sugerido que use o novo modelo para a frente.
 
-Se pretender ler a partir de um ficheiro de texto ou escrever para um ficheiro de texto, coloque a propriedade `type` na secção `format` do conjunto de dados para **TextFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de TextFormat](#textformat-example) sobre como configurar.
+Se pretender ler a partir de um ficheiro de `type` texto ou `format` escrever para um ficheiro de texto, coloque a propriedade na secção do conjunto de dados para **TextFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de TextFormat](#textformat-example) sobre como configurar.
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar para utilizar um caráter não imprimíveis raro que pode não existir nos seus dados. Por exemplo, especifica "\u0001", que representa o início do cabeçalho (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)** . <br/><br/>Para utilizar um caracteres Unicode, consulte o [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
+| columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar usar um carácter raro e imprimível que pode não existir nos seus dados. Por exemplo, especifique "\u0001", que representa o início da rubrica (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)**. <br/><br/>Para utilizar um caracteres Unicode, consulte o [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
 | rowDelimiter |O caráter utilizado para separar linhas num ficheiro. |Só é permitido um caráter. O valor **predefinido** é um dos seguintes valores: **["\r\n", "\r", "\n"]** na leitura e **"\r\n"** na escrita. |Não |
 | escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir “$” como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
@@ -77,29 +77,29 @@ Para utilizar um `escapeChar` em vez de `quoteChar`, substitua a linha por `quot
 * Está a copiar de um ficheiro de texto que contém uma linha de cabeçalho para um sink de não ficheiro e quer remover essa linha. Especifique `firstRowAsHeader` como verdadeiro no conjunto de dados de entrada.
 * Está a copiar de um ficheiro de texto e quer ignorar algumas linhas no início que não contêm dados nem informações de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a ignorar. Se o resto do ficheiro contiver uma linha de cabeçalho, também pode especificar `firstRowAsHeader`. Se as propriedades `skipLineCount` e `firstRowAsHeader` forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada
 
-## <a name="json-format"></a>Formato JSON (legado)
+## <a name="json-format-legacy"></a><a name="json-format"></a>Formato JSON (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato JSON.](format-json.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para a compabitilidade retrógrada. É-lhe sugerido que use o novo modelo para a frente.
 
 Para **importar/exportar um ficheiro JSON como está dentro/a partir de Azure Cosmos DB,** consulte a secção de documentos JSON de Importação/Exportação em [Dados de Movimento para/a partir do artigo da Azure Cosmos DB.](connector-azure-cosmos-db.md)
 
-Se pretender analisar os ficheiros JSON ou escrever os dados em formato JSON, detete te`type` propriedade na secção `format` para **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
+Se pretender analisar os ficheiros JSON ou escrever os dados `type` em formato JSON, detete a propriedade na `format` secção para **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são **setOfObjects** e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
 | jsonNodeReference | Se quiser iterar e extrair dados dos objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON dessa matriz. Esta propriedade só é suportada quando copia dados **de** ficheiros JSON. | Não |
 | jsonPathDefinition | Especifique a expressão de caminho do JSON para cada mapeamento de colunas com um nome de coluna personalizado (começar com letra minúscula). Esta propriedade só é suportada quando copia dados **de** ficheiros JSON, e pode extrair dados de objetoou matriz. <br/><br/> Para os campos no objeto raiz, comece com a raiz $; para os campos dentro da matriz escolhida pela propriedade `jsonNodeReference`, comece a partir do elemento de matriz. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar. | Não |
-| encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, veja Propriedade [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
+| encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, veja Propriedade [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é: **UTF-8**. |Não |
 | nestingSeparator |Caráter utilizado para separar níveis de aninhamento. O valor predefinido é “.” (ponto). |Não |
 
 >[!NOTE]
->Para o caso de dados de aplicação cruzada em matriz em várias linhas (caso 1 -> amostra 2 em [exemplos JsonFormat),](#jsonformat-example)você só pode optar por expandir uma matriz única usando `jsonNodeReference`propriedade .
+>Para o caso de dados de aplicação cruzada em matriz em várias linhas (caso 1 -> amostra `jsonNodeReference`2 em [exemplos JsonFormat),](#jsonformat-example)você só pode optar por expandir uma matriz única usando a propriedade .
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
-Atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
+A atividade de cópia pode analisar os seguintes padrões dos ficheiros JSON:
 
 - **Tipo I: setOfObjects**
 
@@ -222,14 +222,14 @@ Neste exemplo, espera-se que um objeto JSON de raiz mapeie para um registo indiv
 
 e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante a extração de dados de objetos e da matriz:
 
-| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| ID | deviceType | targetResourceType | recursosManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte as colunas de conjunto de dados de [origem do Mapa para as colunas](copy-activity-schema-and-type-mapping.md)de dataset de destino .
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar `array[x].property` para extrair valor da propriedade dada a partir do objeto `xth`, ou pode utilizar `array[*].property` para encontrar o valor de qualquer objeto que contenha tal propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar `array[x].property` para `xth` extrair valor da `array[*].property` propriedade dada do objeto, ou pode usar para encontrar o valor de qualquer objeto que contenha tal propriedade.
 
 ```json
 "properties": {
@@ -304,8 +304,8 @@ e quiser copiá-lo para uma tabela SQL do Azure no seguinte formato, ao simplifi
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte as colunas de conjunto de dados de [origem do Mapa para as colunas](copy-activity-schema-and-type-mapping.md)de dataset de destino .
-- `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão sob `orderlines`de **matriz** .
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate`e `city` estão sob objeto de raiz com o caminho JSON começando com `$.`, enquanto `order_pd` e `order_price` são definidos com caminho derivado do elemento matriz sem `$.`.
+- `jsonNodeReference`indica o iterado e extrair dados dos objetos com o mesmo padrão sob **matriz** `orderlines`.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber` `orderdate`e `city` estão sob objeto raiz com caminho `$.`JSON começando com , enquanto `order_pd` e `order_price` são definidos com caminho derivado do elemento matriz sem `$.`.
 
 ```json
 "properties": {
@@ -352,7 +352,7 @@ O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte
 
 **Caso 2: Escrever dados no ficheiro JSON**
 
-Se tiver a tabela seguinte na base de dados SQL:
+Se tiver a seguinte tabela na Base de Dados SQL:
 
 | ID | order_date | order_price | order_by |
 | --- | --- | --- | --- |
@@ -360,7 +360,7 @@ Se tiver a tabela seguinte na base de dados SQL:
 | 2 | 20170120 | 3500 | José |
 | 3 | 20170121 | 4000 | João |
 
-e para cada registo, espera escrever num objeto JSON no seguinte formato:
+e para cada registo, espera escrever a um objeto JSON no seguinte formato:
 
 ```json
 {
@@ -373,7 +373,7 @@ e para cada registo, espera escrever num objeto JSON no seguinte formato:
 }
 ```
 
-O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente, `structure` secção define os nomes de propriedade personalizados no ficheiro de destino, `nestingSeparator` (padrão é ".") são usados para identificar a camada de ninho do nome. Esta secção é **opcional**, exceto se quiser alterar o nome da propriedade para o equiparar ao nome da coluna de origem ou aninhar algumas das propriedades.
+O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente, `structure` a secção define os nomes de propriedade personalizados no ficheiro de destino, `nestingSeparator` (padrão é ".") são usados para identificar a camada de ninho do nome. Esta secção é **opcional**, exceto se quiser alterar o nome da propriedade para o equiparar ao nome da coluna de origem ou aninhar algumas das propriedades.
 
 ```json
 "properties": {
@@ -404,12 +404,12 @@ O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte 
 }
 ```
 
-## <a name="parquet-format"></a>Formato Parquet (legado)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Formato Parquet (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato Parquet.](format-parquet.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para a compabitilidade retrógrada. É-lhe sugerido que use o novo modelo para a frente.
 
-Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet, detete a `format` `type` imóvel para **parquetFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
+Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet, defina a propriedade `format` `type` como **ParquetFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
 
 ```json
 "format":
@@ -427,21 +427,21 @@ Tenha em atenção os seguintes pontos:
 > [!IMPORTANT]
 > Para cópia sufiada por Tempo de Execução de Integração Auto-hospedado, por exemplo, entre as lojas de dados no local e as lojas de dados em nuvem, se não estiver a copiar os ficheiros Parquet **como está,** precisa de instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou OpenJDK** na sua máquina de INFRAVERMELHOS. Consulte o parágrafo seguinte com mais detalhes.
 
-Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros Parquet, a ADF localiza o tempo de funcionamento de Java verificando primeiro o registo *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para JRE, se não for encontrado, verificando em segundo lugar a variável do sistema *`JAVA_HOME`* para OpenJDK.
+Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros Parquet, *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* a ADF localiza o tempo de *`JAVA_HOME`* funcionamento de Java verificando primeiro o registo de JRE, se não for encontrado, verificando em segundo lugar a variável do sistema para OpenJDK.
 
 - **Para utilizar JRE**: O IR de 64 bits requer 64 bits JRE. Pode encontrá-lo [daqui.](https://go.microsoft.com/fwlink/?LinkId=808605)
 - Para utilizar o **OpenJDK:** é suportado desde a versão 3.13 do IR. Emba o jvm.dll com todos os outros conjuntos necessários do OpenJDK em máquina de INFRAVERMELHOS auto-hospedada, e coloque a variável do ambiente do sistema JAVA_HOME em conformidade.
 
 >[!TIP]
->Se copiar dados para/a partir do formato Parquet utilizando o Tempo de Execução de Integração Auto-hospedado e atingir um erro dizendo "Ocorreu um erro ao invocar java, mensagem: **java.lang.OutOfMemoryError:Java heap space",** pode adicionar uma variável ambiental `_JAVA_OPTIONS` na máquina que acolhe o IR auto-hospedado para ajustar o tamanho do monte min/max para jVM para capacitar essa cópia, em seguida, reexecutar o pipeline.
+>Se copiar dados para/a partir do formato Parquet utilizando o Tempo de Execução de Integração Auto-hospedado e atingir um erro dizendo "Ocorreu um erro ao invocar java, mensagem: **java.lang.OutOfMemoryError:Java heap space",** pode adicionar uma variável `_JAVA_OPTIONS` ambiental na máquina que acolhe o IR auto-hospedado para ajustar o tamanho do monte min/max para jVM para capacitar tal cópia, em seguida, reexecutar o pipeline.
 
 ![Definir o tamanho da pilha JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exemplo: definir `_JAVA_OPTIONS` variável com `-Xms256m -Xmx16g`de valor . O `Xms` da bandeira especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que o JVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de `Xmx` quantidade de memória. Por predefinição, a ADF utiliza min 64MB e máx.
+Exemplo: definir `_JAVA_OPTIONS` variável com valor `-Xms256m -Xmx16g`. A `Xms` bandeira especifica o conjunto inicial de atribuição de memória `Xmx` para uma Máquina Virtual Java (JVM), enquanto especifica o conjunto máximo de atribuição de memória. Isto significa que o JVM será iniciado com `Xms` uma quantidade `Xmx` de memória e será capaz de usar um máximo de quantidade de memória. Por predefinição, a ADF utiliza min 64MB e máx.
 
-### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento para ficheiros Parquet
+### <a name="data-type-mapping-for-parquet-files"></a>Mapeamento de tipo de dados para ficheiros Parquet
 
-| Tipo de dados intermediárias de fábrica de dados | Tipo de primitivo parquet | Parquet tipo Original (anular a serialização) | Parquet tipo Original (serialização) |
+| Tipo de dados provisórios da fábrica de dados | Tipo Primitivo Parquet | Tipo Original Parquet (Deserialize) | Tipo Original Parquet (Serialize) |
 |:--- |:--- |:--- |:--- |
 | Booleano | Booleano | N/D | N/D |
 | SByte | Int32 | Int8 | Int8 |
@@ -451,25 +451,25 @@ Exemplo: definir `_JAVA_OPTIONS` variável com `-Xms256m -Xmx16g`de valor . O `X
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/binário | UInt64 | decimal |
+| UInt64 | Int64/Binário | UInt64 | Decimal |
 | Único | Float | N/D | N/D |
-| Valor de duplo | Valor de duplo | N/D | N/D |
-| decimal | Binário | decimal | decimal |
-| String | Binário | Utf8 | Utf8 |
+| Double | Double | N/D | N/D |
+| Decimal | Binário | Decimal | Decimal |
+| Cadeia | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
-| DateTimeOffset | Int96 | N/D | N/D |
+| DataTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binário | N/D | N/D |
-| Guid | Binário | Utf8 | Utf8 |
-| char | Binário | Utf8 | Utf8 |
+| GUID | Binário | Utf8 | Utf8 |
+| Char | Binário | Utf8 | Utf8 |
 | CharArray | Não suportado | N/D | N/D |
 
-## <a name="orc-format"></a>Formato ORC (legado)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a>Formato ORC (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato ORC.](format-orc.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para a compabitilidade retrógrada. É-lhe sugerido que use o novo modelo para a frente.
 
-Se pretender analisar os ficheiros ORC ou escrever os dados em formato ORC, detete a `format` `type` propriedade para **OrcFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
+Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina a propriedade `format` `type` como **OrcFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
 
 ```json
 "format":
@@ -487,41 +487,41 @@ Tenha em atenção os seguintes pontos:
 > [!IMPORTANT]
 > Para cópia sufiada por Tempo de Execução de Integração Auto-hospedado, por exemplo, entre as lojas de dados no local e as lojas de dados em nuvem, se não estiver a copiar os ficheiros ORC **como está,** precisa de instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou OpenJDK** na sua máquina de INFRAVERMELHOS. Consulte o parágrafo seguinte com mais detalhes.
 
-Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros ORC, a ADF localiza o tempo de funcionamento de Java verificando primeiro o registo *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para JRE, se não for encontrado, verificando em segundo lugar a variável do sistema *`JAVA_HOME`* para OpenJDK.
+Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros ORC, *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* a ADF localiza o tempo de *`JAVA_HOME`* funcionamento de Java verificando primeiro o registo de JRE, se não for encontrado, verificando em segundo lugar a variável do sistema para OpenJDK.
 
 - **Para utilizar JRE**: O IR de 64 bits requer 64 bits JRE. Pode encontrá-lo [daqui.](https://go.microsoft.com/fwlink/?LinkId=808605)
 - Para utilizar o **OpenJDK:** é suportado desde a versão 3.13 do IR. Emba o jvm.dll com todos os outros conjuntos necessários do OpenJDK em máquina de INFRAVERMELHOS auto-hospedada, e coloque a variável do ambiente do sistema JAVA_HOME em conformidade.
 
-### <a name="data-type-mapping-for-orc-files"></a>Tipo de dados de mapeamento para ficheiros ORC
+### <a name="data-type-mapping-for-orc-files"></a>Mapeamento de tipo de dados para ficheiros ORC
 
-| Tipo de dados intermediárias de fábrica de dados | Tipos ORC |
+| Tipo de dados provisórios da fábrica de dados | Tipos ORC |
 |:--- |:--- |
 | Booleano | Booleano |
 | SByte | Byte |
 | Byte | Curto |
 | Int16 | Curto |
-| UInt16 | Int |
-| Int32 | Int |
+| UInt16 | int |
+| Int32 | int |
 | UInt32 | Longo |
 | Int64 | Longo |
-| UInt64 | String |
+| UInt64 | Cadeia |
 | Único | Float |
-| Valor de duplo | Valor de duplo |
-| decimal | decimal |
-| String | String |
+| Double | Double |
+| Decimal | Decimal |
+| Cadeia | Cadeia |
 | DateTime | Carimbo de data/hora |
-| DateTimeOffset | Carimbo de data/hora |
+| DataTimeOffset | Carimbo de data/hora |
 | TimeSpan | Carimbo de data/hora |
 | ByteArray | Binário |
-| Guid | String |
-| char | Char(1) |
+| GUID | Cadeia |
+| Char | Char(1) |
 
-## <a name="avro-format"></a>Formato AVRO (legado)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato Avro.](format-avro.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para a compabitilidade retrógrada. É-lhe sugerido que use o novo modelo para a frente.
 
-Se pretender analisar os ficheiros Avro ou escrever os dados em formato Avro, detete te`format` `type` imóvel para **AvroFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
+Se quiser analisar os ficheiros Avro ou escrever os dados em formato Avro, defina a propriedade `format` `type` como **AvroFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
 
 ```json
 "format":
@@ -536,14 +536,14 @@ Tenha em atenção os seguintes pontos:
 
 * Não são suportados tipos de [dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) (registos, enums, matrizes, mapas, sindicatos e fixos).
 
-## <a name="compression-support"></a>Apoio à compressão (legado)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a>Apoio à compressão (legado)
 
-O Azure Data Factory suporta descomprimir/comprimir dados durante a cópia. Quando especifica `compression` propriedade num conjunto de dados de entrada, a atividade de cópia lê os dados comprimidos da fonte e descomprime-os; e quando especifica a propriedade num conjunto de dados de saída, a comprime a atividade da cópia e, em seguida, escreva dados para o lavatório. Seguem-se alguns cenários de exemplo:
+A Azure Data Factory suporta dados de compressa/descompressa durante a cópia. Quando especifica `compression` a propriedade num conjunto de dados de entrada, a atividade de cópia lê os dados comprimidos da fonte e descomprime-os; e quando especifica a propriedade num conjunto de dados de saída, a comprime a atividade da cópia e, em seguida, escreva dados para o lavatório. Aqui estão alguns cenários de amostra:
 
-* Dados comprimidos GZIP de leitura de um blob do Azure, descompactá-lo e escrever dados de resultado para uma base de dados SQL do Azure. Define o conjunto de dados input Azure Blob com a propriedade `compression` `type` como GZIP.
-* Ler dados a partir de um ficheiro de texto sem formatação do sistema de arquivos no local, comprimi-los usando o formato GZip e escrever os dados compactados para um blob do Azure. Você define um conjunto de dados de saída Azure Blob com a propriedade `compression` `type` como GZip.
-* Ficheiro. zip de leitura do servidor FTP, descompactá-lo para obter os ficheiros dentro e encaminhado para esses ficheiros do Azure Data Lake Store. Define um conjunto de dados FTP de entrada com a propriedade `type` `compression` como ZipDeflate.
-* Ler uma compressão de GZIP de dados de um blob do Azure, descompactá-lo, comprimi-los usando BZIP2 e escrever dados de resultado para um blob do Azure. Define o conjunto de dados input Azure Blob com `compression` `type` definido para GZIP e o conjunto de dados de saída com `compression` `type` definido para BZIP2.
+* Leia os dados comprimidos gZIP de uma bolha Azure, descompressione-os e escreva dados de resultados numa base de dados Azure SQL. Define o conjunto de dados input `compression` `type` Azure Blob com a propriedade como GZIP.
+* Leia os dados de um ficheiro de texto simples do Sistema de Ficheiros no local, comprima-os utilizando o formato GZip e escreva os dados comprimidos para uma bolha Azure. Você define um conjunto de dados `compression` `type` de saída Azure Blob com a propriedade como GZip.
+* Leia o ficheiro .zip do servidor FTP, descompressione-o para obter os ficheiros dentro e aterre esses ficheiros na Loja do Lago De Dados Azure. Define um conjunto de dados FTP de entrada com a `compression` `type` propriedade como ZipDeflate.
+* Leia um dados comprimidos gZIP a partir de uma bolha Azure, descompressione-os, comprima-os usando BZIP2 e escreva dados de resultados para uma bolha Azure. Define o conjunto de dados input `compression` `type` Azure Blob com o `compression` `type` conjunto para GZIP e o conjunto de dados de saída com o conjunto para BZIP2.
 
 Para especificar a compressão para um conjunto de dados, utilize a propriedade de **compressão** no conjunto de dados JSON como no seguinte exemplo:
 
@@ -573,7 +573,7 @@ Para especificar a compressão para um conjunto de dados, utilize a propriedade 
 
 A secção de **compressão** tem duas propriedades:
 
-* **Tipo:** o codec de compressão, que pode ser **GZIP,** **Deflate,** **BZIP2**, ou **ZipDeflate**. Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para uma loja de dados de sumidouro baseada em ficheiros, os ficheiros serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`.
+* **Tipo:** o codec de compressão, que pode ser **GZIP,** **Deflate,** **BZIP2**, ou **ZipDeflate**. Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para `<path specified in dataset>/<folder named as source zip file>/`a loja de dados do lavatório baseado em ficheiros, os ficheiros serão extraídos para a pasta: .
 * **Nível:** a relação de compressão, que pode ser **Ótima** ou **Mais Rápida**.
 
   * **Mais rápido:** A operação de compressão deve ser concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.
@@ -582,7 +582,7 @@ A secção de **compressão** tem duas propriedades:
     Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx)
 
 > [!NOTE]
-> As definições de compressão não são suportadas para dados no **AvroFormat,** **OrcFormat**, ou **ParquetFormat**. Durante a leitura de ficheiros nesses formatos, o Data Factory Deteta e utiliza o codec de compressão existente nos metadados. Ao escrever ficheiros nesses formatos, o Data Factory escolhe o codec de compressão predefinido para esse formato. Por exemplo, ZLIB para OrcFormat e SNAPPY para ParquetFormat.
+> As definições de compressão não são suportadas para dados no **AvroFormat,** **OrcFormat**, ou **ParquetFormat**. Ao ler ficheiros nestes formatos, a Data Factory deteta e utiliza o codec de compressão nos metadados. Ao escrever para ficheiros nestes formatos, a Data Factory escolhe o código de compressão predefinido para esse formato. Por exemplo, ZLIB para OrcFormat e SNAPPY para ParquetFormat.
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Tipos de ficheiros não suportados e formatos de compressão
 

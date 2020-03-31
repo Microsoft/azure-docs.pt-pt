@@ -1,39 +1,36 @@
 ---
-title: Consultar bancos de dados fragmentados
-description: Executar consultas entre fragmentos usando a biblioteca de cliente do banco de dados elástico.
+title: Bases de dados de consultas
+description: Execute consultas em fragmentos usando a biblioteca de clientes de base de dados elástica.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 6458b52e707b7e4c11fe8b501f3393e1009a748c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ae14a9fd8fc8479eac596fb694e12e3e0a9027f5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067301"
 ---
-# <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta de vários fragmentos usando ferramentas de banco de dados elástico
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta multi-fragmento utilizando ferramentas de base de dados elásticas
 
 ## <a name="overview"></a>Descrição geral
 
-Com as [ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md), você pode criar soluções de banco de dados fragmentadas. **A consulta de vários fragmentos** é usada para tarefas como coleta/relatório de dados que exigem a execução de uma consulta que se estende por vários fragmentos. (Compare com o [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho em um único fragmento.)
+Com as [ferramentas Elastic Database,](sql-database-elastic-scale-introduction.md)pode criar soluções de base de dados esfartos. **A consulta multi-fragmento** é usada para tarefas como a recolha/reportagem de dados que requerem executar uma consulta que se estende por vários fragmentos. (Contraste isto com o [encaminhamento dependente de dados,](sql-database-elastic-scale-data-dependent-routing.md)que executa todos os trabalhos num único fragmento.)
 
-1. Obtenha um **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) ou **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) usando o **método trygetrangeshardmap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), o **TryGetListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [ .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) ou o método **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)). Consulte [construindo um ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) e [obter um RangeShardMap ou ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
-2. Crie um objeto **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardconnection), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection)).
-3. Crie um **MultiShardStatement ou MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
-4. Defina a **propriedade CommandText** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) para um comando T-SQL.
-5. Execute o comando chamando o método **ExecuteQueryAsync ou ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement.executeQueryAsync), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
-6. Exiba os resultados usando a classe **MultiShardResultSet ou MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)).
+1. Obtenha um **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)ou **ListShardMap** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) utilizando o **método TryGetRangeShardMap** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.NET),](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)o **TryGetListShardMap** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)ou o método **GetShardMap** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap) Consulte [a construção de um ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) e [obtenha um RangeShardMap ou ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+2. Crie um objeto **MultiShardConnection** [(Java,](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardconnection) [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection)
+3. Crie um **MultiShardStatement ou MultiShardCommand** [(Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)
+4. Desloque a **propriedade CommandText** [(Java,](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement) [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) para um comando T-SQL.
+5. Execute o comando chamando o método **ExecuteQueryAsync ou ExecuteReader** [(Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement.executeQueryAsync), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)
+6. Ver os resultados utilizando a classe **MultiShardResultSet ou MultiShardDataReader** [(Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)
 
 ## <a name="example"></a>Exemplo
 
-O código a seguir ilustra o uso de consultas de vários fragmentos usando um determinado **ShardMap** chamado *myShardMap*.
+O código que se segue ilustra o uso de consultas multi-fragmentos utilizando um dado **ShardMap** chamado *myShardMap*.
 
 ```csharp
 using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString))
@@ -58,14 +55,14 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-Uma diferença importante é a construção de conexões de vários fragmentos. Quando **SqlConnection** opera em um banco de dados individual, o **MultiShardConnection** usa uma ***coleção de fragmentos*** como sua entrada. Popular a coleção de fragmentos de um mapa de fragmentos. Em seguida, a consulta é executada na coleção de fragmentos usando a semântica **Union All** para montar um único resultado geral. Opcionalmente, o nome do fragmento do qual a linha se origina pode ser adicionado à saída usando a propriedade **executionoptions** no comando.
+Uma diferença fundamental é a construção de ligações multi-fragmentos. Quando a **SqlConnection** opera numa base de dados individual, a **MultiShardConnection** toma como entrada uma ***coleção de fragmentos.*** Povoe a coleção de fragmentos de um mapa de fragmentos. A consulta é então executada na coleção de fragmentos usando semântica **UNION ALL** para reunir um único resultado global. Opcionalmente, o nome do fragmento de onde provém a linha pode ser adicionado à saída utilizando a propriedade **ExecutionOptions** no comando.
 
-Observe a chamada para **myShardMap.** getfragments (). Esse método recupera todos os fragmentos do mapa de fragmentos e fornece uma maneira fácil de executar uma consulta em todos os bancos de dados relevantes. A coleção de fragmentos para uma consulta de vários fragmentos pode ser refinada com a execução de uma consulta LINQ sobre a coleção retornada da chamada para MyShardMap. getfragments **()** . Em combinação com a política de resultados parciais, a funcionalidade atual da consulta de vários fragmentos foi projetada para funcionar bem para dezenas de centenas de fragmentos.
+Note a chamada para **myShardMap.GetShards()**. Este método recupera todos os fragmentos do mapa do fragmento e fornece uma maneira fácil de executar uma consulta em todas as bases de dados relevantes. A coleção de fragmentos para uma consulta multi-fragmento pode ser refinada ainda mais através da realização de uma consulta LINQ sobre a coleção devolvida da chamada para **myShardMap.GetShards()**. Em combinação com a política de resultados parciais, a capacidade atual na consulta de vários fragmentos foi projetada para funcionar bem para dezenas de fragmentos.
 
-Uma limitação com consulta de vários fragmentos atualmente é a falta de validação para fragmentos e shardlets que são consultados. Embora o roteamento dependente de dados verifique se um determinado fragmento faz parte do mapa de fragmentos no momento da consulta, as consultas de vários fragmentos não executam essa verificação. Isso pode levar a consultas de vários fragmentos em execução em bancos de dados que foram removidos do mapa de fragmentos.
+Uma limitação com consulta multi-fragmento é atualmente a falta de validação para fragmentos e fragmentos que são consultados. Enquanto o encaminhamento dependente de dados verifica que um determinado fragmento faz parte do mapa do fragmento no momento da consulta, as consultas multi-fragmentos não realizam esta verificação. Isto pode levar a consultas multi-fragmentos em bases de dados que foram removidas do mapa do fragmento.
 
-## <a name="multi-shard-queries-and-split-merge-operations"></a>Consultas de vários fragmentos e operações de divisão/mesclagem
+## <a name="multi-shard-queries-and-split-merge-operations"></a>Consultas multi-fragmentos e operações de fusão de divisões
 
-As consultas de vários fragmentos não verificam se shardlets no banco de dados consultado estão participando de operações de divisão/mesclagem em andamento. (Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências em que as linhas do mesmo shardlet mostram para vários bancos de dados na mesma consulta de vários fragmentos. Esteja atento a essas limitações e considere a descarregamento de operações de divisão/mesclagem contínuas e alterações no mapa de fragmentos durante a execução de consultas de vários fragmentos.
+As consultas multi-fragmentos não verificam se os fragmentos na base de dados consultada estão a participar em operações de fusão contínua. (Ver [escala utilizando a ferramenta de fusão de base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md).) Isto pode levar a inconsistências onde as filas do mesmo fragmento mostram várias bases de dados na mesma consulta multi-fragmento. Esteja ciente destas limitações e considere drenar as operações de fusão contínua e alterações no mapa do fragmento enquanto executa consultas multi-fragmentos.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

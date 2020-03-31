@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298298"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Comece com Application Insights num projeto web da Java
 
 Neste arranque rápido, utiliza os Application Insights para solicitar automaticamente instrumentos, rastrear dependências e recolher contadores de desempenho, diagnosticar problemas de desempenho e exceções e escrever código para acompanhar o que os utilizadores fazem com a sua app.
 
-Application Insights é um serviço de análise extensível para desenvolvedores web que o ajuda a entender o desempenho e o uso da sua aplicação ao vivo. O Application Insights suporta aplicações em Java em execução no Linux, Unix ou Windows.
+O Application Insights é um serviço de análise extensível para programadores Web que os ajudam a compreender o desempenho e a utilização da aplicação em direto. O Application Insights suporta aplicações em Java em execução no Linux, Unix ou Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,8 +25,8 @@ Application Insights é um serviço de análise extensível para desenvolvedores
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Obter uma chave de instrumentação do Application Insights
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No portal Azure, crie um recurso Application Insights. Defina o tipo de aplicação para aplicação Web em Java.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. No portal do Azure, crie um recurso do Application Insights. Defina o tipo de aplicação para aplicação Web em Java.
 
 3. Localize a chave de instrumentação do novo recurso. Terá de colar esta chave no seu projeto de código em breve.
 
@@ -75,10 +75,10 @@ Transfira a [versão mais recente](https://github.com/Microsoft/ApplicationInsig
 ---
 
 ### <a name="questions"></a>Perguntas
-* *Qual é a relação entre os componentes `-web-auto`, `-web` e `-core`?*
-  * `applicationinsights-web-auto` dá-lhe métricas que rastreiam as contagens de pedido de servlet HTTP e os tempos de resposta, registando automaticamente o filtro de servlet Application Insights no tempo de funcionamento.
-  * `applicationinsights-web` também lhe dá métricas que rastreiam as contagens de pedido de servlet HTTP e os tempos de resposta, mas requer o registo manual do filtro de servlet Application Insights na sua aplicação.
-  * `applicationinsights-core` lhe dá apenas a API nua, por exemplo, se a sua aplicação não for baseada em servlet.
+* *Qual é a relação `-web-auto` `-web` entre `-core` os componentes e os componentes?*
+  * `applicationinsights-web-auto`dá-lhe métricas que rastreiam as contagens de pedido de servlet HTTP e os tempos de resposta, registando automaticamente o filtro de servlet De Visão de Aplicação Insights no tempo de execução.
+  * `applicationinsights-web`também lhe dá métricas que rastreiam as contagens de pedido de servlet HTTP e os tempos de resposta, mas requer o registo manual do filtro de servlet Application Insights na sua aplicação.
+  * `applicationinsights-core`dá-lhe apenas a API nua, por exemplo, se a sua aplicação não for baseada em servlet.
   
 * *Como posso atualizar o SDK para a versão mais recente?*
   * Se estás a usar o Gradle ou o Maven...
@@ -118,7 +118,7 @@ Substitua a chave de instrumentação pela que obteve do portal Azure.
 </ApplicationInsights>
 ```
 
-Opcionalmente, o ficheiro de configuração pode estar em qualquer local acessível à sua aplicação.  A propriedade do sistema `-Dapplicationinsights.configurationDirectory` especifica o diretório que contém *ApplicationInsights.xml*. Por exemplo, um ficheiro de configuração localizado em `E:\myconfigs\appinsights\ApplicationInsights.xml` seria configurado com a propriedade `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Opcionalmente, o ficheiro de configuração pode estar em qualquer local acessível à sua aplicação.  A propriedade `-Dapplicationinsights.configurationDirectory` do sistema especifica o diretório que contém *ApplicationInsights.xml*. Por exemplo, um ficheiro de configuração localizado em `E:\myconfigs\appinsights\ApplicationInsights.xml` seria configurado com a propriedade `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * A chave de instrumentação é enviada juntamente com todos os itens de telemetria e diz ao Application Insights para apresentá-la no seu recurso.
 * O componente de Pedido HTTP é opcional. Envia automaticamente telemetria sobre pedidos e tempos de resposta para o portal.
@@ -150,7 +150,7 @@ Também pode [defini-lo no código](../../azure-monitor/app/api-custom-events-me
 Execute-a no modo de depuração no seu computador de desenvolvimento ou publique-a no seu servidor.
 
 ## <a name="view-your-telemetry-in-application-insights"></a>Ver a telemetria no Application Insights
-Regresse ao seu recurso do Application Insights no [Portal do Microsoft Azure](https://portal.azure.com).
+Volte ao seu recurso Application Insights no [portal Microsoft Azure](https://portal.azure.com).
 
 Os dados de pedidos HTTP aparecem no painel de descrição geral. (Se não aparecerem, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
@@ -176,7 +176,7 @@ Clique num tipo de pedido específico para ver instâncias individuais.
 
 ![Exemplo de Análise](./media/java-get-started/0025.png)
 
-## <a name="7-install-your-app-on-the-server"></a>7. Instale a sua aplicação no servidor
+## <a name="install-your-app-on-the-server"></a>Instalar a aplicação no servidor
 Agora publique a aplicação no servidor, permita que as pessoas a utilizem e veja a telemetria a ser mostrada no portal.
 
 * Certifique-se que a firewall permite à aplicação enviar telemetria para estas portas:
@@ -286,14 +286,14 @@ Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/wind
 ## <a name="get-user-and-session-data"></a>Obter dados de utilizador e de sessão
 OK, está a enviar telemetria a partir do seu servidor Web. Para obter a vista completa em 360 graus da sua aplicação, agora pode adicionar mais monitorização:
 
-* [Adicione telemetria às suas páginas web][usage] para monitorizar as visualizações das páginas e métricas do utilizador.
-* [Instale testes web][availability] para garantir que a sua aplicação permaneça ao vivo e responsiva.
+* [Adicione a telemetria às suas páginas Web][usage] para monitorizar vistas de página e métricas de utilizador.
+* [Configure testes Web][availability] para certificar-se de que a aplicação permanece em direto e reativa.
 
 ## <a name="send-your-own-telemetry"></a>Enviar a sua própria telemetria
 Agora que instalou o SDK, pode utilizar a API para enviar a sua própria telemetria.
 
-* [Acompanhe eventos e métricas personalizados][api] para saber o que os utilizadores estão a fazer com a sua aplicação.
-* [Pesquisar eventos e registos][diagnostic] para ajudar a diagnosticar problemas.
+* [Controle eventos personalizados e métricas][api] para saber o que os utilizadores estão a fazer com a sua aplicação.
+* [Pesquise eventos e registos][diagnostic] para ajudar a diagnosticar problemas.
 
 ## <a name="availability-web-tests"></a>Testes Web de disponibilidade
 O Application Insights pode testar o seu site em intervalos regulares para verificar se está a funcionar e a responder bem.
@@ -308,7 +308,7 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.
 * Escreva [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) para controlar a utilização no browser ou no servidor.
-* Utilize o [Analytics](../../azure-monitor/app/analytics.md) para consultas eficientes através de telemetria a partir da aplicação
+* Use [analytics](../../azure-monitor/app/analytics.md) para consultas poderosas sobre telemetria da sua aplicação
 * Para obter mais informações, visite [Azure para programadores Java](/java/azure).
 
 <!--Link references-->

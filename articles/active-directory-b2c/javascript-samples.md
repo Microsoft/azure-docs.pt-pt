@@ -1,7 +1,7 @@
 ---
 title: Exemplos de JavaScript
 titleSuffix: Azure AD B2C
-description: Saiba como utilizar JavaScript no Azure Active Directory B2C.
+description: Saiba mais sobre a utilização do JavaScript no Diretório Ativo Azure B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187666"
 ---
-# <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para utilização no Azure Active Directory B2C
+# <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Amostras JavaScript para utilização no Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -41,13 +41,13 @@ Este artigo descreve como pode alterar a sua política personalizada para permit
 
 * Selecione um layout de [página](contentdefinitions.md#select-a-page-layout) para os elementos de interface do utilizador da sua aplicação.
 
-    Se pretender utilizar o JavaScript, precisa de [definir uma versão](contentdefinitions.md#migrating-to-page-layout) de layout de página com versão `contract` página para todas *as* definições de conteúdo na sua política personalizada.
+    Se pretender utilizar o JavaScript, precisa de definir `contract` uma versão de layout de [página](contentdefinitions.md#migrating-to-page-layout) com versão de página para todas *as* definições de conteúdo na sua política personalizada.
 
-## <a name="add-the-scriptexecution-element"></a>Adicione o elemento de ScriptExecution
+## <a name="add-the-scriptexecution-element"></a>Adicione o elemento ScriptExecution
 
 Ativa a execução do script adicionando o elemento **ScriptExecution** ao elemento [RelyingParty.](relyingparty.md)
 
-1. Abra o ficheiro de política personalizada. Por exemplo, *SignUpOrSignin.xml*.
+1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml*.
 2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** of **RelyingParty:**
 
     ```XML
@@ -59,15 +59,15 @@ Ativa a execução do script adicionando o elemento **ScriptExecution** ao eleme
       ...
     </RelyingParty>
     ```
-3. Guardar e carregue o ficheiro.
+3. Guarde e carregue o ficheiro.
 
 [!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## <a name="javascript-samples"></a>Exemplos de JavaScript
 
-### <a name="show-or-hide-a-password"></a>Mostrar ou ocultar uma palavra-passe
+### <a name="show-or-hide-a-password"></a>Mostrar ou esconder uma senha
 
-Uma forma comum de ajudar os seus clientes com o seu sucesso de inscrição é permitir-lhes para verem o que eles introduziu como a palavra-passe. Esta opção ajuda os utilizadores inscrever-se ao ativá-las facilmente ver e fazer correções para a palavra-passe se for necessário. Qualquer tipo de senha tem uma caixa de verificação com uma etiqueta de **palavra-passe Show.**  Isto permite que o utilizador ver a palavra-passe em texto simples. Inclua este fragmento de código no seu modelo de inscrição ou início de sessão para uma página de declaração própria:
+Uma forma comum de ajudar os seus clientes com o seu sucesso de inscrição é permitir-lhes ver o que eles entraram como a sua palavra-passe. Esta opção ajuda os utilizadores a inscreverem-se, permitindo-lhes ver facilmente e fazer correções na sua palavra-passe, se necessário. Qualquer tipo de senha tem uma caixa de verificação com uma etiqueta de **palavra-passe Show.**  Isto permite ao utilizador ver a palavra-passe em texto simples. Inclua este corte de código no seu modelo de inscrição ou inscrição para uma página autoafirmada:
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -113,7 +113,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>Adicionar termos de utilização
 
-Inclua o seguinte código na sua página onde pretende incluir uma caixa de verificação **De Utilização.** Esta caixa de verificação, normalmente, é necessário em suas páginas de inscrição de redes sociais e inscreva-se a conta de conta local.
+Inclua o seguinte código na sua página onde pretende incluir uma caixa de verificação **De Utilização.** Esta caixa de verificação é normalmente necessária nas suas páginas de inscrição na sua conta local e nas páginas de inscrição da conta social.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -138,7 +138,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-No código, substitua `termsOfUseUrl` com o link para os seus termos de acordo de utilização. Para o seu diretório, crie um novo atributo de utilizador chamado **termsOfUse** e, em seguida, inclua **termosOfUse** como atributo de utilizador.
+No código, `termsOfUseUrl` substitua-o pelo link para os termos do seu acordo de utilização. Para o seu diretório, crie um novo atributo de utilizador chamado **termsOfUse** e, em seguida, inclua **termosOfUse** como atributo de utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

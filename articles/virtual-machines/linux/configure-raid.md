@@ -8,10 +8,10 @@ ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250260"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configure Software RAID em Linux
@@ -30,7 +30,7 @@ São necessários dois ou mais discos de dados vazios para configurar um disposi
   sudo apt-get install mdadm
   ```
 
-* **CentOS e Oracle Linux**
+* **CentOS & Oracle Linux**
   ```bash
   sudo yum install mdadm
   ```
@@ -43,7 +43,7 @@ São necessários dois ou mais discos de dados vazios para configurar um disposi
 ## <a name="create-the-disk-partitions"></a>Criar as divisórias do disco
 Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divisória do disco será chamada /dev/sdc1.
 
-1. Comece `fdisk` começar a criar divisórias
+1. Comece `fdisk` a criar divisórias
 
     ```bash
     sudo fdisk /dev/sdc
@@ -77,14 +77,14 @@ Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divis�
     Partition number (1-4): 1
     ```
 
-1. Selecione o ponto de partida da nova divisória ou pressione `<enter>` para aceitar o padrão para colocar a divisória no início do espaço livre na unidade:
+1. Selecione o ponto de partida `<enter>` da nova partição ou prima para aceitar o padrão para colocar a divisória no início do espaço livre na unidade:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-1. Selecione o tamanho da partição, por exemplo, escreva '+10G' para criar uma partição de 10 gigabytes. Ou, pressione `<enter>` criar uma única divisória que se estende por toda a unidade:
+1. Selecione o tamanho da partição, por exemplo, escreva '+10G' para criar uma partição de 10 gigabytes. Ou, `<enter>` pressione criar uma única divisória que se estende por toda a unidade:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
@@ -107,7 +107,7 @@ Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divis�
     ```
 
 ## <a name="create-the-raid-array"></a>Criar a matriz RAID
-1. O exemplo seguinte irá "riscar" (nível RAID 0) três divisórias localizadas em três discos de dados separados (sdc1, sdd1, sde1).  Depois de executar este comando é criado um novo dispositivo RAID chamado **/dev/md127.** Note também que se estes discos de dados fizermos parte de outra matriz RAID extinta, pode ser necessário adicionar o parâmetro `--force` ao comando `mdadm`:
+1. O exemplo seguinte irá "riscar" (nível RAID 0) três divisórias localizadas em três discos de dados separados (sdc1, sdd1, sde1).  Depois de executar este comando é criado um novo dispositivo RAID chamado **/dev/md127.** Note também que se estes discos de dados fizermos parte de outra `--force` matriz `mdadm` RAID extinta, pode ser necessário adicionar o parâmetro ao comando:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -142,14 +142,14 @@ Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divis�
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Adicione o novo sistema de ficheiros a /etc/fstab
 > [!IMPORTANT]
-> A edição inadequada do ficheiro /etc/fstab pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
+> A edição inadequada do ficheiro /etc/fstab pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
 
 1. Crie o ponto de montagem desejado para o seu novo sistema de ficheiros, por exemplo:
 
     ```bash
     sudo mkdir /data
     ```
-1. Ao editar /etc/fstab, o **UUID** deve ser utilizado para fazer referência ao sistema de ficheiros em vez do nome do dispositivo.  Utilize o utilitário `blkid` para determinar o UUID para o novo sistema de ficheiros:
+1. Ao editar /etc/fstab, o **UUID** deve ser utilizado para fazer referência ao sistema de ficheiros em vez do nome do dispositivo.  Utilize `blkid` o utilitário para determinar o UUID para o novo sistema de ficheiros:
 
     ```bash   
     sudo /sbin/blkid
@@ -179,7 +179,7 @@ Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divis�
 
     Se este comando resultar numa mensagem de erro, verifique a sintaxe no ficheiro /etc/fstab.
    
-    Em seguida, executar o comando `mount` para garantir que o sistema de ficheiros está montado:
+    Em seguida, executar o `mount` comando para garantir que o sistema de ficheiros está montado:
 
     ```bash   
     mount
@@ -191,7 +191,7 @@ Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divis�
    
     **configuração fstab**
    
-    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao ficheiro /etc/fstab. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
+    Muitas distribuições `nobootwait` incluem os parâmetros ou `nofail` montagem que podem ser adicionados ao ficheiro /etc/fstab. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
    
     Exemplo (Ubuntu):
 
@@ -201,26 +201,26 @@ Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divis�
 
     **Parâmetros de arranque de Linux**
    
-    Além dos parâmetros acima referidos, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema arranque mesmo que o RAID seja visto como danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isto também pode resultar num sistema não-sabotável.
+    Além dos parâmetros acima referidos,`bootdegraded=true`o parâmetro do núcleo " pode permitir que o sistema arranque mesmo que o RAID seja visto como danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isto também pode resultar num sistema não-sabotável.
    
-    Consulte a documentação da sua distribuição sobre como editar adequadamente os parâmetros de kernel. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) estes parâmetros podem ser adicionados manualmente ao ficheiro "`/boot/grub/menu.lst`".  Em Ubuntu este parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em "/etc/padrão/grub".
+    Consulte a documentação da sua distribuição sobre como editar adequadamente os parâmetros de kernel. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11)`/boot/grub/menu.lst`estes parâmetros podem ser adicionados manualmente ao ficheiro " .  Em Ubuntu este parâmetro pode `GRUB_CMDLINE_LINUX_DEFAULT` ser adicionado à variável em "/etc/default/grub".
 
 
 ## <a name="trimunmap-support"></a>Suporte TRIM/UNMAP
 Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não utilizados no disco. Estas operações são principalmente úteis no armazenamento padrão para informar o Azure de que as páginas apagadas já não são válidas e podem ser descartadas. As páginas de devoluções podem economizar custos se criar ficheiros grandes e depois eliminá-las.
 
 > [!NOTE]
-> Raid pode não emitir comandos de devoluções se o tamanho do pedaço para a matriz estiver definido para menos do que o padrão (512KB). Isto porque a granularidade não map no hospedeiro também é de 512KB. Se modificar o tamanho do pedaço da matriz através do parâmetro `--chunk=` do Mdadm, os pedidos trim/unmap podem ser ignorados pelo núcleo.
+> Raid pode não emitir comandos de devoluções se o tamanho do pedaço para a matriz estiver definido para menos do que o padrão (512KB). Isto porque a granularidade não map no hospedeiro também é de 512KB. Se modificar o tamanho do pedaço da matriz `--chunk=` através do parâmetro do mdadm, os pedidos TRIM/unmap podem ser ignorados pelo núcleo.
 
 Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-- Utilize a opção `discard` montagem em `/etc/fstab`, por exemplo:
+- Utilize `discard` a opção montagem em, `/etc/fstab`por exemplo:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- Em alguns casos, a opção `discard` pode ter implicações no desempenho. Em alternativa, pode executar o comando `fstrim` manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
+- Em alguns `discard` casos, a opção pode ter implicações no desempenho. Em alternativa, pode `fstrim` executar o comando manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
 
     **Ubuntu**
 

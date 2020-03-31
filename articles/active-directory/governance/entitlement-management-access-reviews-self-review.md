@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78967761"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Auto-revisão de um pacote de acesso na gestão de direitos da AD Azure
@@ -37,7 +37,7 @@ Para fazer uma revisão de acesso, primeiro deve abrir a revisão de acesso. Uti
 
 1. Clique no link de **acesso Rever.**
 
-1. Também pode ir diretamente ao https://myaccess.microsoft.com para encontrar as suas avaliações de acesso pendentes se não receber um e-mail.  (Para o Governo dos EUA, use `https://myaccess.microsoft.us` em vez disso.)
+1. Também pode ir diretamente para https://myaccess.microsoft.com encontrar as suas avaliações de acesso pendentes se não receber um e-mail.  (Para o Governo `https://myaccess.microsoft.us` dos EUA, use em vez disso.)
 
 1. Clique em comentários de **Acesso** na barra de navegação esquerda para ver uma lista de avaliações de acesso pendentes atribuídas a si.
 

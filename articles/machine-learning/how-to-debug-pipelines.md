@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 578e935ee742ad476aeafb53670f0a92035249e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064086"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388989"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "80064086"
 Neste artigo, aprende-se a depurar e resolver os gasodutos de [aprendizagem automática](concept-ml-pipelines.md) no [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e [azure machine learning designer (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Informações são fornecidas sobre como:
 
 * Depuração usando o Azure Machine Learning SDK
-* Depuração usando o Designer de Aprendizagem automática Azure
+* Depuração usando o designer de machine learning Azure
 * Depuração usando insights de aplicação
 * Debug utilizando interativamente o Código do Estúdio Visual (Código VS) e as Ferramentas Python para Estúdio Visual (PTVSD)
 
@@ -91,7 +91,7 @@ A tabela abaixo fornece informações para diferentes opções de depuração pa
 | Biblioteca                    | Tipo   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Métrica | `run.log(name, val)`                                             | Portal de Aprendizagem automática Azure UI             | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml.core.Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Impressão/exploração de python    | Registar    | `print(val)`<br>`logging.info(message)`                          | Registos de motorista, Azure Machine Learning Designer | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Exploração madeireira python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Impressão/exploração de python    | Registar    | `print(val)`<br>`logging.info(message)`                          | Registos de motorista, designer de machine learning azure | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Exploração madeireira python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Registar    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de exploração de python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exemplo de opções de login
@@ -136,8 +136,8 @@ Para os oleodutos criados no designer, pode encontrar os **ficheiros** de regist
 Quando submeter uma execução de pipeline e permanecer na página de autor, pode encontrar os ficheiros de registo gerados para cada módulo.
 
 1. Selecione qualquer módulo na tela de autoria.
-1. No painel direito do módulo, vá ao separador **Outputs+ogs.**
-1. Selecione o ficheiro de registo`70_driver_log.txt`
+1. No painel direito do módulo, aceda ao separador **Outputs + logs.**
+1. Selecione `70_driver_log.txt`o ficheiro de registo .
 
     ![Registos de módulos de página de autoria](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -148,8 +148,8 @@ Também pode encontrar os ficheiros de registo de execuções específicas na p�
 1. Selecione uma execução de pipeline criada no designer.
     ![Página de execução do gasoduto](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Selecione qualquer módulo no painel de pré-visualização.
-1. No painel direito do módulo, vá ao separador **Outputs+ogs.**
-1. Selecione o ficheiro de registo`70_driver_log.txt`
+1. No painel direito do módulo, aceda ao separador **Outputs + logs.**
+1. Selecione `70_driver_log.txt`o ficheiro de registo .
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuração e resolução de problemas em Insights de Aplicação
 Para obter mais informações sobre a utilização da biblioteca OpenCensus Python desta forma, consulte este guia: [Debug e troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)

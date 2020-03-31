@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206763"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline em Backup Azure
@@ -17,7 +17,7 @@ A Azure Backup tem várias eficiências incorporadas que poupam custos de rede e
 
 O processo de sementeing offline Azure Backup está fortemente integrado com o [serviço de importação/exportação Azure](../storage/common/storage-import-export-service.md). Pode utilizar este serviço para transferir dados iniciais de backup para o Azure utilizando discos. Se tiver terabytes (TBs) de dados de backup iniciais que precisam de ser transferidos através de uma rede de alta latência e baixa largura de banda, pode utilizar o fluxo de trabalho offline para enviar a cópia inicial de backup, em um ou mais discos rígidos para um centro de dados Azure. A imagem seguinte fornece uma visão geral dos passos no fluxo de trabalho.
 
-  ![visão geral do processo de fluxo de trabalho de importação offline](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
+  ![Visão geral do processo de fluxo de trabalho de importação offline](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
 O processo de backup offline envolve estes passos:
 
@@ -135,8 +135,8 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     | Parâmetro | Descrição |
     | --- | --- |
-    | s:&lt;percurso de *localização de encenação*&gt; |Esta entrada obrigatória é utilizada para fornecer o caminho para o local de paragem que inseriu no fluxo de trabalho na secção "Iniciar backup offline". |
-    | p: *&lt;Caminho para publicarDefiniçõesFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação do Azure que introduziu no fluxo de trabalho na secção "Iniciar backup offline". |
+    | s:&lt;*Caminho de Localização de Encenação*&gt; |Esta entrada obrigatória é utilizada para fornecer o caminho para o local de paragem que inseriu no fluxo de trabalho na secção "Iniciar backup offline". |
+    | p:&lt;*Caminho para publicarDefiniçõesFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação do Azure que introduziu no fluxo de trabalho na secção "Iniciar backup offline". |
 
     Quando dirige o comando, o utilitário solicita a seleção do trabalho de importação de Azure que corresponde às unidades que precisam de ser preparadas. Se apenas um único trabalho de importação estiver associado à localização de preparação fornecida, você vê uma página como esta.
 

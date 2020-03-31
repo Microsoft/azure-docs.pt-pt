@@ -1,5 +1,5 @@
 ---
-title: Refuncionando o assistente de instalação Azure AD Connect  Microsoft Docs
+title: Refuncionando o assistente de instalação Azure AD Connect [ Microsoft Docs
 description: Explica como funciona o assistente de instalação da segunda vez que o executa.
 keywords: O assistente de instalação Azure AD Connect permite configurar as definições de manutenção da segunda vez que o executa
 services: active-directory
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261336"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização Azure AD Connect: Executar o assistente de instalação uma segunda vez

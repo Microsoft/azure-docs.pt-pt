@@ -1,5 +1,5 @@
 ---
-title: Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
+title: Provisão para recipientes e bases de dados Da Azure Cosmos
 description: Saiba como definir a entrada disponibilizada para os seus contentores e bases de dados Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251976"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
-Uma base de dados do Cosmos do Azure é uma unidade de gestão para um conjunto de contentores. Uma base de dados consiste num conjunto de contentores de esquema desconhecido. Um contentor do Cosmos do Azure é a unidade de escalabilidade para o débito e armazenamento. Um contentor é particionado horizontalmente através de um conjunto de máquinas dentro de uma região do Azure e é distribuído por todas as regiões do Azure à sua conta do Cosmos do Azure.
+Uma base de dados Azure Cosmos é uma unidade de gestão para um conjunto de contentores. Uma base de dados consiste num conjunto de recipientes schema-agnósticos. Um recipiente Azure Cosmos é a unidade de escalabilidade tanto para a entrada como para o armazenamento. Um recipiente é horizontalmente dividido através de um conjunto de máquinas dentro de uma região de Azure e é distribuído por todas as regiões Azure associadas à sua conta Azure Cosmos.
 
 Com a Azure Cosmos DB, pode fornecer a sua provisão em duas granularidades:
  
@@ -24,7 +24,7 @@ Com a Azure Cosmos DB, pode fornecer a sua provisão em duas granularidades:
 
 ## <a name="set-throughput-on-a-container"></a>Coloque a entrada num recipiente  
 
-A entrada disponibilizada num contentor Azure Cosmos é exclusivamente reservada para esse contentor. O contentor recebe o débito aprovisionado o tempo todo. O débito aprovisionado num contentor com suporte financeiro suporte dos SLAs. Para aprender a configurar a entrada num recipiente, consulte a [entrada de provisionamento num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
+A entrada disponibilizada num contentor Azure Cosmos é exclusivamente reservada para esse contentor. O recipiente recebe sempre a entrada aprovisionada. A produção disponibilizada num contentor é apoiada financeiramente por SLAs. Para aprender a configurar a entrada num recipiente, consulte a [entrada de provisionamento num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
 
 A regulação da entrada aprovisionada num recipiente é a opção mais utilizada. Pode escalar elástico a entrada de um recipiente, aprovisionando qualquer quantidade de entrada utilizando Unidades de [Pedido (RUs)](request-units.md). 
 
@@ -42,17 +42,17 @@ A imagem seguinte mostra como uma divisória física acolhe uma ou mais divisór
 
 Quando você disponibiliza a entrada numa base de dados Azure Cosmos, a entrada é partilhada em todos os recipientes (chamados recipientes de base de dados partilhadas) na base de dados. Uma exceção é se especificou uma entrada aprovisionada em recipientes específicos na base de dados. A partilha da produção de nível de base de dados aprovisionada entre os seus contentores é análoga ao alojamento de uma base de dados sobre um conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a entrada disponibilizada numa base de dados, consulte o [Configure aprovisionado numa base de dados Azure Cosmos](how-to-provision-database-throughput.md).
 
-A definição de entrada numa base de dados Azure Cosmos garante que recebe o fornecimento de entrada para essa base de dados a toda a hora. Como todos os contentores dentro da base de dados partilham o fornecimento de entrada, o Azure Cosmos DB não fornece quaisquer garantias previsíveis de entrada para um determinado recipiente nessa base de dados. A parte da taxa de transferência que pode receber um contentor específico está dependente:
+A definição de entrada numa base de dados Azure Cosmos garante que recebe o fornecimento de entrada para essa base de dados a toda a hora. Como todos os contentores dentro da base de dados partilham o fornecimento de entrada, o Azure Cosmos DB não fornece quaisquer garantias previsíveis de entrada para um determinado recipiente nessa base de dados. A parte da entrada que um recipiente específico pode receber depende:
 
 * O número de contentores.
 * A escolha das chaves de partição para vários contentores.
-* A distribuição da carga de trabalho em várias partições lógicas dos contentores. 
+* A distribuição da carga de trabalho em várias divisórias lógicas dos contentores. 
 
 Recomendamos que configure a entrada numa base de dados quando pretender partilhar a entrada em vários recipientes, mas não quer dedicar a entrada a nenhum recipiente em particular. 
 
 Os seguintes exemplos demonstram onde é preferível fornecer entrada ao nível da base de dados:
 
-* A partilha da entrada de uma base de dados disponibilizada através de um conjunto de contentores é útil para uma aplicação multiarrendatária. Cada utilizador pode ser representado por um contentor do Azure Cosmos distinto.
+* A partilha da entrada de uma base de dados disponibilizada através de um conjunto de contentores é útil para uma aplicação multiarrendatária. Cada utilizador pode ser representado por um recipiente Azure Cosmos distinto.
 
 * Partilhar a entrada de uma base de dados aprovisionada através de um conjunto de contentores é útil quando se migra uma base de dados NoSQL, como o MongoDB ou a Cassandra, hospedada num conjunto de VMs ou de servidores físicos no local para o Azure Cosmos DB. Pense na produção disponibilizada configurada na sua base de dados Azure Cosmos como um equivalente lógico, mas mais rentável e elástico, à capacidade computacional do seu cluster MongoDB ou Cassandra.  
 
@@ -64,7 +64,7 @@ Os contentores numa base de dados de entradas partilhadas partilham o resultado 
 
 > [!NOTE]
 > Em fevereiro de 2020, introduzimos uma alteração que lhe permite ter um máximo de 25 contentores numa base de dados de entrada partilhada, o que permite melhor a partilha de entrada em todos os contentores. Após os primeiros 25 contentores, só pode adicionar mais contentores à base de dados se forem [aprovisionados com uma entrada dedicada](#set-throughput-on-a-database-and-a-container), que é separada da entrada partilhada da base de dados.<br>
-Se a sua conta Azure Cosmos DB já contiver uma base de dados de entrada partilhada com recipientes >=25, a conta e todas as outras contas na mesma subscrição do Azure estão isentas desta alteração. Contacte [o suporte do produto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se tiver feedback ou dúvidas. 
+Se a sua conta Azure Cosmos DB já contiver uma base de dados de entrada partilhada com >=25 contentores, a conta e todas as outras contas na mesma subscrição do Azure estão isentas desta alteração. Contacte [o suporte do produto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se tiver feedback ou dúvidas. 
 
 Se as suas cargas de trabalho implicarem a eliminar e recriar todas as coleções numa base de dados, recomenda-se que deixe cair a base de dados vazia e recrie uma nova base de dados antes da criação da recolha. A imagem que se segue mostra como uma divisória física pode alojar uma ou mais divisórias lógicas que pertencem a diferentes contentores dentro de uma base de dados:
 
@@ -72,7 +72,7 @@ Se as suas cargas de trabalho implicarem a eliminar e recriar todas as coleçõe
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Coloque a entrada numa base de dados e num recipiente
 
-Pode combinar os dois modelos. É permitido o fornecimento de entrada na base de dados e no recipiente. O exemplo seguinte mostra como aprovisionar o débito numa base de dados do Cosmos do Azure e um contentor:
+Pode combinar os dois modelos. É permitido o fornecimento de entrada na base de dados e no recipiente. O exemplo que se segue mostra como fornecer a entrada numa base de dados Azure Cosmos e num contentor:
 
 * Pode criar uma base de dados Azure Cosmos chamada *Z* com aprodo de *"K"* RUs. 
 * Em seguida, crie cinco recipientes denominados *A,* *B,* *C,* *D*e *E* dentro da base de dados. Ao criar o recipiente B, certifique-se de que ativa a **provisão dedicada para esta** opção de contentor e configura explicitamente as RUs *"P"* de entrada aprovisionada neste recipiente. Tenha em anote que só pode configurar a entrada partilhada e dedicada ao criar a base de dados e o recipiente. 
@@ -97,19 +97,19 @@ Pode recuperar a entrada mínima de um recipiente ou de uma base de dados progra
 
 Ao utilizar o .NET SDK, o método [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) permite-lhe recuperar a entrada mínima de um recipiente ou de uma base de dados. 
 
-Pode escalar a entrada prevista de um recipiente ou de uma base de dados a qualquer momento. Quando uma operação de escala é executada para aumentar a entrada, pode demorar mais tempo devido às tarefas do sistema para fornecer os recursos necessários. Pode verificar o estado da operação de escala no portal Azure ou utilizar programaticamente os SDKs. Ao utilizar o SDK .Net, pode obter o estado do funcionamento da escala utilizando o método `DocumentClient.ReadOfferAsync`.
+Pode escalar a entrada prevista de um recipiente ou de uma base de dados a qualquer momento. Quando uma operação de escala é executada para aumentar a entrada, pode demorar mais tempo devido às tarefas do sistema para fornecer os recursos necessários. Pode verificar o estado da operação de escala no portal Azure ou utilizar programaticamente os SDKs. Ao utilizar o SDK .Net, pode obter o estado `DocumentClient.ReadOfferAsync` do funcionamento da escala utilizando o método.
 
-## <a name="comparison-of-models"></a>Comparação dos modelos
+## <a name="comparison-of-models"></a>Comparação de modelos
 
 |**Parâmetro**  |**Entrada disponibilizada numa base de dados**  |**Entrada aprovisionada num recipiente**|
 |---------|---------|---------|
-|RUs mínimo |400 (Após os primeiros quatro contentores, cada recipiente adicional requer um mínimo de 100 RUs por segundo.) |400|
-|RUs mínimas por contentor|100|400|
-|RUs máximos|Ilimitado, na base de dados.|Ilimitado, no contentor.|
-|RUs atribuídos ou disponíveis para um recipiente específico|Não existem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha de chaves de divisória de recipientes que partilham a entrada, a distribuição da carga de trabalho e o número de contentores. |Todos os RUs configurados no contentor exclusivamente estão reservados para o contentor.|
-|Armazenamento máximo para um contentor|Ilimitado.|Ilimitado.|
-|Débito máximo por partição lógica de um contentor|10 mil RUs|10 mil RUs|
-|Armazenamento máximo (dados + índice) por partição lógica de um contentor|20 GB|20 GB|
+|Mínimo rus |400 (Após os primeiros quatro contentores, cada recipiente adicional requer um mínimo de 100 RUs por segundo.) |400|
+|Mínimo susipor recipiente|100|400|
+|RUs máximo|Ilimitado, na base de dados.|Ilimitado, no contentor.|
+|RUs atribuídos ou disponíveis para um recipiente específico|Sem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha de chaves de divisória de recipientes que partilham a entrada, a distribuição da carga de trabalho e o número de contentores. |Todas as RUs configuradas no recipiente estão exclusivamente reservadas para o recipiente.|
+|Armazenamento máximo para um recipiente|Ilimitado.|Ilimitado.|
+|O máximo de entrada por partição lógica de um recipiente|10K RUs|10K RUs|
+|Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Passos seguintes
 

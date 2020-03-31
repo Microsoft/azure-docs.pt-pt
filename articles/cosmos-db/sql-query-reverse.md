@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302173"
 ---
 # <a name="reverse-azure-cosmos-db"></a>REVER (Azure Cosmos DB)
- Devolve a ordem inversa de um valor de cadeia de caracteres.  
+ Devolve a ordem inversa de um valor de cadeia.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -30,11 +30,11 @@ REVERSE(<str_expr>)
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.  
+  Devolve uma expressão de corda.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como usar `REVERSE` numa consulta.  
+  O exemplo que se `REVERSE` segue mostra como usar numa consulta.  
   
 ```sql
 SELECT REVERSE("Abc") AS reverse  

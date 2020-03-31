@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259971"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilize o portal Azure para administrar o seu Disco de Caixa de Dados
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilizar o portal do Azure para administrar o Data Box Disk
 
 Os tutoriais neste artigo aplicam-se ao Microsoft Azure Data Box Disk durante a Pré-visualização. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gestão que podem ser executadas no Data Box Disk. 
 
-Pode gerir o Data Box Disk através do portal do Azure. Este artigo aborda em especial as tarefas que pode efetuar com o portal do Azure. Utilize o portal do Azure para gerir encomendas, gerir discos e controlar o estado da encomenda à medida que avança para a fase terminal.
+Pode gerir o Data Box Disk através do portal do Azure. Este artigo foca as tarefas que pode efetuar com o portal do Azure. Utilize o portal do Azure para gerir encomendas, gerir discos e controlar o estado da encomenda à medida que avança para a fase terminal.
 
 ## <a name="cancel-an-order"></a>Cancelar uma encomenda
 
@@ -55,7 +55,7 @@ Execute os seguintes passos para clonar uma encomenda.
 
 O clone é criado em apenas alguns minutos e o portal é atualizado para mostrar a nova encomenda.
 
-[![Clonar a encomenda 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordem de clonagem 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminar encomenda
 
@@ -71,7 +71,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
     ![Eliminar encomenda do Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
 
-3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Eliminar**.
+3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Apagar**.
 
      ![Eliminar encomenda do Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
 
@@ -81,13 +81,13 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 Poderá ter de transferir a etiqueta de envio, se a etiqueta de envio para devolução enviada com os seus discos estiver no local incorreto ou se tiver perdido. 
 
 Execute os seguintes passos para transferir uma etiqueta de envio.
-1.  Aceda a **Descrição Geral > Transferir etiqueta de envio**. Esta opção só está disponível após o disco ser enviado. 
+1.  Aceda a **Descrição geral > Transferir etiqueta de envio**. Esta opção só está disponível após o disco ser enviado. 
 
     ![Transferir etiqueta de envio](media/data-box-portal-ui-admin/download-shipping-label.png)
 
 2.  Esta ação transfere a seguinte etiqueta de envio para devolução. Guarde a etiqueta, imprima-a e afixe-a ao pacote para devolução.
 
-    ![Etiqueta de envio de exemplo](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Examinar a etiqueta de envio](media/data-box-portal-ui-admin/example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar o endereço de envio
 

@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472638"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utilize chaves geridas pelo cliente para encriptar os dados de configuração da aplicação
@@ -36,7 +36,7 @@ Os seguintes componentes são necessários para ativar com sucesso a capacidade 
 
 Uma vez configurados estes recursos, restam dois passos para permitir que a Configuração da Aplicação Azure utilize a chave key vault:
 1. Atribuir uma identidade gerida à instância de Configuração de Aplicações Azure
-2. Conceda a identidade `GET`, `WRAP`, e `UNWRAP` permissões na política de acesso do Key Vault.
+2. Conceda `GET`a `WRAP`identidade `UNWRAP` e permissões na política de acesso do Key Vault.
 
 ## <a name="enable-customer-managed-key-encryption-for-your-azure-app-configuration-instance"></a>Ativar encriptação de chaves gerida pelo cliente para a sua instância de configuração de aplicações Azure
 Para começar, necessitará de uma configuração de aplicação Azure devidamente configurada. Se ainda não tiver uma instância de Configuração de Aplicações disponível, siga um destes quickstarts para configurar um:
@@ -49,30 +49,30 @@ Para começar, necessitará de uma configuração de aplicação Azure devidamen
 > O Azure Cloud Shell é uma concha interativa gratuita que pode usar para executar as instruções da linha de comando neste artigo.  Tem ferramentas azure comuns pré-instaladas, incluindo o .NET Core SDK. Se estiver ligado à sua subscrição Azure, lance o seu [Azure Cloud Shell](https://shell.azure.com) a partir de shell.azure.com.  Você pode saber mais sobre Azure Cloud Shell lendo a [nossa documentação](../cloud-shell/overview.md)
 
 ### <a name="create-and-configure-an-azure-key-vault"></a>Criar e configurar um cofre de chaves Azure
-1. Crie um Cofre de Chave Azure utilizando o Azure CLI.  Note que tanto `vault-name` como `resource-group-name` são fornecidos pelo utilizador e devem ser únicos.  Utilizamos `contoso-vault` e `contoso-resource-group` nestes exemplos.
+1. Crie um Cofre de Chave Azure utilizando o Azure CLI.  Tenha em `vault-name` anote que ambos e `resource-group-name` são fornecidos pelo utilizador e devem ser únicos.  Usamos `contoso-vault` e `contoso-resource-group` nestes exemplos.
 
     ```azurecli
     az keyvault create --name contoso-vault --resource-group contoso-resource-group
     ```
     
-1. Ativar a eliminação suave e a proteção de purga para o Cofre-Chave. Substitua os nomes do Key Vault (`contoso-vault`) e do Grupo de Recursos (`contoso-resource-group`) criados no passo 1.
+1. Ativar a eliminação suave e a proteção de purga para o Cofre-Chave. Substitua os nomes`contoso-vault`do Cofre-Chave`contoso-resource-group`( ) e do Grupo de Recursos ( ) criados no passo 1.
 
     ```azurecli
     az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
     ```
     
-1. Crie uma chave chave do cofre. Forneça uma `key-name` única para esta chave e substitua os nomes do Cofre chave (`contoso-vault`) criado no passo 1. Especifique se prefere encriptação `RSA` ou `RSA-HSM`.
+1. Crie uma chave chave do cofre. Forneça um `key-name` exclusivo para esta chave, e substitua os nomes do Cofre chave (`contoso-vault`) criado no passo 1. Especifique `RSA` se `RSA-HSM` prefere ou encriptação.
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
     
-    A saída deste comando mostra o ID chave ("criança") para a chave gerada.  Tome nota da identificação chave para usar mais tarde neste exercício.  O ID chave tem o formulário: `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`.  O ID chave tem três componentes importantes:
+    A saída deste comando mostra o ID chave ("criança") para a chave gerada.  Tome nota da identificação chave para usar mais tarde neste exercício.  O ID chave tem `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`o formulário: .  O ID chave tem três componentes importantes:
     1. Key Vault URI: 'https://{my key vault}.vault.azure.net
     1. Nome chave do cofre: {Nome chave}
     1. Versão chave vault: {Versão chave}
 
-1. Crie um sistema de identidade gerida com recurso ao Azure CLI, substituindo o nome da sua instância de Configuração de Aplicações e grupo de recursos utilizado nos passos anteriores. A identidade gerida será utilizada para aceder à chave gerida. Utilizamos `contoso-app-config` para ilustrar o nome de uma instância de configuração de aplicações:
+1. Crie um sistema de identidade gerida com recurso ao Azure CLI, substituindo o nome da sua instância de Configuração de Aplicações e grupo de recursos utilizado nos passos anteriores. A identidade gerida será utilizada para aceder à chave gerida. Usamos `contoso-app-config` para ilustrar o nome de uma instância de configuração de aplicações:
     
     ```azurecli
     az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
@@ -89,13 +89,13 @@ Para começar, necessitará de uma configuração de aplicação Azure devidamen
     }
     ```
 
-1. A identidade gerida da instância de Configuração de Aplicações Azure precisa de ter acesso à chave para realizar validação, encriptação e desencriptação de chaves. O conjunto específico de ações a que necessita de acesso inclui: `GET`, `WRAP`e `UNWRAP` para as chaves.  A concessão do acesso requer o ID principal da identidade gerida da instância de configuração da aplicação. Este valor foi obtido no escalão anterior. É mostrado abaixo como `contoso-principalId`. Conceda permissão à chave gerida utilizando a linha de comando:
+1. A identidade gerida da instância de Configuração de Aplicações Azure precisa de ter acesso à chave para realizar validação, encriptação e desencriptação de chaves. O conjunto específico de ações a `GET`que `WRAP`necessita `UNWRAP` de acesso inclui: , e para chaves.  A concessão do acesso requer o ID principal da identidade gerida da instância de configuração da aplicação. Este valor foi obtido no escalão anterior. É mostrado abaixo `contoso-principalId`como . Conceda permissão à chave gerida utilizando a linha de comando:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
 
-1. Uma vez que a instância de configuração de aplicações Azure pode aceder à chave gerida, podemos ativar a capacidade de chave gerida pelo cliente no serviço utilizando o Azure CLI. Lembre-se das seguintes propriedades registadas durante os passos-chave da criação: `key name` `key vault URI`.
+1. Uma vez que a instância de configuração de aplicações Azure pode aceder à chave gerida, podemos ativar a capacidade de chave gerida pelo cliente no serviço utilizando o Azure CLI. Lembre-se das seguintes propriedades `key name` `key vault URI`registadas durante os passos-chave da criação: .
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri

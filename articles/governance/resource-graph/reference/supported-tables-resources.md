@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 03/09/2020
+ms.date: 03/23/2020
 ms.topic: reference
-ms.openlocfilehash: 9844b2fe7f1cbaf069789a4083229b4a6f37f38f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 64fd860090cc15cc6914ee926772146b98477edb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130621"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -34,7 +34,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.resources/subscrições
 - microsoft.resources/subscrições/grupos de recursos
 
-## <a name="resources"></a>recursos
+## <a name="resources"></a>resources
 
 - 84codes.cloudamqp/servidores
 - citrix.services/xenappessentials
@@ -244,6 +244,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/contas
+- microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
 - microsoft.media/mediaservices/liveevents
@@ -291,6 +292,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/networkinterfaces
 - microsoft.network/networkprofiles
 - microsoft.network/networksecuritygroups
+- microsoft.network/networkvirtualappliances
 - microsoft.network/networkwatchers
 - microsoft.network/networkwatchers/connectionmonitors
 - microsoft.network/networkwatchers/flowlogs
@@ -307,6 +309,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/routefilters
 - microsoft.network/routetables
 - microsoft.network/sampleresources
+- microsoft.network/securitypartnerproviders
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerperfis
 - microsoft.network/virtualhubs
@@ -339,6 +342,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.projectarcadia/workspaces/sparkcomputes
 - microsoft.projectarcadia/workspaces/sqlcomputes
 - microsoft.projectbabylon/accounts
+- microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
@@ -441,6 +445,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - u2uconsult.theidentityhub/serviços
 - wandisco.fusion/fusiongroups
 - wandisco.fusion/fusiongroups/azurezones
+- wandisco.fusion/fusiongroups/azurezones/plugins
+- wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 
@@ -461,7 +467,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.security/securitystatuss/virtualmachines
 - microsoft.security/securitystatusesresumos
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [linguagem de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)
