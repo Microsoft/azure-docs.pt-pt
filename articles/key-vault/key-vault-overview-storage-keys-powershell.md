@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.openlocfilehash: 833f78d89a1a9033e62c10c3b16c5adfc65e1da4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78195129"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir as chaves da conta de armazenamento com key vault e Azure PowerShell
@@ -43,10 +43,10 @@ Um inquilino da AD Azure fornece cada pedido registado com um [diretor de servi�
 
 Key Vault é uma aplicação da Microsoft que está pré-registada em todos os inquilinos da AD Azure. O Cofre chave está registado sob o mesmo ID de aplicação em cada nuvem Azure.
 
-| Inquilinos | Cloud | ID da aplicação |
+| Inquilinos | Nuvem | ID da aplicação |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Público de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -55,7 +55,7 @@ Para completar este guia, primeiro deve fazer o seguinte:
 
 - [Instale o módulo PowerShell Azure](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Criar um cofre chave](quick-create-powershell.md)
-- [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve utilizar apenas letras minúsculas e números. O comprimento do nome deve ser entre 3 e 24 caracteres.
+- [Crie uma conta de armazenamento Azure.](../storage/common/storage-account-create.md?tabs=azure-powershell) O nome da conta de armazenamento deve utilizar apenas letras minúsculas e números. O comprimento do nome deve ser entre 3 e 24 caracteres.
       
 
 ## <a name="manage-storage-account-keys"></a>Gerir as chaves da conta de armazenamento
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Definir variáveis
 
-Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de atualizar os <YourResourceGroupName>, <YourStorageAccountName>e <YourKeyVaultName> espaços reservados, e definir $keyVaultSpAppId para `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (conforme especificado no ID de [aplicação principal](#service-principal-application-id)do Serviço , acima).
+Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de <YourResourceGroupName> <YourStorageAccountName>atualizar <YourKeyVaultName> o , e os `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` espaços reservados, e definir $keyVaultSpAppId para (conforme especificado no ID de [aplicação principal](#service-principal-application-id)do Serviço , acima).
 
 Também usaremos os cmdlets Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) para obter o seu ID de utilizador e o contexto da sua conta de armazenamento Azure.
 
@@ -118,7 +118,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Se o Key Vault já tiver sido adicionado ao papel na sua conta de armazenamento, receberá um "A atribuição de *funções já existe".* um erro. Também pode verificar a atribuição de funções, utilizando a página da conta de armazenamento "Controle de Acesso (IAM)" no portal Azure.  
+Se o Key Vault já tiver sido adicionado ao papel na sua conta de armazenamento, receberá um "A atribuição de *funções já existe".* . Também pode verificar a atribuição de funções, utilizando a página da conta de armazenamento "Controle de Acesso (IAM)" no portal Azure.  
 
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Dê permissão à sua conta de utilizador para gerir contas de armazenamento
 
@@ -134,7 +134,7 @@ Note que as permissões para contas de armazenamento não estão disponíveis na
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adicione uma conta de armazenamento gerida à sua instância Key Vault
 
-Utilize o Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet para criar uma conta de armazenamento gerida na sua instância Key Vault. O interruptor de `-DisableAutoRegenerateKey` especifica NÃO regenerar as chaves da conta de armazenamento.
+Utilize o Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet para criar uma conta de armazenamento gerida na sua instância Key Vault. O `-DisableAutoRegenerateKey` interruptor especifica NÃO regenerar as chaves da conta de armazenamento.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -186,18 +186,18 @@ Tags                :
 
 ## <a name="shared-access-signature-tokens"></a>Fichas de assinatura de acesso partilhado
 
-Também pode pedir ao Key Vault que gere fichas de assinatura de acesso partilhado. Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Pode conceder aos clientes acesso aos recursos na sua conta de armazenamento sem partilhar as chaves da sua conta. Uma assinatura de acesso partilhado fornece-lhe uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da sua conta.
+Também pode pedir ao Key Vault que gere fichas de assinatura de acesso partilhado. Uma assinatura de acesso partilhado proporciona acesso delegado aos recursos na sua conta de armazenamento. Pode conceder aos clientes acesso aos recursos na sua conta de armazenamento sem partilhar as chaves da sua conta. Uma assinatura de acesso partilhado fornece-lhe uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da sua conta.
 
 Os comandos desta secção completam as seguintes ações:
 
 - Definir uma definição de assinatura de acesso partilhado de conta. 
 - Crie um símbolo de assinatura de acesso partilhado de conta para os serviços Blob, File, Table e Queue. O símbolo é criado para tipos de recursos Serviço, Contentor e Objeto. O símbolo é criado com todas as permissões, em https, e com as datas de início e fim especificadas.
-- Delineie uma definição de assinatura de acesso compartilhado de armazenamento no cofre. A definição tem o modelo URI do símbolo de assinatura de acesso partilhado que foi criado. A definição tem o tipo de assinatura de acesso partilhado `account` e é válida para os dias N.
+- Delineie uma definição de assinatura de acesso compartilhado de armazenamento no cofre. A definição tem o modelo URI do símbolo de assinatura de acesso partilhado que foi criado. A definição tem o `account` tipo de assinatura de acesso partilhado e é válida para os dias N.
 - Verifique se a assinatura de acesso partilhado foi guardada no seu cofre como segredo.
 - 
 ### <a name="set-variables"></a>Definir variáveis
 
-Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de atualizar os <YourStorageAccountName> e <YourKeyVaultName> espaços reservados.
+Em primeiro lugar, detete as variáveis a utilizar pelos cmdlets PowerShell nos seguintes passos. Certifique-se de <YourStorageAccountName> <YourKeyVaultName> atualizar os espaços e os espaços reservados.
 
 Também usaremos os cmdlets Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) para obter o contexto da sua conta de armazenamento Azure.
 
@@ -226,7 +226,7 @@ O valor da $sasToken será semelhante a este.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso partilhado
 
-Utilize o Conjunto Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao parâmetro `-Name`.
+Utilize o Conjunto Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da `-Name` sua escolha ao parâmetro.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))

@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff0d4f8f0062c00351b60174c63d9c19bdfa15
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522939"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 conformidade do serviço de fornecimento de utilizadores da AD Azure
@@ -56,12 +56,12 @@ Para obter informações sobre como migrar um trabalho de fornecimento de utiliz
 Sim. Se já está a utilizar esta instância de candidatura para uma única inscrição e precisa de migrar o emprego de provisionamento existente para incluir as últimas correções, siga o procedimento abaixo. Este procedimento descreve como usar o Microsoft Graph API e o explorador da Microsoft Graph API para remover o seu antigo trabalho de provisionamento da sua aplicação SCIM existente, e criar um novo que exibe o novo comportamento.
 
 > [!NOTE]
-> Se a sua aplicação ainda estiver em desenvolvimento e ainda não tiver sido implementada para um único fornecimento de inscrição ou utilizador, a solução mais fácil é eliminar a entrada na secção de **Aplicações Ativas Azure > Enterprise Applications** do portal Azure, e simplesmente adicionar uma nova entrada para a aplicação utilizando a **aplicação Create > Não-galeria.** Esta é uma alternativa para executar o procedimento abaixo.
+> Se a sua aplicação ainda estiver em desenvolvimento e ainda não tiver sido implementada para um único fornecimento de inscrição ou utilizador, a solução mais fácil é eliminar a entrada na secção de **Aplicações** empresariais > do Portal Azure, e simplesmente adicionar uma nova entrada para a aplicação utilizando a **aplicação Create >** opção Não galeria. Esta é uma alternativa para executar o procedimento abaixo.
  
-1. Assine o portal Azure na https://portal.azure.com.
-2. Na secção **de Aplicações ativas do Azure > Enterprise Applications** do portal Azure, localize e selecione a sua aplicação SCIM existente.
+1. Assine no portal Azure em https://portal.azure.com.
+2. Na secção **de Aplicações empresariais > diretório si ativo do Azure,** localize e selecione a sua aplicação SCIM existente.
 3. Na secção **Propriedades** da sua aplicação SCIM existente, copie o ID do **Objeto**.
-4. Numa nova janela do navegador web, vá a https://developer.microsoft.com/graph/graph-explorer e inscreva-se como administrador do inquilino Da Azure AD onde a sua aplicação é adicionada.
+4. Numa nova janela do navegador https://developer.microsoft.com/graph/graph-explorer web, vá e inscreva-se como administrador do inquilino Azure AD onde a sua aplicação é adicionada.
 5. No Graph Explorer, execute o comando abaixo para localizar a identificação do seu trabalho de provisionamento. Substitua "[object-id]" pelo ID do diretor de serviço (ID do objeto) copiado a partir do terceiro passo.
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -98,10 +98,10 @@ Sim. Se já está a utilizar esta instância de candidatura para uma única insc
 
 Sim. Se tiver codificado uma aplicação para o comportamento antigo que existia antes das correções, e precisando implementar uma nova instância, siga o procedimento abaixo. Este procedimento descreve como usar o Microsoft Graph API e o explorador da Microsoft Graph API para criar um trabalho de provisionamento SCIM que exibe o comportamento antigo.
  
-1. Assine o portal Azure na https://portal.azure.com.
-2. no **Azure Ative Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
+1. Assine no portal Azure em https://portal.azure.com.
+2. no **Diretório Ativo do Azure > Aplicações empresariais > Criar** a secção de aplicação do portal Azure, criar uma nova aplicação **não-galeria.**
 3. Na secção **Propriedades** da sua nova aplicação personalizada, copie o ID do **Objeto**.
-4. Numa nova janela do navegador web, vá a https://developer.microsoft.com/graph/graph-explorer e inscreva-se como administrador do inquilino Da Azure AD onde a sua aplicação é adicionada.
+4. Numa nova janela do navegador https://developer.microsoft.com/graph/graph-explorer web, vá e inscreva-se como administrador do inquilino Azure AD onde a sua aplicação é adicionada.
 5. No Graph Explorer, execute o comando abaixo para inicializar a configuração de provisionamento da sua aplicação.
    Substitua "[object-id]" pelo ID do diretor de serviço (ID do objeto) copiado a partir do terceiro passo.
 

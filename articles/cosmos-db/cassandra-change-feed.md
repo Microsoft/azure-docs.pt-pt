@@ -1,6 +1,6 @@
 ---
-title: O feed de alterações na API de Azure Cosmos DB para Cassandra
-description: Saiba como usar o feed de alterações na API de Azure Cosmos DB para Cassandra para obter as alterações feitas em seus dados.
+title: Change feed no Azure Cosmos DB API para Cassandra
+description: Aprenda a usar o feed de mudança no Azure Cosmos DB API para cassandra obter as alterações feitas aos seus dados.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
 ms.openlocfilehash: c2c695608653130b97bf29cc9ce48e2fbb429209
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74694626"
 ---
-# <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>O feed de alterações na API de Azure Cosmos DB para Cassandra
+# <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Change feed no Azure Cosmos DB API para Cassandra
 
-O suporte do [feed de alterações](change-feed.md) na API Azure Cosmos DB para Cassandra está disponível por meio de predicados de consulta na Cassandra (linguagem de consulta do CQL). Usando essas condições de predicado, você pode consultar a API do feed de alterações. Os aplicativos podem obter as alterações feitas em uma tabela usando a chave primária (também conhecida como chave de partição), conforme necessário em CQL. Em seguida, você pode executar ações adicionais com base nos resultados. As alterações nas linhas na tabela são capturadas na ordem de seu tempo de modificação e a ordem de classificação é garantida por chave de partição.
+O suporte [para alimentação](change-feed.md) de mudanças no Azure Cosmos DB API para Cassandra está disponível através dos predicados de consulta na Linguagem Cassandra Query (CQL). Utilizando estas condições predicadas, pode consultar a api de alimentação de alterações. As aplicações podem obter as alterações feitas numa tabela utilizando a chave primária (também conhecida como chave de partição) como é exigido no CQL. Em seguida, pode tomar mais medidas com base nos resultados. As alterações nas linhas da tabela são capturadas na ordem do seu tempo de modificação e a ordem de classificação é garantida por chave de partição.
 
-O exemplo a seguir mostra como obter um feed de alterações em todas as linhas em uma API do Cassandra tabela de keyspace usando o .NET. O predicado COSMOS_CHANGEFEED_START_TIME () é usado diretamente em CQL para consultar itens no feed de alterações a partir de uma hora de início especificada (neste caso, DateTime atual). Você pode baixar o exemplo completo [aqui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
+O exemplo que se segue mostra como obter um feed de mudança em todas as linhas de uma tabela De Espaço Chave Cassandra API usando .NET. O predicado COSMOS_CHANGEFEED_START_TIME() é utilizado diretamente no CQL para consultar itens no feed de alteração a partir de um determinado tempo de início (neste caso, data de data atual). Você pode baixar a amostra completa [aqui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
 
-Em cada iteração, a consulta é retomada no último ponto em que as alterações foram lidas, usando o estado de paginação. Podemos ver um fluxo contínuo de novas alterações na tabela no keyspace. Veremos as alterações nas linhas inseridas ou atualizadas. Não há suporte para a observação de operações de exclusão usando o feed de alterações no API do Cassandra no momento. 
+Em cada iteração, a consulta retoma no último ponto as alterações foram lidas, usando o estado de paging. Podemos ver um fluxo contínuo de novas mudanças na tabela no Keyspace. Veremos alterações nas linhas que estão inseridas ou atualizadas. Atualmente, não é suportado o cuidado de eliminar as operações utilizando o feed de mudança na Cassandra API. 
 
 ```C#
     //set initial start time for pulling the change feed
@@ -71,7 +71,7 @@ Em cada iteração, a consulta é retomada no último ponto em que as alteraçõ
 
 ```
 
-Para obter as alterações em uma única linha por chave primária, você pode adicionar a chave primária na consulta. O exemplo a seguir mostra como controlar as alterações para a linha em que "user_id = 1"
+Para obter as alterações para uma única linha por chave primária, pode adicionar a chave primária na consulta. O exemplo que se segue mostra como rastrear as mudanças para a linha onde "user_id = 1"
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -82,18 +82,18 @@ Para obter as alterações em uma única linha por chave primária, você pode a
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-As seguintes limitações são aplicáveis ao usar o feed de alterações com API do Cassandra:
+As seguintes limitações aplicam-se ao utilizar o feed de mudança com a Cassandra API:
 
-* Atualmente, há suporte para inserções e atualizações. Ainda não há suporte para a operação de exclusão. Como alternativa, você pode adicionar um marcador flexível em linhas que estão sendo excluídas. Por exemplo, adicione um campo na linha chamada "Deleted" e defina-o como "true".
-* A última atualização é persistida como na principal API do SQL e as atualizações intermediárias para a entidade não estão disponíveis.
+* Inserções e atualizações são suportadas atualmente. A eliminação da operação ainda não está suportada. Como uma suver, pode adicionar um marcador suave nas linhas que estão a ser eliminadas. Por exemplo, adicione um campo na linha chamado "apagado" e coloque-o como "verdadeiro".
+* A última atualização é persistida, uma vez que no núcleo SQL API e atualizações intermédias para a entidade não estão disponíveis.
 
 
 ## <a name="error-handling"></a>Processamento de erros
 
-Há suporte para os seguintes códigos de erro e mensagens ao usar o feed de alterações no API do Cassandra:
+Os seguintes códigos de erro e mensagens são suportados quando se utiliza o feed de mudança na Cassandra API:
 
-* **Código de erro HTTP 429** -quando o feed de alterações é limitado pela taxa, ele retorna uma página vazia.
+* Código de **erro HTTP 429** - Quando o feed de alteração é limitado, devolve uma página vazia.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerenciar Azure Cosmos DB API do Cassandra recursos usando modelos de Azure Resource Manager](manage-cassandra-with-resource-manager.md)
+* [Gerir os recursos da API da Azure Cosmos DB Cassandra utilizando modelos de Gestor de Recursos Azure](manage-cassandra-with-resource-manager.md)

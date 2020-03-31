@@ -1,6 +1,6 @@
 ---
-title: Adicionar um usuário de colaboração B2B a uma função-Azure Active Directory
-description: Adicionar um usuário convidado a uma função no Azure Active Directory
+title: Adicione um utilizador de colaboração B2B a um papel - Azure Ative Directory
+description: Adicione um utilizador convidado a um papel no Azure Ative Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,27 +13,27 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74268541"
 ---
-# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permissões a utilizadores de organizações parceiras no seu inquilino do Diretório Ativo Azure
 
-Os usuários de colaboração B2B do Azure Active Directory (Azure AD) são adicionados como usuários convidados ao diretório, e as permissões de convidado no diretório são restritas por padrão. Sua empresa pode precisar de alguns usuários convidados para preencher funções de privilégios mais altos em sua organização. Para dar suporte à definição de funções de privilégio superior, os usuários convidados podem ser adicionados a qualquer função desejada, com base nas necessidades da sua organização.
+Os utilizadores de colaboração do Azure Ative Directory (Azure AD) B2B são adicionados como utilizadores convidados ao diretório, e as permissões dos hóspedes no diretório são restringidas por padrão. O seu negócio pode precisar de alguns utilizadores convidados para preencher papéis de maior privilégio na sua organização. Para apoiar a definição de papéis de maior privilégio, os utilizadores convidados podem ser adicionados a quaisquer funções que deseje, com base nas necessidades da sua organização.
 
-## <a name="default-role"></a>Função padrão
+## <a name="default-role"></a>Papel padrão
 
-![Captura de tela mostrando a função de diretório padrão](./media/add-guest-to-role/default-role.png)
+![Screenshot mostrando o papel padrão de diretório](./media/add-guest-to-role/default-role.png)
 
-## <a name="global-administrator-role"></a>Função de administrador global
+## <a name="global-administrator-role"></a>Papel de Administrador Global
 
-![Captura de tela mostrando a função de administrador global](./media/add-guest-to-role/global-admin-role.png)
+![Screenshot mostrando o papel de administrador global](./media/add-guest-to-role/global-admin-role.png)
 
-## <a name="limited-administrator-role"></a>Função de administrador limitada
+## <a name="limited-administrator-role"></a>Função de Administrador Limitado
 
-![Captura de tela mostrando a função de administrador limitada](./media/add-guest-to-role/limited-admin-role.png)
+![Screenshot mostrando o papel de administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

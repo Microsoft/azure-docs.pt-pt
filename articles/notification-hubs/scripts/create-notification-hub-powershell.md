@@ -1,6 +1,6 @@
 ---
-title: Criar um hub de notificação do Azure usando o PowerShell | Microsoft Docs
-description: Saiba como usar um script do PowerShell para criar um hub de notificação do Azure.
+title: Criar um hub de notificação Azure utilizando a PowerShell [ Microsoft Docs
+description: Saiba como usar um script PowerShell para criar um centro de notificação Azure.
 author: dimazaid
 manager: femila
 services: notification-hubs
@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: dimazaid
 ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263983"
 ---
-# <a name="use-powershell-to-create-an-azure-notification-hub"></a>Usar o PowerShell para criar um hub de notificação do Azure
+# <a name="use-powershell-to-create-an-azure-notification-hub"></a>Use o PowerShell para criar um centro de notificação Azure
 
-Este exemplo de script do PowerShell cria um exemplo de Hub de notificação do Azure. 
+Este script da amostra PowerShell cria um centro de notificação Azure de amostra. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,7 +29,7 @@ Este exemplo de script do PowerShell cria um exemplo de Hub de notificação do 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição Azure** - Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -37,7 +37,7 @@ Este exemplo de script do PowerShell cria um exemplo de Hub de notificação do 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script de exemplo, você pode usar o seguinte comando para remover o grupo de recursos e todos os recursos associados a ele:
+Depois de executar o script da amostra, pode utilizar o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo:
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -50,8 +50,8 @@ Este script utiliza os seguintes comandos:
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzNotificationHubsNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Cria um namespace para o Hub de notificação. |
-| [New-AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Cria um hub de notificação. |
+| [New-AzNotificationHubsNamesNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Cria um espaço de nome para o centro de notificação. |
+| [Novo AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Cria um centro de notificação. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

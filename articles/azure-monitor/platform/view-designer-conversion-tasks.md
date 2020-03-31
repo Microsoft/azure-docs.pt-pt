@@ -7,10 +7,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658749"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Ver designer para trabalhos de conversão tarefas comuns
@@ -32,7 +32,7 @@ Selecione a opção **Adicionar parâmetros.** O **estilo** padrão está defini
 
  Selecione o botão **Adicionar Parâmetro.**
 
-![Adicionar parâmetro](media/view-designer-conversion-tasks/add-parameter.png)
+![Adicionar Parâmetro](media/view-designer-conversion-tasks/add-parameter.png)
 
 Do menu da barra lateral, na caixa de **texto do nome parametrómetro,** *digite TimeRange*. Definir **o tipo** de parâmetro como *picker*de intervalo de tempo . Selecione a caixa de verificação **Necessária?**
 
@@ -40,7 +40,7 @@ Do menu da barra lateral, na caixa de **texto do nome parametrómetro,** *digite
 
 Guarde o parâmetro no canto superior esquerdo do menu da barra lateral. Pode deixar a queda como *desdefinida* por padrão ou selecionar um valor predefinido do **TimeRange,** como *24 horas*. Selecione **Edição Feita .**
 
-Os parâmetros podem ser usados em consultas adicionando aparelhos encaracolados {} em torno do nome do parâmetro. Mais detalhes sobre os parâmetros podem ser encontrados na documentação dos [Livros sobre parâmetros.](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md)
+Os parâmetros podem ser usados em {} consultas adicionando aparelhos encaracolados em torno do nome do parâmetro. Mais detalhes sobre os parâmetros podem ser encontrados na documentação dos [Livros sobre parâmetros.](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/Parameters/Parameters.md)
 
 ## <a name="updating-queries-with-the-timerange-parameter"></a>Atualizar consultas com o parâmetro TimeRange
 
@@ -50,7 +50,7 @@ Os parâmetros podem ser usados em consultas adicionando aparelhos encaracolados
 
 ### <a name="option-2-update-your-log-queries"></a>Opção 2: Atualizar as suas consultas de registo
 
-Na sua consulta adicione a linha: `| where TimeGenerated {TimeRange}` como no seguinte exemplo:
+Na sua consulta adicione `| where TimeGenerated {TimeRange}` a linha: como no seguinte exemplo:
 
 Consulta original
 ```KQL
@@ -111,14 +111,14 @@ search *
 ```
 
 Selecione **Definições de Colunas**.
-](media/view-designer-conversion-tasks/column-settings.png) de definições da coluna de ![
+![Definições da coluna](media/view-designer-conversion-tasks/column-settings.png)
 
 Atualize a queda do **renderizador** da Coluna para ser uma *área spark*.
-![Sparklines](media/view-designer-conversion-tasks/sparkline.png)
+![Linhas de faíscas](media/view-designer-conversion-tasks/sparkline.png)
 
 Guarde as definições e volte a executar a consulta para atualizar a sua tabela para incluir uma linha de ignição.
 
-A grelha resultante será semelhante à seguinte: ![exemplo Sparkline](media/view-designer-conversion-tasks/sparkline-example.png)
+A grelha resultante será semelhante ![ao seguinte: Exemplo sparkline](media/view-designer-conversion-tasks/sparkline-example.png)
 
 ## <a name="advanced-cell-settings"></a>Definições celulares avançadas
 Para espelhar o designer de visualização, pode executar tarefas como alterar o tamanho das células do livro ou adicionar pinos e ligações externas a registos.

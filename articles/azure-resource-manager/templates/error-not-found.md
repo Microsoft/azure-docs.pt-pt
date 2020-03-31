@@ -1,29 +1,29 @@
 ---
-title: Erros de recurso não encontrado
-description: Descreve como resolver erros quando um recurso não pode ser encontrado ao implantar com um modelo de Azure Resource Manager.
+title: Recurso não encontrado erros
+description: Descreve como resolver erros quando um recurso não pode ser encontrado ao ser implantado com um modelo de Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773251"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver erros não encontrados para recursos do Azure
+# <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver erros não encontrados para os recursos do Azure
 
-Este artigo descreve os erros que você pode ver quando um recurso não pode ser encontrado durante a implantação.
+Este artigo descreve os erros que pode ver quando um recurso não pode ser encontrado durante a implementação.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando o modelo incluir o nome de um recurso que não pode ser resolvido, você receberá um erro semelhante a:
+Quando o seu modelo inclui o nome de um recurso que não pode ser resolvido, recebe um erro semelhante ao:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Se você usar as funções [Reference](template-functions-resource.md#reference) ou [listKeys](template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, receberá o seguinte erro:
+Se utilizar as funções de [referência](template-functions-resource.md#reference) ou [listaKeys](template-functions-resource.md#listkeys) com um recurso que não pode ser resolvido, recebe o seguinte erro:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +33,11 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Causa
 
-O Resource Manager precisa recuperar as propriedades de um recurso, mas não pode identificar o recurso em sua assinatura.
+O Gestor de Recursos precisa de recuperar as propriedades para um recurso, mas não consegue identificar o recurso na sua subscrição.
 
-## <a name="solution-1---set-dependencies"></a>Solução 1-definir dependências
+## <a name="solution-1---set-dependencies"></a>Solução 1 - conjunto de dependências
 
-Se você estiver tentando implantar o recurso ausente no modelo, verifique se você precisa adicionar uma dependência. O Resource Manager otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **depending** em seu modelo. Por exemplo, ao implantar um aplicativo Web, o plano do serviço de aplicativo deve existir. Se você não tiver especificado que o aplicativo Web depende do plano do serviço de aplicativo, o Resource Manager criará os dois recursos ao mesmo tempo. Você receberá um erro informando que o recurso do plano do serviço de aplicativo não pode ser encontrado, pois ele ainda não existe durante a tentativa de definir uma propriedade no aplicativo Web. Você evita esse erro definindo a dependência no aplicativo Web.
+Se estiver a tentar implantar o recurso em falta no modelo, verifique se precisa de adicionar uma dependência. O Gestor de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso tiver de ser implantado após outro recurso, terá de utilizar o elemento **dependsOn** no seu modelo. Por exemplo, ao implementar uma aplicação web, o plano de Serviço de Aplicações deve existir. Se ainda não especificou que a aplicação da Web depende do plano de Serviço de Aplicações, o Gestor de Recursos cria ambos os recursos ao mesmo tempo. Obtém um erro afirmando que o recurso do plano do App Service não pode ser encontrado, porque ainda não existe ao tentar definir uma propriedade na aplicação web. Evita este erro definindo a dependência na aplicação web.
 
 ```json
 {
@@ -50,29 +50,29 @@ Se você estiver tentando implantar o recurso ausente no modelo, verifique se vo
 }
 ```
 
-Mas, você deseja evitar a definição de dependências que não são necessárias. Quando você tem dependências desnecessárias, prolongar a duração da implantação, impedindo que os recursos que não dependem uns dos outros sejam implantados em paralelo. Além disso, você pode criar dependências circulares que bloqueiam a implantação. As funções Function e [list *](template-functions-resource.md#list) de [referência](template-functions-resource.md#reference) criam uma dependência implícita do recurso referenciado, quando esse recurso é implantado no mesmo modelo e é referenciado por seu nome (não ID de recurso). Portanto, você pode ter mais dependências do que as dependências especificadas na propriedade **dependy** . A função [ResourceId](template-functions-resource.md#resourceid) não cria uma dependência implícita ou valida se o recurso existe. A função de [referência](template-functions-resource.md#reference) e as funções de [lista *](template-functions-resource.md#list) não criam uma dependência implícita quando o recurso é REFERENCIAdo por sua ID de recurso. Para criar uma dependência implícita, passe o nome do recurso que é implantado no mesmo modelo.
+Mas, queres evitar estabelecer dependências que não são necessárias. Quando se tem dependências desnecessárias, prolonga-se a duração da implantação evitando que recursos que não dependam uns dos outros sejam implantados em paralelo. Além disso, pode criar dependências circulares que bloqueiam a implantação. As funções de função [de referência](template-functions-resource.md#reference) e [lista*](template-functions-resource.md#list) criam uma dependência implícita do recurso referenciado, quando esse recurso é implantado no mesmo modelo e é referenciado pelo seu nome (não id de recurso). Portanto, você pode ter mais dependências do que as dependências especificadas na propriedade **dependsOn.** A função [resourceId](template-functions-resource.md#resourceid) não cria uma dependência implícita ou valida que o recurso existe. As funções de função [de referência](template-functions-resource.md#reference) e [lista*](template-functions-resource.md#list) não criam uma dependência implícita quando o recurso é referido pelo seu ID de recurso. Para criar uma dependência implícita, passe o nome do recurso que é implantado no mesmo modelo.
 
-Quando você vir problemas de dependência, precisará obter informações sobre a ordem de implantação de recursos. Para exibir a ordem das operações de implantação:
+Quando vês problemas de dependência, precisas de ter uma visão da ordem de implantação de recursos. Para visualizar a ordem das operações de implantação:
 
-1. Selecione o histórico de implantação para seu grupo de recursos.
+1. Selecione o histórico de implementação para o seu grupo de recursos.
 
-   ![Selecionar histórico de implantação](./media/error-not-found/select-deployment.png)
+   ![selecionar histórico de implantação](./media/error-not-found/select-deployment.png)
 
-2. Selecione uma implantação no histórico e selecione **eventos**.
+2. Selecione uma implementação a partir do histórico e selecione **Eventos**.
 
    ![selecionar eventos de implantação](./media/error-not-found/select-deployment-events.png)
 
-3. Examine a sequência de eventos para cada recurso. Preste atenção ao status de cada operação. Por exemplo, a imagem a seguir mostra três contas de armazenamento que são implantadas em paralelo. Observe que as três contas de armazenamento são iniciadas ao mesmo tempo.
+3. Examine a sequência de eventos para cada recurso. Preste atenção ao estado de cada operação. Por exemplo, a imagem seguinte mostra três contas de armazenamento que foram implantadas em paralelo. Note que as três contas de armazenamento são iniciadas ao mesmo tempo.
 
    ![implantação paralela](./media/error-not-found/deployment-events-parallel.png)
 
-   A próxima imagem mostra três contas de armazenamento que não são implantadas em paralelo. A segunda conta de armazenamento depende da primeira conta de armazenamento e a terceira conta de armazenamento depende da segunda conta de armazenamento. A primeira conta de armazenamento é iniciada, aceita e concluída antes que a próxima seja iniciada.
+   A imagem seguinte mostra três contas de armazenamento que não são implantadas em paralelo. A segunda conta de armazenamento depende da primeira conta de armazenamento, e a terceira conta de armazenamento depende da segunda conta de armazenamento. A primeira conta de armazenamento é iniciada, aceite e concluída antes do início da próxima.
 
    ![implantação sequencial](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Solução 2 – obter recurso de um grupo de recursos diferente
+## <a name="solution-2---get-resource-from-different-resource-group"></a>Solução 2 - obtenha recursos de diferentes grupos de recursos
 
-Quando o recurso existir em um grupo de recursos diferente daquele que está sendo implantado, use a [função ResourceId](template-functions-resource.md#resourceid) para obter o nome totalmente qualificado do recurso.
+Quando o recurso existe num grupo de recursos diferente daquele para o que está a ser implantado, utilize a [função resourceId](template-functions-resource.md#resourceid) para obter o nome totalmente qualificado do recurso.
 
 ```json
 "properties": {
@@ -81,21 +81,21 @@ Quando o recurso existir em um grupo de recursos diferente daquele que está sen
 }
 ```
 
-## <a name="solution-3---check-reference-function"></a>Solução 3-verificar função de referência
+## <a name="solution-3---check-reference-function"></a>Solução 3 - verificar função de referência
 
-Procure uma expressão que inclua a função de [referência](template-functions-resource.md#reference) . Os valores que você fornece variam de acordo com o fato de o recurso estar no mesmo modelo, grupo de recursos e assinatura. Verifique se você está fornecendo os valores de parâmetro necessários para seu cenário. Se o recurso estiver em um grupo de recursos diferente, forneça a ID do recurso completo. Por exemplo, para fazer referência a uma conta de armazenamento em outro grupo de recursos, use:
+Procure uma expressão que inclua a função [de referência.](template-functions-resource.md#reference) Os valores que fornece variam em função de se o recurso está no mesmo modelo, grupo de recursos e subscrição. Verifique duas vezes se está a fornecer os valores de parâmetro necessários para o seu cenário. Se o recurso estiver num grupo de recursos diferente, forneça o ID completo do recurso. Por exemplo, para fazer referência a uma conta de armazenamento noutro grupo de recursos, utilize:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
-## <a name="solution-4---get-managed-identity-from-resource"></a>Solução 4 – obter a identidade gerenciada do recurso
+## <a name="solution-4---get-managed-identity-from-resource"></a>Solução 4 - obter identidade gerida a partir de recurso
 
-Se você estiver implantando um recurso que cria implicitamente uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md), deverá aguardar até que esse recurso seja implantado antes de recuperar os valores na identidade gerenciada. Se você passar o nome da identidade gerenciada para a função de [referência](template-functions-resource.md#reference) , o Gerenciador de recursos tentará resolver a referência antes que o recurso e a identidade sejam implantados. Em vez disso, passe o nome do recurso ao qual a identidade é aplicada. Essa abordagem garante que o recurso e a identidade gerenciada sejam implantados antes que o Resource Manager resolva a função de referência.
+Se estiver a implantar um recurso que crie implicitamente uma [identidade gerida,](../../active-directory/managed-identities-azure-resources/overview.md)deve esperar até que esse recurso seja implantado antes de recuperar valores sobre a identidade gerida. Se passar o nome de identidade gerido para a função [de referência,](template-functions-resource.md#reference) o Gestor de Recursos tenta resolver a referência antes de o recurso e a identidade serem implementados. Em vez disso, passe o nome do recurso a que a identidade é aplicada. Esta abordagem garante que o recurso e a identidade gerida são implantados antes que o Gestor de Recursos resolva a função de referência.
 
-Na função de referência, use `Full` para obter todas as propriedades, incluindo a identidade gerenciada.
+Na função de `Full` referência, utilize para obter todas as propriedades, incluindo a identidade gerida.
 
-Por exemplo, para obter a ID de locatário para uma identidade gerenciada que é aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
+Por exemplo, para obter o ID do inquilino para uma identidade gerida que é aplicada a um conjunto de escala de máquina virtual, use:
 
 ```json
 "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"

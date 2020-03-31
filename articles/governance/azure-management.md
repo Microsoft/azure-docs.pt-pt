@@ -1,52 +1,52 @@
 ---
-title: Visão geral do gerenciamento do Azure-governança do Azure
-description: Descrição geral das áreas de gestão para aplicações do Azure e de recursos com ligações para conteúdo em ferramentas de gestão do Azure.
+title: Visão geral da Gestão Azure - Governança Azure
+description: Visão geral das áreas de gestão das aplicações e recursos do Azure com ligações a conteúdos em ferramentas de gestão Azure.
 ms.date: 12/06/2018
 ms.topic: overview
 ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75980907"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento no Azure
+# <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de Gestão em Azure
 
-Governação no Azure é um aspecto de gestão do Azure. Este artigo aborda as diferentes áreas de gestão para implementar e manter os seus recursos no Azure.
+A governação em Azure é um aspeto da Azure Management. Este artigo abrange as diferentes áreas de gestão para a implantação e manutenção dos seus recursos no Azure.
 
-Gestão refere-se aos processos e tarefas necessários para manter as suas aplicações empresariais e os recursos que suportam esses processos e tarefas. O Azure tem muitos serviços e ferramentas que funcionam em conjunto para assegurar uma gestão completa. Estes serviços não são apenas para recursos no Azure, mas também noutras clouds e no local. Compreender as diferentes ferramentas e como elas funcionam em conjunto é a primeira etapa na criação de um ambiente de gestão completa.
+Gestão refere-se aos processos e tarefas necessários para manter as suas aplicações empresariais e os recursos que suportam esses processos e tarefas. A Azure tem muitos serviços e ferramentas que trabalham em conjunto para fornecer uma gestão completa. Estes serviços não são apenas para recursos em Azure, mas também em outras nuvens e no local. Compreender as diferentes ferramentas e como trabalham em conjunto é o primeiro passo para a conceção de um ambiente de gestão completo.
 
-O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para manter qualquer aplicação ou recurso. Essas áreas diferentes podem ser consideradas como um ciclo de vida. Cada área é necessário em sucessão contínua ao longo do tempo de vida de um recurso. Este ciclo de vida do recurso começa com a implementação inicial, por meio de operação continuada e, finalmente, quando extinto.
+O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para manter qualquer aplicação ou recurso. Estas diferentes áreas podem ser consideradas como um ciclo de vida. Cada área é necessária em sucessão contínua ao longo do tempo de vida de um recurso. Este ciclo de vida de recursos começa com a implantação inicial, através da operação contínua, e finalmente quando aposentado.
 
-![Disciplinas de gerenciamento no Azure](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplinas de Gestão em Azure](../monitoring/media/management-overview/management-capabilities.png)
 
-Nenhum serviço do Azure individual preenche completamente os requisitos de uma área de gestão específico. Em vez disso, cada um é realizado por vários serviços, trabalhando em conjunto. Alguns serviços, como o Application Insights, fornecem funcionalidade direcionada de monitorização para aplicações web. Outros, como logs de Azure Monitor, armazenam dados de gerenciamento para outros serviços. Esta funcionalidade permite-lhe analisar os dados de vários tipos recolhidos por diferentes serviços.
+Nenhum serviço Azure preenche completamente os requisitos de uma determinada área de gestão. Em vez disso, cada um é realizado por vários serviços trabalhando em conjunto. Alguns serviços, como o Application Insights, fornecem uma funcionalidade de monitorização direcionada para aplicações web. Outros, como os registos do Azure Monitor, armazenam dados de gestão de outros serviços. Esta funcionalidade permite-lhe analisar dados de diferentes tipos recolhidos por diferentes serviços.
 
 As secções seguintes descrevem resumidamente as diferentes áreas de gestão e fornecem ligações para conteúdo detalhado sobre os principais serviços do Azure que visam abordar essas áreas.
 
 ## <a name="monitor"></a>Monitorizar
 
-A monitorização é o ato de recolha e análise de dados para o desempenho, o estado de funcionamento e a disponibilidade dos seus recursos de auditoria. Uma estratégia de monitorização eficaz ajuda-o a compreender a operação dos componentes e para aumentar o tempo de atividade com notificações. Leia uma visão geral de monitorização que abrange os diferentes serviços utilizados no [aplicações de monitorização do Azure e recursos](../monitoring/monitoring-overview.md).
+A monitorização é o ato de recolher e analisar dados para auditar o desempenho, saúde e disponibilidade dos seus recursos. Uma estratégia de monitorização eficaz ajuda-o a compreender o funcionamento dos componentes e a aumentar o seu tempo de funcionamento com notificações. Leia uma visão geral da Monitorização que abrange os diferentes serviços utilizados na Monitorização de [aplicações e recursos do Azure.](../monitoring/monitoring-overview.md)
 
 ## <a name="configure"></a>Configurar
 
-Configurar refere-se para a implementação inicial e a configuração de recursos e a manutenção em curso.
-Automatização destas tarefas permite-lhe eliminar a redundância, minimizar o tempo e esforço e aumentar a precisão e eficiência. A [Automatização do Azure](../automation/automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração. Enquanto os runbooks lidar com a automatização de processos, configuração e gestão de atualizações de auxiliam no gerenciamento de configuração.
+Configurar refere-se à implementação e configuração inicial de recursos e manutenção contínua.
+A automatização destas tarefas permite eliminar o despedimento, minimizando o seu tempo e esforço e aumentando a sua precisão e eficiência. A [Automatização do Azure](../automation/automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração. Enquanto os livros de execução lidam com a automatização do processo, a configuração e a gestão da atualização ajudam na gestão da configuração.
 
 ## <a name="govern"></a>Governação
 
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure. A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.
-A governação no Azure é implementada principalmente com dois serviços. [O Azure Policy](./policy/overview.md) permite-lhe criar, atribuir e gerir definições de política para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões empresariais. O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem.
+A governação no Azure é implementada principalmente com dois serviços. [A Política Azure](./policy/overview.md) permite-lhe criar, atribuir e gerir definições políticas para impor regras para os seus recursos. Esta funcionalidade mantém esses recursos em conformidade com os seus padrões corporativos. [A Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite-lhe acompanhar o uso e as despesas em nuvem para os seus recursos Azure e outros fornecedores de nuvem.
 
-## <a name="secure"></a>Segura
+## <a name="secure"></a>Proteger
 
-Gerir a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, recolha e análise de dados e a conformidade das suas aplicações e recursos. Análise de ameaças e monitorização de segurança são fornecidos pela [Centro de segurança do Azure](../security-center/security-center-intro.md), que inclui segurança gestão unificada e proteção avançada contra ameaças entre cargas de trabalho híbrida na cloud. Ver [introdução à segurança do Azure](../security/fundamentals/overview.md) para informações abrangentes e orientações sobre como proteger recursos do Azure.
+Gerencie a segurança dos seus recursos e dados. Um programa de segurança envolve avaliar ameaças, recolher e analisar dados e o cumprimento das suas aplicações e recursos. A monitorização de segurança e a análise de ameaças são fornecidas pelo [Azure Security Center,](../security-center/security-center-intro.md)que inclui a gestão unificada de segurança e a proteção avançada de ameaças através de cargas de trabalho híbridas em nuvem. Consulte [a Introdução à Segurança Azure](../security/fundamentals/overview.md) para obter informações e orientações abrangentes sobre a segurança dos recursos do Azure.
 
 ## <a name="protect"></a>Proteger
 
-Proteção refere-se para manter as suas aplicações e dados disponíveis, mesmo com falhas que estejam fora do seu controle. A proteção no Azure é fornecida por dois serviços. O [Azure Backup](../backup/backup-introduction-to-azure-backup.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local. [O Azure Site Recovery](../site-recovery/site-recovery-overview.md) proporciona continuidade do negócio e recuperação imediata durante um desastre.
+A proteção refere-se a manter as suas aplicações e dados disponíveis, mesmo com interrupções que estão fora do seu controlo. A proteção no Azure é fornecida por dois serviços. O [Azure Backup](../backup/backup-introduction-to-azure-backup.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local. [A Azure Site Recovery](../site-recovery/site-recovery-overview.md) proporciona continuidade de negócios e recuperação imediata durante um desastre.
 
-## <a name="migrate"></a>Migração
+## <a name="migrate"></a>Migrar
 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.
-[O Azure Migrate](../migrate/migrate-overview.md) é um serviço que o ajuda a avaliar a adequabilidade de migração de máquinas de virtuais no local para o Azure. O Azure Site Recovery migra máquinas virtuais [locais](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Migração de base de dados do Azure](../dms/dms-overview.md) ajuda a migrar origens de base de dados para plataformas de dados do Azure.
+[A Azure Migrate](../migrate/migrate-overview.md) é um serviço que o ajuda a avaliar a adequação da migração das máquinas virtuais no local para o Azure. A Azure Site Recovery migra máquinas virtuais [a partir de instalações](../site-recovery/migrate-tutorial-on-premises-azure.md) ou de [Serviços Web da Amazon.](../site-recovery/migrate-tutorial-aws-azure.md) [A Migração](../dms/dms-overview.md) de Bases de Dados Azure ajuda-o em fontes de base de dados migratórias para plataformas De Dados Azure.

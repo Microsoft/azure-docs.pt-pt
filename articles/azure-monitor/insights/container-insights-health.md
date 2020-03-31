@@ -1,105 +1,105 @@
 ---
-title: Monitorar a integridade do cluster kubernetes com Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve como você pode exibir e analisar a integridade de seus clusters AKS e não AKS com Azure Monitor para contêineres.
+title: Monitor Kubernetes cluster health with Azure Monitor for containers [ Microsoft Docs
+description: Este artigo descreve como pode ver e analisar a saúde dos seus clusters AKS e não-AKS com o Monitor Azure para contentores.
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76843995"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Compreender o estado de funcionamento de um cluster do Kubernetes com o Azure Monitor para contentores
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Compreender a saúde do cluster Kubernetes com o Monitor Azure para contentores
 
-Com Azure Monitor para contêineres, ele monitora e relata o status de integridade dos componentes de infraestrutura gerenciada e todos os nós em execução em qualquer cluster kubernetes com suporte de Azure Monitor para contêineres. Essa experiência se estende além do status de integridade do cluster calculado e relatado na [exibição de vários clusters](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), em que agora você pode entender se um ou mais nós no cluster estão com restrição de recursos, ou se um nó ou Pod está indisponível que poderia afetar um aplicativo em execução no cluster com base em métricas organizadas.
-
->[!NOTE]
->O recurso de integridade está em visualização pública no momento.
->
-
-Para obter informações sobre como habilitar o Azure Monitor para contêineres, consulte [Azure monitor integrado para contêineres](container-insights-onboard.md).
+Com o Monitor Azure para contentores, monitoriza e reporta o estado de saúde dos componentes de infraestrutura geridos e todos os nós em funcionamento em qualquer cluster Kubernetes apoiado pelo Azure Monitor para contentores. Esta experiência [estende-se](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)para além do estado de saúde do cluster calculado e reportado na visão de vários clusters, onde agora pode entender se um ou mais nós no cluster estão limitados de recursos, ou um nó ou pod está indisponível que pode afetar uma aplicação de execução no cluster com base em métricas curadas.
 
 >[!NOTE]
->Para dar suporte a clusters do mecanismo AKS, verifique se ele atende ao seguinte:
->- Ele está usando a versão mais recente do [cliente Helm](https://helm.sh/docs/using_helm/).
->- A versão do agente em contêiner é *Microsoft/OMS: ciprod11012019*. Para atualizar o agente, consulte [atualizando o agente no cluster kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>A funcionalidade de Saúde está em pré-visualização pública neste momento.
 >
 
-## <a name="overview"></a>Visão geral
+Para obter informações sobre como ativar o Monitor Azure para contentores, consulte o [Monitor De Bordo Azure para obter recipientes](container-insights-onboard.md).
 
-Em Azure Monitor para contêineres, o recurso de integridade (versão prévia) fornece monitoramento proativo de integridade do cluster kubernetes para ajudá-lo a identificar e diagnosticar problemas. Ele oferece a capacidade de exibir problemas significativos detectados. Monitora a avaliação da integridade da execução do cluster no agente em contêiner no seu cluster, e os dados de integridade são gravados na tabela **KubeHealth** em seu espaço de trabalho log Analytics. 
+>[!NOTE]
+>Para suportar os clusters aks engine, verifique se satisfaz o seguinte:
+>- Está a utilizar a versão mais recente do [cliente HELM.](https://helm.sh/docs/using_helm/)
+>- A versão do agente contentorizado é *microsoft/oms:ciprod11012019*. Para atualizar o agente, consulte o [agente de atualização no cluster Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>
 
-A integridade do cluster kubernetes é baseada em vários cenários de monitoramento organizados pelos seguintes objetos kubernetes e abstrações:
+## <a name="overview"></a>Descrição geral
 
-- Infraestrutura kubernetes – fornece um ROLLUP do servidor de API kubernetes, ReplicaSets e DaemonSets em execução em nós implantados em seu cluster avaliando a utilização de CPU e memória e uma disponibilidade de pods
+No Monitor Azure para contentores, a função Health (pré-visualização) fornece monitorização proativa da saúde do seu cluster Kubernetes para ajudá-lo a identificar e diagnosticar problemas. Dá-lhe a capacidade de ver problemas significativos detetados. Monitores avaliando a saúde do seu cluster executado no agente contentorizado no seu cluster, e os dados de saúde são escritos para a tabela **KubeHealth** no seu espaço de trabalho Log Analytics. 
 
-    ![Exibição de Rollup de integridade da infraestrutura do kubernetes](./media/container-insights-health/health-view-kube-infra-01.png)
+A saúde do cluster kubernetes baseia-se numa série de cenários de monitorização organizados pelos seguintes objetos e abstrações kubernetes:
 
-- Nós – fornece um ROLLUP dos pools de nós e o estado de nós individuais em cada pool, avaliando a utilização de CPU e memória e o status de um nó conforme relatado por kubernetes.
+- Infraestrutura Kubernetes - fornece um rollup do servidor Kubernetes API, ReplicaSets e DaemonSets em execução em nós implantados no seu cluster avaliando CPU e utilização de memória, e uma disponibilidade de Pods
 
-    ![Exibição de Rollup de integridade dos nós](./media/container-insights-health/health-view-nodes-01.png)
+    ![Vista de rollup de saúde de infraestrutura Kubernetes](./media/container-insights-health/health-view-kube-infra-01.png)
 
-Atualmente, há suporte apenas para o status de um kubelet virtual. O estado de integridade para utilização de CPU e memória de nós kublet virtuais é relatado como **desconhecido**, uma vez que um sinal não é recebido deles.
+- Nós - fornece um rollup das piscinas nóeias individuais em cada piscina, avaliando cpu e utilização de memória, e o estado de um nó como relatado por Kubernetes.
 
-Todos os monitores são mostrados em um layout hierárquico no painel hierarquia de integridade, em que um monitor agregado que representa o objeto kubernetes ou a abstração (ou seja, infraestrutura kubernetes ou nós) são o monitor mais alto que reflete a integridade combinada de todos monitores filho dependentes. Os principais cenários de monitoramento usados para derivar a integridade são:
+    ![Vista de rollup de saúde de nó](./media/container-insights-health/health-view-nodes-01.png)
 
-* Avalie a utilização da CPU do nó e do contêiner.
-* Avalie a utilização de memória do nó e do contêiner.
-* Status de pods e nós com base no cálculo de seu estado pronto relatado pelo kubernetes.
+Atualmente, apenas o estado de um kubelet virtual é suportado. O estado de saúde da CPU e a utilização da memória dos nós de kublet virtuais é relatado como **Desconhecido,** uma vez que não é recebido um sinal deles.
 
-Os ícones usados para indicar o estado são os seguintes:
+Todos os monitores são mostrados num layout hierárquico no painel da Hierarquia da Saúde, onde um monitor agregado que representa o objeto ou abstração kubernetes (isto é, infraestrutura kubernetes ou nós) são o monitor mais alto que reflete a saúde combinada de todos monitores de crianças dependentes. Os principais cenários de monitorização utilizados para obter a saúde são:
+
+* Avalie a utilização do CPU a partir do nó e do recipiente.
+* Avalie a utilização da memória a partir do nó e do recipiente.
+* Estado de Pods e Nódosos com base no cálculo do seu estado pronto relatado pela Kubernetes.
+
+Os ícones utilizados para indicar o estado são os seguintes:
 
 |Ícone|Significado|  
 |--------|-----------|  
-|![Ícone de verificação verde indica saudável](./media/container-insights-health/healthyicon.png)|Sucesso, saúde é OK (verde)|  
-|![Triângulo amarelo e marca de exclamação é aviso](./media/container-insights-health/warningicon.png)|Aviso (amarelo)|  
-|![Botão vermelho com X branco indica estado crítico](./media/container-insights-health/criticalicon.png)|Crítico (vermelho)|  
-|![Ícone de cinza](./media/container-insights-health/grayicon.png)|Desconhecido (cinza)|  
+|![Ícone em forma de visto a verde indica um bom estado de funcionamento](./media/container-insights-health/healthyicon.png)|Êxito, o estado de funcionamento está OK (verde)|  
+|![Um triângulo amarelo acompanhado de um ponto de exclamação indica um aviso](./media/container-insights-health/warningicon.png)|Aviso (amarelo)|  
+|![Um botão vermelho com um X branco indica um estado crítico](./media/container-insights-health/criticalicon.png)|Crítico (vermelho)|  
+|![Ícone cinza-out](./media/container-insights-health/grayicon.png)|Desconhecido (cinza)|  
 
 ## <a name="monitor-configuration"></a>Configuração do monitor
 
-Para entender o comportamento e a configuração de cada monitor com suporte para Azure Monitor recurso de integridade de contêineres, consulte [Guia de configuração do Health Monitor](container-insights-health-monitors-config.md).
+Para compreender o comportamento e configuração de cada monitor que suporta o Monitor Azure para recipientes Saúde, consulte guia de configuração do monitor de [saúde](container-insights-health-monitors-config.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
-## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Exibir a integridade de um cluster AKS ou não AKS
+## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Ver saúde de um cluster AKS ou não-AKS
 
-O acesso ao recurso de integridade do Azure Monitor para contêineres (versão prévia) está disponível diretamente de um cluster AKS selecionando **insights** no painel esquerdo na portal do Azure. Sob o **Insights** secção, selecione **contentores**. 
+O acesso ao Monitor Azure para recipientes A funcionalidade Saúde (pré-visualização) está disponível diretamente a partir de um cluster AKS, selecionando **Insights** do painel esquerdo no portal Azure. Na secção **Insights,** selecione **Recipientes**. 
 
-Para exibir a integridade de um cluster não AKS, que é um cluster do AKS Engine hospedado localmente ou em Azure Stack, selecione **Azure monitor** no painel esquerdo na portal do Azure. Sob o **Insights** secção, selecione **contentores**.  Na página de vários clusters, selecione o cluster não AKS na lista.
+Para ver a saúde de um cluster não AKS, que é um cluster aks engine hospedado no local ou no Azure Stack, **selecione Monitor Azure** a partir do painel esquerdo no portal Azure. Na secção **Insights,** selecione **Recipientes**.  Na página multi-cluster, selecione o cluster não-AKS da lista.
 
-Em Azure Monitor para contêineres, na página **cluster** , selecione **integridade**.
+No Monitor Azure para recipientes, a partir da página **Cluster,** selecione **Health**.
 
-![Exemplo de painel de integridade do cluster](./media/container-insights-health/container-insights-health-page.png)
+![Exemplo de painel de saúde cluster](./media/container-insights-health/container-insights-health-page.png)
 
-## <a name="review-cluster-health"></a>Examinar a integridade do cluster
+## <a name="review-cluster-health"></a>Rever a saúde do cluster
 
-Quando a página de integridade é aberta, por padrão, a **infraestrutura do kubernetes** é selecionada na grade de **aspecto de integridade** .  A grade resume o estado atual de Rollup de integridade da infraestrutura kubernetes e dos nós de cluster. Selecionar o aspecto de integridade atualiza os resultados no painel hierarquia de integridade (ou seja, o painel central) e mostra todos os monitores filho em um layout hierárquico, exibindo seu estado de integridade atual. Para exibir mais informações sobre qualquer monitor dependente, você pode selecionar um e um painel de propriedades é exibido automaticamente no lado direito da página. 
+Quando a página de Saúde abre, por padrão, a **Infraestrutura Kubernetes** é selecionada na grelha **de Aspeto da Saúde.**  A grelha resume o estado atual de rollup de saúde da infraestrutura kubernetes e dos nós de cluster. A seleção de qualquer aspeto de saúde atualiza os resultados no painel da Hierarquia da Saúde (isto é, o painel intermédio) e mostra todos os monitores infantis num layout hierárquico, mostrando o seu estado de saúde atual. Para ver mais informações sobre qualquer monitor dependente, pode selecionar um e um painel de propriedade exibe automaticamente no lado direito da página. 
 
-![Painel de propriedades de integridade do cluster](./media/container-insights-health/health-view-property-pane.png)
+![Painel de propriedade de saúde cluster](./media/container-insights-health/health-view-property-pane.png)
 
-No painel de propriedades, você aprende o seguinte:
+No painel da propriedade, você aprende o seguinte:
 
-- Na guia **visão geral** , ele mostra o estado atual do monitor selecionado, quando o monitor foi calculado pela última vez e quando ocorreu a última alteração de estado. Informações adicionais são mostradas dependendo do tipo de monitor selecionado na hierarquia.
+- No separador **Overview,** mostra o estado atual do monitor selecionado, quando o monitor foi calculado pela última vez, e quando ocorreu a última alteração de estado. Informações adicionais são mostradas dependendo do tipo de monitor selecionado na hierarquia.
 
-    Se você selecionar um monitor agregado no painel hierarquia de integridade, na guia **visão geral** do painel Propriedade, ele mostrará um ROLLUP do número total de monitores filho na hierarquia e quantos monitores agregados estão em um estado crítico, de aviso e íntegro. 
+    Se selecionar um monitor agregado no painel da Hierarquia da Saúde, sob o separador **Overview** no painel de propriedades, mostra um rollup do número total de monitores infantis na hierarquia, e quantos monitores agregados estão em estado crítico, de alerta e saudável. 
 
-    ![Guia Visão geral do painel de propriedades de integridade para o monitor agregado](./media/container-insights-health/health-overview-aggregate-monitor.png)
+    ![Separador de visão geral do painel de propriedades de saúde para monitor agregado](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    Se você selecionar um monitor de unidade no painel hierarquia de integridade, ele também será exibido em **último estado altere** as amostras anteriores calculadas e relatadas pelo agente em contêiner nas últimas quatro horas. Isso se baseia no cálculo dos monitores de unidade para comparar vários valores consecutivos para determinar seu estado. Por exemplo, se você tiver selecionado o monitor de unidade de *estado pronto para o Pod* , ele mostrará as duas últimas amostras controladas pelo parâmetro *ConsecutiveSamplesForStateTransition*. Para obter mais informações, consulte a descrição detalhada dos [monitores de unidade](container-insights-health-monitors-config.md#unit-monitors).
+    Se selecionar um monitor de unidade no painel da Hierarquia da Saúde, também mostra em **última alteração de estado** as amostras anteriores calculadas e reportadas pelo agente contentorizado nas últimas quatro horas. Isto baseia-se no cálculo dos monitores da unidade para comparar vários valores consecutivos para determinar o seu estado. Por exemplo, se selecionou o monitor de unidade *estatal pronto* do Pod, mostra as duas últimas amostras controladas pelo parâmetro *ConsecutiveSamplesForStateTransition*. Para mais informações, consulte a descrição detalhada dos [monitores](container-insights-health-monitors-config.md#unit-monitors)da unidade .
     
-    ![Guia Visão geral do painel de propriedades de integridade](./media/container-insights-health/health-overview-unit-monitor.png)
+    ![Separador de visão geral do painel de propriedades de saúde](./media/container-insights-health/health-overview-unit-monitor.png)
 
-    Se a hora relatada pela **última alteração de estado** for um dia ou mais, será o resultado de nenhuma alteração no estado do monitor. No entanto, se o último exemplo recebido para um monitor de unidade tiver mais de quatro horas de idade, isso provavelmente indicará que o agente em contêiner não enviou dados. Se o agente souber que existe um recurso específico, por exemplo, um nó, mas ele não recebeu dados dos monitores de utilização de CPU ou memória do nó (como exemplo), o estado de integridade do monitor será definido como **desconhecido**.  
+    Se o tempo relatado pela **última mudança** de estado for um dia ou mais, é o resultado de nenhuma alteração de estado para o monitor. No entanto, se a última amostra recebida para um monitor de unidade tiver mais de quatro horas, isso indica que o agente contentorizado não tem enviado dados. Se o agente sabe que existe um determinado recurso, por exemplo um Nó, mas não recebeu dados do CPU do Nó ou monitores de utilização da memória (como exemplo), então o estado de saúde do monitor é definido para **Desconhecido**.  
 
-- Na guia**configuração** , ele mostra as configurações de parâmetro de configuração padrão (somente para monitores de unidade, não para monitores agregados) e seus valores.
-- Na guia **conhecimento** , ele contém informações explicando o comportamento do monitor e como ele é avaliado para a condição não íntegra.
+- No separador**Config,** mostra as definições de parâmetrode configuração predefinida (apenas para monitores de unidade, não monitores agregados) e os seus valores.
+- No separador **Conhecimento,** contém informações que explicam o comportamento do monitor e como avalia para a condição pouco saudável.
 
-Os dados de monitoramento nesta página não são atualizados automaticamente e você precisa selecionar **Atualizar** na parte superior da página para ver o estado de integridade mais recente recebido do cluster.
+A monitorização dos dados nesta página não é atualizada automaticamente e é necessário selecionar **Refresh** no topo da página para ver o estado de saúde mais recente recebido do cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.
+Veja [exemplos](container-insights-log-search.md#search-logs-to-analyze-data) de consultas de registo para ver consultas e exemplos predefinidos para avaliar ou personalizar para alertar, visualizar ou analisar os seus clusters.

@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas para a formatação de consultas JSON-Azure Time Series Insights | Microsoft Docs
-description: Saiba como melhorar sua eficiência de consulta do Azure Time Series Insights ao moldar JSON.
+title: Boas práticas para moldar jSON - Azure Time Series Insights consultas / Microsoft Docs
+description: Aprenda a melhorar a eficiência de consulta da Série De Tempo Azure Insights moldando a JSON.
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
@@ -10,58 +10,58 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 8232fd4c2a1e17800c96854b4ba7298e57ed84b7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989897"
 ---
-# <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta 
+# <a name="shape-json-to-maximize-query-performance"></a>Moldar JSON para maximizar o desempenho da consulta 
 
-Este artigo fornece orientação sobre como formatar JSON para maximizar a eficiência de suas consultas de Azure Time Series Insights.
+Este artigo fornece orientações sobre como moldar a JSON para maximizar a eficiência das suas consultas de Insights da Série De Tempo Azure.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>Conheça as práticas recomendadas para formatar o JSON para atender às suas necessidades de armazenamento.</br>
+### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>Aprenda as melhores práticas para moldar a JSON para atender às suas necessidades de armazenamento.</br>
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Pense em como você envia eventos para Time Series Insights. Ou seja, você sempre:
+Pense em como envia eventos para time series insights. Ou seja, sempre:
 
-1. envie dados através da rede mais eficientemente possível.
-1. Verifique se os dados estão armazenados de forma que você possa executar agregações adequadas para seu cenário.
-1. Certifique-se de que você não atinja os limites de propriedade máxima de Time Series Insights de:
-   - 600 Propriedades (colunas) para ambientes S1.
-   - 800 Propriedades (colunas) para ambientes S2.
-
-> [!TIP]
-> Examine [os limites e o planejamento](time-series-insights-update-plan.md) na visualização Azure Time Series insights.
-
-As diretrizes a seguir ajudam a garantir o melhor desempenho de consulta possível:
-
-1. Não use propriedades dinâmicas, como uma ID de marca, como um nome de propriedade. Isso usa contribui para atingir o limite máximo de propriedades.
-1. Não envie propriedades desnecessárias. Se uma propriedade de consulta não for necessária, é melhor não enviá-la. Dessa forma, você evitará limitações de armazenamento.
-1. Use [dados de referência](time-series-insights-add-reference-data-set.md) para evitar o envio de dados estáticos pela rede.
-1. Compartilhe Propriedades de dimensão entre vários eventos para enviar dados pela rede com mais eficiência.
-1. Não utilize o aninhamento de matriz profunda. O Time Series Insights dá suporte a até dois níveis de matrizes aninhadas que contêm objetos. Time Series Insights mescla matrizes nas mensagens em vários eventos com pares de valor de propriedade.
-1. Se apenas existirem algumas medidas para todas as ou a maioria dos eventos, é melhor enviar essas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e pode melhorar o desempenho da consulta porque menos eventos precisam ser processados. Quando há várias medidas, enviá-las como valores em uma única propriedade minimiza a possibilidade de atingir o limite máximo da propriedade.
-
-## <a name="example-overview"></a>Visão geral de exemplo
-
-Os dois exemplos a seguir demonstram como enviar eventos para realçar as recomendações anteriores. Seguindo cada exemplo, você pode examinar como as recomendações foram aplicadas.
-
-Os exemplos se baseiam em um cenário em que vários dispositivos enviam medidas ou sinais. As medidas ou os sinais podem ser taxa de fluxo, pressão de óleo do motor, temperatura e umidade. No primeiro exemplo, há algumas medições em todos os dispositivos. O segundo exemplo tem muitos dispositivos, e cada dispositivo envia muitas medidas exclusivas.
-
-## <a name="scenario-one-only-a-few-measurements-exist"></a>Cenário um: há apenas algumas medições
+1. Envie dados pela rede o mais eficientemente possível.
+1. Certifique-se de que os seus dados são armazenados de forma a poder efetuar agregações adequadas para o seu cenário.
+1. Certifique-se de que não alcança os limites máximos de propriedade da Time Series Insights:
+   - 600 propriedades (colunas) para ambientes S1.
+   - 800 propriedades (colunas) para ambientes S2.
 
 > [!TIP]
-> É recomendável que você envie cada medida ou sinal como uma propriedade ou coluna separada.
+> Limites de revisão [e planeamento](time-series-insights-update-plan.md) em Visualização de Insights da Série De Tempo Azure.
 
-No exemplo a seguir, há uma única mensagem do Hub IoT do Azure em que a matriz externa contém uma seção compartilhada de valores de dimensão comuns. A matriz externa usa dados de referência para aumentar a eficiência da mensagem. Os dados de referência contêm metadados de dispositivo que não são alterados com todos os eventos, mas fornecem propriedades úteis para análise de dados. O envio em lote de valores de dimensão comuns e o uso de dados de referência economiza em bytes enviados pela conexão, o que torna a mensagem mais eficiente.
+A seguinte orientação ajuda a garantir o melhor desempenho possível de consulta:
 
-Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights GA usando um [objeto de mensagem do dispositivo IOT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) que é SERIALIZADO em JSON quando enviado para a nuvem do Azure:
+1. Não utilize propriedades dinâmicas, como uma identificação de etiqueta, como nome de propriedade. Esta utilização contribui para atingir o limite máximo de propriedades.
+1. Não envie propriedades desnecessárias. Se uma propriedade de consulta não é necessária, é melhor não enviá-la. Desta forma evita-se limitações de armazenamento.
+1. Utilize dados de [referência](time-series-insights-add-reference-data-set.md) para evitar o envio de dados estáticos sobre a rede.
+1. Partilhe propriedades de dimensão entre vários eventos para enviar dados sobre a rede de forma mais eficiente.
+1. Não use a nidificação de matrizes profundas. Time Series Insights suporta até dois níveis de matrizes aninhadas que contêm objetos. Time Series Insights achata matrizes nas mensagens em vários eventos com pares de valor de propriedade.
+1. Se existirem apenas algumas medidas para todos ou a maioria dos eventos, é melhor enviar estas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e pode melhorar o desempenho da consulta porque menos eventos precisam de ser processados. Quando existem várias medidas, enviá-las como valores numa única propriedade minimiza a possibilidade de atingir o limite máximo de propriedade.
+
+## <a name="example-overview"></a>Visão geral do exemplo
+
+Os dois exemplos seguintes demonstram como enviar eventos para destacar as recomendações anteriores. Seguindo cada exemplo, pode rever a forma como as recomendações foram aplicadas.
+
+Os exemplos baseiam-se num cenário em que vários dispositivos enviam medições ou sinais. Medições ou sinais podem ser Caudal, Pressão do Óleo do Motor, Temperatura e Humidade. No primeiro exemplo, existem algumas medições em todos os dispositivos. O segundo exemplo tem muitos dispositivos, e cada dispositivo envia muitas medições únicas.
+
+## <a name="scenario-one-only-a-few-measurements-exist"></a>Cenário um: Existem apenas algumas medidas
+
+> [!TIP]
+> Recomendamos que envie cada medição ou sinal como uma propriedade ou coluna separada.
+
+No exemplo seguinte, há uma única mensagem Azure IoT Hub onde a matriz exterior contém uma secção partilhada de valores de dimensão comum. A matriz exterior utiliza dados de referência para aumentar a eficiência da mensagem. Os dados de referência contêm metadados de dispositivos que não mudam em todos os eventos, mas fornece propriedades úteis para análise de dados. Lotação de valores de dimensão comum e utilização de dados de referência economiza em bytes enviados através do fio, o que torna a mensagem mais eficiente.
+
+Considere a seguinte carga útil da JSON enviada para o seu ambiente Time Series Insights GA utilizando um [objeto de mensagem de dispositivo IoT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) que é serializado em JSON quando enviado para a nuvem Azure:
 
 
 ```JSON
@@ -93,34 +93,34 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
 ]
 ```
 
-* Tabela de dados de referência que tem a propriedade de chave **DeviceID**:
+* Tabela de dados de referência que tem o dispositivo de propriedade **chaveId:**
 
-   | deviceId | messageId | deviceLocation |
+   | deviceId | mensagemId | dispositivoLocalização |
    | --- | --- | --- |
-   | FXXX | LINE\_DATA | UE |
-   | FYYY | LINE\_DATA | EUA |
+   | FXXX | DADOS\_DA LINHA | UE |
+   | FYYY | DADOS\_DA LINHA | EUA |
 
-* Time Series Insights tabela de eventos, após o nivelamento:
+* Tabela de eventos Time Series Insights, após achatamento:
 
-   | deviceId | messageId | deviceLocation | carimbo de data/hora | série. Taxa de fluxo ft3/s | série. Psi de petróleo pressão do motor |
+   | deviceId | mensagemId | dispositivoLocalização | carimbo de data/hora | série. Caudal ft3/s | série. Pressão do Óleo do Motor psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINE\_DATA | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
-   | FXXX | LINE\_DATA | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
+   | FXXX | DADOS\_DA LINHA | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
+   | FXXX | DADOS\_DA LINHA | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
+   | FYYY | DADOS\_DA LINHA | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
-> - A coluna **DeviceID** serve como o cabeçalho de coluna para os vários dispositivos em uma frota. Tornar o valor **DeviceID** seu próprio nome de propriedade limita o total de dispositivos a 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
-> - Propriedades desnecessárias são evitadas (por exemplo, as informações de marca e modelo). Como as propriedades não serão consultadas no futuro, a eliminação delas permitirá uma melhor eficiência na rede e no armazenamento.
-> - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede. Os dois atributos **MessageId** e **deviceLocation** são Unidos usando a propriedade de chave **DeviceID**. Esses dados são associados aos dados de telemetria no momento da entrada e, em seguida, são armazenados em Time Series Insights para consulta.
-> - São usadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento com suporte pelo Time Series Insights. É fundamental para evitar matrizes profundamente aninhadas.
-> - As medidas são enviadas como propriedades separadas dentro do mesmo objeto porque há poucas medidas. Aqui, **série. Taxa de fluxo psi** e **série. As ft3/s de pressão do óleo do motor** são colunas exclusivas.
+> - A coluna id do **dispositivo** serve como cabeçalho da coluna para os vários dispositivos de uma frota. Fazer com que o **dispositivo ValorIo** lógico o seu próprio nome de propriedade limita o total dos dispositivos a 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
+> - Propriedades desnecessárias são evitadas (por exemplo, a informação de fazer e modelo). Como as propriedades não serão questionadas no futuro, eliminá-las permite uma melhor eficiência de rede e armazenamento.
+> - Os dados de referência são utilizados para reduzir o número de bytes transferidos através da rede. Os dois atributos **messageId** e **dispositivoLocalização** são unidos utilizando o dispositivo de propriedade **chaveId**. Estes dados são unidos com os dados de telemetria no momento da entrada e são depois armazenados em Time Series Insights para consulta.
+> - São utilizadas duas camadas de nidificação, que é a quantidade máxima de nidificação suportada pela Time Series Insights. É fundamental evitar matrizes profundamente aninhadas.
+> - As medidas são enviadas como propriedades separadas dentro do mesmo objeto porque existem poucas medidas. Aqui, **séries. Flow Rate psi** e **séries. Pressão do óleo do motor ft3/s** são colunas únicas.
 
-## <a name="scenario-two-several-measures-exist"></a>Cenário dois: existem várias medidas
+## <a name="scenario-two-several-measures-exist"></a>Cenário dois: Existem várias medidas
 
 > [!TIP]
-> Recomendamos que você envie medidas como tuplas "tipo", "unidade" e "valor".
+> Recomendamos que envie medições como "tipo", "unidade" e tuples de "valor".
 
-Exemplo de carga JSON:
+Exemplo JSON carga útil:
 
 ```JSON
 [
@@ -163,43 +163,43 @@ Exemplo de carga JSON:
 ]
 ```
 
-* Tabela de dados de referência que tem as propriedades de chave **DeviceID** e **Series. tagId**:
+* Tabela de dados de referência que tem as propriedades chave **dispositivoId** e **série.tagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | tipo | unidade |
+   | deviceId | série.tagId | mensagemId | dispositivoLocalização | tipo | unit |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | UE | Taxa de fluxo | ft3/s |
-   | FXXX | oilPressure | LINE\_DATA | UE | Pressão do óleo do motor | psi |
-   | FYYY | pumpRate | LINE\_DATA | EUA | Taxa de fluxo | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | EUA | Pressão do óleo do motor | psi |
+   | FXXX | pumpRate | DADOS\_DA LINHA | UE | Caudal | ft3/s |
+   | FXXX | óleoPressão | DADOS\_DA LINHA | UE | Pressão do óleo do motor | psi |
+   | FYYY | pumpRate | DADOS\_DA LINHA | EUA | Caudal | ft3/s |
+   | FYYY | óleoPressão | DADOS\_DA LINHA | EUA | Pressão do óleo do motor | psi |
 
-* Time Series Insights tabela de eventos, após o nivelamento:
+* Tabela de eventos Time Series Insights, após achatamento:
 
-   | deviceId | series.tagId | messageId | deviceLocation | tipo | unidade | carimbo de data/hora | série. valor |
+   | deviceId | série.tagId | mensagemId | dispositivoLocalização | tipo | unit | carimbo de data/hora | série.valor |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINE\_DATA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | LINE\_DATA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINE\_DATA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | DADOS\_DA LINHA | UE | Caudal | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | óleoPressão | DADOS\_DA LINHA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34.7 |
+   | FXXX | pumpRate | DADOS\_DA LINHA | UE | Caudal | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | óleoPressão | DADOS\_DA LINHA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49.2 |
+   | FYYY | pumpRate | DADOS\_DA LINHA | EUA | Caudal | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | óleoPressão | DADOS\_DA LINHA | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
-> - As colunas **DeviceID** e **Series. tagId** servem como cabeçalhos de coluna para os vários dispositivos e marcas em uma frota. O uso de cada um como seu próprio atributo limita a consulta ao total de dispositivos 594 (para ambientes S1) ou 794 (para ambientes S2), com as outras seis colunas.
-> - Propriedades desnecessárias foram evitadas, pelo motivo citado no primeiro exemplo.
-> - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede apresentando o **DeviceID**, que é usado para o par exclusivo de **MessageId** e **deviceLocation**. A série de chave composta **. tagId** é usada para o par exclusivo de **tipo** e **unidade**. A chave composta permite que o par **DeviceID** e **Series. tagId** seja usado para se referir a quatro valores: **MessageId, deviceLocation, Type** e **Unit**. Esses dados são associados aos dados de telemetria no momento da entrada. Em seguida, ele é armazenado em Time Series Insights para consulta.
-> - Duas camadas de aninhamento são usadas, pelo motivo citado no primeiro exemplo.
+> - O dispositivo de **colunasId** e **série.tagId** servem como cabeçalhos de coluna para os vários dispositivos e tags numa frota. A utilização de cada um como atributo limita a consulta a 594 (para ambientes S1) ou 794 (para ambientes S2) total de dispositivos com as outras seis colunas.
+> - Foram evitadas propriedades desnecessárias, pela razão citada no primeiro exemplo.
+> - Os dados de referência são utilizados para reduzir o número de bytes transferidos através da rede através da introdução do **dispositivoId**, que é utilizado para o par único de **mensagensId** e **dispositivoSLocalização**. A série de chaves **compostas.tagId** é utilizada para o par único de **tipo** e **unidade**. A chave composta permite que o **par id** e **série.tagId** seja utilizado para se referir a quatro valores: **messageId, deviceLocation, tipo** e **unidade**. Estes dados juntam-se aos dados de telemetria no momento da entrada. É então armazenado em Time Series Insights para consulta.
+> - São utilizadas duas camadas de nidificação, pela razão citada no primeiro exemplo.
 
 ### <a name="for-both-scenarios"></a>Para ambos os cenários
 
-Para uma propriedade com um grande número de valores possíveis, é melhor enviar como valores distintos dentro de uma única coluna em vez de criar uma nova coluna para cada valor. Dos dois exemplos anteriores:
+Para uma propriedade com um grande número de valores possíveis, o melhor é enviar como valores distintos dentro de uma única coluna em vez de criar uma nova coluna para cada valor. Dos dois exemplos anteriores:
 
-  - No primeiro exemplo, algumas propriedades têm vários valores, portanto, é apropriado tornar cada uma propriedade separada.
-  - No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, eles são uma matriz de valores ou medidas em uma propriedade de série comum. A nova chave **tagId** é enviada, o que cria a nova coluna **Series. tagId** na tabela achatada. O novo **tipo** e a **unidade** de propriedades são criados usando dados de referência para que o limite de propriedade não seja atingido.
+  - No primeiro exemplo, algumas propriedades têm vários valores, por isso é apropriado fazer cada uma propriedade separada.
+  - No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, são uma variedade de valores ou medidas sob uma propriedade comum da série. É enviado o novo **tagId** chave, que cria a nova série de **colunas.tagId** na tabela achatada. O **tipo** e **unidade** de novas propriedades são criados usando dados de referência para que o limite de propriedade não seja atingido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia mais sobre como enviar [mensagens de dispositivo do Hub IOT para a nuvem](../iot-hub/iot-hub-devguide-messages-construct.md).
+- Leia mais sobre o envio de mensagens de [dispositivo IoT Hub para a nuvem](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Leia [Azure Time Series insights sintaxe de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para a API REST de acesso a dados Time Series insights.
+- Leia a [sintaxe](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) de consulta da Azure Time Series Insights para saber mais sobre a sintaxe de consulta para os dados da Time Series Insights aceder à REST API.
 
-- Saiba [como formatar eventos](./time-series-insights-send-events.md).
+- Aprenda [a moldar eventos.](./time-series-insights-send-events.md)

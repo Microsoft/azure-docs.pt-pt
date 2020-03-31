@@ -1,75 +1,75 @@
 ---
-title: Exibir e gerenciar clientes e recursos delegados
-description: Como um provedor de serviços usando o gerenciamento de recursos delegado do Azure, você pode exibir todos os recursos e assinaturas do cliente delegado Acessando meus clientes na portal do Azure.
+title: Ver e gerir os clientes e os recursos delegados
+description: Como prestador de serviços utilizando a gestão de recursos delegados do Azure, pode ver todos os seus recursos e subscrições de clientes delegados, indo para os meus clientes no portal Azure.
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76543431"
 ---
-# <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
+# <a name="view-and-manage-customers-and-delegated-resources"></a>Ver e gerir os clientes e os recursos delegados
 
-Provedores de serviço que usam o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md) podem usar a página **meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas delegados do cliente. Embora possamos nos referir aos provedores de serviços e clientes aqui, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Os prestadores de serviços que utilizam a [gestão de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) podem utilizar a página **dos meus clientes** no portal [Azure](https://portal.azure.com) para ver os recursos e subscrições dos clientes delegados. Enquanto nos referimos a prestadores de serviços e clientes aqui, as empresas que gerem vários inquilinos podem usar o mesmo processo para consolidar a sua experiência de gestão.
 
-Para acessar a página **meus clientes** no portal do Azure, selecione **todos os serviços**e, em seguida, pesquise **meus clientes** e selecione-o. Você também pode encontrá-lo inserindo "meus clientes" na caixa de pesquisa próxima à parte superior do portal do Azure.
+Para aceder à página dos **meus clientes** no portal Azure, selecione Todos **os serviços,** depois procure os **meus clientes** e selecione-o. Também pode encontrá-lo entrando em "Meus clientes" na caixa de pesquisa perto do topo do portal Azure.
 
-Tenha em mente que a seção principais **clientes** da página **meus clientes** mostra apenas informações sobre os clientes que delegaram assinaturas ou grupos de recursos. Se você trabalhar com outros clientes (por exemplo, por meio do [programa provedor de soluções na nuvem](https://docs.microsoft.com/partner-center/csp-overview), você não verá informações sobre esses clientes na seção **clientes** , a menos que tenha integrado seus recursos para o gerenciamento de recursos delegado do Azure.
+Tenha em mente que a **secção** de clientes topo da página dos **meus clientes** apenas mostra informações sobre clientes que tenham delegado sionárias ou grupos de recursos. Se trabalhar com outros clientes (como através do [programa Cloud Solution Provider,](https://docs.microsoft.com/partner-center/csp-overview)não verá informações sobre esses clientes na secção **Clientes,** a menos que tenha a bordo os seus recursos para a gestão de recursos delegados da Azure.
 
-Inferior na página, uma seção separada chamada **provedor de soluções de nuvem (versão prévia)** mostra informações de cobrança e recursos para seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão [no plano do Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para obter mais informações, consulte Introdução [à sua conta de cobrança do Microsoft Partner Agreement](../../billing/mpa-overview.md). Observe que esses clientes do CSP aparecem nesta seção se você também os tiver integrado para o gerenciamento de recursos delegado do Azure. Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los para o gerenciamento de recursos delegado do Azure.
+Mais abaixo na página, uma secção separada chamada **Cloud Solution Provider (Preview)** mostra informações e recursos de faturação para os seus clientes CSP que assinaram o Contrato de [Cliente da Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para mais informações, consulte Começar com a sua conta de [faturação do Microsoft Partner Agreement](../../billing/mpa-overview.md). Note que estes clientes cSP aparecem nesta secção se você também os abordou para a gestão de recursos delegados do Azure. Da mesma forma, um cliente CSP não tem de aparecer na secção **Cloud Solution Provider (Preview)** dos **meus clientes** para que possa embarcar para a gestão de recursos delegados do Azure.
 
 > [!NOTE]
-> Seus clientes podem exibir informações sobre provedores de serviço navegando até **provedores de serviço** no portal do Azure. Para obter mais informações, consulte [Exibir e gerenciar provedores de serviços](view-manage-service-providers.md).
+> Os seus clientes podem ver informações sobre prestadores de serviços navegando para prestadores de **serviços** no portal Azure. Para mais informações, consulte [O View e gereos prestadores de serviços.](view-manage-service-providers.md)
 
-## <a name="view-and-manage-customer-details"></a>Exibir e gerenciar detalhes do cliente
+## <a name="view-and-manage-customer-details"></a>Ver e gerir os detalhes do cliente
 
-Para exibir os detalhes do cliente, selecione **clientes** no lado esquerdo da página **meus clientes** .
+Para ver os detalhes do cliente, selecione **Clientes** do lado esquerdo da página **dos meus clientes.**
 
-Para cada cliente, você verá o nome do cliente, a ID do cliente (ID do locatário) e a oferta associada ao envolvimento. Na coluna **delegações** , você verá o número de assinaturas delegadas e/ou o número de grupos de recursos delegados.
+Para cada cliente, você verá o nome do cliente, id do cliente (ID do inquilino), e a oferta associada ao compromisso. Na coluna **delegações,** verá o número de assinaturas delegadas e/ou o número de grupos de recursos delegados.
 
 > [!IMPORTANT]
-> Para ver uma delegação, os usuários devem ter recebido a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitor) no processo de integração.
+> Para ver uma delegação, os utilizadores devem ter recebido o papel [de Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso do Leitor) no processo de embarque.
 
-Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de cliente ou filtre por clientes, ofertas ou palavras-chave específicas.
+Os filtros no topo da página permitem-lhe classificar e agrupar as informações do seu cliente ou filtrar por clientes, ofertas ou palavras-chave específicas.
 
-Você pode exibir as seguintes informações desta página:
+Pode ver as seguintes informações desta página:
 
-- Para ver todas as assinaturas, ofertas e delegações associadas a um cliente, selecione o nome do cliente.
+- Para ver todas as subscrições, ofertas e delegações associadas a um cliente, selecione o nome do cliente.
 - Para ver mais detalhes sobre uma oferta e suas delegações, selecione o nome da oferta.
-- Para exibir mais detalhes sobre as atribuições de função para assinaturas delegadas ou grupos de recursos, selecione a entrada na coluna **delegações** .
+- Para ver mais detalhes sobre atribuições de funções para subscrições delegadas ou grupos de recursos, selecione a entrada na coluna **delegações.**
 
-## <a name="view-and-manage-delegations"></a>Exibir e gerenciar delegações
+## <a name="view-and-manage-delegations"></a>Ver e gerir delegações
 
-As delegações mostram a assinatura/o grupo de recursos que foi delegado, junto com os usuários e permissões que têm acesso a ele. Para exibir essas informações, selecione **delegações** no lado esquerdo da página **meus clientes** .
+As delegações mostram o grupo de subscrição/recursos que foi delegado, juntamente com os utilizadores e permissões que têm acesso ao mesmo. Para ver esta informação, selecione **Delegações** do lado esquerdo da página **dos meus clientes.**
 
-Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de atribuição de acesso ou filtre por clientes, ofertas ou palavras-chave específicas.
+Os filtros no topo da página permitem-lhe classificar e agrupar as suas informações de atribuição de acesso ou filtrar por clientes, ofertas ou palavras-chave específicas.
 
 ### <a name="view-role-assignments"></a>Ver atribuições de funções
 
-Os usuários e as permissões associados a cada delegação aparecem na coluna **atribuições de função** . É possível selecionar cada entrada para exibir a lista completa de usuários, grupos e entidades de serviço que receberam acesso à assinatura ou ao grupo de recursos. A partir daí, você pode selecionar um determinado usuário, grupo ou nome da entidade de serviço para obter mais detalhes.
+Os utilizadores e permissões associados a cada delegação aparecem na coluna **de atribuições de funções.** Pode selecionar cada entrada para visualizar a lista completa de utilizadores, grupos e diretores de serviço que tenham tido acesso ao grupo de subscrição ou recursos. A partir daí, pode selecionar um determinado nome principal de utilizador, grupo ou serviço para obter mais detalhes.
 
 ### <a name="remove-delegations"></a>Remover delegações
 
-Se você tiver incluído usuários com a [atribuição de registro de serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao integrar um cliente para o gerenciamento de recursos delegado do Azure, esses usuários poderão remover uma delegação selecionando o ícone de lixeira que aparece na linha para essa delegação. Quando eles fizerem isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
+Se incluiu utilizadores com a Função de Eliminação de Serviços [Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar num cliente para a gestão de recursos delegados do Azure, esses utilizadores podem remover uma delegação selecionando o ícone do caixote do lixo que aparece na fila para essa delegação. Quando o fizerem, nenhum utilizador do inquilino do prestador de serviços poderá aceder aos recursos que tinham sido previamente delegados.
 
 
-## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabalhar no contexto de uma assinatura delegada
+## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabalho no contexto de uma subscrição delegada
 
-Você pode trabalhar diretamente no contexto de uma assinatura delegada dentro do portal do Azure, sem alternar o diretório no qual está trabalhando. Para tal:
+Pode trabalhar diretamente no contexto de uma subscrição delegada dentro do portal Azure, sem mudar o diretório em que está a trabalhar. Para tal:
 
-1. Selecione o ícone **diretório + assinatura** próximo à parte superior da portal do Azure.
-2. No filtro de **assinatura global** , certifique-se de que somente a caixa para essa assinatura delegada esteja selecionada. Você pode usar a caixa suspensa de **diretórios + delegados atuais** para mostrar apenas as assinaturas em um diretório específico. (Não use a opção de **diretório switch** , pois isso altera o diretório no qual você está conectado.)
+1. Selecione o ícone **de Assinatura Diretório +** perto do topo do portal Azure.
+2. No filtro de **subscrição Global,** certifique-se de que apenas a caixa para essa subscrição delegada é selecionada. Pode utilizar a caixa de entrega de **diretórios atual + delegada** para mostrar apenas subscrições dentro de um diretório específico. (Não utilize a opção de **diretório Switch,** uma vez que altera o diretório em que está inscrito.)
 
-Se você acessar um serviço que dá suporte a [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md), o serviço usará como padrão o contexto da assinatura delegada que você selecionou. Você pode alterar isso seguindo as etapas acima e marcando a caixa **selecionar tudo** (ou escolhendo uma ou mais assinaturas para trabalhar em vez disso).
+Se aceder a um serviço que suporta [experiências de gestão de inquilinos cruzados,](../concepts/cross-tenant-management-experience.md)o serviço será indefinido no contexto da subscrição delegada que selecionou. Pode alterá-lo seguindo os passos acima e verificando todas as caixas **(ou** escolhendo uma ou mais subscrições para trabalhar em vez disso).
 
 > [!NOTE]
-> Se tiver recebido acesso a um ou mais grupos de recursos, em vez de acessar uma assinatura inteira, você poderá selecionar a assinatura à qual o grupo de recursos pertence. Em seguida, você trabalhará no contexto dessa assinatura, mas só será capaz de acessar os grupos de recursos designados.
+> Se lhe foi concedido acesso a um ou mais grupos de recursos, em vez de ter acesso a uma subscrição inteira, pode selecionar a subscrição a que esse grupo de recursos pertence. Em seguida, trabalhará no contexto dessa subscrição, mas só poderá aceder aos grupos de recursos designados.
 
-Você também pode acessar a funcionalidade relacionada a assinaturas delegadas ou grupos de recursos de dentro de serviços que dão suporte a experiências de gerenciamento entre locatários selecionando a assinatura ou o grupo de recursos de dentro desse serviço.
+Também pode aceder a funcionalidades relacionadas com subscrições ou grupos de recursos delegados de dentro de serviços que suportam experiências de gestão de inquilinos cruzados, selecionando o grupo de subscrição ou recursos a partir desse serviço.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
-- Saiba como os clientes podem [Exibir e gerenciar provedores](view-manage-service-providers.md) de serviços acessando **provedores de serviços** no portal do Azure.
+- Conheça [as experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
+- Saiba como os seus clientes podem [ver e gerir os prestadores](view-manage-service-providers.md) de serviços indo para prestadores de **serviços** no portal Azure.

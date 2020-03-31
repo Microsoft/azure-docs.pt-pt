@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431364"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470899"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Quickstart: Lançar uma aplicação azure cloud existente usando o portal Azure
 
@@ -38,7 +38,7 @@ Após este arranque rápido, aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instale o Git](https://git-scm.com/)
+1. [Instalar o Git](https://git-scm.com/)
 2. [Instalar JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Instale Maven 3.0 ou acima](https://maven.apache.org/download.cgi)
 4. [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -48,7 +48,7 @@ Para concluir este guia de início rápido:
 
 Instale a extensão Azure Spring Cloud para o Azure CLI utilizando o seguinte comando
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -60,11 +60,11 @@ az extension add --name spring-cloud
 
 3. Selecione **Azure Spring Cloud** a partir dos resultados.
 
- ![Ícone do ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+ ![Ícone ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
 4. Na página Azure Spring Cloud, clique **+ Adicionar**.
 
- ![Ícone do ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+ ![Ícone ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Preencha o formulário na página Azure Spring **Criar.**  Considere as seguintes orientações:
     - **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.  Certifique-se de que esta subscrição foi adicionada à nossa lista de autorizações para a Azure Spring Cloud.
@@ -101,9 +101,9 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 
 1. Vá à página de **visão geral** do serviço e selecione **Config Server**.
 
-2. Na secção de **repositório Predefinido,** coloque **URI** para "https://github.com/Azure-Samples/piggymetrics-config".
+2. Na secção de **repositório Predefinido,** coloque **URI** para "https://github.com/Azure-Samples/piggymetrics-config. ".
 
-3. Selecione **Aplicar** para guardar as suas alterações.
+3. Selecione **Aplicar** para guardar as alterações.
 
     ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
@@ -112,9 +112,9 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 
 ## <a name="build-and-deploy-microservice-applications"></a>Construir e implementar aplicações de microserviços
 
-1. Abra uma [Casca de Nuvem Azure](https://shell.azure.com) e clone o repositório da aplicação de amostra saquea da sua máquina local.  Aqui, criamos primeiro um diretório temporário chamado `source-code` antes de clonar a app.
+1. Abra uma [Casca de Nuvem Azure](https://shell.azure.com) e clone o repositório da aplicação de amostra saquea da sua máquina local.  Aqui, criamos primeiro um `source-code` diretório temporário chamado antes de clonar a app.
 
-    ```azurecli
+    ```console
     mkdir source-code
     cd source-code
     git clone https://github.com/Azure-Samples/piggymetrics
@@ -122,10 +122,11 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 
 2. Construa o pacote clonado.
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
+
 3. Atribua nomes ao seu grupo de recursos e ao seu serviço. Certifique-se de substituir os espaços reservados abaixo com o nome de grupo de recursos e nome de serviço que você disponibilizou anteriormente neste tutorial.
 
     ```azurecli
@@ -133,14 +134,14 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Crie a aplicação `gateway` e implemente o ficheiro JAR.
+4. Crie `gateway` a aplicação e implemente o ficheiro JAR.
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-5. Seguindo o mesmo padrão, crie as aplicações `account-service` e `auth-service` e implemente os seus ficheiros JAR.
+5. Seguindo o mesmo padrão, crie as `account-service` aplicações e `auth-service` implemente os seus ficheiros JAR.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -158,9 +159,9 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 
 1. Abra o separador **Apps** no menu à esquerda.
 
-2. Selecione a aplicação `gateway` para mostrar a página **'Overview'.**
+2. Selecione a `gateway` aplicação para mostrar a página **'Overview'.**
 
-3. **Selecione Designado ponto final** para atribuir um ponto final público ao gateway. Isto pode levar alguns minutos.
+3. **Selecione Designado ponto final** para atribuir um ponto final público ao gateway. A implementação pode demorar alguns minutos.
 
     ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

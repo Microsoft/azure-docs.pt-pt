@@ -8,13 +8,13 @@ ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 9c51ce726545d1c64d69c86c36fc69ea43c3b882
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76279412"
 ---
-Especifica quantas invocações de função são agregadas ao [calcular métricas para Application insights](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator). 
+Especifica quantas invocações de função são agregadas no cálculo das [métricas para Insights](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)de Aplicação . 
 
 ```json
 {
@@ -27,7 +27,7 @@ Especifica quantas invocações de função são agregadas ao [calcular métrica
 
 |Propriedade |Predefinição  | Descrição |
 |---------|---------|---------| 
-|batchSize|1000|Número máximo de solicitações a serem agregadas.| 
-|flushTimeout|00:00:30|Período de tempo máximo para agregação.| 
+|batchSize|1000|Número máximo de pedidos a agregados.| 
+|flushTimeout|00:00:30|Período máximo de tempo a agregado.| 
 
-As invocações de função são agregadas quando o primeiro dos dois limites são atingidos.
+As invocações de funções são agregadas quando o primeiro dos dois limites é atingido.

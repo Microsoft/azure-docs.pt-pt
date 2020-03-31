@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: a32d26629bb9efed4a4f1f49eee2f0534e1873a9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960506"
 ---
 #  <a name="diagnostic-logs-for-an-azure-event-grid-topic"></a>Registos de diagnóstico para um tópico da grelha de eventos Azure
@@ -44,7 +44,7 @@ As definições de diagnóstico permitem que os utilizadores da Rede de Eventos 
     - Se selecionar o Stream para um hub de **eventos**, selecione **o hub de eventos - Configure,** e, em seguida, selecione o espaço de nome do Event Hubs, o centro de eventos e a política de acesso. 
         ![Stream para um centro de eventos](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Se selecionar **Enviar para Registar Análises,** selecione o espaço de trabalho do Log Analytics.
-        ![Enviar para log analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Enviar para o Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 7. Selecione as opções de Falhas de **Entrega** e **De publicação** na secção **Registo.** 
     ![Selecione as falhas](./media/enable-diagnostic-logs-topic/log-failures.png)
 8. Selecione **Guardar**. Selecione **X** no canto direito para fechar a página. 
@@ -54,4 +54,4 @@ As definições de diagnóstico permitem que os utilizadores da Rede de Eventos 
      Também pode ativar a recolha de todas as métricas para o tema. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se precisar de mais ajuda, poste seu problema no [Fórum de Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um [tíquete de suporte](https://azure.microsoft.com/support/options/). 
+Se precisar de mais ajuda, publique o seu problema no [fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um bilhete de [apoio](https://azure.microsoft.com/support/options/). 

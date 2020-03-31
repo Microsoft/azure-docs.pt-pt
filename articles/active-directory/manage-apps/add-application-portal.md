@@ -12,10 +12,10 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240493"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar uma aplicação ao seu inquilino do Azure Active Directory
@@ -140,10 +140,10 @@ Para utilizar um logótipo personalizado:
    > [!NOTE]
    > A miniatura exibida neste painel **Properties** não atualiza imediatamente. Pode fechar e reabrir as propriedades para ver o ícone atualizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que adicionou a aplicação à sua organização Azure AD, [escolha um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que deseja utilizar e consulte o artigo apropriado abaixo:
 
-- [Configure o único sign-on baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configurar o início de sessão único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
 - [Configure o sinal único da palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configurar o sign-on ligado](configure-linked-sign-on.md)
+- [Configurar o início de sessão ligado](configure-linked-sign-on.md)

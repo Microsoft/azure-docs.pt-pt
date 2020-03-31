@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249792"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como fornecer uma máquina virtual do Windows SQL Server no portal Azure
@@ -31,15 +31,15 @@ Utilize este guia para criar o seu próprio VM do Servidor SQL. Ou, use-o como r
 > [!TIP]
 > Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a id="select"></a>Imagens de galeria de máquinas virtuais SQL Server
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a>Imagens de galeria de máquinas virtuais SQL Server
 
 Quando criar uma máquina virtual SQL Server, pode selecionar uma das várias imagens pré-configuradas da galeria de máquinas virtuais. Os seguintes passos demonstram como selecionar uma das imagens Do SQL Server 2017.
 
 1. Selecione **Azure SQL** no menu à esquerda do portal Azure. Se o **Azure SQL** não estiver na lista, selecione **Todos os serviços,** em seguida, digite o Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para a favorita e adicione-a como um item na navegação à esquerda. 
 1. Selecione **+ Adicione** para abrir a página de opção de **implementação Select SQL.** Pode ver informações adicionais selecionando **detalhes do Show**. 
-1. Escreva `2017` na caixa de pesquisa de imagem Do Servidor SQL no azulejo das **máquinas virtuais SQL** e, em seguida, selecione **Free SQL Server License: SQL Server 2017 Developer no Windows Server 2016** a partir da queda. 
+1. Digite `2017` na caixa de pesquisa de imagem SQL Server no azulejo das **máquinas virtuais SQL** e, em seguida, selecione **Free SQL Server License: SQL Server 2017 Developer no Windows Server 2016** a partir da queda. 
 
 
    ![Selecione imagem SQL VM](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -67,7 +67,7 @@ No separador **Basics,** forneça as seguintes informações:
     ![Subscrição](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > Utilizar um novo grupo de recursos é útil se estiver apenas a testar ou a saber mais sobre implementações do SQL Server no Azure. Depois de terminar o teste, elimine o grupo de recursos para eliminar automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para mais informações sobre grupos de recursos, consulte o artigo [Descrição Geral do Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
+  > Utilizar um novo grupo de recursos é útil se estiver apenas a testar ou a saber mais sobre implementações do SQL Server no Azure. Depois de terminar o teste, elimine o grupo de recursos para eliminar automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para mais informações sobre grupos de recursos, consulte a [visão geral do Gestor de Recursos do Azure](../../../azure-resource-manager/management/overview.md).
 
 
 * Em **detalhes por exemplo:**
@@ -134,13 +134,13 @@ No **separador de definições do Servidor SQL,** configure definições e otimi
 
 | Definição |
 | --- |
-| [Conetividade](#connectivity) |
+| [Conectividade](#connectivity) |
 | [Autenticação](#authentication) |
-| [Integração do Cofre de Chaves do Azure](#azure-key-vault-integration) |
+| [Integração do cofre de chaves Azure](#azure-key-vault-integration) |
 | [Configuração do armazenamento](#storage-configuration) |
 | [Aplicação de Patches Automatizada](#automated-patching) |
-| [Cópia de Segurança Automatizada](#automated-backup) |
-| [Serviços de Aprendizagem Automática](#machine-learning-services) |
+| [Backup automatizado](#automated-backup) |
+| [Machine Learning Services](#machine-learning-services) |
 
 
 ### <a name="connectivity"></a>Conectividade
@@ -256,7 +256,7 @@ Pode monitorizar a implementação a partir do portal do Azure. O botão **Notif
 > [!NOTE]
 > Para lhe fornecer uma ideia dos tempos da implementação, implementei uma VM do SQL para a região E.U.A. Leste com as predefinições. Esta implementação de teste demorou aproximadamente 12 minutos a concluir. Mas poderá ter uma implementação mais lenta ou mais rápida com base na sua região e nas definições selecionadas.
 
-## <a id="remotedesktop"></a> Abrir a VM com o Ambiente de Trabalho Remoto
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>Abra o VM com ambiente de trabalho remoto
 
 Utilize os seguintes passos para ligar à máquina virtual do SQL Server com o Ambiente de Trabalho Remoto:
 
@@ -266,7 +266,7 @@ Depois de ligar à máquina virtual do SQL Server, pode iniciar o SQL Server Man
 
 O acesso ao computador permite-lhe alterar diretamente as definições do SQL Server e da máquina com base nos seus requisitos. Por exemplo, pode configurar as definições da firewall ou alterar as definições de configuração do SQL Server.
 
-## <a id="connect"></a> Ligar ao SQL Server remotamente
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a>Ligue-se remotamente ao Servidor SQL
 
 Neste walkthrough, selecionou o acesso **público** para a máquina virtual e a autenticação do **servidor SQL**. Estas definições configuraram automaticamente a máquina virtual para permitir ligações ao SQL Server a partir de qualquer cliente através da Internet (partindo do princípio de que tem o início de sessão SQL correto).
 

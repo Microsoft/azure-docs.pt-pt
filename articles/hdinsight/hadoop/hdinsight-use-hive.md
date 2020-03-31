@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 20fdafc3077d1017c17d1055596dab150dffec72
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206644"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471358"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL no Azure HDInsight?
 
 [Apache Hive](https://hive.apache.org/) é um sistema de armazém de dados para Apache Hadoop. A Hive permite a resumição de dados, consulta e análise de dados. As consultas de colmeia são escritas em HiveQL, que é uma linguagem de consulta semelhante à SQL.
 
-A Hive permite-lhe projetar a estrutura em dados amplamente estruturados. Depois de definir a estrutura, pode usar o HiveQL para consultar os dados sem conhecimento de Java ou MapReduce.
+A Hive permite-lhe projetar a estrutura em dados largamente desestruturados. Depois de definir a estrutura, pode usar o HiveQL para consultar os dados sem conhecimento de Java ou MapReduce.
 
 O HDInsight fornece vários tipos de cluster, que são sintonizados para cargas de trabalho específicas. Os seguintes tipos de cluster são mais frequentemente utilizados para consultas da Colmeia:
 
@@ -38,9 +38,9 @@ Utilize a tabela seguinte para descobrir as diferentes formas de utilizar a Hive
 |:--- |:---:|:---:|:--- |:--- |
 | [Ferramentas HDInsight para Código de Estúdio Visual](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X ou Windows |
 | [Ferramentas HDInsight para Estúdio Visual](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
-| [Vista para a colmeia](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Qualquer (baseado no navegador) |
+| [Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Qualquer (baseado no navegador) |
 | [Cliente beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X ou Windows |
-| [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X ou Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## <a name="hiveql-language-reference"></a>Referência linguística hiveQL
@@ -66,13 +66,13 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 A Hive também suporta **serializers/desserializers personalizados (SerDe)** para dados complexos ou estruturados irregularmente. Para mais informações, consulte o [Como utilizar um JSON SerDe personalizado com documento HDInsight.](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)
 
-Para obter mais informações sobre formatos de ficheirosuportados pela Hive, consulte o [manual de Idiomas (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Para obter mais informações sobre formatos de ficheirosuportados pela Hive, consulte o [manual de Idiomas (https://cwiki.apache.org/confluence/display/Hive/LanguageManual) ](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Mesas internas da colmeia vs mesas externas
 
 Existem dois tipos de tabelas que pode criar com a Colmeia:
 
-* __Interna__: Os dados são armazenados no armazém de dados da Hive. O armazém de dados encontra-se em `/hive/warehouse/` no armazenamento predefinido do cluster.
+* __Interna__: Os dados são armazenados no armazém de dados da Hive. O armazém de `/hive/warehouse/` dados está localizado no armazenamento padrão do cluster.
 
     Utilize tabelas internas quando uma das seguintes condições se aplicar:
 
@@ -92,13 +92,13 @@ Para mais informações, consulte a publicação de blog intro da [Hive Internal
 
 ## <a name="user-defined-functions-udf"></a>Funções definidas pelo utilizador (UDF)
 
-A colmeia também pode ser estendida através de **funções definidas pelo utilizador (UDF)** . Uma UDF permite implementar funcionalidade ou lógica que não é facilmente modelada no HiveQL. Para um exemplo de utilização de UDFs com Colmeia, consulte os seguintes documentos:
+A colmeia também pode ser estendida através de **funções definidas pelo utilizador (UDF)**. Uma UDF permite implementar funcionalidade ou lógica que não é facilmente modelada no HiveQL. Para um exemplo de utilização de UDFs com Colmeia, consulte os seguintes documentos:
 
 * [Utilize uma função java definida pelo utilizador com a Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
 * [Utilize uma função definida pelo utilizador Python com a Apache Hive](../hadoop/python-udf-hdinsight.md)
 
-* [Utilize C# uma função definida pelo utilizador com a Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Utilize uma função c# definida pelo utilizador com a Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Como adicionar uma função personalizada apache Hive definida pelo utilizador ao HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -106,11 +106,11 @@ A colmeia também pode ser estendida através de **funções definidas pelo util
 
 ## <a name="example-data"></a>Dados de exemplo
 
-A colmeia no HDInsight vem pré-carregada com uma mesa interna chamada `hivesampletable`. O HDInsight também fornece conjuntos de dados de exemplo que podem ser usados com a Hive. Estes conjuntos de dados são armazenados nos diretórios `/example/data` e `/HdiSamples`. Estes diretórios existem no armazenamento padrão para o seu cluster.
+A colmeia no HDInsight vem pré-carregada `hivesampletable`com uma tabela interna chamada . O HDInsight também fornece conjuntos de dados de exemplo que podem ser usados com a Hive. Estes conjuntos de dados `/example/data` são `/HdiSamples` armazenados nos diretórios e diretórios. Estes diretórios existem no armazenamento padrão para o seu cluster.
 
 ## <a name="example-hive-query"></a>Consulta de colmeia de exemplo
 
-As seguintes colunas de projeto de declarações da HiveQL no ficheiro `/example/data/sample.log`:
+As seguintes colunas de projeto de `/example/data/sample.log` declarações da HiveQL no ficheiro:
 
 ```hiveql
 DROP TABLE log4jLogs;
@@ -136,8 +136,8 @@ No exemplo anterior, as declarações da HiveQL realizam as seguintes ações:
 |MESA DE LANÇAMENTO|Se a mesa já existir, apague-a.|
 |CRIAR TABELA EXTERNA|Cria uma nova mesa **externa** na Colmeia. As tabelas externas apenas armazenam a definição de mesa na Colmeia. Os dados são deixados na localização original e no formato original.|
 |FORMATO DE LINHA|Diz à Hive como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
-|LOCALIZAÇÃO ARMAZENADA COMO FICHEIRO DE TEXTO|Diz à Hive onde os dados são armazenados (o diretório `example/data`) e que é armazenado como texto. Os dados podem estar num ficheiro ou espalhados por vários ficheiros dentro do diretório.|
-|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]** . Esta declaração devolve um valor de **3** porque existem três linhas que contêm este valor.|
+|LOCALIZAÇÃO ARMAZENADA COMO FICHEIRO DE TEXTO|Diz à Hive onde os `example/data` dados são armazenados (o diretório) e que são armazenados como texto. Os dados podem estar num ficheiro ou espalhados por vários ficheiros dentro do diretório.|
+|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta declaração devolve um valor de **3** porque existem três linhas que contêm este valor.|
 |INPUT__FILE__NAME LIKE '%.log'|A Hive tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para evitar dados de lixo nos resultados, esta declaração diz à Hive que só devemos devolver dados de ficheiros que terminam em .log.|
 
 > [!NOTE]  
@@ -173,7 +173,7 @@ Estas declarações realizam as seguintes ações:
 > [!NOTE]  
 > Ao contrário das tabelas externas, a queda de uma tabela interna também elimina os dados subjacentes.
 
-## <a name="improve-hive-query-performance"></a>Melhorar o desempenho da consulta da Colmeia
+## <a name="improve-hive-query-performance"></a>Melhorar o desempenho de consultas do Hive
 
 ### <a name="apache-tez"></a>Apache Tez
 
@@ -185,7 +185,7 @@ Estas declarações realizam as seguintes ações:
 
 O HDInsight fornece LLAP no tipo de cluster de consulta interativa. Para mais informações, consulte o [documento Iniciar com Consulta Interativa.](../interactive-query/apache-interactive-query-get-started.md)
 
-## <a name="scheduling-hive-queries"></a>Agendamento de consultas de colmeia
+## <a name="scheduling-hive-queries"></a>Agendar consultas do Hive
 
 Existem vários serviços que podem ser usados para executar consultas da Hive como parte de um fluxo de trabalho programado ou a pedido.
 
@@ -211,6 +211,6 @@ Apache Oozie é um sistema de fluxo de trabalho e coordenação que gere os empr
 
 Agora que aprendeu o que é a Hive e como usá-la com Hadoop no HDInsight, use os seguintes links para explorar outras formas de trabalhar com o Azure HDInsight.
 
-* [Enviar dados para HDInsight](../hdinsight-upload-data.md)
+* [Upload data to HDInsight (Carregar dados para o HDInsight)](../hdinsight-upload-data.md)
 * [Utilize funções definidas pelo utilizador Python (UDF) com hiv apache e porco Apache em HDInsight](./python-udf-hdinsight.md)
 * [Utilizar tarefas de MapReduce com o HDInsight](hdinsight-use-mapreduce.md)

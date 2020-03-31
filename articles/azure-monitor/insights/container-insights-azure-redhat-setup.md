@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar a monitorização de um cluste
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275519"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift clusters com Monitor Azure para recipientes
@@ -40,7 +40,7 @@ O Monitor Azure para contentores suporta a monitorização do Azure Red Hat Open
 
 Execute os seguintes passos para implantar um cluster OpenShift do Chapéu Vermelho Azure com monitorização ativada. Antes de prosseguir, reveja o tutorial [Criar um cluster OpenShift](../../openshift/tutorial-create-cluster.md#prerequisites) de chapéu vermelho azure para entender as dependências que precisa para configurar para que o seu ambiente seja configurado corretamente.
 
-Esse método inclui dois modelos JSON. Um modelo especifica a configuração para implantar o cluster com monitorização ativada, e o outro contém valores de parâmetros que configura para especificar o seguinte:
+Este método inclui dois modelos JSON. Um modelo especifica a configuração para implantar o cluster com monitorização ativada, e o outro contém valores de parâmetros que configura para especificar o seguinte:
 
 - O id de recurso de cluster OpenShift do Chapéu Vermelho Azure.
 
@@ -62,13 +62,13 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 
 - O número de nós de infraestrutura no perfil da piscina do agente.
 
-Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
+Se não está familiarizado com o conceito de implantação de recursos utilizando um modelo, consulte:
 
-- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+- [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
 - [Implementar recursos com modelos de Gestor de Recursos e o Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou mais tarde. Para identificar a sua versão, execute `az --version`. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro necessita de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou mais tarde. Para identificar a `az --version`sua versão, corra. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitorização utilizando o Azure PowerShell ou o CLI. Para criar o espaço de trabalho, pode instalá-lo através do [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
@@ -84,7 +84,7 @@ O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitori
     az login    
     ```
 
-    Se tiver acesso a várias subscrições, faça `az account set -s {subscription ID}` substituir `{subscription ID}` pela subscrição que pretende utilizar.
+    Se tiver acesso a várias `az account set -s {subscription ID}` subscrições, faça a substituição `{subscription ID}` pela subscrição que pretende utilizar.
 
 3. Crie um grupo de recursos para o seu cluster se ainda não tiver um. Para uma lista das regiões de Azure que suporta o OpenShift em Azure, consulte [Regiões Apoiadas.](../../openshift/supported-resources.md#azure-regions)
 
@@ -123,7 +123,7 @@ Execute os seguintes passos para permitir a monitorização de um cluster OpenSh
 
 ### <a name="from-the-azure-portal"></a>No portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No menu do portal Azure ou na página Inicial, **selecione Azure Monitor**. Na secção **Insights,** selecione **Recipientes**.
 
@@ -139,11 +139,11 @@ Execute os seguintes passos para permitir a monitorização de um cluster OpenSh
     >[!NOTE]
     >Se pretender criar um novo espaço de trabalho do Log Analytics para armazenar os dados de monitorização do cluster, siga as instruções em [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o cluster RedHat OpenShift está implantado.
 
-Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento para o cluster.
+Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até ver as métricas de saúde para o cluster.
 
 ### <a name="enable-using-an-azure-resource-manager-template"></a>Ativar usando um modelo de Gestor de Recursos Azure
 
-Esse método inclui dois modelos JSON. Um modelo especifica a configuração para ativar a monitorização e a outra contém valores de parâmetros que pode configurar para especificar o seguinte:
+Este método inclui dois modelos JSON. Um modelo especifica a configuração para ativar a monitorização, e o outro contém valores de parâmetros que configura para especificar o seguinte:
 
 - O Azure RedHat OpenShift cluster resource ID.
 
@@ -151,13 +151,13 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 
 - Uma área de trabalho do Log Analytics.
 
-Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
+Se não está familiarizado com o conceito de implantação de recursos utilizando um modelo, consulte:
 
-- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+- [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
 - [Implementar recursos com modelos de Gestor de Recursos e o Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou mais tarde. Para identificar a sua versão, execute `az --version`. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro necessita de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou mais tarde. Para identificar a `az --version`sua versão, corra. Se precisar de instalar ou atualizar o Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitorização utilizando o Azure PowerShell ou o CLI. Para criar o espaço de trabalho, pode instalá-lo através do [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
@@ -173,7 +173,7 @@ O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitori
     az login    
     ```
 
-    Se tiver acesso a várias subscrições, faça `az account set -s {subscription ID}` substituir `{subscription ID}` pela subscrição que pretende utilizar.
+    Se tiver acesso a várias `az account set -s {subscription ID}` subscrições, faça a substituição `{subscription ID}` pela subscrição que pretende utilizar.
 
 3. Especifique a subscrição do cluster Azure RedHat OpenShift.
 

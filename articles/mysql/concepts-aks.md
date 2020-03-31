@@ -1,53 +1,53 @@
 ---
-title: Conectar-se ao serviço kubernetes do Azure-banco de dados do Azure para MySQL
-description: Saiba mais sobre como conectar o serviço kubernetes do Azure com o banco de dados do Azure para MySQL
+title: Ligue ao Serviço Azure Kubernetes - Base de Dados Azure para MySQL
+description: Saiba mais sobre a ligação do Serviço Azure Kubernetes com a Base de Dados Azure para o MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 71b266231b7ed3012e5ea7f65fe9487eeb5fb358
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 9e020d34b6cfb8117ccff1114cc938c966126b77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773616"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537283"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conectando o serviço kubernetes do Azure e o banco de dados do Azure para MySQL
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Serviço Azure Kubernetes e Base de Dados Azure para MySQL
 
-O AKS (serviço kubernetes do Azure) fornece um cluster kubernetes gerenciado que você pode usar no Azure. Abaixo estão algumas opções a serem consideradas ao usar o AKS e o banco de dados do Azure para MySQL juntos para criar um aplicativo.
+O Azure Kubernetes Service (AKS) fornece um cluster kubernetes gerido que pode utilizar em Azure. Abaixo estão algumas opções a considerar ao usar a AKS e a Base de Dados Azure para o MySQL em conjunto para criar uma aplicação.
 
 
 ## <a name="accelerated-networking"></a>Redes aceleradas
-Use VMs subjacentes habilitadas para rede acelerada em seu cluster AKS. Quando a rede acelerada está habilitada em uma VM, há latência mais baixa, tremulação reduzida e utilização da CPU reduzida na VM. Saiba mais sobre como funciona a rede acelerada, as versões de sistema operacional com suporte e as instâncias de VM com suporte para [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
+Utilize VMs subjacentes acelerados ativados por rede no seu cluster AKS. Quando a rede acelerada é ativada num VM, há menor latência, nervosismo reduzido e diminuição da utilização do CPU no VM. Saiba mais sobre como funciona o networking acelerado, as versões de SO suportadas e os casos de VM suportados para [linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-De novembro de 2018, o AKS dá suporte à rede acelerada nessas instâncias de VM com suporte. A rede acelerada é habilitada por padrão em novos clusters AKS que usam essas VMs.
+A partir de novembro de 2018, a AKS apoia a aceleração da rede nos casos de VM suportados. A rede acelerada é ativada por padrão em novos clusters AKS que utilizam esses VMs.
 
-Você pode confirmar se o cluster do AKS tem rede acelerada:
-1. Vá para a portal do Azure e selecione o cluster AKS.
-2. Selecione a guia Propriedades.
-3. Copie o nome do **grupo de recursos de infraestrutura**.
-4. Use a barra de pesquisa do portal para localizar e abrir o grupo de recursos de infraestrutura.
-5. Selecione uma VM nesse grupo de recursos.
-6. Vá para a guia **rede** da VM.
-7. Confirme se a **rede acelerada** está ' habilitada '.
+Pode confirmar se o seu cluster AKS acelerou a rede:
+1. Vá ao portal Azure e selecione o seu cluster AKS.
+2. Selecione o separador Properties (Propriedades).
+3. Copie o nome do Grupo de Recursos de **Infraestruturas.**
+4. Utilize a barra de pesquisa do portal para localizar e abrir o grupo de recursos de infraestrutura.
+5. Selecione um VM nesse grupo de recursos.
+6. Vá ao separador de **rede** da VM.
+7. Confirme se a **rede acelerada** está ativada.
 
-Ou por meio do CLI do Azure usando os dois comandos a seguir:
+Ou através do Azure CLI utilizando os seguintes dois comandos:
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
 ```
-A saída será o grupo de recursos gerado que o AKS cria contendo a interface de rede. Pegue o nome "nodeResourceGroup" e use-o no próximo comando. **EnableAcceleratedNetworking** será true ou false:
+A saída será o grupo de recursos gerados que o AKS cria contendo a interface de rede. Pegue no nome "nodeResourceGroup" e use-o no comando seguinte. **EnableAcceleratedNetworking** será verdadeiro ou falso:
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-[Abrir o Service Broker do Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite que você provisione os serviços do Azure diretamente do kubernetes ou do Cloud Foundry. É uma implementação de [API aberta Service Broker](https://www.openservicebrokerapi.org/) para o Azure.
+## <a name="open-service-broker-for-azure"></a>Abrir o Open Service Broker para o Azure 
+[O Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite-lhe fornecer serviços Azure diretamente da Kubernetes ou Cloud Foundry. É uma implementação da [API](https://www.openservicebrokerapi.org/) de Corretor de Serviço aberto para o Azure.
 
-Com o OSBA, você pode criar um servidor de banco de dados do Azure para MySQL e associá-lo ao cluster AKS usando o idioma nativo do kubernetes. Saiba mais sobre como usar o OSBA e o banco de dados do Azure para MySQL juntos na [página do GitHub do OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
+Com a OSBA, pode criar uma Base de Dados Azure para o servidor MySQL e ligá-lo ao seu cluster AKS utilizando a língua nativa de Kubernetes. Saiba como utilizar a OSBA e a Base de Dados Azure para mySQL juntas na [página OSBA GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar um cluster do serviço kubernetes do Azure](../aks/kubernetes-walkthrough.md)
-- Saiba como [instalar o WordPress de um gráfico do Helm usando o OSBA e o banco de dados do Azure para MySQL](../aks/integrate-azure.md)
+- [Criar um cluster de serviço Azure Kubernetes](../aks/kubernetes-walkthrough.md)
+- Saiba como instalar o WordPress a partir de um gráfico helm utilizando a BASE de [Dados OSBA e Azure para mySQL](../aks/integrate-azure.md)

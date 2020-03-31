@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Azure Databricks SCIM Connector para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Azure Databricks SCIM Connector para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para Azure Databricks SCIM Connector.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77370531"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Tutorial: Configure Azure Databricks SCIM Connector para fornecimento automático de utilizadores
@@ -96,7 +96,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. No âmbito da secção **de Credenciais de Administrador,** insera o valor final do SCIM no URL do **Arrendatário**. O URL do inquilino deve estar no formato `https://<region>.azuredatabricks.net/api/2.0/preview/scim` onde a **região** pode ser encontrada no URL da página inicial do Azure Databricks. Por exemplo, será `https://westus.azuredatabricks.net/api/2.0/preview/scim`um ponto final da SCIM para a região **de Westus.** Insera o valor simbólico recuperado anteriormente em **Secret Token**. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao Conector SCIM de tijolos de dados Azure. Se a ligação falhar, certifique-se de que a sua conta de Conector SCIM de Tijolos De Dados Azure tem permissões de administrador e tente novamente.
+5. No âmbito da secção **de Credenciais de Administrador,** insera o valor final do SCIM no URL do **Arrendatário**. O URL do inquilino `https://<region>.azuredatabricks.net/api/2.0/preview/scim` deve estar no formato onde a **região** pode ser encontrada no URL da página inicial do Azure Databricks. Por exemplo, será `https://westus.azuredatabricks.net/api/2.0/preview/scim`um ponto final da SCIM para a região de **Westus.** Insera o valor simbólico recuperado anteriormente em **Secret Token**. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao Conector SCIM de tijolos de dados Azure. Se a ligação falhar, certifique-se de que a sua conta de Conector SCIM de Tijolos De Dados Azure tem permissões de administrador e tente novamente.
 
     ![provisionamento](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 
@@ -150,7 +150,7 @@ Depois de configurar o fornecimento, utilize os seguintes recursos para monitori
 
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 * Os Databricks convertem sempre os seus valores de nome de utilizador para minúsculas quando poupam para o seu diretório, independentemente da capitalização que lhes enviamos através do SCIM.
-* Atualmente, os pedidos da GET contra a API SCIM da Azure Databricks para os utilizadores são sensíveis a casos, por isso, se pedirmos USER@contoso.com, apresentará resultados 0 à medida que o armazenam como user@contoso.com.
+* Atualmente, os pedidos do GET contra a API SCIM da Azure Databricks para os utilizadores são sensíveis a casos, por isso, se pedirmos por USER@contoso.com isso, surgiremos 0 resultados à medida que o armazenam como user@contoso.com.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

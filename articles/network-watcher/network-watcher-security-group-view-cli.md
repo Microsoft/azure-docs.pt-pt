@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 73f1efc512bf031021791da8cc55bc4e7d98a812
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840780"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analise a sua segurança da Máquina Virtual com vista de grupo de segurança usando o Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI do Azure](network-watcher-security-group-view-cli.md)
-> - [API REST](network-watcher-security-group-view-rest.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 A visão do grupo de segurança devolução de devoluções configuradas e eficazes de segurança da rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar Grupos de Segurança da Rede e regras que estão configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos-lhe como recuperar as regras de segurança configuradas e eficazes a uma máquina virtual usando o Azure CLI
 
-Para executar as etapas neste artigo, você precisa [instalar a interface de linha de comando do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
+Para executar os passos deste artigo, é necessário [instalar a interface de linha de comando Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede.
 
 ## <a name="scenario"></a>Cenário
 
@@ -40,13 +40,13 @@ O cenário abordado neste artigo recupera as regras de segurança configuradas e
 
 ## <a name="get-a-vm"></a>Obter um VM
 
-É necessária uma máquina virtual para executar o `vm list` cmdlet. O seguinte comando lista as máquinas virtuais num grupo de recursos:
+É necessária uma máquina virtual `vm list` para executar o cmdlet. O seguinte comando lista as máquinas virtuais num grupo de recursos:
 
 ```azurecli
 az vm list -resource-group resourceGroupName
 ```
 
-Assim que conhecer a máquina virtual, pode utilizar o `vm show` cmdlet para obter o seu recurso Id:
+Assim que conhecer a máquina virtual, pode utilizar o cmdlet para obter o `vm show` seu recurso Id:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936846"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos dNS e recordes através do portal Azure
@@ -41,7 +41,7 @@ Pode adicionar até 20 recordes a qualquer recorde. Um conjunto de registos não
 
 2. Especifique as propriedades do conjunto de registos preenchendo os campos.
 
-    ![Adicione um disco](./media/dns-operations-recordsets-portal/addrecord500.png)
+    ![Adicionar um registo](./media/dns-operations-recordsets-portal/addrecord500.png)
 
 3. Clique em **Guardar** na parte superior da lâmina para guardar as definições. Em seguida, feche a lâmina.
 4. No canto, verá supor que o recorde está a ser salvo.
@@ -50,7 +50,7 @@ Pode adicionar até 20 recordes a qualquer recorde. Um conjunto de registos não
 
 Depois de o registo ter sido guardado, os valores na lâmina da **zona DNS** refletirão o novo recorde.
 
-## <a name="update-a-record"></a>Atualizar um recorde
+## <a name="update-a-record"></a>Atualizar um registo
 
 Quando actualizaum disco num conjunto de registos existente, os campos que pode atualizar dependem do tipo de registo com que está a trabalhar.
 
@@ -77,11 +77,11 @@ Pode utilizar o portal Azure para remover registos de um conjunto de registos. N
 3. Clique em **Guardar** na parte superior da lâmina para guardar as definições.
 4. Depois de removido o registo, os valores para o registo na lâmina da **zona DNS** refletirão a remoção.
 
-## <a name="delete"></a>Apagar um conjunto de registos
+## <a name="delete-a-record-set"></a><a name="delete"></a>Apagar um conjunto de registos
 
 1. No **conjunto de propriedades do Record** para o seu conjunto de registos, clique em **Eliminar**.
 
-    ![Excluir um conjunto de registros](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
+    ![Apagar um conjunto de registos](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. Aparece uma mensagem a perguntar se pretende eliminar o conjunto de registos.
 3. Verifique se o nome corresponde ao conjunto de registos que pretende eliminar e, em seguida, clique em **Sim**.
@@ -93,15 +93,15 @@ Os registos NS e SOA que são automaticamente criados são geridos de forma dife
 
 ### <a name="modify-soa-records"></a>Modificar registos SOA
 
-Não é possível adicionar ou remover registos do registo SOA criado automaticamente no ápice da zona (nome = "\@"). No entanto, pode modificar qualquer um dos parâmetros dentro do registo SOA (exceto "Host") e o conjunto de discos TTL.
+Não é possível adicionar ou remover registos do registo SOA criado\@automaticamente no ápice da zona (nome = " "). No entanto, pode modificar qualquer um dos parâmetros dentro do registo SOA (exceto "Host") e o conjunto de discos TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar os registos de NS no ápice da zona
 
-O conjunto de registros NS no Apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
+O registo NS estabelecido no ápice da zona é automaticamente criado com cada zona DNS. Contém os nomes dos servidores de nome SN Azure atribuídos à zona.
 
-Você pode adicionar servidores de nomes adicionais a esse conjunto de registros NS para dar suporte a domínios de hospedagem com mais de um provedor de DNS. Você também pode modificar o TTL e os metadados para este conjunto de registros. No entanto, não é possível remover ou modificar os servidores de nomes DNS do Azure populados previamente.
+Pode adicionar servidores de nome adicionais a este conjunto de registos NS, para suportar domínios de co-hospedagem com mais de um fornecedor DNS. Também pode modificar o TTL e os metadados para este conjunto de registos. No entanto, não é possível remover ou modificar os servidores de nome DNS Do DNS do Azure pré-povoados.
 
-Observe que isso se aplica somente ao conjunto de registros NS no Apex da zona. Outros conjuntos de registros NS em sua zona (como usados para delegar zonas filhas) podem ser modificados sem restrição.
+Note que isto se aplica apenas ao registo nS estabelecido no ápice da zona. Outros conjuntos de registos de NS na sua zona (como usado para delegar zonas infantis) podem ser modificados sem restrições.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminar conjuntos de recordes SOA ou NS
 

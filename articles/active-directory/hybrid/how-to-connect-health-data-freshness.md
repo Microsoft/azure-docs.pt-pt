@@ -16,15 +16,15 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897175"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Dados do serviço de saúde não estão atualizados alerta
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Os agentes nas máquinas no local que o Azure AD Connect Health monitoriza periodicamente fazem o upload de dados para o Serviço de Saúde Azure AD Connect. Se o serviço não receber dados de um agente, a informação que o portal apresenta será estadre. Para destacar o problema, o serviço irá elevar os dados do serviço de **Saúde não está atualizado** de alerta. Este alerta é gerado quando o serviço não recebeu dados completos nas últimas duas horas.  
 
@@ -41,11 +41,11 @@ A lâmina **de alerta detalha** quando o alerta ocorreu e foi detetada pela últ
  
 Os seguintes tipos de serviço de mapas de tabelas aos tipos de dados correspondentes:
 
-| Tipo de serviço | Agente (nome do Serviço Windows) | Finalidade | Tipo de dados gerado  |
+| Tipo de serviço | Agente (nome do Serviço Windows) | Objetivo | Tipo de dados gerado  |
 | --- | --- | --- | --- |  
-| Ligação Azure AD (Sincronização) | Serviço de Informações do Azure AD Connect Health Sincronização | Recolher informações específicas de ligação AAD (conectores, regras de sincronização, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Conectores <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+| Ligação Azure AD (Sincronização) | Serviço de Informações do Azure AD Connect Health Sincronização | Recolher informações específicas de ligação AAD (conectores, regras de sincronização, etc.) | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Conectores <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - Configurações AadSyncService-Service <br /> - AadSyncService-ServiceStatus   |
 |  | Serviço de Monitorização do Azure AD Connect Health Sincronização | Recolher contadores de perf específicos de Ligação AAD, vestígios eTW, ficheiros | Contador de desempenho |
-| AD DS | Serviço de Informações do Azure AD Connect Health AD DS | Realizar testes sintéticos, recolher informações de topologia, replicar metadados |  - Acrescenta-TopologyInfo-Json <br /> - Common-TestData-Json (cria os resultados dos testes)   | 
+| AD DS | Serviço de Informações do Azure AD Connect Health AD DS | Realizar testes sintéticos, recolher informações de topologia, replicar metadados |  - Acrescenta-TopologyInfo-Json <br /> - Common-TestData-Json (cria os resultados dos testes)   | 
 |  | Serviço de Monitorização do Azure AD Connect Health AD DS | Recolher contadores perf específicos de ADDS, vestígios eTW, ficheiros | - Contador de desempenho  <br /> - Common-TestData-Json (faz upload dos resultados dos testes)  |
 | AD FS | Serviço de Diagnóstico do Azure AD Connect Health AD FS | Realizar testes sintéticos | TestResult (cria os resultados dos testes) | 
 | | Serviço de Informações do Azure AD Connect Health AD FS  | Recolher métricas de utilização aDFS | Adfs-UsageMetrics |
@@ -60,7 +60,7 @@ Os passos necessários para diagnosticar a questão são dados abaixo. A primeir
 
 * Certifique-se de que as versões mais recentes dos agentes estão instaladas. Ver história de [lançamento.](reference-connect-health-version-history.md) 
 * Certifique-se de que os serviços de Agentes de Saúde Azure AD Connect estão **a funcionar** na máquina. Por exemplo, a Connect Health for AD FS deve ter três serviços.
-  ![verificar a](./media/how-to-connect-health-agent-install/install5.png) de saúde azure AD Connect
+  ![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Certifique-se de que vai até ao encontro da [secção de requisitos](how-to-connect-health-agent-install.md#requirements).
 * Utilize [a ferramenta](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) de conectividade de teste para descobrir problemas de conectividade.

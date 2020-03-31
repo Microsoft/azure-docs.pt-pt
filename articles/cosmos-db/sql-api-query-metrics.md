@@ -1,6 +1,6 @@
 ---
-title: Métricas de consulta SQL para o Azure Cosmos DB SQL API
-description: Saiba mais sobre como instrumentar e depurar o desempenho de consulta SQL de pedidos do Azure Cosmos DB.
+title: Métricas de consulta SQL para Azure Cosmos DB SQL API
+description: Saiba como instrumentar e desinvomar o desempenho da consulta SQL dos pedidos da Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,48 +8,48 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69614819"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
 
-O Azure Cosmos DB fornece uma [API de SQL para consultar dados](how-to-sql-query.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
+A Azure Cosmos DB fornece um [SQL API para consulta](how-to-sql-query.md)de dados, sem necessitar de esquemas ou índices secundários. Este artigo fornece as seguintes informações para os desenvolvedores:
 
-* Detalhes de alto nível sobre como funciona a execução de consultas SQL do Azure Cosmos DB
-* Obter detalhes sobre os cabeçalhos de solicitação e resposta da consulta e as opções do SDK de cliente
-* Dicas e melhores práticas para desempenho da consulta
+* Detalhes de alto nível sobre como funciona a execução de consulta SQL da Azure Cosmos DB
+* Detalhes sobre pedidos de consulta e cabeçalhos de resposta, e opções sDK do cliente
+* Dicas e boas práticas para o desempenho da consulta
 * Exemplos de como utilizar as estatísticas de execução do SQL para depurar o desempenho da consulta
 
-## <a name="about-sql-query-execution"></a>Sobre a execução da consulta SQL
+## <a name="about-sql-query-execution"></a>Sobre a execução de consulta SQL
 
-Azure Cosmos DB, vai armazenar dados em contentores, que podem crescer para qualquer [débito de tamanho ou a pedido do armazenamento](partition-data.md). O Azure Cosmos DB dimensiona facilmente dados pelas partições físicas nos bastidores para lidar com crescimento de dados ou aumentar o débito aprovisionado. Pode emitir consultas SQL a nenhum contêiner usando a API REST ou um suportadas [SDKs de SQL](sql-api-sdk-dotnet.md).
+No Azure Cosmos DB, armazena dados em contentores, que podem crescer até qualquer tamanho de armazenamento ou entrada de [pedidos.](partition-data.md) O Azure Cosmos DB escala perfeitamente os dados através das divisórias físicas sob as coberturas para lidar com o crescimento de dados ou o aumento da entrada aprovisionada. Pode emitir consultas SQL a qualquer recipiente que utilize a API REST ou um dos [SDKs SQL](sql-api-sdk-dotnet.md)suportados .
 
-Uma breve descrição geral da criação de partições: definir uma chave de partição, como "Cidade", que determina como os dados são divididos em partições físicas. Dados que pertencem a chave de partição única (por exemplo, "Cidade" = = "Seattle") são armazenados dentro de uma partição física, mas normalmente uma única partição física tem várias chaves de partição. Quando uma partição atinge o tamanho de armazenamento, o serviço de forma totalmente integrada divide a partição em duas novas partições e divide a chave de partição uniformemente entre estas partições. Uma vez que as partições são transitórias, as APIs utilizam uma abstração de um "partição intervalo de chaves", que denota os intervalos de hashes de chave de partição. 
+Uma breve visão geral da partilha: define-se uma chave de partição como "cidade", que determina como os dados são divididos entre divisórias físicas. Os dados pertencentes a uma única chave de partição (por exemplo, "cidade" == "Seattle") são armazenados dentro de uma divisória física, mas tipicamente uma única divisória física tem múltiplas teclas de partição. Quando uma divisória atinge o seu tamanho de armazenamento, o serviço divide perfeitamente a divisória em duas novas divisórias, e divide a chave de divisória uniformemente através destas divisórias. Uma vez que as divisórias são transitórias, as APIs usam uma abstração de uma "gama de chaves de partição", que denota as gamas de hashes chave de partição. 
 
-Quando emite uma consulta ao Azure Cosmos DB, o SDK efetua estes passos lógicos:
+Quando emite uma consulta ao Azure Cosmos DB, o SDK realiza estes passos lógicos:
 
-* Analisar a consulta SQL para determinar o plano de execução da consulta. 
-* Se a consulta inclui um filtro contra a chave de partição, como `SELECT * FROM c WHERE c.city = "Seattle"`, é encaminhado para uma única partição. Se a consulta não tem um filtro numa chave de partição, em seguida, ele é executado em todas as partições e os resultados são mesclados do lado do cliente.
-* A consulta é executada em cada partição em série ou parallel, com base na configuração de cliente. Em cada partição, a consulta poderá fazer um ou mais ida e volta, dependendo da complexidade da consulta, configurado o tamanho da página e aprovisionar o débito da coleção. Cada execução devolve o número de [unidades de pedido](request-units.md) consumidos pela execução da consulta e, opcionalmente, estatísticas de execução de consulta. 
-* O SDK efetua um resumo dos resultados da consulta entre partições. Por exemplo, se a consulta envolve uma ORDER BY em várias partições, em seguida, resultados de partições individuais são ordenados de intercalação para devolver resultados em ordem classificada globalmente. Se a consulta é uma agregação, como `COUNT`, as contagens de partições individuais são somadas para produzir a contagem de geral.
+* Analise a consulta SQL para determinar o plano de execução da consulta. 
+* Se a consulta incluir um filtro contra `SELECT * FROM c WHERE c.city = "Seattle"`a chave de partição, como, é encaminhado para uma única divisória. Se a consulta não tiver um filtro na chave de partição, então é executada em todas as divisórias, e os resultados são fundidos do lado do cliente.
+* A consulta é executada dentro de cada partição em série ou paralelo, com base na configuração do cliente. Dentro de cada partição, a consulta pode fazer uma ou mais viagens de ida e volta dependendo da complexidade da consulta, do tamanho da página configurada e do fornecimento de entrada da coleção. Cada execução devolve o número de [unidades](request-units.md) de pedido consumidas pela execução de consulta, e opcionalmente, estatísticas de execução de consulta. 
+* O SDK realiza uma resumição dos resultados da consulta através das divisórias. Por exemplo, se a consulta envolve uma ORDEM BY através de divisórias, então os resultados de divisórias individuais são classificados para devolver resultados em ordem global. Se a consulta for uma agregação como, `COUNT`as contagens de divisórias individuais são resumidas para produzir a contagem geral.
 
-Os SDKs oferecem várias opções para a execução da consulta. Por exemplo, no .NET em que estas opções estão disponíveis no `FeedOptions` classe. A tabela seguinte descreve estas opções e seu impacto tempo de execução da consulta. 
+Os SDKs fornecem várias opções para a execução de consultas. Por exemplo, em .NET estas `FeedOptions` opções estão disponíveis na classe. A tabela que se segue descreve estas opções e como impactam o tempo de execução da consulta. 
 
 | Opção | Descrição |
 | ------ | ----------- |
-| `EnableCrossPartitionQuery` | Tem de ser definido como verdadeiro para qualquer consulta que necessita para ser executados em mais de uma partição. Este é um sinalizador explícito para que possa fazer compensações consciente de desempenho durante o tempo de desenvolvimento. |
-| `EnableScanInQuery` | Deve ser definida como verdadeira se tiver optado por fora de indexação, mas pretende executar a consulta através de uma análise de qualquer forma. Apenas aplicável se a indexação para o caminho de filtro solicitado está desativada. | 
-| `MaxItemCount` | O número máximo de itens a devolver por ida e volta ao servidor. Por definição como -1, pode permitir que o servidor de gerir o número de itens. Em alternativa, pode reduzir este valor para recuperar apenas um pequeno número de itens por ida e volta. 
-| `MaxBufferedItemCount` | Esta é uma opção do lado do cliente e utilizado para limitar o consumo de memória, ao realizar entre partições ORDER BY. Um valor mais alto ajuda a reduzir a latência da classificação de entre partições. |
-| `MaxDegreeOfParallelism` | Obtém ou define o número de operações simultâneas executadas no lado do cliente durante a execução de consulta paralela no serviço de banco de dados Cosmos do Azure. Um valor de propriedade positivo limita o número de operações simultâneas para o valor do conjunto. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de operações simultâneas para executar. |
-| `PopulateQueryMetrics` | Registo detalhado de estatísticas de tempo gasto em fases de execução da consulta, como tempo de compilação, o tempo de ciclo de índice e o documento de ativa o tempo de carga. Pode compartilhar a saída de estatísticas de consulta com suporte do Azure para diagnosticar problemas de desempenho de consulta. |
-| `RequestContinuation` | Pode retomar a execução da consulta ao passar o token de continuação opaco devolvido por qualquer consulta. O token de continuação encapsula todo o estado necessário para a execução da consulta. |
-| `ResponseContinuationTokenLimitInKb` | Pode limitar o tamanho máximo do token de continuação devolvido pelo servidor. Poderá ter de definir esta opção se o seu host de aplicativo tem limites no tamanho do cabeçalho de resposta. Definir este pode aumentar a duração e o RUs consumidas para a consulta global.  |
+| `EnableCrossPartitionQuery` | Deve ser definido como verdadeiro para qualquer consulta que precise ser executada em mais de uma partição. Esta é uma bandeira explícita que lhe permite fazer trocas conscientes de desempenho durante o tempo de desenvolvimento. |
+| `EnableScanInQuery` | Deve ser definido para verdade se você optou por não indexar, mas quer executar a consulta através de um exame de qualquer maneira. Só aplicável se a indexação para a via filtragem solicitada for desativada. | 
+| `MaxItemCount` | O número máximo de itens para devolver por ida e volta ao servidor. Ao definir para -1, pode deixar o servidor gerir o número de itens. Ou, você pode baixar este valor para recuperar apenas um pequeno número de itens por ida e volta. 
+| `MaxBufferedItemCount` | Esta é uma opção do lado do cliente, e usada para limitar o consumo de memória ao executar a divisão cruzada ORDER BY. Um valor mais elevado ajuda a reduzir a latência da triagem de divisórias cruzadas. |
+| `MaxDegreeOfParallelism` | Obtém ou define o número de operações simultâneas executadas do lado do cliente durante a execução de consulta paralela no serviço de base de dados Azure Cosmos. Um valor patrimonial positivo limita o número de operações simultâneas ao valor definido. Se for definido para menos de 0, o sistema decide automaticamente o número de operações simultâneas a executar. |
+| `PopulateQueryMetrics` | Permite o registo detalhado das estatísticas do tempo gasto em várias fases de execução de consulta, como o tempo de compilação, o tempo do loop do índice e o tempo de carga do documento. Pode partilhar a produção a partir de estatísticas de consulta com suporte Azure para diagnosticar problemas de desempenho de consulta. |
+| `RequestContinuation` | Você pode retomar a execução de consulta passando no token de continuação opaca devolvido por qualquer consulta. O símbolo de continuação encapsula todo o estado necessário para a execução da consulta. |
+| `ResponseContinuationTokenLimitInKb` | Pode limitar o tamanho máximo do token de continuação devolvido pelo servidor. Pode ser necessário definir isto se o seu anfitrião de aplicação tiver limites no tamanho do cabeçalho de resposta. A definição disto pode aumentar a duração total e as RUs consumidas para a consulta.  |
 
-Por exemplo, vamos dar um exemplo de consulta numa chave de partição que solicitou numa coleção com `/city` como partição de chave e ser provisionada com 100 000 RU/s de débito. Pedido esta consulta utilizando `CreateDocumentQuery<T>` no .NET semelhante ao seguinte:
+Por exemplo, vamos dar um exemplo de consulta sobre a `/city` chave de partição solicitada numa coleção com como chave de partição e aprovisionado com 100.000 RU/s de entrada. Solicita esta consulta `CreateDocumentQuery<T>` utilizando em .NET como o seguinte:
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -66,7 +66,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 ```
 
-O trecho SDK mostrado acima, corresponde ao pedido de REST API seguinte:
+O snippet SDK acima indicado corresponde ao seguinte pedido de API REST:
 
 ```
 POST https://arramacquerymetrics-westus.documents.azure.com/dbs/db/colls/sample/docs HTTP/1.1
@@ -93,9 +93,9 @@ Expect: 100-continue
 {"query":"SELECT * FROM c WHERE c.city = 'Seattle'"}
 ```
 
-Cada página de execução de consulta corresponde a uma API REST `POST` com o `Accept: application/query+json` cabeçalho e a consulta SQL no corpo. Cada consulta faz com que um ou mais de ida e volta para o servidor com o `x-ms-continuation` token refletido entre o cliente e servidor para continuar a execução. As opções de configuração no FeedOptions são transmitidas para o servidor sob a forma de cabeçalhos de pedido. Por exemplo, `MaxItemCount` corresponde ao `x-ms-max-item-count`. 
+Cada página de execução de consulta `POST` corresponde `Accept: application/query+json` a uma API REST com o cabeçalho, e a consulta SQL no corpo. Cada consulta faz uma ou mais viagens `x-ms-continuation` de ida e volta ao servidor com o token ecoado entre o cliente e o servidor para retomar a execução. As opções de configuração no FeedOptions são passadas para o servidor sob a forma de cabeçalhos de pedido. Por exemplo, `MaxItemCount` corresponde `x-ms-max-item-count`a . 
 
-A solicitação retorna a resposta (truncado para facilitar a leitura) seguintes:
+O pedido devolve a seguinte resposta (truncada para a legibilidade):
 
 ```
 HTTP/1.1 200 Ok
@@ -122,54 +122,54 @@ x-ms-gatewayversion: version=1.14.33.2
 Date: Tue, 27 Jun 2017 21:59:49 GMT
 ```
 
-Os cabeçalhos de resposta da chave retornados da consulta incluem o seguinte:
+Os cabeçalhos de resposta chave devolvidos da consulta incluem o seguinte:
 
 | Opção | Descrição |
 | ------ | ----------- |
-| `x-ms-item-count` | O número de itens devolvidos na resposta. Isto é dependente do fornecido `x-ms-max-item-count`, o número de itens que podem ser ajustadas o tamanho de payload de resposta máximo, o débito aprovisionado e o tempo de execução da consulta. |  
-| `x-ms-continuation:` | O token de continuação para retomar a execução da consulta, se os resultados adicionais estão disponíveis. | 
-| `x-ms-documentdb-query-metrics` | As estatísticas de consulta para a execução. Esta é uma seqüência de caracteres delimitada que contém as estatísticas de tempo gasto em várias fases de execução da consulta. If retornado `x-ms-documentdb-populatequerymetrics` está definido como `True`. | 
-| `x-ms-request-charge` | O número de [unidades de pedido](request-units.md) consumidos pela consulta. | 
+| `x-ms-item-count` | O número de itens devolvidos na resposta. Isto depende do `x-ms-max-item-count`fornecido, do número de itens que podem ser ajustados dentro do tamanho máximo da carga útil da resposta, da entrada prevista e do tempo de execução da consulta. |  
+| `x-ms-continuation:` | A continuação para retomar a execução da consulta, se houver resultados adicionais disponíveis. | 
+| `x-ms-documentdb-query-metrics` | As estatísticas de consulta para a execução. Esta é uma cadeia delimitada contendo estatísticas de tempo gasto nas várias fases da execução de consultas. Devolvido `x-ms-documentdb-populatequerymetrics` se estiver `True`definido para . | 
+| `x-ms-request-charge` | O número de [unidades](request-units.md) de pedido consumidas pela consulta. | 
 
-Para obter detalhes sobre as opções e cabeçalhos de pedido de REST API, consulte [consulta de recursos com a API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+Para mais detalhes sobre os cabeçalhos e opções de pedido da API REST, consulte os recursos de [consulta utilizando a API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
-## <a name="best-practices-for-query-performance"></a>Melhores práticas para desempenho da consulta
-Seguem-se os fatores mais comuns que afetam o desempenho das consultas do Azure Cosmos DB. Vamos aprofundar mais cada um desses tópicos neste artigo.
+## <a name="best-practices-for-query-performance"></a>Boas práticas para o desempenho da consulta
+Seguem-se os fatores mais comuns que impactam o desempenho da consulta do Azure Cosmos DB. Aprofundamos cada um destes tópicos neste artigo.
 
 | Fator | Sugestão | 
 | ------ | -----| 
-| Débito aprovisionado | Medir RU por consulta e certifique-se de que tem o débito aprovisionado necessário para as suas consultas. | 
-| Criação de partições e chaves de partição | Favorece o consultas com o valor de chave de partição na cláusula de filtro de baixa latência. |
-| Opções de consulta e SDK | Siga as melhores práticas do SDK, como conectividade direta e otimizar as opções de execução de consulta do lado do cliente. |
-| Latência de rede | Rede sobrecarga na medida em conta e utilizar as APIs multi-homing para ler a partir da região mais próxima. |
-| Política de Indexação | Certifique-se de que tem a indexação caminhos/política necessária para a consulta. |
-| Métricas de execução de consulta | Analise as métricas de execução de consulta para identificar potenciais reescritas de formas de dados e de consultas.  |
+| Débito aprovisionado | Meça o RU por consulta e certifique-se de que tem o medidor necessário para as suas consultas. | 
+| Chaves de partição e partição | Favor consultas com o valor chave da divisória na cláusula de filtro para baixa latência. |
+| Opções de SDK e consulta | Siga as melhores práticas da SDK, como conectividade direta, e sintonize as opções de execução de consulta do lado do cliente. |
+| Latência de rede | Contabilize as despesas gerais da rede na medição e utilize APIs multi-homing para ler a partir da região mais próxima. |
+| Política de Indexação | Certifique-se de que tem os caminhos/políticas de indexação necessários para a consulta. |
+| Métricas de execução de consulta | Analise as métricas de execução da consulta para identificar potenciais reescritas de formas de consulta e dados.  |
 
 ### <a name="provisioned-throughput"></a>Débito aprovisionado
-No Cosmos DB, criar contentores de dados, cada um com débito reservado, expressado em pedido (RU) de unidades por-segundo. Uma leitura de um documento de 1 KB é 1 RU e cada operação (incluindo consultas) são normalizados para um número fixo de RUs com base na sua complexidade. Por exemplo, se tiver de 1000 RU/s aprovisionada para o contentor e tiver uma consulta como `SELECT * FROM c WHERE c.city = 'Seattle'` que consome 5 RUs, em seguida, pode realizar (1000 RU/s) / (5 RU/consulta) = 200 consulta/s estas consultas por segundo. 
+Na Cosmos DB, cria-se recipientes de dados, cada um com entrada reservada expressa em unidades de pedido (RU) por segundo. Uma leitura de um documento de 1 KB é 1 RU, e todas as operações (incluindo consultas) são normalizadas para um número fixo de RUs com base na sua complexidade. Por exemplo, se tiver 1000 RU/s provisionados para o `SELECT * FROM c WHERE c.city = 'Seattle'` seu recipiente, e tiver uma consulta como a que consome 5 RUs, então pode realizar (1000 RU/s) / (5 RU/consulta) = 200 consultas/s tais consultas por segundo. 
 
-Se submeter consultas de mais de 200/segundo, o serviço começa a limitação de taxa de pedidos recebidos acima 200/s. Os SDKs processam automaticamente neste caso, efetuando uma repetição/término, portanto, pode observar uma latência superior para estas consultas. Aumentar o débito aprovisionado para o valor necessário melhora o débito e latência de consulta. 
+Se submeter mais de 200 consultas/seg, o serviço inicia pedidos de entrada limitadores de taxas acima de 200/s. Os SDKs lidam automaticamente com este caso executando um backoff/retry, pelo que poderá notar uma latência mais elevada para estas consultas. Aumentar a entrada prevista para o valor exigido melhora a sua latência e a sua entrada. 
 
-Para saber mais sobre unidades de pedido, consulte [unidades de pedido](request-units.md).
+Para saber mais sobre unidades de pedido, consulte [Unidades de Pedido](request-units.md).
 
-### <a name="partitioning-and-partition-keys"></a>Criação de partições e chaves de partição
-Com o Azure Cosmos DB, normalmente consultas realizam pela seguinte ordem de mais rápida/mais eficiente para mais lenta/menos eficiente. 
+### <a name="partitioning-and-partition-keys"></a>Chaves de partição e partição
+Com o Azure Cosmos DB, as consultas normalmente funcionam na seguinte ordem, desde o mais rápido/mais eficiente a mais lento/menos eficiente. 
 
-* OBTER uma chave de partição única e a chave do item
-* Consultar com uma cláusula de filtro numa chave de partição única
-* Consultar sem uma cláusula de filtro de endereços ou intervalos de igualdade em qualquer propriedade
-* Sem filtros de consulta
+* OBTENHA uma única chave de partição e chave de item
+* Consulta com uma cláusula de filtro numa única chave de partição
+* Consulta sem igualdade ou cláusula de filtro de alcance em qualquer propriedade
+* Consulta sem filtros
 
-As consultas que precisam consultar todas as partições têm latência superior e podem consumir RUs superior. Uma vez que cada partição tem de indexação automática em relação a todas as propriedades, a consulta pode ser satisfeita de forma eficiente do índice neste caso. Pode fazer consultas que abrangem as partições mais rápido, utilizando as opções de paralelismo.
+As consultas que precisam de consultar todas as divisórias precisam de maior latência, e podem consumir RUs mais elevados. Uma vez que cada partição tem indexação automática contra todas as propriedades, a consulta pode ser servida eficientemente a partir do índice neste caso. Pode fazer consultas que abrangem divisórias mais rapidamente utilizando as opções de paralelismo.
 
-Para saber mais sobre a criação de partições e chaves de partição, veja [criação de partições no Azure Cosmos DB](partition-data.md).
+Para saber mais sobre divisórias e chaves de partição, consulte [A Partição em Azure Cosmos DB](partition-data.md).
 
-### <a name="sdk-and-query-options"></a>Opções de consulta e SDK
-Ver [sugestões de desempenho](performance-tips.md) e [testes de desempenho](performance-testing.md) para saber como obter o melhor desempenho do lado do cliente do Azure Cosmos DB. Isto inclui com os SDKs mais recentes, configurações específicas da plataforma, como o número predefinido de ligações, frequência da coleta de lixo, a configurar e utilizar as opções de conectividade simples, como o Direct/TCP. 
+### <a name="sdk-and-query-options"></a>Opções de SDK e consulta
+Consulte dicas de [desempenho](performance-tips.md) e testes [de desempenho](performance-testing.md) para obter o melhor desempenho do lado do cliente da Azure Cosmos DB. Isto inclui a utilização dos Mais recentes SDKs, configuração de configurações específicas da plataforma, como o número padrão de ligações, frequência de recolha de lixo e utilização de opções de conectividade leve como Direct/TCP. 
 
 
-#### <a name="max-item-count"></a>Contagem Máxima de Itens
-Para consultas, o valor de `MaxItemCount` pode ter um impacto significativo no momento da consulta de ponto-a-ponto. Cada ida e volta para o servidor irá devolver nada mais do que o número de itens na `MaxItemCount` (predefinição de 100 itens). Definir este tipo como um valor mais alto (-1 é a máxima e recomendado) irá melhorar a sua duração de consulta geral ao limitar o número de ida e volta entre o servidor e cliente, especialmente para consultas com conjuntos de resultados grande.
+#### <a name="max-item-count"></a>Contagem de artigos max
+Para consultas, o `MaxItemCount` valor pode ter um impacto significativo no tempo de consulta de ponta a ponta. Cada ida e volta ao servidor não devolverá `MaxItemCount` mais do que o número de itens em (Padrão de 100 itens). Defini-lo para um valor mais elevado (-1 é máximo, e recomendado) irá melhorar a sua duração de consulta em geral, limitando o número de viagens redondas entre servidor e cliente, especialmente para consultas com grandes conjuntos de resultados.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -181,8 +181,8 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
     }).AsDocumentQuery();
 ```
 
-#### <a name="max-degree-of-parallelism"></a>Grau máximo de paralelismo
-Para consultas, otimizar o `MaxDegreeOfParallelism` para identificar as melhores configurações para a sua aplicação, especialmente se executar consultas entre partições (sem um filtro no valor de chave de partição). `MaxDegreeOfParallelism`  controla o número máximo de tarefas paralelas, ou seja, o número máximo de partições visitas em paralelo. 
+#### <a name="max-degree-of-parallelism"></a>Grau Máximo de Paralelismo
+Para consultas, sintonize as `MaxDegreeOfParallelism` melhores configurações para a sua aplicação, especialmente se realizar consultas de divisória cruzada (sem filtro no valor da chave de divisória). `MaxDegreeOfParallelism`controla o número máximo de tarefas paralelas, ou seja, o máximo de divisórias a visitar em paralelo. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -196,30 +196,30 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 Vamos supor que
-* 1!d = número máximo predefinido de tarefas paralelas (= número total de processador no computador cliente)
-* P = especificado pelo utilizador número máximo de tarefas paralelas
-* N = número de partições que tem de ser visitado pela resposta a uma consulta
+* D = Número máximo de tarefas paralelas (= número total de processador na máquina cliente)
+* P = Número máximo especificado pelo utilizador de tarefas paralelas
+* N = Número de divisórias que precisam de ser visitadas para responder a uma consulta
 
-Seguem-se as implicações de como as consultas paralelas comportaria para diferentes valores de P.
-* (P = = 0) = > modo Serial
-* (P = = 1) = > máximo de uma tarefa
-* (P > 1) = > tarefas paralelas de Min (P, N) 
-* (P < 1) = > tarefas paralelas de Min (N, D)
+Seguem-se as implicações de como as consultas paralelas se comportariam para diferentes valores de P.
+* (P == 0) => Modo de Série
+* (P == 1) => Máximo de uma tarefa
+* (P > 1) = tarefas paralelas> Min (P, N) 
+* (P < 1) = tarefas paralelas> Min (N, D)
 
-Notas de versão do SDK e detalhes sobre classes implementadas e métodos, consulte [SDKs de SQL](sql-api-sdk-dotnet.md)
+Para notas de lançamento do SDK, e detalhes sobre classes e métodos implementados ver [SDKs SQL](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Latência de rede
-Ver [distribuição global do Azure Cosmos DB](tutorial-global-distribution-sql-api.md) para saber como configurar a distribuição global e ligar-se para a região mais próxima. Latência de rede tem um impacto significativo no desempenho de consulta quando precisar de fazer várias viagens de ida e volta ou obter um grande conjunto de resultados de consulta. 
+Consulte a [distribuição global da Azure Cosmos DB](tutorial-global-distribution-sql-api.md) para saber como criar distribuição global e ligar-se à região mais próxima. A latência da rede tem um impacto significativo no desempenho da consulta quando você precisa fazer várias voltas ou recuperar um grande resultado definido a partir da consulta. 
 
-A seção sobre as métricas de execução de consulta explica como obter o tempo de execução do servidor de consultas ( `totalExecutionTimeInMs`), para que é capaz de distinguir entre o tempo gasto na execução da consulta e o tempo gasto em trânsito de rede.
+A secção sobre métricas de execução de consulta explica como `totalExecutionTimeInMs`recuperar o tempo de execução do servidor de consultas ( ), para que possa diferenciar entre o tempo gasto na execução de consulta e o tempo gasto em trânsito de rede.
 
 ### <a name="indexing-policy"></a>Política de indexação
-Ver [configurar a política de indexação](index-policy.md) para indexação caminhos, tipos e modos e como elas impactam a execução da consulta. Por predefinição, a política de indexação utiliza indexação de Hash para cadeias de caracteres, que é eficiente para consultas de igualdade, mas não para consultas de intervalo/ordenar por consultas. Se precisar de consultas de intervalo para cadeias de caracteres, é recomendável especificar o tipo de índice do intervalo para todas as cadeias de caracteres. 
+Consulte a política de indexação de [configuração](index-policy.md) para indexar caminhos, tipos e modos, e como impactam a execução de consultas. Por padrão, a política de indexação utiliza a indexação hash para cordas, o que é eficaz para consultas de igualdade, mas não para consultas de alcance/ordem por consultas. Se necessitar de consultas de alcance para cordas, recomendamos especificar o tipo de índice Gama para todas as cordas. 
 
-Por padrão, Azure Cosmos DB aplicará a indexação automática a todos os dados. Para cenários de inserção de alto desempenho, considere a exclusão de caminhos, pois isso reduzirá o custo de RU para cada operação de inserção. 
+Por padrão, o Azure Cosmos DB aplicará indexação automática a todos os dados. Para cenários de inserção de alto desempenho, considere excluir caminhos, uma vez que isso reduzirá o custo do RU para cada operação de inserção. 
 
 ## <a name="query-execution-metrics"></a>Métricas de execução de consulta
-Pode obter métricas detalhadas da execução de consulta ao transmitir o opcional `x-ms-documentdb-populatequerymetrics` cabeçalho (`FeedOptions.PopulateQueryMetrics` no SDK do .NET). O valor devolvido na `x-ms-documentdb-query-metrics` tem os seguintes pares de chave-valor destina a resolução de problemas de execução da consulta avançada. 
+Pode obter métricas detalhadas sobre a execução da consulta, passando no cabeçalho opcional `x-ms-documentdb-populatequerymetrics` (no`FeedOptions.PopulateQueryMetrics` .NET SDK). O valor `x-ms-documentdb-query-metrics` devolvido tem os seguintes pares de valor-chave destinados a resolução avançada de problemas de execução de consulta. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -240,40 +240,40 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | Métrica | Unidade | Descrição | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milissegundos | Tempo de execução de consulta | 
-| `queryCompileTimeInMs` | milissegundos | Tempo de compilação de consulta  | 
-| `queryLogicalPlanBuildTimeInMs` | milissegundos | Tempo para criar o plano de consulta de lógica | 
-| `queryPhysicalPlanBuildTimeInMs` | milissegundos | Tempo para criar o plano de consulta físico | 
-| `queryOptimizationTimeInMs` | milissegundos | O tempo gasto na otimização de consulta | 
-| `VMExecutionTimeInMs` | milissegundos | Tempo despendido no tempo de execução de consulta | 
-| `indexLookupTimeInMs` | milissegundos | O tempo gasto na camada física de índice | 
-| `documentLoadTimeInMs` | milissegundos | Tempo gasto no carregamento de documentos  | 
-| `systemFunctionExecuteTimeInMs` | milissegundos | Tempo total gasto funções (interna) do sistema em execução em milissegundos  | 
-| `userFunctionExecuteTimeInMs` | milissegundos | Tempo total gasto as funções definidas pelo utilizador em execução, em milissegundos | 
-| `retrievedDocumentCount` | count | Número total de documentos obtidos  | 
-| `retrievedDocumentSize` | bytes | Tamanho total de documentos obtidos em bytes  | 
+| `queryCompileTimeInMs` | milissegundos | Hora de compilação de consultas  | 
+| `queryLogicalPlanBuildTimeInMs` | milissegundos | Hora de construir plano de consulta lógica | 
+| `queryPhysicalPlanBuildTimeInMs` | milissegundos | Hora de construir plano de consulta física | 
+| `queryOptimizationTimeInMs` | milissegundos | Tempo gasto na otimização da consulta | 
+| `VMExecutionTimeInMs` | milissegundos | Tempo gasto em tempo de consulta | 
+| `indexLookupTimeInMs` | milissegundos | Tempo gasto em camada de índice físico | 
+| `documentLoadTimeInMs` | milissegundos | Tempo gasto em documentos de carregamento  | 
+| `systemFunctionExecuteTimeInMs` | milissegundos | O tempo total gasto do sistema de execução (incorporado) funciona em milissegundos  | 
+| `userFunctionExecuteTimeInMs` | milissegundos | Total de tempo gasto executando funções definidas pelo utilizador em milissegundos | 
+| `retrievedDocumentCount` | count | Número total de documentos recuperados  | 
+| `retrievedDocumentSize` | bytes | Tamanho total dos documentos recuperados em bytes  | 
 | `outputDocumentCount` | count | Número de documentos de saída | 
 | `writeOutputTimeInMs` | milissegundos | Tempo de execução de consulta em milissegundos | 
-| `indexUtilizationRatio` | proporção (< = 1) | Rácio do número de documentos correspondida ao filtro para o número de documentos carregados  | 
+| `indexUtilizationRatio` | relação (<=1) | Relação entre o número de documentos comparado pelo filtro ao número de documentos carregados  | 
 
-Os SDKs de cliente internamente podem fazer várias operações de consulta para atender a consulta em cada partição. O cliente faz mais do que uma chamada por partição se excederem os resultados totais `x-ms-max-item-count`, se a consulta excede o débito aprovisionado para a partição, ou se a carga de consulta atingir o tamanho máximo por página ou se a consulta atingir o sistema alocado limite de tempo limite. Cada execução de consulta parcial retorna um `x-ms-documentdb-query-metrics` para essa página. 
+Os SDKs do cliente podem internamente fazer múltiplas operações de consulta para servir a consulta dentro de cada partição. O cliente faz mais do que uma chamada `x-ms-max-item-count`por partição se os resultados totais excederem, se a consulta exceder a produção prevista para a partição, ou se a carga útil da consulta atingir o tamanho máximo por página, ou se a consulta atingir o limite de tempo atribuído ao sistema atribuído. Cada execução parcial `x-ms-documentdb-query-metrics` de consulta devolve uma para aquela página. 
 
-Aqui estão alguns exemplos de consultas e como interpretar algumas das métricas retornado da execução da consulta: 
+Aqui estão algumas consultas de amostra, e como interpretar algumas das métricas devolvidas da execução da consulta: 
 
-| Consulta | Métrica de exemplo | Descrição | 
+| Consulta | Métrica da amostra | Descrição | 
 | ------ | -----| ----------- |
-| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | O número de documentos obtido é a mais de 100 a 1 de acordo com a cláusula TOP. Tempo de consulta principalmente é gasto em `WriteOutputTime` e `DocumentLoadTime` , uma vez que é uma análise. | 
-| `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount agora é mais elevado (500 + 1 para corresponder a cláusula TOP). | 
-| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Cerca de 0.9 ms é gasto em IndexLookupTime para uma pesquisa de chave, porque é uma pesquisa de índice `/N/?`. | 
-| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Um pouco mais de tempo (ms versão 1.7) despendido no IndexLookupTime através de uma verificação de intervalo, porque é uma pesquisa de índice `/N/?`. | 
-| `SELECT TOP 500 c.N FROM c` | `"IndexLookupTime": "00:00:00.0017700"` | Mesmo tempo gasto em `DocumentLoadTime` como as consultas anteriores, mas inferior `WriteOutputTime` porque estamos estiver Projetando apenas uma propriedade. | 
-| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Cerca de 213 ms é gasto na `UserDefinedFunctionExecutionTime` execução do UDF em cada valor de `c.N`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Cerca de 0,6 ms é gasto na `IndexLookupTime` no `/Name/?`. Maior parte do tempo de execução de consulta (~ 7 ms) em `SystemFunctionExecutionTime`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Consulta é executada como uma análise porque utiliza `LOWER`, e 500 fora 2491 documentos obtidos são devolvidos. |
+| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | O número de documentos recuperados é de 100+1 para corresponder à cláusula TOP. O tempo de consulta `WriteOutputTime` `DocumentLoadTime` é gasto principalmente e como é um exame. | 
+| `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | O RecuperadoDocumentCount é agora mais elevado (500+1 para corresponder à cláusula TOP). | 
+| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Cerca de 0,9 ms são gastos no IndexLookupTime para uma procura `/N/?`chave, porque é uma análise de índice em . | 
+| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Um pouco mais de tempo (1,7 ms) gasto no IndexLookupTime ao longo `/N/?`de uma varredura de gama, porque é uma análise de índice em . | 
+| `SELECT TOP 500 c.N FROM c` | `"IndexLookupTime": "00:00:00.0017700"` | O mesmo `DocumentLoadTime` tempo gasto em consultas `WriteOutputTime` anteriores, mas mais baixo porque estamos projetando apenas uma propriedade. | 
+| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Cerca de 213 ms são gastos na `UserDefinedFunctionExecutionTime` `c.N`execução da UDF em cada valor de . |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Cerca de 0,6 ms `/Name/?`são gastos em `IndexLookupTime` . A maior parte do tempo de execução `SystemFunctionExecutionTime`da consulta (~7 ms) em . |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | A consulta é realizada como uma `LOWER`digitalização porque usa , e 500 de 2491 documentos recuperados são devolvidos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre os operadores de consulta SQL e palavras-chave suportados, consulte [consulta SQL](sql-query-getting-started.md). 
+## <a name="next-steps"></a>Passos seguintes
+* Para conhecer os operadores de consulta SQL suportados e palavras-chave, consulte a [consulta SQL](sql-query-getting-started.md). 
 * Para saber mais sobre unidades de pedido, consulte [unidades de pedido](request-units.md).
-* Para saber mais sobre a política de indexação, consulte o artigo [política de indexação](index-policy.md) 
+* Para aprender sobre a política de indexação, consulte [a política de indexação](index-policy.md) 
 
 

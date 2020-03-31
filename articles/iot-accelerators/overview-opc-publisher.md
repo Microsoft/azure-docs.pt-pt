@@ -1,6 +1,6 @@
 ---
-title: O que é o editor OPC-Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral dos recursos do editor OPC. Ele permite que você publique dados de telemetria JSON codificados usando uma carga JSON, para o Hub IoT do Azure.
+title: O que é OPC Publisher - Azure Microsoft Docs
+description: Este artigo fornece uma visão geral das características da OPC Publisher. Permite-lhe publicar dados codificados de telemetria JSON utilizando uma carga útil JSON, para o Hub Azure IoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -9,38 +9,38 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 2310a81d3cfaeff203134af9968bc2d5caea3e9c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73824782"
 ---
-# <a name="what-is-opc-publisher"></a>O que é o editor OPC?
+# <a name="what-is-opc-publisher"></a>O que é editora oPC?
 
-O editor OPC é uma implementação de referência que demonstra como:
+OPc Publisher é uma implementação de referência que demonstra como:
 
-- Conecte-se a servidores OPC UA existentes.
-- Publicar dados de telemetria codificados JSON de servidores OPC UA no formato OPC UA pub/sub, usando uma carga JSON, para o Hub IoT do Azure.
+- Ligue-se aos servidores OPC UA existentes.
+- Publique dados codificados de telemetria da JSON dos servidores OPC UA em formato OPC UA Pub/Sub, utilizando uma carga útil JSON, para o Hub Azure IoT.
 
-Você pode usar qualquer um dos protocolos de transporte para os quais o SDK do cliente do Hub IoT do Azure dá suporte: HTTPS, AMQP e MQTT.
+Pode utilizar qualquer um dos protocolos de transporte que o cliente SDK do Azure IoT Hub suporta: HTTPS, AMQP e MQTT.
 
 A implementação de referência inclui:
 
-- Um *cliente* OPC UA para se conectar a servidores OPC UA existentes que você tem em sua rede.
-- Um *servidor* OPC UA na porta 62222 que você pode usar para gerenciar o que está publicado e oferece métodos diretos do Hub IOT para fazer o mesmo.
+- Um *cliente* da OPC UA para ligar aos servidores UA opc existentes que tem na sua rede.
+- Um *servidor* OPC UA na porta 62222 que pode usar para gerir o que é publicado e oferece métodos diretos IoT Hub para fazer o mesmo.
 
-Você pode baixar a [implementação de referência do editor OPC](https://github.com/Azure/iot-edge-opc-publisher) do github.
+Pode baixar a implementação de referência da [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) a partir do GitHub.
 
-O aplicativo é implementado usando a tecnologia .NET Core e pode ser executado em qualquer plataforma com suporte no .NET Core.
+A aplicação é implementada utilizando a tecnologia .NET Core e pode funcionar em qualquer plataforma suportada por .NET Core.
 
-O editor OPC implementa a lógica de repetição para estabelecer conexões com pontos de extremidade que não respondem a um determinado número de solicitações Keep Alive. Por exemplo, se um servidor OPC UA parar de responder devido a uma interrupção de energia.
+A OPC Publisher implementa uma lógica de nova tentativa para estabelecer ligações a pontos finais que não respondem a um certo número de pedidos de manutenção vivo. Por exemplo, se um servidor OPC UA parar de responder devido a uma falha de energia.
 
-Para cada intervalo de publicação distinto para um servidor OPC UA, o aplicativo cria uma assinatura separada sobre a qual todos os nós com esse intervalo de publicação são atualizados.
+Para cada intervalo de publicação distinto para um servidor OPC UA, a aplicação cria uma subscrição separada sobre a qual todos os nós com este intervalo de publicação são atualizados.
 
-O editor OPC dá suporte ao envio em lote dos dados enviados ao Hub IoT para reduzir a carga de rede. Esse envio em lote enviará um pacote ao Hub IoT somente se o tamanho do pacote configurado for atingido.
+A OPC Publisher suporta o lote dos dados enviados ao IoT Hub para reduzir a carga de rede. Este lote envia um pacote para o IoT Hub apenas se o tamanho do pacote configurado for atingido.
 
-Este aplicativo usa a pilha de referência OPC do OPC Foundation para pacotes NuGet. Consulte [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) para os termos de licenciamento.
+Esta aplicação utiliza a pilha de referência oPC Foundation OPC UA como pacotes NuGet. Consulte [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) os termos de licenciamento.
 
 ### <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu o que é o editor OPC, a próxima etapa sugerida é aprender a [Configurar o editor OPC](howto-opc-publisher-configure.md).
+Agora que já aprendeu o que é a OPC Publisher, o próximo passo sugerido é aprender a configurar a [Editora OPC.](howto-opc-publisher-configure.md)

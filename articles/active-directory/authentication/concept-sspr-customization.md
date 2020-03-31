@@ -1,6 +1,6 @@
 ---
-title: Personalizar autoatendimento de redefinição de senha-Azure Active Directory
-description: Opções de personalização para redefinição de senha de autoatendimento do Azure AD
+title: Personalize o reset de senha de autosserviço - Diretório Ativo Azure
+description: Opções de personalização para reset de senha de autosserviço da AD Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,86 +12,86 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979466"
 ---
-# <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para redefinição de senha de autoatendimento
+# <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalize a funcionalidade Azure AD para reset de senha de autosserviço
 
-Os profissionais de ti que desejam implantar SSPR (redefinição de senha de autoatendimento) no Azure Active Directory (Azure AD) podem personalizar a experiência de acordo com as necessidades dos usuários.
+Os profissionais de TI que pretendam implementar o reset de senhade self-service (SSPR) no diretório Azure Ative (Azure AD) podem personalizar a experiência de forma a corresponder às necessidades dos seus utilizadores.
 
-## <a name="customize-the-contact-your-administrator-link"></a>Personalizar o link "Contate o administrador"
+## <a name="customize-the-contact-your-administrator-link"></a>Personalize o link "Contacte o seu administrador"
 
-Os usuários de redefinição de senha de autoatendimento têm um link "Contate o administrador" disponível para eles no portal de redefinição de senha. Se um usuário selecionar esse link, ele fará uma destas duas coisas:
+Os utilizadores de redefinição de palavra-passe de autosserviço têm um link "Contacte o seu administrador" no portal de reset de palavra-passe. Se um utilizador selecionar este link, fará uma de duas coisas:
 
-* Se deixado no estado padrão:
-   * O email é enviado aos seus administradores e solicita que eles forneçam assistência para alterar a senha do usuário. Consulte o [email de exemplo](#sample-email) abaixo.
+* Se deixada no estado padrão:
+   * O e-mail é enviado aos seus administradores e pede-lhes que prestem assistência na alteração da palavra-passe do utilizador. Veja o [e-mail](#sample-email) abaixo.
 * Se personalizado:
-   * Envia o usuário para uma página da Web ou endereço de email especificado pelo administrador para obter assistência.
+   * Envia o seu utilizador para uma página web ou endereço de e-mail especificado pelo administrador para assistência.
 
 > [!TIP]
-> Se você personalizar isso, é recomendável definir isso para algo que os usuários já conhecem para obter suporte
+> Se personalizar isto, recomendamos que este ajuste para algo que os utilizadores já estão familiarizados com o suporte
 
 > [!WARNING]
-> Se você personalizar essa configuração com um endereço de email e uma conta que precise de uma redefinição de senha, talvez o usuário não possa solicitar assistência.
+> Se personalizar esta definição com um endereço de e-mail e uma conta que necessite de uma redefinição de senha, o utilizador poderá não poder pedir assistência.
 
-### <a name="sample-email"></a>Email de exemplo
+### <a name="sample-email"></a>E-mail de amostra
 
-![Exemplo de solicitação para redefinir email enviado ao administrador][Contact]
+![Pedido de amostra para redefinir e-mail enviado ao Administrador][Contact]
 
-O email de contato é enviado para os seguintes destinatários na seguinte ordem:
+O e-mail de contacto é enviado aos seguintes destinatários na seguinte ordem:
 
-1. Se a função **administrador de assistência técnica** ou a função de **administrador de senha** for atribuída, os administradores com essas funções serão notificados.
-1. Se não forem atribuídos administradores de assistência técnica ou administrador de senha, os administradores com a função de **administrador de usuários** serão notificados.
-1. Se nenhuma das funções anteriores for atribuída, os **administradores globais** serão notificados.
+1. Se for atribuída a função de administrador de **helpdesk** ou de administrador de **passwords,** os administradores com estas funções são notificados.
+1. Se não forem atribuídos administradores de helpdesk ou administrador de passwords, os administradores com a função de administrador do **utilizador** são notificados.
+1. Se nenhuma das funções anteriores for atribuída, os administradores globais são **notificados.**
 
-Em todos os casos, um máximo de 100 destinatários é notificado.
+Em todos os casos, são notificados um máximo de 100 destinatários.
 
-Para saber mais sobre as diferentes funções de administrador e como atribuí-las, consulte [atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para saber mais sobre as diferentes funções de administrador e como atribuí-las, consulte as funções de [administrador de atribuição no Diretório Ativo azure](../users-groups-roles/directory-assign-admin-roles.md).
 
-### <a name="disable-contact-your-administrator-emails"></a>Desabilitar emails de "Contate o administrador"
+### <a name="disable-contact-your-administrator-emails"></a>Desativar os e-mails "Contacte o seu administrador"
 
-Se sua organização não deseja notificar os administradores sobre solicitações de redefinição de senha, você pode habilitar a seguinte configuração:
+Se a sua organização não quiser notificar os administradores sobre pedidos de reset de palavra-passe, pode ativar a seguinte configuração:
 
-* Habilite a redefinição de senha de autoatendimento para todos os usuários finais. Essa opção está em **redefinição de senha** > **Propriedades**. Se você não quiser que os usuários redefinam suas próprias senhas, poderá definir o escopo de acesso a um grupo vazio. *Não recomendamos essa opção.*
-* Personalize o link da assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Essa opção está em **redefinição de senha** > **personalização** > **email ou URL do helpdesk personalizado**.
+* Ativar o reset da palavra-passe de autosserviço para todos os utilizadores finais. Esta opção encontra-se em > **propriedades**de **reset de palavra-passe**. Se não quiser que os utilizadores reporem as suas próprias palavras-passe, pode aceder a um grupo vazio. *Não recomendamos esta opção.*
+* Personalize o link de helpdesk para fornecer um URL ou mailto web: endereço que os utilizadores podem usar para obter assistência. Esta opção está em password **Reset** > **Personalizization** > **Email ou URL**.
 
-## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Personalizar a página de entrada AD FS para SSPR
+## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Personalize a página de inscrição aD FS para SSPR
 
-Os administradores do Serviços de Federação do Active Directory (AD FS) (AD FS) podem adicionar um link à sua página de entrada usando as diretrizes encontradas no artigo [Descrição da página Adicionar entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description) .
+Os administradores da Ative Directory Federation Services (AD FS) podem adicionar um link à sua página de inscrição utilizando a orientação encontrada no artigo de descrição da página de [inscrição Add.](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description)
 
-Para adicionar um link à página de entrada AD FS, use o comando a seguir no servidor de AD FS. Os usuários podem usar essa página para inserir o fluxo de trabalho do SSPR.
+Para adicionar um link para a página de sessão aD FS, utilize o seguinte comando no seu servidor AD FS. Os utilizadores podem utilizar esta página para introduzir o fluxo de trabalho sSPR.
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
 ```
 
-## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personalizar a página de entrada e a aparência do painel de acesso
+## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personalize a página de inscrição e o olhar do painel de acesso e a sensação
 
-Você pode personalizar a página de entrada. Você pode adicionar um logotipo que aparece junto com a imagem que se ajusta à identidade visual da sua empresa.
+Pode personalizar a página de inscrição. Pode adicionar um logótipo que aparece juntamente com a imagem que se adequa à marca da sua empresa.
 
-Os elementos gráficos que você escolher serão mostrados nas seguintes circunstâncias:
+Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
-* Depois que um usuário inserir seu nome de usuário
-* Se o usuário acessar a URL personalizada:
-   * Passando o parâmetro `whr` para a página de redefinição de senha, como `https://login.microsoftonline.com/?whr=contoso.com`
-   * Passando o parâmetro `username` para a página de redefinição de senha, como `https://login.microsoftonline.com/?username=admin@contoso.com`
+* Depois de um utilizador introduzir o seu nome de utilizador
+* Se o utilizador aceder ao URL personalizado:
+   * Ao passar `whr` o parâmetro para a página de reset da palavra-passe, como`https://login.microsoftonline.com/?whr=contoso.com`
+   * Ao passar `username` o parâmetro para a página de reset da palavra-passe, como`https://login.microsoftonline.com/?username=admin@contoso.com`
 
-Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar identidade visual da empresa à sua página de entrada no Azure ad](../fundamentals/customize-branding.md).
+Encontre detalhes sobre como configurar a marca da empresa no artigo [Adicione a marca da empresa à sua página de entrada no Azure AD](../fundamentals/customize-branding.md).
 
 ### <a name="directory-name"></a>Nome do diretório
 
-Você pode alterar o atributo de nome de diretório em **Propriedades**de **Azure Active Directory** > . Você pode mostrar um nome de organização amigável que é visto no portal e nas comunicações automatizadas. Essa opção é a mais visível em emails automatizados nos formulários a seguir:
+Pode alterar o atributo de nome de diretório no **Azure Ative Directory** > **Properties**. Pode mostrar um nome de organização amigável que é visto no portal e nas comunicações automatizadas. Esta opção é a mais visível nos e-mails automatizados nos formulários que se seguem:
 
-* O nome amigável no email, por exemplo "Microsoft em nome da demonstração da CONTOSO"
-* A linha de assunto no email, por exemplo "código de verificação de email da conta de demonstração da CONTOSO"
+* O nome amigável no e-mail, por exemplo "Microsoft em nome da demonstração DECONTOSO"
+* A linha de assunto no e-mail, por exemplo "código de verificação de email de demonstração DA CONTOSO"
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Redefinir ou alterar a sua palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
@@ -100,7 +100,7 @@ Você pode alterar o atributo de nome de diretório em **Propriedades**de **Azur
 * [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está partido. Como posso resolver problemas com a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contate o administrador para obter ajuda com a redefinição do exemplo de email de senha"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contacte o seu administrador para obter ajuda para reajustar o seu exemplo de email de palavra-passe"

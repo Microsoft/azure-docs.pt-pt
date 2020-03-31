@@ -1,6 +1,6 @@
 ---
-title: APIs de Microsoft Graph para PIM (visualização)-Azure AD | Microsoft Docs
-description: Fornece informações sobre como usar o PIM (Microsoft Graph APIs para Azure AD Privileged Identity Management) (versão prévia).
+title: Microsoft Graph APIs para PIM (Pré-visualização) - Azure AD / Microsoft Docs
+description: Fornece informações sobre a utilização das APIs do Microsoft Graph para a Gestão de Identidade Privilegiada do Azure AD (PIM) (Pré-visualização).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,26 +15,26 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75638668"
 ---
-# <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs de Microsoft Graph para Privileged Identity Management (versão prévia)
+# <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>ApIs do Microsoft Graph para Gestão de Identidade Privilegiada (Pré-visualização)
 
-Você pode executar todas as tarefas de Privileged Identity Management usando as [APIs de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview) para Azure Active Directory. Este artigo descreve conceitos importantes para usar as APIs de Microsoft Graph para Privileged Identity Management.
+Pode executar todas as tarefas de Gestão de Identidade Privilegiada utilizando as [APIs](https://developer.microsoft.com/graph/docs/concepts/overview) do Microsoft Graph para o Diretório Ativo Azure. Este artigo descreve conceitos importantes para a utilização das APIs do Microsoft Graph para gestão de identidade privilegiada.
 
-Para obter detalhes sobre as APIs de Microsoft Graph, confira a [referência de API de Azure ad Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Para mais detalhes sobre as APIs do Microsoft Graph, consulte a referência a API de Gestão de Identidade Privilegiada do [Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
-> As APIs na versão/beta no Microsoft Graph estão na visualização e estão sujeitas a alterações. Não há suporte para o uso dessas APIs em aplicativos de produção.
+> As APIs sob a versão /beta no Microsoft Graph estão em pré-visualização e estão sujeitas a alterações. A utilização destas APIs em aplicações de produção não é suportada.
 >
-> Embora todas as operações de PIM tenham suporte por meio de nossos comandos de API do Graph, usamos um sistema diferente para aprovar as solicitações de ativação. A API do Graph para aprovação está sendo desenvolvida no momento e será lançada nos próximos meses.
+> Embora todas as operações pim sejam suportadas através dos nossos comandos API gráficos, usamos um sistema diferente para aprovar pedidos de ativação. O Gráfico API para aprovação está atualmente a ser desenvolvido e será lançado ao longo dos próximos meses.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para chamar as APIs de Microsoft Graph para Privileged Identity Management, você deve ter **uma ou mais** das seguintes permissões:
+Para ligar para as APIs do Microsoft Graph para gestão de identidade privilegiada, deve ter **uma ou mais** das seguintes permissões:
 
 - `Directory.AccessAsUser.All`
 - `Directory.Read.All`
@@ -43,24 +43,24 @@ Para chamar as APIs de Microsoft Graph para Privileged Identity Management, voc�
 
 ### <a name="set-permissions"></a>Definir permissões
 
-Para aplicativos chamarem as APIs de Microsoft Graph para Privileged Identity Management, eles devem ter as permissões necessárias. A maneira mais fácil de especificar as permissões necessárias é usar a [estrutura de consentimento do Azure ad](../develop/consent-framework.md).
+Para que as aplicações liguem para as APIs do Microsoft Graph para gestão de identidade privilegiada, devem ter as permissões necessárias. A forma mais fácil de especificar as permissões necessárias é utilizar o quadro de [consentimento da AD Azure](../develop/consent-framework.md).
 
-### <a name="set-permissions-in-graph-explorer"></a>Definir permissões no Gerenciador de gráficos
+### <a name="set-permissions-in-graph-explorer"></a>Definir permissões no Graph Explorer
 
-Se você estiver usando o explorador do Graph para testar suas chamadas, poderá especificar as permissões na ferramenta.
+Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especificar as permissões na ferramenta.
 
-1. Entre no [Gerenciador de gráficos](https://developer.microsoft.com/graph/graph-explorer) como um administrador global.
+1. Inscreva-se no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) como administrador global.
 
-1. Clique em **Modificar permissões**.
+1. Clique em **modificar permissões**.
 
-    ![Gerenciador de gráficos – modificar permissões](./media/pim-apis/graph-explorer.png)
+    ![Graph Explorer - modificar permissões](./media/pim-apis/graph-explorer.png)
 
-1. Marque as caixas de seleção ao lado das permissões que você deseja incluir. o `PrivilegedAccess.ReadWrite.AzureAD` ainda não está disponível no explorador do Graph.
+1. Selecione as caixas de verificação junto às permissões que pretende incluir. `PrivilegedAccess.ReadWrite.AzureAD`ainda não está disponível no Graph Explorer.
 
-    ![Gerenciador de gráficos – modificar permissões](./media/pim-apis/graph-explorer-modify-permissions.png)
+    ![Graph Explorer - modificar permissões](./media/pim-apis/graph-explorer-modify-permissions.png)
 
-1. Clique em **Modificar permissões** para aplicar as alterações de permissão.
+1. Clique em **modificar permissões** para aplicar as alterações de permissão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Referência de API de Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root)
+- [Referência da AD AD Privileged Identity Management API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root)

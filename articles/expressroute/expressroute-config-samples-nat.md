@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: exemplos de configuração do roteador-NAT'
-description: Esta página fornece exemplos de configuração do roteador para os routers Cisco e Juniper.
+title: 'Azure ExpressRoute: Amostras de configuração do router - NAT'
+description: Esta página fornece amostras de configuração de router para routers Cisco e Juniper.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74072102"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemplos de configuração de router para configurar e gerir o NAT
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Amostras de configuração do router para configurar e gerir NAT
 
-Esta página fornece exemplos de configuração de NAT para Cisco ASA e os routers da série de Juniper SRX ao trabalhar com o ExpressRoute. Estes destinam-se para ser amostras para obter orientações apenas e não pode ser usados como está. Pode trabalhar com o fornecedor para propor as configurações apropriadas para a sua rede.
+Esta página fornece amostras de configuração NAT para routers da série Cisco ASA e Juniper SRX ao trabalhar com o ExpressRoute. Destinam-se a ser amostras apenas para orientação e não devem ser utilizadas como está. Pode trabalhar com o seu fornecedor para criar configurações adequadas para a sua rede.
 
 > [!IMPORTANT]
-> Exemplos nesta página se destinam a ser puramente para obter orientações. Deve trabalhar com equipes de técnicos e de vendas do seu fornecedor e seu funcionamento em rede propor configurações adequadas às suas necessidades. A Microsoft irá suporta problemas relacionados com as configurações listadas nesta página. Tem de contactar o seu fornecedor de dispositivo para problemas de suporte.
+> As amostras nesta página destinam-se exclusivamente a orientação. Tem de trabalhar com a equipa técnica/de vendas do seu fornecedor e com a sua equipa de networking para criar configurações adequadas para atender às suas necessidades. A Microsoft não suportará problemas relacionados com configurações listadas nesta página. Deve contactar o fornecedor do seu dispositivo para obter problemas de suporte.
 > 
 > 
 
-* Exemplos de configuração de router abaixo aplicam-se para peerings público do Azure e a Microsoft. Não é necessário configurar NAT para peering privado do Azure. Revisão [peerings do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos do NAT do ExpressRoute](expressroute-nat.md) para obter mais detalhes.
+* As amostras de configuração do router abaixo aplicam-se aos pares do Azure Public e da Microsoft. Não deve configurar o NAT para o peering privado azure. Reveja [os pares expressRoute](expressroute-circuit-peerings.md) e [os requisitos do ExpressRoute NAT](expressroute-nat.md) para mais detalhes.
 
-* TEM de utilizar conjuntos separados de IP do NAT para a conectividade à internet e ExpressRoute. Usando o mesmo conjunto de IP do NAT na internet e do ExpressRoute resultará no encaminhamento assimétrico e a perda de conectividade.
+* Deve utilizar piscinas IP NAT separadas para conectividade com a internet e expressRoute. A utilização do mesmo pool IP NAT através da internet e expressRoute resultará em encaminhamento assimétrico e perda de conectividade.
 
 
 ## <a name="cisco-asa-firewalls"></a>Firewalls Cisco ASA
-### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuração de PAT para tráfego de rede cliente para a Microsoft
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuração PAT para tráfego da rede de clientes para a Microsoft
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -49,16 +49,16 @@ Esta página fornece exemplos de configuração de NAT para Cisco ASA e os route
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuração de PAT para o tráfego da Microsoft, a rede de cliente
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuração PAT para tráfego da Microsoft para a rede de clientes
 
-**Interfaces e direção:**
+**Interfaces e Direção:**
 
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
 **Configuração:**
 
-Conjunto NAT:
+Piscina NAT:
 
     object network outbound-PAT
         host <NAT-IP>
@@ -68,7 +68,7 @@ Servidor de destino:
     object network Customer-Network
         network-object <IP> <Subnet-Mask>
 
-Objeto de grupo para endereços IP de cliente
+Grupo de objetos para endereços IP do cliente
 
     object-group network MSFT-Network-1
         network-object <MSFT-IP> <Subnet-Mask>
@@ -81,8 +81,8 @@ Comandos NAT:
     nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## <a name="juniper-srx-series-routers"></a>Routers de série do Juniper SRX
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. criar interfaces Ethernet redundantes para o cluster
+## <a name="juniper-srx-series-routers"></a>Routers da série Juniper SRX
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Criar interfaces Ethernet redundantes para o cluster
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -114,15 +114,15 @@ Comandos NAT:
     }
 
 
-### <a name="2-create-two-security-zones"></a>2. criar duas zonas de segurança
-* Zona de confiança para a rede interna e zona de Untrust para rede externa com acesso à Routers de limite
-* Atribuir as interfaces apropriadas para as zonas
-* Permitir que os serviços nas interfaces
+### <a name="2-create-two-security-zones"></a>2. Criar duas zonas de segurança
+* Zona de confiança para rede interna e Zona Deconfiança para rede externa virada para routers Edge
+* Atribuir interfaces apropriadas às zonas
+* Permitir serviços nas interfaces
 
-    segurança {zonas {zona de segurança confiança {anfitrião de entrada-tráfego {-serviços do sistema {ping;                   } protocolos {bgp;                   interfaces de}} {reth0.100;               }} Untrust de zona de segurança {anfitrião de entrada-tráfego {-serviços do sistema {ping;                   } protocolos {bgp;                   interfaces de}} {reth1.100;               }           }       }   }
+    segurança { zonas { Security-zone Trust { host-inbound-traffic { system-services { ping;                   } protocolos { bgp;                   } Interfaces { reth0.100;               } zona de segurança Untrust { host-inbound-traffic { system-services { ping;                   } protocolos { bgp;                   } Interfaces { reth1.100;               }           }       }   }
 
 
-### <a name="3-create-security-policies-between-zones"></a>3. criar políticas de segurança entre zonas
+### <a name="3-create-security-policies-between-zones"></a>3. Criar políticas de segurança entre zonas
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -153,9 +153,9 @@ Comandos NAT:
     }
 
 
-### <a name="4-configure-nat-policies"></a>4. configurar políticas de NAT
-* Crie dois conjuntos NAT. Um será utilizado para tráfego NAT de saída para a Microsoft e outro da Microsoft para o cliente.
-* Criar regras de NAT o respectivo tráfego
+### <a name="4-configure-nat-policies"></a>4. Configurar as políticas nat
+* Crie duas piscinas NAT. Um será usado para o tráfego NAT de saída para a Microsoft e outro da Microsoft para o cliente.
+* Criar regras para o NAT o respetivo tráfego
   
        security {
            nat {
@@ -212,10 +212,10 @@ Comandos NAT:
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. configurar o BGP para anunciar prefixos seletivos em cada direção
-Consulte os exemplos na página [exemplos de configuração de roteamento](expressroute-config-samples-routing.md) .
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configure BGP para anunciar prefixos seletivos em cada sentido
+Consulte as amostras na página de amostras de [configuração de Encaminhamento.](expressroute-config-samples-routing.md)
 
-### <a name="6-create-policies"></a>6. criar políticas
+### <a name="6-create-policies"></a>6. Criar políticas
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

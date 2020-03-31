@@ -1,6 +1,6 @@
 ---
-title: Proteção de dados do cliente no Azure
-description: Este artigo aborda como o Azure protege os dados do cliente.
+title: Proteção dos dados dos clientes em Azure
+description: Este artigo aborda a forma como o Azure protege os dados dos clientes.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,72 +16,72 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726687"
 ---
-# <a name="azure-customer-data-protection"></a>Proteção de dados do cliente do Azure   
-O acesso a dados do cliente por parte de funcionários operacionais e de suporte da Microsoft é negado por defeito. Quando o acesso aos dados do cliente é concedido, a aprovação da liderança é necessária e, em seguida, o acesso é gerenciado e registrado cuidadosamente. Os requisitos de controle de acesso são estabelecidos pela seguinte política de segurança do Azure:
+# <a name="azure-customer-data-protection"></a>Proteção de dados dos clientes azure   
+O acesso aos dados dos clientes pelas operações da Microsoft e pessoal de suporte é negado por padrão. Quando o acesso aos dados do cliente é concedido, é necessária a aprovação da liderança e, em seguida, o acesso é cuidadosamente gerido e registado. Os requisitos de controlo de acesso são estabelecidos pela seguinte Política de Segurança Do Azure:
 
-- Por padrão, não há acesso aos dados do cliente.
-- Não há contas de usuário ou de administrador em VMs (máquinas virtuais) do cliente.
-- Conceder o privilégio mínimo necessário para concluir a tarefa; solicitações de acesso de auditoria e log.
+- Sem acesso aos dados do cliente, por defeito.
+- Não há contas de utilizador ou administrador em máquinas virtuais do cliente (VMs).
+- Conceder o menor privilégio que é necessário para completar a tarefa; auditoria e pedidos de acesso de registo.
 
-A equipe de suporte do Azure recebe contas exclusivas de Active Directory corporativa pela Microsoft. O Azure conta com o Active Directory corporativo da Microsoft, gerenciado pela MSIT (tecnologia de informações da Microsoft), para controlar o acesso aos principais sistemas de informações. A autenticação multifator é necessária e o acesso é concedido somente de consoles seguros.
+O pessoal de suporte azure é atribuído contas únicas do Ative Directy corporativo pela Microsoft. O Azure conta com o Ative Directory corporativo da Microsoft, gerido pela Microsoft Information Technology (MSIT), para controlar o acesso aos principais sistemas de informação. É necessária a autenticação de vários fatores e o acesso só é concedido a partir de consolas seguras.
 
-Todas as tentativas de acesso são monitoradas e podem ser exibidas por meio de um conjunto básico de relatórios.
+Todas as tentativas de acesso são monitorizadas e podem ser exibidas através de um conjunto básico de relatórios.
 
 ## <a name="data-protection"></a>Proteção de dados
-O Azure fornece aos clientes uma segurança de dados forte, por padrão, e como opções de cliente.
+A Azure fornece aos clientes uma forte segurança de dados, tanto por defeito como como opções de cliente.
 
-Segregação de **dados**: O Azure é um serviço de vários locatários, o que significa que várias implantações e VMs de clientes são armazenadas no mesmo hardware físico. O Azure usa o isolamento lógico para separar os dados de cada cliente dos dados de outras pessoas. A diferenciação fornece os benefícios de escala e econômico dos serviços multilocatários, ao mesmo tempo em que impede rigorosamente o acesso dos dados de um outro.
+**Segregação**de dados : O Azure é um serviço multi-inquilino, o que significa que várias implementações de clientes e VMs são armazenados no mesmo hardware físico. O Azure usa o isolamento lógico para segregar os dados de cada cliente dos dados dos outros. A segregação proporciona a escala e os benefícios económicos dos serviços multi-inquilinos, ao mesmo tempo que impede rigorosamente os clientes de acederem aos dados uns dos outros.
 
-**Proteção de dados em repouso**: Os clientes são responsáveis por garantir que os dados armazenados no Azure sejam criptografados de acordo com seus padrões. O Azure oferece uma ampla gama de recursos de criptografia, proporcionando aos clientes a flexibilidade de escolher a solução que melhor atenda às suas necessidades. Azure Key Vault ajuda os clientes a manter facilmente o controle das chaves usadas por aplicativos e serviços em nuvem para criptografar dados. Azure Disk Encryption permite que os clientes criptografem as VMs. O Azure Criptografia do Serviço de Armazenamento torna possível criptografar todos os dados que são colocados na conta de armazenamento de um cliente.
+**Proteção de dados em repouso**: Os clientes são responsáveis por garantir que os dados armazenados no Azure são encriptados de acordo com as suas normas. O Azure oferece uma vasta gama de capacidades de encriptação, dando aos clientes a flexibilidade para escolherem a solução que melhor responda às suas necessidades. O Azure Key Vault ajuda os clientes a manter facilmente o controlo das chaves que são usadas por aplicações e serviços na nuvem para encriptar dados. A encriptação do disco Azure permite que os clientes criptografem VMs. A encriptação do Serviço de Armazenamento Azure permite encriptar todos os dados que são colocados na conta de armazenamento de um cliente.
 
-**Proteção de dados em trânsito**: Os clientes podem habilitar a criptografia para o tráfego entre suas próprias VMs e usuários finais. O Azure protege os dados em trânsito para ou de componentes externos e dados em trânsito internamente, como entre duas redes virtuais. O Azure usa o protocolo TLS 1,2 ou mais recente do setor com as chaves de criptografia RSA/SHA256 de 2.048 bits, conforme recomendado pelo CESG/NCSC, para criptografar as comunicações entre:
+**Proteção de dados em trânsito**: Os clientes podem ativar a encriptação para o tráfego entre os seus próprios VMs e utilizadores finais. O Azure protege os dados em trânsito de ou para componentes externos e dados em trânsito interna, como entre duas redes virtuais. O Azure utiliza o protocolo de segurança da camada de transporte (TLS) 1.2 ou posterior com chaves de encriptação RSA/SHA256 de 2.048 bits, conforme recomendado pelo CESG/NCSC, para encriptar comunicações entre:
 
 - O cliente e a nuvem.
-- Internamente entre sistemas e data centers do Azure.
+- Internamente entre sistemas Azure e centros de dados.
 
-**Encriptação**: A criptografia de dados no armazenamento e em trânsito pode ser implantada pelos clientes como uma prática recomendada para garantir a confidencialidade e a integridade dos dados. É fácil para os clientes configurar seus serviços de nuvem do Azure para usar SSL para proteger as comunicações da Internet e até mesmo entre suas VMs hospedadas no Azure.
+**Encriptação**: A encriptação de dados armazenados e em trânsito pode ser implementada pelos clientes como uma melhor prática para garantir a confidencialidade e integridade dos dados. É simples para os clientes configurar os seus serviços de nuvem Azure para usar sSL para proteger as comunicações da internet e até entre os seus VMs hospedados no Azure.
 
-**Redundância de dados**: A Microsoft ajuda a garantir que os dados sejam protegidos se houver um dano físico ou cyberattack em um datacenter. Os clientes podem optar por:
+**Redundância**de dados : A Microsoft ajuda a garantir que os dados são protegidos se houver um ciberataque ou danos físicos num datacenter. Os clientes podem optar por:
 
-- Armazenamento no país/região para considerações de conformidade ou latência.
-- Armazenamento fora do país/fora de região para fins de segurança ou recuperação de desastre.
+- Armazenamento no país/na região para considerações de conformidade ou latência.
+- Armazenamento fora do país/fora da região para fins de segurança ou recuperação de desastres.
 
-Os dados podem ser replicados dentro de uma área geográfica selecionada para redundância, mas não podem ser transmitidos fora dele. Os clientes têm várias opções para replicar dados, incluindo o número de cópias e o número e o local dos data centers de replicação.
+Os dados podem ser replicados dentro de uma área geográfica selecionada para despedimento, mas não podem ser transmitidos fora dele. Os clientes têm múltiplas opções para replicar dados, incluindo o número de cópias e o número e localização dos datacenters de replicação.
 
-Ao criar sua conta de armazenamento, selecione uma das seguintes opções de replicação:
+Quando criar a sua conta de armazenamento, selecione uma das seguintes opções de replicação:
 
-- **LRS (armazenamento com redundância local)** : O Armazenamento localmente redundante mantém três cópias dos seus dados. LRS é replicado três vezes num único local e numa única região. O LRS protege seus dados contra falhas normais de hardware, mas não de uma falha de um único recurso.
-- **Armazenamento com redundância de zona (ZRS)** : O Armazenamento com redundância entre zonas mantém três cópias dos seus dados. O ZRS é replicado três vezes em duas a três instalações para fornecer maior durabilidade do que o LRS. A replicação ocorre em uma única região ou em duas regiões. O ZRS ajuda a garantir que seus dados sejam duráveis em uma única região.
-- **Armazenamento com redundância geográfica (GRS)** : O Armazenamento georredundante está ativado para a sua conta do Storage por predefinição aquando da sua criação. O GRS mantém seis cópias dos seus dados. Com o GRS, seus dados são replicados três vezes na região primária. Seus dados também são replicados três vezes em uma região secundária a centenas de quilômetros de distância da região primária, fornecendo o nível mais alto de durabilidade. No caso de uma falha na região primária, o armazenamento do Azure faz failover para a região secundária. O GRS ajuda a garantir que seus dados sejam duráveis em duas regiões separadas.
+- **Armazenamento localmente redundante (LRS)**: Armazenamento localmente redundante mantém três cópias dos seus dados. LRS é replicado três vezes num único local e numa única região. O LRS protege os seus dados de falhas normais de hardware, mas não de uma falha de uma única instalação.
+- **Armazenamento redundante em zona (ZRS)**: O armazenamento redundante em zonas mantém três cópias dos seus dados. O ZRS é replicado três vezes em duas a três instalações para proporcionar uma durabilidade mais elevada do que o LRS. A replicação ocorre numa única região ou em duas regiões. O ZRS ajuda a garantir que os seus dados são duráveis numa única região.
+- **Armazenamento geo-redundante (GRS)**: O armazenamento geo-redundante está ativado para a sua conta de armazenamento por padrão quando a criar. O GRS mantém seis cópias dos seus dados. Com GRS, os seus dados são replicados três vezes dentro da região primária. Os seus dados também são replicados três vezes numa região secundária a centenas de quilómetros da região primária, proporcionando o mais alto nível de durabilidade. Em caso de falha na região primária, o Armazenamento Azure falha na região secundária. GrS ajuda a garantir que os seus dados são duráveis em duas regiões distintas.
 
-**Destruição de dados**: Quando os clientes excluem dados ou saem do Azure, a Microsoft segue padrões estritos para substituir recursos de armazenamento antes de sua reutilização, bem como a destruição física de hardware encerrado. A Microsoft executa uma exclusão completa dos dados na solicitação do cliente e no encerramento do contrato.
+**Destruição de dados**: Quando os clientes apagam dados ou saem do Azure, a Microsoft segue padrões rigorosos de sobreposição de recursos de armazenamento antes da sua reutilização, bem como a destruição física de hardware desativado. A Microsoft executa uma supressão completa dos dados a pedido do cliente e sobre a rescisão do contrato.
 
-## <a name="customer-data-ownership"></a>Propriedade de dados do cliente
-A Microsoft não inspeciona, aprova ou monitora aplicativos que os clientes implantam no Azure. Além disso, a Microsoft não sabe que tipo de dados os clientes optam por armazenar no Azure. A Microsoft não alega a propriedade dos dados sobre as informações do cliente inseridas no Azure.
+## <a name="customer-data-ownership"></a>Propriedade dos dados do cliente
+A Microsoft não inspeciona, aprova ou monitoriza aplicações que os clientes implementam para o Azure. Além disso, a Microsoft não sabe que tipo de dados os clientes escolhem armazenar no Azure. A Microsoft não reclama a propriedade dos dados sobre as informações do cliente que foram introduzidas no Azure.
 
-## <a name="records-management"></a>Gerenciamento de registros
-O Azure estabeleceu registros internos-requisitos de retenção para dados de back-end. Os clientes são responsáveis por identificar seus próprios requisitos de retenção de registros. Para registros armazenados no Azure, os clientes são responsáveis por extrair seus dados e reter seu conteúdo fora do Azure para um período de retenção especificado pelo cliente.
+## <a name="records-management"></a>Gestão de registos
+O Azure estabeleceu requisitos internos de retenção de registos para dados de back-end. Os clientes são responsáveis pela identificação dos seus próprios requisitos de retenção de registos. Para registos armazenados no Azure, os clientes são responsáveis pela extração dos seus dados e pela conservação dos seus conteúdos fora do Azure por um período de retenção especificado pelo cliente.
 
-O Azure permite que os clientes exportem dados e relatórios de auditoria do produto. As exportações são salvas localmente para manter as informações de um período de tempo de retenção definido pelo cliente.
+O Azure permite que os clientes exportem dados e relatórios de auditoria do produto. As exportações são guardadas localmente para reter a informação por um período de tempo de retenção definido pelo cliente.
 
-## <a name="electronic-discovery-e-discovery"></a>Descoberta eletrônica (e-Discovery)
-Os clientes do Azure são responsáveis por cumprir os requisitos de descoberta eletrônica no uso dos serviços do Azure. Se os clientes do Azure precisarem preservar os dados do cliente, eles poderão exportar e salvar os dados localmente. Além disso, os clientes podem solicitar exportações de seus dados do departamento de atendimento ao cliente do Azure. Além de permitir que os clientes exportem seus dados, o Azure realiza o log e o monitoramento extensivos internamente.
+## <a name="electronic-discovery-e-discovery"></a>Descoberta electrónica (e-discovery)
+Os clientes da Azure são responsáveis pelo cumprimento dos requisitos de e-discovery na utilização dos serviços Azure. Se os clientes da Azure tiverem de preservar os seus dados de clientes, podem exportar e guardar os dados localmente. Além disso, os clientes podem solicitar a exportação dos seus dados do departamento de Apoio ao Cliente do Azure. Além de permitir que os clientes exportem os seus dados, o Azure realiza uma extensa exploração madeireira e monitorização interna.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Azure, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
-- [Instalações do Azure, local e segurança física](physical-security.md)
-- [Disponibilidade de infraestrutura do Azure](infrastructure-availability.md)
-- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
-- [Arquitetura de rede do Azure](infrastructure-network.md)
-- [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
-- [Operações e gerenciamento de produção do Azure](infrastructure-operations.md)
-- [Monitoramento de infraestrutura do Azure](infrastructure-monitoring.md)
-- [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
+- [Instalações, instalações e segurança física do Azure](physical-security.md)
+- [Disponibilidade de infraestruturas azure](infrastructure-availability.md)
+- [Componentes e limites do sistema de informação Azure](infrastructure-components.md)
+- [Arquitetura de rede Azure](infrastructure-network.md)
+- [Rede de produção azure](production-network.md)
+- [Funcionalidades de segurança da Base de Dados Azure SQL](infrastructure-sql.md)
+- [Operações e gestão de produção da Azure](infrastructure-operations.md)
+- [Monitorização de infraestruturas Azure](infrastructure-monitoring.md)
+- [Integridade da infraestrutura azure](infrastructure-integrity.md)

@@ -1,5 +1,5 @@
 ---
-title: Transferir dados de ou para o armazenamento da Blob Azure utilizando o AzCopy v10  Microsoft Docs
+title: Transferir dados de ou para o armazenamento da Blob Azure utilizando o AzCopy v10 [ Microsoft Docs
 description: Este artigo contém uma coleção de comandos exemplo AzCopy que ajudam a criar recipientes, copiar ficheiros e sincronizar diretórios entre sistemas de ficheiros locais e contentores.
 author: normesta
 ms.service: storage
@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933587"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com armazenamento AzCopy e Blob
@@ -24,7 +24,7 @@ O AzCopy é um utilitário de linha de comando que pode utilizar para copiar dad
 Veja o [Artigo da AzCopy](storage-use-azcopy-v10.md) para baixar o AzCopy e aprender sobre as formas como pode fornecer credenciais de autorização ao serviço de armazenamento.
 
 > [!NOTE]
-> Os exemplos deste artigo assumem que autenticaram a sua identidade usando o comando `AzCopy login`. A AzCopy utiliza então a sua conta Azure AD para autorizar o acesso aos dados no armazenamento blob.
+> Os exemplos deste artigo assumem que autenticaram a `AzCopy login` sua identidade usando o comando. A AzCopy utiliza então a sua conta Azure AD para autorizar o acesso aos dados no armazenamento blob.
 >
 > Se preferir utilizar um token SAS para autorizar o acesso a dados blob, então pode anexar esse símbolo ao URL de recursos em cada comando AzCopy.
 >
@@ -35,7 +35,7 @@ Veja o [Artigo da AzCopy](storage-use-azcopy-v10.md) para baixar o AzCopy e apre
 > [!TIP]
 > Os exemplos nesta secção encerram argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell de Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando windows (cmd.exe), encerre argumentos de caminho com citações duplas (") em vez de citações únicas (').
 
-Pode utilizar a [azcopy fazer](storage-ref-azcopy-make.md) o comando para criar um recipiente. Os exemplos desta secção criam um recipiente chamado `mycontainer`.
+Pode utilizar a [azcopy fazer](storage-ref-azcopy-make.md) o comando para criar um recipiente. Os exemplos nesta secção criam `mycontainer`um recipiente chamado .
 
 |    |     |
 |--------|-----------|
@@ -49,7 +49,7 @@ Para obter documentos de referência detalhados, consulte a [azcopy fazer](stora
 
 Pode utilizar o comando de cópia de [azcópia](storage-ref-azcopy-copy.md) para fazer upload de ficheiros e diretórios do seu computador local.
 
-Esta secção contém os exemplos seguintes:
+Esta secção contém os seguintes exemplos:
 
 > [!div class="checklist"]
 > * Carregar um ficheiro
@@ -70,11 +70,11 @@ Para obter documentos de referência detalhados, consulte a cópia da [azcopy](s
 | **Exemplo** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
-Também pode fazer o upload de um ficheiro utilizando um símbolo wildcard (*) em qualquer lugar do caminho de ficheiro ou nome de ficheiro. Por exemplo: `'C:\myDirectory\*.txt'`, ou `C:\my*\*.txt`.
+Também pode fazer o upload de um ficheiro utilizando um símbolo wildcard (*) em qualquer lugar do caminho de ficheiro ou nome de ficheiro. Por exemplo: `'C:\myDirectory\*.txt'` `C:\my*\*.txt`ou .
 
 > [!NOTE]
-> AzCopy por padrão envia dados como blocos de bolhas. Para fazer upload de ficheiros como Append Blobs ou Page Blobs, utilize a bandeira `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-> A AzCopy por padrão envia os seus dados para herdar o nível de acesso à conta. Para fazer o upload de ficheiros para um [nível](../blobs/storage-blob-storage-tiers.md)de acesso específico, utilize a `--block-blob-tier=[Hot|Cool|Archive]`da bandeira .
+> AzCopy por padrão envia dados como blocos de bolhas. Para fazer upload de ficheiros como Append Blobs ou Page Blobs, use a bandeira `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> A AzCopy por padrão envia os seus dados para herdar o nível de acesso à conta. Para fazer o upload de ficheiros `--block-blob-tier=[Hot|Cool|Archive]`para um [nível de acesso](../blobs/storage-blob-storage-tiers.md)específico, utilize a bandeira .
 
 ### <a name="upload-a-directory"></a>Faça upload de um diretório
 
@@ -106,7 +106,7 @@ Pode fazer o upload do conteúdo de um diretório sem copiar o próprio diretór
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
 > [!NOTE]
-> Acomode a bandeira `--recursive` para carregar ficheiros em todos os subdiretórios.
+> Acomode `--recursive` a bandeira para carregar ficheiros em todas as subdirectões.
 
 ### <a name="upload-specific-files"></a>Carregar ficheiros específicos
 
@@ -114,7 +114,7 @@ Pode especificar nomes completos de ficheiros ou usar nomes parciais com caracte
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes completos de ficheiros
 
-Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opção `--include-path`. Separe os nomes individuais de ficheiros utilizando um ponto e vírgula (`;`).
+Utilize o comando de cópia `--include-path` [azcopia](storage-ref-azcopy-copy.md) com a opção. Separe os nomes individuais`;`de ficheiros utilizando um ponto e vírgula ().
 
 |    |     |
 |--------|-----------|
@@ -122,13 +122,13 @@ Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opç�
 | **Exemplo** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
 
-Neste exemplo, a AzCopy transfere o diretório `C:\myDirectory\photos` e o ficheiro `C:\myDirectory\documents\myFile.txt`. Você precisa incluir a opção `--recursive` para transferir todos os ficheiros no diretório `C:\myDirectory\photos`.
+Neste exemplo, a AzCopy `C:\myDirectory\photos` transfere `C:\myDirectory\documents\myFile.txt` o diretório e o ficheiro. Tem de incluir `--recursive` a opção de `C:\myDirectory\photos` transferir todos os ficheiros no diretório.
 
-Também pode excluir ficheiros utilizando a opção `--exclude-path`. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
+Também pode excluir ficheiros `--exclude-path` utilizando a opção. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
 
 #### <a name="use-wildcard-characters"></a>Use caracteres wildcard
 
-Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opção `--include-pattern`. Especifique nomes parciais que incluam os caracteres wildcard. Nomes separados utilizando um semicolin (`;`). 
+Utilize o comando de cópia `--include-pattern` [azcopia](storage-ref-azcopy-copy.md) com a opção. Especifique nomes parciais que incluam os caracteres wildcard. Nomes separados utilizando`;`um semicolin ( ). 
 
 |    |     |
 |--------|-----------|
@@ -136,15 +136,15 @@ Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opç�
 | **Exemplo** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
 
-Também pode excluir ficheiros utilizando a opção `--exclude-pattern`. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
+Também pode excluir ficheiros `--exclude-pattern` utilizando a opção. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
 
-As opções `--include-pattern` e `--exclude-pattern` aplicam-se apenas aos nomes de ficheiros e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use a opção `–recursive` para obter toda a árvore do diretório e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os ficheiros de texto.
+As `--include-pattern` `--exclude-pattern` opções e opções aplicam-se apenas aos nomes de ficheiros e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use a opção `–recursive` para obter toda a árvore do diretório e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os ficheiros de texto.
 
 ## <a name="download-files"></a>Transferir ficheiros
 
 Pode utilizar o comando de cópia de [azcopy](storage-ref-azcopy-copy.md) para transferir bolhas, diretórios e contentores para o seu computador local.
 
-Esta secção contém os exemplos seguintes:
+Esta secção contém os seguintes exemplos:
 
 > [!div class="checklist"]
 > * Transferir um ficheiro
@@ -153,7 +153,7 @@ Esta secção contém os exemplos seguintes:
 > * Descarregue ficheiros específicos
 
 > [!NOTE]
-> Se o valor de propriedade `Content-md5` de uma bolha contiver um haxixe, a AzCopy calcula um haxixe MD5 para dados descarregados e verifica que o haxixe MD5 armazenado na propriedade `Content-md5` do blob corresponde ao haxixe calculado. Se estes valores não corresponderem, o download falha a menos que se sobrecarregue este comportamento, anexando `--check-md5=NoCheck` ou `--check-md5=LogOnly` ao comando de cópia.
+> Se `Content-md5` o valor patrimonial de uma bolha contiver um haxixe, a AzCopy calcula um haxixe MD5 para dados `Content-md5` descarregados e verifica que o haxixe MD5 armazenado na propriedade do blob corresponde ao haxixe calculado. Se estes valores não corresponderem, o download falha a `--check-md5=NoCheck` menos `--check-md5=LogOnly` que se sobrecarregue este comportamento por despesas ou ao comando de cópia.
 
 Para obter documentos de referência detalhados, consulte a cópia da [azcopy](storage-ref-azcopy-copy.md).
 
@@ -176,7 +176,7 @@ Para obter documentos de referência detalhados, consulte a cópia da [azcopy](s
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
-Este exemplo resulta num diretório chamado `C:\myDirectory\myBlobDirectory` que contém todos os ficheiros descarregados.
+Este exemplo resulta num `C:\myDirectory\myBlobDirectory` diretório nomeado que contém todos os ficheiros descarregados.
 
 ### <a name="download-the-contents-of-a-directory"></a>Descarregue o conteúdo de um diretório
 
@@ -191,7 +191,7 @@ Pode descarregar o conteúdo de um diretório sem copiar o próprio diretório c
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
 
 > [!NOTE]
-> Anexar a bandeira `--recursive` para descarregar ficheiros em todos os subdiretórios.
+> Anexar `--recursive` a bandeira para descarregar ficheiros em todos os subdiretórios.
 
 ### <a name="download-specific-files"></a>Descarregue ficheiros específicos
 
@@ -199,7 +199,7 @@ Pode especificar nomes completos de ficheiros ou usar nomes parciais com caracte
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes completos de ficheiros
 
-Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opção `--include-path`. Separe os nomes individuais de ficheiros utilizando um semicolin (`;`).
+Utilize o comando de cópia `--include-path` [azcopia](storage-ref-azcopy-copy.md) com a opção. Separe os nomes individuais`;`de ficheiros utilizando um semicolin ( ).
 
 |    |     |
 |--------|-----------|
@@ -207,13 +207,13 @@ Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opç�
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
 
-Neste exemplo, a AzCopy transfere o diretório `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` e o ficheiro `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt`. Você precisa incluir a opção `--recursive` para transferir todos os ficheiros no diretório `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos`.
+Neste exemplo, a AzCopy `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` transfere `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` o diretório e o ficheiro. Tem de incluir `--recursive` a opção de `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` transferir todos os ficheiros no diretório.
 
-Também pode excluir ficheiros utilizando a opção `--exclude-path`. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
+Também pode excluir ficheiros `--exclude-path` utilizando a opção. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
 
 #### <a name="use-wildcard-characters"></a>Use caracteres wildcard
 
-Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opção `--include-pattern`. Especifique nomes parciais que incluam os caracteres wildcard. Nomes separados utilizando um semicolin (`;`).
+Utilize o comando de cópia `--include-pattern` [azcopia](storage-ref-azcopy-copy.md) com a opção. Especifique nomes parciais que incluam os caracteres wildcard. Nomes separados utilizando`;`um semicolin ( ).
 
 |    |     |
 |--------|-----------|
@@ -221,23 +221,23 @@ Utilize o comando de cópia de [azcopia](storage-ref-azcopy-copy.md) com a opç�
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
-Também pode excluir ficheiros utilizando a opção `--exclude-pattern`. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
+Também pode excluir ficheiros `--exclude-pattern` utilizando a opção. Para saber mais, consulte os docs de referência de cópia de [azcopia.](storage-ref-azcopy-copy.md)
 
-As opções `--include-pattern` e `--exclude-pattern` aplicam-se apenas aos nomes de ficheiros e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use a opção `–recursive` para obter toda a árvore do diretório e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os ficheiros de texto.
+As `--include-pattern` `--exclude-pattern` opções e opções aplicam-se apenas aos nomes de ficheiros e não ao caminho.  Se quiser copiar todos os ficheiros de texto que existem numa árvore de diretório, use a opção `–recursive` para obter toda a árvore do diretório e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os ficheiros de texto.
 
-## <a name="copy-blobs-between-storage-accounts"></a>Copiar bolhas entre contas de armazenamento
+## <a name="copy-blobs-between-storage-accounts"></a>Copiar blobs entre contas de armazenamento
 
 Pode utilizar o AzCopy para copiar bolhas para outras contas de armazenamento. A operação de cópia é sincronizada, por isso, quando o comando regressa, isso indica que todos os ficheiros foram copiados. 
 
-O AzCopy utiliza [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [servidor-a-servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , por isso os dados são copiados diretamente entre servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda da rede do seu computador. Pode aumentar a entrada destas operações, fixando o valor da variável ambiente `AZCOPY_CONCURRENCY_VALUE`. Para saber mais, consulte a [entrada do Otimize.](storage-use-azcopy-configure.md#optimize-throughput)
+O AzCopy utiliza [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [servidor-a-servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , por isso os dados são copiados diretamente entre servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda da rede do seu computador. Pode aumentar a entrada destas operações, `AZCOPY_CONCURRENCY_VALUE` fixando o valor da variável ambiental. Para saber mais, consulte a [entrada do Otimize.](storage-use-azcopy-configure.md#optimize-throughput)
 
 > [!NOTE]
 > Este cenário tem as seguintes limitações na versão atual.
 >
 > - Tem de anexar um token SAS a cada URL de origem. Se fornecer credenciais de autorização utilizando o Azure Ative Directory (AD), só pode omitir o token SAS a partir do URL de destino.
->-  As contas de armazenamento de blocos premium não suportam níveis de acesso. Omita o nível de acesso de uma bolha da operação de cópia, definindo o `s2s-preserve-access-tier` para `false` (por exemplo: `--s2s-preserve-access-tier=false`).
+>-  As contas de armazenamento de blocos premium não suportam níveis de acesso. Omita o nível de acesso de uma `s2s-preserve-access-tier` `false` bolha da `--s2s-preserve-access-tier=false`operação de cópia, definindo o (por exemplo: ).
 
-Esta secção contém os exemplos seguintes:
+Esta secção contém os seguintes exemplos:
 
 > [!div class="checklist"]
 > * Copiar uma bolha para outra conta de armazenamento
@@ -250,11 +250,11 @@ Para obter documentos de referência detalhados, consulte a cópia da [azcopy](s
 > [!TIP]
 > Os exemplos nesta secção encerram argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as conchas de comando, exceto na Shell de Comando do Windows (cmd.exe). Se estiver a utilizar uma Shell de Comando windows (cmd.exe), encerre argumentos de caminho com citações duplas (") em vez de citações únicas (').
 
- Estes exemplos também funcionam com contas que têm um espaço de nome hierárquico. O [acesso multi-protocolo ao Armazenamento](../blobs/data-lake-storage-multi-protocol-access.md) de Data Lake permite-lhe utilizar a mesma sintaxe de URL (`blob.core.windows.net`) nessas contas. 
+ Estes exemplos também funcionam com contas que têm um espaço de nome hierárquico. O [acesso multi-protocolo ao Armazenamento](../blobs/data-lake-storage-multi-protocol-access.md) de Data Lake permite-lhe utilizar a mesma sintaxe de URL ()`blob.core.windows.net`nessas contas. 
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copiar uma bolha para outra conta de armazenamento
 
-Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham um espaço de nome hierárquico.
+Use a mesma sintaxe de URL para`blob.core.windows.net`contas que tenham um espaço de nome hierárquico.
 
 |    |     |
 |--------|-----------|
@@ -264,7 +264,7 @@ Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham 
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Copiar um diretório para outra conta de armazenamento
 
-Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham um espaço de nome hierárquico.
+Use a mesma sintaxe de URL para`blob.core.windows.net`contas que tenham um espaço de nome hierárquico.
 
 |    |     |
 |--------|-----------|
@@ -274,7 +274,7 @@ Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham 
 
 ### <a name="copy-a-container-to-another-storage-account"></a>Copiar um recipiente para outra conta de armazenamento
 
-Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham um espaço de nome hierárquico.
+Use a mesma sintaxe de URL para`blob.core.windows.net`contas que tenham um espaço de nome hierárquico.
 
 |    |     |
 |--------|-----------|
@@ -284,7 +284,7 @@ Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham 
 
 ### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Copie todos os recipientes, diretórios e bolhas para outra conta de armazenamento
 
-Utilize a mesma sintaxe de URL (`blob.core.windows.net`) para contas que tenham um espaço de nome hierárquico.
+Use a mesma sintaxe de URL para`blob.core.windows.net`contas que tenham um espaço de nome hierárquico.
 
 |    |     |
 |--------|-----------|
@@ -299,12 +299,12 @@ Pode sincronizar o conteúdo de um sistema de ficheiros local com um recipiente 
 > [!NOTE]
 > O lançamento atual do AzCopy não sincroniza entre outras fontes e destinos (por exemplo: armazenamento de ficheiros ou baldes S3 da Amazon Web Services (AWS).
 
-O comando [de sincronização](storage-ref-azcopy-sync.md) compara nomes de ficheiros e últimos selos de tempo modificados. Detete a bandeira `--delete-destination` opcional num valor de `true` ou `prompt` para apagar ficheiros no diretório de destino se esses ficheiros já não existirem no diretório de origem.
+O comando [de sincronização](storage-ref-azcopy-sync.md) compara nomes de ficheiros e últimos selos de tempo modificados. Detete a `--delete-destination` bandeira `true` opcional `prompt` num valor ou para apagar ficheiros no diretório de destino se esses ficheiros já não existirem no diretório de origem.
 
-Se definir a bandeira `--delete-destination` para `true` a AzCopy elimina ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de o AzCopy apagar um ficheiro, desloque a bandeira `--delete-destination` para `prompt`.
+Se definir `--delete-destination` a `true` bandeira para a AzCopy, apaga ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de `--delete-destination` o `prompt`AzCopy apagar um ficheiro, coloque a bandeira para .
 
 > [!NOTE]
-> Para evitar supressões acidentais, certifique-se de que ativa a função [de eliminação suave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de utilizar a `--delete-destination=prompt|true` bandeira.
+> Para evitar supressões acidentais, certifique-se de `--delete-destination=prompt|true` que ativa a função [de eliminação suave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de utilizar a bandeira.
 
 Para obter documentos de referência detalhados, consulte a sincronização da [azcopy](storage-ref-azcopy-sync.md).
 
@@ -347,13 +347,13 @@ O primeiro diretório que aparece neste comando é a fonte. O segundo é o desti
 | **Sintaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
 | **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre mais exemplos em qualquer um destes artigos:
 
-- [Começar com a AzCopy](storage-use-azcopy-v10.md)
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-- [Tutorial: Migrar dados no local para armazenamento em nuvem usando a AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Tutorial: migrar dados no local para o armazenamento na cloud com o AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 - [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 

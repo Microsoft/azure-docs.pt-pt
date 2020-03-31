@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: c66457ee46cf56a98002c61b70172cef75a8e824
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370071"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477515"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e amostra
 
@@ -61,7 +61,7 @@ Utilize este modo para obter apenas as primeiras linhas *n.* Esta opção é út
 
    O número de linhas deve ser um inteiro não negativo. Se o número de linhas selecionadas for maior do que o número de linhas no conjunto de dados, todo o conjunto de dados é devolvido.
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
 O módulo produz um único conjunto de dados que contém apenas o número especificado de linhas. As linhas são sempre lidas a partir do topo do conjunto de dados.
 
@@ -75,7 +75,7 @@ Esta opção suporta uma simples amostragem aleatória ou uma amostragem aleató
 
 1. **Taxa de amostragem**: Introduza um valor entre 0 e 1. este valor especifica a percentagem de linhas do conjunto de dados de origem que deve ser incluído no conjunto de dados de saída.
 
-   Por exemplo, se quiser apenas metade do conjunto de dados original, introduza `0.5` para indicar que a taxa de amostragem deve ser de 50%.
+   Por exemplo, se quiser apenas metade do `0.5` conjunto de dados original, indique que a taxa de amostragem deve ser de 50%.
 
    As linhas do conjunto de dados de entrada são baralhadas e seletivamente colocadas no conjunto de dados de saída, de acordo com o rácio especificado.
 
@@ -94,7 +94,7 @@ Esta opção suporta uma simples amostragem aleatória ou uma amostragem aleató
    1. Cada grupo é adicionado seletivamente ao conjunto de dados de saída para satisfazer o rácio especificado.
 
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
    Com esta opção, o módulo produz um único conjunto de dados que contém uma amostra representativa dos dados. A parte restante e não amostrada do conjunto de dados não é de saída. 
 
@@ -132,7 +132,7 @@ Utilize esta opção quando pretender dividir o conjunto de dados em subconjunto
 
 1. **Divisão estratificada**: Selecione esta opção se quiser que as linhas sejam estratificadas quando divididas e, em seguida, escolha a coluna de _estratos_.
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
    Com esta opção, o módulo produz vários conjuntos de dados. Os conjuntos de dados são divididos de acordo com as regras que especificou.
 
@@ -156,9 +156,9 @@ Utilize esta opção quando tiver dividido um conjunto de dados em várias divis
 
    Por exemplo, o módulo **de partição e amostra** na segunda linha está definido para Atribuir a **Dobras**, e o módulo na terceira linha está definido para **pick Fold**.   
 
-   ![Partição e amostras](./media/module/partition-and-sample.png)
+   ![Partição e amostra](./media/module/partition-and-sample.png)
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
    Com esta opção, o módulo produz um único conjunto de dados que contém apenas as linhas atribuídas a essa dobra.
 

@@ -1,23 +1,23 @@
 ---
-title: Como consultar registos do Monitor Azure para VMs (pré-visualização) / Microsoft Docs
+title: Como consultar registos do Monitor Azure para VMs
 description: A solução Azure Monitor para VMs recolhe métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.date: 03/12/2020
+ms.openlocfilehash: 71258b04bad9a7aec4e86564d51d1d6f3f8cac76
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670717"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283808"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Monitor Azure para VMs (pré-visualização)
+# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Monitor Azure para VMs
 
 O Monitor Azure para VMs recolhe métricas de desempenho e conexão, dados de inventário de computadores e processos, e informações do estado de saúde e encaminha-os para o espaço de trabalho log Analytics no Monitor Azure.  Estes dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Monitor Azure. Pode aplicar estes dados a cenários que incluem planeamento migratório, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
-## <a name="map-records"></a>Registos de mapas
+## <a name="map-records"></a>Mapear registos
 
 Um registo é gerado por hora para cada computador e processo exclusivos, além dos registos que são gerados quando um processo ou computador começa ou está a bordo do Monitor Azure para a funcionalidade VMs Map. Estes registos têm as propriedades nas seguintes tabelas. Os campos e valores do mapa de eventos ServiceMapComputer_CL para campos do recurso Máquina na API serviceMap Azure Resource Manager. Os campos e valores do mapa de eventos ServiceMapProcess_CL para os campos do recurso Process na API serviceMap Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nomes no recurso correspondente do Gestor de Recursos. 
 
@@ -26,7 +26,7 @@ Existem propriedades geradas internamente que pode usar para identificar process
 - Computador: Utilize o *ResourceId* ou *ResourceName_s* para identificar de forma única um computador dentro de um espaço de trabalho de Log Analytics.
 - Processo: Utilize o *ResourceId* para identificar de forma única um processo dentro de um espaço de trabalho de Log Analytics. *ResourceName_s* é único no contexto da máquina em que o processo está a decorrer (MachineResourceName_s) 
 
-Como vários registos podem existir para um processo e computador especificados numa faixa de tempo especificada, as consultas podem devolver mais do que um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione `| summarize arg_max(TimeGenerated, *) by ResourceId` à consulta.
+Como vários registos podem existir para um processo e computador especificados numa faixa de tempo especificada, as consultas podem devolver mais do que um registo para o mesmo computador ou processo. Para incluir apenas o `| summarize arg_max(TimeGenerated, *) by ResourceId` registo mais recente, adicione à consulta.
 
 ### <a name="connections-and-ports"></a>Conexões e portos
 
@@ -41,7 +41,7 @@ Os seguintes campos e convenções aplicam-se tanto à VMConnection como à VMBo
 - Computador: Nome de domínio totalmente qualificado da máquina de reporte 
 - AgenteId: O identificador único para uma máquina com o agente Log Analytics  
 - Máquina: Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É da forma *m-{GUID},* onde *guid* é o mesmo GUID que AgentId  
-- Processo: Nome do recurso Azure Resource Manager para o processo exposto pelo ServiceMap. É da forma *p-{hex string}* . O processo é único dentro de um âmbito de máquina e para gerar um ID de processo único entre máquinas, combinar campos de Máquinae Processo. 
+- Processo: Nome do recurso Azure Resource Manager para o processo exposto pelo ServiceMap. É da forma *p-{hex string}*. O processo é único dentro de um âmbito de máquina e para gerar um ID de processo único entre máquinas, combinar campos de Máquinae Processo. 
 - Nome de processo: Nome executável do processo de reporte.
 - Todos os endereços IP são cordas em formato canónico IPv4, por exemplo *13.107.3.160* 
 
@@ -52,7 +52,7 @@ Para gerir o custo e a complexidade, os registos de ligação não representam l
 |Direção |Direção da ligação, o valor é *de entrada* ou *saída* |
 |Máquina |O computador FQDN |
 |Processo |Identidade de processo ou grupos de processos, início/aceitação da ligação |
-|SourceIp |Endereço IP da fonte |
+|FonteIp |Endereço IP da fonte |
 |DestinationIp |Endereço IP do destino |
 |DestinationPort |Número do porto do destino |
 |Protocolo |Protocolo usado para a ligação.  Valores é *tcp*. |
@@ -63,7 +63,7 @@ Para ter em conta o impacto do agrupamento, são fornecidas informações sobre 
 |:--|:--|
 |Ligações Estabelecidas |O número de ligações físicas de rede que foram estabelecidas durante a janela de tempo de reporte |
 |LinksTerminated |O número de ligações físicas de rede que foram terminadas durante a janela de tempo de reporte |
-|LinksFailed |O número de ligações físicas à rede que falharam durante o período de reporte. Esta informação está atualmente disponível apenas para ligações de saída. |
+|LinksFalhado |O número de ligações físicas à rede que falharam durante o período de reporte. Esta informação está atualmente disponível apenas para ligações de saída. |
 |LinksLive |O número de ligações físicas de rede que estavam abertas no final da janela de tempo de reporte|
 
 #### <a name="metrics"></a>Métricas
@@ -76,8 +76,8 @@ Para além das métricas de contagem de ligação, estão também incluídas inf
 |BytesReceived |Número total de bytes que foram recebidos durante a janela de reporte |
 |Respostas |O número de respostas observadas durante a janela de tempo de reporte. 
 |Tempo max resposta |O maior tempo de resposta (milissegundos) observado durante a janela de tempo de reporte. Se não tiver valor, a propriedade está em branco.|
-|ResponseTimeMin |O menor tempo de resposta (milissegundos) observado durante a janela de tempo de reporte. Se não tiver valor, a propriedade está em branco.|
-|ResponseTimeSum |A soma de todos os tempos de resposta (milissegundos) observados durante a janela de tempo de reporte. Se não tiver valor, a propriedade está em branco.|
+|Tempo de resposta |O menor tempo de resposta (milissegundos) observado durante a janela de tempo de reporte. Se não tiver valor, a propriedade está em branco.|
+|Tempo de resposta |A soma de todos os tempos de resposta (milissegundos) observados durante a janela de tempo de reporte. Se não tiver valor, a propriedade está em branco.|
 
 O terceiro tipo de dados a ser reportado é o tempo de resposta - quanto tempo um chamador gasta à espera de um pedido enviado sobre uma ligação a ser processado e respondido pelo ponto final remoto. O tempo de resposta reportado é uma estimativa do verdadeiro tempo de resposta do protocolo de candidatura subjacente. É calculado utilizando heurística com base na observação do fluxo de dados entre a origem e o destino de uma ligação de rede física. Conceptualmente, é a diferença entre o último byte de um pedido que deixa o remetente, e o momento em que o último byte da resposta chega ao mesmo. Estes dois selos temporais são usados para delinear eventos de pedido e resposta numa determinada ligação física. A diferença entre eles representa o tempo de resposta de um único pedido. 
 
@@ -101,8 +101,8 @@ A *VMConnection* também inclui informações de geolocalização para a extremi
 | Propriedade | Descrição |
 |:--|:--|
 |RemoteCountry |O nome do país/região que acolhe o RemoteIp.  Por exemplo, *Estados Unidos* |
-|RemoteLatitude |A latitude geolocalização. Por exemplo, *47.68* |
-|RemoteLongitude |A longitude geolocalização. Por exemplo, *-122.12* |
+|Latitude Remota |A latitude geolocalização. Por exemplo, *47.68* |
+|Longitude Remota |A longitude geolocalização. Por exemplo, *-122.12* |
 
 #### <a name="malicious-ip"></a>IP malicioso
 
@@ -114,7 +114,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra 
 |IndicadorThreadType |O indicador de ameaça detetado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining,* *Darknet,* *DDos,* *MaliciousUrl,* *Malware*, *Phishing,* *Proxy,* *PUA,* *Watchlist*.   |
 |Descrição |Descrição da ameaça observada. |
 |Nível TLP |O nível do Protocolo do Semáforo (TLP) é um dos valores definidos, *Branco,* *Verde,* *Âmbar,* *Vermelho*. |
-|Confidence |Os valores são *0 a 100*. |
+|Confiança |Os valores são *0 a 100*. |
 |Gravidade |Os valores são *0 - 5*, onde *5* é o mais grave e *0* não é severo de todo. O valor predefinido é *de 3*.  |
 |Primeira Data reportada |A primeira vez que o fornecedor reportou o indicador. |
 |Última Data |A última vez que o indicador foi visto pela Interflow. |
@@ -154,7 +154,7 @@ Eis alguns pontos importantes a ter em conta:
 
 ### <a name="vmcomputer-records"></a>Registos VMComputer
 
-Os registos com um tipo de *VMComputer* têm dados de inventário para servidores com o agente dependency. Estes registos têm as propriedades na tabela a seguir:
+Os registos com um tipo de *VMComputer* têm dados de inventário para servidores com o agente dependency. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -163,12 +163,12 @@ Os registos com um tipo de *VMComputer* têm dados de inventário para servidore
 |TimeGenerated | Carimbo de tempo do registo (UTC) |
 |Computador | O computador FQDN | 
 |AgenteId | A identificação única do agente Log Analytics |
-|Máquina | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É da forma *m-{GUID}* , onde *o GUID* é o mesmo GUID que o AgentId. | 
+|Máquina | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É da forma *m-{GUID}*, onde *o GUID* é o mesmo GUID que o AgentId. | 
 |DisplayName | Nome a apresentar | 
 |Nome fulldisplay | Nome completo do display | 
-|nome de anfitrião | O nome da máquina sem nome de domínio |
+|NomedeAnfitrião | O nome da máquina sem nome de domínio |
 |Hora do Arranque | O tempo de arranque da máquina (UTC) |
-|fuso horário | O fuso horário normalizado |
+|TimeZone | O fuso horário normalizado |
 |Virtualização Estado | *virtual,* *hipervisor,* *físico* |
 |Ipv4Addresss | Conjunto de endereços IPv4 | 
 |Ipv4SubnetMasks | Conjunto de máscaras de sub-rede IPv4 (na mesma ordem que Ipv4Addresss). |
@@ -208,15 +208,15 @@ Os registos com um tipo de *VMComputer* têm dados de inventário para servidore
 |AzureCloudServiceRoleType | Tipo de função de serviço de nuvem: *trabalhador* ou *web* |
 |AzureCloudServiceInstanceId | Id de exemplo de função de serviço de nuvem |
 |Nome de conjunto de escala seleções azureVm | O nome do conjunto de escala de máquina virtual |
-|Implantação azureVmScaleSet | Id de implementação de conjunto de escala VM |
+|Implantação azureVmScaleSet | ID de implementação de conjunto de escala de máquina virtual |
 |AzureVmScaleSetResourceId | O identificador único do recurso conjunto de escala de máquina virtual.|
 |AzureVmScaleSetInstanceId | O identificador único do conjunto de escala de máquina virtual |
 |AzureServiceFabricClusterId | O identificador único do cluster Azure Service Fabric | 
 |Nome azureServiceFabricCluster | O nome do cluster Azure Service Fabric |
 
-### <a name="vmprocess-record"></a>Registo VMProcess
+### <a name="vmprocess-records"></a>Registos VMProcess
 
-Os registos com um tipo de *VMProcess* têm dados de inventário para processos ligados ao TCP em servidores com o agente Dependency. Estes registos têm as propriedades na tabela a seguir:
+Os registos com um tipo de *VMProcess* têm dados de inventário para processos ligados ao TCP em servidores com o agente Dependency. Estes registos têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -225,8 +225,8 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |TimeGenerated | Carimbo de tempo do registo (UTC) |
 |Computador | O computador FQDN | 
 |AgenteId | A identificação única do agente Log Analytics |
-|Máquina | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É da forma *m-{GUID}* , onde *o GUID* é o mesmo GUID que o AgentId. | 
-|Processo | O identificador único do processo do Mapa de Serviço. É na forma de *p-{GUID}* . 
+|Máquina | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É da forma *m-{GUID}*, onde *o GUID* é o mesmo GUID que o AgentId. | 
+|Processo | O identificador único do processo do Mapa de Serviço. É na forma de *p-{GUID}*. 
 |Nome executável | O nome do processo executável | 
 |DisplayName | Nome de exibição de processo |
 |Função | Função de processo: *webserver*, *appServer*, *databaseServer*, *ldapServer,* *smbServer* |
@@ -236,18 +236,19 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Descrição | A descrição do processo |
 |CompanyName | O nome da empresa |
 |Nome Interno | O nome interno |
-|ProductName | O nome do produto |
+|NomeDoProduto | O nome do produto |
 |ProductVersion | A versão do produto |
 |Versão de Ficheiros | A versão do ficheiro |
 |Caminho Executável |O caminho do executável |
 |Linha de Comando | A linha de comando |
-|Diretório de Trabalho | O diretório de trabalho |
+|WorkingDirectory | O diretório de trabalho |
 |Serviços | Uma série de serviços sob os quais o processo está a executar |
 |UserName | A conta sob a qual o processo está a executar |
-|UserDomain | O domínio sob o qual o processo está executando |
+|Domínio do utilizador | O domínio sob o qual o processo está executando |
 |_ResourceId | O identificador único para um processo dentro do espaço de trabalho |
 
-## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
+
+## <a name="sample-map-queries"></a>Consultas de mapa de amostras
 
 ### <a name="list-all-known-machines"></a>Listar todas as máquinas conhecidas
 
@@ -428,6 +429,47 @@ let remoteMachines = remote | summarize by RemoteMachine;
 // aggregate the remote information
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
+
+## <a name="performance-records"></a>Registos de desempenho
+Os registos com um tipo de *InsightsMetrics* têm dados de desempenho do sistema operativo convidado da máquina virtual. Estes registos têm as propriedades na tabela seguinte:
+
+
+| Propriedade | Descrição |
+|:--|:--|
+|TenantId | Identificador único para o espaço de trabalho |
+|SourceSystem | *Informações* | 
+|TimeGenerated | Tempo em que o valor foi recolhido (UTC) |
+|Computador | O computador FQDN | 
+|Origem | *vm.azm.ms* |
+|Espaço de nomes | Categoria do contador de desempenho | 
+|Nome | Nome do contador de desempenho |
+|Rio Val | Valor recolhido | 
+|Etiquetas | Detalhes relacionados sobre o registo. Consulte a tabela abaixo para obter etiquetas utilizadas com diferentes tipos de discos.  |
+|AgenteId | Identificador único para o agente de cada computador |
+|Tipo | *InsightsMetrics* |
+|_ResourceId_ | Identificação de recursos da máquina virtual |
+
+Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* estão listados na tabela seguinte:
+
+| Espaço de nomes | Nome | Descrição | Unidade | Etiquetas |
+|:---|:---|:---|:---|:---|
+| Computador    | Heartbeat             | Batimento cardíaco do computador                        | | |
+| Memória      | DisponívelMB           | Bytes de Memória Disponíveis                    | Bytes          | memóriaSizeMB - Tamanho total da memória|
+| Rede     | WriteBytesPerSecond   | Rede Write Bytes por Segundo            | BytesPerSecond | NetworkDeviceId - Id do dispositivo<br>bytes - Total de bytes enviados |
+| Rede     | ReadBytesPerSecond    | Rede Ler Bytes por Segundo             | BytesPerSecond | redeDeviceId - Id do dispositivo<br>bytes - Total recebido bytes |
+| Processador   | UtilizaçãoPercentage | Percentagem de Utilização do Processador          | Percentagem        | totalCpus - Total CPUs |
+| LogicalDisk | WritesPerSecond       | Disco Lógico escreve por segundo            | CondeEmSegundo | mountId - Mount ID do dispositivo |
+| LogicalDisk | WriteLatencyMs        | Disco lógico Escrever Lmilência Milisegundo    | MilliSeconds   | mountId - Mount ID do dispositivo |
+| LogicalDisk | WriteBytesPerSecond   | Lógico disk write bytes por segundo       | BytesPerSecond | mountId - Mount ID do dispositivo |
+| LogicalDisk | TransfersPerSecond    | Transferências lógicas de disco por segundo         | CondeEmSegundo | mountId - Mount ID do dispositivo |
+| LogicalDisk | TransferLatencyMs     | Lemsegundo de atraso de transferência de disco lógico | MilliSeconds   | mountId - Mount ID do dispositivo |
+| LogicalDisk | Lê-se Em segundo lugar        | Leituras de disco lógico por segundo             | CondeEmSegundo | mountId - Mount ID do dispositivo |
+| LogicalDisk | LeituraDeLênciaMs         | Disco lógico Ler Lmilência Milisegundo     | MilliSeconds   | mountId - Mount ID do dispositivo |
+| LogicalDisk | ReadBytesPerSecond    | Discos lógicos ler bytes por segundo        | BytesPerSecond | mountId - Mount ID do dispositivo |
+| LogicalDisk | FreeSpacePercentage   | Percentagem de espaço livre de disco lógico        | Percentagem        | mountId - Mount ID do dispositivo |
+| LogicalDisk | FreeSpaceMB           | Bytes lógicos de espaço livre de disco             | Bytes          | mountId - Mount ID do dispositivo<br>diskSizeMB - Tamanho total do disco |
+| LogicalDisk | BytesPerSecond        | Bytes lógicos do disco por segundo             | BytesPerSecond | mountId - Mount ID do dispositivo |
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

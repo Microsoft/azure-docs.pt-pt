@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77252232"
 ---
 # <a name="automate-mobility-service-installation"></a>Instalação do Selfmate Mobility Service
@@ -88,15 +88,15 @@ A tabela que se segue resume ferramentas e processos para automatizar a implanta
 
 1. Tal como descrito nos seguintes procedimentos, copie o código para as pastas Windows ou Linux. Assumimos que:
 
-   - O endereço IP do servidor de configuração está `192.168.3.121`.
-   - A partilha de ficheiros de rede segura é `\\ContosoSecureFS\MobilityServiceInstallers`.
+   - O endereço IP do `192.168.3.121`servidor de configuração é .
+   - A partilha de `\\ContosoSecureFS\MobilityServiceInstallers`ficheiros de rede segura é .
 
 ### <a name="copy-code-to-the-windows-folder"></a>Copiar código para a pasta Windows
 
 Copiar o seguinte código:
 
 - Guarde o código na pasta _MobSvcWindows_ como _instalar.bat_.
-- Substitua os espaços reservados `[CSIP]` neste script com os valores reais do endereço IP do seu servidor de configuração.
+- Substitua `[CSIP]` os espaços reservados deste script com os valores reais do endereço IP do seu servidor de configuração.
 - O script suporta novas instalações do agente do Serviço de Mobilidade e atualiza para agentes que já estão instalados.
 
 ```DOS
@@ -199,7 +199,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 Copiar o seguinte código:
 
 - Guarde o código na pasta _MobSvcLinux_ como _install_linux.sh_.
-- Substitua os espaços reservados `[CSIP]` neste script com os valores reais do endereço IP do seu servidor de configuração.
+- Substitua `[CSIP]` os espaços reservados deste script com os valores reais do endereço IP do seu servidor de configuração.
 - O script suporta novas instalações do agente do Serviço de Mobilidade e atualiza para agentes que já estão instalados.
 
 ```Bash
@@ -338,15 +338,15 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Criar um pacote
 
-1. Inscreva-se na consola do Gestor de Configuração e vá à Biblioteca de **Software** > **Gestão** de Aplicações > **Pacotes.**
-1. Clique à direita **Pacotes** > **Criar Pacote**.
+1. Inscreva-se na consola do Gestor de Configuração e vá aos > **Pacotes**de Gestão de > **Aplicações**da Biblioteca de **Software.**
+1. **Pacotes** > de clique direito**Criam Pacote**.
 1. Forneça detalhes do pacote, incluindo um nome, descrição, fabricante, idioma e versão.
 1. Selecione **Este pacote contém ficheiros de origem**.
-1. Clique em **Navegar**, e selecione a partilha e pasta da rede que contém o instalador relevante (_MobSvcWindows_ ou _MobSvcLinux_). Em seguida, selecione **Seguinte**.
+1. Clique em **Navegar**, e selecione a partilha e pasta da rede que contém o instalador relevante (_MobSvcWindows_ ou _MobSvcLinux_). Em seguida, selecione **Next**.
 
    ![Screenshot do criar pacote e assistente de programa](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-1. Em **Escolha o tipo de programa que pretende criar** página, selecione Programa **Standard** > **Seguinte**.
+1. Em **Escolha o tipo de programa que pretende criar** página, selecione Standard **Program** > **Next**.
 
    ![Screenshot do criar pacote e assistente de programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
@@ -355,8 +355,8 @@ cd /tmp
     **Parâmetro** | **Valor do Windows** | **Valor linux**
     --- | --- | ---
     **Nome** | Instalar o Microsoft Azure Mobility Service (Windows) | Instale o Microsoft Azure Mobility Service (Linux).
-    **Linha de comandos** | install.bat | ./install_linux.sh
-    **Programa pode correr** | Quer um utilizador tenha ou não sessão iniciada | Quer um utilizador tenha ou não sessão iniciada
+    **Linha de comandos** | instalar.morcego | ./install_linux.sh
+    **Programa pode correr** | Se um utilizador está ou não ligado | Se um utilizador está ou não ligado
     **Outros parâmetros** | Utilize a definição predefinida | Utilize a definição predefinida
 
    ![Screenshot do criar pacote e assistente de programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -366,7 +366,7 @@ cd /tmp
    - Para máquinas Windows, selecione **Este programa só pode funcionar em plataformas especificadas**. Em seguida, selecione os [sistemas operativos Windows suportados](vmware-physical-azure-support-matrix.md#replicated-machines) e selecione **Next**.
    - Para máquinas Linux, selecione **Este programa pode ser executado em qualquer plataforma**. Em seguida, selecione **Seguinte**.
 
-1. Termine o feiticeiro.
+1. Conclua o assistente.
 
 ### <a name="deploy-the-package"></a>Implementar o pacote
 
@@ -376,7 +376,7 @@ cd /tmp
 
 1. Selecione os pontos de distribuição em que as embalagens devem ser copiadas. [Saiba mais](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
 1. Conclua o assistente. O pacote começa então a replicar-se para os pontos de distribuição especificados.
-1. Depois de terminar a distribuição do pacote, clique à direita no pacote > **Implemente**.
+1. Depois de terminar a distribuição do pacote, clique no pacote > **Implementar**.
 
    ![Screenshot da consola de Gestor de Configuração](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 
@@ -392,7 +392,7 @@ cd /tmp
    - Para evitar reboots desnecessários, agende a instalação do pacote durante a janela de manutenção mensal ou a janela de atualizações de software.
 
 1. Na página Pontos de **Distribuição,** configure as definições e termine o assistente.
-1. Monitorize o progresso de implementação na consola Do Gestor de Configuração. Vá para **monitorização** > **Implantações** >  _\<o seu nome de pacote\>_ .
+1. Monitorize o progresso de implementação na consola Do Gestor de Configuração. Vá para **monitorização** > **de implementações** > _\<\>o seu nome_de pacote .
 
 ### <a name="uninstall-the-mobility-service"></a>Desinstalar o Serviço de Mobilidade
 

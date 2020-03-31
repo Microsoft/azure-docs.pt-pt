@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76838263"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informação de imagens em cenários de enriquecimento de IA
@@ -31,14 +31,14 @@ Não pode desligar a normalização da imagem. Habilidades que iteram sobre imag
 
 | Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageAction   | Configurado para "nenhuma" se não for empreendida qualquer ação quando forem encontradas imagens incorporadas ou ficheiros de imagem. <br/>Configurar para "gerarImagens Normalizadas" para gerar uma série de imagens normalizadas como parte da quebra de documentos.<br/>Configurado para "gerarNormalizedImagePerPage" para gerar um conjunto de imagens normalizadas onde, para PDFs na sua fonte de dados, cada página é renderizada numa imagem de saída.  A funcionalidade é a mesma que "gerarImagens Normalizadas" para tipos de ficheiros não PDF.<br/>Para qualquer opção que não seja "nenhuma", as imagens serão expostas no campo *normalized_images.* <br/>O padrão é "nenhum". Esta configuração é apenas pertinente para as fontes de dados blob, quando "dataToExtract" é definida para "contentAndMetadata". <br/>Um máximo de 1000 imagens serão extraídas de um determinado documento. Se houver mais de 1000 imagens num documento, as primeiras 1000 serão extraídas e será gerado um aviso. |
-|  normalizedImageMaxWidth | A largura máxima (em pixels) para imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é de 10000. | 
-|  normalizedImageMaxHeight | A altura máxima (em pixels) para imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é de 10000.|
+| imagemAction   | Configurado para "nenhuma" se não for empreendida qualquer ação quando forem encontradas imagens incorporadas ou ficheiros de imagem. <br/>Configurar para "gerarImagens Normalizadas" para gerar uma série de imagens normalizadas como parte da quebra de documentos.<br/>Configurado para "gerarNormalizedImagePerPage" para gerar um conjunto de imagens normalizadas onde, para PDFs na sua fonte de dados, cada página é renderizada numa imagem de saída.  A funcionalidade é a mesma que "gerarImagens Normalizadas" para tipos de ficheiros não PDF.<br/>Para qualquer opção que não seja "nenhuma", as imagens serão expostas no campo *normalized_images.* <br/>O padrão é "nenhum". Esta configuração é apenas pertinente para as fontes de dados blob, quando "dataToExtract" é definida para "contentAndMetadata". <br/>Um máximo de 1000 imagens serão extraídas de um determinado documento. Se houver mais de 1000 imagens num documento, as primeiras 1000 serão extraídas e será gerado um aviso. |
+|  normalizadoImageMaxWidth | A largura máxima (em pixels) para imagens normalizadas geradas. A predefinição é 2 000. O valor máximo permitido é de 10000. | 
+|  normalizadoImageMaxHeight | A altura máxima (em pixels) para imagens normalizadas geradas. A predefinição é 2 000. O valor máximo permitido é de 10000.|
 
 > [!NOTE]
 > Se definir a *propriedade imageAction* para outra coisa que não "nenhuma", não será capaz de definir a propriedade *de parsingMode* para outra coisa que não "padrão".  Só pode definir uma destas duas propriedades para um valor não predefinido na configuração do indexante.
 
-Defina o parâmetro **de parsingMode** para `json` (para indexar cada bolha como um único documento) ou `jsonArray` (se as suas bolhas contiverem matrizes JSON e precisar de cada elemento de uma matriz para ser tratada como um documento separado).
+Defina o parâmetro **de parsingMode** para `json` (para indexar `jsonArray` cada bolha como um único documento) ou (se as suas bolhas contiverem matrizes JSON e precisar de cada elemento de uma matriz para ser tratado como um documento separado).
 
 O padrão de 2000 pixels para as imagens normalizadas a largura e altura máximas baseia-se nos tamanhos máximos suportados pela [habilidade OCR](cognitive-search-skill-ocr.md) e pela habilidade de análise de [imagem.](cognitive-search-skill-image-analysis.md) A [habilidade OCR](cognitive-search-skill-ocr.md) suporta uma largura máxima e altura de 4200 para línguas não inglesas, e 10000 para inglês.  Se aumentar os limites máximos, o processamento poderá falhar em imagens maiores, dependendo da definição de skillset e da linguagem dos documentos. 
 
@@ -63,12 +63,12 @@ Quando a *imagemA ação* é definida para um valor diferente então "nenhuma", 
 | Membro da imagem       | Descrição                             |
 |--------------------|-----------------------------------------|
 | data               | Cadeia codificada BASE64 da imagem normalizada no formato JPEG.   |
-| Largura              | Largura da imagem normalizada em píxeis. |
+| largura              | Largura da imagem normalizada em píxeis. |
 | altura             | Altura da imagem normalizada em píxeis. |
 | originalLargura de largura      | A largura original da imagem antes da normalização. |
 | altura original      | A altura original da imagem antes da normalização. |
 | rotaçãoFromOriginal |  Rotação no sentido contrário ao dos ponteiros do relógio em graus que ocorreram para criar a imagem normalizada. Um valor entre 0 graus e 360 graus. Este passo lê os metadados a partir da imagem que é gerada por uma câmara ou scanner. Normalmente um múltiplo de 90 graus. |
-| contentOffset | O personagem compensou dentro do campo de conteúdo de onde a imagem foi extraída. Este campo só é aplicável para ficheiros com imagens incorporadas. |
+| conteúdoOffset | O personagem compensou dentro do campo de conteúdo de onde a imagem foi extraída. Este campo só é aplicável para ficheiros com imagens incorporadas. |
 | páginaNúmero | Se a imagem foi extraída ou renderizada de um PDF, este campo contém o número da página no PDF de que foi extraído ou renderizado, a partir de 1.  Se a imagem não fosse de um PDF, este campo será 0.  |
 
  Valor da amostra de *normalized_images:*
@@ -91,7 +91,7 @@ Quando a *imagemA ação* é definida para um valor diferente então "nenhuma", 
 
 Existem duas habilidades cognitivas incorporadas que tomam as imagens como uma entrada: [OCR](cognitive-search-skill-ocr.md) e [Análise de Imagem](cognitive-search-skill-image-analysis.md). 
 
-Atualmente, estas habilidades só funcionam com imagens geradas a partir do passo de rachadura do documento. Como tal, a única entrada apoiada é `"/document/normalized_images"`.
+Atualmente, estas habilidades só funcionam com imagens geradas a partir do passo de rachadura do documento. Como tal, a única entrada `"/document/normalized_images"`apoiada é .
 
 ### <a name="image-analysis-skill"></a>Habilidade de análise de imagem
 
@@ -106,12 +106,12 @@ A [habilidade OCR](cognitive-search-skill-ocr.md) extrai texto de ficheiros de i
 Um cenário comum envolve a criação de uma única cadeia contendo todos os conteúdos de ficheiros, tanto texto como texto de origem de imagem, executando os seguintes passos:  
 
 1. [Extrair normalized_images](#get-normalized-images)
-1. Executar a habilidade OCR usando `"/document/normalized_images"` como entrada
+1. Executar a habilidade `"/document/normalized_images"` OCR usando como entrada
 1. Fundir a representação de texto dessas imagens com o texto bruto extraído do ficheiro. Pode utilizar a habilidade text [merge](cognitive-search-skill-textmerger.md) para consolidar ambos os pedaços de texto numa única corda grande.
 
 O seguinte exemplo de habilidade sintetiza um campo *merged_text* contendo o conteúdo textual do seu documento. Também inclui o texto OCRed de cada uma das imagens incorporadas. 
 
-#### <a name="request-body-syntax"></a>Sintaxe do corpo da solicitação
+#### <a name="request-body-syntax"></a>Solicitar sintaxe do corpo
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -213,10 +213,10 @@ Como ajudante, se precisar de transformar coordenadas normalizadas no espaço de
         }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md)
 + [Habilidade de OCR](cognitive-search-skill-ocr.md)
 + [Habilidade de fusão de texto](cognitive-search-skill-textmerger.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Como mapear campos aprimorados](cognitive-search-output-field-mapping.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

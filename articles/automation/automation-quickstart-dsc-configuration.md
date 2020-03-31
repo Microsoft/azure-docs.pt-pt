@@ -8,13 +8,13 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 6c3ff10f37233294b75eceddd62c0a33f8864484
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75421631"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual com a configuração de estado desejado
+# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configure uma máquina virtual com configuração de estado desejada
 
 Ao ativar a Configuração de Estado Pretendido (DSC), pode gerir e monitorizar as configurações dos seus servidores do Windows e Linux. As configurações que se desviam da configuração pretendida podem ser identificadas ou corrigidas automaticamente. Este guia rápido acompanha-o ao longo do carregamento de uma VM Linux e implementação de uma pilha LAMP com DSC.
 
@@ -22,7 +22,7 @@ Ao ativar a Configuração de Estado Pretendido (DSC), pode gerir e monitorizar 
 
 Para concluir este guia de início rápido, necessita de:
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, [crie uma conta gratuita.](https://azure.microsoft.com/free/)
 * Uma conta de Automatização do Azure. Para obter instruções sobre como criar uma conta Run As de Automatização do Azure, veja [Conta Run As do Azure](automation-sec-configure-azure-runas-account.md).
 * Uma VM do Azure Resource Manager (não Clássica) com Red Hat Enterprise Linux, CentOS ou Oracle Linux. Para obter instruções sobre como criar uma VM, veja [Criar a sua primeira máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 
@@ -34,12 +34,12 @@ Existem vários métodos diferentes para carregar uma máquina e ativar a Config
 
 1. No painel esquerdo do portal do Azure, selecione **Contas de Automatização**. Se não estiver visível no painel esquerdo, clique em **Todos os serviços** e procure-o na vista apresentada.
 1. Na lista, selecione uma conta de Automatização.
-1. No painel esquerdo da conta de Automatização, selecione **Configuração de estado (DSC)** .
+1. No painel esquerdo da conta de Automatização, selecione **Configuração de estado (DSC)**.
 2. Clique em **Adicionar** para abrir a página de seleção de VM.
 3. Encontre a máquina virtual em que pretende ativar o DSC. Pode utilizar as opções de campo de pesquisa e de filtro para encontrar uma máquina virtual específica.
 4. Clique na máquina virtual e, em seguida, selecione **Ligar**
 5. Selecione as definições de DSC adequadas para a máquina virtual. Se já preparou uma configuração, pode especificar como *Nome da Configuração do Nó*. Pode definir o [modo de configuração](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) para controlar o comportamento de configuração da máquina.
-6. Clique em **OK**
+6. Clique **OK**
 
 ![Inclusão de uma VM do Azure no DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -98,9 +98,9 @@ configuration LAMPServer {
 Para importar a configuração:
 
 1. No painel esquerdo da conta de Automatização, selecione **Configuração de estado (DSC)** e, em seguida, clique no separador **Configurações**.
-2. Clique em **+ Adicionar**
+2. Clique **+ Adicionar**
 3. Selecione o *Ficheiro de configuração* que guardou no passo anterior
-4. Clique em **OK**
+4. Clique **OK**
 
 ## <a name="compile-a-configuration"></a>Compilar uma configuração
 
@@ -108,7 +108,7 @@ As Configurações de DSC devem ser compiladas para uma Configuração de Nó (d
 
 Para compilar a configuração:
 
-1. No painel esquerdo da conta de Automatização, selecione **Configuração de Estado (DSC)** e, em seguida, clique no separador **Configurações**.
+1. No painel esquerdo da conta Automation, selecione **Configuração do Estado (DSC)** e, em seguida, clique no separador **Configurações.**
 1. Selecione a configuração que importou num passo anterior, "LAMPServer"
 1. Entre as opções de menu, clique em **Compilar** e, em seguida, **Sim**
 1. Na vista de Configuração, verá uma nova *Tarefa de compilação* colocada em fila. Quando a tarefa for concluída com êxito, está pronta para avançar para o passo seguinte. Se existirem quaisquer falhas, pode clicar na tarefa de Compilação para obter mais detalhes.
@@ -120,7 +120,7 @@ Uma *Configuração do Nó* compilada pode ser atribuída a Nós de DSC. A atrib
 1. No painel esquerdo da conta de Automatização, selecione **Configuração de Estado (DSC) e, em seguida, clique no separador **Nós**.
 1. Selecione o nó a que pretende atribuir uma configuração
 1. Clique em **Atribuir Configuração do Nó**
-1. Selecione a *Configuração do Nó* - **LAMPServer.localhost** - a atribuir e clicar em **OK**
+1. Selecione o**lampserver.localhost de** *configuração* - do nó - para atribuir e clicar **EM OK**
 1. A configuração compilada está agora ser atribuída ao nó e o estado do nó é alterado para *Pendente*. Na próxima verificação periódica, o nó obtém a configuração, aplica-a e comunica o estado novamente. Pode demorar até 30 minutos para o nó obter a configuração, dependendo das definições do nó. Para forçar uma verificação de imediato, pode executar o comando seguinte localmente na máquina virtual Linux: `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![Atribuir uma Configuração do Nó](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
@@ -140,5 +140,5 @@ Neste guia rápido integrou uma VM com Linux no DSC, criou uma configuração pa
 
 * Para saber mais sobre a Configuração de Estado Pretendido do PowerShell, veja [PowerShell Desired State Configuration Overview (Descrição Geral da Configuração de Estado Pretendido do PowerShell)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 * Para saber mais sobre a gestão do Automation DSC do PowerShell, veja [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
-* Para saber como encaminhar relatórios DSC para Azure Monitor logs para relatórios e alertas, consulte [encaminhando relatórios de DSC para logs de Azure monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+* Para saber como encaminhar relatórios da DSC para registos do Monitor Azure para reportagem e alerta, consulte O [Relatório de DSC de Encaminhamento para os registos do Monitor Azure](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

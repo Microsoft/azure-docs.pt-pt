@@ -7,18 +7,18 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671669"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profile live Azure Cloud Services com Insights de Aplicação
 
 Também pode implementar o Perfil de Insights de Aplicação nestes serviços:
-* [App Service do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicações azure service fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas Virtuais Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 O Perfil insights de aplicação está instalado com a extensão de Diagnóstico Azure. Basta configurar o Azure Diagnostics para instalar o Profiler e enviar perfis para o seu recurso Application Insights.
 
@@ -37,13 +37,13 @@ O Perfil insights de aplicação está instalado com a extensão de Diagnóstico
 
 1. Configure a extensão de diagnóstico sinuoso para ativar o Profiler:
 
-    a. Localize o ficheiro [De diagnóstico sinuoso de Diagnóstico sinuoso.wadcfgx](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) para a sua função de candidatura, como mostra aqui:  
+    a. Localize o ficheiro [De diagnóstico sinuoso de Diagnóstico sinuoso.wadcfgx](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* para a sua função de candidatura, como mostra aqui:  
 
       ![Localização do ficheiro config de diagnóstico](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
       Se não encontrar o ficheiro, consulte [Configurar diagnósticos para Serviços de Nuvem Azure e Máquinas Virtuais](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
-    b. Adicione a seguinte secção `SinksConfig` como elemento infantil de `WadCfg`:  
+    b. Adicione a `SinksConfig` seguinte secção como `WadCfg`elemento infantil de:  
 
       ```xml
       <WadCfg>
@@ -63,7 +63,7 @@ O Perfil insights de aplicação está instalado com a extensão de Diagnóstico
     > * A chave que é usada pela pia ApplicationInsights. 
     > * A chave que é usada pela pia ApplicationInsightsProfiler. 
     >
-    > Pode encontrar o valor real da chave de instrumentação que é usado pelo `ApplicationInsights` afundar no *ServiceConfiguration\*.* 
+    > Pode encontrar o valor real da chave de `ApplicationInsights` instrumentação que é usado pela pia na Configuração de *Serviço.\* ficheiros cscfg.* 
     > Após o lançamento do Estúdio Visual 15.5 Azure SDK, apenas as teclas de instrumentação que são utilizadas pela aplicação e a pia ApplicationInsightsProfiler precisam de combinar entre si.
 
 1. Implemente o seu serviço com a nova configuração de Diagnósticos e o Perfil de Insights de Aplicação está configurado para ser executado no seu serviço.

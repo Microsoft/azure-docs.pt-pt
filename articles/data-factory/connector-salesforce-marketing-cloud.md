@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Salesforce marketing Cloud
-description: Saiba como copiar dados do Salesforce Marketing Cloud para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados da Salesforce Marketing Cloud
+description: Saiba como copiar dados da Salesforce Marketing Cloud para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,48 +13,48 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: aa996ae14276ecf246104d8778fbb6b723448e04
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931723"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiar dados da nuvem de marketing do Salesforce usando o Azure Data Factory
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiar dados da Salesforce Marketing Cloud utilizando a Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Salesforce Marketing Cloud. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Salesforce Marketing Cloud. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-O conector de nuvem do Salesforce marketing tem suporte para as seguintes atividades:
+Este conector Salesforce Marketing Cloud é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados de Cloud de Marketing do Salesforce para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da Salesforce Marketing Cloud para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-O conector de nuvem de marketing do Salesforce dá suporte à autenticação OAuth 2. Ele é criado sobre a [API REST de nuvem de marketing do Salesforce](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+O conector Salesforce Marketing Cloud suporta a autenticação OAuth 2. É construído em cima da [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
->Esse conector não dá suporte à recuperação de objetos personalizados ou extensões de dados personalizados.
+>Este conector não suporta a recuperação de objetos personalizados ou extensões de dados personalizadas.
 
 ## <a name="getting-started"></a>Introdução
 
-Pode criar um pipeline com a atividade de cópia com o SDK de .NET, o SDK de Python, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Ver [tutorial da atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Pode criar um pipeline com a atividade de cópia utilizando o modelo .NET SDK, Python SDK, Azure PowerShell, REST API ou Azure Resource Manager. Consulte o tutorial de [atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Salesforce Marketing Cloud.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Salesforce Marketing Cloud.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As seguintes propriedades são suportadas para o serviço Cloud de Marketing de Salesforce ligada:
+As seguintes propriedades são suportadas para o serviço ligado à Cloud de Marketing salesforce:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **SalesforceMarketingCloud** | Sim |
-| clientId | O ID de cliente associado à aplicação Salesforce Marketing Cloud.  | Sim |
-| clientSecret | O segredo do cliente associado à aplicação Salesforce Marketing Cloud. Você pode optar por marcar esse campo como uma SecureString para armazená-lo com segurança no ADF ou armazenar a senha em Azure Key Vault e deixar a atividade de cópia do ADF efetuar pull a partir daí ao executar a cópia de dados-Saiba mais em [armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
-| useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **SalesforceMarketingCloud** | Sim |
+| clientId | O ID do cliente associado à aplicação Salesforce Marketing Cloud.  | Sim |
+| clienteSecret | O segredo do cliente associado à aplicação Salesforce Marketing Cloud. Pode optar por marcar este campo como um SecureString para o armazenar de forma segura em ADF, ou armazenar senha no Cofre de Chaves Azure e deixar a atividade de cópia da ADF puxar a partir daí ao executar cópia de dados - saiba mais com [as credenciais da Loja no Cofre chave](store-credentials-in-key-vault.md). | Sim |
+| useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é true.  | Não |
+| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do SSL. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -78,16 +78,16 @@ As seguintes propriedades são suportadas para o serviço Cloud de Marketing de 
 
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Salesforce Marketing Cloud.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Salesforce Marketing Cloud.
 
-Para copiar dados do Salesforce Marketing Cloud, defina a propriedade de tipo de conjunto de dados para **SalesforceMarketingCloudObject**. São suportadas as seguintes propriedades:
+Para copiar dados da Salesforce Marketing Cloud, detete a propriedade tipo do conjunto de dados para **SalesforceMarketingCloudObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **SalesforceMarketingCloudObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SalesforceMarketingCloudObject** | Sim |
+| tableName | Nome da mesa. | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -108,16 +108,16 @@ Para copiar dados do Salesforce Marketing Cloud, defina a propriedade de tipo de
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem Salesforce Marketing Cloud.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte salesforce Marketing Cloud.
 
-### <a name="salesforce-marketing-cloud-as-source"></a>Salesforce Marketing Cloud como origem
+### <a name="salesforce-marketing-cloud-as-source"></a>Salesforce Marketing Cloud como fonte
 
-Para copiar dados do Salesforce Marketing Cloud, defina o tipo de origem na atividade de cópia para **SalesforceMarketingCloudSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados da Salesforce Marketing Cloud, delineie o tipo de origem na atividade de cópia para **SalesforceMarketingCloudSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SalesforceMarketingCloudSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SalesforceMarketingCloudSource** | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -151,9 +151,9 @@ Para copiar dados do Salesforce Marketing Cloud, defina o tipo de origem na ativ
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre retransmissão do Azure | Microsoft Docs
-description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o serviço de retransmissão do Azure.
+title: FaQs de Retransmissão Azure Microsoft Docs
+description: Este artigo fornece respostas a algumas das perguntas frequentes sobre o serviço Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,102 +15,102 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: d5032b427316a3c4e07013af4e8214e239a6efb3
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514005"
 ---
-# <a name="azure-relay-faqs"></a>Perguntas frequentes sobre retransmissão do Azure
+# <a name="azure-relay-faqs"></a>FaQs de retransmissão azure
 
-Este artigo responde a algumas perguntas frequentes (FAQs) sobre a [retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para obter informações gerais sobre preços e suporte do Azure, consulte [perguntas frequentes](https://azure.microsoft.com/support/faq/)sobre o suporte do Azure.
+Este artigo responde a algumas perguntas frequentes (PERGUNTAS) sobre [o Azure Relay](https://azure.microsoft.com/services/service-bus/). Para obter informações gerais sobre preços e suporte do Azure, consulte as [FAQs](https://azure.microsoft.com/support/faq/)de Suporte Azure .
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
-O [serviço de retransmissão do Azure](relay-what-is-it.md) facilita seus aplicativos híbridos, ajudando você a expor com mais segurança os serviços que residem em uma rede corporativa corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma conexão de firewall e sem exigir alterações intrusivas em uma infraestrutura de rede corporativa.
+O [serviço Azure Relay](relay-what-is-it.md) facilita as suas aplicações híbridas ajudando-o a expor de forma mais segura serviços que residem dentro de uma rede empresarial corporativa para a nuvem pública. Pode expor os serviços sem abrir uma ligação de firewall, e sem exigir alterações intrusivas numa infraestrutura de rede corporativa.
 
-### <a name="what-is-a-relay-namespace"></a>O que é um namespace de retransmissão?
-Um [namespace](relay-create-namespace-portal.md) é um contêiner de escopo que você pode usar para endereçar recursos de retransmissão dentro de seu aplicativo. Você deve criar um namespace para usar a retransmissão. Esta é uma das primeiras etapas da introdução.
+### <a name="what-is-a-relay-namespace"></a>O que é um espaço de nome retransmissor?
+Um [espaço de nome](relay-create-namespace-portal.md) é um recipiente de deteção que pode utilizar para endereçar recursos de retransmissão dentro da sua aplicação. Tem de criar um espaço de nome para utilizar o Relé. Este é um dos primeiros passos para começar.
 
-### <a name="what-happened-to-service-bus-relay-service"></a>O que aconteceu com o serviço de retransmissão do barramento de serviço?
-O serviço de retransmissão do barramento de serviço anteriormente chamado agora é chamado de [retransmissão do WCF](service-bus-relay-tutorial.md). Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos serviços BizTalk do Azure. Retransmissão do WCF e Conexões Híbridas continuam com suporte.
+### <a name="what-happened-to-service-bus-relay-service"></a>O que aconteceu ao serviço de Retransmissão de Autocarros de Serviço?
+O serviço de retransmissão de ônibus de serviço anteriormente chama-se [WCF Relay](service-bus-relay-tutorial.md). Pode continuar a utilizar este serviço como de costume. A funcionalidade Ligações Híbridas é uma versão atualizada de um serviço que foi transplantado dos Serviços Azure BizTalk. As ligações wCF Relay e Hybrid continuam a ser apoiadas.
 
 ## <a name="pricing"></a>Preços
-Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de retransmissão. Você também pode ver as [perguntas frequentes](https://azure.microsoft.com/support/faq/) sobre o suporte do Azure para obter informações gerais sobre preços do Azure. Para obter informações completas sobre os preços de retransmissão, consulte [detalhes de preços do barramento de serviço][Pricing overview].
+Esta secção responde a algumas perguntas frequentes sobre a estrutura de preços do relé. Você também pode ver as [FAQs](https://azure.microsoft.com/support/faq/) de Suporte Azure para informações gerais de preços Azure. Para obter informações completas sobre os preços do Retransmissor, consulte os detalhes dos [preços do Autocarro de Serviço.][Pricing overview]
 
-### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como você cobra por Conexões Híbridas e Retransmissão do WCF?
-Para obter informações completas sobre preços de retransmissão, consulte a tabela [conexões híbridas e retransmissões do WCF][Pricing overview] na página detalhes de preços do barramento de serviço. Além dos preços observados nessa página, você será cobrado pelas transferências de dados associadas para saída fora do datacenter no qual seu aplicativo é provisionado.
+### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como se cobra ligações híbridas e relé WCF?
+Para obter informações completas sobre os preços do Retransmissor, consulte a tabela de [Ligações Híbridas e Retransmissões WCF][Pricing overview] na página de detalhes de preços do Autocarro de Serviço. Além dos preços anotados nessa página, é cobrado por transferências de dados associadas para saída do datacenter em que a sua aplicação é aprovisionada.
 
-### <a name="how-am-i-billed-for-hybrid-connections"></a>Como sou cobrado por Conexões Híbridas?
-Aqui estão três exemplos de cenários de cobrança para Conexões Híbridas:
+### <a name="how-am-i-billed-for-hybrid-connections"></a>Como é que eu sou cobrado por Ligações Híbridas?
+Aqui estão três exemplos de cenários de faturação para Ligações Híbridas:
 
 *   Cenário 1:
-    *   Você tem um único ouvinte, como uma instância do Gerenciador de Conexões Híbridas instalado e em execução contínua no mês inteiro.
-    *   Você envia 3 GB de dados pela conexão durante o mês. 
-    *   Seu encargo total é de $5.
+    *   Tem um único ouvinte, como um exemplo do Hybrid Connections Manager instalado e continuamente em execução durante todo o mês.
+    *   Envia 3 GB de dados através da ligação durante o mês. 
+    *   A sua taxa total é de $5.
 *   Cenário 2:
-    *   Você tem um único ouvinte, como uma instância do Gerenciador de Conexões Híbridas instalado e em execução contínua no mês inteiro.
-    *   Você envia 10 GB de dados pela conexão durante o mês.
-    *   Seu encargo total é de $7.50. Isso é $5 para a conexão e os primeiros 5 GB + $2.50 para os 5 GB adicionais de dados.
+    *   Tem um único ouvinte, como um exemplo do Hybrid Connections Manager instalado e continuamente em execução durante todo o mês.
+    *   Envia 10 GB de dados através da ligação durante o mês.
+    *   A sua taxa total é de $7,50. São $5 pela ligação e primeiro 5 GB + $2,50 para os 5 GB adicionais de dados.
 *   Cenário 3:
-    *   Você tem duas instâncias, A e B, do Gerenciador de Conexões Híbridas instalado e em execução contínua no mês inteiro.
-    *   Você envia 3 GB de dados pela conexão A durante o mês.
-    *   Você envia 6 GB de dados pela conexão B durante o mês.
-    *   Seu encargo total é de $10.50. Isso é $5 para a conexão A + $5 para a conexão B + $0.50 (para o sexto Gigabyte na conexão B).
+    *   Tem duas instâncias, A e B, do Hybrid Connections Manager instalados e em execução contínua durante todo o mês.
+    *   Envia 3 GB de dados através da ligação A durante o mês.
+    *   Envia 6 GB de dados através da ligação B durante o mês.
+    *   A sua taxa total é de $10,50. São $5 para a ligação A + $5 para a ligação B + $0,50 (para o sexto gigabyte na ligação B).
 
-Observe que os preços usados nos exemplos são aplicáveis somente durante o período de visualização de Conexões Híbridas. Os preços estão sujeitos a alterações após a disponibilidade geral do Conexões Híbridas.
+Note que os preços utilizados nos exemplos são aplicáveis apenas durante o período de pré-visualização das Ligações Híbridas. Os preços estão sujeitos a alterações mediante a disponibilidade geral de Ligações Híbridas.
 
-### <a name="how-are-hours-calculated-for-relay"></a>Como as horas são calculadas para retransmissão?
+### <a name="how-are-hours-calculated-for-relay"></a>Como são as horas calculadas para o Relé?
 
-Retransmissão do WCF está disponível somente em namespaces de camada Standard. Os preços e as [cotas de conexão](../service-bus-messaging/service-bus-quotas.md) para retransmissões, caso contrário, não foram alteradas. Isso significa que as retransmissões continuam a ser cobradas com base no número de mensagens (não operações) e horas de retransmissão. Para obter mais informações, consulte a tabela ["retransmissões do conexões híbridas e do WCF"](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
+O WCF Relay está disponível apenas em espaços de nome standard. Os preços e as quotas de [ligação](../service-bus-messaging/service-bus-quotas.md) para os relés não mudaram. Isto significa que os retransmissores continuam a ser carregados com base no número de mensagens (não em operações) e nas horas de retransmissão. Para mais informações, consulte a tabela ["Ligações Híbridas e Relés WCF"](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
 
-### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>E se eu tiver mais de um ouvinte conectado a uma retransmissão específica?
-Em alguns casos, uma única retransmissão pode ter vários ouvintes conectados. Uma retransmissão é considerada aberta quando pelo menos um ouvinte de retransmissão está conectado a ela. Adicionar ouvintes a uma retransmissão aberta resulta em horas de retransmissão adicionais. O número de remetentes de retransmissão (clientes que chamam ou enviam mensagens para retransmissões) que estão conectados a uma retransmissão não afeta o cálculo de horas de retransmissão.
+### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>E se eu tiver mais do que um ouvinte ligado a um retransmissor específico?
+Em alguns casos, um único retransmissor pode ter vários ouvintes conectados. Um retransmissor é considerado aberto quando pelo menos um ouvinte está ligado a ele. Adicionar os ouvintes a um retransmissor aberto resulta em horas de retransmissão adicionais. O número de remetentes de retransmissão (clientes que invocam ou enviam mensagens para retransmissores) que estão ligados a um retransmissor não afeta o cálculo das horas de retransmissão.
 
-### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Como o medidor de mensagens é calculado para retransmissões do WCF?
-(**Isso se aplica somente às retransmissões do WCF. As mensagens não são um custo para Conexões Híbridas.** )
+### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Como é calculado o medidor de mensagens para relés WCF?
+(**Isto aplica-se apenas aos relés WCF. As mensagens não são um custo para ligações híbridas.**
 
-Em geral, as mensagens faturáveis para retransmissões são calculadas usando o mesmo método usado para entidades orientadas (filas, tópicos e assinaturas), descritas anteriormente. No entanto, há algumas diferenças notáveis.
+Em geral, as mensagens faturadas para retransmissores são calculadas utilizando o mesmo método que é usado para entidades intermediadas (filas, tópicos e subscrições), descritoanteriormente. No entanto, existem algumas diferenças notáveis.
 
-O envio de uma mensagem para uma retransmissão do barramento de serviço é tratado como um envio "completo por" para o ouvinte de retransmissão que recebe a mensagem. Ele não é tratado como uma operação de envio para a retransmissão do barramento de serviço, seguido de uma entrega para o ouvinte de retransmissão. Uma invocação de serviço de estilo de solicitação/resposta (de até 64 KB) em relação a um ouvinte de retransmissão resulta em duas mensagens faturáveis: uma mensagem Faturável para a solicitação e uma mensagem Faturável para a resposta (supondo que a resposta também seja 64 KB ou menor). Isso é diferente de usar uma fila para mediar entre um cliente e um serviço. Se você usar uma fila para mediar entre um cliente e um serviço, o mesmo padrão de solicitação-resposta exigirá uma solicitação de envio para a fila, seguido por uma remoção da fila/entrega da fila para o serviço. Isso é seguido por uma resposta enviada para outra fila e uma remoção da fila/entrega dessa fila para o cliente. Usando as mesmas suposições de tamanho em todo (até 64 KB), o padrão de fila mediado resulta em 4 mensagens faturáveis. Você será cobrado por duas vezes o número de mensagens para implementar o mesmo padrão que você realiza usando a retransmissão. É claro que há benefícios em usar filas para atingir esse padrão, como durabilidade e nivelamento de carga. Esses benefícios podem justificar a despesa adicional.
+O envio de uma mensagem para um retransmissor de ônibus de serviço é tratado como um envio "completo" para o ouvinte que recebe a mensagem. Não é tratado como uma operação de envio para o retransmissor do Ônibus de Serviço, seguido de uma entrega ao ouvinte de retransmissão. Uma invocação de serviço de estilo de resposta a pedido (de até 64 KB) contra um ouvinte de retransmissão resulta em duas mensagens faturadas: uma mensagem faturada para o pedido e uma mensagem faturada para a resposta (assumindo que a resposta também é de 64 KB ou menor). Isto é diferente de usar uma fila para mediar entre um cliente e um serviço. Se utilizar uma fila para mediar entre um cliente e um serviço, o mesmo padrão de resposta a pedidos requer um pedido enviado para a fila, seguido de uma defila/entrega da fila para o serviço. Isto é seguido por uma resposta enviada para outra fila, e uma fila/entrega dessa fila para o cliente. Utilizando as mesmas suposições de tamanho em todo (até 64 KB), o padrão mediado de fila resulta em 4 mensagens de faturação. Seria cobrado pelo dobro do número de mensagens para implementar o mesmo padrão que consegue usando o retransmissor. É claro que há benefícios em usar filas para atingir este padrão, como durabilidade e nivelamento de carga. Estes benefícios podem justificar as despesas adicionais.
 
-As retransmissões que são abertas usando a associação do WCF **netTCPRelay** tratam mensagens não como mensagens individuais, mas como um fluxo de dados que fluem pelo sistema. Quando você usa essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação **netTCPRelay** , todos os dados são tratados como um fluxo para calcular mensagens faturáveis. Nesse caso, o barramento de serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual em uma base de 5 minutos. Em seguida, ele divide a quantidade total de dados de 64 KB para determinar o número de mensagens faturáveis para essa retransmissão durante esse período de tempo.
+Os retransmissores que são abertos utilizando a **redeTCPRelay** WCF tratam as mensagens não como mensagens individuais, mas como um fluxo de dados que fluem através do sistema. Quando utiliza esta ligação, apenas o remetente e o ouvinte têm visibilidade no enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que utilizam a ligação **netTCPRelay,** todos os dados são tratados como um fluxo para o cálculo de mensagens faturadas. Neste caso, a Service Bus calcula a quantidade total de dados enviados ou recebidos através de cada retransmissão individual numa base de 5 minutos. Em seguida, divide essa quantidade total de dados em 64 KB para determinar o número de mensagens faturadas para esse retransmissor durante esse período de tempo.
 
 ## <a name="quotas"></a>Quotas
-| Nome da cota | Âmbito |  Notas | Valor |
+| Nome de quota | Âmbito |  Notas | Valor |
 | --- | --- | --- | --- |
-| Ouvintes simultâneos em uma retransmissão |Entidade |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
-| Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Espaço de Nomes |- |5000 |
-| Pontos de extremidade de retransmissão por namespace de serviço |Espaço de Nomes |- |10,000 |
-| Tamanho da mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espaço de Nomes |Mensagens de entrada que excedem essas cotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
-| Tamanho da mensagem para retransmissões [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Espaço de Nomes |Sem limite para o tamanho da mensagem. |Ilimitado |
+| Ouvintes simultâneos em um retransmissor |Entidade |Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |25 |
+| Conexões de retransmissão simultâneas por todos os pontos finais de retransmissão num espaço de nome de serviço |Espaço de nomes |- |5000 |
+| Pontos finais de retransmissão por espaço de nome de serviço |Espaço de nomes |- |10,000 |
+| Tamanho da mensagem para [relés NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espaço de nomes |As mensagens recebidas que excedam estas quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
+| Tamanho da mensagem para relés [httpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Espaço de nomes |Sem limite no tamanho da mensagem. |Ilimitado |
 
-### <a name="does-relay-have-any-usage-quotas"></a>A retransmissão tem cotas de uso?
-Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada que é calculada em todas as assinaturas de um cliente. Entendemos que, às vezes, suas necessidades podem exceder esses limites. Você pode entrar em contato com o atendimento ao cliente a qualquer momento, para que possamos entender suas necessidades e ajustar esses limites adequadamente. Para o barramento de serviço, as cotas de uso agregado são as seguintes:
+### <a name="does-relay-have-any-usage-quotas"></a>A Relay tem alguma quota de utilização?
+Por padrão, para qualquer serviço na nuvem, a Microsoft define uma quota de utilização mensal agregada que é calculada em todas as subscrições de um cliente. Entendemos que, por vezes, as suas necessidades podem exceder estes limites. Pode contactar o atendimento ao cliente a qualquer momento, para que possamos compreender as suas necessidades e ajustar estes limites adequadamente. Para o Service Bus, as quotas de utilização agregadas são as seguintes:
 
-* 5\.000.000.000 mensagens
-* 2 milhões horas de retransmissão
+* 5 mil milhões de mensagens
+* 2 milhões de horas de retransmissão
 
-Apesar de reservarmos o direito de desabilitar uma conta que exceda suas cotas de uso mensal, fornecemos uma notificação por email e fazemos várias tentativas de entrar em contato com o cliente antes de realizar qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis pelo excesso de encargos.
+Embora nos reservemos o direito de desativar uma conta que exceda as suas quotas de utilização mensal, fornecemos notificação por e-mail, e fazemos várias tentativas para contactar o cliente antes de tomar qualquer ação. Os clientes que excedem estas quotas continuam a ser responsáveis pelo excesso de encargos.
 
-### <a name="naming-restrictions"></a>Restrições de nomenclatura
-Um nome de namespace de retransmissão deve ter entre 6 e 50 caracteres de comprimento.
+### <a name="naming-restrictions"></a>Restrições de nomeação
+Um nome de espaço de identificação deve ter entre 6 e 50 caracteres de comprimento.
 
-## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinatura e namespace
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como fazer migrar um namespace para outra assinatura do Azure?
+## <a name="subscription-and-namespace-management"></a>Gestão de subscrição e espaço de nome
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como migrar um espaço de nome para outra subscrição do Azure?
 
-Para mover um namespace de uma assinatura do Azure para outra assinatura, você pode usar o [portal do Azure](https://portal.azure.com) ou usar comandos do PowerShell. Para mover um namespace para outra assinatura, o namespace já deve estar ativo. O usuário que executa os comandos deve ser um usuário administrador nas assinaturas de origem e de destino.
+Para mover um espaço de nome de uma subscrição Azure para outra subscrição, pode utilizar o [portal Azure](https://portal.azure.com) ou utilizar comandos PowerShell. Para mover um espaço de nome para outra subscrição, o espaço de nome já deve estar ativo. O utilizador que executa os comandos deve ser um utilizador administrador tanto na fonte como nas subscrições de destino.
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Para usar o portal do Azure para migrar namespaces de retransmissão do Azure de uma assinatura para outra, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+Para utilizar o portal Azure para migrar espaços de nome sinuoso Azure de uma subscrição para outra subscrição, consulte [os recursos move para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
-Para usar o PowerShell para mover um namespace de uma assinatura do Azure para outra assinatura, use a seguinte sequência de comandos. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um usuário administrador nas assinaturas de origem e de destino.
+Para utilizar o PowerShell para mover um espaço de nome de uma subscrição Azure para outra subscrição, utilize a seguinte sequência de comandos. Para executar esta operação, o espaço de nome já deve estar ativo e o utilizador que executa os comandos PowerShell deve ser um utilizador administrador tanto na fonte como nas subscrições-alvo.
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
@@ -124,18 +124,18 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quais são algumas das exceções geradas pelas APIs de retransmissão do Azure e as ações sugeridas que você pode tomar?
-Para obter uma descrição das exceções comuns e as ações sugeridas que você pode tomar, consulte [exceções de retransmissão][Relay exceptions].
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quais são algumas das exceções geradas pelas APIs do Relé Azure e as ações sugeridas que pode tomar?
+Para uma descrição de exceções comuns e ações sugeridas que pode tomar, consulte [as exceções do Relé][Relay exceptions].
 
-### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
-As SAS (assinaturas de acesso compartilhado) são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Python, Java, C e C#, consulte Autenticação do [barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
+### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso partilhado, e que línguas posso usar para gerar uma assinatura?
+As Assinaturas de Acesso Partilhado (SAS) são um mecanismo de autenticação baseado em hashes ou URIs seguros SHA-256. Para obter informações sobre como gerar as suas próprias assinaturas em Node.js, PHP, Python, Java, C e C#, consulte a [autenticação service Bus com assinaturas de acesso partilhado][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível para os pontos de extremidade de retransmissão da lista de permissões?
-Sim. O cliente de retransmissão faz conexões com o serviço de retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` em firewalls que dão suporte à lista de permissões de DNS.
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível retransmitir pontos finais de retransmissão whitelist?
+Sim. O cliente retransmissor faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem `*.servicebus.windows.net` adicionar uma entrada para firewalls que suportam a lista de dNS whitelisting.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
-* [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Começar com .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Nó](relay-hybrid-connections-node-get-started.md)
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/

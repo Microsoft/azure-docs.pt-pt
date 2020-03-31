@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250013"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque bitLocker num VM Azure
@@ -31,7 +31,7 @@ ms.locfileid: "79250013"
 
 - Ligue o controlador USB que tem a tecla BitLocker
 
-- Está trancado fora! Introduza a chave de recuperação para recomeçar (Layout de Teclado: EUA) A informação de entrada errada foi introduzida demasiadas vezes, pelo que o seu PC foi bloqueado para proteger a sua privacidade. Para recuperar a chave de recuperação, vá para https://windows.microsoft.com/recoverykeyfaq a partir de outro pc ou dispositivo móvel. Caso precise, a chave é XXXXXXX. Ou pode repor o seu PC.
+- Está trancado fora! Introduza a chave de recuperação para recomeçar (Layout de Teclado: EUA) A informação de entrada errada foi introduzida demasiadas vezes, pelo que o seu PC foi bloqueado para proteger a sua privacidade. Para recuperar a chave https://windows.microsoft.com/recoverykeyfaq de recuperação, vá a partir de outro pc ou dispositivo móvel. Caso precise, a chave é XXXXXXX. Ou pode repor o seu PC.
 
 - Introduza a palavra-passe para desbloquear esta unidade [ ] Prima a Tecla de inserção para ver a palavra-passe à medida que escreve.
 - Introduza a sua chave de recuperação Carregue a sua chave de recuperação a partir de um dispositivo USB.
@@ -107,7 +107,7 @@ Se este método não resolver o problema, siga estes passos para restaurar manua
 
     Agora que tem o nome do ficheiro BEK para a unidade, tem de criar o nome secreto do ficheiro. Ficheiro BEK para desbloquear a unidade.
 
-6.  Descarregue o ficheiro BEK para o disco de recuperação. A amostra que se segue guarda o ficheiro BEK na pasta C:\BEK. Certifique-se de que o caminho `C:\BEK\` existe antes de executar os scripts.
+6.  Descarregue o ficheiro BEK para o disco de recuperação. A amostra que se segue guarda o ficheiro BEK na pasta C:\BEK. Certifique-se `C:\BEK\` de que o caminho existe antes de executar os scripts.
 
     ```powershell
     $vault = "myKeyVault"
@@ -273,13 +273,13 @@ Para um cenário chave de encriptação, siga estes passos:
 
 **Erro: Não podia carregar ficheiro ou montagem**
 
-Este erro ocorre porque os caminhos das Assembléias ADAL estão errados. Se o módulo AZ estiver apenas instalado para o utilizador atual, os Conjuntos ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+Este erro ocorre porque os caminhos das Assembléias ADAL estão errados. Se o módulo AZ estiver apenas instalado para o utilizador atual, `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`os Conjuntos ADAL estarão localizados em .
 
 Também pode procurar `Az.Accounts` pasta para encontrar o caminho correto.
 
 **Erro: Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret não é reconhecido como o nome de um cmdlet**
 
-Se estiver a utilizar o antigo módulo AZ PowerShell, tem de alterar os dois comandos para `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret`.
+Se estiver a utilizar o antigo módulo AZ PowerShell, `Get-AzureKeyVaultSecret` `Get-AzureKeyVaultSecret`tem de alterar os dois comandos para e .
 
 **Amostras de parâmetros**
 

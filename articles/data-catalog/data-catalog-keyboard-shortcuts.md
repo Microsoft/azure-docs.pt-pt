@@ -1,82 +1,82 @@
 ---
 title: Atalhos de teclado do Catálogo de Dados do Azure
-description: Este artigo mostra uma lista de atalhos de teclado que você pode usar no catálogo de dados do Azure.
+description: Este artigo mostra uma lista de atalhos de teclado que pode utilizar no Catálogo de Dados Do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69014441"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
 
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Atalhos de teclado para a ferramenta de registro de fonte de dados do catálogo de dados
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Atalhos de teclado para a ferramenta de registo de fonte de dados do Catálogo de Dados
 
-### <a name="general-keyboard-shortcuts"></a>Atalhos gerais de teclado
-| Operação | Impressão |
+### <a name="general-keyboard-shortcuts"></a>Atalhos gerais do teclado
+| Operação | Premir |
 | --- | --- |
-| Tab para cada controle em uma página |Tab |
-| Escolher uma opção |Inserir ou barra de espaços |
-| Maximizar página |WIN + UP |
+| Aba para cada controlo numa página |Tecla de Tabulação |
+| Escolha uma opção |Entrar ou barra espacial |
+| Maximizar página |WIN+UP |
 | Restaurar/minimizar página |WIN+DOWN |
-| Abrir o menu da página |ALT + BARRA DE ESPAÇOS |
+| Menu de página aberta |ALT+SPACEBAR |
 
 ### <a name="authentication-page"></a>Página de autenticação
-| Operação | Impressão |
+| Operação | Premir |
 | --- | --- |
-| Entrar no serviço |ALT + S |
+| Inscreva-se em serviço |ALT+S |
 
-### <a name="data-source-selection-page"></a>Página seleção de fonte de dados
-| Operação | Impressão |
+### <a name="data-source-selection-page"></a>Página de seleção de fontes de dados
+| Operação | Premir |
 | --- | --- |
-| Ir para a próxima página (se estiver habilitado) |ALT + N |
-| Alterar o tipo selecionado quando o foco estiver em um bloco |SETA para a esquerda, para cima, para a direita ou para baixo |
+| Ir para a página seguinte (se ativado) |ALT+N |
+| Altere o tipo selecionado quando o foco estiver num azulejo |SETA ESQUERDA, PARA CIMA, DIREITA ou PARA BAIXO |
 
-### <a name="data-source-connection-page"></a>Página conexão de fonte de dados
-| Operação | Impressão |
+### <a name="data-source-connection-page"></a>Página de ligação de fonte de dados
+| Operação | Premir |
 | --- | --- |
-| Ir para a página anterior (se estiver habilitado) |ALT + P |
-| Escolha o botão conectar. |ALT + C |
+| Vá para a página anterior (se ativado) |ALT+P |
+| Escolha o botão Ligar. |ALT+C |
 
-### <a name="connection-context-page"></a>Página de contexto de conexão
-| Operação | Impressão |
+### <a name="connection-context-page"></a>Página de contexto de ligação
+| Operação | Premir |
 | --- | --- |
-| Botão registrar (se habilitado) |ALT + R |
-| Incluir caixa de seleção de visualização (se disponível) |ALT + P |
-| Caixa de seleção incluir perfil de dados (se disponível) |ALT + D |
-| Navegar para cada item de lista |SETA para cima ou para baixo |
-| Hierarquia de servidores, expanda um nó de modo de exibição de árvore |SETA PARA A DIREITA |
-| Mover os itens selecionados para objetos ou objetos **disponíveis** **a serem registrados** |PRESSIONA |
+| Botão de registo (se ativado) |ALT+R |
+| Incluir caixa de verificação de pré-visualização (se disponível) |ALT+P |
+| Incluir caixa de verificação de perfil de dados (se disponível) |ALT+D |
+| Navegue para cada item da lista |Seta para CIMA ou PARA BAIXO |
+| Hierarquia do Servidor, expandir o nó de uma vista de árvore |SETA PARA A DIREITA |
+| Mova itens selecionados para **Objetos** ou **Objetos** Disponíveis a registar |BARRA ESPACIAL |
 
-### <a name="publish-progress-page"></a>Página progresso da publicação
-| Operação | Impressão |
+### <a name="publish-progress-page"></a>Publicar página de progresso
+| Operação | Premir |
 | --- | --- |
-| Botão Cancelar |ALT + C |
-| Botão registrar mais objetos |ALT + R |
-| Botão Exibir Portal |ALT + V |
+| Botão Cancelar |ALT+C |
+| Registar mais objetos botão |ALT+R |
+| Ver botão Portal |ALT+V |
 
-### <a name="publish-progress-page"></a>Página progresso da publicação
-| Operação | Impressão |
+### <a name="publish-progress-page"></a>Publicar página de progresso
+| Operação | Premir |
 | --- | --- |
-| Botão salvar (se habilitado) |ALT + S |
-| Botão Cancelar |ALT + C |
+| Botão de guardar (se ativado) |ALT+S |
+| Botão Cancelar |ALT+C |
 
-## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Atalhos de teclado para o portal do catálogo de dados
-| Operação | Impressão |
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Atalhos de teclado para o portal Data Catalog
+| Operação | Premir |
 | --- | --- |
-| Navegar |TAB e SHIFT + TAB |
-| Clique em um item |ESPAÇO ou ENTER |
-| Fazer uma busca detalhada em uma seção |ESPAÇO ou ENTER |
-| Sair de uma seção |ESC |
-| Fixar/Desafixar um ativo |ALT + P |
-| Na página descobrir, quando um ativo tiver foco, selecione ativo |ESPAÇO ou ENTER |
-| Adiciona/remove ativo de seleção múltipla |CTRL + espaço ou ENTER |
-| Alternar o menu de correspondências de pesquisa |ALT + S |
-| Ativar/desativar **abrir no** menu |ALT + O |
-| Explorar o contêiner, se o ativo for um contêiner |ALT + L |
+| Navegar |TAB e SHIFT+TAB |
+| Clique num item |ESPAÇO ou ENTER |
+| Faça uma perfuração numa secção |ESPAÇO ou ENTER |
+| Sair de uma secção |ESC |
+| Pin/unpin um ativo |ALT+P |
+| Na página de descoberta, quando um ativo tem foco, selecione o ativo |ESPAÇO ou ENTER |
+| Adiciona/remova o ativo de várias seleções |CTRL+ESPAÇO ou ENTER |
+| Alternar o menu de jogos de pesquisa |ALT+S |
+| **Toggle Open No** menu |ALT+O |
+| Explore o recipiente, se o ativo for um recipiente |ALT+L |
 

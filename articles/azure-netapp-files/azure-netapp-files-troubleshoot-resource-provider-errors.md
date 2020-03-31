@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas Azure NetApp Files erros do provedor de recursos | Microsoft Docs
-description: Descreve as causas, soluções e soluções alternativas para erros comuns do provedor de recursos Azure NetApp Files.
+title: Troubleshoot Azure NetApp Ficheiros Fornecedor de Recursos Erros de Fornecedor de Recursos / Microsoft Docs
+description: Descreve causas, soluções e soluções para erros comuns do Fornecedor de Recursos de Ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,669 +16,669 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72597198"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Resolver problemas de erros do Fornecedor de Recursos do Azure NetApp Files 
 
-Este artigo descreve os erros comuns do provedor de recursos Azure NetApp Files, suas causas, soluções e soluções alternativas (se disponíveis).
+Este artigo descreve erros comuns do Fornecedor de Recursos do Azure NetApp, as suas causas, soluções e soluções (se disponíveis).
 
-## <a name="common-azure-netapp-files-resource-provider-errors"></a>Erros comuns do provedor de recursos de Azure NetApp Files
+## <a name="common-azure-netapp-files-resource-provider-errors"></a>Erros do Fornecedor de Recursos de Ficheiros De Recursos do Azure NetApp Comuns
 
-***BareMetalTenantId não pode ser alterado.***  
+***O BareMetalTenantId não pode ser alterado.***  
 
-Esse erro ocorre quando você tenta atualizar ou aplicar um patch a um volume e a propriedade `BaremetalTenantId` tem um valor alterado.
+Este erro ocorre quando tenta atualizar ou corrigir `BaremetalTenantId` um volume e a propriedade tem um valor alterado.
 
-* Motivo:   
-Você está tentando atualizar um volume e a propriedade `BaremetalTenantId` tem um valor diferente do valor armazenado no Azure.
-* Soluções   
-Não inclua `BaremetalTenantId` na solicitação patch e atualização (put). Como alternativa, verifique se `BaremetalTenantId` é o mesmo na solicitação.
+* Causa:   
+Está a tentar atualizar um `BaremetalTenantId` volume e a propriedade tem um valor diferente do valor armazenado em Azure.
+* Solução:   
+Não inclua `BaremetalTenantId` no patch e no pedido de atualização (put). Em alternativa, `BaremetalTenantId` certifique-se de que é o mesmo no pedido.
 
-***O imnível não pode ser alterado.***  
+***O Nível de Serviço não pode ser alterado.***  
 
-Esse erro ocorre quando você tenta atualizar ou aplicar patch em um pool de capacidade com um nível de serviço diferente quando o pool de capacidade já tem volumes.
+Este erro ocorre quando tenta atualizar ou remendar um conjunto de capacidades com um nível de serviço diferente quando o pool de capacidade já tem volumes no mesmo.
 
-* Motivo:   
-Você está tentando atualizar um nível de serviço do pool de capacidade quando o pool contém volumes.
-* Soluções   
-Exclua todos os volumes do pool de capacidade e, em seguida, altere o nível de serviço.
-* Resolução   
-Crie outro pool de capacidade e, em seguida, crie os volumes novamente no novo pool de capacidade.
+* Causa:   
+Está a tentar atualizar um nível de serviço de piscina de capacidade quando a piscina contém volumes.
+* Solução:   
+Elimine todos os volumes do pool de capacidade e, em seguida, altere o nível de serviço.
+* Solução:   
+Crie outra piscina de capacidade, em seguida, crie os volumes novamente na nova piscina de capacidade.
 
-***Poolid não pode ser alterado***  
+***PoolId não pode ser alterado***  
 
-Esse erro ocorre quando você tenta atualizar ou aplicar patch em um pool de capacidade com uma propriedade de `PoolId` alterada.
+Este erro ocorre quando tenta atualizar ou remendar `PoolId` um conjunto de capacidades com uma propriedade alterada.
 
-* Motivo:   
-Você está tentando atualizar um pool de capacidade `PoolId` propriedade. A propriedade `PoolId` é uma propriedade somente leitura e não pode ser alterada.
-* Soluções   
-Não inclua `PoolId` na solicitação patch e atualização (put).  Como alternativa, verifique se `PoolId` é o mesmo na solicitação.
+* Causa:   
+Você está tentando atualizar `PoolId` uma propriedade de piscina de capacidade. A `PoolId` propriedade é uma propriedade apenas para leitura e não pode ser alterada.
+* Solução:   
+Não inclua `PoolId` no patch e no pedido de atualização (put).  Em alternativa, `PoolId` certifique-se de que é o mesmo no pedido.
 
-***CreationToken não pode ser alterado.***
+***CriaçãoToken não pode ser alterada.***
 
-Esse erro ocorre quando você tenta alterar o caminho do arquivo (`CreationToken`) após a criação do volume. O caminho do arquivo (`CreationToken`) deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
+Este erro ocorre quando tenta alterar a`CreationToken`trajetória do ficheiro ( ) após a criação do volume. O caminho`CreationToken`do ficheiro () deve ser definido quando o volume é criado, e não pode ser alterado mais tarde.
 
-* Motivo:   
-Você está tentando alterar o caminho do arquivo (`CreationToken`) após a criação do volume, o que não é uma operação com suporte. 
-* Soluções   
-Se a alteração do caminho do arquivo não for necessária, considere remover o parâmetro da solicitação para ignorar a mensagem de erro.
-* Resolução   
-Se você precisar alterar o caminho do arquivo (`CreationToken`), poderá criar um novo volume com um novo caminho de arquivo e, em seguida, migrar os dados para o novo volume.
+* Causa:   
+Está a tentar alterar a`CreationToken`trajetória dos ficheiros ( ) depois de criado o volume, que não é uma operação apoiada. 
+* Solução:   
+Se não for necessário alterar a trajetória do ficheiro, considere retirar o parâmetro do pedido de desminagem da mensagem de erro.
+* Solução:   
+Se precisar de alterar o`CreationToken`caminho dos ficheiros, pode criar um novo volume com um novo caminho de ficheiros e, em seguida, migrar os dados para o novo volume.
 
-***CreationToken deve ter pelo menos 16 caracteres.***
+***CriaçãoToken deve ter pelo menos 16 caracteres de comprimento.***
 
-Esse erro ocorre quando o caminho do arquivo (`CreationToken`) não atende ao requisito de comprimento. O comprimento do caminho do arquivo deve ter pelo menos um caractere de comprimento.
+Este erro ocorre quando o`CreationToken`caminho do ficheiro () não cumpre o requisito de comprimento. O comprimento do caminho do ficheiro deve ter pelo menos um carácter de comprimento.
 
-* Motivo:   
-O caminho do arquivo está vazio.  Quando você cria um volume usando a API, um token de criação é necessário. Se você estiver usando o portal do Azure, o caminho do arquivo será gerado automaticamente.
-* Soluções   
-Insira pelo menos um caractere como o caminho do arquivo (`CreationToken`).
+* Causa:   
+O caminho dos ficheiros está vazio.  Quando se cria um volume utilizando a API, é necessário um símbolo de criação. Se estiver a utilizar o portal Azure, o caminho do ficheiro é gerado automaticamente.
+* Solução:   
+Introduza pelo menos um personagem como o caminho do ficheiro (`CreationToken`).
 
-***O nome de domínio não pode ser alterado.***
+***O nome do domínio não pode ser alterado.***
 
-Esse erro ocorre quando você tenta alterar o nome de domínio em Active Directory.
+Este erro ocorre quando tenta alterar o nome de domínio em Diretório Ativo.
 
-* Motivo:   
-Você está tentando atualizar a propriedade de nome de domínio.
-* Soluções    
-Nenhum. Você não pode alterar o nome de domínio.
-* Resolução   
-Exclua todos os volumes usando a configuração de Active Directory. Em seguida, exclua a configuração de Active Directory e recrie os volumes.
+* Causa:   
+Está a tentar atualizar a propriedade do nome de domínio.
+* Solução:    
+Nenhum. Não pode mudar o nome de domínio.
+* Solução:   
+Elimine todos os volumes utilizando a configuração do Diretório Ativo. Em seguida, elimine a configuração do Diretório Ativo e recrie os volumes.
 
-***Erro de valor duplicado para o objeto ExportPolicy. Rules [RuleIndex].***
+***Duplicar erro de valor para objeto ExportPolicy.Rules[RuleIndex].***
 
-Esse erro ocorre quando a política de exportação não está definida com um índice exclusivo. Quando você define políticas de exportação, todas as regras de política de exportação devem ter um índice exclusivo entre 1 e 5.
+Este erro ocorre quando a política de exportação não é definida com um índice único. Quando definir as políticas de exportação, todas as regras de política de exportação devem ter um índice único entre 1 e 5.
 
-* Motivo:   
-A política de exportação definida não atende ao requisito de regras de política de exportação. Você deve ter uma regra de política de exportação no mínimo e cinco regras de política de exportação no máximo.
-* Soluções   
-Verifique se o índice já não está sendo usado e se está no intervalo de 1 a 5.
-* Resolução   
-Use um índice diferente para a regra que você está tentando definir.
+* Causa:   
+A política de exportação definida não satisfaz a exigência de regras de política de exportação. Deve ter uma regra de política de exportação no mínimo e cinco regras de política de exportação no máximo.
+* Solução:   
+Certifique-se de que o índice ainda não está utilizado e que está na faixa de 1 a 5.
+* Solução:   
+Use um índice diferente para a regra que está a tentar definir.
 
-***Erro {ação} {resourceTypename}***
+***Erro {ação} {resourceTypeName}***
 
-Esse erro é exibido quando outro tratamento de erros falha ao manipular o erro durante a execução de uma ação em um recurso.   Ele inclui o texto ' error '. O `{action}` pode ser qualquer um dos (`getting`, `creating`, `updating` ou `deleting`).  O `{resourceTypeName}` é o `resourceTypeName` (por exemplo, `netAppAccount`, `capacityPool`, `volume` e assim por diante).
+Este erro é detetado quando outro manuseamento de erros não conseguiu lidar com o erro enquanto executa uma ação num recurso.   Inclui texto 'Error'. Pode `{action}` ser qualquer`getting`um `creating` `updating`de `deleting`, , , ou ).  O `{resourceTypeName}` é `resourceTypeName` o (por `capacityPool` `volume`exemplo, `netAppAccount`, , , e assim por diante).
 
-* Motivo:   
-Esse erro é uma exceção sem tratamento em que a causa não é conhecida.
-* Soluções   
-Contate o centro de suporte do Azure para relatar o motivo detalhado nos logs.
-* Resolução   
+* Causa:   
+Este erro é uma exceção não tratada onde a causa não é conhecida.
+* Solução:   
+Contacte o Centro de Apoio azure para informar a razão detalhada nos registos.
+* Solução:   
 Nenhum.
 
-***O nome do caminho do arquivo pode conter apenas letras, números e hifens (""-"").***
+***O nome do caminho do ficheiro pode conter letras, números e hífenes ("-"""")") apenas.***
 
-Esse erro ocorre quando o caminho do arquivo contém caracteres sem suporte, por exemplo, um ponto final ("."), vírgula (","), sublinhado ("_") ou cifrão ("$").
+Este erro ocorre quando a trajetória do ficheiro contém caracteres não suportados, por exemplo, um período ("."), vírina (""),sublinha ("_"), ou sinal de dólar ("$").
 
-* Motivo:   
-O caminho do arquivo contém caracteres sem suporte, por exemplo, um ponto final ("."), vírgula (","), sublinhado ("_") ou cifrão ("$").
-* Soluções   
-Remova os caracteres que não são letras, números ou hifens ("-") do caminho de arquivo que você inseriu.
-* Resolução   
-Você pode substituir um sublinhado por um hífen ou usar maiúsculas e minúsculas, em vez de espaços, para indicar o início das novas palavras.  Por exemplo, use "NewVolume" em vez de "novo volume".
+* Causa:   
+O caminho do ficheiro contém caracteres não suportados, por exemplo, um período ("."), víreu (""),sublinha ("_"), ou sinal de dólar ("$").
+* Solução:   
+Remova caracteres que não sejam letras alfabéticas, números ou hífenes ("-") do caminho de ficheiro que introduziu.
+* Solução:   
+Pode substituir um sublinhado por um hífen ou utilizar a capitalização em vez de espaços para indicar o início de novas palavras.  Por exemplo, utilize "NewVolume" em vez de "novo volume".
 
-***Não é possível alterar filesystemid.***
+***O Sistema de Ficheiros Id não pode ser alterado.***
 
-Esse erro ocorre quando você tenta alterar `FileSystemId`.  A alteração de `FileSystemdId` não é uma operação com suporte. 
+Este erro ocorre quando tenta `FileSystemId`mudar .  Mudar `FileSystemdId` não é uma operação apoiada. 
 
-* Motivo:   
-A ID do sistema de arquivos é definida quando o volume é criado. o `FileSystemId` não pode ser alterado subsequentemente.
-* Soluções   
-Não inclua `FileSystemId` em uma solicitação de patch e atualização (put).  Como alternativa, verifique se `FileSystemId` é o mesmo na solicitação.
+* Causa:   
+A identificação do sistema de ficheiros é definida quando o volume é criado. `FileSystemId`não pode ser alterado posteriormente.
+* Solução:   
+Não inclua `FileSystemId` num patch e atualização (put) pedido.  Em alternativa, `FileSystemId` certifique-se de que é o mesmo no pedido.
 
-***O ActiveDirectory com a ID: ' {String} ' não existe.***
+***ActiveDirectory com id: '{string}' não existe.***
 
-A parte `{string}` é o valor que você inseriu na propriedade `ActiveDirectoryId` para a conexão Active Directory.
+A `{string}` parte é o valor `ActiveDirectoryId` que inseriu na propriedade para a ligação De Diretório Ativo.
 
-* Motivo:   
-Quando você criou uma conta com a configuração de Active Directory, você inseriu um valor para `ActiveDirectoryId` que deve estar vazio.
-* Soluções   
-Não inclua `ActiveDirectoryId` na solicitação criar (put).
+* Causa:   
+Quando criou uma conta com a configuração do Diretório Ativo, inseriu um valor para `ActiveDirectoryId` isso, que supostamente está vazio.
+* Solução:   
+Não inclua `ActiveDirectoryId` no pedido de criação (put).
 
-***Versão de API inválida.***
+***Versão api inválida.***
 
-A versão da API não foi enviada ou contém um valor inválido.
+A versão API não é submetida ou contém um valor inválido.
 
-* Motivo:   
-O valor no parâmetro de consulta `api-version` contém um valor inválido.
-* Soluções   
-Use o valor correto da versão da API.  O provedor de recursos dá suporte a várias versões de API. O valor está no formato aaaa-mm-dd.
+* Causa:   
+O valor no parâmetro `api-version` de consulta contém um valor inválido.
+* Solução:   
+Utilize o valor correto da versão API.  O fornecedor de recursos suporta muitas versões API. O valor está no formato yyy-mm-dd.
 
-***Um valor inválido ' {value} ' foi recebido para {1}.***
+***Foi recebido um valor inválido por {1}.***
 
-Essa mensagem indica um erro nos campos para `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv3` e `Nfsv4`.
+Esta mensagem indica um erro `RuleIndex` `AllowedClients`nos `UnixReadOnly` `UnixReadWrite`campos `Nfsv3`para, , , , e `Nfsv4`.
 
-* Motivo:   
-A solicitação de validação de entrada falhou para pelo menos um dos seguintes campos: `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3 e `Nfsv4`.
-* Soluções   
-Certifique-se de definir todos os parâmetros necessários e não conflitantes na linha de comando. Por exemplo, você não pode definir os parâmetros `UnixReadOnly` e `UnixReadWrite` ao mesmo tempo.
-* Resolução   
-Consulte a solução acima.
+* Causa:   
+O pedido de validação de entrada falhou em `RuleIndex` `AllowedClients`pelo `UnixReadOnly` `UnixReadWrite`menos `Nfsv`um `Nfsv4`dos seguintes campos: , , , 3, e .
+* Solução:   
+Certifique-se de que fixa todos os parâmetros necessários e não conflituosos na linha de comando. Por exemplo, não é `UnixReadOnly` `UnixReadWrite` possível definir simultaneamente os parâmetros e os parâmetros.
+* Solução:   
+Veja a solução acima.
 
-***O intervalo IP {0} para {1} para a VLAN {2} já está em uso***
+***Gama {0} IP {1} para {2} vlan já está em uso***
 
-Esse erro ocorre porque os registros internos dos intervalos de IP usados têm um conflito com o endereço IP atribuído recentemente.
+Este erro ocorre porque os registos internos das gamas IP utilizadas têm um conflito com o endereço IP recém-atribuído.
 
-* Motivo:   
-O endereço IP atribuído para a criação do volume já está registrado.
-O motivo pode ser uma criação de volume com falha anterior.
-* Soluções   
-Contate o centro de suporte do Azure.
+* Causa:   
+O endereço IP atribuído para a criação de volume já está registado.
+A razão pode ser uma criação de volume falhada anteriormente.
+* Solução:   
+Contacte o Centro de Apoio Azure.
 
-***Valor ausente para ' {Property} '.***
+***Valor em falta para '{property}'.***
 
-Esse erro indica que uma propriedade necessária está ausente na solicitação. A cadeia de caracteres {Property} contém o nome da propriedade ausente.
+Este erro indica que falta uma propriedade necessária ao pedido. A corda {propriedade} contém o nome da propriedade desaparecida.
 
-* Motivo:   
-A solicitação de validação de entrada falhou para pelo menos uma das propriedades.
-* Soluções   
-Certifique-se de definir todas as propriedades obrigatórias e não conflitantes na solicitação, especialmente, a propriedade da mensagem de erro.
+* Causa:   
+O pedido de validação de entrada falhou em pelo menos uma das propriedades.
+* Solução:   
+Certifique-se de que define todas as propriedades necessárias e não conflituosas no pedido, especialmente, a propriedade a partir da mensagem de erro.
 
-***MountTargets não pode ser alterado.***
+***Os Alvos do Monte não podem ser alterados.***
 
-Esse erro ocorre quando um usuário está tentando atualizar ou aplicar patch na propriedade MountTargets do volume.
+Este erro ocorre quando um utilizador está a tentar atualizar ou remendar a propriedade do Volume MountTargets.
 
-* Motivo:   
-Você está tentando atualizar o volume `MountTargets` propriedade. Não há suporte para a alteração dessa propriedade.
-* Soluções   
-Não inclua `MountTargets` em uma solicitação de patch e atualização (put).  Como alternativa, verifique se `MountTargets` é o mesmo na solicitação.
+* Causa:   
+Está a tentar atualizar `MountTargets` a propriedade de volume. A alteração desta propriedade não é suportada.
+* Solução:   
+Não inclua `MountTargets` num patch e atualização (put) pedido.  Em alternativa, certifique-se de que `MountTargets` é o mesmo no pedido.
 
-***O nome já está em uso.***
+***Nome já em uso.***
 
-Esse erro indica que o nome do recurso já está em uso.
+Este erro indica que o nome do recurso já está em uso.
 
-* Motivo:   
-Você está tentando criar um recurso com um nome que é usado para um recurso existente.
-* Soluções   
-Use um nome exclusivo ao criar o recurso.
+* Causa:   
+Está a tentar criar um recurso com um nome que é usado para um recurso existente.
+* Solução:   
+Use um nome único ao criar o recurso.
 
-***O caminho do arquivo já está em uso.***
+***Caminho de arquivo já em uso.***
 
-Esse erro indica que o caminho do arquivo para o volume já está em uso.
+Este erro indica que o caminho de ficheiro para o volume já está em uso.
 
-* Motivo:   
-Você está tentando criar um volume com um caminho de arquivo que é igual a um volume existente.
-* Soluções   
-Use um caminho de arquivo exclusivo ao criar o volume.
+* Causa:   
+Está a tentar criar um volume com um caminho de ficheiro que é o mesmo que um volume existente.
+* Solução:   
+Utilize um caminho de ficheiro único ao criar o volume.
 
 ***Nome muito longo.***
 
-Esse erro indica que o nome do recurso não atende ao requisito de comprimento máximo.
+Este erro indica que o nome do recurso não cumpre o requisito máximo de comprimento.
 
-* Motivo:   
+* Causa:   
 O nome do recurso é muito longo.
-* Soluções   
+* Solução:   
 Use um nome mais curto para o recurso.
 
 ***Caminho de arquivo muito longo.***
 
-Esse erro indica que o caminho do arquivo para o volume não atende ao requisito de comprimento máximo.
+Este erro indica que a trajetória de ficheiro para o volume não satisfaz o requisito máximo de comprimento.
 
-* Motivo:   
-O caminho do arquivo de volume é muito longo.
-* Soluções   
+* Causa:   
+O caminho do ficheiro de volume é muito longo.
+* Solução:   
 Use um caminho de arquivo mais curto.
 
 ***Nome muito curto.***
 
-Esse erro indica que o nome do recurso não atende ao requisito de comprimento mínimo.
+Este erro indica que o nome do recurso não cumpre o requisito mínimo de comprimento.
 
-* Motivo:   
+* Causa:   
 O nome do recurso é muito curto.
-* Soluções   
+* Solução:   
 Use um nome mais longo para o recurso.
 
 ***Caminho de arquivo muito curto.***
 
-Esse erro indica que o caminho do arquivo de volume não atende ao requisito de comprimento mínimo.
+Este erro indica que o caminho do ficheiro de volume não cumpre o requisito mínimo de comprimento.
 
-* Motivo:   
-O caminho do arquivo de volume é muito curto.
-* Soluções   
-Aumente o comprimento do caminho do arquivo de volume.
+* Causa:   
+O caminho do ficheiro de volume é muito curto.
+* Solução:   
+Aumente o comprimento da trajetória do ficheiro de volume.
 
-***API Azure NetApp Files inacessível.***
+***Ficheiros Azure NetApp API inacessíveis.***
 
-A API do Azure depende da API de Azure NetApp Files para gerenciar volumes. Esse erro indica um problema com a conexão de API.
+A API Azure conta com a API de Ficheiros Azure NetApp para gerir volumes. Este erro indica um problema com a ligação API.
 
-* Motivo:   
-A API subjacente não está respondendo, resultando em um erro interno. Esse erro é provavelmente temporário.
-* Soluções   
-O problema provavelmente será temporário. A solicitação deve ter sucesso depois de algum tempo.
-* Resolução   
-Nenhum. A API subjacente é essencial para o gerenciamento de volumes.
+* Causa:   
+A API subjacente não está a responder, resultando num erro interno. É provável que este erro seja temporário.
+* Solução:   
+É provável que a questão seja temporária. O pedido deve ter sucesso depois de algum tempo.
+* Solução:   
+Nenhum. A API subjacente é essencial para a gestão de volumes.
 
-***Nenhuma ID de resultado de operação encontrada para ' {0} '.***
+***Nenhum resultado de operação{0}foi encontrado para ' '.***
 
-Esse erro indica que um erro interno está impedindo a conclusão da operação.
+Este erro indica que um erro interno está a impedir a operação de ser concluída.
 
-* Motivo:   
-Ocorreu um erro interno e impediu a conclusão da operação.
-* Soluções   
-Esse erro é provavelmente temporário. Aguarde alguns minutos e tente novamente. Se o problema persistir, crie um tíquete para que o suporte técnico investigue o problema.
-* Resolução   
-Aguarde alguns minutos e verifique se o problema persiste.
+* Causa:   
+Ocorreu um erro interno e impediu que a operação se completasse.
+* Solução:   
+É provável que este erro seja temporário. Aguarde alguns minutos e tente novamente. Se o problema persistir, crie um bilhete para ter apoio técnico para investigar o problema.
+* Solução:   
+Espere alguns minutos e verifique se o problema persiste.
 
-***Não é permitido misturar tipos de protocolo CIFS e NFS***
+***Não é permitido misturar tipos de protocoloCIFS e NFS***
 
-Esse erro ocorre quando você está tentando criar um volume e há ambos os tipos de protocolo CIFS (SMB) e NFS nas propriedades do volume.
+Este erro ocorre quando está a tentar criar um Volume e existem os tipos de protocoloCIFS (SMB) e NFS nas propriedades do volume.
 
-* Motivo:   
-Os tipos de protocolo CIFS (SMB) e NFS são usados nas propriedades do volume.
-* Soluções   
+* Causa:   
+Tanto os tipos de protocoloCIFS (SMB) como nFS são utilizados nas propriedades de volume.
+* Solução:   
 Remova um dos tipos de protocolo.
-* Resolução   
-Deixe a propriedade de tipo de protocolo vazia ou nula.
+* Solução:   
+Deixe a propriedade tipo protocolo vazia ou nula.
 
-***Número de itens: {Value} para o objeto: ExportPolicy. Rules [RuleIndex] está fora do intervalo mín.-máx.***
+***Número de itens: {value} para objeto: ExportPolicy.Rules[RuleIndex] está fora do intervalo min-max.***
 
-Esse erro ocorre quando as regras de política de exportação não atendem ao requisito de intervalo mínimo ou máximo. Se você definir a política de exportação, ela deverá ter uma regra de política de exportação no mínimo e cinco regras de política de exportação no máximo.
+Este erro ocorre quando as regras da política de exportação não satisfazem o requisito mínimo ou máximo de alcance. Se definir a política de exportação, deve ter uma regra de política de exportação no mínimo e cinco regras de política de exportação no máximo.
 
-* Motivo:   
-A política de exportação que você definiu não atende ao intervalo necessário.
-* Soluções   
-Verifique se o índice já não está sendo usado e se está no intervalo de 1 a 5.
-* Resolução   
-Não é obrigatório usar a política de exportação nos volumes. Você pode omitir a política de exportação inteiramente se não precisar usar regras de política de exportação.
+* Causa:   
+A política de exportação que definiu não cumpre o intervalo exigido.
+* Solução:   
+Certifique-se de que o índice ainda não está utilizado e que está na faixa de 1 a 5.
+* Solução:   
+Não é obrigatório utilizar a política de exportação nos volumes. Pode omitir completamente a política de exportação se não precisar de utilizar as regras da política de exportação.
 
-***Somente um Active Directory é permitido***
+***Apenas um diretório ativo permitido***
 
-Esse erro ocorre quando você tenta criar uma configuração de Active Directory e uma já existe para a assinatura na região. O erro também pode ocorrer quando você tenta criar mais de uma configuração de Active Directory.
+Este erro ocorre quando se tenta criar uma configuração de Diretório Ativo, e já existe um para a subscrição na região. O erro também pode ocorrer quando se tenta criar mais do que uma configuração de Diretório Ativo.
 
-* Motivo:   
-Você está tentando criar (não atualizar) um Active Directory, mas já existe um.
-* Soluções   
-Se a configuração de Active Directory não estiver em uso, você poderá primeiro excluir a configuração existente e, em seguida, repetir a operação de criação.
-* Resolução   
-Nenhum. Somente um Active Directory é permitido.
+* Causa:   
+Está a tentar criar (não atualizar) um diretório ativo, mas já existe um.
+* Solução:   
+Se a configuração do Diretório Ativo não estiver a ser utilizada, pode primeiro eliminar a configuração existente e, em seguida, voltar a tentar a operação de criação.
+* Solução:   
+Nenhum. Só é permitido um Diretório Ativo.
 
-***Não há suporte para a operação ' {Operation} '.***
+***Operação '{operation}' não suportada.***
 
-Esse erro indica que a operação não está disponível para a assinatura ou o recurso ativo.
+Este erro indica que a operação não está disponível para a subscrição ou recurso ativo.
 
-* Motivo:   
-A operação não está disponível para a assinatura ou o recurso.
-* Soluções   
-Verifique se a operação foi inserida corretamente e se está disponível para o recurso e a assinatura que você está usando.
+* Causa:   
+A operação não está disponível para a subscrição ou recurso.
+* Solução:   
+Certifique-se de que a operação está inserida corretamente e que está disponível para o recurso e subscrição que está a utilizar.
 
-***OwnerId não pode ser alterada***
+***OwnerId não pode ser alterado***
 
-Esse erro ocorre quando você tenta alterar a propriedade OwnerId do volume. Não é uma operação com suporte para alterar a OwnerId. 
+Este erro ocorre quando tenta alterar a propriedade OwnerId do volume. Mudar o OwnerId não é uma operação apoiada. 
 
-* Motivo:   
-A propriedade `OwnerId` é definida quando o volume é criado. A propriedade não pode ser alterada subsequentemente.
-* Soluções   
-Não inclua `OwnerId` em uma solicitação de patch e atualização (put). Como alternativa, verifique se `OwnerId` é o mesmo na solicitação.
+* Causa:   
+A `OwnerId` propriedade é definida quando o volume é criado. A propriedade não pode ser alterada posteriormente.
+* Solução:   
+Não inclua `OwnerId` num patch e atualização (put) pedido. Em alternativa, certifique-se de que `OwnerId` é o mesmo no pedido.
 
-***Pool pai não encontrado***
+***Piscina dos pais não encontrada***
 
-Esse erro ocorre quando você tenta criar um volume e o pool de capacidade no qual você está criando o volume não é encontrado.
+Este erro ocorre quando se tenta criar um volume e não se encontra um conjunto de capacidades no qual está a criar o volume.
 
-* Motivo:   
-O pool de capacidade em que o volume está sendo criado não foi encontrado.
-* Soluções   
-Provavelmente, o pool não foi totalmente criado ou já foi excluído no momento da criação do volume.
+* Causa:   
+A piscina de capacidade onde o volume está a ser criado não é encontrada.
+* Solução:   
+Muito provavelmente a piscina não foi totalmente criada ou já foi eliminada no momento da criação de volume.
 
-***Não há suporte para a operação de patch para este tipo de recurso.***
+***A operação de patch não é suportada para este tipo de recurso.***
 
-Esse erro ocorre quando você tenta alterar o destino ou o instantâneo de montagem.
+Este erro ocorre quando tenta alterar o alvo de montagem ou o instantâneo.
 
-* Motivo:   
-O destino de montagem é definido quando é criado e não pode ser alterado posteriormente.
-Os instantâneos não contêm nenhuma propriedade que possa ser alterada.
-* Soluções   
-Nenhum. Esses recursos não têm nenhuma propriedade que possa ser alterada.
+* Causa:   
+O alvo de montagem é definido quando é criado, e não pode ser alterado posteriormente.
+As fotos não contêm nenhuma propriedade que possa ser alterada.
+* Solução:   
+Nenhum. Esses recursos não têm propriedades que possam ser alteradas.
 
-***Tamanho do pool muito pequeno para o tamanho total do volume.***
+***Tamanho da piscina muito pequeno para o tamanho total do volume.***
 
-Esse erro ocorre quando você está atualizando o tamanho do pool de capacidade e o tamanho é menor do que o valor total de `usedBytes` de todos os volumes nesse pool de capacidade.  Esse erro também pode ocorrer quando você está criando um novo volume ou redimensionando um volume existente, e o novo tamanho do volume excede o espaço livre no pool de capacidade.
+Este erro ocorre quando está a atualizar o tamanho da piscina de `usedBytes` capacidade, e o tamanho é menor do que o valor total de todos os volumes nessa piscina de capacidade.  Este erro também pode ocorrer quando está a criar um novo volume ou a redimensionar um volume existente, e o novo tamanho de volume excede o espaço livre na piscina de capacidade.
 
-* Motivo:   
-Você está tentando atualizar o pool de capacidade para um tamanho menor do que usedBytes em todos os volumes no pool de capacidade.  Ou, você está tentando criar um volume que seja maior do que o espaço livre no pool de capacidade.  Como alternativa, você está tentando redimensionar um volume e o novo tamanho excede o espaço livre no pool de capacidade.
-* Soluções   
-Defina o tamanho do pool de capacidade para um valor maior ou crie um volume menor para um volume.
-* Resolução   
-Remova volumes suficientes para que o tamanho do pool de capacidade possa ser atualizado para esse tamanho.
+* Causa:   
+Você está tentando atualizar a piscina de capacidade para um tamanho menor do que os bytes usados em todos os volumes na piscina de capacidade.  Ou, você está tentando criar um volume que é maior do que o espaço livre na piscina de capacidade.  Em alternativa, está a tentar redimensionar um volume e o novo tamanho excede o espaço livre na piscina de capacidade.
+* Solução:   
+Detete o tamanho da piscina de capacidade para um valor maior, ou crie um volume menor para um volume.
+* Solução:   
+Remova volumes suficientes para que o tamanho da piscina de capacidade possa ser atualizado para este tamanho.
 
-***A propriedade: o local do instantâneo deve ser igual ao volume***
+***A propriedade: A localização para Snapshot deve ser a mesma que volume***
 
-Esse erro ocorre quando você está criando um instantâneo com um local diferente do volume que possui o instantâneo.
+Este erro ocorre quando está a criar um instantâneo com outra localização que não o volume que possui o instantâneo.
 
-* Motivo:   
-Valor inválido na propriedade Location do instantâneo.
-* Soluções   
-Defina uma cadeia de caracteres válida na propriedade Location.
+* Causa:   
+Valor inválido na propriedade Localização para o instantâneo.
+* Solução:   
+Detete uma corda válida na propriedade Local.
 
-***O nome {resourceType} deve ser igual ao nome do identificador de recurso.***
+***O nome {resourceType} deve ser o mesmo que o nome do identificador de recursos.***
 
-Esse erro ocorre quando você está criando um recurso e preenche a propriedade Name com outro valor que a propriedade Name de `resourceId`.
+Este erro ocorre quando está a criar um recurso, e preenche a propriedade `resourceId`do nome com outro valor que não seja a propriedade do nome de .
 
-* Motivo:   
-Valor inválido na propriedade Name quando você cria um recurso.
-* Soluções   
-Deixe a propriedade Name vazia ou permita que ela use o mesmo valor que a propriedade Name (entre a última barra invertida "/" e o ponto de interrogação "?") em `resourceId`.
+* Causa:   
+Valor inválido na propriedade do nome quando você cria um recurso.
+* Solução:   
+Deixe a propriedade do nome vazia ou deixe-a usar o mesmo valor que a propriedade do `resourceId`nome (entre o último backslash "/" e o ponto de interrogação "?") em .
 
-***Tipo de protocolo {value} não conhecido***
+***Tipo de protocolo {valor} não conhecido***
 
-Esse erro ocorre quando você está criando um volume com um tipo de protocolo desconhecido.  Os valores válidos são "NFSv3", "NFSv4" e "CIFS".
+Este erro ocorre quando está a criar um volume com um tipo de protocolo desconhecido.  Os valores válidos são "NFSv3", "NFSv4" e "CIFS".
 
-* Motivo:   
-Você está tentando definir um valor inválido no volume `protocolType` propriedade.
-* Soluções   
-Defina uma cadeia de caracteres válida no `protocolType`.
-* Resolução   
-Defina `protocolType` como nulo.
+* Causa:   
+Está a tentar definir um valor `protocolType` inválido na propriedade de volume.
+* Solução:   
+Coloque uma corda `protocolType`válida em .
+* Solução:   
+Definido `protocolType` como nulo.
 
-***Tipos de protocolo não podem ser alterados***
+***Os tipos de protocolo não podem ser alterados***
 
-Esse erro ocorre quando você tenta atualizar ou `ProtocolType` de patch para um volume.  A alteração de ProtocolType não é uma operação com suporte.
+Este erro ocorre quando tenta atualizar `ProtocolType` ou remendar para obter um volume.  Alterar o ProtocoloType não é uma operação apoiada.
 
-* Motivo:   
-A propriedade `ProtocolType` é definida quando o volume é criado.  Ele não pode ser atualizado.
-* Soluções   
+* Causa:   
+A `ProtocolType` propriedade é definida quando o volume é criado.  Não pode ser atualizado.
+* Solução:   
 Nenhum.
-* Resolução   
-Crie outro volume com novos tipos de protocolo.
+* Solução:   
+Crie outro volume com novos tipos de protocolos.
 
-***A criação do recurso do tipo {resourceType} excederia a cota de recursos de {quota} do tipo {resourceType} por {parentResourceType}. A contagem de recursos atual é {currentCount}, exclua alguns recursos desse tipo antes de criar um novo.***
+***A criação do recurso do tipo {resourceType} excederia a quota de recursos {quota} do tipo {resourceType} por {parentResourceType}. A contagem de recursos atual é {currentCount}, por favor elimine alguns recursos deste tipo antes de criar um novo.***
 
-Esse erro ocorre quando você está tentando criar um recurso (`NetAppAccount`, `CapacityPool`, `Volume` ou `Snapshot`), mas sua cota atingiu seu limite.
+Este erro ocorre quando se está a`NetAppAccount` `CapacityPool`tentar `Volume`criar `Snapshot`um recurso , ou , mas a sua quota atingiu o seu limite.
 
-* Motivo:   
-Você está tentando criar um recurso, mas o limite de cota é atingido (exemplo: `NetAppAccounts` por assinatura ou `CapacityPools` por `NetAppAccount`).
-* Soluções   
-Aumente o limite de cota.
-* Resolução   
-Exclua os recursos não utilizados do mesmo tipo e crie-os novamente.
+* Causa:   
+Está a tentar criar um recurso, mas o limite `NetAppAccounts` de `CapacityPools` quota `NetAppAccount`é atingido (exemplo: por subscrição ou por ).
+* Solução:   
+Aumente o limite de quota.
+* Solução:   
+Eliminar recursos não utilizados do mesmo tipo e criá-los novamente.
 
-***Foi recebido um valor para a propriedade somente leitura ' {propertyName} '.***
+***Recebeu um valor para a propriedade apenas de leitura '{propertyName}'.***
 
-Esse erro ocorre quando você define um valor para uma propriedade que não pode ser alterada. Por exemplo, você não pode alterar a ID do volume.
+Este erro ocorre quando se define um valor para uma propriedade que não pode ser alterada. Por exemplo, não é possível alterar o ID de volume.
 
-* Motivo:   
-Você está tentando modificar um parâmetro (por exemplo, a ID do volume) que não pode ser alterado.
-* Soluções   
+* Causa:   
+Está a tentar modificar um parâmetro (por exemplo, o ID de volume) que não pode ser alterado.
+* Solução:   
 Não modifique um valor para a propriedade.
 
-***O {Resource} solicitado não foi encontrado.***
+***O {recurso} solicitado não foi encontrado.***
 
-Esse erro ocorre quando você tenta fazer referência a um recurso inexistente, por exemplo, um volume ou instantâneo. O recurso pode ter sido excluído ou ter um nome de recurso soletrada.
+Este erro ocorre quando se tenta fazer referência a um recurso inexistente, por exemplo, um volume ou instantâneo. O recurso pode ter sido apagado ou ter um nome de recurso de misspelt.
 
-* Motivo:   
-Você está tentando fazer referência a um recurso inexistente (por exemplo, um volume ou instantâneo) que já foi excluído ou tem um nome de recurso digitado incorretamente.
-* Soluções   
-Verifique a solicitação de erros de ortografia para certificar-se de que ele está referenciado corretamente.
-* Resolução   
-Consulte a seção da solução acima.
+* Causa:   
+Está a tentar fazer referência a um recurso inexistente (por exemplo, um volume ou instantâneo) que já foi apagado ou tem um nome de recurso mal escrito.
+* Solução:   
+Verifique o pedido de erros ortográficos para se certificar de que está corretamente referenciado.
+* Solução:   
+Consulte a secção Solução acima.
 
-***O nível de serviço ' {volumeServiceLevel} ' é maior que o pai ' {poolServiceLevel} '***
+***O nível de serviço '{volumeServiceLevel}' é superior ao dos pais '{poolServiceLevel}'***
 
-Esse erro ocorre quando você está criando ou atualizando um volume e definiu o nível de serviço para um nível mais alto do que o pool de capacidade que o contém.
+Este erro ocorre quando está a criar ou atualizar um volume, e definiu o nível de serviço para um nível mais elevado do que o conjunto de capacidades que o contém.
 
-* Motivo:   
-Você está tentando criar ou atualizar um volume com um nível de serviço mais alto com classificação do que o pool de capacidade pai.
-* Soluções   
-Defina o nível de serviço como o mesmo ou uma classificação mais baixa do que o pool de capacidade pai.
-* Resolução   
-Crie o volume em outro pool de capacidade com um nível de serviço correto. Como alternativa, exclua todos os volumes do pool de capacidade e defina o nível de serviço para o pool de capacidade como uma classificação mais alta.
+* Causa:   
+Está a tentar criar ou atualizar um volume com um nível de serviço mais elevado do que o conjunto de capacidade dos pais.
+* Solução:   
+Desloque o nível de serviço para o mesmo ou para um nível inferior ao da capacidade dos pais.
+* Solução:   
+Crie o volume em outra piscina de capacidade com um nível de serviço correto. Alternativamente, elimine todos os volumes do pool de capacidade e detetete tende o nível de serviço para o pool de capacidade para um nível mais elevado.
 
-***O nome do servidor SMB não pode ter mais de 10 caracteres.***
+***O nome do servidor SMB pode não ser superior a 10 caracteres.***
 
-Esse erro ocorre quando você está criando ou atualizando uma configuração de Active Directory para uma conta.
+Este erro ocorre quando está a criar ou atualizar uma configuração de Diretório Ativo para uma conta.
 
-* Motivo:   
-O comprimento do nome do servidor SMB excede 10 caracteres.
-* Soluções   
+* Causa:   
+O comprimento do nome do servidor SMB ultrapassa os 10 caracteres.
+* Solução:   
 Use um nome de servidor mais curto. O comprimento máximo é de 10 caracteres.
-* Resolução   
-Nenhum.  Consulte a solução acima. 
+* Solução:   
+Nenhum.  Veja a solução acima. 
 
-***Sub-redeid não pode ser alterada.***
+***O SubnetId não pode ser alterado.***
 
-Esse erro ocorre quando você tenta alterar o `subnetId` após a criação do volume.  `SubnetId` deve ser definido quando o volume é criado e não pode ser alterado posteriormente.
+Este erro ocorre quando se `subnetId` tenta alterar o volume após a criação do volume.  `SubnetId`deve ser definido quando o volume é criado e não pode ser alterado mais tarde.
 
-* Motivo:   
-Você está tentando alterar o `subnetId` depois que o volume foi criado, o que não é uma operação com suporte. 
-* Soluções   
-Se a alteração do `subnetId` não for necessária, considere remover o parâmetro da solicitação para ignorar a mensagem de erro.
-* Resolução   
-Se você precisar alterar o `subnetId`, poderá criar um novo volume com um novo `subnetId` e, em seguida, migrar os dados para o novo volume.
+* Causa:   
+Está a tentar `subnetId` alterar o volume após a criação do volume, o que não é uma operação apoiada. 
+* Solução:   
+Se alterar `subnetId` o não é necessário, considere retirar o parâmetro do pedido de desminagem da mensagem de erro.
+* Solução:   
+Se precisar de `subnetId`alterar o , pode criar `subnetId`um novo volume com um novo , e depois migrar os dados para o novo volume.
 
-***Sub-rede está em um formato inválido.***
+***O SubnetId está em formato inválido.***
 
-Esse erro ocorre quando você tenta criar um novo volume, mas o `subnetId` não é um `resourceId` para uma sub-rede.
+Este erro ocorre quando se tenta criar `subnetId` um novo `resourceId` volume, mas o não é um para uma sub-rede.
 
-* Motivo:   
-Esse erro ocorre quando você tenta criar um novo volume, mas o `subnetId` não é um `resourceId` para uma sub-rede. 
-* Soluções   
-Verifique o valor do `subnetId` para garantir que ele contenha um `resourceId` para a sub-rede usada.
-* Resolução   
-Nenhum. Consulte a solução acima. 
+* Causa:   
+Este erro ocorre quando se tenta criar um `subnetId` novo `resourceId` volume, mas o não é um para uma sub-rede. 
+* Solução:   
+Verifique o valor `subnetId` do que o `resourceId` deve certificar-se de que contém um para a sub-rede utilizada.
+* Solução:   
+Nenhum. Veja a solução acima. 
 
-***A sub-rede deve ter uma delegação de ' Microsoft. NetApp/volumes '.***
+***A Subnet deve ter uma delegação 'Microsoft.NetApp/volumes'.***
 
-Esse erro ocorre quando você está criando um volume e a sub-rede selecionada não é delegada a `Microsoft.NetApp/volumes`.
+Este erro ocorre quando está a criar um volume e `Microsoft.NetApp/volumes`a sub-rede selecionada não é delegada a .
 
-* Motivo:   
-Você tentou criar o volume e selecionou uma sub-rede que não é delegada para `Microsoft.NetApp/volumes`.
-* Soluções   
-Selecione outra sub-rede que é delegada a `Microsoft.NetApp/volumes`.
-* Resolução   
-Adicione uma delegação correta à sub-rede.
+* Causa:   
+Tentou criar volume e selecionou uma sub-rede `Microsoft.NetApp/volumes`que não é delegada para .
+* Solução:   
+Selecione outra sub-rede `Microsoft.NetApp/volumes`que seja delegada em .
+* Solução:   
+Adicione uma delegação correta à subneta.
 
 ***O tipo de recurso especificado é desconhecido/não aplicável.***
 
-Esse erro ocorre quando uma verificação de nome foi solicitada em um tipo de recurso não aplicável ou para um tipo de recurso desconhecido.
+Este erro ocorre quando uma verificação de nome foi solicitada, quer num tipo de recurso não aplicável, quer para um tipo de recurso desconhecido.
 
-* Motivo:   
-Foi solicitada uma verificação de nome para um tipo de recurso desconhecido ou sem suporte.
-* Soluções   
-Verifique se o recurso para o qual você está fazendo a solicitação tem suporte ou não contém erros de ortografia.
-* Resolução   
-Consulte a solução acima.
+* Causa:   
+Foi solicitada verificação de nomes para um tipo de recurso desconhecido ou não suportado.
+* Solução:   
+Verifique se o recurso para o que está a fazer é suportado ou não contém erros ortográficos.
+* Solução:   
+Veja a solução acima.
 
-***Erro de Azure NetApp Files desconhecido.***
+***Erro de ficheiros Azure NetApp desconhecidos.***
 
-A API do Azure depende da API de Azure NetApp Files para gerenciar volumes. O erro indica um problema na comunicação com a API.
+A API Azure conta com a API de Ficheiros Azure NetApp para gerir volumes. O erro indica um problema na comunicação à API.
 
-* Motivo:   
-A API subjacente está enviando um erro desconhecido. Esse erro é provavelmente temporário.
-* Soluções   
-O problema provavelmente será temporário e a solicitação deverá ter sucesso após algum tempo. Se o problema persistir, crie um tíquete de suporte para que o problema seja investigado.
-* Resolução   
-Nenhum. A API subjacente é essencial para o gerenciamento de volumes.
+* Causa:   
+A API subjacente está a enviar um erro desconhecido. É provável que este erro seja temporário.
+* Solução:   
+É provável que a questão seja temporária e o pedido deverá ter êxito passado algum tempo. Se o problema persistir, crie um bilhete de apoio para que o problema seja investigado.
+* Solução:   
+Nenhum. A API subjacente é essencial para a gestão de volumes.
 
-***Valor recebido para uma propriedade desconhecida ' {propertyName} '.***
+***Valor recebido por uma propriedade desconhecida '{propertyName}'.***
 
-Esse erro ocorre quando Propriedades inexistentes são fornecidas para um recurso como o volume, o instantâneo ou o destino de montagem.
+Este erro ocorre quando são fornecidas propriedades inexistentes para um recurso como o volume, instantâneo ou alvo de montagem.
 
-* Motivo:   
-A solicitação tem um conjunto de propriedades que podem ser usadas com cada recurso. Você não pode incluir nenhuma propriedade inexistente na solicitação.
-* Soluções   
-Verifique se todos os nomes de propriedade estão escritos corretamente e se as propriedades estão disponíveis para a assinatura e o recurso.
-* Resolução   
-Reduza o número de propriedades definidas na solicitação para eliminar a propriedade que está causando o erro.
+* Causa:   
+O pedido tem um conjunto de propriedades que podem ser usadas com cada recurso. Não pode incluir quaisquer propriedades inexistentes no pedido.
+* Solução:   
+Certifique-se de que todos os nomes de propriedade estão corretamente escritos e que as propriedades estão disponíveis para a subscrição e recurso.
+* Solução:   
+Reduza o número de propriedades definidas no pedido de eliminação da propriedade que está a causar o erro.
 
-***Não há suporte para a operação de atualização para este tipo de recurso.***
+***A operação de atualização não é suportada para este tipo de recursos.***
 
-Somente volumes podem ser atualizados. Esse erro ocorre quando você tenta executar uma operação de atualização sem suporte, por exemplo, atualizando um instantâneo.
+Apenas volumes podem ser atualizados. Este erro ocorre quando tenta executar uma operação de atualização não suportada, por exemplo, atualizando um instantâneo.
 
-* Motivo:   
-O recurso que você está tentando atualizar não oferece suporte para a operação de atualização. Somente os volumes podem ter suas propriedades modificadas.
-* Soluções   
-Nenhum. O recurso que você está tentando atualizar não oferece suporte à operação de atualização. Portanto, ele não pode ser alterado.
-* Resolução   
-Para um volume, crie um novo recurso com a atualização em vigor e migre os dados.
+* Causa:   
+O recurso que está a tentar atualizar não suporta a operação de atualização. Apenas volumes podem ter as suas propriedades modificadas.
+* Solução:   
+Nenhum. O recurso que está a tentar atualizar não suporta a operação de atualização. Portanto, não pode ser alterado.
+* Solução:   
+Para um volume, crie um novo recurso com a atualização no lugar e emigra os dados.
 
-***O volume não pode ser criado em um pool que não está no estado com êxito.***
+***O volume não pode ser criado numa piscina que não está no estado bem sucedida.***
 
-Esse erro ocorre quando você tenta criar um volume em um pool que não está no estado com êxito. Provavelmente, a operação de criação para o pool de capacidade falhou por algum motivo.
+Este erro ocorre quando se tenta criar um volume numa piscina que não está no estado bem sucedido. Muito provavelmente, a operação de criação para o conjunto de capacidade falhou por alguma razão.
 
-* Motivo:   
-O pool de capacidade que contém o novo volume está em um estado de falha.
-* Soluções   
-Verifique se o pool de capacidade foi criado com êxito e se ele não está em um estado de falha.
-* Resolução   
-Crie um novo pool de capacidade e crie o volume no novo pool.
+* Causa:   
+O conjunto de capacidade que contém o novo volume encontra-se em estado de falência.
+* Solução:   
+Verifique se o pool de capacidade é criado com sucesso, e que não está em estado falhado.
+* Solução:   
+Crie uma nova piscina de capacidade e crie o volume na nova piscina.
 
-***O volume está sendo criado e não pode ser excluído no momento.***
+***O volume está a ser criado e não pode ser eliminado neste momento.***
 
-Esse erro ocorre quando você tenta excluir um volume que ainda está sendo criado.
+Este erro ocorre quando se tenta eliminar um volume que ainda está a ser criado.
 
-* Motivo:   
-Um volume ainda está sendo criado quando você tenta excluir o volume.
-* Soluções   
-Aguarde até que a criação do volume seja concluída e repita a exclusão.
-* Resolução   
-Consulte a solução acima.
+* Causa:   
+Ainda está a ser criado um volume quando se tenta apagar o volume.
+* Solução:   
+Aguarde até que a criação de volume esteja terminada e, em seguida, tente novamente a eliminação.
+* Solução:   
+Veja a solução acima.
 
-***O volume está sendo excluído e não pode ser excluído no momento.***
+***O volume está a ser eliminado e não pode ser eliminado neste momento.***
 
-Esse erro ocorre quando você tenta excluir um volume quando ele já está sendo excluído.
+Este erro ocorre quando se tenta apagar um volume quando já está a ser apagado.
 
-* Motivo:   
-Um volume já está sendo excluído quando você tenta excluir o volume.
-* Soluções   
-Aguarde até que a operação de exclusão atual seja concluída.
-* Resolução   
-Consulte a solução acima.
+* Causa:   
+Já está a ser apagado um volume quando se tenta apagar o volume.
+* Solução:   
+Aguarde até que a operação de eliminação atual esteja terminada.
+* Solução:   
+Veja a solução acima.
 
-***O volume está sendo atualizado e não pode ser excluído no momento.***
+***O volume está a ser atualizado e não pode ser eliminado neste momento.***
 
-Esse erro ocorre quando você tenta excluir um volume que está sendo atualizado.
+Este erro ocorre quando se tenta eliminar um volume que está a ser atualizado.
 
-* Motivo:   
-Um volume está sendo atualizado quando você tenta excluir o volume.
-* Soluções   
-Aguarde até que a operação de atualização seja concluída e repita a exclusão.
-* Resolução   
-Consulte a solução acima.
+* Causa:   
+Está a ser atualizado um volume quando se tenta eliminar o volume.
+* Solução:   
+Aguarde até que a operação de atualização esteja terminada e, em seguida, tente novamente a eliminação.
+* Solução:   
+Veja a solução acima.
 
-***O volume não foi encontrado ou não foi criado com êxito.***
+***O volume não foi encontrado ou não foi criado com sucesso.***
 
-Esse erro ocorre quando a criação do volume falha e você está tentando alterar o volume ou criar um instantâneo para o volume.
+Este erro ocorre quando a criação de volume falhou e está a tentar alterar o volume ou criar um instantâneo para o volume.
 
-* Motivo:   
-O volume não existe ou a criação falhou.
-* Soluções   
-Verifique se você está alterando o volume correto e se a criação do volume foi bem-sucedida. Ou então, verifique se o volume para o qual você está criando um instantâneo existe.
-* Resolução   
-Nenhum.  Consulte a solução acima. 
+* Causa:   
+O volume não existe, ou a criação falhou.
+* Solução:   
+Verifique se está a alterar o volume correto e que a criação do volume foi bem sucedida. Ou, verifique se o volume para o que está a criar uma imagem instantânea existe.
+* Solução:   
+Nenhum.  Veja a solução acima. 
 
-***O token de criação especificado já existe***
+***Símbolo de criação especificado já existe***
 
-Esse erro ocorre quando você tenta criar um volume e especifica um token de criação (caminho de exportação) para o qual um volume já existe.
+Este erro ocorre quando se tenta criar um volume, e especifica-se um símbolo de criação (rota de exportação) para o qual já existe um volume.
 
-* Motivo:   
-O token de criação (caminho de exportação) especificado durante a criação do volume já está associado a outro volume. 
-* Soluções   
-Escolha um token de criação diferente.  Como alternativa, exclua o outro volume.
+* Causa:   
+O símbolo de criação (rota de exportação) especificado durante a criação de volume já está associado a outro volume. 
+* Solução:   
+Escolha um símbolo de criação diferente.  Em alternativa, elimine o outro volume.
 
-***O token de criação especificado está reservado***
+***Ficha de criação especificada é reservada***
 
-Esse erro ocorre quando você tenta criar um volume e especifica "default" ou "None" como o caminho do arquivo (token de criação).
+Este erro ocorre quando se tenta criar um volume, e especifica "padrão" ou "nenhum" como o caminho do ficheiro (ficha de criação).
 
-* Motivo:    
-Você está tentando criar um volume e especifica "default" ou "None" como o caminho do arquivo (token de criação).
-* Soluções   
-Escolha um caminho de arquivo diferente (token de criação).
+* Causa:    
+Está a tentar criar um volume e especifica "padrão" ou "nenhum" como o caminho do ficheiro (símbolo de criação).
+* Solução:   
+Escolha um caminho de arquivo diferente (símbolo de criação).
  
-***Active Directory credenciais estão em uso***
+***Credenciais de Diretório Ativo estão em uso***
 
-Esse erro ocorre quando você tenta excluir a configuração de Active Directory de uma conta em que pelo menos um volume SMB ainda existe.  O volume SMB foi criado usando a configuração de Active Directory que você está tentando excluir.
+Este erro ocorre quando se tenta eliminar a configuração do Diretório Ativo de uma conta onde ainda existe pelo menos um volume SMB.  O volume SMB foi criado utilizando a configuração ative diretório que está a tentar eliminar.
 
-* Motivo:   
-Você está tentando excluir a configuração de Active Directory de uma conta, mas pelo menos um volume SMB ainda existe, que foi inicialmente criado usando a configuração de Active Directory. 
-* Soluções   
-Primeiro, exclua todos os volumes SMB que foram criados usando a configuração Active Directory.  Em seguida, repita a exclusão da configuração.
+* Causa:   
+Está a tentar eliminar a configuração do Diretório Ativo de uma conta, mas ainda existe pelo menos um volume SMB que foi inicialmente criado utilizando a configuração do Diretório Ativo. 
+* Solução:   
+Em primeiro lugar, elimine todos os volumes SMB que foram criados utilizando a configuração do Diretório Ativo.  Em seguida, tente novamente a eliminação da configuração.
 
-***Não é possível modificar a atribuição de unidade organizacional se as credenciais estiverem em uso***
+***Não pode modificar a atribuição da Unidade Organizacional se as credenciais estiverem em uso***
 
-Esse erro ocorre quando você tenta alterar a unidade organizacional de uma configuração de Active Directory, mas pelo menos um volume SMB ainda existe.  O volume SMB foi criado usando essa configuração de Active Directory que você está tentando excluir.
+Este erro ocorre quando se tenta alterar a Unidade Organizacional de uma configuração de Diretório Ativo, mas pelo menos um volume SMB ainda existe.  O volume SMB foi criado utilizando a configuração ative directy que está a tentar eliminar.
 
-* Motivo:   
-Você está tentando alterar a unidade organizacional de uma configuração de Active Directory.  Mas pelo menos um volume SMB ainda existe, que foi inicialmente criado usando a configuração de Active Directory.
-* Soluções   
- Primeiro, exclua todos os volumes SMB que foram criados usando a configuração Active Directory.  Em seguida, repita a exclusão da configuração. 
+* Causa:   
+Está a tentar alterar a Unidade Organizacional de uma configuração de Diretório Ativo.  Mas pelo menos um volume SMB ainda existe que foi inicialmente criado através da configuração do Diretório Ativo.
+* Solução:   
+ Em primeiro lugar, elimine todos os volumes SMB que foram criados utilizando a configuração do Diretório Ativo.  Em seguida, tente novamente a eliminação da configuração. 
 
-***A atualização do Active Directory já está em andamento***
+***Atualização do Diretório Ativo já em curso***
 
-Esse erro ocorre quando você tenta editar uma configuração de Active Directory para a qual uma operação de edição já está em andamento.
+Este erro ocorre quando se tenta editar uma configuração de Diretório Ativo para a qual já está em curso uma operação de edição.
 
-* Motivo:   
-Você está tentando editar uma configuração de Active Directory, mas outra operação de edição já está em andamento.
-* Soluções   
-Aguarde até que a operação de edição em execução no momento seja concluída.
+* Causa:   
+Está a tentar editar uma configuração de Diretório Ativo, mas outra operação de edição já está em curso.
+* Solução:   
+Aguarde até que a operação de edição em curso termine.
 
-***Excluir todos os volumes usando as credenciais selecionadas primeiro***
+***Eliminar primeiro todos os volumes utilizando as credenciais selecionadas***
 
-Esse erro ocorre quando você tenta excluir uma configuração de Active Directory, mas pelo menos um volume SMB ainda existe.  O volume SMB foi criado usando a configuração de Active Directory que você está tentando excluir.
+Este erro ocorre quando se tenta eliminar uma configuração de Diretório Ativo, mas pelo menos um volume SMB ainda existe.  O volume SMB foi criado utilizando a configuração ative diretório que está a tentar eliminar.
 
-* Motivo:   
-Você está tentando excluir uma configuração de Active Directory, mas pelo menos um volume SMB ainda existe, que foi inicialmente criado usando a configuração de Active Directory.
-* Soluções   
-Primeiro, exclua todos os volumes SMB que foram criados usando a configuração Active Directory.  Em seguida, repita a exclusão da configuração. 
+* Causa:   
+Está a tentar eliminar uma configuração de Diretório Ativo, mas ainda existe pelo menos um volume SMB que foi inicialmente criado utilizando a configuração do Diretório Ativo.
+* Solução:   
+Em primeiro lugar, elimine todos os volumes SMB que foram criados utilizando a configuração do Diretório Ativo.  Em seguida, tente novamente a eliminação da configuração. 
 
-***Nenhuma credencial de Active Directory encontrada na região***
+***Nenhuma credencial de Diretório Ativo encontrada na região***
 
-Esse erro ocorre quando você tenta criar um volume SMB, mas nenhuma configuração de Active Directory foi adicionada à conta para a região.
+Este erro ocorre quando se tenta criar um volume SMB, mas não foi adicionada nenhuma configuração de Diretório Ativo à conta da região.
 
-* Motivo:   
-Você está tentando criar um volume SMB, mas nenhuma configuração de Active Directory foi adicionada à conta. 
-* Soluções   
-Adicione uma configuração de Active Directory à conta antes de criar um volume SMB.
+* Causa:   
+Está a tentar criar um volume SMB, mas não foi adicionada nenhuma configuração de Diretório Ativo à conta. 
+* Solução:   
+Adicione uma configuração de Diretório Ativo à conta antes de criar um volume SMB.
 
-***Não foi possível consultar o servidor DNS. Verifique se a configuração de rede está correta e se os servidores DNS estão disponíveis.***
+***Não podia consultar o servidor DNS. Verifique se a configuração da rede está correta e que os servidores DNS estão disponíveis.***
 
-Esse erro ocorre quando você tenta criar um volume SMB, mas um servidor DNS (especificado em sua configuração de Active Directory) está inacessível. 
+Este erro ocorre quando tenta criar um volume SMB, mas um servidor DNS (especificado na configuração do Diretório Ativo) é inacessível. 
 
-* Motivo:   
-Você está tentando criar um volume SMB, mas um servidor DNS (especificado em sua configuração de Active Directory) está inacessível.
-* Soluções   
-Examine sua configuração de Active Directory e verifique se os endereços IP do servidor DNS estão corretos e acessíveis.
-Se não houver problemas com os endereços IP do servidor DNS, verifique se nenhum firewall está bloqueando o acesso.
+* Causa:   
+Está a tentar criar um volume SMB, mas um servidor DNS (especificado na configuração do Diretório Ativo) é inacessível.
+* Solução:   
+Reveja a configuração do Diretório Ativo e certifique-se de que os endereços IP do servidor DNS estão corretos e acessíveis.
+Se não houver problemas com os endereços IP do servidor DNS, verifique se nenhuma firewall está bloqueando o acesso.
 
-***Muitos trabalhos simultâneos***
+***Demasiados empregos simultâneos***
 
-Esse erro ocorre quando você tenta criar um instantâneo quando três outras operações de criação de instantâneos já estão em andamento para a assinatura.
+Este erro ocorre quando se tenta criar um instantâneo quando já estão em curso três outras operações de criação instantânea para a subscrição.
 
-* Motivo:   
-Você está tentando criar um instantâneo quando três outras operações de criação de instantâneo já estão em andamento para a assinatura. 
-* Soluções   
-Os trabalhos de criação de instantâneo levam alguns segundos para serem concluídos.  Aguarde alguns segundos e repita a operação de criação do instantâneo.
+* Causa:   
+Está a tentar criar um instantâneo quando já estão em curso três outras operações de criação instantânea para a subscrição. 
+* Solução:   
+Os trabalhos de criação instantânea demoram alguns segundos a terminar.  Aguarde alguns segundos e tente novamente a operação de criação instantânea.
 
-***Não é possível gerar trabalhos adicionais. Aguarde até que os trabalhos em andamento sejam concluídos e tente novamente***
+***Não pode criar trabalhos adicionais. Por favor, espere que os trabalhos em curso terminem e tentem novamente***
 
-Esse erro pode ocorrer quando você tenta criar ou excluir um volume sob circunstâncias específicas.
+Este erro pode ocorrer quando tenta criar ou apagar um volume em circunstâncias específicas.
 
-* Motivo:   
-Você está tentando criar ou excluir um volume em circunstâncias específicas.
-* Soluções   
-Aguarde um minuto ou então e repita a operação.
+* Causa:   
+Está a tentar criar ou apagar um volume em circunstâncias específicas.
+* Solução:   
+Espere um minuto ou mais e tente novamente a operação.
 
-***O volume já está em transição entre Estados***
+***O volume já está em transição entre estados***
 
-Esse erro pode ocorrer quando você tenta excluir um volume que está atualmente em um estado de transição (ou seja, atualmente no estado criando, atualizando ou excluindo).
+Este erro pode ocorrer quando se tenta eliminar um volume que se encontra atualmente em estado de transição (isto é, atualmente no estado de criação, atualização ou eliminação).
 
-* Motivo:   
-Você está tentando excluir um volume que está atualmente em um estado de transição.
-* Soluções   
-Aguarde até que a operação em execução no momento (transição de estado) seja concluída e repita a operação.
+* Causa:   
+Está a tentar apagar um volume que se encontra atualmente em estado de transição.
+* Solução:   
+Aguarde até que a operação atualmente em curso (transição do Estado) esteja concluída e, em seguida, tente novamente a operação.
 
-***Falha ao dividir o novo volume do instantâneo do volume de origem***
+***Não conseguiu dividir o novo volume do instantâneo de volume de origem***
 
- Esse erro pode ocorrer quando você tenta criar um volume a partir de um instantâneo.  
+ Este erro pode ocorrer quando se tenta criar um volume a partir de um instantâneo.  
 
-* Motivo:   
-Você tenta criar um volume a partir de um instantâneo e o volume termina em um estado de erro.
-* Soluções   
-Exclua o volume e repita a operação de criação do volume a partir do instantâneo.
+* Causa:   
+Tenta criar um volume a partir de um instantâneo e o volume termina num estado de erro.
+* Solução:   
+Apagar o volume e, em seguida, voltar a tentar a operação de criação de volume a partir do instantâneo.
 
  
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Desenvolver para Azure NetApp Files com a API REST](azure-netapp-files-develop-with-rest-api.md)
+* [Desenvolver ficheiros Azure NetApp com REST API](azure-netapp-files-develop-with-rest-api.md)

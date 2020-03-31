@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: b74a93e15d533bf9b15797e6371a25230f7a08f7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960675"
 ---
 # <a name="504101-gatewaytimeout"></a>504101 GatewayTimeout
@@ -41,4 +41,4 @@ Emita uma nova tentativa.
 
 ### <a name="solution-2"></a>Solução 2
 
-Atualize para a versão mais recente C# do Azure IOT SDK.
+Upgrade para a versão mais recente do Azure IOT C# SDK.
