@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: a1bedf97f5ae7c48e5bcb47880a25ee1219b917b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5213a20036385ff25373252e6670d8bd86a4b07
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184043"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056609"
 ---
-Outros guias de introdução nesta coleção são criados através deste guia de introdução. Se pretender trabalhar com guias de introdução subsequentes, tutoriais ou com qualquer um dos serviços que criou neste guia de introdução, não limpe os recursos.
+Outros guias de introdução desta coleção têm por base este guia de introdução. Se planeia trabalhar com quickstarts, tutoriais ou com qualquer um dos serviços que criou neste arranque rápido, não limpe os recursos.
 
-Os *recursos* no Azure referem-se a aplicações de funções, funções, contas de armazenamento e assim sucessivamente. Estes são agrupados em *grupos de recursos* e pode eliminar tudo num grupo ao eliminá-lo. 
+Os *recursos* no Azure referem-se a aplicações de funções, funções, contas de armazenamento e assim sucessivamente. Estão agrupados em *grupos*de recursos , e pode eliminar tudo num grupo eliminando o grupo. 
 
 Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrado estes recursos, dependendo do seu [estado da conta](https://azure.microsoft.com/account/) e dos [preços dos serviços](https://azure.microsoft.com/pricing/). Se já não precisar dos recursos, pode eliminá-los da seguinte forma:
 
@@ -25,7 +25,7 @@ Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrad
 
    Para aceder a essa página a partir do dashboard, selecione **Grupos de recursos** e, em seguida, selecione o grupo de recursos que utilizou para este guia de introdução.
 
-2. Na página **Grupo de recursos**, reveja a lista dos recursos incluídos e certifique-se de que são aqueles que pretende eliminar.
+2. Na página do **grupo Recursos,** reveja a lista de recursos incluídos e verifique se são eles que pretende eliminar.
  
 3. Selecione **Eliminar grupo de recursos** e siga as instruções.
 

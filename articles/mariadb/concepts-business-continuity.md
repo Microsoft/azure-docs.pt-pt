@@ -1,57 +1,57 @@
 ---
-title: Continuidade dos negócios-banco de dados do Azure para MariaDB
-description: Saiba mais sobre continuidade de negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para serviço MariaDB.
+title: Continuidade do negócio - Base de Dados Azure para MariaDB
+description: Saiba mais sobre a continuidade do negócio (restauro pontual, interrupção do data center, geo-restauro) ao utilizar a Base de Dados Azure para o serviço MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 76e749b26be5a5204b247d294f26da169f84094c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773022"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532396"
 ---
-# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Entender a continuidade dos negócios no banco de dados do Azure para MariaDB
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Compreender a continuidade do negócio na Base de Dados Azure para a MariaDB
 
-Este artigo descreve os recursos que o banco de dados do Azure para MariaDB fornece para a continuidade dos negócios e a recuperação de desastres. Saiba mais sobre as opções de recuperação de eventos de interrupção que podem causar perda de dados ou fazer com que seu banco de dado e aplicativo se tornem indisponíveis. Saiba o que fazer quando um erro de usuário ou aplicativo afeta a integridade dos dados, uma região do Azure tem uma interrupção ou seu aplicativo requer manutenção.
+Este artigo descreve as capacidades que a Base de Dados Azure para a MariaDB fornece para a continuidade do negócio e recuperação de desastres. Saiba mais sobre as opções de recuperação de eventos disruptivos que possam causar perda de dados ou fazer com que a sua base de dados e aplicação fiquem indisponíveis. Saiba o que fazer quando um erro de utilizador ou aplicação afeta a integridade dos dados, uma região do Azure tem uma falha, ou a sua aplicação requer manutenção.
 
-## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Recursos que você pode usar para fornecer continuidade de negócios
+## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funcionalidades que pode usar para fornecer continuidade ao negócio
 
-O banco de dados do Azure para MariaDB fornece recursos de continuidade de negócios que incluem backups automatizados e a capacidade de os usuários iniciarem a restauração geográfica. Cada um tem características diferentes para ERT (tempo de recuperação estimado) e potencial perda de dados. Depois de entender essas opções, você pode escolher entre elas e usá-las juntas para cenários diferentes. Ao desenvolver seu plano de continuidade de negócios, você precisa entender o tempo máximo aceitável antes que o aplicativo se recupere completamente após o evento de interrupção – esse é o RTO (objetivo de tempo de recuperação). Você também precisa entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que o aplicativo pode tolerar a perda ao recuperar após o evento de interrupção – esse é o RPO (objetivo de ponto de recuperação).
+A Base de Dados Azure para o MariaDB fornece funcionalidades de continuidade de negócios que incluem backups automatizados e a capacidade de os utilizadores iniciarem a geo-restauração. Cada um tem características diferentes para o Tempo estimado de recuperação (ERT) e perda de dados potenciais. Assim que compreenderes estas opções, podes escolher entre elas e usá-las juntas para diferentes cenários. À medida que desenvolve o seu plano de continuidade de negócios, precisa de compreender o tempo máximo aceitável antes de a aplicação recuperar totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa entender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder quando se recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
 
-A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
+O quadro seguinte compara o ERT e o RPO para as funcionalidades disponíveis:
 
-| **Recursos** | **Básica** | **Uso Geral** | **Com otimização de memória** |
+| **Capacidade** | **Básico** | **Propósito Geral** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
-| Restauração geográfica de backups replicados geograficamente | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
+| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção |
+| Geo-restauro de backups geo-replicados | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Se você excluir o servidor, todos os bancos de dados contidos no servidor também serão excluídos e não poderão ser recuperados. Não é possível restaurar um servidor excluído.
+> Se eliminar o servidor, todas as bases de dados contidas no servidor também são eliminadas e não podem ser recuperadas. Não é possível restaurar um servidor apagado.
 
-## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de usuário ou aplicativo
+## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de utilizador ou aplicação
 
-Você pode usar os backups do serviço para recuperar um servidor de vários eventos de interrupção. Um usuário pode excluir acidentalmente alguns dados, remover inadvertidamente uma tabela importante ou até mesmo remover um banco de dado inteiro. Um aplicativo pode substituir acidentalmente bons dados com dados incorretos devido a um defeito do aplicativo e assim por diante.
+Pode utilizar as cópias de segurança do serviço para recuperar um servidor de vários eventos disruptivos. Um utilizador pode acidentalmente apagar alguns dados, deixar cair inadvertidamente uma tabela importante ou mesmo deixar cair uma base de dados inteira. Uma aplicação pode acidentalmente substituir bons dados com dados maus devido a um defeito de aplicação, e assim por diante.
 
-Você pode executar uma restauração pontual para criar uma cópia do seu servidor para um momento bom conhecido no tempo. Esse ponto no tempo deve estar dentro do período de retenção de backup que você configurou para o servidor. Depois que os dados forem restaurados para o novo servidor, você poderá substituir o servidor original pelo servidor restaurado recentemente ou copiar os dados necessários do servidor restaurado para o servidor original.
+Pode realizar um restauro pontual para criar uma cópia do seu servidor para um bom ponto de tempo conhecido. Este ponto de tempo deve estar dentro do período de retenção de cópia de segurança configurado para o seu servidor. Depois de os dados forem restaurados ao novo servidor, pode substituir o servidor original pelo servidor recém-restaurado ou copiar os dados necessários do servidor restaurado para o servidor original.
 
-## <a name="recover-from-an-azure-regional-data-center-outage"></a>Recuperar de uma interrupção de data center regional do Azure
+## <a name="recover-from-an-azure-regional-data-center-outage"></a>Recuperar de uma paragem do centro de dados regional do Azure
 
-Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma interrupção, ela causa uma interrupção de negócios que pode durar apenas alguns minutos, mas pode durar por horas.
+Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando ocorre uma paragem, causa uma perturbação no negócio que pode durar apenas alguns minutos, mas pode durar horas.
 
-Uma opção é aguardar que o servidor volte a ficar online quando a interrupção de data center terminar. Isso funciona para aplicativos que podem deixar o servidor offline por um período de tempo, por exemplo, um ambiente de desenvolvimento. Quando data center tiver uma interrupção, você não sabe por quanto tempo a interrupção pode durar, portanto, essa opção só funcionará se você não precisar do seu servidor por algum tempo.
+Uma opção é esperar que o seu servidor volte a funcionar quando a interrupção do centro de dados terminar. Isto funciona para aplicações que podem dar ao luxo de ter o servidor offline por algum tempo, por exemplo, um ambiente de desenvolvimento. Quando o data center tem uma paragem, não sabe quanto tempo a paralisação pode durar, pelo que esta opção só funciona se não precisar do seu servidor por um tempo.
 
-A outra opção é usar o recurso de restauração geográfica do banco de dados do Azure para MariaDB que restaura o servidor usando backups com redundância geográfica. Esses backups são acessíveis mesmo quando a região em que o servidor está hospedado está offline. Você pode restaurar esses backups para qualquer outra região e colocar o servidor online novamente.
+A outra opção é utilizar a Base de Dados Azure para a funcionalidade de georestauro da MariaDB que restaura o servidor utilizando backups georedundantes. Estas cópias de segurança são acessíveis mesmo quando a região onde o seu servidor está hospedado está offline. Pode restaurar estas cópias de segurança para qualquer outra região e voltar a colocar o seu servidor online.
 
 > [!IMPORTANT]
-> A restauração geográfica só será possível se você tiver provisionado o servidor com o armazenamento de backup com redundância geográfica.
+> A geo-restauração só é possível se for metodo o servidor com armazenamento de backup geo-redundante.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre os backups automatizados, consulte [backups no banco de dados do Azure para MariaDB](concepts-backup.md).
-- Para restaurar para um ponto no tempo usando o portal do Azure, consulte [restaurar banco de dados para um ponto no tempo usando o portal do Azure](howto-restore-server-portal.md).
+- Para saber mais sobre as cópias de segurança automatizadas, consulte backups na Base de [Dados Azure para MariaDB](concepts-backup.md).
+- Para restaurar a um ponto no tempo utilizando o portal Azure, consulte restaurar a base de [dados a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).
 
 <!--
 - To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 

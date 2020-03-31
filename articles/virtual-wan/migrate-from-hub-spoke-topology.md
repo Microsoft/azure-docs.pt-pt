@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8aa4fe143c78d2053ce8c48e4866a5522057aa0c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063026"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para Azure Virtual WAN
@@ -20,8 +20,8 @@ O Azure Virtual WAN permite que as empresas simplifiquem a sua conectividade glo
 
 Para obter informações sobre os benefícios que o Azure Virtual WAN permite às empresas adotarem uma rede global de empresas modernacentrada na nuvem, consulte a arquitetura global da rede de trânsito e o [Virtual WAN.](virtual-wan-global-transit-network-architecture.md)
 
-![hub e falou](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
-**Figura: Azure Virtual WAN**
+![hub e](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
+figura falada:**Azure Virtual WAN**
 
 O modelo de conectividade hub-and-spoke do Azure Virtual Datacenter (VDC) foi adotado por milhares de nossos clientes para alavancar o comportamento de encaminhamento transitório padrão da Azure Networking de forma a construir redes de nuvem simples e escalável. O Azure Virtual WAN baseia-se nestes conceitos e introduz novas capacidades que permitem topoologias de conectividade global, não só entre locais no local e o Azure, mas também permitindo que os clientes aproveitem a escala da rede Microsoft para aumentar a sua redes globais existentes.
 
@@ -33,8 +33,8 @@ A Contoso é uma organização financeira global com escritórios na Europa e na
 
 O número seguinte mostra uma visão de alto nível da rede global existente, incluindo a conectividade com várias regiões azure.
 
-![Contoso já existente na topologia da rede](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
-**Figura: Topologia** de rede existente contoso
+![Contoso figura de](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
+topologia de rede**existente: Contoso existente topologia de rede**
 
 Os seguintes pontos podem ser entendidos a partir da topologia da rede existente:
 
@@ -57,12 +57,12 @@ A equipa de networking foi incumbida de entregar um modelo global de rede que po
   - **VNet -to-Hub -to-Hub -to-VNet**- As redes virtuais de fala nas diferentes regiões devem ser capazes de comunicar entre si.
 - Fornecer a capacidade para que os utilizadores de roaming Contoso (portátil e telefone) acedam aos recursos da empresa enquanto não estão na rede corporativa.
 
-## <a name="architecture"></a>Arquitetura Azure Virtual WAN
+## <a name="azure-virtual-wan-architecture"></a><a name="architecture"></a>Arquitetura Azure Virtual WAN
 
 O número seguinte mostra uma visão de alto nível da topologia alvo atualizada utilizando o Azure Virtual WAN para satisfazer os requisitos detalhados na secção anterior.
 
-![Contoso arquitetura virtual WAN](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
-**Figura: Arquitetura Azure Virtual WAN**
+![Contoso arquitetura](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
+virtual WAN**Figura: Arquitetura Azure Virtual WAN**
 
 Resumo:
 
@@ -82,8 +82,8 @@ Esta secção mostra os vários passos para migrar para O WAN Virtual Azure.
 
 Reveja a arquitetura. A figura seguinte mostra uma topologia de uma única região para Contoso antes do lançamento do Azure Virtual WAN:
 
-![região única topologia](./media/migrate-from-hub-spoke-topology/figure1.png)
-**Figura 1: Região única do centro e falada VDC**
+![Figura 1](./media/migrate-from-hub-spoke-topology/figure1.png)
+da região**única: Região única do centro e falada VDC**
 
 De acordo com a abordagem do Virtual Data Center (VDC), a rede virtual do hub gerida pelo cliente contém vários blocos de função:
 
@@ -96,14 +96,14 @@ De acordo com a abordagem do Virtual Data Center (VDC), a rede virtual do hub ge
 
 Implementar um centro virtual WAN em cada região. Instale o centro virtual WAN com VPN Gateway e ExpressRoute Gateway conforme descrito nos seguintes artigos:
 
-- [Tutorial: Criar uma ligação site-a-local usando o Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure](virtual-wan-site-to-site-portal.md)
 - [Tutorial: Criar uma associação ExpressRoute usando o Azure Virtual WAN](virtual-wan-expressroute-portal.md)
 
 > [!NOTE]
 > O Azure Virtual WAN deve estar a utilizar o SKU Padrão para permitir algumas das vias de tráfego mostradas neste artigo.
 
-![implementar centros virtuais wan](./media/migrate-from-hub-spoke-topology/figure2.png)
-**Figura 2: Centro vdc e falou com migração virtual WAN**
+![Implementar centros](./media/migrate-from-hub-spoke-topology/figure2.png)
+virtuais WAN**Figura 2: Centro vdc e falou com migração virtual WAN**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Passo 3: Ligar sites remotos (ExpressRoute e VPN) a Virtual WAN
 
@@ -112,8 +112,8 @@ Ligue o centro virtual WAN aos circuitos ExpressRoute existentes e instale VPNs 
 > [!NOTE]
 > Os Circuitos Express Routes devem ser atualizados para o tipo Premium SKU para se ligarem ao centro virtual WAN.
 
-![Ligue sites remotos à Figura 3](./media/migrate-from-hub-spoke-topology/figure3.png)
-Virtual **WAN: Centro de VDC e falou com migração virtual WAN**
+![Ligue sites remotos](./media/migrate-from-hub-spoke-topology/figure3.png)
+à Figura 3 virtual**WAN: Centro vdc e falou com migração virtual WAN**
 
 Neste ponto, os equipamentos de rede no local começarão a receber rotas que reflitam o espaço de endereço IP atribuído ao centro virtual gerido por WAN VNet. Os balcões ligados à VPN remotanesta fase verão dois caminhos para quaisquer aplicações existentes nas redes virtuais faladas. Estes dispositivos devem ser configurados para continuar a utilizar o túnel para o centro VDC para garantir o encaminhamento simétrico durante a fase de transição.
 
@@ -121,13 +121,13 @@ Neste ponto, os equipamentos de rede no local começarão a receber rotas que re
 
 Antes de utilizar o centro virtual wan gerido para conectividade de produção, recomendamos que tenha configurado uma rede virtual de teste e ligação Virtual WAN VNet. Valide que as ligações a este ambiente de teste funcionam via ExpressRoute e Site to Site VPN antes de continuar com os próximos passos.
 
-![Testar a conectividade híbrida através da Figura 4](./media/migrate-from-hub-spoke-topology/figure4.png)
-Wan **Virtual: Centro de VDC e falou com migração virtual WAN**
+![Teste de conectividade híbrida](./media/migrate-from-hub-spoke-topology/figure4.png)
+através da Figura 4 virtual**WAN: Centro vdc e falou com migração virtual WAN**
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>Passo 5: Conectividade de transição para o centro virtual WAN
 
-![Conectividade de transição para o centro virtual wan](./media/migrate-from-hub-spoke-topology/figure5.png)
-**Figura 5: Centro vdc e falou com migração virtual WAN**
+![Conectividade de transição](./media/migrate-from-hub-spoke-topology/figure5.png)
+para o centro virtual WAN**Figura 5: Centro vdc e falou com migração virtual WAN**
 
 **a**. Elimine as ligações de observação existentes das redes virtuais faladas para o antigo centro VDC. O acesso a aplicações em redes virtuais faladas não está disponível até que os passos a-c estejam completos.
 
@@ -143,8 +143,8 @@ Wan **Virtual: Centro de VDC e falou com migração virtual WAN**
 
 Redesenhou agora a nossa rede Azure para fazer do centro virtual WAN o ponto central da nossa nova topologia.
 
-![Antigo centro torna-se Serviços Partilhados falou](./media/migrate-from-hub-spoke-topology/figure6.png)
-**Figura 6: Centro vdc e falou com migração virtual WAN**
+![Antigo centro torna-se Serviços Partilhados falado](./media/migrate-from-hub-spoke-topology/figure6.png)
+Figura**6: Centro vdc-e-falou com migração virtual WAN**
 
 Como o centro virtual WAN é uma entidade gerida e não permite a implantação de recursos personalizados, como máquinas virtuais, o bloco de serviços partilhados existe agora como uma rede virtual falada e acolhe funções como entrada na Internet via Portal de Aplicação Azure ou aparelho virtualizado de rede. O tráfego entre o ambiente de serviços partilhados e as máquinas virtuais de backend agora transita o centro gerido por WAN virtual.
 
@@ -152,8 +152,8 @@ Como o centro virtual WAN é uma entidade gerida e não permite a implantação 
 
 Nesta fase, a Contoso concluiu maioritariamente as suas migrações de aplicações empresariais para o Microsoft Cloud, com apenas algumas aplicações antigas restantes dentro do DC no local.
 
-![Otimize a conectividade no local para utilizar totalmente o Virtual WAN](./media/migrate-from-hub-spoke-topology/figure7.png)
-**Figura 7: Centro de VDC e falou com migração virtual WAN**
+![Otimizar a conectividade no local para](./media/migrate-from-hub-spoke-topology/figure7.png)
+utilizar totalmente a Figura Wan Virtual**7: Centro vdc e falou com migração virtual WAN**
 
 Para aproveitar toda a funcionalidade do Azure Virtual WAN, A Contoso decide desativar o seu legado nas instalações das ligações VPN. Quaisquer agências que continuem a aceder às redes HQ ou DC são capazes de transitar a rede global da Microsoft utilizando o encaminhamento de trânsito incorporado do Azure Virtual WAN.
 
@@ -162,8 +162,8 @@ Para aproveitar toda a funcionalidade do Azure Virtual WAN, A Contoso decide des
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>Arquitetura do estado final e caminhos de tráfego
 
-![arquitetura do estado final e caminhos de tráfego](./media/migrate-from-hub-spoke-topology/figure8.png)
-**Figura: Dual region Virtual WAN**
+![Arquitetura do estado final](./media/migrate-from-hub-spoke-topology/figure8.png)
+e caminhos de tráfego**Figura: Dual region Virtual WAN**
 
 Esta secção fornece um resumo de como esta topologia satisfaz os requisitos originais, analisando alguns fluxos de tráfego exemplo.
 
@@ -231,8 +231,8 @@ O tráfego é encaminhado da seguinte forma:
 
 Contoso já validou a conectividade entre todos os ramos e VNets de acordo com os requisitos discutidos anteriormente neste artigo. Para satisfazer os seus requisitos de controlo de segurança e isolamento da rede, eles precisam continuar a separar e registar o tráfego através da rede hub. Anteriormente, esta função foi executada por um aparelho virtual de rede (NVA). A Contoso também quer desmantelar os seus serviços de procuração existentes e utilizar os serviços nativo sinuosos do Azure para a filtragem da Internet de saída.
 
-![Segurança e controlo de políticas via Azure Firewall](./media/migrate-from-hub-spoke-topology/security-policy.png)
-**Figure: Azure Firewall in Virtual WAN (hub virtual seguro)**
+![Controlo de segurança e](./media/migrate-from-hub-spoke-topology/security-policy.png)
+política via Azure Firewall**Figure: Azure Firewall in Virtual WAN (centro virtual seguro)**
 
 São necessários os seguintes passos de alto nível para introduzir o Firewall Azure nos centros Virtual WAN para permitir um ponto unificado de controlo de políticas. Para mais informações sobre este processo e o conceito de Secure Virtual Hubs, consulte [O Gestor de Firewall Azure](../firewall-manager/index.yml).
 

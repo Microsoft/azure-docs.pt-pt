@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7c5dfe6ed08df01f78346c76fd5a35e7d64ab520
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671584"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Aplicativos web de perfil que executam uma máquina virtual Azure ou uma escala de máquina virtual definida usando o Perfil de Insights de Aplicação
@@ -18,8 +18,8 @@ ms.locfileid: "77671584"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Também pode implementar o Perfil de Insights de Aplicação Azure nestes serviços:
-* [App Service do Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Cloud do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Desloque o Perfil numa máquina virtual ou num conjunto de escala de máquina virtual
@@ -31,7 +31,7 @@ Este artigo mostra-lhe como fazer com que o Perfil de Insights de Aplicação es
 
 1. Instale a extensão de Diagnóstico Azure no seu VM. Para exemplos completos do modelo do Gestor de Recursos, consulte:  
    * [Máquina virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-   * [Conjunto de escala de máquina virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+   * [Conjuntos de dimensionamento de máquinas virtuais](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
      A parte chave é o ApplicationInsightsProfilerSink no WadCfg. Para que o Azure Diagnostics ative o Profiler a enviar dados para o seu iKey, adicione mais um lavatório a esta secção.
     
@@ -65,7 +65,7 @@ Este artigo mostra-lhe como fazer com que o Perfil de Insights de Aplicação es
     Set-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-1. Se a aplicação pretendida estiver a ser recorrida através [do IIS,](https://www.microsoft.com/web/downloads/platform.aspx)ative a funcionalidade `IIS Http Tracing` Windows.
+1. Se a aplicação pretendida estiver `IIS Http Tracing` a ser recorrida através [do IIS,](https://www.microsoft.com/web/downloads/platform.aspx)ative a funcionalidade Windows.
 
    a. Estabeleça o acesso remoto ao ambiente e, em seguida, utilize a janela [de funcionalidades Add Windows.]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) Ou executar o seguinte comando na PowerShell (como administrador):  
 
@@ -87,7 +87,7 @@ Ainda não temos uma maneira de definir a pia do Perfil de Insights de Aplicaç�
 
     ![Verifique se a extensão WAD está instalada][wadextension]
 
-2. Encontre a extensão de Diagnóstico VM para o seu VM. Vá para [https://resources.azure.com](https://resources.azure.com). Expanda o seu grupo de recursos, Microsoft.Compute virtualMachines, nome de máquina virtual e extensões.  
+2. Encontre a extensão de Diagnóstico VM para o seu VM. Vai [https://resources.azure.com](https://resources.azure.com)para. Expanda o seu grupo de recursos, Microsoft.Compute virtualMachines, nome de máquina virtual e extensões.  
 
     ![Navegue até wad config no Azure Resource Explorer][azureresourceexplorer]
 

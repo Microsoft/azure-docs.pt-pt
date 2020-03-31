@@ -4,12 +4,12 @@ description: Fornece orientações de resolução de problemas para ajudá-lo a 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78295968"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408696"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 
@@ -56,7 +56,7 @@ Aqui estão alguns contadores de desempenho e gamas que podem ser úteis no diag
 | Memória -- Pool Não Paged Bytes |* Menos de 60% da piscina consumida = Saudável<br>* 61% a 80% da piscina consumida = Aviso ou Monitor</br>* Maior de 80% de piscina consumida = Crítica ou Fora de Especificação |
 | Memória -Pool Paged Bytes |* Menos de 60% da piscina consumida = Saudável</br>* 61% a 80% da piscina consumida = Aviso ou Monitor</br>* Maior de 80% de piscina consumida = Crítica ou Fora de Especificação |
 | Memória-- Megabytes Disponíveis |* 50% da memória gratuita disponível ou mais = Saudável</br>* 25% da memória gratuita disponível = Monitor</br>* 10% da memória gratuita disponível = Aviso</br>* Menos de 100 MB ou 5% da memória gratuita disponível = Crítico ou Fora de Especificação |
-| Processador-- hora do processador\%(todas as instâncias) |* Menos de 60% consumido = Saudável</br>* 61% a 90% consumido = Monitor ou Cuidado</br>* 91% a 100% consumido = Crítico |
+| Processador--\%Tempo do Processador (todas as instâncias) |* Menos de 60% consumido = Saudável</br>* 61% a 90% consumido = Monitor ou Cuidado</br>* 91% a 100% consumido = Crítico |
 
 > [!NOTE]
 > Se determinar que a infraestrutura é o culpado, recomendamos que desfragmente regularmente os discos para um melhor desempenho.
@@ -95,3 +95,7 @@ Os seguintes indicadores podem ajudá-lo a compreender o estrangulamento e, cons
 
 * **A UI está a mostrar progressos para a transferência de dados.** Os dados ainda estão a ser transferidos. A largura de banda da rede ou o tamanho dos dados podem estar a causar atrasos.
 * **A UI não está a mostrar progressos para a transferência de dados.** Abra os registos localizados em C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, e, em seguida, verifique se o FileProvider::EndData entrada nos registos. Esta entrada significa que a transferência de dados terminou e a operação do catálogo está a decorrer. Não cancele os trabalhos de reserva. Em vez disso, espere um pouco mais para que a operação do catálogo termine. Se o problema persistir, contacte o [suporte azure](https://portal.azure.com/#create/Microsoft.Support).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Perguntas comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)

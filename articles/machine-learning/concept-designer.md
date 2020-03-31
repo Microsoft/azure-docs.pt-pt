@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79037630"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer de machine learning azure (pré-visualização)? 
+# <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 O designer de Machine Learning Azure permite ligar visualmente [conjuntos](#datasets) de dados e [módulos](#module) numa tela interativa para criar modelos de aprendizagem automática. Para aprender a começar com o designer, consulte [Tutorial: Prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
@@ -82,15 +82,15 @@ Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar
 
 ![Propriedades do módulo](./media/concept-designer/properties.png)
 
-Para alguma ajuda a navegar através da biblioteca de algoritmos de aprendizagem automática disponíveis, consulte [algoritmos de referência de algoritmos e módulos](algorithm-module-reference/module-reference.md)
+Para alguma ajuda a navegar através da biblioteca de algoritmos de aprendizagem automática disponíveis, consulte [algoritmo & visão geral](algorithm-module-reference/module-reference.md) de referência do módulo
 
-## <a name="compute"></a>Recursos computacionais
+## <a name="compute-resources"></a><a name="compute"></a>Recursos computacionais
 
-Utilize recursos computacionais do seu espaço de trabalho para executar o seu pipeline e hospedar os seus modelos implantados como pontos finais em tempo real ou pontos finais de pipeline (para inferência de lote). Os destinos de computação suportados são:
+Utilize recursos computacionais do seu espaço de trabalho para executar o seu pipeline e hospedar os seus modelos implantados como pontos finais em tempo real ou pontos finais de pipeline (para inferência de lote). Os objetivos de computação suportados são:
 
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
-| Computação do Machine Learning do Azure | ✓ | |
+| Computação azure machine learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Os alvos computacionais estão ligados ao seu espaço de [trabalho de Aprendizagem automática Azure](concept-workspace.md). Gere os seus alvos de computação no seu espaço de trabalho no [Azure Machine Learning Studio (clássico)](https://ml.azure.com).

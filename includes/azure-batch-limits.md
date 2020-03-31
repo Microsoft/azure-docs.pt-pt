@@ -9,21 +9,21 @@ ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67080911"
 ---
 | **Recurso** | **Limite predefinido** | **Limite máximo** |
 | --- | --- | --- |
-| Contas do lote do Azure por região por assinatura | 1-3 |50 |
-| Núcleos dedicados por conta do lote | 90-900 | Contacte o suporte |
-| Núcleos de baixa prioridade por conta do lote | 10-100 | Contacte o suporte |
-| Trabalhos **[ativos](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** e agendas de trabalho por conta do lote (trabalhos**concluídos** não têm limite) | 100-300 | 1\.000<sup>1</sup> |
+| Contas do Lote Azure por região por subscrição | 1-3 |50 |
+| Núcleos dedicados por conta Batch | 90-900 | Contactar o suporte |
+| Núcleos de baixa prioridade por conta Batch | 10-100 | Contactar o suporte |
+| **[Empregos ativos](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** e horários de trabalho por conta Batch **(empregos concluídos** não têm limite) | 100-300 | 1.000<sup>1</sup> |
 | Conjuntos por conta do Batch | 20-100 | 500<sup>1</sup> |
 
 > [!NOTE]
-> Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do lote. As cotas de núcleos mostradas são para contas do lote no modo de serviço do lote. [Exiba as cotas em sua conta do lote](../articles/batch/batch-quota-limit.md#view-batch-quotas).
+> Os limites de predefinição variam consoante o tipo de subscrição que utiliza para criar uma conta Batch. As quotas de cores apresentadas são para contas de Lote no modo de serviço batch. [Consulte as quotas na sua conta Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup> Para solicitar um aumento além desse limite, entre em contato com o suporte do Azure.
+<sup>1</sup> Para solicitar um aumento para além deste limite, contacte o Suporte Azure.

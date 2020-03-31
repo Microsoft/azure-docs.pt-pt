@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
 ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297215"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Pontos finais do serviço de chamada sobre HTTP ou HTTPS de Aplicações Lógicas Azure
@@ -30,7 +30,7 @@ Para chamar um ponto final de qualquer outro lugar do seu fluxo de trabalho, [ad
 >
 > * `Accept-*`
 > * `Allow`
-> * `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Content-*`com estas exceções: `Content-Disposition`, `Content-Encoding`e`Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Host`
@@ -59,9 +59,9 @@ Este artigo mostra como adicionar um gatilho ou ação HTTP ao fluxo de trabalho
 
 Este gatilho incorporado faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. Sob a caixa de pesquisa do designer, selecione **Incorporado**. Na caixa de pesquisa, introduza `http` como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP.**
+1. Sob a caixa de pesquisa do designer, selecione **Incorporado**. Na caixa de `http` pesquisa, introduza como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP.**
 
    ![Selecione gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -88,15 +88,15 @@ Este gatilho incorporado faz uma chamada http para o URL especificado para um po
 
 Esta ação incorporada faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
    Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
 1. Sob o passo onde pretende adicionar a ação HTTP, selecione **Novo passo**.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de pesquisa, introduza `http` como filtro. Na lista **de Ações,** selecione a ação **HTTP.**
+1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de `http` pesquisa, introduza como filtro. Na lista **de Ações,** selecione a ação **HTTP.**
 
    ![Selecione ação HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -117,7 +117,7 @@ Esta ação incorporada faz uma chamada http para o URL especificado para um pon
 
 ## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo de dados multipart/formulário
 
-Para lidar com o conteúdo que tem `multipart/form-data` tipo em pedidos HTTP, pode adicionar um objeto JSON que inclui a `$content-type` e `$multipart` atribui ao corpo do pedido HTTP utilizando este formato.
+Para lidar com `multipart/form-data` o conteúdo que tem tipo em pedidos HTTP, `$content-type` `$multipart` pode adicionar um objeto JSON que inclui o corpo do pedido HTTP utilizando este formato.
 
 ```json
 "body": {
@@ -133,7 +133,7 @@ Para lidar com o conteúdo que tem `multipart/form-data` tipo em pedidos HTTP, p
 }
 ```
 
-Por exemplo, suponha que tenha uma aplicação lógica que envia um pedido HTTP POST para um ficheiro Excel para um website usando a API desse site, que suporta o tipo `multipart/form-data`. Eis como esta ação pode parecer:
+Por exemplo, suponha que tenha uma aplicação lógica que envia um pedido HTTP POST para um `multipart/form-data` ficheiro Excel para um website usando a API desse site, que suporta o tipo. Eis como esta ação pode parecer:
 
 ![Dados de formulários multipartes](./media/connectors-native-http/http-action-multipart.png)
 
@@ -174,8 +174,8 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação HTTP, que
 
 | Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
-| cabeçalhos | object | Os cabeçalhos do pedido |
-| corpo | object | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
+| cabeçalhos | objeto | Os cabeçalhos do pedido |
+| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
 | código de estado | int | O código de estado do pedido |
 |||
 
@@ -183,13 +183,13 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação HTTP, que
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceite |
-| 400 | Pedido incorreto |
-| 401 | Não Autorizada |
+| 400 | Mau pedido |
+| 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não foi encontrado |
+| 404 | Não encontrado |
 | 500 | Erro interno do servidor. Erro desconhecido ocorreu. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

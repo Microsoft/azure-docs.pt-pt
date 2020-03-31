@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: b646b1a14d6cedcafa662192229daa570a0d2441
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616434"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows em Azure
@@ -31,7 +31,7 @@ Para criar, adicionar e eliminar tags através do PowerShell, primeiro precisa d
 
  
 
-Primeiro, navegue para uma Máquina Virtual através do `Get-AzVM` cmdlet.
+Primeiro, navegue para uma `Get-AzVM` Máquina Virtual através do cmdlet.
 
         PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
@@ -44,9 +44,9 @@ Se a sua Máquina Virtual já contiver etiquetas, verá todas as etiquetas do se
                 "Environment": "Production"
                }
 
-Se quiser adicionar tags através do PowerShell, pode utilizar o comando `Set-AzResource`. Note ao atualizar as etiquetas através do PowerShell, as etiquetas são atualizadas como um todo. Por isso, se estiver a adicionar uma etiqueta a um recurso que já tem etiquetas, terá de incluir todas as etiquetas que pretende colocar no recurso. Abaixo está um exemplo de como adicionar tags adicionais a um recurso através de Cmdlets PowerShell.
+Se quiser adicionar tags através do PowerShell, `Set-AzResource` pode utilizar o comando. Note ao atualizar as etiquetas através do PowerShell, as etiquetas são atualizadas como um todo. Por isso, se estiver a adicionar uma etiqueta a um recurso que já tem etiquetas, terá de incluir todas as etiquetas que pretende colocar no recurso. Abaixo está um exemplo de como adicionar tags adicionais a um recurso através de Cmdlets PowerShell.
 
-Este primeiro cmdlet define todas as etiquetas colocadas no *MyTestVM* para a *variável $tags,* utilizando a propriedade `Get-AzResource` e `Tags`.
+Este primeiro cmdlet define todas as etiquetas colocadas no *MyTestVM* para a *variável $tags,* utilizando a `Get-AzResource` e a `Tags` propriedade.
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -63,7 +63,7 @@ O segundo comando exibe as etiquetas para a variável dada.
     Environment   Production
 ```
 
-O terceiro comando adiciona uma etiqueta adicional à *variável $tags.* Note a utilização do **+=** para anexar o novo par chave/valor à lista *$tags.*
+O terceiro comando adiciona uma etiqueta adicional à *variável $tags.* Tenha em anotado a utilização do par de **+=** chaves/valor para a lista de *$tags.*
 
         PS C:\> $tags += @{Location="MyLocation"}
 

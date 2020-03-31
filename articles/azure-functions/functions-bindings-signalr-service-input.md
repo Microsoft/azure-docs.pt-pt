@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77530266"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Ligação de entrada do serviço SignalR para funções azure
@@ -22,9 +22,9 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que adquire informações de ligação SignalR utilizando a ligação de entrada e as devolve em HTTP.
+O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que adquire informações de ligação SignalR utilizando a ligação de entrada e a devolve em HTTP.
 
 ```cs
 [FunctionName("negotiate")]
@@ -36,9 +36,9 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [ C# função Script](functions-reference-csharp.md) que utiliza a ligação para devolver as informações de ligação.
+O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [função De Script C#](functions-reference-csharp.md) que utiliza a ligação para devolver as informações de ligação.
 
 Aqui estão os dados vinculativos no ficheiro *fun.json:*
 
@@ -54,7 +54,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está C# o código script:
+Aqui está o código c# script:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -84,7 +84,7 @@ Função exemplo.json:
 }
 ```
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -92,7 +92,7 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 O exemplo seguinte mostra uma ligação de informação de ligação SignalR num ficheiro *function.json* e uma [função Python](functions-reference-python.md) que utiliza a ligação para devolver as informações de ligação.
 
@@ -149,9 +149,9 @@ Se a função for desencadeada por um cliente autenticado, pode adicionar uma re
 
 App Service Autenticação define cabeçalhos HTTP nomeados `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm o ID e o nome principal do cliente autenticado do utilizador, respectivamente.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Pode definir a propriedade `UserId` da ligação ao valor a partir de um cabeçalho utilizando uma [expressão vinculativa](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+Pode definir `UserId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
 
 ```cs
 [FunctionName("negotiate")]
@@ -166,9 +166,9 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Pode definir a propriedade `userId` da ligação ao valor a partir de um cabeçalho utilizando uma [expressão vinculativa](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
 
 Função exemplo.json:
 
@@ -183,7 +183,7 @@ Função exemplo.json:
 }
 ```
 
-Aqui está C# o código script:
+Aqui está o código c# script:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -199,7 +199,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Pode definir a propriedade `userId` da ligação ao valor a partir de um cabeçalho utilizando uma [expressão vinculativa](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
 
 Função exemplo.json:
 
@@ -214,7 +214,7 @@ Função exemplo.json:
 }
 ```
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -224,9 +224,9 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-Pode definir a propriedade `userId` da ligação ao valor a partir de um cabeçalho utilizando uma [expressão vinculativa](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
 
 Função exemplo.json:
 
@@ -258,7 +258,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Pode definir a propriedade `userId` da ligação ao valor a partir de um cabeçalho utilizando uma [expressão vinculativa](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`.
+Pode definir `userId` a propriedade da ligação ao valor de `{headers.x-ms-client-principal-id}` um `{headers.x-ms-client-principal-name}`dos cabeçalhos utilizando uma [expressão vinculativa:](./functions-bindings-expressions-patterns.md)ou .
 
 ```java
 @FunctionName("negotiate")

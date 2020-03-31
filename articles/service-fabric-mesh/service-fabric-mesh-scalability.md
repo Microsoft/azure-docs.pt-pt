@@ -6,10 +6,10 @@ ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259178"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Aplicações de malha de tecido de serviço de escala
@@ -23,7 +23,7 @@ No modelo de implementação do recurso da aplicação, cada serviço tem uma pr
 Por exemplo, em casos de serviços de escala manual, consulte Manualmente a [escala dos seus serviços dentro ou fora](service-fabric-mesh-tutorial-template-scale-services.md).
 
 ## <a name="autoscaling-service-instances"></a>Instâncias de serviço de autoscalcição
-A escala automática é uma capacidade adicional do Tecido de Serviço para escalar dinamicamente o número de instâncias de serviço (escala horizontal). Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento ou remoção de instâncias de serviço com base na utilização de CPU ou memória.  A escala automática permite-lhe executar o número certo de instâncias de serviço para a sua carga de trabalho e otimizar para o custo.
+A escala automática é uma capacidade adicional do Tecido de Serviço para escalar dinamicamente o número de instâncias de serviço (escala horizontal). A escala automática proporciona uma grande elasticidade e permite o fornecimento ou remoção de instâncias de serviço com base na CPU ou na utilização da memória.  A escala automática permite-lhe executar o número certo de instâncias de serviço para a sua carga de trabalho e otimizar para o custo.
 
 Uma política de escala automática é definida por serviço no ficheiro de recursos de serviço. Cada política de escala é constituída por duas partes:
 

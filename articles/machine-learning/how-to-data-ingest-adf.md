@@ -12,10 +12,10 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.openlocfilehash: 5b4ed40048aab815397c9726098880b2125b732c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274791"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com fábrica de dados azure
@@ -26,7 +26,7 @@ A simples transformação de dados pode ser tratada com atividades e instrumento
 
 Existem várias técnicas comuns de utilização da Azure Data Factory para transformar dados durante a ingestão. Cada técnica tem prós e contras que determinam se é um bom ajuste para um caso de uso específico:
 
-| Técnica | Profissionais de TI | Contras |
+| Técnica | Vantagens | Contras |
 | ----- | ----- | ----- |
 | Funções ADF + Azure | Baixa latência, computação sem servidor</br>Funções imponentes</br>Funções reutilizáveis | Apenas bom para processamento de curto prazo |
 | ADF + componente personalizado | Computação paralela em larga escala</br>Adequado para algoritmos pesados | Código de embrulho em um executável</br>Complexidade do manuseamento de dependências e OI |

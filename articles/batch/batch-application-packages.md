@@ -15,10 +15,10 @@ ms.date: 04/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086218"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nódosos com pacotes de aplicação do Lote
@@ -180,7 +180,7 @@ Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes 
 
 ![Atualizar ou eliminar pacote no portal Azure][7]
 
-**Atualizar**
+**Atualização**
 
 Quando clicar em **Atualizar,** o **pacote 'Actualizar'** é apresentado. Esta janela é semelhante à janela **do pacote de aplicações,** no entanto apenas o campo de seleção do pacote está ativado, permitindo especificar um novo ficheiro ZIP para carregar.
 
@@ -249,7 +249,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Executar as aplicações instaladas
-Os pacotes que especificou para uma piscina ou tarefa são descarregados e extraídos para um diretório nomeado dentro do `AZ_BATCH_ROOT_DIR` do nó. O lote também cria uma variável ambiental que contém o caminho para o diretório nomeado. As linhas de comando de tarefa utilizam esta variável ambiental ao fazer referência à aplicação no nó. 
+Os pacotes que especificou para uma piscina ou tarefa são descarregados e `AZ_BATCH_ROOT_DIR` extraídos para um diretório nomeado dentro do nó. O lote também cria uma variável ambiental que contém o caminho para o diretório nomeado. As linhas de comando de tarefa utilizam esta variável ambiental ao fazer referência à aplicação no nó. 
 
 Nos nós do Windows, a variável encontra-se no seguinte formato:
 
@@ -265,7 +265,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID` e `version` são valores que correspondem à aplicação e versão do pacote que especificou para implementação. Por exemplo, se especificasse que a versão 2.7 do *liquidificador* de aplicações deveria ser instalada nos nós do Windows, as linhas de comando de tarefas usariam esta variável ambiental para aceder aos seus ficheiros:
+`APPLICATIONID`e `version` são valores que correspondem à aplicação e versão pacote que especificou para implementação. Por exemplo, se especificasse que a versão 2.7 do *liquidificador* de aplicações deveria ser instalada nos nós do Windows, as linhas de comando de tarefas usariam esta variável ambiental para aceder aos seus ficheiros:
 
 ```
 Windows:

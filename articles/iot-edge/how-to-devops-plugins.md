@@ -1,6 +1,6 @@
 ---
-title: Habilitar CI/CD com plug-in Jenkins-Azure IoT Edge | Microsoft Docs
-description: A extensão Azure IoT Edge para Jenkins permite que você integre IoT Edge tarefas de desenvolvimento e implantação à sua solução DevOps existente.
+title: Ativar CI/CD com plugin Jenkins - Azure IoT Edge [ Microsoft Docs
+description: A extensão Azure IoT Edge para jenkins permite-lhe integrar tarefas de desenvolvimento e implementação do IoT Edge na sua solução DevOps existente.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 75ed5f5eda48f10776b854ce4de4d2f855a53634
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76510248"
 ---
-# <a name="integrate-azure-iot-edge-with-jenkins-pipelines"></a>Integrar Azure IoT Edge com pipelines do Jenkins
+# <a name="integrate-azure-iot-edge-with-jenkins-pipelines"></a>Integrar o Azure IoT Edge com os oleodutos Jenkins
 
-Azure IoT Edge tem suporte interno para o Azure DevOps e Azure DevOps Projects, mas também fornece um plug-in para expandir a funcionalidade DevOps para Jenkins. O [Jenkins](https://jenkins.io/) é um servidor de automação de software livre que usa plug-ins para dar suporte a muitos tipos de projetos de desenvolvimento e implantação, incluindo IOT Edge.
+O Azure IoT Edge tem suporte integrado para os projetos Azure DevOps e Azure DevOps, mas também fornece um plugin para expandir a funcionalidade DevOps à Jenkins. [Jenkins](https://jenkins.io/) é um servidor de automação de código aberto que usa plugins para suportar muitos tipos de projetos de desenvolvimento e implementação, incluindo IoT Edge.
 
-O plug-in Azure IoT Edge para Jenkins se concentra na integração contínua e na implantação contínua. Você pode criar um pipeline de compilação e push que cria módulos e envia por push suas imagens de contêiner para o registro de contêiner. Em seguida, crie um pipeline de liberação que implanta módulos para seus dispositivos IoT Edge.
+O plugin Azure IoT Edge para Jenkins centra-se na integração contínua e na implantação contínua. Pode criar um oleoduto de construção e impulso que constrói módulos e empurra as suas imagens de contentores para o seu registo de contentores. Em seguida, crie um gasoduto de libertação que implemente módulos para os seus dispositivos IoT Edge.
 
-Antes de começar a usar o plug-in IoT Edge para Jenkins, você precisa de um hub IoT no Azure e um registro de contêiner para armazenar suas imagens de contêiner. Use uma entidade de serviço do Azure para fornecer permissões de colaborador de Jenkins para o Hub IoT para que o plug-in possa criar implantações para seus dispositivos IoT Edge.
+Antes de começar a utilizar o plugin IoT Edge para jenkins, precisa de um hub IoT em Azure e de um registo de contentores para guardar as imagens do seu contentor. Utilize um Diretor de Serviço Azure para dar permissões ao colaborador jenkins para o seu hub IoT para que o plugin possa criar implementações para os seus dispositivos IoT Edge.
 
-Se você estiver pronto para começar, encontre os detalhes de instalação e uso do [plug-in Azure IOT Edge para Jenkins](https://plugins.jenkins.io/azure-iot-edge).
+Se estiver pronto para começar, encontre a instalação e use detalhes para o [plugin Azure IoT Edge para Jenkins](https://plugins.jenkins.io/azure-iot-edge).

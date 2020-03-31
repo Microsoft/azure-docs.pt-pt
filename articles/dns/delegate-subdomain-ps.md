@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: 7e019afaae98422b8d5a3c8fa7a5f79e26c6a149
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937699"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delege um subdomínio Azure DNS usando o Azure PowerShell
@@ -23,7 +23,7 @@ Se preferir, pode delegar um subdomínio utilizando o [Portal Azure](delegate-su
 > [!NOTE]
 > Contoso.com é usado como exemplo ao longo deste artigo. Substitua o seu nome de domínio por contoso.com.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,7 +49,7 @@ Crie um registo **A** na zona de engenharia para utilizar para testes.
 
    `New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)`.
 
-## <a name="create-an-ns-record"></a>Criar um registro NS
+## <a name="create-an-ns-record"></a>Criar um registo ns
 
 Em seguida, crie um registo de servidor de nome (NS) para a zona **de engenharia** na zona contoso.com.
 
@@ -66,8 +66,8 @@ $RecordSet = New-AzDnsRecordSet -Name engineering -RecordType NS -ResourceGroupN
 
 Use nslookup para testar a delegação.
 
-1. Abra uma janela PowerShell.
-2. No pedido de comando, escreva `nslookup www.engineering.contoso.com.`
+1. Abra uma janela do PowerShell.
+2. No pedido de comando, tipo`nslookup www.engineering.contoso.com.`
 3. Deve receber uma resposta não autorizada que mostre o endereço **10.10.10.10 .**
 
 ## <a name="next-steps"></a>Passos seguintes

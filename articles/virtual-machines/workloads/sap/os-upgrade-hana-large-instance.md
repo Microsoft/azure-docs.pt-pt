@@ -1,5 +1,5 @@
 ---
-title: Atualização do sistema operativo para o SAP HANA on Azure (Grandes Instâncias) Microsoft Docs
+title: Atualização do sistema operativo para o SAP HANA on Azure (Grandes Instâncias)[ Microsoft Docs
 description: Realizar atualização do sistema operativo para SAP HANA em Azure (Grandes Instâncias)
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a0a5d39a7cb2162186291ea534a623ef45c40d4
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78675617"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do sistema operativo
@@ -82,9 +82,9 @@ SAP em 14 grandes instâncias (Tipo I) pode estar em estado não-sabotável apó
 #### <a name="execution-steps"></a>Passos de Execução
 
 
-*   Executar `multipath -ll` comando.
-*   Obtenha o ID LUN cujo tamanho seja de aproximadamente 50G ou utilize o comando: `fdisk -l | grep mapper`
-*   Atualizar `/etc/default/grub_installdevice` ficheiro com `/dev/mapper/<LUN ID>`de linha . Exemplo: /dev/mapper/3600a09803830372f483f495242534a56
+*   Executar `multipath -ll` o comando.
+*   Obtenha o ID LUN cujo tamanho seja de aproximadamente 50G ou utilize o comando:`fdisk -l | grep mapper`
+*   Atualizar `/etc/default/grub_installdevice` ficheiro `/dev/mapper/<LUN ID>`com linha . Exemplo: /dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >O ID LUN varia de servidor para servidor.
 
@@ -98,16 +98,16 @@ SAP em 14 grandes instâncias (Tipo I) pode estar em estado não-sabotável apó
 ```
 lsmod | grep -i edac 
 ```
-* Desative os módulos, afunilando as seguintes linhas ao ficheiro `/etc/modprobe.d/blacklist.conf`
+* Desative os módulos, afunilando as seguintes linhas ao ficheiro`/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
 ```
-É necessário reiniciar para fazer alterações. Execute `lsmod` comando e verifique se o módulo não está presente na saída.
+É necessário reiniciar para fazer alterações. Execute `lsmod` o comando e verifique se o módulo não está presente na saída.
 
 
 ### <a name="kernel-parameters"></a>Parâmetros kernel
-   Certifique-se de que são aplicadas as definições corretas para `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` e `intel_idle.max_cstate`.
+   Certifique-se de `transparent_hugepage`que `numa_balancing` `processor.max_cstate`a `ignore_ce` `intel_idle.max_cstate` regulação correta para, e para a aplicação.
 
 * intel_idle.max_cstate=1
 * processador.max_cstate=1
@@ -118,7 +118,7 @@ blacklist edac_core
 
 #### <a name="execution-steps"></a>Passos de Execução
 
-* Adicione estes parâmetros à linha `GRB_CMDLINE_LINUX` no ficheiro `/etc/default/grub`
+* Adicione estes parâmetros `GRB_CMDLINE_LINUX` à linha no ficheiro`/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658290"
 ---
 # <a name="workbook-drop-down-parameters"></a>Livro de trabalho baixa parâmetros
@@ -28,11 +28,11 @@ A maneira mais fácil de especificar uma queda é fornecendo uma lista estática
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `Environment`
-    2. Tipo de parâmetro: `Drop down`
-    3. Obrigatório: `checked`
-    4. Permitir `multiple selection`: `unchecked`
-    5. Obtenha dados de: `JSON`
+    1. Nome do parâmetro:`Environment`
+    2. Tipo de parâmetro:`Drop down`
+    3. Necessário:`checked`
+    4. Permitir: `multiple selection``unchecked`
+    5. Obtenha dados de:`JSON`
 5. No bloco de texto JSON Entrada, insira este corte json:
     ```json
     [
@@ -41,7 +41,7 @@ A maneira mais fácil de especificar uma queda é fornecendo uma lista estática
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
-6. Acerte no botão azul `Update`.
+6. Acerte `Update` no botão azul.
 7. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 8. O parâmetro Ambiente será uma queda com os três valores.
 
@@ -67,11 +67,11 @@ Se o seu resultado de consulta/json contiver um campo de "grupo", o dropdown mos
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `RequestName`
-    2. Tipo de parâmetro: `Drop down`
-    3. Obrigatório: `checked`
-    4. Permitir `multiple selection`: `unchecked`
-    5. Obtenha dados de: `Query`
+    1. Nome do parâmetro:`RequestName`
+    2. Tipo de parâmetro:`Drop down`
+    3. Necessário:`checked`
+    4. Permitir: `multiple selection``unchecked`
+    5. Obtenha dados de:`Query`
 5. No bloco de texto JSON Entrada, insira este corte json:
 
     ```kusto
@@ -79,7 +79,7 @@ Se o seu resultado de consulta/json contiver um campo de "grupo", o dropdown mos
         | summarize by name
         | order by name asc
     ```
-1. Acerte no botão azul `Run Query`.
+1. Acerte `Run Query` no botão azul.
 2. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 3. O parâmetro RequestName será uma gota de todos os nomes de todos os pedidos na aplicação.
 
@@ -133,11 +133,11 @@ dependencies
 | `{DependencyName:value}` | O valor selecionado | GET fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Seleção múltipla
-Os exemplos até agora configuram explicitamente o parâmetro para selecionar apenas um valor na queda. Os parâmetros de desativação também suportam `multiple selection` - permitindo que esta seja tão simples como verificar a opção `Allow multiple selection`. 
+Os exemplos até agora configuram explicitamente o parâmetro para selecionar apenas um valor na queda. Os parâmetros de `multiple selection` desbloqueio também suportam - `Allow multiple selection` permitindo que isto seja tão simples como verificar a opção. 
 
-O utilizador tem também a opção de especificar o formato do conjunto de resultados através das definições `delimiter` e `quote with`. O padrão apenas devolve os valores como uma coleção nesta forma: 'a', 'b', 'c'. Têm também a opção de limitar o número de seleções.
+O utilizador também tem a opção de especificar `delimiter` o `quote with` formato do conjunto de resultados através das definições e definições. O padrão apenas devolve os valores como uma coleção nesta forma: 'a', 'b', 'c'. Têm também a opção de limitar o número de seleções.
 
-O KQL referenciando o parâmetro terá de mudar para trabalhar com o formato do resultado. A forma mais comum de o permitir é através do operador `in`.
+O KQL referenciando o parâmetro terá de mudar para trabalhar com o formato do resultado. A forma mais comum de `in` o permitir é através do operador.
 
 ```kusto
 dependencies

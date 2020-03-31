@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898502"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para O Scheduler Azure
@@ -32,25 +32,25 @@ O agendador suporta estes modelos de autenticação:
 
 ## <a name="add-or-remove-authentication"></a>Adicionar ou remover a autenticação
 
-* Para adicionar a autenticação a um trabalho de Scheduler, quando criar ou atualizar o trabalho, adicione o elemento `authentication` JavaScript Object Notation (JSON) ao elemento `request`. 
+* Para adicionar a autenticação a um trabalho de Scheduler, `authentication` quando criar ou atualizar o trabalho, `request` adicione o elemento infantil JavaScript Object Notation (JSON) ao elemento. 
 
-  As respostas nunca devolvem segredos que são transmitidos ao serviço Scheduler através de um pedido DE PUT, PATCH ou POST no `authentication` objeto. 
+  As respostas nunca devolvem segredos que são passados ao serviço `authentication` Scheduler através de um pedido DE PUT, PATCH ou POST no objeto. 
   As respostas estabelecem informações secretas para nula ou podem usar um símbolo público que representa a entidade autenticada. 
 
-* Para remover a autenticação de um trabalho de Scheduler, execute explicitamente um pedido DE PUT ou PATCH no trabalho e coloque o `authentication` objeto a nula. A resposta não conterá propriedades de autenticação.
+* Para remover a autenticação de um trabalho de Scheduler, execute explicitamente um pedido DE PUT ou PATCH no trabalho e coloque o `authentication` objeto em nulo. A resposta não conterá propriedades de autenticação.
 
 ## <a name="client-certificate"></a>Certificado de cliente
 
 ### <a name="request-body---client-certificate"></a>Órgão de pedido - Certificado de cliente
 
-Ao adicionar a autenticação utilizando o modelo `ClientCertificate`, especifique estes elementos adicionais no organismo de pedido.  
+Ao adicionar a `ClientCertificate` autenticação utilizando o modelo, especifique estes elementos adicionais no organismo de pedido.  
 
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL |
-| **tipo** | Sim | O tipo de autenticação. Para os certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **tipo** | Sim | O tipo de autenticação. Para os certificados de cliente `ClientCertificate`SSL, o valor é . |
 | **pfx** | Sim | O conteúdo codificado base64 do ficheiro PFX |
-| **senha** | Sim | A palavra-passe para aceder ao ficheiro PFX |
+| **palavra-passe** | Sim | A palavra-passe para aceder ao ficheiro PFX |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo de resposta - Certificado de cliente 
@@ -60,8 +60,8 @@ Quando um pedido é enviado com informações de autenticação, a resposta cont
 | Elemento | Descrição | 
 |---------|-------------| 
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL |
-| **tipo** | O tipo de autenticação. Para os certificados de cliente SSL, o valor é `ClientCertificate`. |
-| **certificadoImpressão polegar** |A impressão digital do certificado |
+| **tipo** | O tipo de autenticação. Para os certificados de cliente `ClientCertificate`SSL, o valor é . |
+| **certificateThumbprint** |A impressão digital do certificado |
 | **certificadoNome subjectname** |O nome distinto do sujeito do certificado |
 | **certificadoExpiração** | Data de validade do certificado |
 ||| 
@@ -159,18 +159,18 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="basic"></a>Básica
+## <a name="basic"></a>Básico
 
 ### <a name="request-body---basic"></a>Órgão de pedido - Básico
 
-Ao adicionar a autenticação utilizando o modelo `Basic`, especifique estes elementos adicionais no organismo de pedido.
+Ao adicionar a `Basic` autenticação utilizando o modelo, especifique estes elementos adicionais no organismo de pedido.
 
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para utilização de autenticação básica | 
-| **tipo** | Sim | O tipo de autenticação. Para autenticação básica, o valor é `Basic`. | 
+| **tipo** | Sim | O tipo de autenticação. Para autenticação básica, `Basic`o valor é . | 
 | **nome de utilizador** | Sim | O nome de utilizador para autenticar | 
-| **senha** | Sim | A palavra-passe para autenticar |
+| **palavra-passe** | Sim | A palavra-passe para autenticar |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo de resposta - Básico
@@ -180,7 +180,7 @@ Quando um pedido é enviado com informações de autenticação, a resposta cont
 | Elemento | Descrição | 
 |---------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para utilização de autenticação básica |
-| **tipo** | O tipo de autenticação. Para autenticação básica, o valor é `Basic`. |
+| **tipo** | O tipo de autenticação. Para autenticação básica, `Basic`o valor é . |
 | **nome de utilizador** | O nome de utilizador autenticado |
 ||| 
 
@@ -281,14 +281,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 ### <a name="request-body---active-directory-oauth"></a>Órgão de pedido - Diretório Ativo OAuth 
 
-Ao adicionar a autenticação utilizando o modelo `ActiveDirectoryOAuth`, especifique estes elementos adicionais no organismo de pedido.
+Ao adicionar a `ActiveDirectoryOAuth` autenticação utilizando o modelo, especifique estes elementos adicionais no organismo de pedido.
 
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento-mãe) | Sim | O objeto de autenticação para a utilização da autenticação ActiveDirectoryOAuth |
-| **tipo** | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
-| **inquilino** | Sim | O inquilino identificador para o inquilino da AD Azure. Para encontrar o identificador de inquilino para o inquilino da AD Azure, dirija-se `Get-AzureAccount` na Azure PowerShell. |
-| **público** | Sim | Este valor está definido para `https://management.core.windows.net/`. | 
+| **tipo** | Sim | O tipo de autenticação. Para autenticação ActiveDirectoryOAuth, `ActiveDirectoryOAuth`o valor é . |
+| **inquilino** | Sim | O inquilino identificador para o inquilino da AD Azure. Para encontrar o identificador de inquilino para `Get-AzureAccount` o inquilino da AD Azure, corra em Azure PowerShell. |
+| **público** | Sim | Este valor está `https://management.core.windows.net/`definido para . | 
 | **clientId** | Sim | O identificador de cliente para a aplicação Azure AD | 
 | **segredo** | Sim | O segredo para o cliente que está a pedir o símbolo | 
 |||| 
@@ -300,9 +300,9 @@ Quando um pedido é enviado com informações de autenticação, a resposta cont
 | Elemento | Descrição |
 |---------|-------------|
 | **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização da autenticação ActiveDirectoryOAuth |
-| **tipo** | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| **tipo** | O tipo de autenticação. Para autenticação ActiveDirectoryOAuth, `ActiveDirectoryOAuth`o valor é . | 
 | **inquilino** | O inquilino identificador para o inquilino da AD Azure |
-| **público** | Este valor está definido para `https://management.core.windows.net/`. |
+| **público** | Este valor está `https://management.core.windows.net/`definido para . |
 | **clientId** | O identificador de cliente para a aplicação Azure AD |
 ||| 
 
@@ -406,7 +406,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
-* [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+* [Limites, predefinições e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
-* [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)

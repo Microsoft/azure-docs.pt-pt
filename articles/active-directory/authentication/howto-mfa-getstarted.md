@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263884"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implementação de autenticação azure multi-factor baseada na nuvem
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planear a implementação da Multi-Factor Authentication do Azure baseada na cloud
 
 As pessoas estão a ligar-se aos recursos organizacionais em cenários cada vez mais complicados. As pessoas conectam-se a partir de dispositivos corporativos, pessoais e públicos dentro e fora da rede corporativa usando smartphones, tablets, computadores e portáteis, muitas vezes em várias plataformas. Neste mundo sempre conectado, multi-dispositivo e multiplataforma, a segurança das contas de utilizador é mais importante do que nunca. As palavras-passe, independentemente da sua complexidade, utilizadas entre dispositivos, redes e plataformas já não são suficientes para garantir a segurança da conta de utilizador, especialmente quando os utilizadores tendem a reutilizar senhas através de contas. Phishing sofisticado e outros ataques de engenharia social podem resultar em nomes de utilizadores e palavras-passe sendo postados e vendidos através da dark web.
 
@@ -44,7 +44,7 @@ O seu plano de lançamento do MFA deve incluir uma implantação piloto seguida 
 
 É fundamental informar os utilizadores, nas comunicações planeadas, sobre as próximas alterações, os requisitos de registo do Azure MFA e quaisquer ações necessárias para o utilizador. Recomendamos que as comunicações sejam desenvolvidas em conjunto com representantes da sua organização, tais como departamentos de Comunicação, Gestão de Mudanças ou Recursos Humanos.
 
-A Microsoft fornece [modelos](https://aka.ms/mfatemplates) de comunicação e [documentação de utilizador final](../user-help/security-info-setup-signin.md) para ajudar a redigir as suas comunicações. Pode enviar utilizadores para [https://myprofile.microsoft.com](https://myprofile.microsoft.com) para se registarem diretamente selecionando os links **de Informação** de Segurança nessa página.
+A Microsoft fornece [modelos](https://aka.ms/mfatemplates) de comunicação e [documentação de utilizador final](../user-help/security-info-setup-signin.md) para ajudar a redigir as suas comunicações. Pode enviar os [https://myprofile.microsoft.com](https://myprofile.microsoft.com) utilizadores para se registarem diretamente selecionando os links **de Informação** de Segurança nessa página.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
@@ -52,7 +52,7 @@ A autenticação multifactor Azure é implementada através da aplicação de po
 
 * Todos os utilizadores, um utilizador específico, membro de um grupo ou função atribuída
 * Aplicação em nuvem específica a ser acedida
-* Plataforma de dispositivos
+* Plataforma de dispositivo
 * Estado do dispositivo
 * Localização da rede ou endereço IP geo-localizado
 * Aplicações de cliente
@@ -115,7 +115,7 @@ Uma aplicação móvel como a aplicação Microsoft Authenticator gera um novo c
 
 ### <a name="call-to-phone"></a>Chamada para telefone
 
-É colocada uma chamada de voz automatizada ao utilizador. O utilizador atende a chamada e pressiona **#** no teclado do telefone para aprovar a sua autenticação. A chamada para o telefone é um ótimo método de backup para notificação ou código de verificação a partir de uma aplicação móvel.
+É colocada uma chamada de voz automatizada ao utilizador. O utilizador atende a **#** chamada e pressiona o teclado do telefone para aprovar a sua autenticação. A chamada para o telefone é um ótimo método de backup para notificação ou código de verificação a partir de uma aplicação móvel.
 
 ### <a name="text-message-to-phone"></a>Mensagem de texto para telefone
 
@@ -221,7 +221,7 @@ Para planear a sua estratégia de política de Acesso Condicional, que determina
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
    ![Criar uma política de acesso condicional para permitir o MFA para utilizadores do portal Azure em grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Forneça um nome significativo para a sua política.
@@ -275,7 +275,7 @@ Se tiver uma instância NPS implantada e já em uso, referência [Integre a infr
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Prepare NPS para utilizadores que não estejam matriculados para MFA
 
-Escolha o que acontece quando os utilizadores que não estão matriculados com MFA tentam autenticar. Utilize a definição de registo `REQUIRE_USER_MATCH` na trajetória de registo `HKLM\Software\Microsoft\AzureMFA` para controlar o comportamento da funcionalidade. Esta definição tem uma única opção de configuração.
+Escolha o que acontece quando os utilizadores que não estão matriculados com MFA tentam autenticar. Utilize a definição `REQUIRE_USER_MATCH` de registo `HKLM\Software\Microsoft\AzureMFA` na trajetória de registo para controlar o comportamento da funcionalidade. Esta definição tem uma única opção de configuração.
 
 | Chave | Valor | Predefinição |
 | --- | --- | --- |
@@ -288,7 +288,7 @@ O objetivo desta definição é determinar o que fazer quando um utilizador não
 | A chave não existe | Não inscrito | Desafio do MFA não tem sucesso |
 | Conjunto de valor para True / não definido | Não inscrito | Desafio do MFA não tem sucesso |
 | Conjunto de chaves para falso | Não inscrito | Autenticação sem MFA |
-| Conjunto de chaves para falso ou verdadeiro | Matriculado | Deve autenticar com MFA |
+| Conjunto de chaves para falso ou verdadeiro | Enrolled (Inscrito) | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com serviços da Federação de Diretório Ativo
 
@@ -317,7 +317,7 @@ Em cada servidor AD FS, no computador local My Store, haverá um certificado Azu
 
 Se o período de validade dos seus certificados estiver perto da expiração, [gere e verifique um novo certificado MFA em cada servidor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-As seguintes orientações detalham como gerir os certificados Azure MFA nos seus servidores AD FS. Quando configurar AD FS com MFA Azure, os certificados gerados através do `New-AdfsAzureMfaTenantCertificate` Cmdlet PowerShell são válidos por 2 anos. Renovar e instalar os certificados renovados antes da expiração de interrupções otadas no serviço MFA.
+As seguintes orientações detalham como gerir os certificados Azure MFA nos seus servidores AD FS. Quando configurar AD FS com MFA Azure, os `New-AdfsAzureMfaTenantCertificate` certificados gerados através do cmdlet PowerShell são válidos por 2 anos. Renovar e instalar os certificados renovados antes da expiração de interrupções otadas no serviço MFA.
 
 ## <a name="implement-your-plan"></a>Implementar o seu plano
 
@@ -335,11 +335,11 @@ Agora que planeou a sua solução, pode implementar seguindo os passos abaixo:
 1. Configure a sua política de registo de MFA
    1. [MFA combinado e SSPR](howto-registration-mfa-sspr-combined.md)
    1. Com [Proteção de Identidade](../identity-protection/howto-mfa-policy.md)
-1. Envie comunicações de utilizadores e faça com que os utilizadores se inscrevam em [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Envie comunicações de utilizadores e faça com que os utilizadores se inscrevam em[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Acompanhe quem está inscrito.](#identify-non-registered-users)
 
 > [!TIP]
-> Utilizadores de nuvem do governo podem inscrever-se em [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Utilizadores de nuvem do governo podem inscrever-se em[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Gerir a sua solução
 

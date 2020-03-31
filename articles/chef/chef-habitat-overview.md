@@ -1,33 +1,33 @@
 ---
-title: Usar o habitat para implantar seu aplicativo no Azure
-description: Saiba como implantar consistentemente seu aplicativo em contêineres e máquinas virtuais do Azure
-keywords: Azure, chefe, DevOps, máquinas virtuais, visão geral, automatizar, habitat
+title: Use o Habitat para implementar a sua aplicação no Azure
+description: Saiba como implementar consistentemente a sua aplicação em máquinas e contentores virtuais Azure
+keywords: azure, chef, devops, máquinas virtuais, visão geral, automatização, habitat
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: de444836c04d1d37a19a006ce4eafdcae867ca5a
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158053"
 ---
-# <a name="use-habitat-to-deploy-your-application-to-azure"></a>Usar o habitat para implantar seu aplicativo no Azure
-O [habitat](https://www.habitat.sh/) é um sistema de pacotes de tempo de execução e empacotamento de aplicativos que agrupa o aplicativo e sua automação juntos como a unidade de implantação. Isso cria portabilidade definitiva para o aplicativo, permitindo que ele seja implantado em contêineres, máquinas virtuais, bare-metal ou PaaS, sem uma regravação ou reempacotamento.
+# <a name="use-habitat-to-deploy-your-application-to-azure"></a>Use o Habitat para implementar a sua aplicação no Azure
+[O Habitat](https://www.habitat.sh/) é um sistema de embalagem de aplicações e tempo de funcionamento que agrega a aplicação e a sua automatização como unidade de implantação. Isto cria uma portabilidade definitiva para a aplicação, permitindo-lhe ser implantado em recipientes, máquinas virtuais, metal nu ou PaaS, sem reescrever ou reembalar.
 
-Este artigo descreve os principais benefícios do uso do habitat.
+Este artigo descreve os principais benefícios da utilização do Habitat.
 
-## <a name="modernize-and-move-legacy-applications"></a>Modernizar e mover aplicativos herdados
-Aplicativos herdados gratuitos de sistemas operacionais mais antigos e middleware Reempacotando-os com habitat. O artefato resultante é portátil e facilmente replataforma na infraestrutura mais recente, como máquinas virtuais ou contêineres em execução na nuvem.
+## <a name="modernize-and-move-legacy-applications"></a>Modernizar e mover aplicações antigas
+Aplicações antigas de sistemas operativos mais antigos e middleware, reembalando-as com habitat. O artefacto resultante é portátil, e facilmente replataformas para infraestruturas mais recentes, como máquinas virtuais ou contentores que correm na nuvem.
 
-## <a name="accelerate-container-adoption"></a>Acelere a adoção do contêiner
-O habitat resolve a implantação contínua de aplicativos complexos, orientados por microserviço, representando com precisão as dependências de tempo de execução. Vá além da simples implantação azul/verde de componentes individuais e projete um comportamento de implantação sofisticado sem gerar fluxos de orquestração complexos.
+## <a name="accelerate-container-adoption"></a>Acelerar a adoção de contentores
+O Habitat resolve a implantação contínua de aplicações complexas e orientadas para o microserviço, representando com precisão dependências de tempo de funcionamento. Ultrapasse a simples implantação azul/verde de componentes individuais e comportamento sofisticado de implantação do arquiteto sem gerar fluxos complexos de orquestração.
 
-## <a name="run-any-application-anywhere"></a>Executar qualquer aplicativo em qualquer lugar
-Com o habitat, os aplicativos podem ser executados sem modificações em qualquer ambiente de tempo de execução. Isso inclui tudo, desde máquinas virtuais e bare-metal a contêineres (como o Docker), sistemas de gerenciamento de cluster (como Mesosphere ou kubernetes) e sistemas PaaS (como o Cloud Foundry Pivotal).
+## <a name="run-any-application-anywhere"></a>Executar qualquer aplicação em qualquer lugar
+Com o Habitat, as aplicações podem ser executadas sem alterações em qualquer ambiente de tempo de execução. Isto inclui tudo, desde metais nus e máquinas virtuais a contentores (como Docker), sistemas de gestão de clusters (como Mesosfera ou Kubernetes) e sistemas PaaS (como a Fundação de Nuvem Pivotal).
 
-## <a name="integrate-into-the-chef-devops-workflow"></a>Integre-se ao fluxo de trabalho do chefe DevOps
-O projeto habitat é um de um projeto de código aberto do chefe software, com uma forte comunidade de suporte. O habitat aproveita a experiência profunda do chefe com a automação de infraestrutura para trazer recursos de automação sem precedentes aos aplicativos. O chefe oferece suporte comercial para habitat e cria uma integração direta entre habitat e chefe automatizado para automatizar totalmente o ciclo de liberação do aplicativo, desde o desenvolvimento até a implantação.
+## <a name="integrate-into-the-chef-devops-workflow"></a>Integrar o fluxo de trabalho do Chef DevOps
+O projeto Habitat é um de um projeto de código aberto do Chef Software, com uma forte comunidade de apoio. Habitat aproveita a experiência profunda do Chef com a automatização de infraestruturas para trazer capacidades de automação sem precedentes às aplicações. Chef oferece apoio comercial para habitat e constrói uma integração perfeita entre Habitat e Chef Automate para automatizar totalmente o ciclo de lançamento de aplicações, do desenvolvimento à implantação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Experimente o habitat](https://www.habitat.sh/learn/)
+* [Experimente habitat](https://www.habitat.sh/learn/)

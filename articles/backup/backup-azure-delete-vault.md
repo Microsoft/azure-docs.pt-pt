@@ -3,12 +3,12 @@ title: Elimine um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, apague um cofre do Microsoft Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9ac9d0fd6411b512b319d02c94e86fa792243e0a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251423"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500402"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Elimine um cofre de serviços de recuperação de backup azure
 
@@ -28,9 +28,11 @@ Não é possível eliminar um cofre de Serviços de Recuperação que tenha depe
 
   ![Elimine o erro do servidor protegido.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Se os itens de backup estiverem em estado suave mente apagado abaixo aparece a mensagem de aviso e terá de esperar até que sejam permanentemente eliminados. Para obter mais informações, veja [este](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud) artigo.
+- Se os itens de backup estiverem em estado suave mente apagado abaixo aparece a mensagem de aviso e terá de esperar até que sejam permanentemente eliminados. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)
 
    ![Apague o erro do cofre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
+
+- Cofres que tenham contas de armazenamento registadas não podem ser apagados. Para saber como desregistar a conta, consulte [Desregistar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
   
 Para eliminar o cofre, escolha o cenário que corresponde à sua configuração e siga os passos recomendados:
 
@@ -40,7 +42,7 @@ Tenho ficheiros e pastas no local protegidos usando o agente de backup Azure, ap
 Tenho máquinas no local que estão protegidas usando MABS (Microsoft Azure Backup Server) ou DPM (System Center Data Protection Manager) para O Azure | Execute os passos em Eliminar itens de backup da consola de [gestão MABS](#delete-backup-items-from-the-mabs-management-console)
 Tenho itens protegidos na nuvem (por exemplo, uma máquina virtual laaS ou uma partilha de Ficheiros Azure)  | Execute os [passos](#delete-protected-items-in-the-cloud) em Eliminar itens protegidos na nuvem
 Tenho protegido itens tanto nas instalações como na nuvem | Efetuar os passos em todas as seguintes secções, na seguinte ordem: <br> 1. [Eliminar itens protegidos na nuvem](#delete-protected-items-in-the-cloud)<br> 2. Eliminar itens de [backup da consola de gestão MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. Eliminar itens de [backup da consola De Gestão MABS](#delete-backup-items-from-the-mabs-management-console)
-Não tenho nenhum artigo protegido no local ou na nuvem; no entanto, ainda estou recebendo o erro de eliminação do Cofre | Execute os passos em [Eliminar o cofre dos Serviços de Recuperação utilizando o Gestor](#delete-the-recovery-services-vault-by-using-azure-resource-manager) de Recursos Azure
+Não tenho nenhum artigo protegido no local ou na nuvem; no entanto, ainda estou recebendo o erro de eliminação do Cofre | Execute os passos em [Eliminar o cofre dos Serviços de Recuperação utilizando o Gestor](#delete-the-recovery-services-vault-by-using-azure-resource-manager) de Recursos Azure <br><br> Certifique-se de que não há contas de armazenamento registadas no cofre. Para saber como desregistar a conta, consulte [Desregistar uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
 
 ## <a name="delete-protected-items-in-the-cloud"></a>Eliminar itens protegidos na nuvem
 
@@ -62,7 +64,7 @@ Para parar a proteção e eliminar os dados de backup, execute os seguintes pass
 
          ![O painel de dados de cópia de segurança eliminar.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-3. Verifique o ícone **notificação:** ![O ícone notificação.](./media/backup-azure-delete-vault/messages.png) Após o final do processo, o serviço apresenta a seguinte mensagem: Parar a *cópia de segurança e apagar dados*de backup para " Backup Item *"* . *Concluída com sucesso a operação*.
+3. Verifique o ícone ![ **notificação:** O ícone notificação.](./media/backup-azure-delete-vault/messages.png) Após o final do processo, o serviço apresenta a seguinte mensagem: Parar a *cópia de segurança e apagar dados*de backup para " Backup Item *"*. *Concluída com sucesso a operação*.
 4. Selecione **Refresh** no menu **'Backup Itens',** para se certificar de que o item de reserva foi eliminado.
 
       ![A página eliminar itens de backup.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -94,7 +96,7 @@ Primeiro, leia a secção **[Antes de começar](#before-you-start)** para entend
 
 4. Selecione a caixa de verificação de consentimento e, em seguida, **selecione Eliminar**.
 
-5. Verifique o ícone **notificação** ![eliminar dados de backup](./media/backup-azure-delete-vault/messages.png). Após o acabamento da operação, o serviço exibe a mensagem: Parar a cópia de segurança e apagar os dados de *backup para "Backup Item".* *Concluída com sucesso a operação*.
+5. Verifique o ![ícone](./media/backup-azure-delete-vault/messages.png) **Notificação** eliminar dados de backup . Após o acabamento da operação, o serviço exibe a mensagem: Parar a cópia de segurança e apagar os dados de *backup para "Backup Item".* *Concluída com sucesso a operação*.
 6. Selecione **Refresh** no menu **'Backup Itens',** para se certificar de que o item de reserva é eliminado.
 
 Após o final deste processo, pode eliminar os itens de backup da consola de gestão:
@@ -105,7 +107,7 @@ Após o final deste processo, pode eliminar os itens de backup da consola de ges
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Eliminar itens de backup da consola de gestão MARS
 
 1. Abra a consola de gestão MARS, vá ao painel **DeAções** e selecione **'Backup'** de Agenda .
-2. A partir da página De alteração ou paragem de uma página **de backup agendada,** selecione Parar usando esta agenda de cópia de **segurança e eliminar todas as cópias de segurança armazenadas**. Em seguida, selecione **Seguinte**.
+2. A partir da página De alteração ou paragem de uma página **de backup agendada,** selecione Parar usando esta agenda de cópia de **segurança e eliminar todas as cópias de segurança armazenadas**. Em seguida, selecione **Next**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
@@ -113,7 +115,7 @@ Após o final deste processo, pode eliminar os itens de backup da consola de ges
 
     ![Parem com um reforço programado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. É solicitado a introduzir um PIN de segurança (número de identificação pessoal), que deve gerar manualmente. Para isso, assine primeiro o portal Azure.
-5. Vá ao **cofre de serviços** de recuperação > **Definições** > **Propriedades**.
+5. Vá ao cofre de recuperação De **serviços de** > **configurações** > **propriedades**.
 6. Em **'Pin' de segurança,** selecione **Generate**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. Na consola de gestão, cola o PIN e, em seguida, selecione **OK**.
 
@@ -215,7 +217,7 @@ Para parar a proteção e eliminar os dados de backup:
 
     Post onde aparece o seguinte pedido:
 
-    *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópia de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente. <br/> [Y] Sim [A] Sim a Todos [N] Não [L] Não a Todos [S] Suspender [?] Ajuda (padrão é "Y"):*
+    *Backup do Microsoft Azure Tem a certeza de que pretende remover esta política de backup? Os dados de cópia de segurança eliminados serão conservados durante 14 dias. Após esse período, os dados de cópia de segurança serão eliminados permanentemente. <br/> Sim [A] Sim a Todos [N] Não [L] Não a Todos [S] Suspender [?] Ajuda (padrão é "Y"):*
 
 - Para máquinas no local protegidas utilizando MABS (Microsoft Azure Backup Server) ou DPM para Azure (System Center Data Protection Manager), utilize o seguinte comando para eliminar os dados de back-up no Azure.
 

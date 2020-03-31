@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658239"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de Monitorização Azure
@@ -29,7 +29,7 @@ Os livros de trabalho são atualmente compatíveis com as seguintes fontes de da
 
 * [Registos](workbooks-data-sources.md#logs)
 * [Métricas](workbooks-data-sources.md#metrics)
-* [Gráfico de recursos azure](workbooks-data-sources.md#azure-resource-graph)
+* [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alertas (Pré-visualização)](workbooks-data-sources.md#alerts-preview)
 * [Saúde da carga de trabalho (Pré-visualização)](workbooks-data-sources.md#workload-health-preview)
 * [Saúde dos Recursos Azure (Pré-visualização)](workbooks-data-sources.md#azure-resource-health)
@@ -39,7 +39,7 @@ Os livros de trabalho são atualmente compatíveis com as seguintes fontes de da
 
 Os livros de recção fornecem um conjunto rico de capacidades para visualizar os seus dados. Para exemplos detalhados de cada tipo de visualização, pode consultar os links de exemplo abaixo:
 
-* [Text](workbooks-visualizations.md#text) (Texto)
+* [Texto](workbooks-visualizations.md#text)
 * [Gráficos](workbooks-visualizations.md#charts)
 * [Grelhas](workbooks-visualizations.md#grids)
 * [Azulejos](workbooks-visualizations.md#tiles)
@@ -52,7 +52,7 @@ Os livros de recção fornecem um conjunto rico de capacidades para visualizar o
 
 Para explorar a experiência dos livros de trabalho, navegue primeiro para o serviço Azure Monitor. Isto pode ser feito digitando **monitor** na caixa de pesquisa no portal Azure.
 
-Em seguida, selecione **Livros de Trabalho (pré-visualização)** .
+Em seguida, selecione **Livros de Trabalho (pré-visualização)**.
 
 ![Screenshot do botão de pré-visualização de livros de trabalho realçado numa caixa vermelha](./media/workbooks-overview/workbooks-preview.png)
 

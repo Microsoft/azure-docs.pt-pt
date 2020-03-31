@@ -1,6 +1,6 @@
 ---
-title: Dispositivo Azure IoT C# Hub transmite arranque rápido para SSH e RDP
-description: Neste arranque rápido, executa C# duas aplicações de amostra que permitem cenários De SSH e RDP sobre um fluxo de dispositivos IoT Hub.
+title: Dispositivo Azure IoT Hub transmite C# quickstart para SSH e RDP
+description: Neste arranque rápido, executa duas aplicações C# de amostra que permitem cenários SSH e RDP sobre um fluxo de dispositivos IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,19 +10,19 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: c8ef6a87e839e6d8dfb296e7b24f3d0d95843d1c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675469"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre C# um fluxo de dispositivos IoT Hub utilizando uma aplicação proxy (pré-visualização)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração C# (pré-visualização)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 O Microsoft Azure IoT Hub suporta atualmente os streams do dispositivo como uma funcionalidade de [pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Os streams de [dispositivos IoT Hub](iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivo saem de forma segura e amiga da firewall. Este guia de arranque C# rápido envolve duas aplicações que permitem que o tráfego de aplicações do servidor cliente (como Secure Shell [SSH] e Remote Desktop Protocol [RDP] seja enviado através de um fluxo de dispositivos que é estabelecido através de um hub IoT. Para uma visão geral da configuração, consulte a amostra de aplicação de [procuração local para SSH ou RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
+Os streams de [dispositivos IoT Hub](iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivo saem de forma segura e amiga da firewall. Este guia de arranque rápido envolve duas aplicações C# que permitem que o tráfego de aplicações do servidor de cliente (como Secure Shell [SSH] e Remote Desktop Protocol [RDP] seja enviado através de um fluxo de dispositivos que é estabelecido através de um hub IoT. Para uma visão geral da configuração, consulte a amostra de aplicação de [procuração local para SSH ou RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Este artigo descreve primeiro a configuração para SSH (utilizando a porta 22) e, em seguida, descreve como modificar a porta da configuração para RDP. Uma vez que os fluxos de dispositivos são aplicação e protocolo-agnóstico, a mesma amostra pode ser modificada para acomodar outros tipos de tráfego de aplicações. Esta modificação geralmente envolve apenas mudar a porta de comunicação para a que é usada pela aplicação pretendida.
 
@@ -45,7 +45,7 @@ A figura que se segue ilustra como as aplicações de procuração local e local
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,11 +56,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
   * Ásia Sudeste
   * Europa do Norte
 
-* As duas aplicações de amostra que executa C#neste arranque rápido estão escritas em . Você precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
+* As duas aplicações de amostra que executa neste quickstart estão escritas em C#. Você precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
 
   Pode baixar o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
 
-* Verifique a versão C# atual da sua máquina de desenvolvimento utilizando o seguinte comando:
+* Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
 
     ```
     dotnet --version
@@ -77,7 +77,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    ```
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-* [Descarregue as amostras Azure IoT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)e extraia o arquivo ZIP.
+* [Descarregue as amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)e extraia o arquivo ZIP.
 
 * Uma conta de utilizador válida e credencial no dispositivo (Windows ou Linux) utilizada para autenticar o utilizador.
 
@@ -131,12 +131,12 @@ Nesta secção, estabelece-se um fluxo de ponta a ponta para o túnel de tráfeg
 
 ### <a name="run-the-device-local-proxy-application"></a>Executar a aplicação de procuração local de dispositivo
 
-Numa janela de terminal local, navegue para o diretório `device-streams-proxy/device` na sua pasta de projeto desapertada. Mantenha as seguintes informações à mão:
+Numa janela de terminal local, navegue para o `device-streams-proxy/device` diretório na sua pasta de projeto sem fecho. Mantenha as seguintes informações à mão:
 
 | Nome do argumento | Valor do argumento |
 |----------------|-----------------|
 | `DeviceConnectionString` | A cadeia de ligação do dispositivo que criou anteriormente. |
-| `targetServiceHostName` | O endereço IP onde o servidor SSH ouve. O endereço seria `localhost` se fosse o mesmo IP onde a aplicação de procuração local do dispositivo está em execução. |
+| `targetServiceHostName` | O endereço IP onde o servidor SSH ouve. O endereço `localhost` seria se fosse o mesmo IP onde a aplicação de procuração local do dispositivo está em execução. |
 | `targetServicePort` | A porta utilizada pelo seu protocolo de aplicação (para SSH, por defeito, esta seria a porta 22).  |
 
 Compile e execute o código com os seguintes comandos:
@@ -157,7 +157,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>Executar a aplicação de procuração local de serviço
 
-Noutra janela de terminal local, navegue para `iot-hub/quickstarts/device-streams-proxy/service` na pasta do projeto desapertado. Mantenha as seguintes informações à mão:
+Noutra janela de terminal `iot-hub/quickstarts/device-streams-proxy/service` local, navegue na pasta do projeto desapertado. Mantenha as seguintes informações à mão:
 
 | Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|
@@ -209,12 +209,12 @@ A configuração para RDP é semelhante à configuração para SSH (acima descri
 
 ### <a name="run-the-device-local-proxy-application-rdp"></a>Executar a aplicação de procuração local do dispositivo (RDP)
 
-Numa janela de terminal local, navegue para o diretório `device-streams-proxy/device` na sua pasta de projeto desapertada. Mantenha as seguintes informações à mão:
+Numa janela de terminal local, navegue para o `device-streams-proxy/device` diretório na sua pasta de projeto sem fecho. Mantenha as seguintes informações à mão:
 
 | Nome do argumento | Valor do argumento |
 |----------------|-----------------|
 | `DeviceConnectionString` | A cadeia de ligação do dispositivo que criou anteriormente. |
-| `targetServiceHostName` | O nome de anfitrião ou endereço IP onde o servidor RDP funciona. O endereço seria `localhost` se fosse o mesmo IP onde a aplicação de procuração local do dispositivo está em execução. |
+| `targetServiceHostName` | O nome de anfitrião ou endereço IP onde o servidor RDP funciona. O endereço `localhost` seria se fosse o mesmo IP onde a aplicação de procuração local do dispositivo está em execução. |
 | `targetServicePort` | A porta utilizada pelo seu protocolo de aplicação (para RDP, por padrão, esta seria a porta 3389).  |
 
 Compile e execute o código com os seguintes comandos:
@@ -232,7 +232,7 @@ dotnet run {DeviceConnectionString} localhost 3389
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>Executar a aplicação de procuração local de serviço (RDP)
 
-Noutra janela de terminal local, navegue para `device-streams-proxy/service` na pasta do projeto desapertado. Mantenha as seguintes informações à mão:
+Noutra janela de terminal `device-streams-proxy/service` local, navegue na pasta do projeto desapertado. Mantenha as seguintes informações à mão:
 
 | Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|

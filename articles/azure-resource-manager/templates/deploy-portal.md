@@ -3,23 +3,23 @@ title: Implementar recursos com portal Azure
 description: Utilize o portal Azure e o Azure Resource Manage para implementar os seus recursos para um grupo de recursos na sua subscrição.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 32c807b4881bc59b6bec0d26ab3664abdb200628
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274362"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153442"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
+# <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implementar recursos com modelos ARM e portal Azure
 
-Aprenda a utilizar o [portal Azure](https://portal.azure.com) com o Gestor de [Recursos Azure](overview.md) para implementar os seus recursos Azure. Para aprender sobre a gestão dos seus recursos, consulte [gerir os recursos do Azure utilizando o portal Azure.](../management/manage-resources-portal.md)
+Saiba como utilizar o [portal Azure](https://portal.azure.com) com [modelos azure Resource Manager (ARM)](overview.md) para implementar os seus recursos Azure. Para aprender sobre a gestão dos seus recursos, consulte [gerir os recursos do Azure utilizando o portal Azure.](../management/manage-resources-portal.md)
 
 A implantação de recursos Azure utilizando o portal Azure envolve geralmente dois passos:
 
 - Crie um grupo de recursos.
 - Desloque recursos para o grupo de recursos.
 
-Além disso, também pode implementar um modelo de Gestor de Recursos Azure para criar recursos Azure.
+Além disso, também pode implementar um modelo ARM para criar recursos Azure.
 
 Este artigo mostra ambos os métodos.
 
@@ -35,7 +35,7 @@ Este artigo mostra ambos os métodos.
 
 1. Selecione ou introduza os seguintes valores de propriedade:
 
-    - **Subscrição**: selecione uma subscrição do Azure.
+    - **Subscrição**: Selecione uma subscrição Azure.
     - **Grupo de recursos**: Dê ao grupo de recursos um nome.
     - **Região**: Especifique uma localização Azure. É aqui que o grupo de recursos armazena metadados sobre os recursos. Por razões de conformidade, pode querer especificar onde os metadados estão armazenados. Em geral, recomendamos que especifique um local onde a maioria dos seus recursos resida. Usar a mesma localização pode simplificar o seu modelo.
 
@@ -73,7 +73,7 @@ Depois de criar um grupo de recursos, pode implementar recursos para o grupo a p
 
 ## <a name="deploy-resources-from-custom-template"></a>Implementar recursos a partir de modelo personalizado
 
-Se quiser executar uma implementação mas não utilizar nenhum dos modelos no Mercado, pode criar um modelo personalizado que define a infraestrutura para a sua solução. Para aprender sobre a criação de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure.](template-syntax.md)
+Se quiser executar uma implementação mas não utilizar nenhum dos modelos no Mercado, pode criar um modelo personalizado que define a infraestrutura para a sua solução. Para aprender sobre a criação de modelos, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 
 > [!NOTE]
 > A interface do portal não suporta fazer referência a um [segredo de um Cofre chave.](key-vault-parameter.md) Em vez disso, utilize [o PowerShell](deploy-powershell.md) ou [o Azure CLI](deploy-cli.md) para implementar o seu modelo localmente ou a partir de um URI externo.
@@ -113,7 +113,7 @@ Se quiser executar uma implementação mas não utilizar nenhum dos modelos no M
 1. Selecione **Guardar**. Agora vê a interface de implantação do modelo do portal. Repare nos dois parâmetros que definiu no modelo.
 1. Insira ou selecione os valores de propriedade:
 
-    - **Subscrição**: selecione uma subscrição do Azure.
+    - **Subscrição**: Selecione uma subscrição Azure.
     - **Grupo de recursos**: Selecione **Criar novo** e dar um nome.
     - **Localização**: Selecione uma localização Azure.
     - **Tipo de conta**de armazenamento : Utilize o valor predefinido.
@@ -122,9 +122,9 @@ Se quiser executar uma implementação mas não utilizar nenhum dos modelos no M
 
 1. Selecione **Comprar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ver registos de auditoria, consulte [operações de auditoria com o Gestor de Recursos](../management/view-activity-logs.md).
 - Para resolver erros de implantação, consulte as operações de [implantação do View](deployment-history.md).
-- Para exportar um modelo de um grupo de implantação ou de recursos, consulte os modelos do [Export Azure Resource Manager](export-template-portal.md).
+- Para exportar um modelo de um grupo de implantação ou de recursos, consulte [os modelos ARM de exportação](export-template-portal.md).
 - Para lançar com segurança o seu serviço em várias regiões, consulte [o Gestor de Implantação do Azure.](deployment-manager-overview.md)

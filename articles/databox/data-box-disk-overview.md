@@ -10,10 +10,10 @@ ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240731"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
@@ -47,7 +47,7 @@ Um fluxo típico inclui os seguintes passos:
 Ao longo deste processo, será notificado por e-mail sobre todas as alterações de estado. Para obter mais informações sobre o fluxo detalhado, aceda a [Implementar Data Box Disks no portal do Azure](data-box-disk-quickstart-portal.md).
 
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 O Data Box Disk foi concebido para mover grandes quantidades de dados para o Azure sem afetar a rede. A solução possui os benefícios seguintes:
 

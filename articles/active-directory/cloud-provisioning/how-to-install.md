@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263351"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalar o agente do aprovisionamento na cloud do Azure AD Connect
@@ -26,7 +26,7 @@ Este documento acompanha-o através do processo de instalação do Diretório At
 
 A instalação e configuração do fornecimento de Ligação Azure AD é realizada nos seguintes passos:
     
-- [Instale o agente](#install-the-agent)
+- [Instalar o agente](#install-the-agent)
 - [Verificar a instalação do agente](#verify-agent-installation)
 
 
@@ -35,7 +35,7 @@ Para instalar o agente, siga estes passos.
 
 1. Inscreva-se no servidor que utilizará com permissões de administração da empresa.
 1. Aceda ao portal do Azure. À esquerda, selecione **Azure Ative Directory**.
-1. Selecione **Gerir o fornecimento (pré-visualização)**  > **Rever todos os agentes**.
+1. Selecione **Gerir o fornecimento (pré-visualização)** > **Reveja todos os agentes**.
 1. Descarregue o agente de provisionamento Azure AD Connect a partir do portal Azure.
 
    ![Descarregue o agente no local](media/how-to-install/install9.png)</br>
@@ -45,17 +45,17 @@ Para instalar o agente, siga estes passos.
    ![Microsoft Azure AD Connect Provisioning Agent Screen](media/how-to-install/install1.png)</br>
 
 1. Após esta operação terminar, o assistente de configuração começa. Inscreva-se na sua conta de administrador global da AD Azure.
-1. No ecrã **Connect Ative Directy,** selecione **Adicionar Diretório**. Em seguida, inscreva-se na sua conta de administrador de Diretório Ativo. Esta operação adiciona o seu diretório no local. Selecione **Seguinte**.
+1. No ecrã **Connect Ative Directy,** selecione **Adicionar Diretório**. Em seguida, inscreva-se na sua conta de administrador de Diretório Ativo. Esta operação adiciona o seu diretório no local. Selecione **Next**.
 
    ![Conecte ecrã de Diretório Ativo](media/how-to-install/install3.png)</br>
 
 1. No ecrã completo da **Configuração,** selecione **Confirmar**. Esta operação regista e reinicia o agente.
 
-   ![Ecrã de configuração concluída](media/how-to-install/install4.png)</br>
+   ![Configuração ecrã completo](media/how-to-install/install4.png)</br>
 
 1. Após esta operação terminar, deverá ver o aviso De que a configuração do **seu agente foi verificada com sucesso.** Selecione **Saída**.
 
-   ![Botão de saída](media/how-to-install/install5.png)</br>
+   ![Botão de sair](media/how-to-install/install5.png)</br>
 1. Se ainda vir o ecrã inicial do pacote de pacote de fornecimento de dispositivos de **ligação ad ad da Microsoft Azure,** selecione **Close**.
 
 ## <a name="verify-agent-installation"></a>Verificar a instalação do agente
@@ -65,7 +65,7 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 Para verificar se o agente está a ser visto pelo Azure, siga estes passos.
 
 1. Inicie sessão no Portal do Azure.
-1. À esquerda, selecione **Azure Ative Directory** > **Azure AD Connect**. No centro, selecione **Gerir o provisionamento (pré-visualização)** .
+1. À esquerda, selecione **Azure Ative Directory** > **Azure AD Connect**. No centro, selecione **Gerir o provisionamento (pré-visualização)**.
 
    ![Portal do Azure](media/how-to-install/install6.png)</br>
 
@@ -90,7 +90,7 @@ Este teste verifica que os seus agentes podem comunicar com azure sobre a porta 
 Para verificar se o agente está a funcionar, siga estes passos.
 
 1.  Inscreva-se no servidor com uma conta de administrador.
-1.  Serviços **abertos** navegando até ele ou **indo iniciar** > **Executar** > **Services.msc**.
+1.  Serviços **abertos** navegando até ele ou **indo** > para Start**Run** > **Services.msc**.
 1.  No âmbito **dos Serviços,** certifique-se de que o **Microsoft Azure AD Connect Agent Updater** e o **Microsoft Azure AD Connect Provisioning Agent** estão lá e o seu estado está a *funcionar*.
 
     ![Tela de serviços](media/how-to-troubleshoot/troubleshoot1.png)
@@ -102,6 +102,6 @@ Para verificar se o agente está a funcionar, siga estes passos.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
  

@@ -1,6 +1,6 @@
 ---
-title: Controles de segurança para mensagens do barramento de serviço do Azure
-description: Uma lista de verificação de controles de segurança para avaliar as mensagens do barramento de serviço do Azure
+title: Controlos de segurança para mensagens de ônibus de serviço Azure
+description: Uma lista de controlos de segurança para avaliar as mensagens de autocarro seletivas do Serviço Azure
 services: service-bus-messaging
 ms.service: service-bus-messaging
 author: spelluru
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
 ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75903256"
 ---
-# <a name="security-controls-for-azure-service-bus-messaging"></a>Controles de segurança para mensagens do barramento de serviço do Azure
+# <a name="security-controls-for-azure-service-bus-messaging"></a>Controlos de segurança para mensagens de ônibus de serviço Azure
 
-Este artigo documenta os controles de segurança incorporados ao sistema de mensagens do barramento de serviço do Azure.
+Este artigo documenta os controlos de segurança incorporados na Mensagem de Autocarro saqueada pela Azure Service.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Suporte ao ponto de extremidade de serviço| Sim (somente camada Premium) | Os pontos de extremidade do serviço VNet têm suporte somente para a [camada Premium do barramento de serviço](service-bus-premium-messaging.md) . |  |
-| Suporte à injeção de VNet| Não | |  |
-| Isolamento de rede e suporte de firewall| Sim (somente camada Premium) |  |  |
-| Suporte a túnel forçado| Não |  |  |
+| Suporte final de serviço| Sim (apenas nível premium) | Os pontos finais do serviço VNet são suportados apenas para o [nível Service Bus Premium.](service-bus-premium-messaging.md) |  |
+| Suporte à injeção VNet| Não | |  |
+| Isolamento da rede e suporte de firewalling| Sim (apenas nível premium) |  |  |
+| Apoio de túnel forçado| Não |  |  |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Com suporte via [Azure monitor e alertas](service-bus-metrics-azure-monitor.md). |  |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Os logs de operações estão disponíveis.  | [Logs de diagnóstico do barramento de serviço](service-bus-diagnostic-logs.md) |
-| Log e auditoria do plano de dados| Não |  |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | Suportado via [Monitor e Alertas Azure.](service-bus-metrics-azure-monitor.md) |  |
+| Registo e auditoria de planos de controlo e gestão| Sim | Os registos de operações estão disponíveis.  | [Registos de diagnóstico de ônibus de serviço](service-bus-diagnostic-logs.md) |
+| Registo e auditoria de planos de dados| Não |  |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Autenticação| Sim | Gerenciado por meio de [Azure Active Directory identidade de serviço gerenciada](service-bus-managed-service-identity.md).| [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
-| Autorização| Sim | Dá suporte à autorização por meio do [RBAC](authenticate-application.md) e do token SAS. | [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
+| Autenticação| Sim | Gerido através da Identidade de Serviço Gerido por [Diretório Ativo Azure.](service-bus-managed-service-identity.md)| [Autenticação e autorização](service-bus-authentication-and-authorization.md)do autocarro de serviço. |
+| Autorização| Sim | Suporta a autorização através do token [RBAC](authenticate-application.md) e SAS. | [Autenticação e autorização](service-bus-authentication-and-authorization.md)do autocarro de serviço. |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas | Documentação |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  Sim, para criptografia do lado do servidor, em repouso, por padrão. |  |  |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim. | Uma chave gerenciada pelo cliente no Azure keyvault pode ser usada para criptografar os dados no namespace do barramento de serviço em repouso. | [Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure](configure-customer-managed-key.md)  |
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |   |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Dá suporte ao mecanismo HTTPS/TLS padrão. |   |
-| Chamadas de API criptografadas| Sim | As chamadas à API são feitas por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |   |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft |  Sim, para encriptação do lado do servidor em repouso por padrão. |  |  |
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Sim. | Uma chave gerida pelo cliente no Azure KeyVault pode ser usada para encriptar os dados no espaço de nome do autocarro de serviço em repouso. | [Configure as chaves geridas pelo cliente para encriptar os dados do Ônibus de Serviço Azure em repouso utilizando o portal Azure](configure-customer-managed-key.md)  |
+| Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |   |
+| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Sim | Suporta o mecanismo PADRÃO HTTPS/TLS. |   |
+| Chamadas api encriptadas| Sim | As chamadas API são feitas através [do Azure Resource Manager](../azure-resource-manager/index.yml) e https. |   |
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas| Documentação |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Dá suporte ao controle de versão do provedor de recursos por meio da [API Azure Resource Manager](/rest/api/resources/).|   |
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim | Suporta a versão do fornecedor de recursos através da API Gestor [de Recursos Azure](/rest/api/resources/).|   |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)

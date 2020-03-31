@@ -1,5 +1,5 @@
 ---
-title: Pontos finais de segurança no Serviço de Provisionamento de Dispositivos IoT  Microsoft Docs
+title: Pontos finais de segurança no Serviço de Provisionamento de Dispositivos IoT [ Microsoft Docs
 description: Conceitos - como controlar o acesso ao IoT Device Provisioning Service (DPS) para aplicações de backend. Inclui informações sobre fichas de segurança.
 author: wesmc7777
 manager: philmea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285152"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivos Hub Azure IoT
@@ -77,14 +77,14 @@ Aqui estão os valores esperados:
 
 | Valor | Descrição |
 | --- | --- |
-| {signature} |Uma cadeia de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificada a partir do base64 e utilizada como chave para executar o cálculo HMAC-SHA256.|
+| {assinatura} |Uma cadeia de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificada a partir do base64 e utilizada como chave para executar o cálculo HMAC-SHA256.|
 | {expiração} |UTF8 cordas para o número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
-| {URL-encoded-resourceURI} | Codificação de URL minúscula do recurso minúsculo URI. Prefixo URI (por segmento) dos pontos finais que podem ser acedidos com este símbolo, começando com o nome anfitrião do Serviço de Provisionamento de Dispositivos IoT (sem protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
+| {URL-codificado-recursosURI} | Codificação de URL minúscula do recurso minúsculo URI. Prefixo URI (por segmento) dos pontos finais que podem ser acedidos com este símbolo, começando com o nome anfitrião do Serviço de Provisionamento de Dispositivos IoT (sem protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |O nome da política de acesso partilhado a que se refere este símbolo. |
 
-**Nota no prefixo:** O prefixo URI é calculado por segmento e não por carácter. Por exemplo, `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
+**Nota no prefixo:** O prefixo URI é calculado por segmento e não por carácter. Por `/a/b` exemplo, é `/a/b/c` um prefixo para, mas não para `/a/bc`.
 
-O seguinte snippet Node.js mostra uma função chamada **generateSasToken** que calcula o símbolo das inputs `resourceUri, signingKey, policyName, expiresInMins`. As secções seguintes detalham como inicializar as diferentes inputs para os diferentes casos de utilização de símbolos.
+O seguinte snippet Node.js mostra uma função chamada **generateSasToken** que `resourceUri, signingKey, policyName, expiresInMins`calcula o símbolo das inputs . As secções seguintes detalham como inicializar as diferentes inputs para os diferentes casos de utilização de símbolos.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -151,8 +151,8 @@ Aqui estão as funções de serviço expostas nos pontos finais:
 Como exemplo, um serviço gerado usando uma política de acesso partilhado pré-criada chamada **inscrição** criaria um símbolo com os seguintes parâmetros:
 
 * recurso URI: `{mydps}.azure-devices-provisioning.net`,
-* chave de assinatura: uma das chaves da política `enrollmentread`,
-* nome da política: `enrollmentread`,
+* chave de assinatura: uma `enrollmentread` das chaves da apólice,
+* nome da `enrollmentread`política: ,
 * qualquer tempo de expiração.backn
 
 ![Crie uma política de acesso partilhado para a sua instância de serviço de fornecimento de dispositivos no portal][img-add-shared-access-policy]

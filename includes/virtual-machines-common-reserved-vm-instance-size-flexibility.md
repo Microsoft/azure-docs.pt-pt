@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 02-18-2020
 ms.openlocfilehash: aebe8f05bd1a3607da6d1153c87490891fc6b299
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471465"
 ---
 Ao comprar um VM Instância Reservado, pode optar por otimizar, por exemplo, flexibilidade de tamanho ou prioridade de capacidade. Para obter mais informações sobre a definição ou alteração da definição de otimização para casos vm reservados, consulte [Alterar a definição de otimização para casos vm reservados](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).

@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/17/2020
 ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77426280"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criação e utilização de geo-replicação ativa
@@ -83,7 +83,7 @@ Para alcançar a continuidade real do negócio, adicionar redundância na base d
 
   A falha planeada muda as funções das bases de dados primárias e secundárias após a completa sincronização. É uma operação online que não resulta em perda de dados. O tempo da operação depende da dimensão do registo de transações na primária que precisa de ser sincronizada. A failover planeada destina-se a seguir cenários: (a) realizar exercícios DE DR em produção quando a perda de dados não for aceitável; b Transferir a base de dados para outra região; e (c) devolver a base de dados à região primária após a interrupção ter sido atenuada (recuo).
 
-- **Falha não planeada**
+- **Ativação pós-falha não planeada**
 
   Falha não planeada ou forçada muda imediatamente o secundário para o papel primário sem qualquer sincronização com o primário. Quaisquer transações cometidas com o primário, mas não replicadas para o secundário, perder-se-ão. Esta operação foi concebida como um método de recuperação durante as interrupções quando o primário não está acessível, mas a disponibilidade da base de dados deve ser rapidamente restaurada. Quando a primária original estiver novamente on-line, reconectar-se-á automaticamente e tornar-se-á um novo secundário. Todas as transações não sincronizadas antes da falha serão preservadas no ficheiro de cópia de segurança, mas não serão sincronizadas com as novas primárias para evitar conflitos. Estas transações terão de ser misturadas manualmente com a versão mais recente da base de dados primária.
  
@@ -242,9 +242,9 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 
 | Comando | Descrição |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize o argumento secundário do ADD SECONDY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize failover ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar falha |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize remover o SERVIDOR SECUNDÁRIO PARA terminar uma replicação de dados entre uma base de dados SQL e a base de dados secundária especificada. |
+| [ALTERAR BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize o argumento secundário do ADD SECONDY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
+| [ALTERAR BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize failover ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar falha |
+| [ALTERAR BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize remover o SERVIDOR SECUNDÁRIO PARA terminar uma replicação de dados entre uma base de dados SQL e a base de dados secundária especificada. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todos os links de replicação existentes para cada base de dados no servidor de base de dados Azure SQL. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém o último tempo de replicação, o último lag de replicação, e outras informações sobre o link de replicação para uma determinada base de dados SQL. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado de todas as operações de base de dados, incluindo o estado das ligações de replicação. |

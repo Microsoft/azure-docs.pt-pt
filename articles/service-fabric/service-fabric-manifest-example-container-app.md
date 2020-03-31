@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258398"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço de múltiplos contentores
@@ -19,7 +19,7 @@ As seguintes características são mostradas:
 
 |Manifesto|Funcionalidades|
 |---|---|
-|[Manifesto da aplicação](#application-manifest)| [sobrepor variáveis ambientais](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurar mapeamento porta-a-hospedeiro,](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery) [configurar autenticação do registo de contentores,](service-fabric-get-started-containers.md#configure-container-repository-authentication) [governação de recursos,](service-fabric-resource-governance.md) [modo de isolamento definido,](service-fabric-get-started-containers.md#configure-isolation-mode) [especificar imagens de contentores específicos da construção de OS](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[Manifesto de aplicação](#application-manifest)| [sobrepor variáveis ambientais](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurar mapeamento porta-a-hospedeiro,](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery) [configurar autenticação do registo de contentores,](service-fabric-get-started-containers.md#configure-container-repository-authentication) [governação de recursos,](service-fabric-resource-governance.md) [modo de isolamento definido,](service-fabric-get-started-containers.md#configure-isolation-mode) [especificar imagens de contentores específicos da construção de OS](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[Manifesto de serviço FrontEndService](#frontendservice-service-manifest)| [definir variáveis ambientais,](service-fabric-get-started-containers.md#configure-and-set-environment-variables) [configurar um ponto final,](service-fabric-get-started-containers.md#configure-communication)passar comandos para o contentor, [importar um certificado em um recipiente](service-fabric-securing-containers.md)| 
 |[Manifesto de serviço BackEndService](#backendservice-service-manifest)|[definir variáveis ambientais,](service-fabric-get-started-containers.md#configure-and-set-environment-variables) [configurar um ponto final,](service-fabric-get-started-containers.md#configure-communication) [configurar volume driver](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -274,7 +274,7 @@ Importa o manifesto de serviço por referência. Atualmente, o ficheiro manifest
 ### <a name="policies-element"></a>Elemento de Políticas
 Descreve as políticas (encadernação de ponto final, partilha de pacotes, execução e acesso à segurança) a aplicar no manifesto de serviço importado. Para mais informações, consulte [Elemento de Políticas](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
+### <a name="servicepackageresourcegovernancepolicy-element"></a>Elemento de política de governança de recursos de pacotede serviços
 Define a política de governação de recursos que é aplicada ao nível de todo o pacote de serviços. Para mais informações, consulte [ServicePackageResourceGovernancePolicy Element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
 ### <a name="resourcegovernancepolicy-element"></a>Elemento de Política de Governança de Recursos
@@ -342,7 +342,7 @@ O executível especificado pelo EntryPoint é tipicamente o anfitrião de servi�
  Para mais informações, consulte [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento nome de imagem
-O repo e a imagem no [registo de contentores https://hub.docker.com](https://hub.docker.com) ou Azure. Para mais informações, consulte [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repo e [https://hub.docker.com](https://hub.docker.com) a imagem no registo de contentores Azure. Para mais informações, consulte [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento de Variáveis Ambientais
 Passe variáveis ambientais para o seu recipiente ou exe.  Para mais informações, consulte [Elemento de Variáveis Ambientais](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -386,7 +386,7 @@ O executível especificado pelo EntryPoint é tipicamente o anfitrião de servi�
 Para mais informações, consulte [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento nome de imagem
-O repo e a imagem no [registo de contentores https://hub.docker.com](https://hub.docker.com) ou Azure. Para mais informações, consulte [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repo e [https://hub.docker.com](https://hub.docker.com) a imagem no registo de contentores Azure. Para mais informações, consulte [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento de comandos
 Passe uma vírvia delimitada lista de comandos para o contentor. Para mais informações, consulte [Elemento de Comandos](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

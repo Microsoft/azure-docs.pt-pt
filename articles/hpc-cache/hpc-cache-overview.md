@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241193"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
@@ -49,13 +49,13 @@ Uma implantação de Cache Azure HPC pode ajudar a acelerar os cálculos de aná
 
 Azure HPC Cache está disponível nestas regiões azure:
 
-* EUA Leste
-* EUA Leste 2
+* E.U.A. Leste
+* E.U.A. Leste 2
 * Europa do Norte
-* Europa Ocidental
-* Sudeste Asiático
+* Europa ocidental
+* Ásia Sudeste
 * Sydney
-* EUA Oeste 2
+* E.U.A.Oeste 2
 * Coreia do Sul Central
 
 Consulte a página do [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações mais recentes sobre a disponibilidade.
@@ -66,7 +66,7 @@ Tem de solicitar acesso para cada subscrição que utilizará com o Azure HPC Ca
 
 Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois de a sua subscrição ser adicionada à lista de acesso, pode criar caches.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a página de [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para saber mais sobre as suas capacidades
 * Conheça os [pré-requisitos](hpc-cache-prereqs.md) do produto

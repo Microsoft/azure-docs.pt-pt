@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298636"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar o seu codificador de streaming ao vivo no local
@@ -65,12 +65,12 @@ Siga os mesmos passos que na verificação do [Evento Ao Vivo,](#pass-through-li
 
 ## <a name="email-your-recorded-settings"></a>Envie um e-mail com as definições gravadas
 
-Por fim, envie um e-mail para as suas definições gravadas e parâmetros de arquivo ao vivo para a Azure Media Services no amshelp@microsoft.com como uma notificação de que todos os controlos de auto-verificação passaram. Além disso, inclua as suas informações de contacto para quaisquer seguimentos. Pode contactar a equipa da Azure Media Services com quaisquer dúvidas sobre este processo.
+Por fim, envie por e-mail as suas amshelp@microsoft.com definições gravadas e parâmetros de arquivo ao vivo para a Azure Media Services como notificação de que todos os controlos de auto-verificação passaram. Além disso, inclua as suas informações de contacto para quaisquer seguimentos. Pode contactar a equipa da Azure Media Services com quaisquer dúvidas sobre este processo.
 
 ## <a name="see-also"></a>Consulte também
 
 [Codificadores testados no local](recommended-on-premises-live-encoders.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Streaming em direto com Media Services v3](live-streaming-overview.md)

@@ -1,7 +1,7 @@
 ---
-title: Filtrar por idioma em um índice de pesquisa
+title: Filtrar por linguagem num índice de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Critérios de filtro para dar suporte à pesquisa em vários idiomas, escopo da execução da consulta em campos específicos do idioma.
+description: Filtrar critérios para apoiar a pesquisa multi-idioma, pesquisa de consultas para campos específicos da linguagem.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,45 +9,45 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112063"
 ---
-# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Como filtrar por idioma no Azure Pesquisa Cognitiva 
+# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Como filtrar por linguagem na Pesquisa Cognitiva Azure 
 
-Um requisito importante em um aplicativo de pesquisa multilíngüe é a capacidade de Pesquisar e recuperar resultados no próprio idioma do usuário. No Azure Pesquisa Cognitiva, uma maneira de atender aos requisitos de idioma de um aplicativo multilíngue é criar uma série de campos dedicados ao armazenamento de cadeias de caracteres em um idioma específico e, em seguida, restringir a pesquisa de texto completo apenas a esses campos no momento da consulta.
+Um requisito chave numa aplicação de pesquisa multilingual é a capacidade de pesquisar e recuperar resultados no próprio idioma do utilizador. Na Pesquisa Cognitiva Azure, uma maneira de satisfazer os requisitos linguísticos de uma aplicação multilingual é criar uma série de campos dedicados a armazenar cordas numa linguagem específica, e depois limitar a pesquisa completa de texto apenas esses campos em tempo de consulta.
 
-Os parâmetros de consulta na solicitação são usados para fazer o escopo da operação de pesquisa e, em seguida, aparar os resultados de todos os campos que não fornecem conteúdo compatível com a experiência de pesquisa que você deseja entregar.
+Os parâmetros de consulta no pedido são usados para examinar a operação de pesquisa e, em seguida, aparar os resultados de quaisquer campos que não forneçam conteúdo compatível com a experiência de pesquisa que pretende entregar.
 
 | Parâmetros | Objetivo |
 |-----------|--------------|
-| **searchFields** | Limita a pesquisa de texto completo à lista de campos nomeados. |
-| **$select** | Corta a resposta para incluir apenas os campos que você especificar. Por padrão, todos os campos recuperáveis são retornados. O parâmetro **$Select** permite que você escolha quais serão retornados. |
+| **searchFields** | Limita a pesquisa completa de texto à lista de campos nomeados. |
+| **$select** | Apara a resposta para incluir apenas os campos que especifica. Por defeito, todos os campos recuperáveis são devolvidos. O parâmetro **$select** permite escolher quais devolver. |
 
-O sucesso dessa técnica depende da integridade do conteúdo do campo. O Azure Pesquisa Cognitiva não converte cadeias de caracteres nem executa a detecção de idioma. Cabe a você certificar-se de que os campos contêm as cadeias de caracteres esperadas.
+O sucesso desta técnica depende da integridade dos conteúdos de campo. A Pesquisa Cognitiva Azure não traduz cordas nem executa a deteção de linguagem. Cabe-lhe a si certificar-se de que os campos contêm as cordas que espera.
 
-## <a name="define-fields-for-content-in-different-languages"></a>Definir campos para conteúdo em idiomas diferentes
+## <a name="define-fields-for-content-in-different-languages"></a>Definir campos para conteúdos em diferentes idiomas
 
-No Azure Pesquisa Cognitiva, as consultas visam um único índice. Os desenvolvedores que desejam fornecer cadeias de caracteres específicas a um idioma em uma única experiência de pesquisa normalmente definem campos dedicados para armazenar os valores: um campo para cadeias de caracteres em inglês, um para francês e assim por diante. 
+Na Pesquisa Cognitiva Azure, as consultas visam um único índice. Os desenvolvedores que querem fornecer cordas específicas da linguagem numa única experiência de pesquisa normalmente definem campos dedicados para armazenar os valores: um campo para cordas inglesas, um para francês, e assim por diante. 
 
-Em nossos exemplos, incluindo o [exemplo de espaço real](search-get-started-portal.md) mostrado abaixo, você pode ter visto definições de campo semelhantes à captura de tela a seguir. Observe como este exemplo mostra as atribuições do analisador de idioma para os campos neste índice. Os campos que contêm cadeias de caracteres têm melhor desempenho na pesquisa de texto completo quando emparelhados com um analisador projetado para lidar com as regras linguísticas do idioma de destino.
+Nas nossas amostras, incluindo a [amostra imobiliária](search-get-started-portal.md) mostrada abaixo, você pode ter visto definições de campo semelhantes à seguinte imagem. Note como este exemplo mostra as atribuições de analisadores linguísticos para os campos neste índice. Os campos que contêm cordas funcionam melhor na pesquisa de texto completo quando emparelhados com um analisador projetado para lidar com as regras linguísticas da linguagem-alvo.
 
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Para obter exemplos de código mostrando definições de campo com analisadores de idiomas, consulte [definir um índice (.net)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [definir um índice (REST)](search-create-index-rest-api.md).
+> Para exemplos de código que mostrem definições de campo com analisadores de línguas, consulte [Definir um índice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [definir um índice (REST)](search-create-index-rest-api.md).
 
-## <a name="build-and-load-an-index"></a>Criar e carregar um índice
+## <a name="build-and-load-an-index"></a>Construir e carregar um índice
 
-Uma etapa intermediária (e talvez óbvia) é que você precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet) antes de formular uma consulta. Mencionamos esta etapa aqui para fins de integridade. Uma maneira de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
+Um passo intermédio (e talvez óbvio) é que você tem que [construir e povoar o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet) antes de formular uma consulta. Mencionamos este passo aqui para a completude. Uma forma de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
 
-## <a name="constrain-the-query-and-trim-results"></a>Restringir a consulta e cortar os resultados
+## <a name="constrain-the-query-and-trim-results"></a>Restrinja os resultados da consulta e do corte
 
-Os parâmetros na consulta são usados para limitar a pesquisa a campos específicos e, em seguida, cortar os resultados de quaisquer campos que não sejam úteis para o seu cenário. Devido a uma meta de restringir a pesquisa a campos que contenham cadeias de caracteres francesas, você usaria **searchFields** para direcionar a consulta em campos que contêm cadeias de caracteres nesse idioma. 
+Os parâmetros na consulta são usados para limitar a pesquisa a campos específicos e, em seguida, aparar os resultados de quaisquer campos não úteis para o seu cenário. Dado o objetivo de restringir a procura em campos que contenham cordas francesas, usaria **saques** para direcionar a consulta em campos que contenham cordas nessa língua. 
 
-Por padrão, uma pesquisa retorna todos os campos marcados como recuperáveis. Como tal, talvez você queira excluir campos que não estão em conformidade com a experiência de pesquisa específica a um idioma que você deseja fornecer. Especificamente, se você limitou a pesquisa a um campo com cadeias de caracteres francesas, provavelmente desejará excluir campos com cadeias de caracteres em inglês de seus resultados. Usar o parâmetro de consulta **$Select** fornece controle sobre quais campos são retornados para o aplicativo de chamada.
+Por padrão, uma pesquisa devolve todos os campos que são marcados como recuperáveis. Como tal, pode querer excluir campos que não estejam em conformidade com a experiência de pesquisa específica da linguagem que pretende proporcionar. Especificamente, se limitou a pesquisa a um campo com cordas francesas, provavelmente quer excluir campos com cordas inglesas dos seus resultados. A utilização do parâmetro de consulta **$select** dá-lhe controlo sobre quais os campos devolvidos à aplicação de chamada.
 
 ```csharp
 parameters =
@@ -58,12 +58,12 @@ parameters =
     };
 ```
 > [!Note]
-> Embora não haja nenhum $filter argumento na consulta, esse caso de uso é altamente afiliado com conceitos de filtro e, portanto, o apresentamos como um cenário de filtragem.
+> Embora não exista $filter argumento sobre a consulta, este caso de utilização está fortemente afiliado aos conceitos de filtro, pelo que o apresentamos como um cenário de filtragem.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
++ [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 + [Analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
-+ [Como funciona a pesquisa de texto completo no Azure Pesquisa Cognitiva](search-lucene-query-architecture.md)
-+ [Pesquisar API REST de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)
 

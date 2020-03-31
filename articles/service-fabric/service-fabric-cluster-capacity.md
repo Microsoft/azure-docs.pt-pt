@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
 ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258918"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade de cluster de tecido de serviço
-Para qualquer implantação de produção, o planeamento da capacidade é um passo importante. Aqui estão alguns dos itens que você tem que considerar como parte desse processo.
+Para qualquer implementação de produção, o planeamento da capacidade é um passo importante. Aqui estão alguns dos itens que você tem que considerar como parte desse processo.
 
 * O número de tipos de nós que o seu cluster precisa para começar
 * As propriedades de cada tipo de nó (tamanho, primário, virado para a internet, número de VMs, etc.)
@@ -52,7 +52,7 @@ Os serviços de sistema Service Fabric (por exemplo, o serviço Cluster Manager 
 * O **tamanho mínimo de VMs** para o tipo de nó primário é determinado pelo nível de **durabilidade** que escolher. O nível de durabilidade padrão é Bronze. Consulte [as características de durabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) para obter mais detalhes.  
 * O **número mínimo de VMs** para o tipo de nó primário é determinado pelo nível de **fiabilidade** que escolher. O nível de fiabilidade padrão é Silver. Consulte [as características de fiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.  
 
-A partir do modelo de Gestor de Recursos Azure, o tipo de nó primário é configurado com o atributo `isPrimary` sob a [definição](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)do tipo nó .
+A partir do modelo de Gestor de Recursos Azure, `isPrimary` o tipo de nó primário é configurado com o atributo sob a [definição](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)do tipo nó .
 
 ### <a name="non-primary-node-type"></a>Tipo de nó não primário
 
@@ -61,7 +61,7 @@ Em um aglomerado com vários tipos de nó, há um tipo de nó primário e o rest
 * O **tamanho mínimo de VMs** para tipos de nó não primários é determinado pelo nível de **durabilidade** que escolher. O nível de durabilidade padrão é Bronze. Para obter mais informações, consulte [as características de durabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).  
 * O **número mínimo de VMs** para tipos de nó não primárioé um. No entanto, deve escolher este número com base no número de réplicas da aplicação/serviços que pretende executar neste tipo de nó. O número de VMs num nó pode ser aumentado depois de ter implantado o cluster.
 
-## <a name="the-durability-characteristics-of-the-cluster"></a>As características de durabilidade do cluster
+## <a name="the-durability-characteristics-of-the-cluster"></a>Caraterísticas de durabilidade do cluster
 O nível de durabilidade é utilizado para indicar ao sistema os privilégios que os seus VMs têm com a infraestrutura Azure subjacente. No tipo de nó primário, este privilégio permite ao Service Fabric interromper qualquer pedido de infraestrutura de nível VM (como um reboot vM, reimagem VM ou migração VM) que impactam os requisitos de quórum para os serviços do sistema e seus serviços estatais. Nos tipos de nó não primário, este privilégio permite ao Service Fabric interromper quaisquer pedidos de infraestrutura de nível VM (como reboot vM, reimagem vm e migração VM) que impactam os requisitos de quórum para os seus serviços de estado.
 
 | Nível de durabilidade  | Número mínimo exigido de VMs | VM SKUs suportado                                                                  | Atualizações que faz para o seu conjunto de escala de máquina virtual                               | Atualizações e manutenção iniciadas pelo Azure                                                              | 

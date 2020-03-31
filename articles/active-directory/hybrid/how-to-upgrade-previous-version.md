@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Atualização de uma versão anterior | Documentos da Microsoft'
-description: Explica os diferentes métodos para atualizar para a versão mais recente do Azure Active Directory Connect, incluindo uma atualização no local e uma migração rotativa.
+title: 'Azure AD Connect: Upgrade de uma versão anterior Microsoft Docs'
+description: Explica os diferentes métodos para atualizar para o mais recente lançamento do Azure Ative Directory Connect, incluindo uma atualização no local e uma migração de balanço.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,109 +17,109 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347753"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Atualizar de uma versão anterior para a versão mais recente
-Este tópico descreve os diferentes métodos que pode utilizar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que mantenha-se atualizado com as versões do Azure AD Connect. Também é usar os passos a [migração rotativa](#swing-migration) secção quando fizer uma alteração de configuração substancial.
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualizar de uma versão anterior para a mais recente
+Este tópico descreve os diferentes métodos que pode utilizar para atualizar a instalação de ligação do seu Azure Ative Directory (Azure AD) à mais recente versão. Recomendamos que se mantenha atual com os lançamentos do Azure AD Connect. Também utiliza os passos na secção de [migração Swing](#swing-migration) quando faz uma alteração substancial de configuração.
 
 >[!NOTE]
-> É atualmente suportada para atualizar a partir de qualquer versão do Azure AD Connect para a versão atual. Não são suportadas atualizações no local de DirSync ou o ADSync e uma migração rotativa é necessária.  Se quiser atualizar do DirSync, consulte [atualizar da ferramenta de sincronização do Azure AD (DirSync) do](how-to-dirsync-upgrade-get-started.md) ou o [migração rotativa](#swing-migration) secção.  </br>Na prática, os clientes em versões extremamente velha poderão encontrar problemas não relacionados diretamente com o Azure AD Connect. Servidores que estão em produção por vários anos, normalmente tiveram várias correções aplicadas às mesmas e nem todos estes possam ser considerados.  Em geral, os clientes que não atualizar de 12 a 18 meses devem considerar uma atualização de swing em vez disso, como esta é a opção mais conservadora e menos arriscada.
+> Atualmente é suportado para atualizar a partir de qualquer versão do Azure AD Connect para a versão atual. As atualizações em vigor do DirSync ou do ADSync não são suportadas e é necessária uma migração de balanço.  Se quiser fazer upgrade a partir do DirSync, consulte o Upgrade da ferramenta de [sincronização Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) ou da secção [de migração Swing.](#swing-migration)  </br>Na prática, os clientes em versões extremamente antigas podem encontrar problemas não diretamente relacionados com o Azure AD Connect. Servidores que estão em produção há vários anos, normalmente têm vários patches aplicados a eles e nem todos estes podem ser contabilizados.  Geralmente, os clientes que não atualizaram em 12-18 meses devem considerar uma atualização de balanço, uma vez que esta é a opção mais conservadora e menos arriscada.
 
-Se quiser atualizar do DirSync, consulte [atualizar da ferramenta de sincronização do Azure AD (DirSync) do](how-to-dirsync-upgrade-get-started.md) em vez disso.
+Se quiser fazer upgrade a partir do DirSync, consulte o Upgrade da ferramenta de [sincronização Azure AD (DirSync).](how-to-dirsync-upgrade-get-started.md)
 
-Existem algumas estratégias diferentes que pode utilizar para atualizar o Azure AD Connect.
+Existem algumas estratégias diferentes que pode usar para atualizar o Azure AD Connect.
 
 | Método | Descrição |
 | --- | --- |
-| [Atualização automática](how-to-connect-install-automatic-upgrade.md) |Este é o método mais fácil para os clientes com uma instalação rápida. |
-| [Atualização no local](#in-place-upgrade) |Se tiver um único servidor, pode atualizar o instalação no local no mesmo servidor. |
-| [Migração rotativa](#swing-migration) |Com dois servidores, pode preparar um dos servidores com a nova versão ou a configuração e alterar o servidor de Active Directory quando estiver pronto. |
+| [Atualização automática](how-to-connect-install-automatic-upgrade.md) |Este é o método mais fácil para os clientes com uma instalação expressa. |
+| [Atualização no local](#in-place-upgrade) |Se tiver um único servidor, pode atualizar a instalação no mesmo servidor. |
+| [Migração rotativa](#swing-migration) |Com dois servidores, pode preparar um dos servidores com o novo lançamento ou configuração e alterar o servidor ativo quando estiver pronto. |
 
-Para informações de permissões, consulte a [as permissões necessárias para uma atualização](reference-connect-accounts-permissions.md#upgrade).
+Para obter informações sobre permissões, consulte as [permissões necessárias para uma atualização](reference-connect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Depois de ativar seu novo servidor do Azure AD Connect iniciar a sincronização de alterações para o Azure AD, é necessário não reverter para o DirSync ou o Azure AD Sync. A mudança do Azure AD Connect para clientes legados, incluindo o DirSync e Azure AD Sync, não é suportada e pode causar problemas, tais como a perda de dados no Azure AD.
+> Depois de ter ativado o seu novo servidor Azure AD Connect para começar a sincronizar alterações no Azure AD, não deve voltar a utilizar o DirSync ou o Azure AD Sync. A degradação do Azure AD Connect para clientes legados, incluindo o DirSync e o Azure AD Sync, não é suportada e pode levar a problemas como a perda de dados em Azure AD.
 
 ## <a name="in-place-upgrade"></a>Atualização no local
-Uma atualização in-loco funciona para a passagem do Azure AD Sync ou do Azure AD Connect. Ele não funciona para a passagem do DirSync ou para uma solução com o Forefront Identity Manager (FIM) + conector Azure AD.
+Uma atualização em vigor funciona para a mudança de Azure AD Sync ou Azure AD Connect. Não funciona para a mudança do DirSync ou para uma solução com o Gestor de Identidade da Vanguarda (FIM) + O Conector AD Azure.
 
-Este método é preferível quando tiver um único servidor e menos de cerca de 100.000 objetos. Se existirem quaisquer alterações às regras de sincronização de out-of-box, uma importação completa e uma sincronização completa ocorrerem após a atualização. Esse método garante que a nova configuração é aplicada a todos os objetos existentes no sistema. Esta execução poderá demorar algumas horas, dependendo do número de objetos que estão no âmbito do motor de sincronização. O agendador de sincronização normal delta (que sincroniza a cada 30 minutos por predefinição) está suspenso, mas continua a sincronização de palavra-passe. Pode optar por fazer a atualização no local durante um final de semana. Se existirem que sem alterações à configuração de out-of-box com o Azure AD Connect com a nova versão, em seguida, uma importação/sincronização normal delta inicia em vez disso.  
+Este método é preferido quando se tem um único servidor e menos de 100.000 objetos. Se houver alterações às regras de sincronização fora da caixa, ocorre uma importação completa e uma sincronização completa após a atualização. Este método garante que a nova configuração seja aplicada a todos os objetos existentes no sistema. Esta corrida pode demorar algumas horas, dependendo do número de objetos que estão no âmbito do motor de sincronização. O programador normal de sincronização delta (que sincroniza a cada 30 minutos por padrão) está suspenso, mas a sincronização da palavra-passe continua. Talvez considere fazer o upgrade durante um fim de semana. Se não houver alterações na configuração fora da caixa com a nova versão Azure AD Connect, então um delta normal importa/sincronização começa.  
 ![Atualização no local](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
 
-Se fez alterações para as regras de sincronização de out-of-box, em seguida, estas regras estiverem definidas volta à configuração padrão a actualização. Para certificar-se de que a configuração é mantida entre as atualizações, certifique-se de que faça alterações conforme estiver descritos [melhores práticas para alterar a configuração predefinida](how-to-connect-sync-best-practices-changing-default-configuration.md).
+Se fez alterações nas regras de sincronização fora da caixa, então estas regras são definidas para a configuração padrão na atualização. Para se certificar de que a sua configuração é mantida entre atualizações, certifique-se de que faz alterações tal como são descritas nas [melhores práticas para alterar a configuração predefinida](how-to-connect-sync-best-practices-changing-default-configuration.md).
 
-Durante a atualização no local, pode haver alterações introduzidas que necessitam de atividades de sincronização específica (incluindo o passo de importação completa e o passo de sincronização completa) a ser executado após a conclusão da atualização. Para diferir tais atividades, consulte a secção [como diferir a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
+Durante a atualização no local, pode haver alterações que requerem atividades específicas de sincronização (incluindo o passo de importação completa e o passo de sincronização completa) a serem executadas após a atualização concluída. Para adiar tais atividades, consulte a secção [Como adiar a sincronização completa após](#how-to-defer-full-synchronization-after-upgrade)a atualização .
 
-Se estiver a utilizar o Azure AD Connect com o conector não padrão (por exemplo, o conector LDAP genérico e o conector do SQL genérico), tem de atualizar a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização no local. Para obter detalhes sobre como atualizar a configuração do conector, consulte a secção do artigo [histórico de versões do conector - solução de problemas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se não atualizar a configuração, a importação e exportação executar passos não funcionará corretamente para o conector. Receberá o erro seguinte no log de eventos do aplicativo com a mensagem *"versão da assemblagem na configuração do conector AAD ("X.X.XXX. X") é anterior à versão real ("X.X.XXX. X") de"C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
+Se estiver a utilizar o Azure AD Connect com um conector não normalizado (por exemplo, conector Genérico LDAP e Conector Genérico SQL), tem de atualizar a configuração correspondente do conector no Gestor de Serviços de [Sincronização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização no local. Para mais detalhes sobre como atualizar a configuração do conector, consulte a secção de artigos [Connector Version Release History - Troubleshooting](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se não atualizar a configuração, os passos de importação e exportação não funcionarão corretamente para o conector. Receberá o seguinte erro no registo do evento de aplicação com a mensagem *"Versão de montagem na configuração do Conector AAD ("X.X.XXX. X") é mais cedo do que a versão real ("X.X.XXX. X") de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Migração rotativa
-Se tiver uma implantação complexa ou muitos objetos, poderá ser impraticável para fazer uma atualização no local no sistema ao vivo. Para alguns clientes, este processo poderá demorar vários dias, e durante este período, sem alterações de delta são processadas. Também pode utilizar este método quando pretender efetuar alterações substanciais à sua configuração e quer experimentá-las antes de estiver enviada por push para a cloud.
+Se tiver uma implantação complexa ou muitos objetos, pode ser impraticável fazer uma atualização no local no sistema ao vivo. Para alguns clientes, este processo pode demorar vários dias - e durante este tempo, não são processadas alterações delta. Também pode usar este método quando planeia fazer alterações substanciais na sua configuração e quer experimentá-las antes de serem empurradas para a nuvem.
 
-O método recomendado para esses cenários é usar uma migração rotativa. Precisa (pelo menos) dois servidores--um servidor ativo e um servidor de preparação. O servidor Active Directory (mostrado com linhas azuis sólidas na imagem seguinte) é responsável pela carga de produção do Active Directory. O servidor de preparação (mostrado com linhas tracejadas de roxa) é preparado com a nova versão ou configuração. Quando está totalmente pronto, este servidor é feito Active Directory. O Active Directory do servidor anterior, que agora tem a versão antiga ou de configuração instalada, é feito no servidor de preparação e é atualizado.
+O método recomendado para estes cenários é utilizar uma migração de balanço. Precisa (pelo menos) de dois servidores- um servidor ativo e um servidor de encenação. O servidor ativo (mostrado com linhas azuis sólidas na imagem seguinte) é responsável pela carga de produção ativa. O servidor de encenação (mostrado com linhas roxas tracejadas) é preparado com o novo lançamento ou configuração. Quando está totalmente pronto, este servidor é ativo. O servidor ativo anterior, que agora tem a versão antiga ou configuração instalada, é fabricado no servidor de encenação e é atualizado.
 
-Os dois servidores, podem utilizar uma versão diferente. Por exemplo, o servidor Active Directory que planeia desativar pode utilizar o Azure AD Sync, e o novo servidor de teste, pode utilizar o Azure AD Connect. Se utilizar a migração rotativa para desenvolver uma nova configuração, é uma boa idéia ter as mesmas versões em dois servidores.  
-![Servidor de teste](./media/how-to-upgrade-previous-version/stagingserver1.png)
+Os dois servidores podem usar versões diferentes. Por exemplo, o servidor ativo que planeia desativar pode utilizar o Azure AD Sync, e o novo servidor de encenação pode utilizar o Azure AD Connect. Se utilizar a migração de swing para desenvolver uma nova configuração, é uma boa ideia ter as mesmas versões nos dois servidores.  
+![Servidor de encenação](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Alguns clientes preferem ter três ou quatro servidores para este cenário. Quando o servidor de preparação é atualizado, não tiver um servidor de cópia de segurança para [recuperação após desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Com três ou quatro servidores, pode preparar um conjunto de servidores primário/em espera com a nova versão, o que garante que sempre há um servidor de teste está pronto para assumir o controlo.
+> Alguns clientes preferem ter três ou quatro servidores para este cenário. Quando o servidor de encenação é atualizado, não tem um servidor de reserva para [recuperação](how-to-connect-sync-staging-server.md#disaster-recovery)de desastres. Com três ou quatro servidores, pode preparar um conjunto de servidores primários/de standby com a nova versão, que garante que há sempre um servidor de encenação que está pronto para assumir.
 
-Estes passos também funcionam para mover do Azure AD Sync ou uma solução com o FIM + conector Azure AD. Estes passos não funcionam para o DirSync, mas o mesmo swing método de migração (também chamado de implementação paralela) com os passos para o DirSync está no [sincronização de atualizar o Azure Active Directory (DirSync)](how-to-dirsync-upgrade-get-started.md).
+Estes passos também funcionam para se mover do Azure AD Sync ou uma solução com o Conector AD FIM + Azure. Estes passos não funcionam para o DirSync, mas o mesmo método de migração do balanço (também chamado de implantação paralela) com passos para o DirSync está em [upgrade Azure Ative Directory sync (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
-### <a name="use-a-swing-migration-to-upgrade"></a>Utilize uma migração rotativa para atualizar
-1. Se utilizar o Azure AD Connect em ambos os servidores e planeie efetuar apenas uma configuração alterar, certifique-se de que o servidor Active Directory e o servidor de preparação ambos utilizam a mesma versão. Que torna mais fácil de comparar as diferenças mais tarde. Se estiver a atualizar a partir do Azure AD Sync, em seguida, estes servidores têm versões diferentes. Se estiver a atualizar a partir de uma versão mais antiga do Azure AD Connect, é uma boa idéia começar com os dois servidores que estão a utilizar a mesma versão, mas não seja necessário.
-2. Se fez uma configuração personalizada e o servidor de preparação não o tiver, siga os passos em [mover uma configuração personalizada do servidor ativo para o servidor de preparação](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
-3. Se estiver a atualizar a partir de uma versão anterior do Azure AD Connect, atualize o servidor de preparação para a versão mais recente. Se estiver a mover a partir do Azure AD Sync, em seguida, instale o Azure AD Connect no seu servidor de preparação.
-4. Permitir que o motor de sincronização executar a importação completa e a sincronização completa no seu servidor de preparação.
-5. Certifique-se que a nova configuração não causa quaisquer alterações inesperadas, utilizando os passos em "Verificar" na [verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Se algo não estiver conforme esperado, corrigi-lo, execute a importação e sincronização e verifique se os dados até que isso parece bom, ao seguir os passos.
-6. Mude o servidor de preparação para o servidor Active Directory. Esta é a etapa final "Servidor de Active Directory de comutador" na [verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
-7. Se estiver a atualizar o Azure AD Connect, atualize o servidor que está agora em modo de teste para a versão mais recente. Siga os mesmos passos para obter os dados e a configuração atualizada. Se atualizar a partir do Azure AD Sync, pode agora desligar e desativar seu servidor antigo.
+### <a name="use-a-swing-migration-to-upgrade"></a>Use uma migração de balanço para atualizar
+1. Se utilizar o Azure AD Connect em ambos os servidores e planeia apenas fazer uma alteração de configuração, certifique-se de que o seu servidor ativo e o servidor de encenação estão ambos a utilizar a mesma versão. Isso torna mais fácil comparar diferenças mais tarde. Se estiver a atualizar a partir do Azure AD Sync, estes servidores têm versões diferentes. Se estiver a atualizar-se a partir de uma versão mais antiga do Azure AD Connect, é uma boa ideia começar pelos dois servidores que estão a usar a mesma versão, mas não é necessário.
+2. Se fez uma configuração personalizada e o seu servidor de encenação não a tem, siga os passos sob [mover uma configuração personalizada do servidor ativo para o servidor de encenação](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
+3. Se estiver a atualizar a partir de um lançamento anterior do Azure AD Connect, atualize o servidor de encenação para a versão mais recente. Se estiver a mover-se do Azure AD Sync, instale o Azure AD Connect no seu servidor de encenação.
+4. Deixe o motor sincronizado funcionar a importação completa e a sincronização completa no seu servidor de encenação.
+5. Verifique se a nova configuração não provocou alterações inesperadas utilizando os passos em "Verificar" em [Verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Se algo não for como esperado, corrija-o, faça a importação e sincronize, e verifique os dados até que pareça bom, seguindo os passos.
+6. Mude o servidor de encenação para ser o servidor ativo. Este é o passo final "Switch ative server" em [Verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
+7. Se estiver a atualizar o Azure AD Connect, atualize o servidor que está agora em modo de preparação para o mais recente lançamento. Siga os mesmos passos que antes para atualizar os dados e a configuração. Se atualizou a partir do Azure AD Sync, pode agora desligar e desativar o seu antigo servidor.
 
-### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Mover uma configuração personalizada do servidor ativo para o servidor de preparação
-Se fez alterações de configuração para o servidor do Active Directory, terá de certificar-se de que as mesmas alterações são aplicadas para o servidor de preparação. Para ajudar com esta mudança, pode utilizar o [documenter de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
+### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Mova uma configuração personalizada do servidor ativo para o servidor de encenação
+Se elegisse alterações de configuração no servidor ativo, tem de se certificar de que as mesmas alterações são aplicadas ao servidor de encenação. Para ajudar neste movimento, pode utilizar o documentor de [configuração Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-Pode mover que a sincronização personalizada de regras que criou com o PowerShell. Tem de aplicar outras alterações da mesma forma nos dois sistemas, e não é possível migrar as alterações. O [documenter configuração](https://github.com/Microsoft/AADConnectConfigDocumenter) pode ajudá-lo a comparar os dois sistemas para se certificar de que eles são idênticos. A ferramenta também pode ajudar em automatizar as etapas nesta seção.
+Pode mover as regras de sincronização personalizadas que criou utilizando o PowerShell. Tem de aplicar outras alterações da mesma forma em ambos os sistemas, e não pode migrar as alterações. O documentarista de [configuração](https://github.com/Microsoft/AADConnectConfigDocumenter) pode ajudá-lo a comparar os dois sistemas para se certificar de que são idênticos. A ferramenta também pode ajudar a automatizar os passos encontrados nesta secção.
 
-Tem de configurar os seguintes procedimentos da mesma forma em ambos os servidores:
+É necessário configurar as seguintes coisas da mesma forma em ambos os servidores:
 
-* Ligação para as mesmo florestas
-* Qualquer domínio e, em seguida, a filtragem de UO
-* As mesmas funcionalidades opcionais, como a sincronização de palavra-passe e a repetição de escrita de palavra-passe
+* Ligação às mesmas florestas
+* Qualquer domínio e filtragem de OU
+* As mesmas funcionalidades opcionais, tais como sincronização de palavras-passe e redação de palavras-passe
 
-**Mover as regras de sincronização personalizados**  
-Para mover as regras de sincronização personalizado, faça o seguinte:
+**Mover regras de sincronização personalizada**  
+Para mover regras de sincronização personalizadas, faça o seguinte:
 
-1. Open **Editor de regras de sincronização** no seu servidor ativo.
-2. Selecione uma regra personalizada. Clique em **exportar**. Isso exibirá uma janela do bloco de notas. Guarde o ficheiro temporário com uma extensão de PS1. Desta forma, um script do PowerShell. Copie o arquivo PS1 para o servidor de preparação.  
-   ![Exportação de regra de sincronização](./media/how-to-upgrade-previous-version/exportrule.png)
-3. O GUID de conector é diferente no servidor de preparação e deve alterá-la. Para obter o GUID, inicie **Editor de regras de sincronização**, selecione uma das regras de out-of-box que representam o mesmo sistema ligado e clique em **exportar**. Substitua o GUID em seu arquivo PS1 o GUID do servidor de teste.
-4. Na linha de comandos do PowerShell, execute o ficheiro PS1. Esta ação cria a regra de sincronização personalizado no servidor de preparação.
-5. Repetir isso para todas as suas regras personalizadas.
+1. Open **Synchronization Rules Editor** no seu servidor ativo.
+2. Selecione uma regra personalizada. Clique em **Exportar**. Isto traz uma janela de bloco de notas. Guarde o ficheiro temporário com uma extensão PS1. Isto faz dele um guião powerShell. Copie o ficheiro PS1 para o servidor de encenação.  
+   ![Exportação de regras de sincronização](./media/how-to-upgrade-previous-version/exportrule.png)
+3. O Connector GUID é diferente no servidor de encenação, e deve alterá-lo. Para obter o GUID, inicie o Editor de Regras de **Sincronização,** selecione uma das regras fora da caixa que representam o mesmo sistema conectado, e clique em **Exportar**. Substitua o GUID no seu ficheiro PS1 pelo GUID do servidor de encenação.
+4. Num pedido powerShell, execute o ficheiro PS1. Isto cria a regra de sincronização personalizada no servidor de encenação.
+5. Repita isto para todas as suas regras personalizadas.
 
-## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Como diferir a sincronização completa depois da atualização
-Durante a atualização no local, pode haver alterações introduzidas que necessitam de atividades de sincronização específica (incluindo o passo de importação completa e o passo de sincronização completa) a ser executado. Por exemplo, exigem alterações de esquema do conector **importação completa** requerem alterações de regra de sincronização do passo e out-of-box **completa sincronização** passo a ser executado em conectores afetados. Durante a atualização, o Azure AD Connect determina as atividades de sincronização são necessárias e regista-los como *substitui*. No ciclo de sincronização seguinte, o agendador de sincronização são recolhidos por estas substituições e os executa. Depois de uma substituição é executada com êxito, este é removido.
+## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Como adiar a sincronização completa após a atualização
+Durante a atualização no local, pode haver alterações que exijam atividades específicas de sincronização (incluindo o passo de importação completa e o passo de sincronização completa) a serem executadas. Por exemplo, as alterações do esquema do conector requerem alterações **completas** das regras de sincronização dos passos de importação e da regra de sincronização fora da caixa requerem que o passo completo de **sincronização** seja executado nos conectores afetados. Durante a atualização, o Azure AD Connect determina quais as atividades de sincronização necessárias e regista-as como *sobreposições*. No ciclo de sincronização seguinte, o programador de sincronização capta estas sobreposições e executa-as. Uma vez executada uma sobreposição com sucesso, é removida.
 
-Poderão existir situações onde não pretenda estas substituições para ter lugar imediatamente após a atualização. Por exemplo, tem vários objetos sincronizados e gostaria de ter estes passos de sincronização para ocorrer após o horário comercial. Para remover estas substituições:
+Pode haver situações em que não quer que estas substituições ocorram imediatamente após a atualização. Por exemplo, você tem inúmeros objetos sincronizados e você gostaria que estes passos de sincronização ocorram após o horário comercial. Para remover estas substituições:
 
-1. Durante a actualização **desmarque** a opção **iniciar o processo de sincronização quando tiver concluído a configuração**. Isso desativa o agendador de sincronização e impede o ciclo de sincronização ocorra automaticamente antes das substituições são removidas.
+1. Durante a atualização, **desfaça** a opção Iniciar o processo de **sincronização quando a configuração estiver concluída**. Isto desativa o programador de sincronização e impede que o ciclo de sincronização ocorra automaticamente antes de as substituições serem removidas.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Desativação de sincronização](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. Depois de concluída a atualização, execute o cmdlet seguinte para saber quais substituições foram adicionadas: `Get-ADSyncSchedulerConnectorOverride | fl`
+2. Após a atualização concluída, execute o seguinte cmdlet para saber quais as substituições adicionadas:`Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
-   > As substituições são específicas do conector. No exemplo a seguir, o passo de importação completa e o passo de sincronização completa foram adicionados para no local conector AD e o conector do Azure AD.
+   > As sobreposições são específicas do conector. No exemplo seguinte, o passo completo da importação e o passo de sincronização completa foram adicionados tanto ao Conector AD no local como ao Conector Azure AD.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync02.png)
+   ![Desativação de sincronização](./media/how-to-upgrade-previous-version/disablefullsync02.png)
 
-3. Aponte as substituições existentes que foram adicionadas.
+3. Note as sobreposições existentes que foram adicionadas.
    
-4. Para remover as substituições para importação completa e uma sincronização completa num conector arbitrário, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Para remover as sobreposições para importação completa e sincronização completa num conector arbitrário, executar o seguinte cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
-   Para remover as substituições em todos os conectores, execute o seguinte script do PowerShell:
+   Para remover as sobreposições em todos os conectores, execute o seguinte script PowerShell:
 
    ```
    foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
@@ -128,23 +128,23 @@ Poderão existir situações onde não pretenda estas substituições para ter l
    }
    ```
 
-5. Para retomar o scheduler, execute o seguinte cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Para retomar o programador, executar o seguinte cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Lembre-se executar os passos de sincronização necessário o quanto. Manualmente pode executar estes passos com o Synchronization Service Manager ou adicionar que as substituições fazer uma cópia com o cmdlet Set-ADSyncSchedulerConnectorOverride.
+   > Lembre-se de executar os passos de sincronização necessários o mais rápido possível. Pode executar manualmente estes passos utilizando o Gestor de Serviço de Sincronização ou adicionar as substituições utilizando o cmdlet Set-ADSyncSchedulerConnectorOverride.
 
-Para adicionar as substituições para importação completa e sincronização completa de um conector arbitrário, execute o seguinte cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Para adicionar as sobreposições tanto para a importação completa como para a sincronização completa num conector arbitrário, executar o seguinte cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-A secção seguinte contém informações que pode utilizar se ocorrer um problema ao atualizar o Azure AD Connect e resolução de problemas.
+A secção seguinte contém resolução de problemas e informações que pode utilizar se encontrar um problema de atualização do Azure AD Connect.
 
-### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Atualizar o erro do Azure Active Directory connector em falta durante o Azure AD Connect
+### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Erro perdido do conector ativo azure durante a atualização do Azure AD Connect
 
-Ao atualizar o Azure AD Connect de uma versão anterior, o que pode usar o erro no início da atualização do seguinte 
+Ao atualizar o Azure AD Connect de uma versão anterior, poderá atingir o seguinte erro no início da atualização 
 
 ![Erro](./media/how-to-upgrade-previous-version/error1.png)
 
-Este erro ocorre porque o conector Azure Active Directory com o identificador, b891884f-051e-4a83-95af - 2544101c 9083, não existe na configuração atual do Azure AD Connect. Para verificar se que esse for o caso, abra uma janela do PowerShell, execute o Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+Este erro ocorre porque o conector Azure Ative Diretório com identificador, b891884f-051e-4a83-95af-2544101c9083, não existe na configuração atual do Azure AD Connect. Para verificar se este é o caso, abra uma janela PowerShell, executar Cmdlet`Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
@@ -159,13 +159,13 @@ At line:1 char:1
 
 ```
 
-O Cmdlet do PowerShell reporta o erro **não foi possível encontrar o MA especificado**.
+O PowerShell Cmdlet relata o erro que **o MA especificado não pôde encontrar.**
 
-O motivo que isso ocorre é que a configuração atual do Azure AD Connect não é suportada para atualização. 
+A razão pela qual isto ocorre é porque a configuração atual do Azure AD Connect não é suportada para atualização. 
 
-Se pretender instalar uma versão mais recente do Azure AD Connect: fechar o Assistente do Azure AD Connect, desinstale o existente do Azure AD Connect e executar uma instalação limpa do Azure AD Connect com a mais recente.
+Se pretender instalar uma versão mais recente do Azure AD Connect: feche o assistente Azure AD Connect, desinstale o Azure AD Connect existente e efetue uma instalação limpa do mais recente Azure AD Connect.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [integrar as identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre [a integração das suas identidades no local com o Diretório Ativo Azure.](whatis-hybrid-identity.md)

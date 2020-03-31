@@ -1,6 +1,6 @@
 ---
-title: Filtrar atividade no Azure Data Factory
-description: A atividade de filtro filtra as entradas.
+title: Atividade de filtro na Fábrica de Dados Azure
+description: A atividade do Filtro filtra as inputs.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679864"
 ---
-# <a name="filter-activity-in-azure-data-factory"></a>Filtrar atividade no Azure Data Factory
-Você pode usar uma atividade de filtro em um pipeline para aplicar uma expressão de filtro a uma matriz de entrada. 
+# <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro na Fábrica de Dados Azure
+Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão de filtro a uma matriz de entrada. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -34,18 +34,18 @@ Você pode usar uma atividade de filtro em um pipeline para aplicar uma express�
 }
 ```
 
-## <a name="type-properties"></a>Propriedades do tipo
+## <a name="type-properties"></a>Propriedades de tipo
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade de `Filter`. | String | Sim
-tipo | Deve ser definido como **filtro**. | String | Sim
-problema | Condição a ser usada para filtrar a entrada. | Expressão | Sim
-los | Matriz de entrada na qual o filtro deve ser aplicado. | Expressão | Sim
+nome | Nome da `Filter` atividade. | Cadeia | Sim
+tipo | Deve ser programado para **filtrar**. | Cadeia | Sim
+condição | Condição a utilizar para filtrar a entrada. | Expressão | Sim
+itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expressão | Sim
 
 ## <a name="example"></a>Exemplo
 
-Neste exemplo, o pipeline tem duas atividades: **Filter** e **foreach**. A atividade de filtro está configurada para filtrar a matriz de entrada para itens com um valor maior que 3. Em seguida, a atividade ForEach itera sobre os valores filtrados e define o **teste** de variável para o valor atual.
+Neste exemplo, o gasoduto tem duas atividades: **Filtro** e **ForEach**. A atividade do Filtro está configurada para filtrar a matriz de entrada para itens com um valor superior a 3. A atividade ForEach então itera sobre os valores filtrados e define o **teste** variável para o valor atual.
 
 ```json
 {
@@ -112,12 +112,12 @@ Neste exemplo, o pipeline tem duas atividades: **Filter** e **foreach**. A ativi
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
+Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
-- [Para cada atividade](control-flow-for-each-activity.md)
+- [Para Cada Atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

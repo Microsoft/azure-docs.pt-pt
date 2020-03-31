@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do controlo de acesso no Data Lake Storage Gen1 | Documentos da Microsoft
-description: Compreender como funciona o controlo de acesso na geração 1 de armazenamento do Azure Data Lake
+title: Visão geral do controlo de acessos em Data Lake Storage Gen1 [ Microsoft Docs
+description: Entenda como funciona o controlo de acesso sintetizar em Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260335"
 ---
-# <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
+# <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso no Azure Data Lake Storage Gen1
 
-Geração de armazenamento 1 do Azure Data Lake implementa um modelo de controle de acesso que deriva do HDFS, que por sua vez deriva de modelo de controlo de acesso POSIX. Este artigo resume as noções básicas do modelo de controle de acesso para a geração 1 de armazenamento do Data Lake. 
+O Azure Data Lake Storage Gen1 implementa um modelo de controlo de acesso que deriva do HDFS, que por sua vez deriva do modelo de controlo de acesso POSIX. Este artigo resume os fundamentos do modelo de controlo de acesso para Data Lake Storage Gen1. 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Listas de controlo de acesso em ficheiros e pastas
 
@@ -47,9 +47,9 @@ As permissões num objeto do sistema de ficheiros são **Leitura**, **Escrita** 
 
 |            |    Ficheiro     |   Pasta |
 |------------|-------------|----------|
-| **Leitura (R)** | Pode editar o conteúdo de um ficheiro | Requer **Leitura** e **Execução** para listar os conteúdos da pasta|
+| **Leitura (R)** | Pode editar o conteúdo de um ficheiro | Requer **ler** e **executar** para listar o conteúdo da pasta|
 | **Escrita (W)** | Pode escrever ou acrescentar a um ficheiro | Requer **Escrita** e **Execução** para criar itens subordinados numa pasta |
-| **Execução (X)** | Não tem qualquer significado no contexto de geração 1 de armazenamento do Data Lake | É necessário para atravessar os itens subordinados de uma pasta |
+| **Execução (X)** | Não significa nada no contexto do Data Lake Storage Gen1 | É necessário para atravessar os itens subordinados de uma pasta |
 
 ### <a name="short-forms-for-permissions"></a>Formatos curtos para as permissões
 
@@ -65,21 +65,21 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 
 ### <a name="permissions-do-not-inherit"></a>As permissões não são herdadas
 
-No modelo de estilo POSIX utilizado pelo Data Lake Storage Gen1, as permissões para um item são armazenadas no próprio item. Por outras palavras, as permissões para um item não podem ser herdadas dos itens principais.
+No modelo estilo POSIX que é usado pela Data Lake Storage Gen1, as permissões para um item são armazenadas no próprio item. Por outras palavras, as permissões para um item não podem ser herdadas dos itens principais.
 
 ## <a name="common-scenarios-related-to-permissions"></a>Cenários comuns relacionados com as permissões
 
-Seguem-se alguns cenários comuns para ajudar a compreender que permissões são necessárias para executar determinadas operações numa conta de geração 1 de armazenamento do Data Lake.
+Seguem-se alguns cenários comuns para o ajudar a compreender quais as permissões necessárias para realizar determinadas operações numa conta de Data Lake Storage Gen1.
 
-| Operação | Object              |    /      | Seattle /   | Portland /   | Data.txt       |
+| Operação | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Leitura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Apêndice para | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Eliminar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Criar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Lista      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Lista      | /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Lista      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -98,11 +98,11 @@ Todos os ficheiros e pastas têm permissões diferentes para estas identidades:
 * Grupos nomeados
 * Todos os outros utilizadores
 
-As identidades dos utilizadores e grupos são identidades do Azure Active Directory (Azure AD). Portanto, salvo indicação em contrário, um "utilizador", no contexto de geração 1 de armazenamento do Data Lake, pode significar um utilizador ou um grupo de segurança do Azure AD.
+As identidades dos utilizadores e grupos são identidades do Azure Active Directory (Azure AD). Assim, salvo indicação em contrário, um "utilizador", no contexto do Data Lake Storage Gen1, pode significar um utilizador da AD Azure ou um grupo de segurança Azure AD.
 
 ### <a name="the-super-user"></a>O superutilizador
 
-Um Superutilizador tem mais direitos entre todos os utilizadores na conta de geração 1 de armazenamento do Data Lake. O superutilizador:
+Um super-utilizador tem o maior número de direitos de todos os utilizadores na conta Data Lake Storage Gen1. O superutilizador:
 
 * Tem permissões de RWX para **todos** os ficheiros e pastas.
 * Pode alterar as permissões em qualquer ficheiro ou pasta.
@@ -124,15 +124,15 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 
 ### <a name="the-owning-group"></a>O grupo proprietário
 
-**Fundo**
+**Segundo plano**
 
 Nas ACLs POSIX, cada utilizador está associado um "grupo principal". Por exemplo, o utilizador "alice" poderá pertencer ao grupo "finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
-Como não há nenhum "grupo principal" associado a utilizadores na geração 1 de armazenamento do Data Lake, o grupo proprietário é atribuído como abaixo.
+Como não existe um "grupo primário" associado aos utilizadores na Data Lake Storage Gen1, o grupo próprio é atribuído como abaixo.
 
 **Atribuir o grupo próprio para um novo ficheiro ou pasta**
 
-* **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
+* **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta Gen1 de Armazenamento de Data Lake. Neste caso, o grupo próprio está definido para um GUIA zero.  Este valor não permite qualquer acesso.  É um espaço reservado até que um grupo seja atribuído.
 * **Caso 2** (todos os outros casos): quando é criado um item novo, o grupo proprietário é copiado da pasta principal.
 
 **Mudar o grupo próprio**
@@ -144,12 +144,12 @@ O grupo proprietário pode ser alterado por:
 > [!NOTE]
 > O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.
 >
-> Para contas criadas em ou antes de setembro de 2018, o grupo próprio foi definido para o utilizador que criou a conta no caso da pasta raiz para o **Caso 1**, acima.  Uma única conta de utilizador não é válida para fornecer permissões através do grupo proprietário, portanto, não existem permissões são concedidas por esta predefinição. Pode atribuir esta permissão a um grupo de utilizador válido.
+> Para contas criadas em ou antes de setembro de 2018, o grupo próprio foi definido para o utilizador que criou a conta no caso da pasta raiz para o **Caso 1**, acima.  Uma única conta de utilizador não é válida para fornecer permissões através do grupo próprio, pelo que não são concedidas permissões por esta definição predefinida. Pode atribuir esta permissão a um grupo de utilizadores válido.
 
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
 
-O pseudocódigo seguinte representa o algoritmo de verificação de acesso para contas de geração 1 de armazenamento do Data Lake.
+O pseudocódigo seguinte representa o algoritmo de verificação de acesso para contas gen1 de armazenamento de data lake.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -197,17 +197,17 @@ def access_check( user, desired_perms, path ) :
 Como ilustrado no Algoritmo de Verificação de Acesso, a máscara limita o acesso aos **utilizadores nomeados**, o **grupo próprio**, e **grupos nomeados.**  
 
 > [!NOTE]
-> Para uma nova conta de geração 1 de armazenamento do Data Lake, a máscara da ACL de acesso da pasta raiz ("/") está predefinida como RWX.
+> Para uma nova conta Data Lake Storage Gen1, a máscara para o Access ACL da pasta raiz ("/") falha no RWX.
 >
 >
 
 ### <a name="the-sticky-bit"></a>O sticky bit
 
-O sticky bit é uma funcionalidade mais avançada de um sistema de ficheiros POSIX. No contexto de geração 1 de armazenamento do Data Lake, é improvável que o sticky bit seja necessário. Em resumo, se o sticky bit estiver habilitado numa pasta, um item subordinado só pode ser eliminado ou renomeado pelo utilizador de proprietário do item subordinado.
+O sticky bit é uma funcionalidade mais avançada de um sistema de ficheiros POSIX. No contexto do Data Lake Storage Gen1, é improvável que a parte pegajosa seja necessária. Em resumo, se a broca pegajosa estiver ativada numa pasta, um item infantil só pode ser eliminado ou renomeado pelo utilizador do item da criança.
 
 O sticky bit não é apresentado no portal do Azure.
 
-## <a name="default-permissions-on-new-files-and-folders"></a>Permissões padrão em novos ficheiros e pastas
+## <a name="default-permissions-on-new-files-and-folders"></a>Permissões predefinidas em novos ficheiros e pastas
 
 Quando um novo ficheiro ou pasta são criados numa pasta existente, a ACL Predefinida na pasta principal determina:
 
@@ -216,19 +216,19 @@ Quando um novo ficheiro ou pasta são criados numa pasta existente, a ACL Predef
 
 ### <a name="umask"></a>umask
 
-Ao criar um ficheiro ou pasta, a umask é utilizada para modificar a forma como as ACLs padrão são definidas no item subordinado. umask é um valor de 9 bits nas pastas-mãe que contém um valor RWX para **o utilizador próprio,** **o grupo de possuir,** e **outros**.
+Ao criar um ficheiro ou pasta, o umask é utilizado para modificar a forma como os ACLs predefinidos são definidos no item da criança. umask é um valor de 9 bits nas pastas-mãe que contém um valor RWX para **o utilizador próprio,** **o grupo de possuir,** e **outros**.
 
-O umask para Azure Data Lake Storage Gen1 é um valor constante definido para 007. Este valor se traduz em
+O umask para Azure Data Lake Storage Gen1 é um valor constante definido para 007. Este valor traduz-se em
 
-| componente de umask     | Formato numérico | Formato curto | Significado |
+| componente umask     | Formato numérico | Formato curto | Significado |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   `---`      | Para o utilizador proprietário, copie a ACL predefinida da principal para a ACL de acesso do menor | 
-| umask.owning_group  |    0         |   `---`      | Para o grupo proprietário, copie a ACL predefinida da principal para a ACL de acesso do menor | 
-| umask.other         |    7         |   `RWX`      | Para outros, remover todas as permissões na ACL de acesso do menor |
+| umask.owning_user   |    0         |   `---`      | Para possuir o utilizador, copie o ACL padrão dos pais para o Access ACL da criança | 
+| umask.owning_group  |    0         |   `---`      | Para possuir grupo, copie o ACL padrão dos pais para o Access ACL da criança | 
+| umask.outros         |    7         |   `RWX`      | Para outros, remova todas as permissões no Access ACL da criança |
 
-O valor de umask utilizado pelo Gen1 de armazenamento do Azure Data Lake com eficiência significa que o valor para outros nunca é transmitido por predefinição em novos filhos - independentemente do que indica a ACL predefinida. 
+O valor umask usado pelo Azure Data Lake Storage Gen1 significa efetivamente que o valor para outros nunca é transmitido por padrão em novas crianças - independentemente do que o Padrão ACL indica. 
 
-O pseudocódigo a seguir mostra como é que a umask é aplicada ao criar as ACLs para um item subordinado.
+O pseudocódigo seguinte mostra como o umask é aplicado ao criar os ACLs para um item infantil.
 
 ```
 def set_default_acls_for_new_child(parent, child):
@@ -246,11 +246,11 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Perguntas comuns sobre as ACLs no Data Lake Storage Gen1
+## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Perguntas comuns sobre ACLs em Data Lake Storage Gen1
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário ativar o suporte para as ACLs?
 
-Não. Controlo de acesso através das ACLs está sempre ativado para uma conta de geração 1 de armazenamento do Data Lake.
+Não. O controlo de acesso via ACLs está sempre ligado para uma conta Gen1 de Armazenamento de Data Lake.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Que permissões são necessárias para eliminar recursivamente uma pasta e o respetivo conteúdo?
 
@@ -258,7 +258,7 @@ Não. Controlo de acesso através das ACLs está sempre ativado para uma conta d
 * A pasta a eliminar, e cada pasta dentro da mesma, requer as permissões de **Leitura + Escrita + Execução**.
 
 > [!NOTE]
-> Não precisa das permissões de Escrita para eliminar ficheiros em pastas. Além disso, a pasta raiz "/" **nunca** pode ser eliminada.
+> Não precisa das permissões de Escrita para eliminar ficheiros em pastas. Além disso, a pasta de raiz "/" **nunca** pode ser eliminada.
 >
 >
 
@@ -282,7 +282,7 @@ As entradas nas ACLs são armazenadas como GUIDs que correspondem aos utilizador
 
 Quando um utilizador deixa de existir no Azure AD, é apresentado um GUID. Normalmente, isto acontece quando o utilizador já não está na empresa ou se a conta dele tiver sido eliminada no Azure AD.
 
-### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Geração 1 de armazenamento do Data Lake suporta a herança de ACLs?
+### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1 suporta a herança de ACLs?
 
 Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para ficheiros e pastas subordinados criados recentemente na pasta principal.  
 
@@ -295,7 +295,7 @@ Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para fiche
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL: using access control lists on Linux (ACL: utilizar listas de controlo de acesso no Linux)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Consulte também
 

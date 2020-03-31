@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool
-description: Esta página descreve como gerenciar o espaço de arquivo com bancos de dados individuais e em pool no banco de dados SQL do Azure e fornece exemplos de código para determinar se você precisa reduzir um banco de dados único ou em pool, além de como executar uma operação de redução de banco de dados.
+title: Gestão de ficheiros de ficheiros de bases de dados individuais/agritadas
+description: Esta página descreve como gerir o espaço de ficheiros com bases de dados únicas e agrofadas na Base de Dados Azure SQL, e fornece amostras de código para determinar se precisa de encolher uma única ou uma base de dados agrofada, bem como como executar uma operação de redução de base de dados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,22 +12,22 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74420977"
 ---
-# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no banco de dados SQL do Azure
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerir espaço de arquivo para bases de dados individuais e agrumos na Base de Dados Azure SQL
 
-Este artigo descreve os diferentes tipos de espaço de armazenamento para bancos de dados individuais e em pool no banco de dados SQL do Azure e as etapas que podem ser executadas quando o espaço de arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado explicitamente.
+Este artigo descreve diferentes tipos de espaço de armazenamento para bases de dados individuais e agréns em Bases de Dados Azure SQL, e passos que podem ser dados quando o espaço de ficheiros atribuído a bases de dados e piscinas elásticas precisa de ser explicitamente gerido.
 
 > [!NOTE]
-> Este artigo não se aplica à opção de implantação de instância gerenciada no banco de dados SQL do Azure.
+> Este artigo não se aplica à opção de implantação de instâncias geridas na Base de Dados Azure SQL.
 
 ## <a name="overview"></a>Descrição geral
 
-Com bancos de dados únicos e em pool no Azure SQL Database, há padrões de carga de trabalho em que a alocação de arquivos subjacentes para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usadas. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. O motivo é que o espaço de arquivo alocado não é recuperado automaticamente quando os dados são excluídos.
+Com bases de dados únicas e agr0nadas na Base de Dados Azure SQL, existem padrões de carga de trabalho em que a atribuição de ficheiros de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados usadas. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. A razão é porque o espaço de ficheiro atribuído não é automaticamente recuperado quando os dados são eliminados.
 
 Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encolher os ficheiros de dados poderá ser necessário:
 
@@ -35,47 +35,47 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 - Permita a diminuição do tamanho máximo de uma base de dados individual ou de um conjunto elástico.
 - Permita a alteração de uma base de dados individual ou de um conjunto elástico para outro escalão de serviço ou escalão de desempenho com um tamanho máximo mais baixo.
 
-### <a name="monitoring-file-space-usage"></a>Uso do espaço de arquivo de monitoramento
+### <a name="monitoring-file-space-usage"></a>Monitorização do uso do espaço de ficheiros
 
-A maioria das métricas de espaço de armazenamento exibidas no portal do Azure e as seguintes APIs medem apenas o tamanho das páginas de dados usadas:
+A maioria das métricas do espaço de armazenamento apresentadas no portal Azure e as seguintes APIs apenas medem o tamanho das páginas de dados usadas:
 
-- APIs de métricas baseadas em Azure Resource Manager, incluindo o PowerShell [Get-métricas](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Métricas baseadas em Recursos Azure, incluindo [métricas de get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) PowerShell
+- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bancos de dados e pools elásticos:
+No entanto, as seguintes APIs também medem a dimensão do espaço atribuído às bases de dados e aos pools elásticos:
 
-- T-SQL: [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-### <a name="shrinking-data-files"></a>Reduzindo arquivos de dados
+### <a name="shrinking-data-files"></a>Redução dos ficheiros de dados
 
-O serviço do banco de dados SQL não reduz automaticamente os arquivos para recuperar o espaço alocado não utilizado devido ao impacto potencial no desempenho do banco de dado.  No entanto, os clientes podem reduzir os arquivos de dados por meio de autoatendimento em um determinado momento de sua escolha seguindo as etapas descritas em [recuperar espaço alocado não utilizado](#reclaim-unused-allocated-space).
+O serviço SQL Database não encolhe automaticamente os ficheiros de dados para recuperar o espaço atribuído não utilizado devido ao impacto potencial no desempenho da base de dados.  No entanto, os clientes podem reduzir os ficheiros de dados através do self-service no momento da sua escolha, seguindo os passos descritos na [recuperação](#reclaim-unused-allocated-space)do espaço atribuído não utilizado .
 
 > [!NOTE]
-> Ao contrário dos arquivos de dados, o serviço de banco de dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dado.
+> Ao contrário dos ficheiros de dados, o serviço SQL Database encolhe automaticamente os ficheiros de registo, uma vez que essa operação não afeta o desempenho da base de dados.
 
-## <a name="understanding-types-of-storage-space-for-a-database"></a>Noções básicas sobre tipos de espaço de armazenamento para um banco de dados
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Compreender tipos de espaço de armazenamento para uma base de dados
 
-Compreender as quantidades de espaço de armazenamento a seguir é importante para gerenciar o espaço de arquivo de um banco de dados.
+Compreender as seguintes quantidades de espaço de armazenamento são importantes para gerir o espaço de arquivo de uma base de dados.
 
-|Quantidade de banco de dados|Definição|Comentários|
+|Quantidade de base de dados|Definição|Comentários|
 |---|---|---|
-|**Espaço de dados usado**|A quantidade de espaço usada para armazenar dados de banco de dado em páginas de 8 KB.|Geralmente, o espaço usado aumenta (diminui) em inserções (exclusões). Em alguns casos, o espaço usado não é alterado em inserções ou exclusões, dependendo da quantidade e do padrão de dados envolvidos na operação e em qualquer fragmentação. Por exemplo, a exclusão de uma linha de cada página de dados não diminui necessariamente o espaço usado.|
-|**Espaço de dados alocado**|A quantidade de espaço em arquivo formatado disponibilizada para armazenar dados de banco de dados.|A quantidade de espaço alocado aumenta automaticamente, mas nunca diminui após as exclusões. Esse comportamento garante que as inserções futuras sejam mais rápidas, pois o espaço não precisa ser reformatado.|
-|**Espaço de dados alocado, mas não usado**|A diferença entre a quantidade de espaço de dados alocada e o espaço de dados usado.|Essa quantidade representa a quantidade máxima de espaço livre que pode ser recuperada por meio da redução de arquivos de dados de banco de dado.|
-|**Tamanho máximo de dados**|A quantidade máxima de espaço que pode ser usada para armazenar dados de banco de dados.|A quantidade de espaço de dados alocado não pode crescer além do tamanho máximo dos dados.|
+|**Espaço de dados utilizado**|A quantidade de espaço usado para armazenar dados de base de dados em 8 páginas KB.|Geralmente, o espaço utilizado aumenta (diminui) nas inserções (elimina). Em alguns casos, o espaço utilizado não muda em inserções ou elimina dependendo da quantidade e padrão dos dados envolvidos na operação e de qualquer fragmentação. Por exemplo, apagar uma linha de cada página de dados não diminui necessariamente o espaço utilizado.|
+|**Espaço de dados atribuído**|A quantidade de espaço de ficheiro sintetizada disponibilizado para armazenar dados da base de dados.|A quantidade de espaço atribuído cresce automaticamente, mas nunca diminui após a eliminação. Este comportamento garante que as futuras inserções são mais rápidas, uma vez que o espaço não precisa de ser reformado.|
+|**Espaço de dados alocado, mas não utilizado**|A diferença entre a quantidade de espaço de dados atribuído e o espaço de dados utilizado.|Esta quantidade representa a quantidade máxima de espaço livre que pode ser recuperada através da redução dos ficheiros de dados da base de dados.|
+|**Tamanho máximo de dados**|A quantidade máxima de espaço que pode ser usada para armazenar dados de base de dados.|A quantidade de espaço de dados atribuído não pode crescer para além do tamanho máximo de dados.|
 
-O diagrama a seguir ilustra a relação entre os diferentes tipos de espaço de armazenamento para um banco de dados.
+O diagrama que se segue ilustra a relação entre os diferentes tipos de espaço de armazenamento para uma base de dados.
 
-![tipos e relações de espaço de armazenamento](./media/sql-database-file-space-management/storage-types.png)
+![tipos de espaço de armazenamento e relacionamentos](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-single-database-for-storage-space-information"></a>Consultar um único banco de dados para obter informações de espaço de armazenamento
+## <a name="query-a-single-database-for-storage-space-information"></a>Consulta de uma única base de dados para informações do espaço de armazenamento
 
-As consultas a seguir podem ser usadas para determinar as quantidades de espaço de armazenamento para um único banco de dados.  
+As seguintes consultas podem ser utilizadas para determinar as quantidades espaciais de armazenamento para uma única base de dados.  
 
-### <a name="database-data-space-used"></a>Espaço de dados usado
+### <a name="database-data-space-used"></a>Espaço de dados de base de dados utilizado
 
-Modifique a consulta a seguir para retornar a quantidade de espaço de dados de banco de dado usada.  As unidades do resultado da consulta estão em MB.
+Modifique a seguinte consulta para devolver a quantidade de espaço de dados de base de dados utilizado.  As unidades do resultado da consulta estão em MB.
 
 ```sql
 -- Connect to master
@@ -86,9 +86,9 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados alocados e espaço alocado não utilizado
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de base de dados atribuído e espaço atribuído não utilizado
 
-Use a consulta a seguir para retornar a quantidade de espaço de dados alocada e a quantidade de espaço não utilizado alocada.  As unidades do resultado da consulta estão em MB.
+Utilize a seguinte consulta para devolver a quantidade de espaço de dados atribuído e a quantidade de espaço não utilizado atribuído.  As unidades do resultado da consulta estão em MB.
 
 ```sql
 -- Connect to database
@@ -100,9 +100,9 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
 
-### <a name="database-data-max-size"></a>Tamanho máximo de dados do banco
+### <a name="database-data-max-size"></a>Tamanho máximo de dados de dados de base de dados
 
-Modifique a consulta a seguir para retornar o tamanho máximo dos dados do banco.  As unidades do resultado da consulta estão em bytes.
+Modifique a seguinte consulta para devolver o tamanho máximo dos dados da base de dados.  As unidades do resultado da consulta estão em bytes.
 
 ```sql
 -- Connect to database
@@ -110,24 +110,24 @@ Modifique a consulta a seguir para retornar o tamanho máximo dos dados do banco
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
-## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Noções básicas sobre tipos de espaço de armazenamento para um pool elástico
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Compreender tipos de espaço de armazenamento para uma piscina elástica
 
-Compreender as quantidades de espaço de armazenamento a seguir é importante para gerenciar o espaço de arquivo de um pool elástico.
+Compreender as seguintes quantidades de espaço de armazenamento são importantes para gerir o espaço de arquivo de uma piscina elástica.
 
-|Quantidade do pool elástico|Definição|Comentários|
+|Quantidade elástica da piscina|Definição|Comentários|
 |---|---|---|
-|**Espaço de dados usado**|A soma do espaço de dados usado por todos os bancos de dado no pool elástico.||
-|**Espaço de dados alocado**|A soma do espaço de dados alocada por todos os bancos de dado no pool elástico.||
-|**Espaço de dados alocado, mas não usado**|A diferença entre a quantidade de espaço de dados alocada e o espaço de dados usados por todos os bancos de dado no pool elástico.|Essa quantidade representa a quantidade máxima de espaço alocada para o pool elástico que pode ser recuperada por meio da redução de arquivos de dados de banco de dado.|
-|**Tamanho máximo de dados**|A quantidade máxima de espaço de dados que pode ser usada pelo pool elástico para todos os seus bancos.|O espaço alocado para o pool elástico não deve exceder o tamanho máximo do pool elástico.  Se essa condição ocorrer, o espaço alocado que não é usado pode ser recuperado pela redução dos arquivos de dados do banco de dados.|
+|**Espaço de dados utilizado**|A soma do espaço de dados utilizado por todas as bases de dados da piscina elástica.||
+|**Espaço de dados atribuído**|A soma do espaço de dados atribuído por todas as bases de dados do conjunto elástico.||
+|**Espaço de dados alocado, mas não utilizado**|A diferença entre a quantidade de espaço de dados atribuído e o espaço de dados utilizado por todas as bases de dados do pool elástico.|Esta quantidade representa a quantidade máxima de espaço atribuído ao conjunto elástico que pode ser recuperado através da redução dos ficheiros de dados da base de dados.|
+|**Tamanho máximo de dados**|A quantidade máxima de espaço de dados que pode ser utilizado pelo conjunto elástico para todas as suas bases de dados.|O espaço atribuído à piscina elástica não deve exceder o tamanho máximo da piscina elástica.  Se esta condição ocorrer, então o espaço atribuído que não é utilizado pode ser recuperado através da redução dos ficheiros de dados da base de dados.|
 
-## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar um pool elástico para obter informações de espaço de armazenamento
+## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consulta de uma piscina elástica para informações do espaço de armazenamento
 
-As consultas a seguir podem ser usadas para determinar as quantidades de espaço de armazenamento para um pool elástico.  
+As seguintes consultas podem ser usadas para determinar as quantidades espaciais de armazenamento para uma piscina elástica.  
 
-### <a name="elastic-pool-data-space-used"></a>Espaço de dados do pool elástico usado
+### <a name="elastic-pool-data-space-used"></a>Espaço de dados de piscina elástica usado
 
-Modifique a consulta a seguir para retornar a quantidade de espaço de dados do pool elástico usado.  As unidades do resultado da consulta estão em MB.
+Modifique a seguinte consulta para devolver a quantidade de espaço de dados elástico utilizado.  As unidades do resultado da consulta estão em MB.
 
 ```sql
 -- Connect to master
@@ -138,16 +138,16 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados do pool elástico alocado e espaço alocado não utilizado
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de piscina elástica atribuído e espaço atribuído não utilizado
 
-Modifique os exemplos a seguir para retornar uma tabela que lista o espaço alocado e o espaço alocado não utilizado para cada banco de dados em um pool elástico. A tabela ordena os bancos de dados desses bancos de dados com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  As unidades do resultado da consulta estão em MB.  
+Modifique os seguintes exemplos para devolver uma tabela com o espaço atribuído e o espaço atribuído não utilizado para cada base de dados numa piscina elástica. A tabela encomenda bases de dados dessas bases de dados com a maior quantidade de espaço atribuído não utilizado para a menor quantidade de espaço atribuído não utilizado.  As unidades do resultado da consulta estão em MB.  
 
-Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser adicionados juntos para determinar o espaço total alocado para o pool elástico. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
+Os resultados da consulta para determinar o espaço atribuído para cada base de dados da piscina podem ser adicionados em conjunto para determinar o espaço total atribuído para a piscina elástica. O espaço elástico da piscina atribuído não deve exceder o tamanho máximo da piscina elástica.  
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+> O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-O script do PowerShell requer SQL Server PowerShell módulo – consulte [baixar o módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
+O script PowerShell requer módulo PowerShell do Servidor SQL – consulte [o módulo Descarregamento PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -180,13 +180,13 @@ Write-Output "`n" "ElasticPoolName: $poolName"
 Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocatedUnusedInMB -Descending | Format-Table
 ```
 
-A captura de tela a seguir é um exemplo da saída do script:
+A seguinte imagem é um exemplo da saída do script:
 
-![exemplo de espaço alocado do pool elástico e espaço alocado não utilizado](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
+![piscina elástica espaço atribuído e espaço não utilizado alocada exemplo](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-data-max-size"></a>Tamanho máximo de dados do pool elástico
+### <a name="elastic-pool-data-max-size"></a>Dados da piscina elástica tamanho máximo
 
-Modifique a seguinte consulta T-SQL para retornar o tamanho máximo de dados do pool elástico.  As unidades do resultado da consulta estão em MB.
+Modifique a seguinte consulta T-SQL para devolver o tamanho máximo dos dados da piscina elástica.  As unidades do resultado da consulta estão em MB.
 
 ```sql
 -- Connect to master
@@ -197,46 +197,46 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-## <a name="reclaim-unused-allocated-space"></a>Recuperar espaço alocado não utilizado
+## <a name="reclaim-unused-allocated-space"></a>Recuperar espaço atribuído não utilizado
 
 > [!NOTE]
-> Esse comando pode afetar o desempenho do banco de dados enquanto está em execução e, se possível, deve ser executado durante períodos de pouco uso.
+> Este comando pode impactar o desempenho da base de dados durante o seu funcionamento, e se possível deve ser executado durante períodos de baixa utilização.
 
-### <a name="dbcc-shrink"></a>DBCC Shrink
+### <a name="dbcc-shrink"></a>Psiquiatra dBCC
 
-Depois que os bancos de dados tiverem sido identificados para recuperar espaço alocado não utilizado, modifique o nome do banco de dados no comando a seguir para reduzir os arquivos de dado de cada um.
+Uma vez identificadas bases de dados para recuperar espaço atribuído não utilizado, modifique o nome da base de dados no seguinte comando para reduzir os ficheiros de dados de cada base de dados.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
-Esse comando pode afetar o desempenho do banco de dados enquanto está em execução e, se possível, deve ser executado durante períodos de pouco uso.  
+Este comando pode impactar o desempenho da base de dados durante o seu funcionamento, e se possível deve ser executado durante períodos de baixa utilização.  
 
-Para obter mais informações sobre esse comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Para mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
-### <a name="auto-shrink"></a>Redução automática
+### <a name="auto-shrink"></a>Auto-psiquiatra
 
-Como alternativa, a redução automática pode ser habilitada para um banco de dados.  A redução automática reduz a complexidade do gerenciamento de arquivos e tem menos impacto no desempenho do banco de dados do que `SHRINKDATABASE` ou `SHRINKFILE`.  A redução automática pode ser particularmente útil para gerenciar pools elásticos com muitos bancos de dados.  No entanto, a redução automática pode ser menos eficaz na recuperação do espaço de arquivo do que `SHRINKDATABASE` e `SHRINKFILE`.
-Para habilitar a redução automática, modifique o nome do banco de dados no comando a seguir.
+Em alternativa, o encolhimento automático pode ser ativado para uma base de dados.  O encolher de automóveis reduz a complexidade da `SHRINKDATABASE` gestão de ficheiros e é menos impactante para o desempenho da base de dados do que ou `SHRINKFILE`.  O encolhimento automático pode ser particularmente útil para a gestão de piscinas elásticas com muitas bases de dados.  No entanto, o encolhimento automático pode `SHRINKDATABASE` `SHRINKFILE`ser menos eficaz na recuperação do espaço dos ficheiros do que .
+Para ativar o encolhimento automático, modifique o nome da base de dados no seguinte comando.
 
 ```sql
 -- Enable auto-shrink for the database.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Para obter mais informações sobre esse comando, consulte [Database Set](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) Options.
+Para mais informações sobre este comando, consulte as opções [de DEFINIÇÃO DE BASE DE DADOS.](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
 
-### <a name="rebuild-indexes"></a>Recompilar índices
+### <a name="rebuild-indexes"></a>Índices de reconstrução
 
-Depois que os arquivos de dados do banco são reduzidos, os índices podem se tornar fragmentados e perder a eficácia da otimização do desempenho. Se a degradação do desempenho ocorrer, considere a recriação de índices de banco de dados. Para obter mais informações sobre fragmentação e recriação de índices, consulte [reorganizar e recompilar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Após a recolha de ficheiros de dados de bases de dados, os índices podem fragmentar-se e perder a sua eficácia de otimização de desempenho. Se ocorrer uma degradação do desempenho, considere a reconstrução dos índices de base de dados. Para obter mais informações sobre índices de fragmentação e reconstrução, consulte [Reorganizar e Reconstruir Índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre tamanhos máximos de banco de dados, consulte:
-  - [Limites do modelo de compra baseado em vCore do banco de dados SQL do Azure para um banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
-  - [Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
-  - [Limites do modelo de compra baseado em vCore do banco de dados SQL do Azure para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
-  - [Recursos limites para pools elásticos usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Para obter mais informações sobre o comando `SHRINKDATABASE`, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
-- Para obter mais informações sobre fragmentação e recriação de índices, consulte [reorganizar e recompilar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+- Para obter informações sobre tamanhos máximos de base de dados, consulte:
+  - [Limites do modelo de compra baseado em Azure SQL base de dados vCore para uma única base de dados](sql-database-vcore-resource-limits-single-databases.md)
+  - [Limites de recursos para bases de dados únicas utilizando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
+  - [Azure SQL Base de Dados vCore limites de modelos de compra baseados em piscinas elásticas](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limites de recursos para piscinas elásticas utilizando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Para mais informações sobre o `SHRINKDATABASE` comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+- Para obter mais informações sobre índices de fragmentação e reconstrução, consulte [Reorganizar e Reconstruir Índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

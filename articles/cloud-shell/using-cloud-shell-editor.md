@@ -1,6 +1,6 @@
 ---
-title: Com o editor do Azure Cloud Shell | Documentos da Microsoft
-description: Descrição geral de como usar o editor de Azure Cloud Shell.
+title: Usando o editor azure Cloud Shell [ Microsoft Docs
+description: Visão geral de como usar o editor azure Cloud Shell.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60199235"
 ---
-# <a name="using-the-azure-cloud-shell-editor"></a>Com o editor do Azure Cloud Shell
+# <a name="using-the-azure-cloud-shell-editor"></a>Usando o editor Azure Cloud Shell
 
-O Azure Cloud Shell inclui um editor de integrada de arquivos criado a partir de código aberto [Monaco Editor](https://github.com/Microsoft/monaco-editor). O editor do Cloud Shell oferece suporte a recursos como o realce de linguagem, a paleta de comandos e um Gerenciador de arquivos.
+A Azure Cloud Shell inclui um editor de ficheiros integrado construído a partir do Editor do [Mónaco](https://github.com/Microsoft/monaco-editor)de código aberto. O editor do Cloud Shell suporta funcionalidades como o realce da linguagem, a paleta de comandos e um explorador de ficheiros.
 
-![Editor do cloud Shell](media/using-cloud-shell-editor/open-editor.png)
+![Editor da Cloud Shell](media/using-cloud-shell-editor/open-editor.png)
 
-## <a name="opening-the-editor"></a>Ao abrir o editor
+## <a name="opening-the-editor"></a>Abrir o editor
 
-Para a criação do arquivo simples e a edição, iniciar o editor ao executar `code .` no terminal Cloud Shell. Esta ação abre o editor com o active directory de trabalho definido no terminal.
+Para criação e edição de ficheiros simples, inicie o editor ao executar `code .` no terminal do Cloud Shell. Esta ação abre o editor com o diretório de trabalho ativo definido no terminal.
 
-Para abrir diretamente um arquivo para edição rápida, execute `code <filename>` para abrir o editor sem o Explorador de ficheiros.
+Para abrir diretamente um ficheiro para edição rápida, execute `code <filename>` para abrir o editor sem o explorador de ficheiros.
 
-Para abrir o editor através do botão de interface do Usuário, clique o `{}` editor ícone da barra de ferramentas. Esta ação irá abrir o editor e predefinido do Explorador de ficheiros para o `/home/<user>` diretório.
+Para abrir o editor através do botão da IU, clique no ícone do editor `{}` a partir da barra de ferramentas. Isto irá abrir o editor e predefinir o explorador de ficheiros no diretório `/home/<user>`.
 
 ## <a name="closing-the-editor"></a>Fechar o editor
 
-Para fechar o editor, abra a `...` painel de ação no canto superior direito do editor e selecione `Close editor`.
+Para fechar o editor, abra o `...` painel de ação `Close editor`no canto superior direito do editor e selecione .
 
-![Feche o editor](media/using-cloud-shell-editor/close-editor.png)
+![Editor próximo](media/using-cloud-shell-editor/close-editor.png)
 
-## <a name="command-palette"></a>Paleta de comandos
+## <a name="command-palette"></a>Paleta de comando
 
-Para iniciar a paleta de comandos, utilize o `F1` quando o foco está definido no editor da chave. Abrir a paleta de comandos também pode ser feito por meio do painel de ação.
+Para lançar a paleta `F1` de comando, utilize a tecla quando o foco estiver definido no editor. A abertura da paleta de comando também pode ser feita através do painel de ação.
 
-![Cmd paleta](media/using-cloud-shell-editor/cmd-palette.png)
+![Paleta cmd](media/using-cloud-shell-editor/cmd-palette.png)
 
-## <a name="contributing-to-the-monaco-editor"></a>Contribuir para o Editor Monaco
+## <a name="contributing-to-the-monaco-editor"></a>Contribuindo para o Editor do Mónaco
 
-O suporte de realce de linguagem no editor do Cloud Shell é suportado por meio da funcionalidade a montante no [Monaco Editor](https://github.com/Microsoft/monaco-editor)utilização de definições de sintaxe Monarch. Para saber como fazer contribuições, leia os [Guia do contribuinte Mónaco](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
+O suporte de destaque da linguagem no editor da Cloud Shell é suportado através da funcionalidade a montante no uso do Editor do [Mónaco](https://github.com/Microsoft/monaco-editor)das definições de sintaxe da Monarch. Para aprender a fazer contribuições, leia o guia de contribuição do [Mónaco.](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md)
 
-## <a name="next-steps"></a>Passos Seguintes
-[Experimente o início rápido para o Bash no Cloud Shell](quickstart.md)
-[ver a lista completa de ferramentas integradas do Cloud Shell](features.md)
+## <a name="next-steps"></a>Passos seguintes
+[Experimente o quickstart para Bash in Cloud Shell](quickstart.md)
+[Veja a lista completa de ferramentas integradas](features.md) cloud Shell

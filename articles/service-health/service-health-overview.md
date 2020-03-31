@@ -1,13 +1,13 @@
 ---
-title: Visão geral da Saúde do Serviço  Microsoft Docs
+title: Visão geral da Saúde do Serviço [ Microsoft Docs
 description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas e manutenção de serviços atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898447"
 ---
 # <a name="service-health-overview"></a>Visão geral da Saúde do Serviço
@@ -54,7 +54,7 @@ Suporte de contato se o seu recurso for deixado em mau estado mesmo após a reso
 
 ## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Coloque um mapa de saúde personalizado no seu painel de instrumentos
 
-Serviço de Filtro Saúde para mostrar as suas assinaturas, regiões e tipos de recursos críticos do negócio. Guarde o filtro e coloque um mapa do mundo da saúde personalizado no seu portal dashboard. 
+Serviço de Filtro Saúde para mostrar as suas assinaturas, regiões e tipos de recursos críticos do negócio. Guarde o filtro e afixe um mapa global de estado de funcionamento personalizado ao dashboard do portal. 
 
 ![Filtrar mapa de saúde personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
 

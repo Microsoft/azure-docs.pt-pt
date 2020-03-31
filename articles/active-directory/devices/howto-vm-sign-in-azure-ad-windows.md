@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080082"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050068"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inscreva-se na máquina virtual do Windows em Azure utilizando a autenticação do Diretório Ativo Azure (Pré-visualização)
 
@@ -97,11 +97,11 @@ Para criar um Windows Server 2019 Datacenter VM em Azure com logon Azure AD:
 
 ### <a name="using-the-azure-cloud-shell-experience-to-enable-azure-ad-login"></a>Utilizando a experiência Azure Cloud Shell para permitir o login da AD Azure
 
-O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Basta selecionar o botão Copiar para copiar o código, colar na Cloud Shell e, em seguida, premir Enter para executá-lo. Existem algumas formas de abrir o Cloud Shell:
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Basta selecionar o botão Copiar para copiar o código, colá-lo no Cloud Shell e, em seguida, premir Enter para executá-lo. Existem algumas formas de abrir o Cloud Shell:
 
-Selecione Tente no canto superior direito de um bloco de código.
+Selecione Experimentar no canto superior direito de um bloco de código.
 Abrir o Cloud Shell no seu browser.
-Selecione o botão Cloud Shell no menu no canto superior direito do [portal Azure](https://portal.azure.com).
+Selecione o botão Cloud Shell no menu, no canto superior direito do [portal do Azure](https://portal.azure.com).
 
 Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.31 ou posterior. Execute az --version para localizar a versão. Se precisar de instalar ou atualizar, consulte o artigo [Instale o Azure CLI](/cli/azure/install-azure-cli).
 
@@ -141,7 +141,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-A `provisioningState` de `Succeeded` é mostrada, uma vez instalada a extensão no VM.
+O `provisioningState` `Succeeded` de si é mostrado, uma vez instalada a extensão no VM.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de funções para o VM
 
@@ -177,7 +177,7 @@ Após alguns momentos, o diretor de segurança é designado o papel no âmbito s
 
 O exemplo seguinte utiliza a [atribuição de funções az para](/cli/azure/role/assignment#az-role-assignment-create) atribuir a função de Login do Administrador de Máquina Virtual ao VM para o seu utilizador atual Do IA. O nome de utilizador da sua conta Ative Azure é obtido com [a conta az show](/cli/azure/account#az-account-show), e o âmbito é definido para o VM criado em um passo anterior com [az vm show](/cli/azure/vm#az-vm-show). O âmbito também pode ser atribuído a um grupo de recursos ou a nível de subscrição, e aplicam-se permissões normais de herança RBAC. Para mais informações, consulte [Controlos de Acesso baseados em funções](../../virtual-machines/linux/login-using-aad.md).
 
-```   zureCLI
+```   AzureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -188,7 +188,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se o seu domínio AAD e o seu domínio de nome de utilizador de logon não corresponderem, deve especificar o ID do objeto da sua conta de utilizador com o `--assignee-object-id`, e não apenas o nome de utilizador para `--assignee`. Pode obter o ID do objeto para a sua conta de utilizador com [a lista de utilizadores az ad](/cli/azure/ad/user#az-ad-user-list).
+> Se o seu domínio AAD e o seu domínio de nome de utilizador `--assignee-object-id`de logon não `--assignee`corresponderem, deve especificar o ID do objeto da sua conta de utilizador com o , e não apenas o nome de utilizador para . Pode obter o ID do objeto para a sua conta de utilizador com [a lista de utilizadores az ad](/cli/azure/ad/user#az-ad-user-list).
 
 Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos seus recursos de subscrição do Azure, consulte os seguintes artigos:
 
@@ -243,21 +243,21 @@ A extensão AADLoginForWindows deve instalar com sucesso para que o VM complete 
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Ficha de acesso válida emitida pelo Azure Ative Directory para a identidade gerida que é atribuída a este VM |
 
    > [!NOTE]
-   > O token de acesso pode ser descodificado utilizando uma ferramenta como [http://calebb.net/](http://calebb.net/). Verifique se o "apendicido" no token de acesso corresponde à identidade gerida atribuída ao VM.
+   > O token de acesso pode ser [http://calebb.net/](http://calebb.net/)descodificado utilizando uma ferramenta como . Verifique se o "apendicido" no token de acesso corresponde à identidade gerida atribuída ao VM.
 
 1. Certifique-se de que os pontos finais necessários estão acessíveis a partir do VM utilizando a linha de comando:
    
    - curl https:\//login.microsoftonline.com/ -D –
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
+   - curl https:\/`<TenantID>`/login.microsoftonline.com/ / -D –
 
    > [!NOTE]
-   > Substitua `<TenantID>` pelo ID do Inquilino Azure AD que está associado à subscrição do Azure.
+   > Substitua `<TenantID>` pelo ID do Inquilino Azure AD que está associado à subscrição azure.
 
    - curl https:\//enterpriseregistration.windows.net/ -D -
    - curl https:\//device.login.microsoftonline.com/ -D -
    - curl https:\//pas.windows.net/ -D -
 
-1. O Estado do Dispositivo pode ser visto executando `dsregcmd /status`. O objetivo é que o Estado do Dispositivo apareça como `AzureAdJoined : YES`.
+1. O Estado do Dispositivo `dsregcmd /status`pode ser visto executando . O objetivo é que o `AzureAdJoined : YES`Estado do Dispositivo mostre como .
 
    > [!NOTE]
    > A atividade de adesão do Azure AD é capturada no espectador do Evento sob o registo de registo de dispositivos de utilizador\Admin.
@@ -272,32 +272,32 @@ Este código de saída traduz-se em DSREG_E_MSI_TENANTID_UNAVAILABLE porque a ex
 
    - RDP para o VM como administrador local e verificar se o ponto final devolve id de inquilino válido executando este comando a partir de uma linha de comando elevada no VM:
       
-      - caracóis -H Metadados:verdadeiros http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - curl -H Metadados:verdadeirohttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. O administrador vM tenta instalar a extensão AADLoginForWindows, mas um sistema de identidade gerida não permitiu primeiro o VM. Navegue para a lâmina de identidade do VM. A partir do separador designado pelo Sistema, verifique se o Estado está alternado para On.
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Número 2: A extensão AADLoginForWindows falha na instalação com código de saída: -2145648607
 
-Este código de saída traduz-se em DSREG_AUTOJOIN_DISC_FAILED porque a extensão não é capaz de atingir o ponto final https://enterpriseregistration.windows.net.
+Este código de saída traduz-se em DSREG_AUTOJOIN_DISC_FAILED `https://enterpriseregistration.windows.net` porque a extensão não é capaz de chegar ao ponto final.
 
 1. Verifique se os pontos finais necessários estão acessíveis a partir do VM utilizando a linha de comando:
 
    - curl https:\//login.microsoftonline.com/ -D –
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
+   - curl https:\/`<TenantID>`/login.microsoftonline.com/ / -D –
    
    > [!NOTE]
-   > Substitua `<TenantID>` pelo ID do Inquilino Azure AD que está associado à subscrição do Azure. Se precisar de encontrar o ID do inquilino, pode pairar sobre o nome da sua conta para obter o ID de diretório/inquilino, ou selecionar Azure Ative Directory > Properties > Diretório ID no portal Azure.
+   > Substitua `<TenantID>` pelo ID do Inquilino Azure AD que está associado à subscrição azure. Se precisar de encontrar o ID do inquilino, pode pairar sobre o nome da sua conta para obter o ID de diretório/inquilino, ou selecionar O Diretório Ativo da Azure > Propriedades > Id diretório no portal Azure.
 
    - curl https:\//enterpriseregistration.windows.net/ -D -
    - curl https:\//device.login.microsoftonline.com/ -D -
    - curl https:\//pas.windows.net/ -D -
 
-1. Se algum dos comandos falhar com "Não consegui resolver o hospedeiro `<URL>`", tente executar este comando para determinar o servidor DNS que está a ser utilizado pelo VM.
+1. Se algum dos comandos falhar com "Não consegui resolver o hospedeiro", `<URL>`tente executar este comando para determinar o servidor DNS que está a ser utilizado pelo VM.
    
    `nslookup <URL>`
 
    > [!NOTE] 
-   > Substitua `<URL>` pelos nomes de domínio totalmente qualificados utilizados pelos pontos finais, tais como "login.microsoftonline.com".
+   > Substitua-a `<URL>` pelos nomes de domínio totalmente qualificados utilizados pelos pontos finais, tais como "login.microsoftonline.com".
 
 1. Em seguida, veja se a especificação de um servidor Público DNS permite que o comando tenha sucesso:
 
@@ -315,7 +315,7 @@ Na Pré-visualização pública, a extensão AADLoginForWindows destina-se apena
 
 Alguns erros comuns quando se tenta rdp com credenciais De AD Azure incluem nenhuma função RBAC atribuída, cliente não autorizado ou método de login 2FA necessário. Utilize as seguintes informações para corrigir estas questões.
 
-O Dispositivo e o Estado SSO podem ser vistos executando `dsregcmd /status`. O objetivo é que o Estado dispositivo mostre como `AzureAdJoined : YES` e `SSO State` mostrar `AzureAdPrt : YES`.
+O Dispositivo e o Estado SSO podem ser vistos executando `dsregcmd /status`. O objetivo é que o `AzureAdJoined : YES` `SSO State` Estado `AzureAdPrt : YES`dispositivo mostre como e para mostrar.
 
 Além disso, o Log-in RDP utilizando contas Azure AD é capturado no espectador de eventos sob os registos de eventos AAD\Operational.
 
@@ -359,7 +359,7 @@ Se ainda não implementou o Windows Hello for Business e se isso não for uma op
 > [!NOTE]
 > O Windows Hello for Business PIN autenticação com RDP foi suportado pelo Windows 10 para várias versões, no entanto foi adicionado suporte para autenticação biométrica com RDP na versão 1809 do Windows 10. A utilização do Windows Hello for Business auth durante o RDP só está disponível para implementações que utilizem o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
  
-## <a name="preview-feedback"></a>Feedback de pré-visualização
+## <a name="preview-feedback"></a>Comentários sobre a pré-visualização
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou reporte problemas que o utilizam no fórum de [feedback da AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 

@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77167031"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos Windows - CMD e PowerShell
 
 Esta secção inclui comandos de exemplo para realizar tarefas comuns em cenários onde poderá ser necessário utilizar o SAC para aceder ao seu Windows VM, como quando precisa de resolver falhas de ligação RDP.
 
-O SAC foi incluído em todas as versões do Windows desde o Windows Server 2003, mas está desativado por padrão. A SAC conta com o `sacdrv.sys` condutor de kernel, o serviço `Special Administration Console Helper` (`sacsvr`) e o processo `sacsess.exe`. Para mais informações, consulte [ferramentas e configurações dos Serviços de Gestão de Emergência.](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10))
+O SAC foi incluído em todas as versões do Windows desde o Windows Server 2003, mas está desativado por padrão. A SAC conta `sacdrv.sys` com o `Special Administration Console Helper` condutor`sacsvr`do núcleo, o serviço e o `sacsess.exe` processo. Para mais informações, consulte [ferramentas e configurações dos Serviços de Gestão de Emergência.](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10))
 
-O SAC permite-lhe ligar-se ao seu SISTEMA de funcionamento através de uma porta de série. Quando lança o CMD a partir da SAC, `sacsess.exe` lança `cmd.exe` dentro do seu sistema operativo operativo. Pode supor isso no Task Manager se rdP para o seu VM ao mesmo tempo que estiver ligado ao SAC através da funcionalidade de consola em série. O CMD a que acede através do SAC é o mesmo `cmd.exe` que utiliza quando ligado via RDP. Todos os mesmos comandos e ferramentas estão disponíveis, incluindo a capacidade de lançar powerShell a partir dessa instância CMD. Esta é uma grande diferença entre o SAC e o Windows Recovery Environment (WinRE) na qual o SAC está a permitir-lhe gerir o seu sistema operativo operativo, onde o WinRE entra num SISTEMA diferente e mínimo. Embora os VMs Azure não suportem a capacidade de aceder ao WinRE, com a funcionalidade de consola em série, os VMs Azure podem ser geridos via SAC.
+O SAC permite-lhe ligar-se ao seu SISTEMA de funcionamento através de uma porta de série. Quando lança cmd a `sacsess.exe` partir `cmd.exe` da SAC, lança-se dentro do seu sistema operativo operativo. Pode supor isso no Task Manager se rdP para o seu VM ao mesmo tempo que estiver ligado ao SAC através da funcionalidade de consola em série. O CMD a que acede `cmd.exe` através do SAC é o mesmo que se utiliza quando ligado via RDP. Todos os mesmos comandos e ferramentas estão disponíveis, incluindo a capacidade de lançar powerShell a partir dessa instância CMD. Esta é uma grande diferença entre o SAC e o Windows Recovery Environment (WinRE) na qual o SAC está a permitir-lhe gerir o seu sistema operativo operativo, onde o WinRE entra num SISTEMA diferente e mínimo. Embora os VMs Azure não suportem a capacidade de aceder ao WinRE, com a funcionalidade de consola em série, os VMs Azure podem ser geridos via SAC.
 
-Como o SAC está limitado a um tampão de ecrã 80x24 sem deslocação para trás, adicione `| more` aos comandos para exibir a saída uma página de cada vez. Use `<spacebar>` para ver a página seguinte, ou `<enter>` para ver a próxima linha.
+Como o SAC está limitado a um tampão de `| more` ecrã 80x24 sem deslocação para trás, adicione aos comandos para exibir a saída uma página de cada vez. Use `<spacebar>` para ver a `<enter>` página seguinte, ou para ver a próxima linha.
 
-`SHIFT+INSERT` é o atalho da pasta para a janela da consola em série.
+`SHIFT+INSERT`é o atalho da pasta para a janela da consola em série.
 
 Devido ao tampão de ecrã limitado da SAC, comandos mais longos podem ser mais fáceis de escrever num editor de texto local e depois colados no SAC.
 
@@ -62,7 +62,7 @@ Um espaço é necessário após o sinal igual.
 ### <a name="set-service-start-type"></a>Definir tipo de início de serviço
 `sc config termservice start= demand`
 
-Um espaço é necessário após o sinal igual. Os possíveis valores de início incluem `boot`, `system`, `auto`, `demand`, `disabled`, `delayed-auto`.
+Um espaço é necessário após o sinal igual. Os possíveis `boot` `system`valores de início incluem, `auto`, , `demand`. `disabled` `delayed-auto`
 ### <a name="set-service-dependencies"></a>Definir dependências de serviço
 `sc config termservice depend= RPCSS`
 
@@ -91,7 +91,7 @@ ou
 ### <a name="set-nic-to-use-dhcp"></a>Definir NIC para usar DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-Para mais informações sobre `netsh`, [clique aqui](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
+Para mais `netsh`informações, [clique aqui](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Os VMs Azure devem estar sempre configurados no OS de hóspedes para utilizar o DHCP para obter um endereço IP. A definição ip estática Azure ainda utiliza DHCP para dar o IP estático ao VM.
 ### <a name="ping"></a>Ping
@@ -128,7 +128,7 @@ Pode utilizar este comando quando se resolver problemas para excluir temporariam
 ### <a name="verify-user-account-is-enabled"></a>Verifique se a conta do utilizador está ativada
 `net user <username> | find /i "active"`
 
-Os VMs azure criados a partir de imagem generalizada terão a conta de administrador local renomeada para o nome especificado durante o provisionamento de VM. Portanto, normalmente não será `Administrator`.
+Os VMs azure criados a partir de imagem generalizada terão a conta de administrador local renomeada para o nome especificado durante o provisionamento de VM. Então, normalmente `Administrator`não será.
 ### <a name="enable-user-account"></a>Ativar a conta do utilizador
 `net user <username> /active:yes`
 ### <a name="view-user-account-properties"></a>Ver propriedades da conta do utilizador
@@ -154,7 +154,7 @@ Exemplo de linhas de interesse de uma conta de administração local:
 ### <a name="query-event-log-errors"></a>Erros de registo de eventos de consulta
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
-Mude `/c:10` ao número desejado de eventos para regressar, ou movê-lo para devolver todos os eventos correspondentes ao filtro.
+Mude `/c:10` para o número desejado de eventos para regressar, ou mova-o para devolver todos os eventos correspondentes ao filtro.
 ### <a name="query-event-log-by-event-id"></a>Consulta registro de evento por Id de evento
 `wevtutil qe system /c:1 /f:text /q:"Event[System[EventID=11]]" | more`
 ### <a name="query-event-log-by-event-id-and-provider"></a>Consulta registo de eventos por Id de evento e fornecedor
@@ -169,11 +169,11 @@ Use `604800000` para olhar para trás 7 dias em vez de 24 horas.
 ### <a name="list-installed-applications"></a>Lista de aplicações instaladas
 `wmic product get Name,InstallDate | sort /r | more`
 
-Os `sort /r` classifica-se por data de instalação para facilitar a ver o que foi recentemente instalado. Utilize `<spacebar>` para avançar para a próxima página de saída, ou `<enter>` para avançar uma linha.
+Os `sort /r` tipos descendentes por data de instalação para facilitar a ver o que foi recentemente instalado. Utilize `<spacebar>` para avançar para a próxima `<enter>` página de saída, ou para avançar uma linha.
 ### <a name="uninstall-an-application"></a>Desinstalar uma aplicação
 `wmic path win32_product where name="<name>" call uninstall`
 
-Substitua `<name>` pelo nome devolvido no comando acima para a aplicação que pretende remover.
+Substitua-a `<name>` pelo nome devolvido no comando acima para a aplicação que pretende remover.
 
 ## <a name="file-system-management"></a>Gestão do Sistema de Ficheiros
 ### <a name="get-file-version"></a>Obtenha versão de arquivo
@@ -195,7 +195,7 @@ Ver também [Reparar uma Imagem do Windows](https://docs.microsoft.com/windows-h
 ### <a name="restore-file-permissions-from-acl-file"></a>Restaurar permissões de ficheiros do ficheiro ACL
 `icacls %programdata%\Microsoft\Crypto\RSA /save %temp%\MachineKeys_permissions_before.aclfile /t`
 
-O caminho ao utilizar `/restore` tem de ser a pasta-mãe da pasta que especificou ao utilizar `/save`. Neste exemplo, `\RSA` é o progenitor da pasta `\MachineKeys` especificada no exemplo `/save` acima.
+O caminho `/restore` ao utilizar tem de ser a pasta-mãe da pasta que especificou ao utilizar `/save`. Neste exemplo, `\RSA` é o `\MachineKeys` progenitor da pasta `/save` especificada no exemplo acima.
 ### <a name="take-ntfs-ownership-of-a-folder"></a>Tome a propriedade ntfs de uma pasta
 `takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r`
 ### <a name="grant-ntfs-permissions-to-a-folder-recursively"></a>Conceder permissões ntfs para uma pasta de forma recursiva
@@ -203,7 +203,7 @@ O caminho ao utilizar `/restore` tem de ser a pasta-mãe da pasta que especifico
 ## <a name="manage-devices"></a>Gerir Dispositivos
 ### <a name="remove-non-present-pnp-devices"></a>Remova dispositivos PNP não presentes
 `%windir%\System32\RUNDLL32.exe %windir%\System32\pnpclean.dll,RunDLL_PnpClean /Devices /Maxclean`
-## <a name="manage-group-policy"></a>Gerir a Política de Grupo
+## <a name="manage-group-policy"></a>Gerir Política de Grupo
 ### <a name="force-group-policy-update"></a>Atualização da política do grupo de força
 `gpupdate /force /wait:-1`
 ## <a name="miscellaneous-tasks"></a>Tarefas diversas
@@ -236,7 +236,7 @@ ou
 ### <a name="restart-windows"></a>Reiniciar janelas
 `shutdown /r /t 0`
 
-Adicionar `/f` forçará as aplicações a executar sem avisar os utilizadores.
+A `/f` adição forçará o encerramento de aplicações em execução sem aviso aos utilizadores.
 ### <a name="detect-safe-mode-boot"></a>Detetar bota de modo seguro
 `bcdedit /enum | find /i "safeboot"`
 
@@ -276,15 +276,15 @@ A segunda chave (no âmbito das \Policies) só seria necessária se a definiçã
 ### <a name="view-service-details"></a>Ver detalhes do serviço
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
-`Get-Service` pode ser usado, mas não inclui a conta de logon de serviço. `Get-WmiObject win32-service` tem.
+`Get-Service`pode ser usado, mas não inclui a conta de logon de serviço. `Get-WmiObject win32-service`faz.
 ### <a name="set-service-logon-account"></a>Definir conta de logon de serviço
 `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')`
 
-Ao utilizar uma conta de serviço que não seja `NT AUTHORITY\LocalService`, `NT AUTHORITY\NetworkService`, ou `LocalSystem`, especifique a palavra-passe da conta como o último (oitavo) argumento após o nome da conta.
+Ao utilizar uma conta `NT AUTHORITY\LocalService` `NT AUTHORITY\NetworkService`de `LocalSystem`serviço que não seja , ou , especificar a palavra-passe da conta como o último (oitavo) argumento após o nome da conta.
 ### <a name="set-service-startup-type"></a>Definir tipo de arranque de serviço
 `set-service termservice -startuptype Manual`
 
-`Set-service` aceita `Automatic`, `Manual`ou `Disabled` para o tipo de arranque.
+`Set-service``Automatic`aceita, `Manual`ou `Disabled` para o tipo de arranque.
 ### <a name="set-service-dependencies"></a>Definir dependências de serviço
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Iniciar o serviço
@@ -299,7 +299,7 @@ ou
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
-`Get-NetAdapter` está disponível em 2012+, para a utilização de 2008R2 `Get-WmiObject`.
+`Get-NetAdapter`está disponível em 2012+, para utilização `Get-WmiObject`em 2008R2 .
 ### <a name="show-ip-properties"></a>Mostrar propriedades IP
 `get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'" |  format-list DNSHostName,IPAddress,DHCPEnabled,IPSubnet,DefaultIPGateway,MACAddress,DHCPServer,DNSServerSearchOrder`
 ### <a name="enable-nic"></a>Ativar nic
@@ -309,24 +309,24 @@ ou
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
-`Get-NetAdapter` está disponível em 2012+, para a utilização de 2008R2 `Get-WmiObject`.
+`Get-NetAdapter`está disponível em 2012+, para utilização `Get-WmiObject`em 2008R2 .
 ### <a name="set-nic-to-use-dhcp"></a>Definir NIC para usar DHCP
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | Set-NetIPInterface -DHCP Enabled`
 
 `(get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'").EnableDHCP()`
 
-`Get-NetAdapter` está disponível em 2012+. Para 2008R2 use `Get-WmiObject`. Os VMs Azure devem estar sempre configurados no OS de hóspedes para utilizar o DHCP para obter um endereço IP. A definição ip estática Azure ainda utiliza DHCP para dar o IP ao VM.
+`Get-NetAdapter`está disponível em 2012+. Para a utilização `Get-WmiObject`de 2008R2 . Os VMs Azure devem estar sempre configurados no OS de hóspedes para utilizar o DHCP para obter um endereço IP. A definição ip estática Azure ainda utiliza DHCP para dar o IP ao VM.
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
 > [!NOTE]
-> O cmdlet Write-Progress não pode funcionar com este comando. Como mitigação, pode executá`$ProgressPreference = "SilentlyContinue"` na PowerShell para desativar a barra de progresso.
+> O cmdlet Write-Progress não pode funcionar com este comando. Como mitigação, pode `$ProgressPreference = "SilentlyContinue"` correr na PowerShell para desativar a barra de progresso.
 
 ou
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
-`Test-Netconnection` sem parâmetros tentará `internetbeacon.msedge.net`. Está disponível em 2012+. Para 2008R2 use `Get-WmiObject` como no segundo exemplo.
+`Test-Netconnection`sem quaisquer parâmetros `internetbeacon.msedge.net`tentarão ping. Está disponível em 2012+. Para 2008R2 `Get-WmiObject` utilização como no segundo exemplo.
 ### <a name="port-ping"></a>Porto Ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
@@ -334,7 +334,7 @@ ou
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
-`Test-NetConnection` está disponível em 2012+. Para 2008R2 use `Net.Sockets.TcpClient`
+`Test-NetConnection`está disponível em 2012+. Para a utilização de 2008R2`Net.Sockets.TcpClient`
 ### <a name="test-dns-name-resolution"></a>Resolução de nome sanções dns de teste
 `resolve-dnsname bing.com`
 
@@ -342,7 +342,7 @@ ou
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
-`Resolve-DnsName` está disponível em 2012+. Para 2008R2 use `System.Net.DNS`.
+`Resolve-DnsName`está disponível em 2012+. Para a utilização `System.Net.DNS`de 2008R2 .
 ### <a name="show-windows-firewall-rule-by-name"></a>Mostrar a regra da firewall do Windows pelo nome
 `get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP`
 ### <a name="show-windows-firewall-rule-by-port"></a>Mostrar a regra da firewall do Windows por porta
@@ -352,11 +352,11 @@ ou
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
-`Get-NetFirewallPortFilter` está disponível em 2012+. Para 2008R2 utilize o `hnetcfg.fwpolicy2` objeto COM.
+`Get-NetFirewallPortFilter`está disponível em 2012+. Para 2008R2 `hnetcfg.fwpolicy2` utilize o objeto COM.
 ### <a name="disable-windows-firewall"></a>Desativar firewall windows
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
-`Set-NetFirewallProfile` está disponível em 2012+. Para 2008R2, `netsh advfirewall` conforme referido na secção CMD acima.
+`Set-NetFirewallProfile`está disponível em 2012+. Para 2008R2 `netsh advfirewall` utilize-os conforme referido na secção CMD acima.
 ## <a name="manage-users-and-groups"></a>Gerir os Utilizadores e os Grupos
 ### <a name="create-local-user-account"></a>Criar conta de utilizador local
 `new-localuser <name>`
@@ -367,13 +367,13 @@ ou
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
-`Get-LocalUser` está disponível em 2012+. Para 2008R2 use `Get-WmiObject`. Este exemplo mostra a conta de administrador local incorporada, que tem sempre SID `S-1-5-21-*-500`. Os VMs azure criados a partir de imagem generalizada terão a conta de administrador local renomeada para o nome especificado durante o provisionamento de VM. Portanto, normalmente não será `Administrator`.
+`Get-LocalUser`está disponível em 2012+. Para a utilização `Get-WmiObject`de 2008R2 . Este exemplo mostra a conta de administrador local `S-1-5-21-*-500`incorporada, que tem sempre SID . Os VMs azure criados a partir de imagem generalizada terão a conta de administrador local renomeada para o nome especificado durante o provisionamento de VM. Então, normalmente `Administrator`não será.
 ### <a name="add-local-user-to-local-group"></a>Adicione o utilizador local ao grupo local
 `add-localgroupmember -group Administrators -member <username>`
 ### <a name="enable-local-user-account"></a>Ativar a conta de utilizador local
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser`
 
-Este exemplo permite a conta de administrador local incorporada, que tem sempre sid `S-1-5-21-*-500`. Os VMs azure criados a partir de imagem generalizada terão a conta de administrador local renomeada para o nome especificado durante o provisionamento de VM. Portanto, normalmente não será `Administrator`.
+Este exemplo permite a conta de administrador local `S-1-5-21-*-500`incorporada, que tem sempre SID . Os VMs azure criados a partir de imagem generalizada terão a conta de administrador local renomeada para o nome especificado durante o provisionamento de VM. Então, normalmente `Administrator`não será.
 ### <a name="view-user-account-properties"></a>Ver propriedades da conta do utilizador
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
@@ -381,16 +381,16 @@ ou
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
-`Get-LocalUser` está disponível em 2012+. Para 2008R2 use `Get-WmiObject`. Este exemplo mostra a conta de administrador local incorporada, que tem sempre SID `S-1-5-21-*-500`.
+`Get-LocalUser`está disponível em 2012+. Para a utilização `Get-WmiObject`de 2008R2 . Este exemplo mostra a conta de administrador local `S-1-5-21-*-500`incorporada, que tem sempre SID .
 ### <a name="view-local-groups"></a>Ver grupos locais
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
-`Get-LocalUser` está disponível em 2012+. Para 2008R2 use `Get-WmiObject`.
+`Get-LocalUser`está disponível em 2012+. Para a utilização `Get-WmiObject`de 2008R2 .
 ## <a name="manage-the-windows-event-log"></a>Gerir o Registo de Eventos do Windows
 ### <a name="query-event-log-errors"></a>Erros de registo de eventos de consulta
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
-Mude `/c:10` ao número desejado de eventos para regressar, ou movê-lo para devolver todos os eventos correspondentes ao filtro.
+Mude `/c:10` para o número desejado de eventos para regressar, ou mova-o para devolver todos os eventos correspondentes ao filtro.
 ### <a name="query-event-log-by-event-id"></a>Consulta registro de evento por Id de evento
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[EventID=11]]" | more`
 ### <a name="query-event-log-by-event-id-and-provider"></a>Consulta registo de eventos por Id de evento e fornecedor
@@ -414,7 +414,7 @@ Este exemplo devolve a versão de ficheiro do controlador VIRTUAL NIC, que é ch
 ### <a name="download-and-extract-file"></a>Ficheiro de descarregamento e extrato
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
-Este exemplo cria uma pasta `c:\bin`, depois descarrega e extrai o conjunto de ferramentas Sysinternals para `c:\bin`.
+Este exemplo `c:\bin` cria uma pasta, depois descarrega e extrai o `c:\bin`conjunto de ferramentas Sysinternals para .
 ## <a name="miscellaneous-tasks"></a>Tarefas diversas
 ### <a name="show-os-version"></a>Ver versão OS
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
@@ -425,11 +425,11 @@ Este exemplo cria uma pasta `c:\bin`, depois descarrega e extrai o conjunto de f
 ### <a name="view-windows-uptime"></a>Ver o tempo de uptime do Windows
 `"{0:dd}:{0:hh}:{0:mm}:{0:ss}.{0:ff}" -f ((get-date)-(get-wmiobject win32_operatingsystem).converttodatetime((get-wmiobject win32_operatingsystem).lastbootuptime))`
 
-Regressa como `<days>:<hours>:<minutes>:<seconds>:<milliseconds>`, por exemplo, `49:16:48:00.00`.
+Retorna o `<days>:<hours>:<minutes>:<seconds>:<milliseconds>`tempo `49:16:48:00.00`de espera como, por exemplo.
 ### <a name="restart-windows"></a>Reiniciar janelas
 `restart-computer`
 
-Adicionar `-force` forçará as aplicações a executar sem avisar os utilizadores.
+A `-force` adição forçará o encerramento de aplicações em execução sem aviso aos utilizadores.
 ## <a name="instance-metadata"></a>Caso de Metadados
 
 Pode consultar metadados de instância azure dentro do seu VM Azure para visualizar detalhes como osType, Localização, vmSize, vmId, nome, recursoGroupName, subscriçãoId, privateIpAddress e publicIpAddress.

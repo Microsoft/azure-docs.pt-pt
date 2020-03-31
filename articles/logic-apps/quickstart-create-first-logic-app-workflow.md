@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
 ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77191286"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho utilizando aplicações da Azure Logic - portal Azure
@@ -44,14 +44,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | < *> de nome lógica-app* | O nome da sua aplicação lógica, que pode conter apenas letras, números, hífenes (`-`), sublinha (`_`), parênteses (`(`, `)`) e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
-   | **Subscrição** | <*Azure-subscription-name*> | O seu nome de subscrição Azure |
-   | **Grupo de recursos** | <> de nome de *grupo azure-recursos* | O nome do grupo de [recursos Azure](../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
-   | **Localização** | <> *da região de Azure* | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
+   | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que pode`-`conter apenas letras, números, hífenes ,`_`sublinha ( ), parênteses (`(`), `)`e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
+   | **Assinatura** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
+   | **Grupo de recursos** | <*Nome do grupo azure-recursos*> | O nome do grupo de [recursos Azure](../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Localização** | <*Região azul*> | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois de o Azure implementar a sua aplicação, na barra de ferramentas Azure, selecione **Notificações** > **vá recorrer para** a sua aplicação lógica implementada.
+1. Depois de o Azure implementar a sua aplicação, na barra de ferramentas Azure, selecione **Notificações** > **Para recorrer para** a sua aplicação lógica implementada.
 
    ![Ir para o recurso de aplicações lógicas recém-criadas](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -69,7 +69,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 1. No **Logic App Designer,** sob a caixa de pesquisa, selecione **All**.
 
-1. Na caixa de pesquisa, introduza `rss` para encontrar o conector RSS. A partir da lista de gatilhos, selecione o gatilho **Quando um item de alimentação é publicado.**
+1. Na caixa de `rss` pesquisa, introduza para encontrar o conector RSS. A partir da lista de gatilhos, selecione o gatilho **Quando um item de alimentação é publicado.**
 
    ![Selecione "Quando um item de alimentação for publicado"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -104,7 +104,7 @@ Adicione agora uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
 
 1. Em **'Escolha uma ação'** e a caixa de pesquisa, selecione **All**.
 
-1. Na caixa de pesquisa, introduza `send an email` para encontrar conectores que ofereçam esta ação. Na lista de ações, selecione a ação de "enviar um e-mail" para o serviço de e-mail que pretende utilizar. Este exemplo utiliza o conector Office 365 Outlook, que tem o Envio de uma ação de **e-mail.**
+1. Na caixa de `send an email` pesquisa, introduza para encontrar conectores que ofereçam esta ação. Na lista de ações, selecione a ação de "enviar um e-mail" para o serviço de e-mail que pretende utilizar. Este exemplo utiliza o conector Office 365 Outlook, que tem o Envio de uma ação de **e-mail.**
 
    ![Selecione a ação "Enviar um e-mail" para o Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -116,7 +116,7 @@ Adicione agora uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
 1. Se o seu conector de e-mail selecionado lhe pedir para autenticar a sua identidade, complete esse passo agora para criar uma ligação entre a sua aplicação lógica e o seu serviço de e-mail.
 
    > [!NOTE]
-   > Neste exemplo específico, autentica manualmente a sua identidade. No entanto, os conectores que exigem a autenticação diferem nos tipos de autenticação que suportam. Também tem opções para configurar a forma como pretende lidar com a autenticação. Por exemplo, quando utiliza modelos do Gestor de Recursos Azure para implementação, pode parametificar e melhorar a segurança nas inputs que pretende alterar com frequência ou facilmente, como informações de ligação. Para mais informações, consulte estes tópicos:
+   > Neste exemplo específico, autentica manualmente a sua identidade. No entanto, os conectores que exigem a autenticação diferem nos tipos de autenticação que suportam. Também tem opções para configurar a forma como pretende lidar com a autenticação. Por exemplo, quando utiliza modelos do Gestor de Recursos Azure para implementação, pode parametificar e melhorar a segurança nas inputs que pretende alterar com frequência ou facilmente, como informações de ligação. Para obter mais informações, veja estes tópicos:
    >
    > * [Parâmetros de modelo para implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Autorizar ligações OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
@@ -141,7 +141,7 @@ Adicione agora uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
 
       ![Relatório de e-mail terminado exemplo para título de feed adicionado](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-      Se um ciclo "For each" aparecer no estruturador, significa que selecionou token para uma matriz, como o token **categories-item**. Para estes tipos de tokens, o estruturador adiciona automaticamente este ciclo à volta da ação que faz referência a esse token. Desta forma, a aplicação lógica realiza a mesma ação em cada item da matriz. Para remover o laço, selecione as **elipses** **(...** ) na barra de título do loop e, em seguida, selecione **Delete**.
+      Se um ciclo "For each" aparecer no estruturador, significa que selecionou token para uma matriz, como o token **categories-item**. Para estes tipos de tokens, o estruturador adiciona automaticamente este ciclo à volta da ação que faz referência a esse token. Desta forma, a aplicação lógica realiza a mesma ação em cada item da matriz. Para remover o laço, selecione as **elipses** **(...**) na barra de título do loop e, em seguida, selecione **Delete**.
 
    1. Na caixa **Corpo**, introduza este texto e selecione estes tokens para o corpo da mensagem de e-mail. Para adicionar linhas em branco a uma caixa de edição, prima Shift + Enter.
 

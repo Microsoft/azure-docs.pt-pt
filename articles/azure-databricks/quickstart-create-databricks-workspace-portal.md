@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586228"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132712"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -27,7 +27,7 @@ Neste arranque rápido, você usa o portal Azure para criar um espaço de trabal
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 > [!Note]
 > Este tutorial não pode ser realizado utilizando **a assinatura de teste gratuito do Azure.**
@@ -37,27 +37,29 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
 
     ![Tijolos de dados no portal Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Tijolos de dados no portal Azure")
 
 2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
-    ![Criar um espaço de trabalho Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
+    ![Criar uma área de trabalho do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
     Forneça os seguintes valores:
     
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
-    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
-    |**Escalão de Preço**     |  Escolha entre **Standard,** **Premium**ou **Trial**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Nível de Preços**     |  Escolha entre **Standard,** **Premium**ou **Trial**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
 3. Selecione **Rever + Criar,** e depois **Criar**. A criação da área de trabalho demora alguns minutos. Durante a criação do espaço de trabalho, pode visualizar o estado de implantação em **Notificações**. Uma vez concluído este processo, a sua conta de utilizador é adicionada automaticamente como um utilizador administrativo no espaço de trabalho.
 
     ![Telha de implantação de tijolos de dados](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Telha de implantação de tijolos de dados")
+
+    Quando uma implantação do espaço de trabalho falha, o espaço de trabalho ainda é criado num estado falhado. Eliminar o espaço de trabalho falhado e criar um novo espaço de trabalho que resolva os erros de implementação. Ao eliminar o espaço de trabalho falhado, o grupo de recursos geridos e quaisquer recursos implantados com sucesso também são eliminados.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster do Spark no Databricks
 
@@ -78,7 +80,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
    * Introduza um nome para o cluster.
    * Para este artigo, crie um cluster com **5.3** tempo de execução.
-   * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+   * Certifique-se de que seleciona o **'Terminar' \_ \_ após minutos de caixa de verificação de inatividade.** Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
     
      Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
@@ -145,7 +147,7 @@ Execute as seguintes tarefas para criar um caderno em Databricks, configurar o c
     ![Personalizar gráfico de tortas](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizar gráfico de barras")
 
    * Definir **teclas** para **obter**.
-   * Definir **Valores** para **<\id>**
+   * Definir **Valores** para **<\id>**.
    * Defina **Agregação** como **CONTAGEM**.
    * Definir **o tipo de exibição** para a tabela **Pie**.
 
@@ -157,7 +159,7 @@ Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho 
 
 ![Parar um cluster de Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Parar um cluster de Databricks")
 
-Se não terminar manualmente o cluster, para automaticamente, desde que selecione o **Terminate após \_\_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se não terminar manualmente o cluster, para automaticamente, desde que selecione o **Terminate após \_ \_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

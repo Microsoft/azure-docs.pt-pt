@@ -1,61 +1,61 @@
 ---
-title: Reutilizar modelos entre nuvens
-description: Desenvolva modelos Azure Resource Manager que funcionam de forma consistente para ambientes de cloud diferentes. Criar um novo ou atualizar os modelos existentes para o Azure Stack.
+title: Modelos de reutilização através das nuvens
+description: Desenvolva modelos do Gestor de Recursos Azure que funcionam consistentemente para diferentes ambientes de nuvem. Crie novos ou atualizados modelos existentes para o Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773134"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156111"
 ---
-# <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
+# <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência da nuvem
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento para um único local são reutilizáveis em outro. Um modelo torna as suas implementações repetíveis e consistentes ambientes, incluindo o global Azure, clouds soberanas do Azure e no Azure Stack. Para reutilizar os modelos em várias clouds, no entanto, terá de considerar as dependências específicas da nuvem como este guia explica.
+Um benefício fundamental do Azure é a consistência. Os investimentos de desenvolvimento para um local são reutilizáveis noutro. Um modelo de Gestor de Recursos Azure (ARM) torna as suas implementações consistentes e repetíveis em ambientes, incluindo as nuvens soberanas azure, Azure e Azure Stack. No entanto, para reutilizar modelos através das nuvens, é necessário considerar dependências específicas da nuvem, como explica este guia.
 
-A Microsoft disponibiliza serviços cloud inteligente pronto para empresas em vários locais, incluindo:
+A Microsoft oferece serviços de nuvem inteligentes e prontos para a empresa em muitos locais, incluindo:
 
-* A plataforma do Azure global suportada por uma rede crescente de datacenters geridos pela Microsoft em regiões em todo o mundo.
-* Nuvens soberanas isoladas como Azure Alemanha, Azure governamental e Azure China 21Vianet. Clouds soberanas fornecem uma plataforma consistente com a maioria das mesmas funcionalidades fantásticas que os clientes do Azure global têm acesso a.
-* O Azure Stack, uma plataforma de cloud híbrida que lhe permite fornecer serviços do Azure entre o datacenter da sua organização. As empresas podem configurar o Azure Stack em seus próprios datacenters ou consumir serviços do Azure de fornecedores de serviços, com o Azure Stack em suas instalações (por vezes conhecidas como regiões alojados).
+* A plataforma global Azure suportada por uma rede crescente de datacenters geridos pela Microsoft em regiões de todo o mundo.
+* Nuvens soberanas isoladas como Azure Germany, Azure Government e Azure China 21Vianet. As nuvens soberanas proporcionam uma plataforma consistente com a maioria das mesmas grandes funcionalidades a que os clientes globais do Azure têm acesso.
+* Azure Stack, uma plataforma híbrida de nuvem que permite fornecer serviços Azure do datacenter da sua organização. As empresas podem criar o Azure Stack nos seus próprios centros de dados, ou consumir os Serviços Azure dos prestadores de serviços, gerindo o Azure Stack nas suas instalações (por vezes conhecidas como regiões alojadas).
 
-No núcleo do todas essas nuvens, o Azure Resource Manager fornece uma API que permite uma grande variedade de interfaces do usuário para comunicar com a plataforma do Azure. Esta API dá-lhe poderosos recursos de infraestrutura como código. Qualquer tipo de recurso que está disponível na plataforma cloud do Azure pode ser implementado e configurado com o Azure Resource Manager. Com um só modelo, pode implementar e configurar a sua aplicação completa para um Estado de funcionamento operacional final.
+No centro de todas estas nuvens, o Azure Resource Manager fornece uma API que permite uma grande variedade de interfaces de utilizador comunicar com a plataforma Azure. Esta API dá-lhe poderosas capacidades de infraestrutura como código. Qualquer tipo de recurso disponível na plataforma cloud Azure pode ser implantado e configurado com o Gestor de Recursos Azure. Com um único modelo, pode implementar e configurar a sua aplicação completa para um estado final operacional.
 
-![Ambientes do Azure](./media/templates-cloud-consistency/environments.png)
+![Ambientes azure](./media/templates-cloud-consistency/environments.png)
 
-A consistência do global Azure, clouds soberanas, hospedado nuvens e uma cloud no seu centro de dados ajuda-o a se beneficiar do Azure Resource Manager. Quando configurar a implementação de recursos baseados em modelos e a configuração, pode reutilizar seus investimentos de desenvolvimento nessas nuvens.
+A consistência do Azure global, as nuvens soberanas, as nuvens hospedadas e uma nuvem no seu datacenter ajudam-no a beneficiar do Gestor de Recursos Azure. Você pode reutilizar os seus investimentos de desenvolvimento através destas nuvens quando configurar a implementação e configuração de recursos baseados em modelos.
 
-No entanto, mesmo que o global, soberanas, hospedado e clouds híbridas fornecem serviços consistentes, nem todas as clouds são idênticas. Como resultado, pode criar um modelo com as dependências de funcionalidades disponíveis apenas numa nuvem específica.
+No entanto, embora as nuvens globais, soberanas, hospedadas e híbridas forneçam serviços consistentes, nem todas as nuvens são idênticas. Como resultado, você pode criar um modelo com dependências em funcionalidades disponíveis apenas em uma nuvem específica.
 
-O resto deste guia descreve as áreas a considerar quando planear desenvolver novos ou atualizar a modelos Azure Resource Manager existente para o Azure Stack. Em geral, a sua lista de verificação deve incluir os seguintes itens:
+O resto deste guia descreve as áreas a considerar quando planeia desenvolver novos ou atualizados modelos ARM existentes para O Stack Azure. Em geral, a sua lista de verificação deve incluir os seguintes itens:
 
-* Certifique-se de que as funções, pontos de extremidade, serviços e outros recursos no seu modelo estão disponíveis nas localizações de implementação de destino.
-* Store aninhada de modelos e artefactos de configuração em locais acessíveis, garantindo o acesso em várias clouds.
-* Utilize referências dinâmicas em vez de ligações e elementos de embutir no código.
-* Certifique-se de que os parâmetros de modelo que utilizar trabalham nas clouds do destino.
-* Certifique-se de que as propriedades de recursos específicos estão disponíveis as nuvens de destino.
+* Verifique se as funções, pontos finais, serviços e outros recursos do seu modelo estão disponíveis nos locais de implementação do alvo.
+* Guarde modelos aninhados e artefactos de configuração em locais acessíveis, garantindo o acesso através das nuvens.
+* Utilize referências dinâmicas em vez de ligações e elementos de codificação dura.
+* Certifique-se de que os parâmetros do modelo que utiliza funcionam nas nuvens-alvo.
+* Verifique se existem propriedades específicas dos recursos, as nuvens-alvo.
 
-Para obter uma introdução aos modelos do Azure Resource Manager, consulte [implementação do modelo](overview.md).
+Para uma introdução aos modelos ARM, consulte a [implementação do modelo](overview.md).
 
-## <a name="ensure-template-functions-work"></a>Certifique-se de que as funções de modelo de trabalho
+## <a name="ensure-template-functions-work"></a>Garantir o trabalho das funções do modelo
 
-A sintaxe básica de um modelo do Resource Manager é um JSON. Modelos de utilizam um superconjunto do JSON, estendendo a sintaxe com expressões e funções. O processador de linguagem de modelo é frequentemente atualizado para suportar as funções de modelo adicional. Para obter uma explicação detalhada das funções de modelo disponíveis, consulte [funções de modelo do Azure Resource Manager](template-functions.md).
+A sintaxe básica de um modelo ARM é JSON. Os modelos usam um superconjunto de JSON, estendendo a sintaxe com expressões e funções. O processador de idioma do modelo é frequentemente atualizado para suportar funções adicionais do modelo. Para uma explicação detalhada das funções do modelo disponível, consulte as [funções](template-functions.md)do modelo ARM .
 
-Novas funções de modelo que são introduzidas para o Azure Resource Manager não estão imediatamente disponíveis em clouds independentes ou no Azure Stack. Para implementar um modelo com êxito, todas as funções referenciadas no modelo tem de estar disponíveis na cloud de destino.
+As novas funções de modelo que são introduzidas no Azure Resource Manager não estão imediatamente disponíveis nas nuvens soberanas ou no Azure Stack. Para implementar um modelo com sucesso, todas as funções referenciadas no modelo devem estar disponíveis na nuvem-alvo.
 
-Capacidades do Gestor de recursos do Azure serão sempre introduzidas para o global Azure pela primeira vez. Pode utilizar o seguinte script do PowerShell para verificar se as funções de modelo recém-lançado também estão disponíveis no Azure Stack:
+As capacidades do Azure Resource Manager serão sempre introduzidas no Azure global primeiro. Pode utilizar o seguinte script PowerShell para verificar se as funções de modelo recentemente introduzidas também estão disponíveis no Azure Stack:
 
-1. Tornar um clone do repositório do GitHub: [ https://github.com/marcvaneijk/arm-template-functions ](https://github.com/marcvaneijk/arm-template-functions).
+1. Faça um clone do repositório [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)GitHub: .
 
-1. Assim que tiver um clone local do repositório, ligue para o destino do Azure Resource Manager com o PowerShell.
+1. Assim que tiver um clone local do repositório, ligue-se ao Gestor de Recursos Azure do destino com a PowerShell.
 
-1. Importe o módulo de psm1 e execute o cmdlet Test-AzureRmTemplateFunctions:
+1. Importar o módulo psm1 e executar as funções de funções test-azureRmfuns cmdlet:
 
    ```powershell
    # Import the module
@@ -65,19 +65,19 @@ Capacidades do Gestor de recursos do Azure serão sempre introduzidas para o glo
    Test-AzureRmTemplateFunctions -path <path to local clone>
    ```
 
-O script implementa vários minimizado modelos, cada um contendo as funções de modelo apenas exclusivo. A saída do script reporta as funções de modelo suportada e está indisponível.
+O script implementa modelos múltiplos e minimizados, cada um contendo apenas funções de modelo únicas. A saída do script relata as funções de modelo suportadas e indisponíveis.
 
 ## <a name="working-with-linked-artifacts"></a>Trabalhar com artefactos ligados
 
-Um modelo pode conter referências a artefactos ligados e conter um recurso de implementação que liga a outro modelo. Os modelos ligados (também conhecidos como modelo aninhado) são obtidos pelo Gestor de recursos em tempo de execução. Um modelo também pode conter referências a artefactos para extensões de máquina virtual (VM). Estes artefactos são obtidos pela extensão de VM em execução dentro de uma VM para a configuração da extensão VM durante a implementação do modelo.
+Um modelo pode conter referências a artefactos ligados e conter um recurso de implantação que se liga a outro modelo. Os modelos ligados (também referidos como modelo aninhado) são recuperados pelo Gestor de Recursos no tempo de execução. Um modelo também pode conter referências a artefactos para extensões de máquinavirtual (VM). Estes artefactos são recuperados pela extensão VM que funciona dentro do VM para configuração da extensão VM durante a implementação do modelo.
 
-As secções seguintes descrevem considerações sobre a consistência da cloud durante o desenvolvimento de modelos que incluem os artefatos que são externos ao modelo de implementação principais.
+As seguintes secções descrevem considerações para a consistência da nuvem ao desenvolver modelos que incluem artefactos externos ao modelo de implementação principal.
 
-### <a name="use-nested-templates-across-regions"></a>Utilizar modelos aninhados em várias regiões
+### <a name="use-nested-templates-across-regions"></a>Use modelos aninhados em todas as regiões
 
-Os modelos podem ser decompostos em modelos pequenos e reutilizáveis, cada um deles tem uma finalidade específica e podem ser reutilizados em cenários de implementação. Para executar uma implementação, especifique um modelo único, conhecido como modelo mestre ou principal. Especifica os recursos para implementar, como redes virtuais, VMs e aplicações web. O modelo principal também pode conter uma ligação para outro modelo, que significa que pode aninhar modelos. Da mesma forma, um modelo aninhado pode conter ligações para outros modelos. Pode aninhar até cinco níveis de profundidade.
+Os modelos podem ser decompostos em pequenos modelos reutilizáveis, cada um dos quais tem um propósito específico e pode ser reutilizado em cenários de implantação. Para executar uma implementação, especifice um único modelo conhecido como o modelo principal ou principal. Especifica os recursos para implantar, tais como redes virtuais, VMs e aplicações web. O modelo principal também pode conter uma ligação com outro modelo, o que significa que você pode nidificar modelos. Da mesma forma, um modelo aninhado pode conter ligações a outros modelos. Pode nidificar até cinco níveis de profundidade.
 
-O código seguinte mostra como o parâmetro templateLink refere-se a um modelo aninhado:
+O seguinte código mostra como o parâmetro templateLink se refere a um modelo aninhado:
 
 ```json
 "resources": [
@@ -96,17 +96,17 @@ O código seguinte mostra como o parâmetro templateLink refere-se a um modelo a
 ]
 ```
 
-O Azure Resource Manager avalia o modelo principal no tempo de execução e obtém e avalia cada modelo aninhado. Afinal de contas modelos aninhados são recuperados, o modelo foi simplificado e processamento adicional é iniciada.
+O Gestor de Recursos Azure avalia o modelo principal no tempo de execução e recupera e avalia cada modelo aninhado. Depois de todos os modelos aninhados serem recuperados, o modelo é achatado e o processamento posterior é iniciado.
 
-### <a name="make-linked-templates-accessible-across-clouds"></a>Disponibilizar modelos ligados em clouds
+### <a name="make-linked-templates-accessible-across-clouds"></a>Tornar os modelos ligados acessíveis através das nuvens
 
-Considere onde e como armazenar qualquer ligado modelos que utilizar. No tempo de execução, o Azure Resource Manager obtém — e, portanto, requer acesso direto ao — qualquer ligado modelos. Uma prática comum é utilizar o GitHub para armazenar os modelos aninhados. Um repositório do GitHub pode conter ficheiros que estão acessíveis publicamente por meio de um URL. Embora essa técnica funciona bem para a cloud pública e as clouds soberanas, um ambiente do Azure Stack pode ser localizado numa rede empresarial ou numa localização remota desligada, sem qualquer acesso à Internet de saída. Nesses casos, o Azure Resource Manager Falha ao obter os modelos aninhados.
+Considere onde e como armazenar quaisquer modelos ligados que utilizar. No tempo de execução, o Gestor de Recursos Azure requer acesso direto a quaisquer modelos ligados. Uma prática comum é usar o GitHub para armazenar os modelos aninhados. Um repositório GitHub pode conter ficheiros que são acessíveis publicamente através de um URL. Embora esta técnica funcione bem para a nuvem pública e as nuvens soberanas, um ambiente Azure Stack pode estar localizado numa rede corporativa ou numa localização remota desligada, sem qualquer acesso à Internet de saída. Nesses casos, o Gestor de Recursos Azure não recuperaria os modelos aninhados.
 
-É uma prática recomendada para implementações entre Clouds armazenar os seus modelos ligados numa localização que esteja acessível para a nuvem de destino. O ideal é que todos os artefatos de implementação são mantidos no e implementados a partir de um pipeline de desenvolvimento (CI/CD) integração contínua/contínua. Em alternativa, pode armazenar modelos aninhados num contentor de armazenamento de BLOBs, do qual o Azure Resource Manager pode recuperá-los.
+Uma melhor prática para implementações em nuvem cruzada é armazenar os seus modelos ligados num local acessível para a nuvem-alvo. Idealmente, todos os artefactos de implantação são mantidos e implantados a partir de um oleoduto de integração contínua/desenvolvimento contínuo (CI/CD). Em alternativa, pode armazenar modelos aninhados num recipiente de armazenamento de bolhas, a partir do qual o Azure Resource Manager pode recuperá-los.
 
-Uma vez que o armazenamento de BLOBs em cada nuvem utiliza um nome de domínio completamente qualificado do ponto de extremidade diferente (FQDN), configure o modelo com a localização dos modelos ligados com dois parâmetros. Parâmetros podem aceitar a entrada do usuário no momento da implementação. Modelos normalmente são criados e partilhados por várias pessoas, para que a prática recomendada é usar um nome padrão para esses parâmetros. As convenções de nomenclatura ajudam a tornar os modelos mais reutilizável em regiões, nuvens e autores.
+Uma vez que o armazenamento de bolhas em cada nuvem utiliza um nome de domínio totalmente qualificado (FQDN), configure o modelo com a localização dos modelos ligados com dois parâmetros. Os parâmetros podem aceitar a entrada do utilizador no momento da implementação. Os modelos são tipicamente da autoria e partilhados por várias pessoas, por isso a melhor prática é usar um nome padrão para estes parâmetros. As convenções de nomeação ajudam a tornar os modelos mais reutilizáveis entre regiões, nuvens e autores.
 
-No código a seguir, `_artifactsLocation` é usado para apontar para uma única localização, que contém todos os artefactos relacionados com a implementação. Tenha em atenção que é fornecido um valor predefinido. No momento da implementação, se for especificado nenhum valor de entrada para `_artifactsLocation`, é utilizado o valor predefinido. O `_artifactsLocationSasToken` é utilizado como entrada para o `sasToken`. O valor predefinido deve ser uma cadeia vazia para cenários em que o `_artifactsLocation` não está protegida — por exemplo, um repositório do GitHub público.
+No seguinte código, `_artifactsLocation` é utilizado para apontar para um único local, contendo todos os artefactos relacionados com a implantação. Note que é fornecido um valor predefinido. No momento da implantação, se não `_artifactsLocation`for especificado qualquer valor de entrada, o valor predefinido é utilizado. O `_artifactsLocationSasToken` é utilizado como `sasToken`entrada para o . O valor padrão deve ser uma corda `_artifactsLocation` vazia para cenários em que o não está seguro - por exemplo, um repositório público do GitHub.
 
 ```json
 "parameters": {
@@ -127,7 +127,7 @@ No código a seguir, `_artifactsLocation` é usado para apontar para uma única 
 }
 ```
 
-Em todo o modelo, as ligações são geradas, combinando o URI de base (da `_artifactsLocation` parâmetro) com um caminho relativo do artefacto e a `_artifactsLocationSasToken`. O código seguinte mostra como especificar a ligação para o modelo aninhado usando a função de modelo do uri:
+Ao longo do modelo, as ligações são geradas combinando a base URI (a partir do `_artifactsLocation` parâmetro) com um caminho relativo ao artefacto e o `_artifactsLocationSasToken`. O seguinte código mostra como especificar a ligação ao modelo aninhado utilizando a função do modelo uri:
 
 ```json
 "resources": [
@@ -146,11 +146,11 @@ Em todo o modelo, as ligações são geradas, combinando o URI de base (da `_art
 ]
 ```
 
-Ao utilizar esta abordagem, o valor predefinido para o `_artifactsLocation` parâmetro é utilizado. Se os modelos ligados tem de ser obtido a partir de uma localização diferente, o parâmetro de entrada pode ser utilizado no momento da implementação para substituir o valor predefinido, não é necessária nenhuma alteração para o próprio modelo.
+Ao utilizar esta abordagem, `_artifactsLocation` é utilizado o valor predefinido para o parâmetro. Se os modelos ligados precisarem de ser recuperados de um local diferente, a entrada do parâmetro pode ser usada no momento da implementação para sobrepor o valor padrão — não é necessária qualquer alteração ao próprio modelo.
 
-### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Utilizar artifactslocation em vez de codificar ligações
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Use _artifactsLocation em vez de links de codificação de difícil
 
-Além de que está a ser utilizado para modelos aninhados, o URL no `_artifactsLocation` parâmetro é utilizado como base para todos os artefactos de um modelo de implementação de relacionados. Algumas extensões VM incluem um link para um script armazenado fora do modelo. Para estas extensões, deve codificar as ligações. Por exemplo, as extensões de Script personalizado e o PowerShell DSC podem ligar a um script externo no GitHub, conforme mostrado:
+Além de ser usado para modelos `_artifactsLocation` aninhados, o URL no parâmetro é usado como base para todos os artefactos relacionados de um modelo de implantação. Algumas extensões VM incluem uma ligação a um script armazenado fora do modelo. Para estas extensões, não deve codificar duramente as ligações. Por exemplo, as extensões Custom Script e PowerShell DSC podem ligar-se a um script externo no GitHub, como mostrado:
 
 ```json
 "properties": {
@@ -166,9 +166,9 @@ Além de que está a ser utilizado para modelos aninhados, o URL no `_artifactsL
 }
 ```
 
-Codificar as ligações para o script potencialmente impede que o modelo de implementação com êxito para outra localização. Durante a configuração do recurso VM, o agente VM em execução dentro da VM inicia um download de todos os scripts ligado na extensão da VM e, em seguida, armazena os scripts no disco local da VM. Funções esta abordagem, como as ligações de modelo aninhado anteriormente explicado na seção "Utilização nested modelos em várias regiões".
+Codificar as ligações ao script potencialmente impede que o modelo se desloque com sucesso para outro local. Durante a configuração do recurso VM, o agente VM que corre dentro do VM inicia um download de todos os scripts ligados na extensão VM, e depois armazena os scripts no disco local do VM. Esta abordagem funciona como as ligações do modelo aninhado explicadas anteriormente na secção "Use modelos aninhados em todas as regiões".
 
-O Resource Manager obtém modelos aninhados em tempo de execução. Em extensões de VM, a obtenção de todos os artefactos externos é feita pelo agente de VM. Além do iniciador diferente da obtenção de artefacto, a solução na definição do modelo é o mesmo. Utilize o parâmetro de artifactslocation com um valor padrão do caminho de base onde todos os artefactos são armazenados (incluindo os scripts de extensão VM) e o `_artifactsLocationSasToken` parâmetro para a entrada para o sasToken.
+O Gestor de Recursos recupera modelos aninhados no tempo de execução. Para extensões VM, a recuperação de quaisquer artefactos externos é realizada pelo agente VM. Além do diferente iniciador da recuperação do artefacto, a solução na definição do modelo é a mesma. Utilize o parâmetro _artifactsLocation com um valor predefinido do caminho base onde todos os artefactos `_artifactsLocationSasToken` são armazenados (incluindo as scripts de extensão VM) e o parâmetro para a entrada para o sasToken.
 
 ```json
 "parameters": {
@@ -189,7 +189,7 @@ O Resource Manager obtém modelos aninhados em tempo de execução. Em extensõe
 }
 ```
 
-Para construir o URI absoluto de um artefato, o método preferencial é usar a função de modelo de uri, em vez da função de modelo de concat. Ao substituir a função de modelo de uri codificado links para os scripts na extensão VM, essa funcionalidade no modelo está configurada para manter a consistência na cloud.
+Para construir o URI absoluto de um artefacto, o método preferido é usar a função do modelo uri, em vez da função do modelo concat. Ao substituir links codificados para os scripts na extensão VM com a função do modelo uri, esta funcionalidade no modelo é configurada para a consistência da nuvem.
 
 ```json
 "properties": {
@@ -205,57 +205,57 @@ Para construir o URI absoluto de um artefato, o método preferencial é usar a f
 }
 ```
 
-Com esta abordagem, todos os artefatos de implementação, incluindo scripts de configuração, podem ser armazenados na mesma localização com o próprio modelo. Para alterar o local de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros artifactsLocation_.
+Com esta abordagem, todos os artefactos de implementação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar a localização de todos os links, basta especificar um URL de base diferente para os _parâmetros de localização_de artefactos .
 
-## <a name="factor-in-differing-regional-capabilities"></a>Considerar diferentes capacidades regionais
+## <a name="factor-in-differing-regional-capabilities"></a>Fator em diferentes capacidades regionais
 
-Com o fluxo contínuo de atualizações e novos serviços que introduziu para o Azure e o desenvolvimento ágil [regiões podem ser diferentes](https://azure.microsoft.com/regions/services/) na disponibilidade de serviços ou atualizações. Após os testes internos rigorosos, os novos serviços ou as atualizações para os serviços existentes, normalmente, são introduzidas para uma pequena audiência de clientes participando de um programa de validação. Após a validação de cliente concluída com êxito, os serviços ou as atualizações são disponibilizadas dentro de um subconjunto de regiões do Azure, em seguida, introduziu a mais regiões, implementadas em Clouds soberanas e potencialmente disponibilizadas para clientes do Azure Stack também.
+Com o desenvolvimento ágil e o fluxo contínuo de atualizações e novos serviços introduzidos no Azure, [as regiões podem diferir](https://azure.microsoft.com/regions/services/) na disponibilidade de serviços ou atualizações. Após rigorosos testes internos, novos serviços ou atualizações aos serviços existentes são geralmente introduzidos a uma pequena audiência de clientes que participam num programa de validação. Após validação bem-sucedida do cliente, os serviços ou atualizações são disponibilizados dentro de um subconjunto das regiões do Azure, depois introduzidos em mais regiões, lançados para as nuvens soberanas, e potencialmente disponibilizados para os clientes do Azure Stack também.
 
-Sabendo que regiões do Azure e clouds podem diferir em seus serviços disponíveis, pode tomar algumas decisões proativa sobre seus modelos. É um bom lugar para começar, examinando os fornecedores de recursos disponíveis para uma nuvem. Um fornecedor de recursos indica o conjunto de recursos e operações que estão disponíveis para um serviço do Azure.
+Sabendo que as regiões e nuvens de Azure podem diferir nos seus serviços disponíveis, pode tomar algumas decisões proativas sobre os seus modelos. Um bom lugar para começar é examinando os fornecedores de recursos disponíveis para uma nuvem. Um fornecedor de recursos diz-lhe o conjunto de recursos e operações que estão disponíveis para um serviço Azure.
 
-Um modelo implementa e configura os recursos. Um tipo de recurso é fornecido por um fornecedor de recursos. Por exemplo, o fornecedor de recursos de computação (Microsoft. Compute), fornece vários tipos de recursos, tais como virtualMachines e availabilitySets. Cada fornecedor de recursos fornece uma API no Azure Resource Manager definido por um contrato comuns, permitindo uma experiência de criação unificada, consistente entre todos os fornecedores de recursos. No entanto, um fornecedor de recursos que está disponível no global Azure poderá não estar disponível numa cloud soberana ou uma região do Azure Stack.
+Um modelo implanta e confunde recursos. Um tipo de recurso é fornecido por um fornecedor de recursos. Por exemplo, o fornecedor de recursos computacionais (Microsoft.Compute), fornece vários tipos de recursos, tais como máquinas virtuais e conjuntos de disponibilidade. Cada fornecedor de recursos fornece uma API ao Gestor de Recursos Azure definida por um contrato comum, permitindo uma experiência de autor consistente e unificada em todos os fornecedores de recursos. No entanto, um fornecedor de recursos que esteja disponível no Global Azure pode não estar disponível numa nuvem soberana ou numa região de Azure Stack.
 
 ![Fornecedores de recursos](./media/templates-cloud-consistency/resource-providers.png)
 
-Para verificar os fornecedores de recursos que estão disponíveis numa determinada nuvem, execute o seguinte script na interface de linha de comandos do Azure ([CLI](/cli/azure/install-azure-cli)):
+Para verificar os fornecedores de recursos que estão disponíveis numa determinada nuvem, execute o seguinte script na interface da linha de comando Azure[(CLI):](/cli/azure/install-azure-cli)
 
 ```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-Também pode utilizar o seguinte cmdlet do PowerShell para ver os fornecedores de recursos disponíveis:
+Também pode utilizar o seguinte cmdlet PowerShell para ver os fornecedores de recursos disponíveis:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
-### <a name="verify-the-version-of-all-resource-types"></a>Verificar a versão de todos os tipos de recursos
+### <a name="verify-the-version-of-all-resource-types"></a>Verifique a versão de todos os tipos de recursos
 
-Um conjunto de propriedades é comum para todos os tipos de recursos, mas cada recurso também tem suas próprias propriedades específicas. Novos recursos e as propriedades relacionadas são adicionadas aos tipos de recurso existente às vezes, por meio de uma nova versão de API. Um recurso num modelo tem sua própria propriedade da versão de API - `apiVersion`. Este controlo de versões garante que uma configuração de recursos existente num modelo não é afetada por alterações na plataforma.
+Um conjunto de propriedades é comum para todos os tipos de recursos, mas cada recurso também tem as suas próprias propriedades específicas. Novas funcionalidades e propriedades relacionadas são adicionadas aos tipos de recursos existentes às vezes através de uma nova versão API. Um recurso num modelo tem a sua `apiVersion`própria propriedade de versão API - . Esta versão garante que uma configuração de recurso existente num modelo não é afetada por alterações na plataforma.
 
-Novas versões de API que introduziu para tipos de recursos existente no global Azure talvez não seja disponíveis em todas as regiões, clouds soberanas ou do Azure Stack. Para ver uma lista dos fornecedores de recursos disponíveis, tipos de recursos e as versões de API para uma nuvem, pode utilizar o Explorador de recursos no portal do Azure. Procure o Explorador de recursos no menu de todos os serviços. Expanda o nó de fornecedores no Explorador de recursos para retornar todos os fornecedores de recursos disponíveis, seus tipos de recursos e as versões de API nessa nuvem.
+Novas versões API introduzidas aos tipos de recursos existentes no Azure global podem não estar imediatamente disponíveis em todas as regiões, nuvens soberanas ou Azure Stack. Para ver uma lista dos fornecedores de recursos disponíveis, tipos de recursos e versões API para uma nuvem, pode utilizar o Resource Explorer no portal Azure. Procure o Explorador de Recursos no menu Todos os Serviços. Expanda o nó de Fornecedores no Resource Explorer para devolver todos os fornecedores de recursos disponíveis, os seus tipos de recursos e versões API nessa nuvem.
 
-Para listar a versão de API disponível para todos os tipos de recurso numa determinada nuvem na CLI do Azure, execute o seguinte script:
+Para listar a versão API disponível para todos os tipos de recursos numa determinada nuvem em Azure CLI, executar o seguinte script:
 
 ```azurecli-interactive
 az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 ```
 
-Também pode utilizar o seguinte cmdlet do PowerShell:
+Também pode utilizar o seguinte cmdlet PowerShell:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
-### <a name="refer-to-resource-locations-with-a-parameter"></a>Fazer referência a recursos locais com um parâmetro
+### <a name="refer-to-resource-locations-with-a-parameter"></a>Consulte as localizações de recursos com um parâmetro
 
-Um modelo sempre é implementado num grupo de recursos que reside numa região. Além da implantação propriamente dita, cada recurso num modelo também tem uma propriedade de localização que utilizar para especificar a região para implementar no. Para desenvolver o seu modelo de consistência na cloud, terá de forma dinâmica para fazer referência a recursos locais, porque cada Azure Stack pode conter nomes de localização exclusivo. Normalmente, os recursos são implementados na mesma região que o grupo de recursos, mas para suportar cenários como a disponibilidade de aplicações em várias regiões, pode ser útil distribuir recursos entre regiões.
+Um modelo é sempre implantado num grupo de recursos que reside numa região. Além da implantação em si, cada recurso num modelo também tem uma propriedade de localização que você usa para especificar a região para implantar. Para desenvolver o seu modelo para a consistência da nuvem, você precisa de uma forma dinâmica de se referir a locais de recursos, porque cada Stack Azure pode conter nomes de localização únicos. Normalmente, os recursos são implantados na mesma região que o grupo de recursos, mas para apoiar cenários como a disponibilidade de candidaturas entre regiões, pode ser útil para distribuir recursos por regiões.
 
-Mesmo que podia codificar os nomes de região ao especificar as propriedades de recurso num modelo, essa abordagem não garante a que o modelo pode ser implementado a outros ambientes do Azure Stack, uma vez que o nome da região é muito provável que não existe lá.
+Mesmo que possa codificar duramente os nomes da região ao especificar as propriedades dos recursos num modelo, esta abordagem não garante que o modelo possa ser implantado para outros ambientes do Azure Stack, porque o nome da região provavelmente não existe lá.
 
-Para acomodar a regiões diferentes, adicione uma localização do parâmetro de entrada para o modelo com um valor predefinido. O valor predefinido será utilizado se não for especificado nenhum valor durante a implementação.
+Para acomodar diferentes regiões, adicione uma localização de parâmetro de entrada ao modelo com um valor predefinido. O valor predefinido será utilizado se não for especificado qualquer valor durante a implantação.
 
-A função de modelo `[resourceGroup()]` retorna um objeto que contém os seguintes pares de chave/valor:
+A função do `[resourceGroup()]` modelo devolve um objeto que contém os seguintes pares chave/valor:
 
 ```json
 {
@@ -270,7 +270,7 @@ A função de modelo `[resourceGroup()]` retorna um objeto que contém os seguin
 }
 ```
 
-Ao referenciar a chave de localização do objeto na defaultValue dos parâmetros de entrada, o Azure Resource Manager, no tempo de execução, substituirá a `[resourceGroup().location]` função de modelo com o nome da localização do grupo de recursos é implementar o modelo.
+Ao referir a chave de localização do objeto no predefinidoValue do parâmetro de entrada, `[resourceGroup().location]` o Gestor de Recursos Azure substituirá, no prazo de funcionamento, a função do modelo pelo nome da localização do grupo de recursos para o que o modelo está implantado.
 
 ```json
 "parameters": {
@@ -291,13 +291,13 @@ Ao referenciar a chave de localização do objeto na defaultValue dos parâmetro
     ...
 ```
 
-Com esta função de modelo, pode implementar o modelo para qualquer cloud sem mesmo saber os nomes de região com antecedência. Além disso, uma localização para um recurso específico no modelo pode ser diferente da localização do grupo de recursos. Neste caso, pode configurá-lo ao utilizar os parâmetros de entrada adicionais para esse recurso específico, enquanto os outros recursos no mesmo modelo em continuar a utilizar o parâmetro de entrada de localização inicial.
+Com esta função de modelo, você pode implementar o seu modelo para qualquer nuvem sem sequer saber os nomes da região com antecedência. Além disso, uma localização para um recurso específico no modelo pode diferir da localização do grupo de recursos. Neste caso, pode configurá-lo utilizando parâmetros de entrada adicionais para esse recurso específico, enquanto os outros recursos no mesmo modelo ainda utilizam o parâmetro de entrada inicial de localização.
 
-### <a name="track-versions-using-api-profiles"></a>Controlar versões através de perfis de API
+### <a name="track-versions-using-api-profiles"></a>Versões de rastreio usando perfis API
 
-Pode ser muito difíceis de fazer para controlar todos os fornecedores de recursos disponíveis e as versões de API relacionadas que estão presentes no Azure Stack. Por exemplo, no momento da escrita, a versão mais recente do API para **Compute/availabilitysets** no Azure é `2018-04-01`, enquanto a versão de API disponível comuns para o Azure e o Azure Stack é `2016-03-30`. A versão de API comuns para **Storage/storageaccounts** partilhado entre todas as localizações do Azure e o Azure Stack é `2016-01-01`, enquanto a versão mais recente da API no Azure é `2018-02-01`.
+Pode ser muito desafiante acompanhar todos os fornecedores de recursos disponíveis e versões API relacionadas que estão presentes no Azure Stack. Por exemplo, no momento da escrita, a mais recente versão API para **Microsoft.Compute/disponibilidadeSets** em Azure é `2018-04-01`, `2016-03-30`enquanto a versão API disponível é comum a Azure e Azure Stack é . A versão API comum para **microsoft.Storage/storageAccounts** shared entre todos `2016-01-01`os locais do Azure `2018-02-01`e DoI Stack é , enquanto a mais recente versão API em Azure é .
 
-Por esse motivo, o Resource Manager introduziu o conceito de perfis de API para os modelos. Sem perfis de API, cada recurso num modelo está configurado com um `apiVersion` elemento que descreve a versão de API para esse recurso específico.
+Por esta razão, o Gestor de Recursos introduziu o conceito de perfis DePI aos modelos. Sem perfis API, cada recurso num modelo `apiVersion` é configurado com um elemento que descreve a versão API para esse recurso específico.
 
 ```json
 {
@@ -338,7 +338,7 @@ Por esse motivo, o Resource Manager introduziu o conceito de perfis de API para 
 }
 ```
 
-Uma versão de perfil de API atua como um alias de uma única versão de API por tipo de recurso comuns para o Azure e o Azure Stack. Em vez de especificar uma versão de API para cada recurso num modelo, especificar apenas a versão de perfil de API num novo elemento de raiz chamado `apiProfile` e omitir a `apiVersion` elemento para recursos individuais.
+Uma versão de perfil API funciona como um pseudónimo para uma única versão API por tipo de recurso comum ao Azure e ao Azure Stack. Em vez de especificar uma versão API para cada recurso num modelo, especifica apenas a versão do perfil API num novo elemento raiz chamado `apiProfile` e omite o `apiVersion` elemento para os recursos individuais.
 
 ```json
 {
@@ -378,9 +378,9 @@ Uma versão de perfil de API atua como um alias de uma única versão de API por
 }
 ```
 
-O perfil de API garante que as versões de API estão disponíveis em localizações, pelo que não tem de verificar manualmente a apiVersions que estão disponíveis numa localização específica. Para garantir que as versões de API referenciadas por seu perfil de API estão presentes num ambiente do Azure Stack, os operadores do Azure Stack tem de manter a solução atualizada com base na política para o suporte. Se um sistema é mais de seis meses de desatualizados, ele é considerado em conformidade e o ambiente tem de ser atualizado.
+O perfil DaPi garante que as versões API estão disponíveis em todos os locais, pelo que não tem de verificar manualmente as apiVersões que estão disponíveis num local específico. Para garantir que as versões API referenciadas pelo seu perfil API estão presentes num ambiente Azure Stack, os operadores do Azure Stack devem manter a solução atualizada com base na política de suporte. Se um sistema estiver fora de prazo há mais de seis meses, é considerado fora de conformidade e o ambiente deve ser atualizado.
 
-O perfil de API não é um elemento necessário num modelo. Mesmo que adicione o elemento, ele só será utilizado para os recursos para que não `apiVersion` está especificado. Esse elemento permite alterações graduais, mas não requer quaisquer alterações aos modelos existentes.
+O perfil da API não é um elemento necessário num modelo. Mesmo que adicione o elemento, só será utilizado `apiVersion` para recursos para os quais não é especificado. Este elemento permite alterações graduais, mas não requer alterações nos modelos existentes.
 
 ```json
 {
@@ -421,42 +421,42 @@ O perfil de API não é um elemento necessário num modelo. Mesmo que adicione o
 }
 ```
 
-## <a name="check-endpoint-references"></a>Referências de ponto final de verificação
+## <a name="check-endpoint-references"></a>Verificar referências de ponto final
 
-Recursos podem ter referências a outros serviços na plataforma. Por exemplo, um IP público pode ter um nome DNS público atribuído ao mesmo. A cloud pública, clouds soberanas e soluções do Azure Stack tem seus próprios espaços de nomes de ponto de extremidade distintos. Na maioria dos casos, um recurso requer apenas um prefixo como entrada no modelo. Durante o tempo de execução, o Azure Resource Manager acrescenta o valor de ponto final ao mesmo. Alguns valores de ponto final tem de ser especificado explicitamente no modelo.
+Os recursos podem ter referências a outros serviços na plataforma. Por exemplo, um IP público pode ter um nome público de DNS atribuído a ele. A nuvem pública, as nuvens soberanas e as soluções Azure Stack têm os seus próprios espaços de nome final distintos. Na maioria dos casos, um recurso requer apenas um prefixo como entrada no modelo. Durante o período de funcionação, o Gestor de Recursos Azure adere ao valor final. Alguns valores finais precisam de ser explicitamente especificados no modelo.
 
 > [!NOTE]
-> Desenvolver modelos de consistência na cloud, não espaços de nomes de ponto final de codificar.
+> Para desenvolver modelos para a consistência da nuvem, não código duro espaços de nome final.
 
-Os dois exemplos seguintes são comuns espaços de nomes de ponto final que têm de ser explicitamente especificados durante a criação de um recurso:
+Os dois exemplos seguintes são espaços comuns de nomes finais que precisam de ser explicitamente especificados na criação de um recurso:
 
-* Contas de armazenamento (blob, fila, tabela e ficheiro)
-* Cadeias de ligação de bases de dados e a Cache de Redis do Azure
+* Contas de armazenamento (blob, fila, mesa e arquivo)
+* Cordas de ligação para bases de dados e Cache Azure para Redis
 
-Espaços de nomes de ponto final podem também servir na saída de um modelo de informações para o utilizador quando a implementação estiver concluída. Seguem-se exemplos comuns:
+Os espaços de nome de ponto final também podem ser usados na saída de um modelo como informação para o utilizador quando a implementação estiver concluída. Seguem-se exemplos comuns:
 
-* Contas de armazenamento (blob, fila, tabela e ficheiro)
-* Cadeias de ligação (MySql, SQLServer, SQL Azure, personalizado, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
+* Contas de armazenamento (blob, fila, mesa e arquivo)
+* Cordas de ligação (MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Gestor de Tráfego
-* domainNameLabel de um endereço IP público
-* Serviços Cloud
+* domínioNameLabel de um endereço IP público
+* Serviços em nuvem
 
-Em geral, evite pontos finais de codificado num modelo. A prática recomendada é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto final mais comumente embutido em código é o espaço de nomes de ponto final para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é criado pela concatenação do nome da conta de armazenamento com o espaço de nomes de ponto final. Uma conta de armazenamento de Blobs com o nome mystorageaccount1 resultados no FQDNs diferentes dependendo da cloud:
+Em geral, evite pontos finais codificados num modelo. A melhor prática é usar a função do modelo de referência para recuperar os pontos finais dinamicamente. Por exemplo, o ponto final mais codificado é o espaço de nome final para contas de armazenamento. Cada conta de armazenamento tem um FQDN único que é construído concatenando o nome da conta de armazenamento com o espaço de nome final. Uma conta de armazenamento blob chamada mystorageaccount1 resulta em diferentes FQDNs dependendo da nuvem:
 
-* **mystorageaccount1.blob.Core.Windows.NET** quando criada na cloud do Azure global.
-* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando criado na nuvem da 21Vianet do Azure na China.
+* **mystorageaccount1.blob.core.windows.net** quando criado na nuvem azure global.
+* **mystorageaccount1.blob.core.chinacloudapi.cn** quando criada na nuvem Azure China 21Vianet.
 
-A seguinte função de modelo de referência recupera o espaço de nomes de ponto final do fornecedor de recursos de armazenamento:
+A função de modelo de referência seguinte recupera o espaço de nome final do fornecedor de recursos de armazenamento:
 
 ```json
 "diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
-Ao substituir o valor codificado do ponto final de conta de armazenamento com o `reference` função de modelo, pode utilizar o mesmo modelo para implementar em diferentes ambientes com êxito sem fazer quaisquer alterações à referência de ponto final.
+Ao substituir o valor codificado do ponto final `reference` da conta de armazenamento pela função do modelo, pode utilizar o mesmo modelo para implantar em diferentes ambientes com sucesso sem fazer alterações na referência do ponto final.
 
-### <a name="refer-to-existing-resources-by-unique-id"></a>Consulte os recursos existentes por ID exclusivo
+### <a name="refer-to-existing-resources-by-unique-id"></a>Consulte os recursos existentes por ID único
 
-Também pode consultar um recurso existente do mesmo ou outro recurso e grupo, dentro da mesma subscrição ou outra subscrição, no mesmo inquilino na mesma nuvem. Para obter as propriedades de recurso, tem de utilizar o identificador exclusivo para o recurso em si. O `resourceId` função de modelo obtém o ID exclusivo de um recurso, como o SQL Server, tal como mostra o código seguinte:
+Também pode consultar um recurso existente do mesmo ou outro grupo de recursos, e dentro da mesma subscrição ou outra subscrição, dentro do mesmo inquilino na mesma nuvem. Para recuperar as propriedades do recurso, deve utilizar o identificador único para o próprio recurso. A `resourceId` função do modelo recupera o ID único de um recurso como o SQL Server, como mostra o seguinte código:
 
 ```json
 "outputs": {
@@ -467,37 +467,37 @@ Também pode consultar um recurso existente do mesmo ou outro recurso e grupo, d
 }
 ```
 
-Em seguida, pode utilizar o `resourceId` funcionar dentro do `reference` função de modelo para recuperar as propriedades de uma base de dados. O objeto de retorno contém o `fullyQualifiedDomainName` propriedade que contém o valor de ponto final completo. Este valor é recuperada no tempo de execução e fornece o espaço de nomes de ponto final específico do ambiente de cloud. Para definir a cadeia de ligação sem codificar o espaço de nomes de ponto final, pode consultar a propriedade do objeto de retorno diretamente na cadeia de ligação, conforme mostrado:
+Em seguida, `resourceId` pode utilizar `reference` a função dentro da função do modelo para recuperar as propriedades de uma base de dados. O objeto de `fullyQualifiedDomainName` retorno contém a propriedade que detém o valor final completo. Este valor é recuperado no tempo de execução e fornece o espaço de nome final específico do ambiente em nuvem. Para definir a cadeia de ligação sem codificar duramente o espaço de nome final, pode consultar a propriedade do objeto de retorno diretamente na cadeia de ligação, como mostrado:
 
 ```json
 "[concat('Server=tcp:', reference(resourceId('sql', 'Microsoft.Sql/servers', parameters('test')), '2015-05-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('database'),';User ID=', parameters('username'), ';Password=', parameters('pass'), ';Encrypt=True;')]"
 ```
 
-## <a name="consider-resource-properties"></a>Considere as propriedades de recurso
+## <a name="consider-resource-properties"></a>Considere propriedades de recursos
 
-Recursos específicos em ambientes do Azure Stack tem propriedades exclusivas, que tem de considerar no seu modelo.
+Recursos específicos dentro dos ambientes do Azure Stack têm propriedades únicas que deve considerar no seu modelo.
 
 ### <a name="ensure-vm-images-are-available"></a>Certifique-se de que as imagens VM estão disponíveis
 
-O Azure fornece uma seleção avançada de imagens de VM. Estas imagens são criadas e preparadas para a implementação da Microsoft e parceiros. As imagens formam a base para as VMs na plataforma. No entanto, um modelo consistente com a nuvem deve consultar apenas os parâmetros disponíveis — em particular, o publicador, oferta, SKU e das imagens de VM disponíveis para o Azure global, clouds soberanas do Azure ou uma solução do Azure Stack.
+O Azure fornece uma rica seleção de imagens VM. Estas imagens são criadas e preparadas para serem implantadas pela Microsoft e pelos parceiros. As imagens formam a base para VMs na plataforma. No entanto, um modelo consistente em nuvem deve referir-se apenas aos parâmetros disponíveis — em particular, a editora, a oferta e o SKU das imagens VM disponíveis para as imagens globais do Azure, Azure soberanos ou uma solução Azure Stack.
 
-Para obter uma lista das imagens de VM disponíveis numa localização, execute o seguinte comando da CLI do Azure:
+Para recuperar uma lista das imagens VM disponíveis num local, execute o seguinte comando Azure CLI:
 
 ```azurecli-interactive
 az vm image list -all
 ```
 
-Pode recuperar a mesma lista com o cmdlet do Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e especifique a localização que quiser com o `-Location` parâmetro. Por exemplo:
+Pode recuperar a mesma lista com o Cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure `-Location` PowerShell e especificar a localização que pretende com o parâmetro. Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
-Este comando demora alguns minutos para retornar todas as imagens disponíveis na região Europa ocidental da cloud do Azure global.
+Este comando leva alguns minutos para devolver todas as imagens disponíveis na região da Europa Ocidental da nuvem azure global.
 
-Se tiver efetuado com que estas imagens de VM disponíveis para o Azure Stack, o armazenamento disponível seria consumido. Para acomodar até mesmo a menor unidade de escala, o Azure Stack permite-lhe selecionar as imagens que pretende adicionar a um ambiente.
+Se disponibilizasse estas imagens VM para o Azure Stack, todo o armazenamento disponível seria consumido. Para acomodar até a unidade de menor escala, o Azure Stack permite-lhe selecionar as imagens que pretende adicionar a um ambiente.
 
-O exemplo de código seguinte mostra uma abordagem consistente para fazer referência para o publicador, oferta e parâmetros SKU em modelos do Azure Resource Manager:
+A seguinte amostra de código mostra uma abordagem consistente para se referir aos parâmetros editor, oferta e SKU nos seus modelos ARM:
 
 ```json
 "storageProfile": {
@@ -510,29 +510,29 @@ O exemplo de código seguinte mostra uma abordagem consistente para fazer refer�
 }
 ```
 
-### <a name="check-local-vm-sizes"></a>Verificar os tamanhos de VM locais
+### <a name="check-local-vm-sizes"></a>Verifique os tamanhos vm locais
 
-Para desenvolver o seu modelo de consistência na cloud, terá de certificar-se de que pretende que o tamanho da VM está disponível em todos os ambientes de destino. Tamanhos de VM são um agrupamento de capacidades e características de desempenho. Alguns tamanhos VM dependem do hardware que a VM é executado no. Por exemplo, se pretender implementar uma VM com otimização de GPU, o hardware que executa o hipervisor tem de ter o hardware GPUs.
+Para desenvolver o seu modelo para a consistência da nuvem, você precisa ter certeza de que o tamanho VM que deseja está disponível em todos os ambientes-alvo. Os tamanhos vm são um agrupamento de características e capacidades de desempenho. Alguns tamanhos vm dependem do hardware em que o VM funciona. Por exemplo, se quiser implementar um VM otimizado pela GPU, o hardware que executa o hipervisor precisa de ter as GPUs de hardware.
 
-Quando a Microsoft apresenta um novo tamanho de VM que tem determinadas dependências de hardware, o tamanho da VM é, normalmente, disponibilizado pela primeira vez num pequeno subconjunto de regiões na cloud do Azure. Mais tarde, ela fica disponível para outras regiões e clouds. Para certificar-se de que o tamanho da VM existe em cada nuvem que implementar, pode obter os tamanhos disponíveis com o seguinte comando da CLI do Azure:
+Quando a Microsoft introduz um novo tamanho de VM que tem certas dependências de hardware, o tamanho VM é geralmente disponibilizado primeiro num pequeno subconjunto de regiões na nuvem Azure. Mais tarde, é disponibilizado a outras regiões e nuvens. Para se certificar de que o tamanho VM existe em cada nuvem para a qual se implanta, pode recuperar os tamanhos disponíveis com o seguinte comando Azure CLI:
 
 ```azurecli-interactive
 az vm list-sizes --location "West Europe"
 ```
 
-Para o Azure PowerShell, utilize:
+Para a Azure PowerShell, utilize:
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize -Location "West Europe"
 ```
 
-Para obter uma lista completa de serviços disponíveis, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
+Para obter uma lista completa de serviços disponíveis, consulte [Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable)
 
-### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Verifique o uso de Managed Disks do Azure no Azure Stack
+### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Verifique a utilização de discos geridos azure em Azure Stack
 
-Gerido identificador de discos de armazenamento para um inquilino do Azure. Em vez de criar explicitamente uma conta de armazenamento e especificar o URI para um disco rígido virtual (VHD), pode utilizar discos geridos implicitamente realizar essas ações quando implementar uma VM. Discos geridos melhoram a disponibilidade ao colocar todos os discos das VMs no mesmo conjunto em unidades de armazenamento diferente de disponibilidade. Além disso, as VHDs existentes podem ser convertidos do plano padrão para o armazenamento Premium com muito menos tempo de inatividade.
+Os discos geridos tratam do armazenamento de um inquilino Azure. Em vez de criar explicitamente uma conta de armazenamento e especificar o URI para um disco rígido virtual (VHD), pode utilizar discos geridos para executar implicitamente estas ações quando implementa um VM. Os discos geridos aumentam a disponibilidade colocando todos os discos de VMs na mesma disponibilidade definida em diferentes unidades de armazenamento. Além disso, os VHDs existentes podem ser convertidos de armazenamento Standard para Premium com significativamente menos tempo de inatividade.
 
-Embora os discos geridos estão no plano para o Azure Stack, eles não são atualmente suportados. Até que seja, pode desenvolver modelos consistentes com a cloud para o Azure Stack ao especificar explicitamente os VHDs com a `vhd` elemento no modelo para o recurso VM, conforme mostrado:
+Embora os discos geridos estejam no roteiro para o Azure Stack, atualmente não são suportados. Até que estejam, pode desenvolver modelos consistentes em nuvem para o Azure `vhd` Stack, especificando explicitamente vHDs utilizando o elemento no modelo para o recurso VM, como mostrado:
 
 ```json
 "storageProfile": {
@@ -553,7 +553,7 @@ Embora os discos geridos estão no plano para o Azure Stack, eles não são atua
 }
 ```
 
-Por outro lado, para especificar uma configuração de disco gerido num modelo, remova o `vhd` elemento da configuração do disco.
+Em contraste, para especificar uma configuração de `vhd` disco gerida num modelo, retire o elemento da configuração do disco.
 
 ```json
 "storageProfile": {
@@ -570,35 +570,35 @@ Por outro lado, para especificar uma configuração de disco gerido num modelo, 
 }
 ```
 
-As mesmas alterações também se aplicam [discos de dados](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
+As mesmas alterações também aplicam discos de [dados.](../../virtual-machines/windows/using-managed-disks-template-deployments.md)
 
-### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Certifique-se de que as extensões de VM estão disponíveis no Azure Stack
+### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Verifique se as extensões VM estão disponíveis no Azure Stack
 
-Outra consideração para manter a consistência na cloud é o uso de [extensões de máquina virtual](../../virtual-machines/windows/extensions-features.md) para configurar os recursos dentro de uma VM. Nem todas as extensões de VM estão disponíveis no Azure Stack. Um modelo, pode especificar os recursos dedicados para a extensão VM, a criação de dependências e condições dentro do modelo.
+Outra consideração para a consistência da nuvem é o uso de [extensões de máquinas virtuais](../../virtual-machines/windows/extensions-features.md) para configurar os recursos dentro de um VM. Nem todas as extensões VM estão disponíveis no Azure Stack. Um modelo pode especificar os recursos dedicados à extensão VM, criando dependências e condições dentro do modelo.
 
-Por exemplo, se quiser configurar uma VM com o Microsoft SQL Server, a extensão de VM pode configurar o SQL Server como parte da implementação do modelo. Considere o que acontece se o modelo de implementação também contém um servidor de aplicações configurado para criar uma base de dados na VM com o SQL Server. Além de também usar uma extensão de VM para os servidores de aplicações, pode configurar a dependência de servidor de aplicativos do retorno de êxito do recurso de extensão de VM do SQL Server. Esta abordagem garante que a VM a executar o SQL Server é configurado e está disponível quando o servidor de aplicações é instruído para criar a base de dados.
+Por exemplo, se pretender configurar um VM que executa o Microsoft SQL Server, a extensão VM pode configurar o Servidor SQL como parte da implementação do modelo. Considere o que acontece se o modelo de implementação também contiver um servidor de aplicação configurado para criar uma base de dados no VM executando o Servidor SQL. Além de utilizar também uma extensão VM para os servidores de aplicações, pode configurar a dependência do servidor de aplicação na devolução bem-sucedida do recurso de extensão VM do Servidor SQL. Esta abordagem garante que o VM que executa o Servidor SQL está configurado e disponível quando o servidor de aplicação é instruído para criar a base de dados.
 
-A abordagem declarativa do modelo permite-lhe definir o estado final de recursos e as respetivas dependências entre, enquanto a plataforma se encarrega da lógica necessária para as dependências.
+A abordagem declarativa do modelo permite definir o estado final dos recursos e das suas interdependências, enquanto a plataforma cuida da lógica necessária para as dependências.
 
-#### <a name="check-that-vm-extensions-are-available"></a>Verifique se as extensões de VM estão disponíveis
+#### <a name="check-that-vm-extensions-are-available"></a>Verifique se as extensões VM estão disponíveis
 
-Existem muitos tipos de extensões de VM. Ao desenvolver o modelo de consistência de nuvem, certifique-se de utilizar apenas as extensões que estão disponíveis em todas as regiões os destinos de modelo.
+Existem muitos tipos de extensões VM. Ao desenvolver o modelo para a consistência da nuvem, certifique-se de que utiliza apenas as extensões disponíveis em todas as regiões os alvos do modelo.
 
-Para obter uma lista das extensões de VM que estão disponíveis para uma região específica (neste exemplo, `myLocation`), execute o seguinte comando da CLI do Azure:
+Para recuperar uma lista das extensões VM que estão disponíveis `myLocation`para uma região específica (neste exemplo, ), executar o seguinte comando Azure CLI:
 
 ```azurecli-interactive
 az vm extension image list --location myLocation
 ```
 
-Também pode executar o Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet e utilizar `-Location` para especificar a localização da imagem de máquina virtual. Por exemplo:
+Também pode executar o Azure PowerShell [Get-AzureRmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet e usar `-Location` para especificar a localização da imagem da máquina virtual. Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
-#### <a name="ensure-that-versions-are-available"></a>Certifique-se de que estão disponíveis versões
+#### <a name="ensure-that-versions-are-available"></a>Certifique-se de que as versões estão disponíveis
 
-Uma vez que as extensões de VM são recursos do Resource Manager original, eles têm suas próprias versões de API. Como mostra o código a seguir, o tipo de extensão VM é um recurso aninhado no fornecedor de recursos Microsoft. Compute.
+Uma vez que as extensões vm são recursos de gestor de recursos de primeira parte, eles têm as suas próprias versões API. Como mostra o seguinte código, o tipo de extensão VM é um recurso aninhado no fornecedor de recursos Microsoft.Compute.
 
 ```json
 {
@@ -609,21 +609,21 @@ Uma vez que as extensões de VM são recursos do Resource Manager original, eles
     ...
 ```
 
-A versão de API do recurso de extensão VM tem de estar presente em todas as localizações que pretende direcionar com seu modelo. A dependência de localização funciona como o fornecedor de recursos de versão de API disponibilidade discutido anteriormente na secção "Verificar a versão de todos os tipos de recursos".
+A versão API do recurso de extensão VM deve estar presente em todos os locais que pretende atingir com o seu modelo. A dependência da localização funciona como a disponibilidade da versão API do fornecedor de recursos discutida anteriormente na secção "Verificar a versão de todos os tipos de recursos".
 
-Para obter uma lista das versões de API disponíveis para o recurso de extensão VM, utilize o [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet com o **Microsoft. Compute** fornecedor de recursos, conforme mostrado:
+Para obter uma lista das versões API disponíveis para o recurso de extensão VM, utilize o [cmdlet Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) com o fornecedor de recursos **Microsoft.Compute,** como mostrado:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
-Também pode utilizar as extensões de VM em conjuntos de dimensionamento de máquina virtual. Aplicarem as mesmas condições de localização. Para desenvolver o seu modelo de consistência de nuvem, certifique-se de que as versões de API estão disponíveis em todas as localizações que planeia implementar para. Para obter as versões de API do recurso de extensão VM para conjuntos de dimensionamento, utilize o mesmo cmdlet como antes, mas especifique o que tipo de recurso de conjuntos de dimensionamento de máquina virtual conforme mostrado:
+Também pode utilizar extensões VM em conjuntos de escala de máquinas virtuais. Aplicam-se as mesmas condições de localização. Para desenvolver o seu modelo para a consistência da nuvem, certifique-se de que as versões API estão disponíveis em todos os locais para os qual planeia implementar. Para recuperar as versões API do recurso de extensão VM para conjuntos de escala, utilize o mesmo cmdlet que antes, mas especifique o tipo de recurso da escala virtual da máquina como mostrado:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
-Cada extensão específica também tem a mesma versão. Esta versão é mostrada no `typeHandlerVersion` propriedade de extensão de VM. Certifique-se de que a versão especificada no `typeHandlerVersion` elemento das seu modelo extensões de VM estão disponíveis nos locais onde planeia implementar o modelo. Por exemplo, o código a seguir especifica a versão 1.7:
+Cada extensão específica também é versão. Esta versão é mostrada `typeHandlerVersion` na propriedade da extensão VM. Certifique-se de que a `typeHandlerVersion` versão especificada no elemento das extensões VM do seu modelo está disponível nos locais onde planeia implementar o modelo. Por exemplo, o seguinte código especifica a versão 1.7:
 
 ```json
 {
@@ -641,31 +641,31 @@ Cada extensão específica também tem a mesma versão. Esta versão é mostrada
         ...
 ```
 
-Para obter uma lista das versões disponíveis para uma extensão VM específica, utilize o [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet. O exemplo seguinte obtém as versões disponíveis para a extensão VM de PowerShell DSC (Desired State Configuration do) partir **myLocation**:
+Para obter uma lista das versões disponíveis para uma extensão VM específica, utilize o cmdlet [Get-AzureRmVMExtensionImage.](/powershell/module/az.compute/get-azvmextensionimage) O exemplo seguinte recupera as versões disponíveis para a extensão VM PowerShell DSC (Configuração de Estado Desejado) do **myLocation:**
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-Para obter uma lista de publicadores, utilize o [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) comando. Para o tipo de pedido, utilize o [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) Command.
+Para obter uma lista de editores, utilize o comando [Get-AzureRmVmImagePublisher.](/powershell/module/az.compute/get-azvmimagepublisher) Para solicitar o tipo, utilize o recomendação [Get-AzureRmVMExtensionImageType.](/powershell/module/az.compute/get-azvmextensionimagetype)
 
-## <a name="tips-for-testing-and-automation"></a>Dicas para teste e automatização
+## <a name="tips-for-testing-and-automation"></a>Dicas para testes e automação
 
-É um desafio para controlar todas as respetivas definições, capacidades e limitações ao criar um modelo. A abordagem comum é desenvolver e testar modelos em relação a uma nuvem individual antes de outros locais de destino. No entanto, o anterior que testa é executadas no processo de criação, a menos de resolução de problemas e conversão de código, que será necessário fazer sua equipe de desenvolvimento. Implementações que falham devido a dependências de localização podem ser demoradas resolver problemas. É por isso que recomendamos que teste automatizado mais cedo possível no ciclo de criação. Por fim, terá menos tempo de desenvolvimento e menos recursos e artefactos da sua cloud consistente se tornará ainda mais valiosos.
+É um desafio acompanhar todas as configurações, capacidades e limitações relacionadas enquanto é autor de um modelo. A abordagem comum é desenvolver e testar modelos contra uma única nuvem antes que outros locais sejam alvo. No entanto, quanto mais cedo os testes forem realizados no processo de autoria, menos resolução de problemas e reescrita de código a sua equipa de desenvolvimento terá de fazer. As implementações que falham devido às dependências de localização podem ser morosas para resolver problemas. É por isso que recomendamos testes automatizados o mais cedo possível no ciclo de autoria. Em última análise, precisará de menos tempo de desenvolvimento e menos recursos, e os seus artefactos consistentes com nuvem tornar-se-ão ainda mais valiosos.
 
-A imagem seguinte mostra um exemplo típico de um processo de desenvolvimento para uma equipe usando um ambiente de desenvolvimento integrado (IDE). Em diferentes fases na linha da tempo, os tipos de teste diferentes são executados. Aqui, dois desenvolvedores trabalhar para a mesma solução, mas este cenário aplica-se igualmente a um único desenvolvedor ou uma grande equipe. Cada desenvolvedor, normalmente, cria uma cópia local do repositório central, permitindo que cada um deles trabalhar na cópia local, sem afetar as outras que poderá estar a trabalhar nos mesmos arquivos.
+A imagem que se segue mostra um exemplo típico de um processo de desenvolvimento para uma equipa que utiliza um ambiente de desenvolvimento integrado (IDE). Em diferentes fases da linha do tempo, diferentes tipos de teste são executados. Aqui, dois desenvolvedores estão a trabalhar na mesma solução, mas este cenário aplica-se igualmente a um único desenvolvedor ou a uma grande equipa. Cada desenvolvedor normalmente cria uma cópia local de um repositório central, permitindo que cada um trabalhe na cópia local sem afetar os outros que podem estar a trabalhar nos mesmos ficheiros.
 
-![Fluxo de Trabalho](./media/templates-cloud-consistency/workflow.png)
+![Fluxo de trabalho](./media/templates-cloud-consistency/workflow.png)
 
-Considere as sugestões seguintes para teste e automatização:
+Considere as seguintes dicas para testes e automatização:
 
-* Faça uso de ferramentas de teste. Por exemplo, o Visual Studio Code e o Visual Studio incluem IntelliSense e outros recursos que podem ajudá-lo a validar os seus modelos.
-* Para melhorar a qualidade do código durante o desenvolvimento no IDE do local, execute a análise de código estático com testes de unidade e testes de integração.
-* Para obter uma experiência ainda melhor durante o desenvolvimento inicial, testes de unidade e testes de integração devem apenas ser avisar quando é encontrado um problema e continue com os testes. Dessa forma, pode identificar os problemas resolvidos e priorizar a ordem das alterações, também referida como implementação orientado a testes (TDD).
-* Lembre-se de que alguns testes podem ser executadas sem a ser ligado ao Azure Resource Manager. Outros, como teste de implementação do modelo, exigem o Resource Manager para executar determinadas ações que não podem ser executadas offline.
-* Teste de um modelo de implementação em relação a validação de API não é igual a uma implantação real. Além disso, mesmo se implementar um modelo a partir de um ficheiro local, todas as referências para aninhados modelos no modelo são obtidas pelo Resource Manager diretamente e artefatos referenciados pelas extensões VM são obtidos pelo agente de VM em execução dentro da VM implementada.
+* Faça uso de ferramentas de teste. Por exemplo, visual studio code e estúdio visual incluem IntelliSense e outras funcionalidades que podem ajudá-lo a validar os seus modelos.
+* Para melhorar a qualidade do código durante o desenvolvimento do IDE local, efetue análise de código estático com testes de unidade e testes de integração.
+* Para uma experiência ainda melhor durante o desenvolvimento inicial, os testes de unidade e os testes de integração só devem alertar quando um problema é encontrado e prosseguir com os testes. Desta forma, pode identificar as questões a resolver e priorizar a ordem das alterações, também referida como implantação orientada para o teste (TDD).
+* Esteja ciente de que alguns testes podem ser realizados sem estar ligado ao Azure Resource Manager. Outros, como a implementação do modelo de teste, exigem que o Gestor de Recursos execute certas ações que não podem ser realizadas offline.
+* Testar um modelo de implementação contra a API de validação não é igual a uma implementação real. Além disso, mesmo que você implemente um modelo a partir de um ficheiro local, quaisquer referências a modelos aninhados no modelo são recuperados diretamente pelo Gestor de Recursos, e os artefactos referenciados por extensões VM são recuperados pelo agente VM que corre dentro do VM implantado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Considerações sobre os modelos do Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
-* [Melhores práticas de modelos do Azure Resource Manager](template-syntax.md)
+* [Considerações de modelo de gestor de recursos azure](/azure-stack/user/azure-stack-develop-templates)
+* [Boas práticas para modelos ARM](template-syntax.md)

@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302241"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
- Devolve o radianos quando uma expressão numérica, em graus, que é introduzida.  
+ Retorna radians quando uma expressão numérica, em graus, é introduzida.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ RADIANS (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir usa alguns ângulos como entrada e retorna os valores de radian correspondentes.  
+  O exemplo seguinte toma alguns ângulos como entrada e devolve os seus valores radianos correspondentes.  
   
 ```sql
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  

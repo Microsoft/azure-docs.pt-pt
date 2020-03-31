@@ -1,5 +1,5 @@
 ---
-title: Enable Snapshot Debugger para .NET apps em Tecido de Serviço Azure, Serviço de Nuvem e Máquinas Virtuais  Microsoft Docs
+title: Enable Snapshot Debugger para .NET apps em Tecido de Serviço Azure, Serviço de Nuvem e Máquinas Virtuais [ Microsoft Docs
 description: Ativar snapshot Debugger para .NET apps em Tecido de Serviço Azure, Serviço de Nuvem e Máquinas Virtuais
 ms.topic: conceptual
 author: brahmnes
@@ -7,10 +7,10 @@ ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671351"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Ativar snapshot Debugger para .NET apps em Tecido de Serviço Azure, Serviço de Nuvem e Máquinas Virtuais
@@ -19,7 +19,7 @@ Se a sua aplicação ASP.NET ou ASP.NET for executado no Serviço de Aplicaçõe
 
 Se a sua aplicação for recorrida em tecido de serviço Azure, serviço de nuvem, máquinas virtuais ou máquinas no local, devem ser utilizadas as seguintes instruções. 
     
-## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar a recolha de instantâneos para aplicativos ASP.NET
+## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configure a recolha de instantâneos para aplicações ASP.NET
 
 1. Ative os Insights de [Aplicação na sua aplicação web,](../../azure-monitor/app/asp-net.md)se ainda não o fez.
 
@@ -59,7 +59,7 @@ Se a sua aplicação for recorrida em tecido de serviço Azure, serviço de nuve
     </TelemetryProcessors>
     ```
 
-4. Os instantâneos são coletados apenas em exceções que são enviadas para o Application Insights. Em alguns casos (por exemplo, versões mais antigas da plataforma .NET), poderá ser necessário configurar a recolha de [exceções](../../azure-monitor/app/asp-net-exceptions.md#exceptions) para ver exceções com instantâneos no portal.
+4. Os instantâneos são recolhidos apenas em exceções que são reportadas ao Application Insights. Em alguns casos (por exemplo, versões mais antigas da plataforma .NET), poderá ser necessário configurar a recolha de [exceções](../../azure-monitor/app/asp-net-exceptions.md#exceptions) para ver exceções com instantâneos no portal.
 
 
 ## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Configure a recolha de instantâneos para aplicações utilizando ASP.NET Core 2.0 ou superior
@@ -67,23 +67,23 @@ Se a sua aplicação for recorrida em tecido de serviço Azure, serviço de nuve
 1. [Ative os Insights de Aplicação na sua ASP.NET aplicação web Core,](../../azure-monitor/app/asp-net-core.md)se ainda não o fez.
 
     > [!NOTE]
-    > Ser-se de que seu aplicativo faz referência a versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
+    > Certifique-se de que a sua aplicação refere a versão 2.1.1, ou mais recente, do pacote Microsoft.ApplicationInsights.AspNetCore.
 
 2. Inclua o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet na sua aplicação.
 
 3. Modifique a `Startup` classe da sua aplicação para adicionar e configurar o processador de telemetria do Snapshot Collector.
-    1. Se o [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet versão 1.3.5 ou superior for utilizada, adicione as seguintes declarações usando as `Startup.cs`.
+    1. Se a [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet versão 1.3.5 ou superior for `Startup.cs`utilizada, adicione as seguintes declarações utilizando a .
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Adicione o seguinte no final do método ConfigureServices na classe `Startup` em `Startup.cs`.
+       Adicione o seguinte no final do método `Startup` ConfigureServices na classe em `Startup.cs`.
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Se o [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet versão 1.3.4 ou abaixo for utilizada, adicione as seguintes declarações usando para `Startup.cs`.
+    2. Se o [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet versão 1.3.4 ou abaixo for `Startup.cs`utilizada, adicione as seguintes declarações usando a .
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -92,7 +92,7 @@ Se a sua aplicação for recorrida em tecido de serviço Azure, serviço de nuve
        using Microsoft.ApplicationInsights.Extensibility;
        ```
     
-       Adicione a seguinte aula de `SnapshotCollectorTelemetryProcessorFactory` à aula `Startup`.
+       Adicione a `SnapshotCollectorTelemetryProcessorFactory` seguinte `Startup` aula à aula.
     
        ```csharp
        class Startup
@@ -112,7 +112,7 @@ Se a sua aplicação for recorrida em tecido de serviço Azure, serviço de nuve
            }
            ...
         ```
-        Adicione os serviços de `SnapshotCollectorConfiguration` e `SnapshotCollectorTelemetryProcessorFactory` ao pipeline de arranque:
+        Adicione `SnapshotCollectorConfiguration` os `SnapshotCollectorTelemetryProcessorFactory` e serviços ao pipeline de arranque:
     
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
@@ -149,13 +149,13 @@ Se a sua aplicação for recorrida em tecido de serviço Azure, serviço de nuve
    }
    ```
 
-## <a name="configure-snapshot-collection-for-other-net-applications"></a>Configurar a recolha de instantâneos para outras aplicações de .NET
+## <a name="configure-snapshot-collection-for-other-net-applications"></a>Configure a recolha de instantâneos para outras aplicações .NET
 
 1. Se a sua aplicação ainda não estiver instrumentada com Insights de Aplicação, inicie-se por ativar insights de [aplicação e definir a chave](../../azure-monitor/app/windows-desktop.md)de instrumentação .
 
 2. Adicione o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet na sua aplicação.
 
-3. Os instantâneos são coletados apenas em exceções que são enviadas para o Application Insights. Terá de modificar o código para relatá-los. A código de manipulação de exceção depende da estrutura do seu aplicativo, mas um exemplo é abaixo:
+3. Os instantâneos são recolhidos apenas em exceções que são reportadas ao Application Insights. Pode ser necessário modificar o seu código para os denunciar. O código de tratamento de exceções depende da estrutura da sua aplicação, mas um exemplo está abaixo:
     ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 

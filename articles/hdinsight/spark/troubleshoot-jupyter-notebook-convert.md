@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77186789"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Incapaz de criar caderno Jupyter no Azure HDInsight
@@ -38,7 +38,7 @@ Uma versão desajustada.
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Abrir `_version.py` executando o seguinte comando:
+1. Aberto `_version.py` executando o seguinte comando:
 
     ```bash
     sudo nano /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py
@@ -52,7 +52,7 @@ Uma versão desajustada.
 
     Guarde as alterações entrando em **Ctrl + X,** **Y,** **Enter**.
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`onde `CLUSTERNAME` está o nome do seu cluster.
 
 1. Reinicie o serviço Jupyter.
 

@@ -1,19 +1,18 @@
 ---
 title: Estamos a mover imagens de máquinavirtual (VM) para gerir o armazenamento de discos no Azure Marketplace
 description: Para fornecer armazenamento e suporte mais rápidos e fiáveis para novas funcionalidades e capacidades do mercado, estamos a mover imagens VM do mercado para gerir o armazenamento de discos.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 683b35661a41325cfd5baa877acdb0e37529bb94
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 17b418ab82cc88b4368efe247b06c0c8bbb27453
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198739"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285117"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos a mover imagens de máquinavirtual (VM) no Azure Marketplace para gerir o armazenamento de discos
 
@@ -25,7 +24,7 @@ Editores ou consumidores não precisam de tomar qualquer medida, e os utilizador
 
 Se tiver alguma dúvida, [contacte-nos.](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 ### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Os utilizadores das minhas imagens VM sentiriam uma falha?
 

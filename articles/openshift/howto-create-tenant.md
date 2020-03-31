@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243695"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Crie um inquilino da AD Azure para o Azure Red Hat OpenShift
@@ -33,7 +33,7 @@ Para criar um inquilino:
 
     ![Screenshot do portal mostrando o nome do inquilino no canto superior direito][tenantcallout]  
 
-8. Tome nota do ID do *inquilino* para que possa especificar mais tarde onde criar o seu cluster Azure Red Hat OpenShift. No portal, deverá agora ver a lâmina de visão geral do Azure Ative Diretório para o seu novo inquilino. Selecione **Propriedades** e copie o valor para o seu **ID de Diretório**. Vamos referir-nos a este valor como `TENANT` no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
+8. Tome nota do ID do *inquilino* para que possa especificar mais tarde onde criar o seu cluster Azure Red Hat OpenShift. No portal, deverá agora ver a lâmina de visão geral do Azure Ative Diretório para o seu novo inquilino. Selecione **Propriedades** e copie o valor para o seu **ID de Diretório**. Vamos referir-nos a `TENANT` este valor como no tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
@@ -45,4 +45,4 @@ Consulte a [documentação do Diretório Ativo azure](https://docs.microsoft.com
 
 Aprenda a criar um diretor de serviço, gere um URL de callback secreto e autenticado do cliente e crie um novo utilizador ative Directy para testar aplicações no seu cluster Azure Red Hat OpenShift.
 
-[Criar um objeto de aplicação Azure AD e utilizador](howto-aad-app-configuration.md)
+[Criar um objeto e utilizador de aplicação do Azure AD](howto-aad-app-configuration.md)

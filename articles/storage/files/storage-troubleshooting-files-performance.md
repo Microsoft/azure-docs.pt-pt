@@ -8,10 +8,10 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598090"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas de desempenho de Ficheiros Azure
@@ -26,7 +26,7 @@ A quota padrão de uma parte premium é de 100 GiB, que fornece 100 IOPS de base
 
 Para confirmar se a sua parte está a ser estrangulada, pode alavancar a Azure Metrics no portal.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **todos os serviços** e, em seguida, procure **Métricas**.
 
@@ -113,7 +113,7 @@ Falta de apoio para arrendamentos de diretórios.
 ### <a name="workaround"></a>Solução
 
 - Se possível, evite uma pega excessiva de abertura/fecho no mesmo diretório num curto espaço de tempo.
-- Para os VMs Linux, aumente o tempo de entrada de diretório sem especificar **actimeo=\<sec>** como opção de montagem. Por padrão, é um segundo, então um valor maior como três ou cinco pode ajudar.
+- Para os VMs Linux, aumente o tempo de entrada de diretório, especificando **actimeo=\<sec>** como uma opção de montagem. Por padrão, é um segundo, então um valor maior como três ou cinco pode ajudar.
 - Para VMs Linux, atualize o núcleo para 4,20 ou mais.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS baixos em CentOS/RHEL
@@ -187,7 +187,7 @@ Latência superior ao esperado acedendo a Ficheiros Azure para cargas de trabalh
 6. Na lâmina lógica do **sinal Configure,** vá para a dimensão do **tipo Resposta,** clique nos **valores de Dimensão** drop-down e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REPOUSO). 
 
   > [!NOTE]
-  > Se o valor de dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado.  Para adicionar o valor de dimensão, clique no **+** ao lado dos **valores de Dimensão** que descem, escrevam **SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e, em seguida, repita o passo #6.
+  > Se o valor de dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado.  Para adicionar o valor **+** de dimensão, clique no lado dos **valores dimensionais** drop-down, type **SuccessWithThrottling** ou **ClientThrottlingError,** clique EM **OK** e repita o passo #6.
 
 7. Vá à dimensão da Partilha de **Ficheiros,** clique nos **valores dimensionais** e selecione a(s) partilha de ficheiros que pretende alertar. 
 

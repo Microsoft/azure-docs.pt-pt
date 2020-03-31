@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284515"
 ---
-# <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação do dispositivo utilizando certificados X.509 CA
+# <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação do Dispositivo com Certificados AC X.509
 
 Este artigo descreve como utilizar certificados x.509 da Autoridade de Certificados (CA) para autenticar dispositivos que ligam o IoT Hub.  Neste artigo aprenderá:
 
@@ -48,7 +48,7 @@ Saiba como [criar um certificado CA auto-assinado,](https://github.com/Azure/azu
 
 O proprietário de um certificado De Ca X.509 pode assinar criptograficamente um CA intermédio que por sua vez pode assinar outro CA intermédio, e assim por diante, até que o último CA intermédio encerre este processo assinando um dispositivo. O resultado é uma cadeia de certificados em cascata conhecida como cadeia de fidedignidade de certificados. Na vida real, isto funciona como uma delegação de confiança para a assinatura de dispositivos. Esta delegação é importante porque estabelece uma cadeia de custódia criptograficamente variável e evita a partilha de chaves de assinatura.
 
-![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+![img-genérico-cert-cadeia de confiança](./media/generic-cert-chain-of-trust.png)
 
 O certificado do dispositivo (também chamado de certificado de folha) deve ter o nome de *assunto* definido para o ID do **dispositivo** que foi utilizado ao registar o dispositivo IoT no Hub Azure IoT. Esta definição é necessária para autenticação.
 

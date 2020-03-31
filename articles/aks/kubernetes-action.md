@@ -7,24 +7,24 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595370"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Ações gitHub para implantação para o serviço Kubernetes
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. A ação kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilitar as implantações nos clusters do Serviço Azure Kubernetes. A ação define o contexto de cluster AKS alvo, que poderia ser usado por outras ações como [azure/k8s-deploy,](https://github.com/Azure/k8s-deploy/tree/master) [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar quaisquer comandos kubectl.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. A ação [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) kubernetes facilita as implantações para os clusters do Serviço Azure Kubernetes. A ação define o contexto de cluster AKS alvo, que poderia ser usado por outras ações como [azure/k8s-deploy,](https://github.com/Azure/k8s-deploy/tree/master) [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar quaisquer comandos kubectl.
 
-Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho `/.github/workflows/` no seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
+Um fluxo de trabalho é definido por um ficheiro `/.github/workflows/` YAML (.yml) no caminho do seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
 Para um fluxo de trabalho direcionado para aks, o ficheiro tem três secções:
 
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | Iniciar sessão num registo de contentores privados (ACR) |
-|**Construir** | Construir e empurrar a imagem do recipiente  |
+|**Compilação** | Construir & empurrar a imagem do recipiente  |
 |**Implementar** | 1. Definir o cluster AKS alvo |
 | |2. Criar um segredo genérico/estivador no cluster Kubernetes  |
 ||3. Implante-se para o cluster Kubernetes|
@@ -54,11 +54,11 @@ Copie este objeto JSON, que pode usar para autenticar a partir do GitHub.
 
 Siga os passos para configurar os segredos:
 
-1. No [GitHub,](https://github.com/)navegue até ao seu repositório, selecione **Definições > Secrets > Adicione um novo segredo**.
+1. No [GitHub,](https://github.com/)navegue até ao seu repositório, selecione **Definições > Segredos > Adicione um novo segredo**.
 
     ![segredos](media/kubernetes-action/secrets.png)
 
-2. Colar o conteúdo do comando `az cli` acima como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
+2. Colar o conteúdo do `az cli` comando acima como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
 
 3. Da mesma forma, defina os seguintes segredos adicionais para as credenciais de registo de contentores e coloque-os em ação de login do Docker. 
 
@@ -71,7 +71,7 @@ Siga os passos para configurar os segredos:
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Construa uma imagem de contentor e desloque-se para o cluster do Serviço Azure Kubernetes
 
-A construção e impulso das imagens do recipiente é feita com base `Azure/docker-login@v1` ação. Para implantar uma imagem de contentor para aks, terá de utilizar a ação `Azure/k8s-deploy@v1`. Esta ação tem cinco parâmetros:
+A construção e impulso das `Azure/docker-login@v1` imagens do recipiente é feita com recurso à ação. Para implantar uma imagem de contentor para aks, terá de utilizar a `Azure/k8s-deploy@v1` ação. Esta ação tem cinco parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|

@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77538469"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações gitHub
@@ -45,7 +45,7 @@ Este exemplo utiliza a amostra [de Métricas piggy](https://github.com/Azure-Sam
 
  ![Adicione novo segredo](./media/github-actions/actions1.png)
 
-Detete o nome secreto para `AZURE_CREDENTIALS` e o seu valor para a cadeia JSON que encontrou sob o título Instale o *seu repositório GitHub e autenticar*.
+Detete o `AZURE_CREDENTIALS` nome secreto e o seu valor para a cadeia JSON que encontrou sob o título Instale o *seu repositório GitHub e autenticar*.
 
  ![Definir dados secretos](./media/github-actions/actions2.png)
 
@@ -63,7 +63,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 O fluxo de trabalho é definido utilizando as seguintes opções.
 
 ### <a name="prepare-for-deployment-with-azure-cli"></a>Prepare-se para a implantação com o Azure CLI
-O comando `az spring-cloud app create` não é atualmente idempotente.  Recomendamos este fluxo de trabalho em aplicações e instâncias existentes da Azure Spring Cloud.
+O `az spring-cloud app create` comando não é atualmente idempotente.  Recomendamos este fluxo de trabalho em aplicações e instâncias existentes da Azure Spring Cloud.
 
 Utilize os seguintes comandos Azure CLI para preparação:
 ```
@@ -75,7 +75,7 @@ az spring-cloud app create --name account-service
 ```
 
 ### <a name="deploy-with-azure-cli-directly"></a>Implementar diretamente com o Azure CLI
-Crie o ficheiro `.github/workflow/main.yml` no repositório:
+Crie `.github/workflow/main.yml` o ficheiro no repositório:
 
 ```
 name: AzureSpringCloud
@@ -118,10 +118,10 @@ jobs:
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
 ### <a name="deploy-with-azure-cli-action"></a>Implementar com a ação Azure CLI
-O comando az `run` usará a versão mais recente do Azure CLI. Se houver alterações de rutura, também pode utilizar uma versão específica do Azure CLI com `action`azure/CLI . 
+O comando `run` az usará a versão mais recente do Azure CLI. Se houver alterações de rutura, também pode utilizar uma versão específica `action`do Azure CLI com azure/CLI . 
 
 > [!Note] 
-> Este comando será executado num novo contentor, para que `env` não funcione, e o acesso a ficheiros de ação cruzada pode ter restrições adicionais.
+> Este comando será executado num novo `env` contentor, pelo que não funcionará, e o acesso a ficheiros de ação cruzada pode ter restrições adicionais.
 
 Crie o ficheiro .github/workflow/main.yml no repositório:
 ```
@@ -163,7 +163,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Implementar com Maven Plugin
-Outra opção é utilizar o [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) para implementar o Jar e atualizar as definições da App. O comando `mvn azure-spring-cloud:deploy` é idempotente e criará automaticamente apps se necessário. Não precisa de criar aplicações correspondentes com antecedência.
+Outra opção é utilizar o [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) para implementar o Jar e atualizar as definições da App. O `mvn azure-spring-cloud:deploy` comando é idempotente e criará automaticamente apps se necessário. Não precisa de criar aplicações correspondentes com antecedência.
 
 ```
 name: AzureSpringCloud
@@ -197,7 +197,7 @@ jobs:
         mvn azure-spring-cloud:deploy
 ```
 
-## <a name="run-the-workflow"></a>Execute o fluxo de trabalho
+## <a name="run-the-workflow"></a>Executar o fluxo de trabalho
 **As ações** GitHub devem ser ativadas automaticamente depois de empurrar `.github/workflow/main.yml` para o GitHub. A ação será desencadeada quando forçares um novo compromisso. Se criar este ficheiro no navegador, a sua ação já deveria ter sido executada.
 
 Para verificar se a ação foi ativada, clique no separador **Ações** na página de repositório GitHub:

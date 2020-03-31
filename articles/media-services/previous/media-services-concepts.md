@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162910"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Serviços De Mídia Azure 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tema dá uma visão geral dos conceitos mais importantes dos Serviços de Media.
 
-## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Ativos e Armazenamento
+## <a name="assets-and-storage"></a><a id="assets"/>Ativos e Armazenamento
 ### <a name="assets"></a>Elementos
-Um [Ativo](https://docs.microsoft.com/rest/api/media/operations/asset) contém ficheiros digitais (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados) e os metadados sobre estes ficheiros. Depois dos ficheiros digitais são carregados para um elemento, poderia ser usados nos serviços de multimédia, codificar e transmitir fluxos de trabalho.
+Um [Ativo](https://docs.microsoft.com/rest/api/media/operations/asset) contém ficheiros digitais (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados) e os metadados sobre estes ficheiros. Após o upload dos ficheiros digitais para um ativo, estes podem ser utilizados nos serviços de comunicação codificação e streaming de fluxos de trabalho.
 
 Um ativo é mapeado para um contentor de bolhas na conta De armazenamento Azure e os ficheiros do ativo são armazenados como bolhas de bloco nesse recipiente. As bolhas de página não são suportadas pela Azure Media Services.
 
@@ -75,7 +75,7 @@ Um recipiente de bolhas fornece um agrupamento de um conjunto de bolhas. Os cont
 > 
 > 
 
-### <a name="a-idlocatorslocators"></a>localizadores <a id="locators"/>
+### <a name="locators"></a><a id="locators"/>Localizadores
 [Os localizadores](https://docs.microsoft.com/rest/api/media/operations/locator)fornecem um ponto de entrada para aceder aos ficheiros contidos num ativo. Uma política de acesso é usada para definir as permissões e duração que um cliente tem acesso a um determinado ativo. Os localizadores podem ter uma relação de muitos a uma com uma política de acesso, de modo a que diferentes localizadores possam fornecer diferentes horários de início e tipos de ligação a diferentes clientes, utilizando todas as mesmas definições de permissão e duração; no entanto, devido a uma restrição da política de acesso partilhado definida pelos serviços de armazenamento Azure, não pode ter mais de cinco localizadores únicos associados a um determinado ativo de uma só vez. 
 
 Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir meios de comunicação (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou descarregar progressivamente meios de comunicação e localizadores de URL SAS, usados para carregar ou transferir ficheiros de mídia para\a partir do armazenamento do Azure. 
@@ -91,7 +91,7 @@ Um [trabalho](https://docs.microsoft.com/rest/api/media/operations/job) é norma
 
 Um trabalho contém metadados sobre o processamento a ser realizado. Cada trabalho contém uma ou mais [tarefas](https://docs.microsoft.com/rest/api/media/operations/task)que especificam uma tarefa de processamento atómico, os seus Ativos de entrada, ativos de saída, um processador de mídia e as suas configurações associadas. As tarefas dentro de um trabalho podem ser acorrentadas em conjunto, onde o ativo de saída de uma tarefa é dado como o ativo de entrada para a tarefa seguinte. Desta forma, um trabalho pode conter todo o processamento necessário para uma apresentação mediática.
 
-## <a id="encoding"></a>Codificação
+## <a name="encoding"></a><a id="encoding"></a>Codificação
 A Azure Media Services oferece múltiplas opções para a codificação de meios na nuvem.
 
 Ao começar com os Serviços de Media, é importante entender a diferença entre códigos e formatos de ficheiros.
@@ -134,7 +134,7 @@ Um canal suporta até três programas em execução em simultâneo para que poss
 Para obter mais informações, consulte:
 
 * [Trabalhar com canais que estão habilitados a realizar encodificação ao vivo com os Serviços De Mídia Azure](media-services-manage-live-encoder-enabled-channels.md)
-* [Trabalhar com Canais que Recebem Transmissões em Fluxo em Direto com Velocidade de Transmissão Múltipla a partir de Codificadores no Local (Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders)](media-services-live-streaming-with-onprem-encoders.md)
+* [Trabalhar com Canais que Recebem Transmissões em Fluxo em Direto com Velocidade de Transmissão Múltipla a partir de Codificadores no Local](media-services-live-streaming-with-onprem-encoders.md)
 * [Quotas e limitações.](media-services-quotas-and-limitations.md)
 
 ## <a name="protecting-content"></a>A proteger conteúdo
@@ -150,9 +150,9 @@ Se pretender transmitir um ativo encriptado de armazenamento, tem de configurar 
 Quando um stream é solicitado por um leitor, o Media Services utiliza a chave especificada para encriptar dinamicamente o seu conteúdo utilizando uma encriptação de envelope (com AES) ou encriptação comum (com PlayReady ou Widevine). Para desencriptar o fluxo, o leitor solicitará a chave do serviço de entrega da chave. Para decidir se o utilizador está ou não autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
 ### <a name="token-restriction"></a>Restrição simbólica
-A política de autorização chave do conteúdo poderia ter uma ou mais restrições de autorização: restrição aberta, simbólica ou restrição IP. A política de token restrito tem de ser acompanhada por um token emitido por um Serviço de Token Seguro (STS). Os Serviços de Media suportam tokens no formato Simple Web Tokens (SWT) e no formato JSON Web Token (JWT). A Media Services não fornece serviços de token seguros. Pode criar um STS personalizado. O STS deve ser configurado para criar um token assinado com as declarações de chave e o problema especificadas que especificou na configuração de restrição de token. O serviço de entrega da chave Media Services devolverá a chave (ou licença) solicitada ao cliente se o token for válido e as reclamações no símbolo corresponderem às configuradas para a chave (ou licença).
+A política de autorização chave do conteúdo poderia ter uma ou mais restrições de autorização: restrição aberta, simbólica ou restrição IP. A política de token restrito tem de ser acompanhada por um token emitido por um Serviço de Token Seguro (STS). Os Media Services suportam tokens no formato Web Tokens Simples (SWT) e Web Token JSON (JWT). A Media Services não fornece serviços de token seguros. Pode criar um STS personalizado. O STS deve ser configurado para criar um símbolo assinado com a chave especificada e emitir alegações que especificaste na configuração de restrição simbólica. O serviço de entrega da chave Media Services devolverá a chave (ou licença) solicitada ao cliente se o token for válido e as reclamações no símbolo corresponderem às configuradas para a chave (ou licença).
 
-Ao configurar a política restrita do símbolo, deve especificar a chave de verificação primária, os parâmetros do emitente e do público. A chave de verificação primária contém a chave com a que o símbolo foi assinado, emitente é o serviço de fichas seguro que emite o símbolo. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
+Ao configurar a política restrita do símbolo, deve especificar a chave de verificação primária, os parâmetros do emitente e do público. A chave de verificação primária contém a chave com a que o símbolo foi assinado, emitente é o serviço de fichas seguro que emite o símbolo. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega de chaves media services valida que estes valores no token correspondem aos valores do modelo.
 
 Para obter mais informações, veja os artigos seguintes:
 - [Proteger a visão geral do conteúdo](media-services-content-protection-overview.md)
@@ -160,7 +160,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Proteja com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Entrega
-### <a name="a-iddynamic_packagingdynamic-packaging"></a><a id="dynamic_packaging"/>embalagem dinâmica
+### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
 Ao trabalhar com os Serviços de Media, recomenda-se codificar os seus ficheiros mezaninos num conjunto de MP4 bitrate adaptativo e, em seguida, converter o conjunto para o formato pretendido utilizando a [Embalagem Dinâmica](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Ponto final de transmissão em fluxo
@@ -195,12 +195,12 @@ Para fornecer urLs de descarregamento progressivo aos utilizadores, primeiro dev
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
 ### <a name="streaming-urls"></a>Streaming URLs
-Transmitindo o seu conteúdo aos clientes. Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador, dá-lhe o Caminho base para o ativo que contém o conteúdo que pretende transmitir. No entanto, para poder transmitir este conteúdo, precisa de modificar ainda mais este caminho. Para construir um URL completo para o ficheiro manifesto de streaming, deve concatenar o valor do caminho do localizador e o nome de ficheiro manifesto (nome de ficheiro.ism). Em seguida, anexar/Manifestar e um formato apropriado (se necessário) para o caminho do localizador.
+Transmitindo o seu conteúdo aos clientes. Para fornecer URLs de streaming aos utilizadores, primeiro deve criar um localizador OnDemandOrigin. Criar o localizador, dá-lhe o Caminho base para o ativo que contém o conteúdo que pretende transmitir. No entanto, para poder transmitir este conteúdo, precisa de modificar ainda mais este caminho. Para construir um URL completo para o ficheiro manifesto de streaming, deve concatenar o valor do caminho do localizador e o nome de ficheiro manifesto (nome de ficheiro.ism). Em seguida, anexar/Manifestar e um formato apropriado (se necessário) para o caminho do localizador.
 
-Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, verifique se suas URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta a SSL com domínios personalizados.  
+Também pode transmitir o seu conteúdo através de uma ligação SSL. Para isso, certifique-se de que os seus URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta a SSL com domínios personalizados.  
 
 >[!NOTE]
->Você só poderá transmitir por SSL se o ponto de extremidade de streaming do qual você entregar seu conteúdo tiver sido criado após 10 de setembro de 2014. Se os seus URLs de streaming forem baseados nos pontos finais de streaming criados após o dia 10 de setembro, o URL contém "streaming.mediaservices.windows.net" (o novo formato). Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam O SSL. Se a URL estiver no formato antigo e você quiser ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Utilize URLs criados com base no novo ponto final de streaming para transmitir o seu conteúdo através de SSL.
+>Só é possível transmitir através do SSL se o ponto final de streaming a partir do qual entrega o seu conteúdo for criado após 10 de setembro de 2014. Se os seus URLs de streaming forem baseados nos pontos finais de streaming criados após o dia 10 de setembro, o URL contém "streaming.mediaservices.windows.net" (o novo formato). Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam O SSL. Se o seu URL estiver no formato antigo e quiser ser capaz de transmitir sobre o SSL, crie um novo ponto final de streaming. Utilize URLs criados com base no novo ponto final de streaming para transmitir o seu conteúdo através de SSL.
 
 A seguinte lista descreve diferentes formatos de streaming e dá exemplos:
 
@@ -212,25 +212,25 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 * MPEG DASH
 
-{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = MPD-time-CSF)
+{nome da conta do nome dos serviços multimédia do ponto final de transmissão em fluxo}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=mpd-time-csf)
 
 * Apple HTTP Live Streaming (HLS) V4
 
-{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = M3U8-AAPL)
+{nome da conta do nome dos serviços multimédia do ponto final de transmissão em fluxo}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=m3u8-apl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=m3u8-aapl)
 
 * Apple HTTP Live Streaming (HLS) V3
 
-{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = M3U8-AAPL-v3)
+{nome da conta de serviços de nome de mídia de ponto final de streaming}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifesto (formato=m3u8-apl-v3)
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (formato=m3u8-aapl-v3)
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

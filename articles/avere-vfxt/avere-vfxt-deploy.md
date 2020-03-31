@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252600"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
@@ -39,7 +39,7 @@ Para obter mais informações sobre os passos de implementação e planeamento d
 
 Aceda ao modelo de criação no portal Azure, procurando a Avere e selecionando "Avere vFXT para modelo de ARM Azure".
 
-![Janela do navegador mostrando o portal Azure com migalhas de pão "New > Marketplace > Tudo". Na página Everything, o campo de pesquisa tem o termo "avere" e o segundo resultado, "Avere vFXT for Azure ARM Template" está delineado a vermelho para realçá-lo.](media/avere-vfxt-template-choose.png)
+![Janela do navegador mostrando o portal Azure com migalhas de pão "New > Marketplace > Everything". Na página Everything, o campo de pesquisa tem o termo "avere" e o segundo resultado, "Avere vFXT for Azure ARM Template" está delineado a vermelho para realçá-lo.](media/avere-vfxt-template-choose.png)
 
 Depois de ler os detalhes no Avere vFXT para a página do Modelo Arm Azure, clique no botão **Criar** para começar.
 
@@ -87,7 +87,7 @@ A segunda página do modelo de implementação permite-lhe definir o tamanho do 
 
 * Contagem de nódeo cluster **Avere vFXT** - Escolha o número de nós no cluster. O mínimo é de três nóduos e o máximo é de doze.
 
-* **Password de administração** de cluster - Crie a palavra-passe para a administração de clusters. Esta palavra-passe é utilizada com o nome de utilizador ```admin``` para iniciar sessão no painel de controlo do cluster, onde pode monitorizar as definições do cluster e configurar as definições do cluster.
+* **Password de administração** de cluster - Crie a palavra-passe para a administração de clusters. Esta palavra-passe é ```admin``` utilizada com o nome de utilizador para iniciar sessão no painel de controlo do cluster, onde pode monitorizar as definições do cluster e configurar as definições do cluster.
 
 * Nome do **cluster Avere vFXT** - Dê ao cluster um nome único.
 
@@ -155,7 +155,7 @@ Para encontrar a informação:
 
    ![página de saídas que mostra valores SSHSTRING, RESOURCE_GROUP, LOCALIZAÇÃO, NETWORK_RESOURCE_GROUP, REDE, SUBNET, SUBNET_ID, VSERVER_IPs e MGMT_IP nos campos à direita dos rótulos](media/avere-vfxt-outputs-values.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que o cluster está em execução e conhece o seu endereço IP de gestão, [ligue-se à ferramenta](avere-vfxt-cluster-gui.md)de configuração do cluster .
 

@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.custom: include file
 ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77123160"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Disponibilidade geral e comparação de pré-visualização
@@ -39,7 +39,7 @@ Os limites de propriedade da Time Series Insights aumentaram para 1.000 de um li
 
 | SKU | Propriedades máximas |
 | --- | --- |
-| Pré-visualização PAYG | 1\.000 propriedades (colunas) |
+| Pré-visualização PAYG | 1.000 propriedades (colunas) |
 | GA S1 | 600 propriedades (colunas) |
 | GA S2 | 800 propriedades (colunas) |
 

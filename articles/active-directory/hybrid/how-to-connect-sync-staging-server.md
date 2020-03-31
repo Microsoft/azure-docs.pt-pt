@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261024"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de encenação e recuperação de desastres
@@ -49,7 +49,7 @@ Para aqueles de vocês com conhecimento de tecnologias de sincronização mais a
 ### <a name="verify-the-configuration-of-a-server"></a>Verifique a configuração de um servidor
 Para aplicar este método, siga estes passos:
 
-1. [Preparar](#prepare)
+1. [Preparação](#prepare)
 2. [Configuração](#configuration)
 3. [Importar e Sincronizar](#import-and-synchronize)
 4. [Verificar](#verify)
@@ -65,16 +65,16 @@ Se então fez alterações personalizadas no servidor primário e pretende compa
 
 #### <a name="import-and-synchronize"></a>Importar e Sincronizar
 1. Selecione **Conectores,** e selecione o primeiro Conector com o tipo Serviços de **Domínio de Diretório Ativo**. Clique em **Executar,** selecione **Importação completa,** e **OK**. Faça estes passos para todos os Conectores deste tipo.
-2. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)** . Clique em **Executar,** selecione **Importação completa,** e **OK**.
+2. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)**. Clique em **Executar,** selecione **Importação completa,** e **OK**.
 3. Certifique-se de que os conectores do separador ainda estão selecionados. Para cada Conector com serviços de domínio de **diretório ativo,** clique em **Executar,** selecione **Delta Synchronization**, e **OK**.
-4. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)** . Clique em **Executar,** selecione **Delta Synchronization**, e **OK**.
+4. Selecione o Conector com o tipo **Azure Ative Directory (Microsoft)**. Clique em **Executar,** selecione **Delta Synchronization**, e **OK**.
 
 Já encenou alterações de exportação para a AD Azure e para a AD (se estiver a utilizar a implantação híbrida exchange). Os próximos passos permitem-lhe inspecionar o que está prestes a mudar antes de iniciar a exportação para os diretórios.
 
 #### <a name="verify"></a>Verificar
-1. Inicie uma solicitação cmd e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Executar: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do Conector pode ser encontrado no Serviço de Sincronização. Tem um nome semelhante a "contoso.com – AAD" para a Azure AD.
-3. Executar: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Tem um ficheiro em %temporário chamado export.csv que pode ser examinado no Microsoft Excel. Este ficheiro contém todas as alterações que estão prestes a ser exportadas.
+1. Iniciar um pedido cmd e ir para`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Execução: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do Conector pode ser encontrado no Serviço de Sincronização. Tem um nome semelhante a "contoso.com – AAD" para a Azure AD.
+3. Executar: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Você tem um ficheiro em %temporário chamado export.csv que pode ser examinado no Microsoft Excel. Este ficheiro contém todas as alterações que estão prestes a ser exportadas.
 4. Faça alterações necessárias nos dados ou configurações e faça estes passos novamente (Importar e Sincronizar e Verificar) até que sejam esperadas as alterações que estão prestes a ser exportadas.
 
 **Compreender o ficheiro export.csv** A maior parte do ficheiro é autoexplicativa. Algumas abreviaturas para entender o conteúdo:
@@ -82,9 +82,9 @@ Já encenou alterações de exportação para a AD Azure e para a AD (se estiver
 * AMODT – Tipo de modificação do atributo. Indica se a operação a um nível de atributo é um Add, Update ou delete.
 
 **Recuperar identificadores comuns** O ficheiro export.csv contém todas as alterações que estão prestes a ser exportadas. Cada linha corresponde a uma alteração de um objeto no espaço do conector e o objeto é identificado pelo atributo dN. O atributo DN é um identificador único atribuído a um objeto no espaço do conector. Quando você tem muitas linhas/mudanças no export.csv para analisar, pode ser difícil para você descobrir quais objetos as alterações são para com base apenas no atributo DN. Para simplificar o processo de análise das alterações, utilize o script csanalyzer.ps1 PowerShell. O script recupera identificadores comuns (por exemplo, displayName, userPrincipalName) dos objetos. Para utilizar o guião:
-1. Copie o script PowerShell da secção [CSAnalyzer](#appendix-csanalyzer) para um ficheiro chamado `csanalyzer.ps1`.
+1. Copie o script PowerShell da secção [CSAnalyzer](#appendix-csanalyzer) para um ficheiro nomeado `csanalyzer.ps1`.
 2. Abra uma janela PowerShell e navegue para a pasta onde criou o script PowerShell.
-3. Corrida: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+3. Execute: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 4. Tem agora um ficheiro chamado **processedusers1.csv** que pode ser examinado no Microsoft Excel. Note que o ficheiro fornece um mapeamento do atributo DN a identificadores comuns (por exemplo, nome de exibição e nome principal do utilizador). Atualmente, não inclui as alterações reais dos atributos que estão prestes a ser exportadas.
 
 #### <a name="switch-active-server"></a>Mudar servidor ativo

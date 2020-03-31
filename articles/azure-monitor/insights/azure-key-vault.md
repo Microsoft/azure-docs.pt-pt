@@ -1,5 +1,5 @@
 ---
-title: Solução Azure Key Vault no Monitor Azure  Microsoft Docs
+title: Solução Azure Key Vault no Monitor Azure [ Microsoft Docs
 description: Pode utilizar a solução Azure Key Vault no Azure Monitor para rever os registos do Cofre de Chaves Azure.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667148"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução azure key vault Analytics no Monitor Azure
@@ -46,11 +46,11 @@ Utilize as seguintes instruções para instalar e configurar a solução Azure K
 4. Dê um nome à definição de diagnóstico.
 5. Clique na caixa de verificação para *enviar para registar análises*
 6. Selecione um espaço de trabalho existente no Log Analytics ou crie um espaço de trabalho
-7. Para ativar registos auditais, clique na caixa de verificação em Registo
+7. Para *AuditEvent* ativar registos auditais, clique na caixa de verificação em Registo
 8. Clique em *Guardar* para ativar o registo de diagnósticos para log Analytics espaço de trabalho.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Ativar diagnósticos key vault usando PowerShell
-O seguinte script PowerShell fornece um exemplo de como usar `Set-AzDiagnosticSetting` para permitir o registo de recursos para o Cofre chave:
+O seguinte script PowerShell fornece um `Set-AzDiagnosticSetting` exemplo de como usar para ativar o registo de recursos para o Cofre chave:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -132,13 +132,13 @@ Para utilizar a solução atualizada:
 2. Ative a solução Azure Key Vault utilizando o processo descrito nas [soluções Add Azure Monitor da Galeria Solutions](../../azure-monitor/insights/solutions.md)
 3. Atualizar quaisquer consultas, dashboards ou alertas guardados para usar o novo tipo de dados
    + O tipo é alterado de: KeyVaults para AzureDiagnostics. Pode utilizar o ResourceType para filtrar os registos do cofre de chaves.
-   + Em vez de: `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Em vez `KeyVaults`de: , usar`AzureDiagnostics | where ResourceType'=="VAULTS"`
    + Campos: (Os nomes de campo são sensíveis aos casos)
-   + Para qualquer campo que tenha um sufixo de \_s, \_d, ou \_g no nome, mude o primeiro personagem para minúscula
-   + Para qualquer campo que tenha um sufixo de \_o em nome, os dados são divididos em campos individuais com base nos nomes de campo aninhados. Por exemplo, a UPN do chamador é armazenada num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Para qualquer campo que tenha \_um \_sufixo \_de sufixo de sufixo de s, d, ou g no nome, mude o primeiro personagem para minúscula
+   + Para qualquer campo que tenha \_um sufixo de o em nome, os dados são divididos em campos individuais com base nos nomes de campo aninhados. Por exemplo, a UPN do chamador é armazenada num campo`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Chamada de campoIpAddress alterado para CallerIPAddress
    + Field RemoteIPCountry já não está presente
-4. Remova a solução *Key Vault Analytics (Depreciada).* Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Remova a solução *Key Vault Analytics (Depreciada).* Se estiver a usar powerShell, use`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Os dados recolhidos antes da alteração não são visíveis na nova solução. Pode continuar a consultar estes dados utilizando os antigos nomes de Tipo e campo.
 

@@ -1,114 +1,114 @@
 ---
-title: Visão geral da visualização de Azure Notebooks
-description: Execute blocos de anotações do Jupyter na nuvem usando o serviço de visualização de Azure Notebooks gratuito, onde nenhuma instalação ou configuração é necessária.
+title: Visão geral da pré-visualização dos cadernos azure
+description: Executar os cadernos Jupyter na nuvem utilizando o serviço gratuito de pré-visualização de cadernos Azure, onde não é necessária configuração ou configuração.
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646335"
 ---
-# <a name="overview-of-azure-notebooks-preview"></a>Visão geral da visualização de Azure Notebooks
+# <a name="overview-of-azure-notebooks-preview"></a>Visão geral da pré-visualização dos cadernos azure
 
-O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
+O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente IPython) é um projeto de código aberto que permite combinar facilmente texto Markdown, código executável, dados persistentes, gráficos e visualizações em uma única tela sharable, o *caderno* (imagem cortesia de jupyter.org):
 
-[![exemplos de notebooks Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de cadernos Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
-Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou conhecido por muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformação, simulação numérica, modelação estatística e o desenvolvimento de modelos de Machine learning.
+Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou-se popular para muitos usos, incluindo instrução de ciência de dados, limpeza e transformação de dados, simulação numérica, modelação estatística, e o desenvolvimento de modelos de aprendizagem automática.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-## <a name="hassle-free-experience"></a>Experiência sem preocupações
+## <a name="hassle-free-experience"></a>Experiência sem aborrecimentos
 
-Blocos de notas do Azure ajuda-o a começar rapidamente a criação de protótipos, ciência de dados, investigação académica ou learning para o programa de Python:
+Os Cadernos Azure ajudam-no a começar rapidamente em prototipagem, ciência de dados, investigação académica ou aprendizagem para programar Python:
 
-- Um cientista de dados tem acesso instantâneo a um ambiente completo de Anaconda sem instalação.
-- Um professor pode fornecer um ambiente de Python obstáculos para estudantes.
-- Um apresentador pode permitir que um tipo conversa ou webinar sem pedir participantes para gastar 45 minutos a instalação de software.
-- Um desenvolvedor ou entusiasta pode usar blocos de notas como um bloco de rascunho do código rápido.
+- Um cientista de dados tem acesso instantâneo a um ambiente completo da Anaconda sem instalação.
+- Um professor pode fornecer um ambiente python livre de aborrecimentos aos alunos.
+- Um apresentador pode dar uma palestra semelhante ou webinar sem pedir aos participantes que passem 45 minutos a instalar software.
+- Um desenvolvedor ou hobby pode usar Cadernos como uma raspadinha de código rápido.
 
-Blocos de notas se tornar ainda mais poderosos quando as pessoas podem colaborar nos mesmos através de um serviço cloud acessível para o navegador como blocos de notas do Azure (em pré-visualização). Na cloud, os utilizadores não precisam instalar o Jupyter localmente ou se eles próprios com a manutenção de um ambiente. A cloud também simplifica a partilha de blocos de notas (e arquivos de dados associados) com outros utilizadores autorizados, evitando as complicações do compartilhamento de blocos de notas através de meios externos, como repositórios de controlo de origem. Com blocos de notas do Azure, os utilizadores podem também blocos de notas de cópia (ou "clonar") em sua própria conta para modificação ou a experimentação, o que é especialmente útil para fins de instrução.
+Os cadernos tornam-se ainda mais poderosos quando as pessoas podem colaborar neles através de um serviço de nuvem acessível ao navegador como o Azure Notebooks (em Pré-visualização). Na nuvem, os utilizadores não precisam de instalar a Jupyter localmente nem se preocuparem em manter um ambiente. A nuvem também torna simples partilhar cadernos (e ficheiros de dados associados) com outros utilizadores autorizados, evitando as complicações de partilhar cadernos através de meios externos, como repositórios de controlo de fonte. Com os Cadernos Azure, os utilizadores também podem copiar (ou "clone") cadernos na sua própria conta para modificação ou experimentação, o que é especialmente útil para fins de instrução.
 
-Como blocos de notas do Azure é um código geral de criação, execução e a partilha de plataforma, pode usá-lo para vários cenários diferentes:
+Como o Azure Notebooks é uma plataforma de autor, execução e partilha de códigos gerais, pode usá-lo para muitos cenários diversos:
 
-- Aprenda uma nova linguagem de programação – experimente um do [tutoriais do frontpage](https://notebooks.azure.com/Microsoft/projects/samples/html/Introduction%20to%20Python.ipynb)
-- Saiba de ciência de dados – experimente [livro de Jake VanderPlas](https://notebooks.azure.com/jakevdp/projects/PythonDataScienceHandbook)
-- [Ensinar um curso](https://notebooks.azure.com/garth-wells/projects/CUED-IA-Computing-Michaelmas) para centenas de estudantes
-- Dar um webinar online ou numa conferência sem tempo gastos sobre a instalação 
-- Permitir que os utilizadores GitHub diretamente carregar e executar blocos de notas por [criando um destaque de iniciação do GitHub](https://notebooks.azure.com/help/projects/sharing/create-a-github-badge)
-- Dê [PowerPoint como apresentações de slides](https://notebooks.azure.com/help/jupyter-notebooks/slides) onde o código em slides é executável!
+- Aprenda uma nova linguagem de programação - experimente um dos [tutoriais](https://notebooks.azure.com/Microsoft/projects/samples/html/Introduction%20to%20Python.ipynb) de primeira página
+- Learn Data Science - experimente [o livro de Jake VanderPlas](https://notebooks.azure.com/jakevdp/projects/PythonDataScienceHandbook)
+- [Ensine um curso](https://notebooks.azure.com/garth-wells/projects/CUED-IA-Computing-Michaelmas) para centenas de alunos
+- Dê um webinar on-line ou em uma conferência sem gastar tempo na instalação 
+- Ativar os utilizadores do GitHub para carregar e executar diretamente os cadernos criando um crachá de [lançamento GitHub](https://notebooks.azure.com/help/projects/sharing/create-a-github-badge)
+- Dê ao [PowerPoint como slideshows](https://notebooks.azure.com/help/jupyter-notebooks/slides) onde o código em diapositivos é executável!
 
-Em resumo, blocos de notas do Azure ajuda-o a realizar seu trabalho com mais eficiência e, portanto, obter muito mais.
+Em suma, os Cadernos Azure ajudam-no a realizar o seu trabalho de forma mais eficiente e assim conseguir mais.
 
 > [!Note]
-> Obter mais informações sobre o Jupyter em si podem ser encontradas no [jupyter.org](https://jupyter.org/) e, no [Jupyter documentação](https://jupyter-notebook.readthedocs.io/en/latest/).
+> Mais informações sobre o próprio Jupyter podem ser encontradas em [jupyter.org](https://jupyter.org/) e na [documentação de Jupyter.](https://jupyter-notebook.readthedocs.io/en/latest/)
 
 ## <a name="pricing-and-quotas"></a>Preços e quotas
 
-Azure Notebooks é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e 1GB de dados para evitar abusos. Os usuários legítimos que excederem estes limites veem um desafio de Captcha para continuar a executar blocos de notas.
+O Azure Notebooks é um serviço gratuito, mas cada projeto está limitado a memória de 4GB e dados de 1GB para prevenir abusos. Os utilizadores legítimos que excedam estes limites vêem um desafio captcha para continuar a executar cadernos.
 
-Para liberar todos os limites, entre Azure Notebooks com uma conta usando Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá se conectar a qualquer instância do Azure Máquina Virtual de Ciência de Dados dentro dessa assinatura. Para obter mais informações, consulte [gerenciar e configurar projetos – camada de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
+Para libertar todos os limites, assine nos Cadernos Azure com uma conta utilizando o Azure Ative Directory (como uma conta corporativa). Se essa conta estiver associada a uma subscrição do Azure, pode ligar-se a quaisquer instâncias da Máquina Virtual de Ciência de Dados do Azure dentro dessa subscrição. Para mais informações, consulte [Gerir e configurar projetos - Compute tier](configure-manage-azure-notebooks-projects.md#compute-tier).
 
-Os servidores de notebook têm a garantia de existir por no máximo 8 horas. Na maioria dos casos, o contêiner não está sujeito a esse limite e continua a ser executado além desse tempo, mas sessões de longa duração podem ocasionalmente ser desligadas para a estabilidade do sistema.
+Os servidores de cadernos são garantidos para existir durante o máximo 8 horas. Na maioria dos casos, o seu contentor não está sujeito a este limite e continua a correr para além deste tempo, mas as sessões de longa duração podem ocasionalmente ser encerradas para estabilidade do sistema.
 
-## <a name="available-kernels-and-environments"></a>Kernels disponíveis e ambientes
+## <a name="available-kernels-and-environments"></a>Núcleos e ambientes disponíveis
 
-Para cada bloco de notas, selecione o kernel (ou seja, o ambiente de tempo de execução), que é utilizado para executar qualquer células de código. Blocos de notas do Azure suporta os kernels seguintes:
+Para cada caderno, selecione o núcleo (isto é, o ambiente de tempo de execução) que é usado para executar quaisquer células de código. Os Cadernos Azure suportam os seguintes núcleos:
 
-- Python 2.7 + Anaconda2 5.3.0
-- Python 3.6 + Anaconda3 5.3.0
-- Python 3.5 + Anaconda3-4.2.0 (vão ser preteridos)
+- Python 2.7 + Anaconda2-5.3.0
+- Python 3.6 + Anaconda3-5.3.0
+- Python 3.5 + Anaconda3-4.2.0 (será depreciado)
 - R 3.4.1 + Microsoft R Open 3.4.1
-- F#4.1.9
+- F# 4.1.9
 
-Blocos de notas do Azure também inclui pacotes adicionais para além das distribuições de bases. Os kernels do Python, por exemplo, incluem a numpy, pandas, scikit-saiba, matplotlib e bokeh bibliotecas.
+Os Cadernos Azure também incluem pacotes extra para além das distribuições de base. Os núcleos python, por exemplo, incluem as bibliotecas dormentes, pandas, scikit-learn, matplotlib e bokeh.
 
-Também pode personalizar um projeto para criar um ambiente para todos os blocos de notas desse projeto. Para obter mais informações, consulte [início rápido: criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+Também pode personalizar um projeto para criar um ambiente para todos os cadernos desse projeto. Para mais informações, consulte [Quickstart: Crie um projeto com um ambiente personalizado.](quickstart-create-jupyter-notebook-project-environment.md)
 
-Além das distribuições de bases, os blocos de notas do Azure vem pré-instalada com muitos pacotes adicionais que são úteis para os cientistas de dados. Também pode instalar seus próprios pacotes usando o processo normal para cada idioma.
+Além das distribuições de base, os Cadernos Azure vêm pré-instalados com muitos pacotes extra que são úteis para os cientistas de dados. Também pode instalar os seus próprios pacotes utilizando o processo típico para cada idioma.
 
-## <a name="pre-configured-jupyter-extensions"></a>Extensões de Jupyter pré-configurados
+## <a name="pre-configured-jupyter-extensions"></a>Extensões jupyter pré-configuradas
 
-Blocos de notas do Azure é pré-configurado com as seguintes extensões de Jupyter:
+Os Cadernos Azure são pré-configurados com as seguintes extensões Jupyter:
 
-- [AUMENTAR](https://github.com/damianavila/RISE): A Jupyter Slideshow extensão (também conhecido como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do bloco de notas](present-jupyter-notebooks-slideshow.md).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): um ambiente computacional completa para trabalhar com blocos de notas do Jupyter.
-- [Altair](https://github.com/ellisonbg/altair): uma biblioteca de visualização de estatísticas declarativa para Python.
-- [BQPlot](https://github.com/bloomberg/bqplot): uma estrutura de desenho interativa para blocos de notas do Jupyter.
-- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): widgets de HTML interativos para blocos de notas do Jupyter.
+- [ASCENSÃO](https://github.com/damianavila/RISE): Uma extensão de apresentação de diapositivos de jupyter (também conhecida como live_reveal). Para mais informações, consulte Executar uma apresentação de [diapositivos portátil](present-jupyter-notebooks-slideshow.md).
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): Um ambiente computacional completo para trabalhar com cadernos Jupyter.
+- [Altair](https://github.com/ellisonbg/altair): Uma biblioteca de visualização estatística declarativa para Python.
+- [BQPlot](https://github.com/bloomberg/bqplot): Um quadro de conspiração interativa para os Cadernos Jupyter.
+- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): Widgets HTML Interativos para Cadernos Jupyter.
 
-## <a name="issues-and-getting-help"></a>Problemas e obter ajuda
+## <a name="issues-and-getting-help"></a>Problemas e obtenção de ajuda
 
-Uma vez que blocos de notas do Azure ainda está em pré-visualização, o serviço poderá experienciar falhas temporárias de que podem ser maior ou mais duradouras relativamente a outros serviços do Azure. Algumas funcionalidades podem estar incompletos ou conter bugs.
+Como os Cadernos Azure ainda se encontra em Pré-visualização, o serviço pode experimentar interrupções temporárias que podem ser mais frequentes ou mais duradouras do que outros serviços Azure. Algumas funcionalidades podem estar incompletas ou conter bugs.
 
-No momento, é recomendável contra a utilização de pré-visualização de blocos de notas do Azure para aplicações críticas para a empresa, ou blocos de notas confidenciais e dados.
+Atualmente, recomendamos não utilizar os Cadernos Azure Preview para aplicações críticas ao negócio, ou cadernos e dados sensíveis.
 
-Para discutir suas perguntas sobre blocos de notas do Azure, enviar um problema no [repositório do GitHub](https://github.com/Microsoft/AzureNotebooks/issues).
+Para discutir as suas perguntas sobre os Cadernos Azure, apresente um problema no [repositório GitHub.](https://github.com/Microsoft/AzureNotebooks/issues)
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
+- [Explore os cadernos de amostras](azure-notebooks-samples.md)
 
-- Inícios rápidos:
+- Guias de Início Rápido:
 
   - [Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)
   - [Clonar um bloco de notas](quickstart-clone-jupyter-notebook.md)
-  - [Migrar de um bloco de notas Jupyter local](quickstart-migrate-local-jupyter-notebook.md)
+  - [Migrar um bloco de notas Jupyter local](quickstart-migrate-local-jupyter-notebook.md)
   - [Utilizar um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md)
-  - [Iniciar sessão e defina um ID de utilizador](quickstart-sign-in-azure-notebooks.md)
+  - [Iniciar sessão e definir um ID de utilizador](quickstart-sign-in-azure-notebooks.md)
 
 - Tutoriais:
 
   - [Criar e executar um bloco de notas](tutorial-create-run-jupyter-notebook.md  )
 
-- Artigos de procedimentos:
+- Artigos:
   
   - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
   - [Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-  - [Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-  - [Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
-  - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
+  - [Instale pacotes dentro de um caderno](install-packages-jupyter-notebook.md)
+  - [Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
+  - [Trabalhar com ficheiros de dados](work-with-project-data-files.md)
   - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Utilizar o Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

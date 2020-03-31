@@ -1,23 +1,23 @@
 ---
-title: Cláusula de limite de deslocamento no Azure Cosmos DB
-description: Saiba como usar a cláusula de limite de deslocamento para ignorar e pegar alguns valores ao consultar em Azure Cosmos DB
+title: Cláusula LIMITE OFFSET em Azure Cosmos DB
+description: Aprenda a usar a cláusula OFFSET LIMIT para saltar e tomar alguns certos valores ao consultar em Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
 ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771577"
 ---
-# <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula de limite de deslocamento no Azure Cosmos DB
+# <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula LIMITE OFFSET em Azure Cosmos DB
 
-A cláusula de limite de deslocamento é uma cláusula opcional para ignorar e, em seguida, pegar um número de valores da consulta. A contagem de deslocamento e a contagem de limites são necessárias na cláusula de limite de deslocamento.
+A cláusula OFFSET LIMIT é uma cláusula opcional para saltar e depois retirar alguns valores da consulta. A contagem OFFSET e a contagem LIMIT são exigidas na cláusula OFFSET LIMIT.
 
-Quando o limite de deslocamento é usado em conjunto com uma cláusula ORDER BY, o conjunto de resultados é produzido ao fazer a ação de ignorar e assumir os valores ordenados. Se nenhuma cláusula ORDER BY for usada, ela resultará em uma ordem determinística de valores.
+Quando o OFFSET LIMIT é utilizado em conjunto com uma cláusula ORDER BY, o conjunto de resultados é produzido fazendo skip e assume os valores encomendados. Se não for utilizada a cláusula ORDER BY, resultará numa ordem determinística de valores.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,7 +29,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 - `<offset_amount>`
 
-   Especifica o número inteiro de itens que os resultados da consulta devem ignorar.
+   Especifica o número inteiro de itens que os resultados da consulta devem saltar.
 
 - `<limit_amount>`
   
@@ -37,15 +37,15 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Observações
   
-  Tanto a contagem de `OFFSET` como a contagem `LIMIT` são necessárias na cláusula `OFFSET LIMIT`. Se uma cláusula opcional `ORDER BY` for usada, o conjunto de resultados será produzido fazendo o ignorar os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores.
+  Tanto `OFFSET` a contagem `LIMIT` como a contagem `OFFSET LIMIT` são exigidas na cláusula. Se for `ORDER BY` utilizada uma cláusula opcional, o conjunto de resultados é produzido fazendo o salto sobre os valores ordenados. Caso contrário, a consulta devolverá uma ordem fixa de valores.
 
-  A acusação de RU de uma consulta com `OFFSET LIMIT` aumentará à medida que o número de termos a ser compensados aumenta. Para consultas que tenham várias páginas de resultados, recomendamos normalmente o uso de tokens de continuação. Os tokens de continuação são um "marcador" para o local onde a consulta pode ser retomada mais tarde. Se usar `OFFSET LIMIT`, não há "marcador". Se quisesse devolver a próxima página da consulta, teria de começar do início.
+  A carga ru de `OFFSET LIMIT` uma consulta com vai aumentar à medida que o número de termos sendo compensados aumenta. Para consultas que tenham várias páginas de resultados, recomendamos normalmente o uso de tokens de continuação. Os tokens de continuação são um "marcador" para o local onde a consulta pode ser retomada mais tarde. Se usar, `OFFSET LIMIT`não há "marcador". Se quisesse devolver a próxima página da consulta, teria de começar do início.
   
-  Deve usar `OFFSET LIMIT` para casos em que gostaria de ignorar totalmente os documentos e poupar recursos do cliente. Por exemplo, deve usar `OFFSET LIMIT` se quiser saltar para o resultado da 1000ª consulta e não tem necessidade de ver os resultados 1 a 999. Na parte de trás, `OFFSET LIMIT` ainda carrega cada documento, incluindo os que são ignorados. A vantagem de desempenho é uma poupança nos recursos dos clientes evitando o processamento de documentos que não são necessários.
+  Deve usar `OFFSET LIMIT` para casos em que gostaria de ignorar totalmente os documentos e poupar recursos do cliente. Por exemplo, deve `OFFSET LIMIT` utilizar se quiser saltar para o resultado da 1000ª consulta e não tem necessidade de ver os resultados 1 a 999. Na parte de `OFFSET LIMIT` trás, ainda carrega cada documento, incluindo aqueles que são ignorados. A vantagem de desempenho é uma poupança nos recursos dos clientes evitando o processamento de documentos que não são necessários.
 
 ## <a name="examples"></a>Exemplos
 
-Por exemplo, aqui está uma consulta que ignora o primeiro valor e retorna o segundo valor (na ordem do nome da cidade residente):
+Por exemplo, aqui está uma consulta que ignora o primeiro valor e devolve o segundo valor (por ordem do nome da cidade residente):
 
 ```sql
     SELECT f.id, f.address.city
@@ -65,7 +65,7 @@ Os resultados são:
     ]
 ```
 
-Aqui está uma consulta que ignora o primeiro valor e retorna o segundo valor (sem ordenação):
+Aqui está uma consulta que ignora o primeiro valor e devolve o segundo valor (sem encomenda):
 
 ```sql
    SELECT f.id, f.address.city
@@ -86,6 +86,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
+- [Começar](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
 - [Cláusula ORDER BY](sql-query-order-by.md)

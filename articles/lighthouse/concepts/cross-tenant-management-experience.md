@@ -4,10 +4,10 @@ description: A gestão de recursos delegados da Azure permite uma experiência d
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218394"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
@@ -42,7 +42,7 @@ O [Cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscr
 Da mesma forma, comandos Azure CLI, como a lista de [contas az,](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridosByTenants.**
 
 > [!TIP]
-> Se não vir estes valores ao utilizar o Azure CLI, tente limpar a cache executando `az account clear` seguido de `az login --identity`.
+> Se não vir estes valores ao utilizar o Azure CLI, tente limpar a cache executando `az account clear` seguido por `az login --identity`.
 
 Também fornecemos APIs específicos para executar tarefas de gestão de recursos delegados azure. Para mais informações, consulte a secção **referência.**
 
@@ -115,7 +115,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados atr
 - Monitorizar a saúde dos recursos dos clientes com a Azure Resource Health
 - Acompanhe a saúde dos serviços Azure utilizados pelos seus clientes
 
-[Azure Site Recovery](../../site-recovery/index.yml):
+[Recuperação do site Azure:](../../site-recovery/index.yml)
 
 - Gerencie opções de recuperação de desastres para máquinas virtuais Azure em inquilinos de clientes (note que não pode usar contas RunAs para copiar extensões VM)
 
@@ -137,12 +137,12 @@ Pedidos de apoio:
 ## <a name="current-limitations"></a>Limitações atuais
 Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
-- Os pedidos realizados pelo Gestor de Recursos Azure podem ser realizados utilizando a gestão de recursos delegados do Azure. A operação URIs para estes pedidos começa com `https://management.azure.com`. No entanto, os pedidos que são tratados por uma instância de um tipo de recurso (como o acesso a segredos keyVault ou o acesso a dados de armazenamento) não são suportados com a gestão de recursos delegados do Azure. A operação URIs para estes pedidos normalmente começa com um endereço único para a sua instância, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. Estes últimos também são normalmente operações de dados em vez de operações de gestão. 
+- Os pedidos realizados pelo Gestor de Recursos Azure podem ser realizados utilizando a gestão de recursos delegados do Azure. A operação URIs para estes `https://management.azure.com`pedidos começa com . No entanto, os pedidos que são tratados por uma instância de um tipo de recurso (como o acesso a segredos keyVault ou o acesso a dados de armazenamento) não são suportados com a gestão de recursos delegados do Azure. A operação URIs para estes pedidos normalmente começa com um endereço `https://myaccount.blob.core.windows.net` `https://mykeyvault.vault.azure.net/`único para a sua instância, como ou . Estes últimos também são normalmente operações de dados em vez de operações de gestão. 
 - As atribuições de funções devem utilizar [funções](../../role-based-access-control/built-in-roles.md)de controlo de acesso baseado seleções em funções (RBAC). Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para owner ou quaisquer funções incorporadas com permissão [DataActions.](../../role-based-access-control/role-definitions.md#dataactions) A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na atribuição de [funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções clássicas](../../role-based-access-control/classic-administrators.md) de administrador de subscrição não são suportadas.
 - Enquanto pode embarcar subscrições que utilizam o Azure Databricks, os utilizadores do inquilino gerente não podem lançar espaços de trabalho Azure Databricks numa subscrição delegada neste momento.
 - Embora possa participar em subscrições e grupos de recursos para a gestão de recursos delegados do Azure que tenham fechaduras de recursos, esses bloqueios não impedirão que as ações sejam realizadas pelos utilizadores no inquilino gestor. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam recursos geridos pelo sistema, como os criados pela Azure geriu aplicações ou plantas Azure (atribuições de negação atribuídas pelo sistema), impedir que os utilizadores do inquilino gerente agissem com esses recursos; no entanto, neste momento os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - A bordo dos seus clientes para a gestão de recursos delegados do Azure, quer utilizando modelos de [Gestor de Recursos Azure,](../how-to/onboard-customer.md) quer [publicando uma oferta de serviços geridos pelo público ou privado ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 - [Ver e gerir os clientes](../how-to/view-manage-customers.md) indo para os meus **clientes** no portal Azure.

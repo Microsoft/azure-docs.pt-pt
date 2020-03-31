@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 0df2c0501dfba6311d1178703e0907090706859a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: d46e2a9820ec0c45d197f135428f1ace712b2fb8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79296783"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125147"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
 
@@ -29,7 +29,7 @@ Este artigo descreve como o Security Center o ajuda a melhorar, monitorizar e ma
 * Endurecimento do ambiente do contentor
 * Proteção de tempo de corrido
 
-[separador de segurança de contentores do ![Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
+[![Separador de segurança de contentores do Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 Para obter instruções sobre como utilizar estas funcionalidades, consulte [monitorizar a segurança dos seus recipientes](monitor-container-security.md).
 
@@ -54,7 +54,7 @@ Ao explorar as questões de segurança de um VM, o Security Center fornece infor
 >[!NOTE]
 > Estes controlos de referência do CIS não serão executados em instâncias geridas pela AKS ou em VMs geridos por Databricks.
 
-### <a name="continuous-monitoring-of-your-kubernetes-clusters-preview"></a>Monitorização contínua dos seus clusters Kubernetes (Pré-visualização)
+### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Monitorização contínua dos seus clusters Kubernetes
 O Security Center trabalha em conjunto com o Azure Kubernetes Service (AKS), o serviço de orquestração de contentores gerido pela Microsoft para o desenvolvimento, implantação e gestão de aplicações contentorizadas.
 
 A AKS fornece controlos de segurança e visibilidade na postura de segurança dos seus clusters. O Centro de Segurança utiliza estas funcionalidades para:
@@ -89,7 +89,7 @@ Os exames de imagem são acionados em cada impulso.
 Sim. Os resultados estão em [Sub-Avaliações Rest API](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre segurança de contentores no Centro de Segurança Azure, consulte estes artigos relacionados:
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77656930"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão para serviços de nuvem azure: perguntas frequentes (PERGUNTAS)
@@ -91,7 +91,7 @@ Consulte o seguinte documento de orientação:
 
 [Obtenção de um certificado para utilização com web sites windows azure (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-A RSE é apenas um ficheiro de texto. Não tem de ser criado a partir da máquina onde o certificado será, em última análise, utilizado. Embora este documento esteja escrito para um Serviço de Aplicações, a criação de RSE é genérica e aplica-se também aos Serviços cloud.
+A RSE é apenas um ficheiro de texto. Não tem de ser criado a partir da máquina onde o certificado será, em última análise, utilizado.Embora este documento esteja escrito para um Serviço de Aplicações, a criação de RSE é genérica e aplica-se também aos Serviços cloud.
 
 ### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>O meu Certificado de Gestão de Serviços em Nuvem está a expirar. Como renová-lo?
 
@@ -101,7 +101,7 @@ Pode utilizar os seguintes comandos PowerShell para renovar os seus Certificados
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-O **Get-AzurePublishSettingsFile** criará um novo certificado de gestão em **Certificados** de **Gestão de > de Assinatura** no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
+O **Get-AzurePublishSettingsFile** criará um novo certificado de gestão em Certificados de**Gestão** de **Assinaturas** > no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado SSL principal (.pfx) e do certificado intermédio (.p7b)?
 
@@ -131,13 +131,13 @@ A possibilidade de escolher blob ou local para o seu local de carregamento csdef
 Capacidade de monitorizar métricas ao nível da ocorrência. Estão disponíveis capacidades de monitorização adicionais em [Como Monitorizar os Serviços de Cloud](cloud-services-how-to-monitor.md).
 
 ### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>Porque é que o IIS deixa de escrever para o diário de bordo?
-Esgotou a quota de armazenamento local para escrever ao diário de bordo. Para corrigir isto, pode fazer uma de três coisas:
+Esgotou a quota de armazenamento local para escrever ao diário de bordo.Para corrigir isto, pode fazer uma de três coisas:
 * Ative diagnósticos para IIS e os diagnósticos são periodicamente transferidos para o armazenamento de bolhas.
 * Remova manualmente os ficheiros de registo do diretório de registo.
 * Aumentar o limite de quota para os recursos locais.
 
-Para mais informações, consulte os seguintes documentos:
-* [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](/azure/storage/common/storage-introduction)
+Para obter mais informações, consulte os documentos seguintes:
+* [Armazenar e ver dados de diagnóstico no Armazenamento Azure](/azure/storage/common/storage-introduction)
 * [IIS Logs deixam de escrever no Serviço cloud](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como posso permitir a exploração de WAD para serviços de nuvem?
@@ -146,7 +146,7 @@ Pode ativar o Registo de Diagnósticos Windows Azure (WAD) através das seguinte
 2. [Ativar através do código .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Ativar através da Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
-Para obter as definições atuais do SEU Serviço cloud, pode utilizar [As extensões get-AzureServiceDiagnostics](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd ou pode vê-lo através do portal a partir da lâmina "Cloud Services -> Extensions".
+Para obter as definições atuais do SEU Serviço cloud, pode utilizar [As extensões get-AzureServiceDiagnostics](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd ou pode vê-lo através do portal a partir da lâmina "Cloud Services --> Extensões".
 
 
 ## <a name="network-configuration"></a>Configuração da rede
@@ -229,7 +229,7 @@ A Microsoft segue um processo rigoroso que não permitirá que engenheiros inter
 Este erro pode ocorrer se utilizar o ficheiro RDP a partir de uma máquina que esteja unida ao Diretório Ativo Azure. Para resolver este problema, siga estes passos:
 
 1. Clique no ficheiro RDP que descarregou e, em seguida, **selecione Editar**.
-2. Adicione&#92;" como prefixo antes do nome de utilizador. Por exemplo, utilize **o nome de utilizador .\username** em vez do nome de **utilizador**.
+2. Adicione "&#92;" como prefixo antes do nome de utilizador. Por exemplo, utilize **o nome de utilizador .\username** em vez do nome de **utilizador**.
 
 ## <a name="scaling"></a>Dimensionamento
 
@@ -250,7 +250,7 @@ Para mais informações sobre o que permitirá insights de aplicação para serv
 
 Para obter mais informações sobre como ativar o registo de diagnósticos azure para serviços de nuvem, consulte [Configurar diagnósticos para serviços de nuvem azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="generic"></a>Genérico
+## <a name="generic"></a>Genérica
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Como adiciono "nosniff" ao meu site?
 Para evitar que os clientes cheirem os tipos MIME, adicione uma definição no seu ficheiro *web.config.*

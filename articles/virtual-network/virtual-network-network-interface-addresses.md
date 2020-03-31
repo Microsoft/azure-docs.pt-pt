@@ -1,5 +1,5 @@
 ---
-title: Configure endereços IP para uma interface de rede Azure  Microsoft Docs
+title: Configure endereços IP para uma interface de rede Azure [ Microsoft Docs
 description: Saiba como adicionar, alterar e remover endereços IP privados e públicos para uma interface de rede.
 services: virtual-network
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244969"
 ---
-# <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para uma interface de rede Azure
+# <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Add, change, or remove IP addresses for an Azure network interface (Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure)
 
 Saiba como adicionar, alterar e remover endereços IP públicos e privados para uma interface de rede. Os endereços IP privados atribuídos a uma interface de rede permitem a uma máquina virtual comunicar com outros recursos numa rede virtual Azure e redes conectadas. Um endereço IP privado também permite a comunicação de saída para a Internet utilizando um endereço IP imprevisível. Um [endereço IP público](virtual-network-public-ip-address.md) atribuído a uma interface de rede permite a comunicação de entrada a uma máquina virtual a partir da Internet. O endereço também permite a comunicação de saída da máquina virtual para a Internet usando um endereço IP previsível. Para mais detalhes, consulte [a Understanding outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -35,9 +35,9 @@ Se precisar de criar, alterar ou eliminar uma interface de rede, leia o artigo d
 Complete as seguintes tarefas antes de completar os passos em qualquer secção deste artigo:
 
 - Se ainda não tem uma conta Azure, inscreva-se numa [conta de teste gratuita.](https://azure.microsoft.com/free)
-- Se utilizar o portal, abra https://portal.azure.come faça login na sua conta Azure.
+- Se utilizar o https://portal.azure.comportal, abra e faça login na sua conta Azure.
 - Se utilizar os comandos PowerShell para completar tarefas neste artigo, execute os comandos na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando powerShell a partir do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI `az login` localmente, também precisa de correr para criar uma ligação com o Azure.
 
 A conta em que inicia sessão, ou liga-se ao Azure, deve ser atribuída à função de contribuinte da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que lhe seja atribuída as ações apropriadas listadas nas [permissões](virtual-network-network-interface.md#permissions)da interface da Rede.
 
@@ -143,7 +143,7 @@ Existem cenários em que é necessário definir manualmente o endereço IP de um
 1. Certifique-se de que a máquina virtual está a receber um endereço dos servidores Azure DHCP. Assim que o tiver, altere a atribuição do endereço IP para DHCP dentro do sistema operativo e reinicie a máquina virtual.
 2. Parar (desalocar) a máquina virtual.
 3. Altere o endereço IP para a configuração IP dentro do Azure.
-4. Ligue a máquina virtual.
+4. Inicie a máquina virtual.
 5. [Configure manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) os endereços IP secundários dentro do sistema operativo (e também o endereço IP primário dentro do Windows) para corresponder ao que definiu dentro do Azure.
 
 Seguindo os passos anteriores, o endereço IP privado atribuído à interface de rede dentro do Azure, e dentro do sistema operativo de uma máquina virtual, permanece o mesmo. Para acompanhar quais as máquinas virtuais dentro da sua subscrição para as quais definiu manualmente os endereços IP dentro de um sistema operativo, considere adicionar uma [etiqueta](../azure-resource-manager/management/tag-resources.md) Azure às máquinas virtuais. Pode utilizar "atribuição de endereçoIP: Estática", por exemplo. Desta forma, pode facilmente encontrar as máquinas virtuais dentro da sua subscrição que definiu manualmente o endereço IP para dentro do sistema operativo.
@@ -194,7 +194,7 @@ Pode atribuir zero ou um endereço [IPv6](#ipv6) privado a uma configuração IP
 
 Não é possível atribuir um endereço IPv6 público a uma configuração IP primária ou secundária.
 
-## <a name="skus"></a>Rio SKUs
+## <a name="skus"></a>SKU
 
 Um endereço IP público é criado com o SKU básico ou padrão. Para mais informações sobre as diferenças de SKU, consulte [Gerir endereços IP públicos](virtual-network-public-ip-address.md).
 

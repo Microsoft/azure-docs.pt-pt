@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: cc6bd486c1e8338eaf875c7026764c80d49e2f05
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561617"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295206"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso Condicional: Exigir dispositivos conformes
 
@@ -34,18 +34,19 @@ Esta informação de conformidade de política é transmitida à Azure AD onde o
 Os seguintes passos ajudarão a criar uma política de Acesso Condicional para exigir que os dispositivos de acesso aos recursos sejam marcados como conformes com as políticas de conformidade intune da sua organização.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue no **Diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.**
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
 1. Selecione **Nova política.**
 1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir,** selecione **Todos os utilizadores**.
    1. Em **Excluir,** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou de vidro de emergência da sua organização. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos ou ações cloud** > **Incluir,** selecione **todas as aplicações em nuvem**.
+1. Em **aplicativos ou ações** > cloud**Inclua**, selecione **todas as aplicações em nuvem**.
    1. Se tiver de excluir aplicações específicas da sua apólice, pode escolhê-las no separador **Excluir** em aplicações de **nuvem excluídas e** escolher **Select**.
    1. Selecione **Done** (Concluído).
-1. Sob **os controlos de acesso** > **Grant**, selecione Exigir que o dispositivo seja marcado **como conforme**.
-   1. Selecione **Selecione**.
+1. Em **condições,** > **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
+1. Sob **controlos** > de acesso**Grant**, selecione Exigir que o dispositivo seja marcado **como conforme**.
+   1. Selecione **Selecionar**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
@@ -64,4 +65,4 @@ No Windows 7, iOS, Android, macOS e alguns navegadores web de terceiros A AD AD 
 
 [Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[As políticas de conformidade de dispositivos funcionam com a Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[As políticas de conformidade de dispositivos funcionam com o Microsoft Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

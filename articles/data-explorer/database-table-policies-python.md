@@ -1,6 +1,6 @@
 ---
-title: 'Criar políticas para o cluster de Data Explorer do Azure e o banco de dados usando a biblioteca do Azure Data Explorer Python '
-description: Neste artigo, você aprenderá a criar políticas usando o Python.
+title: 'Criar políticas para cluster e base de dados Azure Data Explorer utilizando a biblioteca Pitpython do Explorador de Dados Azure '
+description: Neste artigo, aprende-se a criar políticas usando python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,26 +8,26 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74667283"
 ---
-# <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Criar políticas de banco de dados e tabela para o Azure Data Explorer usando Python
+# <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Crie políticas de base de dados e tabelas para o Azure Data Explorer utilizando python
 
 > [!div class="op_single_selector"]
-> * [C#](database-table-policies-csharp.md)
-> * [Python](database-table-policies-python.md)
+> * [C #](database-table-policies-csharp.md)
+> * [Pitão](database-table-policies-python.md)
 >
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Neste artigo, você cria políticas de banco de dados e de tabela para o Azure Data Explorer usando o Python.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Neste artigo, cria bases de dados e políticas de mesa para o Azure Data Explorer utilizando python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster e uma base de dados de teste](create-cluster-database-python.md)
-* [Uma tabela de teste](python-ingest-data.md#create-a-table-on-your-cluster)
+* [Uma mesa de teste](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## <a name="install-the-data-libraries"></a>Instalar as bibliotecas de dados
 
@@ -38,10 +38,10 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## <a name="authentication"></a>Autenticação
-Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Você pode usar o mesmo aplicativo do Azure AD para autenticação de [um cluster de teste e banco de dados](create-cluster-database-csharp.md#authentication). Se você quiser usar um aplicativo diferente do Azure AD, consulte [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`. Talvez seja necessário adicionar o novo aplicativo do Azure AD como uma entidade de segurança no banco de dados, consulte [gerenciar permissões do banco de dados do azure data Explorer](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
+Para executar os exemplos neste artigo, precisamos de um Serviço De Aplicação E serviço Azure AD que possa aceder a recursos. Pode utilizar a mesma Aplicação AD Azure para autenticação a partir de [um cluster de teste e base](create-cluster-database-csharp.md#authentication)de dados . Se pretender utilizar uma aplicação Azure AD diferente, consulte [criar uma aplicação Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar uma Aplicação AD Azure gratuita e adicionar atribuição de funções no âmbito de subscrição. Também mostra como obter `Directory (tenant) ID` `Application ID`o, `Client Secret`e . Pode ser necessário adicionar a nova Aplicação AD Azure como principal na base de dados, consulte [permissões](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions)de base de dados do Manage Azure Data Explorer .    
 
-## <a name="alter-database-retention-policy"></a>Política de retenção de ALTER DATABASE
-Define uma política de retenção com um período de exclusão reversível de 10 dias.
+## <a name="alter-database-retention-policy"></a>Alterar a política de retenção de bases de dados
+Estabelece uma política de retenção com um período de 10 dias de eliminação suave.
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -73,8 +73,8 @@ poller = kustoManagementClient.databases.update(resource_group_name=resource_gro
                                            parameters=DatabaseUpdate(soft_delete_period=datetime.timedelta(days=10)))
 ```
 
-## <a name="alter-database-cache-policy"></a>Política de cache de ALTER DATABASE
-Define uma política de cache para o banco de dados em que os últimos cinco dias de data estarão no SSD do cluster.
+## <a name="alter-database-cache-policy"></a>Alterar a política de cache de base de dados
+Estabelece uma política de cache para a base de dados que os últimos cinco dias de dados serão no Cluster SSD.
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -106,8 +106,8 @@ poller = kustoManagementClient.databases.update(resource_group_name=resource_gro
                                            parameters=DatabaseUpdate(hot_cache_period=datetime.timedelta(days=5)))
 ```
 
-## <a name="alter-table-cache-policy"></a>Alterar política de cache de tabela
-Define uma política de cache para a tabela em que os últimos cinco dias de dados estarão no SSD do cluster.
+## <a name="alter-table-cache-policy"></a>Alterar política de cache de mesa
+Estabelece uma política de cache para a tabela que os últimos cinco dias de dados serão no Cluster SSD.
 
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
@@ -131,8 +131,8 @@ command = '.alter table {} policy caching '.format(table_name) +  caching_policy
 kusto_client.execute_mgmt(database_name, command)
 ```
 
-## <a name="add-a-new-principal-for-database"></a>Adicionar uma nova entidade de segurança para o banco de dados
-Adicionar um novo aplicativo do Azure AD como entidade de segurança do banco de dados
+## <a name="add-a-new-principal-for-database"></a>Adicione um novo diretor para base de dados
+Adicione uma nova aplicação Azure AD como diretor de administração para a base de dados
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -168,4 +168,4 @@ kustoManagementClient.databases.add_principals(resource_group_name=resource_grou
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre políticas de banco de dados e tabela](https://docs.microsoft.com/azure/kusto/management/policies)
+* [Ler mais sobre bases de dados e políticas de tabela](https://docs.microsoft.com/azure/kusto/management/policies)

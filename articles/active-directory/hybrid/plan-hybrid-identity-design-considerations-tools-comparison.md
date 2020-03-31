@@ -1,5 +1,5 @@
 ---
-title: 'Identidade híbrida: Comparação das ferramentas de integração de diretórios | Documentos da Microsoft'
+title: 'Identidade híbrida: comparação das ferramentas de integração de diretórios | Microsoft Docs'
 description: Nesta página, encontra uma tabela abrangente que compara as várias ferramentas de integração de diretórios que podem ser utilizadas para a integração de diretórios.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456922"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação das ferramentas de integração de diretórios de identidade híbrida
@@ -28,7 +28,7 @@ Ao longo dos anos, as ferramentas de integração de diretórios cresceram e evo
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> O Azure AD Connect inclui os componentes e as funcionalidades já disponibilizadas como o Dirsync e o AAD Sync. Estas ferramentas deixaram de ser disponibilizadas individualmente e todos os melhoramentos futuros serão incluídos nas atualizações do Azure AD Connect para que saiba sempre onde pode obter as funcionalidades mais recentes.
+> O Azure AD Connect incorpora os componentes e funcionalidades previamente lançados como Dirsync e AAD Sync. Estas ferramentas já não estão a ser lançadas individualmente, e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que saiba sempre onde obter a funcionalidade mais atual.
 > 
 > O DirSync e o Azure AD Sync foram preteridos. Pode encontrar mais informações [aqui](reference-connect-dirsync-deprecated.md).
 > 
@@ -100,6 +100,6 @@ PP = Pré-visualização Pública
 | Permitir a remoção de atributos no sentido do AD para o Azure AD |● |● | | | |
 | Permitir a personalização avançada de fluxos de atributos |● |● | |● |● |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
 

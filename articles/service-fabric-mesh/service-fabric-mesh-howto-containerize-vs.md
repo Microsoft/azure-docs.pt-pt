@@ -1,70 +1,70 @@
 ---
 title: Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
-description: Adicione Service Fabric suporte de orquestração de contêiner de malha a projetos de console e ASP.NET que usam o .NET Framework completo.
+description: Adicione suporte de orquestração de recipientes de malha de tecido de serviço aos projetos ASP.NET e consola que utilizam a estrutura completa .NET.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462044"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
 
-Este artigo mostra como adicionar Service Fabric suporte à orquestração de contêiner de malha a um aplicativo .NET existente.
+Este artigo mostra-lhe como adicionar suporte de orquestração de recipientes de malha de tecido de serviço a uma aplicação existente .NET.
 
-No Visual Studio 2017, você pode adicionar suporte de contêineres ao ASP.NET e projetos de console que usam o .NET Framework completo.
+No Visual Studio 2017, pode adicionar suporte de contentorização a projetos ASP.NET e Consolaque sustem a estrutura completa .NET.
 
 > [!NOTE]
-> Atualmente, não há suporte para projetos do .NET **Core** .
+> Os projetos .NET **Core** não são atualmente suportados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Certifique-se de que você [configurou seu ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md). Isso inclui a instalação do Service Fabric Runtime, SDK, Docker, Visual Studio 2017 e criação de um cluster local.
+* Certifique-se de que criou o seu ambiente de [desenvolvimento.](service-fabric-mesh-howto-setup-developer-environment-sdk.md) Isto inclui a instalação do tempo de execução do Tecido de Serviço, SDK, Docker, Visual Studio 2017, e a criação de um cluster local.
 
-## <a name="open-an-existing-net-app"></a>Abrir um aplicativo .NET existente
+## <a name="open-an-existing-net-app"></a>Abra uma aplicação .NET existente
 
-Abra o aplicativo ao qual você deseja adicionar suporte à orquestração de contêiner.
+Abra a aplicação à qual pretende adicionar suporte à orquestração de contentores.
 
-Se você quiser experimentar um exemplo, poderá usar o exemplo de código [eshop](https://github.com/MikkelHegn/ContainersSFLab) . O restante deste artigo irá pressupor que estamos usando esse projeto, embora você possa aplicar essas etapas ao seu próprio projeto.
+Se quiser experimentar um exemplo, pode utilizar a amostra de código [eShop.](https://github.com/MikkelHegn/ContainersSFLab) O resto deste artigo vai assumir que estamos a usar esse projeto, embora possa aplicar estes passos no seu próprio projeto.
 
-Obtenha uma cópia do projeto **eshop** :
+Obtenha uma cópia do projeto **eShop:**
 
 ```git
 git clone https://github.com/MikkelHegn/ContainersSFLab.git
 ```
 
-Depois de baixado, no Visual Studio 2017 abra **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln**.
+Uma vez descarregado, no Visual Studio 2017 abre **containersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln**.
 
-## <a name="add-container-support"></a>Adicionar suporte a contêiner
+## <a name="add-container-support"></a>Adicionar suporte de contentores
  
-Adicione suporte de orquestração de contêiner a um ASP.NET ou projeto de console existente usando as ferramentas de malha Service Fabric da seguinte maneira:
+Adicione suporte de orquestração de recipientes a um projeto de ASP.NET ou consola existente utilizando as ferramentas de malha de tecido de serviço da seguinte forma:
 
-No Gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no nome do projeto (no exemplo, **eShopLegacyWebForms**) e escolha **Adicionar** > **contêiner suporte ao orquestrador**.
-A caixa de diálogo **Adicionar suporte ao orquestrador de contêiner** é exibida.
+No explorador de soluções Visual Studio, clique no nome do projeto (no exemplo, **eShopLegacyWebForms**) e, em seguida, escolha **Adicionar** > **Suporte orquestrador**de recipientes .
+Aparece o diálogo de suporte do **orquestrador de recipientes adicionais.**
 
-![Caixa de diálogo Adicionar orquestrador de contêiner do Visual Studio](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
+![Visual Studio adiciona diálogo orquestrador de recipientes](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
-Escolha **Service Fabric malha** na lista suspensa e clique em **OK**.
+Escolha **a malha** de tecido de serviço a partir da queda e, em seguida, clique **OK**.
 
-Em seguida, a ferramenta verifica se o Docker está instalado, adiciona um Dockerfile ao seu projeto e puxa uma imagem do Docker para o seu projeto.  
-Um projeto de aplicativo de malha Service Fabric é adicionado à sua solução. Ele contém seus perfis de publicação de malha e arquivos de configuração. O nome do projeto é o mesmo que o nome do projeto, com ' Application ' concatenado ao final, por exemplo, **eShopLegacyWebFormsApplication**. 
+A ferramenta verifica então que o Docker está instalado, adiciona um Dockerfile ao seu projeto e puxa uma imagem de estivador para o seu projeto.  
+Um projeto de aplicação de malha de tecido de serviço é adicionado à sua solução. Contém os perfis de publicação da Malha e ficheiros de configuração. O nome do projeto é o mesmo que o nome do seu projeto, com 'Aplicação' concatenada até ao fim, por exemplo, **eShopLegacyWebFormsApplication**. 
 
-No novo projeto de malha, você verá duas pastas das quais deve estar ciente:
-- **Recursos de aplicativo** que contêm arquivos YAML que descrevem recursos de malha adicionais, como a rede.
-- **Recursos de serviço** que contêm um arquivo Service. YAML que descreve como seu aplicativo deve ser executado quando implantado.
+No novo projeto Mesh você verá duas pastas que você deve estar ciente:
+- **Recursos de Aplicações** que contém ficheiros YAML que descrevem recursos adicionais de malha, como a rede.
+- **Recursos de Serviço** que contém um ficheiro service.yaml que descreve como a sua aplicação deve ser executada quando implementada.
 
-Depois que o suporte à orquestração de contêiner é adicionado ao seu aplicativo, você pode pressionar **F5** para depurar seu aplicativo .net no cluster de malha Service Fabric local. Aqui está o aplicativo eShop ASP.NET em execução em um cluster de malha Service Fabric: 
+Assim que o suporte à orquestração de contentores for adicionado à sua aplicação, pode premir **F5** para desinbugar a sua aplicação .NET no seu cluster local de malha de tecido de serviço. Aqui está a aplicação eShop ASP.NET em execução num cluster de malha de tecido de serviço: 
 
-![aplicativo eShop](./media/service-fabric-mesh-howto-containerize-vs/eshop-running.png)
+![eShop app](./media/service-fabric-mesh-howto-containerize-vs/eshop-running.png)
 
-Agora você pode publicar o aplicativo na malha de Service Fabric do Azure.
+Agora pode publicar a aplicação à Azure Service Fabric Mesh.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte Como publicar um aplicativo no Service Fabric malha: [tutorial – implantar um aplicativo de malha Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+Veja como publicar uma aplicação para service Fabric Mesh: [Tutorial- Implementar uma aplicação](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md) de malha de tecido de serviço

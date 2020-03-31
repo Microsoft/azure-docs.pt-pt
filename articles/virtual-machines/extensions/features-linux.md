@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250520"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades da máquina virtual para Linux
 
-As extensões da máquina virtual Azure (VM) são pequenas aplicações que fornecem tarefas de configuração pós-implantação e automação em VMs Azure. Por exemplo, se uma máquina virtual necessitar de instalação de software, proteção antivírus ou executar um script no seu interior, pode ser utilizada uma extensão VM. As extensões Azure VM podem ser executadas com os modelos Azure CLI, PowerShell, Azure Resource Manager e o portal Azure. As extensões podem ser agregadas com uma nova implementação vm, ou correr contra qualquer sistema existente.
+As extensões de máquina virtual (VM) do Azure são pequenas aplicações que proporcionam tarefas de automação e configuração pós-implementação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, a proteção antivírus ou a execução de um script, poderá ser utilizada uma extensão de VM. As extensões de VM do Azure podem ser executadas na CLI do Azure, no PowerShell, nos modelos do Azure Resource Manager e no portal do Azure. As extensões podem ser agrupadas com uma nova implementação da VM ou executadas em qualquer sistema existente.
 
 Este artigo fornece uma visão geral das extensões VM, pré-requisitos para a utilização de extensões VM Azure e orientações sobre como detetar, gerir e remover extensões VM. Este artigo fornece informações generalizadas porque muitas extensões VM estão disponíveis, cada uma com uma configuração potencialmente única. Detalhes específicos da extensão podem ser encontrados em cada documento específico da extensão individual.
 
@@ -85,7 +85,7 @@ Os seguintes métodos podem ser utilizados para executar uma extensão contra um
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões De VM Azure podem ser executadas contra um VM existente com o comando conjunto de [extensão az vm.](/cli/azure/vm/extension#az-vm-extension-set) O exemplo seguinte executa a extensão do Script Personalizado contra um VM chamado *myVM* num grupo de recursos chamado *myResourceGroup*. Substitua o nome do grupo de recursos, nome VM e script para executar (https:\//raw.githubusercontent.com/me/project/hello.sh) com as suas próprias informações. 
+As extensões De VM Azure podem ser executadas contra um VM existente com o comando conjunto de [extensão az vm.](/cli/azure/vm/extension#az-vm-extension-set) O exemplo seguinte executa a extensão do Script Personalizado contra um VM chamado *myVM* num grupo de recursos chamado *myResourceGroup*. Substitua o nome do grupo de recursos, nome\/VM e script para executar (https: /raw.githubusercontent.com/me/project/hello.sh) com as suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -241,7 +241,7 @@ Quando o agente é instalado, um daemon-mãe é criado. Este progenitor gera ent
 
 O processo dos pais não pode ser atualizado automaticamente. O progenitor só pode ser atualizado através de uma atualização do pacote de distro.
 
-Para verificar qual a versão que está a executar, verifique a `waagent` da seguinte forma:
+Para verificar qual a versão `waagent` que está a executar, verifique o seguinte:
 
 ```bash
 waagent --version
@@ -336,7 +336,7 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 1. Para verificar o Registo do Agente Linux, veja a atividade quando a sua extensão estava a ser aprovisionada em */var/log/waagent.log*
 
-2. Verifique os registos de extensão reais para obter mais detalhes em */var/log/azure/\<extensãoName>*
+2. Verifique os registos de extensão reais para obter mais detalhes em *\</var/log/azure/ extensionName>*
 
 3. Verifique as secções de resolução de problemas de documentação específicas para a extensão de códigos de erro, questões conhecidas, etc.
 

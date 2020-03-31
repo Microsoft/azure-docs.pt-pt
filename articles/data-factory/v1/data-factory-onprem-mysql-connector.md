@@ -13,10 +13,10 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281291"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mova dados do MySQL usando a Fábrica de Dados Azure
@@ -62,39 +62,39 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas de uma loja de dados MySQL:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao MySQL.
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesMySql** |Sim |
-| relatórios |Nome do servidor MySQL. |Sim |
+| servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome da base de dados MySQL. |Sim |
 | schema |Nome do esquema na base de dados. |Não |
-| authenticationType |Tipo de autenticação utilizada para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
+| authenticationType |Tipo de autenticação utilizada para ligar à base de dados MySQL. Os valores `Basic`possíveis são: . |Sim |
 | userName |Especifique o nome do utilizador para se ligar à base de dados MySQL. |Sim |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada. |Sim |
-| gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados MySQL no local. |Sim |
+| nome gateway |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados MySQL no local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **RelationalTable** (que inclui dataset MySQL) tem as seguintes propriedades
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância mySQL Database a que o serviço ligado se refere. |Não (se for especificada **a consulta** do **RelationalSource)** |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, são políticas disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, são políticas disponíveis para todos os tipos de atividades.
 
 Considerando que as propriedades disponíveis na secção **typeProperties** da atividade variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
 Quando a fonte na atividade de cópia é do tipo **RelationalSource** (que inclui mySQL), as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| query |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: selecione * do MyTable. |Não (se o nome do **conjunto** de **dados** for especificado) |
+| consulta |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: selecione * do MyTable. |Não (se o nome do **conjunto** de **dados** for especificado) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemplo jSON: Copiar dados do MySQL para O Blob Azure
@@ -300,45 +300,45 @@ Ao mover dados para MySQL, os seguintes mapeamentos são usados de tipos MySQL p
 
 | Tipo de base de dados MySQL | Tipo de quadro .NET |
 | --- | --- |
-| bigint não assinado |decimal |
+| bigint não assinado |Decimal |
 | bigint |Int64 |
-| bit |decimal |
+| bit |Decimal |
 | blob |Byte[] |
 | bool |Booleano |
-| char |String |
+| char |Cadeia |
 | date |Datetime |
 | datetime |Datetime |
-| decimal |decimal |
-| dupla precisão |Valor de duplo |
-| double |Valor de duplo |
-| Enum |String |
+| decimal |Decimal |
+| dupla precisão |Double |
+| double |Double |
+| enum |Cadeia |
 | float |Único |
 | int unsigned |Int64 |
 | int |Int32 |
 | inteiro não assinado |Int64 |
-| inteiro |Int32 |
+| número inteiro |Int32 |
 | varbinary longo |Byte[] |
-| varchar longo |String |
+| varchar longo |Cadeia |
 | longblob |Byte[] |
-| longtext |String |
+| texto longo |Cadeia |
 | mediumblob |Byte[] |
 | médio não assinado |Int64 |
 | médio |Int32 |
-| texto médio |String |
-| numeric |decimal |
-| real |Valor de duplo |
-| set |String |
+| texto médio |Cadeia |
+| numeric |Decimal |
+| real |Double |
+| set |Cadeia |
 | pequeno não assinado |Int32 |
 | smallint |Int16 |
-| texto |String |
+| texto |Cadeia |
 | hora |TimeSpan |
 | carimbo de data/hora |Datetime |
 | tinyblob |Byte[] |
 | minúsculo não assinado |Int16 |
 | tinyint |Int16 |
-| texto minúsculo |String |
-| varchar |String |
-| ano |Int |
+| texto minúsculo |Cadeia |
+| varchar |Cadeia |
+| ano |int |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender sobre as colunas de mapeamento em conjunto de dados de origem para colunas em conjunto de dados de sumidouro, consulte [mapeando colunas](data-factory-map-columns.md)de conjunto de dados na Azure Data Factory .

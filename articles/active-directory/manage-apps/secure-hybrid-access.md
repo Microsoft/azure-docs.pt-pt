@@ -1,6 +1,6 @@
 ---
-title: Acesso híbrido seguro do Azure AD | Microsoft Docs
-description: Este artigo descreve as soluções de parceiros para a integração de seus aplicativos de nuvem pública ou privada local herdados com o Azure AD. Proteja seus aplicativos herdados conectando-se a controladores de entrega de aplicativos ou redes ao Azure AD.
+title: Acesso híbrido seguro da Azure AD Microsoft Docs
+description: Este artigo descreve soluções parceiras para integrar o seu legado no local, nuvem pública ou aplicações privadas em nuvem com AD Azure. Proteja as suas aplicações antigas ligando controladores ou redes de entrega de aplicações ao Azure AD.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.date: 12/18/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e97b95e290ef74ffd98a3396ffe4705270132b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75433754"
 ---
-# <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>Acesso híbrido seguro: proteger aplicativos herdados com redes e controladores de entrega de aplicativos
+# <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>Acesso híbrido seguro: Aplicativos legados seguros com controladores e redes de entrega de apps
 
-Agora você pode proteger seus aplicativos de autenticação herdados locais e na nuvem conectando-os ao Azure AD com seu controlador de entrega de aplicativo ou rede existente. Dessa forma, você pode preencher a lacuna e fortalecer sua postura de segurança em todos os aplicativos com recursos do Azure AD, como acesso condicional e Azure AD Identity Protection do Azure AD.
+Agora pode proteger as suas aplicações de autenticação no local e na nuvem, ligando-as ao Azure AD com o seu controlador ou rede de entrega de aplicações existente. Desta forma, pode colmatar a lacuna e fortalecer a sua postura de segurança em todas as aplicações com capacidades de AD Azure, como o Azure AD Conditional Access e a Azure AD Identity Protection.
 
-Usando seu controlador de rede e entrega existente, você pode proteger facilmente os aplicativos herdados que ainda são críticos para seus processos de negócios, mas que você não pode proteger antes do Azure AD. É provável que você já tenha tudo o que precisa para começar a proteger esses aplicativos.
+Utilizando o seu controlador de rede e entrega existente, pode facilmente proteger aplicações antigas que ainda são cruciais para os seus processos de negócio, mas que não conseguiu proteger antes com a Azure AD. É provável que já tenha tudo o que precisa para começar a proteger estas aplicações.
 
 ![Imagem mostrando acesso híbrido seguro](media/secure-hybrid-access/secure-hybrid-access.png)
 
-Os fornecedores a seguir oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
+Os seguintes fornecedores oferecem soluções pré-construídas e orientações detalhadas para a integração com a Azure AD.
 
-* [EAA (Akamai Enterprise Application Access)](../saas-apps/akamai-tutorial.md)
-* [ADC (controlador de entrega de aplicativos) da Citrix](../saas-apps/citrix-netscaler-tutorial.md)
-* [* APM Big-IP](https://aka.ms/f5-hybridaccessguide)
-* [ZPA (Zscaler Private Access)](https://aka.ms/zscaler-hybridaccessguide)
+* [Acesso à aplicação da empresa Akamai (EAA)](../saas-apps/akamai-tutorial.md)
+* [Controlador de entrega de aplicações Citrix (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
+* [F5 Big-IP APM](https://aka.ms/f5-hybridaccessguide)
+* [Zscaler Private Access (ZPA)](https://aka.ms/zscaler-hybridaccessguide)

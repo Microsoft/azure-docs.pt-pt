@@ -4,15 +4,15 @@ description: Aprenda a desenvolver e testar funções Azure utilizando a extens�
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277170"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções Azure utilizando o Código do Estúdio Visual
 
-A [Extensão das Funções do Azure para o Visual Studio Code] de Estúdio Visual permite-lhe desenvolver funções localmente e implantá-las para o Azure. Se esta experiência for a primeira com as Funções Azure, pode aprender mais na [introdução às Funções Azure.](functions-overview.md)
+A [extensão de Funções Azure para Código] de Estúdio Visual permite-lhe desenvolver funções localmente e implantá-las para o Azure. Se esta experiência for a primeira com as Funções Azure, pode aprender mais na [introdução às Funções Azure.](functions-overview.md)
 
 A extensão das Funções Azure proporciona estes benefícios:
 
@@ -22,16 +22,16 @@ A extensão das Funções Azure proporciona estes benefícios:
 
 A extensão pode ser utilizada com as seguintes línguas, que são suportadas pelo tempo de funcionamento das Funções Azure a partir da versão 2.x:
 
-* [C#compilado](functions-dotnet-class-library.md)
-* <sup>*do</sup> [ C# guião](functions-reference-csharp.md)
+* [C# compilado](functions-dotnet-class-library.md)
+* [C# script](functions-reference-csharp.md)<sup>*</sup>
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
 * [PowerShell](functions-reference-powershell.md)
-* [python](functions-reference-python.md)
+* [Pitão](functions-reference-python.md)
 
-<sup>*</sup> Requer que [detetete te C# scripts como a tua linguagem padrão do projeto.](#c-script-projects)
+<sup>*</sup>Requer que [desloque](#c-script-projects)o script C# como a sua linguagem padrão de projeto.
 
-Neste artigo, os exemplos estão atualmente disponíveis apenas para C# funções javaScript (Node.js) e biblioteca de classes.  
+Neste artigo, os exemplos estão atualmente disponíveis apenas para as funções javaScript (Node.js) e C# class library.  
 
 Este artigo fornece detalhes sobre como usar a extensão das Funções Azure para desenvolver funções e publicá-las no Azure. Antes de ler este artigo, deve [criar a sua primeira função utilizando](functions-create-first-function-vs-code.md)o Código do Estúdio Visual .
 
@@ -114,7 +114,7 @@ Dependendo da sua língua, estes outros ficheiros são criados:
      -->
 ---
 
-Neste ponto, pode adicionar ligações de entrada e saída à sua função [modificando o ficheiro função.json](#add-a-function-to-your-project) ou [adicionando um parâmetro a uma C# função](#add-a-function-to-your-project)de biblioteca de classe .
+Neste ponto, pode adicionar ligações de entrada e saída à sua função [modificando o ficheiro função.json](#add-a-function-to-your-project) ou [adicionando um parâmetro a uma função](#add-a-function-to-your-project)de biblioteca de classe C# .
 
 Também pode [adicionar uma nova função ao seu projeto.](#add-a-function-to-your-project)
 
@@ -144,7 +144,7 @@ Os resultados desta ação dependem da linguagem do seu projeto:
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-Um C# novo arquivo de biblioteca de classes (.cs) é adicionado ao seu projeto.
+Um novo ficheiro da biblioteca da classe C# (.cs) é adicionado ao seu projeto.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
@@ -156,23 +156,23 @@ Uma nova pasta é criada no projeto. A pasta contém um novo ficheiro function.j
 
 Pode expandir a sua função adicionando encadernações de entrada e saída. O processo de adição de encadernações depende da linguagem do seu projeto. Para saber mais sobre encadernações, consulte o [Azure Functions desencadeia e encaderna conceitos.](functions-triggers-bindings.md)
 
-Os seguintes exemplos ligam-se a uma fila de armazenamento chamada `outqueue`, onde a cadeia de ligação para a conta de armazenamento é definida na definição de aplicação `MyStorageConnection` em local.settings.json.
+Os seguintes exemplos ligam-se a uma fila de armazenamento `outqueue`chamada `MyStorageConnection` , onde a cadeia de ligação para a conta de armazenamento está definida na definição de aplicação em local.settings.json.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-Atualize o método de função para adicionar o seguinte parâmetro à definição de método `Run`:
+Atualize o método de função `Run` para adicionar o seguinte parâmetro à definição do método:
 
 ```cs
 [Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
 ```
 
-Este código requer que adicione a seguinte declaração `using`:
+Este código requer que adicione `using` a seguinte declaração:
 
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
 
-O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Adicione uma ou mais mensagens à coleção. Estas mensagens são enviadas para a fila quando a função termina.
+O `msg` parâmetro é `ICollector<T>` um tipo, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Adicione uma ou mais mensagens à coleção. Estas mensagens são enviadas para a fila quando a função termina.
 
 Para saber mais, consulte a documentação [de encadernação](functions-bindings-storage-queue-output.md) de saída de armazenamento de fila.
 
@@ -190,9 +190,9 @@ Seguem-se os exemplos de instruções para definir uma nova encadernação de sa
 | **Selecione encadernação com direção** | `Azure Queue Storage` | A encadernação é uma ligação de fila de armazenamento Azure. |
 | **O nome usado para identificar esta ligação no seu código** | `msg` | Nome que identifique o parâmetro de ligação referenciado no seu código. |
 | **A fila para a qual a mensagem será enviada** | `outqueue` | O nome da fila a que o encadernação escreve. Quando o nome da *fila* não existe, a ligação cria-o na primeira utilização. |
-| **Selecione a definição de "local.settings.json"** | `MyStorageConnection` | O nome de uma definição de aplicação que contém a cadeia de ligação para a conta de armazenamento. A definição `AzureWebJobsStorage` contém a cadeia de ligação para a conta de armazenamento que criou com a aplicação de função. |
+| **Selecione a definição de "local.settings.json"** | `MyStorageConnection` | O nome de uma definição de aplicação que contém a cadeia de ligação para a conta de armazenamento. A `AzureWebJobsStorage` definição contém a cadeia de ligação para a conta de armazenamento que criou com a aplicação de função. |
 
-Neste exemplo, é adicionado o seguinte encadernação à matriz `bindings` no seu ficheiro fun.json:
+Neste exemplo, é adicionada a `bindings` seguinte ligação à matriz no seu ficheiro fun.json:
 
 ```javascript
 {
@@ -206,7 +206,7 @@ Neste exemplo, é adicionado o seguinte encadernação à matriz `bindings` no s
 
 Também pode adicionar a mesma definição de ligação diretamente à sua função.json.
 
-No seu código de funcionamento, o `msg` encadernação é acedido a partir do `context`, como neste exemplo:
+No seu código `msg` de funcionamento, `context`a ligação é acedida a partir do, como neste exemplo:
 
 ```javascript
 context.bindings.msg = "Name passed to the function: " req.query.name;
@@ -234,7 +234,7 @@ Quando escolhe + Criar uma nova aplicação de **função no Azure...** a extens
 
 Se quiser fornecer nomes explícitos para os recursos criados, deve escolher o caminho de criação avançado.
 
-### <a name="enable-publishing-with-advanced-create-options"></a>Publique um projeto para uma nova app de funções no Azure utilizando opções avançadas
+### <a name="publish-a-project-to-a-new-function-app-in-azure-by-using-advanced-options"></a><a name="enable-publishing-with-advanced-create-options"></a>Publique um projeto para uma nova app de funções no Azure utilizando opções avançadas
 
 Os seguintes passos publicam o seu projeto numa nova app de funções criada com opções avançadas de criação:
 
@@ -254,7 +254,7 @@ Os seguintes passos publicam o seu projeto numa nova app de funções criada com
     | Selecione um OS | Windows | A aplicação de funções funciona no Windows. |
     | Selecione um plano de hospedagem | Plano de consumo | É utilizado um plano de [consumo](functions-scale.md#consumption-plan) sem servidores. |
     | Selecione um tempo de execução para a sua nova aplicação | A sua linguagem de projeto | O prazo deve corresponder ao projeto que está a publicar. |
-    | Selecione um grupo de recursos para novos recursos | Criar novo grupo de recursos | No próximo pedido, digite um nome de grupo de recursos, como `myResourceGroup`, e, em seguida, selecione entrar. Também pode selecionar um grupo de recursos existente. |
+    | Selecione um grupo de recursos para novos recursos | Criar novo grupo de recursos | No próximo pedido, digite um `myResourceGroup`nome de grupo de recursos, como, e, em seguida, selecione entrar. Também pode selecionar um grupo de recursos existente. |
     | Selecione uma conta de armazenamento | Criar nova conta de armazenamento | Na próxima solicitação, digite um nome globalmente único para a nova conta de armazenamento utilizada pela sua aplicação de função e, em seguida, selecione Enter. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode selecionar uma conta existente. |
     | Selecione uma localização para novos recursos | . | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) próxima ou perto de outros serviços a que as suas funções acedem. |
 
@@ -283,7 +283,7 @@ Para ligar para uma função desencadeada pelo HTTP, necessita do URL da funçã
 
 1. Siga as instruções para selecionar a sua aplicação de função no Azure e, em seguida, o gatilho HTTP específico que pretende invocar.
 
-O URL de função é copiado para a área de sobre-ré, juntamente com as teclas necessárias passadas pelo parâmetro de consulta `code`. Utilize uma ferramenta HTTP para submeter pedidos post, ou um navegador para pedidos GET para a função remota.  
+O URL de função é copiado para a área `code` de sobre-ré, juntamente com as teclas necessárias passadas pelo parâmetro de consulta. Utilize uma ferramenta HTTP para submeter pedidos post, ou um navegador para pedidos GET para a função remota.  
 
 ## <a name="run-functions-locally"></a>Executar funções localmente
 
@@ -299,12 +299,12 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
     | Idioma | Requisito |
     | -------- | --------- |
-    | **C#** | [C#extensão](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI ferramentas](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C #** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/) <sup>*</sup> |  
-    | **python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
+    | **JavaScript** | [Nó.js](https://nodejs.org/)<sup>*</sup> |  
+    | **Pitão** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
 
-    <sup>*</sup> Versões LTS ativas e de Manutenção LTS (8.11.1 e 10.14.1 recomendadas).
+    <sup>*</sup>Versões LTS ativas e de Manutenção LTS (8.11.1 e 10.14.1 recomendadas).
 
 ### <a name="configure-the-project-to-run-locally"></a>Configure o projeto para executar localmente
 
@@ -314,7 +314,7 @@ Esta secção utiliza a extensão de [armazenamento Azure para Código de Estúd
 
 Para definir o fio de ligação da conta de armazenamento:
 
-1. No Estúdio Visual, abra o **Cloud Explorer,** expanda **a Conta** de Armazenamento > a Sua Conta de **Armazenamento,** e depois selecione **Propriedades** e copie o valor de string de **ligação primária.**
+1. No Estúdio Visual, abra o **Cloud Explorer,** expanda **a Conta** > de Armazenamento a Sua Conta de**Armazenamento,** e depois selecione **Propriedades** e copie o valor de string de **ligação primária.**
 
 2. No seu projeto, abra o ficheiro local.settings.json e delineie o valor da chave **AzureWebJobsStorage** para a cadeia de ligação que copiou.
 
@@ -324,13 +324,13 @@ Para mais informações, consulte o ficheiro de [definições locais](#local-set
 
 ### <a name="debugging-functions-locally"></a>Funções de depuração localmente  
 
-Para desinserir as suas funções, selecione F5. Se ainda não descarregou as [Ferramentas Core Tools][ferramentas centrais de funções azure]é-lhe pedido que o faça. Quando as Ferramentas Core são instaladas e em funcionamento, a saída é mostrada no Terminal. Isto é o mesmo que executar o comando `func host start` Core Tools do Terminal, mas com tarefas de construção adicionais e um debugger anexado.  
+Para desinserir as suas funções, selecione F5. Se ainda não descarregou as [Ferramentas Core Tools][Azure Core Tools,]é-lhe pedido que o faça. Quando as Ferramentas Core são instaladas e em funcionamento, a saída é mostrada no Terminal. Isto é o mesmo `func host start` que executar o comando Core Tools do Terminal, mas com tarefas de construção adicionais e um debugger anexado.  
 
 Quando o projeto estiver em execução, pode desencadear as suas funções como faria quando o projeto for implantado para o Azure. Quando o projeto está em execução em modo dedepura, os breakpoints são atingidos no Código do Estúdio Visual, como esperado.
 
 O URL de pedido para os gatilhos HTTP é apresentado na saída do Terminal. As teclas de função dos gatilhos HTTP não são usadas quando um projeto está a funcionar localmente. Para mais informações, consulte [Estratégias para testar o seu código em Funções Azure](functions-test-a-function.md).  
 
-Para saber mais, consulte [Trabalhar com funções azure Ferramentas nucleares][ferramentas centrais de funções azure].
+Para saber mais, consulte [Trabalhar com funções azure Ferramentas nucleares][Ferramentas Nucleares Ferramentas Nucleares Ferramentas Nucleares Ferramentas Nucleares].
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -340,8 +340,8 @@ Os **valores em ConnectionStrings** nunca são publicados.
 
 Os valores de definições de aplicação de função também podem ser lidos no seu código como variáveis ambientais. Para mais informações, consulte as secções de variáveis do Ambiente destes artigos de referência específicos para a língua:
 
-* [C#pré-compilado](functions-dotnet-class-library.md#environment-variables)
-* [C#script (.csx)](functions-reference-csharp.md#environment-variables)
+* [C# pré-compilado](functions-dotnet-class-library.md#environment-variables)
+* [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -397,17 +397,17 @@ Recomendamos que monitorize a execução das suas funções integrando a sua apl
 
 Para saber mais, consulte as [Funções Monitor Azure](functions-monitoring.md).
 
-## <a name="c-script-projects"></a>C\# projetos de script
+## <a name="c-script-projects"></a>Projetos de script C\#
 
-Por padrão, C# todos os projetos são criados como [ C# projetos compilados](functions-dotnet-class-library.md)de biblioteca de classes. Se preferir trabalhar C# com projetos de C# script, deve selecionar o script como o idioma padrão nas definições de extensão das Funções Azure:
+Por padrão, todos os projetos C# são criados como [c# compilados projetos](functions-dotnet-class-library.md)de biblioteca de classes. Se preferir trabalhar com projetos de script C# em vez disso, deve selecionar o script C# como o idioma padrão nas definições de extensão de funções do Azure:
 
-1. Selecione ** > ** Preferências de **ficheiro > ** **Definições**.
+1. Selecione**Definições****de Preferências de** >  **Ficheiros** > .
 
-1. Vá às **Definições** do utilizador > **extensões** > **funções Azure**.
+1. Vá para as **definições** > **Extensions** > do utilizador**Funções Azure**.
 
 1. Selecione **C#Script** a partir da **função Azure: Linguagem do projeto**.
 
-Depois de completar estes passos, as chamadas feitas para as Ferramentas Core subjacentes incluem a opção `--csx`, que gera e publica C# ficheiros de projetoscript (.csx). Quando tiver esta linguagem padrão especificada, todos C# os projetos que cria padrão para projetos de script. Não é solicitado a escolher uma linguagem de projeto quando um padrão é definido. Para criar projetos noutros idiomas, tem de alterar esta definição ou removê-la do ficheiro de definições do utilizador.json. Depois de remover esta definição, é novamente solicitado a escolher a sua língua quando criar um projeto.
+Depois de completar estes passos, as chamadas `--csx` feitas para as Ferramentas Core subjacentes incluem a opção, que gera e publica ficheiros de projetos de script C# (.csx). Quando tiver esta linguagem padrão especificada, todos os projetos que cria padrão para projetos de script C#. Não é solicitado a escolher uma linguagem de projeto quando um padrão é definido. Para criar projetos noutros idiomas, tem de alterar esta definição ou removê-la do ficheiro de definições do utilizador.json. Depois de remover esta definição, é novamente solicitado a escolher a sua língua quando criar um projeto.
 
 ## <a name="command-palette-reference"></a>Referência da paleta de comando
 
@@ -428,15 +428,15 @@ A extensão Funções Azure fornece uma interface gráfica útil na área para i
 | **Desligar de Repo**  | Remove a ligação contínua de [implantação](functions-continuous-deployment.md) entre uma aplicação de função no Azure e um repositório de controlo de fonte. |
 | **Descarregue as definições remotas** | Descarregue as definições da aplicação de função escolhida em Azure para o seu ficheiro local.settings.json. Se o ficheiro local estiver encriptado, é desencriptado, atualizado e encriptado novamente. Se houver configurações que têm valores contraditórios nos dois locais, é-lhe pedido que escolha como proceder. Certifique-se de que guarda alterações no ficheiro local.definições.json antes de executar este comando. |
 | **Editar definições** | Altera o valor de uma definição de aplicação de função existente no Azure. Este comando não afeta as definições no ficheiro local.definições.json.  |
-| **Encriptar definições** | Encripta itens individuais na matriz de `Values` nas [definições locais](#local-settings-file). Neste ficheiro, `IsEncrypted` também está definido para `true`, o que especifica que o tempo de execução local irá desencriptar as definições antes de as utilizar. Criptografe as definições locais para reduzir o risco de fuga de informação valiosa. No Azure, as definições de aplicação são sempre armazenadas encriptadas. |
+| **Encriptar definições** | Encripta itens individuais na `Values` matriz nas [definições locais](#local-settings-file). Neste ficheiro, `IsEncrypted` também está `true`definido para , o que especifica que o tempo de execução local irá desencriptar as definições antes de as utilizar. Criptografe as definições locais para reduzir o risco de fuga de informação valiosa. No Azure, as definições de aplicação são sempre armazenadas encriptadas. |
 | **Executar função agora** | Inicia manualmente uma [função acionada pelo temporizador](functions-bindings-timer.md) em Azure. Este comando é utilizado para testes. Para saber mais sobre o desencadeamento de funções não HTTP em Azure, consulte [Manualmente executar uma função não ativada](functions-manually-run-non-http.md)por HTTP . |
 | **Inicializar projeto para uso com código VS** | Adiciona os ficheiros de projeto visual studio code necessários a um projeto de Funções existentes. Use este comando para trabalhar com um projeto que criou utilizando ferramentas core. |
-| **Instalar ou atualizar ferramentas centrais de funções azure** | Instala ou atualiza [Ferramentas centrais de funções azure]que é usada para executar funções localmente. |
-| **Reimplantação**  | Permite-lhe reimplantar ficheiros de projeto saem de um repositório Git ligado para uma implementação específica no Azure. Para republicar as atualizações locais do Visual Studio Code, [republique o seu projeto.](#republish-project-files) |
+| **Instalar ou atualizar ferramentas centrais de funções azure** | Instala ou atualiza [ferramentas centrais de funções Azure,]que é usada para executar funções localmente. |
+| **Voltar a implementar**  | Permite-lhe reimplantar ficheiros de projeto saem de um repositório Git ligado para uma implementação específica no Azure. Para republicar as atualizações locais do Visual Studio Code, [republique o seu projeto.](#republish-project-files) |
 | **Renomear Definições** | Altera o nome-chave de uma definição de aplicação de função existente no Azure. Este comando não afeta as definições no ficheiro local.definições.json. Depois de mudar o nome das definições em Azure, deverá [descarregar essas alterações para o projeto local](#download-settings-from-azure). |
 | **Reiniciar** | Reinicia a aplicação de funções em Azure. A implementação de atualizações também reinicia a aplicação de funções. |
-| **Definir AzureWebJobsStorage**| Define o valor da definição de aplicação `AzureWebJobsStorage`. Esta definição é exigida pelas Funções Azure. É definido quando uma aplicação de função é criada em Azure. |
-| **Começar** | Inicia uma aplicação de função parada em Azure. |
+| **Definir AzureWebJobsStorage**| Define o valor `AzureWebJobsStorage` da definição de aplicação. Esta definição é exigida pelas Funções Azure. É definido quando uma aplicação de função é criada em Azure. |
+| **Iniciar** | Inicia uma aplicação de função parada em Azure. |
 | **Iniciar registos de streaming** | Inicia os registos de streaming da aplicação de função em Azure. Utilize registos de streaming durante a resolução remota de problemas em Azure se precisar de ver informações de registo em tempo quase real. Para saber mais, consulte os [registos de streaming.](#streaming-logs) |
 | **Parar** | Detém uma aplicação de função que está a funcionar em Azure. |
 | **Parar os registos de streaming** | Para os registos de streaming da aplicação de função em Azure. |
@@ -450,7 +450,7 @@ A extensão Funções Azure fornece uma interface gráfica útil na área para i
 
 Para saber mais sobre as Ferramentas Nucleares das Funções Azure, consulte [Trabalhar com ferramentas nucleares de funções azure](functions-run-local.md).
 
-Para saber mais sobre o desenvolvimento de funções como bibliotecas de classes .NET, consulte a referência do desenvolvedor de [ C# Funções Azure](functions-dotnet-class-library.md). Este artigo também fornece links para exemplos de como usar atributos para declarar os vários tipos de encadernações suportadas pelas Funções Azure.
+Para saber mais sobre o desenvolvimento de funções como bibliotecas de classes .NET, consulte a [referência do desenvolvedor funções Azure C#](functions-dotnet-class-library.md). Este artigo também fornece links para exemplos de como usar atributos para declarar os vários tipos de encadernações suportadas pelas Funções Azure.
 
 [Extensão das Funções do Azure para o Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 [Ferramentas centrais de funções azure]: functions-run-local.md

@@ -1,70 +1,68 @@
 ---
-title: Azure Resource Manager Test Drive | Azure Marketplace
-description: Criar uma unidade de teste do Marketplace usando Azure Resource Manager
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Patrick .Butler
+title: Unidade de Teste do Gestor de Recursos Azure [ Unidade de Teste ] Mercado Azure
+description: Construa um Marketplace Test Drive utilizando o Gestor de Recursos Azure
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.author: dsindona
+ms.openlocfilehash: 6125aa010d8676518b84f866343b01f95246160f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644907"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275939"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versão de Teste do Azure Resource Manager
 
-Este artigo é para os publicadores que têm a oferta no Azure Marketplace ou que estão no AppSource, porém pretendem criar a unidade de teste com apenas os recursos do Azure.
+Este artigo é para editores que têm a sua oferta no Azure Marketplace, ou que estão no AppSource, mas querem construir o seu Test Drive apenas com recursos Azure.
 
-Um modelo de Azure Resource Manager (Gerenciador de recursos) é um contêiner codificado de recursos do Azure que você cria para representar melhor sua solução. Se você não estiver familiarizado com o que é um modelo do Resource Manager, leia sobre [noções básicas sobre modelos do Resource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) Manager e criação de modelos do [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para garantir que você saiba como criar e testar seus próprios modelos.
+Um modelo de Gestor de Recursos Azure (Gestor de Recursos) é um recipiente codificado de recursos Azure que projeta para melhor representar a sua solução. Se não está familiarizado com o que é um modelo de Gestor de Recursos, leia sobre [compreender os modelos do Gestor](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) de Recursos e autorizar [modelos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) de Gestor de Recursos para se certificar de que sabe construir e testar os seus próprios modelos.
 
-O que faz o Test Drive é que ele usa o modelo do Resource Manager fornecidos e faz com que uma implementação de todos os recursos necessários a partir desse modelo do Resource Manager num grupo de recursos.
+O que o Test Drive faz é que ele leva o modelo fornecido do Gestor de Recursos e faz uma implementação de todos os recursos necessários desse modelo de Gestor de Recursos para um grupo de recursos.
 
-Se optar por criar uma unidade de teste do Azure Resource Manager, os requisitos são para:
+Se optar por construir um Test Drive do Gestor de Recursos Azure, os requisitos são para:
 
-- Criar, testar e, em seguida, carregue o modelo de Gestor de recursos de teste de unidade.
-- Configure todos os metadados necessários e as definições para ativar sua versão de teste.
-- Voltar a publicar a oferta com Test-Drive ativado.
+- Construa, teste e, em seguida, carregue o seu modelo de Gestor de Recursos test drive.
+- Configure todos os metadados e configurações necessários para ativar a sua Unidade de Teste.
+- Republique a sua oferta com test drive ativado.
 
-## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Como criar uma unidade de teste do Azure Resource Manager
+## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Como construir um Test Drive de Gestor de Recursos Azure
 
-Este é o processo para criar um Azure Resource Manager unidade de teste:
+Aqui está o processo para a construção de um Test Drive Do Gestor de Recursos Azure:
 
-1. Projete o que você deseja que os clientes façam em um diagrama de fluxo.
-1. Defina quais experiências você gostaria que seus clientes criassem.
-1. Com base nas definições acima, decida quais partes e recursos são necessários para os clientes realizarem essa experiência: por exemplo, instância de D365 ou um site com um banco de dados.
-1. Crie o design localmente e teste a experiência.
-1. Empacote a experiência em uma implantação de modelo ARM e a partir daí:
-    1. Defina quais partes dos recursos são parâmetros de entrada;
+1. Desenhe o que quer que os seus clientes façam num diagrama de fluxo.
+1. Defina as experiências que gostaria que os seus clientes construíssem.
+1. Com base nas definições acima, decida quais as peças e recursos necessários para que os clientes realizem tal experiência: por exemplo, a instância D365, ou um website com uma base de dados.
+1. Construa o design localmente, e teste a experiência.
+1. Embalem a experiência numa implantação do modelo ARM e a partir daí:
+    1. Definir que partes dos recursos são parâmetros de entrada;
     1. Quais são as variáveis;
-    1. Quais saídas são dadas à experiência do cliente.
-1. Publique, teste e entre em tempo real.
+    1. Que saídas são dadas à experiência do cliente.
+1. Publique, teste e vá ao vivo.
 
-É a parte mais importante sobre a criação de uma unidade de teste do Azure Resource Manager definir qual ou quais cenários de seus clientes para experimentar. É que um produto de firewall e quiser bem como lidar com ataques de injeção de script de demonstração? São a que um produto de armazenamento e pretender demonstrar como rápido e fácil de sua solução compacta arquivos?
+A parte mais importante da construção de um Test Drive do Gestor de Recursos Azure é definir que cenário s quer que os seus clientes experimentem. És um produto de firewall e queres despromover o quão bem lidas com os ataques de injeção de guião? É um produto de armazenamento e quer despromover a rapidez e facilidade comque a sua solução comprime ficheiros?
 
-Certifique-se de gastar um tempo suficiente avaliando quais são as melhores maneiras de mostrar seu produto. Especificamente, em todos os recursos necessários, você precisaria, pois torna o empacotamento do modelo do Resource Manager suficientemente mais fácil.
+Certifique-se de que passa um tempo suficiente a avaliar quais são as melhores formas de mostrar o seu produto. Especificamente em torno de todos os recursos necessários, uma vez que torna a embalagem do modelo do Gestor de Recursos suficientemente fácil.
 
-Para continuar com nosso exemplo de firewall, a arquitetura pode ser que precisa de um URL do IP público para o seu serviço e outra URL do IP público para o site no qual está a proteger o seu firewall. Cada IP é implementado numa máquina Virtual e ligada juntamente com um grupo de segurança de rede + a interface de rede.
+Para continuar com o nosso exemplo de firewall, a arquitetura pode ser que você precisa de um URL IP público para o seu serviço e outro URL IP público para o site que a sua firewall está protegendo. Cada IP é implantado numa Máquina Virtual e ligado juntamente com uma interface de rede de segurança + rede.
 
-Depois de criar o pacote de recursos desejado, agora vem a escrita e a criação do modelo test drive do Resource Manager.
+Uma vez projetado o pacote de recursos desejado, agora vem a escrita e construção do modelo Test Drive Resource Manager.
 
-## <a name="writing-test-drive-resource-manager-templates"></a>Escrever o teste de unidade modelos do Resource Manager
+## <a name="writing-test-drive-resource-manager-templates"></a>Modelos de gestor de recursos de teste de escrita
 
-Versão de teste é executado a implementações num modo totalmente automatizado e por isso, modelos de Test-Drive tem algumas restrições descritas abaixo.
+Test Drive executa implementações num modo totalmente automatizado, e por isso, os modelos test drive têm algumas restrições descritas abaixo.
 
 ### <a name="parameters"></a>Parâmetros
 
-A maioria dos modelos têm um conjunto de parâmetros. Parâmetros de definem os nomes de recursos, tamanhos de recursos (por exemplo, tipos de contas de armazenamento ou tamanhos de máquinas virtuais), os nomes de utilizador e palavras-passe, nomes DNS e assim por diante. Quando implementa soluções através do portal do Azure, pode manualmente preencher todos esses parâmetros, escolher nomes DNS disponíveis ou nomes de conta de armazenamento e assim por diante.
+A maioria dos modelos tem um conjunto de parâmetros. Os parâmetros definem nomes de recursos, tamanhos de recursos (por exemplo, tipos de contas de armazenamento ou tamanhos de máquinas virtuais), nomes de utilizadores e palavras-passe, nomes DNS e assim por diante. Quando implementa soluções utilizando o portal Azure, pode povoar manualmente todos estes parâmetros, escolher nomes DNS disponíveis ou nomes de contas de armazenamento, e assim por diante.
 
-![Lista de parâmetros num Gestor de recursos do Azure](./media/azure-resource-manager-test-drive/param1.png)
+![Lista de parâmetros num Gestor de Recursos Azure](./media/azure-resource-manager-test-drive/param1.png)
 
-No entanto, versão de teste funciona num modo totalmente automático, sem interação humana, para que ela oferece suporte apenas um conjunto limitado de categorias de parâmetro. Se um parâmetro do modelo de Gestor de recursos de unidade de teste não se enquadra em uma das categorias suportadas, tem **substitua este parâmetro com um valor de variável ou constante.**
+No entanto, o Test Drive funciona num modo totalmente automático, sem interação humana, pelo que apenas suporta um conjunto limitado de categorias de parâmetros. Se um parâmetro no modelo test drive resource manager não cair numa das categorias suportadas, deve **substituir este parâmetro por um valor variável ou constante.**
 
-Pode utilizar qualquer nome válido para os parâmetros, a versão de teste reconhece a categoria de parâmetro com o valor de tipo de metadados. **Tem de especificar tipo de metadados para cada parâmetro de modelo**, caso contrário, o modelo não será aprovado na validação:
+Pode utilizar qualquer nome válido para os seus parâmetros, test Drive reconhece a categoria de parâmetroutilizando o valor do tipo metadados. Deve **especificar metadados para cada parâmetro de modelo,** caso contrário o seu modelo não passará na validação:
 
 ```json
 "parameters": {
@@ -79,20 +77,20 @@ Pode utilizar qualquer nome válido para os parâmetros, a versão de teste reco
 }
 ```
 
-Também é importante ter em conta que **todos os parâmetros são opcionais**, por isso, se não\'t quiser utilizar algumas, não é\'precise.
+Também é importante notar que **todos os parâmetros são opcionais,** por isso, se não\'quiser usar nenhum, não\'precisa.
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceites
 
-| Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
+| Tipo de Metadados   | Tipo parâmetro  | Descrição     | Valor da Amostra    |
 |---|---|---|---|
-| **BaseUri**     | string          | URI do seu pacote de implementação de base| https:\//\<\..\>. blob.core.windows.net/\<\..\> |
-| **username**    | string          | Novo nome de utilizador aleatório.| admin68876      |
-| **password**    | cadeia segura    | Nova palavra-passe aleatória | LP! ACS\^2kh     |
-| **Id de sessão**   | string          | Sessão de versão de teste exclusiva ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **baseuri**     | string          | Base URI do seu pacote de implementação| \//\<https:\.. \>.blob.core.windows.net/.\<\.\> |
+| **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |
+| **palavra-passe**    | corda segura    | Nova senha aleatória | Lp!ACS\^2kh     |
+| **id sessão**   | string          | ID de sessão de test drive exclusivo (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>o nome de utilizador
+#### <a name="baseuri"></a>baseuri
 
-Test-Drive inicializa este parâmetro com um **Uri de Base** do seu pacote de implementação, pelo que pode utilizar este parâmetro para construir o Uri de qualquer arquivo contido em seu pacote.
+Test Drive inicializa este parâmetro com um **Uri base** do seu pacote de implementação, para que possa usar este parâmetro para construir Uri de qualquer ficheiro incluído no seu pacote.
 
 ```json
 "parameters": {
@@ -108,7 +106,7 @@ Test-Drive inicializa este parâmetro com um **Uri de Base** do seu pacote de im
 }
 ```
 
-Dentro de seu modelo, pode utilizar este parâmetro para construir um Uri de qualquer ficheiro a partir do seu pacote de implementação da versão de teste. O exemplo abaixo mostra como construir um Uri do modelo ligado:
+Dentro do seu modelo, pode utilizar este parâmetro para construir um Uri de qualquer ficheiro a partir do seu pacote de implementação Test Drive. O exemplo abaixo mostra como construir um Uri do modelo ligado:
 
 ```json
 "templateLink": {
@@ -119,7 +117,7 @@ Dentro de seu modelo, pode utilizar este parâmetro para construir um Uri de qua
 
 #### <a name="username"></a>o nome de utilizador
 
-Test-Drive inicializa este parâmetro com um novo nome de usuário aleatório:
+Test Drive inicializa este parâmetro com um novo nome de utilizador aleatório:
 
 ```json
 "parameters": {
@@ -135,15 +133,15 @@ Test-Drive inicializa este parâmetro com um novo nome de usuário aleatório:
 }
 ```
 
-Valor de exemplo:
+Valor da amostra:
 
     admin68876
 
-Pode utilizar nomes de utilizador aleatório ou constante para a sua solução.
+Pode utilizar nomes de utilizador aleatórios ou constantes para a sua solução.
 
 #### <a name="password"></a>palavra-passe
 
-Test-Drive inicializa este parâmetro com uma nova palavra-passe aleatória:
+Test Drive inicializa este parâmetro com uma nova senha aleatória:
 
 ```json
 "parameters": {
@@ -159,15 +157,15 @@ Test-Drive inicializa este parâmetro com uma nova palavra-passe aleatória:
 }
 ```
 
-Valor de exemplo:
+Valor da amostra:
 
     Lp!ACS^2kh
 
-Pode utilizar palavras-passe aleatórias ou constante para a sua solução.
+Pode utilizar senhas aleatórias ou constantes para a sua solução.
 
-#### <a name="session-id"></a>ID de sessão
+#### <a name="session-id"></a>ID da sessão
 
-Test-Drive inicializar este parâmetro com um GUID exclusivo que representa a ID de sessão de teste de unidade:
+Test Drive inicialize este parâmetro com um ID exclusivo da sessão de teste de representação GUID:
 
 ```json
 "parameters": {
@@ -183,17 +181,17 @@ Test-Drive inicializar este parâmetro com um GUID exclusivo que representa a ID
 }
 ```
 
-Valor de exemplo:
+Valor da amostra:
 
     b8c8693e-5673-449c-badd-257a405a6dee
 
-Pode utilizar este parâmetro para identificar exclusivamente a sessão de teste de unidade, se for necessário.
+Pode utilizar este parâmetro para identificar exclusivamente a sessão test drive, se necessário.
 
-### <a name="unique-names"></a>Nomes exclusivos
+### <a name="unique-names"></a>Nomes únicos
 
-Alguns recursos do Azure, como contas de armazenamento ou nomes DNS, exige nomes exclusivos.
+Alguns recursos do Azure, como contas de armazenamento ou nomes DNS, requerem nomes globalmente únicos.
 
-Isso significa que sempre que o Test Drive implanta o modelo do Resource Manager, ele cria um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos. Portanto, é necessário para utilizar o [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) função concatenada com seus nomes de variáveis no grupo de recursos IDs para gerar valores exclusivos aleatórios:
+Isto significa que sempre que o Test Drive implementa o modelo de Gestor\' de Recursos, cria um novo grupo de recursos com um nome **único** para todos os seus recursos. Por isso, é necessário utilizar a função de [corda única](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenada com os seus nomes variáveis em IDs do grupo de recursos para gerar valores únicos aleatórios:
 
 ```json
 "variables": {
@@ -204,17 +202,17 @@ Isso significa que sempre que o Test Drive implanta o modelo do Resource Manager
 }
 ```
 
-Certifique-se de que concatenar as cadeias de caracteres de parâmetro/variável (\'contosovm\') com uma saída de cadeia de caracteres exclusivo (\'resourceGroup () Direi\'), porque Isto garante a exclusividade e a confiabilidade de cada variável.
+Certifique-se de que concatena o seu\'parâmetro/cordas variáveis (contosovm)\'com\'uma saída de cadeia única (resourceGroup().id),\'porque isso garante a singularidade e fiabilidade de cada variável.
 
-Por exemplo, a maioria dos nomes de recursos não podem começar com um dígito, mas a função de cadeia de caracteres exclusivo pode retornar uma cadeia de caracteres, que começa com um dígito. Então, se utilizar a saída de cadeia de caracteres bruta exclusivo, as implementações irão falhar. 
+Por exemplo, a maioria dos nomes de recursos não pode começar com um dígito, mas a função de corda única pode devolver uma corda, que começa com um dígito. Assim, se usar uma saída de corda única crua, as suas implementações falharão. 
 
-Pode encontrar informações adicionais sobre as regras de nomenclatura de recursos e restrições nas [este artigo](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Pode encontrar informações adicionais sobre regras e restrições de nomeação de recursos [neste artigo.](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
-### <a name="deployment-location"></a>Localização de implementação
+### <a name="deployment-location"></a>Localização de implantação
 
-Pode torná-lo Test-Drive disponíveis em diferentes regiões do Azure. A idéia é permitir que um utilizador escolher a região mais próxima, para fornecer a experiência do usuário beast.
+Pode disponibilizar-lhe test drive em diferentes regiões do Azure. A ideia é permitir que um utilizador escolha a região mais próxima, para proporcionar a experiência do utilizador da besta.
 
-Quando a versão de teste cria uma instância do laboratório, cria sempre um grupo de recursos em escolher a região, por um utilizador e, em seguida, executa seu modelo de implementação neste contexto de grupo. Então, o modelo deve escolher a localização de implementação do grupo de recursos:
+Quando o Test Drive cria uma instância do Laboratório, cria sempre um grupo de recursos na região escolhido por um utilizador e executa o seu modelo de implementação neste contexto de grupo. Assim, o seu modelo deve escolher a localização de implantação do grupo de recursos:
 
 ```json
 "variables": {
@@ -224,7 +222,7 @@ Quando a versão de teste cria uma instância do laboratório, cria sempre um gr
 }
 ```
 
-E, em seguida, utilizar esta localização para todos os recursos de uma instância específica de laboratório:
+E, em seguida, usar este local para cada recurso para uma instância específica do Laboratório:
 
 ```json
 "resources": [
@@ -256,15 +254,15 @@ E, em seguida, utilizar esta localização para todos os recursos de uma instân
 ]
 ```
 
-Tem de certificar-se de que a sua subscrição tem permissões para implementar todos os recursos que pretende implementar em cada uma das regiões do que se está a selecionar. Além disso, terá de certificar-se de que suas imagens de máquina virtual estão disponíveis em todas as regiões vai ativar, caso contrário, o modelo de implementação não irá funcionar para algumas regiões.
+Tem de se certificar de que a sua subscrição está autorizada a implementar todos os recursos que pretende utilizar em cada uma das regiões que está a selecionar. Além disso, você precisa ter certeza de que as suas imagens de máquina virtual estão disponíveis em todas as regiões que você vai ativar, caso contrário o seu modelo de implementação não funcionará para algumas regiões.
 
 ### <a name="outputs"></a>Saídas
 
-Normalmente com modelos do Resource Manager, pode implementar sem a produzir qualquer saída. Isso é porque sabe que todos os valores a que utilizar para preencher os parâmetros do modelo e sempre manualmente pode inspecionar as propriedades de qualquer recurso.
+Normalmente com modelos de Gestor de Recursos, pode implementar sem produzir qualquer saída. Isto porque conhece todos os valores que utiliza para preencher parâmetros de modelo e pode sempre inspecionar manualmente as propriedades de qualquer recurso.
 
-Para o teste de unidade modelos do Resource Manager, no entanto, ele\'s importante para regressar à versão de teste todas as informações, que é necessária para obter um acesso para o laboratório (URIs de Web site, Máquina Virtual nomes de anfitrião, os nomes de utilizador e palavras-passe). Certifique-se de que todos os seus nomes de saída são legíveis porque estas variáveis são apresentadas para o cliente.
+No entanto, para os\'modelos test drive resource manager, é importante voltar ao Test Drive todas as informações, que são necessárias para ter acesso ao laboratório (UrIs do Site, nomes de anfitriões da Máquina Virtual, nomes de utilizadores e palavras-passe). Certifique-se de que todos os seus nomes de saída são legíveis porque estas variáveis são apresentadas ao cliente.
 
-Não há qualquer restrições relacionadas com a saídas do modelo. Lembre-se converte de Test-Drive todos os resultados de valores em **cadeias de caracteres**, por isso, se enviar um objeto à saída, o usuário verá JSON cadeia de caracteres.
+Não existem restrições relacionadas com saídas de modelos. Lembre-se, test Drive converte todos os valores de saída em **cordas,** por isso, se enviar um objeto para a saída, um utilizador verá a corda JSON.
 
 Exemplo:
 
@@ -287,143 +285,143 @@ Exemplo:
 
 ### <a name="subscription-limits"></a>Limites de subscrição
 
-Mais uma coisa que deve levar em consideração é a subscrição e limites de serviço. Por exemplo, se quiser implementar até dez máquinas de virtuais de 4 núcleos, terá de certificar-se de que a subscrição que utiliza para seu laboratório permite-lhe utilizar 40 núcleos.
+Mais uma coisa que deve ter em conta são os limites de subscrição e de serviço. Por exemplo, se quiser implementar até dez máquinas virtuais de 4 núcleos, tem de se certificar de que a subscrição que utiliza para o seu Laboratório permite-lhe utilizar 40 núcleos.
 
-Pode encontrar mais informações sobre a subscrição do Azure e limites de serviço do [este artigo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Como várias versões de teste podem ser realizadas ao mesmo tempo, certifique-se de que a sua subscrição pode lidar com o \# de núcleos, multiplicados pelo número total de simultâneas versões de teste que podem ser realizadas.
+Pode encontrar mais informações sobre os limites de subscrição e serviço do Azure [neste artigo.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) Como várias Unidades de Teste podem ser tomadas \# ao mesmo tempo, verifique se a sua subscrição pode lidar com os núcleos multiplicados pelo número total de Test Drives simultâneos que podem ser tomadas.
 
 ### <a name="what-to-upload"></a>O que carregar
 
-Modelo de teste de unidade Resource Manager é carregado como um arquivo zip, que pode incluir vários artefatos de implementação, mas tem de ter um ficheiro com o nome **main-Template**. Este ficheiro é o modelo de implementação Azure Resource Manager e versão de teste utiliza-o para criar uma instância de um laboratório.
+O modelo test Drive Resource Manager é carregado como um ficheiro zip, que pode incluir vários artefactos de implementação, mas precisa de ter um ficheiro chamado **modelo principal.json**. Este ficheiro é modelo de implementação do Gestor de Recursos Azure, e test Drive usa-o para instantaneamente um Laboratório.
 
-Se tiver recursos adicionais para além deste ficheiro, fazer referência a ele como um recurso externo dentro do modelo ou pode incluir o recurso no ficheiro zip.
+Se tiver recursos adicionais para além deste ficheiro, pode remetê-lo como um recurso externo dentro do modelo, ou pode incluir o recurso no ficheiro zip.
 
-Durante a certificação de publicação, o Test-Drive unzips seu pacote de implementação e coloca o respetivo conteúdo para um contentor de BLOBs de versão de teste interno. A estrutura de contentor reflete a estrutura do seu pacote de implementação:
+Durante a certificação de publicação, o Test Drive desaperta o seu pacote de implementação e coloca o seu conteúdo num recipiente interno de bolhas Test Drive. A estrutura do recipiente reflete a estrutura do seu pacote de implantação:
 
-| Package                       | Contentor de BLOBs de unidade de teste         |
+| pacote.zip                       | Recipiente de bolha test drive         |
 |---|---|
-| Template de principal                | https:\//\<\..\>. blob.core.windows.net/\<\..\>/Main-template.JSON  |
-| Templates/Solution.JSON           | https:\//\<\..\>. blob.core.windows.net/\<\..\>/templates/Solution.JSON |
-| scripts/warmup.ps1                | https:\//\<\..\>. blob.core.windows.net/\<\..\>/scripts/warmup.ps1  |
+| modelo principal.json                | \//\<https:\... \>.blob.core.windows.net/\<\... \>/modelo principal.json  |
+| modelos/solução.json           | \//\<https:\... \>.blob.core.windows.net/\<\... \>/modelos/solução.json |
+| scripts/warmup.ps1                | \//\<https:\... \>.blob.core.windows.net/\<\... \>/scripts/warmup.ps1  |
 
 
-Chamamos um Uri de Uri de Base para o contentor de Blobs. Cada revisão do seu laboratório tem seu próprio contentor de BLOBs e, portanto, cada revisão do seu laboratório tem seu próprio Uri de Base. Versão de teste pode passar um Uri de Base do seu pacote de implementação descompactado no seu modelo através de parâmetros do modelo.
+Chamamos um Uri deste contentor de bolhas Base Uri. Cada revisão do seu Laboratório tem o seu próprio recipiente de bolhas, e, portanto, cada revisão do seu Laboratório tem a sua própria Base Uri. Test Drive pode passar um Uri base do seu pacote de implantação desapertado no seu modelo através de parâmetros de modelo.
 
-## <a name="transforming-template-examples-for-test-drive"></a>Transformar os exemplos de modelo para a versão de teste
+## <a name="transforming-template-examples-for-test-drive"></a>Exemplos de modelo de transformação para test drive
 
-O processo de transformar uma arquitetura de recursos num teste de unidade modelo do Resource Manager pode ser assustador. Para ajudar a facilitar esse processo, iremos\'ve feita exemplos sobre como fazer o melhor [transformar aqui os modelos de implementação atual](./transforming-examples-for-test-drive.md).
+O processo de transformar uma arquitetura de recursos num modelo de Gestor de Recursos test drive pode ser assustador. Para ajudar a facilitar este\'processo, fizemos exemplos sobre como melhor transformar os modelos de [implantação atuais aqui](./transforming-examples-for-test-drive.md).
 
 ## <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 
-Agora que tem a sua versão de teste criada, esta secção descreve cada um dos campos necessários para a publicação com êxito a sua versão de teste.
+Agora que tem o test drive construído, esta secção percorre cada um dos campos necessários para que publique com sucesso o seu Test Drive.
 
-![Ativar a versão de teste na interface do usuário](./media/azure-resource-manager-test-drive/howtopub1.png)
+![Habilitar o Test Drive na interface do utilizador](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-O campo de primeiro e mais importante é ativar/desativar se pretende que o Test Drive ativado para a sua oferta, ou não. Quando você seleciona **Sim,** o restante do formulário com todos os campos obrigatórios são apresentados para você preencher. Quando você seleciona **não,** o formulário fica desabilitado e, se você republicar com a unidade de teste desabilitada, sua unidade de teste será removida da produção.
+O primeiro e mais importante campo é alternar se deseja o Test Drive ativado para a sua oferta ou não. Quando selecionar **Sim,** o resto do formulário com todos os campos necessários são apresentados para que possa preencher. Quando selecionar **Não,** o formulário fica desativado e se voltar a publicar com o Test Drive desativado, o test Drive é removido da produção.
 
-Nota: Se existirem quaisquer testes de unidades utilizadas ativamente por utilizadores, essas versões de teste irá continuar a ser executado até a sessão expira.
+Nota: Se existirem unidades de teste ativamente utilizadas pelos utilizadores, esses Test Drives continuarão a funcionar até que a sua sessão expire.
 
 ### <a name="details"></a>Detalhes
 
-A secção seguinte para preencher é que oferecem os detalhes sobre a sua versão de teste.
+A próxima secção a preencher são os detalhes sobre a sua oferta test drive.
 
-![Informações detalhadas de Test-Drive](./media/azure-resource-manager-test-drive/howtopub2.png)
+![Informações detalhadas do Test Drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrição -** *necessário* é onde escrever a descrição principal sobre o que há em sua versão de teste. O cliente virá aqui para ler quais cenários sua versão de teste irá abordar sobre seu produto. 
+**Descrição -** *Obrigatório* É aqui que escreve a descrição principal sobre o que está no seu Test Drive. O cliente virá aqui para ler quais os cenários que o seu Test Drive irá cobrir sobre o seu produto. 
 
-**Manual do usuário -** *necessário* este é o passo a passo detalhada de sua experiência de versão de teste. O cliente abrirá isso e pode percorrer exatamente o que deseja fazer em toda a unidade de teste. É importante que este conteúdo é fácil de compreender e siga! (Tem de ser um ficheiro. pdf)
+**Manual do utilizador -** *Necessário* Este é o passo aprofundado da sua experiência test drive. O cliente abrirá isto e poderá passar exatamente pelo que pretende que eles façam durante o test drive. É importante que este conteúdo seja fácil de entender e acompanhar! (Deve ser um ficheiro .pdf)
 
-**Testar o vídeo de demonstração de unidade -** *recomendado* é semelhante para o Manual do utilizador, é melhor incluir um tutorial em vídeo de sua experiência de versão de teste. O cliente irá observar neste anterior ou durante a sua versão de teste e pode percorrer exatamente o que deseja fazer em toda a unidade de teste. É importante que este conteúdo é fácil de compreender e siga!
+**Test Drive Demo Video -** *Recomendado* Similar ao Manual do Utilizador, é melhor incluir um tutorial de vídeo da sua experiência test drive. O cliente irá assistir a isto antes ou durante o test drive e pode passar exatamente pelo que você quer que eles façam durante o seu Test Drive. É importante que este conteúdo seja fácil de entender e acompanhar!
 
-- **Nome** -título do seu vídeo
-- **Ligação** -tem de ser um URL incorporado do tube ou vídeo. Exemplo sobre como obter o url do embedded está ilustrado abaixo:
-- **Miniatura** -tem de ser uma imagem de alta qualidade pixels (533 x 324). Recomenda-se para tirar uma captura de ecrã de certa parte de sua experiência de Test-Drive aqui.
+- **Nome** - Título do seu Vídeo
+- **Link** - Deve ser um URL incorporado do seu tubo ou vídeo. Exemplo sobre como obter o url incorporado está abaixo:
+- **Miniatura** - Deve ser uma imagem de alta qualidade (533x324) pixels. Recomenda-se tirar uma imagem de alguma parte da sua experiência test drive aqui.
 
-Segue-se como estes campos aparecem para o seu cliente durante a sua experiência de versão de teste.
+Abaixo está a forma como estes campos aparecem para o seu cliente durante a sua experiência test drive.
 
-![Localização dos campos de Test-Drive na oferta do Marketplace](./media/azure-resource-manager-test-drive/howtopub4.png)
+![Localização dos campos Test Drive na oferta do Marketplace](./media/azure-resource-manager-test-drive/howtopub4.png)
 
-### <a name="technical-configuration"></a>Configuração técnica
+### <a name="technical-configuration"></a>Configuração Técnica
 
-A secção seguinte para preencher é onde carregue o modelo de Gestor de recursos de unidade de teste e define especificamente como sua versão de teste instâncias de trabalho.
+A próxima secção a preencher é onde carrega o modelo de Gestor de Recursos test drive e define como as instâncias de Test Drive funcionam especificamente.
 
 ![](./media/azure-resource-manager-test-drive/howtopub5.png)
 
-**Instâncias -** *necessário* é onde configura quantas instâncias quiser, em que regiões e rapidez os seus clientes podem obter a versão de teste.
+**Instâncias -** *Necessário* É aqui que configura quantas instâncias quer, em que região e a rapidez com que os seus clientes podem obter o Test Drive.
 
-- **Instâncias** -selecione o regiões é onde escolhe em que o seu modelo de Gestor de recursos de unidade de teste é implementado no. Recomenda-se apenas selecionar uma região onde mais espera que os clientes podem ser localizado em.
-- **Frequente** -aceder a instâncias de número de teste de unidade de mensagens em fila que já estão implementados e espera por região selecionada. Os clientes podem aceder de forma instantânea este versões de teste, em vez de ter de esperar por uma implementação. A desvantagem é que estas instâncias são sempre em execução na sua subscrição do Azure, para que eles incorre num tempo de atividade maior custos. Ele é altamente recomendado que tenha **pelo menos uma instância de acesso frequente**, como a maioria dos seus clientes não queria esperar para implementações de completas para concluir, e portanto, há uma entrega na utilização do cliente.
-- **Quente** - número de unidade de teste instâncias por região que foram implementadas e, em seguida, a VM foi parada e armazenada no armazenamento do Azure. O tempo de espera para instâncias de acesso pouco frequente é mais lento do que instâncias de acesso frequente, mas também é mais barato o custo de tempo de atividade de armazenamento.
-- **Frio** -instâncias do número de unidade de teste por região, possivelmente, pode ser implementado. Instâncias de frios requerem o modelo de Gestor de recursos de teste da unidade inteira de passar por uma implementação no momento de um cliente solicitar a versão de teste, pelo que é mais lento do que o acesso frequente ou pouco frequente instâncias. No entanto, a compensação é que apenas tem de pagar a duração da unidade de teste.
+- **Instâncias** - As regiões Select é onde escolhe onde o seu modelo de Gestor de Recursos test drive é implantado. Recomenda-se apenas escolher uma região onde mais espera que os seus clientes estejam localizados.
+- **Hot** - Número de instâncias test drive que já estão implantadas e aguardam acesso por região selecionada. Os clientes podem aceder instantaneamente a este Test Drives em vez de terem de esperar por uma implementação. A contrapartida é que estes casos estão sempre a decorrer na sua subscrição Azure, pelo que incorrerão num custo de uptime maior. É altamente recomendado ter **pelo menos uma instância Hot**, uma vez que a maioria dos seus clientes não quer esperar que as implementações completas terminem e, por isso, há uma queda no uso do cliente.
+- **Warm** - Número de instâncias test drive por região que foram implantadas e, em seguida, o VM foi parado e armazenado no armazenamento Azure. O tempo de espera para casos quentes é mais lento do que os casos hot, mas o custo de armazenamento de tempo de espera também é mais barato.
+- **Frio** - Número de instâncias de Test Drive por região que podem ser implantadas. As instâncias frias requerem que todo o modelo do Gestor de Recursos test drive passe por uma implementação no momento em que um cliente solicita a Test Drive, por isso é mais lento do que as instâncias Hot ou Warm. No entanto, a contrapartida é que só tem de pagar durante a duração do Test Drive.
 
-Neste momento calcula o número total de potenciais simultâneas versões de teste que vai para disponibilizar e certifique-se de que seu limite de quota para a sua subscrição pode lidar com essa quantidade simultânea:
+Neste momento calcula o número total de potenciais Test Drives simultâneos que vai disponibilizar, e verificar se o seu limite de quota para a sua subscrição pode lidar com esse valor simultâneo:
 
-**(Número de regiões selecionadas em x instâncias de acesso frequente) + (número de regiões selecionadas x instâncias de acesso pouco frequente) + (número de regiões selecionadas x frios instâncias)**
+**(Número de regiões selecionadas x instâncias quentes) + (Número de regiões selecionadas x instâncias quentes) + (Número de regiões selecionadas x instâncias frias)**
 
-**Teste de unidade de duração (horas) -** *necessário* duração para o tempo que o Test-Drive permanecerá ativo, em \# de horas. O Test-Drive automaticamente termina após o final deste período de tempo.
+**Duração do test drive (horas) -** Duração *necessária* para \# quanto tempo o Test Drive permanecerá ativo, em horas. O Test Drive termina automaticamente após o fim deste período de tempo.
 
-**Modelo de teste de unidade Resource Manager -** *necessário* carregue o modelo do Resource Manager aqui. Este é o ficheiro que criou na secção anterior acima. Nomeie o arquivo de modelo principal: "main-Template" e certifique-se de que o modelo do Resource Manager contém parâmetros de saída para variáveis-chave que são necessários. (Tem de ser um ficheiro. zip)
+**Modelo** de Gestor de Recursos de Unidade de Teste - *Necessito* de carregar o seu modelo de Gestor de Recursos aqui. Este é o ficheiro que construiu na secção anterior acima. Nomeie o ficheiro de modelo principal: "main-template.json" e certifique-se de que o seu modelo de Gestor de Recursos contém parâmetros de saída para variáveis-chave que são necessárias. (Deve ser um ficheiro .zip)
 
-**Aceder a informações -** *necessário* depois de um cliente recebe a unidade de teste, as informações de acesso são apresentadas aos mesmos. Estas instruções destinam-se para partilhar os parâmetros de saída útil do seu teste de unidade modelo do Resource Manager. Para incluir parâmetros de saída, de utilizar chavetas aspas (por exemplo, **{{outputname}}** ), e eles serão inseridos corretamente na localização. (Formatação da cadeia de caracteres HTML é recomendado aqui para renderizar no front-end).
+**Informações de acesso -** *Necessárias* Depois de um cliente obter o seu Test Drive, a informação de acesso é-lhes apresentada. Estas instruções destinam-se a partilhar os parâmetros de saída úteis do seu modelo de Gestor de Recursos test drive. Para incluir parâmetros de saída, utilize suportes duplos encaracolados (por exemplo, **{{outputname}}**), e serão inseridos corretamente no local. (A formatação de cordas HTML é recomendada aqui para renderizar na extremidade frontal).
 
-### <a name="test-drive-deployment-subscription-details"></a>Detalhes de subscrição de implementação de unidade de teste
+### <a name="test-drive-deployment-subscription-details"></a>Detalhes da subscrição de implementação de unidade de teste
 
-A seção final para preencher é ser capaz de implantar as versões de teste automaticamente ao ligar-se a sua subscrição do Azure e o Azure Active Directory (AD).
+A secção final a preencher é poder implementar automaticamente as Unidades de Teste ligando a sua Subscrição Azure e o Diretório Ativo Azure (AD).
 
-![Detalhes de subscrição de implementação de unidade do teste](./media/azure-resource-manager-test-drive/subdetails1.png)
+![Detalhes da subscrição de implementação test Drive](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**ID de subscrição do Azure -** *necessário* isso concede acesso a serviços do Azure e o portal do Azure. A subscrição está em que é comunicada a utilização de recursos e serviços são cobrados. Se ainda não tiver uma **separado** subscrição do Azure para versões de teste apenas, vá em frente e criar uma. Pode encontrar os Ids de subscrição do Azure iniciando sessão no portal do Azure e navegando para as subscrições no menu da esquerda. (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")
+**Id de subscrição Azure -** *Isto exige* que este conceda acesso aos serviços Azure e ao portal Azure. A subscrição é onde o uso de recursos é reportado e os serviços são cobrados. Se ainda não tiver uma subscrição **Azure separada** apenas para Test Drives, vá em frente e faça uma. Pode encontrar Ids de subscrição azure iniciando sessão no portal Azure e navegando para as Subscrições no menu do lado esquerdo. (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
 ![Subscrições do Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**ID de inquilino do Azure AD -** *necessário* se tiver um ID de inquilino já disponível que pode encontrá-lo abaixo nas propriedades -\> ID do diretório.
+**ID azure AD Tenant -** *Necessário* Se você tiver um ID de\> inquilino já disponível você pode encontrá-lo abaixo no ID de Diretório - Diretório.
 
-![Propriedades do Active Directory do Azure](./media/azure-resource-manager-test-drive/subdetails3.png)
+![Propriedades de Diretório Ativo Azure](./media/azure-resource-manager-test-drive/subdetails3.png)
 
-Caso contrário, crie um novo inquilino no Azure Active Directory.
+Caso contrário, crie um novo Inquilino no Diretório Ativo Azure.
 
-![Inquilinos de lista do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
+![Lista de inquilinos do Diretório Ativo Azure](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definir a organização, o domínio e o país/região para o locatário do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Defina a organização, domínio e país/região para o inquilino da AD Azure](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirme a seleção](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**ID de aplicação do Azure AD -** *necessário* próxima etapa é criar e registar uma nova aplicação. Utilizaremos esta aplicação para realizar operações na sua instância de teste de unidade.
+**Id da app Azure AD -** O próximo passo *exigido* é criar e registar uma nova aplicação. Utilizaremos esta aplicação para efetuar operações na sua instância test drive.
 
-1. Navegue para o diretório recentemente criado ou já existente diretório e selecione o Azure Active directory no painel de filtro.
-2. Procure "Registos de aplicações" e clique em "Adicionar"
-3. Forneça um nome de aplicação.
-4. Selecione o tipo de como "aplicação Web / API"
-5. Forneça qualquer valor no URL de início de sessão, ganhamos\'t estar a utilizar esse campo.
+1. Navegue para o diretório recém-criado ou já existente e selecione o diretório Azure Ative no painel de filtros.
+2. Pesquise "Registos de aplicações" e clique em "Adicionar"
+3. Forneça um nome de candidatura.
+4. Selecione o tipo de "Web app / API"
+5. Fornecer qualquer valor em URL de\'inscrição, não usaremos esse campo.
 6. Clique em criar.
-7. Depois do aplicativo tiver sido criado, vá para propriedades -\> definir a aplicação como multi-inquilino e clique em Save.
+7. Depois de criada a aplicação,\> vá ao Properties - Desloque a aplicação como multi-inquilino e atinja save.
 
-Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplicação registada e cole-o no campo da versão de teste aqui.
+Clique em Guardar. O último passo é pegar no ID da aplicação para esta aplicação registada e colá-lo no campo Test Drive aqui.
 
-![Detalhes de ID de aplicação do Azure AD](./media/azure-resource-manager-test-drive/subdetails7.png)
+![Detalhe de ID da aplicação Azure AD](./media/azure-resource-manager-test-drive/subdetails7.png)
 
-Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
+Dado que estamos a usar a aplicação para implementar a subscrição, precisamos adicionar a aplicação como contribuinte na subscrição. As instruções para estas são as seguintes:
 
-1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-1. Clique em **Controlo de acesso (IAM)** .
-1. Clique na guia **atribuições de função** .  ![adicionar um novo](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg) principal de controle de acesso
-1. Clique em **adicionar atribuição de função**.
-1. Definir a função como **contribuinte**.
-1. Escreva o nome de aplicação do Azure AD e selecione a aplicação para atribuir a função.
+1. Navegue na lâmina de Subscrições e selecione a subscrição apropriada que está a utilizar apenas para o Test Drive.
+1. Clique em **Controlo de acesso (IAM)**.
+1. Clique no separador de **atribuições de role.**  ![Adicione um novo diretor de Controlo de Acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **Adicionar a atribuição de funções**.
+1. Desinuque o papel de **Contribuinte.**
+1. Digite em nome da aplicação Azure AD e selecione a aplicação para atribuir a função.
     ![Adicione as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Clique em **Guardar**.
 
-**Chave da aplicação do Azure AD -** *necessário* o campo final é gerar uma chave de autenticação. Em chaves, adicione uma descrição de chave, defina a duração para nunca expirar, em seguida, selecione guardar. É **importante** para evitar que um expiradas chave, que irá interromper a sua versão de teste em produção. Copie este valor e cole-o no seu campo obrigatório da versão de teste.
+**Chave de aplicação Azure AD -** *Obrigatório* O campo final é gerar uma chave de autenticação. Em baixo das teclas, adicione uma Descrição chave, detete a duração para nunca expirar e, em seguida, selecione guardar. É **importante** evitar ter uma chave caducada, que irá quebrar o seu test drive em produção. Copie este valor e cole-o no campo de Test Drive necessário.
 
-![Mostra as chaves para a aplicação do Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
+![Mostra as Chaves para a aplicação Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem todos os campos de Test-Drive preenchidos, passar por e **voltar a publicar** sua oferta. Assim que a sua versão de teste passou a certificação, deve passar um extensivamente testar a experiência do cliente no **pré-visualização** da sua oferta. Iniciar uma versão de teste na interface de Usuário e, em seguida, abra a sua subscrição do Azure no portal do Azure e certifique-se de que as versões de teste estão a ser totalmente implementados corretamente.
+Agora que tem todos os campos de Test Drive preenchidos, vá e **republique** a sua oferta. Uma vez que o seu Test Drive tenha passado pela certificação, deverá testar extensivamente a experiência do cliente na **pré-visualização** da sua oferta. Inicie uma Unidade de Teste na UI e abra a subscrição Azure dentro do portal Azure e verifique se as suas Unidades de Teste estão a ser totalmente implementadas corretamente.
 
 ![Portal do Azure](./media/azure-resource-manager-test-drive/subdetails9.png)
 
-É importante ter em atenção que não elimina quaisquer instâncias de versão de teste como terem sido aprovisionados para os seus clientes para que o serviço de versão de teste irá limpar automaticamente estes grupos de recursos depois de um cliente tenha terminado com ele.
+É importante notar que não elimina quaisquer instâncias de Test Drive, uma vez que são provisionadas para os seus clientes, pelo que o serviço Test Drive limpará automaticamente estes Grupos de Recursos depois de um cliente terminar com o mesmo.
 
-Assim que se sentir à vontade com a sua oferta de pré-visualização, agora é hora de **implemente**! Há um processo de revisão final da Microsoft, assim que a oferta foi publicada duplique verificação toda a experiência de ponta a ponta. Se por algum motivo, a oferta é rejeitada, enviaremos uma notificação para o contacto de engenharia da sua oferta explicando o que será necessário obter corrigidos.
+Uma vez que se sinta confortável com a sua oferta de Pré-visualização, agora é hora de **ir ao vivo!** Existe um processo final de revisão da Microsoft uma vez que a oferta foi publicada para verificar o final da experiência final. Se por alguma razão a oferta for rejeitada, enviaremos uma notificação ao contacto de engenharia para a sua oferta explicando o que terá de ser corrigido.
 
-Se tiver mais perguntas, estiver à procura de conselhos de resolução de problemas ou pretende tornar a sua versão de teste mais bem-sucedida, vá até [FAQ, resolução de problemas e melhores práticas](./marketing-and-best-practices.md).
+Se tiver mais perguntas, estiver à procura de conselhos de resolução de problemas, ou queira tornar o seu Test Drive mais bem sucedido, por favor vá ao [FAQ, Troubleshooting, & Melhores Práticas.](./marketing-and-best-practices.md)

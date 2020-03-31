@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78669078"
 ---
 >[!NOTE]
@@ -37,7 +37,7 @@ ms.locfileid: "78669078"
 * Noruega Leste
 * Sul do Reino Unido
 * Oeste do Reino Unido
-* Europa Ocidental
+* Europa ocidental
 
 **Ásia-Pacífico**
 * Austrália Central 2

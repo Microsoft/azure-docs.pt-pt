@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660670"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
@@ -37,7 +37,7 @@ Normalmente, no entanto, uma aplicação tem uma noção clara de onde um conjun
 
 Um exemplo de como delinear uma sequência para transferir um ficheiro é definir a propriedade **Label** para a primeira mensagem a **iniciar,** para mensagens intermédias para **conteúdo**, e para que a última mensagem **termine**. A posição relativa das mensagens de conteúdo pode ser calculada como a mensagem atual *SequenceNumber* delta a partir da mensagem **inicial** *SequenceNumber*.
 
-A funcionalidade de sessão no Service Bus permite uma operação C# de receção específica, sob a forma de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nas APIs e Java. Ativa a funcionalidade definindo a propriedade [necessáriaSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) na fila ou subscrição via Azure Resource Manager, ou colocando a bandeira no portal. É necessário antes de tentar usar as operações relacionadas com a API.
+A funcionalidade de sessão no Service Bus permite uma operação de receção específica, sob a forma de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nas APIs C# e Java. Ativa a funcionalidade definindo a propriedade [necessáriaSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) na fila ou subscrição via Azure Resource Manager, ou colocando a bandeira no portal. É necessário antes de tentar usar as operações relacionadas com a API.
 
 No portal, coloque a bandeira com a seguinte caixa de verificação:
 
@@ -62,7 +62,7 @@ O bloqueio é libertado quando o **Close** ou **o CloseAsync** são chamados, ou
 
 Quando vários recetores simultâneos retiram da fila, as mensagens pertencentes a uma determinada sessão são enviadas para o recetor específico que atualmente detém o cadeado para essa sessão. Com esta operação, um fluxo de mensagens intercalada sem saída numa fila ou subscrição é limpo desmultiplexado para diferentes recetores e esses recetores também podem viver em diferentes máquinas de clientes, uma vez que a gestão do bloqueio acontece lado de serviço, dentro do Service Bus.
 
-A ilustração anterior mostra três recetores simultâneos de sessão. One Session with `SessionId` = 4 não tem cliente ativo e possuidor, o que significa que nenhuma mensagem é entregue a partir desta sessão específica. Uma sessão funciona de muitas maneiras como uma sub fila.
+A ilustração anterior mostra três recetores simultâneos de sessão. Uma Sessão com `SessionId` = 4 não tem cliente ativo e possuidor, o que significa que nenhuma mensagem é entregue a partir desta sessão específica. Uma sessão funciona de muitas maneiras como uma sub fila.
 
 O bloqueio de sessão mantido pelo recetor da sessão é um guarda-chuva para os bloqueios de mensagem utilizados pelo modo de liquidação *de bloqueio de peek..* Um recetor não pode ter duas mensagens em simultâneo "em voo", mas as mensagens devem ser processadas em ordem. Uma nova mensagem só pode ser obtida quando a mensagem prévia tiver sido completada ou com letras mortas. O abandono de uma mensagem faz com que a mesma mensagem seja novamente servida com a próxima operação de receção.
 
@@ -74,7 +74,7 @@ A instalação do estado da sessão permite uma anotação definida pela aplica�
 
 Do ponto de vista do Ônibus de serviço, o estado da sessão de mensagens é um objeto binário opaco que pode conter dados do tamanho de uma mensagem, que é 256 KB para service bus standard, e 1 MB para Service Bus Premium. O estado de processamento relativo a uma sessão pode ser realizado dentro do estado da sessão, ou o estado da sessão pode apontar para algum local de armazenamento ou registo de base de dados que detenha tais informações.
 
-As APIs para gestão do estado de sessão, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e C# [GetState,](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)podem ser encontradas no objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) tanto nas APIs como em Java. Uma sessão que anteriormente não tinha estado definido devolve uma referência **nula** para **o GetState**. A limpeza do estado de sessão previamente definido é feita com [setState (nulo)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+As APIs para gestão do estado de sessão, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState,](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)podem ser encontradas no objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) tanto nas APIs C# como java. Uma sessão que anteriormente não tinha estado definido devolve uma referência **nula** para **o GetState**. A limpeza do estado de sessão previamente definido é feita com [setState (nulo)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
 
 O estado da sessão permanece enquanto não estiver esclarecido (retornando **nulo),** mesmo que todas as mensagens de uma sessão sejam consumidas.
 
@@ -98,7 +98,7 @@ O [padrão de resposta a pedidos](https://www.enterpriseintegrationpatterns.com/
 Várias aplicações podem enviar os seus pedidos para uma única fila de pedidos, com um parâmetro de cabeçalho específico definido para identificar exclusivamente a aplicação do remetente. A aplicação do recetor pode processar os pedidos que chegam na fila e enviar respostas numa fila ativada, definindo o ID da sessão para o identificador único que o remetente tinha enviado na mensagem de pedido. A aplicação que enviou o pedido pode então receber mensagens num ID de sessão específico e processar corretamente as respostas.
 
 > [!NOTE]
-> O pedido que envia os pedidos iniciais deve saber sobre o ID da sessão e usá`SessionClient.AcceptMessageSession(SessionID)` para bloquear a sessão em que espera a resposta. É uma boa ideia usar um GUID que identifica exclusivamente a instância da aplicação como um id de sessão. Não deve haver um manipulador de sessão ou `AcceptMessageSession(timeout)` na fila para garantir que as respostas estão disponíveis para serem bloqueadas e processadas por recetores específicos.
+> O pedido que envia os pedidos iniciais deve `SessionClient.AcceptMessageSession(SessionID)` saber sobre o ID da sessão e usar para bloquear a sessão em que espera a resposta. É uma boa ideia usar um GUID que identifica exclusivamente a instância da aplicação como um id de sessão. Não deve haver um `AcceptMessageSession(timeout)` manipulador de sessão ou na fila para garantir que as respostas estão disponíveis para serem bloqueadas e processadas por recetores específicos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -107,7 +107,7 @@ Várias aplicações podem enviar os seus pedidos para uma única fila de pedido
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/message-sessions/sessions.png

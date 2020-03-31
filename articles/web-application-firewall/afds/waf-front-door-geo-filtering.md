@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137565"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472610"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é geofiltração num domínio para a Porta frontal do Azure?
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica num domínio do Azure Front Door?
 
 Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicações web (WAF) na Porta frontal permite-lhe definir uma política utilizando regras de acesso personalizadas para um caminho específico no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 
 Uma política waf geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geográfica, a variável é REMOTE_ADDR, o operador é GeoMatch e o valor é o código de país de duas letras de interesse. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
 
-Pode configurar uma política de geofiltração para a sua Porta Frontal utilizando o portal Azure, [o Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou o nosso [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Pode configurar uma política de geofiltração para a sua Porta Frontal utilizando o [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou utilizando o nosso [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="country-code-reference"></a>Referência do código do país
 
-|Indicativo de país | Nome do país |
+|Código de país | Nome do país |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirados Árabes Unidos|

@@ -1,5 +1,5 @@
 ---
-title: Como adicionar conjuntos de dados de referência ao seu ambiente - Azure Time Series Insights  Microsoft Docs
+title: Como adicionar conjuntos de dados de referência ao seu ambiente - Azure Time Series Insights [ Microsoft Docs
 description: Este artigo descreve como adicionar um conjunto de dados de referência para aumentar dados no seu ambiente DeInsights da Série De Tempo Azure.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087257"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Crie um conjunto de dados de referência para o seu ambiente Time Series Insights usando o portal Azure
@@ -40,7 +40,7 @@ Os dados de referência não são acompanhados retroativamente. Assim, apenas os
 
 1. Selecione a página **'Visão Geral'.** Expanda a secção **Essentials** perto do topo da página para localizar o URL do **explorador time series insights** e abrir o link.  
 
-   [![expandir a secção Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
+   [![Expandir secção Essencial](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    Veja o explorador para o seu ambiente Time Series Insights.
 
@@ -57,24 +57,24 @@ Os dados de referência não são acompanhados retroativamente. Assim, apenas os
    - Escolha **CSV** para dados delimitados de vírem. A primeira fila é tratada como uma linha de cabeçalho.
    - Escolha o **Array JSON** para obter dados formatados de observação de objetos JavaScript (JSON).
 
-   [![Escolher o formato de dados.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
+   [![Escolha o formato de dados.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
 
 1. Fornecer os dados, utilizando um dos dois métodos:
 
    - Cola os dados ao editor de texto. Em seguida, selecione o botão de dados de **referência Parse.**
    - Selecione Escolher o botão **'Ficheiro'** para adicionar dados a partir de um ficheiro de texto local.
 
-   Por exemplo, dados CSV de pasta: [![dados CSV colados](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   Por exemplo, dados CSV de pasta: [ ![Dados CSV colados](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Por exemplo, colar dados de matriz JSON: [![dados Paste JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   Por exemplo, colar dados de matriz JSON: [ ![Dados da Paste JSON](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
-   Se houver um erro a analisar os valores dos dados, o erro aparece a vermelho na parte inferior da página, como `CSV parsing error, no rows extracted`.
+   Se houver um erro a analisar os valores dos dados, o erro aparece `CSV parsing error, no rows extracted`a vermelho na parte inferior da página, como .
 
 1. Uma vez analisados com sucesso os dados, é mostrada uma grelha de dados que exibe as colunas e linhas que representam os dados. Reveja a grelha de dados para garantir a correção.
 
-   [dados de referência de revisão ![](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
+   [![Rever dados de referência](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Examine cada coluna para entender o tipo de dados assumido e altere o tipo de dados, se necessário.  Selecione o símbolo do tipo de dados na rubrica da coluna: **#** para duplo (dados numéricos), **T/ F** para boolean, ou **Abc** para corda.
+1. Reveja cada coluna para compreender o tipo de dados assumido e altere o tipo de dados se necessário.  Selecione o símbolo do **#** tipo de dados na rubrica da coluna: para o dobro (dados numéricos), **T/ F** para boolean, ou **Abc** para corda.
 
    [![Escolha os tipos de dados nas rubricas da coluna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -87,17 +87,17 @@ Os dados de referência não são acompanhados retroativamente. Assim, apenas os
 
 1. Nomeie o conjunto de dados, preenchendo o campo de **nomedo** conjunto de dados acima da grelha de dados.
 
-    [![Nomeie o conjunto de dados.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
+    [![Diga o nome do conjunto de dados.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
 1. Forneça a coluna **Chave Primária** no conjunto de dados, selecionando a queda acima da grelha de dados.
 
     [![Selecione as colunas de teclas.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    **(Opcional)** Selecione o botão **+** para adicionar uma coluna de teclas secundária, como uma chave primária composta. Se precisar de desfazer a seleção, escolha o valor vazio a partir da queda para baixo para remover a chave secundária.
+    **(Opcional)** Selecione o **+** botão para adicionar uma coluna de teclas secundária, como uma chave primária composta. Se precisar de desfazer a seleção, escolha o valor vazio a partir da queda para baixo para remover a chave secundária.
 
 1. Para fazer o upload dos dados, selecione o botão **'Upload'** de linhas.
 
-    [![Carregar linhas e confirmar dados.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
+    [![Faça upload de linhas e confirme os dados.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
 
     A página confirma o upload completo e mostra a mensagem **com sucesso no conjunto de dados .**
 
@@ -106,7 +106,7 @@ Os dados de referência não são acompanhados retroativamente. Assim, apenas os
 
 1. Selecione **Adicionar uma linha,** linhas de importação a **granel,** ou **adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
 
-    [![Adicione uma linha, linhas de importação a granel ou adicione uma coluna.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
+    [![Adicione uma linha, linhas de importação a granel, ou adicione uma coluna.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
    > [!IMPORTANT]
    > Qualquer linha que partilhe uma chave única com outra linha terá as suas colunas ultrapassadas pela última linha adicionadas que partilham essa chave única.

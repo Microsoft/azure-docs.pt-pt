@@ -1,5 +1,5 @@
 ---
-title: Sincronização de telescópios para serviços de domínio azure ad  Microsoft Docs
+title: Sincronização de telescópios para serviços de domínio azure ad [ Microsoft Docs
 description: Saiba como configurar a sincronização com âmbito de aplicação da Azure AD para um domínio gerido pelo Azure Ative Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613038"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configure sincronização de telescópios de Azure AD para Serviços de Domínio de Diretório Ativo Azure
@@ -42,9 +42,9 @@ Utiliza o portal Azure ou powerShell para configurar as definições de sincroni
 
 | Ação | | |
 |--|--|--|
-| Criar um domínio gerido por AD DS azure e configurar a sincronização com o âmbito | [Portal do Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificar a sincronização com âmbito | [Portal do Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Desativar a sincronização com âmbito | [Portal do Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Criar um domínio gerido por AD DS azure e configurar a sincronização com o âmbito | [Portal Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificar a sincronização com âmbito | [Portal Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Desativar a sincronização com âmbito | [Portal Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Alterar o âmbito da sincronização faz com que o domínio gerido pelo Azure AD DS ressincronizasse todos os dados.
@@ -90,7 +90,7 @@ Alterar o âmbito da sincronização faz com que o domínio gerido pelo Azure AD
 
 ## <a name="powershell-script-for-scoped-synchronization"></a>Script PowerShell para sincronização com âmbito
 
-Para configurar a sincronização com o powerShell, guarde primeiro o seguinte script para um ficheiro chamado `Select-GroupsToSync.ps1`. Este script configura o Azure AD DS para sincronizar grupos selecionados a partir de Azure AD. Todas as contas de utilizador que fazem parte dos grupos especificados são sincronizadas com o domínio gerido pelo Azure AD DS.
+Para configurar a sincronização com o powerShell, guarde primeiro `Select-GroupsToSync.ps1`o seguinte script para um ficheiro nomeado . Este script configura o Azure AD DS para sincronizar grupos selecionados a partir de Azure AD. Todas as contas de utilizador que fazem parte dos grupos especificados são sincronizadas com o domínio gerido pelo Azure AD DS.
 
 Este script é usado nos passos adicionais deste artigo.
 

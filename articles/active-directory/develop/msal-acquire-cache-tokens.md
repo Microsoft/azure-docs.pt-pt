@@ -1,5 +1,5 @@
 ---
-title: Adquirir e cache tokens com mSAL / Azure
+title: Adquirir fichas de cache & com a MSAL Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a aquisição e o cache tokens usando a Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085163"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache tokens utilizando a biblioteca de autenticação da Microsoft (MSAL)
@@ -38,16 +38,16 @@ Também é possível na MSAL aceder aos recursos v1.0. Para mais informações, 
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>Solicitar âmbitos específicos para uma API web
 
-Quando a sua aplicação necessitar de solicitar fichas com permissões específicas para uma API de recurso, terá de passar os âmbitos que contêm a aplicação ID URI da API no formato abaixo: *&lt;app ID URI&gt;/&lt;âmbito&gt;*
+Quando a sua aplicação necessitar de solicitar fichas com permissões específicas para um Recurso API, terá de passar os âmbitos que contêm a aplicação ID URI da API no formato abaixo: * &lt;app ID URI&gt;/&lt;scope&gt;*
 
-Por exemplo, âmbitos para Microsoft Graph API: `https://graph.microsoft.com/User.Read`
+Por exemplo, âmbitos para Microsoft Graph API:`https://graph.microsoft.com/User.Read`
 
-Ou, por exemplo, os âmbitos para uma API web personalizada: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+Ou, por exemplo, os âmbitos para uma API web personalizada:`api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-Para o Microsoft Graph API, apenas, um valor de âmbito `user.read` mapas para `https://graph.microsoft.com/User.Read` formato e pode ser usado alternadamente.
+Para o Microsoft Graph API, `user.read` apenas, um âmbito de mapas de valor para `https://graph.microsoft.com/User.Read` formato e pode ser usado alternadamente.
 
 > [!NOTE]
-> Algumas APIs web como a API do Gestor de Recursos Azure (https://management.core.windows.net/) esperam um '/' rasto na reivindicação do público (aud) do token de acesso. Neste caso, é importante passar o âmbito como https://management.core.windows.net//user_impersonation (note-se o duplo corte), para que o símbolo seja válido na API.
+> Algumas APIs web, como ahttps://management.core.windows.net/) API gestora de recursos do Azure , esperam um '/' rasto na reivindicação do público (aud) do sinal de acesso. Neste caso, é importante passar o https://management.core.windows.net//user_impersonation âmbito como (note o duplo corte), para que o símbolo seja válido na API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitar âmbitos dinâmicos para consentimento incremental
 
@@ -55,7 +55,7 @@ Ao construir aplicações utilizando v1.0, teve de registar o conjunto completo 
 
 Por exemplo, pode inicialmente iniciar sessão no utilizador e negar-lhes qualquer tipo de acesso. Mais tarde, pode dar-lhes a capacidade de ler o calendário do utilizador solicitando o âmbito do calendário nos métodos de aquisição e obter o consentimento do utilizador.
 
-Por exemplo: `https://graph.microsoft.com/User.Read` e `https://graph.microsoft.com/Calendar.Read`
+Por exemplo: `https://graph.microsoft.com/User.Read` e`https://graph.microsoft.com/Calendar.Read`
 
 ## <a name="acquiring-tokens-silently-from-the-cache"></a>Adquirir fichas silenciosamente (a partir da cache)
 
@@ -105,7 +105,7 @@ Quando o seu cliente solicita um sinal de acesso, a Azure AD também devolve um 
 - A expiração do símbolo, que indica a data/hora em que o símbolo expira.
 - A identificação do inquilino contém o inquilino no qual o utilizador foi encontrado. Para os utilizadores convidados (cenários Azure AD B2B), o ID do inquilino é o inquilino convidado, não o inquilino único. Quando o token é entregue em nome de um utilizador, o resultado da autenticação também contém informações sobre este utilizador. Para fluxos confidenciais de clientes onde são solicitados tokens sem utilizador (para a aplicação), esta informação do utilizador é nula.
 - Os âmbitos para os quais o símbolo foi emitido.
-- A ID exclusiva para o usuário.
+- A identificação única para o utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

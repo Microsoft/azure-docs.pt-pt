@@ -8,10 +8,10 @@ author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
 ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299806"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Deprecação de métricas de disco no portal Azure

@@ -1,67 +1,66 @@
 ---
-title: Painel de classificações e avaliações na análise do Marketplace comercial no Partner Center
-description: Saiba como acessar uma exibição consolidada dos comentários dos clientes para suas ofertas no Azure Marketplace e no AppSource.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Painel de avaliações e avaliações no dashboard do Mercado Comercial no Partner Center
+description: Saiba como aceder a uma visão consolidada do feedback dos clientes para as suas ofertas no Azure Marketplace e appSource.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: dedf2aa429414b6a6a03d70f1f8e355c6629d83e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2995cd2a97329aa8b7947145150c6a3501346fdb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275667"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Painel de classificações e avaliações na análise do Marketplace comercial
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Avaliações e avaliações de dashboard na análise do Mercado Comercial
 
-Este artigo fornece informações sobre o painel classificações & revisões no Partner Center. Este painel exibe uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource.
+Este artigo fornece informações sobre as avaliações & painel de comentários no Partner Center. Este dashboard apresenta uma visão consolidada do feedback do cliente para ofertas no Azure Marketplace e AppSource.
 
-Para acessar o **painel classificações de &** de avaliações nas ferramentas de análise do Partner Center, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
+Para aceder às **Classificações & analisa** o dashboard nas ferramentas de análise do Partner Center, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
 
-## <a name="ratings--reviews"></a>Avaliações & revisões
+## <a name="ratings--reviews"></a>Avaliações & avaliações
 
-À medida que os clientes navegam, pesquisam e compram ofertas em ambos os Marketplaces, eles podem deixar classificações e análises para as ofertas adquiridas.
+À medida que os clientes navegam, pesquisam e compram ofertas em ambos os mercados, podem deixar classificações e avaliações pelas ofertas que adquiriram.
 
-- Os clientes podem enviar uma nova classificação ou revisão e atualizar ou excluir uma classificação ou revisão existente que foram enviadas. Os clientes podem fazer alterações apenas nas classificações e análises que elas possuem.  
-- As revisões são lançadas na guia revisões na página de exibição do produto da oferta no Azure Marketplace ou no AppSource. Os clientes podem incluir seu nome ou postar anonimamente.  
+- Os clientes podem submeter uma nova classificação ou revisão e atualizar ou apagar uma classificação ou revisão existente que tenham apresentado. Os clientes podem fazer alterações apenas nas classificações e avaliações que possuem.  
+- As opiniões são publicadas no separador Comentários na página de exibição do produto da oferta no mercado azure ou appSource. Os clientes podem incluir o seu nome ou publicação anonimamente.  
 
-O **painel de análise de & de classificações** exibe as tendências e as informações dessa atividade pelos clientes. Você pode exibir uma representação gráfica dos seguintes itens:
+O **Painel de Avaliação & Ratings** apresenta as tendências e insights desta atividade pelos clientes. Pode ver uma representação gráfica dos seguintes itens:
 
-- Avaliações & revisões  
-- Examinar comentários
+- Avaliações & avaliações  
+- Comentários de revisão
 
-As **guias de vitrine do Marketplace** permitem que os editores exibam suas métricas de oferta separadamente nas guias do AppSource & Azure Marketplace. Para exibir métricas de oferta específicas, selecione a oferta na lista suspensa oferta.
+Os **separadores de montra saem** do Marketplace que permitem aos editores visualizar em separado as suas métricas de oferta nos separados AppSource & Azure Marketplace. Para ver métricas de oferta específicas, selecione a oferta da lista de dropdown da oferta.
 
 
-### <a name="ratings-and-reviews-summary"></a>Resumo de classificações e avaliações
+### <a name="ratings-and-reviews-summary"></a>Resumo de avaliações e avaliações
 
-A seção de resumo classificações & revisões exibe as métricas abaixo para um intervalo de datas selecionado:
+As classificações & secção resumo de avaliações apresenta as métricas abaixo para uma gama de datas selecionada:
 
-- **Classificação média:** Classificação média ponderada em estrela de todas as classificações enviadas pelos clientes para a oferta selecionada.
-- **Divisão de classificação:** Divisão da classificação por estrelas pela contagem de clientes que enviaram classificações. O gráfico de barras é empilhado com classificações reais e revisadas (contagem de classificação atualizada).
-- **Total de classificações:** Contagem geral de classificações enviadas. Essa contagem também inclui classificações com e sem revisões.
-- **Classificações com revisões:** Contagem de revisões enviadas.
+- **Classificação média:** Classificação média ponderada de todas as classificações submetidas pelos clientes para a oferta selecionada.
+- **Desagregação de classificação:** Desagregação da classificação de estrelas pela contagem de clientes que apresentaram classificações. O gráfico de barras é empilhado com classificações reais e revistas (contagem de classificação atualizada).
+- **Classificações totais:** Contagem global de classificações submetidas. Esta contagem também inclui classificações com e sem comentários.
+- **Avaliações com comentários:** Contagem de comentários submetidos.
 
-![Resumo de análise de avaliações e avaliações do Partner Center](./media/analyze-ratings-summary.png)
+![Partner Center analisa avaliações e avaliações resumo](./media/analyze-ratings-summary.png)
 
-### <a name="review-comments"></a>Examinar comentários
+### <a name="review-comments"></a>Comentários de revisão
 
-As revisões são exibidas em ordem cronológica para quando elas foram lançadas. A exibição padrão exibe todas as revisões e você pode filtrar por meio de avaliações por classificação por estrelas usando o **filtro de classificação** no menu suspenso. Além disso, você pode pesquisar por palavras-chave que aparecem na revisão.  
+As avaliações são exibidas por ordem cronológica para quando foram publicadas. A visualização predefinida exibe todas as opiniões e pode filtrar através das avaliações por classificação de estrelas utilizando o **filtro Rating** no menu dropdown. Além disso, pode pesquisar por palavras-chave que aparecem na revisão.  
 
-![Comentários da análise do Partner Center analisar](./media/analyze-reviews.png)
+![Partner Center analisa comentários de revisão](./media/analyze-reviews.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Marketplace comercial do Partner Center, consulte [análise do Marketplace comercial no Partner Center](./analytics.md).
-- Para grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para sua oferta, consulte [painel de resumo na análise do Marketplace comercial](./summary-dashboard.md).
-- Para obter informações sobre seus pedidos em um formato gráfico e baixável, consulte [painel de pedidos na análise do Marketplace comercial](./orders-dashboard.md).
-- Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [painel do cliente na análise do Marketplace comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte o [painel de downloads na análise do Marketplace comercial](./downloads-dashboard.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte [Summary Dashboard na análise do Mercado Comercial.](./summary-dashboard.md)
+- Para obter informações sobre as suas encomendas num formato gráfico e descarregável, consulte [o Painel de Encomendas na análise do Mercado Comercial](./orders-dashboard.md).
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [O Dashboard de Utilização na análise do Mercado Comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [Customer Dashboard na análise do Mercado Comercial.](./customer-dashboard.md)
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [Downloads Dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
+- Para perguntas frequentes sobre análise do Mercado Comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)do Mercado Comercial.

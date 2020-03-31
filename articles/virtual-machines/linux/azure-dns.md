@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969324"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux em Azure
@@ -64,7 +64,7 @@ Vários pacotes de cache DNS diferentes, como dnsmasq, estão disponíveis. Aqui
 **Ubuntu (usa resolveconf)**
   * Instale a embalagem dnsmasq ("sudo apt-get instalar dnsmasq").
 
-**SUSE (utiliza netconf)** :
+**SUSE (utiliza netconf)**:
 1. Instale a embalagem dnsmasq ("sudo zypper instale dnsmasq").
 2. Ativar o serviço dnsmasq ("systemctl enable dnsmasq.service").
 3. Inicie o serviço dnsmasq ("systemctl start dnsmasq.service").
@@ -119,7 +119,7 @@ O encaminhamento dNS também permite a resolução de DNS entre redes virtuais e
 
 Quando utiliza a resolução de nomes que o Azure fornece, o sufixo interno do DNS é fornecido a cada máquina virtual utilizando o DHCP. Quando utiliza a sua própria solução de resolução de nome, este sufixo não é fornecido a máquinas virtuais porque o sufixo interfere com outras arquiteturas DNS. Para se referir a máquinas da FQDN ou para configurar o sufixo nas suas máquinas virtuais, pode utilizar o PowerShell ou a API para determinar o sufixo:
 
-* Para redes virtuais geridas pelo Gestor de Recursos Azure, o sufixo está disponível através do recurso do cartão de interface de [rede.](https://msdn.microsoft.com/library/azure/mt163668.aspx) Também pode executar o comando `azure network public-ip show <resource group> <pip name>` para exibir os detalhes do seu IP público, que inclui o FQDN do NIC.
+* Para redes virtuais geridas pelo Gestor de Recursos Azure, o sufixo está disponível através do recurso do cartão de interface de [rede.](https://msdn.microsoft.com/library/azure/mt163668.aspx) Também pode executar `azure network public-ip show <resource group> <pip name>` o comando para exibir os detalhes do seu IP público, que inclui o FQDN do NIC.
 
 Se encaminhar consultas para o Azure não se adequa às suas necessidades, precisa de fornecer a sua própria solução DNS.  A sua solução DNS tem de:
 

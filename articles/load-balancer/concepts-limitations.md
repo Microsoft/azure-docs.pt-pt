@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241683"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064286"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Balancer de Carga
-O Azure Load Balancer contém vários componentes chave para o seu funcionamento.  Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI ou Azure PowerShell.  
+O Azure Load Balancer contém vários componentes-chave para o seu funcionamento.  Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI ou Azure PowerShell.  
 
 ## <a name="load-balancer-components"></a>Componentes do Balancer de Carga
 
@@ -50,10 +50,13 @@ Os Equilibradores básicos de carga têm um âmbito limitado (conjunto de dispon
 * **Regras de equilíbrio de carga**: As regras de equilíbrio de carga são as que dizem ao Equilibrador de Carga o que tem de ser feito quando. 
 * **Regras**nat de entrada : Uma regra nat de entrada reencaminha o tráfego de um porta específico de um endereço IP frontal específico para um porto específico de uma instância específica de backend dentro da rede virtual. **[O encaminhamento](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** por porta é feito pela mesma distribuição baseada em hash como o equilíbrio de carga. Os cenários comuns para esta capacidade são o Protocolo de Ambiente de Trabalho Remoto (RDP) ou sessões de Secure Shell (SSH) para instâncias VM individuais dentro de uma Rede Virtual Azure. Pode mapear vários pontos finais internos para portas no mesmo endereço IP frontal. Pode utilizar os endereços IP frontais para administrar remotamente os seus VMs sem uma caixa de salto adicional.
 * **Regras de saída**: Uma regra de **[saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configura a tradução de endereços de rede (NAT) para todas as máquinas virtuais ou instâncias identificadas pelo conjunto de backend do seu Balancer de Carga Padrão a traduzir para a extremidade frontal.
-O Equilíbrio de Carga Básico não suporta regras de saída.
-![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
 
-## <a name = "load-balancer-concepts"></a>Conceitos de Balancer de Carga
+  O Equilíbrio de Carga Básico não suporta regras de saída.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Protocolos de transporte**: Balancer de carga não suporta O ICMP; O ICMP vai passar o tempo. Para pingar o seu equilibrador de carga virado para o público, use TCP Ping
+
+## <a name="load-balancer-concepts"></a><a name = "load-balancer-concepts"></a>Conceitos de Balancer de Carga
 
 O Balanceador de Carga proporciona as seguintes capacidades básicas para as aplicações TCP e UDP:
 
@@ -96,13 +99,13 @@ A imagem seguinte apresenta a distribuição baseada em hashes:
 
     - **Controlo que frontal é usado para saída** Pode escolher e controlar se não desejar que uma determinada extremidade frontal seja utilizada para ligações de saída. Se pretender limitar as ligações de saída a penas originárias de um endereço IP frontal específico, pode desativar opcionalmente o SNAT de saída na regra que expressa o mapeamento de saída.
 
-    - **Os** cenários de saída da conectividade de controlo são explícitos e a conectividade de saída não existe até que tenha sido especificada. O Balancer de Carga Standard existe no contexto da rede virtual.  Uma rede virtual é uma rede privada isolada.  A menos que exista uma associação com um endereço IP público, a conectividade pública não é permitida.  Pode chegar aos [Pontos Finais](../virtual-network/virtual-network-service-endpoints-overview.md) do Serviço VNet porque estão dentro e local para a sua rede virtual.  Se quiser estabelecer conectividade de saída para um destino fora da sua rede virtual, tem duas opções:
+    - **Os** cenários de saída da conectividade de controlo são explícitos e a conectividade de saída não existe até que tenha sido especificada. O Balancer de Carga Standard existe no contexto da rede virtual.  Uma rede virtual é uma rede privada isolada.  A menos que exista uma associação com um endereço IP público, a conectividade pública não é permitida.  Pode chegar aos [Pontos Finais](../virtual-network/virtual-network-service-endpoints-overview.md) do Serviço de Rede Virtual porque estão dentro e local para a sua rede virtual.  Se quiser estabelecer conectividade de saída para um destino fora da sua rede virtual, tem duas opções:
         - atribuir um endereço IP público Standard SKU como um endereço IP público de nível de instância para o recurso virtual da máquina ou
         - coloque o recurso virtual da máquina na piscina de backend de um equilibrador de carga padrão público.
 
         Ambos permitirão a conectividade de saída da rede virtual para fora da rede virtual. 
 
-        Se tiver _apenas_ um Balancer de Carga Padrão interno associado ao pool de backend em que o seu recurso virtual está localizado, a sua máquina virtual só pode alcançar recursos de rede virtuais e [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)de serviço VNet .  Pode seguir os passos descritos no parágrafo anterior para criar conectividade de saída.
+        Se tiver _apenas_ um Balancer de Carga Padrão interno associado ao pool de backend em que o seu recurso virtual está localizado, a sua máquina virtual só pode alcançar recursos de rede virtuais e [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)de serviço de rede virtual.  Pode seguir os passos descritos no parágrafo anterior para criar conectividade de saída.
 
         A conectividade de saída de um recurso de máquina virtual não associado às SKUs padrão permanece como antes.
 
@@ -125,7 +128,7 @@ Revisão [detalhada da discussão sobre os Portos ha](load-balancer-ha-ports-ove
 Para comparação, o Basic Load Balancer seleciona uma única extremidade frontal aleatoriamente e não há capacidade de controlar qual foi selecionada.
 ## <a name="load-balancer-types"></a>Tipos de balanceadores de carga
 
-### <a name = "publicloadbalancer"></a>Balanceador de Carga Público
+### <a name="public-load-balancer"></a><a name = "publicloadbalancer"></a>Balanceador de Carga Público
 
 Um Balancer de Carga pública mapeia o endereço IP público e o porto de tráfego de entrada para o endereço IP privado e porto do VM. O Load Balancer mapeia o tráfego ao contrário para o tráfego de resposta do VM. Pode distribuir tipos específicos de tráfego em vários VMs ou serviços aplicando regras de equilíbrio de carga. Por exemplo, pode distribuir a carga do tráfego de pedidos da Web entre múltiplos servidores Web.
 
@@ -144,7 +147,7 @@ Os clientes da Internet enviam pedidos de página web para o endereço IP públi
 
 O Azure Load Balancer distribui o tráfego da rede de forma igual entre várias instâncias vm por padrão. Também pode configurar a afinidade de sessão. Para mais informações, consulte Configure o modo de [distribuição para O Equilíbrio de Carga Azure](load-balancer-distribution-mode.md).
 
-### <a name = "internalloadbalancer"></a> Balanceador de Carga Interno
+### <a name="internal-load-balancer"></a><a name = "internalloadbalancer"></a>Balanceador de Carga Interna
 
 Um equilibrador de carga interno direciona o tráfego apenas para recursos que estão dentro de uma rede virtual ou que usam uma VPN para aceder à infraestrutura Azure, em contraste com um equilibrador de carga pública. A infraestrutura Azure restringe o acesso aos endereços IP frontais equilibrados em carga de uma rede virtual. Os endereços IP front-end e as redes virtuais nunca são diretamente expostos a um ponto final da Internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
 
@@ -162,9 +165,9 @@ Os balanceadores de carga internos permitem os seguintes tipos de balanceador de
 
 *Figura: Equilibrar aplicações a vários níveis utilizando equilibrantes de carga públicos e internos*
 
-## <a name="skus"></a> Comparação de SKUs do Balanceador de Carga
+## <a name="load-balancer-sku-comparison"></a><a name="skus"></a> Comparação de SKUs do Balanceador de Carga
 
-O equilibrador de carga suporta as SKUs Básicas e Standard. Estas SKUs diferem na escala de cenários, funcionalidades e preços. Qualquer cenário que seja possível com o Equilíbrio de Carga Básico pode ser criado com o Balancer de Carga Padrão. As APIs para ambas as SKUs são semelhantes e são invocadas através da especificação de um SKU. A API para apoiar as SKUs para o equilibrador de carga e o IP público está disponível a partir do `2017-08-01` API. Ambas as SKUs partilham a mesma API geral e estrutura.
+O equilibrador de carga suporta as SKUs Básicas e Standard. Estas SKUs diferem na escala de cenários, funcionalidades e preços. Qualquer cenário que seja possível com o Equilíbrio de Carga Básico pode ser criado com o Balancer de Carga Padrão. As APIs para ambas as SKUs são semelhantes e são invocadas através da especificação de um SKU. A API para apoiar as SKUs para o equilibrador de `2017-08-01` carga e o IP público está disponível a partir da API. Ambas as SKUs partilham a mesma API geral e estrutura.
 
 A configuração completa do cenário pode diferir ligeiramente dependendo do SKU. A documentação do equilibrador de carga chama quando um artigo se aplica apenas a um SKU específico. Para comparar e compreender as diferenças, veja a tabela seguinte. Para mais informações, consulte a visão geral do Equilíbrio de [Carga Padrão Azure](load-balancer-standard-overview.md).
 
@@ -176,7 +179,7 @@ As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionam
 
 Para obter mais informações, consulte [os limites do equilíbrio de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Relativamente aos detalhes do Balanceador de Carga Standard, veja a [descrição geral](load-balancer-standard-overview.md), os [preços](https://aka.ms/lbpricing) e o [SLA](https://aka.ms/lbsla).
 
-## <a name = "limitations"></a>Limitações
+## <a name="limitations"></a><a name = "limitations"></a>Limitações
 
 - As SKUs não são mutáveis. Não pode alterar o SKU de um recurso existente.
 - Um recurso de máquina virtual autónomo, recurso definido de disponibilidade ou recurso conjunto de escala de máquina virtual pode fazer referência a um SKU, nunca ambos.

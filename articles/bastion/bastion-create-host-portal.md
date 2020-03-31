@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 14a596d78fb1f560c62013e7e439ed60d3a29b8f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366148"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Crie um anfitrião do Bastião Azure usando o portal
@@ -26,7 +26,7 @@ A Bastião está disponível nas seguintes regiões públicas de Azure:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="createhost"></a>Criar um anfitrião de bastião
+## <a name="create-a-bastion-host"></a><a name="createhost"></a>Criar um anfitrião do Bastion
 
 Esta secção ajuda-o a criar um novo recurso Azure Bastion a partir do portal Azure.
 

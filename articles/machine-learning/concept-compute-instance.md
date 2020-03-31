@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
 ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283930"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é um exemplo de computação de aprendizagem automática Azure?
@@ -34,18 +34,18 @@ Um exemplo de computação é uma estação de trabalho totalmente gerida em nuv
 |Principais vantagens||
 |----|----|
 |Produtividade|Os cientistas de dados podem construir e implementar modelos usando cadernos integrados e as seguintes ferramentas no seu navegador web:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio|
-|Gerido e seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computadas fornecem políticas de gestão robustas e configurações seguras de networking tais como:<br/><br/>- Fornecimento automático a partir de modelos de Gestor de Recursos ou SDK de Aprendizagem automática Azure<br/>[- controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview)<br/>- [suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política sSH para permitir/desativar o acesso ao SSH|
-|&nbsp;ou&nbsp;ML pré-configurados|Poupe tempo em tarefas de configuração com pacotes ML pré-configurados e atualizados, quadros de aprendizagem profunda, condutores de GPU.|
+|Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computadas fornecem políticas de gestão robustas e configurações seguras de networking tais como:<br/><br/>- Fornecimento automático a partir de modelos de Gestor de Recursos ou SDK de Aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política sSH para permitir/desativar o acesso ao SSH|
+|Reconfigurado&nbsp;&nbsp;ou ML|Poupe tempo em tarefas de configuração com pacotes ML pré-configurados e atualizados, quadros de aprendizagem profunda, condutores de GPU.|
 |Totalmente personalizável|Um amplo suporte para tipos de VM Azure, incluindo GPUs e uma personalização de baixo nível, como a instalação de pacotes e condutores, torna os cenários avançados uma brisa. |
 
-## <a name="contents"></a>Ferramentas e ambientes
+## <a name="tools-and-environments"></a><a name="contents"></a>Ferramentas e ambientes
 
 A instância computacional Azure Machine Learning permite-lhe autor, treinar e implementar modelos numa experiência de caderno totalmente integrada no seu espaço de trabalho.
 
 
 Estas ferramentas e ambientes são instalados na instância computacional: 
 
-|Ferramentas gerais e ambientes|Detalhes|
+|Ferramentas gerais & ambientes|Detalhes|
 |----|:----:|
 |Controladores|`CUDA`</br>`cuDNN`</br>`NVIDIA`</br>`Blob FUSE` |
 |Biblioteca Intel MPI||
@@ -57,30 +57,30 @@ Estas ferramentas e ambientes são instalados na instância computacional:
 |NCCL 2.0 ||
 |Protobuf|| 
 
-|**Ferramentas e** ambientes R|Detalhes|
+|**Ferramentas R** & ambientes|Detalhes|
 |----|:----:|
 |RStudio Server Open Source Edition||
 |Núcleo R||
 |SDK de aprendizagem automática azure para R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Exemplos de SDK|
 
-|**Ferramentas** e ambientes PYTHON|Detalhes|
+|**Ferramentas PYTHON** & ambientes|Detalhes|
 |----|----|
-|Pitão de Anaconda||
+|Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
 |Visual Studio Code ||
-[SDK de aprendizagem automática azure para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>da PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
+[SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>da PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
 |Outros pacotes PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes de condomínio|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizagem profunda|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Pacotes ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
-|Amostras de Python e R SDK de aprendizagem automática||
+|Pitão de aprendizagem de máquinas azure & amostras R SDK||
 
 Os pacotes Python estão todos instalados no ambiente **Python 3.6 - AzureML.**  
 
 Os casos de computação são normalmente usados como ambientes de desenvolvimento.  Também podem ser utilizados como um alvo computacional para a formação e inferência para o desenvolvimento e teste.  Para grandes tarefas, um cluster de [computação Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) com capacidades de escala de vários nós é uma melhor escolha de alvo computacional.
 
-### <a name="installing-packages"></a>Instalação de pacotes
+### <a name="installing-packages"></a>Instalar os pacotes
 
 Pode instalar pacotes diretamente num caderno Jupyter ou Rstudio:
 
@@ -104,7 +104,7 @@ Os ficheiros na partilha de ficheiros são acessíveis a partir de todos os caso
 
 Também pode clonar as mais recentes amostras de Machine Learning Azure para a sua pasta sob o diretório de ficheiros do utilizador na partilha de ficheiros do espaço de trabalho.
 
-Escrever pequenos ficheiros pode ser mais lento nas unidades de rede do que escrever para o próprio VM.  Se estiver a escrever muitos ficheiros pequenos, tente utilizar um diretório diretamente na instância computacional, como um diretório `/tmp`. Por favor, note que estes ficheiros não serão acessíveis a partir de outros casos de computação no espaço de trabalho.
+Escrever pequenos ficheiros pode ser mais lento nas unidades de rede do que escrever para o próprio VM.  Se estiver a escrever muitos ficheiros pequenos, tente utilizar um diretório `/tmp` diretamente na instância computacional, como um diretório. Por favor, note que estes ficheiros não serão acessíveis a partir de outros casos de computação no espaço de trabalho.
 
 ## <a name="managing-a-compute-instance"></a>Gerir um caso de cálculo
 
@@ -114,7 +114,7 @@ No seu espaço de trabalho no estúdio Azure Machine Learning, **selecione Compu
 
 Pode realizar as seguintes ações:
 
-* Criar uma instância de cálculo. Especifique o nome, tipo Azure VM, incluindo GPUs (por favor note que o tipo VM não pode ser alterado após a criação), ativar/desativar o acesso sSH e configurar opcionalmente as definições de rede virtual. Também pode criar uma instância diretamente a partir de cadernos integrados, portal Azure, modelo de Gestor de Recursos ou SDK de Aprendizagem automática Azure. Os núcleos dedicados por quota de região que se aplica à criação de instâncias computacionais são unificados e partilhados com a quota de cluster de computação Azure Machine Learning.
+* Criar uma instância de computação. Especifique o nome, tipo Azure VM, incluindo GPUs (por favor note que o tipo VM não pode ser alterado após a criação), ativar/desativar o acesso sSH e configurar opcionalmente as definições de rede virtual. Também pode criar uma instância diretamente a partir de cadernos integrados, portal Azure, modelo de Gestor de Recursos ou SDK de Aprendizagem automática Azure. Os núcleos dedicados por quota de região que se aplica à criação de instâncias computacionais são unificados e partilhados com a quota de cluster de computação Azure Machine Learning.
 * Atualizar o separador de instâncias computadas
 * Iniciar, parar e reiniciar uma instância de computação
 * Eliminar uma instância de cálculo
@@ -135,11 +135,11 @@ Também pode criar uma instância
 
 Os núcleos dedicados por quota de região, que se aplica à criação de instâncias computacionais, são unificados e partilhados com a quota de cluster de formação azure machine learning. 
 
-## <a name="compute-target"></a>Alvo computacional
+## <a name="compute-target"></a>Destino de Computação
 
 Os casos computacionais podem ser usados como um [alvo computacional](concept-compute-target.md#train) de formação semelhante aos clusters de formação de computação Azure Machine Learning. Providenciar um VM multi-GPU para executar trabalhos de formação distribuídos utilizando estimativas TensorFlow/PyTorch. Também pode criar uma configuração de execução e usá-la para executar a sua experiência em instância de cálculo. Pode utilizar a instância computacional como um alvo de implementação local de inferência para cenários de teste/depuração.
 
-## <a name="notebookvm"></a>O que aconteceu com o Notebook VM?
+## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>O que aconteceu com o Notebook VM?
 
 Os casos de computação estão a substituir o VM do Caderno.  
 
@@ -148,6 +148,6 @@ Quaisquer ficheiros portátil armazenados na partilha de ficheiros do espaço de
 Não podem ser criados novos VMs portátil. No entanto, ainda pode aceder e utilizar VMs portátil que criou, com funcionalidade completa. Os casos de computação podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
  * [Tutorial: Treinar o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.

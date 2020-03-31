@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: c08271286373ab8c3e621ee6fa59782ba2d16fb4
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444184"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Criar uma ligação de dados do Hub de Eventos para o Azure Data Explorer utilizando python
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-hub.md)
-> * [C#](data-connection-event-hub-csharp.md)
-> * [python](data-connection-event-hub-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-event-hub-resource-manager.md)
+> * [C #](data-connection-event-hub-csharp.md)
+> * [Pitão](data-connection-event-hub-python.md)
+> * [Modelo Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 Neste artigo, cria-se uma ligação de dados do Event Hub para o Azure Data Explorer utilizando o Python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão, ou carregamento de dados, a partir de Hubs de Eventos, Hubs IoT e bolhas escritas para recipientes blob.
 
@@ -99,6 +99,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | data_format | *csv* | O formato de dados da mensagem.|
 | event_hub_resource_id | *ID de recursos* | O ID de recursos do seu Hub de Eventos que detém os dados para ingestão. |
 | consumer_group | *$Default* | O grupo de consumidores do seu Hub de Eventos.|
-| localização | *Centro dos EUA* | A localização do recurso de ligação de dados.|
+| localização | *E.U.A. Central* | A localização do recurso de ligação de dados.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

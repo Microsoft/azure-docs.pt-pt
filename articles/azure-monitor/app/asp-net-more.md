@@ -1,13 +1,13 @@
 ---
-title: Obtenha mais informações sobre a aplicação do Azure Insights  Microsoft Docs
+title: Obtenha mais informações sobre a aplicação do Azure Insights [ Microsoft Docs
 description: Depois de começar com application Insights, aqui está um resumo das funcionalidades que você pode explorar.
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.openlocfilehash: 3c4a9a736f34d4f7dbfeb004d0837f1f2efa55dc
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666029"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mais telemetria de Insights de Aplicação

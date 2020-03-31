@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: a664f12843585ac7524cf8d51aef156d15d32504
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650986"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre a utilização do Serviço de Migração de Bases de Dados Azure
@@ -51,7 +51,7 @@ O Azure Database Migration Service é o método preferido para a migração de b
 **Q. Como é que o Serviço de Migração de Bases de Dados Azure se compara à oferta de migração Azure?**
 A Azure Migrate ajuda na migração de máquinas virtuais no local para o Azure IaaS. O serviço avalia a adequação da migração e o tamanho baseado no desempenho, e fornece estimativas de custos para executar as suas máquinas virtuais no local em Azure. A Azure Migrate é útil para migrações de cargas de trabalho baseadas em VM no local para VMs Azure IaaS. No entanto, ao contrário do Serviço de Migração de Bases de Dados Azure, o Azure Migrate não é um serviço de migração especializado para a base de dados relacional Azure PaaS, como a Base de Dados Azure SQL ou a Azure SQL Database Managed Instance.
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 **Q. Quais são os pré-requisitos para a utilização do Serviço de Migração de Bases de Dados Azure?**
 Existem vários pré-requisitos necessários para garantir que o Serviço de Migração de Bases de Dados Azure funciona sem problemas ao realizar migrações de bases de dados. Alguns dos pré-requisitos aplicam-se em todos os cenários (pares de alvo de origem) suportados pelo serviço, enquanto outros pré-requisitos são exclusivos de um cenário específico.
@@ -97,7 +97,7 @@ Durante uma migração típica e simples da base de dados, você:
 2. Avalie a sua base de dados de origem.
     * Para migrações homogéneas, avalie a (s) base de dados existente utilizando [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
     * Para migrações heterogéneas (de fontes de concorrência), avalie a sua base de dados existente com [O SSMA](https://aka.ms/get-ssma). Também usa o SSMA para converter objetos de base de dados e migrar o esquema para a sua plataforma alvo.
-3. Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+3. Crie uma instância do Azure Database Migration Service.
 4. Crie um projeto de migração que especifique a base de dados de origem, a base de dados alvo e as tabelas para migrar.
 5. Inicie a carga completa.
 6. Escolha a validação subsequente.

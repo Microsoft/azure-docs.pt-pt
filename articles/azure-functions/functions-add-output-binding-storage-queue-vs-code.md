@@ -5,10 +5,10 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 22f7df52e90a35a3ed9a26a7672f8354efc173e3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241333"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conecte funções azure ao armazenamento azure usando código de estúdio visual
@@ -17,7 +17,7 @@ ms.locfileid: "79241333"
 
 Este artigo mostra-lhe como usar o Código do Estúdio Visual para ligar a função que criou no [artigo quickstart anterior](functions-create-first-function-vs-code.md) ao Azure Storage. O encadernação de saída que adiciona a esta função escreve dados do pedido HTTP para uma mensagem numa fila de armazenamento de fila Azure. 
 
-A maioria das ligações requer uma cadeia de ligação armazenada que as Funções usam para aceder ao serviço de encadernação. Para facilitar, utiliza a conta de Armazenamento que criou com a sua aplicação de funções. A ligação a esta conta já está armazenada numa definição de aplicação chamada `AzureWebJobsStorage`.  
+A maioria das ligações requer uma cadeia de ligação armazenada que as Funções usam para aceder ao serviço de encadernação. Para facilitar, utiliza a conta de Armazenamento que criou com a sua aplicação de funções. A ligação a esta conta já está `AzureWebJobsStorage`armazenada numa definição de aplicação chamada .  
 
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local
 
@@ -33,20 +33,20 @@ Antes de iniciar este artigo, deve cumprir os seguintes requisitos:
 
 * Complete os passos na [parte 1 do Código do Estúdio Visual.](functions-create-first-function-vs-code.md) 
 
-Este artigo assume que já assinou a subscrição do Azure a partir do Visual Studio Code. Pode iniciar sessão executando `Azure: Sign In` a partir da paleta de comando. 
+Este artigo assume que já assinou a subscrição do Azure a partir do Visual Studio Code. Pode iniciar sessão `Azure: Sign In` correndo da paleta de comando. 
 
 ## <a name="download-the-function-app-settings"></a>Descarregue as definições da aplicação de funções
 
 No artigo anterior do [Quickstart,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. A cadeia de ligação para esta conta é armazenada de forma segura nas definições da aplicação em Azure. Neste artigo, escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de descarregar as definições da aplicação para o ficheiro local.settings.json. 
 
-1. Pressione a tecla F1 para abrir a paleta de comando, depois procure e execute o comando `Azure Functions: Download Remote Settings....`. 
+1. Pressione a tecla F1 para abrir a paleta `Azure Functions: Download Remote Settings....`de comando, depois procure e execute o comando . 
 
 1. Escolha a aplicação de funções que criou no artigo anterior. Selecione **Sim a todos** para substituir as definições locais existentes. 
 
     > [!IMPORTANT]  
     > Como contém segredos, o ficheiro local.settings.json nunca é publicado, e está excluído do controlo de fontes.
 
-1. Copiar o valor `AzureWebJobsStorage`, que é a chave para o valor de cadeia de ligação da conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.
+1. Copiar o `AzureWebJobsStorage`valor , que é a chave para o valor de cadeia de ligação da conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.
 
 ## <a name="register-binding-extensions"></a>Registar as extensões de enlace
 
@@ -72,7 +72,7 @@ Agora, pode adicionar a ligação de saída de armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-Em Funções, cada tipo de encadernação requer uma `direction`, `type`, e um `name` único a ser definido no ficheiro função.json. A forma como define estes atributos depende do idioma da sua aplicação de funções.
+Em Funções, cada tipo de `direction` `type`encadernação `name` requer a, e um único a ser definido no ficheiro função.json. A forma como define estes atributos depende do idioma da sua aplicação de funções.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
@@ -88,7 +88,7 @@ Em Funções, cada tipo de encadernação requer uma `direction`, `type`, e um `
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Após a definição da ligação, pode utilizar o `name` da ligação para aceder à sua assinatura de função. Ao utilizar uma ligação de saída, não é necessário utilizar o código SDK de Armazenamento Azure para autenticação, obtendo uma referência de fila ou escrevendo dados. O tempo de funcionamento das Funções e a ligação de saída da fila fazem essas tarefas para si.
+Após a definição da ligação, pode utilizar o `name` encadernação para aceder ao mesmo como atributo na assinatura da função. Ao utilizar uma ligação de saída, não é necessário utilizar o código SDK de Armazenamento Azure para autenticação, obtendo uma referência de fila ou escrevendo dados. O tempo de funcionamento das Funções e a ligação de saída da fila fazem essas tarefas para si.
 
 ::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
@@ -136,7 +136,7 @@ Ignore esta secção se já instalou o Azure Storage Explorer e ligou-o à sua c
 
     ![Adicione uma conta Azure ao Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
-1. No diálogo **Connect,** escolha **Adicionar uma conta Azure,** escolha o seu **ambiente Azure,** e selecione **Iniciar sessão...** . 
+1. No diálogo **Connect,** escolha **Adicionar uma conta Azure,** escolha o seu **ambiente Azure,** e selecione **Iniciar sessão...**. 
 
     ![Inicie sessão na sua conta do Azure](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png)
 
@@ -144,7 +144,7 @@ Depois de iniciar sessão com sucesso na sua conta, vê todas as subscrições d
 
 ### <a name="examine-the-output-queue"></a>Examinar a fila de saída
 
-1. No Visual Studio Code, prima a tecla F1 para abrir a paleta de comando, depois procure e execute o comando `Azure Storage: Open in Storage Explorer` e escolha o nome da sua conta de Armazenamento. A sua conta de armazenamento abre no Azure Storage Explorer.  
+1. No Código do Estúdio Visual, prima a tecla F1 para abrir `Azure Storage: Open in Storage Explorer` a paleta de comando, depois procure e execute o comando e escolha o nome da sua conta de Armazenamento. A sua conta de armazenamento abre no Azure Storage Explorer.  
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
@@ -158,11 +158,11 @@ Agora, é hora de reeditar a aplicação de funções atualizada para o Azure.
 
 ## <a name="redeploy-and-verify-the-updated-app"></a>Recolocar e verificar a aplicação atualizada
 
-1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Deploy to function app...`.
+1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, `Azure Functions: Deploy to function app...`procure e selecione .
 
 1. Escolha a aplicação de funções que criou no primeiro artigo. Como está a recolocar o seu projeto na mesma aplicação, selecione **Deploy** para descartar o aviso sobre ficheiros de sobreposição.
 
-1. Após a implementação concluída, pode voltar a utilizar cURL ou um browser para testar a função reimplantada. Como antes, anexar a cadeia de consulta `&name=<yourname>` ao URL, como no seguinte exemplo:
+1. Após a implementação concluída, pode voltar a utilizar cURL ou um browser para testar a função reimplantada. Como antes, anexar a `&name=<yourname>` corda de consulta ao URL, como no seguinte exemplo:
 
     ```bash
     curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
@@ -184,8 +184,8 @@ Atualizou a sua função de http para escrever dados para uma fila de Armazename
 
 + [Desenvolver funções azure usando código de estúdio visual](functions-develop-vs-code.md)
 ::: zone pivot="programming-language-csharp"  
-+ [Exemplos de projetos C#de função completa em ](/samples/browse/?products=azure-functions&languages=csharp).
-+ [Referência do C# desenvolvedor de Funções Azure](functions-dotnet-class-library.md)  
++ [Exemplos de projetos de função completa em C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Referência do desenvolvedor funções Azure C#](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Exemplos de projetos de função completa sintetmente em JavaScript](/samples/browse/?products=azure-functions&languages=javascript).

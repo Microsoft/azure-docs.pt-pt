@@ -1,5 +1,5 @@
 ---
-title: Modelo de Série temporal - Azure Time Series Insights  Microsoft Docs
+title: Modelo de Série temporal - Azure Time Series Insights [ Microsoft Docs
 description: Saiba mais sobre o Modelo da Série de Tempo na Pré-visualização de Insights da Série De Tempo Azure.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476659"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modelo de série de tempo na pré-visualização de insights da série de tempo azure
 
@@ -49,11 +49,11 @@ Estas limitações revelaram a importância de ferramentas inteligentes de agreg
 
 O Modelo série de **tempo fornece uma solução conveniente** para muitos dos cenários encontrados neste exemplo fictício:
 
-[![Time Series Model exemplo de gráficos de forno inteligente](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
+[![Exemplo de gráfico inteligente do forno da Série Tempo](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
 * O Modelo série de tempo desempenha um papel vital nas consultas e na navegação porque contextualiza os dados, permitindo que as comparações sejam desenhadas entre intervalos de tempo e entre os tipos de sensores e dispositivos. (**A**) 
 * Os dados são ainda contextualizados porque os dados persistidos no Modelo da Série Temporal preservam as computações da série temporal como variáveis e reutilizam-nas no momento da consulta.
-* O Modelo série de tempo organiza e agrega dados para uma melhor visualização e capacidades de gestão. B 
+* O Modelo série de tempo organiza e agrega dados para uma melhor visualização e capacidades de gestão. B**B** 
 
 ### <a name="key-capabilities"></a>Principais capacidades
 
@@ -73,7 +73,7 @@ O Modelo série tem três componentes principais:
 
 Estes componentes são combinados para especificar um modelo de série de tempo e para organizar os seus dados de Insights da Série De Tempo Azure.
 
-[gráfico de visão geral do modelo da série de tempo ![](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
+[![Gráfico de visão geral do modelo da série de tempo](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
 Um modelo de série de tempo pode ser criado e gerido através da interface de [pré-visualização](time-series-insights-update-how-to-tsm.md) de Insights da Série De Tempo. As definições do Modelo série de tempo podem ser geridas através da API de [Definições](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)do Modelo .
 
@@ -91,7 +91,7 @@ Depois de uma fonte de evento ser configurada para o ambiente Time Series Insigh
 
 A demonstração do [Parque Eólico De Contoso](https://insights.timeseries.azure.com/preview/samples) fornece vários exemplos de exemploao vivo.
 
-[exemplo de exemplo de modelo de série de tempo ![](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
+[![Exemplo de exemplo de modelo de série de tempo](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
 ### <a name="instance-properties"></a>Propriedades de instância
 
@@ -139,7 +139,7 @@ Pode configurar várias hierarquias num dado ambiente time series Insights. Um e
 
 A interface de cliente de demonstração de Parque [Eólico Contoso](https://insights.timeseries.azure.com/preview/samples) apresenta uma instância padrão e hierarquia de tipo.
 
-[exemplo de hierarquia do modelo da série de tempo ![](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
+[![Exemplo de hierarquia do Modelo de Série tempo](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
 ### <a name="hierarchy-definition"></a>Definição de hierarquia
 
@@ -182,15 +182,15 @@ As hierarquias estão representadas na JSON como:
 
 No exemplo json anterior:
 
-* `Location` define uma hierarquia com `states` dos pais e `cities`infantil. Cada `location` pode ter vários `states`, que por sua vez podem ter vários `cities`.
-* `ManufactureDate` define uma hierarquia com `year` dos pais e `month`infantil. Cada `ManufactureDate` pode ter vários `years`, que por sua vez podem ter vários `months`.
+* `Location`define uma hierarquia com `states` pais `cities`e filhos. Cada `location` um `states`pode ter múltiplos, `cities`que por sua vez podem ter múltiplos .
+* `ManufactureDate`define uma hierarquia com `year` pais `month`e filhos. Cada `ManufactureDate` um `years`pode ter múltiplos, `months`que por sua vez podem ter múltiplos .
 
 > [!TIP]
 > Para insights de série de tempo Suporte API e CRUD, leia o artigo de [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a documentação de repouso da Hierarquia [API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemplo de hierarquia
 
-Considere um exemplo em que a hierarquia **H1** `building`, `floor`, e `room` como parte da sua definição **de FieldNames:**
+Considere um exemplo em que `building` `floor`a `room` hierarquia **H1** tem, e como parte da sua definição **de FieldNames:**
 
 ```JSON
 {
@@ -228,7 +228,7 @@ Um tipo pode ter uma ou mais variáveis. Por exemplo, um modelo de série tempor
 
 A demonstração do [Parque Eólico De Contoso](https://insights.timeseries.azure.com/preview/samples) visualiza vários tipos de Modelos da Série Tempo associados às respetivas instâncias.
 
-[![exemplo do modelo da Série De Tempo](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
+[![Exemplo do tipo modelo da série de tempo](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
 > Para insights de série de tempo Suporte API e CRUD, leia o artigo de [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
@@ -296,7 +296,7 @@ Cada variável pode ser um de três *tipos:* *numérico,* *categórico,* e *agre
 
 A tabela a seguir mostra quais as propriedades relevantes para cada tipo variável.
 
-[tabela variável modelo de série de tempo ![](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
+[![Tabela variável modelo da série de tempo](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
 #### <a name="numeric-variables"></a>Variáveis numéricas
 
@@ -344,7 +344,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "toLong($event.[Status].Double)"
 },
   "interpolation": {
     "kind": "step",
@@ -354,7 +354,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
   },
   "categories": [
     {
-      "values": [0, 1, 2, 3],
+      "values": [0, 1, 2],
       "label": "Good"
     },
     {

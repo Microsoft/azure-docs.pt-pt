@@ -9,48 +9,48 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74085266"
 ---
-Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA. Para SKUs de gateway de rede virtual no Zonas de Disponibilidade do Azure, consulte [SKUs de gateway de zonas de disponibilidade do Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA. Para gateway de rede virtual SKUs em Zonas de Disponibilidade Azure, consulte As Zonas de [Disponibilidade Azure Gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
-###  <a name="benchmark"></a>SKUs de Gateway por túnel, ligação e débito
+###  <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>SKUs de Gateway por túnel, ligação e débito
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 > [!NOTE]
-> VpnGw SKUs (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5 e VpnGw5AZ) têm suporte apenas para o modelo de implantação do Resource Manager. As redes virtuais clássicas devem continuar a usar os SKUs antigos (herdados).
->  * Para obter informações sobre como trabalhar com as SKUs de gateway herdadas (Basic, Standard e HighPerformance), consulte [trabalhando com SKUs de gateway de VPN (SKUs herdadas)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
->  * Para SKUs de gateway do ExpressRoute, consulte [gateways de rede virtual para ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+> VpnGw SKUs (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5 e VpnGw5AZ) são suportados apenas para o modelo de implantação do Gestor de Recursos. As redes virtuais clássicas devem continuar a utilizar as antigas (legados) SKUs.
+>  * Para obter informações sobre o trabalho com o legado gateway SKUs (Basic, Standard e HighPerformance), consulte [Trabalhar com vpn gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+>  * Para o gateway ExpressRoute SKUs, consulte [Gateways de rede virtual para ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 >
 
-###  <a name="feature"></a>SKUs de gateway por conjunto de recursos
+###  <a name="gateway-skus-by-feature-set"></a><a name="feature"></a>Gateway SKUs por conjunto de funcionalidades
 
-As novas SKUs de gateway de VPN simplificam os conjuntos de recursos oferecidos nos gateways:
+O novo gateway VPN SKUs agiliza os conjuntos de funcionalidades oferecidos nos gateways:
 
 | **SKU**| **Funcionalidades**|
 | ---    | ---         |
-|**Básico** (* *)   | **VPN baseada em rota**: 10 túneis para S2S/conexões; nenhuma autenticação RADIUS para P2S; Não IKEv2 para P2S<br>**VPN baseada em políticas**: (IKEv1): 1 túnel S2S/conexão; sem P2S|
-| **Todas as SKUs Generation1 e Generation2, exceto as básicas** | **VPN baseada em rota**: até 30 túneis (*), P2S, BGP, ativo-ativo, política de IPSec/IKE personalizada, coexistência de EXPRESSROUTE/VPN |
+|**Básico** (**)   | **VPN baseada na rota:** 10 túneis para S2S/ligações; Sem autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada na política**: (IKEv1): 1 S2S/túnel de ligação; sem P2S|
+| **Todas as Gerações1 e Geração2 SKUs, exceto Básico** | **VPN baseada em rota**: até 30 túneis (*), P2S, BGP, política ativa, personalizada IPsec/IKE, Coexistência ExpressRoute/VPN |
 |        |             |
 
-(*) Você pode configurar "PolicyBasedTrafficSelectors" para conectar um gateway de VPN baseado em rota a vários dispositivos de firewall baseados em políticas locais. Consulte [Gateways de ligação VPN para vários dispositivos VPN com base na política local com o PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter detalhes.
+(*) Pode configurar "PolicyBasedTrafficSelectors" para ligar uma porta VPN baseada em rotas a vários dispositivos de firewall baseados em políticas no local. Consulte [Gateways de ligação VPN para vários dispositivos VPN com base na política local com o PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter detalhes.
 
-(\*\*) O SKU básico é considerado um SKU herdado. A SKU básica tem certas limitações de recursos. Você não pode redimensionar um gateway que usa uma SKU básica para uma das novas SKUs de gateway. em vez disso, você deve alterar para uma nova SKU, o que envolve excluir e recriar o gateway de VPN.
+()\*\*O SKU básico é considerado um legado SKU. O SKU Básico tem certas limitações de funcionalidades. Não é possível redimensionar um portal que utilize um SKU Básico para uma das novas SKUs de gateway, deve mudar para um novo SKU, que envolve apagar e recriar o seu gateway VPN.
 
-###  <a name="workloads"></a>SKUs de gateway-produção versus desenvolvimento-cargas de trabalho de teste
+###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Gateway SKUs - Produção vs. Dev-Test Workloads
 
-Devido às diferenças em SLAs e conjuntos de recursos, recomendamos as seguintes SKUs para produção versus desenvolvimento/teste:
+Devido a diferenças nos SLA e nos conjuntos de funcionalidades, é recomendável seguir os SKU para produção versus dev-test:
 
 | **Carga de trabalho**                       | **SKU**               |
 | ---                                | ---                    |
-| **Produção, cargas de trabalho críticas** | Todas as SKUs Generation1 e Generation2, exceto as básicas |
-| **Dev-test ou prova de conceito**   | Básico (* *)                 |
+| **Produção, cargas de trabalho críticas** | Todas as Gerações1 e Geração2 SKUs, exceto Básico |
+| **Dev-test ou prova de conceito**   | Básico (**)                 |
 |                                    |                        |
 
-(\*\*) O SKU básico é considerado um SKU herdado e tem limitações de recursos. Verifique se o recurso de que você precisa tem suporte antes de usar o SKU básico.
+()\*\*O SKU básico é considerado um Legado SKU e tem limitações de características. Verifique se a funcionalidade de que necessita é suportada antes de utilizar o SKU Básico.
 
-Se você estiver usando as SKUs antigas (herdadas), as recomendações de SKU de produção serão Standard e HighPerformance. Para obter informações e instruções para SKUs antigas, consulte [SKUs de gateway (Herdado)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Se estiver a utilizar as antigas SKUs (legado), as recomendações de produção da SKU são Standard e HighPerformance. Para obter informações e instruções para as antigas [SKUs, consulte Gateway SKUs (legado)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

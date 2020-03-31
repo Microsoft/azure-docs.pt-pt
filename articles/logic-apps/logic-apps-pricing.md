@@ -1,5 +1,5 @@
 ---
-title: Modelo de preços e faturação
+title: Modelo de faturação de & de preços
 description: Visão geral sobre como o modelo de preços e faturação funciona para apps lógicas azure
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270462"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para aplicações lógicas azure

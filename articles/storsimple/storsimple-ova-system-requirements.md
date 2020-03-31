@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298811"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
 
@@ -38,7 +38,7 @@ Os requisitos do software incluem a informação sobre os navegadores web suport
 ### <a name="supported-virtualization-platforms"></a>Plataformas de virtualização suportadas
 | **Hipervisor** | **Versão** |
 | --- | --- |
-| Anfitrião |Windows Server 2008 R2 SP1 e mais tarde |
+| Hyper-V |Windows Server 2008 R2 SP1 e mais tarde |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
 
 > [!IMPORTANT]
@@ -91,18 +91,18 @@ A tabela seguinte lista as portas que precisam de ser abertas na sua firewall pa
 
 | **Porta nº<sup>1</sup>** | **Dentro ou fora** | **Âmbito do porto** | **Necessário** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Fora |WAN |Não |A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br></br>O proxy web de saída é configurável pelo utilizador. |
-| TCP 443 (HTTPS) |Fora |WAN |Sim |A porta de saída é utilizada para aceder a dados na nuvem. <br></br>O proxy web de saída é configurável pelo utilizador. |
-| UDP 53 (DNS) |Fora |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Note que se implementar um servidor de ficheiros, recomendamos a utilização do servidor DNS local. |
-| UDP 123 (NTP) |Fora |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Note que, se implementar um servidor de ficheiros, recomendamos sincronizar o tempo com os seus controladores de domínio Ative Directory. |
-| TCP 80 (HTTP) |Em |LAN |Sim |Esta é a porta de entrada para UI local no dispositivo StorSimple para gestão local. <br></br> Note que o acesso ao UI local em HTTP redireciona automaticamente para HTTPS. |
-| TCP 443 (HTTPS) |Em |LAN |Sim |Esta é a porta de entrada para UI local no dispositivo StorSimple para gestão local. |
-| TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
+| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br></br>O proxy web de saída é configurável pelo utilizador. |
+| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é utilizada para aceder a dados na nuvem. <br></br>O proxy web de saída é configurável pelo utilizador. |
+| UDP 53 (DNS) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Note que se implementar um servidor de ficheiros, recomendamos a utilização do servidor DNS local. |
+| UDP 123 (NTP) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Note que, se implementar um servidor de ficheiros, recomendamos sincronizar o tempo com os seus controladores de domínio Ative Directory. |
+| TCP 80 (HTTP) |Entrada |LAN |Sim |Esta é a porta de entrada para UI local no dispositivo StorSimple para gestão local. <br></br> Note que o acesso ao UI local em HTTP redireciona automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |Entrada |LAN |Sim |Esta é a porta de entrada para UI local no dispositivo StorSimple para gestão local. |
+| TCP 3260 (iSCSI) |Entrada |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
 
 <sup>1</sup> Não é necessário abrir portas de entrada na Internet pública.
 
 > [!IMPORTANT]
-> Certifique-se de que a firewall não modifica nem desencripta qualquer tráfego SSL entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que a firewall não modifica nem desencripta qualquer tráfego TLS entre o dispositivo StorSimple e o Azure.
 > 
 > 
 
@@ -129,5 +129,5 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 | `https://*.partners.extranet.microsoft.com/*` |Pacote de apoio |
 | `https://*.data.microsoft.com` |Serviço de telemetria no Windows, veja a [atualização para experiência do cliente e telemetria](https://support.microsoft.com/en-us/kb/3068708) de diagnóstico |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Prepare o portal para implementar o seu StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

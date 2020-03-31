@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
 ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240101"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
@@ -75,15 +75,15 @@ O RBAC do Azure é um sistema de autorização criado com base no [Azure Resourc
 | Função RBAC do Azure | Permissões | Notas |
 | --- | --- | --- |
 | [Proprietário](built-in-roles.md#owner) | <ul><li>Acesso total a todos os recursos</li><li>Delegar o acesso a outras pessoas</li></ul> | É atribuída a função Proprietário ao Administrador de Serviços e aos Coadministradores no âmbito da subscrição<br>Aplica-se a todos os tipos de recursos. |
-| [Contribuidor](built-in-roles.md#contributor) | <ul><li>Criar e gerir todos os tipos de recursos do Azure</li><li>Criar um novo inquilino no Diretório Ativo azure</li><li>Não é possível conceder acesso a outras pessoas</li></ul> | Aplica-se a todos os tipos de recursos. |
+| [Contribuinte](built-in-roles.md#contributor) | <ul><li>Criar e gerir todos os tipos de recursos do Azure</li><li>Criar um novo inquilino no Diretório Ativo azure</li><li>Não é possível conceder acesso a outras pessoas</li></ul> | Aplica-se a todos os tipos de recursos. |
 | [Leitor](built-in-roles.md#reader) | <ul><li>Ver os recursos do Azure</li></ul> | Aplica-se a todos os tipos de recursos. |
-| [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator) | <ul><li>Gerir o acesso de utilizador aos recursos do Azure</li></ul> |  |
+| [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator) | <ul><li>Gerir o acesso de utilizador aos recursos do Azure</li></ul> |  |
 
 As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite ao utilizador criar e gerir máquinas virtuais. Para obter uma lista de todas as funções incorporadas, consulte [papéis incorporados para os recursos Azure.](built-in-roles.md)
 
 Apenas o portal do Azure e as APIs do Azure Resource Manager suportam o RBAC. Os utilizadores, grupos e aplicações com funções RBAC atribuídas não podem utilizar as [APIs do modelo de implementação clássica do Azure](../azure-resource-manager/management/deployment-models.md).
 
-No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)** . Esta lâmina pode ser encontrada em todo o portal, tais como grupos de gestão, subscrições, grupos de recursos e vários recursos.
+No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)**. Esta lâmina pode ser encontrada em todo o portal, tais como grupos de gestão, subscrições, grupos de recursos e vários recursos.
 
 ![Painel de controlo de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -128,6 +128,6 @@ Várias funções de administrador do Azure AD expandem-se ao Azure AD e ao Micr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o controlo de acesso baseado em papéis (RBAC) para os recursos Do Azure?](overview.md)
+- [O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure?](overview.md)
 - [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
 - [Administradores de subscrição clássicos do Azure](classic-administrators.md)

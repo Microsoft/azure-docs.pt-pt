@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213589"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>O Azure Data Lake Analytics está a atualizar para o .NET Framework v4.7.2
@@ -65,27 +65,27 @@ As incompatibilidades mais comuns que o verificador é suscetível de identifica
   - Ação sugerida: Garantir taskFactory.FromAsync devolve corretamente
 
 - DataObject.GetData agora recupera dados como UTF-8
-  - Para aplicações que visam a .NET Framework 4 ou que funcionam nas versões .NET Framework 4.5.1 ou anteriores, DataObject.GetData recupera dados formados em HTML como uma cadeia ASCII. Como resultado, os caracteres não-ASCII (caracteres cujos códigos ASCII são superiores a 0x7F) são representados por dois caracteres aleatórios.#N##N#Para aplicações que visam a .NET Framework 4.5 ou posteriormente e funcionam no .NET Framework 4.5.2, `DataObject.GetData` recupera dados formados em HTML como UTF-8, que representa caracteres superiores a 0x7F corretamente.
+  - Para aplicações que visam a .NET Framework 4 ou que funcionam nas versões .NET Framework 4.5.1 ou anteriores, DataObject.GetData recupera dados formados em HTML como uma cadeia ASCII. Como resultado, os caracteres não-ASCII (caracteres cujos códigos ASCII são superiores a 0x7F) são representados por dois caracteres aleatórios.#N##N#Para aplicações que `DataObject.GetData` visam a .NET Framework 4.5 ou posteriormente e funcionam no .NET Framework 4.5.2, recupera dados formados em HTML como UTF-8, que representa caracteres superiores a 0x7F corretamente.
   - Bibliotecas impactadas: Glo
   - Ação Sugerida: Certifique-se de que os dados recuperados são o formato que deseja
 
 - XmlWriter lança pares de substitutos inválidos
-  - Para aplicações que visam o .NET Framework 4.5.2 ou versões anteriores, escrever um par de substitutos inválido usando o manuseamento de recuo sem exceção nem sempre abre uma exceção. Para aplicações que visam o .NET Framework 4.6, tentar escrever um par de substitutos inválido lança um `ArgumentException`.
+  - Para aplicações que visam o .NET Framework 4.5.2 ou versões anteriores, escrever um par de substitutos inválido usando o manuseamento de recuo sem exceção nem sempre abre uma exceção. Para aplicações que visam o .NET Framework 4.6, tentar escrever `ArgumentException`um par de substitutos inválido lança um .
   - Bibliotecas impactadas: System.Xml, System.Xml.ReaderWriter
   - Ação Sugerida: Certifique-se de que não está a escrever um par de substitutos inválido que irá causar exceção ao argumento
 
-- HtmlTextWriter não torna `<br/>` elemento corretamente
-  - A partir do Quadro .NET 4.6, a chamada `HtmlTextWriter.RenderBeginTag()` e `HtmlTextWriter.RenderEndTag()` com um elemento `<BR />` inserirá corretamente apenas um `<BR />` (em vez de dois)
+- HtmlTextWriter não `<br/>` presta corretamente o elemento
+  - A partir do .NET Quadro `HtmlTextWriter.RenderBeginTag()` 4.6, a chamada e `HtmlTextWriter.RenderEndTag()` com um `<BR />` elemento inserirão corretamente apenas um `<BR />` (em vez de dois)
   - Bibliotecas impactadas: System.Web
-  - Ação Sugerida: Certifique-se de que está a inserir a quantidade de `<BR />` que espera ver para que nenhum comportamento aleatório seja visto no trabalho de produção
+  - Ação Sugerida: Certifique-se de `<BR />` que está a inserir a quantidade de que espera ver para que nenhum comportamento aleatório seja visto no trabalho de produção
 
 - Chamar createDefaultAuthorizationContext com um argumento nulo mudou
-  - A implementação do Contexto de Autorizações devolvida por um apelo à `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` com um argumento de autorização nula Alterou a sua implementação no .NET Framework 4.6.
+  - A implementação do Contexto de Autorizações devolvida por um apelo ao `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` com uma autorização nula O argumento das políticas alterou a sua implementação no .NET Framework 4.6.
   - Bibliotecas impactadas: System.IdentityModel
   - Ação Sugerida: Certifique-se de que está a lidar com o novo comportamento esperado quando houver uma política de autorização nula
   
 - RSACng agora carrega corretamente chaves RSA de tamanho de chave não padrão
-  - Nas versões .NET Framework antes de 4.6.2, os clientes com tamanhos-chave não standard para certificados RSA não conseguem aceder a essas teclas através dos métodos de extensão `GetRSAPublicKey()` e `GetRSAPrivateKey()`. É lançada uma `CryptographicException` com a mensagem "O tamanho da chave solicitado não é suportado". Com o Quadro .NET 4.6.2 esta questão foi corrigida. Da mesma forma, `RSA.ImportParameters()` e `RSACng.ImportParameters()` agora trabalham com tamanhos-chave não padrão sem jogar `CryptographicException`'s.
+  - Nas versões .NET Framework antes de 4.6.2, os clientes com tamanhos-chave não standard `GetRSAPublicKey()` para `GetRSAPrivateKey()` certificados RSA não conseguem aceder a essas teclas através dos métodos de extensão e extensão. A `CryptographicException` com a mensagem "O tamanho da chave solicitado não é suportado" é lançado. Com o Quadro .NET 4.6.2 esta questão foi corrigida. Da mesma `RSA.ImportParameters()` `RSACng.ImportParameters()` forma, e agora trabalhar com `CryptographicException`tamanhos-chave não-padrão sem atirar's.
   - Bibliotecas impactadas: mscorlib, System.Core
   - Ação Sugerida: Certifique-se de que as chaves RSA estão a funcionar como esperado
 
@@ -95,7 +95,7 @@ As incompatibilidades mais comuns que o verificador é suscetível de identifica
   - Ação Sugerida:
 
 - Chamadas para construtores de identidade de reclamações
-  - A partir do .NET Framework 4.6.2, há uma alteração na forma como os construtores `T:System.Security.Claims.ClaimsIdentity` com um parâmetro `T:System.Security.Principal.IIdentity` definir a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor`. Se o argumento `T:System.Security.Principal.IIdentity` é um objeto `T:System.Security.Claims.ClaimsIdentity`, e a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` desse objeto `T:System.Security.Claims.ClaimsIdentity` não for `null`, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` é anexada utilizando o método `M:System.Security.Claims.ClaimsIdentity.Clone`. Nas versões estruturais 4.6.1 e anteriores, o `P:System.Security.Claims.ClaimsIdentify.Actor` propriedade é anexado como referência existente. Devido a esta alteração, a começar pelo .NET Framework 4.6.2, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` do novo objeto `T:System.Security.Claims.ClaimsIdentity` não é igual à propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` do argumento `T:System.Security.Principal.IIdentity` do construtor. No Quadro .NET 4.6.1 e versões anteriores, é igual.
+  - Começando com o .NET Framework 4.6.2, `T:System.Security.Claims.ClaimsIdentity` há uma mudança `T:System.Security.Principal.IIdentity` na forma `P:System.Security.Claims.ClaimsIdentify.Actor` como os construtores com um parâmetro definiram a propriedade. Se `T:System.Security.Principal.IIdentity` o argumento `T:System.Security.Claims.ClaimsIdentity` for um `P:System.Security.Claims.ClaimsIdentify.Actor` objeto, `T:System.Security.Claims.ClaimsIdentity` e `null`a `P:System.Security.Claims.ClaimsIdentify.Actor` propriedade desse objeto `M:System.Security.Claims.ClaimsIdentity.Clone` não for, a propriedade é anexada utilizando o método. No quadro 4.6.1 e versões `P:System.Security.Claims.ClaimsIdentify.Actor` anteriores, o imóvel é anexado como referência existente. Devido a esta alteração, a começar pelo .NET Framework `P:System.Security.Claims.ClaimsIdentify.Actor` 4.6.2, a propriedade do novo `T:System.Security.Claims.ClaimsIdentity` objeto não é igual à `P:System.Security.Claims.ClaimsIdentify.Actor` propriedade do argumento do `T:System.Security.Principal.IIdentity` construtor. No Quadro .NET 4.6.1 e versões anteriores, é igual.
   - Bibliotecas impactadas: mscorlib
   - Ação Sugerida: Garantir que a ClaimsIdentity está a funcionar como esperado em novo prazo
 

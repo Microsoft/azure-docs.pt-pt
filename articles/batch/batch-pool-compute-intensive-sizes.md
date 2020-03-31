@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d0238e0b5b882748218835d7f06a147d435a9f90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245060"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize instâncias DE RDMA ou GPU em piscinas de lotes
 
@@ -48,7 +48,7 @@ As capacidades de RDMA ou GPU de tamanhos intensivos de computação em Lot são
 | [NC, NCv2, NCv3, série NDv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia por série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(Mercado Azure) | Condutores nvidia CUDA ou CUDA Toolkit | N/D | 
 | [Série NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, ou<br/>Centos 7.3<br/>(Mercado Azure) | Condutores da NVIDIA GRID | N/D |
 
-<sup>*</sup> Os tamanhos da série N com capacidade rdma também incluem GPUs NVIDIA Tesla
+<sup>*</sup>Os tamanhos da série N com capacidade rdma também incluem GPUs NVIDIA Tesla
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Piscinas windows - Configuração de máquina virtual
 
@@ -58,7 +58,7 @@ As capacidades de RDMA ou GPU de tamanhos intensivos de computação em Lot são
 | [Série NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia por série) | Windows Server 2016 ou <br/>2012 R2 (Mercado Azure) | Condutores nvidia CUDA ou CUDA Toolkit| N/D | 
 | [Série NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 ou<br/>2012 R2 (Mercado Azure) | Condutores da NVIDIA GRID | N/D |
 
-<sup>*</sup> Os tamanhos da série N com capacidade rdma também incluem GPUs NVIDIA Tesla
+<sup>*</sup>Os tamanhos da série N com capacidade rdma também incluem GPUs NVIDIA Tesla
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows pools - Configuração de serviços em nuvem
 
@@ -76,7 +76,7 @@ Para configurar um tamanho de VM especializado para a sua piscina de Lote, tem v
 
 * Para piscinas na configuração da máquina virtual, escolha uma imagem VM [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) preconfigurada que tenha controladores e software pré-instalados. Exemplos: 
 
-  * [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) - inclui condutores RDMA e Intel MPI 5.1
+  * [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) - inclui condutores RDMA e Intel MPI 5.1
 
   * [Máquina Virtual](../machine-learning/data-science-virtual-machine/overview.md) de Ciência de Dados para Linux ou Windows - inclui controladores NVIDIA CUDA
 
@@ -109,9 +109,9 @@ Para executar aplicações CUDA em uma piscina de nós do Windows NC, você prec
 | Definição | Valor |
 | ---- | ----- | 
 | **Tipo de Imagem** | Marketplace (Linux/Windows) |
-| **Publicador** | MicrosoftWindowsServer |
+| **Editora** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
-| **Sku** | Centro de Dados 2016 |
+| **Rio Sku** | Centro de Dados 2016 |
 | **Tamanho do nó** | Norma NC6 |
 | **Referências de pacotede aplicação** | GPUDriver, versão 411.82 |
 | **Iniciar tarefa ativada** | Verdadeiro<br>**Linha de comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade do utilizador** - Utilizador de piscina, administrador<br/>**Esperar pelo sucesso** - Verdadeiro
@@ -131,7 +131,7 @@ Para executar aplicações CUDA em uma piscina de nós Linux NC, você precisa i
 | ---- | ---- |
 | **Tipo de Imagem** | Imagem Personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
-| **Agente do nó SKU** | batch.node.ubuntu 16.04 |
+| **Agente do nó SKU** | lote.node.ubuntu 16.04 |
 | **Tamanho do nó** | Norma NC6 |
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemplo: Microsoft MPI em uma piscina VM Windows H16r
@@ -156,16 +156,16 @@ Para executar aplicações DEMPI do Windows numa piscina de nós VM Azure H16r, 
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemplo: Intel MPI em uma piscina VM Linux H16r
 
-Para executar aplicações de MPI em um conjunto de nós da série Linux H, uma opção é usar a imagem [7.4 HPC baseada no CentOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) do Azure Marketplace. Os controladores Linux RDMA e o INTEL MPI estão pré-instalados. Esta imagem também suporta as cargas de carga de contentores do Docker.
+Para executar aplicações de MPI em um conjunto de nós da série Linux H, uma opção é usar a imagem [7.4 HPC baseada no CentOS](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) do Azure Marketplace. Os controladores Linux RDMA e o INTEL MPI estão pré-instalados. Esta imagem também suporta as cargas de carga de contentores do Docker.
 
 Utilizando o portal Batch APIs ou Azure, crie uma piscina utilizando esta imagem e com o número desejado de nós e escala. A tabela seguinte mostra as definições do conjunto de amostras:
 
 | Definição | Valor |
 | ---- | ---- |
 | **Tipo de Imagem** | Marketplace (Linux/Windows) |
-| **Publicador** | OpenLogic |
+| **Editora** | OpenLogic |
 | **Oferta** | CentOS-HPC |
-| **Sku** | 7.4 |
+| **Rio Sku** | 7.4 |
 | **Tamanho do nó** | Padrão H16r |
 | **Comunicação Internade ativada** | Verdadeiro |
 | **Tarefas max por nó** | 1 |

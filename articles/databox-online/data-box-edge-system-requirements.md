@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260231"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos do sistema De Caixa de Dados Azure
@@ -36,7 +36,7 @@ Os requisitos do sistema para o Limite da Caixa de Dados incluem:
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
+## <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
@@ -60,7 +60,7 @@ Utilize a tabela seguinte para a configuração da porta para os servidores que 
 
 | Porto nº. | Dentro ou fora | Âmbito do porto | Necessário | Orientação |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Fora       | WAN        | Sim      | Outbound aberto para fornecimento de IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço).|
+| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Outbound aberto para fornecimento de IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
 
 Para obter informações completas, vá às regras de [configuração da Firewall e da porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
@@ -120,13 +120,13 @@ Os fatores que deve considerar incluem:
 
 Para compreender e aperfeiçoar o desempenho da sua solução, pode utilizar:
 
-- As métricas computadas disponíveis no portal Azure. Vá ao seu recurso Data Box Edge e depois vá para **monitorização > Métricas**. Veja o **cálculo Edge - Uso** da memória e **computação Edge - CPU percentual** para entender os recursos disponíveis e como os recursos estão a ser consumidos.
+- As métricas computadas disponíveis no portal Azure. Vá ao seu recurso Data Box Edge e depois vá para **a Monitorização > Métricas**. Veja o **cálculo Edge - Uso** da memória e **computação Edge - CPU percentual** para entender os recursos disponíveis e como os recursos estão a ser consumidos.
 - Os comandos de monitorização disponíveis através da interface PowerShell do dispositivo tais como:
 
-    - `dkrdbe stats` obter um fluxo vivo de estatísticas de utilização de recursos de contentores. O comando suporta CPU, uso de memória, limite de memória e métricas iO da rede.
-    - `dkrdbe system df` obter informações sobre a quantidade de espaço em disco utilizado. 
-    - `dkrdbe image prune` limpar imagens não utilizadas e libertar espaço.
-    - `dkrdbe ps --size` para ver o tamanho aproximado de um recipiente de corrida. 
+    - `dkrdbe stats`para obter um fluxo vivo de estatísticas de utilização de recursos de contentores. O comando suporta CPU, uso de memória, limite de memória e métricas iO da rede.
+    - `dkrdbe system df`para obter informações sobre a quantidade de espaço em disco utilizado. 
+    - `dkrdbe image prune`para limpar imagens não utilizadas e libertar espaço.
+    - `dkrdbe ps --size`para ver o tamanho aproximado de um recipiente de corrida. 
 
     Para obter mais informações sobre os comandos disponíveis, vá ao Monitor e aos [módulos de computação de resolução de problemas.](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)
 

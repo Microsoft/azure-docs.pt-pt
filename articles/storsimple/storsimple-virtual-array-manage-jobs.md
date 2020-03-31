@@ -1,6 +1,6 @@
 ---
-title: Ver e gerir tarefas de matriz Virtual StorSimple | Documentos da Microsoft
-description: Descreve a página de tarefas do serviço StorSimple Device Manager e como usá-lo para controlar tarefas recentes e atuais para a matriz Virtual StorSimple.
+title: Ver e gerir empregos storSimple Virtual Array [ StorSimple Virtual Array] Microsoft Docs
+description: Descreve a página StorSimple Device Manager Jobs e como usá-lo para rastrear trabalhos recentes e atuais para o StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,54 +15,54 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60302504"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilizar o serviço StorSimple Device Manager para ver tarefas do StorSimple Virtual Array
+# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para ver trabalhos para o StorSimple Virtual Array
 ## <a name="overview"></a>Descrição geral
-O **tarefas** painel fornece um único portal central para ver e gerir tarefas que são iniciadas em matrizes virtuais que estão ligadas ao seu serviço StorSimple Device Manager. Pode ver as tarefas em execução, concluídas e falhadas para vários dispositivos virtuais. Os resultados são apresentados num formato tabular.
+A lâmina **Jobs** fornece um único portal central para visualização e gestão de trabalhos que são iniciados em matrizes virtuais que estão ligadas ao seu serviço StorSimple Device Manager. Pode ver trabalhos em execução, concluídos e falhados para vários dispositivos virtuais. Os resultados são apresentados num formato tabular.
 
-![Painel de tarefas](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
+![Lâmina de emprego](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 
-Pode encontrar rapidamente as tarefas que estão interessadas em ao filtrar em campos, tais como:
+Você pode rapidamente encontrar os empregos que lhe interessa filtrando em campos como:
 
-* **Intervalo de tempo** – tarefas podem ser filtradas com base no intervalo de data e hora.
-* **Dispositivos** – tarefas são iniciadas num dispositivo específico, ligado ao seu serviço. As tarefas, em seguida, são apresentadas com base nos seguintes atributos:
+* **Intervalo** de tempo – Os trabalhos podem ser filtrados com base na data e intervalo de horas.
+* **Dispositivos** – Os trabalhos são iniciados num dispositivo específico ligado ao seu serviço. Os trabalhos filtrados são então tabulados com base nos seguintes atributos:
   
-  * **Nome** – o nome da tarefa pode ser **todos os**, **cópia de segurança**, **Clone**, **efetuar a ativação pós-falha**, **detransferênciadeatualizações**, ou **instalar atualizações**.
-  * **Estado** – tarefas podem ser **todos os**, **em curso**, **Succeeded**, ou **falha**, ou **cancelado**.
-  * **Entidade** – as tarefas podem ser associadas um volume, partilha ou dispositivo.
-  * **Dispositivo** – o nome do dispositivo no qual a tarefa foi iniciada.
-  * **Trabalhar com o** – o tempo quando a tarefa foi iniciada.
-  * **Duração** – a duração em que a tarefa foi executada.
-* **Estado** – pode pesquisar por todos os, tarefas em execução, concluídas ou falhadas.
-* **Tipo de tarefa** – o tipo de tarefa pode ser all, cópia de segurança, restauro, o failover, transferir as atualizações ou instalar atualizações.
+  * **Nome** – O nome do trabalho pode ser **All**, **Backup,** **Clone,** **Fail over,** **Download updates,** or **Install updates**.
+  * **Estado** – Os empregos podem ser **Todos,** **Em curso,** **Bem sucedidos,** ou **Falhados,** ou **Cancelados**.
+  * **Entidade** – Os trabalhos podem ser associados a um volume, partilha ou dispositivo.
+  * **Dispositivo** – O nome do dispositivo em que o trabalho foi iniciado.
+  * **Começou** – O tempo em que o trabalho foi iniciado.
+  * **Duração** – Duração para a qual o trabalho foi executado.
+* **Estado** – Pode procurar todos, correr, completar ou falhar.
+* **Tipo** de trabalho – O tipo de trabalho pode ser tudo, backup, restaurar, falhar, descarregar atualizações ou instalar atualizações.
 
-A lista de tarefas é atualizada a cada 30 segundos.
+A lista de empregos é refrescada a cada 30 segundos.
 
 ## <a name="view-job-details"></a>Ver detalhes da tarefa
-Execute os seguintes passos para ver os detalhes de qualquer tarefa.
+Execute os seguintes passos para ver os detalhes de qualquer trabalho.
 
-#### <a name="to-view-job-details"></a>Para ver os detalhes da tarefa
-1. Sobre o **tarefas** painel, exibir as tarefas estão interessadas em ao executar uma consulta com filtros adequados. Pode procurar por tarefas em execução ou concluídas.
-2. Selecione uma tarefa na lista tabular de tarefas.
+#### <a name="to-view-job-details"></a>Para ver detalhes de trabalho
+1. Na lâmina **Jobs,** exiba o trabalho(s) que lhe interessa executando uma consulta com filtros apropriados. Pode procurar empregos completos ou em execução.
+2. Selecione um trabalho na lista de trabalhos tabular.
    
-    ![Painel de tarefas](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. Na parte inferior da página, clique em **detalhes**.
-4. Na **detalhes** caixa de diálogo, pode ver o estado, detalhes e as estatísticas de tempo. A ilustração seguinte mostra um exemplo do **detalhes da tarefa de cópia de segurança** caixa de diálogo.
+    ![Lâmina de trabalho](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
+3. Na parte inferior da página, clique em **Detalhes**.
+4. Na caixa de diálogo **Details,** pode visualizar o estado, os detalhes e as estatísticas do tempo. A ilustração que se segue mostra um exemplo da caixa de diálogo **backup Job Details.**
    
     ![Detalhes da tarefa](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
-#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Falhas de tarefas quando a máquina virtual está em pausa no hipervisor
-Quando uma tarefa está em curso na sua matriz Virtual StorSimple e o dispositivo (máquina virtual aprovisionada no hipervisor) está em pausa para mais de 15 minutos, a tarefa falha. Isso é devido a seu tempo de matriz Virtual StorSimple que está a ser sincronizado com a hora do Microsoft Azure. 
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Falhas de trabalho quando a máquina virtual é interrompida no hipervisor
+Quando um trabalho está em andamento no seu StorSimple Virtual Array e o dispositivo (máquina virtual aprovisionado em hipervisor) é interrompido por mais de 15 minutos, o trabalho falha. Isto deve-se ao facto de o seu tempo de Matriz Virtual StorSimple estar dessincronizado com o tempo do Microsoft Azure. 
 
-Verá o seguinte erro: "Hora do seu dispositivo não está sincronizada com a hora do Microsoft Azure por mais de 15 minutos. Certifique-se de que o hipervisor e o dispositivo vezes são sincronizadas com um servidor NTP. Certifique-se de que não existem não existem problemas de conectividade. Para resolver problemas de conectividade, execute testes de diagnóstico da web local da interface do Usuário do seu dispositivo virtual."
+Verá o seguinte erro: "O tempo do seu dispositivo está dessincronizado com o tempo do Microsoft Azure em mais de 15 minutos. Certifique-se de que os tempos do hipervisor e do dispositivo estão sincronizados com um servidor NTP. Verifique se não há problemas de conectividade. Para resolver problemas de conectividade, efetua testes de diagnóstico a partir da UI web local do seu dispositivo virtual."
 
-Estas falhas se aplicam a tarefas de cópia de segurança, restauro, atualização e ativação pós-falha. Se a sua máquina virtual é aprovisionada no Hyper-V, a máquina sincroniza eventualmente tempo com seu hipervisor. Depois que isso acontece, pode reiniciar o seu trabalho.
+Estas falhas aplicam-se a trabalhos de backup, restauro, atualização e failover. Se a sua máquina virtual estiver aprovisionada em Hyper-V, a máquina acaba por sincronizar o tempo com o seu hipervisor. Assim que isso acontecer, podes reiniciar o teu trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Saiba como utilizar a IU da web local para administrar a sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Passos seguintes
+[Aprenda a usar a UI web local para administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
 ms.openlocfilehash: acb9784b745fa90fc9cd264162930020e6d64751
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249038"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Monitor Azure  
@@ -56,7 +56,7 @@ Pode optar por ter variáveis adicionais na tabela ao lado do **AggregatedValue*
 
 Por exemplo, suponha que uma regra para um alerta de registo de medição métrica foi configurada como:
 
-- Consulta de `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- Consulta de`search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - Período de tempo de 6 horas
 - Limiar de 50
 - Lógica de alerta de três infrações consecutivas
@@ -72,11 +72,11 @@ Por exemplo, para **$table**, valores de **disponibilidadeOs resultados** serão
 
 Da mesma forma, se acontecerem três infrações consecutivas por qualquer outro valor de **$table,** outra notificação de alerta é desencadeada para a mesma coisa. O serviço de alerta classifica automaticamente os valores de um lote/entidade (indicado a laranja) por tempo.
 
-Agora suponha que a regra do alerta de registo de medição métrica foi modificada e que a consulta foi `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`. O resto da configuração permaneceu o mesmo de antes, incluindo a lógica de alerta para três violações consecutivas. A opção **Agregado Após,** neste caso, é **a marca** de tempo por defeito. Apenas um valor é fornecido na consulta para **resumir... por** (isto é, **carimbo de tempo).** Tal como o exemplo anterior, a produção no final da execução seria tão ilustrada como a seguinte.
+Agora suponha que a regra para o alerta de `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`registo de medição métrica foi modificada e a consulta foi . O resto da configuração permaneceu o mesmo de antes, incluindo a lógica de alerta para três violações consecutivas. A opção **Agregado Após,** neste caso, é **a marca** de tempo por defeito. Apenas um valor é fornecido na consulta para **resumir... por** (isto é, **carimbo de tempo).** Tal como o exemplo anterior, a produção no final da execução seria tão ilustrada como a seguinte.
 
    ![Execução de consulta de medição métrica com valor singular](media/alert-log-troubleshoot/LogMMtimestamp.png)
 
-Como o **Agregado Sobre** é definido no **carimbo**temporal, os dados são classificados na coluna do carimbo de **tempo** (indicado a vermelho). Depois agrupamo-nos por **carimbo**temporal. Por exemplo, os valores para `2018-10-17T06:00:00Z` serão considerados como um enredo/entidade (indicado a laranja). Neste lote/entidade de valor, o serviço de alerta não encontrará infrações consecutivas (porque cada valor de **carimbo** tem apenas uma entrada). Então o alerta nunca é acionado. Nesse caso, o utilizador deve:
+Como o **Agregado Sobre** é definido no **carimbo**temporal, os dados são classificados na coluna do carimbo de **tempo** (indicado a vermelho). Depois agrupamo-nos por **carimbo**temporal. Por exemplo, `2018-10-17T06:00:00Z` os valores para serão considerados como um enredo/entidade (indicado em laranja). Neste lote/entidade de valor, o serviço de alerta não encontrará infrações consecutivas (porque cada valor de **carimbo** tem apenas uma entrada). Então o alerta nunca é acionado. Nesse caso, o utilizador deve:
 
 - Adicione uma variável de boneco ou uma variável existente (como **$table)** para classificar corretamente utilizando o campo **Agregado Sobre.**
 - Reconfigure a regra de alerta para utilizar a lógica de alerta com base na **violação total.**
@@ -187,7 +187,7 @@ Cada regra de alerta de registo criada no Monitor Azure como parte da sua config
 
 Pode encontrar a hora exata em que o Monitor Azure desativou a regra de alerta de registo, procurando um evento no Registo de [Atividade sinuoso](../../azure-resource-manager/management/view-activity-logs.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre alertas de [log em Azure.](../platform/alerts-unified-log.md)
 - Saiba mais sobre [os Insights de Aplicação.](../../azure-monitor/app/analytics.md)

@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef908429d359020282920d73480a472bfde0aa60
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261518"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações de Ligação ativa do Diretório Azure
@@ -72,9 +72,9 @@ Azure AD Connect Health for Ative Directory Federation Services (AD FS) e Azure 
 
 1. Abra a lâmina do **Servidor** a partir da lâmina **da Lista** do Servidor selecionando o nome do servidor a ser removido.
 2. Na lâmina **do Servidor,** a partir da barra de ação, clique em **Apagar**.
-![Screenshot do Azure AD Connect Health apagam](./media/how-to-connect-health-operations/DeleteServer2.png) do servidor
+![Screenshot do Azure AD Connect Health apaga servidor](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Confirme digitando o nome do servidor na caixa de confirmação.
-4. Clique em **Eliminar**.
+4. Clique em **Apagar**.
 
 Azure AD Connect Health para serviços de domínio de diretório ativo Azure:
 
@@ -82,7 +82,7 @@ Azure AD Connect Health para serviços de domínio de diretório ativo Azure:
 2. Selecione o controlador de domínio a remover.
 3. A partir da barra de ação, clique em **Eliminar Selecionados**.
 4. Confirme a ação para eliminar o servidor.
-5. Clique em **Eliminar**.
+5. Clique em **Apagar**.
 
 ### <a name="delete-a-service-instance-from-azure-ad-connect-health-service"></a>Eliminar uma instância de serviço do serviço Azure AD Connect Health
 Em alguns casos, é melhor remover uma instância de serviço. Aqui está o que precisa de saber para remover uma instância de serviço do serviço Azure AD Connect Health.
@@ -97,13 +97,13 @@ Quando estiver a apagar uma instância de serviço, esteja atento ao seguinte:
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Para eliminar uma instância de serviço do serviço Azure AD Connect Health
 1. Abra a lâmina de **serviço** da lâmina **da Lista** de Serviço selecionando o identificador de serviço (nome da fazenda) que pretende remover. 
 2. Na lâmina **de serviço,** a partir da barra de ação, clique em **Apagar**. 
-![Screenshot da Azure AD Connect Health elimina mato de serviço](./media/how-to-connect-health-operations/DeleteServer.png)
+![Screenshot da Azure AD Connect Health elimina serviço](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirme digitando o nome do serviço na caixa de confirmação (por exemplo: sts.contoso.com).
-4. Clique em **Eliminar**.
+4. Clique em **Apagar**.
    <br><br>
 
 [//]: # (Início da secção RBAC)
-## <a name="manage-access-with-role-based-access-control"></a>Gerir o acesso com controlo de acesso baseado em funções
+## <a name="manage-access-with-role-based-access-control"></a>Gerir o acesso com o Controlo de Acesso Baseado em Funções
 [O Controlo de Acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) para a Azure AD Connect Health fornece acesso a utilizadores e grupos que não os administradores globais. O RBAC atribui funções aos utilizadores e grupos pretendidos e fornece um mecanismo para limitar os administradores globais dentro do seu diretório.
 
 ### <a name="roles"></a>Funções
@@ -135,9 +135,9 @@ Para permitir o acesso de um utilizador ao nível de *todas as instâncias* de s
    ![Screenshot da barra lateral de recursos Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Selecione **Adicionar**.
 3. No **painel Selecione um** painel de funções, selecione uma função (por exemplo, **Proprietário).**<br>
-   ![Screenshot do Azure AD Connect Health RBAC Utilizadores janela](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Screenshot da janela de utilizadores do Azure AD Connect RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digite o nome ou identificador do utilizador ou grupo visado. Ao mesmo tempo, pode selecionar um ou mais utilizadores ou grupos. Clique em **Selecionar**.
-   ![Screenshot do Azure AD Connect Health RBAC Utilizadores janela](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot da janela de utilizadores do Azure AD Connect RBAC](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selecione **OK**.<br>
 6. Após a atribuição da função estar completa, os utilizadores e grupos aparecem na lista.<br>
    ![Screenshot da janela de utilizadores do Azure AD Connect Health RBAC, com novos utilizadores em destaque](./media/how-to-connect-health-operations/RBAC_user_list.png)
@@ -153,7 +153,7 @@ Agora, os utilizadores e grupos listados têm acesso, de acordo com as suas fun�
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Passo 3: Partilhar a localização da lâmina com utilizadores ou grupos
 1. Depois de atribuir permissões, um utilizador pode aceder à Azure AD Connect Health indo [aqui](https://aka.ms/aadconnecthealth).
 2. Na lâmina, o utilizador pode fixar a lâmina, ou partes diferentes, no painel de instrumentos. Basta clicar no pin o ícone do painel de **instrumentos.**<br>
-   ![Screenshot da lâmina de pino RBAC de ligação a saúde azure, com ícone de pino destacado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Screenshot de Azure AD Connect Health RBAC pin blade, com ícone pino em destaque](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Um utilizador com a função Reader atribuída não é capaz de obter a extensão Azure AD Connect Health do Azure Marketplace. O utilizador não pode realizar a operação de "criação" necessária para o fazer. O utilizador ainda pode chegar à lâmina indo para o link anterior. Para posterior utilização, o utilizador pode fixar a lâmina no painel de instrumentos.
@@ -162,15 +162,15 @@ Agora, os utilizadores e grupos listados têm acesso, de acordo com as suas fun�
 
 ### <a name="remove-users-or-groups"></a>Remover utilizadores ou grupos
 Pode remover um utilizador ou um grupo adicionado ao Azure AD Connect Health RBAC. Basta clicar no utilizador ou grupo direito e **selecione Remover**.<br>
-![Screenshot da janela de utilizadores do Azure AD Connect Health RBAC, com remover destacado](./media/how-to-connect-health-operations/RBAC_remove.png)
+![Screenshot da janela de utilizadores do Azure AD Connect Health RBAC, com Remover em destaque](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Fim da secção RBAC)
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
-* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ (FAQ do Azure AD Connect Health)](reference-connect-health-faq.md)
-* [Histórico de versões do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
+* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
+* [Utilização da Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
+* [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)
+* [Histórico das versões do Azure AD Connect Health](reference-connect-health-version-history.md)

@@ -1,66 +1,84 @@
 ---
-title: Visualização de dependência no Azure Migrate
-description: Fornece uma visão geral dos cálculos de avaliação no serviço de avaliação do servidor em Azure Migrate
+title: Análise de dependência na Avaliação do Servidor Migratório Azure
+description: Descreve como usar a análise de dependência para avaliação usando a Avaliação do Servidor Migratório Azure.
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.openlocfilehash: fd069ed98fa34fd6f281c98a061925f96c7bb2cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/11/2020
+ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269708"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455643"
 ---
-# <a name="dependency-visualization"></a>Visualização de dependência
+# <a name="dependency-analysis"></a>Análise de dependência
 
-Este artigo descreve a visualização da dependência em Azure Migrate:Server Assessment.
+Este artigo descreve a análise da dependência em Azure Migrate:Server Assessment.
 
-## <a name="what-is-dependency-visualization"></a>O que é a visualização da dependência?
+## <a name="overview"></a>Descrição geral
 
-A visualização da dependência ajuda-o a identificar dependências entre máquinas no local que pretende avaliar e migrar para Azure. 
+A análise da dependência ajuda-o a identificar dependências entre máquinas no local que pretende avaliar e migrar para Azure. 
 
-- Em Azure Migrate:Server Assessment, você recolhe máquinas em um grupo, e depois avalia o grupo. A visualização da dependência ajuda-o a agrupar as máquinas com mais precisão, com alta confiança para a avaliação.
-- A visualização da dependência permite identificar máquinas que devem ser migradas em conjunto. Pode identificar se as máquinas estão a ser utilizadas, ou se podem ser desativadas em vez de emigrarem.
-- Visualizar dependências ajuda a garantir que nada é deixado para trás, e evitar interrupções surpresa durante a migração.
-- A visualização é especialmente útil se não tiver a certeza se as máquinas fazem parte de uma implementação de aplicações que pretende migrar para o Azure.
+- Em Azure Migrate:Server Assessment, você recolhe máquinas em um grupo, e depois avalia o grupo. A análise da dependência ajuda-o a agrupar as máquinas com mais precisão, com alta confiança para a avaliação.
+- A análise da dependência permite identificar máquinas que devem ser migradas em conjunto. Pode identificar se as máquinas estão a ser utilizadas, ou se podem ser desativadas em vez de emigrarem.
+- Analisar as dependências ajuda a garantir que nada é deixado para trás, e evitar interrupções surpresa durante a migração.
+- A análise é especialmente útil se não tiver a certeza se as máquinas fazem parte de uma implementação de aplicações que pretende migrar para o Azure.
+- [Reveja](common-questions-discovery-assessment.md#what-is-dependency-visualization) questões comuns sobre análise de dependência.
 
+Existem duas opções para implementar a análise da dependência
+
+- Baseado no **agente:** A análise de dependência baseada no agente requer que os agentes sejam instalados em cada máquina no local que pretende analisar.
+- **Agente:** Com análises sem agente, não precisa de instalar agentes em máquinas que pretende cruzar. Esta opção encontra-se atualmente em pré-visualização e só está disponível para VMware VMs.
 
 > [!NOTE]
-> A visualização da dependência não está disponível no Governo de Azure.
+> A análise da dependência não está disponível no Governo de Azure.
 
-## <a name="agent-basedagentless-visualization"></a>Visualização baseada em agente/agente
+## <a name="agentless-analysis"></a>Análise sem agente
 
-Existem duas opções para implementar a visualização da dependência:
+A análise da dependência sem agente funciona capturando dados de ligação TCP de máquinas para as quais está ativado. Não são instalados agentes em máquinas que queira analisar.
 
-- Baseado no **agente:** A visualização da dependência baseada no agente requer que os agentes sejam instalados em cada máquina no local que pretende analisar.
-- **Agente:** Com esta opção, não precisa de instalar agentes em máquinas que pretende cruzar. Esta opção encontra-se atualmente em pré-visualização e só está disponível para VMware VMs.
+### <a name="collected-data"></a>Dados recolhidos
+
+Após o início da descoberta da dependência, o aparelho recolhe dados de máquinas a cada cinco minutos para recolher dados. Estes dados são recolhidos a partir de VMs convidados através do VCenter Server, utilizando APIs vSphere. Os dados recolhidos são processados no aparelho Migratório Azure, para deduzir informações de identidade, e são enviados para o Azure Migrate a cada seis horas.
+
+As sondagens recolhem estes dados a partir de máquinas: 
+- Nome dos processos que têm ligações ativas.
+- Nome da aplicação que executa processos que têm ligações ativas.
+- Porta de destino nas ligações ativas.
+
+## <a name="agent-based-analysis"></a>Análise baseada em agente
+
+Para análise baseada em agentes, a Avaliação do Servidor utiliza a [solução do Mapa](../azure-monitor/insights/service-map.md) de Serviços no Monitor Azure para permitir a visualização e análise da dependência. O agente de [monitorização da Microsoft/agente de Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent) e o [agente Dependency](../azure-monitor/platform/agents-overview.md#dependency-agent)devem ser instalados em cada máquina que pretende analisar.
+
+### <a name="collected-data"></a>Dados recolhidos
+
+Para visualização baseada em agentes, são recolhidos os seguintes dados:
+
+- Nome do servidor da máquina de origem, processo, nome da aplicação.
+- Nome, processo, nome de servidor de máquina de destino, e porta.
+- O número de ligações, latência e informações de transferência de dados são recolhidos e disponíveis para consultas de Log Analytics. 
 
 
-## <a name="agent-based-visualization"></a>Visualização baseada em agente
+## <a name="compare-agentless-and-agent-based"></a>Compare agentes sem agente e baseados em agentes
 
-**Requisito** | **Detalhes** | **Saiba mais**
+As diferenças entre a visualização sem agente e a visualização baseada em agentes são resumidas na tabela.
+
+**Requisito** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
-**Antes da implantação** | Deverá ter um projeto Azure Migrate em vigor, com a ferramenta Azure Migrate: Server Assessment adicionada ao projeto.<br/><br/>  Implementa a visualização da dependência depois de instalar um aparelho Azure Migrate para descobrir as suas máquinas no local. | [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/><br/> [Aprenda](how-to-assess.md) a adicionar uma ferramenta de avaliação a um projeto existente.<br/><br/> Aprenda a configurar o aparelho Azure Migrate para avaliação de [Hiper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)ou servidores físicos.
-**Agentes necessários** | Em cada máquina que pretende analisar, instale os seguintes agentes:<br/><br/> O agente de monitorização da [Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/><br/> O [agente da Dependência.](../azure-monitor/platform/agents-overview.md#dependency-agent)<br/><br/> Se as máquinas no local não estiverem ligadas à internet, é necessário descarregar e instalar o gateway Log Analytics. | Saiba mais sobre a instalação do [agente dependency](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e [do MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-**Log Analytics** | A Azure Migrate utiliza a solução [Service Map](../operations-management-suite/operations-management-suite-service-map.md) em [registos do Monitor Azure](../log-analytics/log-analytics-overview.md) para visualização da dependência.<br/><br/> Associa um novo ou existente espaço de trabalho log analytics a um projeto Azure Migrate. O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de adicionado. <br/><br/> O espaço de trabalho deve estar na mesma subscrição que o projeto Azure Migrate.<br/><br/> O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste asiático ou na Europa Ocidental. Espaços de trabalho noutras regiões não podem ser associados a um projeto.<br/><br/> O espaço de trabalho deve estar numa região em que o Mapa de [Serviços é apoiado.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)<br/><br/> No Log Analytics, o espaço de trabalho associado ao Azure Migrate está marcado com a chave do Projeto migração e o nome do projeto.
-**Custos** | A solução Service Map não incorre em quaisquer encargos nos primeiros 180 dias (a partir do dia em que associa o espaço de trabalho log Analytics ao projeto Azure Migrate)/<br/><br/> Após 180 dias, serão aplicados os encargos padrão do Log Analytics.<br/><br/> A utilização de qualquer outra solução que não o Mapa de Serviço sintetizado no espaço de trabalho associado do Log Analytics incorrerá em [encargos padrão](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics.<br/><br/> Quando o projeto Azure Migrate é eliminado, o espaço de trabalho não é eliminado juntamente com ele. Após a exclusão do projeto, o uso do Mapa de Serviço sem graça, e cada nó será cobrado de acordo com o nível pago do espaço de trabalho Log Analytics/<br/><br/>Se tiver projetos que criou antes da disponibilidade geral da Azure Migrate (GA- 28 de fevereiro de 2018), poderá ter incorrido em custos adicionais do Mapa de Serviços. Para garantir o pagamento após 180 dias, recomendamos que crie um novo projeto, uma vez que os espaços de trabalho existentes antes da GA ainda são responsáveis.
-**Gestão** | Quando regista agentes no espaço de trabalho, utiliza a identificação e a chave fornecidas pelo projeto Azure Migrate.<br/><br/> Pode utilizar o espaço de trabalho log Analytics fora do Azure Migrate.<br/><br/> Se eliminar o projeto azure migrate associado, o espaço de trabalho não é eliminado automaticamente. [Elimine-o manualmente](../azure-monitor/platform/manage-access.md).<br/><br/> Não elimine o espaço de trabalho criado pela Azure Migrate, a menos que apague o projeto Azure Migrate. Se o fizer, a funcionalidade de visualização da dependência não funcionará como esperado.
+Suporte | Esta opção encontra-se atualmente em pré-visualização e só está disponível para VMware VMs. [Reveja](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) os sistemas operativos suportados. | Na disponibilidade geral (GA).
+Agente | Não é necessário instalar agentes em máquinas que queira sondar. | Agentes a instalar em cada máquina no local que pretende analisar: O agente de monitorização da [Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows), e o [agente dependency](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+Log Analytics | Não é necessário. | A Azure Migrate utiliza a solução [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para análise de dependência. 
+Como funciona | Captura dados de ligação TCP em máquinas habilitadas para visualização da dependência. Após a descoberta, reúne dados em intervalos de cinco minutos. | Os agentes do Mapa de Serviço instalados numa máquina recolhem dados sobre os processos de TCP e ligações de entrada/saída para cada processo.
+Dados | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome, processo, nome de servidor de máquina de destino, e porta. | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome, processo, nome de servidor de máquina de destino, e porta.<br/><br/> O número de ligações, latência e informações de transferência de dados são recolhidos e disponíveis para consultas de Log Analytics. 
+Visualização | O mapa de dependência de um único servidor pode ser visto durante uma hora a 30 dias. | Mapa de dependência de um único servidor.<br/><br/> O mapa só pode ser visto ao longo de uma hora.<br/><br/> Mapa de dependência de um grupo de servidores.<br/><br/> Adicione e remova os servidores num grupo a partir da vista do mapa.
+Exportar dados | Atualmente não pode ser descarregado em formato tabular. | Os dados podem ser consultados com log Analytics.
 
-## <a name="agentless-visualization"></a>Visualização sem agente
-
-
-**Requisito** | **Detalhes** | **Saiba mais**
---- | --- | ---
-**Antes da implantação** | Deverá ter um projeto Azure Migrate em vigor, com a ferramenta Azure Migrate: Server Assessment adicionada ao projeto.<br/><br/>  Implementa a visualização da dependência depois de configurar um aparelho Azure Migrate para descobrir as suas máquinas VMWare no local. | [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/><br/> [Aprenda](how-to-assess.md) a adicionar uma ferramenta de avaliação a um projeto existente.<br/><br/> Aprenda a configurar o aparelho Azure Migrate para avaliação de [VMware](how-to-set-up-appliance-vmware.md) VMs.
-**Agentes necessários** | Não é necessário um agente nas máquinas que queira analisar.
-**Sistemas operativos suportados** | Reveja os [sistemas operativos](migrate-support-matrix-vmware.md#agentless-dependency-visualization) suportados para visualização sem agente.
-**VMs** | **Ferramentas VMware**: As ferramentas VMware devem ser instaladas e em funcionamento em VMs que pretende analisar.<br/><br/> **Conta**: No aparelho Azure Migrate, é necessário adicionar uma conta de utilizador que possa ser utilizada para aceder a VMs para análise.<br/><br/> **VMs do Windows**: A conta de utilizador tem de ser um administrador local ou de domínio na máquina.<br/><br/> **VMs Linux**: O privilégio de raiz é exigido na conta. Alternadamente, a conta de utilizador requer estas duas capacidades em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. | [Saiba mais sobre](migrate-appliance.md) o aparelho Azure Migrate.
-**VMware** | **vCenter**: O aparelho necessita de uma conta vCenter Server com acesso apenas de leitura, e privilégios habilitados para Máquinas Virtuais > Operações de Hóspedes.<br/><br/> **ANFITRIÕES ESXi**: Em ESXi acolhe VMs em execução que pretende analisar, o aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443.
-**Dados recolhidos** |  A análise da dependência sem agente funciona capturando dados de ligação TCP de máquinas em que está ativado. Após a descoberta da dependência, o aparelho recolhe dados de ligação TCP a cada 5 minutos dos VMs dos hóspedes. Estes dados são recolhidos a partir de VMs convidados através do VCenter Server utilizando APIs vSphere. Os dados recolhidos são processados no aparelho para deduzir informações de dependência e enviados para o Azure Migrate a cada 6 horas. Os seguintes dados são recolhidos de cada máquina: <br/> - Nomes de processos que têm ligações ativas.<br/> - Nomes de aplicações que executam o processo com ligações ativas.<br/> - Porta de destino nas ligações ativas.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Configurar a visualização da dependência](how-to-create-group-machine-dependencies.md)
-- Experimente a [visualização de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md) para VMware VMs.
+- Reveja os requisitos para a criação de análises baseadas em agentes para [VMware VMs,](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements) [servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)e [VMs Hiper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- [Reveja](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) os requisitos para a análise sem agente dos VMware VMs.
+- [Configurar](how-to-create-group-machine-dependencies.md) a visualização da dependência baseada em agentes
+- [Experimente](how-to-create-group-machine-dependencies-agentless.md) a visualização de dependência sem agente para VMware VMs.
 - Reveja [questões comuns](common-questions-discovery-assessment.md#what-is-dependency-visualization) sobre visualização da dependência.
 
 

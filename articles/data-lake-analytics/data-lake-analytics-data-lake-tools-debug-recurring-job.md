@@ -1,6 +1,6 @@
 ---
-title: Depurar tarefas recorrentes no Azure Data Lake Analytics
-description: Saiba como utilizar o Azure Data Lake Tools para Visual Studio para depurar uma tarefa periódica anormal.
+title: Depurar empregos recorrentes no Azure Data Lake Analytics
+description: Aprenda a usar ferramentas de lago de dados Azure para o Estúdio Visual para depurar um trabalho recorrente anormal.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -10,63 +10,63 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60629790"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Resolver problemas de uma tarefa periódica anormal
 
-Este artigo mostra como usar [do Azure Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs) para resolver problemas relacionados com tarefas periódicas. Saiba mais sobre o pipeline e tarefas periódicas a partir da [blogue do Azure Data Lake e Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Este artigo mostra como usar ferramentas de lago de [dados Azure para estúdio visual para](https://aka.ms/adltoolsvs) resolver problemas com empregos recorrentes. Saiba mais sobre o oleoduto e os empregos recorrentes do [Azure Data Lake e do blog Azure HDInsight.](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/)
 
-Tarefas periódicas normalmente compartilham a mesma lógica de consulta e os dados de entrada semelhantes. Por exemplo, imagine que tem uma tarefa periódica em execução a cada manhã de segunda-feira às 8h00 para a contagem de utilizadores ativos de semanal da semana passada. Os scripts para estas tarefas partilham um modelo de script que contém a lógica de consulta. As entradas para estas tarefas são os dados de utilização para a última semana. Partilhar a mesma lógica de consulta e uma entrada semelhante, normalmente, significa que o desempenho destas tarefas é estável e semelhantes. Se um dos seus trabalhos recorrentes, de repente, executa anormalmente, falha ou muito mais lento, pode querer:
+Os empregos recorrentes geralmente partilham a mesma lógica de consulta e dados de entrada semelhantes. Por exemplo, imagine que tem um emprego recorrente a funcionar todas as segundas-feiras de manhã às 8 da manhã. para contar o utilizador ativo semanal da semana passada. Os scripts para estes trabalhos partilham um modelo de script que contém a lógica da consulta. Os contributos para estes trabalhos são os dados de utilização da semana passada. Partilhar a mesma lógica de consulta e contributos semelhantes geralmente significa que o desempenho destes empregos é semelhante e estável. Se um dos seus trabalhos recorrentes de repente se apresentar de forma anormal, falhar ou abrandar muito, talvez queira:
 
-- Ver os relatórios de estatísticas para as execuções anteriores da tarefa periódica para ver o que aconteceu.
-- Compare o trabalho anormal por um normal para descobrir o que foi alterado.
+- Consulte os relatórios estatísticos relativos aos anteriores trabalhos recorrentes para ver o que aconteceu.
+- Compare o trabalho anormal com um normal para descobrir o que foi mudado.
 
-**Relacionados com a vista de tarefas** no Azure Data Lake Tools para Visual Studio ajuda que acelerar o progresso de resolução de problemas com ambos os casos.
+**RelacionadoJob View** in Azure Data Lake Tools for Visual Studio ajuda-o a acelerar o progresso de resolução de problemas com ambos os casos.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Passo 1: Tarefas periódicas de localizar e abrir a vista de trabalho relacionados
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Passo 1: Encontrar empregos recorrentes e abrir vista de emprego relacionada
 
-Para utilizar a vista de tarefas relacionadas para resolver um problema de tarefa periódica, terá de primeiro localizar a tarefa periódica no Visual Studio e, em seguida, abra a vista de tarefas relacionadas.
+Para usar a Related Job View para resolver um problema de trabalho recorrente, precisa primeiro de encontrar o emprego recorrente no Visual Studio e, em seguida, abrir related Job View.
 
-### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Tem o URL para a tarefa periódica
+### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Você tem o URL para o trabalho recorrente
 
-Por meio **ferramentas** > **Data Lake** > **vista de tarefas**, pode colar o URL da tarefa para abrir a vista de tarefas no Visual Studio. Selecione **ver tarefas relacionadas** para abrir a vista de tarefas relacionadas.
+Através de **Ferramentas** > **Data Lake** > **Job View,** você pode colar o URL de trabalho para abrir a Vista de Emprego em Estúdio Visual. Selecione **Ver Empregos Relacionados** para abrir vista de emprego relacionada.
 
-![Ligação de trabalhos relacionados do Vista nas ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
+![Ver link de empregos relacionados em ferramentas de análise de data lake](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Tem o pipeline para a tarefa periódica, mas não o URL
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Você tem o oleoduto para o trabalho recorrente, mas não o URL
 
-No Visual Studio, é possível abrir o Browser de Pipeline através do Explorador de servidores > sua conta do Azure Data Lake Analytics > **Pipelines**. (Se não conseguir encontrar este nó no Explorador de servidores [baixar Plug mais recente-in](https://aka.ms/adltoolsvs).) 
+No Estúdio Visual, pode abrir o Pipeline Browser através do Server Explorer > a sua conta Azure Data Lake Analytics > **Pipelines**. (Se não encontrar este nó no Server Explorer, [faça o download do mais recente plug-in](https://aka.ms/adltoolsvs).) 
 
-![Selecionar o nó de Pipelines](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
+![Selecionando o nó pipelines](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 
-No Browser do Pipeline, todos os pipelines para a conta do Data Lake Analytics são listados à esquerda. Pode expandir os pipelines para localizar todos os trabalhos recorrentes e, em seguida, selecione aquele que tem problemas. É aberta a vista de tarefas relacionadas à direita.
+No Pipeline Browser, todos os oleodutos para a conta Data Lake Analytics estão listados à esquerda. Você pode expandir os oleodutos para encontrar todos os empregos recorrentes, e depois selecionar aquele que tem problemas. Vista de Emprego Relacionada abre à direita.
 
-![Selecionar um pipeline e abrir a vista de trabalho relacionados](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
+![Selecionando um pipeline e abertura de vista de trabalho relacionada](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-## <a name="step-2-analyze-a-statistics-report"></a>Passo 2: Analisar um relatório de estatísticas
+## <a name="step-2-analyze-a-statistics-report"></a>Passo 2: Analisar um relatório estatístico
 
-Um resumo e um relatório de estatísticas são apresentadas na parte superior da vista de tarefas relacionadas. Lá, pode encontrar a potencial causa do problema. 
+Um resumo e um relatório estatístico são apresentados no topo da Visão de Emprego Relacionada. Aí, pode encontrar a potencial causa do problema. 
 
-1.  No relatório, o eixo x mostra o tempo de submissão de tarefa. Utilize-o para encontrar a tarefa anormal.
-2.  Utilize o processo no diagrama seguinte para verificar as estatísticas e obter informações sobre o problema e possíveis soluções.
+1.  No relatório, o eixo X mostra o tempo de submissão do trabalho. Usa-o para encontrar o trabalho anormal.
+2.  Utilize o processo no diagrama seguinte para verificar as estatísticas e obter informações sobre o problema e as possíveis soluções.
 
-![Diagrama do processo para verificar as estatísticas](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
+![Diagrama de processo para verificar estatísticas](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Passo 3: Comparar o trabalho anormal a uma tarefa normal
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Passo 3: Compare o trabalho anormal com um trabalho normal
 
-Pode encontrar que todos submetido tarefas periódicas através da lista de tarefas na parte inferior da vista de tarefas relacionadas. Para obter mais informações e possíveis soluções, clique com botão direito a tarefa anormal. Utilize a vista de tarefa Diff para comparar o trabalho anormal por um normal anterior.
+Você pode encontrar todos os trabalhos recorrentes submetidos através da lista de trabalho no fundo da Related Job View. Para encontrar mais insights e soluções potenciais, clique no trabalho anormal. Utilize a vista Job Diff para comparar o trabalho anormal com um trabalho normal anterior.
 
-![Menu de atalho para comparar as tarefas](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
+![Menu de atalho para comparar empregos](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
 
-Preste atenção para as grandes diferenças entre estas duas tarefas. Essas diferenças provavelmente estão a causar problemas de desempenho. Para verificar ainda mais, utilize os passos no diagrama seguinte:
+Preste atenção às grandes diferenças entre estes dois empregos. Essas diferenças estão provavelmente a causar os problemas de desempenho. Para verificar mais, utilize os passos no seguinte diagrama:
 
-![Diagrama do processo para verificar as diferenças entre tarefas](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
+![Diagrama de processo para verificar diferenças entre empregos](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas de distorção de dados](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [Depurar definidas pelo utilizador código c# para tarefas de U-SQL com falhas](data-lake-analytics-debug-u-sql-jobs.md)
+* [Código C# definido pelo utilizador para empregos falhados da U-SQL](data-lake-analytics-debug-u-sql-jobs.md)

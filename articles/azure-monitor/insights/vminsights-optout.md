@@ -1,19 +1,19 @@
 ---
-title: Desativar a monitorização no Monitor Azure para VMs (pré-visualização) / Microsoft Docs
+title: Desativar a monitorização no Monitor Azure para VMs
 description: Este artigo descreve como parar de monitorizar as suas máquinas virtuais no Monitor Azure para VMs.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/05/2018
-ms.openlocfilehash: fb4347e610920380792a17bb620e6d97a7d72505
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669510"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480526"
 ---
-# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Desative a monitorização dos seus VMs no Monitor Azure para VMs (pré-visualização)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Desativar a monitorização dos seus VMs no Monitor Azure para VMs
 
 Depois de ativar a monitorização das suas máquinas virtuais (VMs), poderá optar por desativar a monitorização no Monitor Azure para VMs. Este artigo mostra como desativar a monitorização de um ou mais VMs.  
 
@@ -23,8 +23,8 @@ O Monitor Azure para VMs baseia-se nos seguintes componentes para proporcionar a
 
 * Um espaço de trabalho log Analytics, que armazena dados de monitorização de VMs e outras fontes.
 * Uma coleção de contadores de desempenho configurados no espaço de trabalho. A coleção atualiza a configuração de monitorização em todos os VMs ligados ao espaço de trabalho.
-* `InfrastructureInsights` e `ServiceMap`, que estão a monitorizar soluções configuradas no espaço de trabalho. Estas soluções atualizam a configuração de monitorização em todos os VMs ligados ao espaço de trabalho.
-* `MicrosoftMonitoringAgent` e `DependencyAgent`, que são extensões Azure VM. Estas extensões recolhem e enviam dados para o espaço de trabalho.
+* `VMInsights`, que é uma solução de monitorização configurada no espaço de trabalho. Esta solução atualiza a configuração de monitorização em todos os VMs ligados ao espaço de trabalho.
+* `MicrosoftMonitoringAgent`e, `DependencyAgent`que são extensões VM Azure. Estas extensões recolhem e enviam dados para o espaço de trabalho.
 
 Enquanto se prepara para desativar a monitorização dos seus VMs, tenha em mente estas considerações:
 
@@ -32,24 +32,17 @@ Enquanto se prepara para desativar a monitorização dos seus VMs, tenha em ment
 * Se tiver selecionado um espaço de trabalho pré-existente no Log Analytics que suporte outras soluções de monitorização e recolha de dados de outras fontes, pode remover componentes de soluções do espaço de trabalho sem interromper ou afetar o seu espaço de trabalho.  
 
 >[!NOTE]
-> Depois de remover os componentes da solução do seu espaço de trabalho, poderá continuar a ver o estado de saúde dos seus VMs Azure; especificamente, você verá dados de desempenho e mapa quando você for a qualquer vista no portal. Os dados acabarão por deixar de aparecer nas vistas **de Desempenho** e **Mapa.** Mas a visão da **Saúde** continuará a mostrar o estado de saúde dos seus VMs. A opção **Try now** estará disponível a partir do Azure VM selecionado para que possa reativar a monitorização no futuro.  
+> Depois de remover os componentes da solução do seu espaço de trabalho, poderá continuar a ver dados de desempenho e mapas para os seus VMs Azure. Os dados acabarão por deixar de aparecer nas vistas **de Desempenho** e **Mapa.** A opção **Enable** estará disponível a partir do Azure VM selecionado para que possa reativar a monitorização no futuro.  
 
 ## <a name="remove-azure-monitor-for-vms-completely"></a>Remova completamente o Monitor Azure para VMs
 
-Se ainda necessitar do espaço de trabalho Log Analytics, siga estes passos para remover completamente o Monitor Azure para VMs. Removerá as soluções `InfrastructureInsights` e `ServiceMap` do espaço de trabalho.  
+Se ainda necessitar do espaço de trabalho Log Analytics, siga estes passos para remover completamente o Monitor Azure para VMs. Removerá a `VMInsights` solução do espaço de trabalho.  
 
->[!NOTE]
->Se utilizou a solução de monitorização do Mapa de Serviço antes de ativar o Monitor Azure para VMs e ainda contar com ela, não remova essa solução como descrito no último passo do procedimento seguinte.  
->
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra sugestões com base na sua entrada. Selecione **Log Analytics**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra sugestões com base na sua entrada. Selecione **Log Analytics**.
 3. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que escolheu quando ativou o Monitor Azure para VMs.
 4. À esquerda, selecione **Soluções**.  
-5. Na lista de soluções, selecione **InfrastructureInsights (nome do espaço de trabalho)** . Na página **'Visão Geral'** para a solução, selecione **Eliminar**. Quando for solicitado a confirmar, selecione **Sim**.  
-6. Na lista de soluções, selecione **ServiceMap (nome do espaço de trabalho)** . Na página **'Visão Geral'** para a solução, selecione **Eliminar**. Quando for solicitado a confirmar, selecione **Sim**.  
-
-Antes de ativar o Monitor Azure para VMs, se não [tiver colecionado contadores](vminsights-enable-overview.md#performance-counters-enabled) de desempenho para os VMs baseados no Windows ou baseados em Linux no seu espaço de trabalho, [desative essas regras](../platform/data-sources-performance-counters.md#configuring-performance-counters) para Windows e para Linux.
+5. Na lista de soluções, selecione **VMInsights (nome do espaço**de trabalho) . Na página **'Visão Geral'** para a solução, selecione **Eliminar**. Quando for solicitado a confirmar, selecione **Sim**.
 
 ## <a name="disable-monitoring-and-keep-the-workspace"></a>Desative a monitorização e mantenha o espaço de trabalho  
 
@@ -63,7 +56,7 @@ Se o seu espaço de trabalho Log Analytics ainda necessitar de suportar a monito
 >
 > Se remover o agente Log Analytics, evitará que esses serviços e soluções gerem proativamente o seu VM. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 2. No portal Azure, selecione **Máquinas Virtuais**. 
 3. Na lista, selecione uma VM. 
 4. À esquerda, selecione **Extensões**. Na página **Extensões,** selecione **DependencyAgent**.

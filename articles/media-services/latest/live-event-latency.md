@@ -1,5 +1,5 @@
 ---
-title: LiveEvent baixa latência nos Serviços De Mídia Azure  Microsoft Docs
+title: LiveEvent baixa latência nos Serviços De Mídia Azure [ Microsoft Docs
 description: Este tópico dá uma visão geral das definições de baixa latência do LiveEvent e mostra como definir baixa latência.
 services: media-services
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
 ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199653"
 ---
 # <a name="live-event-low-latency-settings"></a>Definições de baixa latência do Evento Ao Vivo
@@ -27,7 +27,7 @@ Este artigo mostra como definir baixa latência num [Evento Ao Vivo.](https://do
 Para utilizar a nova funcionalidade **LowLatency,** desloque a **StreamOptionsFlag** para **LowLatency** no **LiveEvent**. Ao criar [liveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reprodução HLS, coloque [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) a 1. Uma vez que o fluxo esteja em funcionamento, pode utilizar o [Azure Media Player](https://ampdemo.azureedge.net/) (página de demonstração AMP), e definir as opções de reprodução para utilizar o "Perfil heurístico de baixa latência".
 
 > [!NOTE]
-> Atualmente, o LowLatency HeuristicProfile in Azure Media Player foi concebido para reproduzir streams no protocolo MPEG-DASH, com formato CSF ou CMAF (por exemplo, `format=mdp-time-csf` ou `format=mdp-time-cmaf`). 
+> Atualmente, o LowLatency HeuristicProfile in Azure Media Player foi concebido para reproduzir streams no protocolo MPEG-DASH, `format=mdp-time-csf` `format=mdp-time-cmaf`com formato CSF ou CMAF (por exemplo, ou ). 
 
 O exemplo a seguir .NET mostra como definir **LowLatency** no **LiveEvent**:
 

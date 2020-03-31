@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840643"
 ---
-# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualize os registos de fluxo NSG do Observador de Rede Azure utilizando ferramentas de código aberto
+# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos do fluxo do NSG do Observador de Rede do Azure com ferramentas open-source
 
 Os registos de fluxo do Grupo de Segurança da Rede fornecem informações que podem ser usadas, compreendem o tráfego IP em Grupos de Segurança da Rede. Estes registos de fluxo mostram fluxos de saída e de entrada por regra, o NIC a que o fluxo se aplica, 5 informações de tuple sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
 
@@ -44,7 +44,7 @@ Ao ligar os registos de fluxo nsg com a Stack Elástica, podemos criar um dashbo
 
 #### <a name="install-elasticsearch"></a>Instalar pesquisa elástica
 
-1. A Stack Elástica da versão 5.0 e acima requer Java 8. Execute o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suppored Azure](https://aka.ms/azure-jdks).
+1. A Stack Elástica da versão 5.0 e acima requer Java 8. Execute `java -version` o comando para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suppored Azure](https://aka.ms/azure-jdks).
 2. Descarregue o pacote binário correto para o seu sistema:
 
    ```bash
@@ -191,7 +191,7 @@ Para mais informações sobre este plugin, consulte a [documentação](https://g
    ./bin/kibana
    ```
 
-3. Para ver a sua interface web kibana, navegue para `http://localhost:5601`
+3. Para ver a sua interface web Kibana, navegue para`http://localhost:5601`
 4. Para este cenário, o padrão de índice utilizado para os registos de fluxo é "nsg-flow-logs". Pode alterar o padrão de índice na secção "output" do seu ficheiro logstash.conf.
 5. Se quiser ver o dashboard kibana remotamente, crie uma regra NSG de entrada que permita o acesso à **porta 5601**.
 

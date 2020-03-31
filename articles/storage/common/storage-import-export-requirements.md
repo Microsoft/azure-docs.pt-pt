@@ -1,6 +1,6 @@
 ---
-title: Requisitos para o serviço importar/exportar do Azure | Documentos da Microsoft
-description: Compreenda os requisitos de software e hardware para o serviço importar/exportar do Azure.
+title: Requisitos para o serviço de importação/exportação azure [ Microsoft Docs
+description: Compreenda os requisitos de software e hardware para o serviço De Importação/Exportação Azure.
 author: alkohli
 services: storage
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255317"
 ---
-# <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
+# <a name="azure-importexport-system-requirements"></a>Requisitos do sistema do sistema Importar/Exportar do Microsoft Azure
 
-Este artigo descreve os requisitos importantes para o seu serviço importar/exportar do Azure. Recomendamos que reveja as informações cuidadosamente antes de utilizar o serviço importar/exportar e, em seguida, regressar à mesma conforme necessário durante a operação.
+Este artigo descreve os requisitos importantes para o seu serviço de importação/exportação Azure. Recomendamos que reveja cuidadosamente as informações antes de utilizar o serviço de importação/exportação e, em seguida, remeta-a conforme necessário durante a operação.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -26,10 +26,10 @@ Para preparar os discos rígidos utilizando a ferramenta WAImportExport, são su
 
 |Plataforma |Versão |
 |---------|---------|
-|Windows     | O Windows 7 Enterprise, Windows 7 Ultimate <br> O Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
-|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
-## <a name="other-required-software-for-windows-client"></a>Outro software necessário para o cliente do Windows
+## <a name="other-required-software-for-windows-client"></a>Outro software necessário para cliente Windows
 
 |Plataforma |Versão |
 |---------|---------|
@@ -39,7 +39,7 @@ Para preparar os discos rígidos utilizando a ferramenta WAImportExport, são su
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
-O serviço importar/exportar do Azure suporta os seguintes tipos de contas de armazenamento:
+O serviço azure import/exportação suporta os seguintes tipos de contas de armazenamento:
 
 - Contas de armazenamento Padrão General Purpose v2 (recomendadas para a maioria dos cenários)
 - Contas de Armazenamento de blobs
@@ -47,25 +47,25 @@ O serviço importar/exportar do Azure suporta os seguintes tipos de contas de ar
 
 Para obter mais informações sobre contas de armazenamento, consulte a visão geral das contas de [armazenamento do Azure.](storage-account-overview.md)
 
-Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre a criação de uma nova conta de armazenamento, consulte [Como Criar uma Conta de Armazenamento](storage-account-create.md).
+Cada trabalho pode ser utilizado para transferir dados para ou a partir de apenas uma conta de armazenamento. Por outras palavras, um único trabalho de importação/exportação não pode abranger várias contas de armazenamento. Para obter informações sobre a criação de uma nova conta de armazenamento, consulte [Como Criar uma Conta de Armazenamento](storage-account-create.md).
 
 > [!IMPORTANT]
-> O serviço de exportação de importações azure não suporta contas de armazenamento onde o [serviço de rede virtual Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) funcionalidade foi ativado. 
+> O serviço de exportação de importações azure não suporta contas de armazenamento onde a funcionalidade [Final points](../../virtual-network/virtual-network-service-endpoints-overview.md) do Serviço de Rede Virtual foi ativada. 
 
-## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
+## <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
-A seguinte lista de tipos de armazenamento é suportada com o serviço importar/exportar do Azure.
+A seguinte lista de tipos de armazenamento é suportada com o serviço azure import/exportação.
 
 
-|Tarefa  |Serviço de armazenamento |Suportado  |Não suportado  |
+|Tarefa  |Serviço de Armazenamento |Suportado  |Não suportado  |
 |---------|---------|---------|---------|
-|Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de ficheiros do Azure       | Blobs de página e Blobs de blocos suportados <br><br> Ficheiros suportados          |
-|Exportar     |   Armazenamento de Blobs do Azure       | Os blobs de blocos, blobs de páginas e blobs de acréscimo suportados         | Ficheiros do Azure não suportados
+|Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de Ficheiros do Azure       | Bloco blobs e blocos de página suportados <br><br> Ficheiros suportados          |
+|Exportar     |   Armazenamento de Blobs do Azure       | Blocos de bolhas, bolhas de página e bolhas de apêndice suportados         | Ficheiros Azure não suportados
 
 
 ## <a name="supported-hardware"></a>Hardware suportado
 
-Para o serviço importar/exportar do Azure, terá de discos suportados para copiar dados.
+Para o serviço azure import/exportação, precisa de discos suportados para copiar dados.
 
 ### <a name="supported-disks"></a>Discos suportados
 
@@ -74,25 +74,25 @@ A seguinte lista de discos é suportada para utilização com o serviço de impo
 
 |Tipo de disco  |Tamanho  |Suportado |
 |---------|---------|---------|
-|SSD    |   2,5"      |SATA III          |
-|HDD     |  2,5"<br>3.5"       |SATA II, SATA III         |
+|SSD    |   2.5"      |SATA III          |
+|HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
 
 Os seguintes tipos de disco não são suportados:
 - USBs.
 - HDD externo com adaptador USB incorporado.
 - Discos que estão dentro do invólucro de um HDD externo.
 
-Uma tarefa de importação/exportação única pode ter:
+Um único trabalho de importação/exportação pode ter:
 - Um máximo de 10 HDD/SSDs.
-- Uma combinação de HDD/SSD de qualquer tamanho.
+- Uma mistura de HDD/SSD de qualquer tamanho.
 
-Grande número de unidades de serem distribuído por várias tarefas e não sem limites no número de tarefas que podem ser criadas. Para tarefas de importação, apenas o primeiro volume de dados na unidade é processado. O volume de dados deve ser formatado com NTFS.
+Um grande número de unidades pode ser distribuída por vários postos de trabalho e não há limites para o número de postos de trabalho que podem ser criados. No que diz matéria de empregos importados, apenas o primeiro volume de dados da unidade é tratado. O volume de dados deve ser formatado com NTFS.
 
-Quando preparar unidades de disco rígido e copiar os dados usando a ferramenta de WAImportExport, pode utilizar adaptadores USB externas. Mais prontas para utilização USB 3.0 ou posteriores adaptadores devem funcionar.
+Ao preparar discos rígidos e copiar os dados utilizando a ferramenta WAImportExport, pode utilizar adaptadores USB externos. A maioria dos adaptadores USB 3.0 ou posteriores devem funcionar.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
-* [Transferir dados com o utilitário de linha de comandos AzCopy](storage-use-azcopy.md)
+* [Transferir dados com o utilitário da linha de comando AzCopy](storage-use-azcopy.md)
 * [Amostra de API de exportação de importação de azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78305018"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059947"
 ---
-## <a name="rootcert"></a>Criar um certificado de raiz auto-assinado
+## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Criar um certificado de raiz auto-assinado
 
 Utilize o cmdlet New Self-SignedCertificate para criar um certificado de raiz auto-assinado. Para obter informações adicionais sobre parâmetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -30,7 +30,7 @@ Utilize o cmdlet New Self-SignedCertificate para criar um certificado de raiz au
    ```
  3. Deixe a consola PowerShell aberta se quiser criar um certificado de cliente logo após a criação deste certificado de raiz.
 
-## <a name="clientcert"></a>Gerar um certificado de cliente
+## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Gerar um certificado de cliente
 
 Cada computador cliente que se ligue uma VNet por Ponto a Site tem de ter um certificado de cliente instalado. Gera um certificado de cliente a partir do certificado raiz auto-assinado e depois exporta e instala o certificado de cliente. Se o certificado de cliente não estiver instalado, a autenticação falha. 
 
@@ -52,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Exemplo 2 - Nova sessão de consola PowerShell
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Exemplo 2 - Nova sessão de consola PowerShell
 
 Se estiver a criar certificados adicionais de cliente, ou se não estiver a utilizar a mesma sessão PowerShell que usou para criar o seu certificado raiz auto-assinado, utilize os seguintes passos:
 
@@ -90,7 +90,7 @@ Se estiver a criar certificados adicionais de cliente, ou se não estiver a util
    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
    ```
 
-## <a name="cer"></a>Exportar a chave pública do certificado de raiz (.cer)
+## <a name="export-the-root-certificate-public-key-cer"></a><a name="cer"></a>Exportar a chave pública do certificado de raiz (.cer)
 
 [!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
 
@@ -98,6 +98,6 @@ Se estiver a criar certificados adicionais de cliente, ou se não estiver a util
 
 Pode querer exportar o certificado de raiz auto-assinado e armazená-lo com segurança como cópia de segurança. Se necessário, pode posteriormente instalá-lo noutro computador e gerar mais certificados de cliente. Para exportar o certificado de raiz auto-assinado como .pfx, selecione o certificado de raiz e utilize os mesmos passos descritos na [Exportação de um certificado](#clientexport)de cliente .
 
-## <a name="clientexport"></a>Exportar o certificado de cliente
+## <a name="export-the-client-certificate"></a><a name="clientexport"></a>Exportar o certificado de cliente
 
 [!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]

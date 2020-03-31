@@ -9,22 +9,22 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270034"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Ligue uma loja de conhecimentos com o Power BI
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
+> A loja de conhecimento está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure . A [versão REST API 2019-05-06-Preview](search-api-preview.md) fornece funcionalidades de pré-visualização. Existe atualmente um suporte de portal limitado e nenhum suporte sdk .NET.
 
 Neste artigo, aprenda a conectar-se e explore uma loja de conhecimentos usando power query na aplicação Power BI Desktop. Você pode começar mais rápido com modelos, ou construir um dashboard personalizado de raiz.
 
 + Siga os passos na [Create a knowledge store no portal Azure](knowledge-store-create-portal.md) ou Crie uma loja de conhecimentos de Pesquisa Cognitiva [Azure utilizando](knowledge-store-create-rest.md) o REST para criar a loja de conhecimento de amostras utilizada nesta passagem. Também necessitará do nome da conta De armazenamento Azure que usou para criar a loja de conhecimentos, juntamente com a sua chave de acesso a partir do portal Azure.
 
-+ [Instalar o Ambiente de Trabalho power BI](https://powerbi.microsoft.com/downloads/)
++ [Instalar o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo de Sample Power BI - apenas portal Azure
 
@@ -108,7 +108,7 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](htt
 
 ## <a name="clean-up"></a>Limpeza
 
-Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 
@@ -119,4 +119,4 @@ Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a tr
 Para aprender a explorar esta loja de conhecimento usando o Storage Explorer, consulte o seguinte artigo.
 
 > [!div class="nextstepaction"]
-> [Vista com Explorador de Armazenamento](knowledge-store-view-storage-explorer.md)
+> [Ver com o Explorador de Armazenamento](knowledge-store-view-storage-explorer.md)

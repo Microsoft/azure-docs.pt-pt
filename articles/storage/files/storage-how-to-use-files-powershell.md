@@ -8,22 +8,22 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77598549"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: Criar e gerir uma partilha de ficheiros do Azure com o Azure PowerShell 
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com o PowerShell. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se quiser instalar e utilizar o PowerShell localmente, este guia requer o módulo Azure PowerShell a versão Az 0.7 ou posterior. Para saber qual é a versão do módulo do Azure PowerShell que está a executar, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar o PowerShell localmente, também terá de executar `Login-AzAccount` para iniciar sessão na sua conta do Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Se ainda não tiver um grupo de recursos Azure, pode criar um novo com o cmdlet [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) 
 
 O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na região oeste dos EUA 2:
@@ -37,10 +37,10 @@ New-AzResourceGroup `
     -Location $region | Out-Null
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 Uma conta de armazenamento é um conjunto partilhado de armazenamento que pode usar para implementar ações de ficheiros Azure. Uma conta de armazenamento pode conter um número ilimitado de partilhas e uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento. Este exemplo cria uma versão geral da versão 2 (conta de armazenamento GPv2), que pode armazenar ações padrão de ficheiros Azure ou outros recursos de armazenamento, tais como bolhas ou filas, em meios de rotação de disco rígido (HDD). O Azure Files também suporta discos de estado sólido premium (SSDs); as ações de ficheiro saqueadas premium Azure podem ser criadas em contas de armazenamento de FileStorage.
 
-Este exemplo cria uma conta de armazenamento utilizando o cmdlet [New-AzStorageAccount.](/powershell/module/az.storage/new-azstorageaccount) A conta de armazenamento é nomeada *mystorageaccount\<número aleatório>* e uma referência a essa conta de armazenamento é armazenada na **variável $storageAcct**. Os nomes de contas de armazenamento têm de ser exclusivos, por isso, utilize `Get-Random` para anexar um número ao nome e torná-lo exclusivo. 
+Este exemplo cria uma conta de armazenamento utilizando o cmdlet [New-AzStorageAccount.](/powershell/module/az.storage/new-azstorageaccount) A conta de armazenamento é nomeada *número\<de armazenamento aleatório>* e uma referência a essa conta de armazenamento é armazenada na **variável $storageAcct**. Os nomes de contas de armazenamento têm de ser exclusivos, por isso, utilize `Get-Random` para anexar um número ao nome e torná-lo exclusivo. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -55,7 +55,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 > [!Note]  
-> As ações superiores a 5 TiB (até um máximo de 100 TiB por ação) só estão disponíveis em contas de armazenamento redundantes localmente redundantes (LRS) e zonas redundantes (ZRS). Para criar uma conta de armazenamento geo-redundante (GRS) ou geozona-redundante (GZRS), remova o parâmetro `-EnableLargeFileShare`.
+> As ações superiores a 5 TiB (até um máximo de 100 TiB por ação) só estão disponíveis em contas de armazenamento redundantes localmente redundantes (LRS) e zonas redundantes (ZRS). Para criar uma conta de armazenamento geo-redundante (GRS) ou geozona-redundante (GZRS), remova o `-EnableLargeFileShare` parâmetro.
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Agora, pode criar a sua primeira partilha de ficheiros do Azure. Pode criar uma partilha de ficheiros utilizando o cmdlet [New-AzRmStorageShare.](/powershell/module/az.storage/New-AzRmStorageShare) Este exemplo cria uma partilha com o nome `myshare`.
@@ -88,7 +88,7 @@ Na maioria dos casos, irá utilizar a partilha de ficheiros do Azure através do
 - Se estiver a tirar partido de recursos sem servidor, como o serviço [Funções do Azure](../../azure-functions/functions-overview.md). 
 - Está a criar um serviço de valor acrescentado que irá interagir com muitas partilhas de ficheiros Azure, tais como a realização de backups ou antivírus.
 
-Os exemplos seguintes mostram como usar o módulo Azure PowerShell para manipular a sua partilha de ficheiros Azure com o protocolo File REST. O parâmetro `-Context` é utilizado para recuperar a chave da conta de armazenamento para executar as ações indicadas contra a parte do ficheiro. Para recuperar a chave da conta de armazenamento, deve ter o papel RBAC de `Owner` na conta de armazenamento.
+Os exemplos seguintes mostram como usar o módulo Azure PowerShell para manipular a sua partilha de ficheiros Azure com o protocolo File REST. O `-Context` parâmetro é utilizado para recuperar a chave da conta de armazenamento para executar as ações indicadas contra a parte do ficheiro. Para recuperar a chave da conta de armazenamento, deve ter o papel RBAC na conta de `Owner` armazenamento.
 
 #### <a name="create-directory"></a>Criar um diretório
 Para criar um novo diretório nomeado *myDirectory* na raiz da sua partilha de ficheiros Azure, use o cmdlet [New-AzStorageDirectory.](/powershell/module/az.storage/New-AzStorageDirectory)
@@ -186,16 +186,16 @@ Get-AzStorageFile `
     -Path "myDirectory2" 
 ```
 
-Embora o `Start-AzStorageFileCopy` cmdlet seja conveniente para movimentos de ficheiros ad hoc entre as partilhas de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos `robocopy` no Windows e `rsync` no macOS e linux. `robocopy` e `rsync` utilizar o SMB para realizar os movimentos de dados em vez da API FileREST.
+Embora `Start-AzStorageFileCopy` o cmdlet seja conveniente para movimentos de ficheiros ad hoc entre as `robocopy` partilhas `rsync` de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos no Windows e no macOS e Linux. `robocopy`e `rsync` utilize o SMB para executar os movimentos de dados em vez da API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Criar e gerir instantâneos de partilha
 Uma tarefa útil adicional que pode fazer com uma partilha de ficheiros do Azure é criar instantâneos de partilha. Um instantâneo preserva um ponto no tempo para uma partilha de ficheiros do Azure. Os instantâneos de partilha são semelhantes às tecnologias de sistema operativo com as quais pode já estar familiarizado, tais como:
 
-- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, como NTFS e ReFS.
+- Serviço de cópia de [sombra de volume (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows tais como NTFS e ReFS.
 - Imagens de Gestor de [Volume Lógico (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux.
 - Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS. 
 
-Pode criar uma imagem de partilha para uma parte utilizando o método `Snapshot` no objeto PowerShell para uma partilha de ficheiros, que é recuperada com o cmdlet [Get-AzStorageShare.](/powershell/module/az.storage/Get-AzStorageShare) 
+Pode criar uma imagem de partilha `Snapshot` para uma parte utilizando o método no objeto PowerShell para uma partilha de ficheiros, que é recuperada com o cmdlet [Get-AzStorageShare.](/powershell/module/az.storage/Get-AzStorageShare) 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
@@ -238,7 +238,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
-Pode eliminar uma fotografia de partilha utilizando o cmdlet [Remove-AzStorageShare,](/powershell/module/az.storage/Remove-AzStorageShare) com a variável que contém a referência `$snapshot` ao parâmetro `-Share`.
+Pode eliminar uma fotografia de partilha utilizando o cmdlet [Remove-AzStorageShare,](/powershell/module/az.storage/Remove-AzStorageShare) com a variável que contém a `$snapshot` referência ao `-Share` parâmetro.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare `

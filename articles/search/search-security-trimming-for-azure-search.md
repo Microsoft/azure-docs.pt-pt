@@ -1,7 +1,7 @@
 ---
-title: Filtros de segurança para os resultados de corte
+title: Filtros de segurança para aparar resultados
 titleSuffix: Azure Cognitive Search
-description: Controle de acesso no Azure Pesquisa Cognitiva conteúdo usando filtros de segurança e identidades de usuário.
+description: Controlo de acesso ao conteúdo da Pesquisa Cognitiva Azure utilizando filtros de segurança e identidades do utilizador.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,40 +9,40 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794269"
 ---
-# <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de segurança para aparar resultados no Azure Pesquisa Cognitiva
+# <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de segurança para aparar resultados em Pesquisa Cognitiva Azure
 
-Você pode aplicar filtros de segurança para cortar os resultados da pesquisa no Azure Pesquisa Cognitiva com base na identidade do usuário. Essa experiência de pesquisa geralmente requer a comparação da identidade de quem solicita a pesquisa em um campo que contém os princípios que têm permissões para o documento. Quando uma correspondência é encontrada, o usuário ou a entidade de segurança (como um grupo ou função) tem acesso a esse documento.
+Pode aplicar filtros de segurança para aparar resultados de pesquisa em Pesquisa Cognitiva Azure com base na identidade do utilizador. Esta experiência de pesquisa geralmente requer comparar a identidade de quem solicita a pesquisa contra um campo que contém os princípios que têm permissões ao documento. Quando uma correspondência é encontrada, o utilizador ou principal (como um grupo ou função) tem acesso a esse documento.
 
-Uma maneira de obter a filtragem de segurança é por meio de uma disjunção complicada de expressões de igualdade: por exemplo, `Id eq 'id1' or Id eq 'id2'`e assim por diante. Essa abordagem é propensa a erros, difícil de manter e, em casos em que a lista contém centenas ou milhares de valores, reduz o tempo de resposta da consulta em muitos segundos. 
+Uma forma de conseguir a filtragem da segurança é através de `Id eq 'id1' or Id eq 'id2'`uma complicada disjunção de expressões de igualdade: por exemplo, e assim por diante. Esta abordagem é propensa a erros, difícil de manter, e nos casos em que a lista contém centenas ou milhares de valores, atrasa o tempo de resposta à consulta em muitos segundos. 
 
-Uma abordagem mais simples e mais rápida é por meio da função `search.in`. Se você usar `search.in(Id, 'id1, id2, ...')` em vez de uma expressão de igualdade, poderá esperar tempos de resposta de subsegundos.
+Uma abordagem mais simples `search.in` e rápida é através da função. Se usar `search.in(Id, 'id1, id2, ...')` em vez de uma expressão de igualdade, pode esperar tempos de resposta sub-segundo.
 
-Este artigo mostra como realizar a filtragem de segurança usando as seguintes etapas:
+Este artigo mostra-lhe como realizar a filtragem de segurança utilizando os seguintes passos:
 > [!div class="checklist"]
-> * Criar um campo que contenha os identificadores de entidade 
-> * Enviar por Push ou atualizar documentos existentes com os identificadores de entidade relevantes
-> * Emitir uma solicitação de pesquisa com `search.in` `filter`
+> * Criar um campo que contenha os principais identificadores 
+> * Empurre ou atualize os documentos existentes com os principais identificadores relevantes
+> * Emitir um pedido `search.in` de pesquisa com`filter`
 
 >[!NOTE]
-> O processo de recuperação de identificadores de entidade de segurança não é abordado neste documento. Você deve obtê-lo do seu provedor de serviços de identidade.
+> O processo de recuperação dos principais identificadores não está abrangido neste documento. Devia sacá-lo ao seu fornecedor de serviços de identidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você tenha uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), o [serviço de pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-create-service-portal)e o [índice de pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+Este artigo assume que tem uma [subscrição Azure,](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)serviço de [Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/search-create-service-portal)e Índice de [Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/search-create-index-portal)  
 
 ## <a name="create-security-field"></a>Criar campo de segurança
 
-Os documentos devem incluir um campo especificando quais grupos têm acesso. Essas informações se tornam os critérios de filtro em relação aos quais os documentos são selecionados ou rejeitados do conjunto de resultados retornados ao emissor.
-Vamos supor que temos um índice de arquivos protegidos, e cada arquivo pode ser acessado por um conjunto diferente de usuários.
-1. Adicionar `group_ids` de campo (você pode escolher qualquer nome aqui) como um `Collection(Edm.String)`. Verifique se o campo tem um atributo `filterable` definido como `true` para que os resultados da pesquisa sejam filtrados com base no acesso que o usuário tem. Por exemplo, se você definir o campo `group_ids` como `["group_id1, group_id2"]` para o documento com `file_name` "secured_file_b", somente os usuários que pertencem a IDs de grupo "group_id1" ou "group_id2" terão acesso de leitura ao arquivo.
-   Verifique se o atributo `retrievable` do campo está definido como `false` para que ele não seja retornado como parte da solicitação de pesquisa.
-2. Além disso, adicione `file_id` e `file_name` campos para fins deste exemplo.  
+Os seus documentos devem incluir um campo que especifique quais os grupos que têm acesso. Estas informações tornam-se os critérios de filtro contra os quais os documentos são selecionados ou rejeitados do conjunto de resultados devolvido ao emitente.
+Vamos assumir que temos um índice de ficheiros protegidos, e cada ficheiro é acessível por um conjunto diferente de utilizadores.
+1. Adicione `group_ids` o campo (pode escolher qualquer `Collection(Edm.String)`nome aqui) como . Certifique-se de `filterable` que o `true` campo tem um atributo definido para que os resultados da pesquisa sejam filtrados com base no acesso que o utilizador tem. Por exemplo, se `group_ids` definir `["group_id1, group_id2"]` o campo `file_name` para o documento com "secured_file_b", apenas os utilizadores que pertencem a ids de grupo "group_id1" ou "group_id2" leram o acesso ao ficheiro.
+   Certifique-se de `retrievable` que o atributo do campo está definido para `false` que não seja devolvido como parte do pedido de pesquisa.
+2. Adicione `file_id` também `file_name` e campos para o bem deste exemplo.  
 
 ```JSON
 {
@@ -55,9 +55,9 @@ Vamos supor que temos um índice de arquivos protegidos, e cada arquivo pode ser
 }
 ```
 
-## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Enviando dados por push para o índice usando a API REST
+## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Empurrando dados para o seu índice usando a API REST
   
-Emita uma solicitação HTTP POST para o ponto de extremidade da URL do índice. O corpo da solicitação HTTP é um objeto JSON que contém os documentos a serem adicionados:
+Emita um pedido HTTP POST ao ponto final do URL do seu índice. O corpo do pedido HTTP é um objeto JSON contendo os documentos a adicionar:
 
 ```
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
@@ -65,7 +65,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-No corpo da solicitação, especifique o conteúdo dos seus documentos:
+No organismo de pedido, especifique o conteúdo dos seus documentos:
 
 ```JSON
 {
@@ -92,7 +92,7 @@ No corpo da solicitação, especifique o conteúdo dos seus documentos:
 }
 ```
 
-Se precisar atualizar um documento existente com a lista de grupos, você poderá usar a ação `merge` ou `mergeOrUpload`:
+Se precisar de atualizar um documento existente com a lista `merge` `mergeOrUpload` de grupos, pode utilizar a ou ação:
 
 ```JSON
 {
@@ -106,16 +106,16 @@ Se precisar atualizar um documento existente com a lista de grupos, você poder�
 }
 ```
 
-Para obter detalhes completos sobre como adicionar ou atualizar documentos, você pode ler [editar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Para mais detalhes sobre a adição ou atualização de documentos, pode ler [documentos editar](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Aplicar o filtro de segurança
 
-Para cortar documentos com base no acesso `group_ids`, você deve emitir uma consulta de pesquisa com um filtro de `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, onde ' group_id1, group_id2,... ' são os grupos aos quais o emissor de solicitação de pesquisa pertence.
-Esse filtro corresponde a todos os documentos para os quais o campo de `group_ids` contém um dos identificadores fornecidos.
-Para obter detalhes completos sobre como pesquisar documentos usando o Azure Pesquisa Cognitiva, você pode ler [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-Observe que este exemplo mostra como pesquisar documentos usando uma solicitação POST.
+Para aparar documentos `group_ids` com base no acesso, deve `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` emitir uma consulta de pesquisa com um filtro, onde "group_id1, group_id2,..." são os grupos a que pertence o emitente de pedido de busca.
+Este filtro corresponde a `group_ids` todos os documentos para os quais o campo contém um dos identificadores dado.
+Para mais detalhes sobre a pesquisa de documentos que utilizam a Pesquisa Cognitiva Azure, pode ler [Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)de Pesquisa .
+Note que esta amostra mostra como pesquisar documentos usando um pedido post.
 
-Emita a solicitação HTTP POST:
+Emissão do pedido HTTP POST:
 
 ```
 POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
@@ -123,7 +123,7 @@ Content-Type: application/json
 api-key: [admin or query key]
 ```
 
-Especifique o filtro no corpo da solicitação:
+Especifique o filtro no organismo de pedido:
 
 ```JSON
 {
@@ -131,7 +131,7 @@ Especifique o filtro no corpo da solicitação:
 }
 ```
 
-Você deve obter os documentos de volta onde `group_ids` contém "group_id1" ou "group_id2". Em outras palavras, você obtém os documentos aos quais o emissor da solicitação tem acesso de leitura.
+Deve reaver os `group_ids` documentos onde contém "group_id1" ou "group_id2". Por outras palavras, obtém-se os documentos a que o emitente de pedido leu o acesso.
 
 ```JSON
 {
@@ -151,10 +151,10 @@ Você deve obter os documentos de volta onde `group_ids` contém "group_id1" ou 
 ```
 ## <a name="conclusion"></a>Conclusão
 
-É assim que você pode filtrar os resultados com base na identidade do usuário e no Azure Pesquisa Cognitiva `search.in()` função. Você pode usar essa função para passar identificadores principais para que o usuário solicitante coincida com os identificadores de entidade de segurança associados a cada documento de destino. Quando uma solicitação de pesquisa é tratada, a função `search.in` filtra os resultados da pesquisa para os quais nenhuma das entidades do usuário tem acesso de leitura. Os identificadores principais podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
+É assim que pode filtrar os resultados `search.in()` com base na identidade do utilizador e na função de Pesquisa Cognitiva Azure. Pode utilizar esta função para passar em identificadores de princípio para o utilizador que solicita coincidir com os principais identificadores associados a cada documento-alvo. Quando um pedido de pesquisa `search.in` é tratado, a função filtra os resultados de pesquisa para os quais nenhum dos principais do utilizador tem acesso lido. Os principais identificadores podem representar coisas como grupos de segurança, papéis ou até mesmo a própria identidade do utilizador.
  
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Active Directory controle de acesso baseado em identidade usando filtros de Pesquisa Cognitiva do Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-+ [Segurança de dados e controle de acesso nas operações de Pesquisa Cognitiva do Azure](search-security-overview.md)
++ [Controlo de acesso baseado na identidade do Diretório Ativo utilizando filtros de pesquisa cognitiva Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
++ [Segurança de dados e controlo de acesso em operações de Pesquisa Cognitiva Azure](search-security-overview.md)

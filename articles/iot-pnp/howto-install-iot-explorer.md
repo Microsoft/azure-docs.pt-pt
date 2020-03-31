@@ -1,127 +1,127 @@
 ---
-title: Instalar e usar o Azure IoT Explorer | Microsoft Docs
-description: Instale a ferramenta do Azure IoT Explorer e use-a para interagir com os dispositivos de visualização de Plug and Play de IoT conectados ao meu Hub IoT.
+title: Instale e utilize o explorador Azure IoT [ Explorador De IoT] Microsoft Docs
+description: Instale a ferramenta de explorador Azure IoT e use-a para interagir com os dispositivos IoT Plug e Play Preview ligados ao meu hub IoT.
 author: miagdp
 ms.author: miag
 ms.date: 12/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529631"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159188"
 ---
-# <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
+# <a name="install-and-use-azure-iot-explorer"></a>Instale e utilize o explorador Azure IoT
 
-O Azure IoT Explorer é uma ferramenta gráfica para interagir com e testar seus dispositivos IoT Plug and Play Preview. Depois de instalar a ferramenta em seu computador local, você pode usá-la para se conectar a um dispositivo. Você pode usar a ferramenta para exibir a telemetria que o dispositivo está enviando, trabalhar com propriedades de dispositivo e chamar comandos.
+O explorador Azure IoT é uma ferramenta gráfica para interagir e testar os seus dispositivos IoT Plug e Play Preview. Depois de instalar a ferramenta na sua máquina local, pode usá-la para se ligar a um dispositivo. Pode utilizar a ferramenta para visualizar a telemetria que o dispositivo está a enviar, trabalhar com propriedades do dispositivo e chamar comandos.
 
 Este artigo mostra-lhe como:
 
-- Instale e configure a ferramenta do Azure IoT Explorer.
-- Use a ferramenta para interagir com e testar seus dispositivos.
+- Instale e configure a ferramenta exploradora Azure IoT.
+- Utilize a ferramenta para interagir e testar os seus dispositivos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar a ferramenta do Azure IoT Explorer, você precisa de:
+Para utilizar a ferramenta exploradora Azure IoT, precisa de:
 
-- Um hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [a criação de um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar a ferramenta do Azure IoT Explorer. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo. Certifique-se de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos seus valores:
+- Um centro Azure IoT. Existem muitas formas de adicionar um hub IoT à sua subscrição Azure, como [criar um hub IoT utilizando o Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de ligação do hub IoT para executar a ferramenta de explorador Azure IoT. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Um dispositivo registado no seu centro de IoT. Pode utilizar o seguinte comando Azure CLI para registar um dispositivo. Certifique-se de `{YourIoTHubName}` `{YourDeviceID}` substituir os espaços reservados e os seus valores:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
 
-## <a name="install-azure-iot-explorer"></a>Instalar o Azure IoT Explorer
+## <a name="install-azure-iot-explorer"></a>Instale explorador Azure IoT
 
-Vá para [versões do Azure IOT Explorer](https://github.com/Azure/azure-iot-explorer/releases) e expanda a lista de ativos para a versão mais recente. Baixe e instale a versão mais recente do aplicativo.
+Vá ao lançamento do [explorador Azure IoT](https://github.com/Azure/azure-iot-explorer/releases) e expanda a lista de ativos para o lançamento mais recente. Descarregue e instale a versão mais recente da aplicação.
 
-## <a name="use-azure-iot-explorer"></a>Usar o Azure IoT Explorer
+## <a name="use-azure-iot-explorer"></a>Use explorador Azure IoT
 
-Para um dispositivo, você pode conectar seu próprio dispositivo ou usar um dos nossos dispositivos simulados de exemplo. Siga [estas instruções](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) para executar o exemplo de dispositivo simulado.
+Para um dispositivo, pode ligar o seu próprio dispositivo ou utilizar um dos nossos dispositivos simulados de amostra. Siga [estas instruções](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) para executar a amostra do dispositivo simulado.
 
-### <a name="connect-to-your-hub"></a>Conectar-se ao seu hub
+### <a name="connect-to-your-hub"></a>Ligue-se ao seu centro
 
-Na primeira vez que você executar o Azure IoT Explorer, sua cadeia de conexão do Hub IoT será solicitada. Depois de adicionar a cadeia de conexão, selecione **conectar**. Você pode usar as configurações da ferramenta para alternar para outro hub IoT atualizando a cadeia de conexão.
+A primeira vez que dirige o explorador Azure IoT, é solicitado para a corda de ligação do seu centro ioT. Depois de adicionar a corda de ligação, selecione **Connect**. Pode utilizar as definições da ferramenta para mudar para outro hub IoT atualizando a cadeia de ligação.
 
-A definição de modelo para um dispositivo de Plug and Play IoT é armazenada no repositório público, em um repositório da empresa ou em seu dispositivo conectado. Por padrão, a ferramenta procura a definição do modelo no repositório de modelo público e seu dispositivo conectado. Você pode adicionar e remover fontes ou configurar a prioridade das fontes em **configurações**:
+A definição de modelo para um dispositivo IoT Plug and Play é armazenada no repositório público, num repositório da empresa ou no seu dispositivo conectado. Por padrão, a ferramenta procura a definição do modelo no repositório de modelos públicos e no seu dispositivo conectado. Pode adicionar e remover fontes, ou configurar a prioridade das fontes em **Definições:**
 
 Para adicionar uma fonte:
 
-1. Aceda a **definições**.
-1. Selecione **novo** e escolha sua fonte.
-1. Se você estiver adicionando o repositório de modelos da empresa, forneça a cadeia de conexão.
+1. Ir para **Definições**.
+1. Selecione **Novo** e escolha a sua fonte.
+1. Se estiver a adicionar o repositório do modelo da empresa, forneça a cadeia de ligação.
 
 Para remover uma fonte:
 
-1. Aceda a **definições**.
-1. Localize a origem que você deseja remover.
-1. Selecione **X** para removê-lo. Não é possível remover o repositório de modelos públicos porque as definições de interface comuns são provenientes desse repositório.
+1. Ir para **Definições**.
+1. Encontre a fonte que pretende remover.
+1. Selecione **X** para removê-lo. Não é possível remover o repositório do modelo público porque as definições comuns de interface vêm deste repositório.
 
 Alterar as prioridades de origem:
 
-Você pode arrastar e soltar uma das fontes de definição de modelo para uma classificação diferente na lista. Se houver um conflito, as fontes de definição com classificações maiores substituirão as fontes pelas classificações mais baixas.
+Pode arrastar e largar uma das fontes de definição do modelo para um ranking diferente na lista. Se houver um conflito, fontes de definição com classificações mais altas sobrepõem-se a fontes com classificações mais baixas.
 
 ### <a name="view-devices"></a>Ver dispositivos
 
-Depois que a ferramenta se conectar ao Hub IoT, ela exibirá a página de lista de **dispositivos** que lista as identidades de dispositivo registradas com o Hub IOT. Você pode expandir qualquer entrada na lista para ver mais informações.
+Depois de a ferramenta se ligar ao seu hub IoT, apresenta a página da lista **de Dispositivos** que lista as identidades do dispositivo registadas com o seu hub IoT. Pode expandir qualquer entrada na lista para ver mais informações.
 
-Na página lista de **dispositivos** , você pode:
+Na página da lista **de Dispositivos** pode:
 
-- Selecione **Adicionar** para registrar um novo dispositivo com o Hub. Em seguida, insira uma ID do dispositivo. Use as configurações padrão para gerar automaticamente chaves de autenticação e habilitar a conexão com o Hub.
-- Selecione um dispositivo e, em seguida, selecione **excluir** para excluir uma identidade de dispositivo. Examine os detalhes do dispositivo antes de concluir esta ação para certificar-se de que você está excluindo a identidade correta do dispositivo.
-- Consulta por `capabilityID` e `interfaceID`. Adicione seu `capabilityID` ou `interfaceID` como um parâmetro para consultar seus dispositivos.
+- Selecione **Adicionar** para registar um novo dispositivo com o seu hub. Em seguida, introduza uma identificação do dispositivo. Utilize as definições predefinidas para gerar automaticamente chaves de autenticação e ativar a ligação ao seu hub.
+- Selecione um dispositivo e, em seguida, selecione **Eliminar** para eliminar uma identidade do dispositivo. Reveja os detalhes do dispositivo antes de completar esta ação para ter a certeza de que está a apagar a identidade do dispositivo certo.
+- Consulta por `capabilityID` `interfaceID`e . Adicione o `capabilityID` `interfaceID` seu ou como parâmetro para consultar os seus dispositivos.
 
-## <a name="interact-with-a-device"></a>Interagir com um dispositivo
+## <a name="interact-with-a-device"></a>Interaja com um dispositivo
 
-Na página lista de **dispositivos** , selecione um valor na coluna **ID do dispositivo** para exibir a página de detalhes do dispositivo registrado. Para cada dispositivo, há duas seções: **dispositivo** e e/ou **digital**.
+Na página da lista **de Dispositivos,** selecione um valor na coluna ID do **Dispositivo** para visualizar a página de detalhes do dispositivo registado. Para cada dispositivo existem duas secções: **Dispositivo** e **Digital Twin**.
 
 ### <a name="device"></a>Dispositivo
 
-Esta seção inclui as guias **identidade do dispositivo**, **dispositivo**/ **telemetria**, **método direto** e **mensagem da nuvem para o dispositivo** .
+Esta secção inclui a Identidade do **Dispositivo,** **Dispositivo Twin,** **Telemetria,** **Método direto** e separadores **de mensagens Cloud-to-device.**
 
-- Você pode exibir e atualizar as informações de [identidade do dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) na guia **identidade do dispositivo** .
-- Você pode acessar as informações de FileUp do [dispositivo](../iot-hub/iot-hub-devguide-device-twins.md) na guia de **dispositivo de entrelaçamento** .
-- Se um dispositivo estiver conectado e enviando dados ativamente, você poderá exibir a [telemetria](../iot-hub/iot-hub-devguide-messages-read-builtin.md) na guia **telemetria** .
-- Você pode chamar um [método direto](../iot-hub/iot-hub-devguide-direct-methods.md) no dispositivo na guia **método direto** .
-- Você pode enviar uma [mensagem da nuvem para o dispositivo](../iot-hub/iot-hub-devguide-messages-c2d.md) na guia **mensagens da nuvem para o dispositivo** .
+- Pode visualizar e atualizar as informações de identidade do [dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) no separador **de identidade do Dispositivo.**
+- Pode aceder à informação [de dois dispositivos](../iot-hub/iot-hub-devguide-device-twins.md) no separador **Device Twin.**
+- Se um dispositivo estiver ligado e enviar dados ativamente, pode ver a [telemetria](../iot-hub/iot-hub-devguide-messages-read-builtin.md) no separador **Telemetria.**
+- Pode ligar para um [método direto](../iot-hub/iot-hub-devguide-direct-methods.md) no separador método **Direct.**
+- Pode enviar uma [mensagem cloud-to-device](../iot-hub/iot-hub-devguide-messages-c2d.md) no separador de **mensagens Cloud-to-device.**
 
-### <a name="digital-twin"></a>Entrelaçar digital
+### <a name="digital-twin"></a>Gémeo digital
 
-Você pode usar a ferramenta para exibir a instância de cópia digital do dispositivo. Para um dispositivo de Plug and Play IoT, todas as interfaces associadas ao modelo de capacidade de dispositivo são exibidas nesta seção da ferramenta. Selecione uma interface para expandir seus [primitivos de plug and Play IOT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)correspondentes.
+Pode utilizar a ferramenta para visualizar a instância dupla digital do dispositivo. Para um dispositivo IoT Plug and Play, todas as interfaces associadas ao modelo de capacidade do dispositivo são apresentadas nesta secção da ferramenta. Selecione uma interface para expandir os seus [primitivos ioT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)plug e play correspondentes .
 
 ### <a name="interface"></a>Interface
 
-Na página **interface** , você pode exibir a definição de JSON da interface.
+Na página **Interface,** pode ver a definição JSON da interface.
 
 #### <a name="properties"></a>Propriedades
 
-Você pode exibir as propriedades somente leitura definidas em uma interface na página de **Propriedades não gravável** . Você pode atualizar as propriedades graváveis definidas em uma interface na página de **Propriedades graváveis** :
+Pode visualizar as propriedades apenas para leitura definidas numa interface na página de **propriedades não reembolsáveis.** Pode atualizar as propriedades reempreensíveis definidas numa interface na página **de propriedades Writeable:**
 
-1. Vá para a página de **Propriedades graváveis** .
-1. Clique na propriedade que você deseja atualizar.
-1. Insira o novo valor para a propriedade.
-1. Visualize o conteúdo a ser enviado para o dispositivo.
-1. Envie a alteração.
+1. Vá à página de **propriedades writáveis.**
+1. Clique na propriedade que gostaria de atualizar.
+1. Insira o novo valor para o imóvel.
+1. Pré-visualizar a carga útil a enviar para o dispositivo.
+1. Submeta a alteração.
 
-Depois de enviar uma alteração, você pode acompanhar o status da atualização: **sincronização**, **êxito**ou **erro**. Quando a sincronização estiver concluída, você verá o novo valor da propriedade na coluna **Propriedade relatada** . Se você navegar para outras páginas antes de a sincronização ser concluída, a ferramenta ainda o notificará quando a atualização for concluída. Você também pode usar o centro de notificações da ferramenta para ver o histórico de notificações.
+Depois de submeter uma alteração, pode rastrear o estado da atualização: **sincronização,** **sucesso,** ou **erro**. Quando a sincronização estiver completa, você vê o novo valor da sua propriedade na coluna **Propriedade Reportada.** Se navegar para outras páginas antes de o sintetizador estar completo, a ferramenta ainda o notifica quando a atualização estiver completa. Também pode utilizar o centro de notificação da ferramenta para ver o histórico de notificações.
 
 #### <a name="commands"></a>Comandos
 
-Para enviar um comando para um dispositivo, vá para a página **comandos** :
+Para enviar um comando para um dispositivo, vá à página **comandos:**
 
-1. Na lista de comandos, expanda o comando que você deseja disparar.
-1. Insira os valores necessários para o comando.
-1. Visualize o conteúdo a ser enviado para o dispositivo.
-1. Envie o comando.
+1. Na lista de comandos, expanda o comando que quer desencadear.
+1. Introduza os valores necessários para o comando.
+1. Pré-visualizar a carga útil a enviar para o dispositivo.
+1. Submeta o comando.
 
 #### <a name="telemetry"></a>Telemetria
 
-Para exibir a telemetria da interface selecionada, acesse sua página de **telemetria** .
+Para ver a telemetria para a interface selecionada, vá à sua página de **Telemetria.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo de instruções, você aprendeu a instalar e usar o Azure IoT Explorer para interagir com seus dispositivos de Plug and Play de IoT. Uma próxima etapa sugerida é aprender a [instalar e usar a extensão CLI do Azure](./howto-install-pnp-cli.md).
+Neste artigo de como fazer, aprendeu a instalar e utilizar o explorador Azure IoT para interagir com os seus dispositivos IoT Plug and Play. Um próximo passo sugerido é aprender a instalar e utilizar a [extensão Azure CLI](./howto-install-pnp-cli.md).

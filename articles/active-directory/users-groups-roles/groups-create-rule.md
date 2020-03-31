@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266380"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Diretório Ativo do Azure
@@ -35,7 +35,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 - Governar com mais de cinco expressões
 - A regra dos relatórios diretos
 - Definição da [precedência do operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) por exemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) Por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Pode ver uma mensagem quando o construtor de regras não é capaz de exibir a regra. O construtor de regras não altera de forma alguma a sintaxe suportada, validação ou processamento de regras dinâmicas do grupo.

@@ -10,10 +10,10 @@ ms.custom:
 - mvc
 - subject-armqs
 ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79126377"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Quickstart: Implementação automática de VM com configuração de aplicativos e modelo de gestor de recursos
@@ -28,20 +28,20 @@ Utiliza o modelo pré-requisito para criar uma loja de configuração de aplica�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/)
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
 * Este arranque rápido requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada no computador local. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se na sua subscrição Azure com o comando `Connect-AzAccount` e introduza as suas credenciais Azure no navegador pop-up:
+Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` comando e insira as suas credenciais Azure no navegador pop-up:
 
 ```azurepowershell-interactive
 # Connect to your Azure account
 Connect-AzAccount
 ```
 
-Se tiver mais de uma subscrição, selecione a subscrição que deseja utilizar para este arranque rápido executando os seguintes cmdlets. Não se esqueça de substituir `<your subscription name>` pelo nome da sua subscrição:
+Se tiver mais de uma subscrição, selecione a subscrição que deseja utilizar para este arranque rápido executando os seguintes cmdlets. Não se esqueça `<your subscription name>` de substituir pelo nome da sua subscrição:
 
 ```azurepowershell-interactive
 # List all available subscriptions.
@@ -51,7 +51,7 @@ Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubscription
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -138,9 +138,9 @@ Pode criar uma loja de configuração de aplicações utilizando um modelo de Ge
 
 1. Assim que a implementação estiver concluída, navegue para a recém-criada loja de configuração de aplicações no [portal Azure](https://portal.azure.com).
 
-1. Selecione **Definições** > **Teclas**de acesso . Tome nota da cadeia de ligação principal de leitura. Mais tarde, utilizará esta cadeia de ligação para configurar a sua aplicação para comunicar com a loja de configuração de aplicações que criou.
+1. Selecione **Definições** > **De acesso .** Tome nota da cadeia de ligação principal de leitura. Mais tarde, utilizará esta cadeia de ligação para configurar a sua aplicação para comunicar com a loja de configuração de aplicações que criou.
 
-1. Selecione O **Explorador** de Configuração > **Criar** para adicionar os seguintes pares de valor-chave:
+1. Selecione Configuração **Explorer** > **Criar** para adicionar os seguintes pares de valor-chave:
 
    |Chave|Valor|
    |-|-|

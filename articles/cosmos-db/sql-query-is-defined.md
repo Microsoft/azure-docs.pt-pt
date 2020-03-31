@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a5fcaf52d8e9e6b942a95f0b0c43f3f654c5d5d2
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303856"
 ---
 # <a name="is_defined-azure-cosmos-db"></a>IS_DEFINED (Azure Cosmos DB)
- Devolve um valor booleano que indica se a propriedade foi atribuída um valor.  
+ Devolve uma Boolean indicando se a propriedade foi atribuída um valor.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ IS_DEFINED(<expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte verifica a presença de uma propriedade dentro do documento JSON especificado. O primeiro método retorna true, uma vez que "a" está presente, mas o segundo devolve false, uma vez que "b" está ausente.  
+  Verifica-se o seguinte exemplo da presença de um imóvel dentro do documento Específico JSON. O primeiro regressa verdadeiro desde que "A" está presente, mas o segundo retorna falso uma vez que "b" está ausente.  
   
 ```sql
 SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isDefined2 

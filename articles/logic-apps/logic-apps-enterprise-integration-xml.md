@@ -1,6 +1,6 @@
 ---
-title: Mensagens XML e arquivos simples
-description: Processar, validar e transformar mensagens XML em aplicativos lógicos do Azure com o Enterprise Integration Pack
+title: Mensagens XML e ficheiros planos
+description: Processar, validar e transformar mensagens XML em Aplicações Lógicas Azure com Pacote de Integração Empresarial
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,32 +9,32 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2017
 ms.openlocfilehash: 3cb3472572abbd891f8d36ea036b371c1224f38c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792145"
 ---
-# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e arquivos simples em aplicativos lógicos do Azure com Enterprise Integration Pack
+# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e ficheiros planos em Aplicativos Lógica Azure com Pacote de Integração Empresarial
 
-Em [aplicativos lógicos do Azure](logic-apps-overview.md), você pode processar mensagens XML que você envia e recebe usando o Enterprise Integration Pack. Se você usou BizTalk Server, o Enterprise Integration Pack fornece recursos semelhantes para transformar e validar mensagens, trabalhar com arquivos simples e até mesmo usar o XPath para enriquecer ou extrair propriedades específicas de uma mensagem. Se você não estiver familiarizado com esse espaço, esses recursos expandirão como você processa as mensagens no fluxo de trabalho do aplicativo lógico. Por exemplo, se você tiver um cenário B2B (entre empresas) e trabalhar com esquemas XML específicos, poderá usar o Enterprise Integration Pack para aprimorar a forma como sua empresa processa essas mensagens.
+Nas [Aplicações Lógicas Azure,](logic-apps-overview.md)pode processar mensagens XML que envia e recebe utilizando o Pacote de Integração Empresarial. Se utilizou o BizTalk Server, o Enterprise Integration Pack fornece capacidades semelhantes para transformar e validar mensagens, trabalhar com ficheiros planos e até usar o XPath para enriquecer ou extrair propriedades específicas de uma mensagem. Se você é novo neste espaço, estas funcionalidades expandem a forma como processa mensagens no fluxo de trabalho da sua aplicação lógica. Por exemplo, se tiver um cenário de negócio-a-negócio (B2B) e trabalhar com esquemas específicos de XML, pode usar o Enterprise Integration Pack para melhorar a forma como a sua empresa processa estas mensagens.
 
-Por exemplo, a Enterprise Integration Pack inclui estes recursos:
+Por exemplo, o Pacote de Integração Empresarial inclui estas capacidades:
 
-* [Validação de XML](logic-apps-enterprise-integration-xml-validation.md): valide uma mensagem XML de entrada ou de saída em um esquema específico.
+* [Validação XML](logic-apps-enterprise-integration-xml-validation.md): Validar uma mensagem XML recebida ou externa contra um esquema específico.
 
-* [Transformação XML](logic-apps-enterprise-integration-transform.md): Converta ou personalize uma mensagem XML com base em seus requisitos ou nos requisitos de um parceiro usando mapas.
+* [Transformação XML](logic-apps-enterprise-integration-transform.md): Converter ou personalizar uma mensagem XML com base nos seus requisitos ou nos requisitos de um parceiro utilizando mapas.
 
-* [Codificação de arquivo simples e decodificação de arquivo simples](logic-apps-enterprise-integration-flatfile.md): codificar ou decodificar um arquivo simples.
+* [Codificação de ficheiros planos e descodificação](logic-apps-enterprise-integration-flatfile.md)de ficheiros planos: Codificar ou descodificar um ficheiro plano.
 
-  Por exemplo, o SAP aceita e envia arquivos IDOC em formato de arquivo simples. Muitas plataformas de integração criam mensagens XML, incluindo aplicativos lógicos. Portanto, você pode criar um aplicativo lógico que usa o codificador de arquivo simples para "converter" arquivos XML em arquivos simples.
+  Por exemplo, o SAP aceita e envia ficheiros IDOC em formato de ficheiro plano. Muitas plataformas de integração criam mensagens XML, incluindo Aplicações Lógicas. Assim, pode criar uma aplicação lógica que utiliza o codificador de ficheiros planos para "converter" ficheiros XML em ficheiros planos.
 
-* [XPath](workflow-definition-language-functions-reference.md#xpath): enriquecer uma mensagem e extrair propriedades específicas da mensagem. Você pode usar as propriedades extraídas para rotear a mensagem para um destino ou um ponto de extremidade intermediário.
+* [XPath](workflow-definition-language-functions-reference.md#xpath): Enriqueça uma mensagem e extrai propriedades específicas da mensagem. Em seguida, pode utilizar as propriedades extraídas para encaminhar a mensagem para um destino, ou um ponto final intermediário.
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 
-[Implante um aplicativo lógico totalmente operacional](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (exemplo do GitHub) usando os recursos XML nos aplicativos lógicos do Azure.
+[Implemente uma aplicação lógica totalmente operacional](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (amostra GitHub) utilizando as funcionalidades XML em Aplicações Lógicas Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+Saiba mais sobre o [Pacote de Integração Empresarial](logic-apps-enterprise-integration-overview.md)

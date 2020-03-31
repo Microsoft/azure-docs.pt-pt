@@ -4,10 +4,10 @@ description: Saiba como apoiar as ações de ficheiros azure no cofre dos Servi�
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78386723"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a cópia de segurança de partilha de ficheiros Azure

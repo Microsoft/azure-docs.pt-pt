@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254745"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utilize o serviço StorSimple Device Manager para monitorizar componentes de hardware e estado
@@ -47,7 +47,7 @@ Um dispositivo 8600 tem componentes adicionais que correspondem ao recinto exten
 ## <a name="monitor-the-hardware-status"></a>Monitorize o estado do hardware
 Execute os seguintes passos para visualizar o estado do hardware de um componente do dispositivo:
 
-1. Navegue para **Dispositivos,** selecione um dispositivo StorSimple específico. Vá ao **Monitor > Saúde de Hardware.**
+1. Navegue para **Dispositivos,** selecione um dispositivo StorSimple específico. Vá para monitor > saúde de **hardware.**
 
     ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
@@ -81,30 +81,30 @@ A tabela seguinte descreve os componentes físicos e lógicos contidos no recint
 
 | Componente | Módulo | Tipo | Localização | Unidade substituível de campo (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| Unidade na ranhura [0-11] |Unidades de Disco |Físico |Partilhada |Sim |Uma linha é apresentada para cada uma das unidades SSD ou HDD no recinto primário. |
-| Sensor de temperatura ambiente |Recinto |Físico |Partilhada |Não |Mede a temperatura dentro do chassis. |
-| Sensor de temperatura a meio do avião |Recinto |Físico |Partilhada |Não |Mede a temperatura do meio do avião. |
-| Alarme sonoro |Recinto |Físico |Partilhada |Não |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
-| Recinto |Recinto |Físico |Partilhada |Sim |Indica a presença de um chassis. |
-| Definições de recinto |Recinto |Físico |Partilhada |Não |Refere-se ao painel frontal do chassis. |
-| Sensores de tensão de linha |PCM |Físico |Partilhada |Não |Numerosos sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
-| Sensores de corrente de linha |PCM |Físico |Partilhada |Não |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
-| Sensores de temperatura em PCM |PCM |Físico |Partilhada |Não |Numerosos sensores de temperatura, como os sensores de intinhista e hotspot, têm o seu estado apresentado, indicando se a temperatura medida está dentro da tolerância. |
-| Alimentação [0-1] |PCM |Físico |Partilhada |Sim |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
-| Arrefecimento [0-1] |PCM |Físico |Partilhada |Sim |Uma linha é apresentada para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
-| Bateria [0-1] |PCM |Físico |Partilhada |Sim |É apresentada uma linha para cada um dos módulos de bateria de reserva que estão sentados no PCM. |
-| Metis |N/D |Lógica |Partilhada |N/D |Exibe o estado das pilhas: se precisam de ser carregadas e estão a aproximar-se do fim de vida. |
-| Cluster |N/D |Lógica |Partilhada |N/D |Exibe o estado do cluster que é criado entre os dois módulos de comando integrados. |
-| Nó de cluster |N/D |Lógica |Partilhada |N/D |Indica o estado do controlador como parte do cluster. |
-| Quórum cluster |N/D |Lógica | |N/D |Indica a presença da maioria da filiação em disco no depósito de HDD. |
-| Espaço de dados HDD |N/D |Lógica |Partilhada |N/D |O espaço de armazenamento que é utilizado para dados no depósito de disco rígido (HDD). |
-| Espaço de gestão HDD |N/D |Lógica |Partilhada |N/D |O espaço reservado no depósito hdd para tarefas de gestão. |
-| Espaço quórum HDD |N/D |Lógica |Partilhada |N/D |O espaço reservado na piscina de armazenamento HDD para o cluster quórum. |
-| Espaço de substituição hdd |N/D |Lógica |Partilhada |N/D |O espaço reservado no depósito hdd para substituição do controlador. |
-| Espaço de dados SSD |N/D |Lógica |Partilhada |N/D |O espaço de armazenamento utilizado para dados no depósito de unidade de estado sólido (SSD). |
-| Espaço SSD NVRAM |N/D |Lógica |Partilhada |N/D |O espaço de armazenamento no armazém SSD que é dedicado à lógica NVRAM. |
-| Piscina de armazenamento HDD |N/D |Lógica |Partilhada |N/D |Exibe o estado do armazenamento lógico que é criado a partir de HDDs do dispositivo. |
-| Piscina de armazenamento SSD |N/D |Lógica |Partilhada |N/D |Exibe o estado do armazenamento lógico que é criado a partir de SSDs do dispositivo. |
+| Unidade na ranhura [0-11] |Unidades de Disco |Físico |Partilhado |Sim |Uma linha é apresentada para cada uma das unidades SSD ou HDD no recinto primário. |
+| Sensor de temperatura ambiente |Recinto |Físico |Partilhado |Não |Mede a temperatura dentro do chassis. |
+| Sensor de temperatura a meio do avião |Recinto |Físico |Partilhado |Não |Mede a temperatura do meio do avião. |
+| Alarme sonoro |Recinto |Físico |Partilhado |Não |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
+| Recinto |Recinto |Físico |Partilhado |Sim |Indica a presença de um chassis. |
+| Definições de recinto |Recinto |Físico |Partilhado |Não |Refere-se ao painel frontal do chassis. |
+| Sensores de tensão de linha |PCM |Físico |Partilhado |Não |Numerosos sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
+| Sensores de corrente de linha |PCM |Físico |Partilhado |Não |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
+| Sensores de temperatura em PCM |PCM |Físico |Partilhado |Não |Numerosos sensores de temperatura, como os sensores de intinhista e hotspot, têm o seu estado apresentado, indicando se a temperatura medida está dentro da tolerância. |
+| Alimentação [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
+| Arrefecimento [0-1] |PCM |Físico |Partilhado |Sim |Uma linha é apresentada para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
+| Bateria [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada um dos módulos de bateria de reserva que estão sentados no PCM. |
+| Metis |N/D |Lógico |Partilhado |N/D |Exibe o estado das pilhas: se precisam de ser carregadas e estão a aproximar-se do fim de vida. |
+| Cluster |N/D |Lógico |Partilhado |N/D |Exibe o estado do cluster que é criado entre os dois módulos de comando integrados. |
+| Nó de aglomerado |N/D |Lógico |Partilhado |N/D |Indica o estado do controlador como parte do cluster. |
+| Quórum cluster |N/D |Lógico | |N/D |Indica a presença da maioria da filiação em disco no depósito de HDD. |
+| Espaço de dados HDD |N/D |Lógico |Partilhado |N/D |O espaço de armazenamento que é utilizado para dados no depósito de disco rígido (HDD). |
+| Espaço de gestão HDD |N/D |Lógico |Partilhado |N/D |O espaço reservado no depósito hdd para tarefas de gestão. |
+| Espaço quórum HDD |N/D |Lógico |Partilhado |N/D |O espaço reservado na piscina de armazenamento HDD para o cluster quórum. |
+| Espaço de substituição hdd |N/D |Lógico |Partilhado |N/D |O espaço reservado no depósito hdd para substituição do controlador. |
+| Espaço de dados SSD |N/D |Lógico |Partilhado |N/D |O espaço de armazenamento utilizado para dados no depósito de unidade de estado sólido (SSD). |
+| Espaço SSD NVRAM |N/D |Lógico |Partilhado |N/D |O espaço de armazenamento no armazém SSD que é dedicado à lógica NVRAM. |
+| Piscina de armazenamento HDD |N/D |Lógico |Partilhado |N/D |Exibe o estado do armazenamento lógico que é criado a partir de HDDs do dispositivo. |
+| Piscina de armazenamento SSD |N/D |Lógico |Partilhado |N/D |Exibe o estado do armazenamento lógico que é criado a partir de SSDs do dispositivo. |
 | Controlador [0-1] [estado] |I/O |Físico |Controlador |Sim |Exibe o estado do controlador e se está ativo ou em modo de espera dentro do chassis. |
 | Sensores de temperatura no controlador |I/O |Físico |Controlador |Não |Numerosos sensores de temperatura, tais como módulo si/O, temperatura CPU, dimm e sensores DEPC têm o seu estado apresentado, o que indica se a temperatura encontrada está ou não dentro da tolerância. |
 | Expansor SAS |I/O |Físico |Controlador |Não |Indica o estado do expansor SCSI (SAS) em série, que é utilizado para ligar o armazenamento integrado ao controlador. |
@@ -113,7 +113,7 @@ A tabela seguinte descreve os componentes físicos e lógicos contidos no recint
 | Núcleo de processador |I/O |Físico |Controlador |Não |Indica o estado dos núcleos do processador dentro de cada controlador. |
 | Poder eletrónico de recinto |I/O |Físico |Controlador |Não |Indica o estado do sistema de energia utilizado pelo recinto. |
 | Diagnósticos eletrónicos de recinto |I/O |Físico |Controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador. |
-| Controlador de Gestão de Quadros de Base (BMC) |I/O |Físico |Controlador |Não |Indica o estado do controlador de gestão de quadros base (BMC), que é um processador de serviço especializado que monitoriza o dispositivo de hardware através de sensores e comunica com o administrador do sistema através de uma ligação independente. |
+| Controlador BMC |I/O |Físico |Controlador |Não |Indica o estado do controlador de gestão de quadros base (BMC), que é um processador de serviço especializado que monitoriza o dispositivo de hardware através de sensores e comunica com o administrador do sistema através de uma ligação independente. |
 | Ethernet |I/O |Físico |Controlador |Não |Indica o estado de cada uma das interfaces de rede, ou seja, as portas de gestão e dados fornecidas no controlador. |
 | NVRAM |I/O |Físico |Controlador |Não |Indica o estado da NVRAM, uma memória de acesso aleatório não volátil apoiada pela bateria que serve para reter informações críticas de aplicação em caso de falha de energia. |
 
@@ -122,18 +122,18 @@ A tabela seguinte descreve os componentes físicos e lógicos contidos no recint
 
 | Componente | Módulo | Tipo | Localização | Fru? | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| Unidade na ranhura [0-11] |Unidades de Disco |Físico |Partilhada |Sim |Uma linha é apresentada para cada uma das unidades HDD na frente do recinto EBOD. |
-| Sensor de temperatura ambiente |Recinto |Físico |Partilhada |Não |Mede a temperatura dentro do chassis. |
-| Sensor de temperatura a meio do avião |Recinto |Físico |Partilhada |Não |Mede a temperatura do meio do avião. |
-| Alarme sonoro |Recinto |Físico |Partilhada |Não |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
-| Recinto |Recinto |Físico |Partilhada |Sim |Indica a presença de um chassis. |
-| Definições de recinto |Recinto |Físico |Partilhada |Não |Refere-se ao OPS ou ao painel frontal do chassis. |
-| Sensores de tensão de linha |PCM |Físico |Partilhada |Não |Numerosos sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
-| Sensores de corrente de linha |PCM |Físico |Partilhada |Não |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
-| Sensores de temperatura em PCM |PCM |Físico |Partilhada |Não |Numerosos sensores de temperatura, como os sensores de entrada e hotspot, têm o seu estado apresentado, o que indica se a temperatura medida está dentro da tolerância. |
-| Alimentação [0-1] |PCM |Físico |Partilhada |Sim |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
-| Arrefecimento [0-1] |PCM |Físico |Partilhada |Sim |Uma linha é apresentada para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
-| Armazenamento local [HDD] |N/D |Lógica |Partilhada |N/D |Exibe o estado do armazenamento lógico que é criado a partir de HDDs do dispositivo. |
+| Unidade na ranhura [0-11] |Unidades de Disco |Físico |Partilhado |Sim |Uma linha é apresentada para cada uma das unidades HDD na frente do recinto EBOD. |
+| Sensor de temperatura ambiente |Recinto |Físico |Partilhado |Não |Mede a temperatura dentro do chassis. |
+| Sensor de temperatura a meio do avião |Recinto |Físico |Partilhado |Não |Mede a temperatura do meio do avião. |
+| Alarme sonoro |Recinto |Físico |Partilhado |Não |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
+| Recinto |Recinto |Físico |Partilhado |Sim |Indica a presença de um chassis. |
+| Definições de recinto |Recinto |Físico |Partilhado |Não |Refere-se ao OPS ou ao painel frontal do chassis. |
+| Sensores de tensão de linha |PCM |Físico |Partilhado |Não |Numerosos sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
+| Sensores de corrente de linha |PCM |Físico |Partilhado |Não |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
+| Sensores de temperatura em PCM |PCM |Físico |Partilhado |Não |Numerosos sensores de temperatura, como os sensores de entrada e hotspot, têm o seu estado apresentado, o que indica se a temperatura medida está dentro da tolerância. |
+| Alimentação [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
+| Arrefecimento [0-1] |PCM |Físico |Partilhado |Sim |Uma linha é apresentada para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
+| Armazenamento local [HDD] |N/D |Lógico |Partilhado |N/D |Exibe o estado do armazenamento lógico que é criado a partir de HDDs do dispositivo. |
 | Controlador [0-1] [estado] |I/O |Físico |Controlador |Sim |Apresenta o estado dos controladores no módulo EBOD. |
 | Sensores de temperatura em EBOD |I/O |Físico |Controlador |Não |Numerosos sensores de temperatura de cada controlador têm o seu estado apresentado, o que indica se a temperatura encontrada está dentro da tolerância. |
 | Expansor SAS |I/O |Físico |Controlador |Não |Indica o estado do expansor SAS, que é usado para ligar o armazenamento integrado ao controlador. |

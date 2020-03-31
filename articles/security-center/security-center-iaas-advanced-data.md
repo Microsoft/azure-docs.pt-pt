@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
 ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282734"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Segurança avançada de dados para servidores SQL em Máquinas Virtuais Azure (Pré-visualização)
@@ -41,7 +41,7 @@ Os seguintes passos iniciam-se com a Advanced Data Security for SQL na Pré-visu
 
 Ativar a Segurança Avançada de Dados para Servidores SQL em Máquinas Virtuais ao nível de subscrição/espaço de trabalho:
  
-1. A partir da barra lateral do Security Center, abra a página **de Preços e Configurações.**
+1. A partir da barra lateral do Security Center, abra a página de **definições de Preços &.**
 
 1. Selecione a subscrição ou espaço de trabalho para o qual pretende ativar a Segurança avançada de dados para SQL em VMs Azure.
 
@@ -49,7 +49,7 @@ Ativar a Segurança Avançada de Dados para Servidores SQL em Máquinas Virtuais
 
     (Clique na imagem para expandir)
 
-    [![recomendações e alertas do Centro de Segurança, como visto no Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
+    [![Recomendações e alertas do Centro de Segurança como visto no Windows Admin Center](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
     A Segurança avançada de Dados para Servidores SQL será ativada em todos os Servidores SQL ligados ao espaço de trabalho selecionado ou ao espaço de trabalho padrão da subscrição selecionada.
 
@@ -65,12 +65,12 @@ Para ligar o hospedeiro do Servidor SQL a um espaço de trabalho, siga as instru
 
 Pode definir uma lista de destinatários para receber uma notificação de e-mail quando os alertas do Security Center forem gerados. O e-mail contém uma ligação direta ao alerta no Centro de Segurança Azure com todos os detalhes relevantes. 
 
-1. Vá ao Centro de **Segurança** > **Preços e Definições** e clique na subscrição relevante
+1. Vá ao Priceing do **Centro** > de Segurança **& definições** e clique na subscrição relevante
 
     ![Definições de subscrição](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
 1. No menu Definições, clique em notificações de **e-mail.** 
-1. Na caixa de texto de **endereço de e-mail,** insira os endereços de e-mail para receber as notificações. Pode introduzir mais do que um endereço de e-mail separando os endereços de e-mail com uma vírvia (,).  Por exemplo, admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
+1. Na caixa de texto de **endereço de e-mail,** insira os endereços de e-mail para receber as notificações. Pode introduzir mais do que um endereço de e-mail separando os endereços de e-mail com uma vírvia (,).  Por admin1@mycompany.comexemplo,admin2@mycompany.comadmin3@mycompany.com
 
     ![Definições de E-mail](./media/security-center-advanced-iaas-data/email-settings.png)
 
@@ -90,23 +90,23 @@ O dashboard de avaliação de vulnerabilidade fornece uma visão geral dos resul
 
 Pode visualizar os resultados da avaliação da vulnerabilidade diretamente do Centro de Segurança.
 
-1. Da barra lateral do Security Center, sob HIGIENE DE SEGURANÇA DE RECURSOS, **selecione Dados e Armazenamento**.
+1. A partir da barra lateral do Security Center, sob HIGIENE DE SEGURANÇA DE RECURSOS, selecione **Dados & Armazenamento**.
 
-1. Selecione a recomendação As vulnerabilidades nas bases de **dados SQL nas VMs devem ser remediadas (Pré-visualização)** . Para mais informações, consulte recomendações do Centro de [Segurança.](security-center-recommendations.md) 
+1. Selecione a recomendação As vulnerabilidades nas bases de **dados SQL nas VMs devem ser remediadas (Pré-visualização)**. Para mais informações, consulte recomendações do Centro de [Segurança.](security-center-recommendations.md) 
 
-    [![**Vulnerabilidades nas suas bases de dados SQL em VMs devem ser remediadas (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![**As vulnerabilidades nas suas bases de dados SQL em VMs devem ser remediadas (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     O ponto de vista pormenorizado desta recomendação aparece.
 
-    [![A visão detalhada para as **Vulnerabilidades nas suas bases de dados SQL em VMs deve ser remediada (Preview)** recomendação](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![A visão detalhada das vulnerabilidades nas suas bases de dados SQL em VMs deve ser remediada (Pré-visualização)** recomendação](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. Para aprofundar para obter mais detalhes:
 
     * Para uma visão geral dos recursos digitalizados (bases de dados) e da lista de verificações de segurança que foram testadas, clique no servidor de interesses.
-    [vulnerabilidades ![agruparadas pelo servidor SQL](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
+    [![Vulnerabilidades agruparadas pelo servidor SQL](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
     * Para uma visão geral das vulnerabilidades agrunadas por uma base de dados SQL específica, clique na base de dados de interesses.
-    [vulnerabilidades ![agruparadas pelo servidor SQL](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
+    [![Vulnerabilidades agruparadas pelo servidor SQL](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
     Em cada perspetiva, os controlos de segurança são ordenados pela **Severity.** Clique numa verificação de segurança específica para ver um painel de detalhes com uma **Descrição,** como **remediar** e outras informações relacionadas, como **Impacto** ou **Benchmark**.
 

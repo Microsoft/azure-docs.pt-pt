@@ -1,62 +1,61 @@
 ---
-title: Criar ofertas do Marketplace | Azure Marketplace
-description: Criar ofertas no Azure e AppSource Marketplaces usando o Portal do Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Criar ofertas de marketplace [ Mercado Azure
+description: Criar ofertas nos Mercados Azure e AppSource utilizando o Portal do Parceiro cloud
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: pabutler
-ms.openlocfilehash: 4aa4e154c99f20963485a98d1a21af4ae2b7a1b1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828102"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286477"
 ---
-# <a name="create-azure-marketplace-and-appsource-offers"></a>Criar ofertas do Azure Marketplace e do AppSource
+# <a name="create-azure-marketplace-and-appsource-offers"></a>Criar ofertas de Marketplace Azure e AppSource
 
-Uma finalidade essencial da Portal do Cloud Partner é permitir que os editores criem (e, em seguida, publiquem) ofertas para os Marketplaces Microsoft Azure e AppSource.  Essa operação sempre começa com a seleção do tipo de oferta desejado no [menu nova oferta](../portal-tour/cpp-new-offer-menu.md).  Em resposta, a nova página de **oferta** apropriada é exibida para esse tipo de oferta.  Por exemplo, a imagem a seguir mostra a **nova** página de oferta padrão para um tipo de aplicativo do Azure.
+Um dos objetivos essenciais do Portal dos Parceiros cloud é permitir que as editoras criem (e depois publiquem) ofertas para os Mercados Microsoft Azure e AppSource.  Esta operação começa sempre com a seleção do tipo de oferta desejado no [menu New offer](../portal-tour/cpp-new-offer-menu.md).  Em resposta, a página **new offer** apropriada é exibida para esse tipo de oferta.  Por exemplo, a imagem que se segue mostra a página **'Nova Oferta'** padrão para um tipo de aplicação Azure.
 
-![Página padrão da nova oferta](./media/new-offer-page.png)
+![Página padrão de oferta nova](./media/new-offer-page.png)
 
-Há duas seleções de guia disponíveis na BarraDeMenu horizontal exibida em direção à parte superior desta página: 
-- Guia **Editor** – habilita a entrada de informações e o carregamento de ativos para a nova instância de oferta.  Essa guia é exibida por padrão.
-- Guia **status** – fornece o status de publicação e lista quaisquer problemas de validação e de revisão. 
+Existem duas seleções de separadores disponíveis na barra de menuhorizontal exibida no topo desta página: 
+- **Separador editor** - Permite a entrada de informação e upload de ativos para a nova instância de oferta.  Este separador é apresentado por defeito.
+- **Separador** de estado - Fornece o estado de publicação e lista quaisquer problemas de validação e revisão. 
 
-Ao criar uma oferta, você usa a guia **Editor** para inserir informações sobre essa oferta. 
+Quando cria uma oferta, utiliza o separador **Editor** para introduzir informações sobre essa oferta. 
 
-## <a name="editing-operations"></a>Editando operações
+## <a name="editing-operations"></a>Operações de edição
 
-A barra de ferramentas horizontal, localizada acima da área de entrada de dados, exibe os seguintes botões:
+A barra de ferramentas horizontal, localizada acima da área de entrada de dados, apresenta os seguintes botões:
 
-|   Button    |   Objetivo                                                          |
+|   Botão    |   Objetivo                                                          |
 |   ------    |  --------                                                          |
-| **Guarde**    | Salva as alterações de entrada de dados recentes.  Você deve salvar as alterações manualmente antes de sair da página ou suas alterações são perdidas. | 
-| **Carte** | Descarta alterações de entrada de dados recentes (desde o último salvamento)             |
-| **Comparar** | Compara o estado da oferta atual com a oferta publicada.  Habilitada somente após uma oferta ter sido publicada com êxito.  |
-| **Publicar** | Inicia o processo de publicação para esta oferta                       |
-| **Eliminar**  | Exclui esta oferta depois que ela é criada, mas antes de ser publicada. |
+| **Guardar**    | Guarda quaisquer alterações recentes de entrada de dados.  Tem de guardar manualmente alterações antes de navegar para longe da página ou perder-se as alterações. | 
+| **Eliminar** | Descarta as recentes alterações de entrada de dados (desde a última poupança)             |
+| **Comparar** | Compara o estado da oferta atual com a oferta publicada.  Só é permitido depois de uma oferta ter sido publicada com sucesso.  |
+| **Publicar** | Inicia o processo de publicação desta oferta                       |
+| **Eliminar**  | Elimina esta oferta depois de criada, mas antes de ser publicada. |
 |   |   |
 
 
-## <a name="editing-tabs"></a>Editando guias
+## <a name="editing-tabs"></a>Separadores de edição
 
-Ao criar uma oferta, você fornece os dados necessários e opcionais em cada guia localizada na coluna vertical esquerda da nova página de **oferta** .  Controles de interface de usuário padrão, como caixas de texto, menus suspensos e caixas de seleção, são exibidos para coleta de dados.  Embora a coleção específica de guias de edição dependa do tipo de oferta, a tabela a seguir lista algumas das guias comuns.
+Ao criar uma oferta, fornece os dados necessários e opcionais em cada separador localizado na coluna vertical esquerda da página **New Offer.**  Os controlos padrão da interface do utilizador- tais como caixas de texto, menus suspensos e caixas de verificação -- são apresentados para recolha de dados.  Embora a coleção específica de separadores de edição dependa do tipo de oferta, a tabela seguinte lista alguns dos separadores comuns.
 
-|      Nome da guia       |   Objetivo                                                            |
+|      Nome do separador       |   Objetivo                                                            |
 |      --------       |   -------                                                            |
-| **Configurações da oferta**  | Coleta informações de identidade do Publicador e oferta.                    |
-| **SKU**            | Define as características técnicas e comerciais para cada versão de SKU (unidade de manutenção de estoque) de sua oferta |
-| **Test Drive**      | Para os tipos que dão suporte a esse recurso opcional, o define uma demonstração para sua oferta.  Para obter mais informações, consulte [o que é Test Drive?](../test-drive/what-is-test-drive.md)  |
-| **Marketplace** ou **vitrine** | Coleta cadeias de caracteres de texto, documentos e imagens usadas para listar a oferta no Marketplace |
-| **Suporte**         | Coleta informações de contato para cliente, engenharia e suporte online  |
+| **Oferta De Definições**  | Recolhe informações de oferta e de identidade da editora.                    |
+| **SKU**            | Define as características técnicas e empresariais para cada versão da sua oferta (SKU) |
+| **Versão de Teste**      | Para os tipos que suportam esta funcionalidade opcional, define uma demonstração para a sua oferta.  Para mais informações, consulte [o que é test drive?](../test-drive/what-is-test-drive.md)  |
+| **Marketplace** ou **Storefront** | Recolhe cadeias de texto, documentos e imagens usadas para listar a oferta no mercado |
+| **Suporte**         | Recolhe informações de contacto para clientes, engenharia e suporte online  |
 |  |  |
 
-O conteúdo das guias com nomes semelhantes pode ser diferente entre os diferentes tipos de oferta.  Detalhes específicos da oferta dessas guias são fornecidos na seção "criar oferta" para cada tipo de oferta.
+O conteúdo dos separadores similarmente nomeados pode diferir entre diferentes tipos de oferta.  Os detalhes específicos da oferta destes separadores são fornecidos dentro da secção "Criar oferta" para cada tipo de oferta.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar e salvar uma oferta e antes ou depois de publicá-la, você poderá [exibir seu status](./cpp-view-status-offer.md).
+Depois de criar e guardar uma oferta, e antes ou depois de publicá-la, pode [ver o seu estado](./cpp-view-status-offer.md).

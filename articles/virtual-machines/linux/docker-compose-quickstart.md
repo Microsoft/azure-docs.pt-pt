@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970311"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Começar com Docker e Compose para definir e executar uma aplicação multi-contentor em Azure
@@ -21,7 +21,7 @@ Este artigo foi testado pela última vez em 2/14/2019 utilizando a [Azure Cloud 
 ## <a name="create-docker-host-with-azure-cli"></a>Crie o anfitrião Docker com o Azure CLI
 Instale o mais recente [Azure CLI](/cli/azure/install-az-cli2) e inicie sessão numa conta Azure utilizando [login az](/cli/azure/reference-index).
 
-Primeiro, crie um grupo de recursos para o seu ambiente Docker com grupo [az criar](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Primeiro, crie um grupo de recursos para o seu ambiente Docker com grupo [az criar](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli-interactive
 az group create --name myDockerGroup --location eastus
@@ -48,7 +48,7 @@ az vm open-port --port 80 \
     --name myDockerVM
 ```
 
-Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. 
+Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. 
 
                  
 
@@ -69,9 +69,9 @@ sudo apt install docker-compose
 
 
 ## <a name="create-a-docker-composeyml-configuration-file"></a>Crie um ficheiro de configuração docker-compose.yml
-Crie um ficheiro de configuração `docker-compose.yml` para definir os recipientes Docker para funcionar no VM. O ficheiro especifica a imagem a ser executada em cada recipiente, variáveis ambientais necessárias e dependências, portos e as ligações entre contentores. Para obter mais detalhes sobre a sintaxe de ficheiros yml, consulte a referência do [ficheiro Compor](https://docs.docker.com/compose/compose-file/).
+Crie `docker-compose.yml` um ficheiro de configuração para definir os recipientes Docker para funcionar no VM. O ficheiro especifica a imagem a ser executada em cada recipiente, variáveis ambientais necessárias e dependências, portos e as ligações entre contentores. Para obter mais detalhes sobre a sintaxe de ficheiros yml, consulte a referência do [ficheiro Compor](https://docs.docker.com/compose/compose-file/).
 
-Crie um ficheiro *docker-compose.yml.* Utilize o seu editor de texto favorito para adicionar alguns dados ao ficheiro. O exemplo seguinte cria o ficheiro com uma solicitação para `sensible-editor` escolher um editor que deseja utilizar.
+Crie um ficheiro *docker-compose.yml.* Utilize o seu editor de texto favorito para adicionar alguns dados ao ficheiro. O exemplo seguinte cria o `sensible-editor` ficheiro com um pedido para escolher um editor que deseja utilizar.
 
 ```bash
 sensible-editor docker-compose.yml
@@ -94,7 +94,7 @@ db:
 ```
 
 ## <a name="start-the-containers-with-compose"></a>Inicie os recipientes com composição
-No mesmo diretório que o seu ficheiro *docker-compose.yml,* execute o seguinte comando (dependendo do seu ambiente, poderá ser necessário executá`docker-compose` utilizando `sudo`):
+No mesmo diretório que o seu ficheiro *docker-compose.yml,* execute o seguinte comando `docker-compose` `sudo`(dependendo do seu ambiente, poderá ter de executar usando):
 
 ```bash
 sudo docker-compose up -d
@@ -109,7 +109,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-Para verificar se os recipientes estão em cima, escreva `sudo docker-compose ps`. Devia ver algo como:
+Para verificar se os recipientes `sudo docker-compose ps`estão em cima, escreva . Deverá ver algo semelhante ao seguinte:
 
 ```
         Name                       Command               State         Ports

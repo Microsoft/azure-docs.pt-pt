@@ -1,89 +1,89 @@
 ---
-title: Configurar alertas de métrica-portal do Azure-banco de dados do Azure para MySQL
-description: Este artigo descreve como configurar e acessar alertas de métricas para o banco de dados do Azure para MySQL do portal do Azure.
+title: Configurar alertas métricos - Portal Azure - Base de Dados Azure para MySQL
+description: Este artigo descreve como configurar e aceder a alertas métricos para a Base de Dados Azure para MySQL a partir do portal Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 487ca76115b93020a762cfa2afb5fd5a3be40a66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c917804b42bc987228bbb2542682fe9fb308a467
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067883"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Usar o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para MySQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utilize o portal Azure para criar alertas sobre métricas para a Base de Dados Azure para mySQL 
 
-Este artigo mostra como configurar alertas do banco de dados do Azure para MySQL usando o portal do Azure. Você pode receber um alerta com base nas métricas de monitoramento para seus serviços do Azure.
+Este artigo mostra-lhe como configurar a Base de Dados Azure para alertas MySQL utilizando o portal Azure. Pode receber um alerta com base em métricas de monitorização dos seus serviços Azure.
 
-O alerta é disparado quando o valor de uma métrica especificada ultrapassa um limite que você atribui. O alerta é disparado quando a condição é atendida pela primeira vez e depois quando essa condição não é mais atendida. 
+O alerta dispara quando o valor de uma métrica especificada atravessa um limiar que atribui. O alerta dispara tanto quando a condição é satisfeita pela primeira vez, e depois quando essa condição já não está a ser satisfeita. 
 
-Você pode configurar um alerta para executar as seguintes ações quando ele disparar:
-* enviar notificações por email para o administrador de serviços e os administradores
-* Envie um email para emails adicionais que você especificar.
+Pode configurar um alerta para fazer as seguintes ações quando dispara:
+* Enviar notificações por e-mail ao administrador de serviço sondar e coadministradores
+* Envie e-mail para e-mails adicionais que especifice.
 * Chamar um webhook
 
-Você pode configurar e obter informações sobre regras de alerta usando:
-* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+Pode configurar e obter informações sobre as regras de alerta usando:
+* [Portal Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica do portal do Azure
-1. Na [portal do Azure](https://portal.azure.com/), selecione o servidor de banco de dados do Azure para MySQL que você deseja monitorar.
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica do portal Azure
+1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor MySQL que pretende monitorizar.
 
-2. Na seção **monitoramento** da barra lateral, selecione **alertas** , conforme mostrado:
+2. Na secção **de monitorização** da barra lateral, selecione **Alertas** conforme mostrado:
 
-   ![Selecionar regras de alerta](./media/howto-alert-on-metric/2-alert-rules.png)
+   ![Selecione Regras de Alerta](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Selecione **adicionar alerta de métrica** (+ ícone).
+3. **Selecione Adicionar alerta métrico** (ícone+).
 
-4. A página **criar regra** é aberta, conforme mostrado abaixo. Preencha as informações necessárias:
+4. A página de **regras Create** abre como mostrado abaixo. Preencha as informações necessárias:
 
-   ![Formulário adicionar alerta de métrica](./media/howto-alert-on-metric/4-add-rule-form.png)
+   ![Adicionar forma de alerta métrico](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-5. Na seção **condição** , selecione **Adicionar condição**.
+5. Dentro da secção **Condição,** **selecione Adicionar condição**.
 
-6. Selecione uma métrica na lista de sinais a serem alertados. Neste exemplo, selecione "porcentagem de armazenamento".
+6. Selecione uma métrica da lista de sinais a alertar. Neste exemplo, selecione "Storage percent".
    
    ![Selecionar métrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. Configure a lógica de alerta, incluindo a **condição** (por exemplo, "Maior que"), **limite** (ex. 85 por cento), **agregação de tempo**, **período** de tempo em que a regra de métrica deve ser satisfeita antes do gatilho de alerta (por exemplo, "Nos últimos 30 minutos") e **frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (ex. "Maior do que"), **Threshold** (ex. 85 por cento), **Agregação**do Tempo , **Período** de tempo a regra métrica deve ser satisfeita antes do alerta disparar (ex. "Nos últimos 30 minutos"), e **Frequência.**
    
-   Selecione **concluído** ao concluir.
+   Selecione **Feito** quando estiver completo.
 
    ![Selecionar métrica](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-8. Na seção **grupos de ações** , selecione **criar novo** para criar um novo grupo para receber notificações sobre o alerta.
+8. Dentro da secção **Grupos de Ação,** selecione **Create New** para criar um novo grupo para receber notificações no alerta.
 
-9. Preencha o formulário "Adicionar grupo de ações" com um nome, um nome curto, uma assinatura e um grupo de recursos.
+9. Preencha o formulário "Adicionar grupo de ação" com um nome, nome curto, subscrição e grupo de recursos.
 
-10. Configure um tipo de ação de **email/SMS/Push/voz** .
+10. Configure um tipo de ação de **e-mail/SMS/Push/Voice.**
     
-    Escolha "função de Azure Resource Manager de email" para selecionar proprietários, colaboradores e leitores de assinatura para receber notificações.
+    Escolha "Email Azure Resource Manager Role" para selecionar proprietários de subscrição, colaboradores e leitores para receber notificações.
    
-    Opcionalmente, forneça um URI válido no campo **webhook** se desejar que ele seja chamado quando o alerta for disparado.
+    Opcionalmente, forneça um URI válido no campo **Webhook** se quiser que seja chamado quando o alerta disparar.
 
-    Selecione **OK** quando concluído.
+    Selecione **OK** quando estiver concluído.
 
-    ![Grupo de ação](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Grupo de ações](./media/howto-alert-on-metric/10-action-group-type.png)
 
-11. Especifique um nome de regra de alerta, uma descrição e uma severidade.
+11. Especifique um nome de regra de alerta, descrição e gravidade.
 
-    ![Grupo de ação](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Grupo de ações](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
-12. Selecione **criar regra de alerta** para criar o alerta.
+12. Selecione **Criar a regra** de alerta para criar o alerta.
 
-    Em alguns minutos, o alerta está ativo e é disparado conforme descrito anteriormente.
+    Dentro de poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
 
-## <a name="manage-your-alerts"></a>Gerenciar seus alertas
-Depois de criar um alerta, você pode selecioná-lo e executar as seguintes ações:
+## <a name="manage-your-alerts"></a>Gerir os alertas
+Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
-* Exiba um gráfico que mostra o limite de métrica e os valores reais do dia anterior relevantes para esse alerta.
-* **Edite** ou **exclua** a regra de alerta.
-* **Desabilitar** ou **habilitar** o alerta, se desejar interromper temporariamente ou retomar as notificações de recebimento.
+* Veja um gráfico que mostre o limiar métrico e os valores reais do dia anterior relevantes para este alerta.
+* **Editar** ou **Eliminar** a regra de alerta.
+* **Desative** ou **Ative** o alerta, caso pretenda parar ou retomar temporariamente a receção de notificações.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre como [Configurar WebHooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para certificar-se de que seu serviço está disponível e responsivo.
+* Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
+* Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantir que o seu serviço está disponível e reativo.

@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249246"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
@@ -124,12 +124,12 @@ Se observar uma anormalidade, siga estes passos:
 ## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office URLs para clientes do Governo dos EUA
 Para a região do Governo dos EUA, a Virgínia, apenas urLs DOD são incorporados em NPM. Os clientes que usam URLs GCC precisam de criar testes personalizados e adicionar cada URL individualmente.
 
-| Campo | CcG |
+| Campo | GCC |
 |:---   |:--- |
 | Office 365 Portal e partilhado | portal.apps.mil |
-| Escritório 365 auth e identidade | Login.microsoftonline.us <br> Api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> login.microsoftonline.com <br> Login.microsoftonline-p.com <br> Login.windows.net <br> loginex.microsoftonline.com <br> Login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> secure.aadcdn.microsoftonline-p.com |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> Officehome.msocdn.us <br> * prod.msocdn.us <br> Portal.office365.us <br> * webshell.suite.office365.us <br> * www.office365.us <br> Activation.sls.microsoft.com <br> Crl.microsoft.com <br> Go.microsoft.com <br> Insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>Officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> Officepreviewredir.microsoft.com <br> officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
-| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> Manage.office365.us <br> * scc.office365.us |
+| Escritório 365 auth e identidade | Login.microsoftonline.us <br> Api.login.microsoftonline.com <br> Clientconfig.microsoftonline-p.net <br> login.microsoftonline.com <br> Login.microsoftonline-p.com <br> Login.windows.net <br> loginex.microsoftonline.com <br> Login-us.microsoftonline.com <br> Nexus.microsoftonline-p.com <br> Mscrl.microsoft.com <br> secure.aadcdn.microsoftonline-p.com |
+| Office Online | Adminwebservice.gov.us.microsoftonline.com <br>  Adminwebservice-s1-bn1a.microsoftonline.com <br> Adminwebservice-s1-dm2a.microsoftonline.com <br> Becws.gov.us.microsoftonline.com <br> Provisioningapi.gov.us.microsoftonline.com <br> Officehome.msocdn.us <br> prod.msocdn.us <br> Portal.office365.us <br> Webshell.suite.office365.us <br> * www.office365.us <br> Activation.sls.microsoft.com <br> Crl.microsoft.com <br> Go.microsoft.com <br> Insertmedia.bing.office.net <br> Ocsa.officeapps.live.com <br> Ocsredir.officeapps.live.com <br> Ocws.officeapps.live.com <br> office15client.microsoft.com <br>Officecdn.microsoft.com <br> Officecdn.microsoft.com.edgesuite.net <br> Officepreviewredir.microsoft.com <br> officeredir.microsoft.com <br> Ols.officeapps.live.com  <br> R.office.microsoft.com <br> Cdn.odc.officeapps.live.com <br> Odc.officeapps.live.com <br> Officeclient.microsoft.com |
+| Exchange Online | Outlook.office365.us <br> Attachments.office365-net.us <br> Autodiscover-s.office365.us <br> Manage.office365.us <br> Scc.office365.us |
 | Equipas MS | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Passos seguintes

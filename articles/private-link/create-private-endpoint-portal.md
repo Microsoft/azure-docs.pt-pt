@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78252567"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Quickstart: Criar um endpoint privado usando o portal Azure
 
 Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste Quickstart, você aprenderá a criar um VM numa Rede Virtual Azure, um Servidor de Base de Dados SQL com um ponto final privado Azure usando o portal Azure. Em seguida, pode aceder de forma segura ao Servidor de Base de Dados SQL a partir do VM.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -36,18 +36,18 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | myResourceGroup |
-| **\<nome de rede virtual>** | myVirtualNetwork          |
-| **\<nome da região>**          | E.U.A. Centro-Oeste    |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<sub-nome>**          | mySubnet        |
-| **\<sub-endereço-gama>** | 10.1.0.0\24          |
+| **\<>de nome de grupo de recursos**  | myResourceGroup |
+| **\<>de nome de rede virtual** | myVirtualNetwork          |
+| **\<>de nome da região**          | E.U.A. Centro-Oeste    |
+| **\<>espaço de endereçoI4**   | 10.1.0.0\16          |
+| **\<>de nome de subnet**          | mySubnet        |
+| **\<>de endereços-endereço de subnet** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **Máquina Virtual**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **Virtual Machine**.
 
 1. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
 
@@ -65,11 +65,11 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar palavra-passe | Reintroduza a senha. |
+    | Confirmar Palavra-passe | Reintroduza a senha. |
     | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
     | Portos de entrada pública | Deixe o padrão **Nenhum**. |
     | **POUPE DINHEIRO** |  |
-    | Já tem licença do Windows? | Deixe o padrão **Nº**. |
+    | Já tem uma licença do Windows? | Deixe o padrão **Nº**. |
     |||
 
 1. Selecione **Seguinte: Discos**.
@@ -82,7 +82,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
     | ------- | ----- |
     | Rede virtual | Deixe o **MyVirtualNetwork**predefinido .  |
     | Espaço de endereços | Deixe o padrão **10.1.0.0/24**.|
-    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)** .|
+    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)**.|
     | IP público | Deixe o **myVm-ip padrão (novo)** |
     | Portos de entrada pública | **Selecione Permitir portas selecionadas**. |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -96,13 +96,13 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 ## <a name="create-a-sql-database-server"></a>Criar um servidor de base de dados SQL
 Nesta secção, irá criar um servidor de base de dados SQL no Azure. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > Bases de **dados** > base de **dados SQL**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > base de**dados SQL**de base de**dados** > de recursos .
 
 1. Na Base de **dados Create SQL - Basics,** insira ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Dados da base de dados** | |
+    | **Detalhes da base de dados** | |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
@@ -127,7 +127,7 @@ Nesta secção, irá criar um servidor de base de dados SQL no Azure.
 
 Nesta secção, irá criar um servidor SQL e adicionar-lhe um ponto final privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Networking** > **Private Link Center (Pré-visualização)** .
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um Centro** > de Ligação Privada de**Rede** > de recursos **(Pré-visualização)**.
 2. No **Private Link Center - Visão geral,** sobre a opção de construir uma **ligação privada a um serviço,** selecione **Iniciar**.
 1. Em **Criar um ponto final privado (Pré-visualização) - Básicos,** insira ou selecione esta informação:
 
@@ -185,7 +185,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+        > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -216,7 +216,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
     | ------- | ----- |
     | Tipo de servidor| Selecione **Motor de Base de Dados**.|
     | Nome do servidor| Selecione *myserver.database.windows.net* |
-    | Nome de utilizador | Introduza o nome de utilizador como username@servername que é fornecido durante a criação do servidor SQL. |
+    | Nome de utilizador | Introduza o username@servername nome de utilizador como o que é fornecido durante a criação do servidor SQL. |
     |Palavra-passe |Introduza uma palavra-passe fornecida durante a criação do servidor SQL. |
     |Lembre-se da palavra-passe|Selecione **Sim**.|
     |||

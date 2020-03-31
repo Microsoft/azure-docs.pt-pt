@@ -1,5 +1,5 @@
 ---
-title: Mensagens cloud-to-device com Azure IoT Hub (Python)  Microsoft Docs
+title: Mensagens cloud-to-device com Azure IoT Hub (Python) [ Microsoft Docs
 description: Como enviar mensagens cloud-to-device para um dispositivo a partir de um hub Azure IoT usando os SDKs Azure IoT para Python. Modifica uma aplicação simulada de dispositivopara receber mensagens cloud-to-device e modificar uma aplicação de back-end para enviar as mensagens cloud-to-device.
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 3613062cf8765a4aec3327b660bb5818898f2dd1
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110433"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envie mensagens cloud-to-device com IoT Hub (Python)
@@ -53,7 +53,7 @@ Nesta secção, cria-se uma aplicação de consola Python para simular o disposi
 
 1. Utilizando um editor de texto, crie um ficheiro **SimulatedDevice.py.**
 
-2. Adicione as seguintes declarações e variáveis `import` no início do ficheiro **SimulatedDevice.py:**
+2. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **SimulatedDevice.py:**
 
    ```python
     import threading
@@ -112,7 +112,7 @@ Nesta secção, cria-se uma aplicação de consola Python para simular o disposi
 
 7. Guarde e feche **SimulatedDevice.py** ficheiro.
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 Neste artigo cria um serviço de backend para enviar mensagens cloud-to-device através do hub IoT que criou em [Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md). Para enviar mensagens cloud-to-device, o seu serviço necessita da permissão de ligação do **serviço.** Por padrão, cada Hub IoT é criado com uma política de acesso partilhado chamada **serviço** que concede esta permissão.
 
@@ -124,7 +124,7 @@ Nesta secção, cria-se uma aplicação de consola Python que envia mensagens cl
 
 1. Usando um editor de texto, crie um ficheiro **SendCloudToDeviceMessage.py.**
 
-2. Adicione as seguintes declarações e variáveis `import` no início do ficheiro **SendCloudToDeviceMessage.py:**
+2. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **SendCloudToDeviceMessage.py:**
 
     ```python
     import random

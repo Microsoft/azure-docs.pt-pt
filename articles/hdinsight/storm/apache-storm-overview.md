@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/02/2020
 ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271907"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
@@ -35,7 +35,7 @@ O Storm no HDInsight oferece as funcionalidades seguintes:
 
 * **Dimensionamento dinâmico**: pode adicionar ou remover nós de trabalho sem qualquer impacto nas topologias Storm em execução. Tem de desativar e reativar as topologias em execução para tirar partido de novos nós adicionados através de operações de dimensionamento.
 
-* **Criar gasodutos de streaming utilizando vários serviços Azure**: Storm on HDInsight integra-se com outros serviços Azure, tais como Hubs de Eventos, Base de Dados SQL, Armazenamento Azure e Armazenamento de Lagos De Dados Azure. Para uma solução de exemplo que se integra com os serviços Azure, consulte [eventos de processo com tempestade Apache no HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
+* **Criar gasodutos de streaming utilizando vários serviços Azure**: Storm on HDInsight integra-se com outros serviços Azure, tais como Hubs de Eventos, Base de Dados SQL, Armazenamento Azure e Armazenamento de Lagos De Dados Azure. Para uma solução de exemplo que se integra com os serviços Azure, consulte [eventos de processo sacana com tempestade Apache no HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 Para obter uma lista de empresas que utiliza o Apache Storm como solução de análise em tempo real, veja [Companies using Apache Storm](https://storm.apache.org/Powered-By.html) (Empresas que Utilizam o Apache Storm).
 
@@ -67,12 +67,12 @@ Pode criar um cluster novo do Storm no HDInsight em minutos. Para obter mais inf
 
 ## <a name="ease-of-use"></a>Facilidade de utilização
 
-|Utilização |Descrição |
+|Utilizar |Descrição |
 |---|---|
-|Conectividade Secure Shell (SSH)|Você pode aceder aos nós da cabeça do seu aglomerado de tempestade através da Internet usando SSH. Pode executar comandos diretamente no seu cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Conectividade Secure Shell (SSH)|Você pode aceder aos nós da cabeça do seu aglomerado de tempestade através da Internet usando SSH. Pode executar comandos diretamente no seu cluster através de SSH. Para mais informações, consulte [Use SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Conectividade web|Todos os clusters HDInsight fornecem a UI web Ambari. Pode monitorizar, configurar e gerir serviços facilmente no seu cluster através da IU Web do Ambari. Os clusters do Storm também fornecem a IU do Storm. Pode monitorizar e gerir topologias Storm em execução a partir do seu browser na IU do Storm. Para obter mais informações, consulte o [Manage HDInsight utilizando o Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) e [monitor e gerencie usando os](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui) documentos Apache Storm UI.|
 |Azure PowerShell e Azure CLI|A PowerShell e a Azure CLI fornecem ambos utilitários de linha de comando que pode utilizar a partir do seu sistema de clientes para trabalhar com o HDInsight e outros serviços Azure.|
-|Integração com o Visual Studio|As ferramentas do Lago de Dados Azure para o Estúdio Visual incluem modelos de projeto para criar C# topologias de tempestade usando a estrutura SCP.NET. As Ferramentas do Data Lake também proporcionam ferramentas para implementar, monitorizar e gerir soluções com o Storm no HDInsight. Para obter mais informações, veja [Develop C# Storm topologies with the HDInsight Tools for Visual Studio (Desenvolver topologias do Strom C# com as Ferramentas do HDInsight para Visual Studio)](apache-storm-develop-csharp-visual-studio-topology.md).|
+|Integração com o Visual Studio|As ferramentas do Lago de Dados Azure para o Estúdio Visual incluem modelos de projeto para a criação de topologias C# Storm utilizando a estrutura SCP.NET. As Ferramentas do Data Lake também proporcionam ferramentas para implementar, monitorizar e gerir soluções com o Storm no HDInsight. Para obter mais informações, veja [Develop C# Storm topologies with the HDInsight Tools for Visual Studio (Desenvolver topologias do Strom C# com as Ferramentas do HDInsight para Visual Studio)](apache-storm-develop-csharp-visual-studio-topology.md).|
 
 ## <a name="integration-with-other-azure-services"></a>Integração noutros serviços do Azure
 
@@ -82,9 +82,9 @@ Pode criar um cluster novo do Storm no HDInsight em minutos. Para obter mais inf
 
     * [Eventos de processo saqueados de Hubs de Eventos Azure com Tempestade Apache no HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
-    * [Eventos de processo saqueados de Hubs de Eventos Azure com Tempestade Apache no HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
+    * [Processe eventos a partir de Hubs de Eventos Azure com Tempestade Apache em HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
-* __Base de Dados SQL__, __Cosmos DB__, __Hubs de Eventos__ e __HBase__: exemplos do modelos estão incluídos nas Ferramentas do Data Lake para Visual Studio. Para mais informações, consulte [Desenvolver uma C# topologia para apache storm no HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
+* __Base de Dados SQL__, __Cosmos DB__, __Hubs de Eventos__ e __HBase__: exemplos do modelos estão incluídos nas Ferramentas do Data Lake para Visual Studio. Para mais informações, consulte [Desenvolver uma topologia C# para apache storm no HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="support"></a>Suporte
 

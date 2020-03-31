@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 228b856d5c5ffa2bfac7df12094667e02f797690
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594860"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Boas práticas para o isolamento de clusters no Serviço Azure Kubernetes (AKS)
@@ -23,7 +23,7 @@ Este artigo de boas práticas centra-se no isolamento dos operadores de cluster.
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Clusters de design para multi-arrendamento
 
-Kubernetes fornece funcionalidades que permitem isolar logicamente equipas e cargas de trabalho no mesmo cluster. O objetivo deve ser proporcionar o menor número de privilégios, orientados para os recursos de que cada equipa necessita. Um [espaço de nome][k8s-namespaces] em Kubernetes cria um limite lógico de isolamento. As características e considerações adicionais da Kubernetes para o isolamento e o arrendamento multi-arrendamento incluem as seguintes áreas:
+O Kubernetes fornece funcionalidades que lhe permitem isolar logicamente equipas e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, orientados para os recursos necessários para cada equipa. Um [espaço de nome][k8s-namespaces] em Kubernetes cria um limite lógico de isolamento. As características e considerações adicionais da Kubernetes para o isolamento e o arrendamento multi-arrendamento incluem as seguintes áreas:
 
 * **O agendamento** inclui a utilização de funcionalidades básicas, tais como quotas de recursos e orçamentos de disrupção de casulos. Para obter mais informações sobre estas funcionalidades, consulte [as melhores práticas para funcionalidades básicas de programadores no AKS][aks-best-practices-scheduler].
   * As funcionalidades mais avançadas do programador incluem manchas e tolerâncias, selecionadores de nós, e afinidade do nó e pod ou anti-afinidade. Para obter mais informações sobre estas funcionalidades, consulte [as melhores práticas para funcionalidades avançadas de programadores em AKS][aks-best-practices-advanced-scheduler].

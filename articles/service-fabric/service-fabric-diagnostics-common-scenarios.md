@@ -1,141 +1,141 @@
 ---
-title: Cenários comuns do Azure Service Fabric diagnosticar
-description: Saiba mais sobre como solucionar problemas comuns de monitoramento e diagnóstico nos aplicativos Service Fabric do Azure.
+title: Tecido de serviço azure diagnosticar cenários comuns
+description: Saiba mais sobre a resolução de problemas de cenários comuns de monitorização e diagnóstico dentro das aplicações azure service fabric.
 ms.topic: article
 ms.date: 02/25/2019
 ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906945"
 ---
-# <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
+# <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com tecido de serviço
 
-Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as três camadas do Service Fabric: aplicativo, cluster e infraestrutura. Cada solução usa logs de Application Insights e Azure Monitor, ferramentas de monitoramento do Azure, para concluir cada cenário. As etapas em cada solução fornecem aos usuários uma introdução sobre como usar os logs Application Insights e Azure Monitor no contexto de Service Fabric.
+Este artigo ilustra cenários comuns que os utilizadores encontraram na área de monitorização e diagnóstico com o Tecido de Serviço. Os cenários apresentados abrangem todas as 3 camadas de tecido de serviço: Aplicação, Cluster e Infraestrutura. Cada solução utiliza os registos de Application Insights e Azure Monitor, ferramentas de monitorização Azure, para completar cada cenário. Os passos em cada solução dão aos utilizadores uma introdução sobre como utilizar os registos de Aplicação Insights e Azure Monitor no contexto do Tecido de Serviço.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Pré-requisitos e recomendações
 
-As soluções neste artigo usarão as ferramentas a seguir. Recomendamos que você os tenha configurado e configurados:
+As soluções deste artigo utilizarão as seguintes ferramentas. Recomendamos que tenha estes configurados e configurados:
 
-* [Application Insights com Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
-* [Habilitar Diagnóstico do Azure em seu cluster](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Configurar um espaço de trabalho Log Analytics](service-fabric-diagnostics-oms-setup.md)
-* [Agente de Log Analytics para acompanhar contadores de desempenho](service-fabric-diagnostics-oms-agent.md)
+* [Insights de aplicação com tecido de serviço](service-fabric-tutorial-monitoring-aspnet.md)
+* [Ativar diagnósticos Azure no seu cluster](service-fabric-diagnostics-event-aggregation-wad.md)
+* [Criar um espaço de trabalho log Analytics](service-fabric-diagnostics-oms-setup.md)
+* [Log Analytics agente para rastrear contadores de desempenho](service-fabric-diagnostics-oms-agent.md)
 
-## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Como posso ver exceções sem tratamento em meu aplicativo?
+## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Como posso ver exceções não tratadas na minha candidatura?
 
-1. Navegue até o recurso de Application Insights ao qual seu aplicativo está configurado.
-2. Clique em *Pesquisar* na parte superior esquerda. Em seguida, clique em filtrar no painel seguinte.
+1. Navegue para o seu recurso Application Insights com o que a sua aplicação está configurada.
+2. Clique em *Procurar* no topo à esquerda. Em seguida, clique em filtro no painel seguinte.
 
-    ![Visão geral do ia](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
+    ![Visão geral da IA](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
 
-3. Você verá muitos tipos de eventos (rastreamentos, solicitações, eventos personalizados). Escolha "exceção" como filtro.
+3. Você verá muitos tipos de eventos (vestígios, pedidos, eventos personalizados). Escolha "Exceção" como filtro.
 
-    ![Lista de filtros de ia](media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png)
+    ![Lista de filtros AI](media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png)
 
-    Ao clicar em uma exceção na lista, você poderá examinar mais detalhes, incluindo o contexto do serviço, se estiver usando o SDK do Application Insights de Service Fabric.
+    Ao clicar numa exceção na lista, pode ver mais detalhes, incluindo o contexto de serviço, se estiver a utilizar o SDK de Insights de Aplicação de Tecido de Serviço.
 
-    ![Exceção de ia](media/service-fabric-diagnostics-common-scenarios/ai-exception.png)
+    ![Exceção AI](media/service-fabric-diagnostics-common-scenarios/ai-exception.png)
 
-## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>Como fazer exibir quais chamadas HTTP são usadas em meus serviços?
+## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>Como vejo quais as chamadas http são usadas nos meus serviços?
 
-1. No mesmo Application Insights recurso, você pode filtrar "solicitações" em vez de exceções e exibir todas as solicitações feitas
-2. Se você estiver usando o SDK do Application Insights Service Fabric, poderá ver uma representação visual de seus serviços conectados entre si e o número de solicitações bem-sucedidas e com falha. À esquerda, clique em "mapa do aplicativo"
+1. No mesmo recurso Application Insights, pode filtrar "pedidos" em vez de exceções e ver todos os pedidos feitos
+2. Se estiver a utilizar o SDK de Aplicação de Tecido de Serviço, pode ver uma representação visual dos seus serviços ligados uns aos outros, e o número de pedidos bem sucedidos e falhados. No clique à esquerda "Mapa de aplicações"
 
-    ![App App Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![App Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![Mapa da aplicação AI App Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![Ai](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Para obter mais informações sobre o mapa do aplicativo, visite a [documentação do mapa do aplicativo](../azure-monitor/app/app-map.md)
+    Para mais informações sobre o mapa de aplicações, visite a documentação do Mapa de [Aplicações](../azure-monitor/app/app-map.md)
 
-## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Como fazer criar um alerta quando um nó ficar inativo
+## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Como eu crio um alerta quando um nó cai
 
-1. Os eventos de nó são acompanhados pelo Cluster Service Fabric. Navegue até o Análise do Service Fabric recurso de solução chamado **NameofResourceGroup (infabric)**
-2. Clique no grafo na parte inferior da folha intitulado "Summary"
+1. Os eventos do nó são rastreados pelo seu cluster de Tecido de Serviço. Navegue para o recurso de solução Service Fabric Analytics chamado **ServiceFabric (NameofResourceGroup)**
+2. Clique no gráfico na parte inferior da lâmina intitulada "Resumo"
 
-    ![Solução de logs de Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Solução de logs Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
-3. Aqui, você tem muitos grafos e blocos exibindo várias métricas. Clique em um dos grafos e ele será levado para a pesquisa de logs. Aqui você pode consultar quaisquer eventos de cluster ou contadores de desempenho.
-4. Insira a consulta a seguir. Essas IDs de evento são encontradas na [referência de eventos de nó](service-fabric-diagnostics-event-generation-operational.md#application-events)
+3. Aqui tem muitos gráficos e azulejos que exibem várias métricas. Clique num dos gráficos e irá levá-lo à Pesquisa de Registo. Aqui pode consultar quaisquer eventos de cluster ou contadores de desempenho.
+4. Introduza a seguinte consulta. Estes iDs de eventos são encontrados na [referência de eventos](service-fabric-diagnostics-event-generation-operational.md#application-events) do nó
 
     ```kusto
     ServiceFabricOperationalEvent
     | where EventID >= 25622 and EventID <= 25626
     ```
 
-5. Clique em "nova regra de alerta" na parte superior e, agora, sempre que um evento chegar com base nessa consulta, você receberá um alerta no método de comunicação escolhido.
+5. Clique em "Nova Regra de Alerta" no topo e agora que um evento chegar com base nesta consulta, receberá um alerta no seu método de comunicação escolhido.
 
-    ![Novo alerta dos logs do Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Monitor Azure regista novo alerta](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
-## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Como posso ser alertado sobre reversões de atualização de aplicativos?
+## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Como posso ser alertado para a atualização da aplicação?
 
-1. Na mesma janela de pesquisa de log que antes, insira a consulta a seguir para reversões de atualização. Essas IDs de evento são encontradas em [referência de eventos de aplicativo](service-fabric-diagnostics-event-generation-operational.md#application-events)
+1. Na mesma janela de Pesquisa de Registo supérrio antes de introduzir a seguinte consulta para atualizações. Estes IDs de eventos são encontrados sob referência de eventos de [aplicação](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
     ServiceFabricOperationalEvent
     | where EventID == 29623 or EventID == 29624
     ```
 
-2. Clique em "nova regra de alerta" na parte superior e, agora, sempre que um evento chegar com base nessa consulta, você receberá um alerta.
+2. Clique em "Nova Regra de Alerta" no topo e agora que um evento chegar com base nesta consulta, receberá um alerta.
 
-## <a name="how-do-i-see-container-metrics"></a>Como fazer ver métricas de contêiner?
+## <a name="how-do-i-see-container-metrics"></a>Como vejo métricas de contentores?
 
-Na mesma exibição com todos os grafos, você verá alguns blocos para o desempenho de seus contêineres. Você precisa do agente de Log Analytics e da [solução de monitoramento de contêineres](service-fabric-diagnostics-oms-containers.md) para que esses blocos sejam preenchidos.
+Na mesma vista com todos os gráficos, você verá alguns azulejos para o desempenho dos seus recipientes. Precisa da solução de Monitorização do Agente de Análise de Log e [de Contentores](service-fabric-diagnostics-oms-containers.md) para que estes azulejos possam povoar.
 
-![Métricas de contêiner Log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![Métricas de recipientes de análise de log analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
->Para instrumentar a telemetria de **dentro** de seu contêiner, você precisará adicionar o [Application insights pacote NuGet para contêineres](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
+>Para instrumentar a telemetria a partir do **seu** recipiente, terá de adicionar o [pacote de nuget Application Insights para recipientes](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
-## <a name="how-can-i-monitor-performance-counters"></a>Como posso monitorar os contadores de desempenho?
+## <a name="how-can-i-monitor-performance-counters"></a>Como posso monitorizar os contadores de desempenho?
 
-1. Depois de adicionar o agente de Log Analytics ao cluster, você precisará adicionar os contadores de desempenho específicos que deseja acompanhar. Navegue até a página do espaço de trabalho Log Analytics no portal – na página da solução, a guia espaço de trabalho está no menu à esquerda.
+1. Depois de ter adicionado o agente Log Analytics ao seu cluster, tem de adicionar os contadores de desempenho específicos que pretende rastrear. Navegue para a página do espaço de trabalho Log Analytics no portal – a partir da página da solução o separador espaço de trabalho está no menu esquerdo.
 
-    ![Guia Log Analytics espaço de trabalho](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Guia de espaço de trabalho de análise de log analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
-2. Quando você estiver na página do espaço de trabalho, clique em "configurações avançadas" no mesmo menu à esquerda.
+2. Uma vez na página do espaço de trabalho, clique em "Definições avançadas" no mesmo menu esquerdo.
 
-    ![Log Analytics configurações avançadas](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
+    ![Definições avançadas de análise de log analytics](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
 
-3. Clique em dados > contadores de desempenho do Windows (dados > contadores de desempenho do Linux para computadores Linux) para começar a coletar contadores específicos de seus nós por meio do agente de Log Analytics. Aqui estão exemplos do formato dos contadores a serem adicionados
+3. Clique em Data > Windows Performance Counters (Data > Linux Performance Counters for Linux machines) para começar a recolher contadores específicos dos seus nós através do agente Log Analytics. Aqui estão exemplos do formato para contadores adicionar
 
    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
    * `Processor(_Total)\\% Processor Time`
 
-     No início rápido, VotingData e VotingWeb são os nomes de processo usados, portanto, controlar esses contadores seria parecido com
+     No arranque rápido, O VotingData e o VotingWeb são os nomes de processo utilizados, pelo que rastrear estes contadores seria como
 
    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-     ![Contadores de desempenho de Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Contadores Perf de Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
-4. Isso permitirá que você veja como sua infraestrutura está lidando com suas cargas de trabalho e defina alertas relevantes com base na utilização de recursos. Por exemplo – pode querer estabelecer um alerta se a utilização total do Processador for superior a 90% ou abaixo de 5%. O contranome que usaria para isto é "% tempo de processador". Você pode fazer isso criando uma regra de alerta para a seguinte consulta:
+4. Isto permitir-lhe-á ver como a sua infraestrutura está a lidar com as suas cargas de trabalho e definir alertas relevantes com base na utilização de recursos. Por exemplo – pode querer estabelecer um alerta se a utilização total do Processador for superior a 90% ou abaixo de 5%. O contranome que usaria para isto é "% tempo de processador". Poderia fazê-lo criando uma regra de alerta para a seguinte consulta:
 
     ```kusto
     Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
     ```
 
-## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Como fazer acompanhar o desempenho de meus Reliable Services e atores?
+## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Como acompanho o desempenho dos meus Serviços fiáveis e atores?
 
-Para acompanhar o desempenho de Reliable Services ou atores em seus aplicativos, você também deve coletar os contadores ator Service Fabric, método de ator, serviço e método de serviço. Aqui estão exemplos de contadores de desempenho de serviço confiável e ator a serem coletados
+Para acompanhar o desempenho de Serviços Fiáveis ou Atores nas suas aplicações, deve recolher também os balcões de Service Fabric Ator, Ator Method, Service e Service Method. Aqui estão exemplos de contadores de desempenho de serviço confiável e de ator para recolher
 
 >[!NOTE]
->Service Fabric contadores de desempenho não podem ser coletados pelo agente do Log Analytics no momento, mas podem ser coletados por [outras soluções de diagnóstico](service-fabric-diagnostics-partners.md)
+>Os contadores de desempenho do Tecido de Serviço não podem ser recolhidos pelo agente Log Analytics atualmente, mas podem ser recolhidos por [outras soluções](service-fabric-diagnostics-partners.md) de diagnóstico
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
 * `Service Fabric Actor(*)\\Average milliseconds per request`
 * `Service Fabric Actor Method(*)\\Invocations/Sec`
 
-Verifique esses links para obter a lista completa de contadores de desempenho em Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [atores](service-fabric-reliable-actors-diagnostics.md)
+Consulte estes links para ver a lista completa de contadores de desempenho em [Serviços](service-fabric-reliable-serviceremoting-diagnostics.md) fiáveis e [atores](service-fabric-reliable-actors-diagnostics.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Procure erros de ativação do pacote de código comum](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurar alertas no ia](../azure-monitor/app/alerts.md) para ser notificado sobre alterações no desempenho ou no uso
-* A [detecção inteligente no Application insights](../azure-monitor/app/proactive-diagnostics.md) executa uma análise proativa da telemetria que está sendo enviada ao ia para avisá-lo sobre possíveis problemas de desempenho
-* Saiba mais sobre [alertas](../log-analytics/log-analytics-alerts.md) de Azure monitor logs para auxiliar na detecção e no diagnóstico.
-* Para clusters locais, Azure Monitor logs oferece um gateway (proxy de encaminhamento HTTP) que pode ser usado para enviar dados a logs de Azure Monitor. Leia mais sobre isso em [conectando computadores sem acesso à Internet para Azure monitor logs usando o gateway de log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarize-se com os recursos de [pesquisa de logs e consulta](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs de Azure monitor
-* Obtenha uma visão geral mais detalhada dos logs de Azure Monitor e o que ele oferece, leia [o que são Azure monitor logs?](../operations-management-suite/operations-management-suite-overview.md)
+* [Configurar alertas em IA](../azure-monitor/app/alerts.md) para serem notificados sobre alterações no desempenho ou utilização
+* [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise proativa da telemetria que está a ser enviada para a IA para o alertar para potenciais problemas de desempenho
+* Saiba mais sobre os registos do Monitor Azure [alertando](../log-analytics/log-analytics-alerts.md) para ajuda na deteção e diagnóstico.
+* Para os clusters no local, os registos do Monitor Azure oferecem uma porta de entrada (HTTP Forward Proxy) que pode ser usada para enviar dados para registos do Monitor Azure. Leia mais sobre isso em [Computadores de Ligação sem acesso à Internet aos registos do Monitor Azure utilizando o gateway Log Analytics](../azure-monitor/platform/gateway.md)
+* Familiarize-se com as funcionalidades de [pesquisa de registos e consulta](../log-analytics/log-analytics-log-searches.md) oferecidas como parte dos registos do Monitor Azure
+* Obtenha uma visão mais detalhada dos registos do Monitor Azure e o que oferece, leia o que é os [registos do Monitor Azure?](../operations-management-suite/operations-management-suite-overview.md)
