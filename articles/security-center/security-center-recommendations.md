@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
 ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245307"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
@@ -40,7 +40,7 @@ Cada recomendação fornece-lhe:
 - Que recursos precisam que faça a ação recomendada neles.
 - O **impacto Secure Score**, que é o valor que a sua Pontuação Segura irá subir se implementar esta recomendação.
 
-## Monitorizar recomendações<a name="monitor-recommendations"></a>
+## <a name="monitor-recommendations"></a>Monitorizar recomendações<a name="monitor-recommendations"></a>
 
 O Centro de Segurança analisa o estado de segurança dos seus recursos para identificar potenciais vulnerabilidades. O azulejo **de recomendações** em termos de **visão geral** mostra o número total de recomendações identificadas pelo Centro de Segurança.
 
@@ -56,11 +56,11 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
    * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pelo Security Center utilizando as suas recomendações de segurança e aplicando algoritmos avançados para determinar o quão crucial é cada recomendação. Para mais informações, consulte o [cálculo Secure Score](security-center-secure-score.md#secure-score-calculation).
    * **RECURSO**: Lista os recursos a que esta recomendação se aplica.
    * **BARRAS DE ESTATUTO**: Descreve a gravidade dessa recomendação específica:
-       * **Alta (Vermelha)** : Existe uma vulnerabilidade com um recurso significativo (como uma aplicação, um VM ou um grupo de segurança de rede) e requer atenção.
-       * **Médio (Laranja)** : Existe uma vulnerabilidade e são necessários passos não críticos ou adicionais para eliminá-lo ou concluir um processo.
-       * **Baixa (Azul)** : Existe uma vulnerabilidade que deve ser abordada mas não requer atenção imediata. (Por predefinição, não são apresentadas recomendações baixas, mas pode filtrar recomendações baixas se quiser vê-las.) 
-       * **Saudável (Verde)** :
-       * **Não disponível (cinzento)** :
+       * **Alta (Vermelha)**: Existe uma vulnerabilidade com um recurso significativo (como uma aplicação, um VM ou um grupo de segurança de rede) e requer atenção.
+       * **Médio (Laranja)**: Existe uma vulnerabilidade e são necessários passos não críticos ou adicionais para eliminá-lo ou concluir um processo.
+       * **Baixa (Azul)**: Existe uma vulnerabilidade que deve ser abordada mas não requer atenção imediata. (Por predefinição, não são apresentadas recomendações baixas, mas pode filtrar recomendações baixas se quiser vê-las.) 
+       * **Saudável (Verde)**:
+       * **Não disponível (cinzento)**:
 
 1. Para ver os detalhes de cada recomendação, clique na recomendação.
 

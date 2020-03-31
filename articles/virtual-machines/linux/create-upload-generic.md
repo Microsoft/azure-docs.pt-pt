@@ -1,17 +1,17 @@
 ---
 title: Criar e carregar um Linux VHD
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Linux.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: mimckitt
-ms.openlocfilehash: 9a0332da060c4a094090c4ea1f5033a889496596
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.author: guybo
+ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066767"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações sobre distribuição não endossada
 
@@ -26,27 +26,27 @@ Recomendamos que comece com um dos [Linux em Distribuição Apoiada azure](endor
 
 * **[Distribuição baseada em CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Oráculo Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Empresa de Chapéu Vermelho Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & abre SUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Este artigo centra-se na orientação geral para executar a sua distribuição Linux no Azure.
 
 ## <a name="general-linux-installation-notes"></a>Notas de instalação do General Linux
 * O formato de disco rígido virtual Hyper-V (VHDX) não é suportado em Azure, apenas *VHD fixo*.  Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o cmdlet [Convert-VHD.](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) Se estiver a utilizar o VirtualBox, selecione **o tamanho Fixo** em vez do padrão (dinamicamente atribuído) ao criar o disco.
-* Azure suporta máquinas virtuais Gen1 (bota BIOS) e Gen2 (bota UEFI).
+* O Azure suporta máquinas virtuais gen1 (bota BIOS) & Gen2 (bota UEFI).
 * O tamanho máximo permitido para o VHD é de 1.023 GB.
 * Ao instalar o sistema Linux, recomendamos que utilize divisórias padrão, em vez de Logical Volume Manager (LVM), que é o padrão para muitas instalações. A utilização de divisórias padrão evitará conflitos de nome lvm com VMs clonados, especialmente se um disco OS for alguma vez ligado a outro VM idêntico para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser utilizados em discos de dados.
 * É necessário suporte kernel para a montagem de sistemas de ficheiros UDF. No início do Azure, a configuração de provisionamento é passada para o VM Linux utilizando meios de formação UDF que estão ligados ao hóspede. O agente Azure Linux deve montar o sistema de ficheiros UDF para ler a sua configuração e fornecer o VM.
-* As versões de kernel Linux anteriores a 2.6.37 não suportam o NUMA em Hyper-V com tamanhos VM maiores. Esta questão tem principal impacto nas distribuições mais antigas utilizando o kernel 2.6.32 do Chapéu Vermelho a montante, e foi fixada em Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2,6.37, ou núcleos à base de RHEL com idade superior a 2,6.32-504, devem definir o parâmetro de arranque `numa=off` na linha de comando kernel em grub.conf. Para mais informações, consulte [O Chapéu Vermelho KB 436883](https://access.redhat.com/solutions/436883).
+* As versões de kernel Linux anteriores a 2.6.37 não suportam o NUMA em Hyper-V com tamanhos VM maiores. Esta questão tem principal impacto nas distribuições mais antigas utilizando o kernel 2.6.32 do Chapéu Vermelho a montante, e foi fixada em Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2,6.37, ou núcleos à base de RHEL com idade superior a 2.6.32-504, devem definir o parâmetro `numa=off` de arranque na linha de comando do núcleo em grub.conf. Para mais informações, consulte [O Chapéu Vermelho KB 436883](https://access.redhat.com/solutions/436883).
 * Não configure uma divisória de troca no disco de solo. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários, conforme descrito nos seguintes passos.
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco cru para VHD, deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1 MB antes da conversão, conforme descrito nos seguintes passos.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Instalação de módulos kernel sem Hyper-V
 O Azure funciona no hipervisor Hiper-V, por isso o Linux requer certos módulos de kernel para funcionar em Azure. Se tiver um VM que foi criado fora do Hyper-V, os instaladores Linux podem não incluir os controladores de Hyper-V no ramdisk inicial (initrd ou initramfs), a menos que o VM detete que está a funcionar num ambiente Hiper-V. Ao utilizar um sistema de virtualização diferente (como virtualBox, KVM, e assim por diante) para preparar a sua imagem Linux, poderá ser necessário reconstruir o initrd para que pelo menos os módulos de hv_vmbus e hv_storvsc kernel estejam disponíveis no ramdisk inicial.  Esta questão conhecida é para sistemas baseados na distribuição a montante do Chapéu Vermelho, e possivelmente outros.
 
-O mecanismo de reconstrução da imagem initude ou initramfs pode variar consoante a distribuição. Consulte a documentação ou suporte da sua distribuição para o procedimento adequado.  Aqui está um exemplo para a reconstrução do initrd usando o utilitário `mkinitrd`:
+O mecanismo de reconstrução da imagem initude ou initramfs pode variar consoante a distribuição. Consulte a documentação ou suporte da sua distribuição para o procedimento adequado.  Aqui está um exemplo para a reconstrução `mkinitrd` do initrd usando a utilidade:
 
 1. Back up the existino imagem initrd:
 
@@ -64,21 +64,21 @@ O mecanismo de reconstrução da imagem initude ou initramfs pode variar consoan
 ### <a name="resizing-vhds"></a>VHDs de redimensionamento
 As imagens VHD em Azure devem ter um tamanho virtual alinhado a 1 MB.  Tipicamente, os VHDs criados com hyper-V estão corretamente alinhados.  Se o VHD não estiver corretamente alinhado, poderá receber uma mensagem de erro semelhante à seguinte quando tentar criar uma imagem a partir do seu VHD.
 
-* O VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual não suportado de 21475270656 bytes. O tamanho deve ser um número inteiro (em MBs).
+* O VHD\//\<http: mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual não suportado de 21475270656 bytes. O tamanho deve ser um número inteiro (em MBs).
 
-Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o cmdlet [PowerShell Resize-VHD.](https://technet.microsoft.com/library/hh848535.aspx)  Se não estiver a funcionar num ambiente Windows, recomendamos que utilize `qemu-img` para converter (se necessário) e redimensionar o VHD.
+Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o cmdlet [PowerShell Resize-VHD.](https://technet.microsoft.com/library/hh848535.aspx)  Se não estiver a funcionar num ambiente `qemu-img` Windows, recomendamos que utilize para converter (se necessário) e redimensionar o VHD.
 
 > [!NOTE]
-> Existe um bug conhecido nas versões [qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >=2.2.1 que resulta num VHD mal formatado. A questão foi corrigida no QEMU 2.6. Recomendamos a utilização de `qemu-img` 2.2.0 ou inferior, ou 2,6 ou superior.
+> Existe um bug conhecido nas versões [qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >=2.2.1 que resulta num VHD mal formatado. A questão foi corrigida no QEMU 2.6. Recomendamos a `qemu-img` utilização de 2.2.0 ou inferior, ou 2,6 ou superior.
 > 
 
-1. Redimensionar o VHD diretamente utilizando ferramentas como `qemu-img` ou `vbox-manage` pode resultar num VHD inacionável.  Recomendamos primeiro converter o VHD numa imagem de disco RAW.  Se a imagem VM foi criada como uma imagem de disco RAW (o padrão para alguns hipervisores como o KVM), então pode saltar este passo.
+1. Redimensionar o VHD diretamente `qemu-img` utilizando `vbox-manage` ferramentas como ou podem resultar num VHD insinuante.  Recomendamos primeiro converter o VHD numa imagem de disco RAW.  Se a imagem VM foi criada como uma imagem de disco RAW (o padrão para alguns hipervisores como o KVM), então pode saltar este passo.
  
     ```
     qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
     ```
 
-1. Calcular o tamanho exigido da imagem do disco de modo a que o tamanho virtual esteja alinhado a 1 MB.  O seguinte script de concha de bash usa `qemu-img info` para determinar o tamanho virtual da imagem do disco, e, em seguida, calcula o tamanho para o próximo 1 MB.
+1. Calcular o tamanho exigido da imagem do disco de modo a que o tamanho virtual esteja alinhado a 1 MB.  O seguinte script `qemu-img info` de concha de bash usa para determinar o tamanho virtual da imagem do disco, e, em seguida, calcula o tamanho para o próximo 1 MB.
 
     ```bash
     rawdisk="MyLinuxVM.raw"
@@ -93,7 +93,7 @@ Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o cmdlet [
     echo "Rounded Size = $rounded_size"
     ```
 
-3. Redimensione o disco cru utilizando `$rounded_size` conforme acima indicado.
+3. Redimensione o `$rounded_size` disco cru utilizando conforme acima indicado.
 
     ```bash
     qemu-img resize MyLinuxVM.raw $rounded_size
@@ -105,7 +105,7 @@ Neste caso, redimensione o VM utilizando a consola Hyper-V Manager ou o cmdlet [
     qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
-   Ou, com a versão qemu 2.6+, incluem a opção `force_size`.
+   Ou, com a versão qemu 2.6+, incluem a opção. `force_size`
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
@@ -142,7 +142,7 @@ As seguintes menções devem ser incluídas no núcleo. Esta lista não pode est
 * [scsi_sysfs: proteger contra a dupla execução de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>O Agente Azure Linux
-O [Agente Azure Linux](../extensions/agent-linux.md) `waagent` uma máquina virtual Linux em Azure. Pode obter a versão mais recente, questões de ficheiros ou submeter pedidos de pull no repo do [Agente Linux GitHub](https://github.com/Azure/WALinuxAgent).
+O `waagent` [Agente Azure Linux disponibiliza](../extensions/agent-linux.md) uma máquina virtual Linux em Azure. Pode obter a versão mais recente, questões de ficheiros ou submeter pedidos de pull no repo do [Agente Linux GitHub](https://github.com/Azure/WALinuxAgent).
 
 * O agente Linux é libertado sob a licença Apache 2.0. Muitas distribuições já fornecem pacotes RPM ou .deb para o agente, e estes pacotes podem ser facilmente instalados e atualizados.
 * O Agente Azure Linux requer Python v2.6+.
@@ -160,7 +160,7 @@ O [Agente Azure Linux](../extensions/agent-linux.md) `waagent` uma máquina virt
     ```  
     rhgb quiet crashkernel=auto
     ```
-    A bota gráfica e tranquila não é útil num ambiente de nuvem, onde queremos todos os registos enviados para a porta de série. A opção `crashkernel` pode ser deixada configurada se necessário, mas note que este parâmetro reduz a quantidade de memória disponível no VM em pelo menos 128 MB, o que pode ser problemático para tamanhos de VM menores.
+    A bota gráfica e tranquila não é útil num ambiente de nuvem, onde queremos todos os registos enviados para a porta de série. A `crashkernel` opção pode ser deixada configurada se necessário, mas note que este parâmetro reduz a quantidade de memória disponível no VM em pelo menos 128 MB, o que pode ser problemático para tamanhos de VM menores.
 
 1. Instale o Agente Azure Linux.
   
@@ -186,7 +186,7 @@ O [Agente Azure Linux](../extensions/agent-linux.md) `waagent` uma máquina virt
      logout
      ```  
    > [!NOTE]
-   > No Virtualbox pode ver o seguinte erro após correr `waagent -force -deprovision` que diz `[Errno 5] Input/output error`. Esta mensagem de erro não é crítica e pode ser ignorada.
+   > No Virtualbox pode ver o `waagent -force -deprovision` seguinte `[Errno 5] Input/output error`erro depois de executar o que diz . Esta mensagem de erro não é crítica e pode ser ignorada.
 
 * Desligue a máquina virtual e carregue o VHD para o Azure.
 

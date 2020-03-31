@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 4d92bd3709c5f56db0095ca1be2caa0e9c78b42f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: e475c1bc1878c6b5a0efbbe41f2a3a0fe86bcff2
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336824"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389380"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Widgets de Indexer de Vídeo incorporados nas suas apps
 
@@ -48,7 +48,7 @@ Pode utilizar o widget Player para transmitir vídeo utilizando uma taxa de bit 
 |`showCaptions` | Um valor booleano | Faz com que o leitor carregue já com as legendas ativadas.<br/> Exemplo: `showCaptions=true`. |
 |`type`| | Ativa uma pele de leitor de áudio (a parte de vídeo é removida).<br/> Exemplo: `type=audio`. |
 |`autoplay` | Um valor booleano | Indica se o leitor deve começar a reproduzir o vídeo quando carregado. O valor predefinido é `true`.<br/> Exemplo: `autoplay=false`. |
-|`language` | Um código de linguagem | Controla a linguagem dos jogadores. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
+|`language`/`locale` | Um código de linguagem | Controla a linguagem dos jogadores. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
 
 ### <a name="editor-widget"></a>Widget editor
 
@@ -233,14 +233,14 @@ Se incorporar informações do Indexer de Vídeo com o `GetVttUrl` seu próprio 
 
 Pode escolher os tipos de insights que quiser. Para isso, especifique-os como um valor para o seguinte parâmetro URL que é adicionado ao código `&widgets=<list of wanted widgets>`incorporado que obtém (da API ou da aplicação web): .
 
-Os valores possíveis são: **pessoas,** **palavras-chave,** **sentimentos,** **transcrição**e **pesquisa.**
+Os valores `people`possíveis `keywords` `labels`são: `emotions` `topics`, `keyframes` `transcript` `ocr` `speakers` `animatedCharacters` `sentiments`, , `scenes`, `namedEntities`, , , , e .
 
-Por exemplo, se quiser incorporar um widget que contenha apenas pessoas e insights de pesquisa, o URL incorporado para iframe será assim:
+Por exemplo, se quiser incorporar um widget que contenha apenas pessoas e palavras-chave, o URL incorporado para iframe será assim:
 
-`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-O título da janela do iframe também `&title=<YourTitle>` pode ser personalizado fornecendo ao URL iframe. (Personaliza o \<título HTML> valor).
-
+O título da janela do iframe também `&title=<YourTitle>` pode ser personalizado fornecendo ao URL iframe. (Personaliza o <title> valor HTML).
+   
 Por exemplo, se quiser dar à sua janela de iframe o título "MyInsights", o URL será assim:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
@@ -257,15 +257,14 @@ Por exemplo:
 
 Por padrão, o leitor de Indexer de Vídeo tem legendas fechadas autogeradas que são baseadas na transcrição do vídeo. A transcrição é extraída do vídeo com a linguagem de origem que foi selecionada quando o vídeo foi carregado.
 
-Se quiser incorporar com uma linguagem diferente, `&captions=< Language | "all" | "false" >` pode adicionar ao URL do leitor incorporado. Se quiser legendas em todas as línguas disponíveis, utilize o valor `all`. Se pretender que as legendas sejam exibidas `&showCaptions=true`por defeito, pode passar .
+Se quiser incorporar com uma linguagem diferente, pode adicionar &legendas= código de linguagem< > ao URL do leitor incorporado. Se pretender que as legendas sejam exibidas por padrão, pode passar &showCaptions=verdade.
 
 O URL incorporado será então assim:
 
-`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
-
-Se quiser desativar as legendas, pode passar o valor do `captions` parâmetro como `false`.
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=en-us`
 
 #### <a name="autoplay"></a>Reprodução automática
+
 Por padrão, o leitor começará a reproduzir o vídeo. pode optar por não `&autoplay=false` o fazer passando para o URL incorporado anterior.
 
 ## <a name="code-samples"></a>Exemplos de código

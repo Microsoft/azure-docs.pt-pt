@@ -9,10 +9,10 @@ ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135943"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Criar ou eliminar um recipiente no Armazenamento Azure com .NET
@@ -81,7 +81,7 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 
 ## <a name="create-the-root-container"></a>Criar o recipiente de raiz
 
-Um recipiente de raiz serve como recipiente padrão para a sua conta de armazenamento. Cada conta de armazenamento pode ter um recipiente de raiz, que deve ser denominado *$root.* . . Deve criar ou eliminar explicitamente o recipiente de raiz.
+Um recipiente de raiz serve como recipiente padrão para a sua conta de armazenamento. Cada conta de armazenamento pode ter um recipiente de raiz, que deve ser denominado *$root.*. . Deve criar ou eliminar explicitamente o recipiente de raiz.
 
 Pode fazer referência a uma bolha armazenada no recipiente de raiz sem incluir o nome do recipiente de raiz. O recipiente de raiz permite-lhe fazer referência a uma bolha no nível superior da hierarquia da conta de armazenamento. Por exemplo, pode fazer referência a uma bolha que reside no recipiente de raiz da seguinte forma:
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: sample
 author: peterclu
 ms.author: peterlu
-ms.date: 03/10/2020
-ms.openlocfilehash: 82476b9cc8d92c815df602496ed3dcb33014a4fd
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.date: 03/29/2020
+ms.openlocfilehash: f9a8b0a4c51024d91e517db2f6ae10a4dba62384
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037403"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389346"
 ---
 # <a name="designer-sample-pipelines"></a>Oleodutos de amostra de design
 
@@ -22,13 +22,15 @@ Use os exemplos incorporados no designer de Machine Learning Azure para começar
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://aka.ms/AMLFree)
 * Um espaço de trabalho azure machine learning com a Enterprise SKU.
 
 
 ## <a name="how-to-use-sample-pipelines"></a>Como utilizar os gasodutos de amostra
 
 O designer guarda uma cópia dos gasodutos de amostra para o seu espaço de trabalho no estúdio. Pode editar o oleoduto para adaptá-lo às suas necessidades e guardá-lo como seu. Use-os como ponto de partida para iniciar os seus projetos.
+
+### <a name="open-a-sample-pipeline"></a>Abra um gasoduto de amostra
 
 1. Inscreva-se na <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>e selecione o espaço de trabalho com que pretende trabalhar.
 
@@ -37,6 +39,31 @@ O designer guarda uma cópia dos gasodutos de amostra para o seu espaço de trab
 1. Selecione um gasoduto de amostra sob a secção **new pipeline.**
 
     Selecione **Mostrar mais amostras** para uma lista completa de amostras.
+
+### <a name="submit-a-pipeline-run"></a>Submeter uma execução de gasoduto
+
+Para executar um oleoduto, primeiro tem de definir o alvo de computação padrão para executar o gasoduto.
+
+1. No painel **Definições** à direita da tela, **selecione Selecione o alvo computacional**.
+
+1. No diálogo que aparece, selecione um alvo computacional existente ou crie um novo. Selecione **Guardar**.
+
+1. Selecione **Submeter** na parte superior da tela para submeter uma execução de gasoduto.
+
+Dependendo do pipeline da amostra e das definições de cálculo, as execuções podem demorar algum tempo a ser concluídas. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas corridas de gasodutos demorarão menos tempo, uma vez que os recursos da computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
+
+
+### <a name="review-the-results"></a>Rever os resultados
+
+Depois de o gasoduto terminar de funcionar, pode rever o gasoduto e ver a saída de cada módulo para saber mais.
+
+Utilize os seguintes passos para visualizar as saídas do módulo:
+
+1. Selecione um módulo na tela.
+
+1. No módulo os detalhes painelam à direita da tela, selecione **Saídas + troncos**. Selecione ![o ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) de visualização do ícone do gráfico para ver os resultados de cada módulo. 
+
+Use as amostras como pontos de partida para alguns dos cenários mais comuns de aprendizagem automática.
 
 ## <a name="regression-samples"></a>Amostras de regressão
 

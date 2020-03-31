@@ -15,10 +15,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253042"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registo de apps no Diretório Ativo do Azure
@@ -60,8 +60,8 @@ Em alguns casos, as aplicações empresariais criadas a partir da galeria de apl
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Atribuir um proprietário a uma aplicação empresarial
 
-1. Inscreva-se na [sua organização AD Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que é elegível para o administrador de aplicação ou administrador de aplicação Cloud para a organização.
-1. Na página de [registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) da App para a organização, selecione uma aplicação para abrir a página 'Overview' para a aplicação.
+1. Inscreva-se na sua  [organização Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)com uma conta que é elegível para o administrador de aplicação ou administrador de aplicação Cloud para a organização.
+1. Na [página](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) de registos da App para a organização, selecione uma aplicação para abrir a página 'Overview' para a aplicação.
 1. Selecione **Proprietários** para ver a lista dos proprietários para a aplicação.
 1. Selecione **Adicionar** para selecionar um ou mais proprietários para adicionar à aplicação.
 

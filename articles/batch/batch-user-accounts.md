@@ -15,10 +15,10 @@ ms.date: 11/18/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252275"
 ---
 > [!NOTE] 
@@ -94,14 +94,14 @@ Pode configurar a especificação de utilizador automático para privilégios de
 >
 >
 
-Os seguintes fragmentos de código mostram como configurar a especificação de utilizador automático. Os exemplos fixam o nível de elevação para `Admin` e o âmbito para `Task`. O âmbito de tarefa é a definição padrão, mas está incluído aqui por uma questão de exemplo.
+Os seguintes fragmentos de código mostram como configurar a especificação de utilizador automático. Os exemplos estabelecem `Admin` o nível `Task`de elevação e o alcance para . O âmbito de tarefa é a definição padrão, mas está incluído aqui por uma questão de exemplo.
 
 #### <a name="batch-net"></a>.NET do Batch
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
-#### <a name="batch-java"></a>Lote Java
+#### <a name="batch-java"></a>Batch Java
 
 ```java
 taskToAdd.withId(taskId)
@@ -295,7 +295,7 @@ batch_client.pool.add(pool)
 
 ### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Executar uma tarefa sob uma conta de utilizador nomeada com acesso elevado
 
-Para executar uma tarefa como utilizador elevado, detete a propriedade **UserIdentity** da tarefa para uma conta de utilizador nomeada que foi criada com a sua propriedade **ElevationLevel** definida para `Admin`.
+Para executar uma tarefa como utilizador elevado, detete a propriedade **UserIdentity** da tarefa para uma `Admin`conta de utilizador nomeada que foi criada com a sua propriedade **ElevationLevel** definida para .
 
 Este código de corte especifica que a tarefa deve ser executada sob uma conta de utilizador nomeada. Esta conta de utilizador nomeada foi definida na piscina quando a piscina foi criada. Neste caso, a conta de utilizador nomeada foi criada com permissões de administração:
 
@@ -314,15 +314,15 @@ A versão de serviço do Batch 2017-01-01.4.0 introduz uma alteração de rutura
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` não especificados | Nenhuma atualização necessária                                                                                               |
+| `CloudTask.RunElevated`não especificado | Nenhuma atualização necessária                                                                                               |
 
-### <a name="batch-java"></a>Lote Java
+### <a name="batch-java"></a>Batch Java
 
 | Se o seu código for...                      | Atualize-o para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` não especificados | Nenhuma atualização necessária                                                                                                                     |
+| `CloudTask.withRunElevated`não especificado | Nenhuma atualização necessária                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
@@ -330,7 +330,7 @@ A versão de serviço do Batch 2017-01-01.4.0 introduz uma alteração de rutura
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
-| `run_elevated` não especificados | Nenhuma atualização necessária                                                                                                                                  |
+| `run_elevated`não especificado | Nenhuma atualização necessária                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Passos seguintes

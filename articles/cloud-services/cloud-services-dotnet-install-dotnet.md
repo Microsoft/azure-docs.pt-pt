@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214712"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar .NET nas funções azure cloud services
@@ -39,7 +39,7 @@ Para adicionar o instalador para uma função *web:*
   2. Clique na pasta do lixo e selecione **Adicionar** > **item existente**. Selecione o instalador .NET e adicione-o à pasta do lixo.
   
 Para adicionar o instalador para uma função *de trabalhador:*
-* Clique à direita na sua função de *trabalhador* e selecione **Adicionar** > **Item Existente**. Selecione o instalador .NET e adicione-o à função. 
+* Clique na sua função de *trabalhador* e selecione **Adicionar** > **item existente**. Selecione o instalador .NET e adicione-o à função. 
 
 Quando os ficheiros são adicionados desta forma à pasta de conteúdo sonoro, são automaticamente adicionados ao seu pacote de serviço na nuvem. Os ficheiros são então implantados para uma localização consistente na máquina virtual. Repita este processo para cada função web e trabalhador no seu serviço na nuvem para que todas as funções tenham uma cópia do instalador.
 
@@ -73,7 +73,7 @@ Pode utilizar tarefas de arranque para realizar operações antes de iniciar uma
     </Startup>
     ```
    
-    A configuração anterior executa o comando da consola `install.cmd` com privilégios de administrador para instalar o .NET Framework. A configuração também cria um elemento **LocalStorage** chamado **NETFXInstall**. O script de arranque define a pasta temporária para utilizar este recurso de armazenamento local. 
+    A configuração anterior executa o comando `install.cmd` da consola com privilégios de administrador para instalar o .NET Framework. A configuração também cria um elemento **LocalStorage** chamado **NETFXInstall**. O script de arranque define a pasta temporária para utilizar este recurso de armazenamento local. 
     
     > [!IMPORTANT]
     > Para garantir a correta instalação da estrutura, detete a dimensão deste recurso para pelo menos 1.024 MB.
@@ -197,7 +197,7 @@ Pode utilizar tarefas de arranque para realizar operações antes de iniciar uma
    EXIT /B 0
    ```
 
-3. Adicione o ficheiro install.cmd a cada função utilizando **add** > **item existente** no **Solution Explorer,** como descrito anteriormente neste tópico. 
+3. Adicione o ficheiro install.cmd a cada função utilizando o **Add** > **Existing Item** no **Solution Explorer,** tal como descrito anteriormente neste tópico. 
 
     Depois de concluído este passo, todas as funções devem ter o ficheiro do instalador .NET e o ficheiro install.cmd.
 

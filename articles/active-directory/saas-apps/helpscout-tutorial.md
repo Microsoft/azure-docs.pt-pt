@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o help Scout | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o help Scout.
+title: 'Tutorial: Integração do Diretório Ativo Azure com Help Scout [ Scout] Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Help Scout.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,221 +17,221 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71ccbc6cfdb9d3d37fc46b0e932fa98eee2fb43
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159101"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integração do Azure Active Directory com o help Scout
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Diretório Ativo Azure com Escuteiro de Ajuda
 
-Neste tutorial, você aprenderá a integrar o help Scout ao Azure Active Directory (Azure AD).
-A integração do Help Scout ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Help Scout com o Azure Ative Directory (Azure AD).
+Integrar o Scout de Ajuda com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Help Scout.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao Help Scout (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Podes controlar em Azure AD quem tem acesso a Help Scout.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos para ajudar o Scout (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Help Scout, você precisa dos seguintes itens:
+Para configurar a integração da AD Azure com o Help Scout, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para logon único do Help Scout
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Ajuda a escotar única subscrição ativada por sinal
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* O help Scout é compatível com o SSO iniciado por **SP e IDP**
-* O help Scout dá suporte ao provisionamento **de usuário just in time**
+* Ajuda Scout apoia **SP e IDP** iniciado SSO
+* Ajuda Scout suporta aprovisionamento de utilizadores **justo no tempo**
 
-## <a name="adding-help-scout-from-the-gallery"></a>Adicionando o help Scout da Galeria
+## <a name="adding-help-scout-from-the-gallery"></a>Adicionar ajuda scout da galeria
 
-Para configurar a integração do Help Scout ao Azure AD, você precisará adicionar o help Scout da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Help Scout no Azure AD, você precisa adicionar Help Scout da galeria à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **Help Scout** na caixa de pesquisa.
-1. Selecione **Help Scout** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **da galeria,** digite **Help Scout** na caixa de pesquisa.
+1. Selecione **Help Scout** do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o help Scout, com base em um usuário de teste chamado **B. Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Help Scout.
+Nesta secção, configura e testa o único sign-on azure com o Help Scout com base num utilizador de teste chamado **B.Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Help Scout.
 
-Para configurar e testar o logon único do Azure AD com o help Scout, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com o Help Scout, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO do Help Scout](#configure-help-scout-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do Help Scout](#create-help-scout-test-user)** – para ter um equivalente de B. Simon no Help Scout que esteja vinculado à representação do usuário no Azure AD.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure o SSO](#configure-help-scout-sso)** de Ajuda - para configurar as definições de inscrição únicas no lado da aplicação.
+    * **[Create Help Scout test user](#create-help-scout-test-user)** - para ter uma contrapartida de B.Simon em Help Scout que está ligada à representação da AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o help Scout, execute as seguintes etapas:
+Para configurar o único sign-on azure com o Help Scout, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Help Scout** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **help scout,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-1. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+1. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-1. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+1. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , execute as seguintes etapas:
+1. Na secção **Basic SAML Configuration,** Se desejar configurar a aplicação no modo iniciado **idp,** execute os seguintes passos:
 
-    ![Informações de logon único de domínio e URLs do Help Scout](common/idp-intiated.png)
+    ![Ajude o Scout Domain e urLs informações únicas de inscrição](common/idp-intiated.png)
 
-    a. O **identificador** é o **URI do público-alvo (ID da entidade do provedor de serviços)** do Help Scout, começa com `urn:`
+    a. **Identificador** é o PÚBLICO URI (Id da Entidade fornecedora de **serviços)** da Help Scout, começa com`urn:`
 
-    b. A **URL de resposta** é a URL de **postback (URL de serviço do consumidor de asserção)** do Help Scout, começa com `https://` 
+    b. **O URL de resposta** é o **URL pós-back (URL** do Serviço de Consumidor de Afirmação) do Help Scout, começa com`https://` 
 
     > [!NOTE]
-    > Os valores nessas URLs são apenas para demonstração. Você precisa atualizar esses valores da URL de resposta e do identificador reais. Você obtém esses valores da guia **logon único** na seção autenticação, que é explicada posteriormente no tutorial.
+    > Os valores nestes URLs são apenas para demonstração. É necessário atualizar estes valores a partir de URL e Identificador de Resposta real. Obtém estes valores a partir do separador **Sign-On único** na secção autenticação, o que é explicado mais tarde no tutorial.
 
-1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
+1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    ![Informações de logon único de domínio e URLs do Help Scout](common/metadata-upload-additional-signon.png)
+    ![Ajude o Scout Domain e urLs informações únicas de inscrição](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite uma URL como: `https://secure.helpscout.net/members/login/`
+    Na caixa de texto **salmôl Sign-on URL,** escreva um URL como:`https://secure.helpscout.net/members/login/`
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
+1. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o help Scout** , copie as URLs apropriadas de acordo com seu requisito.
+1. Na secção **De Seleção de Ajuda, copie** os URL(s) adequados de acordo com o seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de logon
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador de anúncio sinuoso
 
-    c. URL de logout
+    c. Logout URL
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado B. Simon.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. No campo **nome** , digite **B. Simon**.
+    a. No campo **Nome** entrar **B.Simon**.
   
-    b. No campo **nome de usuário** , digite **B. Simon\@yourcompanydomain. Extension**  
+    b. No **campo** de nome utilizador tipo **B.Simon\@yourcompanydomain.extension**  
     Por exemplo, B.Simon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Help Scout.
+Nesta secção, permite que b.Simon use o único sign-on Azure, concedendo acesso ao Help Scout.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **ajuda Scout**.
+1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Help Scout**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Help Scout**.
+2. Na lista de aplicações, selecione **Help Scout**.
 
-    ![O link do Help Scout na lista de aplicativos](common/all-applications.png)
+    ![O link help scout na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Nos **utilizadores e grupos** de diálogo selecione **B.Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-## <a name="configure-help-scout-sso"></a>Configurar o SSO do Help Scout
+## <a name="configure-help-scout-sso"></a>Configure Ajude a Escuteiro SSO
 
-1. Para automatizar a configuração no Help Scout, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
+1. Para automatizar a configuração dentro do Help Scout, precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-1. Depois de adicionar a extensão ao navegador, clique em **Configurar o help Scout** o direcionará para o aplicativo Help Scout. A partir daí, forneça as credenciais de administrador para entrar no Help Scout. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-7.
+1. Depois de adicionar extensão ao navegador, clique em **Configurar O Scout de Ajuda** irá direcioná-lo para a aplicação Help Scout. A partir daí, forneça as credenciais de administração para assinar no Help Scout. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-7.
 
-    ![Configuração da instalação](common/setup-sso.png)
+    ![Configuração de configuração de configuração](common/setup-sso.png)
 
-1. Se você quiser configurar o help Scout manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do Help Scout como administrador e execute as seguintes etapas:
+1. Se quiser configurar o Help Scout manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa Help Scout como administrador e execute os seguintes passos:
 
-1. Clique em **gerenciar** no menu superior e selecione **empresa** no menu suspenso.
+1. Clique em **Gerir** a partir do menu superior e, em seguida, selecione **Empresa** a partir do menu dropdown.
 
-    ![Configurar logon único](./media/helpscout-tutorial/settings1.png)
+    ![Configurar um único sinal](./media/helpscout-tutorial/settings1.png)
 
-1. Selecione **autenticação** no painel de navegação à esquerda.
+1. **Selecione Autenticação** a partir do painel de navegação esquerdo.
 
-    ![Configurar logon único](./media/helpscout-tutorial/settings2.png)
+    ![Configurar um único sinal](./media/helpscout-tutorial/settings2.png)
 
-1. Isso levará você para a seção de configurações do SAML e executará as seguintes etapas:
+1. Isto leva-o à secção de definições SAML e executa os seguintes passos:
 
-    ![Configurar logon único](./media/helpscout-tutorial/settings3.png)
+    ![Configurar um único sinal](./media/helpscout-tutorial/settings3.png)
 
-    a. Copie o valor da **URL de postback (URL do serviço do consumidor de asserção)** e cole o valor na caixa de texto **URL de resposta** na seção **configuração básica do SAML** no portal do Azure.
+    a. Copie o valor do **URL pós-back (Url do Serviço de Consumidor de Afirmação)** e cole o valor na caixa de texto URL de **resposta** na secção **de configuração Básica sAML** no portal Azure.
 
-    b. Copie o valor do **URI do público (ID da entidade do provedor de serviços)** e cole o valor na caixa de texto **identificador** na seção **configuração básica do SAML** no portal do Azure.
+    b. Copie o valor do Público URI (Id da **Entidade fornecedora de serviços)** e cole o valor na caixa de texto **identificador** na secção **de Configuração Básica SAML** no portal Azure.
 
-1. Alterne **habilitar SAML** em e execute as seguintes etapas:
+1. **Toggle Enable SAML** e execute os seguintes passos:
 
-    ![Configurar logon único](./media/helpscout-tutorial/settings4.png)
+    ![Configurar um único sinal](./media/helpscout-tutorial/settings4.png)
 
-    a. Na caixa de texto **URL de logon único** , Cole o valor da **URL de logon**copiado de portal do Azure.
+    a. Na caixa de texto **single Sign-On URL,** colá o valor do URL de **Login,** que copiou do portal Azure.
 
-    b. Clique em **carregar certificado** para carregar o **certificado (Base64)** baixado de portal do Azure.
+    b. Clique no **Certificado de Upload** para fazer o upload do Certificado **(Base64)** descarregado do portal Azure.
 
-    c. Insira os domínios de email da sua organização e.x.-`contoso.com` na caixa de texto **domínios de email** . Você pode separar vários domínios com uma vírgula. A qualquer momento, um usuário ou administrador do Help Scout que insira esse domínio específico na [página de logon do Help Scout](https://secure.helpscout.net/members/login/) será roteado para o provedor de identidade para autenticar com suas credenciais.
+    c. Insira o domínio de e-mail da `contoso.com` sua organização e.x.- na caixa de texto de Domínios de **e-mail.** Pode separar vários domínios com uma vírina. Sempre que um Utilizador ou Administrador de Escuteiros de Ajuda que entre nesse domínio específico na [página de login](https://secure.helpscout.net/members/login/) do Help Scout será encaminhado para o Fornecedor de Identidade para autenticar com as suas credenciais.
 
-    d. Por fim, você pode alternar a opção **forçar logon SAML** se quiser que os usuários façam logon apenas no Help Scout por meio desse método. Se você ainda deseja deixar a opção de entrar com suas credenciais do Help Scout, você pode deixá-la desativada. Mesmo que esteja habilitado, um proprietário de conta sempre será capaz de fazer logon no Help Scout com a senha da conta.
+    d. Por último, pode alternar o **Sinal SAML da Força** se pretender que os Utilizadores apenas entrem para ajudar a Scout através deste método. Se ainda quiser deixar a opção para eles assinarem com as suas credenciais de escuteiro, pode deixá-la toggled fora. Mesmo que isso esteja ativado, um Proprietário de Conta será sempre capaz de iniciar sessão para ajudar a Scout com a sua senha de conta.
 
     e. Clique em **Guardar**.
 
-### <a name="create-help-scout-test-user"></a>Criar usuário de teste do Help Scout
+### <a name="create-help-scout-test-user"></a>Criar o utilizador de teste de ajuda scout
 
-Nesta seção, um usuário chamado B. Simon é criado no Help Scout. O help Scout dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no Help Scout, um novo será criado após a autenticação.
+Nesta secção, um utilizador chamado B.Simon é criado em Help Scout. Ajuda o Scout suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Help Scout, um novo é criado após a autenticação.
 
-### <a name="test-sso"></a>Testar SSO
+### <a name="test-sso"></a>Teste SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do Help Scout no painel de acesso, você deverá ser conectado automaticamente ao Help Scout para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo help scout no Painel de Acesso, deve ser automaticamente inscrito no Help Scout para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o help Scout com o Azure AD](https://aad.portal.azure.com/)
+- [Tente ajudar o scout com a AD Azure](https://aad.portal.azure.com/)

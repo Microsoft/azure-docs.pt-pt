@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244397"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir os recursos de armazenamento da Blob Azure com o Storage Explorer
@@ -83,7 +83,7 @@ Os seguintes passos ilustram como eliminar um recipiente de bolha no Storage Exp
    Também pode **premir Apagar** para eliminar o recipiente de bolhas atualmente selecionado.
 
    ![Eliminar menu de contexto de recipiente blob][4]
-5. Selecione **Yes (Sim)** , na caixa de diálogo de confirmação.
+5. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
 
    ![Eliminar a confirmação do recipiente blob][5]
 
@@ -116,15 +116,15 @@ Os seguintes passos ilustram como criar um SAS para um recipiente de bolhas:
 4. Clique no recipiente de bolhas desejado e - a partir do menu de contexto - selecione **Get Shared Access Signature**.
 
    ![Obtenha menu de contexto SAS][8]
-5. Na caixa de diálogo **Shared Access Signature (Assinatura de Acesso Partilhado)** , especifique a política, as datas de início e de expiração, o fuso horário e os níveis de acesso que atribuir ao recurso.
+5. Na caixa de diálogo **Shared Access Signature (Assinatura de Acesso Partilhado)**, especifique a política, as datas de início e de expiração, o fuso horário e os níveis de acesso que atribuir ao recurso.
 
    ![Obtenha opções SAS][9]
-6. Quando tiver terminado de especificar as opções de SAS, selecione **Create (Criar)** .
+6. Quando tiver terminado de especificar as opções de SAS, selecione **Create (Criar)**.
 7. Um segundo diálogo de assinatura de **acesso partilhado** irá então mostrar que lista o recipiente de bolha juntamente com o URL e as QueryStrings que pode utilizar para aceder ao recurso de armazenamento.
-   Selecione **Copy (Copiar)** , junto ao URL que quer copiar para a área de transferências.
+   Selecione **Copy (Copiar)**, junto ao URL que quer copiar para a área de transferências.
 
    ![Copiar URLs SAS][10]
-8. Quando terminar, selecione **Close (Fechar)** .
+8. Quando terminar, selecione **Close (Fechar)**.
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>Gerir políticas de acesso para um recipiente de bolhas
 
@@ -141,7 +141,7 @@ Os seguintes passos ilustram como gerir (adicionar e remover) políticas de aces
    ![Opções de Política de Acesso][12]
 6. Siga estes passos consoante a tarefa de gestão de política de acesso:
 
-   * **Adicionar uma política de acesso nova** - selecione **Add (Adicionar)** . Depois de gerada, a caixa de diálogo **Access Policies** mostrará a política de acesso acabada de adicionar (com predefinições).
+   * **Adicionar uma política de acesso nova** - selecione **Add (Adicionar)**. Depois de gerada, a caixa de diálogo **Access Policies** mostrará a política de acesso acabada de adicionar (com predefinições).
    * **Editar uma política** de acesso - Faça as edificações desejadas e selecione **Guardar**.
    * **Remover uma política de acesso** - selecione **Remove (Remover)** junto à política de acesso que pretende remover.
 
@@ -180,10 +180,10 @@ Os seguintes passos ilustram como gerir as bolhas (e pastas) dentro de um recipi
 
    * **Faça upload de ficheiros para um recipiente de bolha**
 
-     1. Na barra de ferramentas do painel principal, selecione **Upload (Carregar)** e, em seguida, **Upload Files (Carregar Ficheiros)** , no menu pendente.
+     1. Na barra de ferramentas do painel principal, selecione **Upload (Carregar)** e, em seguida, **Upload Files (Carregar Ficheiros)**, no menu pendente.
 
         ![Menu Carregar ficheiros][15]
-     2. Na caixa de diálogo **Upload files (Carregar ficheiros)** , selecione o botão de reticências ( **...** ), no lado direito da caixa de texto **Files (Ficheiros)** , para selecionar o ficheiro ou ficheiros que quer carregar.
+     2. Na caixa de diálogo **Upload files (Carregar ficheiros)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Files (Ficheiros)**, para selecionar o ficheiro ou ficheiros que quer carregar.
 
         ![Carregar opções de ficheiros][16]
      3. Especifique o tipo de **tipo Blob**. Consulte [Criar um recipiente](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
@@ -191,10 +191,10 @@ Os seguintes passos ilustram como gerir as bolhas (e pastas) dentro de um recipi
      5. Selecione **Upload**.
    * **Faça upload de uma pasta para um recipiente de bolhas**
 
-     1. Na barra de ferramentas do painel principal, selecione **Upload** e, em seguida, **Upload Folder (Carregar Pasta)** , no menu pendente.
+     1. Na barra de ferramentas do painel principal, **selecione Upload** **e,** em seguida, carregue a pasta a partir do menu suspenso.
 
         ![Menu Carregar pasta][17]
-     2. Na caixa de diálogo **Upload folder (Carregar pasta)** , selecione o botão de reticências ( **...** ), no lado direito da caixa de texto **Folder (Pasta)** , para selecionar a pasta cujos conteúdos quer carregar.
+     2. Na caixa de diálogo **Upload folder (Carregar pasta)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Folder (Pasta)**, para selecionar a pasta cujos conteúdos quer carregar.
 
         ![Carregar opções de pastas][18]
      3. Especifique o tipo de **tipo Blob**. Consulte [Criar um recipiente](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
@@ -203,27 +203,27 @@ Os seguintes passos ilustram como gerir as bolhas (e pastas) dentro de um recipi
    * **Faça o download de uma bolha para o seu computador local**
 
      1. Selecione a bolha que deseja descarregar.
-     2. Na barra de ferramentas do painel principal, selecione **Download (Transferir)** .
+     2. Na barra de ferramentas do painel principal, selecione **Download (Transferir)**.
      3. No **Especte onde guardar o diálogo blob descarregado,** especifique a localização onde pretende que a bolha seja descarregada e o nome que pretende dar.  
      4. Selecione **Guardar**.
    * **Abra uma bolha no seu computador local**
 
      1. Selecione a bolha que deseja abrir.
-     2. Na barra de ferramentas do painel principal, selecione **Open (Abrir)** .
+     2. Na barra de ferramentas do painel principal, selecione **Open (Abrir)**.
      3. A bolha será descarregada e aberta utilizando a aplicação associada ao tipo de ficheiro subjacente da bolha.
    * **Copiar uma bolha para a pasta**
 
      1. Selecione a bolha que pretende copiar.
-     2. Na barra de ferramentas do painel principal, selecione **Copy (Copiar)** .
+     2. Na barra de ferramentas do painel principal, selecione **Copy (Copiar)**.
      3. No painel esquerdo, navegue para outro recipiente de bolhas e clique duas vezes nele para vê-lo no painel principal.
      4. Na barra de ferramentas do painel principal, selecione **Pasta** para criar uma cópia da bolha.
-   * **Apagar uma bolha**
+   * **Eliminar um blob**
 
      1. Selecione a bolha que pretende eliminar.
-     2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)** .
-     3. Selecione **Yes (Sim)** , na caixa de diálogo de confirmação.
+     2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)**.
+     3. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).

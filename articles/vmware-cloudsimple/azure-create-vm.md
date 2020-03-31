@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244696"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Crie uma máquina virtual em Azure usando modelos VM na infraestrutura VMware
@@ -21,7 +21,7 @@ Pode criar uma máquina virtual no portal Azure utilizando modelos VM na infraes
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-cloudsimple-virtual-machine"></a>Criar a máquina virtual CloudSimple
 
@@ -47,7 +47,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Nome | Nome para identificar o VM.  |
     | Localização | Região azul na qual este VM está hospedado.  |
     | Cloud Privada | CloudSimple Private Cloud onde pretende criar a máquina virtual. |
-    | Agrupamento de recursos | Piscina de recursos mapeado para o VM. Selecione a partir dos recursos disponíveis. |
+    | Piscina de Recursos | Piscina de recursos mapeado para o VM. Selecione a partir dos recursos disponíveis. |
     | modelo de vSphere | modelo vSphere para o VM.  |
     | Nome de utilizador | Nome de utilizador do administrador VM (para modelos Windows)|
     | Palavra-passe <br>Confirmar palavra-passe | Palavra-passe para o administrador VM (para modelos Windows).  |

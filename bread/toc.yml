@@ -270,9 +270,6 @@
     - name: Cache
       tocHref: /azure/cache/
       topicHref: /azure/cache/
-    - name: CDN
-      tocHref: /azure/cdn/
-      topicHref: /azure/cdn/
     - name: Serviços Cloud
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
@@ -426,9 +423,6 @@
         - name: Utilizar o Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
-    - name: Bastion
-      tocHref: /azure/bastion/
-      topicHref: /azure/bastion/
     - name: BD do Cosmos
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
@@ -460,27 +454,6 @@
     - name: Laboratório DevTest
       tocHref: /azure/devtest-lab/
       topicHref: /azure/devtest-lab/
-    - name: DNS
-      tocHref: /azure/dns/
-      topicHref: /azure/dns/
-    - name: Event Grid
-      tocHref: /azure/event-grid/
-      topicHref: /azure/event-grid
-    - name: Hubs de Eventos
-      tocHref: /azure/event-hubs/
-      topicHref: /azure/event-hubs/
-    - name: ExpressRoute
-      tocHref: /azure/expressroute/
-      topicHref: /azure/expressroute/
-    - name: Firewall
-      tocHref: /azure/firewall/
-      topicHref: /azure/firewall/
-    - name: Firewall Manager
-      tocHref: /azure/firewall-manager
-      topicHref: /azure/firewall-manager
-    - name: Front Door Service
-      tocHref: /azure/frontdoor/
-      topicHref: /azure/frontdoor/
     - name: FXT Edge Filer
       tocHref: /azure/fxt-edge-filer/
       topicHref: /azure/fxt-edge-filer/
@@ -556,9 +529,6 @@
     - name: Serviços de Laboratório
       tocHref: /azure/lab-services/
       topicHref: /azure/lab-services/
-    - name: Load balancer
-      tocHref: /azure/load-balancer/
-      topicHref: /azure/load-balancer/
     - name: Aplicações Lógicas
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
@@ -597,6 +567,22 @@
         - name: Indexador de Vídeos
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
+    - name: Serviços de mensagens
+      tocHref: /azure/messaging-services/
+      topicHref: /azure/messaging-services/
+      items:
+        - name: Event Grid
+          tocHref: /azure/event-grid/
+          topicHref: /azure/event-grid
+        - name: Hubs de Eventos
+          tocHref: /azure/event-hubs/
+          topicHref: /azure/event-hubs/
+        - name: Mensagens do Service Bus
+          tocHref: /azure/service-bus-messaging/
+          topicHref: /azure/service-bus-messaging/
+        - name: Reencaminhamento do Service Bus
+          tocHref: /azure/service-bus-relay/
+          topicHref: /azure/service-bus-relay/
     - name: Migrar
       tocHref: /azure/migrate/
       topicHref: /azure/migrate/
@@ -616,12 +602,67 @@
     - name: MySQL
       tocHref: /azure/mysql/
       topicHref: /azure/mysql/
-    - name: Observador de Rede
-      tocHref: /azure/network-watcher/
-      topicHref: /azure/network-watcher/
     - name: Redes
       tocHref: /azure/networking/
-      topicHref: /azure/networking/networking-overview
+      topicHref: /azure/networking/
+      items:
+        - name: Gateway de Aplicação
+          tocHref: /azure/application-gateway/
+          topicHref: /azure/application-gateway/
+        - name: Bastion
+          tocHref: /azure/bastion/
+          topicHref: /azure/bastion/
+        - name: CDN
+          tocHref: /azure/cdn/
+          topicHref: /azure/cdn/
+        - name: DNS
+          tocHref: /azure/dns/
+          topicHref: /azure/dns/
+        - name: ExpressRoute
+          tocHref: /azure/expressroute/
+          topicHref: /azure/expressroute/
+        - name: Firewall
+          tocHref: /azure/firewall/
+          topicHref: /azure/firewall/
+        - name: Firewall Manager
+          tocHref: /azure/firewall-manager/
+          topicHref: /azure/firewall-manager/
+        - name: Front Door Service
+          tocHref: /azure/frontdoor/
+          topicHref: /azure/frontdoor/
+        - name: Internet Analyzer
+          tocHref: /azure/internet-analyzer/
+          topicHref: /azure/internet-analyzer/
+        - name: Peering da Internet
+          tocHref: /azure/internet-peering/
+          topicHref: /azure/internet-peering/
+        - name: Load balancer
+          tocHref: /azure/load-balancer/
+          topicHref: /azure/load-balancer/
+        - name: Observador de Rede
+          tocHref: /azure/network-watcher/
+          topicHref: /azure/network-watcher/
+        - name: Ligação Privada
+          tocHref: /azure/private-link/
+          topicHref: /azure/private-link/
+        - name: Peering Service
+          tocHref: /azure/peering-service/
+          topicHref: /azure/peering-service/
+        - name: Gestor de Tráfego
+          tocHref: /azure/traffic-manager/
+          topicHref: /azure/traffic-manager/
+        - name: Rede Virtual
+          tocHref: /azure/virtual-network/
+          topicHref: /azure/virtual-network/
+        - name: WAN Virtual
+          tocHref: /azure/virtual-wan/
+          topicHref: /azure/virtual-wan/
+        - name: Gateway de VPN
+          tocHref: /azure/vpn-gateway/
+          topicHref: /azure/vpn-gateway/
+        - name: Firewall de Aplicação Web
+          tocHref: /azure/web-application-firewall/
+          topicHref: /azure/web-application-firewall/
     - name: Notebooks
       tocHref: /azure/notebooks/
       topicHref: /azure/notebooks/azure-notebooks-overview
@@ -683,15 +724,6 @@
     - name: Azure Sentinel
       tocHref: /azure/sentinel/
       topicHref: /azure/sentinel/
-    - name: Service Bus
-      tocHref: /azure/service-bus/
-      topicHref: /azure/service-bus/
-    - name: Mensagens do Service Bus
-      tocHref: /azure/service-bus-messaging/
-      topicHref: /azure/service-bus-messaging/
-    - name: Reencaminhamento do Service Bus
-      tocHref: /azure/service-bus-relay/
-      topicHref: /azure/service-bus-relay/
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/
@@ -705,8 +737,8 @@
       tocHref: /azure/site-reliability-engineering/
       topicHref: /azure/site-reliability-engineering/
     - name: Synapse Analytics
-      tocHref: /azure/sql-data-warehouse/
-      topicHref: /azure/sql-data-warehouse/
+      tocHref: /azure/synapse-analytics/
+      topicHref: /azure/synapse-analytics/
     - name: SQL Database
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
@@ -741,12 +773,6 @@
     - name: Stream Analytics
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
-    - name: Internet Analyzer
-      tocHref: /azure/internet-analyzer/
-      topicHref: /azure/internet-analyzer/
-    - name: Gestor de Tráfego
-      tocHref: /azure/traffic-manager/
-      topicHref: /azure/traffic-manager/
     - name: Conjuntos de Dimensionamento de Máquinas Virtuais
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
@@ -787,18 +813,6 @@
             - name: VM do SQL
               tocHref: /azure/virtual-machines/windows/sql
               topicHref: /azure/virtual-machines/windows/sql
-    - name: Rede Virtual
-      tocHref: /azure/virtual-network/
-      topicHref: /azure/virtual-network/
-    - name: Peering Service
-      tocHref: /azure/peering-service/
-      topicHref: /azure/peering-service/
-    - name: Gateway de VPN
-      tocHref: /azure/vpn-gateway/
-      topicHref: /azure/vpn-gateway/
-    - name: Firewall de Aplicação Web
-      tocHref: /azure/web-application-firewall/
-      topicHref: /azure/web-application-firewall/
     - name: Windows Virtual Desktop
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/

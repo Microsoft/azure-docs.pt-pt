@@ -1,6 +1,6 @@
 ---
 title: Planeamento para migração do clássico para o Gestor de Recursos Azure
-description: Planeamento para migração de recursos IaaS do clássico para OGestor de Recursos Azure
+description: Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-linux
 author: tanmaygore
 manager: vashan
@@ -9,14 +9,14 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0b9c5b17b993afdd64cd2cbd8a15cbd6dd53f5ca
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: ff829e9ffbd6d6ae0766998e62634ac873afc748
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066662"
 ---
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planeamento para migração de recursos IaaS do clássico para OGestor de Recursos Azure
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 
 > [!IMPORTANT]
 > Hoje, cerca de 90% dos VMs iaas estão usando O Gestor de [Recursos Azure.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VMs clássicos foram depreciados e serão totalmente aposentados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
@@ -93,7 +93,7 @@ Seguiram-se questões descobertas em muitas das maiores migrações. Esta não �
 - **Circuitos de Rota Expresso e VPN**. Atualmente, o Express Route Gateways com ligações de autorização não pode ser migrado sem tempo de inatividade. Para obter a socapa, consulte [circuitos Migrate ExpressRoute e redes virtuais associadas do clássico ao modelo](../../expressroute/expressroute-migration-classic-resource-manager.md)de implementação do Gestor de Recursos.
 
 - **Extensões VM** - As extensões da Máquina Virtual são potencialmente um dos maiores bloqueios de estradas para migrar VMs em execução. A reparação das extensões vm pode demorar mais de 1-2 dias, por isso planeie em conformidade.  Um agente Azure em funcionamento é necessário para informar o estado de extensão vm de execução de VMs. Se o estatuto voltar tão mau para um VM em execução, isto vai parar a migração. O próprio agente não precisa de estar em condições de permitir a migração, mas se existirem extensões no VM, então tanto será necessário um agente de trabalho como uma conectividade de acesso à Internet (com DNS) para que a migração avance.
-  - Se a conectividade com um servidor DNS for perdida durante a migração, todas as extensões VM exceto BGInfo v1.\* primeiro devem ser removidos de cada VM antes da preparação da migração, e posteriormente readicionados ao VM após a migração do Gestor de Recursos Azure.  **Isto é só para vMs que estão a funcionar.**  Se os VMs forem interrompidos, as extensões VM não precisam de ser removidas. **Nota:** Muitas extensões como os diagnósticos do Azure e a monitorização do centro de segurança reinstalar-se-ão após a migração, pelo que removê-las não é um problema.
+  - Se a conectividade com um servidor DNS for perdida durante a migração, todas as extensões VM exceto BGInfo v1. \* primeiro deve ser removido de cada VM antes da preparação da migração e, posteriormente, readicionado ao VM após a migração do Gestor de Recursos Azure.  **Isto é só para vMs que estão a funcionar.**  Se os VMs forem interrompidos, as extensões VM não precisam de ser removidas. **Nota:** Muitas extensões como os diagnósticos do Azure e a monitorização do centro de segurança reinstalar-se-ão após a migração, pelo que removê-las não é um problema.
   - Além disso, certifique-se de que os grupos de segurança da rede não estão a restringir o acesso à Internet. Isto pode acontecer com algumas configurações de Grupos de Segurança da Rede. O acesso à Internet de saída (e DNS) é necessário para que as extensões vm sejam migradas para o Gestor de Recursos Azure.
   - Existem duas versões da extensão BGInfo: v1 e v2.  Se o VM foi criado utilizando o portal Azure ou powerShell, o VM provavelmente terá a extensão v1 no mesmo. Esta extensão não precisa de ser removida e será ignorada (não migrada) pela API migratória. No entanto, se o Classic VM foi criado com o novo portal Azure, provavelmente terá a versão V2 baseada em JSON da BGInfo, que pode ser migrada para o Azure Resource Manager desde que o agente esteja a trabalhar e tenha acesso à Internet de saída (e DNS).
   - **Opção de reparação 1**. Se sabe que os seus VMs não terão acesso à Internet de saída, um serviço DNS em funcionamento e agentes Azure a trabalhar nos VMs, então desinstale todas as extensões vM como parte da migração antes de preparar e, em seguida, reinstale as Extensões VM após a migração.
@@ -106,7 +106,7 @@ Seguiram-se questões descobertas em muitas das maiores migrações. Esta não �
 
 - **Implementações de funções Web/Trabalhador** - Serviços de nuvem que contenham funções web e trabalhadornão podem migrar para O Gestor de Recursos Azure. As funções web/trabalhador devem primeiro ser removidas da rede virtual antes de a migração poder começar.  Uma solução típica é apenas mover exemplos de papéis web/trabalhador para uma rede virtual clássica separada que também está ligada a um circuito ExpressRoute, ou migrar o código para os mais recentes Serviços de Aplicação PaaS (esta discussão está fora do âmbito deste documento). No caso de reimplantação anterior, criar uma nova rede virtual Clássica, mover/reimplantar as funções web/trabalhador para essa nova rede virtual, em seguida, eliminar as implementações da rede virtual que está sendo deslocada. Não são necessárias alterações de código. A nova capacidade [de peering](../../virtual-network/virtual-network-peering-overview.md) de rede virtual pode ser usada para analisar a rede virtual clássica que contém as funções web/trabalhador e outras redes virtuais na mesma região do Azure, como a migração da rede virtual ( após a migração da rede virtual ser concluída como**redes virtuais peered não pode ser migrada),** proporcionando assim as mesmas capacidades sem perda de desempenho e sem penalizações de latência/largura de banda. Dada a adição de [Virtual Network Peering,](../../virtual-network/virtual-network-peering-overview.md)as implementações de funções web/trabalhador podem agora ser facilmente atenuadas e não bloquear a migração para o Gestor de Recursos Azure.
 
-- Quotas de **Gestor de Recursos Azure** - As regiões azure têm quotas/limites separados tanto para o Classic como para o Gestor de Recursos Azure. Mesmo que num cenário de migração não esteja a ser consumido novo hardware *(estamos a trocar vMs existentes de Classic para Azure Resource Manager)* , as quotas do Gestor de Recursos Azure ainda precisam de estar em vigor com capacidade suficiente antes de a migração poder começar. Listados abaixo estão os principais limites que vimos causar problemas.  Abra um bilhete de apoio à quota para aumentar os limites.
+- Quotas de **Gestor de Recursos Azure** - As regiões azure têm quotas/limites separados tanto para o Classic como para o Gestor de Recursos Azure. Mesmo que num cenário de migração não esteja a ser consumido novo hardware *(estamos a trocar vMs existentes de Classic para Azure Resource Manager)*, as quotas do Gestor de Recursos Azure ainda precisam de estar em vigor com capacidade suficiente antes de a migração poder começar. Listados abaixo estão os principais limites que vimos causar problemas.  Abra um bilhete de apoio à quota para aumentar os limites.
 
     > [!NOTE]
     > Estes limites têm de ser aumentados na mesma região que o seu ambiente atual para ser migrado.
@@ -124,29 +124,29 @@ Seguiram-se questões descobertas em muitas das maiores migrações. Esta não �
 
     **Compute** *(Cores, Conjuntos de Disponibilidade)*
 
-    ```bash
+    ```azurecli
     az vm list-usage -l <azure-region> -o jsonc
     ```
 
     **Rede** *(Redes Virtuais, IPs Públicos Estáticos, IPs Públicos, Grupos de Segurança da Rede, Interfaces de Rede, Balanceadores de Carga, Tabelas de Rotas)*
 
-    ```bash
+    ```azurecli
     az network list-usages -l <azure-region> -o jsonc
     ```
 
     Armazenamento *(Conta* de **Armazenamento)**
 
-    ```bash
+    ```azurecli
     az storage account show-usage
     ```
 
-- Limites de aceleração da **API do Gestor de Recursos Azure** - Se tiver um ambiente suficientemente grande (por exemplo. > 400 VMs num VNET, pode atingir os limites padrão de aceleração da API para escritas (atualmente **1200 escritos/hora)** no Gestor de Recursos Azure. Antes de iniciar a migração, deverá levantar um bilhete de apoio para aumentar este limite para a sua subscrição.
+- Limites de aceleração da **API do Gestor de Recursos Azure** - Se tiver um ambiente suficientemente grande (por exemplo. > 400 VMs num VNET), pode atingir os limites padrão de estrangulamento da API para escritas (atualmente **1200 escritos/hora)** no Gestor de Recursos Azure. Antes de iniciar a migração, deverá levantar um bilhete de apoio para aumentar este limite para a sua subscrição.
 
 - **Provisionamento Tempode VM Status** - Se algum VM tiver o estatuto de **disposição cronometrada**, isso tem de ser resolvido antes da migração. A única maneira de o fazer é com o tempo de inatividade, desprovisionando/reprovisionando o VM (eliminá-lo, manter o disco e recriar o VM).
 
 - **RoleStateUnknown VM Status** - Se a migração parar devido a uma mensagem de erro **desconhecida do estado de função,** inspecione o VM utilizando o portal e certifique-se de que está em funcionamento. Este erro normalmente desaparece por si só (sem necessidade de reparação) após alguns minutos e é frequentemente um tipo transitório frequentemente visto durante um **arranque**da Máquina Virtual, **paragem,** **reiniciar** operações. **Prática recomendada:** volte a tentar a migração após alguns minutos.
 
-- **O Cluster de Tecidos não existe** - Em alguns casos, certos VMs não podem ser migrados por várias razões estranhas. Um desses casos conhecidos é se o VM foi recentemente criado (na última semana ou assim) e aconteceu para aterrar um cluster Azure que ainda não está equipado para cargas de trabalho do Gestor de Recursos Azure.  Terá um erro que diz que o cluster de **tecidos não existe** e o VM não pode ser migrado. Esperar alguns dias geralmente resolverá este problema em particular, uma vez que o cluster em breve terá o Gestor de Recursos Azure ativado. No entanto, uma suposição imediata é `stop-deallocate` o VM, em seguida, continuar com a migração, e começar o VM de volta em Azure Resource Manager após a migração.
+- **O Cluster de Tecidos não existe** - Em alguns casos, certos VMs não podem ser migrados por várias razões estranhas. Um desses casos conhecidos é se o VM foi recentemente criado (na última semana ou assim) e aconteceu para aterrar um cluster Azure que ainda não está equipado para cargas de trabalho do Gestor de Recursos Azure.  Terá um erro que diz que o cluster de **tecidos não existe** e o VM não pode ser migrado. Esperar alguns dias geralmente resolverá este problema em particular, uma vez que o cluster em breve terá o Gestor de Recursos Azure ativado. No entanto, uma `stop-deallocate` suposição imediata é para o VM, em seguida, continuar com a migração, e iniciar o VM de volta em Azure Resource Manager após a migração.
 
 ### <a name="pitfalls-to-avoid"></a>Armadilhas para evitar
 
@@ -201,7 +201,7 @@ Seja propositado sobre os serviços que pretende agora ativar no Gestor de Recur
 Lembre-se porque iniciou esta viagem de migração classic to Azure Resource Manager.  Quais foram as razões originais do negócio? Conseguiu a razão do negócio?
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração apoiada pela plataforma de recursos IaaS do clássico para o Gestor de Recursos Azure](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256968"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerir o Agente de mobilidade 
@@ -24,7 +24,7 @@ Configura o agente de mobilidade no seu servidor quando utiliza a Recuperação 
 ## <a name="update-mobility-service-from-azure-portal"></a>Atualizar serviço de mobilidade do portal Azure
 
 1. Antes de começar a garantir que o servidor de configuração, servidores de processos de escala e quaisquer servidores-alvo principais que façam parte da sua implementação são atualizados antes de atualizar o Serviço de Mobilidade em máquinas protegidas.
-2. No portal abra o cofre > **Itens replicados.**
+2. No portal abrir o cofre > **itens replicados.**
 3. Se o servidor de configuração for a versão mais recente, verá uma notificação onde se lê "A atualização do agente de replicação de recuperação do Novo Site está disponível. Clique para instalar."
 
      ![Janela de itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
@@ -66,7 +66,7 @@ Quando implementou a Recuperação do Site, para permitir a instalação de impu
 
 Desinstale a partir da UI ou a partir de um pedido de comando.
 
-- **A partir da UI**: No Painel de Controlo da máquina, selecione **Programas**. Selecione O Serviço de Mobilidade de Recuperação do **Site microsoft Azure/servidor Master Target** > **desinstalar**.
+- **A partir da UI**: No Painel de Controlo da máquina, selecione **Programas**. Selecione **Microsoft Azure Site Recovery Mobility Service/Master Target server** > **Desinstalar**.
 - **A partir de um pedido de comando:** Abra uma janela de solicitação de comando como administrador na máquina. Execute o seguinte comando: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"

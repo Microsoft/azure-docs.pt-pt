@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
 ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604378"
 ---
 # <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (Pré-visualização)

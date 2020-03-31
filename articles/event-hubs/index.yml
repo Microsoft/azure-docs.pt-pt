@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 01/29/2020
-  ms.openlocfilehash: 28cfe37f6058dbedb11fb6fe01d932cbb10cbd18
-  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.openlocfilehash: 957a942efd618003dd3ff3f9f76be72799770859
+  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77162961"
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80288296"
 landingContent:
 - title: Acerca dos Hubs de Eventos
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar um hub de eventos ativado do Apache Kafka
-      url: event-hubs-create-kafka-enabled.md
+      url: event-hubs-create.md
     - text: Espelhar um mediador de Kafka num hub de eventos
       url: event-hubs-kafka-mirror-maker-tutorial.md
     - text: Ligar o Apache Spark a um hub de eventos
@@ -143,7 +143,7 @@ landingContent:
       url: event-hubs-ip-filtering.md
     - text: Utilizar os pontos finais de serviço de rede virtual
       url: event-hubs-service-endpoints.md
+    - text: Utilizar pontos finais privados
+      url: private-link-service.md
     - text: Configurar chaves geridas pelo cliente para a encriptação de dados inativos
       url: configure-customer-managed-key.md
-    - text: Ativar a integração e as firewalls das Redes Virtuais
-      url: event-hubs-tutorial-virtual-networks-firewalls.md

@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260530"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mova dados da Amazon Redshift usando a Fábrica de Dados Azure
@@ -55,7 +55,7 @@ Quando utiliza o Assistente de Cópia, as definições jSON para estas entidades
 
 As seguintes secções descrevem as propriedades JSON que são usadas para definir as entidades da Fábrica de Dados para a Amazon Redshift.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 A tabela seguinte fornece descrições para os elementos JSON que são específicos de um serviço ligado à Amazon Redshift.
 
@@ -63,12 +63,12 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 | --- | --- | --- |
 | **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Sim |
 | **servidor** |O endereço IP ou nome anfitrião do servidor Amazon Redshift. |Sim |
-| **porto** |O número da porta TCP que o servidor Amazon Redshift usa para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
+| **porta** |O número da porta TCP que o servidor Amazon Redshift usa para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
 | **base de dados** |O nome da base de dados Amazon Redshift. |Sim |
 | **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Sim |
-| **senha** |A palavra-passe para a conta de utilizador. |Sim |
+| **palavra-passe** |A palavra-passe para a conta de utilizador. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) A **estrutura,** **disponibilidade**e secções **políticas** são semelhantes para todos os tipos de conjuntos de dados. Exemplos de tipos de conjuntos de dados incluem armazenamento Azure SQL, Azure Blob e armazenamento de mesa Azure.
 
@@ -76,9 +76,9 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **nome da tabela** |O nome da tabela na base de dados DaAmazon Redshift a que o serviço ligado se refere. |Não (se for especificada a propriedade **de consulta** de uma atividade de cópia do tipo **RelationalSource)** |
+| **tableName** |O nome da tabela na base de dados DaAmazon Redshift a que o serviço ligado se refere. |Não (se for especificada a propriedade **de consulta** de uma atividade de cópia do tipo **RelationalSource)** |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade copy
+## <a name="copy-activity-properties"></a>Propriedades de Copy Activity
 
 Para obter uma lista de secções e propriedades disponíveis para definir atividades, consulte o artigo Criação de [Pipelines.](data-factory-create-pipelines.md) O **nome**, **descrição,** tabela **de inputs,** tabela **de saídas** e propriedades **políticas** estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na secção **typeProperties** variam para cada tipo de atividade. No que diz matéria de cópia, as propriedades variam consoante os tipos de fontes de dados e pias.
 
@@ -332,15 +332,15 @@ Os seguintes mapeamentos são usados quando a Copy Activity converte os dados de
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |decimal |
+| DECIMAL |Decimal |
 | REAL |Único |
-| DOUBLE PRECISION |Valor de duplo |
-| BOOLEAN |String |
-| CHAR |String |
-| RIO VARCHAR |String |
+| PRECISÃO DUPLA |Double |
+| BOOLEAN |Cadeia |
+| CHAR |Cadeia |
+| RIO VARCHAR |Cadeia |
 | DATA |DateTime |
-| TIMESTAMP |DateTime |
-| TEXT |String |
+| CARIMBO TEMPORAL |DateTime |
+| TEXT |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender a mapear colunas no conjunto de dados de origem para colunas no conjunto de dados do lavatório, consulte colunas de conjunto de [dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .
