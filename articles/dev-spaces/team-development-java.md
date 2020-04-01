@@ -6,13 +6,13 @@ ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para fazer o desenvolvimento de equipa numa aplicação Java no Serviço Azure Kubernetes
-keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 352671b2fe31095b0ffcaffb49195071a456a892
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78245010"
 ---
 # <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Desenvolvimento de equipa usando Java e Visual Studio Code com Espaços Azure Dev
@@ -43,7 +43,7 @@ O Azure Dev Spaces permite-lhe configurar um espaço de desenvolvimento *partilh
 À medida que desenvolve o código para o seu serviço e até estar preparado para o implementar, é frequente o código não estar em bom estado. A formulação, os testes e as experiências com soluções ao nível do código são um processo iterativo contínuo. O Azure Dev Spaces fornece o conceito de **espaço**, onde pode trabalhar de forma isolada e sem receio de prejudicar os membros da sua equipa.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Use Espaços Dev para desenvolvimento de equipas
-Vamos demonstrar estas ideias com um exemplo concreto usando o nosso *webfrontend* -> aplicação de amostra *mywebapi.* Vamos imaginar um cenário em que um desenvolvedor, Scott, precisa de fazer uma mudança para o serviço *mywebapi,* e *só* para esse serviço. O *webfrontend* não vai precisar de mudar como parte da atualização do Scott.
+Vamos demonstrar estas ideias com um exemplo concreto usando a nossa aplicação de amostra*mywebapi* *webfrontend.* ->  Vamos imaginar um cenário em que um desenvolvedor, Scott, precisa de fazer uma mudança para o serviço *mywebapi,* e *só* para esse serviço. O *webfrontend* não vai precisar de mudar como parte da atualização do Scott.
 
 _Sem_ usar dev Spaces, Scott teria algumas maneiras de desenvolver e testar a sua atualização, nenhuma das quais é ideal:
 * Executar todos os componentes localmente. Isto requer uma máquina de desenvolvimento mais poderosa com docker instalado, e potencialmente MiniKube.
@@ -55,11 +55,11 @@ _Sem_ usar dev Spaces, Scott teria algumas maneiras de desenvolver e testar a su
 Primeiro, precisamos de implantar uma linha de base dos nossos serviços. Esta implementação representará o "último bem conhecido" para que possa facilmente comparar o comportamento do seu código local vs. a versão check-in. Criaremos então um espaço para crianças com base nesta linha de base para que possamos testar as nossas alterações ao *mywebapi* no contexto da aplicação maior.
 
 1. Clone a [aplicação da amostra de Espaços Dev:](https://github.com/Azure/dev-spaces)`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Check-out o ramo remoto *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
-1. Selecione o espaço _de dev:_ `azds space select --name dev`. Quando for solicitado para selecionar um espaço de dev dos pais, selecione _\<nenhum\>_ .
-1. Navegue para o diretório _mywebapi_ e execute: `azds up -d`
-1. Navegue para o diretório _webfrontend_ e execute: `azds up -d`
-1. Execute `azds list-uris` para ver o ponto final do público para _webfrontend_
+1. Check-out o ramo remoto *azds_updates:*`git checkout -b azds_updates origin/azds_updates`
+1. Selecione o `azds space select --name dev`espaço _de v:_ . Quando for solicitado para selecionar um _ \<espaço\>_ de dev dos pais, selecione nenhum .
+1. Navegue para o diretório _mywebapi_ e execute:`azds up -d`
+1. Navegue para o diretório _webfrontend_ e execute:`azds up -d`
+1. Execute `azds list-uris` para ver o ponto final público para _webfrontend_
 
 > [!TIP]
 > Os passos acima configuram manualmente uma linha de base, mas recomendamos que as equipas utilizem CI/CD para manter automaticamente a sua linha de base atualizada com o código comprometido.
@@ -101,7 +101,7 @@ Execute o comando `azds space list` para ver uma lista de todos os espaços no a
 Vamos vê-lo em ação.
 
 ### <a name="make-a-code-change"></a>Faça uma alteração de código
-Vá à janela do Código VS para `mywebapi` e faça uma edição de código para o método `String index()` em `src/main/java/com/ms/sample/mywebapi/Application.java`, por exemplo:
+Vá à janela do `mywebapi` Código VS e `String index()` faça `src/main/java/com/ms/sample/mywebapi/Application.java`uma edição de código ao método em, por exemplo:
 
 ```java
 @RequestMapping(value = "/", produces = "text/plain")
@@ -112,7 +112,7 @@ public String index() {
 
 ### <a name="run-the-service"></a>Executar o serviço
 
-Para executar o serviço, bata em F5 (ou digite `azds up` na Janela do Terminal) para executar o serviço. O serviço será executado automaticamente no seu novo espaço _dev/scott._ Confirme que o seu serviço está a funcionar no seu próprio espaço, executando `azds list-up`:
+Para executar o serviço, bata `azds up` em F5 (ou digite na Janela do Terminal) para executar o serviço. O serviço será executado automaticamente no seu novo espaço _dev/scott._ Confirme que o seu serviço está `azds list-up`a funcionar no seu próprio espaço, executando:
 
 ```cmd
 $ azds list-up
@@ -124,7 +124,7 @@ webfrontend               dev       Service  26m ago  Running
 
 Note que um exemplo de *mywebapi* está agora correndo no espaço _dev/scott._ A versão em execução em _dev_ ainda está em execução, mas não está listada.
 
-Enumerar os URLs para o espaço atual, executando `azds list-uris`.
+Enumerar os URLs para `azds list-uris`o espaço atual, executando .
 
 ```cmd
 $ azds list-uris

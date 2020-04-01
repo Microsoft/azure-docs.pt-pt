@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: cc53f7ae6eb6254eaa05bf643ecfa0188650df95
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77461871"
 ---
 Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https://portal.azure.com).
@@ -52,7 +52,7 @@ Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https:/
 
     - **Centro de Segurança Azure**: Ligue isto para adicionar uma camada extra de proteção contra ameaças ao IoT e aos seus dispositivos. Esta opção não está disponível para centros de nível livre. Para mais informações sobre esta funcionalidade, consulte [o Azure Security Center para ioT](https://docs.microsoft.com/azure/asc-for-iot/).
 
-    - **Definições avançadas** > **divisórias dispositivo-a-nuvem**: Esta propriedade relaciona as mensagens dispositivo-a-nuvem com o número de leitores simultâneos das mensagens. A maioria dos centros só precisa de quatro divisórias.
+    - **Configurações Avançadas** > **Divisórias dispositivo-nuvem**: Esta propriedade relaciona as mensagens dispositivo-a-nuvem com o número de leitores simultâneos das mensagens. A maioria dos centros só precisa de quatro divisórias.
 
 1.  Selecione **Seguinte: Tags** para continuar para o próximo ecrã.
 

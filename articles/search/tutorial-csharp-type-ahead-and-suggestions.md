@@ -1,5 +1,5 @@
 ---
-title: C#tutorial sobre auto-conclusão e sugestões
+title: C# tutorial sobre auto-conclusão e sugestões
 titleSuffix: Azure Cognitive Search
 description: Este tutorial demonstra a auto-conclusão e sugestões como uma forma de recolher a entrada de prazos de pesquisa dos utilizadores usando a lista de dropdown. Baseia-se num projeto de hotéis existente.
 manager: nitinme
@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121527"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Tutorial: Adicionar auto-conclusão e sugestões - Pesquisa Cognitiva Azure
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# tutorial: Adicionar auto-conclusão e sugestões - Pesquisa Cognitiva Azure
 
-Saiba como implementar a auto-conclusão (tipo à frente e sugestões) quando um utilizador começa a digitar na sua caixa de pesquisa. Neste tutorial, mostraremos resultados de tipo de antecedência e sugestões separadamente, em seguida, mostrar um método de combiná-los para criar uma experiência de utilizador mais rica. Um utilizador só pode ter de digitar duas ou três teclas para localizar todos os resultados disponíveis. Este tutorial baseia-se no projeto de paging criado no [ C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
+Saiba como implementar a auto-conclusão (tipo à frente e sugestões) quando um utilizador começa a digitar na sua caixa de pesquisa. Neste tutorial, mostraremos resultados de tipo de antecedência e sugestões separadamente, em seguida, mostrar um método de combiná-los para criar uma experiência de utilizador mais rica. Um utilizador só pode ter de digitar duas ou três teclas para localizar todos os resultados disponíveis. Este tutorial baseia-se no projeto de paging criado no [C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-Tenha [ C# o Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, que completou no tutorial anterior, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Tenha o [C# Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, que completou no tutorial anterior, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="add-suggestions"></a>Adicionar sugestões
 
@@ -44,7 +44,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
     A chave aqui é que definimos a identificação da caixa de pesquisa para **sugerir em azureautosuggest**.
 
-2. Seguindo esta declaração, após o fecho **&lt;/div&gt;,** insira este script.
+2. Seguindo esta declaração, após o ** &lt;fecho/div,&gt;** insira este script.
 
     ```javascript
     <script>
@@ -65,7 +65,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
 A função autocompleta chamada no script acima não é algo que temos que escrever a nós mesmos como está disponível na biblioteca jquery. 
 
-1. Para aceder à biblioteca jquery, mude a cabeça &lt;&gt; secção do ficheiro de visualização para o seguinte código.
+1. Para aceder à biblioteca jquery, mude a &lt;secção principal&gt; do ficheiro de visualização para o seguinte código.
 
     ```cs
     <head>
@@ -137,13 +137,13 @@ A função autocompleta chamada no script acima não é algo que temos que escre
     using System.Linq;
     ```
 
-3. Executar a aplicação. Obtém um leque de opções quando entra em "po", por exemplo? Agora tente "pa".
+3. Execute a aplicação. Obtém um leque de opções quando entra em "po", por exemplo? Agora tente "pa".
 
     ![Escrever "po" revela duas sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
     Note que as letras que insere _devem_ começar uma palavra, e não ser incluídas simplesmente dentro da palavra.
 
-4. No script view, set **& fuzzy** to true, and run the app again. Agora entra "po". Reparem que a busca pressupõe que se enganou numa carta!
+4. No roteiro de visualização, desloque **&de** forma verdadeira e volte a executar a aplicação. Agora entra "po". Reparem que a busca pressupõe que se enganou numa carta!
  
     ![Digitando "pa" com conjunto felpudo para verdade](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
@@ -248,7 +248,7 @@ Outra variação, que é ligeiramente diferente das sugestões, é a auto-conclu
 
     Existem uma gama de definições **de Modo Autocomplete,** e estamos a usar o **OneTermWithContext**. Consulte a [Azure Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para obter uma descrição do leque de opções aqui.
 
-4. Executar a aplicação. Note como o leque de opções apresentadas na lista de lançamentos são palavras individuais. Tente escrever palavras começando com "re". Note como o número de opções reduz à medida que mais letras são dactilografadas.
+4. Execute a aplicação. Note como o leque de opções apresentadas na lista de lançamentos são palavras individuais. Tente escrever palavras começando com "re". Note como o número de opções reduz à medida que mais letras são dactilografadas.
 
     ![Dactilografia com auto-conclusão básica](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
@@ -311,7 +311,7 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
 
     Uma opção de auto-conclusão é devolvida no topo da lista de **resultados,** seguida de todas as sugestões.
 
-2. Na opinião, primeiro implementamos um truque para que uma palavra de auto-conclusão cinza clara seja entregue corretamente sob texto mais ousado sendo introduzido pelo utilizador. HTML inclui posicionamento relativo para este fim. Altere a declaração **TextBoxFor** (e as suas declarações de&gt; &lt;circundantes) para as seguintes declarações, observando que uma segunda caixa de pesquisa identificada como **por baixo** está mesmo debaixo da nossa caixa de pesquisa normal, retirando esta caixa de pesquisa a 39 pixels da sua localização padrão!
+2. Na opinião, primeiro implementamos um truque para que uma palavra de auto-conclusão cinza clara seja entregue corretamente sob texto mais ousado sendo introduzido pelo utilizador. HTML inclui posicionamento relativo para este fim. Altere a declaração **TextBoxFor** &gt; (e as suas declarações de mergulho circundantes) &lt;para o seguinte, observando que uma segunda caixa de pesquisa identificada como por **baixo** está mesmo debaixo da nossa caixa de pesquisa normal, puxando esta caixa de pesquisa 39 pixels para fora da sua localização padrão!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -465,6 +465,6 @@ Considere os seguintes takeaways deste projeto:
 No próximo tutorial, temos uma outra forma de melhorar a experiência do utilizador, usando facetas para estreitar pesquisas com um único clique.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: Use facetas para ajudar na navegação - Pesquisa Cognitiva Azure](tutorial-csharp-facets.md)
+> [C# Tutorial: Use facetas para ajudar na navegação - Pesquisa Cognitiva Azure](tutorial-csharp-facets.md)
 
 

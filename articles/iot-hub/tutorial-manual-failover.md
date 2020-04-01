@@ -10,10 +10,10 @@ ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bf37f7b27e3f8923a229cc0617365d912d47aec2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77110656"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Execute a falha manual para um hub IoT
@@ -31,13 +31,13 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal Azure.](https://portal.azure.com) 
 
 2. Clique em **+ Criar um recurso** e selecione **Internet das Coisas** e, em seguida, **Hub IoT**.
 
@@ -71,7 +71,7 @@ Tenha em atenção que existe um limite de duas ativações pós-falha e duas re
 
    ![Captura de ecrã que mostra o painel de propriedades do Hub IoT](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. No painel de falhas manual, vê a **localização da corrente** e a localização **Failover**. A localização atual indica sempre a localização em que o hub está atualmente ativo. A localização failover é a [região padrão azure geo-emparelhado](../best-practices-availability-paired-regions.md) que é emparelhado com a localização atual. Não é possível alterar os valores da localização. Para este tutorial, a localização atual é `West US 2` e a localização de failover é `West Central US`.
+1. No painel de falhas manual, vê a **localização da corrente** e a localização **Failover**. A localização atual indica sempre a localização em que o hub está atualmente ativo. A localização failover é a [região padrão azure geo-emparelhado](../best-practices-availability-paired-regions.md) que é emparelhado com a localização atual. Não é possível alterar os valores da localização. Para este tutorial, a `West US 2` localização atual é `West Central US`e a localização de failover é .
 
    ![Captura de ecrã que mostra o painel Ativação Pós-falha Manual](./media/tutorial-manual-failover/trigger-failover-02.png)
 
@@ -91,11 +91,11 @@ Tenha em atenção que existe um limite de duas ativações pós-falha e duas re
 
    ![Screenshot mostrando IoT Hub falha em progresso](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   Depois de terminado, as regiões atuais e failover na página Failover Manual são invertidas e o centro está novamente ativo. Neste exemplo, a localização atual está agora `WestCentralUS` e a localização da falha está agora `West US 2`. 
+   Depois de terminado, as regiões atuais e failover na página Failover Manual são invertidas e o centro está novamente ativo. Neste exemplo, a localização `WestCentralUS` atual é agora e `West US 2`a localização de failover é agora . 
 
    ![Captura de ecrã que mostra que a ativação pós-falha está concluída](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   A página geral também mostra um banner indicando que a falha completa e o Hub IoT está funcionando em `West Central US`.
+   A página geral também mostra um banner indicando que a falha `West Central US`completa e o Hub IoT estão a correr dentro .
 
    ![Screenshot mostrando failover está completo na página de visão geral](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -116,7 +116,7 @@ Uma reativação pós-falha é executada tal como uma ativação pós-falha manu
 
    ![Captura de ecrã do pedido de reativação pós-falha manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Os banners são apresentados como explicado na secção failover. Após a falha de reprovação estar concluída, mostra novamente `West US 2` como a localização atual e `West Central US` como a localização de failover, como definido originalmente.
+   As faixas são apresentadas, conforme explicado na secção executar uma ativação pós-falha. Após a falha de reprovação estar completa, mostra novamente `West US 2` como a localização atual e `West Central US` como a localização de failover, como definido originalmente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

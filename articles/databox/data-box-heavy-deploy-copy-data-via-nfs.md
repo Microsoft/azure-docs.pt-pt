@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238987"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Tutorial: Copiar dados para Caixa de Dados Azure Pesado via NFS
@@ -57,9 +57,9 @@ A tabela a seguir mostra o caminho UNC para as partilhas no Data Box Heavy e o U
  
 |                   |                                                            |
 |-------------------|--------------------------------------------------------------------------------|
-| Blobs de bloco do Azure | <li>Caminho UNC para as partilhas: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Blobs de páginas do Azure  | <li>Caminho UNC para as partilhas: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Ficheiros do Azure       |<li>Caminho UNC para as partilhas: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
+| Blobs de bloco do Azure | <li>Caminho UNC para as partilhas: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Blobs de páginas do Azure  | <li>Caminho UNC para as partilhas: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Ficheiros do Azure       |<li>Caminho UNC para as partilhas: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 Se estiver a utilizar um computador de hospedante Linux, execute os seguintes passos para configurar o seu dispositivo para permitir o acesso aos clientes NFS.
 
@@ -77,7 +77,7 @@ Se estiver a utilizar um computador de hospedante Linux, execute os seguintes pa
 
     `sudo mount <Data Box Heavy device IP>:/<NFS share on Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    O exemplo que se segue mostra como ligar via NFS a uma parte pesada da Caixa de Dados. O Data Box Heavy IP é `10.161.23.130`, a parte `Mystoracct_Blob` é montada no ubuntuVM, sendo `/home/databoxheavyubuntuhost/databoxheavy`ponto de montagem.
+    O exemplo que se segue mostra como ligar via NFS a uma parte pesada da Caixa de Dados. A Caixa de `10.161.23.130`Dados Heavy `Mystoracct_Blob` IP é , a parte é montada `/home/databoxheavyubuntuhost/databoxheavy`no ubuntuVM, sendo o ponto de montagem .
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxheavyubuntuhost/databoxheavy`
     
@@ -100,7 +100,7 @@ Uma vez ligado si à Caixa de Dados As ações Heavy, o próximo passo é copiar
     - O caso está preservado no nome.
     - Os ficheiros são insensíveis aos casos.
     
-    Por exemplo, se copiar `SampleFile.txt` e `Samplefile.Txt`, o caso será preservado no nome quando copiado para dispositivo, mas o segundo ficheiro irá sobrepor-se ao primeiro, uma vez que estes são considerados o mesmo ficheiro.
+    Por exemplo, se `SampleFile.txt` `Samplefile.Txt`copiar e , o caso será preservado no nome quando copiado para o dispositivo, mas o segundo ficheiro irá sobrepor-se ao primeiro, uma vez que estes são considerados o mesmo ficheiro.
 
 
 Se estiver a utilizar um computador anfitrião do Linux, utilize um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
@@ -151,7 +151,7 @@ Para garantir a integridade dos dados, a soma de verificação é calculada inli
    ![Verificar o espaço livre e utilizado no dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Heavy, como:
 

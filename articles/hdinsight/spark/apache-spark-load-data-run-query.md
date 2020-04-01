@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Carregar dados e executar consultas com Apache Spark - Azure HDInsight'
+title: 'Tutorial: Os dados de carga & executar consultas com Apache Spark - Azure HDInsight'
 description: Tutorial - Aprenda a carregar dados e executar consultas interativas em clusters Spark em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
 ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77198893"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
@@ -32,13 +32,13 @@ Um cluster do Apache Spark no HDInsight. Ver [Criar um aglomerado de faíscas Ap
 
 O Jupyter Notebook é um ambiente de bloco de notas interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples.
 
-1. Edite o URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` substituindo `SPARKCLUSTER` pelo nome do seu cluster Spark. Em seguida, introduza o URL editado num navegador web. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
+1. Edite `https://SPARKCLUSTER.azurehdinsight.net/jupyter` o URL `SPARKCLUSTER` substituindo pelo nome do seu cluster Spark. Em seguida, introduza o URL editado num navegador web. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
 
 2. A partir da página web da Jupyter, selecione **New** > **PySpark** para criar um portátil.
 
    ![Crie um Caderno Jupyter para executar consulta interativa Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Crie um Caderno Jupyter para executar consulta interativa Spark SQL")
 
-   Um novo caderno é criado e aberto com o nome Untitled(`Untitled.ipynb`).
+   Um novo caderno é criado e aberto`Untitled.ipynb`com o nome Untitled.
 
     > [!NOTE]  
     > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
@@ -56,11 +56,11 @@ As aplicações podem criar quadros de dados diretamente a partir de ficheiros o
     from pyspark.sql.types import *
     ```
 
-    Quando executa uma consulta interativa no Jupyter, a janela do browser ou a legenda do separador apresenta o estado **(Ocupado)** , juntamente com o título do bloco de notas. Também vê um círculo sólido junto ao texto do **PySpark** no canto superior direito. Após a conclusão da tarefa, este é alterado para um círculo vazio.
+    Quando executa uma consulta interativa no Jupyter, a janela do browser ou a legenda do separador apresenta o estado **(Ocupado)**, juntamente com o título do bloco de notas. Também vê um círculo sólido junto ao texto do **PySpark** no canto superior direito. Após a conclusão da tarefa, este é alterado para um círculo vazio.
 
     ![Estado da consulta interativa Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Estado da consulta interativa Spark SQL")
 
-1. Reparem que a identidade da sessão voltou. A partir da imagem acima, o id da sessão é 0. Se desejar, pode recuperar os detalhes da sessão navegando para `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` onde clusterNAME é o nome do seu cluster Spark e ID é o seu número de ID da sessão.
+1. Reparem que a identidade da sessão voltou. A partir da imagem acima, o id da sessão é 0. Se desejar, pode recuperar os detalhes da `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` sessão navegando até onde clusterNAME é o nome do seu cluster Spark e ID é o seu número de ID da sessão.
 
 1. Execute o seguinte código para criar um pacote de dados e uma tabela temporária (**hvac**) ao utilizar o seguinte código.
 
@@ -89,9 +89,9 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
     ![Gráfico de área do resultado interativo da consulta de faísca](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Gráfico de área do resultado interativo da consulta de faísca")
 
-3. A partir da barra de menu supéris portátil, navegue até **file** > **Guardar e Checkpoint**.
+3. A partir da barra de menu supéris portátil, navegue até **guardar ficheiros** > e ponto de**verificação**.
 
-4. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Caso contrário, desligue o caderno para libertar os recursos do cluster: a partir da barra de menu supérpor, navegue para **File** >  **Close and Halt**.
+4. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Caso contrário, desligue o caderno para libertar os recursos do cluster: a partir da barra de menu supérpor, navegue para **File** >  **Close e Halt**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

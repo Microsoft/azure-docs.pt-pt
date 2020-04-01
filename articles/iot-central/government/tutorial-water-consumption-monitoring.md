@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77122059"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização do consumo de água com a Azure IoT Central
@@ -105,13 +105,13 @@ O tablier é composto por diferentes tipos de azulejos:
 * **Redefinir os limiares**de alerta do conteúdo do conteúdo : Pode incluir azulejos de conteúdo de chamada para ação e incorporar um link para uma página de ação. Neste caso, o limiar de alerta de reset leva-o à aplicação **Jobs**, onde pode executar atualizações para as propriedades do dispositivo. Vamos explorar esta opção mais tarde na secção "Configure jobs" deste tutorial.
 * **Azulejos**de propriedade : O painel de instrumentos exibe **informações operacionais da Valve,** **limiares de alerta**de fluxo e azulejos **de informação** de manutenção.
 
-### <a name="customize-the-dashboard"></a>Personalize o painel de instrumentos
+### <a name="customize-the-dashboard"></a>Personalizar o dashboard
 
 Como construtor, pode personalizar vistas no painel de instrumentos para operadores.
 
 1. Selecione **Editar** para personalizar o painel de consumo de **água do Mundo Inteiro.** Pode personalizar o dashboard selecionando o menu **Editar.** Depois de o painel de instrumentos estar em modo **de edição,** pode adicionar novos azulejos ou pode configurá-lo.
 
-     ![Editar painel de instrumentos](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-edit-dashboard.png)
+     ![Editar dashboard](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-edit-dashboard.png)
 
 1. Selecione **+ Novo** para criar um novo dashboard e configurá-lo de raiz. Pode ter vários dashboards e pode mover-se entre os seus dashboards no menu do painel de instrumentos.
 
@@ -136,8 +136,8 @@ Para ver o modelo do dispositivo:
 Para personalizar o modelo do dispositivo:
 
 1. Vá **personalizar** no menu de modelos do **dispositivo.**
-1. Encontre o tipo de telemetria `Temperature`.
-1. Atualize o Nome do **visor** do `Temperature` para `Reported temperature`.
+1. Encontre `Temperature` o tipo de telemetria.
+1. Atualize o `Temperature` nome `Reported temperature`do **visor** para .
 1. Atualize a unidade de medição ou detetete o **valor Min** e **o valor Máximo**.
 1. Selecione **Guardar** para guardar quaisquer alterações.
 
@@ -204,7 +204,7 @@ A aplicação de monitorização do consumo de água que criou tem três regras 
 
      ![Alerta de pH elevado](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    A regra `High flow alert` está configurada para verificar a condição `Acidity (pH)` é `greater than` a `Max flow threshold`. O limiar de fluxo máximo é uma propriedade em nuvem definida no modelo do dispositivo **Smart Valve.** O valor da `Max flow threshold` é definido por instância do dispositivo.
+    A `High flow alert` regra está configurada para `Acidity (pH)` `greater than` verificar `Max flow threshold`contra a condição é a . O limiar de fluxo máximo é uma propriedade em nuvem definida no modelo do dispositivo **Smart Valve.** O valor `Max flow threshold` é definido por instância do dispositivo.
 
 Agora vamos criar uma ação por e-mail.
 
@@ -237,14 +237,14 @@ No Azure IoT Central, os trabalhos permitem-lhe ativar atualizações de disposi
 
 Como construtor, pode alterar várias definições para personalizar a experiência do utilizador na sua aplicação.
 
-1. Selecione **Administração** > **Personalizar a sua aplicação**.
+1. Selecione **Administração** > **Personalize a sua aplicação.**
 1. Para escolher uma imagem para carregar como logótipo da **Aplicação,** selecione o botão **Alterar.**
 1. Para escolher uma imagem de ícone do **Navegador** que aparecerá nos separadores do navegador, selecione o botão **'Alterar'.**
 1. Também pode substituir as cores padrão do **Navegador** adicionando códigos de cores hexadecimais HTML.
 
    ![Seleções para logotipo de aplicação, ícone do navegador e cores do navegador](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
-1. Também pode alterar as imagens da aplicação selecionando **as definições**de **Aplicação > administração** . Para escolher uma imagem para carregar como imagem de aplicação, selecione o botão de **imagem Select.**
+1. Também pode alterar as imagens da aplicação selecionando**as definições**de Aplicação **de Administração** > . Para escolher uma imagem para carregar como imagem de aplicação, selecione o botão de **imagem Select.**
 1. Por fim, também pode alterar o **Tema** selecionando o ícone **Definições** no canto superior direito da aplicação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

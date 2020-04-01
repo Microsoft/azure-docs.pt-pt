@@ -12,7 +12,7 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "68667956"
 ---
 > [!div class="op_single_selector"]
-> * [Nó.js](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)
 > * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-schedule-jobs.md)
-> * [Pitão](../articles/iot-hub/iot-hub-python-python-schedule-jobs.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-schedule-jobs.md)

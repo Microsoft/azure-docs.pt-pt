@@ -1,5 +1,5 @@
 ---
-title: Exemplos de CLI do Azure – Habilitar dimensionamento automático baseado em host
+title: Amostras Azure CLI - Ativar a escala automática baseada em hospedeiro
 description: Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu e utiliza as métricas baseadas no anfitrião para dimensionar automaticamente à medida que a carga de CPU muda.
 author: cynthn
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 3a0656d64e6f3a2205f184643266ba6b500acc95
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278791"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure

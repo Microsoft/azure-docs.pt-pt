@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138245"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Conceder um acesso em grupo aos recursos Azure utilizando o RBAC e o Azure PowerShell
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 > * Listar o acesso
 > * Remover o acesso
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -49,7 +49,7 @@ No RBAC, para conceder acesso, crie uma atribuição de função. Uma atribuiç�
 | Principal de segurança | Definição de função | Âmbito |
 | --- | --- | --- |
 | Grupo<br>(Grupo do Tutorial do RBAC) | [Leitor](built-in-roles.md#reader) | Subscrição |
-| Grupo<br>(Grupo do Tutorial do RBAC)| [Contribuidor](built-in-roles.md#contributor) | Grupo de recursos<br>(rbac-tutorial-resource-group) |
+| Grupo<br>(Grupo do Tutorial do RBAC)| [Contribuinte](built-in-roles.md#contributor) | Grupo de recursos<br>(rbac-tutorial-resource-group) |
 
    ![Atribuições de funções para um grupo](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -72,7 +72,7 @@ Para atribuir uma função, precisa de um utilizador, um grupo ou um principal d
 
 Se não tiver permissões para criar grupos, pode experimentar o [Tutorial: Conceda um acesso ao utilizador aos recursos Azure utilizando o RBAC e o Azure PowerShell.](tutorial-role-assignments-user-powershell.md)
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Utilize um grupo de recursos para mostrar como atribuir uma função num âmbito do grupo de recursos.
 

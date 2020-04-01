@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: a8a0982ca118663cbf0f7e4d72412ce8feda3c4b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76721443"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Subscrever eventos para uma conta de armazenamento de Blobs com o PowerShell
@@ -38,7 +38,7 @@ Este script utiliza o seguinte comando para criar a subscrição de eventos. Cad
 |---|---|
 | [Subscrição new-AzEventGrid](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Crie uma subscrição do Event Grid. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
 * Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).

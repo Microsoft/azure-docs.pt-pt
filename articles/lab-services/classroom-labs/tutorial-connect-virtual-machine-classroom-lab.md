@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: 27d79e28a986e929fb71dd77fc50b3c2cd32618f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77134045"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Aceder a um laboratório de sala de aula no Azure Lab Services
@@ -33,7 +33,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ## <a name="register-to-the-lab"></a>Registe-se no laboratório
 
-1. Navegue para o **URL de registo** que recebeu do professor/educador. Não precisa de usar o URL de registo depois de completar o registo. Em vez disso, utilize o URL: [https://labs.azure.com](https://labs.azure.com). O Internet Explorer 11 ainda não tem suporte. 
+1. Navegue para o **URL de registo** que recebeu do professor/educador. Não precisa de usar o URL de registo depois de completar o registo. Em vez disso, [https://labs.azure.com](https://labs.azure.com)utilize o URL: . O Internet Explorer 11 ainda não tem suporte. 
 1. Inicie sessão no serviço com a sua conta escolar para concluir o registo. 
 
     > [!NOTE]

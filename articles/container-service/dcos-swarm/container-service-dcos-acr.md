@@ -10,10 +10,10 @@ ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: 9e69b66c7cee5a6e012ad7ed2477556fa840bfb5
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78402065"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(DEPRECIADO) Use ACR com um cluster DC/OS para implementar a sua aplicação
@@ -127,7 +127,7 @@ Crie um contentor a partir da imagem do Ubuntu.
 docker run ubuntu --name base-image
 ```
 
-Capture agora o contentor para uma nova imagem. O nome da imagem deve incluir o nome `loginServer` do registo do contentor com um formato de `loginServer/imageName`.
+Capture agora o contentor para uma nova imagem. O nome da imagem `loginServer` deve incluir o nome do `loginServer/imageName`registo do contentor com um formato de .
 
 ```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo

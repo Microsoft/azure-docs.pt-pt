@@ -12,10 +12,10 @@ ms.author: datrigan
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: f5e107058f983df98f7d14dbe1b41ce5a66f2535
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719981"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Use powerShell para configurar auditoria de base de dados SQL e Proteção avançada de ameaças
@@ -55,7 +55,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

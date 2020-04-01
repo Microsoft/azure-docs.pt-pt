@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022176"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial: Personalize o painel de instrumentos do operador e gereos dispositivos na Central Azure IoT
@@ -150,7 +150,7 @@ Para adicionar azulejos para exibir dados ambientais dos sensores RuuviTag:
 
 1. Selecione `RuuviTag` na lista de modelos do **Dispositivo.** 
 
-1. Selecione uma instância de **dispositivo** de um dos dois sensores RuuviTag. Na loja Exemplo Contoso, selecione `Zone 1 Ruuvi` para criar um azulejo de telemetria para a Zona 1. 
+1. Selecione uma instância de **dispositivo** de um dos dois sensores RuuviTag. Na loja exemplo Contoso, selecione `Zone 1 Ruuvi` para criar um azulejo de telemetria para a Zona 1. 
 
 1. Selecione `Relative humidity` e `temperature` na lista de **Telemetria.** Estes são os itens de telemetria que exibem para cada zona no azulejo.
 
@@ -205,9 +205,9 @@ Para adicionar um azulejo de propriedade para cada RuuviTag:
 
 1. Selecione `RuuviTag` na lista de modelos do **Dispositivo.** 
 
-1. Selecione uma instância de **dispositivo** de um dos dois sensores RuuviTag. Na loja Exemplo Contoso, selecione `Zone 1 Ruuvi` para criar um azulejo de telemetria para a Zona 1. 
+1. Selecione uma instância de **dispositivo** de um dos dois sensores RuuviTag. Na loja exemplo Contoso, selecione `Zone 1 Ruuvi` para criar um azulejo de telemetria para a Zona 1. 
 
-1. Selecione **Properties > Versão de Software.**
+1. **Selecione Propriedades > Versão Software**.
 
 1. **Selecione Combine**. 
 
@@ -236,7 +236,7 @@ Para adicionar um azulejo de comando para reiniciar o portal:
 
 1. Selecione a instância de gateway na **instância do Dispositivo**.
 
-1. Selecione **Command > Reinicie-o** e arraste-o para o painel de instrumentos ao lado do mapa da loja. 
+1. Selecione **Comando > Reiniciar** e arraste-o para o painel de instrumentos ao lado do mapa da loja. 
 
 1. Selecione **Guardar**. 
 

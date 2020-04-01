@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: e4b56f18bf8a2ed1c22b00b8a57efdbf06eb7fa2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78183333"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web utilizando o Diretório Ativo Azure B2C
@@ -42,26 +42,26 @@ No tutorial que completou como parte dos pré-requisitos, registou uma aplicaç�
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Adicione um URI redireccional (URL de resposta)
 
-Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização)** para atualizar a aplicação. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização)** para atualizar a aplicação. [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
 
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Selecione **Aplicações**e, em seguida, selecione a aplicação *webapp1.*
-1. No URL **de resposta,** adicione `https://localhost:44316`.
+1. Under **Answer URL,** add `https://localhost:44316`.
 1. Selecione **Guardar**.
 1. Na página de propriedades, grave o ID da aplicação para utilização num passo posterior quando configurar a aplicação web.
 
 #### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione registos de **aplicações (Pré-visualização)** - selecione o separador **de aplicações Owned** e, em seguida, selecione a aplicação *webapp1.*
+1. Selecione registos de **aplicações (Pré-visualização)**- selecione o separador **de aplicações Owned** e, em seguida, selecione a aplicação *webapp1.*
 1. **Selecione Autenticação**e, em seguida, selecione **Experimente a nova experiência** (se mostrada).
-1. No **Web,** selecione a ligação **Adicionar URI,** introduza `https://localhost:44316`e, em seguida, selecione **Guardar**.
+1. Na **Web,** selecione a `https://localhost:44316`ligação Adicionar **URI,** introduza e, em seguida, selecione **Guardar**.
 1. Selecione **Descrição geral**.
 1. Grave o ID da **Aplicação (cliente)** para utilização num passo posterior quando configurar a aplicação web.
 
@@ -92,12 +92,12 @@ Atualize as definições no ficheiro Web.config para funcionar com o fluxo do ut
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 1. No projeto **TaskWebApp,** abra o ficheiro **Web.config.**
-    1. Atualize o valor dos `ida:Tenant` e `ida:AadInstance` com o nome do inquilino Azure AD B2C que criou. Por exemplo, substitua `fabrikamb2c` por `contoso`.
-    1. Substitua o valor do `ida:ClientId` pelo ID da aplicação que registou.
-    1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver quaisquer entidades XML predefinidas, por exemplo menos do que (`<`), maior do que (`>`), ampersand (`&`), ou citação dupla (`"`), você deve escapar a esses caracteres codificando o segredo do cliente antes de adicioná-lo ao seu Web.config.
-    1. Substitua o valor do `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.
-    1. Substitua o valor do `ida:EditProfilePolicyId` por `b2c_1_profileediting1`.
-    1. Substitua o valor do `ida:ResetPasswordPolicyId` por `b2c_1_passwordreset1`.
+    1. Atualize o `ida:Tenant` `ida:AadInstance` valor e com o nome do inquilino Azure AD B2C que criou. Por exemplo, `fabrikamb2c` `contoso`substitua-o por .
+    1. Substitua o `ida:ClientId` valor do ID da aplicação que gravou.
+    1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver quaisquer entidades`<`XML`>`predefinidas, por`&`exemplo menos`"`do que ( ( ( ( ( ( ou citação dupla), você deve escapar a esses caracteres codificando o segredo do cliente antes de adicioná-lo ao seu Web.config.
+    1. Substitua o `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1`valor de .
+    1. Substitua o `ida:EditProfilePolicyId` `b2c_1_profileediting1`valor de .
+    1. Substitua o `ida:ResetPasswordPolicyId` `b2c_1_passwordreset1`valor de .
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -130,4 +130,4 @@ Neste tutorial, ficou a saber como:
 Agora passe para o próximo tutorial para ativar a funcionalidade **De A-Do List** da aplicação web. Nele, regista uma aplicação Web API no seu próprio inquilino Azure AD B2C e, em seguida, modifica a amostra de código para usar o seu inquilino para autenticação API.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Utilize o Diretório Ativo Azure B2C para proteger uma ASP.NET Web API >](tutorial-web-api-dotnet.md)
+> [Tutorial: Utilize o Diretório Ativo Azure B2C para proteger uma ASP.NET web API >](tutorial-web-api-dotnet.md)

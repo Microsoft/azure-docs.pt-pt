@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Deputy | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Deputy.
+title: 'Tutorial: Integração do Diretório Ativo Azure com Deputado [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Adjunto.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,97 +16,97 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33830ce5822b2edee345cf58fc6f2a53d3c863fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd021b9547048e9f5218ce4f2b8b110b15d05963
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227592"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048562"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: integração do Azure Active Directory com o Deputy
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Diretório Ativo Azure com Adjunto
 
-Neste tutorial, você aprenderá a integrar o Deputy com o Azure Active Directory (Azure AD).
-A integração do Deputy ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Adjunto com o Azure Ative Directory (Azure AD).
+Integrar o Adjunto com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Deputy.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao Deputy (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar em Azure AD quem tem acesso a deputado.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Desminá-lo (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Deputy, você precisará dos seguintes itens:
+Para configurar a integração da AD Azure com o Deputado, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Deputy
+* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Subscrição de inscrição única de adjunto
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* O Deputy dá suporte ao **SP** e ao SSO iniciado pelo **IDP**
+* Adjunto apoia **SP** e **IDP** iniciado SSO
 
-## <a name="adding-deputy-from-the-gallery"></a>Adicionando o Deputy da Galeria
+## <a name="adding-deputy-from-the-gallery"></a>Adicionar deputado da galeria
 
-Para configurar a integração do Deputy ao Azure AD, você precisará adicionar o Deputy da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Deputado em Azure AD, você precisa adicionar deputado da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar o Deputy da galeria, execute as seguintes etapas:**
+**Para adicionar o deputado da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Deputy**, selecione **Deputy** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **O Deputado,** selecione **Dessedo** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
-     ![Deputy na lista de resultados](common/search-new-app.png)
+     ![Adjunto na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Deputy, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Deputy.
+Nesta secção, configura e testa o único sign-on azure com o deputado com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador coligado em Adjunto.
 
-Para configurar e testar o logon único do Azure AD com o Deputy, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com o Delegado, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Deputy](#configure-deputy-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do Deputy](#create-deputy-test-user)** – para ter um equivalente de Brenda Simon no Deputy que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Sign-On Único adjunto](#configure-deputy-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Criar um utilizador de teste adjunto](#create-deputy-test-user)** - para ter uma contrapartida de Britta Simon em Adjunto que esteja ligada à representação da AD Azure do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o Deputy, execute as seguintes etapas:
+Para configurar o único signo da Azure AD com o Delegado, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Deputy** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **adjunta,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , execute as seguintes etapas:
+4. Na secção **Basic SAML Configuration,** Se desejar configurar a aplicação no modo iniciado **idp,** execute os seguintes passos:
 
-    ![Informações de logon único de domínio e URLs do Deputy](common/idp-intiated.png)
+    ![Informação de inscrição única do Domínio Adjunto e URLs](common/idp-intiated.png)
 
-    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
     |  |
     | ----|
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o Deputy, execute as seguintes et
     | `https://<subdomain>.<region>.ent-an.deputy.com` |
     | `https://<subdomain>.<region>.deputy.com` |
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     
     | |
     |----|
@@ -146,146 +146,146 @@ Para configurar o logon único do Azure AD com o Deputy, execute as seguintes et
     | `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs` |
     | `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs` |
 
-5. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
+5. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    ![Informações de logon único de domínio e URLs do Deputy](common/metadata-upload-additional-signon.png)
+    ![Informação de inscrição única do Domínio Adjunto e URLs](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<your-subdomain>.<region>.deputy.com`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<your-subdomain>.<region>.deputy.com`
 
     >[!NOTE]
-    > O sufixo de região Deputy é opcional ou deve usar um destes: au | na | UE | as | la | AF | an | ent-au | ent-na | ent-eu | ent-as | Ent-la | Ent-AF | Ent-um
+    > O sufixo da região adjunta é opcional, ou deve usar um destes: au [ au ] na / eu [la ]af [af ]a [ent-au ] ent-na [ent-eu ]ent-as ent-la [ ent-af [ ent-an
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do Deputy](https://www.deputy.com/call-centers-customer-support-scheduling-software) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a [equipa de apoio](https://www.deputy.com/call-centers-customer-support-scheduling-software) ao Cliente Adjunto para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-6. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
+6. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar Deputy** , copie as URLs apropriadas de acordo com seu requisito.
+7. Na secção **Configurar-se, copie** os URL(s) adequados de acordo com o seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador de anúncio sinuoso
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-deputy-single-sign-on"></a>Configurar o logon único do Deputy
+### <a name="configure-deputy-single-sign-on"></a>Configure o signo único adjunto
 
-1. Navegue até a seguinte URL:[https://(seu subdomínio). Deputy. com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Vá para **configurações de segurança** e clique em **Editar**.
+1. Navegue para o`https://(your-subdomain).deputy.com/exec/config/system_config`seguinte URL: . Vá às **Definições** de Segurança e clique em **Editar**.
    
-    ![Configurar o início de sessão único](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Configurar um único sinal](./media/deputy-tutorial/tutorial_deputy_004.png)
 
-2. Nessa página de **configurações de segurança** , execute as etapas abaixo.
+2. Nesta página de Definições de **Segurança,** execute abaixo os passos.
 
-    ![Configurar o início de sessão único](./media/deputy-tutorial/tutorial_deputy_005.png)
+    ![Configurar um único sinal](./media/deputy-tutorial/tutorial_deputy_005.png)
     
-    a. Habilite o **logon social**.
+    a. Ativar **login social**.
    
-    b. Abra o certificado codificado em base64 baixado de portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **certificado OpenSSL** .
+    b. Abra o seu certificado codificado Base64 descarregado do portal Azure no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **OpenSSL Certificate.**
    
-    c. Na caixa de texto URL de SSO do SAML, digite `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+    c. Na caixa de texto URL SAML SSO, escreva`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
-    d. Na caixa de texto URL de SSO do SAML, substitua `<your subdomain>` pelo subdomínio.
+    d. Na caixa de texto URL SAML `<your subdomain>` SSO, substitua-a pelo seu subdomínio.
    
-    e. Na caixa de texto URL de SSO do SAML, substitua `<saml sso url>` pela **URL de logon** que você copiou do portal do Azure.
+    e. Na caixa de texto URL SAML `<saml sso url>` SSO, substitua-a pelo URL de **Login** que copiou do portal Azure.
    
-    f. Clique em **salvar configurações**.
+    f. Clique em **Guardar Definições**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
+    b. No **tipo** de campo de nome utilizador **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Deputy.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso ao adjunto.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Deputy**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Adjunto**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Deputy**.
+2. Na lista de candidaturas, selecione **Puty .**
 
-    ![O link do Deputy na lista de aplicativos](common/all-applications.png)
+    ![O link de deputado na lista de candidaturas](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-deputy-test-user"></a>Criar usuário de teste do Deputy
+### <a name="create-deputy-test-user"></a>Criar o utilizador de teste adjunto
 
-Para permitir que os usuários do Azure AD façam logon no Deputy, eles devem ser provisionados no Deputy. No caso do Deputy, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores de Anúncios Azure entrem no Adjunto, devem ser aprovisionados em Adjunto. No caso de Deputado, o provisionamento é uma tarefa manual.
 
-#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para fornecer uma conta de utilizador, execute os seguintes passos:
 
-1. Faça logon em seu site de empresa do Deputy como administrador.
+1. Inicie sessão no site da sua empresa adjunta como administrador.
 
-2. No painel de navegação superior, clique em **pessoas**.
+2. No painel de navegação superior, clique em **Pessoas**.
    
-    ![Porta](./media/deputy-tutorial/tutorial_deputy_001.png "People")
+    ![People](./media/deputy-tutorial/tutorial_deputy_001.png "People")
 
-3. Clique no botão **adicionar pessoas** e clique em **Adicionar uma única pessoa**.
+3. Clique no botão **Adicionar Pessoas** e clique **em Adicionar uma única pessoa**.
    
-    ![Adicionar pessoas](./media/deputy-tutorial/tutorial_deputy_002.png "Adicionar pessoas")
+    ![Adicionar Pessoas](./media/deputy-tutorial/tutorial_deputy_002.png "Adicionar Pessoas")
 
-4. Execute as etapas a seguir e clique em **salvar & convidar**.
+4. Execute os seguintes passos e clique em **Guardar & Convidar**.
    
-    ![Novo usuário](./media/deputy-tutorial/tutorial_deputy_003.png "Novo usuário")
+    ![Novo Utilizador](./media/deputy-tutorial/tutorial_deputy_003.png "Novo Utilizador")
 
-    a. Na caixa de texto **nome** , digite o nome do usuário, como **brendafernandes**.
+    a. Na caixa de texto **Name,** digite o nome do utilizador como **BrittaSimon**.
    
-    b. Na caixa de texto **email** , digite o endereço de email de uma conta do Azure AD que você deseja provisionar.
+    b. Na caixa de texto **por e-mail,** digite o endereço de e-mail de uma conta Azure AD que pretende fornecer.
    
-    c. Na caixa de texto **trabalhar em** , digite o nome da empresa.
+    c. No **Trabalho na** Caixa de Texto, digite o nome de negócio.
    
-    d. Clique no botão **salvar & convidar** .
+    d. Clique em **Guardar & Convidar.**
 
-5. O titular da conta do Azure AD recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa. Você pode usar qualquer outra ferramenta de criação de conta de usuário Deputy ou APIs fornecidas pelo Deputy para provisionar contas de usuário do Azure AD.
+5. O titular da conta Azure AD recebe um e-mail e segue um link para confirmar a sua conta antes de se tornar ativo. Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador ou APIs fornecidas pelo Adjunto para fornecer contas de utilizadores da Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do Deputy no painel de acesso, você deverá ser conectado automaticamente ao Deputy para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo de deputado no Painel de Acesso, deve ser automaticamente inscrito no Delegado para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

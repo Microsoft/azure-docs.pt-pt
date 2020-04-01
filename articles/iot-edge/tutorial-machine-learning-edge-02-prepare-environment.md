@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79296812"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
@@ -40,10 +40,10 @@ O VM de desenvolvimento será criado com:
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
 * [Extensões de código VS](https://marketplace.visualstudio.com/search?target=VSCode)
-  * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-  * [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-  * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+  * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  * [C #](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  * [Estivador](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
   * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
 O VM do desenvolvedor não é estritamente necessário – todas as ferramentas de desenvolvimento podem ser executadas numa máquina local. No entanto, recomendamos vivamente a utilização do VM para garantir um nível de igualdade de condições.
@@ -52,7 +52,7 @@ Leva cerca de 30 minutos para criar e configurar a máquina virtual.
 
 1. Clone ou descarregue o repositório de amostras [machine learning e IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) para o seu computador local.
 
-1. Abra a PowerShell como administrador e navegue para o diretório **\IoTEdgeAndMlSample\DevVM** localizado sob o diretório raiz onde descarregou o código. Referimo-nos ao diretório de raiz da sua fonte como `srcdir`.
+1. Abra a PowerShell como administrador e navegue para o diretório **\IoTEdgeAndMlSample\DevVM** localizado sob o diretório raiz onde descarregou o código. Vamos referir-nos ao diretório raiz `srcdir`para a sua fonte como .
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
@@ -173,7 +173,7 @@ Nesta secção, você usa um script para criar um hub Azure IoT e uma conta de A
     * Ser-lhe-á pedido que inicie sessão no Azure.
     * O script confirma a informação para a criação da sua conta Hub e Armazenamento. Pressione **y** ou **Enter** para continuar.
 
-O guião leva cerca de dois minutos para correr. Uma vez concluído, o script produz o nome do hub IoT e a conta de armazenamento.
+O script demorará cerca de dois minutos a ser executado. Uma vez concluído, o script produz o nome do hub IoT e a conta de armazenamento.
 
 ## <a name="review-route-to-storage-in-iot-hub"></a>Rever rota para armazenamento em IoT Hub
 
@@ -181,7 +181,7 @@ Como parte da criação do hub IoT, o guião que executamos na secção anterior
 
 1. Abra o [portal Azure](https://portal.azure.com) e vá ao grupo de recursos que está a usar para este tutorial.
 
-1. Na lista de recursos, selecione o IoT Hub que o script criou. Terá um nome terminando com personagens aleatórios como `IotEdgeAndMlHub-jrujej6de6i7w`.
+1. Na lista de recursos, selecione o IoT Hub que o script criou. Terá um nome terminando com `IotEdgeAndMlHub-jrujej6de6i7w`caracteres aleatórios como.
 
 1. A partir do menu do painel esquerdo, em **Mensagens,** selecione **o encaminhamento de mensagens**.
 
@@ -193,11 +193,11 @@ Como parte da criação do hub IoT, o guião que executamos na secção anterior
 
    Vemos **que o turbofanDeviceStorage** está na lista de pontos finais personalizados. Note as seguintes características sobre este ponto final:
 
-   * Aponta para o recipiente de armazenamento blob que criou com o nome `devicedata` indicado pelo **nome contentor**.
+   * Aponta para o recipiente de armazenamento `devicedata` blob que criou nomeado como indicado pelo **nome do recipiente**.
    * O seu **formato Filename** tem a partição como último elemento no nome. Achamos que este formato é mais conveniente para as operações de arquivo que faremos com os Cadernos Azure mais tarde no tutorial.
    * O seu **estado** deve ser saudável.
 
-1. Selecione o separador **Rotas.**
+1. Selecione o separador **Rotas**.
 
 1. Selecione a rota chamada **turbofanDeviceDataToStorage**.
 
@@ -209,7 +209,7 @@ Como parte da criação do hub IoT, o guião que executamos na secção anterior
 
 1. Como não foram feitas edificações, basta fechar esta página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criámos um Hub IoT e configuramos uma rota para uma conta de Armazenamento Azure. Em seguida, enviaremos dados de um conjunto de dispositivos simulados através do IoT Hub para a conta de armazenamento. Mais tarde no tutorial, depois de configurarmos o nosso dispositivo e módulos IoT Edge, vamos revisitar rotas e olhar um pouco mais para a consulta de encaminhamento.
 

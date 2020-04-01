@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/03/2020
 ms.author: tarcher
 ms.openlocfilehash: e9b8ad7a7fcc499f8760b56e6a737be8a6a9e06c
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79199590"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure
+* Uma subscrição do Azure.
 * Acesso ao SSH na linha de comandos do seu computador (por exemplo, o Bash da shell ou [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](quickstarts-free-trial-note.md)]
@@ -25,7 +25,7 @@ O Jenkins suporta um modelo no qual o servidor do Jenkins delega o trabalho a um
 
 ## <a name="connect-to-jenkins"></a>Ligar-se ao Jenkins
 
-Navegue para a sua máquina virtual (por exemplo, `http://jenkins2517454.eastus.cloudapp.azure.com/`) no seu navegador web. A consola do Jenkins não está acessível através de HTTP não seguro, pelo que são fornecidas instruções na página para aceder à consola do Jenkins em segurança a partir do seu computador com um túnel SSH.
+Navegue para a sua `http://jenkins2517454.eastus.cloudapp.azure.com/`máquina virtual (por exemplo, no seu navegador web). A consola do Jenkins não está acessível através de HTTP não seguro, pelo que são fornecidas instruções na página para aceder à consola do Jenkins em segurança a partir do seu computador com um túnel SSH.
 
 ![Desbloquear o Jenkins](./media/jenkins-install-solution-template-steps/jenkins-ssh-instructions.png)
 

@@ -5,10 +5,10 @@ keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945301"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: Criar um cluster Kubernetes com o Serviço Azure Kubernetes usando terrafora
@@ -26,19 +26,19 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: siga as instruções no artigo [Terraform and configure access to Azure](terraform-install-configure.md) (Terraform e configuração do acesso ao Azure)
+- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](terraform-install-configure.md)
 
-- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores de appId, displayName, password e tenant.
+- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para appId, displayName, password, e tenant.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
 O primeiro passo é criar o diretório que mantenha os seus ficheiros de configuração do Terraform para o exercício.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
 1. Mude para o diretório `clouddrive`.
 
@@ -46,7 +46,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `terraform-aks-k8s`.
+1. Crie um diretório denominado `terraform-aks-k8s`.
 
     ```bash
     mkdir terraform-aks-k8s
@@ -83,7 +83,7 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="define-a-kubernetes-cluster"></a>Definir um cluster do Kubernetes
 
@@ -168,11 +168,11 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
 
     O código anterior define o nome do cluster, localização e nome do grupo de recursos. O prefixo para o nome de domínio totalmente qualificado (FQDN) também está definido. O FQDN é usado para aceder ao cluster.
 
-    O registo `linux_profile` permite configurar as definições que permitem a sessão nos nódosos do trabalhador utilizando o SSH.
+    O `linux_profile` registo permite configurar as definições que permitem a sessão nos nódosos do trabalhador utilizando o SSH.
 
-    No AKS, paga apenas os nós de trabalho. O registo `default_node_pool` configura os detalhes destes nódosos operários. O `default_node_pool record` inclui o número de nós dos trabalhadores para criar e o tipo de nós dos trabalhadores. Se precisar de escalar ou escalar o cluster no futuro, modifica o valor `count` neste registo.
+    No AKS, paga apenas os nós de trabalho. Os `default_node_pool` registos mostram os detalhes destes nódosos operários. O `default_node_pool record` número de nós operários para criar e o tipo de nós dos trabalhadores. Se precisar de escalar ou escalar o cluster no `count` futuro, modifica o valor neste registo.
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="declare-the-variables"></a>Declarar as variáveis
 
@@ -227,7 +227,7 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
    }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="create-a-terraform-output-file"></a>Criar um ficheiro de saída do Terraform
 
@@ -271,7 +271,7 @@ Os [ficheiros de saída do Terraform](https://www.terraform.io/docs/configuratio
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>Configurar o armazenamento do Azure para armazenar estado do Terraform
 
@@ -291,7 +291,7 @@ Nesta secção, vê como fazer as seguintes tarefas:
 
     ![Menu de conta de armazenamento](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. Tome nota do **valor-chave1.** (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
+1. Anote o valor **key1** **key**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
@@ -311,7 +311,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
     
-    O comando `terraform init` mostra o sucesso de inicializar o backend e o plug-in do fornecedor:
+    O `terraform init` comando mostra o sucesso de inicializar o backend e o plug-in do fornecedor:
 
     ![Exemplo de resultados "terraform init"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
@@ -392,9 +392,9 @@ As ferramentas do Kubernetes podem ser utilizadas para verificar o cluster acaba
 
 ## <a name="monitor-health-and-logs"></a>Monitorizar o estado de funcionamento e os registos
 
-Quando o cluster do AKS foi criado, a monitorização foi ativada para capturar métricas de estado de funcionamento dos nós do cluster e dos pods. Estas métricas de estado de funcionamento estão disponíveis no portal do Azure. Para obter mais informações sobre a monitorização da saúde dos contentores, consulte a saúde do [Serviço Monitor Azure Kubernetes](/azure/azure-monitor/insights/container-insights-overview).
+Quando o cluster do AKS foi criado, a monitorização foi ativada para capturar métricas de estado de funcionamento dos nós do cluster e dos pods. Estas métricas de estado de funcionamento estão disponíveis no portal do Azure. Para obter mais informações sobre a monitorização do estado de funcionamento dos contentores, veja [Monitorizar o estado de funcionamento do Azure Kubernetes Service](/azure/azure-monitor/insights/container-insights-overview).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Saiba mais sobre a utilização da Terraform em Azure](/azure/terraform)

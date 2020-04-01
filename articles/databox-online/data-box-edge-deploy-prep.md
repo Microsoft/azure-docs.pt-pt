@@ -1,5 +1,5 @@
 ---
-title: Tutorial para preparar portal Azure, ambiente datacenter para implantar Azure Data Box Edge  Microsoft Docs
+title: Tutorial para preparar portal Azure, ambiente datacenter para implantar Azure Data Box Edge [ Microsoft Docs
 description: O primeiro tutorial sobre a implementação do Azure Data Box Edge envolve a preparação do portal Azure.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5192816ca7be47ecb5e602e46dff16951f7475ee
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 90ed4bf8f0389619f130e998ed76c720442092b2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370275"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474480"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Prepare-se para implantar borda de caixa de dados Azure  
 
@@ -29,7 +29,7 @@ Neste tutorial, ficará a saber como:
 > * Criar um novo recurso
 > * Obter a chave de ativação
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ### <a name="get-started"></a>Introdução
 
@@ -55,12 +55,11 @@ Antes de começar, certifique-se de que:
 
 * A subscrição do Microsoft Azure está ativada para um recurso Azure Stack Edge. Certifique-se de que utilizou uma subscrição apoiada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)cloud solution provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou o Patrocínio do [Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
 * Tem acesso ao proprietário ou colaborador ao nível do grupo de recursos para os recursos data Box Edge/Data Box Gateway, IoT Hub e Azure Storage.
-
-  * Para criar qualquer recurso Data Box Edge/ Data Box Gateway, deve ter permissões como contribuinte (ou superior) ao nível do grupo de recursos. Também precisa de se certificar de que o fornecedor `Microsoft.DataBoxEdge` está registado. Para obter informações sobre como se registar, vá ao [Register fornecedor de recursos.](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)
-  * Para criar qualquer recurso IoT Hub, certifique-se de que o fornecedor microsoft.Devices está registado. Para obter informações sobre como se registar, vá ao [Register fornecedor de recursos.](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)
-  * Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Armazenamento Azure é, por defeito, um fornecedor de recursos registado.
-* Tem acesso a administrador ou utilizador ao Azure Ative Directory Graph API. Para mais informações, consulte [o Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-* Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
+    - Para criar qualquer recurso Data Box Edge/ Data Box Gateway, deve ter permissões como contribuinte (ou superior) ao nível do grupo de recursos. Também precisa de se `Microsoft.DataBoxEdge` certificar de que o fornecedor está registado. Para obter informações sobre como se registar, vá ao [Register fornecedor de recursos.](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)
+    - Para criar qualquer recurso IoT Hub, certifique-se de que o fornecedor microsoft.Devices está registado. Para obter informações sobre como se registar, vá ao [Register fornecedor de recursos.](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)
+    - Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Armazenamento Azure é, por defeito, um fornecedor de recursos registado.
+- Tem acesso a administrador ou utilizador à Microsoft Graph API. Para mais informações, consulte a referência de [permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+- Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
 
 ### <a name="for-the-data-box-edge-device"></a>Para o dispositivo do Data Box Edge
 
@@ -92,11 +91,11 @@ Para criar um recurso Data Box Edge, dê os seguintes passos no portal Azure.
 
 1. Use as suas credenciais Microsoft Azure para iniciar sessão 
     
-    - O portal Azure neste URL: [https://portal.azure.com](https://portal.azure.com).
-    - Ou, o portal do Governo Azure neste URL: [https://portal.azure.us](https://portal.azure.us). Para mais detalhes, vá ao [Governo De Connect para azure usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - O portal Azure neste [https://portal.azure.com](https://portal.azure.com)URL: .
+    - Ou, o portal do Governo [https://portal.azure.us](https://portal.azure.us)Azure nesta URL: . Para mais detalhes, vá ao [Governo De Connect para azure usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. No painel esquerdo, selecione **+ Crie um recurso**. Pesquisar por **Data Box Edge / Data Box Gateway**. Selecione **Data Box Edge / Data Box Gateway**. Selecione **Criar**.
-3. Escolha a subscrição que pretende utilizar para o dispositivo Data Box Edge. Selecione a região onde pretende implementar o recurso Data Box Edge. Para obter uma lista de todas as regiões onde está disponível o recurso Azure Stack Edge, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)
+3. Escolha a subscrição que pretende utilizar para o dispositivo Data Box Edge. Selecione a região onde pretende implementar o recurso do Data Box Edge. Para obter uma lista de todas as regiões onde está disponível o recurso Azure Stack Edge, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)
 
     Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. A região armazena apenas os metadados para a gestão de dispositivos. Os dados reais podem ser armazenados em qualquer conta de armazenamento.
     
@@ -170,7 +169,7 @@ Neste tutorial, ficou a conhecer tópicos do Data Box Edge, como:
 Avance para o próximo tutorial para aprender a instalar data box edge.
 
 > [!div class="nextstepaction"]
-> [Instalar borda de caixa de dados](./data-box-edge-deploy-install.md)
+> [Instalar o Data Box Edge](./data-box-edge-deploy-install.md)
 
 
 

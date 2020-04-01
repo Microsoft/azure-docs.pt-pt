@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações push para aplicações Windows Phone com Hubs de Notificação do Azure | Microsoft Docs
+title: Envie notificações push para aplicações do Windows Phone utilizando hubs de notificação do Azure. Microsoft Docs
 description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação Windows Phone 8 ou Windows Phone 8.1 Silverlight.
 services: notification-hubs
 documentationcenter: windows
@@ -18,18 +18,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7f026dd5953dd233b0183d8ce7978f647fb8c6af
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9cad4bfc474ef23492858ed3b0a6447932b589b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213469"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127072"
 ---
-# <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Tutorial: Notificações por push para aplicativos Windows Phone usando os hubs de notificação do Azure
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações do Windows Phone usando Centros de Notificação
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Este tutorial mostra-lhe como utilizar os Notification Hubs do Azure para enviar notificações push para aplicações Windows Phone 8 ou Windows Phone 8.1 Silverlight. Se o seu foco incide sobre o Windows Phone 8.1 (não Silverlight), veja a versão [Universal para Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) deste tutorial.
+Este tutorial mostra-lhe como utilizar os Notification Hubs do Azure para enviar notificações push para aplicações Windows Phone 8 ou Windows Phone 8.1 Silverlight. Se o seu foco incide sobre o Windows Phone 8.1 (não Silverlight), consulte a versão [Universal para Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) deste tutorial.
 
 Neste tutorial, vai criar uma aplicação Windows Phone 8 em branco que recebe notificações push utilizando o Serviço de Notificações Push da Microsoft (MPNS). Depois de criar a aplicação, pode utilizar o hub de notificação para difundir notificações push para todos os dispositivos a executar a sua aplicação.
 
@@ -45,7 +45,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Assinatura Azure.** Se não tiver uma subscrição Azure, [crie uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Visual Studio 2015 Express com componentes de desenvolvimento móveis](https://www.visualstudio.com/vs/older-downloads/)
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Notification Hubs para aplicações Windows Phone 8.
@@ -86,7 +86,7 @@ Nesta secção, vai criar uma aplicação Windows Phone que efetua o próprio re
 
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
-5. Adicione o seguinte código na parte superior do `Application_Launching` método em `App.xaml.cs`:
+5. Adicione o seguinte código `Application_Launching` no `App.xaml.cs`topo do método em:
 
     ```csharp
     private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -114,13 +114,13 @@ Nesta secção, vai criar uma aplicação Windows Phone que efetua o próprio re
     ```
 
    > [!NOTE]
-   > O valor `MyPushChannel` é um índice que é usado para pesquisar um canal existente na coleção [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) . Se não existir, crie uma nova entrada com esse nome.
+   > O `MyPushChannel` valor é um índice que é usado para procurar um canal existente na coleção [HttpNotificationChannel.](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) Se não existir, crie uma nova entrada com esse nome.
 
-    Insira o nome do seu hub e a cadeia de conexão `DefaultListenSharedAccessSignature` chamada que você anotou na seção anterior.
+    Insira o nome do seu `DefaultListenSharedAccessSignature` hub e a corda de ligação chamada que observou na secção anterior.
     Este código obtém o URI do canal para a aplicação a partir do MPNS e, em seguida, regista esse URI de canal no Notification Hub. Esta ação garante também que o URI do canal é registado no Notification Hub sempre que a aplicação for iniciada.
 
    > [!NOTE]
-   > Este tutorial envia um alerta de notificação para o dispositivo. Ao enviar uma notificação de bloco, você deve chamar o `BindToShellTile` método no canal. Para dar suporte a notificações de bloco e do sistema `BindToShellTile` , `BindToShellToast`chame e.
+   > Este tutorial envia um alerta de notificação para o dispositivo. Quando envia uma notificação de azulejos, deve, em vez disso, ligar para o `BindToShellTile` método no canal. Para apoiar as notificações de torradas e azulejos, ligue para ambos `BindToShellTile` e `BindToShellToast`.
 
 6. No Explorador de Soluções, expanda **Propriedades**, abra o `WMAppManifest.xml` ficheiro, clique no separador **Capacidades** e verifique se a capacidade **ID_CAP_PUSH_NOTIFICATION** está selecionada. Agora, a aplicação pode receber notificações push.
 

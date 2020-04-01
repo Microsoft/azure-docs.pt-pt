@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78207103"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Amostras Azure CLI
 
 > [!div class="op_single_selector"]
 > [.NET Exemplos](hdinsight-sdk-dotnet-samples.md)
-> [Python exemplos](hdinsight-sdk-python-samples.md)
-> [Exemplos de Java](hdinsight-sdk-java-samples.md)
+> [Python Exemplos](hdinsight-sdk-python-samples.md)
+> [De Java Exemplos](hdinsight-sdk-java-samples.md)
 
 Este artigo fornece scripts de amostra para tarefas comuns. Para cada exemplo, atualize as variáveis com os valores apropriados e, em seguida, execute o comando.
 

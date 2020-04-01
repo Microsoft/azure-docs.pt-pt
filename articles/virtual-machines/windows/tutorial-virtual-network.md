@@ -16,10 +16,10 @@ ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 67cfb04f67e3454bde25969b634116f2871cbeb5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238343"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
@@ -57,7 +57,7 @@ Ao concluir este tutorial, pode ver estes recursos serem criados:
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
 ## <a name="create-subnet"></a>Criar sub-rede 
@@ -274,7 +274,7 @@ New-AzVM `
 
 A imagem neste exemplo tem o SQL Server instalado, mas não é usado neste tutorial. Está incluído para lhe mostrar como pode configurar um VM para lidar com o tráfego web e um VM para lidar com a gestão da base de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. 
 

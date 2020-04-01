@@ -5,10 +5,10 @@ keywords: azure devops terrafora aplicação gateway ingress aks kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: 6b48d0acb654f0b0643c0754e53f6bc6ea76bb45
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945323"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Criar um controlador de ingresso de gateway de aplicação no Serviço Azure Kubernetes
@@ -30,19 +30,19 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: siga as instruções no artigo [Terraform and configure access to Azure](terraform-install-configure.md) (Terraform e configuração do acesso ao Azure)
+- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](terraform-install-configure.md)
 
 - Grupo de **recursos Azure**: Se não tiver um grupo de recursos Azure para usar para a demonstração, [crie um grupo](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups)de recursos Azure . Tome nota do nome e localização do grupo de recursos, uma vez que estes valores são utilizados na demonstração.
 
 - **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para o appId, displayName e password.
 
-- **Obtenha o ID principal do objeto de serviço**: Executar o seguinte comando na Cloud Shell: `az ad sp list --display-name <displayName>`
+- **Obtenha o ID principal do objeto de serviço**: Executar o seguinte comando na Cloud Shell:`az ad sp list --display-name <displayName>`
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
 O primeiro passo é criar o diretório que mantenha os seus ficheiros de configuração do Terraform para o exercício.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview).
 
@@ -52,7 +52,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `terraform-aks-appgw-ingress`.
+1. Crie um diretório denominado `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -89,7 +89,7 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="define-input-variables"></a>Definir variáveis de entrada
 
@@ -232,7 +232,7 @@ Crie o ficheiro de configuração Terraform que lista todas as variáveis necess
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="define-the-resources"></a>Definir os recursos 
 Crie o ficheiro de configuração Terraform que cria todos os recursos. 
@@ -472,17 +472,17 @@ Crie o ficheiro de configuração Terraform que cria todos os recursos.
 
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
-O código apresentado nesta secção define o nome do cluster, localização e resource_group_name. O valor `dns_prefix` - que faz parte do nome de domínio totalmente qualificado (FQDN) utilizado para aceder ao cluster - é definido.
+O código apresentado nesta secção define o nome do cluster, localização e resource_group_name. O `dns_prefix` valor - que faz parte do nome de domínio totalmente qualificado (FQDN) utilizado para aceder ao cluster - é definido.
 
-O registo `linux_profile` permite configurar as definições que permitem a sessão nos nódosos do trabalhador utilizando o SSH.
+O `linux_profile` registo permite configurar as definições que permitem a sessão nos nódosos do trabalhador utilizando o SSH.
 
-No AKS, paga apenas os nós de trabalho. O registo `agent_pool_profile` configura os detalhes destes nódosos operários. O `agent_pool_profile record` inclui o número de nós dos trabalhadores para criar e o tipo de nós dos trabalhadores. Se precisar de escalar ou escalar o cluster no futuro, modifica o valor `count` neste registo.
+No AKS, paga apenas os nós de trabalho. Os `agent_pool_profile` registos mostram os detalhes destes nódosos operários. O `agent_pool_profile record` número de nós operários para criar e o tipo de nós dos trabalhadores. Se precisar de escalar ou escalar o cluster no `count` futuro, modifica o valor neste registo.
 
 ## <a name="create-a-terraform-output-file"></a>Criar um ficheiro de saída do Terraform
 
-As [saídas terraformes](https://www.terraform.io/docs/configuration/outputs.html) permitem definir valores que são realçados ao utilizador quando a Terraform aplica um plano, e podem ser consultadas usando o comando `terraform output`. Nesta secção, vai criar um ficheiro de saída que permite o acesso ao cluster com [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
+As [saídas terraformes](https://www.terraform.io/docs/configuration/outputs.html) permitem definir valores que são realçados ao utilizador quando a `terraform output` Terraform aplica um plano, e podem ser consultadas através do comando. Nesta secção, vai criar um ficheiro de saída que permite o acesso ao cluster com [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. No Cloud Shell, crie um ficheiro com o nome `output.tf`.
 
@@ -530,7 +530,7 @@ As [saídas terraformes](https://www.terraform.io/docs/configuration/outputs.htm
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="configure-azure-storage-to-store-terraform-state"></a>Configure armazenamento Azure para armazenar estado terraforme
 
@@ -546,7 +546,7 @@ O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfsta
 
     ![Menu de conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
-1. Tome nota do **valor-chave1.** (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
+1. Anote o valor **key1** **key**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
@@ -565,17 +565,17 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
   
-    O comando `terraform init` mostra o sucesso de inicializar o backend e o plug-in do fornecedor:
+    O `terraform init` comando mostra o sucesso de inicializar o backend e o plug-in do fornecedor:
 
     ![Exemplo de resultados "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
-1. Na Cloud Shell, crie um ficheiro chamado `terraform.tfvars`:
+1. Na Cloud Shell, crie um ficheiro chamado: `terraform.tfvars`
 
     ```bash
     code terraform.tfvars
     ```
 
-1. Colar as seguintes variáveis criadas anteriormente no editor. Para obter o valor de localização para o seu ambiente, use `az account list-locations`.
+1. Colar as seguintes variáveis criadas anteriormente no editor. Para obter o valor de `az account list-locations`localização para o seu ambiente, use .
 
     ```hcl
     resource_group_name = "<Name of the Resource Group already created>"
@@ -590,7 +590,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
         
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 1. Execute o comando `terraform plan` para criar o plano do Terraform que define os elementos de infraestrutura. 
 
@@ -598,7 +598,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
     terraform plan -out out.plan
     ```
 
-    O comando `terraform plan` exibe os recursos que são criados quando executa o comando `terraform apply`:
+    O `terraform plan` comando exibe os recursos que `terraform apply` são criados quando executa o comando:
 
     ![Exemplo de resultados "terraform plan"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
@@ -614,7 +614,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
 1. No portal Azure, selecione **Grupos de Recursos** no menu esquerdo para ver os recursos criados para o seu novo cluster Kubernetes no grupo de recursos selecionados.
 
-    ![Comandos do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
+    ![Comando do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Recuperar de um tempo limite do Cloud Shell
 
@@ -665,7 +665,7 @@ A Identidade de Pod de Diretório Ativo Azure proporciona acesso baseado em toke
 
 Identidade de [Pod Azure AD](https://github.com/Azure/aad-pod-identity) adiciona os seguintes componentes ao seu cluster Kubernetes:
 
-  - Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
+  - Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity``AzureIdentityBinding`
   - [Componente do Controlador de Identidade Gerido (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
   - Componente de Identidade Gerida do [Nó (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
@@ -683,7 +683,7 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
 
 ## <a name="install-helm"></a>Instalar leme
 
-O código desta secção utiliza [o Helm](/azure/aks/kubernetes-helm) - gestor de pacotes Kubernetes - para instalar o pacote `application-gateway-kubernetes-ingress`:
+O código desta secção utiliza [helm](/azure/aks/kubernetes-helm) - Kubernetes `application-gateway-kubernetes-ingress` package manager - para instalar o pacote:
 
 1. Se o RBAC estiver **ativado,** execute o seguinte conjunto de comandos para instalar e configurar o Leme:
 
@@ -714,7 +714,7 @@ O código desta secção utiliza [o Helm](/azure/aks/kubernetes-helm) - gestor d
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
-1. Editar a `helm-config.yaml` e introduzir valores adequados para as secções `appgw` e `armAuth`.
+1. Editar `helm-config.yaml` e inserir valores apropriados para `appgw` e `armAuth` secções.
 
     ```bash
     code helm-config.yaml
@@ -723,22 +723,22 @@ O código desta secção utiliza [o Helm](/azure/aks/kubernetes-helm) - gestor d
     Os valores são descritos da seguinte forma:
 
     - `verbosityLevel`: Define o nível de verbosidade da infraestrutura de exploração madeireira AGIC. Consulte os níveis de exploração de registo para obter possíveis [valores.](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)
-    - `appgw.subscriptionId`: O ID de subscrição azure para o Gateway da aplicação. Exemplo: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `appgw.subscriptionId`: O ID de subscrição Azure para o Gateway da Aplicação. Exemplo: `a123b234-a3b4-557d-b2df-a0bc12de1234`
     - `appgw.resourceGroup`: Nome do Grupo de Recursos Azure no qual a App Gateway foi criada. 
     - `appgw.name`: Nome do Gateway da Aplicação. Exemplo: `applicationgateway1`.
-    - `appgw.shared`: Esta bandeira booleana deve ser desempregada para `false`. Adere a `true` caso necessite de um Gateway de [Aplicações Partilhadas](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `appgw.shared`: Esta bandeira booleana `false`deve ser desempregada para . Preparar `true` para se precisar de um Gateway de [Aplicações Partilhadas](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
     - `kubernetes.watchNamespace`: Especifique o espaço de nome, que a AGIC deve observar. O espaço de nome pode ser um único valor de cadeia, ou uma lista separada de espaços de nomes. Deixando esta variável comentada, ou definindo-a em branco ou em resultados de cordas vazias em Controlador De Ingress observando todos os espaços de nome acessíveis.
-    - `armAuth.type`: Um valor de `aadPodIdentity` ou `servicePrincipal`.
+    - `armAuth.type`: Um valor `aadPodIdentity` `servicePrincipal`de qualquer um ou .
     - `armAuth.identityResourceID`: Identificação de recursos da identidade gerida.
-    - `armAuth.identityClientId`: A Identificação do Cliente da Identidade.
-    - `armAuth.secretJSON`: Só é necessário quando for escolhido o tipo principal de serviço secreto (quando `armAuth.type` tiver sido definido para `servicePrincipal`).
+    - `armAuth.identityClientId`: A identificação do cliente da identidade.
+    - `armAuth.secretJSON`: Só é necessário quando for `armAuth.type` escolhido o `servicePrincipal`tipo principal de serviço secreto (quando tiver sido definido).
 
     Notas-chave:
-    - O valor `identityResourceID` é criado no roteiro terraforme e pode ser encontrado executando: `echo "$(terraform output identity_resource_id)"`.
-    - O valor `identityClientID` é criado no roteiro terraforme e pode ser encontrado executando: `echo "$(terraform output identity_client_id)"`.
-    - O valor `<resource-group>` é o grupo de recursos da sua App Gateway.
-    - O valor `<identity-name>` é o nome da identidade criada.
-    - Todas as identidades para uma determinada subscrição podem ser listadas usando: `az identity list`.
+    - O `identityResourceID` valor é criado no script terraforme `echo "$(terraform output identity_resource_id)"`e pode ser encontrado executando: .
+    - O `identityClientID` valor é criado no script terraforme `echo "$(terraform output identity_client_id)"`e pode ser encontrado executando: .
+    - O `<resource-group>` valor é o grupo de recursos da sua App Gateway.
+    - O `<identity-name>` valor é o nome da identidade criada.
+    - Todas as identidades para uma determinada `az identity list`subscrição podem ser listadas usando: .
 
 1. Instale o pacote de controlador de entrada de entrada de gateway de aplicação:
 
@@ -772,7 +772,7 @@ Substitua o espaço reservado pelo valor adequado. Todos os recursos dentro do g
 az group delete -n <resource-group>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Controlador de entrada de gateway de aplicação](https://azure.github.io/application-gateway-kubernetes-ingress/)
+> [Controlador de Entrada do Gateway de Aplicação](https://azure.github.io/application-gateway-kubernetes-ingress/)

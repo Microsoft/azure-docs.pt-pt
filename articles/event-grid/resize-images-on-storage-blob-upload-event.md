@@ -208,7 +208,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | ------------ | ---------------- | -------------------------------------------------- |
     | **Nome** | imageresizersub | Nome que identifica a nova subscrição de evento. |
     | **Tipo de tópico** | Contas de armazenamento | Selecione o fornecedor de eventos da conta de Armazenamento. |
-    | **Assinatura** | A sua subscrição do Azure | Por predefinição, a subscrição do Azure atual está selecionada. |
+    | **Subscrição** | A sua subscrição do Azure | Por predefinição, a subscrição do Azure atual está selecionada. |
     | **Grupo de recursos** | myResourceGroup | Selecione **Utilizar existente** e selecione o grupo de recursos que tem utilizado neste tutorial. |
     | **Recurso** | A sua conta de armazenamento de Blobs | Selecione a conta de armazenamento de Blobs que criou. |
     | **Tipos de evento** | Criado pelo Blob | Desmarque todos os tipos diferentes de **Criado pelo Blob**. Apenas os tipos de evento de `Microsoft.Storage.BlobCreated` são transmitidos à função. |

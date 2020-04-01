@@ -1,33 +1,33 @@
 ---
-title: Exemplos de CLI do Azure-banco de dados do Azure para MariaDB
-description: Este artigo lista os exemplos de código de CLI do Azure disponíveis para interagir com o banco de dados do Azure para MariaDB.
+title: Amostras Azure CLI - Base de Dados Azure para MariaDB
+description: Este artigo lista as amostras de código Azure CLI disponíveis para interagir com a Base de Dados Azure para o MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 12/02/2019
-ms.openlocfilehash: affb7efc4c93561472bc006cb13ac93ab19aeec0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d10d5b4885e826da9b6efd95dfc02940e1a9644a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771730"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79529973"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Exemplos de CLI do Azure para o banco de dados do Azure para MariaDB 
-A tabela a seguir inclui links para scripts de CLI do Azure de exemplo para o banco de dados do Azure para MariaDB.
+# <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Amostras azure CLI para Base de Dados Azure para MariaDB 
+A tabela seguinte inclui links para a amostra de scripts Azure CLI para Base de Dados Azure para MariaDB.
 
 | |  |
 |---|---|
 |**Criar um servidor**||
-| [Criar uma regra de servidor e de firewall](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | CLI do Azure script que cria um único banco de dados do Azure para o servidor MariaDB e configura uma regra de firewall no nível de servidor. |
+| [Criar uma regra de servidor e de firewall](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI que cria uma única Base de Dados Azure para servidor MariaDB e configura uma regra de firewall ao nível do servidor. |
 |**Dimensionar um servidor**||
-| [Dimensionar um servidor](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | CLI do Azure script que dimensiona um único banco de dados do Azure para o MariaDB Server para cima ou para baixo para permitir a alteração das necessidades de desempenho. |
+| [Dimensionar um servidor](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI que escala uma única Base de Dados Azure para o servidor MariaDB para cima ou para baixo para permitir a alteração das necessidades de desempenho. |
 |**Alterar configurações do servidor**||
-| [Alterar configurações do servidor](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | CLI do Azure script que altera as configurações de um único banco de dados do Azure para o servidor MariaDB. |
+| [Alterar configurações do servidor](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI que altera configurações de uma única Base de Dados Azure para servidor MariaDB. |
 |**Restaurar um servidor**||
-| [Restaurar um servidor](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | CLI do Azure script que restaura um único banco de dados do Azure para o servidor MariaDB para um ponto anterior no tempo. |
+| [Restaurar um servidor](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI que restaura uma única Base de Dados Azure para o servidor MariaDB para um ponto anterior no tempo. |
 |**Manipular com registos do servidor**||
-| [Ativar e transferir registos do servidor](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | CLI do Azure script que habilita e baixa logs de servidor de um único banco de dados do Azure para o servidor MariaDB. |
+| [Ativar e transferir registos do servidor](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI que permite e descarrega registos de servidores de uma única Base de Dados Azure para servidor MariaDB. |
 |||

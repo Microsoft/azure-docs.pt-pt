@@ -9,10 +9,10 @@ ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
 ms.openlocfilehash: 3eb77799b1845112e9f7e5ca0b65d790625fd529
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76961579"
 ---
 Se pretende continuar para o próximo tutorial, guarde os recursos que criou neste arranque rápido para que possa reutilizá-los.
@@ -24,7 +24,7 @@ Se terminar com a aplicação de amostra sintetizadora, elimine os recursos Azur
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e selecione **Grupos de Recursos.**
 1. Na caixa **de nome filter** by, introduza o nome do seu grupo de recursos. 
-1. Na lista de resultados, selecione o grupo de recursos e clique na linha ou clique na linha ou use o botão **de elipse** **(...** ) para abrir o menu de contexto.
+1. Na lista de resultados, selecione o grupo de recursos e clique na linha ou clique na linha ou use o botão **de elipse** **(...**) para abrir o menu de contexto.
 1. Selecione **Eliminar grupo de recursos**.
 1. É-lhe pedido que confirme a eliminação do grupo de recursos. Insira o nome do seu grupo de recursos para confirmar e selecione **Eliminar**.
 

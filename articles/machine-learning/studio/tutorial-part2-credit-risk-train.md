@@ -11,10 +11,10 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79217876"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: Modelos de risco de crédito de treina - Azure Machine Learning Studio (clássico)
@@ -44,7 +44,7 @@ Na [terceira parte do tutorial,](tutorial-part3-credit-risk-deploy.md)irá imple
 
 Complete a [parte um do tutorial.](tutorial-part1-credit-risk.md)
 
-## <a name="train"></a>Treinar vários modelos
+## <a name="train-multiple-models"></a><a name="train"></a>Treinar vários modelos
 
 Um dos benefícios da utilização do Azure Machine Learning Studio (clássico) para criar modelos de machine learning é a capacidade de experimentar mais do que um tipo de modelo de cada vez numa única experiência e comparar os resultados. Este tipo de experimentação ajuda-o a encontrar a melhor solução para o seu problema.
 
@@ -84,7 +84,7 @@ Agora precisa dizer ao módulo [Modelo de Comboio][train-model] que quer que o m
 
 1. Selecione o módulo [Modelo de Comboio.][train-model] No painel **Propriedades,** clique no seletor de **colunas de lançamento**.
 
-1. No select um único diálogo de **coluna,** escreva "risco de crédito" no campo de pesquisa sob **colunas disponíveis,** selecione "Risco de crédito" abaixo e clique no botão de seta direita **(>** ) para mover "Risco de Crédito" para **Colunas Selecionadas**. 
+1. No select um único diálogo de **coluna,** escreva "risco de crédito" no campo de pesquisa sob **colunas disponíveis,** selecione "Risco de crédito" abaixo e clique no botão de seta direita (**>**) para mover "Risco de crédito" para **Colunas Selecionadas**. 
 
     ![Selecione a coluna de Risco de Crédito para o módulo Modelo de Comboio](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Usar o Azure Cosmos DB API de Tabela e o armazenamento de tabelas do Azure com o Ruby
+title: Use a Mesa API e armazenamento de mesa Azure Cosmos DB com ruby
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -10,17 +10,17 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770880"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos com Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este guia mostra como realizar cenários comuns com a API de serviço Tabela do Azure ou de Tabela do Azure Cosmos DB. Os exemplos são escritos no Ruby e utilizam a [Biblioteca de Cliente de Tabela de Armazenamento do Azure para Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Os cenários abrangidos incluem **criar e eliminar uma tabela e inserir e consultar entidades numa tabela**.
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
@@ -56,13 +56,13 @@ Azure.config.storage_access_key = "<your Azure Storage access key>"
 
 Para obter estes valores a partir de uma conta de armazenamento do Resource Manager ou clássica no portal do Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure.](https://portal.azure.com)
 2. Navegue para a Conta de armazenamento que pretende utilizar.
 3. No painel Definições à direita, clique em **Chaves de Acesso**.
 4. No painel Chaves de acesso que aparece, verá a chave de acesso 1 e a chave de acesso 2. Pode utilizar qualquer uma destas.
 5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação ao Azure Cosmos DB
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação do Azure Cosmos DB
 Para ligar ao Azure Cosmos DB, copie a cadeia de ligação principal do portal do Azure e crie um objeto **Cliente** através da cadeia de ligação copiada. Pode passar o objeto **Cliente** ao criar um objeto **TableService**:
 
 ```ruby
@@ -71,7 +71,7 @@ table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
 
 ## <a name="create-a-table"></a>Criar uma tabela
-O objeto **Azure::Storage::Table::TableService** permite-lhe trabalhar com tabelas e entidades. Para criar uma tabela, utilize o método **create_table()** . O exemplo seguinte cria uma tabela ou imprime o erro, caso exista algum.
+O objeto **Azure::Storage::Table::TableService** permite-lhe trabalhar com tabelas e entidades. Para criar uma tabela, utilize o método **create_table()**. O exemplo seguinte cria uma tabela ou imprime o erro, caso exista algum.
 
 ```ruby
 azure_table_service = Azure::Storage::Table::TableService.new
@@ -99,7 +99,7 @@ Existem vários métodos disponíveis para atualizar uma entidade existente:
 * **insert_or_merge_entity():** atualiza uma entidade existente ao substitui-la. Se não existir uma entidade, será inserida uma nova:
 * **insert_or_replace_entity():** atualiza uma entidade existente ao intercalar novos valores de propriedade na entidade existente. Se não existir nenhuma entidade, será inserida uma nova.
 
-O exemplo seguinte demonstra como atualizar uma entidade com **update_entity()** :
+O exemplo seguinte demonstra como atualizar uma entidade com **update_entity()**:
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -107,10 +107,10 @@ entity = { "content" => "test entity with updated content",
 azure_table_service.update_entity("testtable", entity)
 ```
 
-Com **update_entity()** e **merge_entity()** , se a entidade que está a atualizar não existir, então a operação de atualização irá falhar. Por conseguinte, se pretender armazenar uma entidade, independentemente de já existir, deve, em vez disso, utilizar **insert_or_replace_entity()** ou **insert_or_merge_entity()** .
+Com **update_entity()** e **merge_entity()**, se a entidade que está a atualizar não existir, então a operação de atualização irá falhar. Por conseguinte, se pretender armazenar uma entidade, independentemente de já existir, deve, em vez disso, utilizar **insert_or_replace_entity()** ou **insert_or_merge_entity()**.
 
 ## <a name="work-with-groups-of-entities"></a>Trabalhar com grupos de entidades
-Por vezes, é útil submeter várias operações em conjunto num batch, para garantir um processamento atómico pelo servidor. Para tal, crie primeiro um objeto de **Batch** e, em seguida, utilize o método **execute_batch()** no **TableService**. O exemplo seguinte demonstra como submeter duas entidades com RowKey 2 e 3 num batch. Tenha em atenção que funciona apenas para entidades com o mesmo PartitionKey.
+Por vezes, é útil submeter várias operações em conjunto num batch para garantir um processamento atómico pelo servidor. Para tal, crie primeiro um objeto de **Batch** e, em seguida, utilize o método **execute_batch()** no **TableService**. O exemplo seguinte demonstra como submeter duas entidades com RowKey 2 e 3 num batch. Tenha em atenção que funciona apenas para entidades com o mesmo PartitionKey.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -123,7 +123,7 @@ results = azure_table_service.execute_batch(batch)
 ```
 
 ## <a name="query-for-an-entity"></a>Consultar uma entidade
-Para consultar uma entidade numa tabela, utilize o método **get_entity()** , ao passar o nome da tabela, **PartitionKey** e **RowKey**.
+Para consultar uma entidade numa tabela, utilize o método **get_entity()**, ao passar o nome da tabela, **PartitionKey** e **RowKey**.
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
@@ -131,7 +131,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 ```
 
 ## <a name="query-a-set-of-entities"></a>Consultar um conjunto de entidades
-Para consultar um conjunto de entidades numa tabela, crie um objeto de hash de consulta e utilize o método **query_entities()** . O exemplo seguinte demonstra como obter todas as entidades com a mesma **PartitionKey**:
+Para consultar um conjunto de entidades numa tabela, crie um objeto de hash de consulta e utilize o método **query_entities()**. O exemplo seguinte demonstra como obter todas as entidades com a mesma **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -153,7 +153,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>Eliminar uma entidade
-Para eliminar uma entidade, utilize o método **delete_entity()** . Passe o nome da tabela que contém a entidade, a PartitionKey e a RowKey da entidade.
+Para eliminar uma entidade, utilize o método **delete_entity()**. Passe o nome da tabela que contém a entidade, a PartitionKey e a RowKey da entidade.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")

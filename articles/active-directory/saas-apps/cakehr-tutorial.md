@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o CakeHR | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o CakeHR.
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com CakeHR [ Integração de assinaturaúnica de Diretório Ativo Azure) com CakeHR [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o CakeHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,186 +17,186 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0860411c95e48a16d75df4aeeedf3405a5b1835
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72595028"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o CakeHR
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com CakeHR
 
-Neste tutorial, você aprenderá a integrar o CakeHR com o Azure Active Directory (Azure AD). Ao integrar o CakeHR ao Azure AD, você pode:
+Neste tutorial, você vai aprender a integrar cakeHR com O Diretório Ativo Azure (Azure AD). Quando integrar o CakeHR com o Azure AD, pode:
 
-* Controle no Azure AD quem tem acesso ao CakeHR.
-* Habilite seus usuários a serem conectados automaticamente ao CakeHR com suas contas do Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Controlo em Azure AD que tem acesso a CakeHR.
+* Permita que os seus utilizadores sejam automaticamente inscritos na CakeHR com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do CakeHR.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Assinatura de assinatura de assinatura única cakeHR (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* O CakeHR dá suporte ao SSO iniciado por **SP**
+* CakeHR apoia **SP** iniciado SSO
 
 > [!NOTE]
-> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
+> O identificador desta aplicação é um valor fixo de cadeia, pelo que apenas uma instância pode ser configurada num inquilino.
 
-## <a name="adding-cakehr-from-the-gallery"></a>Adicionando o CakeHR da Galeria
+## <a name="adding-cakehr-from-the-gallery"></a>Adicionando CakeHR da galeria
 
-Para configurar a integração do CakeHR ao Azure AD, você precisará adicionar o CakeHR da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração da CakeHR em Azure AD, você precisa adicionar CakeHR da galeria à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **CakeHR** na caixa de pesquisa.
-1. Selecione **CakeHR** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** digite **CakeHR** na caixa de pesquisa.
+1. Selecione **CakeHR** do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-cakehr"></a>Configurar e testar o logon único do Azure AD para o CakeHR
+## <a name="configure-and-test-azure-ad-single-sign-on-for-cakehr"></a>Configure e teste Azure AD único sign-on para CakeHR
 
-Configure e teste o SSO do Azure AD com o CakeHR usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no CakeHR.
+Configure e teste Azure AD SSO com CakeHR utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no CakeHR.
 
-Para configurar e testar o SSO do Azure AD com o CakeHR, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com cakeHR, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO do CakeHR](#configure-cakehr-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do CakeHR](#create-cakehr-test-user)** – para ter um equivalente de B. Simon em CakeHR que esteja vinculado à representação do usuário no Azure AD.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure CakeHR SSO](#configure-cakehr-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    * **[Crie o utilizador](#create-cakehr-test-user)** do teste CakeHR - para ter uma contrapartida de B.Simon em CakeHR que esteja ligada à representação azure AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **CakeHR** , localize a seção **gerenciar** e selecione **logon único**.
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **CakeHR,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
+1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<yourcakedomain>.cake.hr/`
+    a. Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<yourcakedomain>.cake.hr/`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<yourcakedomain>.cake.hr/services/saml/consume`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<yourcakedomain>.cake.hr/services/saml/consume`
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e a URL de resposta reais. Contate a [equipe de suporte ao cliente do CakeHR](mailto:info@cake.hr) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de Inscrição e Resposta real. Contacte a equipa de [apoio ao Cliente CakeHR](mailto:info@cake.hr) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. Na seção **certificado de autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
+1. Na secção Certificado de **Assinatura SAML,** clique no botão **Editar** para abrir o diálogo do Certificado de **Assinatura SAML.**
 
-    ![Editar certificado de autenticação SAML](common/edit-certificate.png)
+    ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
-1. Na seção **certificado de autenticação SAML** , copie o valor da **impressão digital** e salve-o no bloco de notas.
+1. Na secção Certificado de **Assinatura SAML,** copie o valor **THUMBPRINT** e guarde-o no seu Bloco de Notas.
 
     ![Copiar valor de impressão digital](common/copy-thumbprint.png)
 
-1. Na seção **Configurar CakeHR** , copie as URLs apropriadas com base em seu requisito.
+1. Na secção **"Configurar o CakeHR",** copie os URL(s) adequados com base no seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao CakeHR.
+Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concedendo acesso à CakeHR.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **CakeHR**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **CakeHR**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-cakehr-sso"></a>Configurar o SSO do CakeHR
+## <a name="configure-cakehr-sso"></a>Configure CakeHR SSO
 
-1. Para automatizar a configuração no CakeHR, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
+1. Para automatizar a configuração dentro do CakeHR, precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-1. Depois de adicionar a extensão ao navegador, clique em **Configurar o CakeHR** irá direcioná-lo para o aplicativo CakeHR. A partir daí, forneça as credenciais de administrador para entrar no CakeHR. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-5.
+1. Depois de adicionar extensão ao navegador, clique em **Configurar CakeHR** irá direcioná-lo para a aplicação CakeHR. A partir daí, forneça as credenciais de administração para assinar no CakeHR. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
 
-    ![Configuração da instalação](common/setup-sso.png)
+    ![Configuração de configuração de configuração](common/setup-sso.png)
 
-1. Se você quiser configurar o CakeHR manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do CakeHR como administrador e execute as seguintes etapas:
+1. Se quiser configurar o CakeHR manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa CakeHR como administrador e execute os seguintes passos:
 
-1. No canto superior direito da página, clique em **perfil** e, em seguida, navegue até **configurações**.
+1. No canto superior direito da página, clique no **Perfil** e, em seguida, navegue para **Definições**.
 
-    ![Configuração do CakeHR](./media/cakehr-tutorial/config01.png)
+    ![Configuração CakeHR](./media/cakehr-tutorial/config01.png)
 
-1. No lado esquerdo da barra de menus, clique em **integrações**  > **SSO do SAML** e execute as seguintes etapas:
+1. Do lado esquerdo da barra de menus, clique em **INTEGRAÇÕES** > **SAML SSO** e execute os seguintes passos:
 
-    ![Configuração do CakeHR](./media/cakehr-tutorial/config02.png)
+    ![Configuração CakeHR](./media/cakehr-tutorial/config02.png)
 
-    a. Na caixa de texto **ID da entidade** , digite `cake.hr`.
+    a. Na caixa de texto `cake.hr` **id entidade,** escreva .
 
-    b. Na caixa de texto **URL de autenticação** , Cole o valor da **URL de logon**copiado de portal do Azure.
+    b. Na caixa de texto URL de **Autenticação,** cola o valor do URL de **Login,** que copiou do portal Azure.
 
-    c. Na caixa de texto **impressão digital de chave (formato SHA1)** , Cole o valor de **impressão digital** copiado de portal do Azure.
+    c. Na caixa de texto **Key print (formato SHA1),** colá o valor **THUMBPRINT,** que copiou do portal Azure.
 
-    d. Marque a caixa **habilitar logon único** .
+    d. Verifique o **sinal único ativar na** caixa.
 
     e. Clique em **Guardar**.
 
-### <a name="create-cakehr-test-user"></a>Criar usuário de teste do CakeHR
+### <a name="create-cakehr-test-user"></a>Criar o utilizador de teste CakeHR
 
-Para permitir que os usuários do Azure AD entrem no CakeHR, eles devem ser provisionados no CakeHR. No CakeHR, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores da AD Azure inscrevam-se na CakeHR, devem ser aprovisionados no CakeHR. No CakeHR, o provisionamento é uma tarefa manual.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+**Para fornecer uma conta de utilizador, execute os seguintes passos:**
 
-1. Entre no CakeHR como um administrador de segurança.
+1. Inscreva-se na CakeHR como administrador de segurança.
 
-2. No lado esquerdo da barra de menus, clique em **empresa**  > **Adicionar**.
+2. Do lado esquerdo da barra de menus, clique em**ADD** **COMPANY** > .
 
-    ![Configuração do CakeHR](./media/cakehr-tutorial/config03.png)
+    ![Configuração CakeHR](./media/cakehr-tutorial/config03.png)
 
-3. No pop-up **Adicionar novo funcionário** , execute as seguintes etapas:
+3. No **pop-up add novo empregado,** execute os seguintes passos:
 
-     ![Configuração do CakeHR](./media/cakehr-tutorial/config04.png)
+     ![Configuração CakeHR](./media/cakehr-tutorial/config04.png)
 
-    a. Na caixa de texto **nome completo** , digite o nome do usuário, como B. Simon.
+    a. Na caixa de texto **de nome completo,** introduza o nome de utilizador como B.Simon.
 
-    b. Na caixa de texto **email de trabalho** , insira o email do usuário, como `B.Simon@contoso.com`.
+    b. No **Work email** box, insira `B.Simon@contoso.com`o e-mail do utilizador como .
 
-    c. Clique em **criar conta**.
+    c. Clique em **CRIAR CONTA**.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do CakeHR no painel de acesso, você deverá ser conectado automaticamente ao CakeHR para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo CakeHR no Painel de Acesso, deve ser automaticamente inscrito no CakeHR para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o CakeHR com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente CakeHR com Azure AD](https://aad.portal.azure.com/)

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252740"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
@@ -41,7 +41,7 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale [o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [o Azure CLI](/cli/azure/install-azure-cli).
 * Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em Azure
 * Criar um ambiente de desenvolvimento windows. Instale o [Visual Studio 2019](https://www.visualstudio.com) e o **desenvolvimento do Azure,** **ASP.NET e desenvolvimento web,** e **.NET Core,** trabalhos de desenvolvimento de plataformas cruzadas.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).

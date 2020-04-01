@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
 ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670360"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
@@ -41,7 +41,7 @@ Para concluir este tutorial:
 - Envie [contexto do utilizador](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) para acompanhar o que um determinado utilizador faz ao longo do tempo e utilizar ao máximo as funcionalidades de utilização.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="get-information-about-your-users"></a>Obter informações sobre os utilizadores
 O painel **Users** (Utilizadores) permite-lhe ficar a par de detalhes importantes sobre os utilizadores sob diversas formas. Pode utilizar este painel para compreender informações, como, por exemplo, a partir de onde é que os utilizadores se estão a ligar, detalhes dos clientes deles e a que áreas da aplicação estão a aceder. 

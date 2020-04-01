@@ -4,10 +4,10 @@ description: Quando um recurso não é compatível, existem muitas razões poss�
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 03/30/2020
 ms.locfileid: "79264638"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade

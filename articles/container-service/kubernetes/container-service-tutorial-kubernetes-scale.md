@@ -8,10 +8,10 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273987"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(DEPRECIADO) Cápsulas de Escala Kubernetes e infraestrutura kubernetes
@@ -42,7 +42,7 @@ Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial
 
 Deste modo, o front-end do Azure Vote e a instância de Redis foi implementada, cada um com uma réplica única. Para verificar, execute o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+Vá [https://shell.azure.com](https://shell.azure.com) abrir cloud shell no seu navegador.
 
 ```console
 kubectl get pods

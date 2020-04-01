@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: brendm
 ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273199"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Use rastreio distribuído com nuvem de primavera azure
 
 Com as ferramentas de rastreio distribuídas na Nuvem de primavera Azure, pode facilmente depurar e monitorizar problemas complexos. Azure Spring Cloud integra [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com insights de [aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)de Azure. Esta integração proporciona uma poderosa capacidade de rastreio distribuída do portal Azure.
 
-Neste artigo, vai aprender a:
+Neste artigo, saiba como:
 
 > [!div class="checklist"]
 > * Ativar rastreio distribuído no portal Azure.

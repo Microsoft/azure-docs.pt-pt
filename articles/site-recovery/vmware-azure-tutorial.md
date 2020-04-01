@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238868"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
@@ -50,7 +50,7 @@ Complete os tutoriais anteriores:
 
 1. Em **Cofres dos Serviços de Recuperação**, selecione o nome do cofre. Neste cenário, estamos a utilizar **ContosoVMVault**.
 2. Em **Introdução**, selecione Site Recovery. Em seguida, selecione **Preparar Infraestrutura**.
-3. Em **Objetivo de proteção** > **Onde estão localizadas as máquinas virtuais**, selecione **No local**.
+3. No **objetivo** > de Proteção Onde**estão as suas máquinas localizadas,** selecione **On-instalações**.
 4. Em **Para onde pretende replicar as máquinas**, selecione **Para o Azure**.
 5. Em **As suas máquinas estão virtualizadas**, selecione **Sim, com o VMware vSphere Hypervisor**. Em seguida, selecione **OK**.
 
@@ -74,7 +74,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 
 ### <a name="download-the-vm-template"></a>Transferir o modelo de VM
 
-1. No cofre, vá para **Preparar Infraestrutura** > **Origem**.
+1. No cofre, vá para preparar**a Fonte de** **Infraestruturas.** > 
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
 4. Transfira o modelo OVF para o servidor de configuração.
@@ -85,7 +85,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 
 
 1. Inicie sessão no servidor VMware vCenter ou no anfitrião vSphere ESXi, com o VMWare vSphere Client.
-2. No menu **Ficheiro**, selecione **Implementar o Modelo OVF**, para iniciar o Assistente para **Implementar o Modelo OVF**. 
+2. No menu **'Ficheiro',** selecione Implementar o **modelo OVF** para iniciar o assistente de **modelo OVF de implantação**. 
 
      ![Modelo OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -97,7 +97,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 8. Em **Pronto para concluir**, para configurar a VM com as predefinições, selecione **Ligar após a implementação** > **Concluir**.
 
    > [!TIP]
-   > Se pretender adicionar outra NIC, desmarque **Ligar após a implementação** > **Concluir**. Por predefinição, o modelo contém uma NIC única. Pode adicionar mais NICs após a implementação.
+   > Se quiser adicionar um NIC adicional, limpe **a energia após a implantação** > **Acabamento**. Por predefinição, o modelo contém uma NIC única. Pode adicionar mais NICs após a implementação.
 
 ## <a name="add-an-additional-adapter"></a>Adicionar outro adaptador
 
@@ -106,7 +106,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 1. No inventário do vSphere Client, clique na VM com o botão direito do rato e selecione **Editar Definições**.
 2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Seguinte**.
 3. Selecione um tipo de adaptador e uma rede. 
-4. Para ligar o NIC virtual quando a VM estiver ligada, selecione **Estabelecer ligação ao ligar**. Selecione **Seguinte** > **Concluir**. Em seguida, selecione **OK**.
+4. Para ligar o NIC virtual quando a VM estiver ligada, selecione **Estabelecer ligação ao ligar**. Selecione **Próximo** > **Acabamento**. Em seguida, selecione **OK**.
 
 
 ## <a name="register-the-configuration-server"></a>Registar o servidor de configuração 
@@ -129,7 +129,7 @@ Termine de configurar e registar o servidor de configuração. Antes de prossegu
 
 
 1. No assistente de gestão do servidor de configuração, **selecione conectividade Configuração**. A partir das quedas, primeiro selecione o NIC que o servidor de processo incorporado utiliza para a instalação de serviço de mobilidade em máquinas de origem e, em seguida, selecione o NIC que o Servidor de Configuração utiliza para a conectividade com o Azure. Em seguida, selecione **Guardar**. Não é possível alterar esta definição depois de configurada.
-2. Em **Selecionar cofre dos Serviços de Recuperação**, selecione a sua subscrição do Azure e o grupo de recursos e cofre relevantes.
+2. No **cofre Select Recovery Services,** selecione a sua subscrição Azure e o grupo de recursos e cofre relevantes.
 3. Em **Instalar software de terceiros**, aceite o contrato de licença. Selecione **Transferir e Instalar** para instalar o Servidor MySQL. Se colocar o MySQL no caminho, este passo pode ser ignorado. Saiba [mais](vmware-azure-deploy-configuration-server.md#configure-settings)
 4. Em **Validar configuração da aplicação**, os pré-requisitos são verificados antes de continuar.
 5. Em **Configurar servidor vCenter Server/vSphere ESXi**, introduza o FQDN ou endereço IP do servidor vCenter ou anfitrião vSphere onde estão localizadas as VMs que pretende replicar. Introduza a porta em que o servidor está a escutar. Introduza um nome amigável a utilizar para o servidor VMware no cofre.
@@ -138,28 +138,28 @@ Termine de configurar e registar o servidor de configuração. Antes de prossegu
     - Para computadores Windows, a conta precisa de privilégios de administrador local nos computadores que pretende replicar.
     - Para o Linux, forneça detalhes para a conta raiz.
 8. Selecione **Finalizar configuração** para concluir o registo.
-9. Após o registo terminar, abra o portal Azure e verifique se o servidor de configuração e vMware estão listados no Cofre de Serviços de **Recuperação** > **Gerir** > Infraestrutura de **Recuperação** do Site > Servidores de **Configuração**.
+9. Após o registo terminar, abra o portal Azure e verifique se o servidor de configuração e vMware estão listados nos servidores de configuração de infraestrutura**Manage** >  > de recuperação de**serviços**de **recuperação** > do cofre de**recuperação**do site .
 
 
 Após a registo do servidor de configuração, a Recovery do Site liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs.
 
 > [!NOTE]
-> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
+> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione 'Servidor **de Configuração'** > ***server name*** > nome Refresh**Server**.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
 Selecione e verifique os recursos de destino.
 
-1. Selecione **Preparar infraestrutura** > **Destino**. Selecione a subscrição do Azure que pretende utilizar. Estamos a utilizar um modelo do Resource Manager.
+1. Selecione Preparar**o alvo**da **infraestrutura** > . Selecione a subscrição do Azure que pretende utilizar. Estamos a utilizar um modelo do Resource Manager.
 2. A Recuperação do Site verifica que tem uma ou mais redes virtuais. Deve tê-los ao configurar os componentes do Azure no [primeiro tutorial](tutorial-prepare-azure.md) nesta série de tutoriais.
 
    ![Separador Destino](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Abra o [Portal do Azure](https://portal.azure.com). Procure e selecione **cofres de Serviços**de Recuperação .
+1. Abra o [portal Azure.](https://portal.azure.com) Procure e selecione **cofres de Serviços**de Recuperação .
 2. Selecione o cofre dos Serviços de Recuperação (**ContosoVMVault** neste tutorial).
-3. Para criar uma política de replicação, selecione **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
+3. Para criar uma política de replicação, selecione > Políticas de replicação de **infraestruturas** > de**recuperação**do site **+Política de Replicação**.
 4. Em **Criar política de replicação**, introduza o nome da política. Estamos a utilizar o **VMwareRepPolicy**.
 5. Em **Limiar de RPO**, utilize a predefinição de 60 minutos. Este valor define com que frequência são criados pontos de recuperação. Será gerado um alerta se a replicação contínua exceder este limite.
 6. Na **Retenção do ponto de recuperação**, especifique quanto tempo cada ponto de recuperação será retido. Para este tutorial, utilizamos 72 horas. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela de retenção.
@@ -174,7 +174,7 @@ Selecione e verifique os recursos de destino.
 
 Ativar a replicação para VMs da seguinte forma:
 
-1. Selecione **Replicar aplicação** > **Origem**.
+1. Selecione **Replicate aplicação** > **Origem**.
 2. Em **Origem**, selecione **No local** e selecione o servidor de configuração na **Localização de origem**.
 3. Em **Tipo de máquina**, selecione **Máquinas Virtuais**.
 4. Em **vCenter/vSphere Hypervisor**, selecione o anfitrião vSphere ou o servidor vCenter que gere o anfitrião.
@@ -182,13 +182,13 @@ Ativar a replicação para VMs da seguinte forma:
 6. Em **Destino**, selecione a subscrição e o grupo de recursos no qual pretende criar as VMs de ativação pós-falha. Utilizamos o modelo de implementação do Resource Manager. 
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se ligam quando forem criadas após a ativação pós-falha.
 8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as VMs em que ativa a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina.
-9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir visualizar/selecionar qualquer máquina virtual em particular, [saiba mais](https://aka.ms/doc-plugin-VM-not-showing) sobre a resolução do problema.
-10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que o servidor de processos irá utilizar para instalar automaticamente o Serviço de Mobilidade na máquina.
-11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada.
-12. Selecione **Ativar Replicação**. O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
-13. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Após o trabalho de **Proteção final** e uma geração de pontos de recuperação estar completa, a máquina está pronta para a falha.
+9. Em **Máquinas** > Virtuais**Selecione máquinas virtuais,** selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir visualizar/selecionar qualquer máquina virtual em particular, [saiba mais](https://aka.ms/doc-plugin-VM-not-showing) sobre a resolução do problema.
+10. Em **propriedades** > **Configure propriedades,** selecione a conta a ser utilizada pelo servidor de processos para instalar automaticamente o Serviço de Mobilidade na máquina.
+11. Nas **definições** > de replicação**Configure as definições de replicação,** verifique se a política de replicação correta é selecionada.
+12. Selecione **Ativar a replicação**. O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
+13. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Cenários** > **Empregos** > de Recuperação de**Locais**. Após o trabalho de **Proteção final** e uma geração de pontos de recuperação estar completa, a máquina está pronta para a falha.
 14. Pode demorar 15 minutos ou mais tempo para as alterações produzirem efeitos e aparecerem no portal.
-15. Para monitorizar as VMs que adiciona, verifique a última hora de deteção de VMs em **Servidores de Configuração** > **Último Contacto Em**. Para adicionar VMs sem aguardar a deteção agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
+15. Para monitorizar os VMs que adiciona, verifique a última hora descoberta de VMs nos **Servidores** > de Configuração**Último Contacto Em**. Para adicionar VMs sem aguardar a deteção agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Depois de permitir a replicação, faça um exercício para se certificar de que está tudo a funcionar como esperado.

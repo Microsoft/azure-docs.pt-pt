@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 26c309eeebd7226c6777ec41ae674587da796dd4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78199670"
 ---
-# <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar o Soft-Delete key Vault com powerShell
+# <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
 A função de eliminação suave do Cofre de Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
 
@@ -31,7 +31,7 @@ A função de eliminação suave do Cofre de Chaves Azure permite a recuperaçã
 
 >[!NOTE]
 > Existe uma versão desatualizada do nosso ficheiro de formatação de saída Key Vault PowerShell que **pode** ser carregado para o seu ambiente em vez da versão correta. Estamos a antecipar uma versão atualizada do PowerShell para conter a correção necessária para a formatação de saída e atualizaremos este tópico nessa altura. A suposição atual, caso encontre este problema de formatação, é:
-> - Utilize a seguinte consulta se notar que não está a ver a propriedade ativada soft-delete descrita neste tópico: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> - Utilize a seguinte consulta se notar que não está a ver a propriedade `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`ativada soft-delete descrita neste tópico: .
 
 
 Para obter informações específicas de referência para o PowerShell, consulte a [referência powerShell do Cofre de Chaves Azure](/powershell/module/az.keyvault).
@@ -44,7 +44,7 @@ As operações do Key Vault são geridas separadamente através de permissões d
 |:--|:--|:--|
 |Lista|Listas apagadas cofres chave.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
-|Remover|Remove permanentemente um cofre de chaves apagado e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|Remover|Remove permanentemente um cofre de chaves apagado e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purga/ação|
 
 Para obter mais informações sobre permissões e controlo de acesso, consulte [Proteja o seu cofre de chaves](key-vault-secure-your-key-vault.md).
 
@@ -75,7 +75,7 @@ New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "we
 
 ### <a name="verify-soft-delete-enablement"></a>Verifique a ativação de eliminação suave
 
-Para verificar se um cofre de chaves tem soft-delete ativado, execute o comando do *show* e procure o 'Soft Delete Enabled?' Atributo:
+Para verificar se um cofre de chaves tem soft-delete ativado, execute o comando do *show* e procure o 'Soft Delete Enabled?' atributo:
 
 ```powershell
 Get-AzKeyVault -VaultName "ContosoVault"
@@ -165,7 +165,7 @@ As ações de **recuperação** e **purga** têm as suas próprias permissões a
 
 #### <a name="set-a-key-vault-access-policy"></a>Desestabeleça uma política de acesso ao cofre chave
 
-Os seguintes subsídios de comando user@contoso.com autorização para utilizar várias operações em chaves em *ContosoVault,* incluindo **purga:**
+O seguinte user@contoso.com comando concede permissão para a utilização de várias operações em chaves em *ContosoVault,* incluindo **a purga:**
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
@@ -217,7 +217,7 @@ O mesmo acontece com o cofre da chave. Para eliminar permanentemente um cofre de
 
 ### <a name="purging-a-key-vault"></a>Purgando um cofre chave
 
-Quando um cofre chave é purgado, todo o seu conteúdo é permanentemente apagado, incluindo chaves, segredos e certificados. Para purgar um cofre de chaves eliminado suavemente, utilize o comando `Remove-AzKeyVault` com a opção `-InRemovedState` e especificando a localização do cofre de chaves apagado com o argumento `-Location location`. Pode encontrar a localização de um cofre apagado usando o comando `Get-AzKeyVault -InRemovedState`.
+Quando um cofre chave é purgado, todo o seu conteúdo é permanentemente apagado, incluindo chaves, segredos e certificados. Para purgar um cofre de `Remove-AzKeyVault` chaves suavemente `-InRemovedState` eliminado, utilize o comando com a `-Location location` opção e especificando a localização do cofre de chaves apagado com o argumento. Pode encontrar a localização de um `Get-AzKeyVault -InRemovedState`cofre apagado usando o comando .
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus

@@ -9,15 +9,15 @@ ms.date: 02/02/2018
 ms.author: msangapu
 ms.custom: include file
 ms.openlocfilehash: 9236ac2c48443157e736e4b7e0a11c65a3191308
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78202509"
 ---
-Crie uma [aplicação Web](../articles/app-service/containers/app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan`. 
+Crie uma [aplicação web](../articles/app-service/containers/app-service-linux-intro.md) no plano de `myAppServicePlan` Serviço de Aplicações. 
 
-Na Cloud Shell, pode utilizar o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `PHP|7.3`. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+Na Cloud Shell, podes [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) usar o comando. No exemplo a seguir, substitua `<app-name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `PHP|7.3`. Para ver todos os tempos de corrida suportados, corra. [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) 
 
 ```azurecli-interactive
 # Bash

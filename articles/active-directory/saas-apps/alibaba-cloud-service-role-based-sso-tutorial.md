@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração individual (SSO) com alibaba Cloud Service (SSO baseado em funções)  SSO)  SSO)  SSO)  SSO)  SSO)  SSO)  SSO)  Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração individual (SSO) com alibaba Cloud Service (SSO baseado em funções) [ SSO) [ SSO) [ SSO) [ SSO) [ SSO) [ SSO) [ SSO) [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Alibaba Cloud Service (SSO baseado em papéis).
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 09/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e22bec224d185d0306f2b0032aef929f627c910e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77367933"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o Alibaba Cloud Service (SSO baseado em funções)
@@ -50,7 +50,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 Para configurar a integração do Alibaba Cloud Service (SSO baseado em role) no Azure AD, você precisa adicionar Alibaba Cloud Service (SSO baseado em role) da galeria para a sua lista de aplicações SaaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -75,7 +75,7 @@ Para configurar e testar o Azure AD SSO com o Alibaba Cloud Service (SSO baseado
     1. Crie o Alibaba Cloud Service (Utilizador de teste Baseado **[em Funções)](#create-alibaba-cloud-service-role-based-sso-test-user)** - para ter uma contrapartida da Britta Simon no Alibaba Cloud Service (SSO baseado em funções) que está ligada à representação do utilizador da AD Azure.
 3. **[Teste o único SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
@@ -103,13 +103,13 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
 1. Na secção Configurar o **Alibaba Cloud Service (SSO baseado em funções),** copie os URL(s) adequados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -117,19 +117,19 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso ao Alibaba Cloud Service (SSO baseado em funções).
 
 1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione **Alibaba Cloud Service (SSO baseado em funções)** .
+1. Na lista de aplicações, selecione **Alibaba Cloud Service (SSO baseado em funções)**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
@@ -154,11 +154,11 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 3. No separador **SSO baseado em Funções,** clique em **Criar IdP**.
 
-4. Na página apresentada, introduza `AAD` no campo IdP Name, introduza uma descrição no campo **Note,** clique em **Carregar** o ficheiro de metadados da federação que descarregou antes e clique em **OK**.
+4. Na página exibida, `AAD` introduza no campo IdP Name, introduza uma descrição no campo **Note,** clique em **Carregar** o ficheiro de metadados da federação que descarregou antes e clique em **OK**.
 
 5. Depois de o IdP ser criado com sucesso, clique em **Criar Papel RAM**.
 
-6. No campo **RAM Role Name** introduza `AADrole`, selecione `AAD` da lista de drop-down select **idP** e clique EM OK.
+6. No campo **RAM Role Name** introduza `AADrole`, selecione `AAD` na lista de drop-down select **IdP** e clique EM OK.
 
     >[!NOTE]
     >Pode conceder permissão para o papel, conforme necessário. Após a criação do IDP e da função correspondente, recomendamos que guarde as ARNs do IDP e o papel para posterior utilização. Pode obter as ARNs na página de informação do IDP e na página de informação de funções.
@@ -178,19 +178,19 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
     >[!NOTE]
     >Depois de concedidas permissões, inicie sessão no Graph Explorer novamente.
 
-    d. Na página do Graph Explorer, selecione **GET** a partir da primeira lista de lançamentos e **beta** da segunda lista de lançamentos. Em seguida, introduza `https://graph.microsoft.com/beta/servicePrincipals` no campo ao lado das listas de drop-down e clique em **Executar Consulta**.
+    d. Na página do Graph Explorer, selecione **GET** a partir da primeira lista de lançamentos e **beta** da segunda lista de lançamentos. Em `https://graph.microsoft.com/beta/servicePrincipals` seguida, introduza no campo ao lado das listas de drop-down e clique em **Executar Consulta**.
 
     ![Config gráfico](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
 
     >[!NOTE]
-    >Se estiver a utilizar vários diretórios, pode entrar `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` no campo da consulta.
+    >Se estiver a usar vários `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` diretórios, pode entrar no campo da consulta.
 
     e. Na secção **De Visualização** de Resposta, extraia a propriedade appRoles do 'Diretor de Serviço' para posterior utilização.
 
     ![Config gráfico](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
 
     >[!NOTE]
-    >Pode localizar a propriedade appRoles entrando `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` no campo da consulta. Note que o `objectID` é o ID do objeto que copiou da página Azure AD **Properties.**
+    >Pode localizar a propriedade appRoles `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` entrando no campo da consulta. Note que `objectID` este é o ID do objeto que copiou da página Azure AD **Properties.**
 
     f. Volte ao Graph Explorer, altere o método de **GET** para **PATCH,** colhe o seguinte conteúdo na secção **Request Body** e clique em **Executar Consulta:**
     ```
@@ -221,17 +221,17 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
     }
     ```
     > [!NOTE]
-    > O `value` são as ARNs do IDP e o papel que criou na consola RAM. Aqui, pode adicionar múltiplos papéis conforme necessário. A Azure AD enviará o valor destas funções como valor de reclamação na resposta da SAML. No entanto, só pode adicionar novas funções após a parte `msiam_access` para a operação de patch. Para suavizar o processo de criação, recomendamos que utilize um gerador de ID, como o GERADOR GUID, para gerar IDs em tempo real.
+    > São `value` as ARNs do IDP e o papel que criou na consola RAM. Aqui, pode adicionar múltiplos papéis conforme necessário. A Azure AD enviará o valor destas funções como valor de reclamação na resposta da SAML. No entanto, só pode `msiam_access` adicionar novas funções após a função do patch. Para suavizar o processo de criação, recomendamos que utilize um gerador de ID, como o GERADOR GUID, para gerar IDs em tempo real.
 
     g. Depois de o 'Diretor de Serviço' ser remendado com a função exigida, fixe a função ao utilizador Azure AD (u2) seguindo os passos de atribuir a secção de utilizador de **teste Azure AD** do tutorial.
 
 ### <a name="configure-alibaba-cloud-service-role-based-sso-sso"></a>Configure Alibaba Cloud Service (SSO baseado em funções) SSO
 
-Para configurar um único sign-on no lado do **Alibaba Cloud Service (SSO baseado em papéis),** você precisa enviar a equipa de suporte de Metadados da Federação **XML** descarregada e URLs copiados apropriados do portal Azure para a equipa de suporte do [Alibaba Cloud Service (SSO baseado em role).](https://www.aliyun.com/service/) Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sign-on no lado do **Alibaba Cloud Service (SSO baseado em papéis),** você precisa enviar a equipa de suporte de Metadados da Federação **XML** descarregada e URLs copiados apropriados do portal Azure para a equipa de suporte do [Alibaba Cloud Service (SSO baseado em role).](https://www.aliyun.com/service/) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Criar o Alibaba Cloud Service (SSO baseado em funções)
 
-Nesta secção, cria-se um utilizador chamado Britta Simon no Alibaba Cloud Service (SSO baseado em funções). Trabalhe com a equipa de suporte do [Alibaba Cloud Service (SSO baseado em papéis)](https://www.aliyun.com/service/) para adicionar os utilizadores na plataforma Alibaba Cloud Service (SSO baseada em papéis). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se um utilizador chamado Britta Simon no Alibaba Cloud Service (SSO baseado em funções). Trabalhe com a equipa de suporte do [Alibaba Cloud Service (SSO baseado em papéis)](https://www.aliyun.com/service/) para adicionar os utilizadores na plataforma Alibaba Cloud Service (SSO baseada em papéis). Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -259,7 +259,7 @@ Após a conclusão das configurações anteriores, teste o Alibaba Cloud Service
 
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Alibaba Cloud Service (SSO baseado em funções) com a Azure AD](https://aad.portal.azure.com/)
 

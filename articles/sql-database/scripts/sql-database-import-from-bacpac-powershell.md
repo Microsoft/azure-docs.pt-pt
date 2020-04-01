@@ -1,5 +1,5 @@
 ---
-title: Exemplo do PowerShell Importar arquivo BACPAC banco de dados SQL do Azure
+title: PowerShell exemplo importar ficheiro BACPAC Azure SQL base de dados
 description: Script de exemplo do Azure PowerShell para importar um ficheiro BACPAC para uma base de dados do SQL Server
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
 ms.openlocfilehash: 1cd7b94ac2717bbfa06d093d13fc201514cdc575
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691686"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Utilize o PowerShell para importar um ficheiro BACPAC para uma base de dados SQL do Azure
@@ -26,7 +26,7 @@ Este exemplo de script do PowerShell importa uma base de dados a partir de um fi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer AZ PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -34,7 +34,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -47,8 +47,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor de banco de dados SQL que hospeda bancos de dados individuais e pools elásticos. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall do servidor do banco de dados SQL para permitir o acesso a todos os bancos de dados individuais e ao banco de dados em pool no servidor do banco de dados SQL do intervalo de endereços IP inserido. |
+| [Novo AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor de base de dados SQL que acolhe bases de dados únicas e piscinas elásticas. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall do servidor de base de dados SQL para permitir o acesso a todas as bases de dados únicas e base de dados agrinada no servidor de base de dados SQL a partir da gama de endereços IP introduzido. |
 | [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) | Importa um ficheiro BACPAC e cria uma nova base de dados no servidor. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 

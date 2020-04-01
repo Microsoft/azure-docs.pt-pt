@@ -1,5 +1,6 @@
 ---
-title: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure por HTTPS
+title: Aceda a bolhas de armazenamento utilizando um domínio personalizado Azure CDN sobre HTTPS
+description: Aprenda a adicionar um domínio personalizado Azure CDN e ative HTTPS nesse domínio para o seu ponto final de armazenamento blob personalizado.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279125"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80053938"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: aceder aos blobs de armazenamento com um domínio personalizado da CDN do Azure através de HTTPS
 
@@ -43,15 +44,15 @@ A CDN do Azure ignora quaisquer restrições adicionadas ao token SAS. Por exemp
 Se criar vários URLs de SAS para o mesmo ponto final do blob, considere ativar a colocação em cache de cadeias de consulta. Isto garante que cada URL é tratado como uma entidade exclusiva. Para obter mais informações, veja [Controlar o comportamento de colocação em cache da CDN do Azure com cadeias de consulta](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Redirecionamento de HTTP para HTTPS
-Você pode optar por redirecionar o tráfego HTTP para HTTPS criando uma regra de redirecionamento de URL com o [mecanismo de regras padrão](cdn-standard-rules-engine.md) ou o [mecanismo de regras do Verizon Premium](cdn-verizon-premium-rules-engine.md). O mecanismo de regras padrão está disponível apenas para os perfis da CDN do Azure da Microsoft, enquanto o mecanismo de regras do Verizon Premium está disponível apenas dos perfis da CDN Premium do Azure da Verizon.
+Pode optar por redirecionar o tráfego HTTP para HTTPS criando uma regra de redirecionamento de URL com o [motor de regras Standard](cdn-standard-rules-engine.md) ou o motor de regras Verizon [Premium](cdn-verizon-premium-rules-engine.md). O motor Standard Rules está disponível apenas para O CDN Azure a partir de perfis da Microsoft, enquanto o motor de regras premium Verizon está disponível apenas a partir de Azure CDN Premium a partir dos perfis verizon.
 
 ![Regra de redirecionamento da Microsoft](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-Na regra acima, deixar o nome do host, o caminho, a cadeia de caracteres de consulta e o fragmento resultará na utilização dos valores de entrada no redirecionamento. 
+Na regra acima, deixar o nome de anfitrião, path, corda de consulta e Fragmento resultará na entrada dos valores utilizados no redirecionamento. 
 
-![Regra de redirecionamento Verizon](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Regra de redirecionamento de Verizon](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
-Na regra acima, *CDN-Endpoint-Name* refere-se ao nome que você configurou para o ponto de extremidade da CDN, que pode ser selecionado na lista suspensa. O valor de *origin-path* refere-se ao caminho na sua conta de armazenamento de origem onde reside o seu conteúdo estático. Se estiver a alojar todo o conteúdo estático num único contentor, substitua *origin-path* pelo nome desse contentor.
+Na regra acima, o nome final de *Cdn refere-se* ao nome que configurapara o seu ponto final cdN, que pode selecionar a partir da lista de lançamentos. O valor de *origin-path* refere-se ao caminho na sua conta de armazenamento de origem onde reside o seu conteúdo estático. Se estiver a alojar todo o conteúdo estático num único contentor, substitua *origin-path* pelo nome desse contentor.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 Ao aceder a blobs através da CDN do Azure, paga os [Preços de armazenamento de blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) para o tráfego entre os servidores POP e a origem (Armazenamento de blobs) e os [Preços da CDN do Azure](https://azure.microsoft.com/pricing/details/cdn/) para os dados acedidos a partir dos servidores POP.

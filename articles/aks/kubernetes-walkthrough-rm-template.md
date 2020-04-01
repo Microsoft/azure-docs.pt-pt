@@ -82,7 +82,7 @@ Para mais amostras de AKS, consulte o site [de modelos de arranque rápido AKS.]
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo.
 
-    [![Desdobre para Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+    [![Implementar no Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 2. Selecione ou introduza os seguintes valores.
 

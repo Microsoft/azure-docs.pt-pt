@@ -7,10 +7,10 @@ ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79082817"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Monitor Azure
@@ -33,7 +33,7 @@ Para completar este tutorial é necessário um recurso Azure para monitorizar. P
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="open-metrics-explorer-and-select-a-scope"></a>Abrir o explorador de métricas e selecionar um âmbito
 Pode abrir métricas exploradora, quer a partir do menu Do Monitor Azure, quer a partir do menu de um recurso no portal Azure. As métricas de todos os recursos estão disponíveis independentemente da opção que utilizar. 

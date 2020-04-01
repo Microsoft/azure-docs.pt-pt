@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252754"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Compactar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
@@ -118,7 +118,7 @@ Inscreva-se na sua instância ACR. Utilize o comando **az acr login** para concl
 az acr login --name <acrName>
 ```
 
-O comando devolve a mensagem **Início de sessão com êxito** após a conclusão.
+O comando devolve uma mensagem **login bem sucedida** uma vez concluída.
 
 Em seguida, execute o comando seguinte para obter a palavra-passe do seu registo de contentor. O Service Fabric utiliza esta palavra-passe para se autenticar no ACR e extrair as imagens de contentores.
 
@@ -272,11 +272,11 @@ Utilize o script de instalação disponibilizado no diretório **TestContainer**
 ./install.sh
 ```
 
-Abra um navegador e navegue para service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
+Abra um navegador e navegue para\/Service Fabric Explorer em http: /containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
 
 ![Service Fabric Explorer][sfx]
 
-Para se ligar à aplicação de execução, abra um navegador web e vá ao url do cluster - por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Deverá ver a aplicação Voting na IU da Web.
+Para se ligar à aplicação de execução, abra um navegador web\/e vá ao url do cluster - por exemplo, http: /containertestcluster.eastus.cloudapp.azure.com:80. Deverá ver a aplicação Voting na IU da Web.
 
 ![votingapp][votingapp]
 

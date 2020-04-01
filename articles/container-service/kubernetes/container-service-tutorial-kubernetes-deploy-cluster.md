@@ -8,10 +8,10 @@ ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b8821f3bb3d48786697cbc4137baf530856774fd
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274014"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(DEPRECIADO) Implementar um cluster Kubernetes no Serviço de Contentores Azure
@@ -52,7 +52,7 @@ Ao fim de vários minutos, a implementação é concluída e devolve informaçõ
 
 Para ligar ao cluster de Kubernetes a partir do computador cliente, utilize [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comandos do Kubernetes. 
 
-Se estiver a utilizar o Azure Cloud Shell, o kubectl já está instalado. Se pretender instalá-lo localmente, utilize o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
+Se estiver a utilizar o Azure CloudShell, o kubectl já está instalado. Se pretender instalá-lo localmente, utilize o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 Se executar no Linux ou no macOS, poderá ter de executar com sudo. No Windows, certifique-se de que a shell foi executada como administrador.
 

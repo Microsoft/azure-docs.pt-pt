@@ -8,10 +8,10 @@ author: tomarchermsft
 ms.author: tarcher
 ms.date: 02/22/2020
 ms.openlocfilehash: 824e4df7662ee67c3f0786877053c39a8d952d49
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77590070"
 ---
 # <a name="quickstart---configure-a-windows-virtual-machine-in-azure-using-chef"></a>Quickstart - Configure uma máquina virtual Windows em Azure usando chef
@@ -45,7 +45,7 @@ Chef também usa os conceitos de livros de *receitas* e *receitas.* Estes termos
 
 Primeiro, prepare a sua estação de trabalho criando um diretório para armazenar ficheiros de configuração do Chef e livros de receitas.
 
-Crie um diretório com o nome `C:\Chef`.
+Crie um diretório denominado `C:\Chef`.
 
 Faça o download e instale a mais recente versão [Do ClI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) na sua estação de trabalho.
 
@@ -89,17 +89,17 @@ Assim que a sua organização for criada, descarregue o kit de arranque.
 > Se receber um aviso rápido de que as suas chaves serão redefinidas, não há problema em prosseguir, uma vez que ainda não temos nenhuma infraestrutura existente configurada.
 >
 
-Este ficheiro zip do kit de arranque contém os ficheiros de configuração da sua organização e a chave do utilizador no diretório `.chef`.
+Este ficheiro zip do kit de arranque contém `.chef` os ficheiros de configuração da sua organização e a chave do utilizador no diretório.
 
 O `organization-validator.pem` deve ser descarregado separadamente, porque é uma chave privada e as chaves privadas não devem ser armazenadas no Chef Server. A partir do [Chef Manage,](https://manage.chef.io/)entre na secção Administração e selecione "Chave de Validação de Reset", que fornece um ficheiro para que possa descarregar separadamente. Guarde o arquivo para c:\chef.
 
 ### <a name="configuring-your-chef-workstation"></a>Configurar a sua estação de trabalho chef
 
-Extrair o conteúdo do `chef-starter.zip` para `c:\chef`.
+Extrair o conteúdo `chef-starter.zip` `c:\chef`do .
 
-Copie todos os ficheiros sob `chef-starter\chef-repo\.chef` para o seu diretório `c:\chef`.
+Copie todos `chef-starter\chef-repo\.chef` os `c:\chef` ficheiros para o seu diretório.
 
-Copie o ficheiro `organization-validator.pem` para `c:\chef`, se for guardado em `c:\Downloads`.
+Copie `organization-validator.pem` o `c:\chef`ficheiro para, se `c:\Downloads`estiver guardado em .
 
 O seu diretório deve agora parecer-se com o seguinte exemplo.
 
@@ -148,9 +148,9 @@ knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 knife[:azure_client_secret] =     "#1234p$wdchef19"
 ```
 
-Estas linhas assegurarão que a Faca faz referência ao diretório de livros de receitas sob `c:\chef\cookbooks`.
+Estas linhas assegurarão que a Faca faz `c:\chef\cookbooks`referência ao diretório dos livros de receitas em .
 
-O seu ficheiro `knife.rb` deve agora parecer semelhante ao seguinte exemplo:
+O `knife.rb` seu ficheiro deve agora parecer semelhante ao seguinte exemplo:
 
 ![Exemplo de arquivo de faca](./media/chef-automation/knife-file-example.png)
 
@@ -176,9 +176,9 @@ Em seguida, [descarregue e instale o Chef Workstation.](https://downloads.chef.i
 
 Instale o Chef Workstation na localização padrão.
 
-No ambiente de trabalho, verá um CW PowerShell. Esta ferramenta é usada para interagir com os produtos Chef. O CW PowerShell disponibiliza novos comandos, como comandos `chef-run` e Chef CLI (como `chef`). Consulte a sua versão instalada do Chef Workstation e as ferramentas chef com `chef -v`. Você também pode verificar sua versão Workstation selecionando **Sobre chef workstation** da Chef Workstation App.
+No ambiente de trabalho, verá um CW PowerShell. Esta ferramenta é usada para interagir com os produtos Chef. O CW PowerShell disponibiliza novos `chef-run` comandos, tais como comandos chef CLI (como). `chef` Consulte a sua versão instalada do Chef `chef -v`Workstation e as ferramentas do Chef com. Você também pode verificar sua versão Workstation selecionando **Sobre chef workstation** da Chef Workstation App.
 
-`chef --version` deve devolver algo como:
+`chef --version`deve devolver algo como:
 
 ```
 Chef Workstation: 0.4.2
@@ -202,12 +202,12 @@ Este tutorial assume que está a usar o Gestor de Recursos Azure para interagir 
 
 Instale a extensão Knife Azure, que inclui o Plugin Azure.
 
-Executar o seguinte comando.
+Execute o seguinte comando.
 
     chef gem install knife-azure ––pre
 
 > [!NOTE]
-> O argumento `–-pre` garante que está a receber a mais recente versão RC do Knife Azure Plugin que dá acesso ao mais recente conjunto de APIs.
+> O `–-pre` argumento garante que está a receber a mais recente versão RC do Knife Azure Plugin que dá acesso ao mais recente conjunto de APIs.
 >
 >
 
@@ -225,15 +225,15 @@ Parabéns! O seu posto de trabalho está pronto!
 
 ## <a name="creating-a-cookbook"></a>Criar um livro de receitas
 
-Um livro de receitas é usado pelo Chef para definir um conjunto de comandos que você deseja executar sobre o seu cliente gerido. Criar um livro de receitas é simples, basta usar o comando `chef generate cookbook` para gerar o modelo de livro de receitas. Este livro de receitas é para um servidor web que implementa automaticamente o IIS.
+Um livro de receitas é usado pelo Chef para definir um conjunto de comandos que você deseja executar sobre o seu cliente gerido. Criar um livro de receitas é simples, basta usar o `chef generate cookbook` comando para gerar o modelo de livro de receitas. Este livro de receitas é para um servidor web que implementa automaticamente o IIS.
 
-Sob o seu `C:\Chef directory`, corra o seguinte comando.
+Sob `C:\Chef directory`o seu, corra o seguinte comando.
 
     chef generate cookbook webserver
 
 Este comando gera um conjunto de ficheiros sob o diretório C:\Chef\cookbooks\webserver. Em seguida, defina o conjunto de comandos para o cliente Chef correr na máquina virtual gerida.
 
-Os comandos são armazenados no predefinido do ficheiro.rb. Neste ficheiro, defina um conjunto de comandos que instala o IIS, inicia o IIS e copia um ficheiro de modelo para a pasta `wwwroot`.
+Os comandos são armazenados no predefinido do ficheiro.rb. Neste ficheiro, defina um conjunto de comandos que instala o IIS, `wwwroot` inicia o IIS e copia um ficheiro de modelo para a pasta.
 
 Modifique os c:\chef\cookbooks\webserver\recipes\default.rb file e adicione as seguintes linhas.
 
@@ -255,13 +255,13 @@ Guarde o ficheiro assim que terminar.
 
 ## <a name="creating-a-template"></a>Criando um modelo
 
-Neste passo, você gerará um ficheiro de modelo para usar como a página `default.html`.
+Neste passo, você vai gerar um ficheiro `default.html` de modelo para usar como página.
 
 Executar o seguinte comando para gerar o modelo:
 
     chef generate template webserver Default.htm
 
-Navegue para o ficheiro `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb`. Editar o ficheiro adicionando um simples código *Hello World* HTML e, em seguida, guardar o ficheiro.
+Navegue `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` para o arquivo. Editar o ficheiro adicionando um simples código *Hello World* HTML e, em seguida, guardar o ficheiro.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Faça upload do livro de receitas para o Chef Server
 
@@ -273,9 +273,9 @@ Neste passo, você faz uma cópia do livro de receitas que você criou na máqui
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Implante uma máquina virtual com Knife Azure
 
-Implante uma máquina virtual Azure e aplique o livro de receitas `Webserver` utilizando o comando `knife`.
+Implante uma máquina virtual Azure e aplique o livro de `Webserver` receitas utilizando o `knife` comando.
 
-O comando `knife` também instalará o serviço web IIS e a página web predefinida.
+O `knife` comando também instalará o serviço web IIS e a página web predefinida.
 
 ```bash
     knife azurerm server create `
@@ -294,7 +294,7 @@ O comando `knife` também instalará o serviço web IIS e a página web predefin
     -r "recipe[webserver]"
 ```
 
-O exemplo de comando `knife` cria uma máquina virtual *Standard_DS2_v2* com o Windows Server 2016 instalado na região dos EUA Ocidentais. Modifique estes valores de acordo com as necessidades da sua aplicação.
+O `knife` exemplo de comando cria uma máquina virtual *Standard_DS2_v2* com o Windows Server 2016 instalado na região dos EUA Ocidentais. Modifique estes valores de acordo com as necessidades da sua aplicação.
 
 Depois de executar o comando, navegue até ao portal Azure para ver a sua máquina começar a fornecer.
 
@@ -319,4 +319,4 @@ Não se esqueça que também pode ligar através de uma sessão de RDP a partir 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Chef em Azure](/azure/chef/)
+> [Chef no Azure](/azure/chef/)

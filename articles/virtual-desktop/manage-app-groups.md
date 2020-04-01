@@ -9,10 +9,10 @@ ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9a9d92ea525c6b5a64fdf7cc74babdce6a97f923
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79127806"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Gerir grupos de aplicativos para windows virtual desktop
@@ -51,7 +51,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
    
-4. Executar o seguinte cmdlet para instalar a aplicação com base em `AppAlias`. `AppAlias` torna-se visível quando executa a saída a partir do passo 3.
+4. Executar o seguinte cmdlet para `AppAlias`instalar a aplicação com base em . `AppAlias`torna-se visível quando executa a saída a partir do passo 3.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
@@ -81,4 +81,4 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Neste tutorial, aprendeu a criar um grupo de aplicações, povoá-lo com programas RemoteApp e atribuir utilizadores ao grupo de aplicações. Para aprender a criar uma piscina de anfitriões de validação, consulte o seguinte tutorial. Você pode usar um pool anfitrião de validação para monitorizar atualizações de serviço antes de as lançar para o seu ambiente de produção.
 
 > [!div class="nextstepaction"]
-> [Crie um pool de anfitriões para validar atualizações de serviço](./create-validation-host-pool.md)
+> [Criar um conjunto de anfitriões para validar as atualizações de serviço](./create-validation-host-pool.md)

@@ -11,10 +11,10 @@ ms.date: 11/29/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77023094"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API Python
@@ -35,15 +35,15 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python versão 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
 
-* Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
+* [gestor](https://pip.pypa.io/en/stable/installing/) de pacotes pip
 
 * Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
@@ -107,7 +107,7 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Aceda à conta do Batch no portal do Azure para monitorizar o conjunto, os nós de computação, o trabalho e as tarefas. Por exemplo, para ver um mapa érmico dos nós de computação no conjunto, clique em **Conjuntos** > *LinuxFFmpegPool*.
+Aceda à conta do Batch no portal do Azure para monitorizar o conjunto, os nós de computação, o trabalho e as tarefas. Por exemplo, para ver um mapa de calor dos nós computacionais na sua piscina, clique em **Pools** > *LinuxFFmpegPool*.
 
 Quando as tarefas estiverem em execução, o mapa térmico é semelhante ao seguinte:
 
@@ -165,9 +165,9 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `create_pool`. Esta função definida utiliza a classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) do Batch para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
+Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `create_pool`. Esta função definida utiliza a classe [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) do Batch para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) especifica uma [ImagemReference](/python/api/azure-batch/azure.batch.models.imagereference) a uma imagem Ubuntu Server 18.04 LTS publicado no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
 
-O número de nós e o tamanho da VM são definidos através de constantes definidas. O Batch suporta nós dedicados e [nós de prioridade baixa](batch-low-pri-vms.md), e pode utilizar um ou ambos nos conjuntos. Os nós dedicados estão reservados para o conjunto. Os nós de prioridade baixa são disponibilizados a um preço reduzido a partir da capacidade excedente da VM no Azure. Os nós de prioridade baixa ficam indisponíveis se o Azure não tiver capacidade suficiente. Por predefinição, o exemplo cria um conjunto com apenas 5 nós de prioridade baixa no tamanho *Standard_A1_v2*. 
+O número de nós e o tamanho da VM são definidos através de constantes definidas. O lote suporta nós dedicados e [nós de baixa prioridade,](batch-low-pri-vms.md)e você pode usar ou ambos nas suas piscinas. Os nós dedicados estão reservados para o conjunto. Os nós de prioridade baixa são disponibilizados a um preço reduzido a partir da capacidade excedente da VM no Azure. Os nós de prioridade baixa ficam indisponíveis se o Azure não tiver capacidade suficiente. Por predefinição, o exemplo cria um conjunto com apenas 5 nós de prioridade baixa no tamanho *Standard_A1_v2*. 
 
 Além das propriedades dos nós físicos, esta configuração de conjuntos inclui um objeto [StartTask](/python/api/azure-batch/azure.batch.models.starttask). O StartTask é executado em cada nó à medida que esse nó se associa ao conjunto, e sempre que um nó for reiniciado. Neste exemplo, o StartTask executa comandos da shell Bash para instalar o pacote ffmpeg e as dependências nos nós.
 

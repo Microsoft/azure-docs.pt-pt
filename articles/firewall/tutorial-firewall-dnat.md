@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251494"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de internet de entrada com Adn de Firewall Azure utilizando o portal Azure
@@ -28,16 +28,16 @@ Neste tutorial, ficará a saber como:
 > * Configurar uma regra DNAT
 > * Testar a firewall
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Neste tutorial, vai criar duas VNets em modo peering:
 
 - **VNet-Hub** - a firewall está nesta VNet.
 - **VN-Spoke** - o servidor de carga de trabalho está nesta VNet.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 2. Na página inicial do portal Azure, selecione **grupos de Recursos**e, em seguida, selecione **Adicionar**.
 3. Em **Nome do grupo de recursos**, escreva **RG-DNAT-Test**.
 4. Em **Subscrição**, selecione a sua subscrição.
@@ -148,7 +148,7 @@ Após a conclusão da implementação, tome nota do endereço IP privado para a 
    |Grupo de recursos     |**Utilizar existente**: RG-DNAT-Test |
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilizar existente**: VN-Hub|
-   |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
+   |Endereço IP público     |**Criar novos**. O endereço IP público tem de ser do tipo SKU Standard.|
 
 5. Selecione **Rever + criar**.
 6. Reveja o resumo e, em seguida, selecione **Criar** para criar a firewall.

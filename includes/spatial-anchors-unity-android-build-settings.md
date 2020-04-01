@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: c3bc542ffaabdb307ebcecdb02ce29a5d8acfbdc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68562423"
 ---
-Abra **configurações de compilação** selecionando **arquivo** > **configurações de compilação**.
+Abra **as definições** de construção selecionando definições de**construção**de **ficheiros** > .
 
-Na seção **plataforma** , selecione **Android**. Selecione **alternar plataforma** para alterar a plataforma para **Android**. O Unity pode solicitar que você instale componentes de suporte do Android se eles estiverem ausentes.
+Na secção **Plataforma,** selecione **Android**. Selecione **Plataforma Switch** para mudar a plataforma para **Android**. A unidade pode levar-te a instalar componentes de suporte Android se estiverem desaparecidos.
 
-![Janela de configurações de Build do Unity](./media/spatial-anchors-unity/unity-android-build-settings.png)
+![Janela de definições de construção de unidade](./media/spatial-anchors-unity/unity-android-build-settings.png)
 
-Feche a janela **configurações de compilação** .
+Feche a janela Definições de **Construção.**
 

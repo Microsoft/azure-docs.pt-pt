@@ -1,6 +1,6 @@
 ---
-title: Criar & Localizar âncoras no C++/WinRT
-description: Explicação detalhada de como criar e localizar âncoras usando âncoras espaciais do Azure no C++/WinRT.
+title: Criar & localizar âncoras em C++/WinRT
+description: Explicação aprofundada de como criar e localizar âncoras utilizando âncoras espaciais Azure em C++/WinRT.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,40 +9,40 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 084058edca59eda776c47a3e20bb49178de78681
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74790078"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Como criar e localizar âncoras usando âncoras espaciais do Azure C++no/WinRT
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Como criar e localizar âncoras utilizando âncoras espaciais Azure em C++/WinRT
 
 > [!div  class="op_single_selector"]
-> * [Unity](create-locate-anchors-unity.md)
+> * [Unidade](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
-> * [Java Android](create-locate-anchors-java.md)
+> * [Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-As âncoras espaciais do Azure permitem compartilhar âncoras no mundo entre diferentes dispositivos. Ele dá suporte a vários ambientes de desenvolvimento diferentes. Neste artigo, vamos nos aprofundar em como usar o SDK de âncoras espaciais do Azure C++, em/WinRT, para:
+As Âncoras Espaciais Azure permitem-lhe partilhar âncoras no mundo entre diferentes dispositivos. Apoia vários ambientes de desenvolvimento diferentes. Neste artigo, vamos mergulhar em como usar o Azure Spatial Anchors SDK, em C++/WinRT, para:
 
-- Configure corretamente e gerencie uma sessão de âncoras espaciais do Azure.
-- Criar e definir propriedades em âncoras locais.
-- Carregue-os na nuvem.
-- Localize e exclua âncoras espaciais de nuvem.
+- Configurar e gerir corretamente uma sessão de Âncoras Espaciais Azure.
+- Crie e coloque propriedades em âncoras locais.
+- Mande-os para a nuvem.
+- Localize e elimine as âncoras espaciais da nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia, verifique se você tem:
+Para completar este guia, certifique-se de que tem:
 
-- Leia a [visão geral das âncoras espaciais do Azure](../overview.md).
-- Foi concluído um dos [inícios rápidos de 5 minutos](../index.yml).
-- Conhecimento básico sobre C++ o e as <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">APIs de Windows Runtime</a>.
+- Leia através da visão geral das [Âncoras Espaciais Azure](../overview.md).
+- Completou um dos [Quickstarts de 5 minutos.](../index.yml)
+- Conhecimentos básicos sobre C++ e as APIs de tempo de <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">execução do Windows</a>.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Saiba mais sobre a classe [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) .
+Saiba mais sobre a aula [CloudSpatialAnchorSession.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession)
 
 ```cpp
     CloudSpatialAnchorSession m_cloudSession{ nullptr };
@@ -52,7 +52,7 @@ Saiba mais sobre a classe [CloudSpatialAnchorSession](https://docs.microsoft.com
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Saiba mais sobre a classe [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionconfiguration) .
+Saiba mais sobre a aula de Configuração de [Sessões.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionconfiguration)
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
@@ -68,7 +68,7 @@ Saiba mais sobre a classe [SessionConfiguration](https://docs.microsoft.com/cpp/
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-Saiba mais sobre o delegado [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) .
+Saiba mais sobre o delegado [tokenRequiredDelegado.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/tokenrequireddelegate)
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {
@@ -117,7 +117,7 @@ Saiba mais sobre o delegado [TokenRequiredDelegate](https://docs.microsoft.com/c
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-Saiba mais sobre o método [Start](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) .
+Saiba mais sobre o método [Iniciar.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start)
 
 ```cpp
     m_cloudSession.Start();
@@ -125,7 +125,7 @@ Saiba mais sobre o método [Start](https://docs.microsoft.com/cpp/api/spatial-an
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-Saiba mais sobre o método [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) .
+Saiba mais sobre o método [ProcessFrame.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession)
 
 ```cpp
     m_cloudSession->ProcessFrame(ar_frame_);
@@ -133,7 +133,7 @@ Saiba mais sobre o método [ProcessFrame](https://docs.microsoft.com/cpp/api/spa
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Saiba mais sobre o delegado [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) .
+Saiba mais sobre o delegado [sessionUpdatedDelegate.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionupdateddelegate)
 
 ```cpp
     m_sessionUpdatedToken = m_cloudSession.SessionUpdated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -147,7 +147,7 @@ Saiba mais sobre o delegado [SessionUpdatedDelegate](https://docs.microsoft.com/
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-Saiba mais sobre a classe [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor) .
+Saiba mais sobre a classe [CloudSpatialAnchor.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor)
 
 ```cpp
     // Initialization
@@ -183,7 +183,7 @@ Saiba mais sobre a classe [CloudSpatialAnchor](https://docs.microsoft.com/cpp/ap
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-Saiba mais sobre o método [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) .
+Saiba mais sobre o método [GetSessionStatusAsync.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync)
 
 ```cpp
     SessionStatus status = co_await m_cloudSession.GetSessionStatusAsync();
@@ -193,7 +193,7 @@ Saiba mais sobre o método [GetSessionStatusAsync](https://docs.microsoft.com/cp
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-Saiba mais sobre o método [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) .
+Saiba mais sobre o método [AppProperties.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties)
 
 ```cpp
     CloudSpatialAnchor cloudAnchor = CloudSpatialAnchor();
@@ -206,7 +206,7 @@ Saiba mais sobre o método [AppProperties](https://docs.microsoft.com/cpp/api/sp
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Saiba mais sobre o método [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) .
+Saiba mais sobre o método [UpdateAnchorPropertiesAsync.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync)
 
 ```cpp
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -216,7 +216,7 @@ Saiba mais sobre o método [UpdateAnchorPropertiesAsync](https://docs.microsoft.
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-Saiba mais sobre o método [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) .
+Saiba mais sobre o método [GetAnchorPropertiesAsync.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync)
 
 ```cpp
     CloudSpatialAnchor anchor = co_await m_cloudSession.GetAnchorPropertiesAsync(LR"(anchorId)");
@@ -229,7 +229,7 @@ Saiba mais sobre o método [GetAnchorPropertiesAsync](https://docs.microsoft.com
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Saiba mais sobre o método de [expiração](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) .
+Saiba mais sobre o método [expiração.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration)
 
 ```cpp
     const int64_t oneWeekFromNowInHours = 7 * 24;
@@ -239,7 +239,7 @@ Saiba mais sobre o método de [expiração](https://docs.microsoft.com/cpp/api/s
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Saiba mais sobre o método [Createassister](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) .
+Saiba mais sobre o método [CreateWatcher.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher)
 
 ```cpp
     AnchorLocateCriteria criteria = AnchorLocateCriteria();
@@ -249,7 +249,7 @@ Saiba mais sobre o método [Createassister](https://docs.microsoft.com/cpp/api/s
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Saiba mais sobre o delegado [AnchorLocatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) .
+Saiba mais sobre o delegado [AnchorLocatedDelegate.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate)
 
 ```cpp
     m_anchorLocatedToken = m_cloudSession.AnchorLocated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -279,7 +279,7 @@ Saiba mais sobre o delegado [AnchorLocatedDelegate](https://docs.microsoft.com/c
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-Saiba mais sobre o método [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) .
+Saiba mais sobre o método [DeleteAnchorAsync.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync)
 
 ```cpp
     co_await m_cloudSession.DeleteAnchorAsync(cloudAnchor);
@@ -288,7 +288,7 @@ Saiba mais sobre o método [DeleteAnchorAsync](https://docs.microsoft.com/cpp/ap
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Saiba mais sobre o método [Stop](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) .
+Saiba mais sobre o método [Stop.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop)
 
 ```cpp
     m_cloudSession.Stop();
@@ -296,7 +296,7 @@ Saiba mais sobre o método [Stop](https://docs.microsoft.com/cpp/api/spatial-anc
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Saiba mais sobre o método [Reset](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) .
+Saiba mais sobre o método [de reset.](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset)
 
 ```cpp
     m_cloudSession.Reset();

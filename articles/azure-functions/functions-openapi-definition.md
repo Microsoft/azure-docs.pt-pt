@@ -6,10 +6,10 @@ ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77210213"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Criar uma definição OpenAPI para um API sem servidor usando a Gestão API Azure
@@ -41,15 +41,15 @@ Este tutorial utiliza uma função desencadeada em HTTP que leva dois parâmetro
 
 Em seguida, a função calcula o custo da reparação e a receita que a turbina poderá gerar num período de 24 horas. Para criar a função ativada em HTTP no [portal Azure:](https://portal.azure.com)
 
-1. Expanda a aplicação de funções e selecione o botão **+** junto a **Funções**. Selecione **in-portal** > **Continue**.
+1. Expanda a sua **+** aplicação de funções e selecione o botão ao lado das **Funções**. Selecione **In-portal** > **Continue**.
 
 1. Selecione **mais modelos...** em seguida, selecione **modelos** de acabamento e ver
 
-1. Selecione o gatilho HTTP, escreva `TurbineRepair` para a função **Nome,** escolha `Function` para o **[nível](functions-bindings-http-webhook-trigger.md#http-auth)** de autenticação , e, em seguida, selecione **Criar**.  
+1. Selecione o `TurbineRepair` gatilho HTTP, `Function` escreva para a função **Nome,** escolha para **[o nível de autenticação,](functions-bindings-http-webhook-trigger.md#http-auth)** e, em seguida, selecione **Criar**.  
 
     ![Criar função HTTP para OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. Substitua o conteúdo do ficheiro C# script run.csx pelo seguinte código e, em seguida, escolha **Guardar:**
+1. Substitua o conteúdo do ficheiro script run.csx C# pelo seguinte código e, em seguida, escolha **Guardar:**
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -143,9 +143,9 @@ Agora, está pronto para gerar a definição de OpenAPI.
     | **Localização** | E.U.A. Oeste | Escolha a localização dos EUA Ocidentais. |
     | **Nome da organização** | Contoso | O nome da organização utilizada no portal de desenvolvimento e para notificações por e-mail. |
     | **E-mail do administrador** | seu e-mail | E-mail que recebeu notificações do sistema da API Management. |
-    | **Escalão de preço** | Consumo (pré-visualização) | O nível de consumo está em pré-visualização e não está disponível em todas as regiões. Para obter detalhes completos sobre preços, consulte a página de preços da [API Management](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Nível de preços** | Consumo (pré-visualização) | O nível de consumo está em pré-visualização e não está disponível em todas as regiões. Para obter detalhes completos sobre preços, consulte a página de preços da [API Management](https://azure.microsoft.com/pricing/details/api-management/) |
 
-1. Escolha **criar** a instância de Gestão API, que pode demorar vários minutos.
+1. Selecione **Criar** para criar a instância da Gestão de API (pode demorar vários minutos).
 
 1. Selecione **Ativar insights** de aplicação para enviar registos para o mesmo local que a aplicação de função, em seguida, aceitar as restantes predefinições e selecionar **Link API**.
 
@@ -159,7 +159,7 @@ Agora, está pronto para gerar a definição de OpenAPI.
 
 A API é agora criada para a função.
 
-## <a name="test-the-api"></a>Teste a API
+## <a name="test-the-api"></a>Testar a API
 
 Antes de utilizar a definição OpenAPI, deve verificar se a API funciona.
 

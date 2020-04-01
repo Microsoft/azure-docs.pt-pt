@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303941"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
@@ -70,9 +70,9 @@ Neste tutorial, irá:
      > A Recuperação do Site Azure descobre e cria automaticamente uma rede virtual quando ativa a replicação para o VM de origem. Também pode pré-criar uma rede e atribuí-la ao VM no fluxo do utilizador para facilitar a replicação. Como mencionado mais tarde, é necessário criar manualmente quaisquer outros recursos na região alvo.
 
     Para criar os recursos de rede mais utilizados que são relevantes para si com base na configuração vm de origem, consulte a seguinte documentação:
-    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+    - [Grupos de segurança da rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
-    -  [IP Público](../virtual-network/virtual-network-public-ip-address.md)
+    -  [IP público](../virtual-network/virtual-network-public-ip-address.md)
     - Para qualquer outro componente de rede, consulte a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network)de rede .
 
 
@@ -82,12 +82,12 @@ Os seguintes passos mostram como preparar a máquina virtual para o movimento ut
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Crie o cofre em qualquer região, exceto a região de origem
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-1. Selecione Criar uma > **ferramentas** de **gestão** de recursos > **backup e recuperação**do site.
+1. Inscreva-se nos Serviços de > **Recuperação**do [portal Azure.](https://portal.azure.com)
+1. Selecione Criar uma cópia de segurança**e recuperação**de**ferramentas** > de gestão de **recursos.** > 
 1. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie o grupo de recursos **ContosoRG.**
 1. Selecione uma região do Azure. Para verificar as regiões apoiadas, consulte a disponibilidade geográfica nos detalhes de preços de recuperação do [site do Azure.](https://azure.microsoft.com/pricing/details/site-recovery/)
-1. Nos **cofres dos Serviços de Recuperação,** selecione **Overview** > **ContosoVMVault** >  **+Replicate**.
+1. Nos **cofres dos Serviços de Recuperação,** selecione **Overview** > **ContosoVMVault** > **+Replicate**.
 1. Em **Origem**, selecione **Azure**.
 1. Em **Localização de origem**, selecione a região do Azure de origem onde as VMs estão atualmente a ser executadas.
 1. Selecione o modelo de implementação do Resource Manager. Em seguida, selecione a **subscrição Fonte** e o **grupo de recursos Source**.
@@ -99,7 +99,7 @@ A Recuperação do Site recupera uma lista dos VMs que estão associados ao grup
 
 1. No próximo passo, selecione o VM que pretende mover e, em seguida, selecione **OK**.
 1. Em **Definições,** selecione recuperação de **desastres**.
-1. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar.
+1. Na > **região-alvo**de recuperação de **desastres configure,** selecione a região alvo para a qual irá replicar.
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **Ativar replicação**. Este passo inicia um trabalho para permitir a replicação para o VM.
 
@@ -109,15 +109,15 @@ A Recuperação do Site recupera uma lista dos VMs que estão associados ao grup
 
 Os seguintes passos mostram como executar a mudança para a região alvo.
 
-1. Vai para o cofre. Em **Definições** > **itens replicados,** selecione o VM e, em seguida, selecione **Failover**.
+1. Vai para o cofre. Em **Definições** > **Itens replicados,** selecione o VM e, em seguida, selecione **Failover**.
 2. Em **Ativação pós-falha**, selecione **Mais recente**.
-3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso da falha na página **Jobs.**
 4. Depois de terminar o trabalho, verifique se o VM aparece na região-alvo de Azure, como esperado.
 
 
 ## <a name="discard"></a>Eliminar 
 
-Caso verifique o VM em movimento e precise de fazer alterações para ponto de falha ou queira voltar a um ponto anterior, nos **itens Replicados,** selecione o ponto de **recuperação**VM > Change . Este passo proporciona-lhe a opção de especificar um ponto de recuperação diferente e falhar com esse. 
+Caso verifique o VM em movimento e precise de fazer alterações para um ponto de falha ou queira voltar a um ponto anterior, nos **itens Replicados,** selecione o ponto de **recuperação**VM > Change . Este passo proporciona-lhe a opção de especificar um ponto de recuperação diferente e falhar com esse. 
 
 
 ## <a name="commit"></a>Consolidação 

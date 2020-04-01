@@ -1,6 +1,6 @@
 ---
-title: Tutorial – CI/CD para VMs do Azure usando Azure Pipelines
-description: Neste tutorial, você aprende a configurar a integração contínua (CI) e a implantação contínua (CD) de um aplicativo node. js para VMs do Azure usando o pipeline do Azure baseado em YAML.
+title: Tutorial - CI/CD para VMs Azure usando pipelines Azure
+description: Neste tutorial, aprende-se a configurar a integração contínua (CI) e a implantação contínua (CD) de uma aplicação Node.js para VMs Azure utilizando o pipeline Azure baseado em YAML.
 author: ushan
 tags: azure-devops-pipelines
 ms.assetid: ''
@@ -12,32 +12,32 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76988333"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: implantar seu aplicativo em máquinas virtuais do Linux no Azure usando Azure DevOps Services e Azure Pipelines
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implemente a sua aplicação para máquinas virtuais Linux em Azure utilizando os Serviços Azure DevOps e pipelines Azure
 
-A CI (integração contínua) e o CD (implantação contínua) formam um pipeline pelo qual você pode compilar, liberar e implantar seu código depois de cada confirmação de código. Este documento contém as etapas associadas à configuração de um pipeline de CI/CD para fazer implantações de vários computadores usando o Azure Pipelines.
+A integração contínua (CI) e a implantação contínua (CD) formam um pipeline pelo qual pode construir, libertar e implementar o seu código após cada compromisso de código. Este documento contém os passos associados à criação de um gasoduto CI/CD para a realização de implantações multi-máquinas utilizando gasodutos Azure.
 
-O Azure Pipelines fornece um conjunto completo de ferramentas de automação de CI/CD para implantações em máquinas virtuais, tanto local quanto em qualquer nuvem.
+A Azure Pipelines fornece um conjunto completo e completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais, tanto em prem como em qualquer nuvem.
 
-Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) de Azure pipelines com máquinas virtuais do Linux como recursos, cada um deles servirá como servidores Web para executar o aplicativo.
+Neste tutorial, irá configurar um pipeline CI/CD baseado em YAML para implantar a sua aplicação num Azure Pipelines [Environment](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) com máquinas Virtuais Linux como recursos, cada um dos quais serve de servidorweb para executar a aplicação.
 
 Saiba como:
 
 > [!div class="checklist"]
-> * Obtenha um aplicativo de exemplo.
-> * Crie um pipeline de CI Azure Pipelines baseado em YAML para criar o aplicativo de exemplo.
-> * Criar um ambiente de Azure Pipelines para as máquinas virtuais do Azure
-> * Crie um pipeline de CD Azure Pipelines.
+> * Arranja uma aplicação de amostras.
+> * Crie um pipeline Ci azure baseado em YAML para a construção da aplicação de amostras.
+> * Criar um Ambiente de Oleodutos Azure para as máquinas virtuais Azure
+> * Crie um pipeline CD azure Pipelines.
 > * Executar implementações manuais e acionadas por CI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Entre em sua organização do Azure DevOps Services ( **https://dev.azure.com/** ). 
+* Inscreva-se na sua organização Azure**https://dev.azure.com/** DevOps Services ( ). 
   Pode obter uma [organização de Serviços de DevOps do Azure gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
@@ -47,29 +47,29 @@ Saiba como:
 
 *  Abra a porta de entrada 80 para a máquina virtual. Para obter mais informações, veja [Criar grupos de segurança de rede com o portal do Azure](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
-## <a name="get-your-sample-app-code"></a>Obtenha o código do aplicativo de exemplo
+## <a name="get-your-sample-app-code"></a>Obtenha o seu código de aplicação de amostra
 
-Se você já tiver um aplicativo no GitHub que deseja implantar, você pode tentar criar um pipeline para esse código.
+Se já tem uma aplicação no GitHub que pretende implementar, pode tentar criar um pipeline para esse código.
 
-No entanto, se você for um novo usuário, poderá obter um início melhor usando nosso código de exemplo. Nesse caso, bifurcar este repositório no GitHub:
+No entanto, se for um novo utilizador, poderá começar melhor usando o nosso código de amostra. Nesse caso, bifurque este repo no GitHub:
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 ```
 https://github.com/spring-projects/spring-petclinic
 ```
 
 > [!NOTE]
-> Petclinic é um aplicativo [Java Spring boot](https://spring.io/guides/gs/spring-boot) criado usando o [Maven](https://spring.io/guides/gs/maven/).
+> Petclinic é uma aplicação [Java Spring Boot](https://spring.io/guides/gs/spring-boot) construída com [maven.](https://spring.io/guides/gs/maven/)
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
 ```
 
 > [!NOTE]
-> Este aplicativo node. js foi criado por meio de [Yeoman](https://yeoman.io/learning/index.html). utiliza o Express, o bower e o grunt. Possui também alguns pacotes npm como dependências.
+> Esta aplicação Node.js foi construída através de [Yeoman.](https://yeoman.io/learning/index.html) utiliza o Express, o bower e o grunt. Possui também alguns pacotes npm como dependências.
 > O exemplo contém também um script que configura o Nginx e implementa a aplicação, que é executada nas máquinas virtuais. Especificamente, o script:
 > 1. Instala o Node, o Nginx e o PM2.
 > 2. Configura o Nginx e o PM2.
@@ -77,73 +77,73 @@ https://github.com/azure-devops/fabrikam-node
 
 * * * 
 
-## <a name="prerequisites-for-the-linux-vm"></a>Pré-requisitos para a VM do Linux
+## <a name="prerequisites-for-the-linux-vm"></a>Pré-requisitos para o Linux VM
 
-Os aplicativos de exemplo mencionados acima foram testados no Ubuntu 16, 4 e recomendamos que você use a mesma versão da VM do Linux para este guia de início rápido.
-Siga as etapas adicionais descritas abaixo com base na pilha de tempo de execução usada para o aplicativo.
+As aplicações de amostra sustificadas acima foram testadas em Ubuntu 16.04, e recomendamos que use a mesma versão do Linux VM para este arranque rápido.
+Siga os passos adicionais descritos abaixo com base na pilha de tempo de execução utilizada para a aplicação.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
-- Para implantar aplicativos baseados em Java Spring boot e Spring Cloud, crie uma VM do Linux no Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo, que fornece um tempo de execução baseado em OpenJDK totalmente compatível.
-- Para implantar Servlets Java no servidor Tomcat, crie uma VM do Linux com o Java 8 usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo do Azure e [Configure o Tomcat 9. x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Para implantar o aplicativo baseado em Java EE, use um modelo do Azure para criar uma [VM do Linux + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou uma [VM do Linux + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou uma [VM do Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- Para implementar aplicações baseadas em Java Spring Boot e Spring Cloud, crie um VM Linux em Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo, que fornece um tempo de execução totalmente suportado pelo OpenJDK.
+- Para implementar servletes Java no servidor Tomcat, crie um VM Linux com Java 8 utilizando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo Azure e [configure o Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Para implementar aplicação baseada em Java EE, utilize um modelo Azure para criar um [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou um [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou um [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Para instalar um aplicativo JavaScript ou um aplicativo node. js, você precisará de uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
-Se você ainda não tiver uma VM do Linux com Nginx, crie uma agora no Azure usando as etapas neste [exemplo](/azure/virtual-machines/linux/quick-create-cli).
+Para instalar uma aplicação javascript ou uma aplicação Node.js, você precisará de um Linux VM com servidor web Nginx para implementar a aplicação.
+Se ainda não tem um VM Linux com Nginx, crie um agora em Azure usando os passos [neste exemplo](/azure/virtual-machines/linux/quick-create-cli).
 
 * * * 
 
-## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Criar um ambiente de Azure Pipelines com máquinas virtuais do Azure
+## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Criar um ambiente de Pipelines Azure com máquinas virtuais Azure
 
-As máquinas virtuais podem ser adicionadas como recursos em [ambientes](https://docs.microsoft.com/azure/devops/pipelines/process/environments) e podem ser destinadas a implantações de vários computadores. As exibições do histórico de implantação no ambiente fornecem rastreamento da VM para o pipeline e, em seguida, para a confirmação.
+As máquinas virtuais podem ser adicionadas como recursos dentro de [ambientes](https://docs.microsoft.com/azure/devops/pipelines/process/environments) e podem ser direcionadas para implementações multi-máquinas. As vistas de história de implantação dentro do ambiente fornecem rastreabilidade da VM para o oleoduto e, em seguida, para o compromisso.
 
-Você pode criar um ambiente no Hub "**ambientes**" dentro da seção "**pipelines**".
-1.  Entre na sua organização do Azure DevOps e navegue até seu projeto.
-2.  Em seu projeto, navegue até a página **pipelines** . Em seguida, escolha **ambientes** e clique em **criar ambiente**. Especifique um **nome** (obrigatório) para o ambiente e uma **Descrição**.
-3.  Escolha **máquinas virtuais** como um **recurso** a ser adicionado ao ambiente e clique em **Avançar**.
-4.  Escolha sistema operacional (Windows/Linux) e **Copie o script de registro do PS**. 
-5.  Agora, execute o script copiado de um prompt de comando do PowerShell de administrador em cada uma das VMs de destino a serem registradas com esse ambiente.
+Você pode criar um ambiente no centro "**Ambientes**" dentro da secção "**Pipelines**".
+1.  Inscreva-se na sua organização Azure DevOps e navegue para o seu projeto.
+2.  No seu projeto, navegue para a página **Pipelines.** Em seguida, escolha **Ambientes** e clique em **Criar Ambiente**. Especifique um **nome** (obrigatório) para o ambiente e uma **descrição**.
+3.  Escolha **máquinas virtuais** como **recurso** a adicionar ao ambiente e clique **em Seguinte**.
+4.  Escolha o Sistema Operativo (Windows/Linux) e **copie**o script de registo PS . 
+5.  Agora execute o script copiado de um pedido de comando do administrador PowerShell em cada um dos VMs-alvo a registar com este Ambiente.
     > [!NOTE]
-    > - O token de acesso pessoal do usuário conectado é previamente inserido no script que expira no mesmo dia, fazendo com que o script copiado fique inutilizável.
-    > - Se sua VM já tiver algum agente em execução, forneça um nome exclusivo para "Agent" para se registrar no ambiente.
-6.  Depois que a VM for registrada, ela começará a aparecer como um recurso de ambiente na guia "recursos" do ambiente.
+    > - Acesso pessoal Token do utilizador registado é pré-inserido no script que expira no mesmo dia tornando o script copiado inutilizável nele.
+    > - Se o seu VM já tiver algum agente a funcionar nele, forneça um nome único para "agente" registar-se com o ambiente.
+6.  Uma vez registado o VM, começará a aparecer como um recurso ambiental sob separador de "recursos" do ambiente.
 
     ![VMcreation](media/tutorial-deploy-vms-azure-pipelines/vm-creation.png)
 
-7.  Para adicionar mais VMs, você pode exibir e copiar o script novamente clicando em "Adicionar recurso" e escolhendo "máquinas virtuais" como recurso. Esse script permaneceria o mesmo para que todas as VMs fossem adicionadas a esse ambiente. 
-8.  Cada computador interage com Azure Pipelines para coordenar a implantação do seu aplicativo.
+7.  Para adicionar mais VMs, pode ver e copiar novamente o script clicando em "Adicionar recurso" e escolhendo "Máquinas Virtuais" como recurso. Este guião permaneceria o mesmo para que todos os VMs fossem adicionados a este ambiente. 
+8.  Cada máquina interage com os Pipelines Azure para coordenar a implementação da sua aplicação.
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Você pode adicionar marcas à VM como parte do script de registro do PS interativo (ou) também pode adicionar/remover o mesmo do modo de exibição de recursos clicando nos três pontos no final de cada recurso da VM na exibição de recursos.
+9. Pode adicionar etiquetas ao VM como parte do script interativo de registo PS (ou) pode também adicionar/remover o mesmo da vista de recursos clicando nos pontos triplos no final de cada recurso VM na vista de recursos.
 
-   As marcas atribuídas permitem que você limite a implantação a máquinas virtuais específicas quando o ambiente é usado em um trabalho de implantação. As marcas são limitadas a 256 caracteres, mas não há nenhum limite para o número de marcas que você pode usar.
+   As etiquetas que atribui permitem limitar a implantação a máquinas virtuais específicas quando o ambiente é utilizado num trabalho de Implantação. As etiquetas são limitadas a 256 caracteres, mas não há limite para o número de etiquetas que pode utilizar.
 
    ![VMtags](media/tutorial-deploy-vms-azure-pipelines/vm-tags.png)
 
 * * * 
 
-## <a name="define-your-ci-build-pipeline"></a>Definir o pipeline de Build do CI
+## <a name="define-your-ci-build-pipeline"></a>Defina o seu pipeline de construção CI
 
-Você precisará de um pipeline de compilação de CI (integração contínua) que publica seu aplicativo Web, bem como um script de implantação que pode ser executado localmente no servidor Ubuntu. Configure um pipeline de Build de CI com base no tempo de execução que você deseja usar. 
+Você precisará de um pipeline de construção de integração contínua (CI) que publique a sua aplicação web, bem como um script de implementação que pode ser executado localmente no servidor Ubuntu. Instale um pipeline de construção ci com base no tempo de execução que pretende utilizar. 
 
-1. Entre na sua organização do Azure DevOps e navegue até seu projeto.
+1. Inscreva-se na sua organização Azure DevOps e navegue para o seu projeto.
 
-1. Em seu projeto, navegue até a página **pipelines** . Em seguida, escolha a ação para criar um novo pipeline.
+1. No seu projeto, navegue para a página **Pipelines.** Em seguida, escolha a ação para criar um novo oleoduto.
 
-1. Percorra as etapas do assistente selecionando primeiro o **GitHub** como o local do código-fonte.
+1. Caminhe pelos degraus do assistente selecionando primeiro o **GitHub** como a localização do seu código fonte.
 
-1. Você pode ser redirecionado para o GitHub para entrar. Nesse caso, insira suas credenciais do GitHub.
+1. Pode ser redirecionado para o GitHub para assinar. Em caso afirmativo, introduza as suas credenciais GitHub.
 
-1. Quando a lista de repositórios for exibida, selecione o repositório de aplicativo de exemplo desejado.
+1. Quando aparecer a lista de repositórios, selecione o repositório de aplicações de amostra pretendido.
 
-1. Azure Pipelines analisará seu repositório e recomendará um modelo de pipeline adequado.
+1. Os Gasodutos Azure analisarão o seu repositório e recomendarão um modelo de gasoduto adequado.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
-Selecione o modelo **inicial** e copie o trecho YAML abaixo que cria seu projeto Java e executa testes com o Apache Maven:
+Selecione o modelo de **arranque** e copie o corte yAML abaixo que constrói o seu projeto Java e executa testes com Apache Maven:
 
 ```YAML
 - job: Build
@@ -163,11 +163,11 @@ Selecione o modelo **inicial** e copie o trecho YAML abaixo que cria seu projeto
     artifact: drop
 ```
 
-Para obter mais diretrizes, siga as etapas mencionadas em [compilar seu aplicativo Java com o Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+Para obter mais orientação, siga os passos mencionados na [Build your Java app com a Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Selecione o modelo **inicial** e copie o trecho de código YAML abaixo que cria um projeto do node. js geral com NPM.
+Selecione o modelo de **arranque** e copie o corte yAML abaixo que constrói um projeto geral node.js com npm.
 
 ```YAML
 - stage: Build
@@ -196,19 +196,19 @@ Selecione o modelo **inicial** e copie o trecho de código YAML abaixo que cria 
       artifact: drop
 ```
 
-Para obter mais diretrizes, siga as etapas em [criar seu aplicativo node. js com Gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
+Para obter mais orientação, siga os passos em Construir a [sua app Node.js com gole](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
 
-- Dê uma olhada no pipeline para ver o que ele faz. Verifique se todas as entradas padrão são apropriadas para seu código.
+- Dê uma olhada no oleoduto para ver o que faz. Certifique-se de que todas as inputs predefinidas são adequadas para o seu código.
 
-- Selecione **salvar e executar**e, em seguida, selecione **confirmar diretamente no Branch mestre**e, em seguida, escolha **salvar e executar** novamente.
+- Selecione **Guardar e executar,** em seguida, selecione **Comprometa diretamente ao ramo principal**e, em seguida, escolha Guardar e **executar** novamente.
 
-- Uma nova execução é iniciada. Aguarde a conclusão da execução.
+- Uma nova corrida está iniciada. Espere a corrida para terminar.
 
 * * * 
 
-## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definir as etapas do CD para implantar na VM do Linux
+## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Defina os passos de CD para implantar no Linux VM
 
-1. Edite o pipeline acima e inclua um [trabalho de implantação](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) referenciando o ambiente e os recursos da VM que você usou anteriormente usando a sintaxe YAML abaixo:
+1. Editar o oleoduto acima e incluir um trabalho de [implantação](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) fazendo referência ao ambiente e aos recursos VM que já usou a sintaxe YAML abaixo:
 
    ```YAML
    jobs:  
@@ -220,14 +220,14 @@ Para obter mais diretrizes, siga as etapas em [criar seu aplicativo node. js com
        tags: web1
      strategy:
    ```
-2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
-[Aqui](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está o esquema completo do YAML para o trabalho de implantação.
+2. Pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implementação especificando as **etiquetas** que definiu para cada máquina virtual no ambiente.
+[Aqui](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está o esquema completo da YAML para o trabalho de implantação.
 
-3. Você pode especificar eithor `runOnce` ou `rolling` como estratégia de implantação. 
+3. Pode especificar `runOnce` eithor `rolling` ou como estratégia de implantação. 
 
-   `runOnce` é a estratégia de implantação mais simples em que todos os ganchos do ciclo de vida, ou seja, `preDeploy` `deploy`, `routeTraffic`e `postRouteTraffic`, são executados uma vez. Em seguida, `on:` `success` ou `on:` `failure` é executado.
+   `runOnce`é a estratégia de implantação mais simples em `preDeploy` `deploy`que `routeTraffic`todos `postRouteTraffic`os ganchos de ciclo de vida, nomeadamente, e , são executados uma vez. Então, `on:` `success` `on:` `failure` ou é executado.
 
-   Veja abaixo o trecho de código YAML de exemplo para `runOnce`:
+   Abaixo está o exemplo de corte `runOnce` YAML para:
    ```YAML
    jobs:
    - deployment: VMDeploy
@@ -244,7 +244,7 @@ Para obter mais diretrizes, siga as etapas em [criar seu aplicativo node. js com
              - script: echo my first deployment
    ```
 
-4. Abaixo está um exemplo do trecho de código YAML que você pode usar para definir uma estratégia sem interrupção para atualizações de máquinas virtuais de até 5 destinos em cada iteração. `maxParallel` determinará o número de destinos que podem ser implantados em paralelo. As contas de seleção para número absoluto ou percentual de destinos que devem permanecer disponíveis a qualquer momento, excluindo os destinos que estão sendo implantados. Ele também é usado para determinar as condições de êxito e falha durante a implantação.
+4. Abaixo está um exemplo do corte YAML que você pode usar para definir uma estratégia de rolling para atualizações de máquinas virtuais até 5 alvos em cada iteração. `maxParallel`determinará o número de alvos que podem ser implantados para, paralelamente. A seleção é responsável pelo número absoluto ou percentagem de metas que devem permanecer disponíveis a qualquer momento, excluindo os objetivos que estão a ser aplicados. Também é usado para determinar as condições de sucesso e falha durante a implantação.
 
    ```YAML
    jobs: 
@@ -285,18 +285,18 @@ Para obter mais diretrizes, siga as etapas em [criar seu aplicativo node. js com
                - script: echo Notify! This is on success
    ```
 
-   Com cada execução desse trabalho, o histórico de implantação é registrado no ambiente de `<environment name>` que você criou e registrou as VMs.
+   A cada execução deste trabalho, o `<environment name>` histórico de implantação é registado contra o ambiente que criou e registou os VMs.
 
-## <a name="run-your-pipeline-and-get-traceability-views-in-environment"></a>Executar seu pipeline e obter exibições de rastreamento no ambiente
-A exibição de implantações do ambiente fornece rastreamento completo de confirmações e itens de trabalho e um histórico de implantação entre pipelines por ambiente/recurso.
+## <a name="run-your-pipeline-and-get-traceability-views-in-environment"></a>Corra o seu oleoduto e obtenha vistas de rastreabilidade no ambiente
+A visão de implantação do ambiente proporciona uma rastreabilidade completa de compromissos e itens de trabalho, e um histórico de implantação transversal por ambiente/recurso.
 
 ![VMDeployments_view](media/tutorial-deploy-vms-azure-pipelines/vm-deployments.png)
   
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-- Você pode continuar a [Personalizar o pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) que acabou de criar.
-- Para saber o que mais você pode fazer em pipelines do YAML, consulte [referência de esquema do YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Pode continuar a [personalizar o oleoduto](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) que acabou de criar.
+- Para saber o que mais pode fazer nos oleodutos YAML, consulte a referência do [esquema YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
 - Para saber mais sobre como implementar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]

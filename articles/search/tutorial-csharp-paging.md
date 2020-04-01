@@ -1,5 +1,5 @@
 ---
-title: C#tutorial sobre paginação de resultados de pesquisa
+title: C# tutorial sobre paginação de resultados de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Este tutorial demonstra a paging dos resultados da pesquisa. Baseia-se num projeto de hotéis existente, com paging por primeiro, próximo, próximo, último, último e numerado botões. Um segundo sistema de paging usa deslocamento infinito, desencadeado movendo uma barra de pergaminho vertical para o seu limite inferior.
 manager: nitinme
@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121514"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C#Tutorial: Resultados da pesquisa paginação - Pesquisa Cognitiva Azure
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C# tutorial: Resultados da pesquisa paginação - Pesquisa Cognitiva Azure
 
-Aprenda a implementar dois diferentes sistemas de paging, o primeiro baseado em números de página e o segundo em deslocamentoinfinito. Ambos os sistemas de paging são amplamente utilizados, e a seleção certa depende da experiência do utilizador que deseja com os resultados. Este tutorial constrói os sistemas de paging no projeto criado no [ C# Tutorial: Crie](tutorial-csharp-create-first-app.md) a sua primeira app - Tutorial de Pesquisa Cognitiva Azure.
+Aprenda a implementar dois diferentes sistemas de paging, o primeiro baseado em números de página e o segundo em deslocamentoinfinito. Ambos os sistemas de paging são amplamente utilizados, e a seleção certa depende da experiência do utilizador que deseja com os resultados. Este tutorial constrói os sistemas de paging no projeto criado no [C# Tutorial: Crie](tutorial-csharp-create-first-app.md) a sua primeira app - Tutorial de Pesquisa Cognitiva Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -28,13 +28,13 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-Tenha o [ C# Tutorial: Crie a sua primeira app - Projeto de Pesquisa Cognitiva Azure](tutorial-csharp-create-first-app.md) em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Tenha o [C# Tutorial: Crie a sua primeira app - Projeto de Pesquisa Cognitiva Azure](tutorial-csharp-create-first-app.md) em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="extend-your-app-with-numbered-paging"></a>Estenda a sua aplicação com paging numerado
 
 A paging numerada é o sistema de paging de eleição dos principais motores de pesquisa de internet e a maioria dos outros sites de pesquisa. A pagagem numerada inclui tipicamente uma opção "seguinte" e "anterior", além de uma gama de números reais de página. Também pode estar disponível uma opção de "primeira página" e "última página". Estas opções certamente dão a um utilizador o controlo sobre a navegação através de resultados baseados em página.
 
-Vamos adicionar um sistema que inclui primeira, anterior, próxima e última sopção, juntamente com números de página que não começam a partir de 1, mas em vez disso rodeiam a página atual em que o utilizador está (por exemplo, se o utilizador estiver a olhar para a página 10, talvez números de página 8 , 9, 10, 11 e 12 são exibidos).
+Vamos adicionar um sistema que inclui as primeiras, anteriores, próximas e últimas opções, juntamente com números de página que não começam a partir de 1, mas em vez disso rodeiam a página atual em que o utilizador está (por exemplo, se o utilizador estiver a olhar para a página 10, talvez os números da página 8, 9, 10, 11 e 12 são apresentados).
 
 O sistema será suficientemente flexível para permitir que o número de números de página visíveis seja definido numa variável global.
 
@@ -100,7 +100,7 @@ Tenha a solução básica da página de pesquisa aberta.
 
 ### <a name="add-a-table-of-paging-options-to-the-view"></a>Adicione uma tabela de opções de paging à vista
 
-1. Abra o ficheiro index.cshtml e adicione o seguinte código imediatamente antes da etiqueta de &lt;/corpo de fecho&gt; etiqueta. Este novo código apresenta uma tabela de opções de paging: primeiro, anterior, 1, 2, 3, 4, 5, seguinte, último.
+1. Abra o ficheiro index.cshtml e adicione o &lt;seguinte&gt; código imediatamente antes da etiqueta de fecho/corpo. Este novo código apresenta uma tabela de opções de paging: primeiro, anterior, 1, 2, 3, 4, 5, seguinte, último.
 
     ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -181,7 +181,7 @@ Tenha a solução básica da página de pesquisa aberta.
     }
     ```
 
-    Usamos uma tabela HTML para alinhar as coisas cuidadosamente. No entanto, toda a ação provém das declarações @Html.ActionLink, cada uma chamando o controlador com um **novo** modelo criado com diferentes entradas para a propriedade **paging** que adicionámos anteriormente.
+    Usamos uma tabela HTML para alinhar as coisas cuidadosamente. No entanto, toda a ação provém das @Html.ActionLink declarações, cada uma chamando o controlador com um **novo** modelo criado com diferentes entradas para a propriedade **paging** que adicionamos anteriormente.
 
     As opções de primeira e última página não enviam cordas como "primeiro" e "último", mas sim enviar os números de página corretos.
 
@@ -422,9 +422,9 @@ Para implementar um deslocamento infinito, vamos começar com o projeto antes de
 
 ### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Adicione uma barra de pergaminho vertical à vista
 
-1. Localize a secção do ficheiro index.cshtml que apresenta os resultados (começa com o **@if (Modelo != nulo)** ).
+1. Localize a secção do ficheiro index.cshtml que apresenta os resultados (começa com o ** @if (Modelo!= nulo)**).
 
-2. Substitua a secção pelo código abaixo. A nova **&lt;secção de&gt;** de mergulho está em torno da área que deve ser perlocada, e adiciona tanto um atributo de **transbordamento e** uma chamada para uma função **onscroll** chamada "scrolled()", como tal.
+2. Substitua a secção pelo código abaixo. A ** &lt;nova&gt; ** secção de mergulho é em torno da área que deve ser perlocada, e adiciona tanto um atributo de **transbordamento e** uma chamada para uma função **onscroll** chamada "scrolled()", como assim.
 
     ```cs
         @if (Model != null)
@@ -447,7 +447,7 @@ Para implementar um deslocamento infinito, vamos começar com o projeto antes de
         }
     ```
 
-3. Diretamente por baixo do laço, após a etiqueta &lt;/div&gt;, adicione a função **deslocada.**
+3. Diretamente por baixo do &lt;laço,&gt; após a etiqueta /div, adicione a função **deslocada.**
 
     ```javascript
         <script>
@@ -467,11 +467,11 @@ Para implementar um deslocamento infinito, vamos começar com o projeto antes de
         </script>
     ```
 
-    A declaração se no script acima testa para ver se o utilizador rolou para a parte inferior da barra de pergaminho vertical. Se o fizerem, é feita uma chamada para o controlador **doméstico** para uma ação chamada **Next**. Nenhuma outra informação é necessária pelo controlador, irá devolver a próxima página de dados. Estes dados são então formatados utilizando estilos HTML idênticos como a página original. Se não forem devolvidos resultados, nada é anexado e as coisas ficam como estão.
+    A **if** declaração se no script acima testa para ver se o utilizador rolou para a parte inferior da barra de pergaminho vertical. Se o fizerem, é feita uma chamada para o controlador **doméstico** para uma ação chamada **Next**. Nenhuma outra informação é necessária pelo controlador, irá devolver a próxima página de dados. Estes dados são então formatados utilizando estilos HTML idênticos como a página original. Se não forem devolvidos resultados, nada é anexado e as coisas ficam como estão.
 
 ### <a name="handle-the-next-action"></a>Manuseie a próxima ação
 
-Há apenas três ações que precisam de ser enviadas para o controlador: a primeira execução da app, que chama **Index()** - a primeira pesquisa pelo utilizador, que chama **Index(modelo)** e, em seguida, as chamadas subsequentes para mais resultados via **Next(modelo)** .
+Há apenas três ações que precisam de ser enviadas para o controlador: a primeira execução da app, que chama **Index()**- a primeira pesquisa pelo utilizador, que chama **Index(modelo)** e, em seguida, as chamadas subsequentes para mais resultados via **Next(modelo)**.
 
 1. Abra o ficheiro do controlador doméstico e elimine o método **RunQueryAsync** do tutorial original.
 
@@ -563,7 +563,7 @@ Há apenas três ações que precisam de ser enviadas para o controlador: a prim
         }
     ```
 
-4. Se estiver a ter um erro de sintaxe na **Lista&lt;&gt;** de cadeias, adicione a seguinte diretiva **de utilização** ao chefe do ficheiro do controlador.
+4. Se estiver a ter um erro de sintaxe na **&lt;&gt;cadeia da Lista,** adicione a seguinte diretiva utilizando a seguinte diretiva de **utilização** ao chefe do ficheiro do controlador.
 
     ```cs
     using System.Collections.Generic;
@@ -578,7 +578,7 @@ Selecione agora **Start Without Debugging** (ou prima a tecla F5).
     ![Infinita scrolling através dos resultados da "piscina"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > Para garantir que uma barra de pergaminho aparece na primeira página, a primeira página dos resultados deve exceder ligeiramente a altura da área em que estão a ser apresentadas. No nosso exemplo **.box1** tem uma altura de 30 pixels, **.box2** tem uma altura de 100 pixels _e_ uma margem inferior de 24 pixels. Assim, cada entrada usa 154 pixels. Três entradas ocuparão 3 x 154 = 462 pixels. Para garantir que aparece uma barra de pergaminho vertical, deve ser definida uma altura na área de visualização inferior a 462 pixels, mesmo 461 obras. Este problema só ocorre na primeira página, depois disso uma barra de pergaminho certamente aparecerá. A linha de atualização é: **&lt;div id="myDiv" style="width: 800px; altura: 450px; overflow-y: scroll;" onscroll="scroll()"&gt;** .
+    > Para garantir que uma barra de pergaminho aparece na primeira página, a primeira página dos resultados deve exceder ligeiramente a altura da área em que estão a ser apresentadas. No nosso exemplo **.box1** tem uma altura de 30 pixels, **.box2** tem uma altura de 100 pixels _e_ uma margem inferior de 24 pixels. Assim, cada entrada usa 154 pixels. Três entradas ocuparão 3 x 154 = 462 pixels. Para garantir que aparece uma barra de pergaminho vertical, deve ser definida uma altura na área de visualização inferior a 462 pixels, mesmo 461 obras. Este problema só ocorre na primeira página, depois disso uma barra de pergaminho certamente aparecerá. A linha de atualização é: ** &lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y:&gt;scroll;" onscroll="scroll()".**
 
 2. Desça até ao fundo dos resultados. Note como toda a informação está agora na página de uma vista. Pode deslocar-se até ao topo sem acionar chamadas do servidor.
 
@@ -601,4 +601,4 @@ Considere os seguintes takeaways deste projeto:
 Paging é fundamental para pesquisas na Internet. Com a paging bem coberta, o próximo passo é melhorar ainda mais a experiência do utilizador, adicionando pesquisas tipo-ahead.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: Adicionar auto-conclusão e sugestões - Pesquisa Cognitiva Azure](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# Tutorial: Adicionar auto-conclusão e sugestões - Pesquisa Cognitiva Azure](tutorial-csharp-type-ahead-and-suggestions.md)

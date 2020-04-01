@@ -1,5 +1,5 @@
 ---
-title: Crie um painel de triagem de dados de saúde com a Central Azure IoT  Microsoft Docs
+title: Crie um painel de triagem de dados de saúde com a Central Azure IoT [ Microsoft Docs
 description: Aprenda a construir um painel de triagem de dados de saúde utilizando modelos de aplicação Azure IoT Central.
 author: philmea
 ms.author: philmea
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77021649"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Construa um dashboard de fornecedor power BI
@@ -22,12 +22,12 @@ ms.locfileid: "77021649"
 Ao construir a sua solução contínua de monitorização do paciente, também pode criar um painel de instrumentos para uma equipa de cuidados hospitalares visualizar os dados do paciente. Neste tutorial, você aprenderá a criar um painel de streaming power BI em tempo real a partir do seu modelo de aplicação de monitorização contínua do paciente IoT Central.
 
 >[!div class="mx-imgBorder"]
->![dashboard GIF](media/dashboard-gif-3.gif)
+>![Tablier GIF](media/dashboard-gif-3.gif)
 
 A arquitetura básica seguirá esta estrutura:
 
 >[!div class="mx-imgBorder"] 
->![Provedor de Triagem](media/dashboard-architecture.png)
+>![Painel de triagem de fornecedor](media/dashboard-architecture.png)
 
 Neste tutorial, ficará a saber como:
 
@@ -55,12 +55,12 @@ Em primeiro lugar, terá de configurar uma exportação contínua de dados do se
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Criar um conjunto de dados de streaming Power BI
 
-1. Inscreva-se na sua conta Power BI.
+1. Inicie sessão na sua conta do Power BI.
 
 2. No seu espaço de trabalho preferido, crie um novo conjunto de dados de streaming selecionando o botão **+ Criar** no canto superior direito da barra de ferramentas. Terá de criar um conjunto de dados separado para cada paciente que gostaria de ter no seu painel de instrumentos.
 
     >[!div class="mx-imgBorder"] 
-    >![Criar](media/create-streaming-dataset.png) de conjunto de dados de streaming
+    >![Criar conjunto de dados de streaming](media/create-streaming-dataset.png)
 
 3. Escolha **API** para a fonte do seu conjunto de dados.
 
@@ -70,7 +70,7 @@ Em primeiro lugar, terá de configurar uma exportação contínua de dados do se
     * Yesenia Sanford, que tem dados do Smart Vitals Patch
 
     >[!div class="mx-imgBorder"] 
-    >![Insira os valores do conjunto de dados](media/enter-dataset-values.png)
+    >![Introduzir valores de conjunto de dados](media/enter-dataset-values.png)
 
 Para saber mais sobre o streaming de conjuntos de dados no Power BI, pode ler este documento em [streaming em tempo real no Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
 
@@ -79,14 +79,14 @@ Para ligar a sua Aplicação Lógica aos Hubs de Eventos Azure, pode seguir as i
 
 |Parâmetro|Valor|
 |---|---|
-|Tipo de conteúdo|application/json|
+|Tipo do conteúdo|application/json|
 |Intervalo|3|
 |Frequência|Segundo|
 
 No final deste passo, o seu Logic App Designer deve ser assim:
 
 >[!div class="mx-imgBorder"] 
->![Apps Lógicas conecta-se a Hubs de Eventos](media/eh-logic-app.png)
+>![Apps lógicas conectam-se a Centros de Eventos](media/eh-logic-app.png)
 
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmita dados para Power BI a partir da sua Aplicação Lógica
 O próximo passo será analisar os dados provenientes do seu Hub de Eventos para os transmitir para os conjuntos de dados power BI que criou anteriormente.
@@ -162,7 +162,7 @@ O próximo passo será analisar os dados provenientes do seu Hub de Eventos para
 7. Na sua aplicação Azure IoT Central, encontre o Nome da Interface para os dados de saúde smart Vitals Patch e os dados de saúde smart Knee Brace da vista Modelos de **Dispositivo.** Crie dois casos diferentes para o **Switch** Control para cada nome da interface e mude o nome do controlo adequadamente. Pode definir o caso Predefinido para utilizar o Controlo **de Terminações** e escolher o estado que gostaria de mostrar.
 
     >[!div class="mx-imgBorder"] 
-    >![](media/split-by-interface.png) de controlo split
+    >![Controlo dividido](media/split-by-interface.png)
 
 8. Para o caso **Smart Vitals Patch,** adicione uma ação **Parse JSON.** Para o Conteúdo, escolha **Conteúdo** proveniente do Centro de Eventos. Copie e cole as cargas da amostra para o Patch Smart Vitals acima para gerar o esquema.
 
@@ -178,7 +178,7 @@ O próximo passo será analisar os dados provenientes do seu Hub de Eventos para
 12. Escolha o espaço de **trabalho**adequado, **dataset**e **tabela**. Mapeie os parâmetros que especificou ao criar o seu conjunto de dados de streaming no Power BI para os valores JSON analisados que estão vindo do seu Hub de Eventos. As tuas ações preenchidas devem ser assim:
 
     >[!div class="mx-imgBorder"] 
-    >![Adicionar linhas ao Power BI](media/add-rows-yesenia.png)
+    >![Adicione linhas ao Power BI](media/add-rows-yesenia.png)
 
 13. Para o estojo de interruptor **de joelheira inteligente,** adicione uma ação **Parse JSON** para analisar o conteúdo, semelhante ao Passo 7. Em seguida, **adicione linhas a um conjunto de dados** para atualizar o conjunto de dados teddy Silvers no Power BI.
 

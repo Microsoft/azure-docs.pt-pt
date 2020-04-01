@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238735"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
@@ -211,7 +211,7 @@ O modelo blob Uri será deste formato e extrairá o nome do modelo
 https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
 ```
 
-Assim, o nome do modelo do exemplo acima será ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` e o nome do recipiente é ```myVM-daa1931199fd4a22ae601f46d8812276```
+Então, o nome do modelo ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` do exemplo acima será e o nome do recipiente é```myVM-daa1931199fd4a22ae601f46d8812276```
 
 Agora obtenha o símbolo SAS para este recipiente e modelo como detalhado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
 

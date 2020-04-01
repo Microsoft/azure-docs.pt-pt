@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
 ms.openlocfilehash: 52ed43277eef84de826d2f4fa41ba860211a1531
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78969932"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do armazenamento do Azure Blob para uma base de dados SQL utilizando a ferramenta Copy Data
@@ -48,7 +48,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
 
 #### <a name="create-a-source-blob"></a>Criar um blob de origem
 
-1. Inicie o **Bloco de Notas**. Copie o seguinte texto e guarde-o num ficheiro com o nome **inputEmp.txt** no seu disco:
+1. Rampa **de lançamento**. Copie o seguinte texto e guarde-o num ficheiro com o nome **inputEmp.txt** no seu disco:
 
     ```
     FirstName|LastName
@@ -74,7 +74,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita o acesso dos serviços do Azure ao SQL Server. Verifique se a definição **permite que os serviços e recursos do Azure acedam a este servidor** para o seu servidor que está a executar a Base de Dados SQL. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ativar esta definição, aceda ao servidor Azure SQL > Security > Firewalls e redes virtuais > defina os **serviços e recursos do Allow Azure para aceder a esta** opção de servidor para **ON**.
+2. Permita que os serviços do Azure acedam ao SQL Server. Verifique se a definição **permite que os serviços e recursos do Azure acedam a este servidor** para o seu servidor que está a executar a Base de Dados SQL. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ligar esta definição, aceda ao servidor Azure SQL > Firewalls > De segurança e redes virtuais > definir os **serviços e recursos do Allow Azure para aceder a esta** opção de servidor para **ON**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -87,7 +87,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
 
     ![Mensagem de erro de nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 
-    Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_ **ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **subscrição** do Azure na qual quer criar a nova fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
 
@@ -98,7 +98,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Em **Versão**, selecione **V2** para indicar a versão.
-1. Em **Localização**, selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) utilizados pela fábrica de dados podem estar noutras localizações e regiões.
+1. Sob **localização,** selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) utilizados pela fábrica de dados podem estar noutras localizações e regiões.
 1. Selecione **Criar**.
 
 1. Depois de concluída a criação, é apresentada a home page **Fábrica de Dados**.
@@ -132,7 +132,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
 
     b. Clique em **Seguinte** para mover para o passo seguinte.
 
-1. Na página de definições do **formato 'Ficheiro',** ative a caixa de verificação para *a primeira linha como cabeçalho*. Note que a ferramenta deteta automaticamente os delimitadores da coluna e da linha. Selecione **Seguinte**. Também pode pré-visualizar dados e ver o esquema dos dados de entrada nesta página.
+1. Na página de definições do **formato 'Ficheiro',** ative a caixa de verificação para *a primeira linha como cabeçalho*. Note que a ferramenta deteta automaticamente os delimitadores da coluna e da linha. Selecione **Next**. Também pode pré-visualizar dados e ver o esquema dos dados de entrada nesta página.
 
     ![Definições do formato do ficheiro](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Na página **Arquivo de dados de destino**, conclua os seguintes passos:
@@ -160,7 +160,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial execu
     ![Monitorizar o pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
 1. Na página pipeline executa, selecione **Refresh** para refrescar a lista. Clique no link em **PIPELINE NAME** para ver os detalhes de execução da atividade ou reexecutar o gasoduto. 
-    ![Pipeline executar](./media/tutorial-copy-data-tool/pipeline-run.png)
+    ![Gasoduto](./media/tutorial-copy-data-tool/pipeline-run.png)
 
 1. Na página 'Atividade', selecione o link **Detalhes** (ícone de óculos) na coluna **'NAME'** para obter mais detalhes sobre o funcionamento da cópia. Para voltar à vista Pipeline Runs, selecione o **link ALL pipeline executa** o menu de migalhas de pão. Para atualizar a vista, selecione **Atualizar**.
 
@@ -182,7 +182,7 @@ O gasoduto desta amostra copia dados do armazenamento blob para uma base de dado
 > * Utilizar a ferramenta Copiar Dados para criar um pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 
-Avance para o tutorial seguinte para saber como copiar dados do plano local para a cloud:
+Avance para o tutorial seguinte, para saber como copiar dados do local para a cloud:
 
 >[!div class="nextstepaction"]
 >[Copiar dados do plano local para a cloud](tutorial-hybrid-copy-data-tool.md)

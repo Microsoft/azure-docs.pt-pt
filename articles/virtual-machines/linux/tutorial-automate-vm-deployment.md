@@ -1,6 +1,6 @@
 ---
-title: Tutorial-personalizar uma VM Linux com Cloud-init no Azure
-description: Neste tutorial, você aprenderá a usar Cloud-init e Key Vault para personalizar VMs do Linux na primeira vez que forem inicializadas no Azure
+title: Tutorial - Personalize um VM Linux com cloud-init em Azure
+description: Neste tutorial, você aprende a usar cloud-init e Key Vault para personalizar VMs Linux na primeira vez que eles arrancam em Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 62a8c68b11562cac7bb9e8a318cbe08084449423
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034644"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066510"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -33,7 +33,7 @@ Num tutorial anterior, aprendeu a realizar SSH para uma máquina virtual (VM) e 
 > * Utilizar o Key Vault para armazenar certificados
 > * Automatizar implementações seguras do NGINX com o cloud-init
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Descrição geral da inicialização de cloud
 [Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como o cloud-init é executado durante o processo de arranque inicial, não existem passos adicionais ou agentes necessários a aplicar à configuração.
@@ -42,23 +42,23 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 
 Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade atual do cloud-init nas imagens de plataforma do Azure:
 
-| Publicador | Oferta | SKU | Versão | preparado para o cloud-init |
+| Publicador | Oferta | SKU | Versão | nuvem-init pronto |
 |:--- |:--- |:--- |:--- |:--- |
 |Canónico |UbuntuServer |18.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic 7,6 |CentOS |7-CI |mais recente |pré-visualização |
-|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |pré-visualização |
+|OpenLogic 7.6 |CentOS |7-CI |mais recente |pré-visualização |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |pré-visualização |
 
 
 ## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração do cloud-init
 Para ver o cloud-init em ação, crie uma VM que instala o NGINX e executa uma aplicação Node.js “Hello World” simples. A seguinte configuração do cloud-init instala os pacotes necessários, cria uma aplicação Node.js e, em seguida, inicializa e lança a aplicação.
 
-No prompt do bash ou no Cloud Shell, crie um arquivo chamado *Cloud-init. txt* e cole a configuração a seguir. Por exemplo, digite `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
+No seu pedido de bash ou na Cloud Shell, crie um ficheiro chamado *cloud-init.txt* e colhe a seguinte configuração. Por exemplo, `sensible-editor cloud-init.txt` digite para criar o ficheiro e consulte uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:
@@ -109,7 +109,7 @@ Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group cre
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM com o nome *myVM*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria um VM chamado *myVM:*
 
 ```azurecli-interactive
 az vm create \
@@ -121,7 +121,7 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Pode demorar mais alguns minutos antes de poder aceder à aplicação. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js num browser.
+Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js num browser.
 
 Para permitir que o tráfego da Web aceda à VM, abra a porta 80 a partir da Internet com [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
@@ -130,7 +130,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Testar a aplicação Web
-Agora você pode abrir um navegador da Web e inserir *http:\/\/\<publicIpAddress >* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
+Agora pode abrir um navegador web e inserir *http:\/\/\<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
 
 ![Ver site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -184,7 +184,7 @@ vm_secret=$(az vm secret format --secret "$secret" --output json)
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Criar uma configuração do cloud-init para proteger o NGINX
 Quando criar uma VM, os certificados e as chaves são armazenados no diretório */var/lib/waagent/* protegido. Para automatizar a adição do certificado à VM e configurar o NGINX, pode utilizar uma configuração atualizada de cloud-init do exemplo anterior.
 
-Crie um ficheiro com o nome *cloud-init-secured.txt* e cole a seguinte configuração. Se você usar o Cloud Shell, crie o arquivo de configuração Cloud-init e não em seu computador local. Por exemplo, digite `sensible-editor cloud-init-secured.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
+Crie um ficheiro com o nome *cloud-init-secured.txt* e cole a seguinte configuração. Se utilizar a Cloud Shell, crie o ficheiro de config cloud-init e não na sua máquina local. Por exemplo, `sensible-editor cloud-init-secured.txt` digite para criar o ficheiro e consulte uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -249,7 +249,7 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Pode demorar mais alguns minutos antes de poder aceder à aplicação. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js num browser.
+Demora alguns minutos até a VM ser criada, os pacotes serem instalados e a aplicação ser iniciada. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação. Quando a VM tiver sido criada, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder à aplicação Node.js num browser.
 
 Para permitir que o tráfego da Web seguro aceda à VM, abra a porta 443 a partir da Internet com [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
@@ -261,7 +261,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testar uma aplicação Web segura
-Agora você pode abrir um navegador da Web e digitar *https:\/\/\<publicIpAddress >* na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora pode abrir um navegador web e inserir *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

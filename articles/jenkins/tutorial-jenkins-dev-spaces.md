@@ -4,10 +4,10 @@ description: Aprenda a utilizar o plug-in Azure Dev Spaces num pipeline de integ
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 281565cec5ee947781ab8ee9f62a00e01f9ababb
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79037028"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: Utilização do Plug-in azure Dev Spaces para Jenkins com serviço Azure Kubernetes 
@@ -28,7 +28,7 @@ Este tutorial assume conhecimento intermédio dos serviços core Azure, AKS, ACR
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Uma conta do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Uma conta do GitHub. Se não tiver uma conta GitHub, crie uma [conta gratuita](https://github.com/) antes de começar.
 
@@ -36,7 +36,7 @@ Este tutorial assume conhecimento intermédio dos serviços core Azure, AKS, ACR
 
 * [Azure CLI instalado](/cli/azure/install-azure-cli?view=azure-cli-latest), versão 2.0.43 ou superior.
 
-* Um servidor mestre do Jenkins. Se ainda não tem um mestre Jenkins, desloque [jenkins](https://aka.ms/jenkins-on-azure) em Azure seguindo os passos neste [arranque rápido.](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template) 
+* Um servidor mestre do Jenkins. Se ainda não tem um mestre Jenkins, desloque [jenkins](https://aka.ms/jenkins-on-azure) no Azure seguindo os passos neste [arranque rápido.](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template) 
 
 * O servidor Jenkins deve ter helm e kubectl instalados e disponíveis na conta Jenkins, como explicado mais tarde neste tutorial.
 
@@ -68,7 +68,7 @@ Nesta secção, cria-se recursos Azure:
     ```azurecli
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
-    Este passo instala a extensão `azds` CLI.
+    Este passo instala `azds` a extensão CLI.
 
 4. Crie um registo de contentores.
 
@@ -82,11 +82,11 @@ Nesta secção, você configura um espaço de v e implementa uma aplicação de 
 
 Para obter mais informações sobre a utilização de Espaços Azure Dev e desenvolvimento multi-serviço com espaços Azure Dev, consulte [Start start on Azure Dev Spaces with Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java), e desenvolvimento [multi-serviço com espaços Azure Dev.](https://docs.microsoft.com/azure/dev-spaces/multi-service-java) Esses tutoriais fornecem informações adicionais de fundo não incluídas aqui.
 
-1. Baixe o https://github.com/Azure/dev-spaces repo do GitHub.
+1. Descarregue o https://github.com/Azure/dev-spaces repo do GitHub.
 
-2. Abra a pasta `samples/java/getting-started/webfrontend` no Código VS. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
+2. Abra `samples/java/getting-started/webfrontend` a pasta no Código VS. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
 
-3. Atualizar `/src/main/java/com/ms/sample/webfrontend/Application.java` para parecer o seguinte:
+3. Atualização `/src/main/java/com/ms/sample/webfrontend/Application.java` para parecer o seguinte:
 
     ```java
     package com.ms.sample.webfrontend;
@@ -118,26 +118,26 @@ Para obter mais informações sobre a utilização de Espaços Azure Dev e desen
 
 4. Clique em **Ver** e depois **Terminal** para abrir o Terminal Integrado em Código VS.
 
-5. Execute o comando `azds prep` para preparar a sua aplicação para funcionar num espaço de v. Este comando deve ser executado a partir de `dev-spaces/samples/java/getting-started/webfrontend` para preparar corretamente a sua aplicação:
+5. Execute `azds prep` o comando para preparar a sua aplicação para correr num espaço de v. Este comando deve `dev-spaces/samples/java/getting-started/webfrontend` ser executado para preparar corretamente a sua aplicação:
 
     ```bash
     azds prep --public
     ```
 
-    O comando de `azds prep` do Dev Spaces CLI gera ativos do Docker e da Kubernetes com definições padrão. Estes ficheiros persistem durante toda a vida do projeto, e podem ser personalizados:
+    O comando do `azds prep` Dev Spaces CLI gera ativos do Docker e da Kubernetes com definições padrão. Estes ficheiros persistem durante toda a vida do projeto, e podem ser personalizados:
 
-    * `./Dockerfile` e `./Dockerfile.develop` descrevem a imagem do contentor da aplicação e como o código fonte é construído e funciona dentro do contentor.
+    * `./Dockerfile`e `./Dockerfile.develop` descrever a imagem do contentor da aplicação, e como o código fonte é construído e executado dentro do recipiente.
     * Um [gráfico Helm](https://helm.sh/docs/topics/charts/) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
-    * `./azds.yaml` é o ficheiro de configuração do Azure Dev Spaces.
+    * `./azds.yaml`é o ficheiro de configuração do Azure Dev Spaces.
 
     Para mais informações, consulte [como funciona o Azure Dev Spaces e está configurado](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 
-6. Construir e executar a aplicação em AKS usando o comando `azds up`:
+6. Construir e executar a aplicação `azds up` em AKS usando o comando:
 
     ```bash
     azds up
     ```
-    <a name="test_endpoint"></a>Scaneie a saída da consola para obter informações sobre o URL que foi criado pelo comando `up`. Estará na forma:
+    <a name="test_endpoint"></a>Scaneie a saída da consola para `up` obter informações sobre o URL que foi criado pelo comando. Estará na forma:
 
     ```bash
     (pending registration) Service 'webfrontend' port 'http' will be available at '<url>'
@@ -147,7 +147,7 @@ Para obter mais informações sobre a utilização de Espaços Azure Dev e desen
 
 8. Em seguida, configurar e implementar *mywebapi:*
 
-    1. Mude o diretório para `dev-spaces/samples/java/getting-started/mywebapi`
+    1. Mudar diretório para`dev-spaces/samples/java/getting-started/mywebapi`
 
     2. Executar
 
@@ -171,10 +171,10 @@ Nesta secção, prepara-se o servidor Jenkins para executar o pipeline CI da amo
 
 ### <a name="install-plug-ins"></a>Instalar plug-ins
 
-1. Inscreva-se no seu servidor Jenkins. Escolha **Gerir Jenkins > Gerir plugins**.
+1. Inscreva-se no seu servidor Jenkins. Escolha **gerir jenkins > gerir plugins**.
 2. No separador **Disponível,** selecione os seguintes plug-ins:
-    * [Espaços Azure Dev](https://plugins.jenkins.io/azure-dev-spaces)
-    * [Tarefas de Registo de Contentores Azure](https://plugins.jenkins.io/azure-container-registry-tasks)
+    * [Espaços de Programador do Azure](https://plugins.jenkins.io/azure-dev-spaces)
+    * [Tarefas do Azure Container Registry](https://plugins.jenkins.io/azure-container-registry-tasks)
     * [Injetor de Ambiente](https://plugins.jenkins.io/envinject)
     * [Integração GitHub](https://plugins.jenkins.io/github-pullrequest)
 
@@ -190,7 +190,7 @@ O gasoduto de amostra utiliza Helm e kubectl para implantar para o espaço de v.
 
 1. Faça uma ligação SSH com o mestre Jenkins. 
 
-2. Mude para o utilizador `jenkins`:
+2. Mude para `jenkins` o utilizador:
     ```bash
     sudo su jenkins
     ```
@@ -201,7 +201,7 @@ O gasoduto de amostra utiliza Helm e kubectl para implantar para o espaço de v.
 
 ### <a name="add-credentials-to-jenkins"></a>Adicione credenciais a Jenkins
 
-1. Jenkins precisa de um diretor de serviço Azure para autenticar e aceder aos recursos azure. Para criar o diretor de serviço, consulte a secção de principal de [serviço Create](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) no tutorial de Implementação para o Serviço de Aplicações Azure. Certifique-se de guardar uma cópia da saída de `create-for-rbac` porque precisa dessa informação para completar o próximo passo. A saída será mais ou menos assim:
+1. Jenkins precisa de um diretor de serviço Azure para autenticar e aceder aos recursos azure. Para criar o diretor de serviço, consulte a secção [principal](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) do serviço Create no tutorial do Serviço de Aplicações Azure. Certifique-se de guardar uma `create-for-rbac` cópia da saída porque precisa dessa informação para completar o próximo passo. A saída será semelhante à seguinte:
 
     ```json
     {
@@ -213,13 +213,13 @@ O gasoduto de amostra utiliza Helm e kubectl para implantar para o espaço de v.
     }
     ```
 
-2. Adicione um tipo de credencial principal do *serviço Microsoft Azure* em Jenkins, utilizando as informações principais do serviço a partir do passo anterior. Os nomes na imagem abaixo correspondem à saída de `create-for-rbac`.
+2. Adicione um tipo de credencial principal do *serviço Microsoft Azure* em Jenkins, utilizando as informações principais do serviço a partir do passo anterior. Os nomes na imagem abaixo `create-for-rbac`correspondem à saída de .
 
-    O campo **de identificação** é o nome de credencial jenkins para o seu diretor de serviço. O exemplo utiliza o valor de `displayName` (neste caso, `xxxxxxxjenkinssp`), mas pode utilizar qualquer texto que pretenda. Este nome credencial é o valor para a variável ambiente AZURE_CRED_ID na secção seguinte.
+    O campo **de identificação** é o nome de credencial jenkins para o seu diretor de serviço. O exemplo usa `displayName` o valor de `xxxxxxxjenkinssp`(neste caso, mas pode usar qualquer texto que quiser. Este nome credencial é o valor para a variável ambiente AZURE_CRED_ID na secção seguinte.
 
     ![Adicione credenciais principais de serviço a Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
 
-    A **descrição** é opcional. Para obter instruções mais detalhadas, consulte [Adicionar o principal do serviço à secção de Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) no tutorial do Serviço de Aplicações Azure. 
+    A **descrição** é opcional. Para obter instruções mais detalhadas, consulte [Adicionar o principal do serviço à](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) secção Jenkins no tutorial do Serviço de Aplicações Azure. 
 
 
 
@@ -247,7 +247,7 @@ O gasoduto de amostra utiliza Helm e kubectl para implantar para o espaço de v.
     }
     ```
 
-4. Adicione um *nome de utilizador com* tipo credencial de senha em Jenkins. O nome de **utilizador** é o nome de utilizador do último passo, neste exemplo `acr01`. A **palavra-passe** é o valor da primeira palavra-passe, neste exemplo `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. A **identificação** desta credencial é o valor de ACR_CRED_ID.
+4. Adicione um *nome de utilizador com* tipo credencial de senha em Jenkins. O nome de **utilizador** é o nome de `acr01`utilizador do último passo, neste exemplo . A **palavra-passe** é o valor da `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`primeira palavra-passe, neste exemplo. A **identificação** desta credencial é o valor de ACR_CRED_ID.
 
 5. Criar uma credencial AKS. Adicione uma *configuração kubernetes (kubeconfig)* tipo de credencial em Jenkins (use a opção "Enter directly"). Para obter as credenciais de acesso para o seu cluster AKS, execute o seguinte comando:
 
@@ -265,7 +265,7 @@ A configuração do gasoduto Jenkins e jenkinsfile definem as etapas do oleoduto
 
 ![Fluxo de gasoduto Jenkins](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Descarregue uma versão modificada do projeto *mywebapi* a partir de [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). Este projeto contém vários ficheiros necessários para criar um pipeline, incluindo o *gráfico Jenkinsfile,* *Dockerfiles*e Helm.
+1. Descarregue uma versão modificada do [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi)projeto *mywebapi* a partir de . Este projeto contém vários ficheiros necessários para criar um pipeline, incluindo o *gráfico Jenkinsfile,* *Dockerfiles*e Helm.
 
 2. Entra no Jenkins. A partir do menu à esquerda, selecione **Adicionar Item**.
 
@@ -296,7 +296,7 @@ A configuração do gasoduto Jenkins e jenkinsfile definem as etapas do oleoduto
 
     ![Variáveis ambientais do gasoduto Jenkins](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-environment.png)
 
-7. Escolha **o script pipeline de SCM** em Pipeline **> Definição**.
+7. Escolha **o script pipeline de SCM** em Pipeline > **Definição**.
 8. Em **SCM,** escolha **Git** e, em seguida, introduza o seu URL repo.
 9. No **Especificador de Ramificação,** introduza `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
 10. Preencha o URL de repo sCM e o script "Jenkinsfile".
@@ -333,7 +333,7 @@ Para completar o passo 3 nesta secção, terá de comentar parte do Ficheiro Jen
     }
 ```
 
-1. Faça uma alteração para `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`e, em seguida, crie um pedido de puxão. Por exemplo:
+1. Faça uma `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`alteração e, em seguida, crie um pedido de puxão. Por exemplo:
 
     ```java
     public String index() {
@@ -347,15 +347,15 @@ Para completar o passo 3 nesta secção, terá de comentar parte do Ficheiro Jen
 
 3. Compare alterações à versão partilhada atual:
 
-    1. Abra o seu navegador e navegue para a versão partilhada `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. TEST_ENDPOINT contém o URL.
+    1. Abra o seu navegador e `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`navegue para a versão partilhada. TEST_ENDPOINT contém o URL.
 
-    2. Abra outro separador e, em seguida, introduza o URL do espaço PR dev. Será semelhante a `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. Encontrará o link em **Build History > <build#> > Consola Output** for the Jenkins job. Procure na página por `aksapp`, ou para ver apenas o prefixo, procure `azdsprefix`.
+    2. Abra outro separador e, em seguida, introduza o URL do espaço PR dev. Será semelhante a. `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io` Encontrará o link em **Build History > <construir#> > Output consola** para o trabalho de Jenkins. Procure na `aksapp`página, ou para ver apenas `azdsprefix`o prefixo, procure por .
 
  
 
 ### <a name="constructing-the-url-to-the-child-dev-space"></a>Construindo o URL para o espaço de dev infantil
 
-Quando apresentaum pedido de puxão, Jenkins cria um espaço de dev infantil baseado no espaço de dev partilhado da equipa e executa o código a partir do seu pedido de puxão naquele espaço de dev infantil. O URL para o espaço de dev infantil assume a forma `http://$env.azdsprefix.<test_endpoint>`. 
+Quando apresentaum pedido de puxão, Jenkins cria um espaço de dev infantil baseado no espaço de dev partilhado da equipa e executa o código a partir do seu pedido de puxão naquele espaço de dev infantil. O URL para o espaço de `http://$env.azdsprefix.<test_endpoint>`dev infantil toma a forma . 
 
 **$env.azdsprefix** é definido durante a execução do gasoduto pelo plug-in Azure Dev Spaces pela **devSpacesCreate**:
 
@@ -370,9 +370,9 @@ stage('create dev space') {
 }
 ```
 
-O `test_endpoint` é o URL da aplicação webfrontend que implementou anteriormente usando `azds up`em [implementar aplicações de amostra para o cluster AKS, Passo 7](#test_endpoint). O valor do `$env.TEST_ENDPOINT` é definido na configuração do gasoduto. 
+O `test_endpoint` URL da aplicação webfrontend que implementou anteriormente usando `azds up`em aplicações de amostra de [implementação para o cluster AKS, Passo 7](#test_endpoint). O valor `$env.TEST_ENDPOINT` é definido na configuração do gasoduto. 
 
-O seguinte código de corte mostra como o URL de espaço de v infantil é usado no estágio `smoketest`. O código verifica se o espaço de dev infantil TEST_ENDPOINT está disponível e, em caso afirmativo, descarrega o texto de saudação para stdout:
+O seguinte código de corte mostra como o URL `smoketest` de espaço de v infantil é usado no estágio. O código verifica se o espaço de dev infantil TEST_ENDPOINT está disponível e, em caso afirmativo, descarrega o texto de saudação para stdout:
 
 ```Groovy
 stage('smoketest') {

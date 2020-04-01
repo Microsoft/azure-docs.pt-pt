@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: cfd5cf77b9df8cdd5b856a0b36b9010077a7078a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68562514"
 ---
-Abra **configurações de compilação** selecionando **arquivo** > **configurações de compilação**.
+Abra **as definições** de construção selecionando definições de**construção**de **ficheiros** > .
 
-Na seção **plataforma** , selecione **Ios**.
+Na secção **Plataforma,** selecione **iOS**.
 
-Selecione **alternar plataforma** para alterar a plataforma para **Ios**. O Unity pode solicitar que você instale componentes de suporte do iOS se eles estiverem ausentes.
+Selecione **Plataforma Switch** para mudar a plataforma para **iOS**. A unidade pode levar-lhe a instalar componentes de suporte iOS se estiverem desaparecidos.
 
-![Janela de configurações de Build do Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
+![Janela de definições de construção de unidade](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 
-Feche a janela **configurações de compilação** .
+Feche a janela Definições de **Construção.**
 

@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
 ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70072162"
 ---
 # <a name="edit-an-api"></a>Editar uma API
@@ -64,5 +64,5 @@ Pode atualizar a API do seu back-end no portal do Azure, seguindo estes passos:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Exemplos de política de APIM](policy-samples.md)
-> [Transformar e proteger uma API publicada](transform-api.md)
+> [Amostras](policy-samples.md)
+> de política da APIM[Transforme e proteja uma API publicada](transform-api.md)

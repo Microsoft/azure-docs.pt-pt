@@ -15,10 +15,10 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 61c22a3949008d61bbe3472f601d2d0dd597a0ac
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77114336"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
@@ -27,7 +27,7 @@ Este script de amostra salta através de como criar um certificado no Cofre chav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
+Se necessário, instale o Azure PowerShell utilizando as instruções `Connect-AzAccount` encontradas no [guia Azure PowerShell](/powershell/azure/overview) e, em seguida, corra para criar uma ligação com o Azure. 
 
 ## <a name="create-a-certificate-in-key-vault"></a>Criar um certificado no Cofre chave
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 0bb952d5d13f5afc01956a164a5bf5bd2d66f6b8
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77172990"
 ---
 ## <a name="guest-configuration"></a>Configuração de Convidado

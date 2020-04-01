@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Toolkit de GoodPractice | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Kit de ferramentas de GoodPractice.
+title: 'Tutorial: Integração de Diretório Ativo Azure com Kit de Ferramentas De Ferramentas Mentais [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Mind Tools Toolkit.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,189 +11,162 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe89c067aed6a6934bfff37609516b6ef4d281c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b12bd8ba7998b924035a0946f9e32b88ce206e4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101570"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79476506"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutorial: Integração do Active Directory do Azure com o Toolkit de GoodPractice
+# <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Tutorial: Integração de Diretório Ativo Azure com Kit de Ferramentas De Ferramentas Mentais
 
-Neste tutorial, saiba como integrar o Kit de ferramentas de GoodPractice com o Azure Active Directory (Azure AD).
-Integrar o Kit de ferramentas de GoodPractice no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar o Kit de Ferramentas De Ferramentas Mentais com o Azure Ative Directory (Azure AD).
+Integrar o Kit de Ferramentas Mentais com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao GoodPractice Kit de ferramentas.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada ao Kit de ferramentas de GoodPractice (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar em Azure AD quem tem acesso ao Kit de Ferramentas Mind Tools.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Mind Tools Toolkit (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com GoodPractice Kit de ferramentas, precisa do seguinte:
+Para configurar a integração do Anúncio Azure com o Mind Tools Toolkit, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Kit de ferramentas de GoodPractice logon único habilitado subscrição
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Assinatura de inscrição única do Mind Tools Toolkit
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Kit de ferramentas de GoodPractice suporta **SP** iniciada SSO
-* Kit de ferramentas de GoodPractice suporta **Just In Time** aprovisionamento de utilizadores
+* Mind Tools Toolkit suporta **SP** iniciado SSO
+* O kit de ferramentas de ferramentas mentais suporta o fornecimento de utilizadores **justo no tempo**
+* Assim que configurar o Mind Tools Toolkit, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
-## <a name="adding-goodpractice-toolkit-from-the-gallery"></a>Adicionando GoodPractice Kit de ferramentas da Galeria
+## <a name="adding-mind-tools-toolkit-from-the-gallery"></a>Adicionar Toolkit de Ferramentas Mentais da galeria
 
-Para configurar a integração do Toolkit de GoodPractice com o Azure AD, terá de adicionar GoodPractice Toolkit a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Mind Tools Toolkit no Azure AD, é necessário adicionar o Kit de Ferramentas Mind Tools da galeria à sua lista de aplicações geridas para o SaaS.
 
-**Para adicionar GoodPractice Toolkit a partir da galeria, execute os seguintes passos:**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **da galeria,** digite o Kit de **Ferramentas Mind Tools** na caixa de pesquisa.
+1. Selecione O Conjunto de **Ferramentas de Ferramentas mentais** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+Nesta secção, configura e testa o single sign-on azure com o Mind Tools Toolkit com base num utilizador de teste chamado **B.Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Mind Tools Toolkit.
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+Para configurar e testar o único sign-on azure ad com o Mind Tools Toolkit, você precisa completar os seguintes blocos de construção:
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure ferramentas mentais Toolkit SSO](#configure-mind-tools-toolkit-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    * **[Create Mind Tools Toolkit user](#create-mind-tools-toolkit-test-user)** - para ter uma contraparte de B.Simon em Mind Tools Toolkit que está ligado à representação do utilizador da AD Azure.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-4. Na caixa de pesquisa, escreva **GoodPractice Toolkit**, selecione **GoodPractice Toolkit** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+Para configurar o único sign-on azure com o Mind Tools Toolkit, execute os seguintes passos:
 
-     ![Kit de ferramentas de GoodPractice na lista de resultados](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da Mind Tools Toolkit,** selecione **Single sign-on**.
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o Toolkit de GoodPractice com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Kit de ferramentas de GoodPractice deve ser estabelecido.
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-Para configurar e testar o Azure AD início de sessão único com o Toolkit de GoodPractice, tem de concluir os seguintes blocos de construção:
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar GoodPractice Kit de ferramentas de início de sessão único](#configure-goodpractice-toolkit-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste do Kit de ferramentas de GoodPractice](#create-goodpractice-toolkit-test-user)**  - para ter um equivalente da Eduarda Almeida no Kit de ferramentas de GoodPractice que está ligada à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-Para configurar o Azure AD início de sessão único com o Toolkit de GoodPractice, execute os seguintes passos:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **GoodPractice Toolkit** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
-
-    ![GoodPractice Kit de ferramentas de domínio e URLs únicas início de sessão em informações](common/sp-intiated.png)
-
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
+    Na caixa de texto **"Sign-on URL",** escreva um URL utilizando o seguinte padrão: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
-    > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente do Kit de ferramentas de GoodPractice](mailto:support@goodpractice.com) para obter o valor.
+    > O valor do URL de inscrição não é real. Atualize o valor com o URL de Sign-On real. Contacte a equipa de suporte do [Cliente Mind Tools Toolkit](mailto:support@goodpractice.com) para obter o valor.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-6. Sobre o **configurar GoodPractice Toolkit** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na secção **'Configurar ferramentas',** copie os URL(s) adequados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-goodpractice-toolkit-single-sign-on"></a>Configurar o Toolkit de GoodPractice início de sessão único
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Para configurar o início de sessão único num **GoodPractice Toolkit** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [GoodPractice A equipa de suporte do Kit de ferramentas](mailto:support@goodpractice.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. Clique em **Criar**.
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso ao Mind Tools Toolkit.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Mind Tools Toolkit**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-    ![Novo utilizador botão](common/new-user.png)
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
+## <a name="configure-mind-tools-toolkit-sso"></a>Configure ferramentas mentais Toolkit SSO
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+Para configurar um único sign-on no lado do **Mind Tools Kit,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para a equipe de suporte de Toolkit De [Ferramentas Mind](mailto:support@goodpractice.com)Tools. Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-    d. Clique em **Criar**.
+### <a name="create-mind-tools-toolkit-test-user"></a>Criar ferramentas mentais ferramentas de teste
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+Nesta secção, um utilizador chamado B.Simon é criado no Mind Tools Toolkit. O Mind Tools Toolkit suporta **o fornecimento just-in-time**, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Mind Tools Toolkit, um novo é criado quando tenta aceder ao Kit de Ferramentas Mind Tools.
 
-Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão único, concedendo acesso ao GoodPractice Kit de ferramentas.
+### <a name="test-sso"></a>Teste SSO
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **GoodPractice Toolkit**.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **GoodPractice Toolkit**.
-
-    ![A ligação do Kit de ferramentas de GoodPractice na lista de aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-goodpractice-toolkit-test-user"></a>Criar utilizador de teste do Kit de ferramentas de GoodPractice
-
-Nesta secção, um usuário chamado Eduarda Almeida é criado no Kit de ferramentas de GoodPractice. Kit de ferramentas de GoodPractice suporta **just-in-time aprovisionamento**, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no GoodPractice Toolkit, uma nova é criada quando tentar acessar GoodPractice Kit de ferramentas.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
-
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Quando clica no mosaico do Kit de ferramentas de GoodPractice no painel de acesso, deve ser automaticamente conectado ao Kit de ferramentas GoodPractice para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Mind Tools Toolkit no Painel de Acesso, deve ser automaticamente inscrito no Kit de Ferramentas De Ferramentas Mentais para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Experimente toolkit de ferramentas mentais com anúncio azure](https://aad.portal.azure.com/)
+
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o Kit de Ferramentas de Ferramentas Mentais com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, manual de procedimentos, mysql, base de 
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78247874"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutorial: Configure bases de dados em Base de Dados Azure para MySQL usando Ansible
@@ -33,7 +33,7 @@ ms.locfileid: "78247874"
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 O código de jogadas nesta secção cria um grupo de recursos Azure. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.  
 
@@ -53,10 +53,10 @@ Guarde o manual de procedimentos seguinte como `rg.yml`:
 
 Antes de executar o livro de jogadas, consulte as seguintes notas:
 
-* É criado um grupo de recursos chamado `myResourceGroup`.
-* O grupo de recursos é criado no local `eastus`:
+* É criado `myResourceGroup` um grupo de recursos nomeado.
+* O grupo de recursos `eastus` é criado no local:
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook rg.yml
@@ -64,7 +64,7 @@ ansible-playbook rg.yml
 
 ## <a name="create-a-mysql-server-and-database"></a>Criar um servidor e base de dados MySQL
 
-O código de jogadas nesta secção cria um servidor MySQL e uma Base de Dados Azure para a instância MySQL. O novo servidor MySQL é um servidor De Propósito Básico Gen 5 com um vCore e é nomeado `mysqlserveransible`. A instância da base de dados chama-se `mysqldbansible`.
+O código de jogadas nesta secção cria um servidor MySQL e uma Base de Dados Azure para a instância MySQL. O novo servidor MySQL é um servidor De Propósito `mysqlserveransible`Básico Gen 5 com um vCore e está nomeado . A instância da `mysqldbansible`base de dados chama-se .
 
 Para obter mais informações sobre os níveis de preços, consulte a Base de Dados Azure para os níveis de [preços MySQL](/azure/mysql/concepts-pricing-tiers). 
 
@@ -102,10 +102,10 @@ Guarde o manual de procedimentos seguinte como `mysql_create.yml`:
 
 Antes de executar o livro de jogadas, consulte as seguintes notas:
 
-* Na secção `vars`, o valor da `mysqlserver_name` deve ser único.
-* Na secção `vars`, substitua `<server_admin_password>` por uma palavra-passe.
+* Na `vars` secção, o `mysqlserver_name` valor deve ser único.
+* Na `vars` secção, `<server_admin_password>` substitua-a por uma palavra-passe.
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook mysql_create.yml
@@ -113,9 +113,9 @@ ansible-playbook mysql_create.yml
 
 ## <a name="configure-a-firewall-rule"></a>Configurar uma regra de firewall
 
-Uma regra de firewall ao nível do servidor permite que uma aplicação externa se conectem ao seu servidor através da firewall de serviço Azure MySQL. Exemplos de aplicações externas são a ferramenta `mysql` linha de comando e a bancada de trabalho MySQL.
+Uma regra de firewall ao nível do servidor permite que uma aplicação externa se conectem ao seu servidor através da firewall de serviço Azure MySQL. Exemplos de aplicações `mysql` externas são a ferramenta de linha de comando e a bancada de trabalho MySQL.
 
-O código de jogadas nesta secção cria uma regra de firewall chamada `extenalaccess` que permite ligações a partir de qualquer endereço IP externo. 
+O código de jogadas nesta `extenalaccess` secção cria uma regra de firewall chamada que permite ligações a partir de qualquer endereço IP externo. 
 
 Guarde o manual de procedimentos seguinte como `mysql_firewall.yml`:
 
@@ -143,11 +143,11 @@ Guarde o manual de procedimentos seguinte como `mysql_firewall.yml`:
 
 Antes de executar o livro de jogadas, consulte as seguintes notas:
 
-* Na secção vars, substitua `startIpAddress` e `endIpAddress`. Utilize o leque de endereços IP que correspondam ao intervalo a partir do qual irá ligar.
+* Na secção vars, `startIpAddress` `endIpAddress`substitua e . Utilize o leque de endereços IP que correspondam ao intervalo a partir do qual irá ligar.
 * As ligações à base de dados do Azure para MySQL comunicam através da porta 3306. Se tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 3306 poderá não ser permitido. Nesse caso, não pode ligar ao servidor, a menos que o seu departamento de TI abra a porta 3306.
-* O manual utiliza o módulo `azure_rm_resource`, que permite a utilização direta da API REST.
+* O manual `azure_rm_resource` utiliza o módulo, que permite a utilização direta da API REST.
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook mysql_firewall.yml
@@ -217,7 +217,7 @@ Nesta secção, utiliza a Cloud Shell Azure para se ligar ao servidor que criou 
     
 ## <a name="query-mysql-servers"></a>Consulta servidores MySQL
 
-O código de jogadas nesta secção consulta os servidores MySQL em `myResourceGroup` e lista as bases de dados nos servidores encontrados.
+O código de jogadas nesta secção consulta `myResourceGroup` os servidores MySQL e lista as bases de dados nos servidores encontrados.
 
 Guarde o manual de procedimentos seguinte como `mysql_query.yml`:
 
@@ -247,7 +247,7 @@ Guarde o manual de procedimentos seguinte como `mysql_query.yml`:
         var: mysqldatabasefacts
 ```
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook mysql_query.yml
@@ -330,7 +330,7 @@ Guarde o manual de procedimentos seguinte como `cleanup.yml`:
         state: absent
 ```
 
-Executar o manual usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook cleanup.yml

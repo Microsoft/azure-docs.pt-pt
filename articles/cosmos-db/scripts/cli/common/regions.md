@@ -1,6 +1,6 @@
 ---
-title: Adicionar regiões, alterar a prioridade do failover, disparar failover para uma conta do Azure Cosmos
-description: Adicionar regiões, alterar a prioridade do failover, disparar failover para uma conta do Azure Cosmos
+title: Adicione regiões, mudar prioridade de failover, desencadear falha para uma conta Azure Cosmos
+description: Adicione regiões, mudar prioridade de failover, desencadear falha para uma conta Azure Cosmos
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,31 +8,31 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: b7b6be0ce781debcb19b5c0fb7b6a4b0123ef366
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275550"
 ---
-# <a name="add-regions-change-failover-priority-trigger-failover-for-an-azure-cosmos-account-using-azure-cli"></a>Adicionar regiões, alterar a prioridade do failover, disparar failover para uma conta do Azure Cosmos usando CLI do Azure
+# <a name="add-regions-change-failover-priority-trigger-failover-for-an-azure-cosmos-account-using-azure-cli"></a>Adicione regiões, alterar prioridade de failover, desencadear falha para uma conta Azure Cosmos usando O ClI Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando o CLI do Azure versão 2.0.73 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão Azure CLI 2.0.73 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Esse script demonstra três operações.
+Este guião demonstra três operações.
 
-- Adicione uma região a uma conta existente do Azure Cosmos.
-- Alterar a prioridade de failover regional (aplica-se às contas que usam failover automático)
-- Disparar um failover manual de regiões primárias para secundárias (aplica-se às contas com failover manual)
-
-> [!NOTE]
-> Adicionar e remover operações de região em uma conta do cosmos não pode ser feito durante a alteração de outras propriedades.
+- Adicione uma região a uma conta azure cosmos existente.
+- Alterar prioridade de failover regional (aplica-se às contas que utilizam falhas automáticas)
+- Desencadear uma falha manual das regiões primárias para as regiões secundárias (aplica-se às contas com falha manual)
 
 > [!NOTE]
-> Este exemplo demonstra como usar uma conta de API do SQL (núcleo), mas essas operações são idênticas em todas as APIs de banco de dados no Cosmos DB.
+> Adicionar e remover as operações da região numa conta Cosmos não pode ser feito ao mudar outras propriedades.
+
+> [!NOTE]
+> Esta amostra demonstra a utilização de uma conta API SQL (Core), mas estas operações são idênticas em todas as APIs de base de dados em Cosmos DB.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/regions.sh "Regional operations for Cosmos DB.")]
 
@@ -52,12 +52,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza uma conta de Azure Cosmos DB (adicionar ou remover região). |
-| [AZ cosmosdb failover-Priority-ALTER](/cli/azure/cosmosdb#az-cosmosdb-failover-priority-change) | Atualize a prioridade de failover ou o failover de gatilho em uma conta de Azure Cosmos DB. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza uma conta Azure Cosmos DB (adicionar ou remover região). |
+| [az cosmosdb failover-priority-change](/cli/azure/cosmosdb#az-cosmosdb-failover-priority-change) | Atualizar a prioridade de failover ou desencadear falha numa conta Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure Cosmos DB, consulte [Azure Cosmos DB documentação da CLI](/cli/azure/cosmosdb).
+Para obter mais informações sobre o Azure Cosmos DB CLI, consulte a [documentação Do CD D. Azure Cosmos.](/cli/azure/cosmosdb)
 
-Todos os exemplos de script da CLI do Azure Cosmos DB podem ser encontrados no [repositório GitHub Azure Cosmos DB CLI](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+Todas as amostras de script soro D DD Do Azure Cosmos podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).

@@ -8,10 +8,10 @@ ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273385"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECIADO) Carregar contentores de balanço num cluster Azure Container Service DC/OS
@@ -43,7 +43,7 @@ O **Balanceador de Carga Marathon (marathon lb)** encaminha pedidos de entrada p
 
 O Balanceador de Carga Marathon reconfigura-se dinamicamente, com base nos contentores que tenha implementado. É também resiliente à perda de um contentor ou de um agente. Se isto ocorrer, o Apache Mesos reinicia o contentor noutro local e o marathon-lb adapta-se.
 
-Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+Vá [https://shell.azure.com](https://shell.azure.com) abrir cloud shell no seu navegador.
 
 Execute o seguinte comando para instalar o balanceador de carga marathon no cluster do agente público.
 

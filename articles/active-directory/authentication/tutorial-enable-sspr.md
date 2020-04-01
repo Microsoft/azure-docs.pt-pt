@@ -11,20 +11,20 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77027679"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou reporem palavras-passe utilizando o reset de palavra-passe self-service do Diretório Ativo Azure
 
-O reset de autosserviço do Azure Ative Directory (Azure AD) dá aos utilizadores a possibilidade de alterar ou redefinir a sua palavra-passe, sem qualquer envolvimento de administrador ou de secretária. Se a conta de um usuário estiver bloqueada ou se esquecerem da senha, elas poderão seguir os prompts para desbloquear e voltar para o trabalho. Essa capacidade reduz as chamadas de suporte técnico e a perda de produtividade quando um usuário não consegue entrar no dispositivo ou em um aplicativo.
+O reset de autosserviço do Azure Ative Directory (Azure AD) dá aos utilizadores a possibilidade de alterar ou redefinir a sua palavra-passe, sem qualquer envolvimento de administrador ou de secretária. Se a conta de um utilizador estiver bloqueada ou se esquecer em palavra-passe, pode seguir as indicações para se desbloquear em si e voltar ao trabalho. Esta capacidade reduz as chamadas de secretária e a perda de produtividade quando um utilizador não pode iniciar sessão no seu dispositivo ou numa aplicação.
 
 > [!IMPORTANT]
-> Este guia de início rápido mostra um administrador como habilitar a redefinição de senha de autoatendimento. Se você for um usuário final já registrado para redefinição de senha de autoatendimento e precisar voltar à sua conta, vá para https://aka.ms/sspr.
+> Este quickstart mostra a um administrador como ativar o reset da palavra-passe self-service. Se é um utilizador final já registado para reset de senha de autosserviço e precisa de voltar à sua conta, vá para https://aka.ms/sspr.
 >
-> Se sua equipe de ti não tiver habilitado a capacidade de redefinir sua própria senha, entre em contato com sua assistência técnica para obter assistência adicional.
+> Se a sua equipa de TI não tiver ativado a capacidade de redefinir a sua própria palavra-passe, contacte o seu helpdesk para obter assistência adicional.
 
 Neste tutorial, ficará a saber como:
 
@@ -35,15 +35,15 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa dos seguintes recursos e privilégios:
+Para completar este tutorial, necessita dos seguintes recursos e privilégios:
 
 * Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
-    * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de Administrador Global.*
 * Um utilizador não administrador com uma palavra-passe que conheça, como *testuser*. Testa a experiência SSPR do utilizador final utilizando esta conta neste tutorial.
-    * Se você precisar criar um usuário, consulte [início rápido: adicionar novos usuários a Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se precisar de criar um utilizador, consulte [Quickstart: Adicione novos utilizadores ao Diretório Ativo Do Azure](../add-users-azure-active-directory.md).
 * Um grupo do que o utilizador não administrador é membro, como o *SSPR-Test-Group*. Você permite sSPR para este grupo neste tutorial.
-    * Se você precisar criar um grupo, consulte como [criar um grupo e adicionar membros em Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Se precisa de criar um grupo, veja como [criar um grupo e adicione membros no Azure Ative Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 
@@ -72,8 +72,8 @@ Quando os utilizadores precisam de desbloquear a sua conta ou redefinir a sua pa
 
 1. Escolha os **Métodos disponíveis para os utilizadores** que a sua organização quer permitir. Para este tutorial, verifique as caixas para ativar os seguintes métodos:
 
-    * *Notificação de aplicativo móvel*
-    * *Código do aplicativo móvel*
+    * *Notificação de aplicação móvel*
+    * *Código da aplicação móvel*
     * *E-mail*
     * *Número de telemóvel*
     * *Telefone do emprego*
@@ -104,7 +104,7 @@ Para manter os utilizadores informados sobre a atividade da conta, pode configur
 Se os utilizadores precisarem de ajuda adicional com o processo SSPR, pode personalizar o link para "Contacte o seu administrador". Este link é utilizado no processo de registo SSPR e quando um utilizador desbloqueia a sua conta ou redefine a sua palavra-passe. Para garantir que os seus utilizadores obtêm o suporte necessário, é altamente recomendado fornecer um e-mail de helpdesk personalizado ou URL.
 
 1. Na página de **Personalização** do menu do lado esquerdo, desempor o link de *helpdesk para* **Sim**.
-1. No **e-mail de helpdesk personalizado ou** no campo URL, forneça um endereço de e-mail ou URL da página web onde os seus utilizadores possam obter ajuda adicional da sua organização, como *https://support.contoso.com/*
+1. No **e-mail de helpdesk personalizado ou** no campo URL, forneça um endereço de e-mail ou URL da página web onde os seus utilizadores possam obter ajuda adicional da sua organização, como*https://support.contoso.com/*
 1. Para aplicar o link personalizado, selecione **Guardar**.
 
 ## <a name="test-self-service-password-reset"></a>Testar a reposição personalizada de palavra-passe
@@ -114,15 +114,15 @@ Com o SSPR ativado e configurado, teste o processo SSPR com um utilizador que fa
 > [!NOTE]
 > Quando testar a redefinição da palavra-passe de autosserviço, utilize uma conta não administradora. Os administradores estão sempre habilitados para o reset da palavra-passe self-service e são obrigados a utilizar dois métodos de autenticação para redefinir a sua palavra-passe.
 
-1. Para ver o processo de registo manual, abra uma nova janela do navegador no modo InPrivate ou incógnito, e navegue para [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os utilizadores devem ser direcionados para este portal de registo quando iniciarem o seu próximo início de sessão.
+1. Para ver o processo de registo manual, abra uma nova janela do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)navegador no modo InPrivate ou incógnito, e navegue até . Os utilizadores devem ser direcionados para este portal de registo quando iniciarem o seu próximo início de sessão.
 1. Inscreva-se com um utilizador de teste não administrador, como *testuser,* e registe as informações de contacto dos seus métodos de autenticação.
-1. Depois de concluído, selecione o botão marcado **parece bom** e feche a janela do navegador.
-1. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://aka.ms/sspr](https://aka.ms/sspr).
+1. Uma vez concluído, selecione o botão marcado **Parece bom** e feche a janela do navegador.
+1. Abra uma nova janela de navegador em modo InPrivate [https://aka.ms/sspr](https://aka.ms/sspr)ou incógnito, e navegue para .
 1. Introduza as informações da conta dos utilizadores de testes não administradores, tais como *testuser,* os caracteres do CAPTCHA e, em seguida, selecione **Next**.
 
     ![Introduza informações da conta do utilizador para redefinir a palavra-passe](media/tutorial-enable-sspr/password-reset-page.png)
 
-1. Siga as etapas de verificação para redefinir sua senha. Quando estiver concluída, deverá receber uma notificação por e-mail de que a sua palavra-passe foi redefinida.
+1. Siga as medidas de verificação para redefinir a sua palavra-passe. Quando estiver concluída, deverá receber uma notificação por e-mail de que a sua palavra-passe foi redefinida.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -145,4 +145,4 @@ Neste tutorial, permitiu o reset da palavra-passe autosserviço azure AD para um
 > * Testar o processo SSPR como utilizador
 
 > [!div class="nextstepaction"]
-> [Ativar a autenticação de vários fatores do Azure](tutorial-mfa-applications.md)
+> [Ativar a Multi-Factor Authentication do Azure](tutorial-mfa-applications.md)

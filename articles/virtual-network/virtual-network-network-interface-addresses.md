@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244969"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473230"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Add, change, or remove IP addresses for an Azure network interface (Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure)
 
@@ -78,7 +78,7 @@ Pode ser necessário alterar o método de atribuição de um endereço IPv4, alt
 6. Selecione **Guardar**.
 
 >[!NOTE]
->Se a interface de rede primária tiver múltiplas configurações IP e alterar o endereço IP privado da configuração IP primária, terá de reatribuir manualmente os endereços IP primários e secundários à interface de rede dentro do Windows (não necessário para o Linux) . Para atribuir manualmente endereços IP a uma interface de rede dentro de um sistema operativo, consulte [atribuir vários endereços IP a máquinas virtuais](virtual-network-multiple-ip-addresses-portal.md#os-config). Para considerações especiais antes de adicionar manualmente endereços IP a um sistema operativo de máquina virtual, consulte endereços IP [privados.](#private) Não adicione nenhum endereço IP público ao sistema operativo virtual da máquina.
+>Se a interface de rede primária tiver múltiplas configurações IP e alterar o endereço IP privado da configuração IP primária, terá de reatribuir manualmente os endereços IP primários e secundários à interface de rede dentro do Windows (não necessário para o Linux). Para atribuir manualmente endereços IP a uma interface de rede dentro de um sistema operativo, consulte [atribuir vários endereços IP a máquinas virtuais](virtual-network-multiple-ip-addresses-portal.md#os-config). Para considerações especiais antes de adicionar manualmente endereços IP a um sistema operativo de máquina virtual, consulte endereços IP [privados.](#private) Não adicione nenhum endereço IP público ao sistema operativo virtual da máquina.
 
 **Comandos**
 
@@ -120,7 +120,7 @@ Além de uma configuração ip primária, uma interface de rede pode ter configu
 
 - Deve ter um endereço IPv4 ou IPv6 privado atribuído a ele. Se o endereço for IPv6, a interface de rede só pode ter uma configuração IP secundária. Se o endereço for IPv4, a interface de rede pode ter várias configurações ip secundárias atribuídas ao mesmo. Para saber mais sobre quantos endereços IPv4 privados e públicos podem ser atribuídos a uma interface de rede, consulte o artigo dos [limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)
 - Pode também ter um endereço IPv4 ou IPv6 público atribuído a ele. Atribuir vários endereços IPv4 a uma interface de rede é útil em cenários como:
-  - Alojar vários Web Sites ou serviços com diferentes endereços IP e certificados SSL num único servidor.
+  - Hospedar vários websites ou serviços com diferentes endereços IP e certificados TLS/SSL num único servidor.
   - Uma máquina virtual que serve de aparelho virtual de rede, como firewall ou equilibrador de carga.
   - A capacidade de adicionar qualquer um dos endereços IPv4 privados para qualquer uma das interfaces de rede a um pool de back-end Azure Load Balancer. No passado, apenas o endereço iPv4 primário para a interface de rede primária poderia ser adicionado a um pool de back-end. Para saber mais sobre como carregar o equilíbrio de várias configurações iPv4, consulte o artigo de configurações IP [de equilíbrio de carga.](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
   - A capacidade de carregar um endereço IPv6 atribuído a uma interface de rede. Para saber mais sobre como carregar o equilíbrio para um endereço IPv6 privado, consulte o artigo de [endereços IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do saldo de carga.
@@ -136,7 +136,7 @@ Os endereços [IPv4](#ipv4) ou IPv6 privados permitem que uma máquina virtual c
 Por predefinição, os servidores Azure DHCP atribuem o endereço IPv4 privado para a [configuração ip primária](#primary) da interface de rede Azure para a interface de rede dentro do sistema operativo virtual da máquina. A menos que seja necessário, nunca deve definir manualmente o endereço IP de uma interface de rede dentro do sistema operativo da máquina virtual.
 
 > [!WARNING]
-> Se o endereço IPv4 definido como o endereço IP primário de uma interface de rede dentro do sistema operativo de uma máquina virtual for sempre diferente do endereço IPv4 privado atribuído à configuração ip primária da interface de rede primária anexada a uma máquina virtual dentro do Azure, perde-se a conectividade com a máquina virtual.
+> Se o endereço IPv4 definido como o endereço IP primário de uma interface de rede dentro do sistema operativo de uma máquina virtual for sempre diferente do endereço IPv4 privado atribuído à configuração ip primária da interface de rede primária anexada a uma máquina virtual dentro do Azure, perde conectividade com a máquina virtual.
 
 Existem cenários em que é necessário definir manualmente o endereço IP de uma interface de rede dentro do sistema operativo da máquina virtual. Por exemplo, deve definir manualmente os endereços IP primários e secundários de um sistema operativo Windows ao adicionar vários endereços IP a uma máquina virtual Azure. Para uma máquina virtual Linux, só poderá ser necessário definir manualmente os endereços IP secundários. Consulte adicionar [endereços IP a um sistema operativo VM](virtual-network-multiple-ip-addresses-portal.md#os-config) para obter mais detalhes. Se alguma vez precisar de alterar o endereço atribuído a uma configuração IP, recomenda-se que:
 

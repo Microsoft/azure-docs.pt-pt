@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 2c2d50da4328ff07c3d2fda4a8721839aa3aa6e7
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274060"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(DEPRECIADO) Executar aplicações em Kubernetes

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use O Cofre de Chaves Azure com uma aplicação web Azure em .NET  Microsoft Docs
+title: Tutorial - Use O Cofre de Chaves Azure com uma aplicação web Azure em .NET [ Microsoft Docs
 description: Neste tutorial, configura uma aplicação ASP.NET central para ler um segredo do seu cofre chave.
 services: key-vault
 author: msmbaldwin
@@ -11,10 +11,10 @@ ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
 ms.openlocfilehash: e636ab843a9801097bf770ca12c9d1e512750c91
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78198121"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Use o Cofre chave Azure com uma aplicação web Azure em .NET
@@ -65,7 +65,7 @@ Para iniciar sessão no Azure com a CLI do Azure, introduza:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -128,7 +128,7 @@ Também pode ver este vídeo:
 
 ## <a name="open-and-edit-the-solution"></a>Abrir e editar a solução
 
-1. Vá ao arquivo **de** páginas > **About.cshtml.cs.**
+1. Vá ao arquivo **de páginas** > **About.cshtml.cs.**
 
 1. Instale estes pacotes NuGet:
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
@@ -206,10 +206,10 @@ No Azure CLI, para criar a identidade para esta aplicação, executar o comando 
 az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
 ```
 
-Substitua \<YourAppName> com o nome da aplicação publicada no Azure.  
-    Por exemplo, se o nome da sua aplicação publicada foi **MyAwesomeapp.azurewebsites.net**, substitua \<YourAppName> por **MyAwesomeapp**.
+Substitua \<o Nome do Seu Nome de Aplicação> com o nome da aplicação publicada no Azure.  
+    Por exemplo, se o **MyAwesomeapp.azurewebsites.net**nome da \<sua aplicação publicada foi MyAwesomeapp.azurewebsites.net , substitua o seu nome de> por **MyAwesomeapp**.
 
-Tome nota do `PrincipalId` quando publicar a aplicação ao Azure. A saída do comando na etapa 1 deve estar no seguinte formato:
+Tome nota `PrincipalId` da publicação da aplicação no Azure. A saída do comando na etapa 1 deve estar no seguinte formato:
 
 ```json
 {
@@ -224,7 +224,7 @@ Tome nota do `PrincipalId` quando publicar a aplicação ao Azure. A saída do c
 
 ## <a name="assign-permissions-to-your-app"></a>Atribuir permissões à sua aplicação
 
-Substitua \<YourKeyVaultName> com o nome do seu cofre chave, e substitua \<PrincipalId> pelo valor do **Principado** no seguinte comando:
+Substitua \<o Seu Nome-> do YourKeyVaultName com o nome do seu cofre chave e substitua \<o DirectorId> pelo valor do **DirectorId** no seguinte comando:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
@@ -237,7 +237,7 @@ Este comando dá a identidade (MSI) do serviço de aplicações para **obter** e
 Publique a sua aplicação web no Azure mais uma vez para verificar se a sua aplicação ao vivo pode obter o valor secreto.
 
 1. No Visual Studio, selecione o projeto **key-vault-dotnet-core-quickstart**.
-2. Selecione **Publicar** > **Iniciar**.
+2. **Selecione Publicar** > **Iniciar**.
 3. Selecione **Criar**.
 
 Quando executar a aplicação, deve ver que pode recuperar o seu valor secreto.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239820"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
@@ -42,15 +42,15 @@ Neste cenário, temos várias tabelas na Base de Dados SQL do Azure que queremos
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
 * O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela na lista, copie a tabela específica na Base de Dados SQL do Azure para a tabela correspondente no SQL Data Warehouse, utilizando [cópia faseada através do Armazenamento de blobs e do PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para um melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
-* **Conta de Armazenamento do Azure**. A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
-* **Base de Dados SQL do Azure**. Esta base de dados contém os dados de origem. 
+* **Azure PowerShell.** Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
+* **Conta de Armazenamento Azure.** A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
+* **Base de Dados Azure SQL**. Esta base de dados contém os dados de origem. 
 * **Azure SQL Data Warehouse**. Este armazém de dados contém os dados copiados da Base de Dados SQL. 
 
 ### <a name="prepare-sql-database-and-sql-data-warehouse"></a>Preparar a Base de Dados SQL e o SQL Data Warehouse
@@ -75,7 +75,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Inicie o **Azure PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
+1. Lançamento **PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
 
     Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
         
@@ -87,7 +87,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
     ```powershell
     Get-AzSubscription
     ```
-    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **SubscriptionId** pelo ID da sua subscrição do Azure:
+    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -573,7 +573,7 @@ Este pipeline executa dois passos:
 
 3. Ligue ao Azure SQL Data Warehouse de sink e confirme se os dados foram copiados corretamente da Base de Dados SQL do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]
@@ -586,4 +586,4 @@ Neste tutorial, executou os passos seguintes:
 
 Avance para o tutorial seguinte para saber como copiar dados de forma incremental de uma origem para um destino:
 > [!div class="nextstepaction"]
->[Copiar dados incrementalmente](tutorial-incremental-copy-powershell.md)
+>[Copiar dados de forma incremental](tutorial-incremental-copy-powershell.md)

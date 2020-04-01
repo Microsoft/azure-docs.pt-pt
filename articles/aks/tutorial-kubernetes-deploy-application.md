@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77593279"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicações no Serviço Kubernetes do Azure (AKS)
@@ -31,19 +31,19 @@ Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contento
 
 Para concluir este tutorial, precisa do ficheiro de manifesto previamente criado do Kubernetes `azure-vote-all-in-one-redis.yaml`. Este ficheiro foi transferido com o código de origem da aplicação num tutorial anterior. Verifique se clonou o repo, e que mudou os diretórios para o repo clonado. Se ainda não fez estes passos, e gostaria de seguir em frente, comece com [tutorial 1 – Criar imagens][aks-tutorial-prepare-app]de contentores .
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="update-the-manifest-file"></a>Atualizar o ficheiro de manifesto
 
 Nestes tutoriais, uma instância do Azure Container Registry (ACR) armazena a imagem de contentor no exemplo de aplicação. Para implementar a aplicação, tem de atualizar o nome da imagem no ficheiro de manifesto do Kubernetes para incluir o nome de servidor de início de sessão do ACR.
 
-Obtenha o nome do servidor de login ACR utilizando o comando da [lista az acr][az-acr-list] da seguinte forma:
+Obtenha o nome do servidor de início de sessão ACR com o comando [az acr list][az-acr-list], da seguinte forma:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutorial utiliza o nome do servidor de início de sessão da *microsoft*. Certifique-se de que está no diretório de *aplicações-redis* de voto em azure clonado e, em seguida, abra o ficheiro manifesto com um editor de texto, como `vi`:
+O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutorial utiliza o nome do servidor de início de sessão da *microsoft*. Certifique-se de que está no diretório de *aplicações-redis* de voto em azure clonado `vi`e, em seguida, abra o ficheiro manifesto com um editor de texto, tais como:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
@@ -65,11 +65,11 @@ containers:
   image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Guarde e feche o ficheiro. Em `vi`, use `:wq`.
+Guarde e feche o ficheiro. Dentro, `vi` `:wq`use.
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 
-Para implementar a sua aplicação, utilize o comando de [aplicação kubectl.][kubectl-apply] Este comando analisa o ficheiro de manifesto e cria os objetos de Kubernetes definidos. Especifique o ficheiro de manifesto de exemplo, conforme mostrado no exemplo a seguir:
+Para implementar a sua aplicação, utilize o comando [kubectl apply][kubectl-apply]. Este comando analisa o ficheiro de manifesto e cria os objetos de Kubernetes definidos. Especifique o ficheiro de manifesto de exemplo, conforme mostrado no exemplo a seguir:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -102,7 +102,7 @@ Inicialmente, o *IP EXTERNO* para o serviço de frente para voto *sinuoso* é ap
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
-Quando o endereço *EXTERNO-IP* passar de *pendente* para um endereço IP público real, utilize `CTRL-C` para parar o processo de observação `kubectl`. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *EXTERNO-IP* passar de *pendente* para `CTRL-C` um `kubectl` endereço IP público real, utilize para parar o processo de observação. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s

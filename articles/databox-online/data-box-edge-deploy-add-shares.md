@@ -1,5 +1,5 @@
 ---
-title: Tutorial para transferir dados para partilhas com A Borda da Caixa de Dados do Azure  Microsoft Docs
+title: Tutorial para transferir dados para partilhas com A Borda da Caixa de Dados do Azure [ Microsoft Docs
 description: Saiba como adicionar e ligar a partilhas no dispositivo Data Box Edge.
 services: databox
 author: alkohli
@@ -10,10 +10,10 @@ ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79212951"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferir dados com borda de caixa de dados Azure
@@ -116,7 +116,7 @@ No seu cliente Do Windows Server ligado ao seu dispositivo Data Box Edge, ligue-
 
 3. No seu teclado, selecione Windows + R.
 
-4. Na janela **Correr,** especifique o `\\<device IP address>`, e, em seguida, selecione **OK**.  
+4. Na janela **Correr,** `\\<device IP address>`especifique o , e, em seguida, selecione **OK**.  
    O Explorador de Ficheiros abre. Agora deve poder ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para visualizar o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/data-box-edge-deploy-add-shares/connect-to-share2.png)
@@ -138,7 +138,7 @@ No seu cliente Linux ligado ao seu dispositivo Data Box Edge, faça o seguinte p
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
-    > A utilização da opção `sync` ao montar ações melhora as taxas de transferência de ficheiros grandes.
+    > A `sync` utilização da opção ao montar ações melhora as taxas de transferência de ficheiros grandes.
     > Antes de montar a parte, certifique-se de que os diretórios que funcionarão como pontos de montagem no seu computador local já estão criados. Estes diretórios não devem conter ficheiros ou subpastas.
 
     O exemplo seguinte mostra como ligar através de NFS a uma partilha no dispositivo Data Box Edge. O IP do dispositivo é `10.10.10.60`. A partilha `mylinuxshare2` é montada no ubuntuVM. O ponto de montagem da partilha é `/home/databoxubuntuhost/edge`.
@@ -150,7 +150,7 @@ No seu cliente Linux ligado ao seu dispositivo Data Box Edge, faça o seguinte p
 > - Depois de um ficheiro ser criado na parte, a renomeação do ficheiro não é suportada. 
 > - A eliminação de um ficheiro de uma ação não elimina a entrada na conta de armazenamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre os seguintes tópicos data Box Edge:
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.openlocfilehash: 61cda5e61d14c4eeaf2d88483603707598b1c911
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79202241"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>Tutorial: Criar um portal NAT utilizando o Azure PowerShell e testar o serviço NAT
@@ -33,7 +33,7 @@ Pode completar este tutorial utilizando a Azure Cloud Shell ou executar os respe
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -460,13 +460,13 @@ Está pronto para testar o serviço NAT.
 
 Enquanto entra no VM de origem, pode usar **caracol** e **hey** para gerar pedidos para o endereço IP de destino.
 
-Use caracóis para recuperar o ficheiro 100-KBytes.  Substitua **\<ip-address-destination>** no exemplo abaixo com o endereço IP de destino que copiou anteriormente.  O parâmetro **de saída** indica que o ficheiro recuperado será descartado.
+Use caracóis para recuperar o ficheiro 100-KBytes.  Substitua>** \<de destino ip-endereço** no exemplo abaixo com o endereço IP de destino que copiou anteriormente.  O parâmetro **de saída** indica que o ficheiro recuperado será descartado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Também pode gerar uma série de pedidos usando **hey**. Mais uma vez, substitua **\<ip-address-destination>** com o endereço IP de destino que copiou anteriormente.
+Também pode gerar uma série de pedidos usando **hey**. Mais uma vez, substitua ** \<>de destino ip-address** com o endereço IP de destino que copiou anteriormente.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

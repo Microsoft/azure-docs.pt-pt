@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "61450587"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
@@ -28,7 +28,7 @@ Neste tutorial:
 > * Clonar um modelo de dispositivo
 > * Eliminar um modelo de dispositivo
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,11 +60,11 @@ Neste tutorial, vai criar um frigorífico simulado que envia dados de temperatur
 
 Preencha o formulário com as informações seguintes:
 
-| Definição             | Value                                                |
+| Definição             | Valor                                                |
 | ------------------- | ---------------------------------------------------- |
 | Nome do modelo de dispositivo   | Frigorífico                                         |
 | Descrição do modelo   | Frigorífico com sensores de temperatura e humidade |
-| Version             | 1.0                                                  |
+| Versão             | 1.0                                                  |
 
 > [!NOTE]
 > O nome do modelo de dispositivo tem de ser exclusivo.
@@ -96,7 +96,7 @@ Pode eliminar qualquer modelo de dispositivo personalizado. Para eliminar um mod
 
 ![Eliminar modelo de dispositivo](media/iot-accelerators-device-simulation-create-custom-device/deletedevice.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar, clonar e eliminar modelos de dispositivos personalizados. Para obter mais informações sobre os modelos de dispositivos, veja o artigo de instruções abaixo:
 

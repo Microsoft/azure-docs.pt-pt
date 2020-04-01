@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Zscaler ZSCloud.
+title: 'Tutorial: Integração do Diretório Ativo Azure com zscaler ZSCloud [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,301 +16,301 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68723065"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Diretório Ativo Azure com zscaler ZSCloud
 
-Neste tutorial, você aprenderá a integrar o Zscaler ZSCloud ao Azure Active Directory (Azure AD).
-A integração do Zscaler ZSCloud ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Zscaler ZSCloud com o Azure Ative Directory (Azure AD).
+Integrar zscaler ZSCloud com Azure AD proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Zscaler ZSCloud.
-* Você pode permitir que seus usuários façam logon automaticamente no Zscaler ZSCloud (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Pode controlar em Azure AD quem tem acesso ao Zscaler ZSCloud.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Zscaler ZSCloud (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Zscaler ZSCloud, você precisa dos seguintes itens:
+Para configurar a integração da AD Azure com o Zscaler ZSCloud, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura habilitada para logon único do Zscaler ZSCloud
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura de sinal único Zscaler ZSCloud
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Zscaler ZSCloud dá suporte ao SSO iniciado por **SP**
+* Zscaler ZSCloud suporta **SP** iniciado SSO
 
-* O Zscaler ZSCloud dá suporte ao provisionamento **de usuário just in time**
+* Zscaler ZSCloud suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Adicionando o Zscaler ZSCloud da Galeria
+## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Adicionando Zscaler ZSCloud da galeria
 
-Para configurar a integração do Zscaler ZSCloud ao Azure AD, você precisará adicionar o Zscaler ZSCloud da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Zscaler ZSCloud em Azure AD, precisa adicionar Zscaler ZSCloud da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar o Zscaler ZSCloud da galeria, execute as seguintes etapas:**
+**Para adicionar Zscaler ZSCloud da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Zscaler ZSCloud**, selecione **Zscaler ZSCloud** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, **escreva Zscaler ZSCloud,** selecione **Zscaler ZSCloud** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![Zscaler ZSCloud na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Zscaler ZSCloud, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zscaler ZSCloud.
+Nesta secção, configura e testa o único sign-on azure ad com zscaler ZSCloud com base num utilizador de teste chamado **Britta Simon**.
+Para um único início de sessão funcionar, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Zscaler ZSCloud.
 
-Para configurar e testar o logon único do Azure AD com o Zscaler ZSCloud, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com zscaler ZSCloud, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Zscaler ZSCloud](#configure-zscaler-zscloud-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do Zscaler ZSCloud](#create-zscaler-zscloud-test-user)** – para ter um equivalente de Brenda Simon no Zscaler ZSCloud que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o SumO De Entrada Única Zscaler ZSCloud](#configure-zscaler-zscloud-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. Crie o utilizador de **[teste Zscaler ZSCloud](#create-zscaler-zscloud-test-user)** - para ter uma contrapartida da Britta Simon no Zscaler ZSCloud que está ligada à representação do utilizador da AD Azure.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o Zscaler ZSCloud, execute as seguintes etapas:
+Para configurar o único sign-on azure ad com zscaler ZSCloud, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zscaler ZSCloud** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Zscaler ZSCloud,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Informações de logon único de domínio e URLs do Zscaler ZSCloud](common/sp-signonurl.png)
+    ![Zscaler ZSCloud Domain e URLs informações únicas de inscrição](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de logon** , digite a URL usada pelos usuários para fazer logon no aplicativo ZScaler ZSCloud.
+    Na caixa de texto **smS Do URL Sign-on,** escreva o URL utilizado pelos seus utilizadores para iniciar sessão na sua aplicação ZScaler ZSCloud.
 
     > [!NOTE]
-    > Você precisa atualizar o valor com a URL de logon real. Contate a [equipe de suporte ao cliente do Zscaler ZSCloud](https://help.zscaler.com/) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Tem de atualizar o valor com o URL de Inscrição real. Contacte a equipa de suporte ao [Cliente Zscaler ZSCloud](https://help.zscaler.com/) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Seu aplicativo Zscaler ZSCloud espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo **atributos de usuário** .
+5. A sua aplicação Zscaler ZSCloud espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique no ícone **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. Além de acima, o aplicativo Zscaler ZSCloud espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+6. Além de acima, a aplicação Zscaler ZSCloud espera que poucos atributos sejam retransmitidos na resposta SAML. Na secção **Reivindicações** do Utilizador no diálogo **de Atributos** do Utilizador, execute os seguintes passos para adicionar atributo token SAML, conforme indicado no quadro abaixo:
     
-    | Nome | Atributo de origem |
+    | Nome | Atributo fonte |
     | ---------| ------------ |
-    | memberOf     | User. assignedroles |
+    | membroOf     | user.atribuídos |
 
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
+    a. Clique **Em adicionar nova alegação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
+    b. Na caixa de texto **Name,** digite o nome do atributo mostrado para essa linha.
 
-    c. Deixe o **namespace** em branco.
+    c. Deixe o espaço de **nome em** branco.
 
-    d. Selecione origem como **atributo**.
+    d. Selecione Origem como **Atributo**.
 
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
+    e. Na lista de **atributos Fonte,** digite o valor do atributo mostrado para essa linha.
     
     f. Clique em **Guardar**.
 
     > [!NOTE]
-    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber como configurar a função no Azure AD
+    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber como configurar o papel em Azure AD
 
-7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
+7. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-8. Na seção **Configurar Zscaler ZSCloud** , copie as URLs apropriadas de acordo com seu requisito.
+8. Na secção **'Configurar ZScaler ZSCloud',** copie os URL(s) adequados de acordo com o seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de logon
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de logout
+    c. Logout URL
 
-### <a name="configure-zscaler-zscloud-single-sign-on"></a>Configurar o logon único do Zscaler ZSCloud
+### <a name="configure-zscaler-zscloud-single-sign-on"></a>Configure Zscaler ZSCloud Single Sign-On
 
-1. Para automatizar a configuração no Zscaler ZSCloud, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
+1. Para automatizar a configuração dentro do Zscaler ZSCloud, precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-2. Depois de adicionar a extensão ao navegador, clique em **Configurar Zscaler ZSCloud** irá direcioná-lo para o aplicativo Zscaler ZSCloud. A partir daí, forneça as credenciais de administrador para entrar no Zscaler ZSCloud. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-6.
+2. Depois de adicionar extensão ao navegador, clique em **Configurar Zscaler ZSCloud** irá direcioná-lo para a aplicação Zscaler ZSCloud. A partir daí, forneça as credenciais de administração para assinar no Zscaler ZSCloud. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
 
-    ![Configurar SSO](common/setup-sso.png)
+    ![Configuração soo](common/setup-sso.png)
 
-3. Se você quiser configurar o Zscaler ZSCloud manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do Zscaler ZSCloud como administrador e execute as seguintes etapas:
+3. Se pretender configurar o Zscaler ZSCloud manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa Zscaler ZSCloud como administrador e execute os seguintes passos:
 
-4. Acesse **administração > autenticação > configurações de autenticação** e execute as seguintes etapas:
+4. Vá à **Administração > Autenticação > Definições** de Autenticação e execute os seguintes passos:
    
-    ![Administrar](./media/zscaler-zscloud-tutorial/ic800206.png "Administração")
+    ![Administration](./media/zscaler-zscloud-tutorial/ic800206.png "Administração")
 
-    a. Em tipo de autenticação, escolha **SAML**.
+    a. No tipo de autenticação, escolha **SAML**.
 
-    b. Clique em **Configurar SAML**.
+    b. Clique **em Configurar SAML**.
 
-5. Na janela **Editar SAML** , execute as seguintes etapas: e clique em salvar.  
+5. Na janela **Edit SAML,** execute os seguintes passos: e clique em Guardar.  
             
-    ![Gerenciar usuários & autenticação](./media/zscaler-zscloud-tutorial/ic800208.png "Gerenciar usuários & autenticação")
+    ![Gerir utilizadores & autenticação](./media/zscaler-zscloud-tutorial/ic800208.png "Gerir utilizadores & autenticação")
     
-    a. Na caixa de texto **URL do portal do SAML** , Cole a URL de **logon** que você copiou de portal do Azure.
+    a. Na caixa de texto URL do **Portal SAML,** colá o URL de **login** que copiou do portal Azure.
 
-    b. Na caixa de texto **atributo de nome de logon** , digite **NameID**.
+    b. Na caixa de texto 'Atribuição de **Nome de login',** introduza **o NameID**.
 
-    c. Clique em **carregar**para carregar o certificado de autenticação SAML do Azure que você baixou de portal do Azure no **certificado SSL público**.
+    c. Clique no **Upload**, para fazer upload do certificado de assinatura Azure SAML que descarregou do portal Azure no **Certificado SSL Público**.
 
-    d. Ativar/desativar o **provisionamento automático do SAML**.
+    d. Alternar o **fornecimento automático Enable SAML**.
 
-    e. Na caixa de texto **atributo de nome de exibição do usuário** , digite **DisplayName** se desejar habilitar o provisionamento automático do SAML para atributos DisplayName.
+    e. Na caixa de texto do nome do **utilizador,** introduza o nome do **ecrã** se pretender ativar o fornecimento automático de SAML para atributos displayName.
 
-    f. Na caixa de texto **atributo de nome do grupo** , digite **memberOf** se desejar habilitar o provisionamento automático do SAML para atributos memberOf.
+    f. Na caixa de texto de atribuição de nome de **grupo,** introduza **o membroSe** se pretender ativar o fornecimento automático sAML para membros De atributos.
 
-    g. No **atributo nome do departamento** , insira **Departamento** se você quiser habilitar o provisionamento automático do SAML para atributos de departamento.
+    g. No **departamento** de atribuição de nome de **departamento,** se pretender ativar o fornecimento automático de SAML para atributos do departamento.
 
     h. Clique em **Guardar**.
 
-6. Na página da caixa de diálogo **configurar autenticação de usuário** , execute as seguintes etapas:
+6. Na página de diálogo de autenticação do **utilizador Configurar,** execute os seguintes passos:
 
     ![Administração](./media/zscaler-zscloud-tutorial/ic800207.png)
 
-    a. Passe o mouse sobre o menu de **ativação** próximo à parte inferior esquerda.
+    a. Paire sobre o menu **de ativação** perto do canto inferior esquerdo.
 
     b. Clique em **Ativar**.
 
-## <a name="configuring-proxy-settings"></a>Definindo as configurações de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir as configurações de proxy no Internet Explorer
+## <a name="configuring-proxy-settings"></a>Definir configurações de proxy
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para configurar as definições de procuração no Internet Explorer
 
-1. Inicie o **Internet Explorer**.
+1. Inicie **o Internet Explorer**.
 
-2. Selecione **Opções da Internet** no menu **ferramentas** para abrir a caixa de diálogo **Opções da Internet** .   
+2. Selecione **opções** de Internet a partir do menu **Ferramentas** para abrir o diálogo internet **Options.**   
     
-     ![Opções da Internet](./media/zscaler-zscloud-tutorial/ic769492.png "Opções da Internet")
+     ![Opções de Internet](./media/zscaler-zscloud-tutorial/ic769492.png "Opções de Internet")
 
-3. Clique na guia **conexões** .   
+3. Clique no separador **Ligações.**   
   
      ![Ligações](./media/zscaler-zscloud-tutorial/ic769493.png "Ligações")
 
-4. Clique em **configurações de LAN** para abrir a caixa de diálogo Configurações de **LAN** .
+4. Clique nas **definições lan** para abrir o diálogo lan **Definições.**
 
-5. Na seção servidor proxy, execute as seguintes etapas:   
+5. Na secção proxy do servidor, execute os seguintes passos:   
    
     ![Servidor proxy](./media/zscaler-zscloud-tutorial/ic769494.png "Servidor proxy")
 
-    a. Selecione **usar um servidor proxy para sua LAN**.
+    a. Selecione **Utilize um servidor proxy para o seu LAN**.
 
-    b. Na caixa de texto endereço, digite **Gateway. Zscaler ZSCloud.net**.
+    b. Na caixa de texto 'Endereço', digite **o gateway. Zscaler ZSCloud.net.**
 
-    c. Na caixa de texto porta, digite **80**.
+    c. Na caixa de texto portuário, tipo **80**.
 
-    d. Selecione **ignorar servidor proxy para endereços locais**.
+    d. Selecione **servidor de procuração bypass para endereços locais**.
 
-    e. Clique em **OK** para fechar a caixa de diálogo **configurações de rede local (LAN)** .
+    e. Clique **em OK** para fechar o diálogo de **definições da Rede local (LAN).**
 
-6. Clique em **OK** para fechar a caixa de diálogo **Opções da Internet** .
+6. Clique **em OK** para fechar o diálogo das Opções de **Internet.**
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. No campo **nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Zscaler ZSCloud.
+Nesta secção, permite que a Britta Simon utilize um único sign-on Azure, concedendo acesso ao Zscaler ZSCloud.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Zscaler ZSCloud**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Zscaler ZSCloud**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Zscaler ZSCloud**.
+2. Na lista de aplicações, selecione **Zscaler ZSCloud**.
 
-    ![O link Zscaler ZSCloud na lista de aplicativos](common/all-applications.png)
+    ![O link Zscaler ZSCloud na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione o usuário como **Brenda Simon** na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. No diálogo **Utilizadores e grupos,** selecione o utilizador como **Britta Simon** da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-    ![imagem](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
 
-6. Na caixa de diálogo **selecionar função** , escolha a função de usuário apropriada na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. A partir do diálogo **Select Role,** escolha a função de utilizador apropriada na lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-    ![imagem](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
 
-7. Na caixa de diálogo **Adicionar atribuição** , selecione o botão **atribuir** .
+7. No diálogo **adicionar atribuição,** selecione o botão **Atribuir.**
 
-    ![imagem](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
 
     >[!NOTE]
-    >A função de acesso padrão não tem suporte, pois isso interromperá o provisionamento, portanto, a função padrão não pode ser selecionada ao atribuir o usuário.
+    >A função de acesso predefinido não é suportada, uma vez que esta irá quebrar o fornecimento, pelo que a função predefinida não pode ser selecionada durante a atribuição do utilizador.
 
-### <a name="create-zscaler-zscloud-test-user"></a>Criar usuário de teste do Zscaler ZSCloud
+### <a name="create-zscaler-zscloud-test-user"></a>Criar o utilizador de teste Zscaler ZSCloud
 
-Nesta seção, um usuário chamado Brenda Simon é criado em Zscaler ZSCloud. O Zscaler ZSCloud dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no Zscaler ZSCloud, um novo será criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado no Zscaler ZSCloud. O Zscaler ZSCloud suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador ainda não existir no Zscaler ZSCloud, um novo é criado após a autenticação.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Zscaler ZSCloud](https://help.zscaler.com/).
+>Se precisar de criar um utilizador manualmente, contacte a equipa de [suporte Zscaler ZSCloud](https://help.zscaler.com/).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco Zscaler ZSCloud no painel de acesso, você deverá ser conectado automaticamente ao Zscaler ZSCloud para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Zscaler ZSCloud no Painel de Acesso, deve ser automaticamente inscrito no Zscaler ZSCloud para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

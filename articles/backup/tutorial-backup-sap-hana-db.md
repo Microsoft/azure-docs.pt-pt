@@ -3,12 +3,12 @@ title: Tutorial - Back up Bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução em Azure VM para um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 435668dedc7efa33fd5fbfeea8671f05d070a385
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238777"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501447"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Back up Bases de dados SAP HANA em um VM Azure
 
@@ -98,10 +98,14 @@ Executar o script de pré-registo executa as seguintes funções:
 * Realiza verificações de conectividade de rede de saída com servidores de backup Azure e serviços dependentes como o Azure Ative Directory e o Azure Storage.
 * Inicia sessão no seu sistema HANA utilizando a chave do utilizador listada como parte dos [pré-requisitos](#prerequisites). A chave do utilizador é utilizada para criar um utilizador de backup (AZUREWLBACKUPHANAUSER) no sistema HANA e a chave do utilizador pode ser eliminada após o script de pré-registo ser executado com sucesso.
 * É atribuído ao AZUREWLBACKUPHANAUSERESTAS Estas funções e permissões necessárias:
-  * BASE DE DADOS ADMIN: criar novas bases de dados durante a restauração.
+  * BASE DE DADOS ADMIN (no caso de MDC) e BACKUP ADMIN (no caso de SDC): criar novas bases de dados durante a restauração.
   * CATÁLOGO LEIA: para ler o catálogo de cópias de segurança.
   * SAP_INTERNAL_HANA_SUPPORT: aceder a algumas mesas privadas.
-* O script adiciona uma chave para **hdbuserstore** para AZUREWLBACKUPHANAUSER PARA o plug-in HANA para lidar com todas as operações (consultas de base de dados, restaurar operações, configurar e executar backup).
+* O script adiciona uma chave para **hdbuserstore** para AZUREWLBACKUPHANAUSER PARA o plug-in de backup HANA para lidar com todas as operações (consultas de base de dados, restaurar operações, configurar e executar backup).
+
+>[!NOTE]
+> Pode passar explicitamente a chave do utilizador listada como parte dos [pré-requisitos](#prerequisites) como parâmetro para a script de pré-registo:`-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Para saber que outros parâmetros o script aceita, use o comando`bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Para confirmar a criação da chave, execute o comando HDBSQL na máquina HANA com credenciais SIDADM:
 
@@ -112,7 +116,7 @@ hdbuserstore list
 A saída de comando deve apresentar a tecla {SID}{DBNAME} com o utilizador apresentado como AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Certifique-se de que dispõe de um conjunto único de ficheiros SSFS em `/usr/sap/{SID}/home/.hdb/`. Só deve haver uma pasta neste caminho.
+> Certifique-se de que tem um conjunto `/usr/sap/{SID}/home/.hdb/`único de ficheiros SSFS em baixo . . Só deve haver uma pasta neste caminho.
 
 ## <a name="create-a-recovery-service-vault"></a>Criar um cofre de serviço de recuperação
 
@@ -146,13 +150,13 @@ Para criar um cofre dos Serviços de Recuperação:
 
 5. Selecione **Rever + Criar**.
 
-   ![Selecione Review & Create](./media/tutorial-backup-sap-hana-db/review-create.png)
+   ![Selecione rever & Criar](./media/tutorial-backup-sap-hana-db/review-create.png)
 
 O cofre dos serviços de recuperação está agora criado.
 
 ## <a name="discover-the-databases"></a>Descubra as bases de dados
 
-1. No cofre, em **Getting Started,** clique em **Backup**. Em Onde está a funcionara **sua carga de trabalho?**
+1. No cofre, em **Getting Started,** clique em **Backup**. Em Onde está a funcionar **SAP HANA in Azure VM**a **sua carga de trabalho?**
 2. Clique em **Iniciar Descoberta**. Isto inicia a descoberta de VMs linux desprotegidos na região do cofre. Verá o VM Azure que quer proteger.
 3. Em **Select Virtual Machines,** clique no link para descarregar o script que fornece permissões para o serviço de backup Azure aceder aos VMs SAP HANA para descoberta de base de dados.
 4. Execute o script na base de dados SAP HANA(s) que pretende fazer.
@@ -173,7 +177,7 @@ Agora que as bases de dados que queremos apoiar são descobertas, vamos permitir
 
    ![Selecione itens para fazer back-up](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
-3. Na **Política de Backup > Escolha**a política de backup, crie uma nova política de backup para a base de dados ou bases de dados, de acordo com as instruções na secção seguinte.
+3. Na Política de Backup > Escolha a política de **backup,** crie uma nova política de backup para a base de dados ou as bases de dados, de acordo com as instruções na secção seguinte.
 
    ![Escolha a política de backup](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 

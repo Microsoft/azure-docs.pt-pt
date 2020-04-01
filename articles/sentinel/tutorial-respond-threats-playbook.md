@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
 ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77585089"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Criar respostas de ameaça automatizadas no Azure Sentinel
@@ -70,7 +70,7 @@ Siga estes passos para criar um novo manual de segurança em Azure Sentinel:
 
 4. Na página de **aplicações Create Logic,** escreva as informações solicitadas para criar a sua nova aplicação lógica e clique em **Criar**. 
 
-5. No [**Logic App Designer,** ](../logic-apps/logic-apps-overview.md)selecione o modelo que pretende utilizar. Se selecionar um modelo que exija credenciais, terá de as fornecer. Em alternativa, pode criar um novo livro em branco do zero. Selecione **App lógica em branco**. 
+5. No [**Logic App Designer,**](../logic-apps/logic-apps-overview.md)selecione o modelo que pretende utilizar. Se selecionar um modelo que exija credenciais, terá de as fornecer. Em alternativa, pode criar um novo livro em branco do zero. Selecione **App lógica em branco**. 
 
    ![Estruturador da Aplicação Lógica](./media/tutorial-respond-threats-playbook/playbook-template.png)
 

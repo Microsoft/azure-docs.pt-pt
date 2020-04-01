@@ -4,10 +4,10 @@ description: Desloque os passos para a amostra de projeto de mídia, incluindo d
 ms.date: 02/25/2020
 ms.topic: sample
 ms.openlocfilehash: f4eb93d3e03b9a0e59a7d53304c19c371d42ea6e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78201900"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Implementar a amostra de projeto de mídia
@@ -19,7 +19,7 @@ Para implantar a amostra de projeto dos Meios de Comunicação Social, devem ser
 > - Marque a sua cópia da amostra como **Publicado**
 > - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
@@ -67,7 +67,7 @@ Uma vez que a cópia da amostra de plantas tenha sido **publicada**com sucesso, 
      - **Assinaturas**: Selecione uma ou mais das subscrições que estão no grupo de gestão para a qual guardou a sua cópia da amostra de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada utilização dos parâmetros introduzidos.
      - **Nome de atribuição**: O nome é pré-povoado para si com base no nome da planta.
        Mude conforme necessário ou saia como está.
-     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
      - Versão de **definição**de planta : Escolha uma versão **publicada** da sua cópia da amostra de plantas.
 
    - Atribuição de bloqueio
@@ -93,13 +93,13 @@ A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
 Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[pré-visualização\]: Implementar o agente de análise de registo para VMs Linux |Atribuição de política |Log Analytics espaço de trabalho para VMs Linux |Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[pré-visualização\]: Implementar o agente de análise de registo para VMs Linux |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito |Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais: `[]` |
-|\[\]de pré-visualização : Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito |Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais: `[]` |
-|\[\]de pré-visualização : Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Log Analytics espaço de trabalho para VMs do Windows |Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux |Atribuição de política |Log Analytics espaço de trabalho para VMs Linux |Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito |Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:`[]` |
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito |Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:`[]` |
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Log Analytics espaço de trabalho para VMs do Windows |Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Pré-visualização\]: Controlos de meios de auditoria e implementação de extensões vm específicas para apoiar requisitos de auditoria |Atribuição de política |Log Analytics workspace ID para que os VMs devem ser configurados para |Este é o ID (GUID) do espaço de trabalho Log Analytics para o que os VMs devem ser configurados. |
 |\[Pré-visualização\]: Controlos de meios de auditoria e implementação de extensões vm específicas para apoiar requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter registos de diagnóstico ativados |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type) |
-|\[Pré-visualização\]: Controlos de meios de auditoria e implementação de extensões vm específicas para apoiar requisitos de auditoria |Atribuição de política |Grupo de administradores |grupo. Exemplo: `Administrator; myUser1; myUser2` |
+|\[Pré-visualização\]: Controlos de meios de auditoria e implementação de extensões vm específicas para apoiar requisitos de auditoria |Atribuição de política |Grupo de administradores |Grupo, grupo. Exemplo: `Administrator; myUser1; myUser2` |
 |\[Pré-visualização\]: Controlos de meios de auditoria e implementação de extensões vm específicas para apoiar requisitos de auditoria |Atribuição de política |Lista de utilizadores que devem ser incluídos no grupo de Administradores VM do Windows |Uma lista separada do ponto-e-vírgula dos membros que deve ser incluída no grupo local administradores. Exemplo: `Administrator; myUser1; myUser2` |
 |Implementar proteção avançada de ameaças em contas de armazenamento |Atribuição de política |Efeito |Informações sobre os efeitos políticos podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
 |Implementar auditoria sql |Atribuição de política |O valor nos dias do período de retenção (0 indica retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificados) |
@@ -112,12 +112,12 @@ Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 Agora que reviu os passos para implementar a amostra de Media, visite os seguintes artigos para saber sobre a visão geral e o mapeamento de controlo:
 
 > [!div class="nextstepaction"]
-> Plantas dos meios de [comunicação - Resumo](./index.md)
-> Plantas dos Media - [Mapeamento de controlo](./control-mapping.md)
+> [Plantas dos meios de comunicação - Overview](./index.md)
+> [Media blueprints - Control mapping](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Aceitar e receber dados - Partilha de Dados do Azure'
+title: 'Tutorial: Aceitar & receber dados - Partilha de Dados do Azure'
 description: Tutorial - Aceitar e receber dados usando a Partilha de Dados do Azure
 author: joannapea
 ms.author: joanpo
@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77083101"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Partilha de Dados do Azure  
@@ -29,7 +29,7 @@ Antes de poder aceitar um convite para partilha de dados, deve fornecer uma sér
 Certifique-se de que todos os pré-requisitos estão completos antes de aceitar um convite para partilha de dados. 
 
 * Assinatura Azure: Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Um convite da Data Share: Um convite do Microsoft Azure com um tema intitulado "Convite azure Data Share de **<yourdataprovider@domain.com>** ".
+* Um convite da Data Share: Um convite do Microsoft Azure **<yourdataprovider@domain.com>** com um tema intitulado "Convite Azure Data Share de ".
 * Registe o fornecedor de [recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) na subscrição do Azure, onde irá criar um recurso Data Share e a subscrição Azure onde estão localizadas as lojas de dados Azure alvo.
 
 ### <a name="receive-data-into-a-storage-account"></a>Receba os dados numa conta de armazenamento: 
@@ -41,10 +41,10 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 ### <a name="receive-data-into-a-sql-based-source"></a>Receba dados numa fonte baseada em SQL:
 
 * Permissão para escrever para bases de dados no servidor SQL, que está presente em *Microsoft.Sql/servers/bases de dados/write*. Esta permissão existe no papel de Contribuinte. 
-* Autorização para que a identidade gerida do recurso de partilha de dados aceda à Base de Dados Azure SQL ou ao Armazém de Dados Azure SQL. Isso pode ser feito por meio das seguintes etapas: 
+* Autorização para que a identidade gerida do recurso de partilha de dados aceda à Base de Dados Azure SQL ou ao Armazém de Dados Azure SQL. Isto pode ser feito através dos seguintes passos: 
     1. Desemprete-se como o Administrador de Diretório Ativo Azure para o servidor SQL.
-    1. Conecte-se ao banco de dados SQL do Azure/data warehouse usando Azure Active Directory.
-    1. Utilize o Editor de Consulta (pré-visualização) para executar o seguinte script para adicionar a Identidade Gerida de Partilha de Dados como um 'db_datareader, db_datawriter, db_ddladmin'. Você deve se conectar usando Active Directory e não SQL Server autenticação. 
+    1. Ligue-se à Base de Dados/Armazém de Dados Azure SQL utilizando o Diretório Ativo Azure.
+    1. Utilize o Editor de Consulta (pré-visualização) para executar o seguinte script para adicionar a Identidade Gerida de Partilha de Dados como um 'db_datareader, db_datawriter, db_ddladmin'. Deve ligar-se utilizando o Diretório Ativo e não a autenticação do Servidor SQL. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -52,9 +52,9 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
         exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
         exec sp_addrolemember db_ddladmin, "<share_acc_name>";
         ```      
-        Note que o *recursos <share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso data Share, pode voltar a este pré-requisito mais tarde.         
+        Note que o *<share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso data Share, pode voltar a este pré-requisito mais tarde.         
 
-* Acesso ao servidor IP SQL do cliente. Isso pode ser feito por meio das seguintes etapas: 
+* Acesso ao servidor IP SQL do cliente. Isto pode ser feito através dos seguintes passos: 
     1. No servidor SQL no portal Azure, navegue para *Firewalls e redes virtuais*
     1. Clique no alternância **para** permitir o acesso aos Serviços Azure.
     1. Clique em **+Adicionar IP do cliente** e clique em **Guardar**. O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a receber dados num alvo SQL do portal Azure. Também pode adicionar uma gama IP. 
@@ -72,7 +72,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Convite aberto
 
-1. Verifique a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é do Microsoft Azure, intitulado **Convite azure Data Share da <yourdataprovider@domain.com>** . Tome nota do nome da partilha para garantir que está a aceitar a parte correta se houver vários convites. 
+1. Verifique a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é do Microsoft Azure, intitulado Convite de **Partilha de Dados Do Azure de <yourdataprovider@domain.com> **. Tome nota do nome da partilha para garantir que está a aceitar a parte correta se houver vários convites. 
 
 1. Selecione no **convite para** ver o seu convite em Azure. Isto leva-o à sua visão de Ações Recebidas.
 
@@ -83,7 +83,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 ## <a name="accept-invitation"></a>Aceitar convite
 1. Certifique-se de que todos os campos são revistos, incluindo os **Termos de Utilização**. Se concordar com os termos de utilização, será obrigado a verificar a caixa para indicar que concorda. 
 
-   ![Termos de utilização](./media/terms-of-use.png "Termos de utilização") 
+   ![Termos de Utilização](./media/terms-of-use.png "Termos de utilização") 
 
 1. No âmbito da Conta de Partilha de *Dados Alvo,* selecione o Grupo de Subscrição e Recursos em que irá implementar a sua Partilha de Dados. 
 
@@ -122,7 +122,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 ## <a name="trigger-a-snapshot"></a>Desencadear um instantâneo
 Estes passos aplicam-se apenas à partilha baseada em instantâneos.
 
-1. Pode desencadear uma imagem instantânea nas Ações Recebidas -> Separador de detalhes selecionando **o snapshot do Trigger**. Aqui, pode desencadear uma imagem completa ou incremental dos seus dados. Se for a primeira vez que recebe dados do seu fornecedor de dados, selecione cópia completa. 
+1. Pode ativar uma imagem no separador "Detalhes > > Ações recebidas selecionando o **instantâneo do Gatilho**. Aqui, pode desencadear uma imagem completa ou incremental dos seus dados. Se for a primeira vez que recebe dados do seu fornecedor de dados, selecione cópia completa. 
 
    ![Instantâneo do gatilho](./media/trigger-snapshot.png "Instantâneo do gatilho") 
 
@@ -131,7 +131,7 @@ Estes passos aplicam-se apenas à partilha baseada em instantâneos.
    ![Conjuntos de dados dos consumidores](./media/consumer-datasets.png "Mapeamento de conjunto de dados de consumo") 
 
 ## <a name="view-history"></a>Ver histórico
-Para ver um histórico das suas fotos, navegue para As Ações Recebidas -> História. Aqui encontrará um histórico de todos os instantâneos que foram gerados nos últimos 60 dias. 
+Para ver um histórico das suas fotos, navegue para As Ações Recebidas - história >. Aqui encontrará um histórico de todos os instantâneos que foram gerados nos últimos 60 dias. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a aceitar e a receber uma Partilha de Dados Azure. Para saber mais sobre os conceitos de Partilha de Dados do Azure, continue a [conceitos: Azure Data Share Terminology](terminology.md).

@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.openlocfilehash: 3e0c86fdf97ec2882858a0a92e22e020001816cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79218330"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exemplo de script de CLI do Azure: Balancear carga de VMs por zonas de disponibilidade
@@ -167,7 +167,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Cria uma rede e sub-rede virtual do Azure. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-create) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az-network-lb-create) | Cria um balanceador de carga do Azure. |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az-network-lb-probe-create) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga serve para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
+| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az-network-lb-probe-create) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga é utilizada para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
 | [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az-network-lb-rule-create) | Cria uma regra de balanceador de carga. Neste exemplo, é criada uma regra para a porta 80. À medida que o tráfego HTTP chega ao balanceador de carga, é encaminhado para a porta 80 das VMs incluídas num conjunto de balanceadores de carga. |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) | Cria uma regra de Tradução de Endereços de Rede (NAT) do balanceador de carga.  As regras NAT mapeiam uma porta do balanceador de carga para uma porta numa VM. Neste exemplo, é criada uma regra NAT para o tráfego SSH para cada VM no conjunto de balanceadores de carga.  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az-network-nsg-create) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |

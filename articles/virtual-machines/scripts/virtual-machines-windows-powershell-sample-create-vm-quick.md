@@ -16,10 +16,10 @@ ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: c21c9a78e2f56cc771178043bbf1e6e397370945
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74038937"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Criar uma máquina virtual com o PowerShell

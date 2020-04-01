@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Rightscale | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Rightscale.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Rightscale [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Rightscale.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,215 +16,215 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 53799b62da043b7680f010e1eaaf0d9243f07dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093063"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Active Directory do Azure com Rightscale
+# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Diretório Ativo Azure com A Rightscale
 
-Neste tutorial, saiba como integrar Rightscale com o Azure Active Directory (Azure AD).
-Integrar Rightscale no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar a Rightscale com o Azure Ative Directory (Azure AD).
+Integrar a Rightscale com a Azure AD proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Rightscale.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Rightscale (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Você pode controlar em Azure AD que tem acesso à Rightscale.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Rightscale (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Rightscale, terá dos seguintes itens:
+Para configurar a integração da AD Azure com a Rightscale, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* Rightscale logon único habilitado subscrição
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura ativada por sinal único à escala direita
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta Rightscale **SP e IDP** iniciada SSO
+* Rightscale suporta **SP e IDP** iniciadoS SSO
 
-## <a name="adding-rightscale-from-the-gallery"></a>Adicionando Rightscale da Galeria
+## <a name="adding-rightscale-from-the-gallery"></a>Adicionando a escala de direita da galeria
 
-Para configurar a integração do Rightscale com o Azure AD, terá de adicionar Rightscale a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração da Rightscale em Azure AD, precisa de adicionar rightscale da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar Rightscale a partir da galeria, execute os seguintes passos:**
+**Para adicionar a Rightscale da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Rightscale**, selecione **Rightscale** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **a rightscale**, selecione **Rightscale** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
-     ![Rightscale na lista de resultados](common/search-new-app.png)
+     ![Escala de direito na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Rightscale com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Rightscale deve ser estabelecido.
+Nesta secção, configura e testa o único sign-on azure ad com a Rightscale com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Rightscale.
 
-Para configurar e testar o Azure AD início de sessão único com Rightscale, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com a Rightscale, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Rightscale Single Sign-On](#configure-rightscale-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Rightscale](#create-rightscale-test-user)**  - para ter um equivalente da Eduarda Almeida na Rightscale que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o sign-on single de escala direita](#configure-rightscale-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie o utilizador](#create-rightscale-test-user)** de teste de rightscale - para ter uma contrapartida de Britta Simon em Rightscale que esteja ligada à representação do utilizador da AD Azure.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com Rightscale, execute os seguintes passos:
+Para configurar o único sinal de Azure AD com a Rightscale, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Rightscale** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **rightscale,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, o utilizador não tem de realizar qualquer passo como a aplicação já está pré-integrada com o Azure.
+4. Na secção **Basic SAML Configuration,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
 
-    ![Domínio de Rightscale e URLs únicas início de sessão em informações](common/preintegrated.png)
+    ![Domínio de direita e URLs informações únicas de inscrição](common/preintegrated.png)
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+5. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    ![Domínio de Rightscale e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
+    ![Domínio de direita e URLs informações únicas de inscrição](common/metadata-upload-additional-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva o URL:  `https://login.rightscale.com/`
+    Na caixa de texto **de URL sign-on,** escreva o URL:`https://login.rightscale.com/`
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+6. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-7. Sobre o **configurar Rightscale** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Na secção **Configurar a escala direita,** copie os URL(s) adequados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-rightscale-single-sign-on"></a>Configurar Rightscale Single Sign-On
+### <a name="configure-rightscale-single-sign-on"></a>Configure o sinal único de escala direita
 
-1. Para obter SSO configurado para a sua aplicação, terá de iniciar sessão com o seu inquilino RightScale como administrador.
+1. Para configurar o SSO para a sua candidatura, precisa de se inscrever no seu inquilino rightscale como administrador.
 
-2. No menu na parte superior, clique nas **configurações** separador e selecione **Single Sign-On**.
+2. No menu em cima, clique no separador **Definições** e selecione **Single Sign-On**.
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
-3. Clique nas **novos** botão para adicionar **seus fornecedores de identidade de SAML**.
+3. Clique no **novo** botão para adicionar os seus Fornecedores de **Identidade SAML**.
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
-4. Na caixa de texto de **nome a apresentar**, introduza o nome da sua empresa.
+4. Na caixa de texto do **Display Name,** insera o nome da sua empresa.
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
-5. Selecione **SSO iniciado por permitir RightScale utilizando uma sugestão de deteção** e entrada sua **nome de domínio** na abaixo da caixa de texto.
+5. **Selecione Permitir O SSO iniciado pela RightScale utilizando uma dica** de descoberta e insere o seu nome de **domínio** na caixa de texto abaixo.
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
-6. Cole o valor de **URL de início de sessão** que copiou do portal do Azure em **ponto final de SSO SAML** no RightScale.
+6. Colar o valor do URL de **Login** que copiou do portal Azure para **o SAML SSO Endpoint** em RightScale.
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
-7. Cole o valor de **do Azure AD identificador** que copiou do portal do Azure em **SAML EntityID** no RightScale.
+7. Colar o valor do **Identificador Azure AD** que copiou do portal Azure para **a Entidade SAML ID** em RightScale.
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
-8. Clique em **Browser** botão para carregar o certificado que transferiu a partir do portal do Azure.
+8. Clique no botão **Browser** para fazer o upload do certificado que descarregou do portal Azure.
 
 
-    ![Configurar o início de sessão único](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![Configurar um único sinal](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`  
+    b. No tipo de campo de **nome do utilizador**`brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Rightscale.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Rightscale.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Rightscale**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Rightscale**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Rightscale**.
+2. Na lista de aplicações, **selecione Rightscale**.
 
-    ![A ligação de Rightscale na lista de aplicações](common/all-applications.png)
+    ![O link de direito na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-rightscale-test-user"></a>Criar utilizador de teste Rightscale
+### <a name="create-rightscale-test-user"></a>Criar utilizador de teste de escala direita
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Rightscale. Trabalhar com [equipa de suporte de cliente Rightscale](mailto:support@rightscale.com) para adicionar os utilizadores na plataforma Rightscale. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon em Rightscale. Trabalhe com a equipa de suporte do Cliente [Rightscale](mailto:support@rightscale.com)para adicionar os utilizadores na plataforma Rightscale. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico Rightscale no painel de acesso, deve ser automaticamente sessão iniciada no Rightscale para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo rightscale no Painel de Acesso, deve ser automaticamente inscrito na escala direita para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

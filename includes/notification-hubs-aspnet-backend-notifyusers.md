@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77192541"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o Projeto WebAPI
@@ -33,14 +33,14 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 ![][B4]
 
 > [!NOTE]
-> Verifique que tem instalado o [Azure SDK](https://azure.microsoft.com/downloads/) para Visual Studio para implementação de Website.
+> Certifique-se de que instalou o Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) para implementação do website.
 
 1. Inicie o Visual Studio ou o Visual Studio Express.
 
 2. Selecione **Explorador de Servidores** e inicie sessão na sua conta do Azure. Para criar os recursos do site na sua conta, tem de ter sessão iniciada.
 
 3. No Visual Studio, clique com o botão direito do rato na solução Visual Studio, aponte para **Adicionar** e clique em **Novo Projeto**.
-4. Expanda **Visual C#** , selecione **Web** e clique em **Aplicação Web ASP.NET**.
+4. Expanda **Visual C#**, selecione **Web** e clique em **Aplicação Web ASP.NET**.
 
 5. Na caixa **Nome**, escreva **AppBackend** e selecione **OK**.
 
@@ -390,7 +390,7 @@ Em seguida, implemente a aplicação num site do Azure para que seja acessível 
 
     ![O mosaico do Serviço de Aplicações do Microsoft Azure][B15]
 
-3. Na janela **Criar Serviço de Aplicações**, selecione a sua conta do Azure. Selecione **Alterar Tipo** > **Aplicação Web**. Mantenha o **Nome da Aplicação Web** predefinido e, em seguida, selecione a **Subscrição**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicações**.
+3. Na janela **Criar Serviço de Aplicações**, selecione a sua conta do Azure. Selecione **Alterar tipo tipo** > **Web .** Mantenha o **Nome da Aplicação Web** predefinido e, em seguida, selecione a **Subscrição**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicações**.
 
 4. Selecione **Criar**.
 

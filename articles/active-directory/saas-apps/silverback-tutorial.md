@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Silverback | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Silverback.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Silverback Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Silverback.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,229 +16,229 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 3c4eab02ed0c7c09fe9b5893bbaaf7cbe1c8028f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090917"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Active Directory do Azure com Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Diretório Ativo Azure com a Silverback
 
-Neste tutorial, saiba como integrar Silverback com o Azure Active Directory (Azure AD).
-Integrar Silverback no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar o Silverback com o Azure Ative Directory (Azure AD).
+Integrar silverback com Azure AD proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Silverback.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Silverback (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Podes controlar em Azure AD quem tem acesso a Silverback.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Silverback (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Silverback, terá dos seguintes itens:
+Para configurar a integração da AD Azure com a Silverback, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Silverback logon único habilitado subscrição
+* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura de sinal único silverback
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta silverback **SP** iniciada SSO
+* Silverback apoia **SP** iniciado SSO
 
-## <a name="adding-silverback-from-the-gallery"></a>Adicionando Silverback da Galeria
+## <a name="adding-silverback-from-the-gallery"></a>Adicionando Silverback da galeria
 
-Para configurar a integração do Silverback com o Azure AD, terá de adicionar Silverback a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração da Silverback em Azure AD, você precisa adicionar Silverback da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar Silverback a partir da galeria, execute os seguintes passos:**
+**Para adicionar Silverback da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Silverback**, selecione **Silverback** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Silverback**, selecione **Silverback** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![Silverback na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Silverback com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Silverback deve ser estabelecido.
+Nesta secção, configura e testa um único sign-on azure com silverback com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Silverback.
 
-Para configurar e testar o Azure AD início de sessão único com Silverback, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com silverback, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Silverback Single Sign-On](#configure-silverback-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Silverback](#create-silverback-test-user)**  - para ter um equivalente da Eduarda Almeida na Silverback que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Sign-On Single Silverback](#configure-silverback-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create Silverback test user](#create-silverback-test-user)** - para ter uma contrapartida de Britta Simon em Silverback que está ligada à representação azure AD do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com Silverback, execute os seguintes passos:
+Para configurar o único sign-on azure com silverback, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Silverback** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Silverback,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Silverback domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
+    ![Silverback Domain e URLs informações únicas de inscrição](common/sp-identifier-reply.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
+    a. Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. Na **identificador** caixa, escreva um URL com o seguinte padrão: `<YOURSILVERBACKURL>.com`
+    b. Na caixa **de identificador,** digite um URL utilizando o seguinte padrão:`<YOURSILVERBACKURL>.com`
 
-    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente Silverback](mailto:helpdesk@matrix42.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL, Identificador e Resposta real. Contacte a equipa de apoio ao [Cliente Silverback](mailto:helpdesk@matrix42.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+5. Na configuração do Single Sign-On com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/copy-metadataurl.png)
+    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-### <a name="configure-silverback-single-sign-on"></a>Configurar Silverback início de sessão único
+### <a name="configure-silverback-single-sign-on"></a>Configure Silverback Single Sign-On
 
-1. Num navegador da web diferentes, inicie sessão no seu servidor Silverback como administrador.
+1. Num navegador web diferente, inicie sessão no seu Silverback Server como Administrador.
 
-2. Navegue para **administrador** > **fornecedor de autenticação**.
+2. Navegue para o Fornecedor de**Autenticação** **de Administrador.** > 
 
-3. Sobre o **definições do fornecedor de autenticação** página, execute os seguintes passos:
+3. Na página Definições do **Fornecedor de Autenticação,** execute os seguintes passos:
 
     ![O administrador](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
-    a.  Clique em **importação a partir do URL**.
+    a.  Clique em **Importar a partir de URL**.
 
-    b.  Cole o URL de metadados copiado e clique em **OK**.
+    b.  Colhe o URL de Metadados copiado e clique **OK**.
 
-    c.  Confirme com **OK** , em seguida, os valores serão preenchidos automaticamente.
+    c.  Confirme com **OK** então os valores serão povoados automaticamente.
 
-    d.  Ativar **Mostrar na página de início de sessão**.
+    d.  Ativar **a exibição na página de login**.
 
-    e.  Ativar **criação dinâmica de utilizador** se pretender adicionar automaticamente utilizadores do Azure AD autorizado (opcional).
+    e.  Ativar a **Criação dinâmica do utilizador** se pretender adicionar automaticamente os utilizadores autorizados do Azure AD (opcional).
 
-    f.  Criar uma **Title** do botão sobre o Portal Self-Service.
+    f.  Crie um **Título** para o botão no Portal do Self Service.
 
-    g.  Carregar uma **ícone** clicando em **Escolher ficheiro**.
+    g.  Faça upload de um **Ícone** clicando no **Ficheiro Escolha**.
 
-    h.  Selecione o plano de fundo **cor** do botão.
+    h.  Selecione a **cor** de fundo para o botão.
 
     i.  Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. No tipo de campo de **nome do utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Silverback.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Silverback.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Silverback**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Silverback**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Silverback**.
 
-    ![A ligação de Silverback na lista de aplicações](common/all-applications.png)
+    ![O link Silverback na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-silverback-test-user"></a>Criar utilizador de teste Silverback
+### <a name="create-silverback-test-user"></a>Criar o utilizador de teste Silverback
 
-Para ativar a utilizadores do Azure AD iniciar sessão no Silverback, tem de ser aprovisionados em Silverback. Silverback, aprovisionamento é uma tarefa manual.
+Para permitir que os utilizadores de Anúncios Azure entrem na Silverback, devem ser aprovisionados em Silverback. Em Silverback, o provisionamento é uma tarefa manual.
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**Para fornecer uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no seu servidor Silverback como administrador.
+1. Inicie sessão no seu Silverback Server como administrador.
 
-2. Navegue para **usuários** e **adicionar um novo utilizador do dispositivo**.
+2. Navegue aos **Utilizadores** e adicione um novo utilizador de **dispositivos.**
 
-3. Sobre o **básica** página, execute os seguintes passos:
+3. Na página **Basic,** execute os seguintes passos:
 
     ![O utilizador](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-    a. Na **nome de utilizador** texto, introduza o nome de utilizador, como **Eduarda**.
+    a. Na caixa de texto **Username,** introduza o nome de utilizador como **Britta**.
 
-    b. Na **nome próprio** texto, introduza o nome de utilizador, como **Eduarda**.
+    b. Na caixa de texto **First Name,** introduza o primeiro nome de utilizador como **Britta**.
 
-    c. Na **sobrenome** texto, digite o apelido do utilizador, como **Simon**.
+    c. Na caixa de texto **De Apelido,** introduza o último nome de utilizador como **Simon**.
 
-    d. Na **endereço de email** texto, introduza o e-mail do utilizador, como **Brittasimon@contoso.com** .
+    d. Na caixa de texto Endereço de endereço **Brittasimon@contoso.com**de **e-mail,** introduza o e-mail do utilizador como .
 
-    e. Na **palavra-passe** texto, introduza a palavra-passe.
+    e. Na caixa de texto **Password,** introduza a sua palavra-passe.
 
-    f. Na **Confirmar palavra-passe** caixa de texto, volte a introduzir a palavra-passe e confirme.
+    f. Na caixa de texto **Confirmar Password,** reintroduza a sua palavra-passe e confirme.
 
     g. Clique em **Guardar**.
 
 > [!NOTE]
-> Se não quiser criar manualmente a cada utilizador ativar a **criação dinâmica de utilizador** caixa de verificação sob **administração** > **fornecedor de autenticação**.
+> Se não pretender criar cada utilizador manualmente, ative a caixa de verificação de **criação dinâmica** do utilizador no âmbito do Fornecedor de**Autenticação** **de Administrador** > .
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico Silverback no painel de acesso, deve ser automaticamente sessão iniciada no Silverback para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Silverback no Painel de Acesso, deve ser automaticamente inscrito no Silverback para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

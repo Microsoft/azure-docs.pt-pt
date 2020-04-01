@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a Salesforce  Microsoft Docs'
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a Salesforce [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Salesforce.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78967712"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Azure Ative Directory integração individual (SSO) com a Salesforce
@@ -56,7 +56,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 Para configurar a integração da Salesforce em Azure AD, precisa adicionar a Salesforce da galeria à sua lista de aplicações geridas do SaaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -76,7 +76,7 @@ Para configurar e testar o Azure AD SSO com a Salesforce, complete os seguintes 
     * Criar o utilizador de **[teste Salesforce](#create-salesforce-test-user)** - para ter uma contrapartida da B.Simon na Salesforce que esteja ligada à representação do utilizador da AD Azure.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
@@ -90,28 +90,28 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **smS sign-on** URL, escreva o valor utilizando o seguinte padrão:
 
-    Conta empresarial: `https://<subdomain>.my.salesforce.com`
+    Conta empresarial:`https://<subdomain>.my.salesforce.com`
 
-    Conta de desenvolvimento: `https://<subdomain>-dev-ed.my.salesforce.com`
+    Conta de desenvolvimento:`https://<subdomain>-dev-ed.my.salesforce.com`
 
     b. Na caixa de texto **identificador,** digite o valor utilizando o seguinte padrão:
 
-    Conta empresarial: `https://<subdomain>.my.salesforce.com`
+    Conta empresarial:`https://<subdomain>.my.salesforce.com`
 
-    Conta de desenvolvimento: `https://<subdomain>-dev-ed.my.salesforce.com`
+    Conta de desenvolvimento:`https://<subdomain>-dev-ed.my.salesforce.com`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e Identificador de Sinal real. Contacte a equipa de suporte ao [Cliente salesforce](https://help.salesforce.com/support) para obter estes valores.
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
 1. Na secção **"set up Salesforce",** copie os URL(s) adequados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -119,11 +119,11 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso à Salesforce.
 
@@ -131,7 +131,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 1. Na lista de aplicações, selecione **Salesforce**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
@@ -155,46 +155,46 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, conced
 
 1. Clique no ícone **configuração** no **canto** superior direito da página.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/configure1.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/configure1.png)
 
 1. Desloque-se até às **DEFINIÇÕES** no painel de navegação, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições de Sinal Único**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-admin-sso.png)
 
 1. Na página **De definições de sinal único,** clique no botão **Editar.**
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > Se não conseguir ativar as definições de Sign-On single para a sua conta Salesforce, poderá ter de contactar a equipa de suporte ao [Cliente da Salesforce](https://help.salesforce.com/support).
 
 1. Selecione **SAML Ativado**, e, em seguida, clique em **Guardar**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-enable-saml.png)
 
 1. Para configurar as definições de inscrição única sAML, clique em **Novo ficheiro de Metadados**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso-new.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
 1. Clique **em Escolher Ficheiro** para carregar o ficheiro XML de metadados que descarregou a partir do portal Azure e clique em **Criar**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/xmlchoose.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/xmlchoose.png)
 
 1. Na página **de Definições de Sinais Únicos SAML,** os campos povoam-se automaticamente, selecionam o **Fornecimento de Utilizador Ativado** e, em seguida, clique em **Guardar**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/salesforcexml.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/salesforcexml.png)
 
 1. No painel de navegação à esquerda no Salesforce, clique em **Definições da Empresa** para expandir a secção relacionada e, em seguida, clique no **Meu Domínio**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-my-domain.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-my-domain.png)
 
 1. Desloque-se até à secção de **Configuração de Autenticação** e clique no botão **Editar.**
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-edit-auth-config.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
 1. Na secção de **Configuração de Autenticação,** verifique o **AzureSSO** como Serviço de **Autenticação** da sua configuração SAML SSO e, em seguida, clique em **Guardar**.
 
-    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-auth-config.png)
+    ![Configurar um único sinal](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Se for selecionado mais de um serviço de autenticação, os utilizadores são solicitados a selecionar em que serviço de autenticação gostam de iniciar o início do início do seu ambiente Salesforce. Se não quer que aconteça, então deve deixar todos os outros serviços de **autenticação sem controlo.**
@@ -205,7 +205,7 @@ Nesta secção, um utilizador chamado B.Simon é criado na Salesforce. A Salesfo
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Quando clicar no azulejo Salesforce no Painel de Acesso, deverá ser automaticamente inscrito na Salesforce para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
@@ -229,7 +229,7 @@ Quando clicar no azulejo Salesforce no Painel de Acesso, deverá ser automaticam
 
 1. Finalmente, após o início do início do sessão, a página inicial da aplicação será exibida.
 
-    aplicação móvel ![Salesforce](media/salesforce-tutorial/mobile-app5.png) ![](media/salesforce-tutorial/mobile-app6.png) de aplicação móvel da Salesforce
+    ![Aplicação](media/salesforce-tutorial/mobile-app5.png) ![móvel Salesforce Salesforce](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

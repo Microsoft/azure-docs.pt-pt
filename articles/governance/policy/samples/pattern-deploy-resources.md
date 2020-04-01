@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como mobiliza
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77172675"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Padrão de política azure: recursos de implantação
@@ -16,7 +16,7 @@ O efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists) permite i
 
 ## <a name="sample-policy-definition"></a>Definição de política de amostras
 
-Esta definição de política utiliza o operador de **campo** para avaliar a `type` de recursos criados ou atualizados. Quando esse recurso é um _Microsoft.Network/virtualNetworks,_ a política procura um observador de rede na localização do novo recurso ou atualizado. Se não estiver localizado um observador de rede correspondente, o modelo do Gestor de Recursos é implementado para criar o recurso em falta.
+Esta definição **field** de política utiliza `type` o operador de campo para avaliar o recurso criado ou atualizado. Quando esse recurso é um _Microsoft.Network/virtualNetworks,_ a política procura um observador de rede na localização do novo recurso ou atualizado. Se não estiver localizado um observador de rede correspondente, o modelo do Gestor de Recursos é implementado para criar o recurso em falta.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
@@ -26,7 +26,7 @@ Esta definição de política utiliza o operador de **campo** para avaliar a `ty
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
-O bloco **properties.policyRule.then.details** diz à Política Azure o que procurar relacionado com o recurso criado ou atualizado nas **propriedades.policyRule.if** block. Neste exemplo, um observador de rede na rede de **recursos WatcherRG** deve existir com **campo** `location` igual à localização do novo recurso ou atualizado. A utilização da função `field()` permite à **existênciaCondition** aceder a propriedades no novo recurso ou atualizado, especificamente a propriedade `location`.
+O bloco **properties.policyRule.then.details** diz à Política Azure o que procurar relacionado com o recurso criado ou atualizado nas **propriedades.policyRule.if** block. Neste exemplo, um observador de rede na rede de **recursos WatcherRG** deve existir com **campo** `location` igual à localização do novo recurso ou atualizado. A `field()` utilização da função permite à **existênciaCondição** aceder `location` a propriedades no novo recurso ou atualizado, especificamente na propriedade.
 
 #### <a name="roledefinitionids"></a>roleDefinitionIds
 
@@ -44,7 +44,7 @@ A parte de **implantação** da definição de política tem um bloco de **propr
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
-- **parâmetros** - Esta propriedade define parâmetros que são fornecidos ao **modelo**. Os nomes do parâmetro devem coincidir com o que são definidos no **modelo**. Neste exemplo, o parâmetro é nomeado **local** para combinar. O valor da **localização** utiliza novamente a função `field()` para obter o valor do recurso avaliado, que é a rede virtual na **políticaRule.if** block.
+- **parâmetros** - Esta propriedade define parâmetros que são fornecidos ao **modelo**. Os nomes do parâmetro devem coincidir com o que são definidos no **modelo**. Neste exemplo, o parâmetro é nomeado **local** para combinar. O valor **location** da `field()` localização volta a utilizar a função para obter o valor do recurso avaliado, que é a rede virtual na **políticaRule.if** block.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 

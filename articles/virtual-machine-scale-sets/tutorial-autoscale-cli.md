@@ -1,5 +1,5 @@
 ---
-title: Tutorial – dimensionamento automático de um conjunto de dimensionamento com o CLI do Azure
+title: Tutorial - Escala automática de um conjunto de escala com o Azure CLI
 description: Saiba como utilizar a CLI do Azure para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais, à medida que a CPU exige aumentos e diminuições
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9ede78933e6b9e6933b0c5dabce395eb10713c88
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0506c7fcb4e3734414fdc3b868aca84450ad8d07
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278442"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067035"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -25,11 +25,11 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.32 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.32 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
@@ -54,7 +54,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de dimensionamento automático
 
-Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Esses limites permitem controlar o custo não criando continuamente instâncias de VM e equilibram o desempenho aceitável com um número mínimo de instâncias que permanecem em um evento de redução. Criar um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10*:
+Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem controlar os custos não criando continuamente casos de VM, e equilibrar o desempenho aceitável com um número mínimo de instâncias que permanecem em um evento de escala. Criar um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -118,13 +118,13 @@ O seguinte resultado de exemplo mostra o nome da instância, o endereço IP púb
 
 SSH para a sua primeira instância de VM. Especifique o seu endereço IP público e o número da porta com o parâmetro `-p`, conforme mostrado no comando anterior:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10* funcionários de **estresse** que geram carga de CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
+Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10 funções de trabalho de * **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -133,26 +133,26 @@ Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] disp
 
 Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top**:
 
-```azurecli-interactive
+```console
 top
 ```
 
 Saia de **top** e, em seguida, feche a ligação à instância de VM. O **stress** continua a ser executado na instância de VM.
 
-```azurecli-interactive
+```console
 Ctrl-c
 exit
 ```
 
 Ligue à segunda instância de VM com o número de porta listado do anterior [az vmss list-instance-connection-info](/cli/azure/vmss):
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
 Instale e execute o **stress** e, em seguida, inicie dez funções de trabalho nesta segunda instância de VM.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -161,7 +161,7 @@ Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: 
 
 Feche a ligação à segunda instância de VM. O **stress** continua a ser executado na instância de VM.
 
-```azurecli-interactive
+```console
 exit
 ```
 
@@ -178,7 +178,7 @@ watch az vmss list-instances \
 
 Assim que tiver sido cumprido o limiar de CPU, as regras de dimensionamento automático aumentam o número de instâncias de VM no conjunto de dimensionamento. O resultado seguinte mostra três VMs criadas à medida que o conjunto de dimensionamento aumenta horizontalmente:
 
-```bash
+```output
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -192,7 +192,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 Assim que o **stress** para nas instâncias de VM iniciais, a carga de CPU média volta ao normal. Após mais 5 minutos, as regras de dimensionamento automático reduzem horizontalmente o número de instâncias de VM. As ações para reduzir horizontalmente removem primeiro as instâncias de VM com os IDs mais elevados. Quando um conjunto de dimensionamento utiliza Conjuntos de Disponibilidade ou Zonas de Disponibilidade, as ações de redução horizontal são distribuídas uniformemente nessas instâncias de VMs. O resultado de exemplo seguinte mostra uma instância de VM eliminada à medida que o conjunto de dimensionamento reduz horizontalmente de forma automática:
 
-```bash
+```output
            6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 

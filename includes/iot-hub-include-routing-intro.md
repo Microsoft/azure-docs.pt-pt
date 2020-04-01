@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 9a20dca71727e83db98c4c97567949bd127fc7fb
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77111207"
 ---
 [O encaminhamento de mensagens](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) permite o envio de dados de telemetria dos seus dispositivos IoT para pontos finais compatíveis com o Event Hub ou pontos finais personalizados, tais como armazenamento de blob, filas de ônibus de serviço, tópicos de ônibus de serviço e centros de eventos. Para configurar o encaminhamento de mensagens personalizadas, cria consultas de [encaminhamento](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) para personalizar o percurso que corresponde a uma determinada condição. Uma vez configurado, os dados de entrada são automaticamente encaminhados para os pontos finais pelo Hub IoT. Se uma mensagem não corresponder a nenhuma das consultas de encaminhamento definidas, é encaminhada para o ponto final padrão.
@@ -39,11 +39,11 @@ Para completar as Partes 1 e 2 deste tutorial, executa as seguintes tarefas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Para a parte 1 deste tutorial:
-  - Precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+  - Precisa de uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Para a parte 2 deste tutorial:
   - Deve ter completado a Parte 1 deste tutorial e ter os recursos ainda disponíveis.
-  - Instalar o [Visual Studio](https://www.visualstudio.com/).
+  - Instalar [o Estúdio Visual.](https://www.visualstudio.com/)
   - Tenha acesso a uma conta Power BI para analisar a análise de fluxo do ponto final padrão. ([Experimente o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).)
   - Tenha uma conta do Office 365 para o envio de e-mails de notificação.
   - Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra deste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).

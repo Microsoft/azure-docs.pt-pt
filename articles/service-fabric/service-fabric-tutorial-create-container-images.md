@@ -7,15 +7,15 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252793"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
 
-Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Linux Service Fabric. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
+Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Service Fabric do Linux. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Clonar a origem de aplicação a partir do GitHub
@@ -98,7 +98,7 @@ Crie um grupo de recursos com o comando **az group create**. Neste exemplo, é c
 az group create --name <myResourceGroup> --location westus
 ```
 
-Crie um registo de contentor do Azure com o comando **az acr create**. Substitua \<acrName> pelo nome do registo de contentor que pretende criar na sua subscrição. O nome tem de ser alfanumérico e único.
+Crie um registo de contentores Azure com o **az acr criar** comando. Substitua \<acrName> pelo nome do registo de contentor que pretende criar na sua subscrição. O nome tem de ser alfanumérico e único.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true

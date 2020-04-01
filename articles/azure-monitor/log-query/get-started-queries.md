@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
 ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670184"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Começar com consultas de log no Monitor Azure
@@ -39,7 +39,7 @@ Acompanhe com uma versão em vídeo deste tutorial abaixo:
 As consultas podem começar com um nome de mesa ou com o comando de *pesquisa.* Você deve começar com um nome de mesa, uma vez que define uma margem clara para a consulta e melhora tanto o desempenho da consulta como a relevância dos resultados.
 
 > [!NOTE]
-> A linguagem de consulta Kusto usada pelo Monitor Azure é sensível a casos. As palavras-chave linguísticas são tipicamente escritas em maiúsculas. Quando utilizar nomes de tabelas ou colunas numa consulta, certifique-se de que utiliza a caixa correta, como mostra o painel de esquemas.
+> A linguagem de consulta Kusto utilizada pelo Azure Monitor é sensível às maiúsculas e minúsculas. Normalmente, as palavras-chave da linguagem são escritas em letras minúsculas. Quando utilizar nomes de tabelas ou colunas numa consulta, certifique-se de que utiliza a caixa correta, como mostra o painel de esquemas.
 
 ### <a name="table-based-queries"></a>Consultas à base de mesa
 O Azure Monitor organiza dados de registo em tabelas, cada uma composta por múltiplas colunas. Todas as tabelas e colunas são mostradas no painel de esquemas no Log Analytics no portal Analytics. Identifique uma tabela que lhe interesse e, em seguida, dê uma olhada em alguns dados:
@@ -55,7 +55,7 @@ A consulta acima mostrada devolve 10 resultados da tabela *SecurityEvent,* em ne
 * O tubo (/) caracteres separa os comandos, de modo que a saída do primeiro na entrada do comando seguinte. Pode adicionar qualquer número de elementos canalizados.
 * Seguindo o tubo está o comando **take,** que devolve um número específico de registos arbitrários da mesa.
 
-Poderíamos, de facto, fazer a consulta mesmo sem adicionar `| take 10` - que ainda seria válido, mas poderia devolver até 10.000 resultados.
+Poderíamos, de facto, fazer `| take 10` a consulta mesmo sem acrescentar - que ainda seria válido, mas poderia devolver até 10.000 resultados.
 
 ### <a name="search-queries"></a>Consultas de pesquisa
 As consultas de pesquisa são menos estruturadas e geralmente mais adequadas para encontrar registos que incluam um valor específico em qualquer uma das suas colunas:
@@ -65,7 +65,7 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Esta consulta procura na tabela *SecurityEvent* por registos que contenham a frase "Criptografia". Desses registos, 10 registos serão devolvidos e exibidos. Se omitirmos a parte `in (SecurityEvent)` e apenas corrermos `search "Cryptographic"`, a procura passará por *todas as* mesas, o que demoraria mais tempo e seria menos eficiente.
+Esta consulta procura na tabela *SecurityEvent* por registos que contenham a frase "Criptografia". Desses registos, 10 registos serão devolvidos e exibidos. Se omitirmos a `in (SecurityEvent)` `search "Cryptographic"`peça e apenas corrermos, a procura passará por *todas as* mesas, o que demoraria mais tempo e seria menos eficiente.
 
 > [!WARNING]
 > As consultas de pesquisa são tipicamente mais lentas do que consultas baseadas em mesaporque têm de processar mais dados. 
@@ -127,7 +127,7 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Os valores podem ter diferentes tipos, por isso pode ser necessário lançá-los para realizar a comparação no tipo correto. Por exemplo, a coluna *SecurityEvent Level* é do tipo String, por isso deve lançá-la para um tipo numérico, como *int* ou *longo*, antes de poder utilizar operadores numéricos: `SecurityEvent | where toint(Level) >= 10`
+> Os valores podem ter diferentes tipos, por isso pode ser necessário lançá-los para realizar a comparação no tipo correto. Por exemplo, a coluna SecurityEvent *Level* é de tipo String, por isso deve lançá-la para um tipo numérico, como *int* ou *longo,* antes de poder utilizar operadores numéricos nele:`SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Especificar um intervalo de tempo
 
@@ -146,7 +146,7 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-No filtro de tempo acima `ago(30m)` significa "há 30 minutos" por isso esta consulta só devolve registos dos últimos 30 minutos. Outras unidades de tempo incluem dias (2d), minutos (25m) e segundos (10s).
+No filtro `ago(30m)` de tempo acima significa "há 30 minutos" por isso esta consulta só devolve registos dos últimos 30 minutos. Outras unidades de tempo incluem dias (2d), minutos (25m) e segundos (10s).
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projeto e Extensão: selecione e computacolunas
@@ -184,7 +184,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumo: grupos agregados de linhas
-Utilize resumos para identificar grupos de registos, de acordo com uma ou mais colunas, e aplique agregações neles. O uso mais comum de **resumo** é a *contagem*, que devolve o número de resultados em cada grupo.
+Utilize **summarize** resumos para identificar grupos de registos, de acordo com uma ou mais colunas, e aplique agregações neles. O uso mais comum de **resumo** é a *contagem*, que devolve o número de resultados em cada grupo.
 
 A seguinte consulta analisa todos os registos *perf* da última hora, agrupa-os pelo *ObjectName*, e conta os registos em cada grupo: 
 ```Kusto
@@ -218,7 +218,7 @@ Perf
 ```
 
 ### <a name="summarize-by-a-time-column"></a>Resumo por uma coluna do tempo
-Os resultados de agrupamento também podem basear-se numa coluna de tempo, ou noutro valor contínuo. Resumindo `by TimeGenerated` criaria grupos para cada milésimo de segundo ao longo do intervalo de tempo, uma vez que estes são valores únicos. 
+Os resultados de agrupamento também podem basear-se numa coluna de tempo, ou noutro valor contínuo. Resumindo, `by TimeGenerated` porém, criaria grupos para cada milésimo de segundo ao longo do intervalo de tempo, uma vez que estes são valores únicos. 
 
 Para criar grupos baseados em valores contínuos, o melhor é quebrar o alcance em unidades manejáveis usando **o caixote**do lixo . A consulta seguinte analisa os registos *perf* que medem a memória gratuita *(MBytes disponíveis*) num computador específico. Calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 

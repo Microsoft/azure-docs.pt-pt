@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238371"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
@@ -61,7 +61,7 @@ Para aceder a métricas:
 
 1. Selecione **Métricas** no menu junto à parte inferior da página.
 
-    ![métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
 1. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos**. 
 1. O gráfico mostra o número total de chamadas à API.
@@ -191,7 +191,7 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 | correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
 | localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
 | httpStatusCodeCategory | string | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
-| resourceId | string | ID do recurso de Gestão API /SUBSCRIÇÕES/\<subscrição>/RESOURCEGROUPS/\<grupo de recursos>/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<nome> |
+| resourceId | string | ID do recurso de gestão\<da API /SUBSCRIÇÕES/> de subscrição/GRUPOS DE RECURSOS/\<grupo de recursos>/FORNECEDOREs/MICROSOFT. APIMANAGEMENT/SERVIÇO/\<nome> |
 | propriedades | objeto | Propriedades do pedido atual |
 | método | string | Método HTTP do pedido a receber |
 | url | string | URL do pedido a receber |

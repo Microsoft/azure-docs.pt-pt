@@ -11,10 +11,10 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79204261"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito - Azure Machine Learning Studio (clássico)
@@ -58,17 +58,17 @@ Para utilizar o Machine Learning Studio (clássico), é necessário ter um espa�
 
 Para criar um espaço de trabalho, consulte [Create e partilhe um espaço de trabalho Azure Machine Learning Studio (clássico).](create-workspace.md)
 
-Depois de criado o seu espaço de trabalho, abra o Machine Learning Studio (clássico) ([https://studio.azureml.net/Home). ](https://studio.azureml.net/Home) Se tiver mais do que uma área de trabalho, pode selecionar a área de trabalho na barra de ferramentas no canto superior direito da janela.
+Depois de criado o seu espaço de trabalho, abra o Estúdio de Aprendizagem automática (clássico) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se tiver mais de um espaço de trabalho, pode selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
 
 ![Selecione espaço de trabalho em Studio (clássico)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Se você é dono do espaço de trabalho, você pode compartilhar as experiências em que você está trabalhando convidando outros para o espaço de trabalho. Pode fazê-lo no Machine Learning Studio (clássico) na página **SETTINGS.** Apenas terá da conta Microsoft ou contas institucionais para cada utilizador.
+> Se você é dono do espaço de trabalho, você pode compartilhar as experiências em que você está trabalhando convidando outros para o espaço de trabalho. Pode fazê-lo no Machine Learning Studio (clássico) na página **SETTINGS.** Basta a conta da Microsoft ou conta organizacional para cada utilizador.
 > 
 > Na página **DEFINIÇÕES,** clique em **UTILIZADORES**e clique em **CONVIDAR MAIS UTILIZADORES** na parte inferior da janela.
 > 
 
-## <a name="upload"></a>Carregar dados existentes
+## <a name="upload-existing-data"></a><a name="upload"></a>Carregar os dados existentes
 
 Para desenvolver um modelo preditivo para o risco de crédito, precisa de dados que possa usar para treinar e depois testar o modelo. Para este tutorial, utilizará o "UCI Statlog (Dados de Crédito Alemão) do repositório de Machine Learning da UC Irvine. Pode encontrá-lo aqui.  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -113,9 +113,9 @@ Em qualquer dos casos, criou uma versão separada da vírcula dos dados num fich
 
 Uma vez que os dados foram convertidos para o formato CSV, você precisa carregá-lo em Machine Learning Studio (clássico). 
 
-1. Abra a página inicial do Machine Learning Studio (clássico)[ (https://studio.azureml.net). ](https://studio.azureml.net) 
+1. Abra a página inicial do Estúdio[https://studio.azureml.net](https://studio.azureml.net)de Aprendizagem automática (clássico). 
 
-2. Clique no menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) no canto superior esquerdo da janela, clique em **Azure Machine Learning,** selecione **Studio**, e inscreva-se.
+2. Clique no ![](./media/tutorial-part1-credit-risk/menu.png) menu Menu no canto superior esquerdo da janela, clique em **Azure Machine Learning,** selecione **Studio**, e inscreva-se.
 
 3. Clique em **+NOVO** na parte inferior da janela.
 
@@ -129,7 +129,7 @@ Uma vez que os dados foram convertidos para o formato CSV, você precisa carreg�
 
 7. Introduza um nome para o conjunto de dados. Para este tutorial, chame-lhe "DADOS do Cartão de Crédito Alemão UCI".
 
-8. Para o tipo de dados, selecione **Genérico CSV File Sem cabeçalho (.nh.csv)** .
+8. Para o tipo de dados, selecione **Genérico CSV File Sem cabeçalho (.nh.csv)**.
 
 9. Adicione uma descrição, se quiser.
 
@@ -175,7 +175,7 @@ O próximo passo neste tutorial é criar uma experiência no Machine Learning St
 
 Pode ver as primeiras 100 linhas dos dados e algumas informações estatísticas para todo o conjunto de dados: Clique na porta de saída do conjunto de dados (o pequeno círculo na parte inferior) e **selecione Visualize**.  
 
-Como o ficheiro de dados não veio com rubricas de colunas, o Studio (clássico) forneceu rubricas genéricas (Col1, Col2, *etc.* ). Os bons títulos não são essenciais para criar um modelo, mas facilitam o trabalho com os dados da experiência. Além disso, quando eventualmente publica este modelo num serviço web, os títulos ajudam a identificar as colunas ao utilizador do serviço.  
+Como o ficheiro de dados não veio com rubricas de colunas, o Studio (clássico) forneceu rubricas genéricas (Col1, Col2, *etc.*). Os bons títulos não são essenciais para criar um modelo, mas facilitam o trabalho com os dados da experiência. Além disso, quando eventualmente publica este modelo num serviço web, os títulos ajudam a identificar as colunas ao utilizador do serviço.  
 
 Pode adicionar títulos de coluna utilizando o módulo [Dedados editar.][edit-metadata]
 
@@ -193,7 +193,7 @@ Para utilizar [metadados editar,][edit-metadata]primeiro especifique quais as co
 
     ![Adicionar Metadados de Edição](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
 
-    A marca de exclamação vermelha indica que ainda não definiu as propriedades para este módulo. Vais fazer isso a seguir.
+    A marca de exclamação vermelha indica que ainda não definiu as propriedades para este módulo. Fará isto a seguir.
 
     > [!TIP]
     > Pode adicionar um comentário a um módulo, fazendo duplo clique no módulo e introduzindo o texto. Isto pode ajudá-lo a ver rapidamente o que o módulo está a fazer na sua experimentação. Neste caso, clique duas vezes no módulo [Dedados editar][edit-metadata] e digite o comentário "Adicionar títulos de coluna". Clique em qualquer outro lugar da tela para fechar a caixa de texto. Para visualizar o comentário, clique na seta para baixo no módulo.
@@ -203,7 +203,7 @@ Para utilizar [metadados editar,][edit-metadata]primeiro especifique quais as co
 
 1. [Selecione Editar Metadados][edit-metadata], e no painel **'Propriedades'** à direita da tela, clique no seletor de **colunas de lançamento**.
 
-1. No diálogo de **colunas Select,** selecione todas as linhas nas **Colunas Disponíveis** e clique em > para as mover para **Colunas Selecionadas**.
+1. No diálogo de **colunas Select,** selecione todas as linhas nas **Colunas Disponíveis** e clique em > para movê-las para **Colunas Selecionadas**.
    O diálogo deve ser assim:
 
    ![Seletor de colunas com todas as colunas selecionadas](./media/tutorial-part1-credit-risk/select-columns.png)
@@ -292,7 +292,7 @@ Para obter mais informações sobre a utilização de scripts R nas suas experi�
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial completou estes passos: 
  

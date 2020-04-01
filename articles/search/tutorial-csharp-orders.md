@@ -1,5 +1,5 @@
 ---
-title: C#tutorial sobre a encomenda de resultados
+title: C# tutorial sobre a encomenda de resultados
 titleSuffix: Azure Cognitive Search
 description: Este tutorial demonstra como encomendar resultados de pesquisa. Baseia-se num projeto de hotéis anteriores, encomendando por propriedade primária, propriedade secundária, e inclui um perfil de pontuação para adicionar critérios de reforço.
 manager: nitinme
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121560"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C#Tutorial: Encomende os resultados - Pesquisa Cognitiva Azure
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# tutorial: Encomende os resultados - Pesquisa Cognitiva Azure
 
 Até este ponto da nossa série de tutoriais, os resultados são devolvidos e apresentados por ordem padrão. Esta pode ser a ordem em que os dados estão localizados, ou possivelmente um perfil de _pontuação_ padrão foi definido, que será usado quando não forem especificados parâmetros de encomenda. Neste tutorial, vamos entrar em como encomendar resultados com base numa propriedade primária, e depois para resultados que têm a mesma propriedade primária, como encomendar essa seleção em uma propriedade secundária. Como alternativa ao pedido com base em valores numéricos, o exemplo final mostra como encomendar com base num perfil de pontuação personalizado. Iremos também um pouco mais fundo na exibição de _tipos complexos._
 
-De forma a comparar facilmente os resultados devolvidos, este projeto baseia-se no projeto de scrolling infinito criado no [ C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
+De forma a comparar facilmente os resultados devolvidos, este projeto baseia-se no projeto de scrolling infinito criado no [C# Tutorial: Pesquisa de resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-Tenha a versão infinita de scrolling do [ C# Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Tenha a versão infinita de scrolling do [C# Tutorial: Pesquisa resultados paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="order-results-based-on-one-property"></a>Resultados da encomenda com base num imóvel
 
@@ -128,7 +128,7 @@ Não há necessidade de modificar nenhum dos modelos para permitir a encomenda. 
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Abra a vista (index.cshtml) e substitua o loop de renderização **(&lt;!-- Mostrar os dados do hotel&gt;.**
+5. Abra a vista (index.cshtml) e substitua o loop de renderização**&lt;(!-- Mostrar os dados do hotel.&gt;**
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -411,7 +411,7 @@ A questão agora é como diferenciar os hotéis com a mesma classificação. Uma
             </script>
     ```
 
-5. Executar a aplicação. Procure um termo comum, como "pool" ou "view", e verifique se os hotéis com a mesma classificação são agora apresentados por ordem descendente de data de renovação.
+5. Execute a aplicação. Procure um termo comum, como "pool" ou "view", e verifique se os hotéis com a mesma classificação são agora apresentados por ordem descendente de data de renovação.
 
     ![Encomenda na data de renovação](./media/tutorial-csharp-create-first-app/azure-search-orders-renovation.png)
 
@@ -544,7 +544,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
 ### <a name="add-code-to-the-view-to-compare-profiles"></a>Adicione código à vista para comparar perfis
 
-1. Abra o ficheiro index.cshtml e substitua a secção &lt;&gt; corpo pelo seguinte código.
+1. Abra o ficheiro index.cshtml &lt;e&gt; substitua a secção do corpo pelo seguinte código.
 
     ```cs
     <body>
@@ -944,7 +944,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
 ### <a name="run-and-test-the-app"></a>Executar e testar a app
 
-1. Executar a aplicação. Devia ver um conjunto completo de comodidades na vista.
+1. Execute a aplicação. Devia ver um conjunto completo de comodidades na vista.
 
 2. Para encomendar, a seleção "Por Classificação Numérica" lhe dará a ordem numérica que já implementou neste tutorial, com data de renovação a decidir entre hotéis de igual classificação.
 
@@ -972,6 +972,6 @@ Considere os seguintes takeaways deste projeto:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você completou esta série C# de tutoriais - você deveria ter adquirido conhecimento valioso das APIs de Pesquisa Cognitiva Azure.
+Você completou esta série de tutoriais C# - você deveria ter adquirido conhecimento valioso das APIs de Pesquisa Cognitiva Azure.
 
 Para mais referências e tutoriais, considere navegar no [Microsoft Learn,](https://docs.microsoft.com/learn/browse/?products=azure)ou os outros tutoriais na Documentação de [Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/)

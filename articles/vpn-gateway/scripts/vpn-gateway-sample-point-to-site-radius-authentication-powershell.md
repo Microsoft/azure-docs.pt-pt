@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 05/30/2018
 ms.author: alzam
 ms.openlocfilehash: 703ffac5775c979199afdd44afe0941b1416369b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66113684"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Crie um Gateway de VPN e adicione a configuração de ponto a site com o PowerShell
@@ -81,7 +81,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não precisar dos recursos que criou, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando para eliminar o grupo de recursos. Isto elimina o grupo de recursos e todos os recursos contidos no mesmo.
+Quando já não precisar dos recursos que criou, utilize o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para eliminar o grupo de recursos. Isto elimina o grupo de recursos e todos os recursos contidos no mesmo.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1
@@ -99,7 +99,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtém os detalhes da configuração de sub-rede de rede virtual. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Cria uma nova configuração de ip de gateway. |
 | [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway) | Cria um gateway de VPN. |
@@ -107,6 +107,6 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Define a configuração de sub-rede para a rede virtual. |
 | [Set-AzVirtualNetworkGateway](/powershell/module/az.network/set-azvirtualnetworkgateway) | Define a configuração para o gateway VPN. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).

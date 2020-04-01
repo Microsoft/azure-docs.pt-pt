@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Picturepark | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Picturepark.
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Picturepark Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Picturepark.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,98 +16,98 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73177014"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: integração do Azure Active Directory com o Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Diretório Ativo Azure com o Picturepark
 
-Neste tutorial, você aprenderá a integrar o Picturepark com o Azure Active Directory (Azure AD).
-A integração do Picturepark ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Picturepark com o Azure Ative Directory (Azure AD).
+Integrar o Picturepark com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Picturepark.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao Picturepark (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Você pode controlar em Azure AD que tem acesso ao Picturepark.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Picturepark (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Picturepark, você precisará dos seguintes itens:
+Para configurar a integração da AD Azure com o Picturepark, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura habilitada para logon único do Picturepark
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura de inscrição única do Picturepark
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* O Picturepark dá suporte ao SSO iniciado por **SP**
+* Picturepark suporta **SP** iniciado SSO
 
-## <a name="adding-picturepark-from-the-gallery"></a>Adicionando o Picturepark da Galeria
+## <a name="adding-picturepark-from-the-gallery"></a>Adicionando Picturepark da galeria
 
-Para configurar a integração do Picturepark ao Azure AD, você precisará adicionar o Picturepark da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Picturepark em Azure AD, precisa de adicionar o Picturepark da galeria à sua lista de aplicações geridas do SaaS.
 
-**Para adicionar o Picturepark da galeria, execute as seguintes etapas:**
+**Para adicionar o Picturepark da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Picturepark**, selecione **Picturepark** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **O Picturepark**, selecione **Picturepark** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![Picturepark na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Picturepark, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Picturepark.
+Nesta secção, configura e testa o single sign-on azure com o Picturepark com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Picturepark.
 
-Para configurar e testar o logon único do Azure AD com o Picturepark, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sign-on azure ad com o Picturepark, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Picturepark](#configure-picturepark-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do Picturepark](#create-picturepark-test-user)** – para ter um equivalente de Brenda Simon no Picturepark que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Picturepark Single Sign-On](#configure-picturepark-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create Picturepark test user](#create-picturepark-test-user)** - para ter uma contrapartida de Britta Simon no Picturepark que está ligada à representação do utilizador azure AD.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o Picturepark, execute as seguintes etapas:
+Para configurar o único sign-on azure ad com o Picturepark, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Picturepark** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **do Picturepark,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Informações de logon único de domínio e URLs do Picturepark](common/sp-identifier.png)
+    ![Picturepark Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.picturepark.com`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<companyname>.picturepark.com`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:
 
     |  |
     |--|
@@ -117,164 +117,164 @@ Para configurar o logon único do Azure AD com o Picturepark, execute as seguint
     | |
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Picturepark](https://picturepark.com/company/picturepark-customer-support) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de apoio ao [Cliente do Picturepark](https://picturepark.com/company/picturepark-customer-support) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Na seção **certificado de autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
+5. Na secção Certificado de **Assinatura SAML,** clique no botão **Editar** para abrir o diálogo do Certificado de **Assinatura SAML.**
 
-    ![Editar certificado de autenticação SAML](common/edit-certificate.png)
+    ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
-6. Na seção **certificado de autenticação SAML** , copie a **impressão digital** e salve-a no computador.
+6. Na secção certificado de **assinatura SAML,** copie a **impressão digital** e guarde-a no seu computador.
 
     ![Copiar valor de impressão digital](common/copy-thumbprint.png)
 
-7. Na seção **Configurar Picturepark** , copie as URLs apropriadas de acordo com seu requisito. Para a **URL de logon**, use o valor com o seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+7. Na secção Configurar o **Picturepark,** copie os URL(s) adequados de acordo com o seu requisito. Para **o URL de login,** utilize o valor com o seguinte padrão:`https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
-    > _my_directory_id_ é a ID de locatário da assinatura do Azure AD.
+    > _my_directory_id_ é a identidade de inquilino da assinatura azure AD.
 
-    ![Copiar URLs de configuração](./media/picturepark-tutorial/configurls.png)
+    ![URLs de configuração de cópia](./media/picturepark-tutorial/configurls.png)
 
-    a. Identificador do Azure AD
+    a. Identificador Azure AD
 
-    b. URL de logout
+    b. Logout URL
 
-### <a name="configure-picturepark-single-sign-on"></a>Configurar o logon único do Picturepark
+### <a name="configure-picturepark-single-sign-on"></a>Configure Picturepark Single Sign-On
 
-1. Em uma janela diferente do navegador da Web, entre no site da empresa do Picturepark como um administrador.
+1. Numa janela diferente do navegador web, inscreva-se no site da sua empresa do Picturepark como administrador.
 
-2. Na barra de ferramentas na parte superior, clique em **Ferramentas administrativas**e em **console de gerenciamento**.
+2. Na barra de ferramentas na parte superior, clique em **ferramentas administrativas,** e depois clique na Consola de **Gestão**.
    
-    ![Console de gerenciamento](./media/picturepark-tutorial/ic795062.png "Console de gerenciamento")
+    ![Consola de gestão](./media/picturepark-tutorial/ic795062.png "Consola de gestão")
 
-3. Clique em **autenticação**e em **provedores de identidade**.
+3. Clique em **Autenticação**e, em seguida, clique em **fornecedores de identidade**.
    
     ![Autenticação](./media/picturepark-tutorial/ic795063.png "Autenticação")
 
-4. Na seção **configuração do provedor de identidade** , execute as seguintes etapas:
+4. Na secção de configuração do **fornecedor de identidade,** execute os seguintes passos:
    
-    ![Configuração do provedor de identidade](./media/picturepark-tutorial/ic795064.png "Configuração do provedor de identidade")
+    ![Configuração do fornecedor de identidade](./media/picturepark-tutorial/ic795064.png "Configuração do fornecedor de identidade")
    
     a. Clique em **Adicionar**.
   
     b. Digite um nome para a sua configuração.
    
-    c. Selecione **definir como padrão**.
+    c. Selecione **Definir como padrão**.
    
-    d. Na caixa de texto **URI do emissor** , Cole o valor da **URL de logon** que você copiou do portal do Azure.
+    d. Na caixa de texto **Emitr URI,** colhe o valor do URL de **Login** que copiou do portal Azure.
    
-    e. Na caixa de texto **Imprimir miniatura do emissor confiável** , Cole o valor da **impressão digital** que você copiou da seção **certificado de autenticação SAML** . 
+    e. Na caixa de texto **de impressão digital do emitente fidedigno,** colá o valor da impressão **digital** que copiou da secção de certificado de **assinatura SAML.** 
 
-5. Clique em **JoinDefaultUsersGroup**.
+5. Clique em **UnirDefaultUsersGroup**.
 
-6. Para definir o atributo **EmailAddress** na caixa de texto **declaração** , digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` e clique em **salvar**.
+6. Para definir o atributo do endereço de `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` **e-mail** na caixa de texto **claim,** escreva e clique em **Guardar**.
 
       ![Configuração](./media/picturepark-tutorial/ic795065.png "Configuração")
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. No campo **nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No **User name** tipo `brittasimon@yourcompanydomain.extension`de campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Picturepark.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso ao Picturepark.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Picturepark**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Picturepark**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Picturepark**.
+2. Na lista de aplicações, selecione **Picturepark**.
 
-    ![O link do Picturepark na lista de aplicativos](common/all-applications.png)
+    ![O link Picturepark na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-picturepark-test-user"></a>Criar usuário de teste do Picturepark
+### <a name="create-picturepark-test-user"></a>Criar o utilizador de teste picturepark
 
-Para permitir que os usuários do AD do Azure entrem no Picturepark, eles devem ser provisionados no Picturepark. No caso do Picturepark, o provisionamento é uma tarefa manual.
+Para permitir que os utilizadores da AD Azure assinem no Picturepark, devem ser aprovisionados no Picturepark. No caso do Picturepark, o provisionamento é uma tarefa manual.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+**Para fornecer uma conta de utilizador, execute os seguintes passos:**
 
-1. Entre no seu locatário do **Picturepark** .
+1. Inscreva-se no seu inquilino **do Picturepark.**
 
-1. Na barra de ferramentas na parte superior, clique em **Ferramentas administrativas**e em **usuários**.
+1. Na barra de ferramentas na parte superior, clique em **ferramentas administrativas**e, em seguida, clique em **Utilizadores**.
    
     ![Utilizadores](./media/picturepark-tutorial/ic795067.png "Utilizadores")
 
-1. Na guia **visão geral dos usuários** , clique em **novo**.
+1. No separador visão geral dos **Utilizadores,** clique em **New**.
    
-    ![Gerenciamento de usuários](./media/picturepark-tutorial/ic795068.png "Gerenciamento de usuários")
+    ![Gestão de utilizadores](./media/picturepark-tutorial/ic795068.png "Gestão de utilizadores")
 
-1. Na caixa de diálogo **criar usuário** , execute as seguintes etapas de um usuário válido do Azure Active Directory que você deseja provisionar:
+1. No diálogo **Create User,** execute os seguintes passos de um utilizador de diretório ativo Azure válido que pretende fornecer:
    
-    ![Criar usuário](./media/picturepark-tutorial/ic795069.png "Criar usuário")
+    ![Criar o Utilizador](./media/picturepark-tutorial/ic795069.png "Criar Utilizador")
    
-    a. Na caixa de texto **endereço de email** , digite o **endereço de email** do usuário `BrittaSimon@contoso.com`.  
+    a. Na caixa de texto endereço de **e-mail,** escreva o endereço de **e-mail** do utilizador `BrittaSimon@contoso.com`.  
    
-    b. Nas caixas de texto **senha** e **Confirmar senha** , digite a **senha** de brendafernandes. 
+    b. Nas **caixas** de texto Password e **Confirme,** escreva a **palavra-passe** da BrittaSimon. 
    
-    c. Na caixa de texto **nome** , digite o **nome** do usuário **Brenda**. 
+    c. Na caixa de texto **First Name,** digite o **Primeiro Nome** do utilizador **Britta**. 
    
-    d. Na caixa de texto **sobrenome** , digite o **sobrenome** do usuário **Simon**.
+    d. Na caixa de texto **Sobre Nome,** digite o **Último Nome** do utilizador **Simon**.
    
-    e. Na caixa de texto **empresa** , digite o **nome da empresa** do usuário. 
+    e. Na caixa de texto **da Empresa,** digite o nome da **Empresa** do utilizador. 
    
-    f. Na caixa de texto **país** , selecione o **país/região** do usuário.
+    f. Na caixa de texto **Country,** selecione o **País/Região** do utilizador.
   
-    g. Na caixa de texto **zip** , digite o **CEP** da cidade.
+    g. Na caixa de texto **ZIP,** digite o **código POSTAL** da cidade.
    
-    h. Na caixa de texto **cidade** , digite o **nome da cidade** do usuário.
+    h. Na caixa de texto **da Cidade,** digite o **nome city** do utilizador.
 
-    i. Selecione um **idioma**.
+    i. Selecione um **Idioma**.
    
     j. Clique em **Criar**.
 
 >[!NOTE]
->Você pode usar qualquer outra ferramenta de criação de conta de usuário Picturepark ou APIs fornecidas pelo Picturepark para provisionar contas de usuário do Azure AD.
+>Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador do Picturepark ou APIs fornecidas pelo Picturepark para fornecer contas de utilizadores da Azure AD.
 >
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do Picturepark no painel de acesso, você deverá ser conectado automaticamente ao Picturepark para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Picturepark no Painel de Acesso, deve ser automaticamente inscrito no Picturepark para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

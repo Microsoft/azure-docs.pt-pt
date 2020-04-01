@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 5eaf4cf702e56df932a61ab277dff6b34d97854d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78185034"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber e responder a notificações chave do cofre com a Grelha de Eventos Azure (pré-visualização)
@@ -25,7 +25,7 @@ Este guia descreve como receber notificações do Cofre chave através da Grelha
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um cofre chave na sua assinatura Azure. Você pode rapidamente criar um novo cofre chave seguindo os passos em [set e recuperar um segredo de Azure Key Vault usando Azure CLI](quick-create-cli.md).
 
 ## <a name="concepts"></a>Conceitos
@@ -198,5 +198,5 @@ Saiba mais:
 - Como: [Receber e-mail quando um cofre chave muda](event-grid-logicapps.md)
 - [Esquema de evento sinuoso do evento Azure Event Grid para cofre de chaves Azure (pré-visualização)](../event-grid/event-schema-key-vault.md)
 - [Visão geral do cofre da chave azure](key-vault-overview.md)
-- [Visão geral da Grelha de Eventos Azure](../event-grid/overview.md)
-- [Descrição geral da Automatização do Azure](../automation/index.yml)
+- [Descrição geral do Azure Event Grid](../event-grid/overview.md)
+- [Visão geral da Automação Azure](../automation/index.yml)

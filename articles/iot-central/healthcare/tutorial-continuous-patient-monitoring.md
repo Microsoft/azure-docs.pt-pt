@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação contínua de monitorização do paciente com a Central Azure IoT  Microsoft Docs
+title: Criar uma aplicação contínua de monitorização do paciente com a Central Azure IoT [ Microsoft Docs
 description: Aprenda a construir uma aplicação contínua de monitorização do paciente utilizando modelos de aplicação Azure IoT Central.
 author: philmea
 ms.author: philmea
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77021292"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementar e passar por um modelo contínuo de aplicação de monitorização do paciente
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 Navegue para o site do gestor de [aplicações Azure IoT Central.](https://apps.azureiotcentral.com/) Selecione **Construir** a partir da barra de navegação à esquerda e, em seguida, clique no separador Cuidados de **Saúde.** 
 
 >[!div class="mx-imgBorder"] 
->![gestor de aplicativos Healthcare](media/app-manager-health.png)
+>![Gestor de aplicativos Healthcare](media/app-manager-health.png)
 
 Clique no botão **de aplicação Create** para começar a criar a sua aplicação e, em seguida, iniciar sessão com uma conta pessoal, de trabalho ou escolar da Microsoft. Vai levá-lo à nova página de **candidatura.**
 
@@ -42,7 +42,7 @@ Clique no botão **de aplicação Create** para começar a criar a sua aplicaç�
 
 Para criar a sua aplicação:
 
-1. A Azure IoT Central sugere automaticamente um nome de aplicação baseado no modelo que selecionou. Pode aceitar este nome ou inserir o seu próprio nome de candidatura amigável, como **monitorização contínua do paciente**. A Azure IoT Central também gera um prefixo URL único para si com base no nome da aplicação. Você está livre para alterar esse prefixo de URL para algo mais fácil de memorizar, se desejar.
+1. A Azure IoT Central sugere automaticamente um nome de aplicação baseado no modelo que selecionou. Pode aceitar este nome ou inserir o seu próprio nome de candidatura amigável, como **monitorização contínua do paciente**. A Azure IoT Central também gera um prefixo URL único para si com base no nome da aplicação. Pode mudar este prefixo de URL para algo mais memorável, se quiser.
 
 2. Pode selecionar se pretende criar a aplicação utilizando o plano de preços *gratuitos* ou um dos planos de preços *padrão.* As aplicações que cria utilizando o plano gratuito são gratuitas durante sete dias antes de expirarem e permitem até cinco dispositivos gratuitos. Pode mover uma aplicação do plano livre para um plano de preços padrão a qualquer momento antes de expirar. Se escolher o plano gratuito, tem de introduzir as suas informações de contacto e escolher se recebe informações e dicas da Microsoft. As aplicações que cria utilizando um suporte de plano padrão até dois dispositivos gratuitos e exigem que introduza as informações de subscrição do Azure para faturação.
 
@@ -65,12 +65,12 @@ Depois de implementar o modelo de aplicação, você primeiro aterrará no paine
 * Altere o estado do **paciente** do seu dispositivo para indicar se o dispositivo está a ser utilizado para um cenário paciente ou remoto.
 
 >[!div class="mx-imgBorder"] 
->![](media/lamna-in-patient.png) interna da Lamna
+>![Lamna paciente](media/lamna-in-patient.png)
 
 Também pode clicar em **Ir ao painel de instrumentos do paciente remoto** para ver o segundo painel de instrumentos do operador utilizado para o Hospital De Burkville. Este painel contém um conjunto semelhante de ações, telemetria e informação. Além disso, pode ver vários dispositivos a serem utilizados e ter a capacidade de **atualizar o firmware** em cada um.
 
 >[!div class="mx-imgBorder"] 
->![](media/lamna-remote.png) remoto lamna
+>![Lamna remota](media/lamna-remote.png)
 
 Em ambos os dashboards, pode sempre ligar-se a esta documentação.
 
@@ -83,7 +83,7 @@ Se clicar no separador de **modelos do Dispositivo,** verá que existem dois tip
 * **Cinta inteligente do joelho**: Este dispositivo representa uma joelheira que os pacientes podem usar quando se recuperam de uma cirurgia de substituição do joelho. Se clicar neste modelo, verá capacidades como alcance de movimento e aceleração, além dos dados do dispositivo.
 
 >[!div class="mx-imgBorder"] 
->![smart vitals patch dispositivo](media/smart-vitals-device-template.png)
+>![Modelo de dispositivo de patch de vitales inteligentes](media/smart-vitals-device-template.png)
 
 Se clicar no separador de **grupos do Dispositivo,** também verá que estes modelos de dispositivo saem automaticamente de grupos de dispositivos criados para os mesmos.
 
@@ -91,14 +91,14 @@ Se clicar no separador de **grupos do Dispositivo,** também verá que estes mod
 
 Ao saltar para o separador de regras, você verá três regras que existem no modelo de aplicação:
 
-* **Temperatura da braçadeira alta**: Esta regra é ativada quando a temperatura do dispositivo da joelheira inteligente é superior a 95&deg;F numa janela de 5 minutos. Pode usar esta regra para alertar o paciente e a equipa de cuidados, e arrefecer o dispositivo remotamente.
+* **Temperatura da braçadeira alta**: Esta regra é ativada quando a&deg;temperatura do dispositivo da joelheira inteligente é superior a 95 F numa janela de 5 minutos. Pode usar esta regra para alertar o paciente e a equipa de cuidados, e arrefecer o dispositivo remotamente.
 
 * **Queda detetada**: Esta regra é desencadeada se for detetada uma queda do paciente. Pode usar esta regra para configurar uma ação para implantar uma equipa operacional para ajudar o paciente que caiu.
 
 * **Bateria de remendo baixa**: Esta regra é ativada quando o nível da bateria no dispositivo fica abaixo de 10%. Pode usar esta regra para desencadear uma notificação ao paciente para carregar o seu dispositivo.
 
 >[!div class="mx-imgBorder"] 
->![temperatura da cinta alta regra](media/brace-temp-rule.png)
+>![Regra alta da temperatura do aparelho](media/brace-temp-rule.png)
 
 ### <a name="devices"></a>Dispositivos
 
@@ -111,14 +111,14 @@ O separador **Propriedades** permitirá editar propriedades na nuvem e ler/escre
 O separador **Comandos** permitir-lhe-á executar comandos que tenham sido modelados como parte do modelo do seu dispositivo.
 
 >[!div class="mx-imgBorder"] 
->![joelheira vê](media/knee-brace-dashboard.png)
+>![Vista para o joelho](media/knee-brace-dashboard.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não vai continuar a utilizar esta aplicação, elimine a aplicação visitando as definições de **Administração > Aplicação** e clique em **Eliminar**.
+Se não vai continuar a utilizar esta aplicação, elimine a aplicação visitando **as definições de Aplicação > administração** e clique em **Eliminar**.
 
 >[!div class="mx-imgBorder"] 
->![Apagar](media/admin-delete.png) de aplicações
+>![Excluir app](media/admin-delete.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

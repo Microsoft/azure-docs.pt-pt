@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77365320"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Gateway de caixa de dados Azure provisionio em Hiper-V
@@ -21,17 +21,17 @@ ms.locfileid: "77365320"
 
 Este tutorial descreve como aprovisionar um Data Box Gateway num sistema anfitrião com Hyper-V no Windows Server 2016, no Windows Server 2012 R2, ou no Windows Server 2012.
 
-Para aprovisionar e configurar um dispositivo virtual, precisa de privilégios de administrador. O aprovisionamento e a configuração inicial demoram cerca de dez minutos a concluir.
+Para aprovisionar e configurar um dispositivo virtual, precisa de privilégios de administrador. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
-> * Confirmar que o anfitrião cumpre os requisitos mínimos do dispositivo.
+> * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
 > * Aprovisionar um dispositivo virtual no hipervisor
 > * Iniciar o dispositivo virtual e obter o endereço IP
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,18 +41,18 @@ Os pré-requisitos para aprovisionar um dispositivo virtual num sistema anfitri�
 
 Antes de começar, certifique-se de que:
 
-* Concluiu todos os passos descritos em [Prepare the portal for Data Box Gateway](data-box-gateway-deploy-prep.md) (Preparar o portal para o Data Box Gateway).
+* Concluiu todos os passos descritos em [Preparar o portal para o Data Box Gateway](data-box-gateway-deploy-prep.md).
 * Transferiu a imagem do dispositivo virtual para Hyper-V no portal do Azure, conforme descrito em [Prepare the portal for Data Box Gateway](data-box-gateway-deploy-prep.md) (Preparar o portal para o Data Box Gateway).
 
   > [!IMPORTANT]
   > O software em execução no Data Box Gateway só pode ser utilizado com o recurso do Data Box Gateway.
 
-### <a name="for-the-data-box-gateway-virtual-device"></a>Para o dispositivo virtual Data Box Gateway
+### <a name="for-the-data-box-gateway-virtual-device"></a>Relativamente ao dispositivo virtual Data Box Gateway
 
 Antes de implementar um dispositivo, certifique-se de que:
 
 * Tem acesso a um sistema anfitrião com Hyper-V no Windows Server 2012 R2 ou posterior que possa ser utilizado para aprovisionar um dispositivo.
-* O sistema anfitrião tem capacidade para dedicar os recursos seguintes para aprovisionar o seu dispositivo virtual:
+* O sistema anfitrião tem capacidade para dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
 
   * Um mínimo de 4 núcleos.
   * Pelos menos 8 GB de RAM.
@@ -69,7 +69,7 @@ Antes de começar:
 
 ## <a name="check-the-host-system"></a>Verificar o sistema anfitrião
 
-Para criar um dispositivo virtual, precisa de:
+Para criar um dispositivo virtual, precisa:
 
 * Da função Hyper-V instalada no Windows Server 2016, no Windows Server 2012 R2 ou no Windows Server 2012.
 * Do Microsoft Hyper-V Manager, num cliente Microsoft Windows ligado ao anfitrião.
@@ -137,7 +137,7 @@ Execute os passos seguintes para aprovisionar um dispositivo no seu hipervisor.
     ![Especificar página de nome e localização](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. Na página **Configure Disk** (Configurar Disco), selecione a opção **Create a new blank virtual hard disk** (Criar um disco rígido virtual vazio novo) e especifique o tamanho como **2 TB** (ou mais).
     
-    Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não é possível encolher o disco depois de aprovisionado. Tentar encolher o disco resulta numa perda de todos os dados locais do dispositivo. A expansão do disco de dados não é suportada. Clique em **Seguinte**.
+    Embora 2 TB seja o requisito mínimo, pode sempre aprovisionar um disco maior. Tenha em atenção que não pode encolher o disco depois de aprovisionado. Tentar encolher o disco resulta numa perda de todos os dados locais do dispositivo. A expansão do disco de dados não é suportada. Clique em **Seguinte**.
 
     ![Página de disco configurar](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Na página **Summary** (Resumo), reveja os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Finish** (Concluir) para criar o disco. O assistente fecha-se e é adicionado um disco rígido virtual à sua máquina.
@@ -162,7 +162,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
    
 6. Os passos de 5 a 7 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos. Se tiver iniciado o dispositivo num ambiente não DHCP, verá uma mensagem a informar do mesmo.
     
-7. Para configurar a rede, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a esta interface é `Ethernet`.
+7. Para configurar a rede, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 
 8. Utilize o cmdlet `Set-HcsIpAddress` para configurar a rede. Veja o seguinte exemplo:
 
@@ -173,9 +173,9 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
    ![Banner de dispositivo virtual com endereço IP e URL de ligação](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa. Modifique a configuração do dispositivo de modo a que a máquina tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração em [Verificar se o sistema anfitrião cumpre os requisitos mínimos do dispositivo virtual](#check-the-host-system).
+Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um erro no texto da faixa. Modifique a configuração do dispositivo de modo a que a máquina tenha os recursos adequados para satisfazer os requisitos mínimos. Em seguida, pode reiniciar e ligar ao dispositivo. Consulte os requisitos mínimos de configuração em Verificar se o sistema de acolhimento cumpre os [requisitos mínimos do dispositivo virtual](#check-the-host-system).
 
-Se você enfrentar qualquer outro erro durante a configuração inicial usando a interface do usuário da Web local, consulte os seguintes fluxos de trabalho:
+Se enfrentar qualquer outro erro durante a configuração inicial utilizando o UI web local, consulte os seguintes fluxos de trabalho:
 
 - [Ecorra em testes de diagnóstico para resolver problemas na configuração da UI](data-box-gateway-troubleshoot.md#run-diagnostics)web .
 - [Gere o pacote de registo e ver ficheiros de registo](data-box-gateway-troubleshoot.md#collect-support-package).
@@ -185,7 +185,7 @@ Se você enfrentar qualquer outro erro durante a configuração inicial usando a
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 
 > [!div class="checklist"]
-> * Confirmar que o anfitrião cumpre os requisitos mínimos do dispositivo.
+> * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
 > * Aprovisionar um dispositivo virtual no hipervisor
 > * Iniciar o dispositivo virtual e obter o endereço IP
 

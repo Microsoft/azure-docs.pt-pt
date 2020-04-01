@@ -1,5 +1,5 @@
 ---
-title: Tutorial – dimensionamento automático de um conjunto de dimensionamento com Azure PowerShell
+title: Tutorial - Autoescala um conjunto de escala com Azure PowerShell
 description: Saiba como dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell à medida que a CPU exige aumentos e diminuições
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278415"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
@@ -27,7 +27,7 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Existe um problema conhecido que afeta a versão do módulo 6.8.1 do Azure PowerShell ou posterior, incluindo a versão atual do Azure Cloud Shell. Este tutorial pode ser executado apenas com a versão 6.0.0 à 6.8.0 do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
@@ -42,7 +42,7 @@ $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -66,14 +66,14 @@ Os parâmetros seguintes são utilizados para esta regra:
 
 | Parâmetro               | Explicação                                                                                                         | Valor          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-| *-MetricName*           | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
-| *-TimeGrain*            | Frequência com que as métricas são recolhidas para análise.                                                                   | um minuto       |
+| *-Nome métrico*           | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
+| *-TimeGrain*            | Frequência com que as métricas são recolhidas para análise.                                                                   | 1 minuto       |
 | *-MetricStatistic*      | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
-| *-TimeWindow*           | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados.                                   | 5 minutos      |
-| *-Operator*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior Que   |
-| *-Threshold*            | O valor que faz com que a regra de dimensionamento automático acione uma ação.                                                      | 70%            |
+| *-Janela de tempo*           | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados.                                   | 5 minutos      |
+| *-Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior Que   |
+| *-Limiar*            | O valor que faz com que a regra de dimensionamento automático acione uma ação.                                                      | 70%            |
 | *-ScaleActionDirection* | Define se o conjunto de dimensionamento deve aumentar ou reduzir verticalmente quando a regra se aplicar.                                             | Aumentar       |
-| *-ScaleActionScaleType* | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Alterar Contagem   |
+| *-ScaleScaleType* | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Alterar Contagem   |
 | *-ScaleActionValue*     | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 3              |
 | *-ScaleActionCooldown*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
 
@@ -117,7 +117,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
 
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de dimensionamento automático
-Para associar as regras de dimensionamento automático a um conjunto de dimensionamento, crie um perfil. O perfil de dimensionamento automático define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento e associa as suas regras de dimensionamento automático. Crie um perfil de dimensionamento automático com [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10*. Em seguida, são anexadas as regras para aumentar e reduzir horizontalmente criadas nos passos anteriores:
+Para associar as regras de dimensionamento automático a um conjunto de dimensionamento, crie um perfil. O perfil de dimensionamento automático define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento e associa as suas regras de dimensionamento automático. Crie um perfil de dimensionamento automático com [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile). O exemplo que se segue define a predefinição e a capacidade mínima de *2* instâncias VM e um máximo de *10*. Em seguida, são anexadas as regras para aumentar e reduzir horizontalmente criadas nos passos anteriores:
 
 ```azurepowershell-interactive
 $myScaleProfile = New-AzureRmAutoscaleProfile `
@@ -129,7 +129,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-profile-to-a-scale-set"></a>Aplicar perfil de dimensionamento automático a um conjunto de dimensionamento
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Aplicar perfil de escala automática num conjunto de escala
 O último passo consiste em aplicar o perfil de dimensionamento automático ao conjunto de dimensionamento. O conjunto de dimensionamento passa a ter a capacidade de aumentar e reduzir horizontalmente de forma automática com base na exigência da aplicação. Aplique o perfil de dimensionamento automático com [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) da seguinte forma:
 
 ```azurepowershell-interactive
@@ -180,7 +180,7 @@ IpAddress
 52.168.121.216
 ```
 
-Crie uma ligação remota à sua primeira instância da VM. Especifique o seu endereço IP público e o número da porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento (por padrão, nos comandos de exemplo, eles são *azureuser* e *P\@ssw0rd!* ). Se utiliza o Azure Cloud Shell, efetue este passo a partir de um pedido local do Power Shell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *0*:
+Crie uma ligação remota à sua primeira instância da VM. Especifique o seu endereço IP público e o número da porta da instância de VM necessária, conforme mostrado nos comandos anteriores. Quando solicitado, introduza as credenciais utilizadas quando criou o conjunto de escala (por padrão nos comandos da amostra, são *azureuser* e *\@P ssw0rd!* Se utiliza o Azure Cloud Shell, efetue este passo a partir de um pedido local do Power Shell ou do Cliente de Ambiente de Trabalho Remoto. O exemplo seguinte liga à instância de VM *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -189,7 +189,7 @@ mstsc /v 52.168.121.216:50001
 Depois de iniciar sessão, abra o Internet Explorer a partir da barra de tarefas.
 
 - Selecione **OK** para aceitar o pedido para *Utilizar as definições de segurança, privacidade e compatibilidade recomendadas*
-- Escreva *http://download.sysinternals.com/files/CPUSTRES.zip* na barra de endereço.
+- Digite *http://download.sysinternals.com/files/CPUSTRES.zip* na barra de endereços.
 - Como a Configuração de Segurança Avançada do Internet Explorer está ativada, selecione **Adicionar** o domínio *http://download.sysinternals.com* à lista de sites fidedignos.
 - Quando lhe for pedido para transferir o ficheiro, selecione **Abrir** e, em seguida, selecione **Executar** a ferramenta *CPUSTRES.EXE*.
 

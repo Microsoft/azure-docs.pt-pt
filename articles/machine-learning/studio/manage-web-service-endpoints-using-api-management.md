@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218014"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473463"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gerir o Azure Machine Learning Studio (clássico) serviços web utilizando a API Management
 
@@ -217,7 +217,7 @@ Clique em **Sim** para publicar a experiência.
 ![sim-publicar](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testar o serviço Web
-Um serviço web AzureML é composto por pontos finais RSS (serviço de pedido/resposta) e BES (serviço de execução de lote). RSS é para execução sincronizada. O BES é para uma execução de emprego assíncrono. Para testar o seu serviço web com a fonte da amostra Python abaixo, poderá ser necessário descarregar e instalar o Azure SDK para Python (ver: [Como instalar python).](/azure/python/python-sdk-azure-install)
+Um serviço web AzureML é composto por pontos finais RSS (serviço de pedido/resposta) e BES (serviço de execução de lote). RSS é para execução sincronizada. O BES é para uma execução de emprego assíncrono. Para testar o seu serviço web com a fonte da amostra Python abaixo, poderá ser necessário descarregar e instalar o Azure SDK para Python (ver: [Como instalar python).](/azure/developer/python/azure-sdk-install)
 
 Você também precisará do espaço de **trabalho,** **serviço,** e **api_key** da sua experiência para a fonte de amostra abaixo. Pode encontrar o espaço de trabalho e o serviço clicando em **Solicitar/Resposta** ou **executar lote** para a sua experiência no painel de instrumentos do serviço web.
 

@@ -7,15 +7,15 @@ ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239708"
 ---
-# <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure
+# <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Proteger um nome DNS personalizado com um enlace SSL no Serviço de Aplicações do Azure
 
-Este artigo mostra-lhe como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) na sua app de serviço de aplicação ou [aplicação de função](https://docs.microsoft.com/azure/azure-functions/) do [App Service,](https://docs.microsoft.com/azure/app-service/) criando um certificado vinculativo. Quando terminar, pode aceder à sua aplicação App Service no ponto final `https://` para o seu nome DNS personalizado (por exemplo, `https://www.contoso.com`). 
+Este artigo mostra-lhe como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) na sua app de serviço de aplicação ou [aplicação de função](https://docs.microsoft.com/azure/azure-functions/) do [App Service,](https://docs.microsoft.com/azure/app-service/) criando um certificado vinculativo. Quando terminar, pode aceder à sua aplicação `https://` App Service no ponto final para `https://www.contoso.com`o seu nome DNS personalizado (por exemplo, ). 
 
 ![Aplicação Web com certificado SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -52,12 +52,12 @@ Para seguir este guia:
 
 Faça os seguintes passos:
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>a partir do menu esquerdo, selecione **App Services** >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, a partir do menu esquerdo, selecione o**\<nome da aplicação ** **App Services** > >.
 
 A partir da navegação à esquerda da sua aplicação, inicie o diálogo **de ligação TLS/SSL** por:
 
-- Selecionando **domínios personalizados** > **Adicionar ligação**
-- Selecionando **as definições TLS/SSL** > **adicionar ligação TLS/SSL**
+- Selecionar **domínios personalizados** > **Adicione a ligação**
+- Selecionando as >  **definições TLS/SSL****Adicione a ligação TLS/SSL**
 
 ![Adicionar ligação ao domínio](./media/configure-ssl-bindings/secure-domain-launch.png)
 
@@ -104,11 +104,11 @@ A página de **domínio Personalizado** da sua aplicação é atualizada com o n
 
 ## <a name="test-https"></a>Tester HTTPS
 
-Em vários navegadores, navegue para `https://<your.custom.domain>` para verificar se serve a sua aplicação.
+Em vários navegadores, `https://<your.custom.domain>` navegue para verificar se serve a sua aplicação.
 
 ![Navegação do portal para a aplicação do Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-O seu código de aplicação pode inspecionar o protocolo através do cabeçalho "x-appservice-proto". O cabeçalho terá um valor de `http` ou `https`. 
+O seu código de aplicação pode inspecionar o protocolo através do cabeçalho "x-appservice-proto". O cabeçalho terá `http` um `https`valor de ou . 
 
 > [!NOTE]
 > Se a sua aplicação lhe der erros de validação de certificados, provavelmente está a usar um certificado auto-assinado.
@@ -149,7 +149,7 @@ Quando a operação for concluída, a sua aplicação rejeita todas as ligaçõe
 
 ## <a name="handle-ssl-termination"></a>Manuseie a rescisão do SSL
 
-No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
+No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se `X-Forwarded-Proto` os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho.
 
 Guias de configuração específicos do idioma, como o guia de [configuração Linux Node.js,](containers/configure-language-nodejs.md#detect-https-session) mostram-lhe como detetar uma sessão HTTPS no seu código de aplicação.
 

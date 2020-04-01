@@ -1,5 +1,5 @@
 ---
-title: (PRETERIDO) Partilha de ficheiros para o cluster do DC/OS do Azure
+title: (DEPRECIADO) Partilha de ficheiros para cluster Azure DC/OS
 description: Criar e montar uma partilha de ficheiros num cluster DC/OS no Azure Container Service
 services: container-service
 author: julienstroheker
@@ -10,20 +10,20 @@ ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60480389"
 ---
-# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(PRETERIDO) Criar e montar uma partilha de ficheiros para um cluster DC/OS
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(DEPRECIADO) Criar e montar uma partilha de ficheiros para um cluster DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Este tutorial apresenta detalhes sobre como criar uma partilha de ficheiros no Azure e como montá-la em cada agente e mestre do cluster DC/OS. Configurar uma partilha de ficheiros facilita a partilha de ficheiros pelo cluster, como a configuração, o acesso, os registos e muito mais. Neste tutorial, vai concluir as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage do Azure
+> * Criar uma conta de armazenamento do Azure
 > * Criar uma partilha de ficheiros
 > * Montar a partilha no cluster DC/OS
 
@@ -142,12 +142,12 @@ sh ./getNodesRunScript.sh
 
 A partilha de ficheiros está agora acessível em `/mnt/share/dcosshare` em cada nó do cluster.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, a partilha de ficheiros do Azure foi disponibilizada para um cluster DC/OS com os seguintes passos:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage do Azure
+> * Criar uma conta de armazenamento do Azure
 > * Criar uma partilha de ficheiros
 > * Montar a partilha no cluster DC/OS
 

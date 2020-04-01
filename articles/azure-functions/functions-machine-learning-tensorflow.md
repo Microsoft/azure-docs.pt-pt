@@ -7,10 +7,10 @@ ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
 ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78190777"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning em funções Azure com Python e TensorFlow
@@ -32,8 +32,8 @@ Neste artigo, aprende-se a utilizar as Funções Python, TensorFlow e Azure com 
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
-1. Numa janela de terminais ou comando, faça `func --version` para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
-1. Execute `python --version` (Linux/MacOS) ou `py --version` (Windows) para verificar os relatórios da versão Python 3.7.x.
+1. Numa janela de terminal `func --version` ou comando, corra para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
+1. Executar `python --version` (Linux/MacOS) `py --version` ou (Windows) para verificar os relatórios da versão Python 3.7.x.
 
 ## <a name="clone-the-tutorial-repository"></a>Clone o repositório tutorial
 
@@ -109,12 +109,12 @@ py -m venv .venv
 
 ---
 
-Executa todos os comandos subsequentes neste ambiente virtual ativado. (Para sair do ambiente virtual, corra `deactivate`.)
+Executa todos os comandos subsequentes neste ambiente virtual ativado. (Para sair do ambiente `deactivate`virtual, corra .)
 
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções locais
 
-Nas Funções Azure, um projeto de função é um recipiente para uma ou mais funções individuais que cada um responde a um gatilho específico. Todas as funções de um projeto partilham as mesmas configurações locais e de hospedagem. Nesta secção, cria-se um projeto de função que contém uma única função de placa de caldeira chamada `classify` que fornece um ponto final HTTP. Adicione código mais específico numa secção posterior.
+Nas Funções Azure, um projeto de função é um recipiente para uma ou mais funções individuais que cada um responde a um gatilho específico. Todas as funções de um projeto partilham as mesmas configurações locais e de hospedagem. Nesta secção, cria-se um projeto de função `classify` que contém uma única função de placa de caldeira chamada que fornece um ponto final HTTP. Adicione código mais específico numa secção posterior.
 
 1. Na pasta *inicial,* utilize as Ferramentas Core funções do Azure para inicializar uma aplicação de função Python:
 
@@ -127,13 +127,13 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
     > [!TIP]
     > Como um projeto de função está ligado a um tempo de execução específico, todas as funções do projeto devem ser escritas com a mesma língua.
 
-1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o argumento `--name` é o nome único da sua função e o `--template` argumento especifica o gatilho da função. `func new` criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração chamado *função.json*.
+1. Adicione uma função ao seu projeto utilizando `--name` o seguinte comando, onde `--template` o argumento é o nome único da sua função e o argumento especifica o gatilho da função. `func new`criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração denominado *função.json*.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica.* Nessa pasta encontram-se dois ficheiros: *\_\_inite\_\_.py*, que contém o código de função, e *função.json*, que descreve o gatilho da função e as suas encadernações de entrada e saída. Para obter informações sobre o conteúdo destes ficheiros, consulte [Examinar o conteúdo do ficheiro](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido da Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica.* Nessa pasta encontram-se dois ficheiros: * \_ \_init.py\_\_*, que contém o código de função, e *função.json*, que descreve o gatilho da função e as suas encadernações de entrada e saída. Para obter informações sobre o conteúdo destes ficheiros, consulte [Examinar o conteúdo do ficheiro](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido da Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
@@ -144,19 +144,19 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
     func start
     ```
     
-1. Assim que vir o ponto final `classify` aparecer na saída, navegue para o URL, ```http://localhost:7071/api/classify?name=Azure```. A mensagem "Olá Azure!" deve aparecer na saída.
+1. Assim que `classify` vir o ponto final aparecer na ```http://localhost:7071/api/classify?name=Azure```saída, navegue para o URL, . A mensagem "Olá Azure!" deve aparecer na saída.
 
-1. Utilize **o Ctrl**-**C** para parar o hospedeiro.
+1. Use **ctrl**-**C** para parar o hospedeiro.
 
 
 ## <a name="import-the-tensorflow-model-and-add-helper-code"></a>Importar o modelo TensorFlow e adicionar código de ajuda
 
-Para modificar a função `classify` para classificar uma imagem com base no seu conteúdo, utiliza-se um modelo TensorFlow pré-construído que foi treinado e exportado do Azure Custom Vision Service. O modelo, que está contido na pasta de *recursos* da amostra que clonou anteriormente, classifica uma imagem com base na contenção de um cão ou de um gato. Em seguida, adicione um pouco de código de ajuda e dependências ao seu projeto.
+Para modificar `classify` a função de classificar uma imagem com base no seu conteúdo, utiliza-se um modelo TensorFlow pré-construído que foi treinado e exportado do Azure Custom Vision Service. O modelo, que está contido na pasta de *recursos* da amostra que clonou anteriormente, classifica uma imagem com base na contenção de um cão ou de um gato. Em seguida, adicione um pouco de código de ajuda e dependências ao seu projeto.
 
 > [!TIP]
 > Se pretender construir o seu próprio modelo utilizando o nível livre do Serviço de Visão Personalizada, siga as instruções no [repositório](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md)do projeto de amostra .
 
-1. Na pasta *inicial,* executar o comando seguinte para copiar os ficheiros do modelo na pasta *de classificação.* Certifique-se de incluir `\*` no comando. 
+1. Na pasta *inicial,* executar o comando seguinte para copiar os ficheiros do modelo na pasta *de classificação.* Certifique-se `\*` de incluir no comando. 
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -220,29 +220,29 @@ Para modificar a função `classify` para classificar uma imagem com base no seu
     pip install --no-cache-dir -r requirements.txt
     ```
     
-    No Windows, pode encontrar o erro: "Não foi possível instalar pacotes devido a um EnvironmentError: [Errno 2] Nenhum ficheiro ou diretório:" seguido de um longo nome de caminho para um ficheiro como *sharded_mutable_dense_hashtable.cpython-37.pyc*. Normalmente, este erro acontece porque a profundidade do caminho da pasta torna-se demasiado longa. Neste caso, detete to da `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` da chave de registo para `1` para permitir longos caminhos. Alternadamente, verifique onde está instalado o seu intérprete Python. Se esse local tiver um longo caminho, tente reinstalar-se numa pasta com um caminho mais curto.
+    No Windows, pode encontrar o erro: "Não foi possível instalar pacotes devido a um EnvironmentError: [Errno 2] Nenhum ficheiro ou diretório:" seguido de um longo nome de caminho para um ficheiro como *sharded_mutable_dense_hashtable.cpython-37.pyc*. Normalmente, este erro acontece porque a profundidade do caminho da pasta torna-se demasiado longa. Neste caso, detete `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` a `1` chave de registo para permitir longos caminhos. Alternadamente, verifique onde está instalado o seu intérprete Python. Se esse local tiver um longo caminho, tente reinstalar-se numa pasta com um caminho mais curto.
 
 > [!TIP]
-> Ao pedir *predict.py* para fazer a sua primeira previsão, uma função chamada `_initialize` carrega o modelo TensorFlow a partir de disco e cache-lo em variáveis globais. Este cache acelera as previsões subsequentes. Para obter mais informações sobre a utilização de variáveis globais, consulte o guia de desenvolvimento de [Funções Azure Python](functions-reference-python.md#global-variables).
+> Ao apelar *predict.py* para fazer a sua `_initialize` primeira previsão, uma função chamada carrega o modelo TensorFlow a partir de disco e cache-lo em variáveis globais. Este cache acelera as previsões subsequentes. Para obter mais informações sobre a utilização de variáveis globais, consulte o guia de desenvolvimento de [Funções Azure Python](functions-reference-python.md#global-variables).
 
 ## <a name="update-the-function-to-run-predictions"></a>Atualizar a função para executar previsões
 
-1. Abram *a classificação/\_\_inite\_\_.py* num editor de texto e adicione as seguintes linhas após as declarações `import` existentes para importar a biblioteca padrão JSON e os ajudantes *previstos:*
+1. Abra *classificar/init\_\_\_\_.py* em um editor de texto `import` e adicionar as seguintes linhas após as declarações existentes para importar a biblioteca padrão JSON e os ajudantes *previstos:*
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
-1. Substitua todo o conteúdo da função `main` pelo seguinte código:
+1. Substitua todo o `main` conteúdo da função pelo seguinte código:
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19":::
 
-    Esta função recebe um URL de imagem num parâmetro de corda de consulta chamado `img`. Em seguida, chama `predict_image_from_url` da biblioteca de ajudantes para descarregar e classificar a imagem usando o modelo TensorFlow. A função devolve então uma resposta HTTP com os resultados. 
+    Esta função recebe um URL de imagem `img`num parâmetro de corda de consulta chamado . Em seguida, liga `predict_image_from_url` da biblioteca de ajudantes para descarregar e classificar a imagem usando o modelo TensorFlow. A função devolve então uma resposta HTTP com os resultados. 
 
     > [!IMPORTANT]
-    > Como este ponto final http é chamado por uma página web hospedada em outro domínio, a resposta inclui um cabeçalho `Access-Control-Allow-Origin` para satisfazer os requisitos de Partilha de Recursos De Origem Cruzada (CORS) do navegador.
+    > Como este ponto final http é chamado por uma página web `Access-Control-Allow-Origin` hospedada em outro domínio, a resposta inclui um cabeçalho para satisfazer os requisitos de Partilha de Recursos De Origem Cruzada (CORS) do navegador.
     >
-    > Numa aplicação de produção, altere `*` a origem específica da página web para uma maior segurança.
+    > Numa aplicação de `*` produção, mude para a origem específica da página web para maior segurança.
 
-1. Guarde as suas alterações, assumindo então que as dependências terminaram de instalar, inicie novamente o hospedeiro de funções local com `func start`. Certifique-se de que executa o hospedeiro na *pasta* inicial com o ambiente virtual ativado. Caso contrário, o hospedeiro começará, mas verá erros ao invocar a função.
+1. Guarde as suas alterações, assumindo então que as `func start`dependências terminaram de instalar, inicie novamente o hospedeiro de funções local com . Certifique-se de que executa o hospedeiro na *pasta* inicial com o ambiente virtual ativado. Caso contrário, o hospedeiro começará, mas verá erros ao invocar a função.
 
     ```
     func start
@@ -284,7 +284,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
     py -m http.server
     ```
 
-1. Num browser, navegue para `localhost:8000`, em seguida, introduza uma das seguintes URLs fotográficas na caixa de texto, ou utilize o URL de qualquer imagem acessível ao público.
+1. Num browser, navegue para, `localhost:8000`em seguida, introduzir uma das seguintes URLs fotográficas na caixa de texto, ou utilizar o URL de qualquer imagem acessível ao público.
 
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
@@ -295,7 +295,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
     ![Screenshot do projeto acabado](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
 
-    Se o navegador reportar um erro ao submeter o URL de imagem, verifique o terminal em que está a executar a aplicação de funções. Se vir um erro como "Nenhum módulo encontrado 'PIL'", pode ter iniciado a aplicação de funções na *pasta* inicial sem antes ativar o ambiente virtual que criou anteriormente. Se ainda vir erros, volte a `pip install -r requirements.txt` com o ambiente virtual ativado e procure erros.
+    Se o navegador reportar um erro ao submeter o URL de imagem, verifique o terminal em que está a executar a aplicação de funções. Se vir um erro como "Nenhum módulo encontrado 'PIL'", pode ter iniciado a aplicação de funções na *pasta* inicial sem antes ativar o ambiente virtual que criou anteriormente. Se ainda vir erros, volte a correr `pip install -r requirements.txt` com o ambiente virtual ativado e procure erros.
 
 > [!NOTE]
 > O modelo classifica sempre o conteúdo da imagem como um gato ou um cão, independentemente de a imagem conter qualquer um, incumpridor com o cão. Imagens de tigres e panteras, por exemplo, tipicamente classificam como gato, mas imagens de elefantes, cenouras ou aviões classificam-se como cães.

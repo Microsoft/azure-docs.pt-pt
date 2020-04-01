@@ -15,35 +15,35 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239911"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
 
-Neste tutorial, vai realizar as seguintes ações:
+Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório
 > * Adicionar máquinas virtuais (VM) ao laboratório
 > * Adicionar um utilizador à função de Utilizador do Laboratório
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-lab"></a>Criar um laboratório
 Os passos seguintes mostram como utilizar o portal do Azure para criar um laboratório no Azure DevTest Labs. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. No menu principal no lado esquerdo, selecione **Criar recurso** (na parte superior da lista), aponte para **Ferramentas de programação** e clique em **DevTest Labs**. 
 
     ![Menu Novo DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
 1. Na janela **Criar um DevTest Lab**, realize as seguintes ações: 
     1. Em **Nome do laboratório**, introduza um nome para o laboratório. 
     2. Em **Subscrição**, selecione a subscrição na qual pretende criar o laboratório. 
-    3. Em **Grupo de recursos**, selecione **Criar novo** e introduza um nome para o grupo de recursos. 
+    3. Em **Grupo de recursos**: selecione **Criar novo** e introduza um nome para o grupo de recursos. 
     4. Em **Localização**, selecione a localização/regiãoonde pretende criar o laboratório. 
     5. Selecione **Criar**. 
     6. Selecione **Afixar ao dashboard**. Depois de criar o laboratório, poderá vê-lo no dashboard. 
@@ -65,7 +65,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 1. Na página **Máquina virtual**, realize as seguintes ações: 
     1. Em **Nome da máquina virtual**, introduza um nome para a máquina virtual. 
     2. Para **Nome de utilizador**, introduza um nome para o utilizador com acesso à máquina virtual. 
-    3. Para **obter palavra-passe,** introduza a palavra-passe para o utilizador. 
+    3. Em **Palavra-passe**,introduza a palavra-passe do utilizador. 
 
         ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Selecione separador de **definições avançadas.**

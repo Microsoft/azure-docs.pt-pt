@@ -1,5 +1,5 @@
 ---
-title: Amostras de armazenamento azure usando JavaScript  Microsoft Docs
+title: Amostras de armazenamento azure usando JavaScript [ Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para armazenamento Azure. Descubra começar a receber amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento JavaScript/Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 1d6b4d37a3d7c4accc3e407fb6cf841600ac1c16
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77485850"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Amostras de armazenamento azure usando bibliotecas de clientes V12 JavaScript
@@ -43,7 +43,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Autenticar usando o Diretório Ativo Azure](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/azureAdAuth.js#L47)
+      [Autenticar com o Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/azureAdAuth.js#L47)
    :::column-end:::
    :::column span="":::
       [Autenticar usando um proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/proxyAuth.js#L28)
@@ -67,7 +67,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
 
 :::row:::
    :::column span="":::
-      [Criar um recipiente](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L53)
+      [Criar um contentor](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L53)
    :::column-end:::
    :::column span="":::
       [Criar um recipiente usando uma credencial de chave partilhada](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L38)
@@ -75,7 +75,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista de contentores](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L48)
+      [Listar contentores](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L48)
    :::column-end:::
    :::column span="":::
       [Listar recipientes usando um iterator](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-containers.js#L28)
@@ -94,15 +94,15 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
 
 :::row:::
    :::column span="":::
-      [Criar uma bolha](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L60)
+      [Criar um blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L60)
    :::column-end:::
    :::column span="":::
-      [Lista de bolhas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L67)
+      [Listar blobs](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L67)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Descarregue uma bolha](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L73)
+      [Transferir um blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L73)
    :::column-end:::
    :::column span="":::
       [Lista bolhas usando um iterator](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-blobs.js#L41)
@@ -121,7 +121,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
       [Listagem de bolhas sem usar aguardar](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-without-await.js#L42)
    :::column-end:::
    :::column span="":::
-      [Criar um instantâneo blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L56)
+      [Criar um instantâneo de blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L56)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -173,7 +173,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
       [Liste caminhos num sistema de ficheiros](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L63)
    :::column-end:::
    :::column span="":::
-      [Descarregue um ficheiro](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
+      [Transferir um ficheiro](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,7 +208,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
    :::column-end:::
 :::row-end:::
 
-### <a name="share"></a>Partilhar
+### <a name="share"></a>Partilhado
 
 :::row:::
    :::column span="":::
@@ -223,7 +223,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
       [Lista de partilhas por página](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-shares.js#L51)
    :::column-end:::
    :::column span="":::
-      [Eliminar uma parte](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L104)
+      [Eliminar uma partilha](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L104)
    :::column-end:::
 :::row-end:::
 
@@ -292,7 +292,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
       [Conecte-se usando um proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/proxyAuth.js)
    :::column-end:::
    :::column span="":::
-      [Autenticar usando o Diretório Ativo Azure](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/azureAdAuth.js)
+      [Autenticar com o Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/azureAdAuth.js)
    :::column-end:::
 :::row-end:::
 
@@ -319,7 +319,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
       [Lista de filas por página](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/iterators.js#L51)
    :::column-end:::
    :::column span="":::
-      [Apagar uma fila](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L89)
+      [Eliminar uma fila](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L89)
    :::column-end:::
 :::row-end:::
 
@@ -370,7 +370,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Mesas de consulta](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L140)
+      [Consulta tabelas](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L140)
    :::column-end:::
    :::column span="":::
       [Consulta de alcance](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L102)
@@ -378,7 +378,7 @@ As tabelas que se seguem fornecem uma visão geral do nosso repositório de amos
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Assinatura de Acesso Partilhado (SAS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
+      [Assinatura de acesso partilhado (SAS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
    :::column-end:::
    :::column span="":::
       [Mesa ACL](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255)

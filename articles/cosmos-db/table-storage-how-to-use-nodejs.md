@@ -1,5 +1,5 @@
 ---
-title: Usar o armazenamento de tabelas do Azure ou Azure Cosmos DB API de Tabela do node. js
+title: Use Azure Table storage or Azure Cosmos DB Table API from Node.js
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,17 +9,17 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76771087"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este artigo mostra como executar cenários comuns utilizando o serviço Armazenamento de tabelas do Azure ou o Azure Cosmos DB numa aplicação Node.js.
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
@@ -67,8 +67,8 @@ O módulo do Azure lê as variáveis de ambiente AZURE_STORAGE_ACCOUNT e AZURE_S
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação ao Azure Cosmos DB
-Para adicionar uma ligação ao Azure Cosmos DB, crie um objeto **TableService** e especifique o nome da conta, a chave primária e o ponto final. Pode copiar estes valores a partir de **Definições** > **Cadeia de Ligação** no portal do Azure para a sua conta do Cosmos DB. Por exemplo:
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação do Azure Cosmos DB
+Para adicionar uma ligação ao Azure Cosmos DB, crie um objeto **TableService** e especifique o nome da conta, a chave primária e o ponto final. Pode copiar estes valores a partir da **Definição** > **De Conexão String** no portal Azure para a sua conta Cosmos DB. Por exemplo:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -94,7 +94,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 `result.created` é `true` se for criada uma nova tabela e `false` se a tabela já existir. `response` contém informações sobre o pedido.
 
 ### <a name="filters"></a>Filtros
-Pode aplicar a filtragem opcional a operações executadas utilizando **TableService**. As operações de filtragem podem incluir registro em log, repetições automáticas, etc. Filtros são objetos que implementam um método com a assinatura:
+Pode aplicar a filtragem opcional a operações executadas utilizando **TableService**. As operações de filtragem podem incluir a exploração madeireira, as tentativas automáticas, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
@@ -210,7 +210,7 @@ Com **replaceEntity** e **mergeEntity**, se a entidade que está a ser atualizad
 O `result` para operações de atualização com êxito contém o **Etag** da entidade atualizada.
 
 ## <a name="work-with-groups-of-entities"></a>Trabalhar com grupos de entidades
-Por vezes, é útil submeter várias operações em conjunto num batch, para garantir um processamento atómico pelo servidor. Para o fazer, utilize a classe **TableBatch** para criar um batch e, em seguida, utilize o método **executeBatch** de **TableService** para efetuar as operações em batch.
+Por vezes, é útil submeter várias operações em conjunto num batch para garantir um processamento atómico pelo servidor. Para o fazer, utilize a classe **TableBatch** para criar um batch e, em seguida, utilize o método **executeBatch** de **TableService** para efetuar as operações em batch.
 
  O exemplo seguinte demonstra como submeter duas entidades num batch:
 
@@ -365,7 +365,7 @@ dc.table.queryEntities(tableName,
 
 Se inspecionar o objeto `continuationToken`, encontrará propriedades como `nextPartitionKey`, `nextRowKey` e `targetLocation`, que podem ser utilizadas para iterar todos os resultados.
 
-Você também pode usar `top` junto com `continuationToken` para definir o tamanho da página. 
+Também pode `top` usar `continuationToken` juntamente com o tamanho da página. 
 
 ## <a name="work-with-shared-access-signatures"></a>Trabalhar com assinaturas de acesso partilhado
 As assinaturas de acesso partilhado (SAS) são uma forma segura de fornecer acesso granular às tabelas sem fornecer o nome ou a chaves da sua conta de Armazenamento. As SAS são frequentemente utilizadas para fornecer acesso limitado aos seus dados, tal como permitir que uma aplicação móvel consulte registos.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Tenha em atenção que também tem de fornecer as informações do host, dado que é necessário quando o titular da SAS tenta aceder à tabela.
 
-A aplicação cliente utiliza então a SAS com **TableServiceWithSAS** para executar operações na tabela. O exemplo seguinte liga-se à tabela e executa uma consulta. Consulte o artigo [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md) para o formato de tabelas. 
+A aplicação cliente utiliza então a SAS com **TableServiceWithSAS** para executar operações na tabela. O exemplo seguinte liga-se à tabela e executa uma consulta. Consulte o acesso limitado aos recursos de Armazenamento Azure utilizando o artigo de [assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md) para o formato do tableSAS. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

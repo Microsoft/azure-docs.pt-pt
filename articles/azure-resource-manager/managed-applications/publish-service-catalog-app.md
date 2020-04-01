@@ -1,24 +1,24 @@
 ---
-title: Publicar aplicativo gerenciado do catálogo de serviços
+title: Publicar app gerida por catálogo de serviços
 description: Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização.
 author: tfitzmac
 ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: e756617a700d258078e84a3fa11c8aceb6f4dd88
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 13c45bc6e67d9d3d06a70b7cf3326cc112cd7829
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903270"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79473018"
 ---
-# <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição da aplicação gerida
+# <a name="tutorial-create-and-publish-a-managed-application-definition"></a>Tutorial: Criar e publicar uma definição de candidatura gerida
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Pode criar e publicar [aplicações geridas](overview.md) do Azure que se destinam aos membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que cumprem normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, e não no Azure marketplace.
 
-Para publicar um aplicativo gerenciado em seu catálogo de serviços do Azure, você deve:
+Para publicar uma aplicação gerida no seu Catálogo de Serviços Azure, deve:
 
 * Criar um modelo que define os recursos a implementar com a aplicação gerida.
 * Defina os elementos de interface de utilizador para o portal quando implementar a aplicação gerida.
@@ -81,13 +81,13 @@ Adicione o seguinte JSON ao ficheiro. Define os parâmetros para criar uma conta
 
 Guarde o ficheiro mainTemplate.json.
 
-## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definindo sua experiência de criação usando CreateUiDefinition. JSON
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definindo a sua experiência de criação usando CreateUiDefinition.json
 
-Como Publicador, você define sua experiência de criação usando o arquivo **createUiDefinition. JSON** que gera a interface para usuários que criam aplicativos gerenciados. Você define como os usuários fornecem entrada para cada parâmetro usando [elementos de controle](create-uidefinition-elements.md) , incluindo menus suspensos, caixas de texto e caixas de senha.
+Como editor, define a sua experiência de criação utilizando o ficheiro **createUiDefinition.json** que gera a interface para utilizadores que criam aplicações geridas. Define como os utilizadores fornecem entrada para cada parâmetro utilizando elementos de [controlo,](create-uidefinition-elements.md) incluindo drop-downs, caixas de texto e caixas de palavra-passe.
 
-Crie um arquivo chamado **createUiDefinition. JSON** (esse nome diferencia maiúsculas de minúsculas)
+Crie um ficheiro chamado **createUiDefinition.json** (este nome é sensível a casos)
 
-Adicione o seguinte JSON inicial ao arquivo e salve-o.
+Adicione o seguinte starter JSON ao ficheiro e guarde-o.
 
 ```json
 {
@@ -138,7 +138,7 @@ Adicione o seguinte JSON inicial ao arquivo e salve-o.
 }
 ```
 
-Para saber mais, confira [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+Para saber mais, consulte [Começar com createUiDefinition](create-uidefinition-overview.md).
 
 ## <a name="package-the-files"></a>Empacote os ficheiros
 
@@ -208,30 +208,30 @@ New-AzManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga seu próprio armazenamento para a definição de aplicativo gerenciado
-Você pode optar por armazenar a definição de aplicativo gerenciado em uma conta de armazenamento fornecida por você durante a criação para que a localização e o acesso possam ser totalmente gerenciados por você para suas necessidades regulatórias.
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga o seu próprio armazenamento para a definição de aplicação gerida
+Pode optar por armazenar a definição de aplicação gerida dentro de uma conta de armazenamento fornecida por si durante a criação para que a sua localização e acesso possam ser totalmente geridos por si para as suas necessidades regulamentares.
 
 > [!NOTE]
-> Só há suporte para traga seu próprio armazenamento com as implantações de modelo ARM ou API REST da definição de aplicativo gerenciado.
+> Traga o seu próprio armazenamento apenas com modelo ARM ou implementações de API REST da definição de aplicação gerida.
 
-### <a name="select-your-storage-account"></a>Selecione sua conta de armazenamento
-Você deve [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para conter a definição de aplicativo gerenciado para uso com o catálogo de serviços.
+### <a name="select-your-storage-account"></a>Selecione a sua conta de armazenamento
+Tem de [criar uma conta](../../storage/common/storage-account-create.md) de armazenamento para conter a definição de aplicação gerida para utilização com o Catálogo de Serviços.
 
-Copie a ID de recurso da conta de armazenamento. Ele será usado posteriormente ao implantar a definição.
+Copie a identificação de recursos da conta de armazenamento. Será utilizado mais tarde ao implementar a definição.
 
-### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Defina a atribuição de função para "provedor de recursos de dispositivo" em sua conta de armazenamento
-Antes que a definição do aplicativo gerenciado possa ser implantada em sua conta de armazenamento, você deve conceder permissões de colaborador para a função do **provedor de recursos do dispositivo** para que ele possa gravar os arquivos de definição no contêiner da sua conta de armazenamento.
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Delineie a atribuição de funções para "Fornecedor de Recursos de Eletrodomésticos" na sua conta de armazenamento
+Antes de a definição de aplicação gerida poder ser implementada na sua conta de armazenamento, deve dar permissões aos contribuintes para a função de Fornecedor de Recursos de **Aparelhos,** de modo a poder escrever os ficheiros de definição no recipiente da sua conta de armazenamento.
 
-1. No [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento.
-1. Selecione **controle de acesso (iam)** para exibir as configurações de controle de acesso para a conta de armazenamento. Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
-1. Na janela **Adicionar atribuição de função** , selecione a função **colaborador** . 
-1. No campo **atribuir acesso a** , selecione **usuário, grupo ou entidade de serviço do Azure ad**.
-1. Em **selecionar** Pesquisar função do **provedor de recursos do dispositivo** e selecione-o.
-1. Salve a atribuição de função.
+1. No [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento.
+1. Selecione **o controlo de acesso (IAM)** para visualizar as definições de controlo de acesso para a conta de armazenamento. Selecione o separador de **atribuições de funções** para ver a lista de atribuições de papéis.
+1. Na janela de atribuição de **funções Adicionar,** selecione a função **Contributiva.** 
+1. A partir do **acesso atribuído ao** campo, selecione Utilizador, grupo ou diretor de serviço **Azure AD**.
+1. Em **selecionar** a função de Fornecedor de Recursos de **Aparelhos** e selecioná-la.
+1. Salve a atribuição do papel.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implantar a definição de aplicativo gerenciado com um modelo ARM 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementar a definição de aplicação gerida com um modelo ARM 
 
-Use o modelo ARM a seguir para implantar o aplicativo gerenciado empacotado como uma nova definição de aplicativo gerenciado no catálogo de serviços cujos arquivos de definição são armazenados e mantidos em sua própria conta de armazenamento:
+Utilize o seguinte modelo ARM para implementar a sua aplicação gerida embalada como uma nova definição de aplicação gerida no Catálogo de Serviços cujos ficheiros de definição são armazenados e mantidos na sua própria conta de armazenamento:
    
 ```json
     {
@@ -303,12 +303,12 @@ Use o modelo ARM a seguir para implantar o aplicativo gerenciado empacotado como
 }
 ```
 
-Adicionamos uma nova propriedade chamada **storageAccountId** às propriedades de applicationDefintion e fornecemos a ID da conta de armazenamento na qual você deseja armazenar sua definição como seu valor:
+Adicionámos uma nova propriedade chamada **storageAccountId** às propriedades da sua aplicaçãoDefinição e fornecemos id de conta de armazenamento que pretende armazenar a sua definição como seu valor:
 
-Você pode verificar se os arquivos de definição de aplicativo são salvos em sua conta de armazenamento fornecida em um contêiner intitulado **applicationdefinitions**.
+Pode verificar se os ficheiros de definição de aplicação são guardados na sua conta de armazenamento fornecida num recipiente intitulado definições de **aplicações**.
 
 > [!NOTE]
-> Para aumentar a segurança, você pode criar uma definição de aplicativos gerenciados armazenando-o em um [BLOB da conta de armazenamento do Azure em que a criptografia está habilitada](../../storage/common/storage-service-encryption.md). O conteúdo da definição é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver a definição no catálogo de serviços.
+> Para maior segurança, pode criar uma definição de aplicações geridas armazená-lo numa conta de armazenamento Azure onde a [encriptação está ativada](../../storage/common/storage-service-encryption.md). Os conteúdos de definição são encriptados através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões para o ficheiro podem ver a definição no Catálogo de Serviços.
 
 ### <a name="make-sure-users-can-see-your-definition"></a>Confirmar que os utilizadores podem ver a definição
 

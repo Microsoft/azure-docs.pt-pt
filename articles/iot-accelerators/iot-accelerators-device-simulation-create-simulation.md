@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "61448559"
 ---
-# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo do IoT
+# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo IoT
 
 Neste tutorial, vai utilizar a Simulação de Dispositivos para criar e executar uma simulação de IoT nova com um ou mais dispositivos simulados.
 
@@ -28,7 +28,7 @@ Neste tutorial:
 > * Ver métricas relativas a uma simulação
 > * Parar uma simulação
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,7 +72,7 @@ Para parar uma simulação, clique em **Stop Simulation** (Parar Simulação), n
 
 ![Parar simulação](media/iot-accelerators-device-simulation-create-simulation/simulationdetails.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar, executar e parar uma simulação. Também aprendeu a ver os detalhes da simulação. Para saber mais sobre como executar simulações, avance para o próximo tutorial:
 

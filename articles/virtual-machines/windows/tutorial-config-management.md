@@ -16,10 +16,10 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238581"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar alterações e atualizar uma máquina virtual do Windows em Azure
@@ -38,7 +38,7 @@ A Azure Cloud Shell é uma concha interativa gratuita que pode suster para execu
 
 Para abrir qualquer bloco de código na Cloud Shell, basta selecionar **experimente** a partir do canto superior direito desse bloco de código.
 
-Também pode abrir a Cloud Shell num separado separado do [navegador, indo para https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar blocos de código, cole-os no separador Cloud Shell e selecione a tecla Enter para executar o código.
+Você também pode abrir Cloud Shell em [https://shell.azure.com/powershell](https://shell.azure.com/powershell)um separado de navegador indo para . Selecione **Copiar** para copiar blocos de código, cole-os no separador Cloud Shell e selecione a tecla Enter para executar o código.
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -50,7 +50,7 @@ Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Creden
 $cred = Get-Credential
 ```
 
-Em seguida, crie o VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria um VM chamado `myVM` no local `East US`. Se eles já não existirem, o grupo de recursos `myResourceGroupMonitor` e os recursos da rede de apoio são criados:
+Em seguida, crie o VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria `myVM` um `East US` VM nomeado no local. Se eles já não existirem, `myResourceGroupMonitor` o grupo de recursos e os recursos de rede de apoio são criados:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -93,7 +93,7 @@ Na janela **Enable Update Management,** escolha o espaço de trabalho e a conta 
 
 Qualquer um dos seguintes pré-requisitos que faltam durante o embarque são automaticamente adicionados:
 
-* Área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md)
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) espaço de trabalho
 * [Automatização](../../automation/automation-offering-get-started.md)
 * Um trabalhador híbrido do livro de [corridas,](../../automation/automation-hybrid-runbook-worker.md)que está habilitado no VM
 
@@ -118,7 +118,7 @@ Para agendar uma nova implementação de atualização para o VM, selecione a im
 | Opção | Descrição |
 | --- | --- |
 | **Nome** |Introduza um nome único para identificar a implementação da atualização. |
-|**Sistema operativo**| Selecione **Linux** ou **Windows**.|
+|**Sistema Operativo**| Selecione **Linux** ou **Windows**.|
 | **Grupos para atualizar** |Para VMs hospedados no Azure, defina uma consulta baseada numa combinação de subscrição, grupos de recursos, localizações e etiquetas. Esta consulta constrói um grupo dinâmico de VMs hospedados em Azure para incluir na sua implementação. </br></br>Para VMs não hospedados no Azure, selecione uma pesquisa guardada existente. Com esta pesquisa, pode selecionar um grupo destes VMs para incluir na implementação. </br></br> Para saber mais, consulte [Grupos Dinâmicos.](../../automation/automation-update-management-groups.md)|
 | **Máquinas para atualizar** |Selecione **pesquisa saved,** **grupo importado**ou **máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais a partir da lista de lançamentos. A prontidão de cada máquina é mostrada na coluna DE PRONTIDÃO DO **AGENTE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos informáticos em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
 |**Classificações de atualização**|Escolha todas as classificações de atualização necessárias.|
@@ -145,8 +145,8 @@ Selecione a implementação completa da atualização para ver o painel de instr
 O azulejo de resultados da **Atualização** mostra um resumo do número total de atualizações e resultados de implementação no VM. A tabela à direita mostra uma desagregação detalhada de cada atualização e os resultados da instalação. Cada resultado tem um dos seguintes valores:
 
 * **Não tentado**: A atualização não está instalada. Não havia tempo suficiente disponível com base na duração definida da janela de manutenção.
-* **Com êxito**: a atualização foi executada com êxito.
-* **Falhou**: a atualização falhou.
+* **Sucesso**: A atualização foi bem sucedida.
+* **Falha :** A atualização falhou.
 
 Selecione **Todos os registos** para ver todas as entradas de registo criadas pela implementação.
 
@@ -188,7 +188,7 @@ Para obter informações detalhadas sobre o Change Tracking, consulte [alteraç�
 
 ### <a name="view-inventory"></a>Ver o inventário
 
-Na sua VM, selecione **Inventário**, em **OPERAÇÕES**. No separador **Software,** há uma tabela que mostra o software que foi encontrado. Os detalhes de alto nível para cada registo de software aparecem na tabela. Estes detalhes incluem o nome do software, versão, editor e última hora renovada.
+No seu VM selecione **Inventário** em **OPERAÇÕES**. No separador **Software,** há uma tabela que mostra o software que foi encontrado. Os detalhes de alto nível para cada registo de software aparecem na tabela. Estes detalhes incluem o nome do software, versão, editor e última hora renovada.
 
 ![Ver o inventário](./media/tutorial-monitoring/inventory-view-results.png)
 

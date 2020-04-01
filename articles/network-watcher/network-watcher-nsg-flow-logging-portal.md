@@ -16,10 +16,10 @@ ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76896444"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
@@ -40,13 +40,13 @@ Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o t
 > * Transferir dados registados
 > * Ver dados registados
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. Selecione **computação**e, em seguida, selecione **Windows Server 2016 datacenter** ou uma versão do **servidor Ubuntu**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+2. **Selecione Compute**, e, em seguida, selecione **O Datacenter do Windows Server 2016** ou uma versão do **Ubuntu Server**.
+3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
 
     |Definição|Valor|
     |---|---|
@@ -89,13 +89,13 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 1. Os dados de registo de fluxo do NSG são escritos numa conta de Armazenamento do Microsoft Azure. Para criar uma conta de Armazenamento do Microsoft Azure, selecione **+ Criar um recurso** no canto superior esquerdo do portal.
 2. Selecione **Armazenamento** e, em seguida, **Conta de Armazenamento – blob, ficheiro, tabela, fila**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições restantes e selecione **Criar**.
+3. Introduza, ou selecione as seguintes informações, aceite as restantes predefinições e, em seguida, selecione **Criar**.
 
     | Definição        | Valor                                                        |
     | ---            | ---   |
     | Nome           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
     | Localização       | Selecione **E.U.A. Leste**.                                           |
-    | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
+    | Grupo de recursos | Selecione **Use existente,** e, em seguida, selecione **myResourceGroup** |
 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG.
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
@@ -105,9 +105,9 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 6. Na lista de NSGs, selecione o NSG denominado **myVm nsg**.
 7. Em **Definições dos registos de fluxo**, selecione **Ligado**.
-8. Selecione a versão de log de fluxo. A versão 2 contém estatísticas de sessão de fluxo (bytes e pacotes)
+8. Selecione a versão de registo de fluxo. A versão 2 contém estatísticas de sessões de fluxo (Bytes e Pacotes)
 
-   ![Selecionar versão dos logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+   ![Selecione versão de Logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Selecione a conta de armazenamento que criou no passo 3.
    > [!NOTE]
@@ -124,9 +124,9 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 3. Selecione a conta de armazenamento que configurou no passo 2 da secção [Ativar o registo de fluxo do NSG](#enable-nsg-flow-log).
 4. Sob **o serviço Blob,** selecione **Blobs**e, em seguida, selecione o recipiente **insights-logs-networksecuritygroupflowevent.**
-5. No contêiner, navegue até a hierarquia de pastas até chegar a um arquivo PT1H. JSON, conforme mostrado na imagem a seguir. Os arquivos de log são gravados em uma hierarquia de pastas que segue a seguinte convenção de nomenclatura: https://{storageAccountName}. blob. Core. Windows. net/insights-logs-networksecuritygroupflowevent/resourceName =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {year}/m = {mês}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
+5. No recipiente, navegue na hierarquia da pasta até chegar a um ficheiro PT1H.json, como mostra a imagem que se segue. Os ficheiros de registo são escritos para uma hierarquia de pastas que segue a seguinte convenção de nomeação: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIÇÕES/{subscriçãoID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-   ![Registo de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+   ![Registo do fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Selecione **...** à direita do ficheiro PT1H.json e, em seguida, **Transferir**.
 
@@ -215,11 +215,11 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
-| C            | Somente o estado de fluxo **versão 2** | Captura o estado do fluxo. Os Estados possíveis são **B**: Begin, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo em andamento. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: terminar, quando um fluxo for encerrado. As estatísticas são fornecidas. |
-| 30 | Pacotes enviados-origem para o destino **versão 2 somente** | O número total de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização. |
-| 16978 | Bytes enviados-origem somente para destino **versão 2** | O número total de bytes de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização. Os bytes de pacote incluem o cabeçalho e a carga do pacote. |
-| 24 | Pacotes enviados-destino para a **versão 2** de origem somente | O número total de pacotes TCP ou UDP enviados do destino para a origem desde a última atualização. |
-| 14008| Bytes enviados-destino somente para a **versão 2** de origem | O número total de bytes de pacotes TCP e UDP enviados do destino para a origem desde a última atualização. Bytes de pacote incluem cabeçalho e carga de pacote.|
+| C            | Flow State **Versão 2 Apenas** | Captura o estado do fluxo. Os estados possíveis são **B:** Comece, quando um fluxo é criado. As estatísticas não são fornecidas. **C:** Continuar para um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E:** Terminar, quando um fluxo é terminado. As estatísticas são fornecidas. |
+| 30 | Pacotes enviados - Fonte para destino **Versão 2 Apenas** | O número total de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. |
+| 16978 | Bytes enviados - Fonte para destino **Versão 2 Apenas** | O número total de bytes de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. Os bytes do pacote incluem o cabeçalho do pacote e a carga útil. |
+| 24 | Pacotes enviados - Destino para fonte **Versão 2 Apenas** | O número total de pacotes TCP ou UDP enviados de destino para fonte desde a última atualização. |
+| 14008| Bytes enviados - Destino para fonte **Versão 2 Apenas** | O número total de bytes de pacotes TCP e UDP enviados de destino para fonte desde a última atualização. Os bytes do pacote incluem cabeçalho de pacote e carga útil.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

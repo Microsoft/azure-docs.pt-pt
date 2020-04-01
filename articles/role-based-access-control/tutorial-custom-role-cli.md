@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239869"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure CLI
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 > * Atualizar uma função personalizada
 > * Eliminar uma função personalizada
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79202240"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar um portal NAT utilizando o Azure CLI e testar o serviço NAT
@@ -29,10 +29,10 @@ Neste tutorial, você vai criar uma porta de entrada NAT para fornecer conectivi
 
 Pode completar este tutorial utilizando a Azure Cloud Shell ou executar os respetivos comandos localmente.  Se ainda não usou a Azure Cloud Shell, deve [inscrever-se agora.](https://shell.azure.com)
 
-Se optar por executar estes comandos localmente, tem de instalar o CLI.  Este tutorial requer que esteja a executar uma versão da versão Azure CLI 2.0.71 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por executar estes comandos localmente, tem de instalar o CLI.  Este tutorial requer que esteja a executar uma versão da versão Azure CLI 2.0.71 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -390,13 +390,13 @@ Está pronto para testar o serviço NAT.
 
 Enquanto entra no VM de origem, pode usar **caracol** e **hey** para gerar pedidos para o endereço IP de destino.
 
-Use caracóis para recuperar o ficheiro 100-KBytes.  Substitua **\<ip-address-destination>** no exemplo abaixo com o endereço IP de destino que copiou anteriormente.  O parâmetro **de saída** indica que o ficheiro recuperado será descartado.
+Use caracóis para recuperar o ficheiro 100-KBytes.  Substitua>** \<de destino ip-endereço** no exemplo abaixo com o endereço IP de destino que copiou anteriormente.  O parâmetro **de saída** indica que o ficheiro recuperado será descartado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Também pode gerar uma série de pedidos usando **hey**. Mais uma vez, substitua **\<ip-address-destination>** com o endereço IP de destino que copiou anteriormente.
+Também pode gerar uma série de pedidos usando **hey**. Mais uma vez, substitua ** \<>de destino ip-address** com o endereço IP de destino que copiou anteriormente.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

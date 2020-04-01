@@ -4,10 +4,10 @@ description: Neste tutorial, você cria uma definição de política personaliza
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238945"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
@@ -33,7 +33,7 @@ A abordagem para criar uma política personalizada segue estes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="identify-requirements"></a>Identificar requisitos
 
@@ -174,7 +174,7 @@ A extensão da Política Azure para extensão do Código VS facilita a navegaç�
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-No Azure CLI, o grupo de comando `az provider` é utilizado para procurar pseudónimos de recursos. Vamos filtrar para o espaço de nome sinuoso **microsoft.Storage** com base nos detalhes que obtivemos sobre o recurso Azure mais cedo.
+No Azure CLI, o grupo de `az provider` comando é utilizado para procurar pseudónimos de recursos. Vamos filtrar para o espaço de nome sinuoso **microsoft.Storage** com base nos detalhes que obtivemos sobre o recurso Azure mais cedo.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -187,7 +187,7 @@ Nos resultados, vemos um pseudónimo suportado pelas contas de armazenamento den
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é usado para procurar pseudónimos de recursos. Vamos filtrar para o espaço de nome sinuoso **microsoft.Storage** com base nos detalhes que obtivemos sobre o recurso Azure mais cedo.
+No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é utilizado para procurar pseudónimos de recursos. Vamos filtrar para o espaço de nome sinuoso **microsoft.Storage** com base nos detalhes que obtivemos sobre o recurso Azure mais cedo.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -379,14 +379,14 @@ Embora não tenhamos usado um parâmetro para alterar a avaliação, queremos us
 },
 ```
 
-### <a name="policy-rule"></a>regra de política
+### <a name="policy-rule"></a>Regra política
 
 Compor a [regra](../concepts/definition-structure.md#policy-rule) política é o passo final na construção da nossa definição política personalizada. Identificamos duas declarações para testar:
 
 - Que o **tipo** de conta de armazenamento é **Microsoft.Armazenamento/armazenamentoContas**
 - Que a conta de armazenamento **suportaHttpsTrafficOnly** não é **verdade**
 
-Como precisamos que ambas as declarações sejam verdadeiras, usaremos o **operador lógico.** [](../concepts/definition-structure.md#logical-operators) Passaremos o parâmetro **de efeitoType** para o efeito em vez de fazer uma declaração estática. A nossa regra acabada parece com este exemplo:
+Como precisamos que ambas as declarações sejam verdadeiras, usaremos o **operador lógico.** [logical operator](../concepts/definition-structure.md#logical-operators) Passaremos o parâmetro **de efeitoType** para o efeito em vez de fazer uma declaração estática. A nossa regra acabada parece com este exemplo:
 
 ```json
 "if": {
@@ -455,7 +455,7 @@ A definição completa pode ser utilizada para criar uma nova política. O porta
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já está a trabalhar com os recursos neste tutorial, utilize os passos seguintes para eliminar quaisquer atribuições ou definições criadas acima:
+Se terminar de trabalhar com recursos deste tutorial, use os seguintes passos para eliminar qualquer uma das atribuições ou definições acima criadas:
 
 1. Selecione **Definições** (ou **Atribuições** se estiver a tentar eliminar uma atribuição) ao abrigo da **Autoria** no lado esquerdo da página Política Azure.
 

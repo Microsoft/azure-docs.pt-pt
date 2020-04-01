@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
 ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78190727"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesquisável a partir de blobs Azure
@@ -32,7 +32,7 @@ Se não tiver uma subscrição Azure, abra uma [conta gratuita](https://azure.mi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
++ [Storage do Azure](https://azure.microsoft.com/services/storage/)
 + [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa existente 
 
@@ -67,7 +67,7 @@ Se possível, crie tanto na mesma região como grupo de recursos para proximidad
 
    + **Localização**. Se possível, escolha o mesmo local utilizado para a Pesquisa Cognitiva Azure e Serviços Cognitivos. Um único local anula as cargas de largura de banda.
 
-   + **Tipo de conta.** Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
+   + **Tipo de conta.** Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
 
 1. Clique em **Rever + Criar** para criar o serviço.
 
@@ -109,9 +109,9 @@ Tal como acontece com o armazenamento da Azure Blob, tire um momento para recolh
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenha uma chave de api-key e URL para pesquisa cognitiva azure
 
-1. [Faça sessão no portal Azure](https://portal.azure.com/), e na página **'Visão Geral** do serviço de pesquisa', obtenha o nome do seu serviço de pesquisa. Pode confirmar o seu nome de serviço revendo o URL do ponto final. Se o seu URL final fosse `https://mydemo.search.windows.net`, o seu nome de serviço seria `mydemo`.
+1. [Faça sessão no portal Azure](https://portal.azure.com/), e na página **'Visão Geral** do serviço de pesquisa', obtenha o nome do seu serviço de pesquisa. Pode confirmar o seu nome de serviço revendo o URL do ponto final. Se o seu `https://mydemo.search.windows.net`URL final fosse, `mydemo`o seu nome de serviço seria .
 
-2. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+2. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso só para leitura.
 
@@ -125,7 +125,7 @@ Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado co
 
 Os métodos de pedido utilizados neste tutorial são **POST,** **PUT**e **GET**. Utilizará os métodos para fazer quatro chamadas API para o seu serviço de pesquisa: criar uma fonte de dados, um skillset, um índice e um indexante.
 
-Em Cabeçalhos, detete "Content-type" para `application/json` e desempor `api-key` para a chave de api do seu serviço de Pesquisa Cognitiva Azure. Assim que definir os cabeçalhos, pode usá-los para cada pedido neste exercício.
+Em Cabeçalhos, desloque `application/json` o `api-key` "Content-type" e coloque-o na chave de api do seu serviço de Pesquisa Cognitiva Azure. Assim que definir os cabeçalhos, pode usá-los para cada pedido neste exercício.
 
   ![URL de pedido de carteiro e cabeçalho](media/search-get-started-postman/postman-url.png "URL de pedido de carteiro e cabeçalho")
 
@@ -137,13 +137,13 @@ Na Pesquisa Cognitiva Azure, o processamento de IA ocorre durante a indexação 
 
 Um [objeto de origem](https://docs.microsoft.com/rest/api/searchservice/create-data-source) de dados fornece a cadeia de ligação ao recipiente Blob que contém os ficheiros.
 
-1. Utilize post e o seguinte URL, substituindo o seu NOME DE SERVIÇO pelo nome real do seu serviço.
+1. Utilize **POST** post e o seguinte URL, substituindo o seu NOME DE SERVIÇO pelo nome real do seu serviço.
 
    ```http
    https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2019-05-06
    ```
 
-1. No pedido **Body**, copie a seguinte definição JSON, substituindo o `connectionString` pela ligação real da sua conta de armazenamento. 
+1. No pedido **Body**, copie a seguinte `connectionString` definição JSON, substituindo a ligação real da sua conta de armazenamento. 
 
    Lembre-se de editar o nome do recipiente também. Sugerimos "cog-search-demo" para o nome do contentor num passo anterior.
 
@@ -177,14 +177,14 @@ Um [objeto de habilidade](https://docs.microsoft.com/rest/api/searchservice/crea
 
    | Habilidade                 | Descrição    |
    |-----------------------|----------------|
-   | [Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais de conteúdo no recipiente de bolhas. |
-   | [Deteção de Idiomas](cognitive-search-skill-language-detection.md) | Deteta a linguagem do conteúdo. |
-   | [Divisão de texto](cognitive-search-skill-textsplit.md)  | Quebra o conteúdo grande em pedaços menores antes de chamar a frase-chave de extração. A extração de expressões-chave aceita entradas de 50 000 carateres ou menos. Alguns dos ficheiros de exemplo precisam de ser divididos para caberem dentro deste limite. |
-   | [Extração de frase chave](cognitive-search-skill-keyphrases.md) | Tira as frases principais. |
+   | [Reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais de conteúdo no recipiente de bolhas. |
+   | [Deteção de Idioma](cognitive-search-skill-language-detection.md) | Deteta a linguagem do conteúdo. |
+   | [Divisão de Texto](cognitive-search-skill-textsplit.md)  | Quebra o conteúdo grande em pedaços menores antes de chamar a frase-chave de extração. A extração de expressões-chave aceita entradas de 50 000 carateres ou menos. Alguns dos ficheiros de exemplo precisam de ser divididos para caberem dentro deste limite. |
+   | [Extração de Expressões-Chave](cognitive-search-skill-keyphrases.md) | Tira as frases principais. |
 
-   Cada competência é executada no conteúdo do documento. Durante o processamento, a Pesquisa Cognitiva Azure quebra cada documento para ler conteúdo a partir de diferentes formatos de ficheiros. O texto encontrado proveniente do ficheiro de origem é colocado num campo ```content``` gerado (um para cada documento). Como tal, a entrada torna-se ```"/document/content"```.
+   Cada competência é executada no conteúdo do documento. Durante o processamento, a Pesquisa Cognitiva Azure quebra cada documento para ler conteúdo a partir de diferentes formatos de ficheiros. O texto encontrado proveniente do ficheiro de origem é colocado num campo ```content``` gerado (um para cada documento). Como tal, a ```"/document/content"```entrada torna-se .
 
-   Para a extração de frases-chave, porque usamos a habilidade de splitter de texto para quebrar ficheiros maiores em páginas, o contexto para a habilidade de extração de frases-chave é ```"document/pages/*"``` (para cada página do documento) em vez de ```"/document/content"```.
+   Para a extração de frases-chave, porque usamos a habilidade de splitter de ```"document/pages/*"``` texto para quebrar ficheiros ```"/document/content"```maiores em páginas, o contexto para a habilidade de extração de frases-chave é (para cada página do documento) em vez de .
 
     ```json
     {
@@ -258,7 +258,7 @@ Um [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) for
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2019-05-06
    ```
 
-1. No **pedido Body,** copie a seguinte definição JSON. O campo `content` armazena o documento em si. Campos adicionais para `languageCode`, `keyPhrases`, e `organizations` representam novas informações (campos e valores) criadas pela competência.
+1. No **pedido Body,** copie a seguinte definição JSON. O `content` campo armazena o documento em si. Campos adicionais para, `languageCode` `keyPhrases`e `organizations` representam novas informações (campos e valores) criadas pela skillset.
 
     ```json
     {
@@ -344,9 +344,9 @@ Um [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) c
 
 1. No **órgão de**pedido, copie a definição JSON abaixo. Repare nos elementos de mapeamento de campo; estes mapeamentos são importantes porque definem o fluxo de dados. 
 
-   Os `fieldMappings` são processados antes da habilidade, enviando conteúdo da fonte de dados para campos-alvo num índice. Utilizará mapeamentos de campo para enviar conteúdo existente e não modificado para o índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, não é necessário mapeamento.
+   Os `fieldMappings` são processados antes da habilidade, enviando conteúdo da fonte de dados para campos-alvo em um índice. Utilizará mapeamentos de campo para enviar conteúdo existente e não modificado para o índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, não é necessário mapeamento.
 
-   Os `outputFieldMappings` são para campos criados por habilidades, e assim processados após a execução da habilidade. As referências a `sourceFieldNames` em `outputFieldMappings` não existem até que a rachadura ou enriquecimento de documentos as crie. O `targetFieldName` é um campo num índice, definido no esquema de índice.
+   São `outputFieldMappings` para campos criados por habilidades, e assim processados após a execução da habilidade. As referências `sourceFieldNames` `outputFieldMappings` a in não existem até que a rachadura ou enriquecimento de documentos as crie. O `targetFieldName` é um campo num índice, definido no esquema de índice.
 
     ```json
     {
@@ -421,9 +421,9 @@ Um [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) c
 
 O script define ```"maxFailedItems"``` como -1, o que indica ao motor de indexação para ignorar os erros durante a importação de dados. Isto é aceitável porque há tão poucos documentos na fonte de dados da demonstração. Para uma origem de dados maior, deve definir o valor com um número maior que 0.
 
-A declaração ```"dataToExtract":"contentAndMetadata"``` diz ao indexante para extrair automaticamente o conteúdo de diferentes formatos de ficheiros, bem como metadados relacionados com cada ficheiro. 
+A ```"dataToExtract":"contentAndMetadata"``` declaração diz ao indexante para extrair automaticamente o conteúdo de diferentes formatos de ficheiros, bem como metadados relacionados com cada ficheiro. 
 
-Quando o conteúdo é extraído, pode definir ```imageAction``` para extrair texto das imagens existentes na origem de dados. A configuração ```"imageAction":"generateNormalizedImages"```, combinada com a Habilidade de Habilidade oCR e a Habilidade de Fusão de Texto, diz ao indexante para extrair texto das imagens (por exemplo, a palavra "parar" de um sinal de paragem de tráfego), e incorpora-o como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (tal como uma imagem num PDF) como às imagens existentes na origem de dados, por exemplo, um ficheiro JPG.
+Quando o conteúdo é extraído, pode definir ```imageAction``` para extrair texto das imagens existentes na origem de dados. A ```"imageAction":"generateNormalizedImages"``` configuração, combinada com a Habilidade de Habilidade oCR e a Habilidade de Fusão de Texto, diz ao indexante para extrair texto das imagens (por exemplo, a palavra "parar" de um sinal de paragem de tráfego), e incorpora-o como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (tal como uma imagem num PDF) como às imagens existentes na origem de dados, por exemplo, um ficheiro JPG.
 
 ## <a name="4---monitor-indexing"></a>4 - Monitorização da indexação
 
@@ -446,9 +446,9 @@ Se estiver a utilizar o nível Livre, espera-se a seguinte mensagem: "Não conse
 
 Agora que criou novos campos e informações, vamos fazer algumas consultas para entender o valor da pesquisa cognitiva, uma vez que se relaciona com um cenário típico de pesquisa.
 
-Recorde-se que começamos com conteúdo blob, onde todo o documento é embalado num único campo `content`. Pode pesquisar neste campo e encontrar correspondências com as suas consultas.
+Recorde-se que começamos com conteúdo blob, onde `content` todo o documento é embalado num único campo. Pode pesquisar neste campo e encontrar correspondências com as suas consultas.
 
-1. Utilize o **GET** e o seguinte URL, substituindo o seu NOME DE SERVIÇO pelo nome real do seu serviço, para procurar por exemplos de um termo ou frase, devolvendo o campo `content` e uma contagem dos documentos correspondentes.
+1. Utilize o **GET** e o seguinte URL, substituindo o seu NOME DE SERVIÇO pelo nome real do `content` seu serviço, para procurar por exemplos de um termo ou frase, devolvendo o campo e uma contagem dos documentos correspondentes.
 
    ```http
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2019-05-06
@@ -510,13 +510,13 @@ O código de estado 204 é devolvido após uma eliminação com êxito.
 
 Este tutorial demonstra os passos básicos para criar um pipeline de indexação melhorado através da criação de partes do componente: uma origem de dados, um conjunto de competências, um índice e um indexador.
 
-Foram introduzidas [competências incorporadas,](cognitive-search-predefined-skills.md) juntamente com a definição de skillset e a mecânica das habilidades de acorrentar através de inputs e saídas. Também descobriu que `outputFieldMappings` na definição de indexante é necessário para encaminhar valores enriquecidos do oleoduto para um índice pesquisável num serviço de Pesquisa Cognitiva Azure.
+Foram introduzidas [competências incorporadas,](cognitive-search-predefined-skills.md) juntamente com a definição de skillset e a mecânica das habilidades de acorrentar através de inputs e saídas. Também descobriu `outputFieldMappings` que na definição do indexador é necessário para encaminhar valores enriquecidos do oleoduto para um índice pesquisável num serviço de Pesquisa Cognitiva Azure.
 
 Por fim, aprendeu como testar os resultados e repor o sistema para iterações futuras. Aprendeu que a emissão de consultas acerca do índice devolve o resultado criado pelo pipeline de indexação melhorado. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 

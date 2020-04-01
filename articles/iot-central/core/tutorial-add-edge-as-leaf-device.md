@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: bf74784998de6bbad6310c48c24d6353512bff13
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77027735"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Adicione um dispositivo Azure IoT Edge à sua aplicação Central Azure IoT
@@ -29,11 +29,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) para criar uma aplicação IoT Central utilizando o modelo de **aplicação Personalizado > Custom.**
+Complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) rapidamente para criar uma aplicação IoT Central utilizando a aplicação Custom > modelo de **aplicação Personalizada.**
 
 Para completar os passos neste tutorial, precisa de uma subscrição azure ativa.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Descarregue o ficheiro manifesto IoT Edge do GitHub. Clique à direita no link seguinte e, em seguida, selecione **'Salvar link as:** [EnvironmentalSensorManifest.json'](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
@@ -49,7 +49,7 @@ Para criar um modelo de dispositivo a partir de um manifesto IoT Edge:
 
 1. Na página do **modelo Select,** selecione o azulejo **Azure IoT Edge.** Em seguida, selecione **Seguinte: Personalizar**.
 
-1. No upload de uma página de manifesto de **implementação Azure IoT Edge,** selecione **Browse** para carregar o **EnvironmentalSensorManifest.json** que descarregou anteriormente. Em seguida, selecione **Avançar: revisão**.
+1. No upload de uma página de manifesto de **implementação Azure IoT Edge,** selecione **Browse** para carregar o **EnvironmentalSensorManifest.json** que descarregou anteriormente. Em seguida, selecione **Seguinte: Rever**.
 
 1. Na página **'Rever',** selecione **Criar**.
 
@@ -85,7 +85,7 @@ Para adicionar as definições de telemetria ao modelo do dispositivo:
 
 1. Selecione **O Objeto** como o tipo de esquema e, em seguida, selecione **Definir**. Na página de definição de objeto, adicione *temperatura* e *pressão* como atributos do tipo **Duplo** e, em seguida, selecione **Aplicar**.
 
-1. Selecione **+ Adicionar capacidade**. Introduza ambiente como o **nome display** e certifique-se de que o **tipo Capability** é **Telemetria**.
+1. Selecione **+ Adicionar capacidade**. Introduza ambiente como o **nome display** e certifique-se de que o **tipo Capability** é **Telemetria**. *ambient*
 
 1. Selecione **O Objeto** como o tipo de esquema e, em seguida, selecione **Definir**. Na página de definição de objeto, adicione *temperatura* e *humidade* como atributos do tipo **Duplo** e, em seguida, selecione **Aplicar**.
 
@@ -129,7 +129,7 @@ Agora que publicou o modelo de Dispositivo de Borda de **Sensor Ambiental,** pod
 
 1. Na sua aplicação IoT Central, navegue para a página **dispositivos** e selecione **O Dispositivo de Borda** do Sensor Ambiental na lista de modelos disponíveis.
 
-1. Selecione **+** para adicionar um novo dispositivo a partir do modelo. Na página **Criar novo dispositivo,** selecione **Criar**.
+1. Selecione **+** adicionar um novo dispositivo a partir do modelo. Na página **Criar novo dispositivo,** selecione **Criar**.
 
 Tem agora um novo dispositivo com o estado **Registado:**
 
@@ -180,7 +180,7 @@ Para fornecer VM como um dispositivo IoT Edge:
 
 1. Na secção **Suporte + resolução de problemas,** selecione **consola série**.
 
-1. Pressione **Entrar** para ver o `login:` pronta. Insira o seu nome de utilizador e senha para iniciar sessão.
+1. Pressione **Entrar** `login:` para ver o pedido. Insira o seu nome de utilizador e senha para iniciar sessão.
 
 1. Execute o seguinte comando para verificar a versão de tempo de execução IoT Edge. No momento da escrita, a versão é 1.0.8:
 
@@ -188,13 +188,13 @@ Para fornecer VM como um dispositivo IoT Edge:
     sudo iotedge --version
     ```
 
-1. Utilize o editor `nano` para abrir o ficheiro IoT Edge config.yaml:
+1. Utilize `nano` o editor para abrir o ficheiro IoT Edge config.yaml:
 
     ```bash
     sudo nano /etc/iotedge/config.yaml
     ```
 
-1. Desça até ver `# Manual provisioning configuration`. Comente as próximas três linhas, como mostra o seguinte corte:
+1. Desça até ver. `# Manual provisioning configuration` Comente as próximas três linhas, como mostra o seguinte corte:
 
     ```yaml
     # Manual provisioning configuration
@@ -203,7 +203,7 @@ Para fornecer VM como um dispositivo IoT Edge:
     #  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
     ```
 
-1. Desça até ver `# DPS symmetric key provisioning configuration`. Descodere as próximas oito linhas, como mostra o seguinte corte:
+1. Desça até ver. `# DPS symmetric key provisioning configuration` Descodere as próximas oito linhas, como mostra o seguinte corte:
 
     ```yaml
     # DPS symmetric key provisioning configuration
@@ -217,13 +217,13 @@ Para fornecer VM como um dispositivo IoT Edge:
         symmetric_key: "{symmetric_key}"
     ```
 
-1. Substitua `{scope_id}` com o Âmbito de **identificação** para si fez uma nota anterior.
+1. Substitua-a `{scope_id}` pelo Âmbito de **Identificação** por si que tomou nota anteriormente.
 
-1. Substitua `{registration_id}` com o ID do **dispositivo** que fez anteriormente.
+1. Substitua-a `{registration_id}` pelo ID do **dispositivo** que fez uma nota anteriormente.
 
-1. Substitua `{symmetric_key}` com a **chave primária** de que fez uma nota anterior.
+1. Substitua-a `{symmetric_key}` pela **chave primária** de que tomou nota anteriormente.
 
-1. Guarde as alterações **(CTRL-O)** e saia **(Ctrl-X)** o editor `nano`.
+1. Guarde as alterações **(CTRL-O)** e saia `nano` **(Ctrl-X**) o editor.
 
 1. Executar o seguinte comando para reiniciar o daemon IoT Edge:
 
@@ -246,7 +246,7 @@ Para fornecer VM como um dispositivo IoT Edge:
     edgeHub                     running          Up 22 seconds    mcr.microsoft.com/azureiotedge-hub:1.0
     ```
 
-## <a name="view-the-telemetry"></a>Exibir a telemetria
+## <a name="view-the-telemetry"></a>Ver a telemetria
 
 O dispositivo IoT Edge simulado está agora a funcionar no VM. Na sua aplicação IoT Central, o estado do dispositivo está agora **provisionado** na página **dispositivos:**
 

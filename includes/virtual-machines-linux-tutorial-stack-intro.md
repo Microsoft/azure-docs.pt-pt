@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 64290aad2d9f98006a715b480be8cb96965abbaf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 046a4bc9abb936ca6f9fcecd0f660a723edb092b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184267"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80116941"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -17,17 +17,17 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com o comando [az vm create](/cli/azure/vm). 
+Crie uma VM com o comando [z vm create](/cli/azure/vm). 
 
 O exemplo seguinte cria uma VM com o nome *myVM* e cria chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O comando também define *azureuser* como um nome de utilizador administrador. Utilize este nome mais tarde para ligar à VM. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -38,7 +38,7 @@ az vm create \
 
 Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM nos passos posteriores.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -55,15 +55,16 @@ Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes a
 
 ## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web 
 
-Por predefinição, só são permitidas ligações SSH a VMs do Linux implementadas no Azure. Uma vez que esta VM vai ser um servidor Web, tem de abrir a porta 80 a partir da Internet. Utilize o comando [az vm open-port](/cli/azure/vm) para abrir a porta pretendida.  
+Por predefinição, só são permitidas ligações SSH a VMs do Linux implementadas no Azure. Uma vez que esta VM vai ser um servidor Web, tem de abrir a porta 80 a partir da Internet. Utilize o comando [az vm open-port](/cli/azure/vm) para abrir a porta desejada.  
  
-```azurecli-interactive 
+```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
+
 ## <a name="ssh-into-your-vm"></a>Aceder através de SSH à VM
 
 
-Se ainda não souber o endereço IP público da sua VM, execute o comando [az network public-ip list](/cli/azure/network/public-ip). Precisará deste endereço IP para vários passos posteriores.
+Se ainda não conhece o endereço IP público do seu VM, dirija o comando da lista ip pública da [rede AZ.](/cli/azure/network/public-ip) Precisará deste endereço IP para vários passos posteriores.
 
 
 ```azurecli-interactive

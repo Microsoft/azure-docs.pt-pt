@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 087530fd3834c4ec4620c087134bee0ed26bb6c9
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399777"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(DEPRECIADO) Implementar e utilizar o Registo de Contentores Azure
@@ -46,7 +46,7 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-gr
 az group create --name myResourceGroup --location westeurope
 ```
 
-Crie um registo de contentor do Azure com o comando [az acr create](/cli/azure/acr#az-acr-create). O nome de um Registo de Contentor **tem de ser exclusivo**.
+Crie um registo de contentores Azure com o [az acr criar](/cli/azure/acr#az-acr-create) comando. O nome de um Registo de Contentor **tem de ser exclusivo**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

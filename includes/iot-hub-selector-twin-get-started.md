@@ -12,10 +12,10 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "70050455"
 ---
 > [!div class="op_single_selector"]
-> * [Nó.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
-> * [Pitão](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos, incluindo metadados, configurações e condições. O IoT Hub persiste um dispositivo gémeo para cada dispositivo que se liga ao mesmo.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração de Azure Active Directory com o portal cativo de redes Palo Alto | Microsoft Docs'
-description: Saiba como configurar o logon único entre Azure Active Directory e o portal cativo de redes Palo Alto.
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Portal Cativo das Redes Palo Alto [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Portal Cativo das Redes Palo Alto.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,196 +17,196 @@ ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f926741bde3bdcc69cb4ea30f54daca79606047e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160158"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: integração do Azure Active Directory com o portal cativo de redes Palo Alto
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Diretório Ativo Azure com o Portal Cativo das Redes Palo Alto
 
-Neste tutorial, você aprenderá a integrar o portal cativo do Palo Alto Networks com o Azure Active Directory (Azure AD).
+Neste tutorial, aprende-se a integrar o Portal Cativo das Redes Palo Alto com o Diretório Ativo Azure (Azure AD).
 
-Você Obtém os seguintes benefícios ao integrar o portal cativo do Palo Alto Networks ao Azure AD:
+Obtém os seguintes benefícios quando integra o Portal Cativo das Redes Palo Alto com a AD Azure:
 
-* No Azure AD, você pode controlar quem tem acesso ao portal cativo de redes Palo Alto.
-* Você pode conectar automaticamente os usuários no portal cativo de redes Palo Alto (logon único) usando contas de usuário do Azure AD.
-* Você pode gerenciar suas contas em um local central, o portal do Azure.
+* Em Azure AD, você pode controlar quem tem acesso ao Portal Cativo das Redes Palo Alto.
+* Pode iniciar automaticamente o acesso aos utilizadores no Portal Cativo das Redes Palo Alto (única entrada) utilizando as contas AD do utilizador Azure.
+* Você pode gerir suas contas em uma, localização central, o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS (software como serviço) com o Azure AD, consulte [logon único para aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita.](https://azure.microsoft.com/free/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para integrar o Azure AD ao portal cativo de redes Palo Alto, você precisa dos seguintes itens:
+Para integrar a Azure AD com o Portal Cativo das Redes Palo Alto, precisa dos seguintes itens:
 
-* Uma assinatura Azure Active Directory. Se você não tiver o Azure AD, poderá obter uma [avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Uma assinatura habilitada para SSO (logon único) do portal do Palo Alto Networks.
+* Uma assinatura de Diretório Ativo Azure. Se não tiver estoque do Azure, pode ter um [julgamento de um mês.](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura ativada por um portal cativo palo Alto Networks (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-O portal cativo de redes Palo Alto dá suporte a esses cenários:
+Palo Alto Networks Cativo Portal apoia estes cenários:
 
-* **Logon único iniciado pelo IDP**
-* **Provisionamento de usuário just-in-time**
+* **IDP iniciado único sign-on**
+* **Fornecimento de utilizadores just-in-time**
 
-## <a name="add-palo-alto-networks-captive-portal-from-the-gallery"></a>Adicionar portal cativo de redes Palo Alto por meio da Galeria
+## <a name="add-palo-alto-networks-captive-portal-from-the-gallery"></a>Adicione o Portal Cativo das Redes Palo Alto da galeria
 
-Para começar, na Galeria, adicione um portal cativo do Palo Alto Networks à sua lista de aplicativos SaaS gerenciados:
+Para começar, na galeria, adicione o Portal Cativo das Redes Palo Alto à sua lista de aplicações geridas do SaaS:
 
-1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **Azure Active Directory**.
+1. No [portal Azure,](https://portal.azure.com)no menu esquerdo, selecione **Azure Ative Directory**.
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Selecione **aplicativos empresariais** > **todos os aplicativos**.
+2. Selecione **aplicações** > Enterprise**Todas as aplicações**.
 
-    ![A opção aplicativos empresariais no menu](common/enterprise-applications.png)
+    ![A opção de aplicações da Enterprise no menu](common/enterprise-applications.png)
 
 3. Selecione **Nova aplicação**.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Palo Alto Networks cativo portal**. Nos resultados da pesquisa, selecione **Palo Alto Networks – portal cativo**e, em seguida, selecione **Adicionar**.
+4. Na caixa de pesquisa, introduza o **Portal Cativo das Redes Palo Alto.** Nos resultados da pesquisa, selecione **Redes Palo Alto - Portal Cativo,** e, em seguida, selecione **Adicionar**.
 
-     ![Palo Alto Networks – portal cativo na lista de resultados](common/search-new-app.png)
+     ![Redes Palo Alto - Portal Cativo na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Você configura e testa o logon único do Azure AD com o portal cativo de redes Palo Alto, com base em um usuário de teste chamado *Brenda Simon*. Para que o logon único funcione, você deve estabelecer uma relação entre um usuário do Azure AD e o mesmo usuário no portal cativo de redes Palo Alto. 
+Configura e testa o single sign-on azure ad com o Portal Cativo das Redes Palo Alto com base num utilizador de teste chamado *Britta Simon*. Para que o único início de sessão funcione, deve estabelecer uma relação entre um utilizador da AD Azure e o mesmo utilizador no Portal Cativo das Redes Palo Alto. 
 
-Para configurar e testar o logon único do Azure AD com o portal cativo de redes Palo Alto, conclua as seguintes tarefas:
+Para configurar e testar o único signo da Azure AD com o Portal Cativo das Redes Palo Alto, complete as seguintes tarefas:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** : habilite o usuário a usar esse recurso.
-2. **[Configurar logon único do portal cativo de redes Palo Alto](#configure-palo-alto-networks-captive-portal-single-sign-on)** : configurar as configurações de logon único no aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** : testar o logon único do Azure AD com o usuário *Brenda Simon*.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** : Configure Brenda Simon para usar o logon único do Azure AD.
-5. **Criar um usuário de teste do portal cativo do Palo Alto Networks**: criar um usuário equivalente *Brenda Simon* no Palo Alto Networks cativo portal que está vinculado ao usuário do Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** : Verifique se a configuração funciona.
+1. **[Configure o único sinal de ad do Azure](#configure-azure-ad-single-sign-on)**: Ativar o utilizador a utilizar esta funcionalidade.
+2. **[Configure Palo Alto Networks Cativo Portal único :](#configure-palo-alto-networks-captive-portal-single-sign-on)** Configure as definições de início de sessão individuais na aplicação.
+3. **[Crie um utilizador de teste Azure AD:](#create-an-azure-ad-test-user)** Test Azure AD single sign-on com a *utilizadora Britta Simon*.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)**: Instale a Britta Simon para utilizar o let-on único azure AD.
+5. **Crie um utilizador de teste do Portal Cativo palo Alto Networks**: Crie uma utilizadora homóloga *Britta Simon* em Palo Alto Networks Captive Portal que esteja ligada ao utilizador da AD Azure.
+6. **[Teste o único sinal:](#test-single-sign-on)** Verifique se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Primeiro, habilite o logon único do Azure AD no portal do Azure:
+Em primeiro lugar, ative o único sinal de entrada da Azure AD no portal Azure:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Palo Alto Networks – portal cativo** , selecione **logon único**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações de **Aplicações Do Portal Cativo ,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. No painel **selecionar um método de logon único** , selecione **SAML**.
+2. No Select um único painel de método de **sinalização,** selecione **SAML**.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. No painel **Configurar logon único com SAML** , selecione o ícone de **edição** de lápis.
+3. No **set up Single Sign-On com painel SAML,** selecione o ícone **editar** lápis.
 
-    ![O ícone de edição com lápis](common/edit-urls.png)
+    ![O ícone de edição lápis](common/edit-urls.png)
 
-4. No painel **configuração básica do SAML** , conclua as seguintes etapas:
+4. No painel **de configuração SAML básico,** complete os seguintes passos:
 
-    ![Painel de configuração SAML de redes do Palo Alto Networks do portal cativo](common/idp-intiated.png)
+    ![Painel de configuração básica do Portal SAML do Portal Cativo de Palo Alto](common/idp-intiated.png)
 
-   1. Para **identificador**, insira uma URL que tenha o padrão `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. Para **identificador,** introduza um `https://<customer_firewall_host_name>/SAML20/SP`URL que tenha o padrão .
 
-   2. Para **URL de resposta**, insira uma URL que tenha o padrão `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. Para **o URL de resposta,** `https://<customer_firewall_host_name>/SAML20/SP/ACS`introduza um URL que tenha o padrão .
 
       > [!NOTE]
-      > Atualize os valores de espaço reservado nesta etapa com o identificador real e as URLs de resposta. Para obter os valores reais, entre em contato com a [equipe de suporte ao cliente do Palo Alto Networks](https://support.paloaltonetworks.com/support).
+      > Atualize os valores do espaço reservado neste passo com o identificador real e responda URLs. Para obter os valores reais, contacte a equipa de suporte ao Cliente do [Portal Cativo da Palo Alto Networks.](https://support.paloaltonetworks.com/support)
 
-5. Na seção **certificado de autenticação SAML** , ao lado de **XML de metadados de Federação**, selecione **baixar**. Salve o arquivo baixado em seu computador.
+5. Na secção certificado de **assinatura SAML,** junto aos **Metadados da Federação XML,** selecione **Download**. Guarde o ficheiro descarregado no seu computador.
 
-    ![O link de download de XML de metadados de Federação](common/metadataxml.png)
+    ![O link de descarregamento de Metadados XML da Federação](common/metadataxml.png)
 
-### <a name="configure-palo-alto-networks-captive-portal-single-sign-on"></a>Configurar logon único do portal cativo de redes Palo Alto
+### <a name="configure-palo-alto-networks-captive-portal-single-sign-on"></a>Configure Palo Alto Networks Cativo Portal único sign-on
 
-Em seguida, configure o logon único no portal cativo de redes Palo Alto:
+Em seguida, configurar um único sinal no Portal Cativo das Redes Palo Alto:
 
-1. Em uma janela de navegador diferente, entre no site do Palo Alto Networks como administrador.
+1. Numa janela de navegador diferente, inscreva-se no site da Palo Alto Networks como administrador.
 
-2. Selecione a guia **dispositivo** .
+2. Selecione o separador **Dispositivo.**
 
-    ![A guia dispositivo do site do Palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![O separador de dispositivo seleções palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-3. No menu, selecione **provedor de identidade SAML**e, em seguida, selecione **importar**.
+3. No menu, selecione **SAML Identity Provider**, e, em seguida, selecione **Import**.
 
-    ![O botão importar](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
+    ![O botão de importação](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-4. Na caixa de diálogo **importação de perfil do servidor do provedor de identidade SAML** , conclua as seguintes etapas:
+4. Na caixa de diálogo de importação de perfis de perfil do fornecedor de **identidade SAML,** complete os seguintes passos:
 
-    ![Configurar o logon único de redes Palo Alto](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Configure Palo Alto Networks único sign-on](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    1. Para **nome do perfil**, insira um nome, como **AzureAD-CaptivePortal**.
+    1. Para **nome perfil,** insira um nome, como **AzureAD-CaptivePortal**.
     
-    2. Ao lado de **metadados do provedor de identidade**, selecione **procurar**. Selecione o arquivo Metadata. XML que você baixou na portal do Azure.
+    2. Ao lado dos **Metadados**do Fornecedor de Identidade, selecione **Browse**. Selecione o ficheiro metadata.xml que descarregou no portal Azure.
     
     3. Selecione **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
-Em seguida, crie um usuário de teste chamado *Brenda Simon* no portal do Azure:
+Em seguida, crie uma utilizadora de teste chamada *Britta Simon* no portal Azure:
 
-1. Na portal do Azure, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+1. No portal Azure, selecione **Utilizadores de Diretório** > **Users** > Ativo Azure**Todos os utilizadores**.
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário**.
+2. Selecione **Novo utilizador**.
 
-    ![O botão novo usuário](common/new-user.png)
+    ![O novo botão de utilizador](common/new-user.png)
 
-3. No painel **usuário** , conclua as seguintes etapas:
+3. No painel **do Utilizador,** complete os seguintes passos:
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    1. Para **nome**, insira **brendafernandes**.
+    1. Para **Nome,** **insira BrittaSimon.**
   
-    2. Para **nome de usuário**, insira **brendafernandes\@\<your_company_domain\>** . Por exemplo, **brendafernandes\@contoso.com**.
+    2. Para **nome de utilizador,** **introduza a\@\<BrittaSimon your_company_domain\>**. Por exemplo, **brittaSimon\@contoso.com.**
 
-    3. Para **senha**, insira uma senha. Recomendamos que você mantenha um registro da senha digitada. Você pode marcar a caixa de seleção **Mostrar senha** para exibir a senha.
+    3. Para **palavra-passe,** introduza uma senha. Recomendamos que mantenha um registo da senha que insere. Pode selecionar a caixa de verificação **de palavra-passe do Show** para exibir a palavra-passe.
 
     4. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Em seguida, conceda acesso ao portal cativo de redes Palo Alto para que Brenda Simon possa usar o logon único do Azure:
+Em seguida, conceda acesso ao Portal Cativo das Redes Palo Alto para que Britta Simon possa usar o único sign-on azure:
 
-1. Na portal do Azure, selecione **aplicativos empresariais** > **todos os aplicativos**.
+1. No portal Azure, selecione **aplicações** > Da Empresa**Todas as aplicações**.
 
-    ![O painel aplicativos empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, insira **Palo Alto Networks – portal cativo**e, em seguida, selecione o aplicativo.
+2. Na lista de candidaturas, insira **palo Alto Networks - Portal Cativo,** e depois selecione a aplicação.
 
-    ![O link do portal do Palo Alto Networks-cativo na lista de aplicativos](common/all-applications.png)
+    ![As Redes Palo Alto - Ligação Do Portal Cativo na lista de aplicações](common/all-applications.png)
 
-3. No menu, selecione **usuários e grupos**.
+3. No menu, selecione **Utilizadores e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Selecione **Adicionar usuário**. Em seguida, no painel **Adicionar atribuição** , selecione **usuários e grupos**.
+4. Selecione **Adicionar utilizador**. Em seguida, no painel de **atribuição Adicionar,** selecione **Utilizadores e grupos**.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição Adicionar](common/add-assign-user.png)
 
-5. No painel **usuários e grupos** , na lista **usuários** , selecione **Brenda Simon**. Selecione **selecionar**.
+5. No painel **de Utilizadores e grupos,** na lista **de Utilizadores,** selecione **Britta Simon**. Selecione **Selecionar**.
 
-6. Para adicionar um valor de função à Asserção SAML, no painel **selecionar função** , selecione a função relevante para o usuário. Selecione **selecionar**.
+6. Para adicionar um valor de papel à afirmação do SAML, no painel de **funções Select,** selecione a função relevante para o utilizador. Selecione **Selecionar**.
 
-7. No painel **Adicionar atribuição** , selecione **atribuir**.
+7. No painel de **atribuição Adicionar,** selecione **Atribuir**.
 
-### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Criar um usuário de teste do portal cativo do Palo Alto Networks
+### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Criar um utilizador de teste do Portal Cativo das Redes Palo Alto
 
-Em seguida, crie um usuário chamado *Brenda Simon* no portal cativo de redes do Palo Alto. O portal cativo de redes Palo Alto dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Você não precisa concluir nenhuma tarefa nesta seção. Se um usuário ainda não existir no portal cativo de redes Palo Alto, um novo será criado após a autenticação.
+Em seguida, crie uma utilizadora chamada *Britta Simon* em Palo Alto Networks Captive Portal. O Portal Cativo das Redes Palo Alto suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não precisa de completar nenhuma tarefa nesta secção. Se um utilizador já não existir no Portal Cativo das Redes Palo Alto, um novo é criado após a autenticação.
 
 > [!NOTE]
-> Se você quiser criar um usuário manualmente, entre em contato com a [equipe de suporte ao cliente do portal do Palo Alto Networks](https://support.paloaltonetworks.com/support).
+> Se pretender criar um utilizador manualmente, contacte a equipa de suporte ao Cliente do [Portal Cativo das Redes Palo Alto.](https://support.paloaltonetworks.com/support)
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-O portal cativo de redes Palo Alto é instalado atrás do firewall em uma VM do Windows. Para testar o logon único no portal cativo de redes Palo Alto, entre na VM do Windows usando o protocolo RDP (RDP). Na sessão RDP, abra um navegador e vá para qualquer site. A URL de SSO é aberta e você será solicitado a autenticar. Quando a autenticação for concluída, você poderá acessar os sites.
+O Portal Cativo das Redes Palo Alto está instalado atrás da firewall num VM windows. Para testar um único sinal no Portal Cativo das Redes Palo Alto, inscreva-se no Windows VM utilizando o Protocolo de Ambiente de Trabalho Remoto (RDP). Na sessão de RDP, abra um navegador e vá a qualquer site. O URL SSO abre e é-lhe pedido que autentique. Quando a autenticação estiver terminada, pode aceder a websites.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 Para saber mais, consulte estes artigos:
 
-- [Tutoriais sobre a integração de aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Logon único para aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Tutoriais sobre integração de apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Inscrição única para candidaturas no Diretório Ativo do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Acesso Condicional no Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

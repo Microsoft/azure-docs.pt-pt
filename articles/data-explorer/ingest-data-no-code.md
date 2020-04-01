@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
 ms.openlocfilehash: 3a53a660da2257540f23bc6438fc5933e5229c76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78198053"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingerir e consultar dados de monitorização no Azure Data Explorer 
@@ -77,7 +77,7 @@ As métricas de diagnóstico são agregadas com um grão de tempo de 1 minuto. S
 }
 ```
 
-# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnósticos](#tab/diagnostic-logs)
 #### <a name="example"></a>Exemplo
 
 Segue-se um exemplo de um registo de [ingestão](using-diagnostic-logs.md#diagnostic-logs-schema)de diagnóstico do Azure Data Explorer:
@@ -213,7 +213,7 @@ Utilize a UI Web do Azure Data Explorer para criar as tabelas-alvo na base de da
 # <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="create-tables-for-the-diagnostic-metrics"></a>Criar tabelas para as métricas de diagnóstico
 
-1. Na base de dados *TestDatabase,* crie uma tabela chamada *DiagnosticMetrics* para armazenar os registos de métricas de diagnóstico. Utilize o seguinte comando de controlo `.create table`:
+1. Na base de dados *TestDatabase,* crie uma tabela chamada *DiagnosticMetrics* para armazenar os registos de métricas de diagnóstico. Utilize o `.create table` seguinte comando de controlo:
 
     ```kusto
     .create table DiagnosticMetrics (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -235,10 +235,10 @@ Utilize a UI Web do Azure Data Explorer para criar as tabelas-alvo na base de da
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnósticos](#tab/diagnostic-logs)
 #### <a name="create-tables-for-the-diagnostic-logs"></a>Criar tabelas para os registos de diagnóstico 
 
-1. Na base de dados *TestDatabase,* crie uma tabela chamada *DiagnosticLogs* para armazenar os registos de registos de diagnóstico. Utilize o seguinte comando de controlo `.create table`:
+1. Na base de dados *TestDatabase,* crie uma tabela chamada *DiagnosticLogs* para armazenar os registos de registos de diagnóstico. Utilize o `.create table` seguinte comando de controlo:
 
     ```kusto
     .create table DiagnosticLogs (Timestamp:datetime, ResourceId:string, OperationName:string, Result:string, OperationId:string, Database:string, Table:string, IngestionSourceId:string, IngestionSourcePath:string, RootActivityId:string, ErrorCode:string, FailureStatus:string, Details:string)
@@ -308,7 +308,7 @@ Para mapear os dados de registo de atividade para a tabela, utilize a seguinte c
 # <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>Criar política de atualização de dados para métricas de diagnóstico
 
-1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos métricos de diagnóstico para que cada valor da coleção receba uma linha separada. Utilize o operador [`mv-expand`:](/azure/kusto/query/mvexpandoperator)
+1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos métricos de diagnóstico para que cada valor da coleção receba uma linha separada. Utilize [`mv-expand`](/azure/kusto/query/mvexpandoperator) o operador:
      ```kusto
     .create function DiagnosticMetricsExpand() {
         DiagnosticRawRecords
@@ -333,10 +333,10 @@ Para mapear os dados de registo de atividade para a tabela, utilize a seguinte c
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnósticos](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>Criar política de atualização de dados para registos de diagnósticos
 
-1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos de diagnóstico para que cada valor da coleção receba uma linha separada. Você vai ativar registos de ingestão em um cluster Azure Data Explorer, e usar [logs de ingestão schema](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Criará uma tabela para o sucesso e para a ingestão falhada, enquanto alguns dos campos estarão vazios para a ingestão bem sucedida (ErrorCode, por exemplo). Utilize o operador [`mv-expand`:](/azure/kusto/query/mvexpandoperator)
+1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos de diagnóstico para que cada valor da coleção receba uma linha separada. Você vai ativar registos de ingestão em um cluster Azure Data Explorer, e usar [logs de ingestão schema](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Criará uma tabela para o sucesso e para a ingestão falhada, enquanto alguns dos campos estarão vazios para a ingestão bem sucedida (ErrorCode, por exemplo). Utilize [`mv-expand`](/azure/kusto/query/mvexpandoperator) o operador:
 
     ```kusto
     .create function DiagnosticLogsExpand() {
@@ -369,7 +369,7 @@ Para mapear os dados de registo de atividade para a tabela, utilize a seguinte c
 # <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>Criar política de atualização de dados para registos de atividades
 
-1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos de registos de atividade para que cada valor da coleção receba uma linha separada. Utilize o operador [`mv-expand`:](/azure/kusto/query/mvexpandoperator)
+1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos de registos de atividade para que cada valor da coleção receba uma linha separada. Utilize [`mv-expand`](/azure/kusto/query/mvexpandoperator) o operador:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -414,10 +414,10 @@ As definições de diagnóstico azure permitem a exportação de métricas e reg
     **Definição** | **Valor sugerido** | **Descrição**
     |---|---|---|
     | **Subscrição** | *A sua subscrição* | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
-    | **Grupo de recursos** | *test-resource-group* | Crie um novo grupo de recursos. |
+    | **Grupo de recursos** | *grupo de recursos de teste* | Crie um novo grupo de recursos. |
     | **Localização** | Selecione a região que melhor satisfaz as suas necessidades. | Crie o espaço de nome sinuoso do Event Hubs no mesmo local que outros recursos.
-    | **Nome do espaço de nome** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique o seu espaço de nomes.
-    | **Nome do centro do evento** | *DiagnosticData* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. |
+    | **Nome do espaço de nomes** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique o seu espaço de nomes.
+    | **Nome do hub de eventos** | *DiagnosticData* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. |
     | **Nome do grupo de consumidores** | *adxpipeline* | Crie um nome de grupo de consumidores. Os grupos de consumidores permitem que cada aplicação de consumo tenha uma vista separada do fluxo de eventos. |
     | | |
 
@@ -435,12 +435,12 @@ Selecione um recurso a partir do qual as métricas de exportação. Vários tipo
 
     ![Definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. O painel de **definições de diagnóstico** abre. Tome os seguintes passos:
+1. O painel de **definições de diagnóstico** abre. Siga estes passos:
    1. Forneça aos seus dados de registo de diagnóstico o nome *ADXExportedData*.
    1. Em **LOG,** selecione ambas as caixas de verificação de verificação de **ingestão bem sucedidas** e **falhadas.**
    1. Em **MÉTRICA,** selecione a caixa de verificação de desempenho da **Consulta.**
    1. Selecione o Stream para uma caixa de verificação do centro de **eventos.**
-   1. **Selecione Configurar**.
+   1. Selecione **Configurar**.
 
       ![Painel de definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
 
@@ -505,7 +505,7 @@ Agora precisa de criar as ligações de dados para as suas métricas de diagnós
 
 1. Utilize as seguintes definições na janela de ligação de **dados:**
 
-    Fonte de dados:
+    Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -532,7 +532,7 @@ Agora precisa de criar as ligações de dados para as suas métricas de diagnós
 
 1. Utilize as seguintes definições na janela de ligação de **dados:**
 
-    Fonte de dados:
+    Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -579,11 +579,11 @@ Resultados da consulta:
 |   | 00:06.156 |
 | | |
 
-# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnósticos](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>Consulta da tabela de registos de diagnóstico
 
 Este oleoduto produz ingestão através de um centro de eventos. Vai rever os resultados destas ingestão.
-A seguinte consulta analisa quantas ingestão acumuladas num minuto, incluindo uma amostra de `Database`, `Table` e `IngestionSourcePath` para cada intervalo:
+A seguinte consulta analisa quantas ingestão acumuladas num minuto, `Database` `Table` incluindo uma amostra de, e `IngestionSourcePath` para cada intervalo:
 
 ```kusto
 DiagnosticLogs
@@ -625,4 +625,4 @@ Resultados da consulta:
 
 * Aprenda a escrever muitas mais consultas sobre os dados extraídos do Azure Data Explorer utilizando [consultas de Escrita para o Azure Data Explorer](write-queries.md).
 * [Monitorize operações de ingestão do Explorador de Dados do Azure utilizando registos de diagnóstico](using-diagnostic-logs.md)
-* [Use métricas para monitorizar a saúde do cluster](using-metrics.md)
+* [Utilizar métricas para monitorizar o estado de funcionamento do cluster](using-metrics.md)

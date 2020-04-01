@@ -15,16 +15,16 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77592225"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
 
-Neste tutorial, vai realizar as seguintes ações:
+Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório de sala de aula
@@ -116,7 +116,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 
         ![Definir agenda de repetição](../media/how-to-create-schedules/set-repeat-schedule.png)
 
-3. Agora, na página **de eventos agendado seleto,** para **Notas (opcional)** , insira qualquer descrição ou notas para a programação. 
+3. Agora, na página **de eventos agendado seleto,** para **Notas (opcional)**, insira qualquer descrição ou notas para a programação. 
 4. Na página **de eventos agendada seleção,** selecione **Guardar**. 
 
     ![Horário semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
@@ -151,7 +151,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 1. No convite Enviar por página de **e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. O e-mail inclui automaticamente o link de registo. Pode obter este link de registo **selecionando... (elipse)** na barra de ferramentas e **no link de registo.** 
 
     ![Enviar link de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Vê o estado do **convite** na lista de **Utilizadores.** O estado deve alterar-se para **enviar** e, em seguida, para **enviar em &lt;data&gt;** . 
+4. Vê o estado do **convite** na lista de **Utilizadores.** O estado deve alterar-se para **enviar** e, em seguida, para **enviar a &lt;data&gt;**. 
 
     Para obter mais informações sobre a adição de alunos a uma aula e a gestão do seu uso do laboratório, consulte [como configurar o uso](how-to-configure-student-usage.md)do aluno.
 

@@ -1,17 +1,17 @@
 ---
-title: Tutorial-conectar Azure Analysis Services com Power BI Desktop | Microsoft Docs
+title: Tutorial - Connect Azure Analysis Services with Power BI Desktop [ Microsoft Docs
 author: minewiskan
-description: Saiba como obter um nome de servidor Analysis Services do portal do Azure e, em seguida, conecte-se ao servidor usando Power BI Desktop.
+description: Aprenda a obter um nome de servidor de Serviços de Análise a partir do portal Azure e, em seguida, ligue-se ao servidor utilizando o Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572322"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
@@ -30,7 +30,7 @@ Neste tutorial, utiliza o Power BI Desktop para ligar à base de dados do modelo
 - [Instale o Power BI Desktop mais recente](https://powerbi.microsoft.com/desktop).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Neste tutorial, você entrará no portal para obter apenas o nome do servidor. Normalmente, os utilizadores iriam obter o nome do servidor a partir do administrador do servidor.
+Neste tutorial, você canta no portal para obter apenas o nome do servidor. Normalmente, os utilizadores iriam obter o nome do servidor a partir do administrador do servidor.
 
 Inicie sessão no [portal](https://portal.azure.com/).
 
@@ -43,7 +43,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
 ## <a name="connect-in-power-bi-desktop"></a>Ligar no Power BI Desktop
 
-1. No Power BI Desktop, clique em **Obter Dados** > **Azure** > **Base de dados do Azure Analysis Services**.
+1. No Power BI Desktop, clique em **Obter dados** > **Azure** > **Azure Analysis Services**base de dados .
 
    ![Ligar em Obter dados](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
 
@@ -59,7 +59,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
    ![Visualizações](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
-5. Na tabela **CAMPOS** > **Vendas da Internet**, selecione as medidas **Total de Vendas da Internet** e **Margem**. Na tabela **Categoria do Produto**, selecione **Nome da Categoria de Produto**.
+5. Na tabela **FIELDS** > **Internet Sales,** selecione **Internet Sales Total** and **Margin** measures. Na tabela **Categoria do Produto**, selecione **Nome da Categoria de Produto**.
 
    ![Concluir relatório](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
 
@@ -70,4 +70,4 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se você não estiver familiarizado com a criação de um modelo de dados, consulte o [tutorial de modelagem de dados de tabela de vendas pela Internet da Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) no SQL Server Analysis Services docs.
+Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não está familiarizado com a forma de criar um modelo de dados, consulte o tutorial de modelação de [dados tabular Adventure Works Internet Sales](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) nos docs dos Serviços de Análise de Servidores SQL.

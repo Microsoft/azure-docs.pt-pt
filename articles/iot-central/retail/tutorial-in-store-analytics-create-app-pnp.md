@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: 6b89b667855d827acfb7c181da014cd0d0b4bfc4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022108"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de análise na loja na Azure IoT Central
@@ -105,7 +105,7 @@ Para criar um tema personalizado:
 
     ![Vidraça esquerda Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/dashboard-expand.png)
 
-1. Selecione **Administration > Personalize a sua aplicação**.
+1. Selecione **Administração > Personalizar a sua aplicação**.
 
 1. Utilize o botão **Alterar** para escolher uma imagem para carregar como logótipo da **Aplicação**. Opcionalmente, especifique um valor para o **logo alt texto**. 
 
@@ -123,7 +123,7 @@ Para criar um tema personalizado:
 
 Para atualizar a imagem da aplicação:
 
-1. Selecione Definições de **Administração e aplicação .**
+1. Selecione as definições de **aplicação > da Administração**.
 
 1. Utilize o botão **de imagem Select** para escolher uma imagem para carregar como imagem de aplicação. Esta imagem aparece no azulejo da aplicação na página **My Apps** do gestor de aplicações IoT Central.
 
@@ -179,9 +179,9 @@ Para personalizar as interfaces incorporadas do modelo do dispositivo RuuviTag:
 
 1. Percorra a lista de capacidades e encontre o `humidity` tipo de telemetria. É o item da linha com o valor de nome de **visualização** editável de *humidade*.
 
-Nos passos seguintes, personaliza o tipo de telemetria `humidity` para os sensores RuuviTag. Opcionalmente, personalize alguns dos outros tipos de telemetria.
+Nos seguintes passos, `humidity` personaliza o tipo de telemetria para os sensores RuuviTag. Opcionalmente, personalize alguns dos outros tipos de telemetria.
 
-Para o `humidity` tipo de telemetria, efaça as seguintes alterações:
+Para `humidity` o tipo de telemetria, enumere as seguintes alterações:
 
 1. Selecione o controlo **Expandir** para expandir os detalhes do esquema para a linha.
 
@@ -189,7 +189,7 @@ Para o `humidity` tipo de telemetria, efaça as seguintes alterações:
 
 1. Altere a opção **Tipo Semântico** de *Nenhuma* a *Humidade*.  Opcionalmente, detete os valores do esquema para o tipo de telemetria de humidade na vista de esquema expandido. As definições de esquema permitem criar requisitos de validação detalhados para os dados que os seus sensores rastreiam. Por exemplo, pode definir valores mínimos e máximos de alcance de funcionamento para uma determinada interface.
 
-1. Selecione **guardar** para guardar as alterações.
+1. Selecione **Guardar** para guardar as alterações.
 
     ![Personalização do modelo de modelo do dispositivo Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template-customize.png)
 
@@ -242,7 +242,7 @@ Para criar uma regra:
 
 1. Expanda o painel esquerdo.
 
-1. Selecione **regras**.
+1. Selecione **Regras**.
 
 1. Selecione **+ Novo**.
 

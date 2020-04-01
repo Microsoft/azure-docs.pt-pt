@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273686"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
@@ -130,13 +130,13 @@ Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/analysi
 ## <a name="verify-your-changes"></a>Verifique as suas alterações
 
 1. No **Object Explorer**, clique no servername e, em seguida, clique em **Atualizar** ou prima **F5**.
-2. Expanda **Bases de Dados** > **adventureworks** > **Funções**. Verifique se as alterações adicionadas à conta de utilizador e à nova função nas tarefas anteriores são apresentadas.   
+2. Expandir **bases de dados** > **funções**de**aventura.** >  Verifique se as alterações adicionadas à conta de utilizador e à nova função nas tarefas anteriores são apresentadas.   
 
     ![Verificar no Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize as **Propriedades da Função** > **Associação** para remover contas de utilizador, ou clique com o botão direito do rato numa função e, em seguida, clique em **Eliminar**.
+Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize a **Role Properties** > **Membership** para remover as contas dos utilizadores ou clique na direita numa função e, em seguida, clique em **Eliminar**.
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – fazer backup de máquinas virtuais do Linux no portal do Azure
+title: Tutorial - Back up Máquinas virtuais Linux no portal Azure
 description: Neste tutorial, irá aprender a utilizar o portal do Azure para proteger as máquinas virtuais do Linux com o Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034588"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066486"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure
 
@@ -43,15 +43,15 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 ## <a name="create-a-backup"></a>Criar uma cópia de segurança
 Crie uma cópia de segurança diária agendada para um Cofre dos Serviços de Recuperação:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
-4. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. O painel **Ativar cópia de segurança** abre.
+4. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. A lâmina **de reserva Ativa** abre-se.
 5. Em **Cofre dos Serviços de Recuperação**, clique em **Criar novo** e indique o nome do cofre novo. É criado um cofre novo no mesmo Grupo de Recursos e na mesma localização que a máquina virtual.
 6. Clique em **Política de cópia de segurança**. Para este exemplo, mantenha as predefinições e clique em **OK**.
 7. No painel **Ativar cópia de segurança**, clique em **Ativar Cópia de Segurança**. Esta ação cria uma cópia de segurança diária, com base na agenda predefinida.
 10. Para criar um ponto de recuperação inicial, no painel **Cópia de segurança**, clique em **Fazer cópia de segurança agora**.
-11. No painel **Fazer Cópia de Segurança Agora**, clique no ícone de calendário, utilize o controlo do calendário para selecionar o último dia em que este ponto de recuperação é mantido e clique em **Cópia de Segurança**.
+11. Na lâmina **'Backup Now',** clique no ícone do calendário, use o controlo de calendário para selecionar o último dia em que este ponto de recuperação é mantido e clique em **Backup**.
 12. No painel **Cópia de Segurança** para a VM, vê o número de pontos de recuperação que estão concluídos.
 
     ![Pontos de recuperação](./media/tutorial-backup-vms/backup-complete.png)
@@ -64,7 +64,7 @@ Se eliminar ou fizer alterações acidentalmente a um ficheiro, pode utilizar a 
 
 Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/www/html/index.nginx-debian.html. Neste exemplo, o endereço IP público da nossa VM é *13.69.75.209*. Pode encontrar o endereço IP da VM com:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -78,6 +78,7 @@ Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Elimine /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -122,7 +123,7 @@ Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/
     
 12. O resultado do script indica o caminho para o ponto de montagem. O resultado é semelhante a este:
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
