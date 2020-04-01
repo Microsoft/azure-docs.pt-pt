@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294299"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478977"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação de desastres de servidor físico
 
@@ -290,8 +290,8 @@ Atualize o servidor da seguinte forma:
 > [!NOTE]
 > A opção **-Força** no Remove-AzSiteRecoveryFabric pode ser utilizada para forçar a remoção/eliminação do servidor de configuração.
 
-## <a name="renew-ssl-certificates"></a>Renovar certificados SSL
-O servidor de configuração tem um servidor web incorporado, que orquestra atividades do serviço mobility, servidores de processos e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado SSL para autenticar clientes. O certificado expira após três anos, e pode ser renovado a qualquer momento.
+## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
+O servidor de configuração tem um servidor web incorporado, que orquestra atividades do serviço mobility, servidores de processos e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado TLS/SSL para autenticar clientes. O certificado expira após três anos, e pode ser renovado a qualquer momento.
 
 ### <a name="check-expiry"></a>Verificar expiração
 

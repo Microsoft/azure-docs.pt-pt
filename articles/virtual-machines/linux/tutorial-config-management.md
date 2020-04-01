@@ -16,10 +16,10 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239295"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar alterações e atualizar uma máquina virtual Linux em Azure
@@ -38,7 +38,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 
@@ -48,7 +48,7 @@ Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro,
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/* :
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -64,7 +64,7 @@ az vm create \
 A gestão de atualizações permite-lhe gerir atualizações e correções para as suas máquinas virtuais do Linux.
 Diretamente a partir da VM, pode avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM.
 
-Para obter informações sobre preços, veja [Preços de Automatização para Gestão de atualizações](https://azure.microsoft.com/pricing/details/automation/)
+Para obter informações sobre preços, consulte [preços de Automação para gestão](https://azure.microsoft.com/pricing/details/automation/) de Atualizações
 
 ### <a name="enable-update-management"></a>Ativar a Gestão de atualizações
 
@@ -87,8 +87,8 @@ Escolha o espaço de trabalho e a conta de automatização do Log Analytics e se
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
-* Área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Conta de automatização](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) espaço de trabalho
+* [Conta de automação](../../automation/automation-offering-get-started.md)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
 O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, log Analytics workspace e conta de Automação para usar e selecionar **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
@@ -117,7 +117,7 @@ Para criar uma nova implementação de atualização, selecione a implementaçã
 |Sistema Operativo| Linux ou Windows|
 | Grupos para atualizar |Para máquinas Azure, defina uma consulta baseada numa combinação de subscrição, grupos de recursos, localizações e etiquetas para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. </br></br>Para máquinas não-Azure, selecione uma pesquisa guardada existente para selecionar um grupo de máquinas não-Azure para incluir na implementação. </br></br>Para saber mais, consulte [Grupos Dinâmicos](../../automation/automation-update-management-groups.md)|
 | Máquinas para atualizar |Selecione uma pesquisa Saved, grupo importado ou escolha máquina a partir da gota-para-baixo e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos informáticos em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
-|Classificações de atualização|Selecione todas as classificações de atualização que precisa|
+|Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
 |Incluir/excluir atualizações|Isto abre a página **Incluir/Excluir.** As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
 |Configurações de agenda|Selecione a hora para começar e selecione uma vez ou recorrente para a recorrência|
 | Pré-scripts + Post-scripts|Selecione os scripts a executar antes e depois da sua implementação|
@@ -141,9 +141,9 @@ Selecione a implementação da atualização concluída para ver o dashboard rel
 No mosaico **Resultados da atualização** encontra-se um resumo do número total de atualizações e os resultados de implementação da VM.
 Na tabela à direita encontra-se uma divisão detalhada de cada atualização e os resultados da instalação, que podem ter um dos seguintes valores:
 
-* **Não tentado** - a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Com êxito** - a atualização foi executada com êxito.
-* **Falhou** - a atualização falhou.
+* **Não foi tentada** - a atualização não foi instalada porque não havia tempo disponível com base na duração da janela de manutenção definida.
+* **Succeeded** - a atualização conseguiu
+* **Falhado** - a atualização falhou
 
 Selecione **Todos os registos** para ver todas as entradas de registo criadas pela implementação.
 

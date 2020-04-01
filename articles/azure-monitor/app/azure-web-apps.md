@@ -3,12 +3,12 @@ title: Monitor Azure app services performance [ Monitor Azure app services perfo
 description: Monitorização do desempenho da aplicação para serviços de aplicações Azure. Tempo de carga e resposta de gráficos, informações de dependência e alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2ec503829d3e6edd7b2b6f6b36314db8a205a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297611"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437214"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -28,7 +28,7 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 
     * Esta abordagem é muito mais personalizável, mas requer a adição de [uma dependência dos pacotes DeSC NuGet](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)da Aplicação Insights . Este método também significa que você tem que gerir as atualizações para a versão mais recente dos pacotes por si mesmo.
 
-    * Se precisar de fazer chamadas aPI personalizadas para rastrear eventos/dependências não capturadas por padrão com monitorização baseada em agentes, terá de utilizar este método. Confira a API para saber [eventos personalizados e artigo de métricas](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais.
+    * Se precisar de fazer chamadas aPI personalizadas para rastrear eventos/dependências não capturadas por padrão com monitorização baseada em agentes, terá de utilizar este método. Confira a API para saber [eventos personalizados e artigo de métricas](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais. Esta é também atualmente a única opção suportada para cargas de trabalho baseadas em Linux.
 
 > [!NOTE]
 > Se for detetada uma monitorização baseada no agente e uma instrumentação manual baseada em SDK, apenas as definições de instrumentação manual serão respeitadas. Isto é para evitar que os dados duplicados sejam enviados. Para saber mais sobre isso, confira a secção de resolução de [problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) abaixo.
@@ -92,7 +92,7 @@ Atualmente, as aplicações baseadas em direcionar a estrutura completa a partir
 
     ![Escolha opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Nó.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 A partir da sua aplicação web do Serviço de Aplicações, em **Definições,** > **selecione Insights** > **De aplicação Ativação**. A monitorização baseada no agente Node.js está atualmente em pré-visualização.
 
@@ -100,7 +100,7 @@ A partir da sua aplicação web do Serviço de Aplicações, em **Definições,*
 
 As aplicações web baseadas no Java App Service não suportam atualmente a monitorização automática baseada em agentes/extensões. Para permitir a monitorização da sua aplicação Java, é necessário [instrumentalizar manualmente](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started)a sua aplicação .
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 As aplicações web baseadas em Python App Service não suportam atualmente a monitorização automática baseada em agentes/extensões. Para permitir a monitorização da sua aplicação Python, é necessário [instrumentalizar manualmente](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)a sua aplicação .
 
@@ -142,7 +142,7 @@ Se por alguma razão quiser desativar a monitorização do lado do cliente:
 
 ![Screenshot das definições de aplicação UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejs"></a>[Nó.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Para ativar a monitorização do lado do cliente para a sua aplicação Node.js, precisa adicionar [manualmente o JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript)do lado do cliente à sua aplicação .
 
@@ -150,7 +150,7 @@ Para ativar a monitorização do lado do cliente para a sua aplicação Node.js,
 
 Para ativar a monitorização do lado do cliente para a sua aplicação Java, precisa de [adicionar manualmente o JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript)do lado do cliente à sua aplicação .
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Para ativar a monitorização do lado do cliente para a sua aplicação Python, precisa de [adicionar manualmente o JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript)do lado do cliente à sua aplicação .
 

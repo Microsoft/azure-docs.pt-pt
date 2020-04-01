@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/19/2019
-ms.openlocfilehash: f318b373f6a6f46ee3a85703c6099c76568580ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/27/2020
+ms.openlocfilehash: cdb6629441becd0a8356debe3360830ff11a7a9d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426109"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398412"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Troubleshoot Azure Stream Analytics usando registos de diagnóstico
 

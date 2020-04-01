@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771398"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475440"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
@@ -129,11 +129,7 @@ Se já tiver um serviço com as dependências instaladas no seu ficheiro ambient
 
    ![Editar o serviço](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. Em **Definições Avançadas,** selecione **'Enable Model' recolha**de dados .
-
-    [![Selecione recolha de dados](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   Também pode selecionar **diagnósticos Enable AppInsights** para acompanhar a saúde do seu serviço.
+1. Em **Definições Avançadas,** selecione **Ativar insights de diagnóstico e recolha**de dados.
 
 1. Selecione **Atualizar** para aplicar as alterações.
 
@@ -151,9 +147,7 @@ Pode parar de recolher dados a qualquer momento. Utilize o código Python ou o A
 
    [![Selecione a opção Editar](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. Em **Definições Avançadas,** limpe a recolha de **dados do Modelo enable**.
-
-    [![Limpe a caixa de verificação de recolha de dados](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. Em **Definições Avançadas,** claro **enable Insights diagnósticos e recolha**de dados .
 
 1. Selecione **Atualizar** para aplicar a alteração.
 

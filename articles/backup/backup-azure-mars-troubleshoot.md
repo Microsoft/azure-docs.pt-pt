@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver a instalação e o registo do agen
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 24169356600c25e664221af397051bb0fec3e459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673068"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421281"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Problemas de resolução do agente da Microsoft Azure Recovery Services (MARS)
 
@@ -132,6 +132,13 @@ Set-ExecutionPolicy Unrestricted
 
 > [!TIP]
 > Para garantir que as alterações são aplicadas de forma consistente, reinicie o servidor depois de executar os passos anteriores.
+
+## <a name="resource-not-provisioned-in-service-stamp"></a>Recurso não provisionado em carimbo de serviço
+
+Erro | Possíveis causas | Ações recomendadas
+--- | --- | ---
+A operação em curso falhou devido a um erro de serviço interno "Recurso não provisionado em carimbo de serviço". Por favor, tente novamente a operação depois de algum tempo. (ID: 230006) | O servidor protegido foi renomeado. | <li> Mude o nome do servidor de volta para o nome original como registado no cofre. <br> <li> Reregide o servidor no cofre com o novo nome.
+
 
 ## <a name="troubleshoot-restore-problems"></a>Problemas de resolução de problemas restauram problemas
 

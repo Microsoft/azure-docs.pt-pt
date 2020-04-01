@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f169d7694199e496e472a6c32312cf6782270378
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470450"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247219"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Quickstart: Criar um Balancer de carga utilizando o Azure PowerShell
 
@@ -33,7 +33,7 @@ Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com 
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Antes de poder criar o seu equilibrador de carga, tem de criar um grupo de recursos com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroupSLB* na localização *EastUS:*
 
@@ -64,16 +64,16 @@ $publicIp = New-AzPublicIpAddress `
  -Name 'myPublicIP' `
  -Location $location `
  -AllocationMethod static `
- -SKU Standard
+ -SKU Standard `
  -zone 1
 ```
 
-Use ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos básicos não são compatíveis com o equilíbrio de carga **Standard.** A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.
+Utilizar ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos básicos não são compatíveis com o equilíbrio de carga **Standard.** A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.
 
 > [!IMPORTANT]
 > O resto deste quickstart assume que o **Standard** SKU é escolhido durante o processo de seleção SKU acima.
 
-## <a name="create-load-balancer"></a>Criar Balanceador de carga
+## <a name="create-load-balancer"></a>Criar balanceadores de carga
 
 Nesta secção, configura o IP frontal e o conjunto de endereços traseiros para o equilibrador de carga e, em seguida, cria o Equilíbrio de Carga Padrão.
 
@@ -98,7 +98,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
 O exemplo seguinte cria uma sonda TCP. Também pode criar sondas HTTP personalizadas para obter verificações de estado de funcionamento mais detalhadas. Quando utilizar uma sonda HTTP personalizada, tem de criar a página de verificação de estado de funcionamento, tal como *healthcheck.aspx*. A sonda tem de devolver uma resposta **HTTP 200 OK** para o balanceador de carga manter o anfitrião na rotação.
 
-Para criar uma sonda de saúde TCP, utilize [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). O exemplo seguinte cria uma sonda de estado de funcionamento denominada *myHealthProbe* que monitoriza cada VM na *porta*  HTTP *80*:
+Para criar uma sonda de saúde TCP, utilize [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). O exemplo seguinte cria uma sonda de estado de funcionamento denominada *myHealthProbe* que monitoriza cada VM na *porta * HTTP *80*:
 
 ```azurepowershell
 $probe = New-AzLoadBalancerProbeConfig `
@@ -107,7 +107,7 @@ $probe = New-AzLoadBalancerProbeConfig `
  -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
 
 Crie uma regra de equilíbrio de carga com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo seguinte cria uma regra de balanceador de carga designada *myLoadBalancerRule* e faz o balanceamento de carga do tráfego no *TCP* porta *80*:
@@ -218,7 +218,7 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
 
 ```
 
-Use ```-SKU Basic``` para criar um IPs público básico. A Microsoft recomenda a utilização do Standard para cargas de trabalho de produção.
+Utilize ```-SKU Basic``` para criar um IPs público básico. A Microsoft recomenda a utilização do Standard para cargas de trabalho de produção.
 
 ### <a name="create-network-security-group"></a>Criar grupo de segurança de rede
 Crie um grupo de segurança de rede para definir ligações recebidas para a sua rede virtual.
@@ -323,7 +323,7 @@ Leva alguns minutos para criar e configurar os três VMs.
 
 Instale o IIS com uma página web personalizada em ambos os VMs de back-end da seguinte forma:
 
-1. Obtenha os endereços IP públicos dos três VMs usando `Get-AzPublicIPAddress`.
+1. Obtenha os endereços IP públicos dos `Get-AzPublicIPAddress`três VMs usando .
 
    ```azurepowershell
      $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress

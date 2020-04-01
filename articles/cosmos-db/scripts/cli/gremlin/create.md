@@ -1,6 +1,6 @@
 ---
-title: Criar um banco de dados Gremlin e um grafo para Azure Cosmos DB
-description: Criar um banco de dados Gremlin e um grafo para Azure Cosmos DB
+title: Crie uma base de dados e gráfico de Gremlin para Azure Cosmos DB
+description: Crie uma base de dados e gráfico de Gremlin para Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,17 +8,17 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 46914952e59e5f4fc3d5cd78f80842de09b11184
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275403"
 ---
-# <a name="create-an-azure-cosmos-gremlin-api-account-database-and-graph-using-azure-cli"></a>Criar uma conta de API do Azure Cosmos Gremlin, um banco de dados e um grafo usando CLI do Azure
+# <a name="create-an-azure-cosmos-gremlin-api-account-database-and-graph-using-azure-cli"></a>Crie uma conta API Azure Cosmos Gremlin, base de dados e gráfico usando o Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando o CLI do Azure versão 2.0.73 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão Azure CLI 2.0.73 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,12 +40,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [criar banco de dados cosmosdb AZ Gremlin](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) | Cria um banco de dados Gremlin do Azure Cosmos. |
-| [criar gráfico AZ cosmosdb Gremlin](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Cria um grafo Gremlin do Azure Cosmos. |
+| [az cosmosdb gremlin base de dados criar](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) | Cria uma base de dados Azure Cosmos Gremlin. |
+| [az cosmosdb gremlin gráfico criar](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Cria um gráfico Azure Cosmos Gremlin. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure Cosmos DB, consulte [Azure Cosmos DB documentação da CLI](/cli/azure/cosmosdb).
+Para obter mais informações sobre o Azure Cosmos DB CLI, consulte a [documentação Do CD D. Azure Cosmos.](/cli/azure/cosmosdb)
 
-Todos os exemplos de script da CLI do Azure Cosmos DB podem ser encontrados no [repositório GitHub Azure Cosmos DB CLI](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+Todas as amostras de script soro D DD Do Azure Cosmos podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).

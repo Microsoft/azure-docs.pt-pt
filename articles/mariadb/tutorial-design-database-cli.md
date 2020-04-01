@@ -1,29 +1,29 @@
 ---
-title: 'Tutorial: criar um banco de dados do Azure para MariaDB-CLI do Azure'
-description: Este tutorial explica como criar e gerenciar o banco de dados do Azure para o servidor MariaDB e o banco de dados usando CLI do Azure da linha de comando.
+title: 'Tutorial: Designar uma Base de Dados Azure para MariaDB - Azure CLI'
+description: Este tutorial explica como criar e gerir a Base de Dados Azure para o servidor MariaDB e base de dados usando o Azure CLI a partir da linha de comando.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776799"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79534852"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: criar um banco de dados do Azure para MariaDB usando CLI do Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados Azure para MariaDB utilizando o Azure CLI
 
-O banco de dados do Azure para MariaDB é um serviço de banco de dados relacional no Microsoft Cloud baseado no mecanismo de banco de dados do MariaDB Community Edition. Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
+Azure Database for MariaDB é um serviço de base de dados relacional na nuvem da Microsoft baseado no motor de base de dados MariaDB Community Edition. Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
 
 > [!div class="checklist"]
 > * Criar um Azure Database for MariaDB
 > * Configurar a firewall do servidor
-> * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para criar uma base de dados
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
@@ -34,7 +34,7 @@ Pode utilizar o Azure Cloud Shell no browser ou [instalar a CLI do Azure]( /cli/
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
 
 Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -51,9 +51,9 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um Azure Database for MariaDB Server
-Crie um banco de dados do Azure para o servidor MariaDB com o comando `az mariadb server create`. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
+Crie uma Base de Dados `az mariadb server create` Azure para servidor MariaDB com o comando. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo a seguir cria um banco de dados do Azure para o servidor MariaDB localizado em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um início de sessão de administrador com o nome `myadmin`. É um servidor Uso Geral, Gen 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
+O exemplo seguinte cria uma Base de `westus` Dados Azure `myresourcegroup` para `mydemoserver`servidor MariaDB localizado no grupo de recursos com nome . O servidor tem um início de sessão de administrador com o nome `myadmin`. É um Propósito Geral, servidor Gen 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -70,7 +70,7 @@ Leia a documentação dos [escalões de preços](./concepts-pricing-tiers.md) pa
 
 
 ## <a name="configure-firewall-rule"></a>Configurar a regra de firewall
-Crie um banco de dados do Azure para MariaDB regra de firewall de nível de servidor com o comando `az mariadb server firewall-rule create`. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando do **MySQL** ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço MariaDB do Azure.
+Crie uma Base de Dados Azure para `az mariadb server firewall-rule create` a regra de firewall do nível do servidor MariaDB com o comando. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comando **mysql** ou a bancada de trabalho MySQL, se conectem ao seu servidor através da firewall de serviço Azure MariaDB.
 
 O exemplo seguinte cria uma regra de firewall chamada `AllowMyIP` que permite ligações a partir de um endereço IP específico, 192.168.0.1. Substitua o endereço IP ou intervalo de endereços IP que correspondem ao local onde os irá ligar.
 
@@ -122,7 +122,7 @@ mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Criar uma base de dados vazia
-Assim que estiver ligado ao servidor, crie uma base de dados vazia.
+Assim que estiver ligado ao servidor, crie uma base de dados em branco.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
@@ -133,7 +133,7 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados
-Agora que você sabe como se conectar ao banco de dados do Azure para o banco de dados MariaDB, conclua algumas tarefas básicas.
+Agora que sabe como ligar-se à base de dados Azure para a base de dados MariaDB, complete algumas tarefas básicas.
 
 Em primeiro lugar, crie uma tabela e carregue-a com alguns dados. Vamos criar uma tabela que armazena informações de inventário.
 ```sql
@@ -170,7 +170,7 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar uma base de dados para um ponto anterior no tempo
-Imagine que eliminou acidentalmente esta tabela. É algo de que não é fácil recuperar. O banco de dados do Azure para MariaDB permite que você volte para qualquer ponto no tempo no último até 35 dias e restaure esse ponto no tempo para um novo servidor. Pode utilizar este servidor novo para recuperar os dados eliminados. Os passos seguintes restauram o servidor de exemplo para um ponto antes da tabela ter sido adicionada.
+Imagine que eliminou acidentalmente esta tabela. É algo de que não é fácil recuperar. A Base de Dados Azure para MariaDB permite-lhe voltar a qualquer momento nos últimos 35 dias e restaurar este ponto a tempo para um novo servidor. Pode utilizar este servidor novo para recuperar os dados eliminados. Os passos seguintes restauram o servidor de exemplo para um ponto antes da tabela ter sido adicionada.
 
 Para o restauro, precisa das seguintes informações:
 
@@ -201,8 +201,8 @@ Neste tutorial, aprendeu a:
 > [!div class="checklist"]
 > * Criar um Azure Database for MariaDB Server
 > * Configurar a firewall do servidor
-> * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para criar uma base de dados
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados

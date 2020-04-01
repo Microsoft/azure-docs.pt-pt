@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Tutorial de entidade sita em compósito - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Neste tutorial, adicione uma entidade composta para agregar dados extraídos de vários tipos numa única entidade contendo. Ao agregar os dados, a aplicação do cliente pode facilmente extrair dados relacionados em diferentes tipos de dados.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/31/2020
+ms.openlocfilehash: 5b8185a56c54ec92ce8ceaf1cd029dd31f6e709c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75447956"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478680"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Grupo e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para agregar dados extraídos de vários tipos numa única entidade contendo. Ao agregar os dados, a aplicação do cliente pode facilmente extrair dados relacionados em diferentes tipos de dados.
@@ -108,11 +100,11 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treine a app para que as alterações à intenção possam ser testadas
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+Para treinar a aplicação, selecione **Train**. A formação aplica as alterações, como as novas entidades e as expressões rotuladas, ao modelo ativo.
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publique a app para que o modelo treinado seja consultado a partir do ponto final
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publique a app para aceder a ela a partir do ponto final http
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtenha intenção e previsão de entidade a partir do ponto final
 
@@ -186,9 +178,7 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
    Esta expressão devolve uma matriz de entidades compostas. A cada entidade é dado um tipo e valor. Para encontrar mais precisão para cada entidade infantil, utilize a combinação de tipo e valor do item de matriz composto para encontrar o item correspondente na matriz de entidades.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informações relacionadas
 

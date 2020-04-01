@@ -4,10 +4,10 @@ description: Neste tutorial, aprenda a gerir bases de dados SAP HANA apoiadas em
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.openlocfilehash: 2c088c27a678a4541cbba3c4c43c9cd830c60ff0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238742"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerir bases de dados SAP HANA num Azure VM utilizando o Azure CLI
@@ -23,7 +23,7 @@ No final deste tutorial, poderá:
 > * Monitorizar backup e restaurar postos de trabalho
 > * Proteja novas bases de dados adicionadas a um caso SAP HANA
 > * Mudar a política
-> * Parar a proteção
+> * Parar proteção
 > * Retomar a proteção
 
 Se usou uma base de [dados SAP HANA em Azure usando o CLI](tutorial-sap-hana-backup-cli.md) para fazer o backup na sua base de dados SAP HANA, então está a utilizar os seguintes recursos:
@@ -46,7 +46,7 @@ az backup job list --resource-group saphanaResourceGroup \
     --output table
 ```
 
-A saída será mais ou menos assim:
+A saída será semelhante à seguinte:
 
 ```output
 Name                                  Operation              Status      Item Name       Start Time UTC
@@ -69,7 +69,7 @@ az backup item set policy --resource-group saphanaResourceGroup \
     --name saphanadatabase;hxe;hxe \
 ```
 
-A saída deve ser assim:
+O resultado deverá ter o aspeto seguinte:
 
 ```output
 Name                                  Resource Group
@@ -137,7 +137,7 @@ az backup protection disable --resource-group saphanaResourceGroup \
     --output table
 ```
 
-A saída deve ser assim:
+O resultado deverá ter o aspeto seguinte:
 
 ```output
 Name                                  ResourceGroup
@@ -161,7 +161,7 @@ az backup protection disable --resource-group saphanaResourceGroup \
     --output table
 ```
 
-A saída deve ser assim:
+O resultado deverá ter o aspeto seguinte:
 
 ```output
 Name                                  ResourceGroup
@@ -185,7 +185,7 @@ az backup protection resume --resource-group saphanaResourceGroup \
     --output table
 ```
 
-A saída deve ser assim:
+O resultado deverá ter o aspeto seguinte:
 
 ```output
 Name                                  ResourceGroup
@@ -195,7 +195,7 @@ b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 
 Para verificar o estado desta operação, utilize o show de trabalho de [reserva az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como fazer backup uma base de dados SAP HANA em funcionamento no Azure VM utilizando o portal Azure, consulte as bases de [dados Backup SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
 

@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238903"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure
@@ -47,7 +47,7 @@ Antes de executar uma ativação pós-falha de teste, verifique as propriedades 
 
 1. Em **Itens Protegidos**, clique em **Itens Replicados** > e na VM.
 2. No painel **Item replicado**, existe um resumo das informações, do estado de funcionamento e dos pontos de recuperação mais recentes disponíveis da VM. Clique em **Propriedades** para ver mais detalhes.
-3. Em **Computação e Rede**, pode modificar o nome do Azure, o grupo de recursos, o tamanho de destino, o conjunto de disponibilidade e as definições do disco gerido.
+3. No **Compute e na Rede,** pode modificar o nome Azure, grupo de recursos, tamanho do alvo, conjunto de disponibilidade e definições de disco geridos.
 4. Pode ver e modificar as definições de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após a ativação pós-falha e o endereço IP que será atribuído à mesma.
 5. Em **Discos**, pode ver informações sobre o sistema operativo e os discos de dados na VM.
 
@@ -69,14 +69,14 @@ Quando executa uma ativação pós-falha de teste, ocorre o seguinte:
 
 Execute a ativação pós-falha de teste da seguinte forma:
 
-1. Em **Definições** > **Itens Replicados**, clique na VM > **+Testar Ativação Pós-falha**.
+1. Em **Definições** > **Itens Replicados,** clique no VM > **+Falha de teste**.
 2. Selecione o ponto de recuperação **Processado mais recentemente** para este tutorial. Este procedimento efetua a ativação pós-falha da VM para o ponto no tempo mais recente disponível. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (objetivo de tempo de recuperação) baixo.
 3. Em **Ativação Pós-Falha de Teste**, selecione a rede do Azure de destino para as VMs do Azure que serão ligadas após a ocorrência da ativação pós-falha.
 4. Clique em **OK** para iniciar a ativação pós-falha. Pode clicar na VM e abrir as respetivas propriedades para acompanhar o progresso. Também pode clicar na tarefa **Ativação Pós-falha de Teste** no nome do cofre > **Definições** > **Tarefas** >
    **Tarefas do Site Recovery**.
 5. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Verifique que a VM tem o tamanho adequado, está ligada à rede certa e está em execução.
 6. Deverá conseguir ligar-se à VM replicada no Azure agora.
-7. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** na VM. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
+7. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** na VM. Em **Notas,** grave e guarde quaisquer observações associadas ao failover do teste.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar em tempos de ativação pós-falha superiores para máquinas do Linux VMware, VMs VMware que não têm o serviço DHCP ativado e VMs VMware que não têm os controladores de arranque storvsc, vmbus, storflt, intelide e atapi.
 
@@ -89,4 +89,4 @@ Se pretender ligar-se aos VMs Azure utilizando RDP/SSH após a falha, [prepare-s
 > [!div class="nextstepaction"]
 > [Executar uma falha e failback para VMware VMs](vmware-azure-tutorial-failover-failback.md)
 > [Executar uma falha e failback para Hiper-V VMs](hyper-v-azure-failover-failback-tutorial.md)
-> Executar uma falha e [failback para máquinas físicas](physical-to-azure-failover-failback.md)
+> Executar uma falha e[failback para máquinas físicas](physical-to-azure-failover-failback.md)

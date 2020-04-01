@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244540"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422868"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados da Netezza utilizando a Azure Data Factory
 
@@ -158,7 +158,7 @@ Para copiar dados do Netezza, delineie o tipo de **origem** na Atividade de Cóp
 |:--- |:--- |:--- |
 | tipo | A propriedade do **tipo** da fonte de atividade de cópia deve ser definida para **NetezzaSource**. | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
-| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Netezza. <br>Os valores de adesão são: **Nenhum** (padrão), **DataSlice,** e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados netezza é controlado por [`parallelCopies`](copy-activity-performance.md#parallel-copy) regulação da atividade da cópia. | Não |
+| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Netezza. <br>Os valores de adesão são: **Nenhum** (padrão), **DataSlice,** e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados netezza é controlado por [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) regulação da atividade da cópia. | Não |
 | partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None`é . | Não |
 | partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será utilizado por divisórias de alcance para cópia paralela. Se não especificada, a chave principal da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a `DynamicRange`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfRangePartitionColumnName` dados de origem, ligue-se à cláusula ONDE. Consulte o exemplo na cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
 | partiçãoUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a `DynamicRange`opção de partição é . Se utilizar a consulta para recuperar `?AdfRangePartitionUpbound` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Netezza.](#parallel-copy-from-netezza) | Não |
@@ -202,7 +202,7 @@ O conector Netezza data Factory fornece partição de dados incorporados para co
 
 ![Screenshot das opções de partição](./media/connector-netezza/connector-netezza-partition-options.png)
 
-Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Netezza para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Netezza.
+Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Netezza para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Netezza.
 
 É sugerido que permita cópias paralelas com partilha de dados especialmente quando carrega uma grande quantidade de dados da sua base de dados Netezza. As seguintes são configurações sugeridas para diferentes cenários. Ao copiar dados para uma loja de dados baseada em ficheiros, é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 

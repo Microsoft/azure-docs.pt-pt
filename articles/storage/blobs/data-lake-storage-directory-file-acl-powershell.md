@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/30/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: a2f3dbf58363331cf6b1b05e759d246e68e7e7a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e254e2a06ea5a0d886072f4e9e3b7d275e4860e
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77471215"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422849"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Use powerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2 (pré-visualização)
 
@@ -35,27 +35,27 @@ Este artigo mostra-lhe como usar o PowerShell para criar e gerir diretórios, fi
 
 ## <a name="install-powershell-modules"></a>Instalar módulos PowerShell
 
-1. Verifique se a versão da PowerShell `5.1` que foi instalada é ou superior utilizando o seguinte comando. 
+1. Verifique se a versão da PowerShell `5.1` que foi instalada é ou superior utilizando o seguinte comando.    
 
-    ```powershell
-    echo $PSVersionTable.PSVersion.ToString() 
-    ```
+   ```powershell
+   echo $PSVersionTable.PSVersion.ToString() 
+   ```
     
-    Para atualizar a sua versão do PowerShell, consulte a atualização do [Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Para atualizar a sua versão do PowerShell, consulte a atualização do [Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Instale o mais recente módulo **PowershellGet.** Em seguida, feche e reabra a consola Powershell.
+2. Instale o mais recente módulo **PowershellGet.** Em seguida, feche e reabra a consola PowerShell.
 
-    ```powershell
-    install-Module PowerShellGet –Repository PSGallery –Force 
-    ```
+   ```powershell
+   install-Module PowerShellGet –Repository PSGallery –Force 
+   ```
 
-3.  Instale o módulo de pré-visualização **Az.Storage.**
+3. Instale o módulo de pré-visualização **Az.Storage.**
 
-    ```powershell
-    install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.9.1-preview –AllowPrerelease –AllowClobber –Force 
-    ```
+   ```powershell
+   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   ```
 
-    Para obter mais informações sobre como instalar módulos PowerShell, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Para obter mais informações sobre como instalar módulos PowerShell, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
 
 ## <a name="connect-to-the-account"></a>Ligar à conta
 
@@ -129,10 +129,10 @@ $dirname = "my-directory/"
 $dir =  Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
 $dir.Permissions
-$dir.Directory.PathProperties.Group
-$dir.Directory.PathProperties.Owner
-$dir.Directory.Metadata
-$dir.Directory.Properties
+$dir.Group
+$dir.Owner
+$dir.Metadata
+$dir.Properties
 ```
 
 ## <a name="rename-or-move-a-directory"></a>Mudar o nome ou mover um diretório
@@ -148,13 +148,16 @@ $dirname2 = "my-new-directory/"
 Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -DestFileSystem $filesystemName -DestPath $dirname2
 ```
 
+> [!NOTE]
+> Utilize `-Force` o parâmetro se quiser substituir sem solicitações.
+
 Este exemplo move um `my-directory` diretório nomeado `my-directory-2` para `my-subdirectory`um subdiretório de nome . Este exemplo aplica-se também a um umask ao subdiretório.
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $dirname2 = "my-directory-2/my-subdirectory/"
-Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2 -Umask --------x -PathRenameMode Posix
+Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2
 ```
 
 ## <a name="delete-a-directory"></a>Eliminar um diretório
@@ -186,24 +189,24 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 ## <a name="list-directory-contents"></a>Listar conteúdo do diretório
 
-Enumerar o conteúdo de um `Get-AzDataLakeGen2ChildItem` diretório utilizando o cmdlet.
+Enumerar o conteúdo de um `Get-AzDataLakeGen2ChildItem` diretório utilizando o cmdlet. Pode utilizar o parâmetro `-OutputUserPrincipalName` opcional para obter o nome (em vez do ID do objeto) dos utilizadores.
 
 Este exemplo lista o conteúdo `my-directory`de um diretório chamado .
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -OutputUserPrincipalName
 ```
 
-Este exemplo não devolve valores `Permissions` `Group`para `Owner` as `ACL`propriedades e propriedades. Para obter esses valores, utilize o `-FetchPermission` parâmetro. 
+Este exemplo não devolve valores `Permissions` `Group`para `Owner` as `ACL`propriedades e propriedades. Para obter esses valores, utilize o `-FetchProperty` parâmetro. 
 
-O exemplo seguinte lista o conteúdo do mesmo diretório, mas também `ACL`utiliza `Permissions` `Group`o `-FetchPermission` `Owner` parâmetro para devolver valores para os , , e propriedades. 
+O exemplo seguinte lista o conteúdo do mesmo diretório, mas também `ACL`utiliza `Permissions` `Group`o `-FetchProperty` `Owner` parâmetro para devolver valores para os , , e propriedades. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchPermission
+$properties = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Path $dirname -Recurse -FetchProperty
 $properties.ACL
 $properties.Permissions
 $properties.Group
@@ -246,10 +249,10 @@ $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $file
 $file.ACL
 $file.Permissions
-$file.File.PathProperties.Group
-$file.File.PathProperties.Owner
-$file.File.Metadata
-$file.File.Properties
+$file.Group
+$file.Owner
+$file.Metadata
+$file.Properties
 ```
 
 ## <a name="delete-a-file"></a>Eliminar um ficheiro
@@ -268,14 +271,23 @@ Pode utilizar `-Force` o parâmetro para remover o ficheiro sem um aviso.
 
 ## <a name="manage-access-permissions"></a>Gerir permissões de acesso
 
-Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros.
+Pode obter, definir e atualizar permissões de acesso de sistemas de ficheiros, diretórios e ficheiros.
 
 > [!NOTE]
 > Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído ao papel de [Proprietário de Dados de Armazenamento Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de [acesso em Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-### <a name="get-directory-and-file-permissions"></a>Obtenha permissões de diretório e arquivo
+### <a name="get-permissions"></a>Obtenha permissões
 
 Obtenha o ACL de um diretório `Get-AzDataLakeGen2Item`ou ficheiro utilizando o cmdlet.
+
+
+Este exemplo obtém o ACL de um sistema de **ficheiros** e, em seguida, imprime o ACL para a consola.
+
+```powershell
+$filesystemName = "my-file-system"
+$filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
+$filesystem.ACL
+```
 
 Este exemplo obtém o ACL de um **diretório**, e depois imprime o ACL para a consola.
 
@@ -300,18 +312,30 @@ A imagem seguinte mostra a saída depois de obter o ACL de um diretório.
 
 Neste exemplo, o utilizador próprio leu, escreve e executa permissões. O grupo próprio só leu e executou permissões. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="set-directory-and-file-permissions"></a>Definir diretórios e permissões de ficheiros
+### <a name="set-or-update-permissions"></a>Definir ou atualizar permissões
 
-Utilize `New-AzDataLakeGen2ItemAclObject` o cmdlet para criar um ACL para o utilizador próprio, grupo de possuir ou outros utilizadores. Em seguida, `Update-AzDataLakeGen2Item` use o cmdlet para comprometer o ACL.
+Utilize `set-AzDataLakeGen2ItemAclObject` o cmdlet para criar um ACL para o utilizador próprio, grupo de possuir ou outros utilizadores. Em seguida, `Update-AzDataLakeGen2Item` use o cmdlet para comprometer o ACL.
+
+Este exemplo define o ACL num sistema de **ficheiros** para o utilizador, grupo próprio ou outros utilizadores, e depois imprime o ACL para a consola.
+
+```powershell
+$filesystemName = "my-file-system"
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Acl $acl
+$filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
+$filesystem.ACL
+```
 
 Este exemplo define o ACL num **diretório** para o utilizador próprio, grupo de possuir ou outros utilizadores, e depois imprime o ACL para a consola.
 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 $dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
@@ -321,9 +345,9 @@ Este exemplo define o ACL num **ficheiro** para o utilizador próprio, grupo pr�
 ```powershell
 $filesystemName = "my-file-system"
 $filePath = "my-directory/upload.txt"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath -Acl $acl
 $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
 $file.ACL
@@ -335,71 +359,6 @@ A imagem seguinte mostra a saída após a definição do ACL de um ficheiro.
 
 Neste exemplo, o utilizador próprio e o grupo de possuir apenas leram e escreveram permissões. Todos os outros utilizadores têm permissões de escrita e execução. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="update-directory-and-file-permissions"></a>Atualizar diretórios e permissões de ficheiros
-
-Utilize `Get-AzDataLakeGen2Item` o cmdlet para obter o ACL de um diretório ou ficheiro. Em seguida, `New-AzDataLakeGen2ItemAclObject` use o cmdlet para criar uma nova entrada ACL. Utilize `Update-AzDataLakeGen2Item` o cmdlet para aplicar o novo ACL.
-
-Este exemplo dá a um grupo a autorização de escrever e executar permissão num diretório.
-
-```powershell
-$filesystemName = "my-file-system"
-$dirname = "my-directory/"
-$Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-# Get the directory ACL
-$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-
-# Create the new ACL object.
-[Collections.Generic.List[System.Object]]$aclnew =$acl
-
-# To avoid duplicate ACL, remove the ACL entries that will be added later.
-foreach ($a in $aclnew)
-{
-    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
-    {
-        $aclnew.Remove($a);
-        break;
-    }
-}
-
-# Add ACL Entries
-$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
-
-# Update ACL on server
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
-
-```
-
-Este exemplo dá a um grupo a autorização de escrever e executar num ficheiro.
-
-```powershell
-$filesystemName = "my-file-system"
-$fileName = "my-directory/upload.txt"
-$Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-# Get the file ACL
-$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
-
-# Create the new ACL object.
-[Collections.Generic.List[System.Object]]$aclnew =$acl
-
-# To avoid duplicate ACL, remove the ACL entries that will be added later.
-foreach ($a in $aclnew)
-{
-    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
-    {
-        $aclnew.Remove($a);
-        break;
-    }
-}
-
-# Add ACL Entries
-$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
-
-# Update ACL on server
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
-
-```
 
 ### <a name="set-permissions-on-all-items-in-a-file-system"></a>Definir permissões em todos os itens de um sistema de ficheiros
 
@@ -407,10 +366,10 @@ Pode utilizar `Get-AzDataLakeGen2Item` o `-Recurse` e o parâmetro `Update-AzDat
 
 ```powershell
 $filesystemName = "my-file-system"
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -FetchPermission | Update-AzDataLakeGen2Item -Acl $acl
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
+Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -FetchProperty | Update-AzDataLakeGen2Item -Acl $acl
 ```
 <a id="gen1-gen2-map" />
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 96d2c2e5e3772575e681d2db079ab0122b7014e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c2d74eb7e46d9909d87a7ccadadd6129a3d48d8
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80348540"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397885"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot usando o SDK da Fala
 
@@ -336,7 +336,7 @@ Aqui está uma amostra de uma atividade que o cliente recebeu:
     },
     "replyToId":"67c823b4-4c7a-4828-9d6e-0b84fd052869",
     "serviceUrl":"urn:botframework:websocket:directlinespeech",
-    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Echo: Hello and welcome.</voice></speak>",
+    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)'>Echo: Hello and welcome.</voice></speak>",
     "text":"Echo: Hello and welcome.",
     "timestamp":"2019-07-19T20:03:51.1939097Z",
     "type":"message"
@@ -446,7 +446,7 @@ Se não vai continuar a usar o eco-bot implantado neste tutorial, pode removê-l
 * Implantação para uma [região do Azure que suporta vozes de TTS neural](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) de alta qualidade
 * Preços associados ao canal Direct Line Speech:
   * [Preços do serviço bot](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Serviço de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Serviço de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Construindo e implantando o seu próprio bot ativado por voz:
   * Construa um [bot bot-framework](https://dev.botframework.com/). Registe-o com [o canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) e [personalize o seu bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Explore [as soluções bot-quadro existentes](https://microsoft.github.io/botframework-solutions/index): Construa um [assistente virtual](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) e [estenda-o ao Discurso da Linha Direta](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

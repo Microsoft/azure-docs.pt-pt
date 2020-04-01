@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: b75b232c048a1ea49256b12ce1b65c4bd87a1cf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75970783a9408df0a8c128fb9540606e4e4a62f3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535447"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478171"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a Versão 2 da Extensão de Script Personalizado do Azure com as máquinas virtuais do Linux
 A versão 2 de extensão de script personalizado descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para configuração pós-implementação, instalação de software ou qualquer outra tarefa de configuração/gestão. Pode descarregar scripts a partir do Azure Storage ou de outro local acessível à Internet, ou pode fornecê-los ao tempo de execução da extensão. 
@@ -209,6 +209,8 @@ CustomScript usa o seguinte algoritmo para executar um script.
  1. executar o script usando _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
 ####  <a name="property-managedidentity"></a>Propriedade: identidade gerida
+> [!NOTE]
+> Esta propriedade **deve** ser especificada apenas em configurações protegidas.
 
 O CustomScript (versão 2.1) suporta a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros(s) de URLs fornecidos na definição "fileUris". Permite ao CustomScript aceder a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
 
@@ -466,4 +468,3 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>Passos seguintes
 Para ver o código, questões e versões atuais, consulte o [script-script-extension-linux repo](https://github.com/Azure/custom-script-extension-linux)personalizado .
-

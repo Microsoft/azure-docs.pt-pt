@@ -3,12 +3,12 @@ title: Visão geral das versões de tempo de funcionamento do Azure Functions
 description: A Azure Functions suporta várias versões do tempo de funcionamento. Aprende as diferenças entre eles e como escolher a que é certa para ti.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276559"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422484"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de funcionamento do Azure Functions
 
@@ -18,7 +18,7 @@ As principais versões do tempo de funcionamento das Funções Azure estão rela
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3.1 | 
 | 2.x | GA | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .Quadro líquido 4.6<sup>3</sup> |
+| 1.x | GA<sup>2</sup> | .Quadro líquido 4.7.2<sup>3</sup> |
 
 <sup>1</sup> Lançamentos de GA são suportados para cenários de produção.   
 <sup>2</sup> A versão 1.x encontra-se no modo de manutenção. As melhorias só são fornecidas em versões posteriores.   
@@ -84,7 +84,7 @@ A versão 3.x do Azure Functions é altamente compatível com a versão 2.x.  Mu
 
 Seguem-se as alterações a ter em conta antes de atualizar uma aplicação 2.x para 3.x.
 
-#### <a name="javascript"></a>Javascript
+#### <a name="javascript"></a>JavaScript
 
 * As encadernações de saída atribuídas `context.done` através `context.bindings`ou valores de retorno comportam-se agora da mesma forma que a fixação em .
 

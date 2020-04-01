@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: enviar eventos personalizados para conexão híbrida – grade de eventos'
-description: 'Tutorial: usar a grade de eventos do Azure e CLI do Azure para publicar um tópico e assinar esse evento. Uma ligação híbrida serve para o ponto final.'
+title: 'Tutorial: Envie eventos personalizados para conexão híbrida - Grelha de Eventos'
+description: 'Tutorial: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. Uma ligação híbrida serve para o ponto final.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 2773d06fdfc606faaab88340fc2ef9685bba21f9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720696"
 ---
-# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: rotear eventos personalizados para retransmissão do Azure Conexões Híbridas com CLI do Azure e a grade de eventos
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Rota eventos personalizados para Ligações Híbridas Azure Relay com ClI Azure e Grelha de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. As Ligações Híbridas do Azure Relay são um dos processadores de eventos suportados. Utiliza ligações híbridas como o processador de eventos quando necessita de processar eventos de aplicações que não tenham um ponto final público. Estas aplicações podem estar dentro da sua rede empresarial. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Os eventos são enviados para a ligação híbrida.
 
@@ -27,7 +27,7 @@ Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de s
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!NOTE]
-> Se você estiver usando CLI do Azure em seu computador local, use CLI do Azure versão 2.0.56 ou superior. Para obter instruções sobre como instalar a versão mais recente do CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
+> Se estiver a utilizar o Azure CLI na sua máquina local, utilize a versão Azure CLI 2.0.56 ou superior. Para obter instruções sobre a instalação da versão mais recente do Azure CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -51,7 +51,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subscrever um tópico personalizado
 
-Você assina um tópico da grade de eventos para informar à grade de eventos quais eventos você deseja rastrear. O exemplo a seguir assina o tópico personalizado que você criou e passa a ID de recurso da conexão híbrida para o ponto de extremidade. O ID da ligação híbrida está no formato:
+Subscreva um tópico da grelha de eventos para dizer ao Event Grid quais os eventos que pretende acompanhar. O exemplo seguinte subscreve o tópico personalizado que criou e passa a identificação de recursos da ligação híbrida para o ponto final. O ID da ligação híbrida está no formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
@@ -80,7 +80,7 @@ Observe que está definida uma [data de expiração](concepts.md#event-subscript
 
 Precisa de uma aplicação que possa recuperar eventos a partir da ligação híbrida. O [exemplo do Consumidor de Ligação Híbrida do Microsoft Azure Event Grid para C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) realiza essa operação. Já terminou os passos dos pré-requisitos.
 
-1. Verifique se você tem o Visual Studio 2019 ou posterior.
+1. Certifique-se de que tem o Visual Studio 2019 ou mais tarde.
 
 1. Clone o repositório para o seu computador local.
 

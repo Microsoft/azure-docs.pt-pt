@@ -11,15 +11,15 @@ author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77154824"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Eventos de inscrição de utilizador seguros com autenticação de multi-factor Azure
 
-A autenticação multifactor (MFA) é um processo em que um utilizador é solicitado durante um evento de inscrição para formas adicionais de identificação. Esta solicitação pode ser introduzir um código no telemóvel ou fornecer uma digitalização de impressões digitais. Quando você precisa de uma segunda forma de autenticação, a segurança é aumentada, pois esse fator adicional não é algo fácil para um invasor obter ou duplicar.
+A autenticação multifactor (MFA) é um processo em que um utilizador é solicitado durante um evento de inscrição para formas adicionais de identificação. Esta solicitação pode ser introduzir um código no telemóvel ou fornecer uma digitalização de impressões digitais. Quando se exige uma segunda forma de autenticação, a segurança é aumentada, uma vez que este fator adicional não é algo que seja fácil para um intruso obter ou duplicar.
 
 As políticas de autenticação e acesso condicional do Azure Multi-Factor dão flexibilidade para permitir o MFA aos utilizadores durante eventos específicos de inscrição.
 
@@ -70,7 +70,7 @@ Com a política de Acesso Condicional criada e um grupo de teste de utilizadores
 
 Para este tutorial, configure a política de Acesso Condicional para exigir MFA quando um utilizador entrar no portal Azure.
 
-1. Selecione **aplicações ou ações cloud**. Pode optar por aplicar a política de Acesso Condicional a *todas as aplicações na nuvem* ou selecionar *aplicações.* Para proporcionar flexibilidade, também pode excluir certas aplicações da política.
+1. Selecione **Aplicações na cloud ou ações**. Pode optar por aplicar a política de Acesso Condicional a *todas as aplicações na nuvem* ou selecionar *aplicações.* Para proporcionar flexibilidade, também pode excluir certas aplicações da política.
 
     Para este tutorial, na página *Incluir,* escolha o botão de rádio **Select apps.**
 
@@ -96,13 +96,13 @@ As políticas de Acesso Condicional só podem ser definidas para *reportar* se q
 
 Vamos ver a sua política de acesso condicional e autenticação multi-factor Azure em ação. Primeiro, inscreva-se num recurso que não requer MFA da seguinte forma:
 
-1. Abra uma nova janela do navegador em modo InPrivate ou incógnito e navegue para [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
+1. Abra uma nova janela de navegador em modo InPrivate ou incógnito e navegue para[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 1. Inscreva-se com o utilizador do teste não administrador, como *testuser*. Não há nenhuma solicitação para completar a MFA.
 1. Feche a janela do browser.
 
 Agora inscreva-se no portal Azure. Como o portal Azure foi configurado na política de Acesso Condicional para exigir uma verificação adicional, obtém-se um pedido de autenticação Multi-Factor Azure.
 
-1. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://portal.azure.com](https://portal.azure.com).
+1. Abra uma nova janela de navegador no modo InPrivate ou incógnito e navegue para [https://portal.azure.com](https://portal.azure.com).
 1. Inscreva-se com o utilizador do teste não administrador, como *testuser*. É-lhe exigido que se registe e utilize a Autenticação Multi-Factor Azure. Siga as instruções para completar o processo e verifique se insere com sucesso no portal Azure.
 
     ![Siga as solicitações do navegador e, em seguida, no seu pedido de autenticação de vários fatores registado para iniciar sessão](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)

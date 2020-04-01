@@ -7,19 +7,19 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bce92eeed669628fa1b6318abd6b0c13f7e84848
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188190"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411208"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do Event Hub no Azure Data Explorer
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-hub.md)
 > * [C #](data-connection-event-hub-csharp.md)
-> * [Pitão](data-connection-event-hub-python.md)
+> * [Python](data-connection-event-hub-python.md)
 > * [Modelo Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece ingestão (carregamento de dados) a partir dos Hubs de Eventos, uma plataforma de transmissão de macrodados e um serviço de ingestão de eventos. Os Centros de Eventos podem processar milhões de [eventos](/azure/event-hubs/event-hubs-about) por segundo em quase tempo real. Neste artigo, cria-se um hub de eventos, conecta-se a ele a partir do Azure Data Explorer e vê-se o fluxo de dados através do sistema.
@@ -41,7 +41,7 @@ Neste artigo, gera dados de amostra e envia-os para um centro de eventos. O prim
 
 1. Para criar um centro de eventos, utilize o seguinte botão para iniciar a implementação. Clique à direita e selecione **Abra em nova janela,** para que possa seguir o resto dos passos neste artigo.
 
-    [![Desdobre para Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Implementar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     O botão **Implementar no Azure** leva-o para o portal do Azure para preencher um formulário de implementação.
 
@@ -92,7 +92,7 @@ Agora, vai criar uma tabela no Azure Data Explorer, para onde os Hubs de Eventos
 1. Copie o seguinte comando na janela e selecione **Executar** para mapear os dados jSON de entrada para os nomes das colunas e tipos de dados da tabela (TestTable).
 
     ```Kusto
-    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
     ```
 
 ## <a name="connect-to-the-event-hub"></a>Ligar ao hub de eventos
@@ -129,7 +129,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
-    | Formato de dados | *Rio JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC e PARQUET. |
+    | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC e PARQUET. |
     | Mapeamento de colunas | *TestMapping* | O [mapeamento](/azure/kusto/management/mappings) que criou no **TestDatabase,** que mapeia os dados jSON que chegam aos nomes das colunas e tipos de dados do **TestTable**. Necessário para JSON ou MultiLINE JSON, e opcional para outros formatos.|
     | | |
 

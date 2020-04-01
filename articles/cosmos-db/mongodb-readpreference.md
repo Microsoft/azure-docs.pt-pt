@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445166"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410006"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como distribuir globalmente as leituras usando a API da Azure Cosmos DB para mongoDB
 
@@ -86,7 +86,7 @@ Consulte a documentação detalhada do comportamento da [MongoDB Read Preferenci
 Com base em cenários comuns, recomendamos a utilização das seguintes definições:
 
 1. Se forem necessárias leituras de **latência baixas,** utilize o modo de preferência de leitura **mais PRÓXIMO.** Esta definição direciona as operações de leitura para a região disponível mais próxima. Note-se que se a região mais próxima for a região WRITE, então estas operações são direcionadas para aquela região.
-2. Se for em prevaricação **a elevada disponibilidade e a distribuição geo-geo-qualidade das leituras** (a latência não é um constrangimento), utilize o modo de preferência de leitura PREFERRED **SECUNDÁRIO.** Este ajuste direciona as operações de leitura para uma região de READ disponível. Se não houver região de READ disponível, os pedidos são direcionados para a região write.
+2. Se for em prevaricação **a elevada disponibilidade e a distribuição geo-geo-qualidade das leituras** (a latência não é um constrangimento), utilize o modo de preferência de leitura PREFERIDO **PRIMÁRIO** ou **SECUNDÁRIO.** Esta definição direciona as operações de leitura para uma região disponível de WRITE ou READ, respectivamente. Se a região não estiver disponível, os pedidos são direcionados para a próxima região disponível de acordo com o comportamento de preferência de leitura.
 
 O seguinte corte da aplicação da amostra mostra como configurar a preferência de leitura mais próxima no NodeJS:
 

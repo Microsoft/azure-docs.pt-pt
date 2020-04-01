@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 8317a13b9ef87679836f55627268deefa4500dce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245476"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436187"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
-O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo máquinas no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
+O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo máquinas no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise.
 
 
 ## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Estou a cobrar registos do Monitor Azure nos espaços de trabalho criados pelo Centro de Segurança?
@@ -41,11 +41,11 @@ Para obter mais informações sobre os preços, consulte os preços do Centro de
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>O que qualifica um VM para o fornecimento automático da instalação do Microsoft Monitoring Agent?
+## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>O que qualifica um VM para o fornecimento automático da instalação do agente Log Analytics?
 
 Windows ou Linux IaaS VMs qualificam-se se:
 
-- A extensão do Microsoft Monitoring Agent não está atualmente instalada no VM.
+- A extensão do agente Log Analytics não está atualmente instalada no VM.
 - O VM está em estado de execução.
 - O Windows ou o [Linux Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) estão instalados.
 - O VM não é utilizado como um aparelho como firewall de aplicação web ou firewall de próxima geração.
@@ -55,7 +55,7 @@ Windows ou Linux IaaS VMs qualificam-se se:
 
 **Não é recomendada a aparas ao espaço de trabalho predefinido.** O Security Center utiliza os espaços de trabalho padrão para armazenar dados de segurança dos seus VMs. Se eliminar um espaço de trabalho, o Security Center não pode recolher estes dados e algumas recomendações e alertas de segurança não estão disponíveis.
 
-Para recuperar, remova o Agente de Monitorização da Microsoft nos VMs ligados ao espaço de trabalho apagado. O Security Center reinstala o agente e cria novos espaços de trabalho predefinidos.
+Para recuperar, remova o agente Log Analytics nos VMs ligados ao espaço de trabalho apagado. O Security Center reinstala o agente e cria novos espaços de trabalho predefinidos.
 
 ## <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Como posso usar o meu espaço de trabalho de Log Analytics existente?
 
@@ -77,7 +77,7 @@ Para selecionar um espaço de trabalho existente no Log Analytics:
 
 1. Selecione **Guardar**. Será-lhe perguntado se gostaria de reconfigurar os VMs monitorizados.
 
-    - Selecione **Não** se pretender que as novas definições do espaço de trabalho **se apliquem apenas em novos VMs**. As novas definições do espaço de trabalho aplicam-se apenas às instalações de novos agentes; VMs recém-descobertos que não têm o Microsoft Monitoring Agent instalado.
+    - Selecione **Não** se pretender que as novas definições do espaço de trabalho **se apliquem apenas em novos VMs**. As novas definições do espaço de trabalho aplicam-se apenas às instalações de novos agentes; VMs recém-descobertos que não têm o agente Log Analytics instalado.
     - Selecione **Sim** se quiser que as novas definições do espaço de trabalho **se apliquem em todos os VMs**. Além disso, cada VM ligado a um centro de segurança criado espaço de trabalho é reconectado ao novo espaço de trabalho alvo.
 
     > [!NOTE]
@@ -85,7 +85,7 @@ Para selecionar um espaço de trabalho existente no Log Analytics:
 
     - Para cancelar a operação, selecione **Cancelar**.
 
-## <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o Agente de Monitorização da Microsoft já estivesse instalado como uma extensão do VM?<a name="mmaextensioninstalled"></a>
+## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o agente Log Analytics já estivesse instalado como uma extensão no VM?<a name="mmaextensioninstalled"></a>
 
 Quando o Agente de Monitorização é instalado como uma extensão, a configuração da extensão permite reportar apenas um único espaço de trabalho. O Security Center não sobrepor-se às ligações existentes aos espaços de trabalho dos utilizadores. O Security Center armazenará dados de segurança de um VM num espaço de trabalho já ligado, desde que a solução "Security" ou "SecurityCenterFree" tenha sido instalada no mesmo. O Security Center pode atualizar a versão de extensão para a versão mais recente neste processo.
 
@@ -93,9 +93,9 @@ Para obter mais informações, consulte o [fornecimento automático em caso de i
 
 
 
-## <a name="what-if-a-microsoft-monitoring-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>E se um Agente de Monitorização da Microsoft for instalado diretamente na máquina, mas não como uma extensão (Agente Direto)?<a name="directagentinstalled"></a>
+## <a name="what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>E se um agente Log Analytics for instalado diretamente na máquina, mas não como uma extensão (Agente Direto)?<a name="directagentinstalled"></a>
 
-Se o Microsoft Monitoring Agent for instalado diretamente no VM (não como uma extensão Azure), o Security Center instalará a extensão do Microsoft Monitoring Agent e poderá atualizar o agente de monitorização da Microsoft para a versão mais recente.
+Se o agente Log Analytics for instalado diretamente no VM (não como uma extensão Azure), o Security Center instalará a extensão do agente Log Analytics e poderá atualizar o agente Log Analytics para a versão mais recente.
 
 O agente instalado continuará a reportar ao seu espaço de trabalho já configurado, e além disso reportará o espaço de trabalho configurado no Security Center (Multi-homing é suportado nas máquinas Windows).
 
@@ -103,13 +103,13 @@ Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (n
 
 Para as máquinas Linux, o agente multi-homing ainda não é suportado - portanto, se for detetada uma instalação de agente existente, não ocorrerá um fornecimento automático e a configuração da máquina não será alterada.
 
-Para máquinas existentes em assinaturas a bordo do Security Center antes de 17 de março de 2019, quando um agente existente for detetado, a extensão do Microsoft Monitoring Agent não será instalada e a máquina não será afetada. Para estas máquinas, consulte a recomendação "Resolver problemas de saúde do agente de monitorização nas suas máquinas" para resolver os problemas de instalação do agente nestas máquinas
+Para máquinas existentes em assinaturas a bordo do Centro de Segurança antes de 17 de março de 2019, quando um agente existente for detetado, a extensão do agente Log Analytics não será instalada e a máquina não será afetada. Para estas máquinas, consulte a recomendação "Resolver problemas de saúde do agente de monitorização nas suas máquinas" para resolver os problemas de instalação do agente nestas máquinas
 
 Para mais informações, consulte a secção seguinte O que acontece se um Gestor de [Operações do Centro de Sistema ou um agente direto OMS já estiver instalado no meu VM?](#scomomsinstalled)
 
 ## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>E se um agente do System Center Operations Manager já estiver instalado no meu VM?<a name="scomomsinstalled"></a>
 
-O centro de segurança instalará a extensão do Agente de Monitorização da Microsoft lado a lado com o agente de operações do System Center existente. O agente existente continuará a reportar normalmente ao servidor do Gestor de Operações do Centro de Sistema. Note que o agente do Gestor de Operações e o Agente de Monitorização do Microsoft partilham bibliotecas comuns de tempo de execução, que serão atualizadas para a versão mais recente durante este processo. Nota - Se a versão 2012 do agente do Gestor de Operações estiver instalada, não ligue o fornecimento automático (as capacidades de gestão podem ser perdidas quando o servidor do Gestor de Operações também for versão 2012).
+O centro de segurança instalará a extensão do agente Log Analytics lado a lado com o agente de operações do System Center existente. O agente existente continuará a reportar normalmente ao servidor do Gestor de Operações do Centro de Sistema. Note que o agente do Gestor de Operações e o agente Log Analytics partilham bibliotecas comuns de tempo de execução, que serão atualizadas para a versão mais recente durante este processo. Nota - Se a versão 2012 do agente do Gestor de Operações estiver instalada, não ligue o fornecimento automático (as capacidades de gestão podem ser perdidas quando o servidor do Gestor de Operações também for versão 2012).
 
 
 ## <a name="what-is-the-impact-of-removing-these-extensions"></a>Qual é o impacto da remoção destas extensões?
@@ -136,24 +136,24 @@ Pode desativar o fornecimento automático para as suas subscrições na polític
 
 Pode querer optar por não fornecer automaticamente se o seguinte se aplicar a si:
 
-- A instalação automática de agentes pelo Security Center aplica-se a toda a subscrição. Não é possível aplicar a instalação automática a um subconjunto de VMs. Se existem VMs críticos que não podem ser instalados com o Microsoft Monitoring Agent, então deve optar por não fornecer automaticamente.
-- A instalação da extensão do Microsoft Monitoring Agent (MMA) atualiza a versão do agente. Isto aplica-se a um agente direto e a um agente gestor de operações do System Center (neste último, o Gestor de Operações e o MMA partilham bibliotecas de prazos de funcionamento comuns - que serão atualizadas no processo). Se o agente do Gestor de Operações instalado for a versão 2012 e for atualizado, as capacidades de gestão podem ser perdidas quando o servidor do Gestor de Operações também for a versão 2012. Considere optar por não fornecer automaticamente se o agente do Gestor de Operações instalado for a versão 2012.
-- Se tiver um espaço de trabalho personalizado externo à subscrição (um espaço de trabalho centralizado), então deve optar por não fornecer automaticamente. Pode instalar manualmente a extensão do Microsoft Monitoring Agent e ligá-lo ao seu espaço de trabalho sem que o Security Center sobreponha à ligação.
+- A instalação automática de agentes pelo Security Center aplica-se a toda a subscrição. Não é possível aplicar a instalação automática a um subconjunto de VMs. Se existem VMs críticos que não podem ser instalados com o agente Log Analytics, então deve optar por não fornecer automaticamente.
+- A instalação da extensão do agente Log Analytics atualiza a versão do agente. Isto aplica-se a um agente direto e a um agente gestor de operações do System Center (neste último, o Gestor de Operações e o agente de Log Analytics partilham bibliotecas de prazos comuns - que serão atualizadas no processo). Se o agente do Gestor de Operações instalado for a versão 2012 e for atualizado, as capacidades de gestão podem ser perdidas quando o servidor do Gestor de Operações também for a versão 2012. Considere optar por não fornecer automaticamente se o agente do Gestor de Operações instalado for a versão 2012.
+- Se tiver um espaço de trabalho personalizado externo à subscrição (um espaço de trabalho centralizado), então deve optar por não fornecer automaticamente. Pode instalar manualmente a extensão do agente Log Analytics e ligá-lo ao seu espaço de trabalho sem que o Security Center sobreponha à ligação.
 - Se pretende evitar a criação de múltiplos espaços de trabalho por subscrição e tem o seu próprio espaço de trabalho personalizado dentro da subscrição, então tem duas opções:
 
    1. Pode optar por não fornecer o fornecimento automático. Após a migração, detete as definições padrão do espaço de trabalho como descrito em Como posso usar o meu espaço de trabalho existente no [Log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
 
-   1. Ou, pode permitir que a migração esteja concluída, o Microsoft Monitoring Agent será instalado nos VMs e os VMs ligados ao espaço de trabalho criado. Em seguida, selecione o seu próprio espaço de trabalho personalizado, definindo a definição padrão do espaço de trabalho com a inpção de reconfigurar os agentes já instalados. Para mais informações, consulte como posso usar o meu espaço de trabalho existente no [Log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
+   1. Ou, pode permitir que a migração esteja concluída, o agente Log Analytics será instalado nos VMs e os VMs ligados ao espaço de trabalho criado. Em seguida, selecione o seu próprio espaço de trabalho personalizado, definindo a definição padrão do espaço de trabalho com a inpção de reconfigurar os agentes já instalados. Para mais informações, consulte como posso usar o meu espaço de trabalho existente no [Log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 
 ## <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Quais são as implicações de não oprovisionamento automático?
 
-Quando a migração está concluída, o Centro de Segurança não pode recolher dados de segurança do VM e algumas recomendações e alertas de segurança não estão disponíveis. Se optar por não optar, instale manualmente o Microsoft Monitoring Agent. Consulte [os passos recomendados ao optar por não o fazer](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+Quando a migração está concluída, o Centro de Segurança não pode recolher dados de segurança do VM e algumas recomendações e alertas de segurança não estão disponíveis. Se optar por não optar, instale manualmente o agente Log Analytics. Consulte [os passos recomendados ao optar por não o fazer](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 
 ## <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Quais são os passos recomendados ao optar por não fornecer o provisionamento automático?
 
-Instale manualmente a extensão do Microsoft Monitoring Agent para que o Security Center possa recolher dados de segurança dos seus VMs e fornecer recomendações e alertas. Consulte a [instalação do agente para](../virtual-machines/extensions/oms-windows.md) o Windows VM ou [instalação de agente para o Linux VM](../virtual-machines/extensions/oms-linux.md) para obter orientações sobre a instalação.
+Instale manualmente a extensão do agente Log Analytics para que o Security Center possa recolher dados de segurança dos seus VMs e fornecer recomendações e alertas. Consulte a [instalação do agente para](../virtual-machines/extensions/oms-windows.md) o Windows VM ou [instalação de agente para o Linux VM](../virtual-machines/extensions/oms-linux.md) para obter orientações sobre a instalação.
 
 Pode ligar o agente a qualquer espaço de trabalho personalizado existente ou o Centro de Segurança criou espaço de trabalho. Se um espaço de trabalho personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' ativadas, então terá de aplicar uma solução. Para se candidatar, selecione o espaço de trabalho personalizado ou subscrição e aplique um nível de preços através da política de Segurança – Página **de nível** de preços.
 
@@ -164,18 +164,18 @@ O Centro de Segurança ativará a solução correta no espaço de trabalho com b
 
 ## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Como remover as extensões OMS instaladas pelo Security Center?<a name="remove-oms"></a>
 
-Pode remover manualmente o Agente de Monitorização da Microsoft. Isto não é recomendado porque limita recomendações e alertas do Centro de Segurança.
+Pode remover manualmente o agente Log Analytics. Isto não é recomendado porque limita recomendações e alertas do Centro de Segurança.
 
 > [!NOTE]
 > Se a recolha de dados estiver ativada, o Security Center reinstalará o agente depois de o remover.  Tem de desativar a recolha de dados antes de remover manualmente o agente. Vê como paro a instalação automática de agentes e a criação do espaço de trabalho? para instruções sobre a desativação da recolha de dados.
 
 Para remover manualmente o agente:
 
-1.  No portal, abra **o Log Analytics.**
+1.    No portal, abra **o Log Analytics.**
 
-1.  Na página Log Analytics, selecione um espaço de trabalho:
+1.    Na página Log Analytics, selecione um espaço de trabalho:
 
-1.  Selecione os VMs que não pretende monitorizar e selecione **Desligar**.
+1.    Selecione os VMs que não pretende monitorizar e selecione **Desligar**.
 
    ![Remova o agente][3]
 
@@ -197,7 +197,7 @@ Pode ativar a recolha de dados para a sua subscrição Azure na política de Seg
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?
 
-Quando o fornecimento automático é ativado, o Security Center disponibiliza o Microsoft Monitoring Agent em todos os VMs Azure suportados e quaisquer novos que sejam criados. Recomenda-se o fornecimento automático, mas a instalação do agente manual também está disponível. [Saiba como instalar a extensão do MMA](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Quando o fornecimento automático é ativado, o Security Center disponibiliza o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. Recomenda-se o fornecimento automático, mas a instalação do agente manual também está disponível. [Saiba como instalar a extensão do agente Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 O agente permite o evento de criação de processos 4688 e o campo *CommandLine* dentro do evento 4688. Os novos processos criados no VM são registados pelo EventLog e monitorizados pelos serviços de deteção do Security Center. Para obter mais informações sobre os detalhes registados para cada novo processo, consulte os campos de [descrição no 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). O agente também recolhe os 4688 eventos criados no VM e armazena-os em busca.
 
@@ -208,7 +208,7 @@ Quando o Security Center detetar atividades suspeitas no VM, o cliente é notifi
 
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>O Centro de Segurança funcionará usando um portal OMS?
 
-Sim. O Azure Security Center aproveita o Monitor Azure para recolher dados de VMs e servidores Azure, utilizando o Agente de Monitorização da Microsoft.
+Sim. O Azure Security Center aproveita o Azure Monitor para recolher dados de VMs e servidores Azure, utilizando o agente Log Analytics.
 Para recolher os dados, cada VM e servidor devem ligar-se à Internet utilizando HTTPS. A ligação pode ser direta, utilizando um proxy, ou através do [Gateway OMS](../azure-monitor/platform/gateway.md).
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255434"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473944"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
 
@@ -125,7 +125,7 @@ A largura de banda e a qualidade da ligação de rede desempenham papéis import
 
 #### <a name="throughput"></a>Débito
 
-Para a largura de banda, o problema é muitas vezes as capacidades do cliente. As instâncias azure maiores têm NICs com maior capacidade, por isso deve considerar a utilização de uma instância maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Armazenamento Azure a partir de uma aplicação no local, então a mesma regra aplica-se: compreender as capacidades de rede do dispositivo cliente e a conectividade da rede com a localização do Armazenamento Azure e melhorá-las conforme necessário ou projetar o seu aplicação para trabalhar dentro das suas capacidades.
+Para a largura de banda, o problema é muitas vezes as capacidades do cliente. As instâncias azure maiores têm NICs com maior capacidade, por isso deve considerar a utilização de uma instância maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Azure Storage a partir de uma aplicação no local, então aplica-se a mesma regra: compreender as capacidades de rede do dispositivo cliente e a conectividade da rede com a localização do Armazenamento Azure e melhorá-las conforme necessário ou projetar a sua aplicação para trabalhar dentro das suas capacidades.
 
 #### <a name="link-quality"></a>Qualidade de ligação
 
@@ -267,7 +267,7 @@ Para fazer o upload de bolhas rapidamente, determine primeiro se vai carregar um
 Para fazer o upload de uma única bolha grande rapidamente, uma aplicação de cliente pode carregar os seus blocos ou páginas em paralelo, estando atento aos alvos de escalabilidade para as bolhas individuais e a conta de armazenamento como um todo. As bibliotecas de clientes do Azure Storage suportam o upload em paralelo. Por exemplo, pode utilizar as seguintes propriedades para especificar o número de pedidos simultâneos permitidos em .NET ou Java. As bibliotecas de clientes para outras línguas apoiadas fornecem opções semelhantes.
 
 - Para .NET, delineie a propriedade [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
-- Para Java/Android, ligue para o método [BlobRequestOptions.setConcurrentRequestCount (convidesia final ConcurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount)
+- Para Java/Android, ligue para o método [BlobRequestOptions.setConcurrentRequestCount (convidesia final ConcurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount)
 
 ### <a name="upload-many-blobs-quickly"></a>Faça upload de muitas bolhas rapidamente
 

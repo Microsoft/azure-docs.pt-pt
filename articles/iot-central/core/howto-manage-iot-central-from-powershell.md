@@ -1,19 +1,19 @@
 ---
-title: Gerencie a IoT Central da Azure PowerShell  Microsoft Docs
+title: Gerencie a IoT Central da Azure PowerShell [ Microsoft Docs
 description: Este artigo descreve como criar e gerir as suas aplicações IoT Central a partir do Azure PowerShell.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 1598451ce184db5a25cac28870b70a446aef123c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 42d853c9cf53c1c6921fbd1816ec2298c9c3583e
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198825"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365542"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
 
@@ -23,7 +23,7 @@ Em vez de criar e gerir aplicações IoT Central no site do gestor de [aplicaç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -69,11 +69,11 @@ O guião cria primeiro um grupo de recursos na região leste dos EUA para a apli
 |Parâmetro         |Descrição |
 |------------------|------------|
 |ResourceGroupName |O grupo de recursos que contém a aplicação. Este grupo de recursos já deve existir na sua subscrição. |
-|Localização |Por predefinição, este cmdlet utiliza a localização do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas geografias **da Austrália**, **Ásia-Pacífico,** **Europa**ou **Estados Unidos.**  |
+|Localização |Por predefinição, este cmdlet utiliza a localização do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas geografias **Da Austrália**, **Ásia-Pacífico,** **Europa,** **Estados Unidos,** **Reino Unido**e **Japão.** |
 |Nome              |O nome da aplicação no portal Azure. |
-|Subdomínio         |O subdomínio no URL da aplicação. No exemplo, o URL da aplicação é https://mysubdomain.azureiotcentral.com. |
+|Subdomínio         |O subdomínio no URL da aplicação. No exemplo, o URL `https://mysubdomain.azureiotcentral.com`da aplicação é . |
 |Sku               |Atualmente, pode utilizar **sT1** ou **ST2**. Consulte [os preços centrais azure ioT](https://azure.microsoft.com/pricing/details/iot-central/). |
-|Modelo          | O modelo de aplicação a utilizar. Para mais informações, consulte a tabela seguinte. |
+|Modelo          | O modelo de aplicação a utilizar. Para mais informações, consulte a tabela a seguir. |
 |DisplayName       |O nome da aplicação como mostrado na UI. |
 
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]

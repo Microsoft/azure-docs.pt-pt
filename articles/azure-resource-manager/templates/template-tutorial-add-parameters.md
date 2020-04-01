@@ -2,15 +2,15 @@
 title: Tutorial - adicione parâmetros ao modelo
 description: Adicione parâmetros ao seu modelo de Gestor de Recursos Azure para torná-lo reutilizável.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b4f8d5098fc9cf2f91139979cae430594edac5af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369858"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437821"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicione parâmetros ao seu modelo ARM
 
@@ -54,7 +54,7 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
@@ -100,7 +100,7 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az deployment group create \
@@ -112,24 +112,27 @@ az deployment group create \
 
 ---
 
+> [!NOTE]
+> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
+
 Para ver a flexibilidade do seu modelo, vamos implantar novamente. Desta vez, o parâmetro SKU **Standard_GRS**. Pode passar um novo nome para criar uma conta de armazenamento diferente, ou usar o mesmo nome para atualizar a sua conta de armazenamento existente. Ambas as opções funcionam.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name usenondefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
   -storageSKU Standard_GRS
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az deployment group create \
-  --name usedefaultsku \
+  --name usenondefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
@@ -150,7 +153,7 @@ New-AzResourceGroupDeployment `
   -storageSKU basic
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az deployment group create \

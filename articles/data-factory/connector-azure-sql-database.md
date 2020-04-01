@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 52928b9a4d77a99f3d8b160713c7b4a7cade2d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238760"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437800"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -143,7 +143,7 @@ Para utilizar uma autenticação token de aplicação ad ida e volta do serviço
 4. Conceda ao diretor de serviço permissões necessárias, como normalmente faz para utilizadores SQL ou outros. Executar o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
 5. Configure um serviço ligado à Base de Dados Azure SQL na Azure Data Factory.
@@ -190,7 +190,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
 3. Conceda a identidade gerida pela Data Factory necessárias permissões, como normalmente faz para utilizadores SQL e outros. Executar o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
 4. Configure um serviço ligado à Base de Dados Azure SQL na Azure Data Factory.

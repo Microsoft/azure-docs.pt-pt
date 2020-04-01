@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 79e337b411f9d115d93050ebeee346a526913d39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371741"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411738"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutorial: Adicione um recurso ao seu modelo ARM
 
@@ -26,7 +26,7 @@ Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de
 
 Para adicionar uma definição de conta de armazenamento ao modelo existente, veja o JSON realçado no exemplo seguinte. Em vez de tentar copiar secções do modelo, copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
-Substitua **{forneça um nome único}** por um nome único da conta de armazenamento.
+Substitua **{fornecer um nome único}** (incluindo os suportes encaracolados) por um nome único da conta de armazenamento.
 
 > [!IMPORTANT]
 > O nome da conta do Storage tem de ser exclusivo em todo o Azure. O nome deve ter apenas letras ou números minúsculos. Não pode ser mais do que 24 caracteres. Pode tentar um padrão de nomeação como usar a **loja1** como prefixo e, em seguida, adicionar as suas iniciais e a data de hoje. Por exemplo, o nome que usa pode parecer **loja1abc09092019**.
@@ -70,7 +70,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
@@ -82,6 +82,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
 
 Duas possíveis falhas de implantação que poderá encontrar:
 

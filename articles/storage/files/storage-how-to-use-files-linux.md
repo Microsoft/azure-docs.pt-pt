@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2dc78c25c2cf63a510b9451c8d694795cd8a91eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060948"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411595"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha `mount` de ficheiros Azure: `/etc/fstab`a pedido com o comando e o arranque, criando uma entrada em .
@@ -194,10 +194,57 @@ Quando terminar a utilização da partilha de `sudo umount $mntPath` ficheiros A
     > [!Note]  
     > O comando de montagem acima monta com SMB 3.0. Se a sua distribuição Linux não suportar SMB 3.0 com encriptação ou se apenas suportar SMB 2.1, só poderá ser montado a partir de um VM Azure na mesma região que a conta de armazenamento. Para montar a sua quota de ficheiro SBe numa distribuição Linux que não suporta SMB 3.0 com encriptação, terá de [desativar](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)a encriptação em trânsito para a conta de armazenamento .
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Utilização de autofs para montar automaticamente as ações de ficheiros Azure
+
+1. **Certifique-se de que a embalagem de autofs está instalada.**  
+
+    O pacote de autofs pode ser instalado utilizando o gestor de pacotes na distribuição Linux à sua escolha. 
+
+    Nas distribuições baseadas em **Ubuntu** e `apt` **Debian,** utilize o gestor de pacotes:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    Em **Fedora,** **Red Hat Enterprise Linux 8+** e `dnf` **CentOS 8 +,** use o gestor de pacotes:
+    ```bash
+    sudo dnf install autofs
+    ```
+    Nas versões mais antigas da Red Hat `yum` Enterprise **Linux** e **centOS,** utilize o gestor de pacotes:
+    ```bash
+    sudo yum install autofs 
+    ```
+    No **openSUSE,** `zypper` utilize o gestor de pacotes:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Criar um ponto**de montagem para a ou as partes:
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Creta um novo ficheiro de configuração de autofs personalizado**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Adicione as seguintes entradas a /etc/auto.fileshares**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Adicione a seguinte entrada para /etc/auto.master**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Reiniciar autofs**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Aceda à pasta designada para a partilha**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Assegurar o Linux
 Para montar uma partilha de ficheiros Azure no Linux, a porta 445 deve estar acessível. Muitas organizações optam por bloquear esta porta devido a riscos de segurança inerentes ao SMB 1. SMB 1, também conhecido como CIFS (Sistema Comum de Ficheiros de Internet), é um protocolo de sistema de ficheiros legado incluído com muitas distribuições linux. O SMB 1 é um protocolo desatualizado, ineficiente e, acima de tudo, inseguro. A boa notícia é que o Azure Files não suporta o SMB 1, e começando com a versão 4.18 do kernel Linux, o Linux permite desativar o SMB 1. [Recomendamos](https://aka.ms/stopusingsmb1) sempre que desafie o SMB 1 nos seus clientes Linux antes de utilizar as ações de ficheiro SMB na produção.
 
-Começando pelo kernel Linux 4.18, o módulo `cifs` kernel SMB, chamado por razões antigas, expõe um novo `disable_legacy_dialects`parâmetro de módulo (muitas vezes referido como *parm* por várias documentação externa), chamado . Embora introduzido no kernel Linux 4.18, alguns vendedores têm reportado esta mudança para núcleos mais antigos que apoiam. Por conveniência, a tabela seguinte detalha a disponibilidade deste parâmetro de módulo em distribuições comuns de Linux.
+Começando pelo kernel Linux 4.18, o módulo `cifs` kernel SMB, chamado por razões antigas, expõe um novo parâmetro `disable_legacy_dialects`de módulo (muitas vezes referido como *parm* por várias documentações externas), chamado . Embora introduzido no kernel Linux 4.18, alguns vendedores têm reportado esta mudança para núcleos mais antigos que apoiam. Por conveniência, a tabela seguinte detalha a disponibilidade deste parâmetro de módulo em distribuições comuns de Linux.
 
 | Distribuição | Pode desativar SMB 1 |
 |--------------|-------------------|

@@ -1,6 +1,6 @@
 ---
-title: Exemplo do PowerShell – Restore-backup-banco de dados SQL do Azure
-description: Azure PowerShell script de exemplo para restaurar um banco de dados individual do Azure SQL para um ponto anterior no tempo de backups automáticos
+title: Base de dados PowerShell-restore-backup-Azure SQL
+description: Script de exemplo Azure PowerShell para restaurar uma base de dados única Azure SQL para um ponto mais cedo no tempo a partir de backups automáticos
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,21 +12,21 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ms.openlocfilehash: da4236e138bd75237ca10b85dc1586fecd1cece4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691551"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usar o PowerShell para restaurar um banco de dados individual do SQL do Azure para um ponto anterior no tempo
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Use powerShell para restaurar uma base de dados única Azure SQL para um ponto mais cedo no tempo
 
-Este exemplo de script do PowerShell restaura um banco de dados SQL do Azure para um ponto específico no tempo.  
+Este exemplo de script PowerShell restaura uma base de dados Azure SQL para um ponto específico no tempo.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer AZ PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -34,7 +34,7 @@ Se você optar por instalar e usar o PowerShell localmente, este tutorial exigir
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -47,12 +47,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor de banco de dados SQL que hospeda um único banco de dados ou pool elástico. |
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria um banco de dados em um servidor de banco de dados SQL como um banco de dados autônomo ou em pool. |
-[Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Obtém um backup com redundância geográfica de um banco de dados autônomo ou em pool. |
-| [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) | Restaura um banco de dados SQL autônomo ou em pool. |
-|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) | Remove um banco de dados do Azure SQL autônomo ou em pool. |
-| [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Obtém um banco de dados autônomo ou em pool excluído que você pode restaurar. |
+| [Novo AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor de base de dados SQL que acolhe uma única base de dados ou piscina elástica. |
+| [Nova AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria uma base de dados num servidor de base de dados SQL como uma base de dados autónoma ou pooled. |
+[Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Obtém uma cópia de segurança geo-redundante de uma base de dados autónoma ou reunida. |
+| [Restaurar-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) | Restaura uma base de dados autónoma ou poolada SQL. |
+|[Remover-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) | Remove uma base de dados Autónoma ou poolada azure SQL. |
+| [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Obtém uma base de dados autónoma ou agrupada eliminada que pode restaurar. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes

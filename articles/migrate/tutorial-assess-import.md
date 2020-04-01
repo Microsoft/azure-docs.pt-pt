@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079867"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79453651"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -42,13 +42,13 @@ Neste tutorial, ficará a saber como:
 > [!NOTE]
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário, para que possa rapidamente configurar uma prova de conceito. Os tutoriais usam opções padrão sempre que possível, e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, reveja os guias como fazer.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 ## <a name="set-azure-permissions-for-azure-migrate"></a>Definir permissões azure para Azure Migrate
 
 A sua conta Azure precisa de permissões para criar um projeto Azure Migrate.
 
-1. No portal Azure, abra a subscrição e selecione controlo de **acesso (IAM)** .
+1. No portal Azure, abra a subscrição e selecione controlo de **acesso (IAM)**.
 2. No **Check access,** encontre a conta relevante e, em seguida, selecione-a para visualizar permissões.
 3. Certifique-se de que tem permissões **de Contribuinte** ou **Proprietário.**
     - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
@@ -73,8 +73,8 @@ Para criar um novo projeto Azure Migrate:
 
     ![Criar um projeto Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Selecione **Seguinte**.
-8. Na **ferramenta de avaliação Select**, selecione **Azure Migrate: Avaliação do servidor** > **Seguinte**.
+7. Selecione **Next**.
+8. Na **ferramenta de avaliação Select,** selecione **Azure Migrate: Server Assessment** > **Next**.
 
     ![Criar uma avaliação de Migração Azure](./media/tutorial-assess-import/assessment-tool.png)
 
@@ -88,7 +88,7 @@ Descarregue o modelo CSV e adicione informações do servidor.
 
 ### <a name="download-the-template"></a>Transferir o modelo
 
-1. Em **Objetivos de migração** > **servidores** > **Azure Migrate: Avaliação do servidor**, selecione **Discover**.
+1. Em **Objetivos** > de Migração**Servidores** > **Azure Migrar: Avaliação do servidor**, selecione **Discover**.
 2. Nas **máquinas Discover,** selecione **Importar utilizando CSV**.
 3. Selecione **Baixar** para descarregar o modelo CSV. Em alternativa, pode [descarregá-lo diretamente](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -138,11 +138,10 @@ A tabela seguinte resume os campos de arquivo para preencher:
 **Aplicação 1 tipo** | Não | Tipo de carga de trabalho em execução no servidor
 **Versão da aplicação 1** | Não | Versão da carga de trabalho em execução no servidor.
 **Pedido 1 licença expiração** | Não | Caducidade da carga de trabalho (se aplicável).
-**Unidade de negócio** | Não | Unidade de negócios a que o servidor pertence.
+**Unidade empresarial** | Não | Unidade de negócios a que o servidor pertence.
 **Empresário** | Não | Dono de unidade de negócios.
 **Nome da aplicação de negócios** | Não | Nome da aplicação a que pertence a aplicação.
 **Localização** | Não | Datacenter no qual o servidor está localizado.
-**Data de desmantelamento do servidor** | Não | Data de desativação do servidor físico ou do servidor físico subjacente do servidor virtual.
 
 ### <a name="add-operating-systems"></a>Adicionar sistemas operativos
 
@@ -179,7 +178,7 @@ Por exemplo, para especificar todos os campos para uma segunda aplicação, adic
 Depois de adicionar informações ao modelo CSV, importe os servidores para a Avaliação do Servidor.
 
 1. Em Azure Migrate, em **Máquinas Discover,** vá ao modelo completo.
-2. Selecione **Import**.
+2. Selecione **Importar**.
 3. O estado de importação é demonstrado.
     - Se os avisos aparecerem no estado, pode corrigi-los ou continuar sem os abordar.
     - Para melhorar a precisão da avaliação, melhore a informação do servidor conforme sugerido nos avisos.
@@ -199,7 +198,7 @@ Pode atualizar as informações para um servidor importando novamente os dados p
 Para verificar se os servidores aparecem no portal Azure após a descoberta:
 
 1. Abra o painel de migração Azure.
-2. Na **página Azure Migrate - Servers** > **Azure Migrate: Server Assessment,** selecione o ícone que apresenta a contagem para **servidores descobertos**.
+2. Na página **Azure Migrate - Servers** > **Azure Migrate: Servers Emigrar: Página** de Avaliação do Servidor, selecione o ícone que apresenta a contagem para **servidores descobertos**.
 3. Selecione o separador **baseado em Importação.**
 
 ## <a name="set-up-and-run-an-assessment"></a>Configurar e fazer uma avaliação
@@ -208,7 +207,7 @@ Pode criar dois tipos de avaliações utilizando a Avaliação do Servidor.
 
 **Tipo de avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações baseadas em valores de dados de desempenho especificados. | **Tamanho VM recomendado**: Baseado em CPU e dados de utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido por série ou premium)** : Baseado na entrada/saída por segundo (IOPS) e na entrada dos discos no local.
+**Baseado no desempenho** | Avaliações baseadas em valores de dados de desempenho especificados. | **Tamanho VM recomendado**: Baseado em CPU e dados de utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido por série ou premium)**: Baseado na entrada/saída por segundo (IOPS) e na entrada dos discos no local.
 **Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho VM recomendado**: Com base no tamanho do servidor especificado.<br/><br> **Tipo**de disco recomendado : Com base na definição do tipo de armazenamento selecionada para a avaliação.
 
 Para efazer uma avaliação:
@@ -230,7 +229,7 @@ Para efazer uma avaliação:
 
     ![Criar uma avaliação](./media/tutorial-assess-physical/assessment-create.png)
 
-9. Após a criação da avaliação, veja-a nos **Servidores** > **Azure Migrate: Avaliação** do servidor > **Avaliações**.
+9. Após a criação da avaliação, veja-a em **Servers** > **Azure Migrate:** > **Avaliações**de Avaliação do Servidor .
 10. Selecione **avaliação de Exportação** para descarregá-lo como um ficheiro Microsoft Excel.
 
 ## <a name="review-an-assessment"></a>Rever uma avaliação
@@ -243,7 +242,7 @@ Uma avaliação descreve:
 
 ### <a name="view-an-assessment"></a>Ver uma avaliação
 
-1. Nos **objetivos de migração** > **Servidores**, selecione **Avaliações** em **Azure Migrate: Server Assessment**.
+1. Em **objetivos** > de migração**Servidores**, selecione **Avaliações** em **Azure Migrate: Server Assessment**.
 2. Em **Avaliações,** selecione uma avaliação para abri-la.
 
     ![Resumo da avaliação](./media/tutorial-assess-physical/assessment-summary.png)
@@ -340,7 +339,7 @@ Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de func
       Oracle Linux<br/>
        Oracle Linux 4/5<br/>
       Oráculo Solaris 10<br/>
-       Oráculo Solaris 11
+       Oracle Solaris 11
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -406,7 +405,7 @@ Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de func
 :::row-end:::
 :::row:::
    :::column span="":::
-      Windows 10<br/>
+      Windows 10<br/>
       Windows 2000<br/>
       Windows 3<br/>
       Windows 7<br/>
@@ -419,7 +418,7 @@ Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de func
    :::column-end:::
    :::column span="":::
       Windows Server 2008<br/>
-      Windows Server 2008 R2<br/>
+      Windows Server 2008 R2<br/>
       Windows Server 2012<br/>
       Windows Server 2012 R2<br/>
       Windows Server 2016<br/>
@@ -427,7 +426,7 @@ Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de func
       Limiar do servidor do Windows<br/>
       Windows Vista<br/>
       Windows Web Server 2008 R2<br/>
-      Windows XP Professional
+      Windows 10 Professional
    :::column-end:::
 :::row-end:::
 

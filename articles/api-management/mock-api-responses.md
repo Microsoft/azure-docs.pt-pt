@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067948"
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Compreender o [conceito das políticas da Gestão de API do Azure](api-management-howto-policies.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Criar uma API de teste 
 
@@ -67,7 +67,7 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nome a apresentar**    | *Chamada de teste*                       | O nome que é apresentado no **Portal do programador**.                                                                                                                                       |
     | **URL** (verbo HTTP) | GET                               | Pode escolher um dos verbos HTTP predefinidos.                                                                                                                                         |
-    | **URL**             | */test*                           | Um caminho de URL para a API.                                                                                                                                                                       |
+    | **URL**             | */teste*                           | Um caminho de URL para a API.                                                                                                                                                                       |
     | **Descrição**     |                                   | Forneça uma descrição da operação utilizada para fornecer a documentação aos programadores que utilizam esta API no **Portal do programador**.                                                    |
     | Separador **Consulta**       |                                   | Pode adicionar parâmetros de consulta. Além de fornecer um nome e uma descrição, pode fornecer valores que podem ser atribuídos a este parâmetro. Um dos valores pode ser marcado como predefinição (opcional). |
     | Separador **Pedido**     |                                   | Pode definir os tipos de conteúdo, exemplos e esquemas do pedido.                                                                                                                                  |
@@ -119,7 +119,7 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

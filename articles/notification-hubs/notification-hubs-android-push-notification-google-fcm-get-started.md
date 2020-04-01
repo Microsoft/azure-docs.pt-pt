@@ -573,4 +573,4 @@ Neste tutorial, utilizou o Firebase Cloud Messaging para transmitir notificaçõ
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

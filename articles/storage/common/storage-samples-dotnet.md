@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: a4c9188c8f1315a3af452cd0c1fb5cf45ab82081
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77486122"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Amostras de armazenamento azure usando v12 .NET bibliotecas de clientes
@@ -150,7 +150,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 ### <a name="file"></a>Ficheiro
 :::row:::
    :::column span="":::
-      [Faça upload de um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
+      [Carregar um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
    :::column-end:::
    :::column span="":::
       [Upload por despesas para um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L169)
@@ -158,7 +158,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Descarregue um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L224)
+      [Transferir um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L224)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -203,7 +203,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
       [Criar uma parte e carregar um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L21)
    :::column-end:::
    :::column span="":::
-      [Descarregue um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L68)
+      [Transferir um ficheiro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L68)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -226,7 +226,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 
 :::row:::
    :::column span="":::
-      [Autenticar usando o Diretório Ativo Azure](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
+      [Autenticar com o Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
    :::column-end:::
    :::column span="":::
       [Autenticar usando uma corda de ligação](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)
@@ -297,7 +297,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Mesas de consulta](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
+      [Consulta tabelas](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/BasicSamples.cs)
    :::column-end:::
    :::column span="":::
       [Mesa ACL/propriedades](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs#L224)

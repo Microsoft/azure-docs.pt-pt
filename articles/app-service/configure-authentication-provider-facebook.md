@@ -1,22 +1,22 @@
 ---
 title: Configure a autenticação do Facebook
-description: Saiba como configurar a autenticação do Facebook como fornecedor de identidade para a sua aplicação App Service.
+description: Saiba como configurar a autenticação do Facebook como fornecedor de identidade para o seu App Service ou aplicação Funções Azure.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9a2d390a5647ed90284730e9186e981b8e699d10
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671945"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438006"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configure a sua app app Service para usar login no Facebook
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configure o seu app service ou app Funções Azure para usar login no Facebook
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este artigo mostra como configurar o Azure App Service para usar o Facebook como fornecedor de autenticação.
+Este artigo mostra como configurar o Azure App Service ou o Azure Functions para usar o Facebook como fornecedor de autenticação.
 
 Para completar o procedimento neste artigo, precisa de uma conta no Facebook que tenha um endereço de e-mail verificado e um número de telemóvel. Para criar uma nova conta no Facebook, vá para [facebook.com].
 
@@ -78,4 +78,4 @@ Está agora pronto para usar o Facebook para autenticação na sua aplicação.
 [Desenvolvedores do Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

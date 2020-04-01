@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: d7d697e3ea4b1b683275d53f6e407396f474b37b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7bb9d3ce4c80761362c1ea564f6a632bc7a7f68a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77462025"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398290"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Envie eventos e receba eventos de Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET Core. 
@@ -34,7 +34,7 @@ Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](ev
 Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. A biblioteca de clientes do Azure Event Hubs utiliza novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode utilizar a biblioteca com versões mais antigas de C#, mas algumas das suas funcionalidades não estarão disponíveis.  Para ativar estas funcionalidades, deve [visar o .NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) ou [especificar a versão linguística](/dotnet/csharp/language-reference/configure-language-version#override-a-default) que pretende utilizar (8.0 ou superior). Se estiver a usar o Visual Studio, as versões anteriores ao Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição gratuita da Comunidade, pode ser descarregado [aqui](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. A biblioteca de clientes do Azure Event Hubs utiliza novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode utilizar a biblioteca com versões mais antigas de C#, mas algumas das suas funcionalidades não estarão disponíveis.  Para ativar estas funcionalidades, deve [visar o .NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) ou [especificar a versão linguística](/dotnet/csharp/language-reference/configure-language-version#override-a-default) que pretende utilizar (8.0 ou superior). Se estiver a usar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição gratuita da Comunidade, pode ser descarregado [aqui](https://visualstudio.microsoft.com/vs/)
 - **Crie um espaço de nome sinuoso do Event Hubs e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) Em seguida, obtenha a cadeia de **ligação para o espaço** de nome do Event Hubs seguindo as instruções do artigo: Obtenha a corda de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Usa a corda de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos 
@@ -118,6 +118,9 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 Esta secção mostra como escrever uma aplicação de consola .NET Core que recebe mensagens de um hub de eventos usando um processador de eventos. O processador de eventos simplifica a receção de eventos a partir de centros de eventos, gerindo pontos de verificação persistentes e recebeções paralelas desses centros de eventos. Um processador de eventos está associado a um evento específico Hub e a um grupo de consumidores. Recebe eventos de várias divisórias no centro do evento, passando-os a um delegado manipulador para processamento usando código que fornece. 
 
 
+> [!NOTE]
+> Se estiver a funcionar no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a correr [na versão Azure Stack Hub 2002,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento a versão API 2017-11-09. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento Do Hub De Pilha Azure: Diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Crie um Armazenamento Azure e um recipiente de bolhas
 Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Siga estes passos para criar uma conta de Armazenamento Azure. 
 
@@ -125,7 +128,7 @@ Neste arranque rápido, utiliza o Armazenamento Azure como loja de controlo. Sig
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
-    Anote a corda de ligação e o nome do recipiente. Irá usá-los no código de receção. 
+    Anote a corda de ligação e o nome do recipiente. Vaiusá-los no código de receção. 
 
 
 ### <a name="create-a-project-for-the-receiver"></a>Criar um projeto para o recetor

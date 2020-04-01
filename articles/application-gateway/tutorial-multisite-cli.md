@@ -1,41 +1,41 @@
 ---
-title: Hospedagem de vários sites usando a CLI-Aplicativo Azure gateway
-description: Saiba como criar um gateway de aplicativo que hospede vários sites usando o CLI do Azure.
+title: Alojamento de vários sites usando CLI - Portal de Aplicação Azure
+description: Saiba como criar um portal de aplicações que acolhe vários sites usando o Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0e58d9ecfbd0731fc9bf91664763e73d8c56e64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047342"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294754"
 ---
-# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicativo com Hospedagem de vários sites usando o CLI do Azure
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um portal de aplicações com vários sites de hospedagem usando o Azure CLI
 
-Você pode usar o CLI do Azure para configurar a [Hospedagem de vários sites da Web](application-gateway-multi-site-overview.md) ao criar um [Gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria pools de back-end usando conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
+Pode utilizar o Azure CLI para configurar o [alojamento de vários web sites](application-gateway-multi-site-overview.md) quando criar um gateway de [aplicação](application-gateway-introduction.md). Neste tutorial, você cria piscinas de backend usando conjuntos de escala de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial assume que possui vários domínios `www.contoso.com` `www.fabrikam.com`e utiliza exemplos de e .
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Para criar um gateway de aplicação
-> * Criar ouvintes e regras de roteamento
+> * Criar um gateway de aplicação
+> * Criar ouvintes e regras de encaminhamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
 
 ![Exemplo de encaminhamento multilocal](./media/tutorial-multisite-cli/scenario.png)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -97,7 +97,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-backend-pools"></a>Adicionar os conjuntos de back-end
 
-Adicione os pools de back-end chamados *contosoPool* e *fabrikamPool* que são necessários para conter os servidores de back-end usando [AZ Network Application-Gateway Address-pool Create](/cli/azure/network/application-gateway).
+Adicione as piscinas de backend chamadas *contosoPool* e *fabrikamPool* que são necessárias para conter os servidores backend usando a criação de [endereços de gateway de aplicação de rede az](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -114,7 +114,7 @@ az network application-gateway address-pool create \
 
 É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os serviços de escuta são criados para os domínios de *www.contoso.com* e *www.fabrikam.com*. 
 
-Adicione os ouvintes nomeados *contosoListener* e *fabrikamListener* que são necessários para rotear o tráfego usando [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway).
+Adicione os *ouvintes chamados contosoListener* e *fabrikamListener* que são necessários para direcionar o tráfego usando a [criação de um gateway de aplicação de rede az](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -135,7 +135,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Adicionar regras de encaminhamento
 
-As regras são processadas na ordem em que são criadas e o tráfego é direcionado usando a primeira regra que corresponde à URL enviada ao gateway de aplicativo. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
+As regras são processadas na ordem em que são criadas, e o tráfego é direcionado usando a primeira regra que corresponde ao URL enviado para o gateway da aplicação. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 
 Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -222,7 +222,7 @@ Não é recomendada a utilização de registos A, uma vez que o VIP pode ser alt
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, http\://www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Tais como,\:http //www.contoso.com.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -236,8 +236,8 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Para criar um gateway de aplicação
-> * Criar ouvintes e regras de roteamento
+> * Criar um gateway de aplicação
+> * Criar ouvintes e regras de encaminhamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
 

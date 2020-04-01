@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76845219"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: diagnosticar um problema de encaminhamento de rede de máquina virtual com o Portal do Azure
@@ -36,7 +36,7 @@ Quando implementa uma máquina virtual (VM), o Azure cria várias rotas predefin
 
 Se preferir, pode diagnosticar um problema de encaminhamento de rede de máquina virtual com a [CLI do Azure](diagnose-vm-network-routing-problem-cli.md) ou o [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,7 +46,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
 
     |Definição|Valor|
     |---|---|
@@ -112,7 +112,7 @@ O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas 
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

@@ -4,12 +4,12 @@ description: Aprenda a criar e gerir várias piscinas de nós para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2045cb9a175bead3abf5b53120b9fe381a17b04b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047729"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422317"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Crie e gerencie várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
@@ -33,8 +33,8 @@ As seguintes limitações aplicam-se quando cria e gere clusters AKS que suporta
 * O cluster AKS deve utilizar o equilibrador de carga SKU padrão para utilizar várias piscinas de nós, a funcionalidade não é suportada com equilibradores básicos de carga SKU.
 * O cluster AKS deve utilizar conjuntos de escala de máquinas virtuais para os nós.
 * O nome de uma piscina de nó só pode conter caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para piscinas de nó Linux o comprimento deve ser entre 1 e 12 caracteres, para piscinas de nó windows o comprimento deve ser entre 1 e 6 caracteres.
-* Todas as piscinas de nós devem residir na mesma rede virtual e subnet.
-* Ao criar várias piscinas de nós no cluster criar tempo, todas as versões Kubernetes usadas por piscinas de nós devem corresponder à versão definida para o plano de controlo. Esta versão pode ser atualizada após o cluster ter sido provisionado utilizando operações de piscina de nó.
+* Todas as piscinas de nós devem residir na mesma rede virtual.
+* Ao criar várias piscinas de nós no cluster criar tempo, todas as versões Kubernetes usadas por piscinas de nós devem corresponder à versão definida para o plano de controlo. Isto pode ser atualizado após o aglomerado ter sido provisionado utilizando operações de piscina de nó.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
@@ -120,6 +120,29 @@ A saída de exemplo seguinte mostra que a *mynodepool* foi criada com sucesso co
 
 > [!TIP]
 > Se não for especificado nenhum *VmSize* quando adicionar uma piscina de nó, o tamanho padrão é *Standard_DS2_v3* para piscinas de nó do Windows e *Standard_DS2_v2* para piscinas de nó linux. Se não for especificada a *OrchestratorVersion,* a mesma versão do plano de controlo.
+
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Adicione uma piscina de nó com uma subnet única (pré-visualização)
+
+Uma carga de trabalho pode exigir dividir os nós de um cluster em piscinas separadas para isolamento lógico. Este isolamento pode ser suportado com subredes separadas dedicadas a cada piscina de nós no cluster. Isto pode abordar requisitos como ter espaço de endereço de rede virtual não contíguo para dividir em piscinas de nós.
+
+#### <a name="limitations"></a>Limitações
+
+* Todas as subredes atribuídas a nós devem pertencer à mesma rede virtual.
+* As cápsulas de sistema devem ter acesso a todos os nós do cluster para fornecer funcionalidades críticas, como a resolução de DNS através do coreDNS.
+* A atribuição de uma subnet única por piscina de nó é limitada ao Azure CNI durante a pré-visualização.
+* A utilização de políticas de rede com uma subnet única por piscina de nó não é suportada durante a pré-visualização.
+
+Para criar uma piscina de nó com uma subnet dedicada, passe o ID de recurso da subnet como um parâmetro adicional ao criar uma piscina de nó.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## <a name="upgrade-a-node-pool"></a>Atualizar uma piscina de nó
 
@@ -695,18 +718,22 @@ az group deployment create \
 
 Pode levar alguns minutos para atualizar o seu cluster AKS dependendo das configurações e operações do conjunto de nós que define no seu modelo de Gestor de Recursos.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Atribuir um IP público por nó em uma piscina de nó
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Atribuir um IP público por nó para uma piscina de nó (pré-visualização)
 
 > [!WARNING]
 > Durante a pré-visualização da atribuição de um IP público por nó, não pode ser utilizado com o *SKU standard Load Balancer em AKS* devido a possíveis regras de equilíbrio de carga em conflito com o provisionamento de VM. Como resultado desta limitação, as piscinas de agentes do Windows não são suportadas com esta funcionalidade de pré-visualização. Durante a pré-visualização, deve utilizar o *SKU* de Equilíbrio de Carga Básico se precisar de atribuir um IP público por nó.
 
-Os nódosos AKS não requerem os seus próprios endereços IP públicos para comunicação. No entanto, alguns cenários podem exigir que nós numa piscina de nós tenham os seus próprios endereços IP públicos. Um exemplo é o jogo, onde uma consola precisa fazer uma ligação direta a uma máquina virtual em nuvem para minimizar o lúpulo. Este cenário pode ser alcançado registando-se para uma funcionalidade de pré-visualização separada, Node Public IP (pré-visualização).
+Os nódosos AKS não requerem os seus próprios endereços IP públicos para comunicação. No entanto, os cenários podem exigir que nós numa piscina de nós recebam os seus próprios endereços IP públicos dedicados. Um cenário comum é para as cargas de trabalho dos jogos, onde uma consola precisa de fazer uma ligação direta a uma máquina virtual em nuvem para minimizar o lúpulo. Este cenário pode ser alcançado no AKS através do registo para uma funcionalidade de pré-visualização, Node Public IP (pré-visualização).
+
+Registe-se na funcionalidade IP pública do nó, emitindo o seguinte comando Azure CLI.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Após o registo bem sucedido, implemente um modelo de Gestor de Recursos `enableNodePublicIP` Azure seguindo as mesmas instruções que [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade de valor booleano ao agentePoolProfiles. Desdefinir `true` o valor como por `false` defeito, é definido como se não especificado. Este imóvel é um imóvel apenas para criar tempo e requer uma versão API mínima de 2019-06-01. Isto pode ser aplicado tanto nas piscinas de nó linux como no Windows.
+Após o registo bem sucedido, implemente um modelo de Gestor de `enableNodePublicIP` Recursos Azure seguindo as mesmas instruções que [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade booleana ao agentePoolProfiles. Desdefinir `true` o valor como por `false` defeito, é definido como se não especificado. 
+
+Este imóvel é um imóvel apenas para criar tempo e requer uma versão API mínima de 2019-06-01. Isto pode ser aplicado tanto nas piscinas de nó linux como no Windows.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

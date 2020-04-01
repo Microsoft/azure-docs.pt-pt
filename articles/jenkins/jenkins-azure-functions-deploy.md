@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, java, funções azure
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78250913"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Implemente para funções azure utilizando o plug-in das funções Jenkins Azure
@@ -29,7 +29,7 @@ Para criar uma função Java com a pilha de tempo de funcionamento Java, utilize
 
 Os seguintes passos mostram como criar uma função Java utilizando o ClI Azure:
 
-1. Crie um grupo de recursos, substituindo o **&lt;resource_group>** espaço reservado pelo seu nome de grupo de recursos.
+1. Crie um grupo de ** &lt;** recursos, substituindo o resource_group>espaço reservado pelo seu nome de grupo de recursos.
 
     ```azurecli
     az group create --name <resource_group> --location eastus
@@ -103,7 +103,7 @@ Nesta secção, cria-se o [Gasoduto Jenkins.](https://jenkins.io/doc/book/pipeli
     FUNCTION_NAME=<function_name>
     ```
     
-1. Na secção **Pipeline>Definição,** selecione **script pipeline a partir de SCM**.
+1. Na secção **Definição pipeline->,** selecione **script pipeline a partir de SCM**.
 
 1. Introduza o URL e o script do seu garfo GitHub ("doc/resources/jenkins/JenkinsFile") para utilizar no [exemplo jenkinsFile](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
@@ -127,13 +127,13 @@ Nesta secção, cria-se o [Gasoduto Jenkins.](https://jenkins.io/doc/book/pipeli
     }
     ```
 
-## <a name="build-and-deploy"></a>Construir e implantar
+## <a name="build-and-deploy"></a>Criar e implementar
 
 Está na hora de gerir o emprego do Jenkins.
 
 1. Em primeiro lugar, obtenha a chave de autorização através das instruções do artigo [funções Azure HTTP e encaderna do](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys) artigo.
 
-1. No seu navegador, introduza o URL da aplicação. Substitua os espaços reservados pelos valores apropriados e especifique um valor numérico para **&lt;input_number>** como entrada para a função Java.
+1. No seu navegador, introduza o URL da aplicação. Substitua os espaços reservados pelos valores apropriados e especifique um valor numérico para ** &lt;input_number>** como entrada para a função Java.
 
     ```
     https://<function_app>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization_key>&number=<input_number>
@@ -156,4 +156,4 @@ az group delete -y --no-wait -n <resource_group>
 
 Para saber mais sobre as Funções Azure, consulte o seguinte recurso:
 > [!div class="nextstepaction"]
-> [Documentação de Funções Azure](/azure/azure-functions/)
+> [Documentação das Funções do Azure](/azure/azure-functions/)

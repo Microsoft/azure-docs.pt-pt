@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297700"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419669"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de subvenção implícita
 
@@ -32,7 +32,7 @@ Com o ponto final da plataforma de identidade da Microsoft, pode inscrever os ut
 * Muitos servidores de autorização e fornecedores de identidade não suportam pedidos CORS.
 * Os redirecionamentos do navegador de página inteira para longe da app tornam-se particularmente invasivos para a experiência do utilizador.
 
-Para estas aplicações (AngularJS, Ember.js, React.js, e assim por diante), a plataforma de identidade da Microsoft suporta o fluxo de Subvenção Implícita OAuth 2.0. O fluxo implícito é descrito na [especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O seu principal benefício é que permite que a app obtenha fichas da plataforma de identidade da Microsoft sem realizar uma troca de credenciais de servidor de backend. Isto permite que a aplicação assine no utilizador, mantenha a sessão e obtenha fichas para outras APIs web, todas dentro do código JavaScript do cliente. Existem algumas considerações importantes de segurança a ter em conta ao utilizar o fluxo implícito especificamente em torno da personificação do [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e do [utilizador.](https://tools.ietf.org/html/rfc6749#section-10.3)
+Para estas aplicações (Angular, Ember.js, React.js, e assim por diante), a plataforma de identidade da Microsoft suporta o fluxo de Subvenção Implícita OAuth 2.0. O fluxo implícito é descrito na [especificação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O seu principal benefício é que permite que a app obtenha fichas da plataforma de identidade da Microsoft sem realizar uma troca de credenciais de servidor de backend. Isto permite que a aplicação assine no utilizador, mantenha a sessão e obtenha fichas para outras APIs web, todas dentro do código JavaScript do cliente. Existem algumas considerações importantes de segurança a ter em conta ao utilizar o fluxo implícito especificamente em torno da personificação do [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e do [utilizador.](https://tools.ietf.org/html/rfc6749#section-10.3)
 
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Sempre que possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas em vez de adquirir fichas e ligar para [APIs web protegidos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também as [aplicações de amostra que utilizam o MSAL.](sample-v2-code.md)
 
@@ -58,7 +58,7 @@ Atualmente, o método preferido de proteger chamadas para uma API Web é usar a 
 
 O fluxo implícito de subvenção não emite fichas de atualização, principalmente por razões de segurança. Um token refrescante não é tão estreitamente traçado como fichas de acesso, concedendo muito mais energia, permitindo muito mais danos no caso de ser vazado. No fluxo implícito, as fichas são entregues no URL, daí que o risco de interceção seja maior do que na concessão do código de autorização.
 
-No entanto, uma aplicação JavaScript tem outro mecanismo à sua disposição para renovar fichas de acesso sem solicitar repetidamente ao utilizador credenciais. A aplicação pode usar um iframe oculto para realizar novos pedidos simbólicos contra o ponto final de autorização do Azure AD: desde que o navegador ainda tenha uma sessão ativa (leia-se: tem um cookie de sessão) contra o domínio DaA Azure, o pedido de autenticação pode ocorre ndo com sucesso sem qualquer necessidade de interação do utilizador.
+No entanto, uma aplicação JavaScript tem outro mecanismo à sua disposição para renovar fichas de acesso sem solicitar repetidamente ao utilizador credenciais. A aplicação pode utilizar um iframe oculto para realizar novos pedidos simbólicos contra o ponto final de autorização do Azure AD: desde que o navegador ainda tenha uma sessão ativa (leia-se: tem um cookie de sessão) contra o domínio DaA Azure, o pedido de autenticação pode ocorrer com sucesso sem qualquer necessidade de interação do utilizador.
 
 Este modelo concede à aplicação JavaScript a capacidade de renovar independentemente os tokens de acesso e até adquirir novos para uma nova API (desde que o utilizador previamente consentiu por eles). Isto evita o fardo acrescido de adquirir, manter e proteger um artefacto de alto valor, como um símbolo de atualização. O artefacto que torna possível a renovação silenciosa, o cookie de sessão Azure AD, é gerido fora da aplicação. Outra vantagem desta abordagem é que um utilizador pode assinar a partir do Azure AD, utilizando qualquer uma das aplicações assinadas no Azure AD, funcionando em qualquer um dos separadores do navegador. Isto resulta na eliminação do cookie de sessão Azure AD, e a aplicação JavaScript perderá automaticamente a capacidade de renovar fichas para o utilizador assinado.
 
@@ -161,7 +161,7 @@ error=access_denied
 
 Agora que assinou o utilizador na sua aplicação de uma página única, pode obter silenciosamente fichas de acesso para chamadas de APIs web protegidas pela plataforma de identidade da Microsoft, como o [Microsoft Graph](https://developer.microsoft.com/graph). Mesmo que já tenha recebido `token` um símbolo usando o response_type, pode usar este método para adquirir fichas para recursos adicionais sem ter que redirecionar o utilizador para iniciar sessão novamente.
 
-No fluxo normal de OpenID Connect/OAuth, fá-lo-ia `/token` fazendo um pedido para o ponto final da plataforma de identidade da Microsoft. No entanto, o ponto final da plataforma de identidade da Microsoft não suporta pedidos cors, pelo que fazer chamadas ajax para obter e refrescar tokens está fora de questão. Em vez disso, pode usar o fluxo implícito num iframe oculto para obter novos tokens para outras APIs web: 
+No fluxo normal de OpenID Connect/OAuth, fá-lo-ia `/token` fazendo um pedido para o ponto final da plataforma de identidade da Microsoft. No entanto, o ponto final da plataforma de identidade da Microsoft não suporta pedidos cors, pelo que fazer chamadas ajax para obter e refrescar tokens está fora de questão. Em vez disso, pode usar o fluxo implícito num iframe oculto para obter novos tokens para outras APIs web:
 
 ```
 // Line breaks for legibility only
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910

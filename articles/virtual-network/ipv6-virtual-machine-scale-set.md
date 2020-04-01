@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164994"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420467"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Implementar conjuntos de escala de máquina virtual com IPv6 em Azure (Pré-visualização)
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Implementar conjuntos de escala de máquinavirtual com IPv6 em Azure
 
 Este artigo mostra-lhe como implementar uma dupla stack (IPv4 + IPv6) Conjunto de escala de máquina virtual com um equilíbrio de carga externo de dupla pilha numa rede virtual Azure. O processo para criar um conjunto de máquinas virtuais com capacidade IPv6 é quase idêntico ao processo de criação de VMs individuais descritos [aqui](ipv6-configure-standard-load-balancer-template-json.md). Começará com os passos semelhantes aos descritos para VMs individuais:
-1.  Crie IPv4 e IPv6 IPs públicos.
-2.  Crie um equilíbrio de carga de pilhas duplas.  
-3.  Crie regras do grupo de segurança da rede (NSG).  
+1.    Crie IPv4 e IPv6 IPs públicos.
+2.    Crie um equilíbrio de carga de pilhas duplas.  
+3.    Crie regras do grupo de segurança da rede (NSG).  
 
 O único passo diferente dos VMs individuais é criar a configuração da interface de rede (NIC) que utiliza o recurso conjunto de escala de máquina virtual: networkProfile/networkInterfaceConfigurations. A estrutura JSON é semelhante à do objeto Microsoft.Network/networkInterfaces utilizado para VMs individuais com a adição de definição do NIC e do IPv4 IpConfiguration como interface primária utilizando o **"primário":** atributo verdadeiro como visto no seguinte exemplo:
 

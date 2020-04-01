@@ -13,17 +13,17 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9fd5fa943468924c289587285fe7986a73c21dba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 701aadcbfe03c82f6a4c341ef9698f8a1bf1a347
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161346"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476582"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como: Utilizar a API do gráfico Azure AD
 
 > [!IMPORTANT]
-> Recomendamos vivamente que utilize o [Microsoft Graph](https://developer.microsoft.com/graph) em vez da API azure AD Graph para aceder aos recursos do Azure Ative Directory (Azure AD). Os nossos esforços de desenvolvimento concentram-se agora no Microsoft Graph e não estão previstos mais melhoramentos para a Graph API do Azure AD. Há um número muito limitado de cenários para os quais a APi do Gráfico AD Azure ainda pode ser adequada; para mais informações, consulte o Microsoft Graph ou o post de blog do [Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) e as [aplicações migrate Azure AD Graph para o Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> Recomendamos vivamente que utilize o [Microsoft Graph](https://developer.microsoft.com/graph) em vez da API azure AD Graph para aceder aos recursos do Azure Ative Directory (Azure AD). Os nossos esforços de desenvolvimento concentram-se agora no Microsoft Graph e não estão previstos mais melhoramentos para a Graph API do Azure AD. Há um número muito limitado de cenários para os quais a APi do Gráfico AD Azure ainda pode ser adequada; para mais informações, consulte o Microsoft Graph ou o post de blog do [Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) e as [aplicações migrate Azure AD Graph para o Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
 
 O Azure AD Graph API fornece acesso programático ao Azure AD através de pontos finais da API OData REST. As aplicações podem utilizar a API do Gráfico Azure AD para executar operações de criação, leitura, atualização e exclusão (CRUD) em dados e objetos de diretório. Por exemplo, pode utilizar a API do Azure AD Graph Para criar um novo utilizador, visualizar ou atualizar as propriedades do utilizador, alterar a palavra-passe do utilizador, verificar a adesão do grupo para obter acesso baseado em papéis, desativar ou eliminar o utilizador. Para obter mais informações sobre as funcionalidades e cenários de aplicação da AD Graph API do Azure, consulte os pré-requisitos da API do [Gráfico AD Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e do [Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx). A AD Graph API azure só funciona com contas de trabalho ou escola/organização.
 

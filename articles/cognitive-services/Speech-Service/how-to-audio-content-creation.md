@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8184d30471b4d9171a23c8d03e17b2a54dca2ece
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331541"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397824"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de Conteúdo Áudio
 
@@ -81,7 +81,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>

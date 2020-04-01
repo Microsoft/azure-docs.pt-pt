@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259828"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477682"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
@@ -138,7 +138,7 @@ Todos estes endereços IP são visíveis no portal Azure da UI Da ASE. Se tiver 
 
 ### <a name="app-assigned-ip-addresses"></a>Endereços IP atribuídos a aplicativos ###
 
-Com uma ASE Externa, pode atribuir endereços IP a aplicações individuais. Não podes fazer isso com uma ASE ILB. Para obter mais informações sobre como configurar a sua aplicação para ter o seu próprio endereço IP, consulte [Secure um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](../configure-ssl-bindings.md).
+Com uma ASE Externa, pode atribuir endereços IP a aplicações individuais. Não podes fazer isso com uma ASE ILB. Para obter mais informações sobre como configurar a sua aplicação para ter o seu próprio endereço IP, consulte [Secure um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](../configure-ssl-bindings.md).
 
 Quando uma aplicação tem o seu próprio endereço SSL baseado em IP, a ASE reserva duas portas para mapear para esse endereço IP. Uma porta é para tráfego HTTP, e a outra porta é para HTTPS. Essas portas estão listadas na UI Da ASE na secção de endereços IP. O tráfego deve ser capaz de chegar às portas do VIP ou as aplicações estão inacessíveis. Este requisito é importante de lembrar quando configura os Grupos de Segurança da Rede (NSGs).
 

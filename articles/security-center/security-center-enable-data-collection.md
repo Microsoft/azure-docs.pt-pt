@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245502"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435984"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do Agente Delog Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos do Windows), processos de execução, nome da máquina, endereços IP e registos registados no utilizador. O Agente Log Analytics também copia ficheiros de despejo de crash para o seu espaço de trabalho.
@@ -306,7 +306,7 @@ Pode instalar manualmente o Agente de Análise de Registos, para que o Security 
 
 - Para identificar vms não monitorizados e problemas de computadores:
 
-    Um VM ou computador não é monitorizado pelo Security Center se a máquina não estiver a executar a extensão do Microsoft Monitoring Agent. Uma máquina pode ter um agente local já instalado, por exemplo, o agente direto OMS ou o agente gestor de operações do System Center. As máquinas com estes agentes são identificadas como não monitorizadas porque estes agentes não estão totalmente suportados no Centro de Segurança. Para beneficiar totalmente de todas as capacidades do Centro de Segurança, é necessária a extensão MMA.
+    Um VM ou computador não é monitorizado pelo Security Center se a máquina não estiver a executar a extensão do agente Log Analytics. Uma máquina pode ter um agente local já instalado, por exemplo, o agente direto OMS ou o agente gestor de operações do System Center. As máquinas com estes agentes são identificadas como não monitorizadas porque estes agentes não estão totalmente suportados no Centro de Segurança. Para beneficiar plenamente de todas as capacidades do Security Center, é necessária a extensão do agente Log Analytics.
 
     Para obter mais informações sobre as razões pelas quais o Security Center não consegue monitorizar com sucesso VMs e computadores inicialmente para o fornecimento automático, consulte problemas de [saúde do agente de monitorização](security-center-troubleshooting-guide.md#mon-agent).
 

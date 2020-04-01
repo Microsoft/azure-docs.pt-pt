@@ -1,5 +1,5 @@
 ---
-title: Monitorar dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
+title: Monitorize os dispositivos na solução de Monitorização Remota - Azure / Microsoft Docs
 description: Neste tutorial irá aprender a monitorizar os seus dispositivos IoT com o acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 400a71b11fde210b889d938041e88c5ebe73c1dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890875"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorizar os seus dispositivos IoT
@@ -31,7 +31,7 @@ Neste tutorial:
 > * Ver alertas a partir dos seus dispositivos
 > * Ver os KPIs do sistema
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -39,11 +39,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para selecionar os dispositivos ligados que são apresentados na página **Dashboard**, utilize os filtros. Para apresentar apenas os dispositivos de **Camião**, escolha o filtro **Camiões** incorporado na lista pendente de filtros:
 
-[![Filtrar camiões no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
+[![Filtro para camiões no tablier](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
 Quando aplicar um filtro, apenas os dispositivos que correspondem às condições do filtro são apresentados no mapa e no painel de telemetria. Pode ver que existem dois camiões ligados ao acelerador de soluções, incluindo o camião-02:
 
-[![São apresentados apenas os camiões no mapa](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
+[![Apenas os camiões são exibidos no mapa](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
 Para criar, editar e eliminar filtros, clique em **Gerir grupos de dispositivos**.
 
@@ -51,11 +51,11 @@ Para criar, editar e eliminar filtros, clique em **Gerir grupos de dispositivos*
 
 O acelerador de soluções rastreia a telemetria em tempo real no gráfico na página **Dashboard**. A parte superior do gráfico de telemetria mostra os tipos de telemetria disponíveis para os dispositivos, incluindo o camião-02, selecionados pelo filtro atual. Por predefinição, o gráfico mostra a latitude dos camiões e o camião-02 parece estar estacionário:
 
-[![Tipos de telemetria de camião](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
+[![Tipos de telemetria de caminhão](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
 Para ver a telemetria da temperatura dos camiões, clique em **Temperatura**. Pode ver como a temperatura do camião-02 tem variado durante a última hora:
 
-[![Gráfico da telemetria de temperatura de camião](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
+[![Lote de telemetria de temperatura do caminhão](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
 ## <a name="view-the-map"></a>Ver o mapa
 
@@ -67,13 +67,13 @@ Para ver os detalhes do camião-02, faça um deslocamento panorâmico e amplie o
 * Métodos que o dispositivo suporta
 * Propriedades do dispositivo
 
-[![Ver detalhes do dispositivo no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
+[![Ver detalhes do dispositivo no painel de instrumentos](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
 
 ## <a name="view-alerts"></a>Ver alertas
 
-O painel **Alertas** mostra informações detalhadas sobre os alertas mais recentes dos seus dispositivos. Os alertas do camião-02 indicam uma temperatura de carga superior à normal:
+O painel Alertas apresenta informações **detalhadas** sobre os mais recentes alertas dos seus dispositivos. Os alertas do camião-02 indicam uma temperatura de carga superior à normal:
 
-[![Ver alertas do dispositivo no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
+[![Ver alertas de dispositivo no painel de instrumentos](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
 Pode utilizar um filtro para ajustar o intervalo de tempo para os alertas recentes. Por predefinição, o painel apresenta alertas desde a última hora.
 
@@ -81,7 +81,7 @@ Pode utilizar um filtro para ajustar o intervalo de tempo para os alertas recent
 
 A página **Dashboard** apresenta KPIs do sistema calculados pelo acelerador de soluções no painel **Análise**:
 
-[![KPIs do Dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
+[![KPIs do painel](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
 
 O dashboard mostra três KPIs para os alertas selecionados pelos filtros atuais do dispositivo e do período de tempo:
 

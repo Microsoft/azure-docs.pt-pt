@@ -1,5 +1,5 @@
 ---
-title: Implemente uma aplicação de dupla pilha IPv6 na rede virtual Azure - Modelo de Manjedoura de Recursos (pré-visualização)
+title: Implemente uma aplicação de dupla pilha IPv6 na rede virtual Azure - Modelo de Manjedoura de Recursos
 titlesuffix: Azure Virtual Network
 description: Este artigo mostra como implementar uma aplicação de dupla pilha IPv6 com O Equilíbrio de Carga Padrão na rede virtual Azure utilizando modelos VM do Gestor de Recursos Azure.
 services: virtual-network
@@ -10,18 +10,18 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012854"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420651"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Implementar uma aplicação de dupla pilha IPv6 na rede virtual Azure - Modelo (Pré-visualização)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Implementar uma aplicação de dupla pilha IPv6 na rede virtual Azure - Modelo
 
-Este artigo fornece uma lista de tarefas de configuração IPv6 com a parte do modelo VM do Gestor de Recursos Azure que se aplica. Utilize o modelo descrito neste artigo para implementar uma aplicação dual stack (IPv4 + IPv6) utilizando o Standard Load Balancer em Azure que inclui uma rede virtual de dupla pilha com subredes IPv4 e IPv6, um Balancer de Carga Padrão com dupla (IPv4 + IPv6) front-end configurações, VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos. 
+Este artigo fornece uma lista de tarefas de configuração IPv6 com a parte do modelo VM do Gestor de Recursos Azure que se aplica. Utilize o modelo descrito neste artigo para implementar uma aplicação dual stack (IPv4 + IPv6) utilizando o Standard Load Balancer em Azure que inclui uma rede virtual de dupla pilha com subnets IPv4 e IPv6, um Balancer de Carga Padrão com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos. 
 
 ## <a name="required-configurations"></a>Configurações necessárias
 

@@ -8,13 +8,13 @@ ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78298535"
 ---
-# <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Move Azure VMs entre governo azure e regiões públicas 
+# <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e o Azure Government 
 
 É melhor transferir os seus VMs IaaS entre o Governo de Azure e as regiões públicas para aumentar a disponibilidade dos seus VMs existentes, melhorar a gestão, ou por razões de governação, conforme descrito [aqui.](azure-to-azure-move-overview.md)
 
@@ -79,7 +79,7 @@ O serviço de Mobilidade deve ser instalado em cada servidor que pretende replic
 
 - Você pode usar um domínio ou conta local
 - Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso remoto ao utilizador na máquina local. Para tal, no registo em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,** adicione a entrada DWORD **LocalAccountTokenFilterPolicy,** com um valor de 1.
-- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para o Linux, a conta deve estar na raiz do servidor Linux fonte.
 
 
@@ -96,9 +96,9 @@ O serviço de Mobilidade deve ser instalado em cada servidor que pretende replic
 
      Consulte os seguintes documentos para criar os recursos de rede mais utilizados para si, com base na configuração vm de origem.
 
-    - [Grupos de Segurança da Rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+    - [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
-    - [IP Público](../virtual-network/virtual-network-public-ip-address.md)
+    - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
     Para quaisquer outros componentes de rede, consulte a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network)de rede .
 
@@ -109,12 +109,12 @@ Os passos abaixo irão guiá-lo como usar a Recuperação do Site Azure para cop
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Crie o cofre em qualquer região, exceto na região de origem.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique **em Criar um recurso** > Ferramentas de **gestão** > backup e recuperação do **site.**
+1. Inscreva-se nos Serviços de > **Recuperação**do [portal Azure.](https://portal.azure.com)
+2. Clique em Criar uma cópia de segurança**e recuperação**de**ferramentas** > de gestão de **recursos.** > 
 3. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais de um por. subscrição, selecione a apropriada.
 4. Crie um grupo de recursos **ContosoRG**.
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Nos cofres dos Serviços de Recuperação, clique em **visão geral** > **ConsotoVMVault** >  **+Replicate**
+6. Nos cofres dos Serviços de Recuperação, clique em **Overview** > **ConsotoVMVault** > **+Replicate**
 7. Selecione **Para Azure** > **Não virtualizado/Outros**.
 
 ### <a name="set-up-the-configuration-server-to-discover-vms"></a>Configurar o servidor de configuração para descobrir VMs.
@@ -122,7 +122,7 @@ Os passos abaixo irão guiá-lo como usar a Recuperação do Site Azure para cop
 
 Instale o servidor de configuração, registe-o no cofre e descubra os VMs.
 
-1. Clique na **recuperação** do local > preparar a > **Fonte**de **infraestruturas** .
+1. Clique em **recuperação** > do site Preparar**Fonte de****Infraestrutura** > .
 2. Se não tiver um servidor de configuração, clique em **+Configuração do servidor**.
 3. No **Servidor adicionar,** verifique se o Servidor de **Configuração** aparece no **tipo servidor**.
 4. Descarregue o ficheiro de instalação unificada de recuperação do site.
@@ -153,13 +153,13 @@ Executar configuração unificada como administrador local, para instalar o serv
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após o registo terminar, o servidor de configuração é apresentado na página **Definições** > **Servidores** no cofre.
+Após o registo terminar, o servidor de configuração é apresentado na página **'Servidores** de **Definições'** > no cofre.
 
 ### <a name="configure-target-settings-for-replication"></a>Configurar as definições de alvo para a replicação
 
 Selecione e verifique os recursos de destino.
 
-1. Clique em **Preparar a infraestrutura** > **Destino** e selecione a subscrição do Azure que pretende utilizar.
+1. Clique em Preparar**o Target** **de Infraestruturas** > e selecione a subscrição Azure que pretende utilizar.
 2. Especifique o modelo de implementação do alvo.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
@@ -168,7 +168,7 @@ Selecione e verifique os recursos de destino.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
+1. Para criar uma nova política de replicação, clique em Políticas > de Replicação de **Infraestruturas** > de**Recuperação**do Site **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Este valor especifica a frequência com que os pontos de recuperação de dados são criados. Será gerado um alerta se a replicação contínua exceder este limite.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
@@ -184,30 +184,30 @@ A política é associada automaticamente ao servidor de configuração. Por pred
 - A Recuperação do Site instalará o serviço de Mobilidade quando a replicação estiver ativada.
 - Quando ativa a replicação de um servidor, pode demorar 15 minutos ou mais para que as alterações produzam efeito e apareçam no portal.
 
-1. Clique em **Replicar aplicação** > **Origem**.
+1. Clique em **Replicate aplicação** > **Origem**.
 2. Em **Origem**, selecione o servidor de configuração.
 3. No **tipo máquina,** selecione **Máquinas Físicas**.
 4. Selecione o servidor de processo (o servidor de configuração). Em seguida, clique em **OK**.
 5. No **Target,** selecione a subscrição e o grupo de recursos em que pretende criar os VMs Azure após a falha. Escolha o modelo de implementação que pretende utilizar no Azure (gestão clássica ou de recursos).
 6. Selecione a conta de armazenamento do Azure que pretende utilizar para replicar os dados. 
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se vão ligar quando forem criadas após a ativação pós-falha.
-8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede a todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. 
+8. **Selecione configurar agora para máquinas selecionadas,** para aplicar a definição de rede em todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. 
 9. Em **Máquinas Físicas**, e clique em **+Máquina Física**. Especifique o nome e o endereço IP. Selecione o sistema operativo da máquina que pretende replicar. Leva alguns minutos para os servidores serem descobertos e listados. 
 
    > [!WARNING]
    > Você precisa inserir o endereço IP do Azure VM que pretende mover
 
-10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que será utilizada pelo servidor de processos para instalar automaticamente o serviço de Mobilidade na máquina.
-11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. 
-12. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois da tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
+10. Em **propriedades** > **Configurar propriedades,** selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço mobility na máquina.
+11. Nas **definições** > de replicação**Configure as definições de replicação,** verifique se a política de replicação correta é selecionada. 
+12. Clique na **replicação de ativação**. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Cenários** > **Empregos** > de Recuperação de**Locais**. Após o trabalho de **Proteção final,** a máquina está pronta para a falha.
 
 
-Para monitorizar os servidores que adiciona, pode verificar a última hora descoberta para eles em Servidores de **Configuração** > **Último Contacto Em**. Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
+Para monitorizar os servidores que adiciona, pode verificar a última hora descoberta para eles em **Servidores** > de Configuração**Último Contacto Em**. Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 
 
-1. Navegue para o cofre, em **Definições** > **itens replicados,** clique na máquina Virtual que pretende mover-se para a região alvo, clique no ícone **de Failover +Test.**
+1. Navegue para o cofre, em**itens replicados**de **Definições,** > clique na máquina Virtual que pretende mover-se para a região alvo, clique no ícone **+Failover** do teste.
 2. Em **Ativação Pós-falha**, selecione um ponto de recuperação para utilizar na ativação pós-falha:
 
    - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
@@ -225,9 +225,9 @@ Para monitorizar os servidores que adiciona, pode verificar a última hora desco
 
 ## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Execute a mudança para a região alvo e confirme.
 
-1. Navegue para o cofre, em **Definições** > **itens replicados,** clique na máquina virtual e clique em **Failover**.
+1. Navegue para o cofre, em**itens replicados**de **Definições,** > clique na máquina virtual e clique em **Failover**.
 2. Em **Ativação pós-falha**, selecione **Mais recente**. 
-3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**. 
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode acompanhar o progresso da falha na página **Jobs.** 
 4. Uma vez concluído o trabalho, verifique se o VM aparece na região-alvo de Azure, como esperado.
 5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isto termina o processo de mudança para a região alvo. Espere até o trabalho de compromisso terminar.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: dapine
-ms.openlocfilehash: 17b5e21291078f424ee775f21add181859dbbed5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 977c6ec9aa1cd6a8b8a545d123c5308bb8c51651
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131642"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409010"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -212,7 +212,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-JessaRUS'>
+    name='en-US-AriaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
@@ -220,8 +220,8 @@ Authorization: Bearer [Base64 access_token]
 Consulte os nossos quickstarts para exemplos específicos da linguagem:
 
 * [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Pitão](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Nó.js](quickstart-nodejs-text-to-speech.md)
+* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
+* [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Códigos de estado HTTP
 

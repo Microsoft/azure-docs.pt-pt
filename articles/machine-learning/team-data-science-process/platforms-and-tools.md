@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d26dc55cfd0f2ef0bb78e4153fffe3f1cb910b73
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251612"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474865"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -49,7 +49,7 @@ Também inclui **ferramentas ML e IA** como xgboost, mxnet e Vowpal Wabbit.
 
 Atualmente o DSVM está disponível nos sistemas **operativos Windows** e **Linux CentOS.** Escolha o tamanho do seu DSVM (número de núcleos de CPU e a quantidade de memória) com base nas necessidades dos projetos de ciência de dados que está a planear executar nele. 
 
-Para obter mais informações sobre a edição do Windows do DSVM, consulte a [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) no Azure Marketplace. Para a edição linux do DSVM, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Para obter mais informações sobre a edição do Windows do DSVM, consulte a [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) no Azure Marketplace. Para a edição linux do DSVM, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu).
 
 Para aprender a executar algumas das tarefas comuns de ciência de dados no DSVM de forma eficiente, veja [10 coisas que pode fazer na Máquina Virtual](../data-science-virtual-machine/vm-do-ten-things.md) da Ciência dos Dados
 

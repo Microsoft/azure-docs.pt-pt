@@ -4,10 +4,10 @@ description: Tutorial ilustrando como criar toda uma arquitetura híbrida de ref
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472184"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: Criar um hub e falou de topologia de rede híbrida em Azure usando terraforma
@@ -59,23 +59,23 @@ Alguns dos usos típicos para um hub e arquitetura falada incluem:
 
 À medida que trabalha através de cada tutorial desta série, vários componentes são definidos em scripts terraformedistintos. A arquitetura de demonstração criada e implantada consiste nos seguintes componentes:
 
-- **Rede no local**. Uma rede privada de área local que funciona com uma organização. Para a arquitetura de referência do hub e falou, um VNet em Azure é usado para simular uma rede no local.
+- **Rede no local.** Uma rede privada de área local que funciona com uma organização. Para a arquitetura de referência do hub e falou, um VNet em Azure é usado para simular uma rede no local.
 
 - **Dispositivo VPN**. Um dispositivo ou serviço VPN fornece conectividade externa à rede no local. O dispositivo VPN pode ser um aparelho de hardware ou uma solução de software. 
 
 - **VNet do Hub**. O centro é o ponto central de conectividade com a sua rede no local e um local para hospedar serviços. Estes serviços podem ser consumidos pelas diferentes cargas de trabalho alojadas nos VNets falados.
 
-- **Sub-rede do gateway**. Os portões VNet são mantidos na mesma sub-rede.
+- **Sub-rede gateway**. Os portões VNet são mantidos na mesma sub-rede.
 
 - **VNets Spoke**. Os spokes podem ser utilizados para isolar cargas de trabalho nas suas próprias VNets, geridas separadamente dos outros spokes. Cada carga de trabalho pode incluir várias camadas com várias sub-redes ligadas através de balanceadores de carga do Azure. 
 
-- **VNet peering**. Dois VNets podem ser ligados usando uma ligação de observação. As ligações de peering são ligações não transitivas de baixa latência entre as VNets. Uma vez espreitados, os VNets trocam o tráfego utilizando a espinha dorsal Azure, sem precisar em router. Num hub e na topologia da rede, o vNet peering é usado para ligar o hub a cada um dos discursos. Você pode peer VNets na mesma região, ou regiões diferentes.
+- **VNet espreitando**. Dois VNets podem ser ligados usando uma ligação de observação. As ligações de peering são ligações não transitivas de baixa latência entre as VNets. Uma vez espreitados, os VNets trocam o tráfego utilizando a espinha dorsal Azure, sem precisar em router. Num hub e na topologia da rede, o vNet peering é usado para ligar o hub a cada um dos discursos. Você pode peer VNets na mesma região, ou regiões diferentes.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
 Crie o diretório que detém os seus ficheiros de configuração Terraform para a demonstração.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
@@ -87,7 +87,7 @@ Crie o diretório que detém os seus ficheiros de configuração Terraform para 
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `hub-spoke`.
+1. Crie um diretório denominado `hub-spoke`.
 
     ```bash
     mkdir hub-spoke
@@ -103,7 +103,7 @@ Crie o diretório que detém os seus ficheiros de configuração Terraform para 
 
 Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
 
-1. Na Cloud Shell, abra um novo ficheiro chamado `main.tf`.
+1. Na Cloud Shell, abra `main.tf`um novo ficheiro chamado .
 
     ```bash
     code main.tf
@@ -123,7 +123,7 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
 
 Crie o ficheiro de configuração Terraform para variáveis comuns que são usadas em diferentes scripts.
 
-1. Na Cloud Shell, abra um novo ficheiro chamado `variables.tf`.
+1. Na Cloud Shell, abra `variables.tf`um novo ficheiro chamado .
 
     ```bash
     code variables.tf

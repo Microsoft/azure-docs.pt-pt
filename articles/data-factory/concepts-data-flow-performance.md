@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 95a60abef283984d66736358d2d02048f08d700d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246998"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409850"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -69,7 +69,7 @@ Por predefinição, ligar o depurado utilizará o tempo de funcionação padrão
 
 No âmbito **das Opções de Origem** na transformação da fonte, as seguintes definições podem afetar o desempenho:
 
-* O tamanho do lote instrui a ADF a armazenar dados em conjuntos de memória em vez de fila a linha. O tamanho do lote é uma configuração opcional e você pode ficar sem recursos nos nós de computação se não forem dimensionados corretamente.
+* O tamanho do lote instrui a ADF a armazenar dados em conjuntos na memória Spark em vez de fila a linha. O tamanho do lote é uma configuração opcional e você pode ficar sem recursos nos nós de computação se não forem dimensionados corretamente. Não configurar esta propriedade utilizará as predefinições do lote de cache spark.
 * Definir uma consulta pode permitir-lhe filtrar linhas na fonte antes de chegarem ao Fluxo de Dados para serem processados. Isto pode tornar a aquisição inicial de dados mais rápida. Se utilizar uma consulta, pode adicionar dicas de consulta opcionais para o seu Azure SQL DB, como READ UNCOMMITTED.
 * Ler não comprometido fornecerá resultados de consulta mais rápidos sobre a transformação de Origem
 
@@ -77,7 +77,7 @@ No âmbito **das Opções de Origem** na transformação da fonte, as seguintes 
 
 ### <a name="sink-batch-size"></a>Tamanho do lote de pia
 
-Para evitar o processamento em linha dos seus fluxos de dados, detete o tamanho do **lote** no separador Definições para a pia de DW Azure SQL DB e Azure SQL DW. Se o tamanho do lote estiver definido, a base de dados de processos da ADF escreve em lotes com base no tamanho fornecido.
+Para evitar o processamento em linha dos seus fluxos de dados, detete o tamanho do **lote** no separador Definições para a pia de DW Azure SQL DB e Azure SQL DW. Se o tamanho do lote estiver definido, a base de dados de processos da ADF escreve em lotes com base no tamanho fornecido. Não configurar esta propriedade utilizará as predefinições do lote de cache spark.
 
 ![Sink](media/data-flow/sink4.png "Sink")
 

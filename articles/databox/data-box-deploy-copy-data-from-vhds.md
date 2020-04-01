@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239253"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501850"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Utilizar caixa de dados para importar dados como discos geridos em Azure
 
@@ -23,10 +23,10 @@ Este tutorial descreve como usar a Caixa de Dados Azure para migrar os VHDs no l
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Rever pré-requisitos
 > * Ligar ao Data Box
 > * Copiar dados para o Data Box
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,18 +40,20 @@ Antes de começar, certifique-se de que:
     - Tamanhos de [disco geridos suportados nos limites](data-box-limits.md#azure-object-size-limits)de tamanho do objeto Azure .
     - [Introdução aos discos geridos pelo Azure.](/azure/virtual-machines/windows/managed-disks-overview) 
 
+5. Manteve uma cópia dos dados de origem até confirmar que a Caixa de Dados transferiu os seus dados para o Armazenamento Azure.
+
 ## <a name="connect-to-data-box"></a>Ligar ao Data Box
 
-Com base nos grupos de recursos especificados, a Data Box cria uma parte para cada grupo de recursos associados. Por exemplo, se `mydbmdrg1` e `mydbmdrg2` foram criados ao fazer a encomenda, são criadas as seguintes ações:
+Com base nos grupos de recursos especificados, a Data Box cria uma parte para cada grupo de recursos associados. Por exemplo, `mydbmdrg1` `mydbmdrg2` se e foram criadas ao fazer a encomenda, são criadas as seguintes ações:
 
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
 Dentro de cada ação, são criadas as seguintes três pastas que correspondem a contentores na sua conta de armazenamento.
 
-- Premium SSD
-- HDD padrão
-- SSD padrão
+- SSD Premium
+- HDD Standard
+- SSD Standard
 
 A tabela que se segue mostra os caminhos do CNU para as ações na sua Caixa de Dados.
  
@@ -93,12 +95,12 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
     ```
     C:\>net use \\169.254.250.200\mydbmdrgl_MDisk /u:mdisk
-    Enter the password for ‘mdisk’ to connect to '169.254.250.200':
+    Enter the password for 'mdisk' to connect to '169.254.250.200':
     The command completed successfully.
     C: \>
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
+4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
@@ -143,8 +145,8 @@ Reveja as seguintes considerações antes de iniciar a cópia de dados:
 
 Dependendo se está a ligar-se via SMB ou NFS, pode utilizar:
 
-- [Copiar dados via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [Copiar dados via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [Copiar dados através de SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
+- [Copiar dados através de NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
 Espere que os trabalhos de cópia terminem. Certifique-se de que os trabalhos de cópia terminaram sem erros antes de passar para o próximo passo.
 

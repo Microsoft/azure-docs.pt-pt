@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d15d53816d916bd28841aae39255685524faa2d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128355"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477863"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual linux data science em Azure
 
@@ -29,7 +29,7 @@ Neste walkthrough, analisamos o conjunto de dados da [base de spam.](https://arc
 Antes de poder utilizar um Linux DSVM, deve ter os seguintes pré-requisitos:
 
 * **Assinatura Azure.** Para obter uma subscrição Azure, consulte [Criar a sua conta Azure gratuita hoje](https://azure.microsoft.com/free/).
-* [**Máquina virtual linux data science**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre o fornecimento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Máquina virtual linux data science**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Para obter informações sobre o fornecimento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
 * Para uma experiência de scrolling mais suave, no navegador web Firefox `gfx.xrender.enabled` da `about:config`DSVM, altere a bandeira em . [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também `mousewheel.enable_pixel_scrolling` `False`definir para . [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta de Aprendizagem automática Azure.** Se ainda não tem uma, inscreva-se para uma nova conta na página inicial do [Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d127d3f9e66b7d2d40aa420e2116fee17d996514
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033128"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437299"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como permitir a virtualização aninhada num VM Azure
 
@@ -26,7 +26,7 @@ Este artigo passa por permitir o Hyper-V num VM Azure e configurar a conectivida
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar um Azure VM capaz de nidificação
 
-Crie um novo Windows Server 2016 Azure VM.  Para uma referência rápida, todas as máquinas virtuais v3 suportam a virtualização aninhada. Para obter uma lista completa dos tamanhos das máquinas virtuais que suportam a nidificação, consulte o artigo da [Unidade de Computação Azure](acu.md).
+Crie um novo Windows Server 2016 Azure VM. Para obter uma lista completa dos tamanhos das máquinas virtuais que suportam a nidificação, consulte o artigo da [Unidade de Computação Azure](acu.md).
 
 Lembre-se de escolher um tamanho VM grande o suficiente para suportar as exigências de uma máquina virtual de hóspedes. Neste exemplo, estamos a utilizar um D3_v3 tamanho Azure VM. 
 

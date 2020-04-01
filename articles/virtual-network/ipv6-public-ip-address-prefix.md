@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72965178"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420528"
 ---
-# <a name="reserved-public-ipv6-address-prefix-preview"></a>Prefixo de endereço iPv6 público reservado (Pré-visualização)
+# <a name="reserved-public-ipv6-address-prefix"></a>Prefixo de endereço iPv6 público reservado
 
 Em Azure, as redes virtuais de dupla pilha (IPv4+IPv6) e as máquinas virtuais (VMs) são seguras por padrão, uma vez que não têm conectividade com a Internet. Pode facilmente adicionar uma conectividade IPv6 à Internet aos seus Equilíbrios de Carga Azure e VMs com endereços IPv6 públicos que obtém do Azure.
 
@@ -30,8 +30,7 @@ Quaisquer IPs públicos que reserve estão associados a uma região Azure à sua
 
 Além de reservar endereços IPv6 individuais, pode reservar gamas contíguas de endereços Azure IPv6 (conhecidos como prefixo IP) para a sua utilização.  Semelhantes aos endereços IP individuais, prefixos reservados estão associados a uma região Azure à sua escolha e à sua subscrição Azure. Reservar uma previsível e contígua gama de endereços tem muitos usos. Por exemplo, pode simplificar consideravelmente a lista de *ip* das suas aplicações hospedadas no Azure pela sua empresa e pelos seus clientes, uma vez que as suas gamas ip estáticas podem ser prontamente programadas para firewalls no local.  Pode criar iPs públicos individuais a partir do seu prefixo IP, conforme necessário e quando eliminar esses IPs públicos individuais, eles são *devolvidos* ao seu intervalo reservado para que possa reutilizá-los mais tarde. Todos os endereços IP do seu Prefixo IP estão reservados para a sua utilização exclusiva até que apague o prefixo.
 
-> [!Important]
-> O IPv6 para a Rede Virtual Azure encontra-se atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+
 
 ## <a name="ipv6-prefix-sizes"></a>Tamanhos de prefixo IPv6
 Estão disponíveis os seguintes tamanhos de prefixo IP públicos:

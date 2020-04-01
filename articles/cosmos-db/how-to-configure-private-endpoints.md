@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 944341b1ef88c7e3d64a74536720eb9fb1d17321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152745"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421426"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Link Privado Azure para uma conta Azure Cosmos
 
@@ -24,7 +24,7 @@ Pode ligar-se a uma conta Azure Cosmos configurada com private link utilizando o
 Este artigo descreve os passos para criar um ponto final privado. Assume que está a usar o método de aprovação automática.
 
 > [!NOTE]
-> O suporte de pontofinal privado está atualmente disponível em regiões apoiadas apenas para o modo de ligação gateway. Para o modo direto, está disponível como uma função de pré-visualização.
+> O suporte de ponto final privado está atualmente disponível apenas para o modo de ligação gateway. Para o modo direto, está disponível como uma função de pré-visualização.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Criar um ponto final privado utilizando o portal Azure
 
@@ -639,14 +639,9 @@ Pode utilizar os mesmos passos quando remover uma região. Depois de remover a r
 
 As seguintes limitações aplicam-se quando se está a usar o Private Link com uma conta Azure Cosmos:
 
-* O suporte do Private Link para contas Azure Cosmos e redes virtuais está disponível apenas em regiões específicas. Para obter uma lista de regiões apoiadas, consulte a secção [de regiões disponíveis](../private-link/private-link-overview.md#availability) do artigo Private Link. 
-
-  > [!NOTE]
-  > Para criar um ponto final privado, certifique-se de que tanto a rede virtual como a conta Azure Cosmos estão em regiões apoiadas.
-
 * Quando estiver a utilizar o Private Link com uma conta Azure Cosmos utilizando uma ligação de modo direto, só pode utilizar o protocolo TCP. O protocolo HTTP ainda não é suportado.
 
-* O suporte de pontofinal privado está atualmente disponível em regiões apoiadas apenas para o modo de ligação gateway. Para o modo direto, está disponível como uma função de pré-visualização.
+* O suporte de ponto final privado está atualmente disponível apenas para o modo de ligação gateway. Para o modo direto, está disponível como uma função de pré-visualização.
 
 * Quando está a utilizar a API do Azure Cosmos DB para contas MongoDB, um ponto final privado é suportado para contas apenas `*.mongo.cosmos.azure.com`na versão do servidor 3.6 (isto é, contas usando o ponto final no formato). O Private Link não é suportado para contas na versão 3.2 do servidor `*.documents.azure.com`(isto é, contas que utilizam o ponto final no formato). Para utilizar o Private Link, deve migrar contas antigas para a nova versão.
 

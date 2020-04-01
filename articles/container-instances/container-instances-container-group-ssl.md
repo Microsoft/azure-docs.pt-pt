@@ -3,12 +3,12 @@ title: Ativar o SSL com o recipiente sidecar
 description: Crie um ponto final SSL ou TLS para um grupo de contentores que funciona em Instâncias de Contentores Azure, executando Nginx num recipiente de sidecar
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 524e997cf6c7c464cc352048b1abf4be119d2f37
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 43b39c7c13d6d5e52aae2ce1706e4880ab27d225
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294950"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Ativar um ponto final SSL num recipiente de sidecar
 
@@ -24,7 +24,7 @@ Consulte os [próximos passos](#next-steps) para outras abordagens para permitir
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para completar este artigo. Se quiser usá-lo localmente, recomenda-se a versão 2.0.55 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para completar este artigo. Se quiser usá-lo localmente, recomenda-se a versão 2.0.55 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
@@ -46,19 +46,19 @@ Executar o seguinte comando para criar o certificado auto-assinado (ficheiro.crt
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-Deverá agora ver três ficheiros no diretório: o pedido de certificado (`ssl.csr`), a chave privada (`ssl.key`) e o certificado auto-assinado (`ssl.crt`). Usa-se `ssl.key` e `ssl.crt` em passos posteriores.
+Deverá agora ver três ficheiros no diretório: o pedido de certificado (`ssl.csr`), a chave privada (`ssl.key`) e o certificado auto-assinado (`ssl.crt`). `ssl.key` Usa-se `ssl.crt` e em etapas posteriores.
 
 ## <a name="configure-nginx-to-use-ssl"></a>Configure nginx para usar SSL
 
 ### <a name="create-nginx-configuration-file"></a>Criar ficheiro de configuração Nginx
 
-Nesta secção, cria-se um ficheiro de configuração para a Nginx utilizar o SSL. Comece por copiar o seguinte texto num novo ficheiro chamado `nginx.conf`. Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
+Nesta secção, cria-se um ficheiro de configuração para a Nginx utilizar o SSL. Comece por copiar o seguinte texto `nginx.conf`num novo ficheiro chamado . Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
 
 ```console
 code nginx.conf
 ```
 
-Em `location`, certifique-se de que `proxy_pass` se coma a porta correta para a sua aplicação. Neste exemplo, definimos a porta 80 para o contentor `aci-helloworld`.
+Em `location`, certifique-se de definir `proxy_pass` com a porta correta para a sua aplicação. Neste exemplo, definimos a porta `aci-helloworld` 80 para o contentor.
 
 ```console
 # nginx Configuration File
@@ -138,7 +138,7 @@ Agora, desloque o grupo do contentor especificando as configurações do recipie
 
 ### <a name="create-yaml-file"></a>Criar ficheiro YAML
 
-Copie o seguinte YAML num novo ficheiro chamado `deploy-aci.yaml`. Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
+Copie o seguinte YAML `deploy-aci.yaml`num novo ficheiro chamado . Em Azure Cloud Shell, pode utilizar o Código do Estúdio Visual para criar o ficheiro no seu diretório de trabalho:
 
 ```console
 code deploy-aci.yaml
@@ -196,7 +196,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Criar um grupo de recursos com o [grupo AZ criar](/cli/azure/group#az-group-create) comando:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 Desloque o grupo de contentores com o [recipiente az criar](/cli/azure/container#az-container-create) comando, passando o ficheiro YAML como argumento.
@@ -223,7 +223,7 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-ssl-connection"></a>Verificar a ligação SSL
 
-Utilize o seu navegador para navegar para o endereço IP público do grupo de contentores. O endereço IP mostrado neste exemplo é `52.157.22.76`, por isso o URL é **https://52.157.22.76** . Tem de utilizar https para ver a aplicação de execução, devido à configuração do servidor Nginx. As tentativas de ligação ao HTTP falham.
+Utilize o seu navegador para navegar para o endereço IP público do grupo de contentores. O endereço IP mostrado neste `52.157.22.76`exemplo é, **https://52.157.22.76**assim o URL é . Tem de utilizar https para ver a aplicação de execução, devido à configuração do servidor Nginx. As tentativas de ligação ao HTTP falham.
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
@@ -241,5 +241,5 @@ Enquanto este artigo utiliza Nginx no sidecar, você pode usar outro fornecedor 
 Se implantar o seu grupo de contentores numa [rede virtual Azure,](container-instances-vnet.md)pode considerar outras opções para ativar um ponto final SSL para uma instância de contentor de backend, incluindo:
 
 * [Proxies de Funções Azure](../azure-functions/functions-proxies.md)
-* [Gestão de API do Azure](../api-management/api-management-key-concepts.md)
+* [API Management do Azure](../api-management/api-management-key-concepts.md)
 * Gateway de [aplicação azure](../application-gateway/overview.md) - consulte um modelo de [implantação](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)de amostras .

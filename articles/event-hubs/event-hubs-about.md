@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b3af6a6cee4375a110c894b6b72655605ad077d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372245"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398116"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - Uma plataforma de streaming de big data e serviço de ingestão de eventos
 O Azure Event Hubs é uma plataforma de streaming de grandes dados e um serviço de ingestão de eventos. Pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches.
@@ -61,7 +61,7 @@ Com os Hubs de Eventos, pode começar com fluxos de dados em megabytes e aumenta
 
 [Os Hubs de Eventos para os ecossistemas Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem que os clientes e aplicações apache Kafka [(1.0 e mais tarde)](https://kafka.apache.org/) falem com os Event Hubs. Não precisas de configurar, configurar e gerir os teus próprios aglomerados Kafka.
 
-Com um vasto ecossistema disponível em [vários idiomas (.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs)pode facilmente começar a processar os seus fluxos a partir de Centros de Eventos. Todas as linguagens de cliente suportadas oferecem integração de nível baixo. O ecossistema também lhe proporciona uma integração perfeita com serviços Azure Stream Analytics e Azure E assim permite-lhe construir arquiteturas sem servidores.
+Com um vasto ecossistema disponível em várias línguas [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java,](https://github.com/Azure/azure-sdk-for-java/) [Python,](https://github.com/Azure/azure-sdk-for-python/) [JavaScript,](https://github.com/Azure/azure-sdk-for-js/)pode facilmente começar a processar os seus fluxos a partir de Event Hubs. Todas as linguagens de cliente suportadas oferecem integração de nível baixo. O ecossistema também lhe proporciona uma integração perfeita com serviços Azure Stream Analytics e Azure E assim permite-lhe construir arquiteturas sem servidores.
 
 ## <a name="key-architecture-components"></a>Principais componentes da arquitetura
 Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
@@ -74,7 +74,14 @@ Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-feat
 
 A imagem seguinte mostra a arquitetura do processamento de fluxos dos Hubs de Eventos:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+![Hubs de Eventos](./media/event-hubs-about/event_hubs_architecture.png)
+
+## <a name="event-hubs-on-azure-stack-hub"></a>Hubs de eventos no Hub de Stack Azure
+Os Hubs de Eventos no Azure Stack Hub permitem-lhe realizar cenários de nuvem híbrida. As soluções de streaming e baseadas em eventos são suportadas, tanto no local como no processamento de nuvens Azure. Quer o seu cenário seja híbrido (conectado) ou desligado, a sua solução pode suportar o processamento de eventos/streams em larga escala. O seu cenário está apenas ligado ao tamanho do cluster Event Hubs, que pode fornecer de acordo com as suas necessidades. 
+
+As edições do Event Hubs (no Azure Stack Hub e no Azure) oferecem um alto grau de paridade de recursos. Esta paridade significa que Os DSDs, amostras, PowerShell, CLI e portais oferecem uma experiência semelhante, com poucas diferenças. 
+
+Os Hubs de Eventos em Stack são gratuitos durante a pré-visualização pública. Para mais informações, consulte o [Event Hubs no Azure Stack Hub.](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -83,7 +90,7 @@ Para começar a usar Hubs de Eventos, consulte o Envio e receba tutoriais de **e
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
-- [Pitão](get-started-python-send-v2.md)
+- [Python](get-started-python-send-v2.md)
 - [JavaScript](get-started-node-send-v2.md)
 - [Ir](event-hubs-go-get-started-send.md)
 - [C (apenas enviar)](event-hubs-c-getstarted-send.md)

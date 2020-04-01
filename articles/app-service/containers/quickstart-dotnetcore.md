@@ -6,13 +6,13 @@ ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: a23ad0fbe55367552c0747c6199328130fd194d4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: bd8cb11f5d4881eed4cb4371a7d85fc26818a651
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524126"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046211"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Crie uma aplicação ASP.NET Core no App Service no Linux
 
@@ -20,7 +20,7 @@ ms.locfileid: "77524126"
 > Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para ser implementado no Serviço de Aplicações no _Windows,_ consulte [Criar uma aplicação ASP.NET Core no Azure](../app-service-web-get-started-dotnet.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Cria a aplicação utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)e utiliza o Git para implementar o código .NET Core para a aplicação.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Cria a aplicação utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)e utiliza o Git para implementar o código .NET Core para a aplicação.
 
 ![Aplicação Web de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -32,8 +32,8 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
-* <a href="https://www.microsoft.com/net/core/" target="_blank">Instale o .NET Core</a>
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">Instalar .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Criou a aplicação localmente
 
@@ -86,7 +86,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Navegue na sua aplicação recém-criada. Substitua _&lt;nome de aplicativo>_ com o nome da sua aplicação.
+Navegue na sua aplicação recém-criada. Substitua o _ &lt;>de nome da aplicação_ com o nome da sua aplicação.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -156,7 +156,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Depois de concluída a implementação, volte para a janela do browser aberta no passo **Navegar para a aplicação** e clique em “atualizar”.
+Uma vez concluída a implementação, volte para a janela do navegador que se abriu na **Navegação até ao** passo da aplicação e acerte a atualização.
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 

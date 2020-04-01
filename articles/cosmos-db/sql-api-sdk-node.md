@@ -8,22 +8,22 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70207953"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411276"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para SQL API: Notas de lançamento e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Nó.js](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Java assíncrono](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
-> * [Pitão](sql-api-sdk-python.md)
+> * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
@@ -318,7 +318,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 ### <a name=""></a><a name="1.11.0"/>1.11.0</a>
 * Acrescentou o suporte para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
 * Acrescentou a opção de controlo do grau de paralelismo para consultas de partição cruzada.
-* Acrescentou a opção de desativar a verificação SSL ao correr contra o Emulador DB Da Azure Cosmos.
+* Acrescentou a opção de desativar a verificação de TLS ao correr contra o Emulador DB Da Azure Cosmos.
 * Baixada a entrada mínima em coleções divididas de 10.100 RU/s para 2500 RU/s.
 * Fixou o bug simbólico de continuação para uma única coleção de divisórias. Problema do GitHub #107.
 * Fixou o erro executeStoredProcedure no manuseamento 0 como um único param. Edição do GitHub #155.
@@ -328,7 +328,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 * Pequena limpeza de código.
 
 ### <a name=""></a><a name="1.10.1"/>1.10.1</a>
-* Desativar a verificação SSL ao utilizar o SDK para visar o emulador (nome de anfitrião=hospedeiro local).
+* Desativar a verificação tLS ao utilizar o SDK para visar o emulador (nome de anfitrião=hospedeiro local).
 * Suporte adicional para permitir a exploração de scripts durante a execução do procedimento armazenado.
 
 ### <a name=""></a><a name="1.10.0"/>1.10.0</a>

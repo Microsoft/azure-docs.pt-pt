@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138269"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para os recursos Azure usando o Azure PowerShell
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 > * Atualizar uma função personalizada
 > * Eliminar uma função personalizada
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, irá precisar de:
 
 ## <a name="sign-in-to-azure-powershell"></a>Iniciar sessão no Azure PowerShell
 
-Iniciar sessão no [Azure PowerShell](/powershell/azure/authenticate-azureps).
+Inscreva-se na [Azure PowerShell.](/powershell/azure/authenticate-azureps)
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
@@ -221,7 +221,7 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. Para utilizar o `PSRoleDefintion` objeto para atualizar a sua função personalizada, utilize primeiro o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter o papel.
+1. Para utilizar `PSRoleDefintion` o objeto para atualizar a sua função personalizada, utilize primeiro o comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter o papel.
 
     ```azurepowershell
     $role = Get-AzRoleDefinition "Reader Support Tickets"

@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
 ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209193"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
@@ -32,7 +32,7 @@ Vai aprender a:
 > * Importar uma Function App do Azure como uma API
 > * Anexar uma Function App do Azure como uma API
 > * Ver a nova chave de anfitrião da Function App do Azure e o valor nomeado da Gestão de API do Azure
-> * Testar a API no Portal do Azure
+> * Testar a API no portal do Azure
 > * Testar a API no portal do programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,7 +42,7 @@ Vai aprender a:
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-new-api-from-azure-function-app"></a> Importar uma Function App do Azure como uma nova API
+## <a name="import-an-azure-function-app-as-a-new-api"></a><a name="add-new-api-from-azure-function-app"></a> Importar uma Function App do Azure como uma nova API
 
 Siga os passos abaixo para criar uma nova API a partir de uma Function App do Azure.
 
@@ -77,7 +77,7 @@ Siga os passos abaixo para criar uma nova API a partir de uma Function App do Az
 
 8. Clique em **Criar**.
 
-## <a name="append-azure-function-app-to-api"></a> Anexar uma Function App do Azure como uma API existente
+## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Anexar uma Function App do Azure como uma API existente
 
 Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
@@ -107,18 +107,18 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-05.png)
 
-8. Clique em **importar**.
+8. Clique **em Importar**.
 
     ![Anexar a partir da Function App](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a>Autorização
+## <a name="authorization"></a><a name="authorization"></a>Autorização
 
 A importação de uma Function App do Azure gera automaticamente:
 
 * Chave de hospedar dentro da App função com o nome apim-{ o nome de instância de*serviço Azure API Management*},
 * Valor nomeado dentro da instância de Gestão API Azure com o nome { o nome da aplicação de*função Azure*}-chave, que contém a chave de hospedar criada.
 
-Para APIs criadaapós 4 de abril de 2019, a chave anfitriã é passada em pedidos HTTP da API Management para a App de Funções em um cabeçalho. APIs mais antigos passam a chave hospedeira como parâmetro de [consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Este comportamento pode ser alterado através da chamada `PATCH Backend` [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) sobre a entidade *Backend* associada à App de Função.
+Para APIs criadaapós 4 de abril de 2019, a chave anfitriã é passada em pedidos HTTP da API Management para a App de Funções em um cabeçalho. APIs mais antigos passam a chave hospedeira como parâmetro de [consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Este comportamento pode ser `PATCH Backend` alterado através da [chamada REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) sobre a entidade *Backend* associada à App de Função.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.
@@ -143,7 +143,7 @@ Navegue até à sua instância de Gestão de API do Azure e selecione **Valores 
 
 ![Adicionar a partir da Function App](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a>Teste a nova API no portal Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Teste a nova API no portal Azure
 
 Pode chamar operações diretamente a partir do portal do Azure. Utilizar o portal do Azure é um meio cómodo de ver e testar as operações de uma API.  
 
@@ -153,7 +153,7 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 
 3. Selecione uma operação.
 
-    A página apresenta campos para os parâmetros de consulta e campos para os cabeçalhos. Um dos cabeçalhos é **Ocp-Apim-Subscription-Key**, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de Gestão de API, já é um administrador, pelo que a chave é preenchida automaticamente. 
+    A página apresenta campos para os parâmetros de consulta e campos para os cabeçalhos. Um dos cabeçalhos é **o Ocp-Apim-Subscription-Key,** para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de Gestão de API, já é um administrador, pelo que a chave é preenchida automaticamente. 
 
 4. Selecione **Enviar**.
 

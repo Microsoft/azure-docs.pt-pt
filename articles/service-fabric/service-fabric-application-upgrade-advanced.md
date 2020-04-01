@@ -3,12 +3,12 @@ title: Tópicos avançados de atualização de aplicações
 description: Este artigo aborda alguns tópicos avançados relativos à atualização de uma aplicação de Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845426"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422817"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Upgrade de aplicação service Fabric: Tópicos avançados
 
@@ -20,9 +20,9 @@ Da mesma forma, os tipos de serviço podem ser removidos de uma aplicação como
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evite quedas de ligação durante o tempo de paragem previsto para o serviço apátrida (pré-visualização)
 
-Para os tempos de paragem de instâncias apátridas planeadas, tais como a atualização de aplicações/cluster ou a desativação do nó, as ligações podem ser eliminadas devido à remoção do ponto final exposto após a sua queda.
+Para os tempos de paragem de instâncias apátridas planeadas, tais como a atualização de aplicações/cluster ou a desativação do nó, as ligações podem ser retiradas devido ao ponto final exposto ser removido após a ocorrência ter sido baixada, o que resulta em encerramentos de ligação forçadas.
 
-Para evitar isto, configure a função *RequestDrain* (pré-visualização) adicionando uma *duração de atraso de atraso* na configuração do serviço. Isto garante que o ponto final anunciado pela instância apátrida é removido *antes* que o temporizador de atraso comece a fechar a instância. Este atraso permite que os pedidos existentes escorram graciosamente antes que a instância realmente desça. Os clientes são notificados da alteração do ponto final por função de callback, para que possam reresolver o ponto final e evitar o envio de novos pedidos para a instância que está a descer.
+Para evitar isto, configure a função *RequestDrain* (pré-visualização) adicionando uma *duração de atraso de atraso na* configuração do serviço para permitir a drenagem enquanto recebe pedidos de outros serviços dentro do cluster e estão a utilizar o Proxy Inverso ou a utilizar a API de resolução com o modelo de notificação para atualizar pontos finais. Isto garante que o ponto final anunciado pela instância apátrida seja removido *antes* do atraso começar antes de fechar a instância. Este atraso permite que os pedidos existentes escorram graciosamente antes que a instância realmente desça. Os clientes são notificados da alteração do ponto final por uma função de callback no momento do início do atraso, para que possam reresolver o ponto final e evitar o envio de novos pedidos para a instância que está a acontecer.
 
 ### <a name="service-configuration"></a>Configuração do serviço
 
@@ -50,23 +50,7 @@ Existem várias formas de configurar o atraso no lado do serviço.
 
 ### <a name="client-configuration"></a>Configuração do cliente
 
-Para receber a notificação quando um ponto final foi`ServiceManager_ServiceNotificationFilterMatched`alterado, os clientes podem registar um callback () como este: 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
+Para receber a notificação quando um ponto final tiver mudado, os clientes devem registar um callback ver [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 A notificação de alteração é uma indicação de que os pontos finais mudaram, o cliente deve reresolver os pontos finais, e não utilizar os pontos finais que já não são anunciados, uma vez que irão descer em breve.
 
 ### <a name="optional-upgrade-overrides"></a>Sobreposições de upgrade opcionais
@@ -80,6 +64,16 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 A duração do atraso aplica-se apenas à instância de atualização invocada e não altera as configurações individuais de atraso de serviço. Por exemplo, pode usá-lo para `0` especificar um atraso de modo a ignorar quaisquer atrasos de atualização pré-configurados.
+
+> [!NOTE]
+> A definição para drenar pedidos não é honrada para pedidos do equilibrador de carga Azure. A definição não é honrada se o serviço de chamadas usar a determinação baseada em reclamações.
+>
+>
+
+> [!NOTE]
+> Esta funcionalidade pode ser configurada nos serviços existentes utilizando o cmdlet Update-ServiceFabricService, conforme mencionado acima, quando a versão do código de cluster for 7.1.XXX ou superior.
+>
+>
 
 ## <a name="manual-upgrade-mode"></a>Modo de atualização manual
 

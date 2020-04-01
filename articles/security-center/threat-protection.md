@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e348180eb94c1703ceecf2f2b00ab942ba5ff0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536331"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435353"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança Azure
 
@@ -73,9 +73,9 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
 
 O Security Center recolhe registos de auditoria de máquinas Linux utilizando **auditorias,** um dos quadros de auditoria mais comuns do Linux. vida auditada no núcleo principal. 
 
-* <a name="linux-auditd"></a> **Alertas auditados linux e integração do Microsoft Monitoring Agent (MMA)** - O sistema auditado consiste num subsistema de nível kernel, que é responsável pela monitorização das chamadas do sistema. Filtra-os por um conjunto de regras especificado e escreve mensagens para eles a uma tomada. O Security Center integra funcionalidades do pacote auditado dentro do Microsoft Monitoring Agent (MMA). Esta integração permite a recolha de eventos auditados em todas as distribuições suportadas do Linux, sem quaisquer pré-requisitos.  
+* **Alertas auditados linux e integração** <a name="linux-auditd"></a> de agentes log analytics - O sistema auditado consiste num subsistema de nível kernel, que é responsável pela monitorização das chamadas do sistema. Filtra-os por um conjunto de regras especificado e escreve mensagens para eles a uma tomada. O Security Center integra funcionalidades do pacote auditado dentro do agente Log Analytics. Esta integração permite a recolha de eventos auditados em todas as distribuições suportadas do Linux, sem quaisquer pré-requisitos.
 
-    os registos auditados são recolhidos, enriquecidos e agregados em eventos utilizando o agente Linux MMA. O Security Center adiciona continuamente novas análises que utilizam sinais Linux para detetar comportamentos maliciosos na nuvem e nas máquinas Linux no local. À semelhança das capacidades do Windows, estas análises estendem-se por processos suspeitos, sinal duvidoso em tentativas, carregamento de módulos kernel e outras atividades. Estas atividades podem indicar que uma máquina está a ser atacada ou foi violada.  
+    os registos auditados são recolhidos, enriquecidos e agregados em eventos utilizando o agente Log Analytics para o agente Linux. O Security Center adiciona continuamente novas análises que utilizam sinais Linux para detetar comportamentos maliciosos na nuvem e nas máquinas Linux no local. À semelhança das capacidades do Windows, estas análises estendem-se por processos suspeitos, sinal duvidoso em tentativas, carregamento de módulos kernel e outras atividades. Estas atividades podem indicar que uma máquina está a ser atacada ou foi violada.  
 
     Para obter uma lista dos alertas Linux, consulte a [tabela de alertas de Referência](alerts-reference.md#alerts-linux).
 

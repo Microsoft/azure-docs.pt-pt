@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 890932f7c0e46a2c9c0b6e1cf1461e4d7d25b409
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239372"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-single-userpassword-authentication"></a>Automatizar a rotação de um segredo para recursos com autenticação de utilizador/senha única
@@ -33,7 +33,7 @@ Este tutorial demonstra como automatizar a rotação periódica de segredos para
 > [!NOTE]
 > Pode haver um intervalo entre o passo 3 e o 4 e durante esse tempo o segredo no Cofre chave não seria válido para autenticar a SQL. Em caso de falha em qualquer uma das etapas, a Grelha de Eventos retenta durante 2 horas.
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 ## <a name="create-a-key-vault-and-sql-server"></a>Criar um cofre chave e servidor SQL
 
@@ -172,11 +172,11 @@ public class SecretRotator
     }
 }
 ```
-Pode encontrar código inteiro aqui: https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function
+Pode encontrar código inteiro aqui:https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function
 
 #### <a name="function-deployment"></a>Implantação de funções
 
-1. Ficheiro zip app de descarregamento: https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
+1. Ficheiro zip de aplicativo de descarregamento:https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
 
 1. Faça upload de ficheiro simplerotationsample-fn.zip para Azure Cloud Shell.
  
@@ -224,7 +224,7 @@ A criação de um segredo com uma data de validade curta publicará imediatament
 ### <a name="test-and-verify"></a>Testar e verificar
 Após alguns minutos, o segredo sqluser deve rodar automaticamente.
 
-Para verificar a verificação de rotação secreta, vá ao Key Vault > Secrets
+Para verificar a verificação de rotação secreta, vá ao Cofre chave > Segredos
 
 ![Testar e verificar](./media/rotate8.png)
 
@@ -245,12 +245,12 @@ A aplicação web requer componentes abaixo e configuração:
 1. Selecione o grupo de recursos **de simples rotação**
 1. Clique em Comprar
 
-### <a name="deploy-web-app"></a>Implementar web app
+### <a name="deploy-web-app"></a>Implementar Aplicação Web
 
-Código fonte para a aplicação web que pode encontrar em https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp Para implementação da aplicação web, faça o seguinte:
+Código fonte para a aplicação https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp web que pode encontrar para a implementação da aplicação web, faça o seguinte:
 
-1. Descarregue o ficheiro zip da aplicação de função a partir de https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
-1. Faça o upload do ficheiro `simplerotationsample-app.zip` para A Nuvem Shell.
+1. Descarregue o ficheiro zip da aplicação de função a partir dehttps://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
+1. Faça o `simplerotationsample-app.zip` upload do ficheiro para Azure Cloud Shell.
 1. Utilize este comando Azure CLI para implantar o ficheiro zip na aplicação de função:
 
    ```azurecli

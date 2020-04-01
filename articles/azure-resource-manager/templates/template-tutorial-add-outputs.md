@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d8966c492bd77eaa4d18c8a8b9ac524b8864027
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 150801fe66da1ea8c6f10d437c6d7616a77b544e
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371750"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411009"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicione saídas ao seu modelo ARM
 
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
@@ -89,6 +89,9 @@ Na saída para o comando de implantação, verá um objeto semelhante a:
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
 
 ## <a name="review-your-work"></a>Reveja o seu trabalho
 

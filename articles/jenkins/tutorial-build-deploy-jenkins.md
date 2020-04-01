@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, máquina virtual, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78192613"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a aplicação em máquinas virtuais do Linux no Azure com o Jenkins e os Serviços de DevOps do Azure
@@ -124,7 +124,7 @@ Precisa de um [grupo de implementação](https://www.visualstudio.com/docs/build
 
 1. Abra o separador **Versões** do hub **Compilação &amp; Versão**, abra os **Grupos de implementação** e selecione **+ Novo**.
 2. Introduza um nome para o grupo de implementação e uma descrição opcional. Em seguida, selecione **Criar**.
-3. Escolha o sistema operativo da máquina virtual de destino da implementação. Por exemplo, selecione **Ubuntu 16.04 +** .
+3. Escolha o sistema operativo da máquina virtual de destino da implementação. Por exemplo, selecione **Ubuntu 16.04 +**.
 4. Selecione **Utilizar um token de acesso pessoal no script para autenticação**.
 5. Selecione a ligação **Pré-requisitos do sistema**. Instale os pré-requisitos do sistema operativo.
 6. Selecione **Copiar script para área de transferência** para copiar o script.
@@ -143,7 +143,7 @@ Para criar o pipeline de versão no Azure Pipelines:
 3. Na secção **Artefactos**, selecione **+ Adicionar Artefactos** e escolha **Jenkins** como **Tipo de origem**. Selecione a ligação de ponto final de serviço Jenkins. Em seguida, selecione a tarefa de origem Jenkins e selecione **Adicionar**.
 4. Selecione as reticências junto a **Ambiente 1**. Selecione **Adicionar fase do grupo de implementação**.
 5. Escolha o grupo de implementação.
-5. Selecione **+** para adicionar uma tarefa à **Fase do grupo de implementação**.
+5. Selecione **+** adicionar uma tarefa à **fase de grupo de implantação**.
 6. Selecione a tarefa **Script de Shell** e, em seguida, **Adicionar**. A tarefa **Script de Shell** fornece a configuração para que um script seja executado em cada servidor para instalar o Node.js e iniciar a aplicação.
 8. Em **Caminho do Script**, introduza **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
 9. Selecione **Avançado** e, em seguida, ative **Especificar Diretório de Trabalho**.
@@ -157,7 +157,7 @@ Para criar o pipeline de versão no Azure Pipelines:
 2. Selecione a compilação que concluiu na lista pendente realçada e selecione **Fila**.
 3. Escolha a ligação da versão na mensagem pop-up. Por exemplo: “A Versão **Versão-1** foi criada”.
 4. Abra o separador **Registos** para ver o resultado da consola de versão.
-5. No browser, abra o URL de um dos servidores que adicionou ao grupo de implementação. Por exemplo, introduza **http://{o-seu-endereço-ip-do-servidor}** .
+5. No browser, abra o URL de um dos servidores que adicionou ao grupo de implementação. Por exemplo, introduza **http://{o-seu-endereço-ip-do-servidor}**.
 6. Aceda ao repositório de origem do Git e modifique os conteúdos do cabeçalho **h1** no ficheiro app/views/index.jade com algum texto alterado.
 7. Consolide as alterações.
 8. Após alguns minutos, verá uma nova versão criada na página **Versões** do Azure DevOps. Abra a versão para ver a implementação a decorrer. Parabéns!
@@ -181,4 +181,4 @@ Para saber como utilizar os gasodutos Azure para os passos de Construção e Lan
 Para saber como autoria um oleoduto CI/CD baseado em YAML para implantar em VMs, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Jenkins no Azure](/azure/Jenkins/)
+> [Jenkins em Azure](/azure/Jenkins/)

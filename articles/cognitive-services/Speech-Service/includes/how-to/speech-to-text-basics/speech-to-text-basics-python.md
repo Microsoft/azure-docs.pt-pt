@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: c8354a67d26210035355f4947cb5f17cee934508
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a0746ec73b827756ff47c0dfc010b37ed2b79844
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79372824"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80501958"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ Há algumas maneiras de inicializar um: [`SpeechConfig`](https://docs.microsoft.
 * Com um anfitrião: passe num endereço de anfitrião. Uma chave ou ficha de autorização é opcional.
 * Com um símbolo de autorização: passe num símbolo de autorização e na região associada.
 
-Vamos ver como um [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) é criado usando uma chave e região.
+Vamos ver como um [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) é criado usando uma chave e região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador de região.
 
 ```Python
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"

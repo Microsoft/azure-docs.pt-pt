@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: atualizar o sortimento de estoque de varejo usando canais de publicação/assinatura e filtros de tópico com CLI do Azure'
-description: 'Tutorial: neste tutorial, você aprende a enviar e receber mensagens de um tópico e assinatura e como adicionar e usar regras de filtro usando o CLI do Azure'
+title: 'Tutorial: Atualizar o consórcio de inventário de retalho utilizando canais de publicação/subscrição e filtros tópicos com o Azure CLI'
+description: 'Tutorial: Neste tutorial, aprende a enviar e receber mensagens de um tópico e subscrição, e como adicionar e usar regras de filtro usando o Azure CLI'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718920"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar inventários utilizando a CLI e tópicos/subscrições
@@ -32,7 +32,7 @@ Um exemplo deste cenário é uma atualização da variedade de inventário para 
 
 ![tópico](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
-Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
+Se não tiver uma subscrição Azure, pode criar uma [conta gratuita][] antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -122,7 +122,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
    --query primaryConnectionString --output tsv)
 ```
 
-Depois da execução do último comando, copie e cole a cadeia de ligação e o nome de fila selecionado para uma localização temporária como o Bloco de notas. Vai precisar dele no próximo passo.
+Depois da execução do último comando, copie e cole a cadeia de ligação e o nome de fila selecionado para uma localização temporária como o Bloco de notas. Vai precisar deles no próximo passo.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Criar regras de filtro nas subscrições
 
@@ -132,13 +132,13 @@ Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter 
 
 1. Certifique-se de que a Cloud Shell está aberta e apresenta a linha de comandos do Bash.
 
-2. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao indicar o comando seguinte:
+2. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o comando seguinte:
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navegue para a pasta de exemplo `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Tenha em atenção que na Bash shell, os comandos são sensíveis a maiúsculas e minúsculas e os separadores de caminho têm de ser barras.
+2. Navegue para a pasta `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java` de exemplo. Tenha em atenção que na Bash shell, os comandos são sensíveis a maiúsculas e minúsculas e os separadores de caminho têm de ser barras.
 
 3. Indique o seguinte comando para criar a aplicação:
    
@@ -326,14 +326,14 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 ```
 
 > [!NOTE]
-> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprovisionou recursos utilizando a CLI do Azure e enviou e recebeu mensagens de um tópico do Service Bus e respetivas subscrições. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico utilizando o portal do Azure
+> * Criar um tópico e uma ou mais subscrições do Service Bus para esse tópico com o portal do Azure
 > * Adicionar filtros de tópico com o código .NET
 > * Criar duas mensagens com conteúdo diferente
 > * Enviar as mensagens e verificar que chegaram nas subscrições previstas

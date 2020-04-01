@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Monitor Azure Spring Cloud recursos usando alertas e grupos de ação  Microsoft Docs'
+title: 'Tutorial: Monitor Azure Spring Cloud recursos usando alertas e grupos de ação [ Microsoft Docs'
 description: Aprenda a usar alertas de Nuvem de primavera.
 author: MikeDodaro
 ms.author: barbkess
@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77920081"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Monitor ize os recursos da Nuvem de primavera utilizando alertas e grupos de ação

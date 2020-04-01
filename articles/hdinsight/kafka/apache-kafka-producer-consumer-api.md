@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Apache Kafka Produtor e APIs de Consumo - Azure HDInsight'
+title: 'Tutorial: Apache Kafka Produtor & APIs de consumo - Azure HDInsight'
 description: Saiba como utilizar as APIs de Produtor e de Consumidor de Apache Kafka com o Kafka no HDInsight. Neste tutorial, irá aprender a utilizar estas APIs com o Kafka no HDInsight a partir de uma aplicação Java.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
 ms.openlocfilehash: 5a7d4d1917f65cd3d836db83600937a3e3d89de6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239540"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
@@ -40,7 +40,7 @@ Para obter mais informações sobre as APIs, veja a documentação do Apache ded
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-A aplicação de exemplo está localizada em [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), no subdiretório `Producer-Consumer`. Se estiver a utilizar o cluster Kafka ativado pelo **Enterprise Security Package (ESP),** deverá utilizar a versão de aplicação localizada no subdiretório `DomainJoined-Producer-Consumer`.
+A aplicação de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)exemplo `Producer-Consumer` está localizada no subdiretório. Se estiver a utilizar o cluster Kafka ativado pelo **Enterprise Security Package (ESP),** deverá utilizar a versão de aplicação localizada no `DomainJoined-Producer-Consumer` subdiretório.
 
 Essencialmente, a aplicação é composta por quatro ficheiros:
 * `pom.xml`: este ficheiro define as dependências do projeto, a versão de Java e os métodos de empacotamento.
@@ -115,11 +115,11 @@ O ficheiro [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
 
 ## <a name="build-and-deploy-the-example"></a>Criar e implementar o exemplo
 
-Se você quiser saltar este passo, os frascos pré-construídos podem ser descarregados do subdiretório `Prebuilt-Jars`. Baixe o kafka-produtor-consumidor.jar. Se o seu cluster estiver ativado **pelo Enterprise Security Package (ESP),** utilize kafka-produtor-produtor-consumidor-esp.jar. Execute o passo 3 para copiar o jarro para o seu cluster HDInsight.
+Se quiser saltar este passo, os frascos pré-construídos podem ser descarregados do `Prebuilt-Jars` subdiretório. Baixe o kafka-produtor-consumidor.jar. Se o seu cluster estiver ativado **pelo Enterprise Security Package (ESP),** utilize kafka-produtor-produtor-consumidor-esp.jar. Execute o passo 3 para copiar o jarro para o seu cluster HDInsight.
 
-1. Descarregue e extraios os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Descarregue e extraia os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Desloque o seu diretório atual para a localização do diretório `hdinsight-kafka-java-get-started\Producer-Consumer`. Se estiver a utilizar o pacote de **segurança empresarial (ESP)** ativado pelo cluster Kafka, deverá definir a localização para `DomainJoined-Producer-Consumer`subdiretório. Utilize o seguinte comando para construir a aplicação:
+2. Desloque o seu diretório atual para a localização do `hdinsight-kafka-java-get-started\Producer-Consumer` diretório. Se estiver a utilizar o pacote de **segurança empresarial (ESP)** ativado pelo cluster Kafka, deverá definir a localização para `DomainJoined-Producer-Consumer`subdireção. Utilize o seguinte comando para construir a aplicação:
 
     ```cmd
     mvn clean package
@@ -127,13 +127,13 @@ Se você quiser saltar este passo, os frascos pré-construídos podem ser descar
 
     Este comando cria um diretório com o nome `target`, que contém um ficheiro com o nome `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
-3. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Introduza o seguinte comando para copiar o ficheiro `kafka-producer-consumer-1.0-SNAPSHOT.jar` para o seu cluster HDInsight. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
+3. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Introduza o seguinte `kafka-producer-consumer-1.0-SNAPSHOT.jar` comando para copiar o ficheiro para o seu cluster HDInsight. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
 
     ```cmd
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
-## <a id="run"></a> Executar o exemplo
+## <a name="run-the-example"></a><a id="run"></a>Executar o exemplo
 
 1. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Abra uma ligação SSH ao cluster, entrando no seguinte comando. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
 
@@ -141,7 +141,7 @@ Se você quiser saltar este passo, os frascos pré-construídos podem ser descar
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Para obter os anfitriões do corretor Kafka, substitua os valores por `<clustername>` e `<password>` no comando seguinte e execute-os. Utilize o mesmo invólucro para `<clustername>` como mostrado no portal Azure. Substitua `<password>` com a senha de login do cluster e, em seguida, execute:
+1. Para obter os anfitriões do `<clustername>` corretor `<password>` Kafka, substitua os valores por e no comando seguinte e execute-os. Utilize o mesmo `<clustername>` invólucro para o mostrado no portal Azure. Substitua-a `<password>` pela senha de login do cluster e, em seguida, execute:
 
     ```bash
     sudo apt -y install jq
@@ -153,7 +153,7 @@ Se você quiser saltar este passo, os frascos pré-construídos podem ser descar
     > [!Note]  
     > Este comando requer acesso ambari. Se o seu cluster estiver por trás de um NSG, execute este comando a partir de uma máquina que possa aceder a Ambari.
 
-1. Crie o tópico kafka, `myTest`, entrando no seguinte comando:
+1. Crie o `myTest`tópico Kafka, entrando no seguinte comando:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
@@ -195,7 +195,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-Este comando utiliza `tmux` para dividir o terminal em duas colunas. É iniciado um consumidor em cada coluna, com o mesmo valor de ID de grupo. Após os consumidores concluírem a leitura, tenha em atenção que cada um deles lê apenas uma parte dos registos. Utilize __ctrl + C__ duas vezes para sair `tmux`.
+Este comando utiliza `tmux` para dividir o terminal em duas colunas. É iniciado um consumidor em cada coluna, com o mesmo valor de ID de grupo. Após os consumidores concluírem a leitura, tenha em atenção que cada um deles lê apenas uma parte dos registos. Utilize __ctrl +__ C `tmux`duas vezes para sair .
 
 O consumo pelos clientes dentro do mesmo grupo é processado pelas partições do tópico. Neste exemplo de tópico, o tópico `test` criado anteriormente, tem oito partições. Se iniciar oito consumidores, cada consumidor lê os registos de uma única partição do tópico.
 
@@ -214,9 +214,9 @@ Para remover o grupo de recursos através do Portal do Azure:
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a usar o Apache Kafka Producer and Consumer API com kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 
 * [Use Kafka REST Proxy](rest-proxy.md)
-* [Analise os registos apache kafka](apache-kafka-log-analytics-operations-management.md)
+* [Analisar registos do Apache Kafka](apache-kafka-log-analytics-operations-management.md)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46994413ba765e18a826eebfe85a38bb65efc749
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282695"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435625"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -131,15 +131,15 @@ O Centro de Segurança cria automaticamente uma política de segurança predefin
 Antes de configurar as políticas de segurança, reveja cada uma das [recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations) e determine se estas são adequadas para as suas várias subscrições e grupos de recursos. Também é importante entender que ação deve ser realizada para abordar as recomendações de segurança e quem na sua organização será responsável por monitorizar novas recomendações e tomar as medidas necessárias.
 
 ## <a name="data-collection-and-storage"></a>Armazenamento e recolha de dados
-O Azure Security Center utiliza o Microsoft Monitoring Agent – este é o mesmo agente utilizado pelo serviço Azure Monitor – para recolher dados de segurança das suas máquinas virtuais. Os [dados recolhidos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
+O Azure Security Center utiliza o agente Log Analytics – este é o mesmo agente utilizado pelo serviço Azure Monitor – para recolher dados de segurança das suas máquinas virtuais. Os [dados recolhidos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
 
 ### <a name="agent"></a>Agente
 
-Quando o aprovisionamento automático está ativado na política de segurança, o Microsoft Monitoring Agent (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) é instalado em todas as VMs do Azure suportadas e nas VMs novas que forem criadas. Se a VM ou o computador já tiver instalado o Microsoft Monitoring Agent, o Centro de Segurança do Azure tirará partido do agente atual instalado. O processo do agente foi concebido para ser não invasivo e ter um impacto muito reduzido no desempenho da VM.
+Quando o fornecimento automático está ativado na política de segurança, o agente Log Analytics (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)está instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center irá alavancar o agente instalado atualmente. O processo do agente foi concebido para ser não invasivo e ter um impacto muito reduzido no desempenho da VM.
 
-O Agente de Monitorização Microsoft para Windows requer a utilização da Porta TCP 443. Veja o [artigo Resolução de Problemas](security-center-troubleshooting-guide.md) para mais detalhes.
+O agente Log Analytics para Windows requer a utilização da porta TCP 443. Veja o [artigo Resolução de Problemas](security-center-troubleshooting-guide.md) para mais detalhes.
 
-Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-la na política de segurança. No entanto, uma vez que o Microsoft Monitoring Agent pode ser utilizado por outros serviços de gestão e monitorização do Azure, o agente não será desinstalado automaticamente quando desativar a recolha de dados no Security Center. Pode desinstalar o agente manualmente, se necessário.
+Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-la na política de segurança. No entanto, uma vez que o agente Log Analytics pode ser utilizado por outros serviços de gestão e monitorização do Azure, o agente não será desinstalado automaticamente quando desativar a recolha de dados no Security Center. Pode desinstalar o agente manualmente, se necessário.
 
 > [!NOTE]
 > Para encontrar uma lista de VMs suportadas, leia as [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure ](faq-vms.md).
@@ -148,7 +148,7 @@ Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-l
 
 Uma área de trabalho é um recurso do Azure que funciona como um contentor para os dados. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
 
-Os dados recolhidos pelo Agente de Monitorização Microsoft (em nome do Centro de Segurança do Azure) serão armazenados nas áreas de trabalho do Log Analytics existentes, associadas à sua subscrição do Azure ou a novas áreas de trabalho, tendo em consideração a Geo da VM.
+Os dados recolhidos do agente Log Analytics (em nome do Azure Security Center) serão armazenados num espaço de trabalho de Log Analytics existente associado à sua subscrição Azure ou a um novo espaço de trabalho, tendo em conta o Geo do VM.
 
 No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Um grupo de recursos relacionado será criado para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
 

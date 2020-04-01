@@ -1,7 +1,7 @@
 ---
-title: C#tutorial para criar a sua primeira app
+title: C# tutorial para criar a sua primeira app
 titleSuffix: Azure Cognitive Search
-description: Aprenda a construir C# a sua primeira aplicação de pesquisa passo a passo. O tutorial fornece tanto um link para uma aplicação de trabalho no GitHub, como o processo completo para construir a app de raiz. Conheça os componentes essenciais da Pesquisa Cognitiva Azure.
+description: Aprenda a construir a sua primeira aplicação de pesquisa C# passo a passo. O tutorial fornece tanto um link para uma aplicação de trabalho no GitHub, como o processo completo para construir a app de raiz. Conheça os componentes essenciais da Pesquisa Cognitiva Azure.
 manager: nitinme
 author: tchristiani
 ms.author: terrychr
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121584"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C#Tutorial: Crie a sua primeira app - Pesquisa Cognitiva Azure
+# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C# tutorial: Crie a sua primeira app - Pesquisa Cognitiva Azure
 
 Aprenda a criar uma interface web para consultar e apresentar resultados de pesquisa a partir de um índice usando a Pesquisa Cognitiva Azure. Este tutorial começa com um índice existente e hospedado para que possa focar-se na construção de uma página de pesquisa. O índice contém dados fictícios do hotel. Uma vez que você tem uma página básica, você pode melhorá-lo em lições subsequentes para incluir paging, facetas e uma experiência tipo-ahead.
 
@@ -69,11 +69,11 @@ Para criar este projeto de raiz e, portanto, ajudar a reforçar os componentes d
 
     ![Criar um projeto em nuvem](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
-2. Depois de ter clicado **OK** para este tipo de projeto, será-lhe dado um segundo conjunto de opções que se aplicam a este projeto. Selecione **Aplicação Web (Model-View-Controller)** .
+2. Depois de ter clicado **OK** para este tipo de projeto, será-lhe dado um segundo conjunto de opções que se aplicam a este projeto. Selecione **Aplicação Web (Model-View-Controller)**.
 
     ![Criação de um projeto MVC](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. Em seguida, no menu **Tools,** selecione **NuGet Package Manager** e, em seguida, **gere pacotes NuGet para solução...** . Há um pacote que precisamos instalar. Selecione o separador **Browse** e, em seguida, digite "Azure Cognitive Search" na caixa de pesquisa. Instale **microsoft.Azure.Search** quando aparecer na lista (versão 9.0.1, ou posterior). Terá de clicar em alguns diálogos adicionais para completar a instalação.
+3. Em seguida, no menu **Tools,** selecione **NuGet Package Manager** e, em seguida, **gere pacotes NuGet para solução...**. Há um pacote que precisamos instalar. Selecione o separador **Browse** e, em seguida, digite "Azure Cognitive Search" na caixa de pesquisa. Instale **microsoft.Azure.Search** quando aparecer na lista (versão 9.0.1, ou posterior). Terá de clicar em alguns diálogos adicionais para completar a instalação.
 
     ![Usando o NuGet para adicionar bibliotecas Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
@@ -96,7 +96,7 @@ Para esta amostra, estamos a usar dados do hotel disponíveis ao público. Estes
 
 ## <a name="model-data-structures"></a>Estruturas de dados de modelo
 
-OsC# modelos (classes) são utilizados para comunicar dados entre o cliente (a vista), o servidor (o controlador) e também a nuvem Azure utilizando a arquitetura MVC (modelo, vista, controlador). Tipicamente, estes modelos refletirão a estrutura dos dados que estão a ser acedidos. Além disso, precisamos de um modelo para lidar com as comunicações de visualização/controlador.
+Os modelos (classes C#) são utilizados para comunicar dados entre o cliente (a vista), o servidor (o controlador) e também a nuvem Azure utilizando a arquitetura MVC (modelo, vista, controlador). Tipicamente, estes modelos refletirão a estrutura dos dados que estão a ser acedidos. Além disso, precisamos de um modelo para lidar com as comunicações de visualização/controlador.
 
 1. Abra a pasta **Models** do seu projeto, utilizando o Solution Explorer, e verá aí um modelo predefinido: **ErrorViewModel.cs**.
 
@@ -224,7 +224,7 @@ OsC# modelos (classes) são utilizados para comunicar dados entre o cliente (a v
     }
     ```
 
-5. O conjunto de aulas de **Hotel,** **Endereço**e **Quarto** são conhecidos em Azure como [_tipos complexos,_ ](search-howto-complex-data-types.md)uma característica importante da Pesquisa Cognitiva Azure. Os tipos complexos podem ser muitos níveis profundos de classes e subclasses, e permitir que estruturas de dados muito mais complexas sejam representadas do que usar _tipos simples_ (uma classe que contém apenas membros primitivos). Precisamos de mais um modelo, por isso, passe pelo processo de criação de uma nova classe de modelonovamente, embora desta vez ligue para a classe SearchData.cs e substitua o código predefinido pelo seguinte.
+5. O conjunto de aulas de **Hotel,** **Endereço**e **Quarto** são conhecidos em Azure como [_tipos complexos,_](search-howto-complex-data-types.md)uma característica importante da Pesquisa Cognitiva Azure. Os tipos complexos podem ser muitos níveis profundos de classes e subclasses, e permitir que estruturas de dados muito mais complexas sejam representadas do que usar _tipos simples_ (uma classe que contém apenas membros primitivos). Precisamos de mais um modelo, por isso, passe pelo processo de criação de uma nova classe de modelonovamente, embora desta vez ligue para a classe SearchData.cs e substitua o código predefinido pelo seguinte.
 
     ```cs
     using Microsoft.Azure.Search.Models;
@@ -242,7 +242,7 @@ OsC# modelos (classes) são utilizados para comunicar dados entre o cliente (a v
     }
     ```
 
-    Esta classe contém a entrada do utilizador **(searchText)** e a saída da pesquisa **(resultList).** O tipo de saída é crítico, **documentSearchResult&lt;Hotel&gt;,** uma vez que este tipo corresponde exatamente aos resultados da pesquisa, e precisamos passar esta referência para a vista.
+    Esta classe contém a entrada do utilizador **(searchText)** e a saída da pesquisa **(resultList).** O tipo de saída é crítico, **DocumentSearchResult&lt;Hotel,&gt;** uma vez que este tipo corresponde exatamente aos resultados da pesquisa, e precisamos passar esta referência para a vista.
 
 
 
@@ -502,7 +502,7 @@ A chamada de Pesquisa Cognitiva Azure está encapsulada no nosso método **RunQu
 
     Neste método, garantimos primeiro que a nossa configuração Azure é iniciada e, em seguida, definimos alguns parâmetros de pesquisa. Os nomes dos campos do parâmetro **Select** correspondem exatamente aos nomes de propriedade da classe **do hotel.** É possível deixar de fora o parâmetro **Select,** caso em que todas as propriedades são devolvidas. No entanto, a definição **de** nenhum seletos parâmetros é ineficiente se estivermos apenas interessados num subconjunto dos dados. Especificando as propriedades que nos interessam, apenas estas propriedades são devolvidas.
 
-    A chamada assíncrona à procura (**modelo.resultList = aguarde _indexClient.Documents.SearchAsync&lt;Hotel&gt;(modelo.searchText, parâmetros);** ) é o que este tutorial e app são. A classe **DocumentSearchResult** é interessante, e uma boa ideia (quando a aplicação está em execução) é definir um ponto de rutura aqui, e usar um debugger para examinar o conteúdo do **modelo.resultList**. Deve descobrir que é intuitivo, fornecendo-lhe os dados que pediu, e pouco mais.
+    A chamada assíncrona à procura (**modelo.resultList = aguarde _indexClient.Documents.SearchAsync&lt;Hotel&gt;(modelo.searchText, parâmetros);** é disso que se trata este tutorial e app. A classe **DocumentSearchResult** é interessante, e uma boa ideia (quando a aplicação está em execução) é definir um ponto de rutura aqui, e usar um debugger para examinar o conteúdo do **modelo.resultList**. Deve descobrir que é intuitivo, fornecendo-lhe os dados que pediu, e pouco mais.
 
 Agora o momento da verdade.
 
@@ -528,7 +528,7 @@ Agora, vamos verificar se a aplicação corre corretamente.
 
 É importante verificar se as nossas funcionalidades de manipulação de erros funcionam como deveriam, mesmo quando as coisas estão a funcionar na perfeição. 
 
-1. No método **Index,** após a **tentativa {** chamada, introduza a linha **Lançar nova exceção()** . Esta exceção forçará um erro quando pesquisarmos por texto.
+1. No método **Index,** após a **tentativa {** chamada, introduza a linha **Lançar nova exceção()**. Esta exceção forçará um erro quando pesquisarmos por texto.
 
 2. Executar a aplicação, introduzir "bar" como texto de pesquisa e clicar no ícone de pesquisa. A exceção deve resultar na visão de erro.
 
@@ -554,6 +554,6 @@ Para proporcionar a melhor experiência do utilizador utilizando a Pesquisa Cogn
 Estes próximos passos são abordados numa série de tutoriais. Vamos começar com a paging.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: Resultados da pesquisa paginação - Pesquisa Cognitiva Azure](tutorial-csharp-paging.md)
+> [C# Tutorial: Resultados da pesquisa paginação - Pesquisa Cognitiva Azure](tutorial-csharp-paging.md)
 
 

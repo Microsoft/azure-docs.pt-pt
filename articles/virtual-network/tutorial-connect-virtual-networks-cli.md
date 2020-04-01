@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4ba37ea99ddc0903e1febd53f8d8fbd84b417b87
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: aa2d75173b14e768a207336b54b3dc10a8c3ea5c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235154"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conecte redes virtuais com o peering de rede virtual utilizando o Azure CLI
 
@@ -31,11 +31,11 @@ Pode ligar redes virtuais entre si com o peering de rede virtual. Depois de as r
 * Implementar uma máquina virtual (VM) em cada rede virtual
 * Comunicar entre VMs
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
@@ -86,7 +86,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Crie um peering do *myVirtualNetwork1* para *myVirtualNetwork2* com a [rede az vnet peering criar](/cli/azure/network/vnet/peering). Se o parâmetro `--allow-vnet-access` não for especificado, estabelece-se um especio, mas nenhuma comunicação pode fluir através dele.
+Crie um peering do *myVirtualNetwork1* para *myVirtualNetwork2* com a [rede az vnet peering criar](/cli/azure/network/vnet/peering). Se `--allow-vnet-access` o parâmetro não for especificado, estabelece-se um especio, mas nenhuma comunicação pode fluir através dele.
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -126,7 +126,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria um VM chamado *myVm1* na rede virtual *myVirtualNetwork1.* Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. A opção `--no-wait` cria o VM em segundo plano, para que possa continuar até ao próximo passo.
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria um VM chamado *myVm1* na rede virtual *myVirtualNetwork1.* Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. A `--no-wait` opção cria o VM em segundo plano, para que possa continuar até ao próximo passo.
 
 ```azurecli-interactive
 az vm create \
@@ -143,7 +143,7 @@ az vm create \
 
 Crie um VM na rede virtual *myVirtualNetwork2.*
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm2 \
@@ -155,7 +155,7 @@ az vm create \
 
 A criação da VM demora alguns minutos. Após a criação do VM, o Azure CLI mostra informações semelhantes ao seguinte exemplo: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
@@ -174,13 +174,13 @@ Anote o **publicIpAddress**. Este endereço é utilizado para aceder ao VM a par
 
 Utilize o seguinte comando para criar uma sessão SSH com o *myVm2* VM. Substitua `<publicIpAddress>` pelo endereço IP público do seu VM. No exemplo anterior, o endereço IP público é *13.90.242.231*.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
 Ping o VM no *myVirtualNetwork1*.
 
-```bash 
+```bash
 ping 10.0.0.4 -c 4
 ```
 
@@ -192,7 +192,7 @@ Feche a sessão sSH ao *myVm2* VM.
 
 Quando já não for necessário, utilize o [grupo Az eliminar](/cli/azure/group) para remover o grupo de recursos e todos os recursos que contém.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

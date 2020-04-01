@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: b68e438a01f9f771c16fc712597308089f628f62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409478"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436928"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar no local Apache Hadoop clusters para Azure HDInsight
 
@@ -52,7 +52,7 @@ Pode criar [imagens blob](https://docs.microsoft.com/rest/api/storageservices/cr
 
 Os seguintes métodos podem ser utilizados para importar certificados para a loja de fidedignidade java:
 
-Descarregue o Azure Blob SSL cert para um ficheiro
+Descarregue o certificado Azure Blob TLS/SSL para um ficheiro
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer

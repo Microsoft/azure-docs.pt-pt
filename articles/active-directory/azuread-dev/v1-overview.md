@@ -4,24 +4,21 @@ description: Este artigo fornece uma visão geral da assinatura nas contas de tr
 services: active-directory
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154496"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Diretório Ativo Azure para programadores (v1.0) visão geral
 
@@ -34,7 +31,7 @@ O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que pe
 
 | | |
 | --- | --- |
-|[Noções básicas de autenticação](v1-authentication-scenarios.md) | Introdução à autenticação com o Azure AD. |
+|[Noções básicas sobre autenticação](v1-authentication-scenarios.md) | Introdução à autenticação com o Azure AD. |
 |[Tipos de aplicações](app-types.md) | Descrição geral dos cenários autenticação que são suportado pelo Azure AD. |
 | | |
 
@@ -53,7 +50,7 @@ Os seguintes artigos fornecem informações detalhadas sobre APIs, mensagens de 
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
 | [Bibliotecas de Autenticação (ADAL)](active-directory-authentication-libraries.md)   | Descrição geral de bibliotecas e SDKs que são fornecidos pelo Azure AD. |
-| [Exemplos de código](sample-v1-code.md)                                  | Uma lista de todos os exemplos de código do Azure AD. |
+| [Amostras de código](sample-v1-code.md)                                  | Uma lista de todos os exemplos de código do Azure AD. |
 | [Glossário](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | Terminologia e definições de palavras que são utilizadas nesta documentação. |
 |  |  |
 

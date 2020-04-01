@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2019
 ms.author: aahi
-ms.openlocfilehash: 7adca44f1710431ad1095cbd0da897d4c7c7f325
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4778a4089c7374c1ac6a9312064dcfb1e0325b63
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74689340"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478490"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Corte uma imagem com o Bing Visual Search SDK para C #
 

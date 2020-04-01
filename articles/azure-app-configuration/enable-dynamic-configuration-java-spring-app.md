@@ -9,25 +9,25 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.author: lcozzens
 ms.openlocfilehash: 37c832e3b6d1430da0b45558c9632f0486a7233b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79216764"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use a configuração dinâmica numa aplicação Java Spring
 
 A biblioteca de clientes da Bota de Arranque de Configuração da Aplicação suporta a atualização de um conjunto de configurações a pedido, sem causar o reinício de uma aplicação. A biblioteca do cliente caches cada configuração para evitar muitas chamadas para a loja de configuração. A operação de atualização não atualiza o valor até que o valor em cache tenha expirado, mesmo quando o valor tenha mudado na loja de configuração. O tempo de validade predefinido para cada pedido é de 30 segundos. Pode ser ultrapassado, se necessário.
 
-Pode verificar se estão as configurações atualizadas a pedido, ligando para `AppConfigurationRefresh`método de `refreshConfigurations()`.
+Pode verificar se estão atualizadas as definições a pedido, ligando para `AppConfigurationRefresh`o método. `refreshConfigurations()`
 
-Em alternativa, pode utilizar o pacote `spring-cloud-azure-appconfiguration-config-web`, que requer uma dependência de `spring-web` para lidar com a atualização automatizada.
+Em alternativa, pode `spring-cloud-azure-appconfiguration-config-web` utilizar o pacote, que `spring-web` requer uma dependência para lidar com a atualização automatizada.
 
 ## <a name="use-automated-refresh"></a>Use atualização automatizada
 
 Para utilizar uma atualização automatizada, comece com uma aplicação Spring Boot que utiliza a Configuração de Aplicações, como a aplicação que cria seguindo o [quickstart spring boot para configuração](quickstart-java-spring-app.md)de aplicações .
 
-Em seguida, abra o ficheiro *pom.xml* num editor de texto e adicione um `<dependency>` para `spring-cloud-azure-appconfiguration-config-web`.
+Em seguida, abra o ficheiro *pom.xml* num `<dependency>` `spring-cloud-azure-appconfiguration-config-web`editor de texto e adicione um para .
 
 **Nuvem de primavera 1.1.x**
 

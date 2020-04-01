@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77443062"
 ---
 # <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutorial: Proteja o seu WAN virtual utilizando a pré-visualização do Azure Firewall Manager 
@@ -53,9 +53,9 @@ Primeiro, crie um VNet falado onde possa colocar os seus servidores.
 
 Em seguida, crie uma sub-rede para um servidor de salto.
 
-1. Na página inicial do portal Azure, selecione **Grupos de Recursos** > **FW-Manager**.
+1. Na página inicial do portal Azure, selecione **Grupos** > de Recursos**FW-Manager**.
 2. Selecione a rede virtual **Spoke-01.**
-3. Selecione **Subnets** >  **+Subnet**.
+3. Selecione **Subnets** > **+Subnet**.
 4. Para **nome**, tipo **Jump-SN**.
 5. Em **Intervalo de endereços**, escreva **10.0.2.0/24**.
 6. Selecione **OK**.
@@ -104,10 +104,10 @@ Uma política de firewall define coleções de regras para direcionar o tráfego
 8. Para **Prioridade**, tipo **100**.
 9. Certifique-se de que a **ação de recolha** de regras é **permitida.**
 10. Para a regra **Nome** tipo **Desmame**.
-11. Para **endereço Fonte,** escreva **\*** .
+11. Para **endereço Fonte,** escreva **\***.
 12. Para **protocolo**, escreva **http,https**.
 13. Certifique-se de que o tipo de destino é **FQDN**.
-14. Para **destino**, **escreva\*.microsoft.com**.
+14. Para **destino**, escreva ** \*.microsoft.com**.
 15. Selecione **Adicionar**.
 16. Selecione **Seguinte: Centros virtuais seguros**.
 17. No separador **de cubos virtuais Seguros,** selecione **Hub-01**.
@@ -125,7 +125,7 @@ Agora tem de garantir que o tráfego de rede é encaminhado para a sua firewall.
 3. Em **Definições,** selecione **definições de rota**.
 4. Sob tráfego de **Internet**, Tráfego de **Redes Virtuais,** selecione **Enviar via Firewall Azure**.
 5. Sob **tráfego privado Azure**, **Tráfego para Redes Virtuais,** selecione **Enviar via Firewall Azure**.
-6. Selecione **Editar prefixo de endereço IP (es)** .
+6. Selecione **Editar prefixo de endereço IP (es)**.
 7. **Selecione Adicionar um prefixo**de endereço IP .
 8. Tipo **10.0.1.0/24** como endereço da sub-rede de carga de trabalho e selecione **Guardar**.
 9. Em **Definições,** selecione **Ligações**.
@@ -151,7 +151,7 @@ Para testar as suas regras de firewall, terá de implantar alguns servidores. Vo
    |Palavra-passe     |escrever a sua senha|
 
 4. De acordo com as regras da **porta de entrada**, para as portas de entrada **pública,** selecione **Permitir portas selecionadas**.
-5. Para **selecionar as portas de entrada,** selecione **RDP (3389)** .
+5. Para **selecionar as portas de entrada,** selecione **RDP (3389)**.
 
 6. Aceite as outras predefinições e selecione **Seguinte: Discos**.
 7. Aceite as predefinições do disco e selecione **Seguinte: Networking**.
@@ -165,9 +165,9 @@ Utilize as informações na tabela seguinte para configurar outra máquina virtu
 
 |Definição  |Valor  |
 |---------|---------|
-|Subrede|**Carga de trabalho-SN**|
-|IP público|**Nenhuma.**|
-|Portos de entrada pública|**Nenhuma.**|
+|Subrede|**Workload-SN**|
+|IP público|**Nenhum**|
+|Portos de entrada pública|**Nenhum**|
 
 ### <a name="add-a-route-table-and-default-route"></a>Adicione uma tabela de rotas e uma rota padrão
 
@@ -198,7 +198,7 @@ Agora, teste as regras da firewall para confirmar que funciona como esperado.
 2. Ligue um ambiente de trabalho remoto à máquina virtual **Jump-Srv** e inscreva-se. A partir daí, abra uma ligação remota de ambiente de trabalho ao endereço IP privado **Workload-Srv.**
 
 3. Abra o Internet Explorer e navegue até https://www.microsoft.com.
-4. Selecione **OK** > **Fechar** nos alertas de segurança do Internet Explorer.
+4. Selecione **OK** > **Close** nos alertas de segurança do Internet Explorer.
 
    Devia ver a página inicial da Microsoft.
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar um aplicativo OpenID/OAuth na Galeria de aplicativos do Azure AD | Microsoft Docs
-description: Etapas para configurar um aplicativo OpenID/OAuth na Galeria de aplicativos do Azure AD.
+title: Configure uma aplicação OpenID/OAuth da galeria de aplicações Azure AD [ Microsoft Docs
+description: Passos para configurar uma aplicação OpenID/OAuth da galeria de aplicações Azure AD.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,96 +16,96 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160210"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048421"
 ---
-# <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth na Galeria de aplicativos do Azure AD
+# <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configure uma aplicação OpenID/OAuth da galeria de aplicações Azure AD
 
-## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo de adicionar um aplicativo OpenID da Galeria
+## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo de adição de uma aplicação OpenID da galeria
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
+1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory**. 
 
-    ![O botão Azure Active Directory](common/select-azuread.png))
+    ![O botão Azure Ative Directory](common/select-azuread.png))
 
-2. Vá para **aplicativos empresariais** > **todos os aplicativos**.
+2. Ir a **aplicações** > da Enterprise**Todas as aplicações**.
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Selecione **novo aplicativo** na parte superior da caixa de diálogo.
+3. Selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite o nome do aplicativo. Selecione o aplicativo desejado no painel de resultados e inscreva-se no aplicativo.
+4. Na caixa de pesquisa, digite o nome da aplicação. Selecione a aplicação desejada a partir do painel de resultados e inscreva-se na aplicação.
 
-    ![OpenID na lista de resultados](common/search-new-app.png)
+    ![Openid na lista de resultados](common/search-new-app.png)
 
     > [!NOTE]
-    > Para aplicativos do OpenID Connect e OAuth, o botão **Adicionar** é desabilitado por padrão. Aqui, o administrador do locatário deve selecionar o botão de inscrição e fornecer o consentimento para o aplicativo. O aplicativo é então adicionado ao locatário do cliente, no qual você pode fazer as configurações. Não é necessário adicionar o aplicativo explicitamente.
+    > Para aplicações OpenID Connect e OAuth, o botão **Adicionar** é desativado por padrão. Aqui o administrador do inquilino deve selecionar o botão de inscrição e fornecer o consentimento para o pedido. A aplicação é então adicionada ao inquilino do cliente, onde pode fazer as configurações. Não há necessidade de adicionar a aplicação explicitamente.
 
     ![Botão Adicionar](./media/openidoauth-tutorial/addbutton.png)
 
-5. Ao selecionar o link de inscrição, você será redirecionado para a página Azure Active Directory (Azure AD) para credenciais de entrada.
+5. Ao selecionar o link de inscrição, é redirecionado para a página azure Ative Directory (Azure AD) para credenciais de inscrição.
 
-6. Após a autenticação bem-sucedida, você aceita o consentimento da página de consentimento. Depois disso, o aplicativo home page é exibido.
+6. Após autenticação bem sucedida, aceita o consentimento da página de consentimento. Depois disso, aparece a página inicial da aplicação.
 
     > [!NOTE]
-    > Você pode adicionar apenas uma instância do aplicativo. Se você já tiver adicionado um e tentado fornecer o consentimento novamente, ele não será adicionado novamente no locatário. Logicamente, você pode usar apenas uma instância de aplicativo no locatário.
+    > Só pode adicionar uma instância da aplicação. Se já adicionou um e tentou dar o consentimento novamente, não será adicionado novamente no inquilino. Então logicamente, você pode usar apenas uma instância de aplicativo no inquilino.
 
-## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando o OpenID Connect
+## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando OpenID Connect
 
-O fluxo de entrada mais básico contém as seguintes etapas:
+O fluxo de entrada mais básico contém os seguintes passos:
 
-![Fluxo de autenticação usando o OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
+![Fluxo de autenticação usando OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>Aplicativo multilocatário 
-Um aplicativo multilocatário é destinado ao uso em muitas organizações, não apenas em uma organização. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor independente de software (ISV). 
+### <a name="multitenant-application"></a>Aplicação multiarrendatária 
+Uma aplicação multiarrendatária destina-se a ser usada em muitas organizações, e não apenas numa organização. Estas são aplicações tipicamente de software como um serviço (SaaS) escritas por um fornecedor de software independente (ISV). 
 
-Aplicativos multilocatários precisam ser provisionados em cada diretório onde serão usados. Eles exigem o consentimento do usuário ou do administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo é registrado no diretório e recebe acesso ao API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, uma caixa de diálogo exibe as permissões que o aplicativo precisa. 
+As aplicações multiarrendatárias têm de ser aprovisionadas em cada diretório onde serão utilizadas. Exigem que o consentimento do utilizador ou administrador os registe. Este processo de consentimento começa quando uma aplicação foi registada no diretório e tem acesso à API do Gráfico ou talvez a outra API web. Quando um utilizador ou administrador de uma organização diferente se inscreve para utilizar a aplicação, uma caixa de diálogo apresenta as permissões de que a aplicação necessita. 
 
-O usuário ou administrador pode então consentir o aplicativo. O consentimento fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo no diretório.
+O utilizador ou administrador pode então consentir com a aplicação. O consentimento dá à aplicação acesso aos dados indicados e, finalmente, regista o pedido no diretório.
 
 > [!NOTE]
-> Se estiver disponibilizando seu aplicativo para os usuários em vários diretórios, você precisará de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único precisa apenas examinar seu próprio diretório para um usuário. Um aplicativo multilocatário precisa identificar um usuário específico de todos os diretórios no Azure AD.
+> Se está a disponibilizar a sua aplicação aos utilizadores em vários diretórios, precisa de um mecanismo para determinar em que inquilino estão. Uma aplicação de inquilino único só precisa de olhar no seu próprio diretório para um utilizador. Uma aplicação multiarrendatária precisa identificar um utilizador específico de todos os diretórios da AD Azure.
 > 
-> Para realizar essa tarefa, o AD do Azure fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico do locatário. Esse ponto de extremidade é [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) para todos os diretórios no Azure AD. Um ponto de extremidade específico de locatário pode ser [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). 
+> Para realizar esta tarefa, a Azure AD fornece um ponto final de autenticação comum onde qualquer aplicação multiarrendatária pode dirigir pedidos de inscrição, em vez de um ponto final específico do arrendatário. Este ponto `https://login.microsoftonline.com/common` final é para todos os diretórios em Azure AD. Um ponto final específico `https://login.microsoftonline.com/contoso.onmicrosoft.com`do inquilino pode ser. 
 >
-> O ponto de extremidade comum é importante considerar quando você está desenvolvendo seu aplicativo. Você precisará da lógica necessária para lidar com vários locatários durante a entrada, saída e validação de token.
+> O ponto final comum é importante de considerar quando está a desenvolver a sua aplicação. Você precisará da lógica necessária para lidar com vários inquilinos durante a inscrição, inscrição e validação simbólica.
 
-Por padrão, o Azure AD promove aplicativos multilocatários. Eles são acessados facilmente entre organizações e são fáceis de usar depois que você aceita o consentimento.
+Por predefinição, a Azure AD promove aplicações multiarrendatárias. São facilmente acedidos através de organizações, e são fáceis de usar depois de aceitaro consentimento.
 
 ## <a name="consent-framework"></a>Enquadramento do consentimento
 
-Você pode usar a estrutura de consentimento do Azure AD para desenvolver aplicativos de cliente nativos e Web multilocatário. Esses aplicativos permitem a entrada por contas de usuário de um locatário do Azure AD, diferente daquele em que o aplicativo é registrado. Eles também podem precisar acessar APIs da Web, como:
-- A API Microsoft Graph, para acessar o Azure AD, o Intune e os serviços no Office 365. 
-- Outras APIs de serviços da Microsoft.
-- Suas próprias APIs Web. 
+Você pode usar o quadro de consentimento da AD Azure para desenvolver aplicações de clientes web e nativos multiarrendatários. Estas aplicações permitem o registo por conta de utilizador de um inquilino da AD Azure, diferente daquele em que a aplicação está registada. Podem também ter de aceder a APIs web tais como:
+- O Microsoft Graph API, para aceder à Azure AD, Intune e serviços no Office 365. 
+- APIs de outros serviços da Microsoft.
+- A tua própria web APIs. 
 
-A estrutura é baseada em um usuário ou administrador que dá consentimento a um aplicativo que solicita ser registrado em seu diretório. O registro pode envolver o acesso a dados do diretório. Após o consentimento ser fornecido, o aplicativo cliente pode chamar a API de Microsoft Graph em nome do usuário e usar as informações conforme necessário.
+O quadro baseia-se num utilizador ou num administrador que dá consentimento a uma aplicação que pede para ser registada no seu diretório. O registo pode envolver o acesso a dados de diretório. Após o consentimento, a aplicação do cliente pode ligar para a Microsoft Graph API em nome do utilizador e usar a informação conforme necessário.
 
-A [API Microsoft Graph](https://developer.microsoft.com/graph/) fornece acesso aos dados no Office 365, como:
+O [Microsoft Graph API](https://developer.microsoft.com/graph/) fornece acesso a dados no Office 365, como:
 
-- Calendários e mensagens do Exchange.
+- Calendários e mensagens da Exchange.
 - Sites e listas do SharePoint.
-- Documentos do OneDrive.
-- Blocos de anotações do OneNote.
-- Tarefas do planejador.
-- Pastas de trabalho do Excel.
+- Documentos da OneDrive.
+- Cadernos do OneNote.
+- Tarefas do Planner.
+- Livros do Excel.
 
-O API do Graph também fornece acesso a usuários e grupos do Azure AD e outros objetos de dados de mais serviços em nuvem da Microsoft.
+O Graph API também fornece acesso a utilizadores e grupos de AD Azure e outros objetos de dados de mais serviços na nuvem da Microsoft.
 
-As etapas a seguir mostram como a experiência de consentimento funciona para o desenvolvedor e o usuário do aplicativo:
+Os seguintes passos mostram-lhe como funciona a experiência de consentimento para o desenvolvedor e utilizador da aplicação:
 
-1. Suponha que você tenha um aplicativo cliente Web que precisa solicitar permissões específicas para acessar um recurso ou uma API. O portal do Azure é usado para declarar solicitações de permissão no momento da configuração. Assim como outras definições de configuração, elas se tornam parte dos registros do Azure AD do aplicativo. Para o caminho de solicitação de permissão, você precisará do seguinte procedimento:
+1. Assuma que tem uma aplicação de cliente web que precisa de solicitar permissões específicas para aceder a um recurso ou API. O portal Azure é utilizado para declarar pedidos de permissão no momento da configuração. À semelhança de outras configurações de configuração, tornam-se parte dos registos da AD Azure da aplicação. Para o caminho de pedido de permissão, você precisa seguir os passos abaixo:
 
-    a. Clique na **registros de aplicativo** do lado esquerdo do menu e abra o aplicativo digitando o nome do aplicativo na caixa de pesquisa.
+    a. Clique nas **inscrições** da App do lado esquerdo do menu e abra a sua aplicação digitando o nome da aplicação na caixa de pesquisa.
 
     ![Graph API](./media/openidoauth-tutorial/application.png)
 
-    b. Clique em **exibir permissões de API**.
+    b. Clique em **ver permissões API**.
 
     ![Graph API](./media/openidoauth-tutorial/api-permission.png)
 
@@ -113,45 +113,45 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
     ![Graph API](./media/openidoauth-tutorial/add-permission.png)
 
-    d. Clique em **Microsoft Graph**.
+    d. Clique no **gráfico da Microsoft**.
 
     ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
 
-    e. Selecione as opções necessárias de permissões **delegadas** e **permissões de aplicativo**.
+    e. Selecione opções necessárias a partir **de permissões delegadas** e **permissões**de aplicação .
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
-2. Considere que as permissões do seu aplicativo foram atualizadas. O aplicativo está em execução e um usuário está prestes a usá-lo pela primeira vez. Primeiro, o aplicativo precisa obter um código de autorização do ponto de extremidade/Authorize do Azure AD. O código de autorização pode então ser usado para adquirir um novo token de acesso e de atualização.
+2. Considere que as permissões do seu pedido foram atualizadas. A aplicação está em execução e um utilizador está prestes a usá-la pela primeira vez. Primeiro, o pedido precisa de obter um código de autorização da AD Azure /ponto final. O código de autorização pode então ser utilizado para adquirir um novo acesso e um sinal de atualização.
 
-3. Se o usuário ainda não estiver autenticado, o ponto de extremidade do Azure AD/Authorize solicitará a entrada.
+3. Se o utilizador ainda não estiver autenticado, o Azure AD /autorizar solicitações de ponto final para iniciar sessão.
 
     ![Autenticação](./media/openidoauth-tutorial/authentication.png)
 
-4. Depois que o usuário tiver entrado, o AD do Azure determinará se o usuário precisa ser mostrado na página de consentimento. Essa determinação se baseia em se o usuário (ou o administrador da organização) já concedeu o consentimento do aplicativo.
+4. Depois de o utilizador ter assinado o contrato, a Azure AD determina se o utilizador precisa de ser mostrado uma página de consentimento. Esta determinação baseia-se no facto de o utilizador (ou administrador da sua organização) já ter concedido o consentimento da aplicação.
 
-   Se o consentimento não tiver sido concedido, o Azure AD solicitará o consentimento do usuário e exibirá as permissões necessárias que ele precisa para funcionar. As permissões exibidas na caixa de diálogo de consentimento correspondem àquelas selecionadas nas permissões delegadas no portal do Azure.
+   Se o consentimento não tiver sido concedido, a AD Azure solicita ao utilizador o consentimento e apresenta as permissões necessárias para que funcione. As permissões apresentadas na caixa de diálogo de consentimento coincidem com as selecionadas nas permissões delegadas no portal Azure.
 
     ![Página de consentimento](./media/openidoauth-tutorial/consentpage.png)
 
-Um usuário normal pode consentir algumas permissões. Outras permissões exigem o consentimento de um administrador de locatários.
+Um utilizador regular pode consentir com algumas permissões. Outras permissões requerem o consentimento de um administrador inquilino.
 
-## <a name="difference-between-admin-consent-and-user-consent"></a>Diferença entre consentimento de administrador e consentimento do usuário
+## <a name="difference-between-admin-consent-and-user-consent"></a>Diferença entre o consentimento do administrador e o consentimento do utilizador
 
-Como administrador, você também pode concordar com as permissões delegadas de um aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento apareça para cada usuário no locatário. Os usuários que têm a função administrador podem fornecer consentimento na portal do Azure. Na página **configurações** do seu aplicativo, selecione **as permissões necessárias** > **conceder consentimento de administrador**.
+Como administrador, também pode consentir com as permissões delegadas de uma aplicação em nome de todos os utilizadores do seu inquilino. O consentimento administrativo impede que a caixa de diálogo de consentimento apareça para todos os utilizadores do inquilino. Os utilizadores que tenham a função de administrador podem fornecer consentimento no portal Azure. A partir da página **Definições** para a sua aplicação, selecione O consentimento de**administrador**de **permissões exigidas** > .
 
-![Botão conceder permissões](./media/openidoauth-tutorial/grantpermission.png)
+![Botão de permissões de concessão](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> A concessão de consentimento explícito usando o botão **conceder consentimento de administrador** agora é necessária para aplicativos de página única (spas) que usam o Adal. js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.
+> A concessão de um consentimento explícito utilizando o botão de consentimento do **administrador Grant** é agora necessária para aplicações de uma página única (SPAs) que usam ADAL.js. Caso contrário, o pedido falha quando o token de acesso é solicitado.
 
-Permissões somente de aplicativo sempre exigem o consentimento de um administrador de locatários. Se seu aplicativo solicitar uma permissão somente de aplicativo e um usuário tentar entrar no aplicativo, uma mensagem de erro será exibida. A mensagem diz que o usuário não é capaz de consentir.
+As permissões apenas para aplicações requerem sempre o consentimento de um administrador inquilino. Se a sua aplicação solicitar uma permissão apenas para aplicações e um utilizador tentar iniciar sessão na aplicação, aparece uma mensagem de erro. A mensagem diz que o utilizador não pode consentir.
 
-Se seu aplicativo usa permissões que exigem o consentimento do administrador, você precisa ter um gesto, como um botão ou link no qual o administrador pode iniciar a ação. A solicitação que seu aplicativo envia para essa ação é a solicitação de autorização OAuth2/OpenID Connect usual. Essa solicitação inclui o parâmetro de cadeia de caracteres de consulta *prompt = admin_consent* . 
+Se o seu pedido utilizar permissões que requerem consentimento administrativo, precisa de ter um gesto como um botão ou link onde o administrador possa iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect. Este pedido inclui o parâmetro de corda *de consulta pronta=admin_consent.* 
 
-Depois que o administrador tiver consentido e a entidade de serviço for criada no locatário do cliente, as solicitações de entrada posteriores não precisarão do parâmetro *prompt = admin_consent* . Como o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro usuário no locatário é solicitado a fornecer consentimento desse ponto em diante.
+Depois de o administrador ter consentido e o diretor de serviço ser criado no inquilino do cliente, os pedidos de inscrição posteriores não precisam do parâmetro *de pronta=admin_consent.* Como o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizador no inquilino é solicitado para o consentimento a partir desse ponto.
 
-Um administrador de locatários pode desabilitar a capacidade de usuários normais consentirem com os aplicativos. Se esse recurso estiver desabilitado, o consentimento do administrador sempre será necessário para que o aplicativo seja usado no locatário. Se você quiser testar seu aplicativo com o consentimento do usuário final desabilitado, poderá encontrar a opção de configuração no [portal do Azure](https://portal.azure.com/). Ele está na seção [configurações do usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) em **aplicativos empresariais**.
+Um administrador de inquilino pode desativar a capacidade de os utilizadores regulares consentirem com as candidaturas. Se esta capacidade for desativada, o consentimento do administrador é sempre necessário para que o pedido seja utilizado no inquilino. Se pretender testar a sua aplicação com o consentimento do utilizador final desativado, pode encontrar o interruptor de configuração no [portal Azure](https://portal.azure.com/). Está na secção de [definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) do Utilizador sob **aplicações da Enterprise**.
 
-O parâmetro *prompt = admin_consent* também pode ser usado por aplicativos que solicitam permissões que não exigem o consentimento do administrador. Um exemplo é um aplicativo que requer uma experiência em que o administrador de locatários "se inscreve" uma vez e nenhum outro usuário é solicitado a fornecer consentimento desse ponto em diante.
+O parâmetro *prompt=admin_consent* também pode ser usado por aplicações que solicitam permissões que não requerem consentimento administrativo. Um exemplo é uma aplicação que requer uma experiência em que o administrador do inquilino "inscreve-se" uma vez, e nenhum outro utilizador é solicitado para o consentimento a partir desse ponto.
 
-Imagine que um aplicativo exija o consentimento do administrador e um administrador entre sem o parâmetro *prompt = admin_consent* sendo enviado. Quando o administrador consentiu com êxito ao aplicativo, ele se aplica somente à sua conta de usuário. Os usuários regulares ainda não poderão entrar ou consentir o aplicativo. Esse recurso será útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.
+Imagine que um pedido requer consentimento administrativo, e um administrador entra sem que o *parâmetro de admin_consent seja* enviado. Quando o administrador consente com sucesso na aplicação, aplica-se apenas à sua conta de utilizador. Os utilizadores regulares continuarão a não conseguir iniciar sessão ou a consentir com a aplicação. Esta funcionalidade é útil se pretender dar ao administrador inquilino a capacidade de explorar a sua aplicação antes de permitir o acesso de outros utilizadores.

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ace76b9a13f44c14e348a0338ca01dd6b3948ce3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369925"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411714"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implante o seu primeiro modelo ARM
 
@@ -85,7 +85,7 @@ Para começar a trabalhar com o Azure PowerShell/Azure CLI, inscreva-se com as s
 Connect-AzAccount
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -125,10 +125,10 @@ $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
 
@@ -148,11 +148,14 @@ O comando de implantação devolve os resultados. Procure `ProvisioningState` ve
 
 ![Estado de fornecimento powerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ![Estado de provisionamento de implantação do Azure CLI](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 

@@ -1,6 +1,6 @@
 ---
 title: Desative o hóspede OS Firewall em Azure VM [ Microsoft Docs
-description: ''
+description: Aprenda um método de suver para situações de resolução de problemas em que uma firewall do sistema operativo de hóspedes esteja a filtrar o tráfego parcial ou completo para um VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: dbb9b0f865c7ec5d9d29e2310ae41abbec287bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79464967"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422365"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
