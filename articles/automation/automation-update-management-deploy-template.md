@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
-ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77925803"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411464"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Solução de Gestão de Atualização de Bordo utilizando o modelo de Gestor de Recursos Azure
 
@@ -25,7 +25,7 @@ Pode utilizar modelos do Gestor de [Recursos Azure](../azure-resource-manager/te
 
 O modelo não automatiza o embarque de um ou mais VMs Azure ou não-Azure.
 
-Se já tem uma conta de log Analytics e de automação implantada numa região suportada na sua subscrição, não estão ligadas, e o espaço de trabalho ainda não tem a solução De Gestão de Atualização implementada, utilizando este modelo com sucesso cria cria com sucesso o link e implementa a solução de Gestão de Atualização. 
+Se já tem uma conta de log Analytics e de automação implantada numa região suportada na sua subscrição, não estão ligadas, e o espaço de trabalho ainda não tem a solução DeGestão de Atualização implementada, utilizando este modelo com sucesso cria o link e implementa a solução de Gestão de Atualização. 
 
 ## <a name="api-versions"></a>Versões da API
 
@@ -56,6 +56,7 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
 
 * sku - incumprimentos ao novo nível de preços Per-GB lançado no modelo de preços de abril de 2018
 * retenção de dados - incumprimentos a trinta dias
+* reserva de capacidade - incumprimentos a 100 GB
 
 >[!WARNING]
 >Se criar ou configurar um espaço de trabalho log Analytics numa subscrição que tenha optado pelo novo modelo de preços de abril de 2018, o único nível de preços válido do Log Analytics é **o PerGB2018.**
@@ -79,7 +80,7 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
                 "description": "Workspace name"
             }
         },
-        "pricingTier": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "pergb2018",
@@ -168,7 +169,8 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -231,7 +233,7 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
     }
     ```
 
-2. Editar o modelo para satisfazer os seus requisitos.
+2. Editar o modelo para satisfazer os seus requisitos. Considere criar um ficheiro de [parâmetros do Gestor](../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar os parâmetros como valores inline.
 
 3. Guarde este ficheiro como deployUMSolutiontemplate.json para uma pasta local.
 
@@ -243,7 +245,7 @@ Os seguintes parâmetros no modelo são definidos com um valor predefinido para 
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
     ```
 
-    **Azure CLI**
+    **CLI do Azure**
 
     ```cli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json

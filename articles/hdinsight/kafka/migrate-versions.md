@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 66ea8a93723c117a364a188ec05b050e1ef60564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76548089"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437005"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrar cargas de trabalho apache kafka para Azure HDInsight 4.0
 
@@ -68,7 +68,7 @@ A seguinte orientação de migração pressupõe um cluster Apache Kafka 1.0.0 o
 
 Para completar a migração, faça os seguintes passos:
 
-1. **Implemente um novo cluster HDInsight 4.0 e clientes para teste.** Implemente um novo cluster HDInsight 4.0 Kafka. Se várias versões de cluster kafka puderem ser selecionadas, é aconselhável selecionar a versão mais recente. Após a implantação, defina alguns parâmetros conforme necessário e crie um tópico com o mesmo nome que o seu ambiente existente. Além disso, detete a encriptação SSL e traga a encriptação da sua própria chave (BYOK) conforme necessário. Em seguida, verifique se funciona corretamente com o novo cluster.
+1. **Implemente um novo cluster HDInsight 4.0 e clientes para teste.** Implemente um novo cluster HDInsight 4.0 Kafka. Se várias versões de cluster kafka puderem ser selecionadas, é aconselhável selecionar a versão mais recente. Após a implantação, defina alguns parâmetros conforme necessário e crie um tópico com o mesmo nome que o seu ambiente existente. Além disso, detete tLS e traga a encriptação da sua própria chave (BYOK) conforme necessário. Em seguida, verifique se funciona corretamente com o novo cluster.
 
     ![Implementar novos clusters HDInsight 4.0](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
 

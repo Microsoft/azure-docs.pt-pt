@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 5a4f7e31cb17f47e8796ab99c1f8a089339903df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 514c1466bc1a686adfc3e07e1f19bd566e979dc1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74888432"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420882"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações nos Serviços de Mídia Azure v3
 
@@ -26,10 +26,10 @@ Este artigo descreve quotas e limitações no Azure Media Services v3.
 | --- | --- | 
 | Recursos por conta dos Serviços de Multimédia do Azure | 1 000 000|
 | Filtros do Manifesto Dinâmico|100|
-| JobInputs por Job | 50 (fixo)|
-| JobOutputs por Job | 20 (fixo) |
-| TransformOutputs em uma Transformação | 20 (fixo) |
-| Ficheiros por JobInput|10 (fixo)|
+| Inputs de emprego por Job | 50 (fixo)|
+| Saídas de emprego por Job | 20 (fixo) |
+| Transforme as saídas numa Transformação | 20 (fixo) |
+| Ficheiros por entrada de trabalho|10 (fixo)|
 | Tamanho dos ficheiros| Em alguns cenários, existe um limite para o tamanho máximo dos ficheiros suportados para o processamento em Serviços de Media. <sup>(1)</sup> |
 | Empregos por conta de Serviços de Media | 500.000 <sup>(2)</sup> (fixo)|
 | Eventos em Direto por conta dos Serviços de Multimédia |5|

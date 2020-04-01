@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.author: jgao
-ms.openlocfilehash: 7ff91545b1b7ab1920f437e0c3a5410270efaac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153255"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437881"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -42,7 +42,7 @@ Os benefícios do script de implantação:
 - Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte para o grupo-recurso-alvo**. Esta identidade é usada para executar scripts de implantação. Para realizar operações fora do grupo de recursos, é necessário conceder permissões adicionais. Por exemplo, atribuir a identidade ao nível de subscrição se quiser criar um novo grupo de recursos.
 
   > [!NOTE]
-  > O motor de script de implantação cria uma conta de armazenamento e uma instância de contentor estanque no fundo.  É necessária uma identidade gerida atribuída ao utilizador com o papel do contribuinte ao nível da subscrição se a subscrição não tiver registado o recurso de armazenamento Azure (Microsoft.Storage) e azure (Microsoft.ContainerInstance) fornecedores.
+  > O motor de script de implantação cria uma conta de armazenamento e uma instância de contentor estanque no fundo.  É necessária uma identidade gerida atribuída ao utilizador com o papel do contribuinte ao nível da subscrição se a subscrição não tiver registado os fornecedores de recursos da conta de armazenamento Azure (Microsoft.Storage) e da instância de contentores Azure (Microsoft.ContainerInstance).
 
   Para criar uma identidade, consulte Criar uma identidade gerida atribuída pelo [utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou utilizando o [Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou utilizando o [Azure PowerShell.](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
@@ -101,6 +101,12 @@ O seguinte json é um exemplo.  O mais recente esquema de modelo pode ser encont
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -126,6 +132,7 @@ Detalhes do valor da propriedade:
 - **forceUpdateTag**: Alterar este valor entre as implementações do modelo obriga o script de implantação a reexecutar. Utilize a função newGuid() ou utcNow() que precisa de ser definida como o valor padrão de um parâmetro. Para saber mais, consulte [o guião run mais de uma vez](#run-script-more-than-once).
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [pré-requisitos](#prerequisites).
 - **argumentos**: Especificar os valores dos parâmetros. Os valores são separados por espaços.
+- **ambienteVariáveis**: Especifique as variáveis ambientais para passar para o script. Para mais informações, consulte [Desenvolver scripts](#develop-deployment-scripts)de implementação .
 - **scriptConteúdo**: Especifique o conteúdo do script. Para executar um script `primaryScriptUri` externo, use em vez disso. Por exemplo, consulte [Utilize o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
 - **primaryScriptUri**: Especifique um Url acessível ao público para o script de implementação primária com extensões de ficheiros suportadas.
 - **suporteScriptUris**: Especifique um conjunto de Urls acessíveis `ScriptContent` `PrimaryScriptUri`ao público para suportar ficheiros que são chamados em ou .
@@ -234,7 +241,7 @@ Pode controlar a forma como o PowerShell reage a erros não terminadores utiliza
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passe cordas seguras para o script de implementação
 
-Definir variáveis de ambiente nas suas instâncias de contentor permite-lhe oferecer configuração dinâmica da aplicação ou do script executado pelo contentor. O script de implantação trata de variáveis ambientais não seguras e seguras da mesma forma que a Instância do Contentor Azure. Para obter mais informações, consulte As [variáveis ambiente definidas em instâncias de contentores](../../container-instances/container-instances-environment-variables.md#secure-values).
+A definição de variáveis ambientais (EnvironmentVariable) nas instâncias do seu recipiente permite-lhe fornecer uma configuração dinâmica da aplicação ou script executado pelo recipiente. O script de implantação trata de variáveis ambientais não seguras e seguras da mesma forma que a Instância do Contentor Azure. Para obter mais informações, consulte As [variáveis ambiente definidas em instâncias de contentores](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 

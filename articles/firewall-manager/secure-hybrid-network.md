@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77459958"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Tutorial: Proteja a sua rede virtual do hub utilizando a pré-visualização do Azure Firewall Manager 
@@ -67,11 +67,11 @@ Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber c
 >[!NOTE]
 >O tráfego entre VNets diretamente espreitados é encaminhado diretamente mesmo que um UDR aponta para O Firewall Azure como a porta de entrada padrão. Para enviar a sub-rede para sub-rede para a firewall neste cenário, um UDR deve conter explicitamente a prefixação da rede de sub-rede alvo em ambas as subredes.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-firewall-policy"></a>Criar uma Política de Firewall
 
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 2. Na barra de pesquisa do portal Azure, escreva **Firewall Manager** e prima **Enter**.
 3. Na página Do Gestor de Firewall Azure, selecione as políticas de **firewall do View Azure**.
 
@@ -237,7 +237,7 @@ Neste passo, cria-se a ligação da rede virtual hub à rede virtual no local. N
 4. O nome de ligação, tipo **Hub-to-Onprem**.
 5. Selecione **VNet-to-VNet** para o tipo de **ligação**.
 6. Para o segundo portal de **rede virtual,** selecione **GW-Onprem**.
-7. Para **tecla partilhada (PSK)** , tipo **AzureA1b2C3**.
+7. Para **tecla partilhada (PSK)**, tipo **AzureA1b2C3**.
 8. Selecione **OK**.
 
 Crie as instalações para centralar a ligação de rede virtual. Este passo é semelhante ao anterior, exceto que cria a ligação do VNet-Onprem ao VNet-hub. Verifique se as chaves partilhadas correspondem. Após alguns minutos, estará ligado.
@@ -248,7 +248,7 @@ Crie as instalações para centralar a ligação de rede virtual. Este passo é 
 4. O nome de ligação, escreva **Onprem-to-Hub**.
 5. Selecione **VNet-to-VNet** para o tipo de **ligação**.
 6. Para o segundo portal de **rede virtual,** selecione **GW-hub**.
-7. Para **tecla partilhada (PSK)** , tipo **AzureA1b2C3**.
+7. Para **tecla partilhada (PSK)**, tipo **AzureA1b2C3**.
 8. Selecione **OK**.
 
 
@@ -256,7 +256,7 @@ Crie as instalações para centralar a ligação de rede virtual. Este passo é 
 
 Após cerca de cinco minutos, o estado de ambas as ligações deve estar **ligado**.
 
-![Ligações gateway](media/secure-hybrid-network/gateway-connections.png)
+![Ligações de gateway](media/secure-hybrid-network/gateway-connections.png)
 
 ## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Peer the hub e falou redes virtuais
 
@@ -294,7 +294,7 @@ Em seguida, crie duas rotas:
 4. Selecione **Criar**.
 5. Para o nome, escreva **UDR-Hub-Spoke**.
 6. Selecione o **FW-Hybrid-Test** para o grupo de recursos.
-8. Para **localização**, selecione **(EUA) East US)** .
+8. Para **localização**, selecione **(EUA) East US)**.
 9. Selecione **Criar**.
 10. Depois da tabela de rotas ser criada, selecione-a para abrir a página da tabela de rotas.
 11. Selecione **Rotas** na coluna esquerda.
@@ -321,7 +321,7 @@ Agora crie a rota padrão a partir da subnet falada.
 5. Selecione **Criar**.
 6. Para o nome, digite **UDR-DG**.
 7. Selecione o **FW-Hybrid-Test** para o grupo de recursos.
-8. Para **localização**, selecione **(EUA) East US)** .
+8. Para **localização**, selecione **(EUA) East US)**.
 4. Para propagação da rota de gateway de **rede virtual,** selecione **Desativado**.
 1. Selecione **Criar**.
 2. Depois da tabela de rotas ser criada, selecione-a para abrir a página da tabela de rotas.
@@ -354,7 +354,7 @@ Crie uma máquina virtual na rede virtual de porta-voz, funcionando o IIS, sem e
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** - Selecione **FW-Hybrid-Test**.
     - **Nome da máquina virtual**: *VM-Spoke-01*.
-    - **Região** -  *(EUA) Leste dos EUA.*
+    - **Região** - *(EUA) Leste dos EUA.*
     - **Nome do utilizador**: *azureuser*.
     - **Palavra-passe**: escreva a sua palavra-passe
 
@@ -392,8 +392,8 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Remote Desktop 
 2. Em **Popular**, selecione **Windows Server 2016 Datacenter**.
 3. Introduza estes valores para a máquina virtual:
     - **Grupo de recursos** - Selecione existente e, em seguida, selecione **FW-Hybrid-Test**.
-    - **Nome da máquina virtual** - *VM-Onprem*.
-    - **Região** -  *(EUA) Leste dos EUA.*
+    - **Nome** - de máquina virtual*VM-Onprem*.
+    - **Região** - *(EUA) Leste dos EUA.*
     - **Nome do utilizador**: *azureuser*.
     - **Palavra-passe**: digite a sua palavra-passe.
 
@@ -413,9 +413,9 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Remote Desktop 
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Abra um navegador web no **VM-Onprem**e navegue para http://\<\>IP privada vM-spoke-01.
+3. Abra um navegador web no **VM-Onprem**\<e navegue para http://\>IP privado vM-spoke-01 .
 
-   Deve ver a página web **vM-spoke-01:** ![página web VM-Spoke-01](media/secure-hybrid-network/vm-spoke-01-web.png)
+   Você deve ver a página web **VM-spoke-01:** ![VM-Spoke-01 página web](media/secure-hybrid-network/vm-spoke-01-web.png)
 
 4. A partir da máquina virtual **VM-Onprem,** abra um ambiente de trabalho remoto para **VM-spoke-01** no endereço IP privado.
 

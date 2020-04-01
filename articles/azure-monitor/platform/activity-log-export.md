@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096290"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396725"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Export Azure Activity log to storage or Azure Event Hubs
 
 > [!IMPORTANT]
-> O método para enviar o registo da Atividade Azure para o Azure Storage e os Centros de Eventos Azure mudou para [configurações](diagnostic-settings.md)de diagnóstico . Este artigo descreve o método legado que está em processo de ser depreciado. Consulte a recolha e exportação de registos da [Atividade Azure](diagnostic-settings-legacy.md) para uma comparação.
+> O método para enviar o registo da Atividade Azure para o Azure Storage e os Centros de Eventos Azure mudou para [configurações](diagnostic-settings.md)de diagnóstico . Este artigo descreve o método legado que está em processo de ser depreciado. Consulte a Atualização para Recolher e analisar o [log in Azure Activity no Azure Monitor](activity-log-collect.md) para uma comparação.
 
 
-O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Além de visualizar o registo de atividade no portal Azure ou copiá-lo para um espaço de trabalho de Log Analytics onde pode ser analisado com outros dados recolhidos pelo Azure Monitor, pode criar um perfil de registo para arquivar o registo de atividade sacana para uma conta de armazenamento Azure ou transmiti-lo para um Centro de Eventos.
+O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Além de visualizar o registo de atividade no portal Azure ou copiá-lo para um espaço de trabalho de Log Analytics onde pode ser analisado com outros dados recolhidos pelo Azure Monitor, pode criar um perfil de registo para arquivar o registo de atividade saquea do registo de atividade sacana para uma conta de armazenamento Azure ou transmiti-lo para um Hub de Eventos.
 
 ## <a name="archive-activity-log"></a>Registo de Atividades de Arquivo
 Arquivar o Registo de Atividade saqueado numa conta de armazenamento é útil se quiser reter os seus dados de registo por mais de 90 dias (com controlo total sobre a política de retenção) para auditoria, análise estática ou backup. Se necessitar apenas de reter os seus eventos durante 90 dias ou menos, não precisa de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de Registo de Atividade saem retidos na plataforma Azure durante 90 dias.
@@ -40,7 +40,7 @@ A conta de armazenamento não tem de estar na mesma subscrição que os registos
 > [!TIP]
 > Consulte [as firewalls de Armazenamento Configure Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para fornecer acesso a uma conta de armazenamento por trás de uma rede virtual segura.
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Hubs de Eventos
 Se está a enviar o seu Registo de Atividades para um centro de eventos, então precisa de criar um centro de [eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se já transmitiu eventos de Registo de Atividade para este espaço de nome sinuoso do Event Hubs, então esse centro de eventos será reutilizado.
 
 A política de acesso partilhado define as permissões que o mecanismo de streaming tem. O streaming para centros de eventos requer permissões de Gestão, Envio e Escuta. Pode criar ou modificar políticas de acesso partilhado para o espaço de nome sem nome do Event Hubs no portal Azure sob o separador Configure para o seu espaço de nome Sem Evento.

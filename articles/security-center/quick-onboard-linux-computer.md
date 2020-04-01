@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73664498"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435966"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Carregar computadores Linux para o Centro de Segurança do Azure
-Depois de embarcar nas suas subscrições do Azure, pode ativar o Centro de Segurança dos recursos Linux que corre fora do Azure, por exemplo no local ou noutras nuvens, ao fornecer um Agente. O Agente chama-se Agente de Monitorização da Microsoft (MMA), mas também é conhecido como o agente OMS.
+Depois de embarcar nas suas subscrições do Azure, pode ativar o Centro de Segurança dos recursos Linux que corre fora do Azure, por exemplo no local ou noutras nuvens, ao fornecer um Agente. O agente chama-se agente de Log Analytics, mas também é conhecido como agente oms.
 
 Este arranque rápido mostra-lhe como instalar o Agente num computador Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Deve estar no nível de preços standard do Security Center antes de iniciar este arranque rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Adicionar um novo computador Linux
 

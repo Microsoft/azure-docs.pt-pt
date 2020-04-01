@@ -1,6 +1,6 @@
 ---
-title: Adicionar um aplicativo de galeria-Azure Active Directory | Microsoft Docs
-description: Saiba como adicionar um aplicativo da galeria do Azure AD aos seus aplicativos empresariais do Azure.
+title: Adicione uma aplicação de galeria - Azure Ative Directory [ Azure Ative Directory ] Microsoft Docs
+description: Saiba como adicionar uma aplicação da galeria Azure AD às suas aplicações empresariais Azure.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,56 +13,56 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73062599"
 ---
-# <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicionar um aplicativo da Galeria à sua organização do Azure AD
+# <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicione uma aplicação de galeria à sua organização Azure AD
 
-O Azure Active Directory (AD do Azure) tem uma galeria que contém milhares de aplicativos previamente integrados que são habilitados com o logon único corporativo. Este artigo descreve as etapas gerais para adicionar um aplicativo da Galeria à sua organização do Azure AD.
+O Azure Ative Directory (Azure AD) tem uma galeria que contém milhares de aplicações pré-integradas que estão habilitadas com um único signo da Enterprise. Este artigo descreve os passos gerais para adicionar uma aplicação da galeria à sua organização Azure AD.
 
 > [!IMPORTANT]
-> Primeiro, verifique seu aplicativo na [lista de tutoriais sobre como integrar aplicativos SaaS com Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Você provavelmente encontrará orientações passo a passo para adicionar e configurar o aplicativo da galeria que deseja adicionar.
+> Em primeiro lugar, consulte a sua aplicação na [Lista de Tutoriais sobre como integrar aplicações SaaS com o Diretório Ativo Azure](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). É provável que encontre orientação passo a passo para adicionar e configurar a aplicação da galeria que pretende adicionar.
 
-## <a name="add-a-gallery-application"></a>Adicionar um aplicativo de galeria
+## <a name="add-a-gallery-application"></a>Adicione uma aplicação de galeria
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global do inquilino do Azure AD, administrador de uma aplicação na cloud ou administrador de uma aplicação.
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
-1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais**.
+1. No painel **azure Ative Directory,** selecione **aplicações Enterprise**.
 
     ![Abrir aplicações empresariais](media/add-gallery-app/open-enterprise-apps.png)
 
 
-3. Para adicionar um aplicativo da galeria ao seu locatário, selecione **novo aplicativo**.
+3. Para adicionar uma aplicação de galeria ao seu inquilino, selecione **Nova aplicação.**
 
-    ![Selecione novo aplicativo para adicionar um aplicativo da galeria ao seu locatário](media/add-gallery-app/new-application.png)
+    ![Selecione Nova aplicação para adicionar uma app de galeria ao seu inquilino](media/add-gallery-app/new-application.png)
 
- 4. Mude para a nova experiência de visualização da Galeria: na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **clique aqui para experimentar a Galeria de aplicativos nova e aprimorada**.
+ 4. Mude para a nova experiência de pré-visualização da galeria: No banner no topo da página Adicionar uma página de **aplicação,** selecione o link que diz Clique aqui para experimentar a nova e melhorada galeria de **aplicações**.
 
-5. O painel **procurar na galeria do Azure ad** é aberto e exibe blocos para plataformas de nuvem, aplicativos locais e aplicativos em destaque. Observe que os aplicativos listados na seção **aplicativos em destaque** têm ícones que indicam se eles dão suporte ao SSO (logon único) federado e ao provisionamento.
+5. O painel **browse Azure AD Gallery** abre e exibe azulejos para plataformas em nuvem, aplicações no local e aplicações em destaque. Note que as aplicações listadas na secção **de aplicações em destaque** têm ícones que indicam se suportam um único sinal federado (SSO) e o provisionamento.
 
-    ![Pesquisar um aplicativo por nome ou categoria](media/add-gallery-app/browse-gallery.png)
+    ![Procure uma aplicação por nome ou categoria](media/add-gallery-app/browse-gallery.png)
 
-6. Navegue pela galeria para o aplicativo que você deseja adicionar ou procure o aplicativo inserindo seu nome na caixa de pesquisa. Em seguida, selecione o aplicativo nos resultados. Adicional No formulário, você pode editar o nome do aplicativo para corresponder às necessidades da sua organização.
+6. Percorra a galeria para obter a aplicação que pretende adicionar, ou procure a aplicação inserindo o seu nome na caixa de pesquisa. Em seguida, selecione a aplicação a partir dos resultados. (Opcional) No formulário, pode editar o nome da aplicação para corresponder às necessidades da sua organização.
 
-    ![Mostra como adicionar um aplicativo da Galeria](media/add-gallery-app/create-application.png)
+    ![Mostra como adicionar uma aplicação da galeria](media/add-gallery-app/create-application.png)
 
 7. Selecione **Criar**. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurar as propriedades de início de sessão do utilizador
 
-1. Selecione **Propriedades** para abrir o painel Propriedades para edição.
+1. Selecione **Propriedades** para abrir o painel de propriedades para edição.
 
-    ![Editar painel de propriedades](media/add-gallery-app/edit-properties.png)
+    ![Editar propriedades painele](media/add-gallery-app/edit-properties.png)
 
-1. Defina as opções a seguir para determinar como os usuários atribuídos ou não atribuídos ao aplicativo poderão entrar no aplicativo e se um usuário puder ver o aplicativo no painel de acesso.
+1. Defina as seguintes opções para determinar como os utilizadores que estão designados ou não atribuídos à aplicação podem iniciar sessão na aplicação e se um utilizador pode ver a aplicação no painel de acesso.
 
     - **Ativada para os utilizadores iniciarem sessão** determina se os utilizadores atribuídos à aplicação podem iniciar sessão.
-    - **Atribuição de usuário necessária** determina se os usuários que não estão atribuídos ao aplicativo podem entrar.
+    - **A atribuição do utilizador necessária** determina se os utilizadores que não estão designados para a aplicação podem iniciar sessão.
     - **Visível para o utilizador** determina se os utilizadores atribuídos a uma aplicação podem vê-la no painel de acesso e no iniciador do O365.
 
       Comportamento para utilizadores **atribuídos**:
@@ -83,7 +83,7 @@ O Azure Active Directory (AD do Azure) tem uma galeria que contém milhares de a
 
        | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
        |---|---|---|---|---|
-       | Habilitado para os usuários entrarem? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
+       | Habilitado para os utilizadores iniciarem o seu insessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
        | sim | sim | sim | não  | não   |
        | sim | sim | não  | não  | não   |
        | sim | não  | sim | sim | não   |
@@ -95,17 +95,17 @@ O Azure Active Directory (AD do Azure) tem uma galeria que contém milhares de a
 
      *O utilizador pode ver a aplicação no painel de acesso e no iniciador de aplicações do Office 365?
 
-1. Para usar um logotipo personalizado, crie um logotipo que seja 215 por 215 pixels e salve-o no formato PNG. Em seguida, navegue até o logotipo e carregue-o.
+1. Para utilizar um logótipo personalizado, crie um logótipo que seja de 215 por 215 pixels e guarde-o em formato PNG. Em seguida, navegue para o seu logotipo e faça o upload.
 
     ![Alterar o logótipo](media/add-gallery-app/change-logo.png)
 
-1. Quando tiver terminado, selecione **salvar**.
+1. Quando terminar, selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você adicionou o aplicativo à sua organização do Azure AD, [escolha um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que você deseja usar e consulte o artigo apropriado abaixo:
+Agora que adicionou a aplicação à sua organização Azure AD, [escolha um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que deseja utilizar e consulte o artigo apropriado abaixo:
 
-- [Configurar o logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
-- [Configurar o logon único com senha](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configurar logon vinculado](configure-linked-sign-on.md)
+- [Configurar o início de sessão único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configure o sinal único da palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configurar o início de sessão ligado](configure-linked-sign-on.md)
 

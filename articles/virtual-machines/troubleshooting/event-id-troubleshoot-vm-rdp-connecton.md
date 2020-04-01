@@ -1,6 +1,6 @@
 ---
 title: Problemas Desfilmam problemas de ligação Azure VM RDP por Id de eventos [ Microsoft Docs
-description: ''
+description: Utilize iDs de eventos para resolver problemas vários problemas que impedem uma ligação remota de protocolo de ambiente de trabalho (RDP) a uma Máquina Virtual Azure (VM).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154199"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437067"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de Evento 
 
@@ -63,7 +63,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Palavras-chave:**      Clássico <br />
 **Utilizador:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** O Servidor de Anfitriões de Sessão RD não substituiu o certificado auto-assinado expirado utilizado para a autenticação do Servidor de Anfitriões de Sessão RD nas ligações SSL. O código de estado relevante foi o Acesso negado.
+**Descrição:** O Servidor de Anfitriões de Sessão RD não substituiu o certificado auto-assinado expirado utilizado para a autenticação do Servidor de Anfitriões de Sessão RD nas ligações TLS. O código de estado relevante foi o Acesso negado.
 
 **Nome do registo:**      Sistema <br />
 **Fonte:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -74,7 +74,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Palavras-chave:**      Clássico <br />
 **Utilizador:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** O servidor de anfitriões rd Session não conseguiu criar um novo certificado auto-assinado para ser usado para autenticação do servidor de anfitriões RD Session em ligações SSL, o código de estado relevante já existia.
+**Descrição:** O servidor de anfitriões rd Session falhou em criar um novo certificado auto-assinado a ser usado para autenticação do servidor de anfitriões RD Session nas ligações TLS, o código de estado relevante já existia.
 
 **Nome do registo:**      Sistema <br />
 **Fonte:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -85,7 +85,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Palavras-chave:**      Clássico <br />
 **Utilizador:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** O Servidor de Anfitriões de Sessão RD não conseguiu criar um novo certificado auto-assinado para ser usado para autenticação do Servidor de Anfitriões de Sessão RD em ligações SSL. O código de estado relevante era Keyset não existe
+**Descrição:** O Servidor de Anfitriões de Sessão RD não conseguiu criar um novo certificado auto-assinado para ser usado para autenticação do Servidor de Anfitriões de Sessão RD em ligações TLS. O código de estado relevante era Keyset não existe
 
 Também pode verificar se os erros do SCHANNEL 36872 e 36870 executam os seguintes comandos:
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Palavras-chave:**       <br />
 **Utilizador:**          SISTEMA <br />
 **Computador:**      *computador* <br />
-**Descrição:** Ocorreu um erro fatal ao tentar aceder à chave privada credencial do servidor SSL. O código de erro devolvido do módulo criptográfico é 0x8009030D.  <br />
+**Descrição:** Ocorreu um erro fatal ao tentar aceder à chave privada credencial do servidor TLS. O código de erro devolvido do módulo criptográfico é 0x8009030D.  <br />
 O estado de erro interno é 10001.
 
 ### <a name="cause"></a>Causa
@@ -186,9 +186,9 @@ Se não conseguir renovar o certificado, siga estes passos para tentar apagar o 
 
 Tente aceder ao VM utilizando novamente o RDP.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Certificado de camada de camada de tomadas seguras (SSL)
+#### <a name="update-tlsssl-certificate"></a>Certificado TLS/SSL atualizado
 
-Se configurar o VM para utilizar um certificado SSL, execute o seguinte comando para obter a impressão digital. Então verifique se é o mesmo que a impressão digital do certificado:
+Se configurar o VM para utilizar um certificado TLS/SSL, execute o seguinte comando para obter a impressão digital. Então verifique se é o mesmo que a impressão digital do certificado:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash

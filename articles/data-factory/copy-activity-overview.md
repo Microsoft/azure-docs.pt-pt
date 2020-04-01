@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 39885782b55dca9c73f10990269d912f9b5727fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257976"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421403"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na Fábrica de Dados Azure
 
@@ -134,10 +134,10 @@ O seguinte modelo de uma atividade de Cópia contém uma lista completa de propr
 | source | Especifique o tipo de origem da cópia e as propriedades correspondentes para a recuperação de dados.<br/>Para mais informações, consulte a secção "Copiar propriedades de atividade" no artigo do conector listado em [lojas e formatos](#supported-data-stores-and-formats)de dados suportados . | Sim |
 | afundar | Especifique o tipo de sumidouro de cópia e as propriedades correspondentes para a escrita de dados.<br/>Para mais informações, consulte a secção "Copiar propriedades de atividade" no artigo do conector listado em [lojas e formatos](#supported-data-stores-and-formats)de dados suportados . | Sim |
 | tradutor | Especifique mapeamentos explícitos de colunas de origem a afundar. Esta propriedade aplica-se quando o comportamento predefinido da cópia não satisfaz as suas necessidades.<br/>Para mais informações, consulte [o mapeamento de Schema na atividade](copy-activity-schema-and-type-mapping.md)de cópia. | Não |
-| dataIntegraçãoUnidades | Especifique uma medida que represente a quantidade de energia que o tempo de execução de [integração azure](concepts-integration-runtime.md) utiliza para cópia de dados. Estas unidades eram anteriormente conhecidas como Unidades de Movimento de Dados em nuvem (DMU). <br/>Para mais informações, consulte Unidades de [Integração de Dados](copy-activity-performance.md#data-integration-units). | Não |
-| paraleloCópias | Especifique o paralelismo que pretende que a atividade da Cópia utilize ao ler dados da fonte e escrever dados para o lavatório.<br/>Para mais informações, consulte [a cópia paralela](copy-activity-performance.md#parallel-copy). | Não |
+| dataIntegraçãoUnidades | Especifique uma medida que represente a quantidade de energia que o tempo de execução de [integração azure](concepts-integration-runtime.md) utiliza para cópia de dados. Estas unidades eram anteriormente conhecidas como Unidades de Movimento de Dados em nuvem (DMU). <br/>Para mais informações, consulte Unidades de [Integração de Dados](copy-activity-performance-features.md#data-integration-units). | Não |
+| paraleloCópias | Especifique o paralelismo que pretende que a atividade da Cópia utilize ao ler dados da fonte e escrever dados para o lavatório.<br/>Para mais informações, consulte [a cópia paralela](copy-activity-performance-features.md#parallel-copy). | Não |
 | preservar | Especifique se deve preservar metadados/ACLs durante a cópia de dados. <br/>Para mais informações, consulte [Preservar metadados](copy-activity-preserve-metadata.md). |Não |
-| habilitarEncenação<br/>stagingDefinições | Especifique se deve ser a deestágio dos dados provisórios no armazenamento blob em vez de copiar diretamente os dados de origem para afundar.<br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [a cópia encenada](copy-activity-performance.md#staged-copy). | Não |
+| habilitarEncenação<br/>stagingDefinições | Especifique se deve ser a deestágio dos dados provisórios no armazenamento blob em vez de copiar diretamente os dados de origem para afundar.<br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy). | Não |
 | enableSkipIncompatívelRow<br/>redirecionamentoIncompatívelComDefinições RowSettings| Escolha como lidar com linhas incompatíveis quando copia dados de origem para afundar.<br/>Para mais informações, consulte a [tolerância à falha.](copy-activity-fault-tolerance.md) | Não |
 
 ## <a name="monitoring"></a>Monitorização

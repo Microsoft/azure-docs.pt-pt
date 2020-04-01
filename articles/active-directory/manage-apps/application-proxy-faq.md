@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 8bb77a217546f1abe2c28925e32464b8d61702b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481284"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410723"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Ative Directory (Azure AD) Application Proxy frequentemente feito perguntas
 
@@ -113,7 +113,7 @@ Não, este cenário não é suportado porque o Proxy de Aplicação vai acabar c
 
 Consulte a publicação de Ambiente de Trabalho Remoto com procuração de [aplicação AD Azure](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-in-the-remote-desktop-gateway-publishing-scenario"></a>Posso usar a Delegação Limitada kerberos no cenário de publicação de Remote Desktop Gateway?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Posso usar a Delegação Limitada kerberos (Single Sign-On - Windows Integrated Authentication) no cenário de publicação remote Desktop Gateway?
 
 Não, este cenário não é apoiado.  
 
@@ -121,7 +121,7 @@ Não, este cenário não é apoiado.
 
 Sim, é esperado. O cenário de pré-autenticação requer um controlo ActiveX, que não é suportado em navegadores de terceiros.
 
-### <a name="is-the-remote-desktop-web-client-supported"></a>O Cliente Web do Ambiente de Trabalho Remoto é suportado?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>O Cliente Web do Ambiente de Trabalho Remoto (HTML5) é suportado?
 
 Não, este cenário não é apoiado atualmente. Siga o nosso fórum de feedback [userVoice](https://aka.ms/aadapuservoice) para obter atualizações sobre esta funcionalidade.
 
@@ -135,6 +135,10 @@ Sim, é esperado. Se o computador do utilizador for Azure AD, o utilizador entra
 
 Consulte o [Enable acesso remoto ao SharePoint com procuração de aplicação AD Azure](application-proxy-integrate-with-sharepoint-server.md).
 
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>Posso usar a aplicação móvel SharePoint (iOS/ Android) para aceder a um servidor sharePoint publicado?
+
+A [aplicação móvel SharePoint](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) não suporta a pré-autenticação do Azure Ative Directory atualmente.
+
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Publicação de Serviços da Federação de Diretórios Ativos (AD FS) 
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Posso usar o Proxy de Aplicação AD Azure como proxy AD FS (como procuração de aplicação web)?
@@ -147,7 +151,7 @@ Não. A Procuração de Aplicações Azure AD foi concebida para trabalhar com a
 
 Atualmente, o suporte ao protocolo WebSocket ainda se encontra em pré-visualização pública e pode não funcionar para outras aplicações. Alguns clientes tiveram sucesso misto usando o protocolo WebSocket com outras aplicações. Se testar tais cenários, adoraríamos ouvir os seus resultados. Por favor envie-nos o seu feedback em aadapfeedback@microsoft.com.
 
-As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows Admin Center (WAC) ou no Remote Desktop Web Client não funcionam através do Proxy de Aplicação AD Azure atualmente.
+As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows Admin Center (WAC) ou no Remote Desktop Web Client (HTML5) não funcionam através do Proxy de Aplicação AD Azure atualmente.
 
 ## <a name="link-translation"></a>Tradução de ligação
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2fce8a7a6f6d345b83c639bd69ecd70271621e9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b344886e89a10a027cba169e92056a6dda443d8d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283162"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421948"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -133,7 +133,7 @@ Serviço Azure: [Diretório Ativo Azure](../active-directory/index.yml)
 > |  | **configuração** |  |
 > | Ação | Microsoft.ADHybridHealthService/configuração/escrita | Cria uma Configuração de Inquilino. |
 > | Ação | Microsoft.ADHybridHealthService/configuração/leitura | Lê a Configuração do Inquilino. |
-> |  | **registos** |  |
+> |  | **troncos** |  |
 > | Ação | Microsoft.ADHybridHealthService/logs/read | Obtém registos de instalação e registo de agentes para o inquilino. |
 > |  | **registos/conteúdos** |  |
 > | Ação | Microsoft.ADHybridHealthService/logs/content/read | Obtém o conteúdo da instalação do agente e registos armazenados em blob. |
@@ -1776,7 +1776,7 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > | Ação | Microsoft.CognitiveServices/register/action | Regista subscrição de serviços cognitivos |
 > | Ação | Microsoft.CognitiveServices/checkDomainAvailability/action | Lê SKUs disponíveis para uma subscrição. |
 > | Ação | Microsoft.CognitiveServices/register/action | Regista subscrição de serviços cognitivos |
-> |  | **accounts** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.CognitiveServices/accounts/read | Lê contas da API. |
 > | Ação | Microsoft.CognitiveServices/accounts/write | Escreve contas DaPI. |
 > | Ação | Microsoft.CognitiveServices/accounts/delete | Elimina contas API |
@@ -3060,7 +3060,7 @@ Serviço Azure: [Data Lake Analytics](../data-lake-analytics/index.yml)
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.DataLakeAnalytics/register/action | Registe a subscrição do DataLakeAnalytics. |
-> |  | **accounts** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.DataLakeAnalytics/contas/read | Obtenha informações sobre uma conta dataLakeAnalytics existente. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/write | Criar ou atualizar uma conta DataLakeAnalytics. |
 > | Ação | Microsoft.DataLakeAnalytics/contas/delete | Elimine uma conta DataLakeAnalytics. |
@@ -3110,7 +3110,7 @@ Serviço Azure: [Azure Data Lake Store](../storage/blobs/data-lake-storage-intro
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.DataLakeStore/register/action | Registe a subscrição da DataLakeStore. |
-> |  | **accounts** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.DataLakeStore/contas/read | Obtenha informações sobre uma conta dataLakeStore existente. |
 > | Ação | Microsoft.DataLakeStore/contas/write | Criar ou atualizar uma conta DataLakeStore. |
 > | Ação | Microsoft.DataLakeStore/contas/delete | Elimine uma conta DataLakeStore. |
@@ -5730,7 +5730,7 @@ Serviço Azure: [Azure Maps](../azure-maps/index.yml)
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Maps/register/action | Registe o provedor |
-> |  | **accounts** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.Maps/accounts/write | Criar ou atualizar uma Conta Maps. |
 > | Ação | Microsoft.Maps/contas/read | Arranja uma conta maps. |
 > | Ação | Microsoft.Maps/accounts/delete | Apagar uma conta Maps. |
@@ -8333,7 +8333,7 @@ Serviço Azure: [Gestor de Recursos Azure](../azure-resource-manager/index.yml)
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-Serviço Azure: [Agendador](../scheduler/index.md)
+Serviço Azure: [Agendador](../scheduler/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |

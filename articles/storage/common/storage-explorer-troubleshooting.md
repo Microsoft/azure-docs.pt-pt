@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561685"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437106"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento Azure
 
@@ -76,7 +76,7 @@ Existem várias funções rBAC incorporadas que podem fornecer as permissões ne
 Os erros de certificado ocorrem tipicamente numa das seguintes situações:
 
 - A aplicação está conectada através de um _proxy transparente_, o que significa que um servidor (como o seu servidor da empresa) está a intercetar o tráfego HTTPS, desencriptando-o e, em seguida, encriptando-o utilizando um certificado auto-assinado.
-- Está a executar uma aplicação que está a injetar um certificado SSL auto-assinado nas mensagens HTTPS que recebe. Exemplos de aplicações que injetam certificados incluem software antivírus e de inspeção de tráfego de rede.
+- Está a executar uma aplicação que está a injetar um certificado TLS/SSL auto-assinado nas mensagens HTTPS que recebe. Exemplos de aplicações que injetam certificados incluem software antivírus e de inspeção de tráfego de rede.
 
 Quando o Storage Explorer vê um certificado auto-assinado ou não confiável, já não sabe se a mensagem HTTPS recebida foi alterada. Se tiver uma cópia do certificado auto-assinado, pode instruir o Explorador de Armazenamento a confiar nele seguindo estes passos:
 

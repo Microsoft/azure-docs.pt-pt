@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0c10ec94f6c089b5e5466f5dce73d32d6ce917b3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238511"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422829"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utilize o Emulador Azure Cosmos para desenvolvimento e testes locais
 
@@ -27,7 +27,7 @@ Apesar de a emulação do serviço do Azure Cosmos DB ser fiel, a implementaçã
 
 Pode migrar dados entre o Emulador Azure Cosmos e o serviço Azure Cosmos DB utilizando a Ferramenta de Migração de [Dados Do BD Do MÍssimo Azure.](https://github.com/azure/azure-documentdb-datamigrationtool)
 
-Você pode executar O Emulador Azure Cosmos no recipiente Windows Docker, ver o [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) para o comando de puxar docker e [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) para o `Dockerfile` e mais informações.
+Você pode executar O Emulador Azure Cosmos no recipiente Windows Docker, ver o `Dockerfile` Docker [Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) para o comando de puxar docker e [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) para obter e mais informações.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Diferenças entre o emulador e o serviço
 
@@ -69,11 +69,11 @@ Quando o emulador estiver em execução, verá um ícone na área de notificaç�
 
 O Emulador Azure Cosmos por padrão corre na máquina local ("localhost") ouvindo no porto 8081.
 
-O Emulador Azure Cosmos está instalado para `C:\Program Files\Azure Cosmos DB Emulator` por padrão. Também pode iniciar e parar o emulador a partir da linha de comandos. Para obter mais informações, veja a [referência da ferramenta de linha de comandos](#command-line).
+O Emulador Azure Cosmos `C:\Program Files\Azure Cosmos DB Emulator` está instalado por padrão. Também pode iniciar e parar o emulador a partir da linha de comandos. Para obter mais informações, veja a [referência da ferramenta de linha de comandos](#command-line).
 
 ## <a name="start-data-explorer"></a>Iniciar o Data Explorer
 
-Quando o Emulador Azure Cosmos é lançado, abre automaticamente o Azure Cosmos Data Explorer no seu navegador. O endereço aparece como `https://localhost:8081/_explorer/index.html`. Se fechar o explorador e quiser reabri-lo mais tarde, pode abrir o URL no seu navegador ou lançá-lo a partir do Emulador Azure Cosmos no Ícone da Bandeja do Windows, como mostrado abaixo.
+Quando o Emulador Azure Cosmos é lançado, abre automaticamente o Azure Cosmos Data Explorer no seu navegador. O endereço é apresentado como `https://localhost:8081/_explorer/index.html`. Se fechar o explorador e quiser reabri-lo mais tarde, pode abrir o URL no seu navegador ou lançá-lo a partir do Emulador Azure Cosmos no Ícone da Bandeja do Windows, como mostrado abaixo.
 
 ![Lançador de explorador estonteante local Azure Cosmos](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -97,13 +97,13 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > A chave principal apoiada pelo Emulador Azure Cosmos destina-se a ser utilizada apenas com o emulador. Não é possível utilizar a sua conta Azure Cosmos DB e a chave com o Emulador Azure Cosmos.
 
 > [!NOTE]
-> Se tiver iniciado o emulador com a opção /Chave, utilize a tecla gerada em vez de `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. Para mais informações sobre a opção Chave, consulte a [referência da ferramenta da linha de comando.](#command-line)
+> Se tiver iniciado o emulador com a opção /Chave, `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`utilize a tecla gerada em vez de . Para mais informações sobre a opção Chave, consulte a [referência da ferramenta da linha de comando.](#command-line)
 
 Tal como acontece com o Azure Cosmos DB, o Emulador Azure Cosmos suporta apenas uma comunicação segura via SSL.
 
 ## <a name="running-on-a-local-network"></a>Executar numa rede local
 
-Pode executar o emulador numa rede local. Para permitir o acesso à rede, especifique a opção `/AllowNetworkAccess` na [linha de comando,](#command-line-syntax)que também requer que especifique `/Key=key_string` ou `/KeyFile=file_name`. Pode usar `/GenKeyFile=file_name` para gerar um ficheiro com uma chave aleatória frontalmente. Depois podes passar isso para `/KeyFile=file_name` ou `/Key=contents_of_file`.
+Pode executar o emulador numa rede local. Para ativar o acesso `/AllowNetworkAccess` à rede, especifique a opção `/KeyFile=file_name`na linha de [comando,](#command-line-syntax)que também requer que especifique `/Key=key_string` ou . Pode usar `/GenKeyFile=file_name` para gerar um ficheiro com uma chave aleatória na frente. Então pode passar `/KeyFile=file_name` `/Key=contents_of_file`para ou.
 
 Para permitir o acesso à rede pela primeira vez, o utilizador deve desligar o emulador e eliminar o diretório de dados do emulador (%LOCALAPPDATA%\CosmosDBEmulator).
 
@@ -149,7 +149,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="cassandra-api"></a>API de Cassandra
 
-Inicie o emulador a partir de um pedido de comando de administrador com "/EnableCassandraEndpoint". Alternativamente, também pode definir a variável ambiental `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
+Inicie o emulador a partir de um pedido de comando de administrador com "/EnableCassandraEndpoint". Alternativamente, também pode definir `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`a variável ambiental.
 
 * [Instale Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
@@ -179,7 +179,7 @@ Inicie o emulador a partir de um pedido de comando de administrador com "/Enable
 
 ### <a name="gremlin-api"></a>API do Gremlin
 
-Inicie o emulador a partir de um pedido de comando de administrador com "/EnableGremlinEndpoint". Alternativamente, também pode definir a variável ambiental `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Inicie o emulador a partir de um pedido de comando de administrador com "/EnableGremlinEndpoint". Alternativamente, também pode definir a variável ambiental`AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * [Instale apache-tinkerpop-gremlin-consola-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
@@ -227,7 +227,7 @@ O certificado X.509 pode ser importado para o arquivo de certificados do Java, s
 
 Quando ligar ao emulador a partir dos SDKs de Python e Node.js, a verificação de SSL é desativada.
 
-## <a id="command-line"></a>Referência da ferramenta de linha de comandos
+## <a name="command-line-tool-reference"></a><a id="command-line"></a>Referência da ferramenta de linha de comandos
 A partir do local de instalação, pode utilizar a linha de comando para iniciar e parar o emulador, configurar opções e realizar outras operações.
 
 ### <a name="command-line-syntax"></a>Sintaxe da linha de comandos
@@ -243,8 +243,8 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 | GetStatus |Obtém o estatuto de Emulador Azure Cosmos. O estado é indicado pelo código de saída: 1 = A iniciar, 2 = Em execução, 3 = Parado. Um código de saída negativo indica que ocorreu um erro. Não é produzido outro resultado. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
 | Encerrar| Desliga o Emulador Azure Cosmos.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
 |DataPath | Especifica o caminho onde pretende armazenar os ficheiros de dados. O valor predefinido é %LocalAppdata%\CosmosDBEmulator. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: um caminho acessível |
-|Porta | Especifica o número de porta a utilizar para o emulador. O valor padrão é 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<porta\> | \<porta\>: número de porta individual |
-| ComputePort | Especificou o número de porta a utilizar para o serviço Compute Interop Gateway. A porta de sonda http do Gateway é calculada como ComputePort + 79. Por isso, a ComputePort e a ComputePort + 79 devem estar abertas e disponíveis. O valor padrão é 8900. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<\>computeport : Número único da porta |
+|Porta | Especifica o número de porta a utilizar para o emulador. O valor padrão é 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port= port=\<\> | \<porta\>: número de porta individual |
+| ComputePort | Especificou o número de porta a utilizar para o serviço Compute Interop Gateway. A porta de sonda http do Gateway é calculada como ComputePort + 79. Por isso, a ComputePort e a ComputePort + 79 devem estar abertas e disponíveis. O valor padrão é 8900. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<computeport\>: Número único da porta |
 | EnableMongoDbEndpoint=3.2 | Permite mongoDB API 3.2 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2 | |
 | EnableMongoDbEndpoint=3.6 | Habilita mongoDB API 3.6 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6 | |
 | MongoPort | Especifica o número de porta a utilizar para a API de compatibilidade do MongoDB. O valor padrão é 10255. |Microsoft.Azure.Cosmos.Emulator.exe /MongoPort=\<mongoport\>|\<mongoport\>: número de porta individual|
@@ -252,31 +252,31 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 | Porto cassandra | Especifica o número da porta a utilizar para o ponto final de Cassandra. O valor padrão é 10350. | Microsoft.Azure.Cosmos.Emulator.exe /CassandraPort=\<cassandraport\> | \<cassandraport\>: Número único da porta |
 | EnableGremlinEndpoint | Permite a API De Gremlin | Microsoft.Azure.Cosmos.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | Número de porta a utilizar para o Ponto Final de Gremlin. O valor padrão é 8901. | Microsoft.Azure.Cosmos.Emulator.exe /GremlinPort=\<porta\> | \<porta\>: número de porta individual |
-|EnableTableEndpoint | Permite a API da tabela Azure | Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint | |
-|TablePort | Número de porta a utilizar para o ponto final da tabela Azure. O valor padrão é 8902. | Microsoft.Azure.Cosmos.Emulator.exe /TablePort=\<porta\> | \<porta\>: número de porta individual|
-| KeyFile | Leia a chave de autorização do ficheiro especificado. Utilize a opção /GenKeyFile para gerar um ficheiro chave | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Caminho para o arquivo |
-| ResetDataPath | Remove recursivamente todos os ficheiros no caminho especificado. Se não especificar um caminho, não se aplica a %LOCALAPPDATA%\CosmosDbEmulator | Microsoft.Azure.Cosmos.Emulator.exe /ResetDataPath=\<path> | \<caminho\>: Caminho de arquivo  |
+|Ponto final do EnableTable | Permite a API da tabela Azure | Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint | |
+|TablePort | Número de porta a utilizar para o ponto final da tabela Azure. O valor padrão é 8902. | Microsoft.Azure.Cosmos.Emulator.exe /TablePort=\<port\> | \<porta\>: número de porta individual|
+| Ficheiro de chaves | Leia a chave de autorização do ficheiro especificado. Utilize a opção /GenKeyFile para gerar um ficheiro chave | Microsoft.Azure.Cosmos.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Caminho para o arquivo |
+| ResetDataPath | Remove recursivamente todos os ficheiros no caminho especificado. Se não especificar um caminho, não se aplica a %LOCALAPPDATA%\CosmosDbEmulator | Microsoft.Azure.Cosmos.Emulator.exe /ResetDataPath=\<caminho> | \<caminho\>: Caminho de arquivo  |
 | StartTraces  |  Comece a recolher registos de vestígios de depuração utilizando logman. | Microsoft.Azure.Cosmos.Emulator.exe /StartTraces | |
 | StopTraces     | Pare de recolher registos de depuração utilizando logman. | Microsoft.Azure.Cosmos.Emulator.exe /StopTraces  | |
 | StartWprTraces  |  Comece a recolher registos de vestígios de depuração utilizando a ferramenta Degravação do Windows Performance. | Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces | |
 | StopWprTraces     | Pare de recolher registos de vestígios de depuração utilizando a ferramenta Degravação do Windows Performance. | Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces  | |
 |FailOnSslCertificateNameMismatch | Por predefinição, o Emulador regenera o seu certificado SSL auto-assinado, se o SAN do certificado não incluir o nome de domínio do hospedeiro emulador, o endereço IPv4 local, o "hospedeiro local" e o '127.0.0.1'. Com esta opção, o emulador falhará no arranque. Em seguida, deve utilizar a opção /GenCert para criar e instalar um novo certificado SSL auto-assinado. | Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Gere e instale um novo certificado SSL auto-assinado. opcionalmente, incluindo uma lista separada da vírvia de nomes adicionais de DNS para aceder ao Emulador sobre a rede. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<nomes do DNS\>: Lista opcional separada da víramida de nomes adicionais do DNS  |
+| GenCert | Gere e instale um novo certificado SSL auto-assinado. opcionalmente, incluindo uma lista separada da vírvia de nomes adicionais de DNS para aceder ao Emulador sobre a rede. | Microsoft.Azure.Cosmos.Emulator.exe /GenCert=\<dns-names\> |\<nomes\>dns : Lista opcional separada da víramida de nomes adicionais do DNS  |
 | DirectPorts |Especifica as portas a utilizar para conectividade direta. As predefinições são 10251,10252,10253,10254. | Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: lista delimitada por vírgulas de 4 portas |
 | Chave |Chave de autorização para o emulador. A chave tem de ser a codificação base 64 de um vetor de 64 bytes. | Microsoft.Azure.Cosmos.Emulator.exe /Key:\<key\> | \<chave\>: a chave tem de ser a codificação base 64 de um vetor de 64 bytes|
 | EnableRateLimiting | Especifica que o comportamento de limitação da taxa de pedidos está ativado. |Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting | |
 | DisableRateLimiting |Especifica que o comportamento de limitação da taxa de pedidos está desativado. |Microsoft.Azure.Cosmos.Emulator.exe /DisableRateLimiting | |
 | NoUI | Não mostrar a interface de utilizador do emulador. | Microsoft.Azure.Cosmos.Emulator.exe /NoUI | |
 | NoExplorer | Não mostrar o explorador de dados no arranque. |Microsoft.Azure.Cosmos.Emulator.exe /NoExplorer | | 
-| PartitionCount | Especifica o número máximo de recipientes divididos. Consulte [a alteração do número de contentores](#set-partitioncount) para obter mais informações. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<contagem de divisórias\> | \<contagem de divisórias\>: Número máximo de recipientes de partição únicos permitidos. O valor predefinido é 25. O máximo permitido é 250.|
-| DefaultPartitionCount| Especifica o número padrão de divisórias para um recipiente dividido. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<contagem de partições padrão\> | \<a contagem de partições padrão\> valor padrão é de 25.|
+| PartitionCount | Especifica o número máximo de recipientes divididos. Consulte [a alteração do número de contentores](#set-partitioncount) para obter mais informações. | Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=\<partitioncount\> | \<contagem\>de divisórias : Número máximo de recipientes de partição únicos permitidos. O valor predefinido é 25. O máximo permitido é 250.|
+| DefaultPartitionCount| Especifica o número padrão de divisórias para um recipiente dividido. | Microsoft.Azure.Cosmos.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<predefinição\> do valor padrão de contagem de divisórias é de 25.|
 | AllowNetworkAccess | Permite o acesso ao emulador através de uma rede. Tem de passar também /Key=\<key_string\> oru/KeyFile=\<file_name\> para ativar o acesso à rede. | Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> ou Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | Não ajuste as regras de firewall quando a opção /AllowNetworkAccess for utilizada. |Microsoft.Azure.Cosmos.Emulator.exe /NoFirewall | |
 | GenKeyFile | Gerar uma nova chave de autorização e guardá-la no ficheiro especificado. A chave gerada pode ser utilizada com as opções /Key ou /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe /GenKeyFile=\<caminho para o ficheiro chave\> | |
 | Consistência | Defina o nível de consistência predefinida para a conta. | Microsoft.Azure.Cosmos.Emulator.exe /Consistência=\<consistência\> | \<consistência\>: o valor tem de ser um dos seguintes [níveis de consistência](consistency-levels.md): Session, Strong, Eventual, ou BoundedStaleness. O valor predefinido é Session. |
 | ? | Mostrar a mensagem de ajuda.| | |
 
-## <a id="set-partitioncount"></a>Alterar o número de contentores
+## <a name="change-the-number-of-containers"></a><a id="set-partitioncount"></a>Alterar o número de contentores
 
 Por predefinição, pode criar até 25 contentores de tamanho fixo (apenas suportados utilizando SDKs DB Azure Cosmos), ou 5 contentores ilimitados utilizando o Emulador Azure Cosmos. Ao modificar o valor **do PartitionCount,** pode criar até 250 contentores de tamanho fixo ou 50 contentores ilimitados, ou qualquer combinação dos dois que não exceda 250 recipientes de tamanho fixo (onde um recipiente ilimitado = 5 recipientes de tamanho fixo). No entanto, não é aconselhável configurar o emulador para funcionar com mais de 200 contentores de tamanho fixo. Devido à sobrecarga que adiciona às operações io do disco, que resultam em tempos imprevisíveis ao utilizar as APIs do ponto final.
 
@@ -287,8 +287,8 @@ ActivityId: 12345678-1234-1234-1234-123456789abc"
 
 Para alterar o número de contentores disponíveis no Emulador Azure Cosmos, corra os seguintes passos:
 
-1. Elimine todos os dados do Emulador Azure Cosmos local clicando no ícone **emulador Do Azure Cosmos DB** na bandeja do sistema e, em seguida, clique em **Reset Data...** .
-2. Elimine todos os dados do emulador nesta pasta `%LOCALAPPDATA%\CosmosDBEmulator`.
+1. Elimine todos os dados do Emulador Azure Cosmos local clicando no ícone **emulador Do Azure Cosmos DB** na bandeja do sistema e, em seguida, clique em **Reset Data...**.
+2. Elimine todos os dados `%LOCALAPPDATA%\CosmosDBEmulator`do emulador nesta pasta .
 3. Saia de todas as instâncias abertas, ao clicar com o botão direito do rato no ícone do**Emulador do Azure Cosmos DB** no tabuleiro do sistema e, em seguida, clique em **Sair**. Pode demorar um minuto para que todas as instâncias possam sair.
 4. Instale a versão mais recente do [Emulador Azure Cosmos.](https://aka.ms/cosmosdb-emulator)
 5. Inicie o emulador com o sinalizador de PartitionCount, ao definir um valor <= 250. Por exemplo: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
@@ -301,7 +301,7 @@ O emulador vem com um módulo PowerShell para iniciar, parar, desinstalar e recu
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-ou colocar o diretório `PSModules` no seu `PSModulesPath` e importá-lo como mostrado no seguinte comando:
+ou coloque `PSModules` o diretório sobre o seu `PSModulesPath` e importe-o como mostrado no seguinte comando:
 
 ```powershell
 $env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -413,7 +413,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 .\importcert.ps1
 ```
 
-Fechar a shell interativa assim que o emulador tiver sido iniciado encerrará o contentor do emulador.
+Fechar a concha interativa uma vez iniciado o emulador desligará o recipiente do emulador.
 
 Para abrir o Data Explorer, navegue para o seguinte URL no browser. O ponto final do emulador é fornecido na mensagem de resposta mostrada acima.
 
@@ -421,7 +421,7 @@ Para abrir o Data Explorer, navegue para o seguinte URL no browser. O ponto fina
 
 Se tiver uma aplicação de cliente .NET em execução num contentor de estivador Linux e se estiver a executar o emulador Azure Cosmos numa máquina hospedeira, siga a secção abaixo para o Linux importar o certificado para o recipiente de estivador Linux.
 
-## Correndo em Mac ou Linux<a id="mac"></a>
+## <a name="running-on-mac-or-linux"></a>Correndo em Mac ou Linux<a id="mac"></a>
 
 Atualmente, o emulador Cosmos só pode ser executado no Windows. Os utilizadores que executam O Mac ou o Linux podem executar o emulador numa máquina virtual do Windows que hospedaram um hipervisor como paralelos ou VirtualBox. Abaixo estão os passos para permitir isto.
 
@@ -431,7 +431,7 @@ Dentro do Windows VM executa o comando abaixo e tome nota do endereço IPv4.
 ipconfig.exe
 ```
 
-Dentro da sua aplicação, é necessário alterar o URI usado como Ponto Final para utilizar o endereço IPv4 devolvido por `ipconfig.exe` em vez de `localhost`.
+Dentro da sua aplicação é necessário alterar o URI usado como `ipconfig.exe` Ponto `localhost`Final para utilizar o endereço IPv4 devolvido em vez de .
 
 O próximo passo, a partir do Windows VM, lança o emulador Cosmos a partir da linha de comando utilizando as seguintes opções.
 
@@ -445,7 +445,7 @@ Por último, precisamos de importar o certificado de Emulador CA para o ambiente
 
 Se estiver a trabalhar no Linux, .NET transmite no OpenSSL para fazer a validação:
 
-1. [Exportar o certificado em formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX está disponível na hora de optar por exportar a chave privada). 
+1. [Exportar o certificado em formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX está disponível na hora de optar por exportar a chave privada). 
 
 1. Copie o ficheiro PFX no seu ambiente Linux.
 
@@ -455,13 +455,13 @@ Se estiver a trabalhar no Linux, .NET transmite no OpenSSL para fazer a validaç
    openssl pkcs12 -in YourPFX.pfx -clcerts -nokeys -out YourCTR.crt
    ```
 
-1. Copie o ficheiro CRT para a pasta que contém certificados personalizados na sua distribuição Linux. Comumente em distribuições de Debian, está localizado em `/usr/local/share/ca-certificates/`.
+1. Copie o ficheiro CRT para a pasta que contém certificados personalizados na sua distribuição Linux. Comumente em distribuições de Debian, `/usr/local/share/ca-certificates/`está localizado em .
 
    ```bash
    cp YourCTR.crt /usr/local/share/ca-certificates/
    ```
 
-1. Atualize os certificados CA, que atualizarão a pasta `/etc/ssl/certs/`.
+1. Atualize os certificados CA, `/etc/ssl/certs/` que atualizarão a pasta.
 
    ```bash
    update-ca-certificates
@@ -471,19 +471,19 @@ Se estiver a trabalhar no Linux, .NET transmite no OpenSSL para fazer a validaç
 
 Utilize os seguintes passos se estiver a trabalhar no Mac:
 
-1. [Exportar o certificado em formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX está disponível na hora de optar por exportar a chave privada).
+1. [Exportar o certificado em formato PFX](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX está disponível na hora de optar por exportar a chave privada).
 
 1. Copie o ficheiro PFX no seu ambiente Mac.
 
 1. Abra o pedido de acesso à *keychain* e importe o ficheiro PFX.
 
-1. Abra a lista de Certificados e identifique aquele com o nome `localhost`.
+1. Abra a lista de Certificados e `localhost`identifique aquele com o nome .
 
-1. Abra o menu de contexto para esse item em particular, selecione *Get Item* e sob *trust* > Ao utilizar esta opção *de certificado,* selecione *Always Trust*. 
+1. Abra o menu de contexto para esse item em particular, selecione *Get Item* e em *Trust* > Quando utilizar esta opção*de certificado,* selecione *Always Trust*. 
 
    ![Abra o menu de contexto para esse item em particular, selecione Get Item e under Trust - Ao utilizar esta opção de certificado, selecione Always Trust](./media/local-emulator/mac-trust-certificate.png)
 
-Após seguir estes passos, o seu ambiente confiará no certificado utilizado pelo Emulador ao ligar-se ao endereço IP expõe por `/AllowNetworkAccess`.
+Após seguir estes passos, o seu ambiente confiará no certificado utilizado pelo `/AllowNetworkAccess`Emulador ao ligar-se ao endereço IP expõe por .
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -493,7 +493,7 @@ Use as seguintes dicas para ajudar a resolver problemas que encontra com o Emula
 
 - Se o Emulador Azure Cosmos falhar, recolha ficheiros de despejo da pasta '%LOCALAPPDATA%\CrashDumps', comprima-os e abra um bilhete de apoio do [portal Azure](https://portal.azure.com).
 
-- Se sentir acidentes em `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, este pode ser um sintoma em que os Contadores de Desempenho estão num estado corrompido. Normalmente, executar o seguinte comando a partir de um pedido de comando administrativo corrige o problema:
+- Se sentir `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`acidentes, este pode ser um sintoma onde os Contadores de Performance estão num estado corrompido. Normalmente, executar o seguinte comando a partir de um pedido de comando administrativo corrige o problema:
 
   ```cmd
   lodctr /R
@@ -505,7 +505,7 @@ Use as seguintes dicas para ajudar a resolver problemas que encontra com o Emula
 
 - Enquanto o emulador estiver em execução, se o computador entrar no modo de suspensão ou executar quaisquer atualizações do SO, poderá ver a mensagem **O serviço está indisponível neste momento**. Redefinir os dados do emulador, clicando à direita no ícone que aparece na bandeja de notificação do windows e selecione **Reset Data**.
 
-### <a id="trace-files"></a>Recolher ficheiros de rastreio
+### <a name="collect-trace-files"></a><a id="trace-files"></a>Recolher ficheiros de rastreio
 
 Para recolher rastreios de depuração, execute os seguintes comandos a partir de uma linha de comandos administrativa:
 
@@ -518,10 +518,10 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 7. Navegue para `%ProgramFiles%\Azure Cosmos DB Emulator` e localize o ficheiro docdbemulator_000001.etl.
 8. Abra um bilhete de apoio no [portal Azure](https://portal.azure.com) e inclua o ficheiro .etl juntamente com os passos repro.
 
-### <a id="uninstall"></a>Desinstalar o emulador local
+### <a name="uninstall-the-local-emulator"></a><a id="uninstall"></a>Desinstalar o emulador local
 
 1. Saia de todas as instâncias abertas do emulador local clicando à direita no ícone emulador Do Azure Cosmos na bandeja do sistema e, em seguida, clicando em Saída. Pode demorar um minuto para que todas as instâncias possam sair.
-2. Na caixa de pesquisa do Windows, escreva **Aplicações e funcionalidades** e clique no resultado **Aplicações e funcionalidades (Definições do sistema)** .
+2. Na caixa de pesquisa do Windows, escreva **Aplicações e funcionalidades** e clique no resultado **Aplicações e funcionalidades (Definições do sistema)**.
 3. Na lista de aplicações, desloque para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e, em seguida, confirme e clique em **Desinstalar** novamente.
 4. Quando a aplicação estiver desinstalada, navegue para `%LOCALAPPDATA%\CosmosDBEmulator` e elimine a pasta.
 

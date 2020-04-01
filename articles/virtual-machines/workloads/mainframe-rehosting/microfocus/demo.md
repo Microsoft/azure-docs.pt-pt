@@ -3,21 +3,24 @@ title: Configurar micro focus CICS BankDemo para Micro Focus Enterprise Develope
 description: Executar a aplicação Micro Focus BankDemo em Máquinas Virtuais Azure (VMs) para aprender a usar Micro Focus Enterprise Server e Enterprise Developer.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67621343"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411078"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar micro focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure
 
 Quando configurar o Micro Focus Enterprise Server 4.0 e o Enterprise Developer 4.0 no Azure, pode testar as implementações das cargas de trabalho IBM z/OS. Este artigo mostra como configurar o CICS BankDemo, uma aplicação de amostra que vem com o Promotor Empresarial.
 
 Os CICs representam o Sistema de Controlo de Informação do Cliente, a plataforma de transação utilizada por muitas das aplicações principais online. A aplicação BankDemo é ótima para aprender como o Enterprise Server e o Enterprise Developer operam e como gerir e implementar uma aplicação real completa com terminais de tela verde.
+
+> [!NOTE]
+> Em breve: Instruções para a instalação do [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) em VMs Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 34057f1962338927a252011dccc56ed6a77bec47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69636026"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410547"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Como usar twilio para capacidades de voz e SMS em PHP
 Este guia demonstra como executar tarefas comuns de programação com o serviço Twilio API no Azure. Os cenários abordados incluem fazer uma chamada telefónica e enviar uma mensagem de Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre twilio e usando voz e SMS nas suas aplicações, consulte a secção [Next Steps.](#NextSteps)
@@ -138,7 +138,7 @@ O seguinte mostra como fazer uma chamada de saída usando a classe **Services_Tw
 
 Como mencionado, este código utiliza um site fornecido por Twilio para devolver a resposta TwiML. Em vez disso, poderia utilizar o seu próprio site para fornecer a resposta TwiML; para mais informações, consulte [Como Fornecer Respostas TwiML a partir do seu próprio Web Site](#howto_provide_twiml_responses).
 
-* **Nota:** Para resolver problemas de erro de validação de certificados SSL, consulte[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **Nota:** Para resolução de erros de validação de certificados TLS/SSL, consulte[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Como: Enviar uma mensagem SMS
 O seguinte mostra como enviar uma mensagem SMS utilizando a classe **Services_Twilio.** O número **From** é fornecido pela Twilio para contas de teste para enviar mensagens SMS. O número **To** deve ser verificado para a sua conta Twilio antes de executar o código.

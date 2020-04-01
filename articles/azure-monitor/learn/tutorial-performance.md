@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
 ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239596"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
@@ -36,7 +36,7 @@ Para concluir este tutorial:
 - [Ativar o gerador de perfis do Application Insights](../../azure-monitor/app/profiler.md#installation) para a sua aplicação.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="identify-slow-server-operations"></a>Identificar as operações de servidor lentas
 O Application Insights recolhe detalhes de desempenho das várias operações da sua aplicação. Ao identificar as operações com a duração mais longa, pode diagnosticar potenciais problemas ou direcionar melhor o desenvolvimento contínuo para melhorar o desempenho global da aplicação.
@@ -76,7 +76,7 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 ## <a name="use-logs-data-for-server"></a>Utilizar dados de registos para servidor
  Os registos fornecem uma linguagem de consulta rica que lhe permite analisar todos os dados recolhidos pela Application Insights. Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
 
-1. Volte ao painel de detalhes de operação e clique em ![ícone de registos](media/tutorial-performance/app-viewinlogs-icon.png)**Ver em Registos (Analytics)**
+1. Volte ao painel de ![detalhes de operação e clique em ícone de registos](media/tutorial-performance/app-viewinlogs-icon.png)**Ver em Registos (Analytics)**
 
 2. Os registos abrem com uma consulta para cada uma das vistas do painel.  Pode executar estas consultas como estão ou modificá-las de acordo com os seus requisitos.  A primeira consulta mostra a duração desta operação ao longo do tempo.
 
@@ -97,11 +97,11 @@ Além de identificar os processos de servidor a otimizar, o Application Insights
 ## <a name="use-logs-data-for-client"></a>Utilizar dados de registos para cliente
 Tal como os dados recolhidos para o desempenho do servidor, o Application Insights disponibiliza todos os dados do cliente para análise profunda utilizando Registos.
 
-1. Volte ao resumo do navegador e clique ![ícone de Registos](media/tutorial-performance/app-viewinlogs-icon.png) **Ver em Registos (Analytics)**
+1. Volte ao resumo do navegador ![e](media/tutorial-performance/app-viewinlogs-icon.png) clique em Registars **ícone Ver em Registos (Analytics)**
 
 2. Os registos abrem com uma consulta para cada uma das vistas do painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
-    ![consulta de logs](media/tutorial-performance/10-page-view-logs.png)
+    ![Consulta de registos](media/tutorial-performance/10-page-view-logs.png)
 
 3.  Smart Diagnostics é uma característica dos Registos que identifica padrões únicos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
 

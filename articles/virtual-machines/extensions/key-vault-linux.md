@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a4fb3ad2ce6225528910bbda9d98a38001242710
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298993"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410872"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Cofre chave para Linux
 
@@ -31,6 +31,7 @@ A extensão VM do cofre chave suporta estas distribuições Linux:
 ### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado suportado
 
 - PKCS #12
+- PEM
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

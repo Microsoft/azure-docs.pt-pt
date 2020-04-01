@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 44f57f52be512924e228d6488a786d117c6444e7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 29101d0277ff0fb392917f722bcaec3b7e5983b5
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370598"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478263"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-messaging-eventhubs)
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **de eventos de mensagens azure-eventhubs** Java.
@@ -36,7 +36,7 @@ Esta secção mostra-lhe como criar uma aplicação Java para enviar eventos um 
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Adicione referência à biblioteca Azure Event Hubs
 
-A biblioteca de clientes Java para Centros de Eventos está disponível para uso em projetos [Maven do Repositório Central de Maven.](https://search.maven.org/search?q=a:azure-messaging-eventhubs) Pode fazer referência a esta biblioteca utilizando a seguinte declaração de dependência dentro do seu ficheiro de projeto Maven:
+A biblioteca de clientes Java para Centros de Eventos está disponível no [Repositório Central de Maven.](https://search.maven.org/search?q=a:azure-messaging-eventhubs) Pode fazer referência a esta biblioteca utilizando a seguinte declaração de dependência dentro do seu ficheiro de projeto Maven:
 
 ```xml
 <dependency>
@@ -135,10 +135,13 @@ public class Sender {
 }
 ```
 
-Construa o programa e certifique-se de que não há erros. Executará este programa depois de executar o programa recetor. 
+Construa o programa e certifique-se de que não há erros. Vais executar este programa depois de executares o programa recetor. 
 
 ## <a name="receive-events"></a>Receber eventos
 O código neste tutorial baseia-se na amostra do [EventProcessorClient no GitHub,](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java)que pode examinar para ver a aplicação de trabalho completa.
+
+> [!NOTE]
+> Se estiver a funcionar no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a correr [na versão Azure Stack Hub 2002,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento a versão API 2017-11-09. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento Do Hub De Pilha Azure: Diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
 
 ### <a name="create-a-java-project"></a>Criar um projeto Java
 

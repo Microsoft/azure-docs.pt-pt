@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3f0d624605f617a8e5ab914c49c4c94a40ebdcc6
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73664293"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435788"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Carregar uma subscrição do Azure para o Centro de Segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode tentar o Nível Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-Neste artigo, vai fazer a atualização para o escalão Standard para obter segurança adicional e instalar o Microsoft Monitoring Agent nas suas máquinas virtuais para monitorizar ameaças e vulnerabilidades de segurança.
+Neste artigo, atualiza-se para o nível Standard para maior segurança e instala o agente Log Analytics nas suas máquinas virtuais para monitorizar vulnerabilidades e ameaças de segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -47,7 +47,7 @@ Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poder
 - **Recomendações** de formas de melhorar a segurança das suas subscrições do Azure. Clique no mosaico **Recomendações** para iniciar uma lista prioritária.
 - Um inventário de recursos de **Computação e aplicações**, **Rede**, **Segurança de dados** e **Identidade e acesso**, que estão agora a ser avaliados pelo Centro de Segurança, juntamente com a postura de segurança de cada um deles.
 
-Para tirar total partido do Centro de Segurança, tem de executar os passos abaixo para fazer a atualização para o escalão Standard e instalar o Microsoft Monitoring Agent.
+Para tirar o máximo partido do Security Center, é necessário completar os passos abaixo para atualizar para o nível Standard e instalar o agente Log Analytics.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para o escalão Standard
 Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de atualizar para o escalão Standard. Há um julgamento gratuito do Security Center Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
@@ -66,11 +66,11 @@ Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de a
   ![Alertas de segurança][9]
 
 ## <a name="automate-data-collection"></a>Automatizar a recolha de dados
-O Centro de Segurança recolhe dados de VMs do Azure e de computadores que não pertencem ao Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Por predefinição, o Centro de Segurança irá criar uma nova área de trabalho para si.
+O Centro de Segurança recolhe dados de VMs do Azure e de computadores que não pertencem ao Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos através do agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Por predefinição, o Centro de Segurança irá criar uma nova área de trabalho para si.
 
-Quando o aprovisionamento automático está ativado, o Centro de Segurança instala o Microsoft Monitoring Agent em todas as VMs do Azure suportadas e nas VMs novas que forem criadas. O aprovisionamento automático é vivamente recomendado.
+Quando o fornecimento automático está ativado, o Security Center instala o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. O aprovisionamento automático é vivamente recomendado.
 
-Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
+Para permitir o fornecimento automático do agente Log Analytics:
 
 1. No menu principal do Security Center, selecione **definições de preços &**.
 2. Na linha da subscrição, clique na subscrição na qual gostaria de alterar as definições.
@@ -99,11 +99,11 @@ Se pretender desativar aprovisionamento automático:
 4. Selecione **Guardar**.
 
 >[!NOTE]
-> Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
+> A desativação automática não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste início rápido, fez a atualização para o escalão Standard e aprovisionou o Microsoft Monitoring Agent para gestão de segurança unificada e proteção contra ameaças entre as cargas de trabalho da cloud híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
+Neste arranque rápido, atualizou para o nível Standard e forjou o agente Log Analytics para uma gestão de segurança unificada e proteção contra ameaças em todas as suas cargas de trabalho híbridas em nuvem. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]
 > [Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure](quick-onboard-windows-computer.md)

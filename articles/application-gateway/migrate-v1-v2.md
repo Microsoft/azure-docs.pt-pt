@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77046202"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475186"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Portal de aplicações Migrate Azure e Firewall de aplicação web de v1 para v2
 
@@ -40,6 +40,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 * Se tiver o modo FIPS ativado para o seu gateway V1, não será migrado para o seu novo gateway V2. O modo FIPS não é suportado em v2.
 * v2 não suporta iPv6, por isso os gateways v1 habilitados iPv6 não são migrados. Se executar o guião, pode não estar completo.
 * Se o gateway v1 tiver apenas um endereço IP privado, o script cria um endereço IP público e um endereço IP privado para o novo gateway v2. os gateways v2 atualmente não suportam apenas endereços IP privados.
+* Os cabeçalhos com nomes que contenham outras letras, dígitos, hífens e sublinhados não são passados para a sua aplicação. Isto aplica-se apenas a nomes de cabeçalho, não a valores de cabeçalho. Esta é uma mudança de rutura da V1.
 
 ## <a name="download-the-script"></a>Descarregue o script
 

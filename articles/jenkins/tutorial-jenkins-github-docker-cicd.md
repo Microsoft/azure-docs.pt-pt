@@ -5,10 +5,10 @@ keywords: jenkins, azul, devops, oleoduto, cicd, estivador
 ms.topic: tutorial
 ms.date: 03/27/2017
 ms.openlocfilehash: 2560d03282b2b3c8193a0b8c2a7a9f7c4036e75a
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77606448"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
@@ -25,7 +25,7 @@ Para automatizar a fase de criação e teste do desenvolvimento de aplicações,
 
 Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Criar instância do Jenkins
 Num tutorial anterior sobre [Como personalizar uma máquina virtual do Linux no primeiro arranque](../virtual-machines/linux/tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VMs com inicialização da cloud. Este tutorial utiliza um ficheiro de inicialização da cloud para instalar o Jenkins e o Docker numa VM. O Jenkins é um servidor de automatização de código aberto popular, que se integra totalmente no Azure para permitir a integração contínua (CI) e a entrega contínua (CD). Para obter mais tutoriais sobre como utilizar o Jenkins, veja o [Jenkins no hub do Azure](https://docs.microsoft.com/azure/jenkins/).
@@ -97,7 +97,7 @@ Por motivos de segurança, tem de introduzir a palavra-passe de administrador in
 ssh azureuser@<publicIps>
 ```
 
-Verifique se jenkins está a correr usando o comando `service`:
+Verifique se jenkins `service` está a correr usando o comando:
 
 ```bash
 $ service jenkins status
@@ -138,9 +138,9 @@ Crie um webhook no interior do fork que criou:
 
 - Selecione **Definições**e, em seguida, selecione **Webhooks** no lado esquerdo.
 - Escolha **Adicionar webhook**e, em seguida, introduza *Jenkins* na caixa de filtro.
-- Para o URL de **carga útil,** introduza `http://<publicIps>:8080/github-webhook/`. Certifique-se de que inclui / à direita
+- Para o URL de `http://<publicIps>:8080/github-webhook/` **carga útil,** introduza . Certifique-se de que inclui / à direita
 - Para **o tipo de conteúdo,** selecione *aplicação/x-www-form-urlencoded*.
-- Para que eventos gostaria de desencadear este **webhook?**
+- Para que eventos gostaria de desencadear este *Just the push event.* **webhook?**
 - Definir **Ativo** para verificar.
 - Clique em **Adicionar webhook**.
 
@@ -154,7 +154,7 @@ No seu site do Jenkins, selecione **Criar novas tarefas** na home page:
 
 - Introduza *HelloWorld* no nome da tarefa. Escolha **Projeto de estilo livre** e selecione **OK**.
 - Na secção **Geral**, selecione o projeto **GitHub** e introduza o URL do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world*
-- Na secção  **Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world.git*
+- Na secção ** Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Na secção **Criar Acionadores**, selecione **Acionador de hook do GitHub para consulta GITScm**.
 - Na secção **Compilar**, escolha **Adicionar passo de compilação**. Selecione **Executar shell** e introduza `echo "Test"` na janela de comandos.
 - Selecione **Guardar** na parte inferior da janela de tarefas.

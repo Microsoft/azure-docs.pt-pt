@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 60beccc2f2679a18903b74b84f48afebfb3b69da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257756"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437732"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -133,7 +133,7 @@ O túnel forçado é apoiado. Para mais informações, consulte O Túnel forçad
 
 O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a esta com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 
-Se a sua configuração necessitar de túneis forçados para uma rede no local e puder determinar os prefixos IP-alvo para os seus destinos de Internet, pode configurar estas gamas com a rede no local como o próximo salto através de uma rota definida pelo utilizador no AzureFirewallSubnet. Ou, pode usar o BGP para definir estas rotas.
+Se a sua configuração necessitar de túneis forçados para uma rede no local e puder determinar os prefixos IP do alvo para os seus destinos de Internet, pode configurar estas gamas com a rede no local como o próximo salto através de uma rota definida pelo utilizador no AzureFirewallSubnet. Ou, pode usar o BGP para definir estas rotas.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
@@ -209,3 +209,7 @@ $fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
 
 Set-AzFirewall -AzureFirewall $fw
 ```
+
+## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Porque é que um ping TCP e ferramentas semelhantes podem ligar-se com sucesso a um FQDN alvo mesmo quando nenhuma regra sobre o Firewall Azure permite esse tráfego?
+
+Um ping TCP não está realmente ligado ao fQDN alvo. Isto acontece porque o proxy transparente da Azure Firewall escuta na porta 80/443 para tráfego de saída. O ping TCP estabelece uma ligação com a firewall, que depois deixa cair o pacote e regista a ligação. Este comportamento não tem qualquer impacto na segurança. No entanto, para evitar confusões, estamos a investigar potenciais alterações a este comportamento. 

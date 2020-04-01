@@ -2,14 +2,14 @@
 title: Prepare VMs Hiper-V para avaliação/migração com Azure Migrate
 description: Saiba como se preparar para avaliação/migração de VMs Hiper-V com Migração Azure.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 03/31/2020
 ms.custom: mvc
-ms.openlocfilehash: 5760cf667a02384b8f68cc85540264a1b5702747
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336709"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436234"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs Hiper-V para Azure
 
@@ -95,8 +95,9 @@ Pode preparar o Hyper-V para a avaliação de VM manualmente, ou utilizando um s
 - Instale o Remo PowerShell em cada hospedeiro, de modo a que o aparelho Azure Migrate possa executar comandos PowerShell no hospedeiro, através de uma ligação WinRM.
 - Credenciais de delegado se os discos VM estiverem localizados em ações SMB remotas.
 - Criar uma conta que o aparelho utilizará para descobrir VMs em hospedeiros Hyper-V.
-- Configurar serviços de integração Hyper-V em cada VM que pretende descobrir e avaliar.
+- Configurar serviços de integração Hyper-V em cada VM que pretende descobrir e avaliar. As definições predefinidas quando activaos serviços de integração são suficientes para o Azure Migrate.
 
+    ![Ativar serviços de integração](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## <a name="prepare-with-a-script"></a>Prepare-se com um roteiro
@@ -112,7 +113,7 @@ O guião faz o seguinte:
 - Verifica se o anfitrião está a executar uma versão suportada do Hyper-V, e o papel Hyper-V.
 - Ativa o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no anfitrião (necessário para recolha de metadados).
 - Permite a remoção powerShell no hospedeiro.
-- Verifica se o serviço de integração Hyper-V está ativado em todos os VMs geridos pelo anfitrião.
+- Verifica se os Serviços de Integração Hyper-V estão ativados em todos os VMs geridos pelo anfitrião.
 - Ativa o CredSSP no hospedeiro, se necessário.
 
 Executar o guião da seguinte forma:

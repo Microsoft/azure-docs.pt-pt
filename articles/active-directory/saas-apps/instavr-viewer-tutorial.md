@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Visualizador do InstaVR | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Visualizador do InstaVR.
+title: 'Tutorial: Integração de Diretório Ativo Azure com o Visualizador do InstaVR [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o InstaVR Viewer.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,221 +17,221 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8de94f83c260a86f313a2dd04cdd5a7ae8fc1cda
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73155306"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: integração do Azure Active Directory com o Visualizador do InstaVR
+# <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração de Diretório Ativo Azure com o Visualizador do InstaVR
 
-Neste tutorial, você aprenderá a integrar o InstaVR Viewer ao Azure Active Directory (Azure AD).
-A integração do InstaVR Viewer ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Visualizador do InstaVR com o Azure Ative Directory (Azure AD).
+Integrar o Visualizador instavr com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Visualizador do InstaVR.
-* Você pode permitir que seus usuários sejam automaticamente conectados ao InstaVR Viewer (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Você pode controlar em Azure AD que tem acesso ao Visualizador InstaVR.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no InstaVR Viewer (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao InstaVR Viewer, você precisa dos seguintes itens:
+Para configurar a integração da AD Azure com o Visualizador do InstaVR, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do InstaVR Viewer
+* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* InstaVR Viewer única subscrição ativada por sinal
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* O Visualizador de InstaVR dá suporte ao SSO iniciado por **SP**
-* O InstaVR Viewer dá suporte ao provisionamento **de usuário just in time**
+* O Visualizador do InstaVR suporta **sP** iniciado SSO
+* O Visualizador instaVR suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-instavr-viewer-from-the-gallery"></a>Adicionando o InstaVR Viewer da Galeria
+## <a name="adding-instavr-viewer-from-the-gallery"></a>Adicionar o Espectador do InstaVR da galeria
 
-Para configurar a integração do InstaVR Viewer ao Azure AD, você precisará adicionar o InstaVR Viewer da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Visualizador instavr em Anúncio azure, você precisa adicionar o Visualizador InstaVR da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar o InstaVR Viewer da galeria, execute as seguintes etapas:**
+**Para adicionar o Visualizador InstaVR da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **InstaVR Viewer**, selecione **Visualizador de InstaVR** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite o **Visualizador InstaVR,** selecione **O Visualizador instavr** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
-     ![InstaVR Viewer na lista de resultados](common/search-new-app.png)
+     ![Visualizador do InstaVR na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o InstaVR Viewer, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do InstaVR Viewer.
+Nesta secção, configura e testa o single sign-on azure com o InstaVR Viewer com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Visualizador instaVR.
 
-Para configurar e testar o logon único do Azure AD com o InstaVR Viewer, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com o Visualizador do InstaVR, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do InstaVR Viewer](#configure-instavr-viewer-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do InstaVR Viewer](#create-instavr-viewer-test-user)** – para ter um equivalente de Brenda Simon no InstaVR Viewer que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Visualizal Do Visualização Do InstaVR Single Sign-On](#configure-instavr-viewer-single-sign-on)** - para configurar as definições de início de sessão individual no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie o utilizador do teste do Visualizador instavr](#create-instavr-viewer-test-user)** - para ter uma contrapartida de Britta Simon no Visualizador instaVR que esteja ligada à representação do utilizador da AD Azure.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o InstaVR Viewer, execute as seguintes etapas:
+Para configurar o único sign-on azure ad com o Visualizador InstaVR, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **InstaVR Viewer** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações do **Visualizador InstaVR,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Informações de logon único de domínio e URLs do InstaVR Viewer](common/sp-identifier.png)
+    ![InstaVR Viewer Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
-
-    > [!NOTE]
-    > Não há nenhum padrão fixo para a URL de logon. Ele é gerado quando o cliente do InstaVR Viewer faz empacotamento da Web. Ele é exclusivo para cada cliente e pacote. Para obter a URL de logon exata, você precisa fazer logon na instância do Visualizador do InstaVR e fazer o empacotamento da Web.
-
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
 
     > [!NOTE]
-    > O valor do identificador não é real. Atualize esse valor com o valor do identificador real que é explicado posteriormente neste tutorial.
+    > Não existe um padrão fixo para o Sign on URL. É gerado quando o cliente do Visualizador do InstaVR faz embalagens web. É único para cada cliente e pacote. Para obter o sinal exato no URL, precisa de iniciar sessão na sua instância do Visualizador InstaVR e fazer embalagens web.
 
-5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** e o arquivo de **metadados de Federação** das opções determinadas de acordo com seu requisito e salve-o em seu computador.
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
 
-    ![O link de download do certificado](common/metadata-certificatebase64.png)
+    > [!NOTE]
+    > O valor do identificador não é real. Atualize este valor com o valor do identificador real que é explicado mais tarde neste tutorial.
 
-6. Na seção **Configurar o Visualizador do InstaVR** , copie as URLs apropriadas de acordo com seu requisito.
+5. Na configuração do Registo Único com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** e o **Ficheiro de Metadados da Federação** a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![O link de descarregamento do Certificado](common/metadata-certificatebase64.png)
 
-    a. URL de logon
+6. Na secção Configurar o **Visualizador instaVR,** copie os URL(s) adequados de acordo com o seu requisito.
 
-    b. Identificador do Azure AD
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    c. URL de logout
+    a. URL de Inicio de Sessão
 
-### <a name="configure-instavr-viewer-single-sign-on"></a>Configurar o logon único do Visualizador do InstaVR
+    b. Identificador de anúncio sinuoso
 
-1. Abra uma nova janela do navegador da Web e faça logon em seu site de empresa do InstaVR Viewer como administrador.
+    c. Logout URL
 
-2. Clique no **ícone do usuário** e selecione **conta**.
+### <a name="configure-instavr-viewer-single-sign-on"></a>Configure InstaVR Viewer Single Sign-On
 
-    ![Configuração do Visualizador do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+1. Abra uma nova janela do navegador web e inicie sessão no site da empresa Do Visualizador do InstaVR como administrador.
 
-3. Role para baixo até a **autenticação SAML** e execute as seguintes etapas:
+2. Clique no **Ícone do Utilizador** e selecione **Conta**.
 
-    ![Configuração do Visualizador do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![Configuração do Visualizador InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
-    a. Na caixa de texto **URL de SSO** , Cole o valor da **URL de logon** copiado do portal do Azure.
+3. Percorra até ao **SAML Auth** e execute os seguintes passos:
 
-    b. Na caixa de texto **URL de logout** , Cole o valor da **URL de logout** copiado do portal do Azure.
+    ![Configuração do Visualizador InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
-    c. Na caixa de texto **ID da entidade** , Cole o valor do **identificador do Azure ad** copiado do portal do Azure.
+    a. Na caixa de texto **SSO URL,** colá o valor URL de **Login,** que copiou do portal Azure.
 
-    d. Para carregar o arquivo de certificado baixado, clique em **Atualizar**.
+    b. Na caixa de texto **logout URL,** colá o valor URL de **Logout,** que copiou do portal Azure.
 
-    e. Para carregar o arquivo de metadados de Federação baixado, clique em **Atualizar**.
+    c. Na caixa de texto **Id da Entidade,** colá o valor do **Identificador De Ad Azure,** que copiou do portal Azure.
 
-    f. Copie o valor **ID da entidade** e cole na caixa de texto **identificador (ID da entidade)** na seção **configuração básica do SAML** no portal do Azure.
+    d. Para fazer o upload do ficheiro certificado descarregado, clique em **Atualizar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+    e. Para fazer o upload do ficheiro de Metadados da Federação descarregado, clique em **Atualizar**.
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+    f. Copie o valor de ID da **Entidade** e cole na caixa de texto **identificador (Id entidade)** na secção **de Configuração SAML Básica** no portal Azure.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-2. Selecione **novo usuário** na parte superior da tela.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
+
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
+    b. No **tipo** de campo de nome utilizador **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao Visualizador do InstaVR.
+Nesta secção, permite que britta Simon utilize um único sign-on Azure, concedendo acesso ao Visualizador instaVR.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Visualizador de InstaVR**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **O Visualizador do InstaVR**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, digite e selecione **Visualizador de InstaVR**.
+2. Na lista de aplicações, digite e selecione **Visualizador instaVR**.
 
-    ![O link do InstaVR Viewer na lista de aplicativos](common/all-applications.png)
+    ![O link do Visualizador InstaVR na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-instavr-viewer-test-user"></a>Criar usuário de teste do InstaVR Viewer
+### <a name="create-instavr-viewer-test-user"></a>Criar o utilizador de teste do Visualizador InstaVR
 
-Nesta seção, um usuário chamado Brenda Simon é criado no Visualizador do InstaVR. O InstaVR Viewer dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no InstaVR Viewer, um novo será criado após a autenticação. Se você enfrentar problemas, entre em contato com a [equipe de suporte do InstaVR Viewer](mailto:contact@instavr.co).
+Nesta secção, um utilizador chamado Britta Simon é criado no Visualizador de InstaVR. O Visualizador InstaVR suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Visualizador do InstaVR, um novo é criado após a autenticação. Se enfrentar algum problema, contacte a equipa de suporte do [Visualizador do InstaVR](mailto:contact@instavr.co).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-1. Abra uma nova janela do navegador da Web e faça logon em seu site de empresa do InstaVR Viewer como administrador.
+1. Abra uma nova janela do navegador web e inicie sessão no site da empresa Do Visualizador do InstaVR como administrador.
 
-2. Selecione **pacote** no painel de navegação à esquerda e selecione **criar pacote para a Web**.
+2. Selecione **Pacote** a partir do painel de navegação esquerdo e selecione **Fazer pacote para web**.
 
-    ![Configuração do Visualizador do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![Configuração do Visualizador InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Selecione **Transferir**.
 
-    ![Configuração do Visualizador do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![Configuração do Visualizador InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
-4. Selecione **abrir página hospedada** depois que ela será redirecionada para o Azure ad para logon.
+4. Selecione **Página Aberta Hospedada** depois disso será redirecionada para Azure AD para login.
 
-    ![Configuração do Visualizador do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![Configuração do Visualizador InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
-5. Insira suas credenciais do Azure AD para fazer logon com êxito no Azure AD por meio do SSO.
+5. Introduza as suas credenciais Azure AD para iniciar sessão com sucesso no Azure AD via SSO.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

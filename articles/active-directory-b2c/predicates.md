@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc61ef5980a8019514f05c1db47f2300fff3603b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187241"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396897"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicadosValidações
 
@@ -45,7 +45,7 @@ O elemento **Predicado** contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Id | Sim | Um identificador que é usado para o predicado. Outros elementos podem utilizar este identificador na política. |
-| Método | Sim | O tipo de método a utilizar para validação. Valores possíveis: **IsLengthRange,** **MatchesRegex,** **IncluiCharacters**, ou **IsDateRange**. O valor **IsLengthRange** verifica se o comprimento de um valor de reclamação de cadeia está dentro do intervalo dos parâmetros mínimos e máximos especificados. O valor **MatchRegex** verifica se um valor de reclamação de cordas corresponde a uma expressão regular. O valor **da IncludesCharacters** verifica se um valor de reclamação de cordas contém um conjunto de caracteres. O valor **IsDateRange** verifica se o valor da reclamação de data é entre um intervalo de parâmetros mínimos e máximos especificados. |
+| Método | Sim | O tipo de método a utilizar para validação. Valores possíveis: [IsLengthRange,](#islengthrange) [MatchesRegex,](#matchesregex) [IncluiCharacters](#includescharacters), ou [IsDateRange](#isdaterange).  |
 | Texto de Ajuda | Não | Uma mensagem de erro para os utilizadores se o cheque falhar. Esta cadeia pode ser localizada usando a [personalização](localization.md) da linguagem |
 
 O elemento **Predicado** contém os seguintes elementos:
@@ -67,7 +67,19 @@ O elemento **Parâmetro** contém os seguintes atributos:
 | ------- | ----------- | ----------- |
 | Id | 1:1 | O identificador do parâmetro. |
 
-O exemplo seguinte `IsLengthRange` mostra um `Minimum` método `Maximum` com os parâmetros e que especifica a faixa de comprimento da cadeia:
+### <a name="predicate-methods"></a>Métodos predicados
+
+#### <a name="islengthrange"></a>IsLengthRange
+
+O método IsLengthRange verifica se o comprimento de um valor de reclamação de cadeia está dentro do intervalo dos parâmetros mínimos e máximos especificados. O elemento predicado suporta os seguintes parâmetros:
+
+| Parâmetro | Necessário | Descrição |
+| ------- | ----------- | ----------- |
+| Máximo | Sim | O número máximo de caracteres que podem ser introduzidos. |
+| Mínimo | Sim | O número mínimo de caracteres que devem ser inscritos. |
+
+
+O exemplo seguinte mostra um método IsLengthRange com os parâmetros `Minimum` e `Maximum` que especifica a faixa de comprimento da cadeia:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -77,6 +89,14 @@ O exemplo seguinte `IsLengthRange` mostra um `Minimum` método `Maximum` com os 
   </Parameters>
 </Predicate>
 ```
+
+#### <a name="matchesregex"></a>MatchRegex
+
+O método MatchRegex verifica se um valor de reclamação de cordas corresponde a uma expressão regular. O elemento predicado suporta os seguintes parâmetros:
+
+| Parâmetro | Necessário | Descrição |
+| ------- | ----------- | ----------- |
+| Expressão regular | Sim | O padrão de expressão regular para combinar. |
 
 O exemplo que `MatchesRegex` se segue `RegularExpression` mostra um método com o parâmetro que especifica uma expressão regular:
 
@@ -88,6 +108,14 @@ O exemplo que `MatchesRegex` se segue `RegularExpression` mostra um método com 
 </Predicate>
 ```
 
+#### <a name="includescharacters"></a>Inclui personagens
+
+O método IncludesCharacters verifica se um valor de reclamação de cordas contém um conjunto de caracteres. O elemento predicado suporta os seguintes parâmetros:
+
+| Parâmetro | Necessário | Descrição |
+| ------- | ----------- | ----------- |
+| Conjunto de caracteres | Sim | O conjunto de caracteres que podem ser inseridos. Por exemplo, caracteres `a-z`minúsculos, `A-Z`caracteres `0-9`maiúsculos, dígitos, `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`ou uma lista de símbolos, tais como . |
+
 O exemplo seguinte `IncludesCharacters` mostra um `CharacterSet` método com o parâmetro que especifica o conjunto de caracteres:
 
 ```XML
@@ -98,7 +126,16 @@ O exemplo seguinte `IncludesCharacters` mostra um `CharacterSet` método com o p
 </Predicate>
 ```
 
-O exemplo seguinte `IsDateRange` mostra um `Minimum` método `Maximum` com os parâmetros e `yyyy-MM-dd` `Today`que especifica a gama de datas com um formato de e .
+#### <a name="isdaterange"></a>IsDateRange
+
+O método IsDateRange verifica se o valor da reclamação de data é entre um intervalo de parâmetros mínimos e máximos especificados. O elemento predicado suporta os seguintes parâmetros:
+
+| Parâmetro | Necessário | Descrição |
+| ------- | ----------- | ----------- |
+| Máximo | Sim | A maior data possível que pode ser inserida. O formato da `yyyy-mm-dd` data `Today`segue a convenção, ou . |
+| Mínimo | Sim | A menor data possível que pode ser inserida. O formato da `yyyy-mm-dd` data `Today`segue a convenção, ou .|
+
+O exemplo seguinte `IsDateRange` mostra um `Minimum` método `Maximum` com os parâmetros e `yyyy-mm-dd` `Today`que especifica a gama de datas com um formato de e .
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -388,3 +425,7 @@ No seu tipo de reclamação, adicione o elemento `CustomDateRange` **PredicadoVa
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
  ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba como configurar a complexidade da [palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-password-complexity.md) utilizando validações predicadas.

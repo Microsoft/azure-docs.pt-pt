@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dd4d1aa2423ddb48f61380a982ca256609734d6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159969"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419648"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicação de página única: Iniciar sessão e iniciar sessão
 
@@ -68,26 +68,50 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 O invólucro Angular MSAL permite-lhe assegurar rotas `MsalGuard` específicas na sua aplicação adicionando à definição de rota. Este guarda invocará o método para iniciar sessão quando essa rota for acedida.
 
 ```javascript
-// In app.routes.ts
-{ path: 'product', component: ProductComponent, canActivate : [MsalGuard],
-    children: [
-      { path: 'detail/:id', component: ProductDetailComponent  }
+// In app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { MsalGuard } from '@azure/msal-angular';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [
+      MsalGuard
     ]
-   },
-  { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
+  },
+  {
+    path: '',
+    component: HomeComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 ```
 
 Para uma experiência de janela `popUp` pop-up, ative a opção de configuração. Também pode passar os âmbitos que requerem consentimento da seguinte forma:
 
 ```javascript
-//In app.module.ts
+// In app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                popUp: true,
-                consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
-            })]
-         })
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id',
+            }
+        }, {
+            popUp: true,
+            consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
+        })
+    ]
+})
 ```
 ---
 
@@ -130,9 +154,8 @@ Pode configurar o URI para o qual deve redirecionar após a inscrição, definin
 
 ```javascript
 const config = {
-
     auth: {
-        clientID: 'your_app_id',
+        clientId: 'your_app_id',
         redirectUri: "your_app_redirect_uri", //defaults to application start page
         postLogoutRedirectUri: "your_app_logout_redirect_uri"
     }
@@ -148,11 +171,15 @@ userAgentApplication.logout();
 ```javascript
 //In app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id',
                 postLogoutRedirectUri: "your_app_logout_redirect_uri"
-            })]
-         })
+            }
+        })
+    ]
+})
 
 // In app.component.ts
 this.authService.logout();

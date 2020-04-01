@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 209b4136678e6f04666b4a2b6180f4768bf6afc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500826"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411163"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
-A Base de Dados Azure SQL é uma base de dados relacional de uso geral, fornecida como um serviço gerido. Com ele, pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para as aplicações e soluções em Azure. A Base de Dados SQL pode ser a escolha certa para uma variedade de aplicações modernas em nuvem porque permite processar dados relacionais e [estruturas não relacionais](sql-database-multi-model-features.md), tais como gráficos, JSON, espacial e XML.
+A Base de Dados SQL do Azure é um Motor de Base de Dados de Plataforma como Serviço (PaaS) totalmente gerida que processa a maioria das funções de gestão de bases de dados, tais como a atualização, a aplicação de patches, as cópias de segurança e a monitorização sem a intervenção do utilizador. A Base de Dados SQL do Azure está sempre em execução na versão estável mais recente do Motor de Base de Dados do SQL Server e no SO com patches com 99,99% de disponibilidade. As capacidades paaS que são incorporadas na base de dados Azure SQL permitem-lhe focar-se na administração de bases de dados específicas do domínio e atividades de otimização que são cruciais para o seu negócio.
+
+Com a Base de Dados Azure SQL, pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para as aplicações e soluções em Azure. A Base de Dados SQL pode ser a escolha certa para uma variedade de aplicações modernas em nuvem porque permite processar dados relacionais e [estruturas não relacionais](sql-database-multi-model-features.md), tais como gráficos, JSON, espacial e XML.
 
 Baseia-se na versão mais recente do motor de base de dados do [Microsoft SQL Server.](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) Pode utilizar funcionalidades avançadas de processamento de consultas, tais como [tecnologias de alta performance na memória](sql-database-in-memory.md) e processamento inteligente de [consultas.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) De facto, as mais recentes capacidades do SQL Server são lançadas primeiro para a Base de Dados SQL e, em seguida, para o próprio SQL Server. Obtém-se as mais recentes capacidades do SQL Server sem sobrecarga para remendar ou atualizar, testadas em milhões de bases de dados. 
 
@@ -68,7 +70,7 @@ A Base de Dados SQL oferece os seguintes modelos de compra:
 A Base de Dados Azure SQL oferece três níveis de serviço que são projetados para diferentes tipos de aplicações:
 - Modelo de serviço Geral [Objetivo/Standard](sql-database-service-tier-general-purpose.md) concebido para cargas de trabalho comuns. Oferece opções de cálculo e armazenamento equilibradas orientadas para o orçamento.
 - Nível de serviço [Business Critical/Premium](sql-database-service-tier-business-critical.md) projetado para aplicações OLTP com elevada taxa de transação e Menor Latência Em/O. Oferece a maior resiliência às falhas usando várias réplicas isoladas.
-- [Nível](sql-database-service-tier-hyperscale.md) de serviço de hiperescala projetado para uma base de dados OLTP muito grande e a capacidade de armazenamento em escala automática e computação em escala fluidamente.    
+- [Nível](sql-database-service-tier-hyperscale.md) de serviço de hiperescala projetado para uma base de dados OLTP muito grande e a capacidade de autoescala de armazenamento e computação de escala fluida.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -107,11 +109,11 @@ O Azure fornece ferramentas [de monitorização](sql-database-performance-guidan
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
-Num ambiente tradicional do SQL Server, geralmente tem pelo menos duas máquinas configuradas localmente. Estas máquinas têm cópias exatas, sincronizadamente mantidas, dos dados para proteger contra uma falha de uma única máquina ou componente. Este ambiente proporciona uma elevada disponibilidade, mas não protege contra um desastre natural que destrói o seu datacenter.
+A Base de Dados Azure SQL permite que o seu negócio continue a operar durante as perturbações. Num ambiente tradicional do SQL Server, geralmente tem pelo menos duas máquinas configuradas localmente. Estas máquinas têm cópias exatas, sincronizadamente mantidas, dos dados para proteger contra uma falha de uma única máquina ou componente. Este ambiente proporciona uma elevada disponibilidade, mas não protege contra um desastre natural que destrói o seu datacenter.
 
 A recuperação de desastres pressupõe que um evento catastrófico está geograficamente localizado o suficiente para ter outra máquina ou conjunto de máquinas com uma cópia dos seus dados longe. No Servidor SQL, pode utilizar sempre grupos de disponibilidade a funcionar em modo de sincronização para obter esta capacidade. Muitas vezes as pessoas não querem esperar que a replicação aconteça tão longe antes de cometer uma transação, por isso há potencial para a perda de dados quando se faz falhas não planeadas.
 
-As bases de dados nos níveis de serviço críticos premium e empresariais já [fazem algo muito semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. As bases de dados em níveis de serviço mais baixos fornecem redundância através do armazenamento utilizando um [mecanismo diferente, mas equivalente.](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger-se contra uma única falha na máquina. A funcionalidade de georeplicação ativa dá-lhe a capacidade de proteger contra desastres onde toda uma região é destruída.
+As bases de dados nos níveis de serviço críticos premium e empresariais já [fazem algo semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. As bases de dados em níveis de serviço mais baixos fornecem redundância através do armazenamento utilizando um [mecanismo diferente, mas equivalente.](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger-se contra uma única falha na máquina. A funcionalidade de georeplicação ativa dá-lhe a capacidade de proteger contra desastres onde toda uma região é destruída.
 
 As Zonas de Disponibilidade Azure tentam proteger-se contra a paralisação de um único edifício de datacenter numa única região. Ajuda-o a proteger-se contra a perda de energia ou rede para um edifício. Na Base de Dados SQL, coloca as diferentes réplicas em diferentes zonas de disponibilidade (edifícios diferentes, efetivamente).
 

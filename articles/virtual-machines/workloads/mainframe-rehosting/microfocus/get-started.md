@@ -3,15 +3,15 @@ title: Micro Focus dev/test environments on Azure [ Ambientes de teste/ Micro Fo
 description: Realoja as suas cargas de trabalho ibm z/OS utilizando soluções Micro Focus em máquinas virtuais Azure (VMs).
 author: njray
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62d3f7cc75a887605cdd3c19ac2e45990e541d5e
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60498904"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410989"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Micro Focus dev/ambientes de teste em Azure
 
@@ -20,6 +20,9 @@ Começar no Azure com um ambiente de desenvolvimento e teste é uma ótima manei
 A Micro Focus estabeleceu uma parceria com a Microsoft para oferecer ferramentas de migração e realojamento convincentes. Pode executar aplicações mainframe em cenários de desenvolvimento, teste e produção no Azure e na plataforma Microsoft Windows.
 
 A Micro Focus oferece soluções de realojamento e realojamento de testes que alargam as aplicações comerciais existentes de COBOL e PL/I ao Azure.
+
+> [!NOTE]
+> Em breve: Instruções para a instalação do [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) em VMs Azure.
 
 **Passos seguintes**
 

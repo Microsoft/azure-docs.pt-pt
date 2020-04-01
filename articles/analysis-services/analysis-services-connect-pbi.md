@@ -4,15 +4,15 @@ description: Aprenda a ligar-se a um servidor de Serviços de Análise Azure uti
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: db0c00268c343cd99e439bb49460523cf0563c3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73573108"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411366"
 ---
 # <a name="connect-with-power-bi"></a>Ligar com o Power BI
 

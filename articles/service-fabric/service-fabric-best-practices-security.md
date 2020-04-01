@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258931"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478754"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
@@ -208,7 +208,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Recomendamos que implemente uma configuração padrão da indústria que seja amplamente conhecida e bem testada, como as linhas](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines)de segurança da Microsoft, em oposição à criação de uma linha de base por si mesma; Uma opção para o fornecimento destes nos seus Conjuntos de Escala de Máquina Virtual é utilizar o manipulador de extensão de configuração do Estado Do Estado (DSC) do Azure Desired State, para configurar os VMs à medida que entram online, pelo que estão a executar o software de produção.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-O Azure Firewall é um serviço de segurança de rede gerido e [baseado na nuvem que protege os seus recursos da Rede Virtual Azure. É uma firewall totalmente audabilizada como um serviço com alta disponibilidade incorporada e escalabilidade de nuvens sem restrições.](https://docs.microsoft.com/azure/firewall/overview) isto permite limitar o tráfego HTTP/S de saída a uma lista especificada de nomes de domínio totalmente qualificados (FQDN), incluindo cartões selvagens. Esta funcionalidade não requer terminação de SSL. Recomenda-se que aproveite [as etiquetas FQDN do Firewall Do Firewall para](https://docs.microsoft.com/azure/firewall/fqdn-tags) as Atualizações do Windows e que o tráfego de rede para os pontos finais do Microsoft Windows Update pode fluir através da sua firewall. [Implementar firewall azure usando um modelo](https://docs.microsoft.com/azure/firewall/deploy-template) fornece uma amostra para a definição de modelo de recurso Microsoft.Network/azureFirewalls. As regras de firewall comuns às Aplicações de Tecido de Serviço são para permitir o seguinte para a rede virtual dos seus clusters:
+O Azure Firewall é um serviço de segurança de rede gerido e [baseado na nuvem que protege os seus recursos da Rede Virtual Azure. É uma firewall totalmente audabilizada como um serviço com alta disponibilidade incorporada e escalabilidade de nuvens sem restrições.](https://docs.microsoft.com/azure/firewall/overview) isto permite limitar o tráfego HTTP/S de saída a uma lista especificada de nomes de domínio totalmente qualificados (FQDN), incluindo cartões selvagens. Esta funcionalidade não requer a rescisão tLS/SSL. Recomenda-se que aproveite [as etiquetas FQDN do Firewall Do Firewall para](https://docs.microsoft.com/azure/firewall/fqdn-tags) as Atualizações do Windows e que o tráfego de rede para os pontos finais do Microsoft Windows Update pode fluir através da sua firewall. [Implementar firewall azure usando um modelo](https://docs.microsoft.com/azure/firewall/deploy-template) fornece uma amostra para a definição de modelo de recurso Microsoft.Network/azureFirewalls. As regras de firewall comuns às Aplicações de Tecido de Serviço são para permitir o seguinte para a rede virtual dos seus clusters:
 
 - *download.microsoft.com
 - *servicefabric.azure.com
@@ -221,7 +221,7 @@ Estas regras de firewall complementam os seus grupos de segurança de rede de sa
 
 ## <a name="windows-defender"></a>Windows Defender 
 
-Por predefinição, o antivírus Do Windows Defender está instalado no Windows Server 2016. Para mais detalhes, consulte [o Antivírus Do Windows Defender no Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). A interface do utilizador é instalada por padrão em algumas SKUs, mas não é necessária. Para reduzir qualquer impacto de desempenho e sobrecarga de consumo de recursos incorrido pelo Windows Defender, e se as suas políticas de segurança lhe permitirem excluir processos e caminhos para software de código aberto, declare o seguinte Recurso de Extensão de Conjunto de Escala virtual de Máquinas Propriedades do modelo de gestor para excluir o seu cluster de Tecido de Serviço de digitalizações:
+Por predefinição, o antivírus Do Windows Defender está instalado no Windows Server 2016. Para mais detalhes, consulte [o Antivírus Do Windows Defender no Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). A interface do utilizador é instalada por padrão em algumas SKUs, mas não é necessária. Para reduzir qualquer impacto de desempenho e sobrecarga de consumo de recursos incorrido pelo Windows Defender, e se as suas políticas de segurança lhe permitirem excluir processos e caminhos para software de código aberto, declare as seguintes propriedades do modelo de extensão de extensão de conjunto de máquinas virtuais para excluir o seu cluster de tecido de serviço de digitalizações:
 
 
 ```json

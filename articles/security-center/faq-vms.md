@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d84085115816a8fe1cba65e191ea391dd91a4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599369"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436015"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>FAQ - Perguntas sobre máquinas virtuais
 
@@ -51,7 +51,7 @@ Abaixo estão os tempos de latência para o Centro de Segurança de verificaçõ
 O Centro de Segurança normalmente procura novos dados a cada hora, e atualiza as recomendações em conformidade. 
 
 > [!NOTE]
-> O Security Center utiliza o Agente de Monitorização da Microsoft para recolher e armazenar dados. Para saber mais, consulte a Migração da [Plataforma azure Security Center.](security-center-platform-migration.md)
+> O Security Center utiliza o agente Log Analytics para recolher e armazenar dados. Para saber mais, consulte a Migração da [Plataforma azure Security Center.](security-center-platform-migration.md)
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "Agente VM está desaparecido?"

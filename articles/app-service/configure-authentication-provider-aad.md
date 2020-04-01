@@ -1,22 +1,26 @@
 ---
 title: Configurar a autenticação do Azure AD
-description: Saiba como configurar a autenticação do Diretório Ativo Azure como fornecedor de identidade para a sua aplicação App Service.
+description: Saiba como configurar a autenticação do Diretório Ativo Azure como fornecedor de identidade para o seu App Service ou aplicação Funções Azure.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: fdad1f820d006c39fa135a29a5ec7377c47591f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80046448"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438023"
 ---
-# <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configure a sua app de serviço de aplicações para utilizar o login azure AD
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este artigo mostra-lhe como configurar o Azure App Service para utilizar o Azure Ative Directory (Azure AD) como fornecedor de autenticação.
+Este artigo mostra-lhe como configurar o Azure App Service ou as Funções Azure para utilizar o Azure Ative Directory (Azure AD) como fornecedor de autenticação.
+
+> [!NOTE]
+> Neste momento, o [Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [mSAL)](../active-directory/develop/msal-overview.md)não é suportado para o Azure App Service e funções Azure. Por favor, verifique se há novidades.
+>
 
 Siga estas boas práticas ao configurar a sua app e autenticação:
 
@@ -72,7 +76,8 @@ Execute os seguintes passos:
 1. Em **Redirecione URI,** selecione **Web** e escreva `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
 1. Selecione **Criar**.
 1. Após a criação do registo da aplicação, copie o ID da **Aplicação (cliente)** e o **ID do Diretório (inquilino)** para mais tarde.
-1. Selecione **Branding**. No URL da **página inicial,** introduza o URL da sua aplicação App Service e selecione **Guardar**.
+1. Selecione **Autenticação**. Sob **a subvenção Implícita,** ative **fichas de ID** para permitir o openID Connect user sign-ins do Serviço de Aplicações.
+1. (Opcional) Selecione **Branding**. No URL da **página inicial,** introduza o URL da sua aplicação App Service e selecione **Guardar**.
 1. Selecione Expor um**conjunto** **API** > . Comente no URL da sua app App Service e selecione **Save**.
 
    > [!NOTE]
@@ -96,7 +101,7 @@ Execute os seguintes passos:
     |Campo|Descrição|
     |-|-|
     |ID de Cliente| Utilize a identificação da **Aplicação (cliente)** do registo da aplicação. |
-    |ID do emitente| Utilize `https://login.microsoftonline.com/<tenant-id>`, e substitua * \<o>* de identificação do inquilino pelo **D.D. (inquilino) identificação** do registo da aplicação. |
+    |Url de emitente| Utilize `https://login.microsoftonline.com/<tenant-id>`, e substitua * \<o>* de identificação do inquilino pelo **D.D. (inquilino) identificação** do registo da aplicação. Este valor é utilizado para redirecionar os utilizadores para o inquilino da AD Azure correto, bem como para descarregar os metadados apropriados para determinar as chaves de assinatura simbólicas apropriadas e o valor de reclamação de emitente simbólico, por exemplo. |
     |Segredo de Cliente (Opcional)| Use o segredo do cliente gerado no registo da aplicação.|
     |Audiências simbólicas permitidas| Se se trata de uma aplicação de nuvem ou servidor e pretende permitir fichas de autenticação a partir de uma aplicação web, adicione o **ID URI** da aplicação web aqui. O ID do **cliente** configurado é *sempre* considerado implicitamente como um público permitido. |
 
@@ -106,21 +111,21 @@ Está agora pronto para utilizar o Diretório Ativo Azure para autenticação na
 
 ## <a name="configure-a-native-client-application"></a>Configurar uma aplicação de cliente nativo
 
-Pode registar clientes nativos para permitir a autenticação utilizando uma biblioteca de clientes, como a Biblioteca de Autenticação do **Diretório Ativo.**
+Pode registar clientes nativos para permitir a autenticação na Web API's hospedada na sua aplicação utilizando uma biblioteca de clientes como a Biblioteca de Autenticação de **DirectórioAtivo Ativo.**
 
 1. No [portal Azure,]selecione Registos de**Aplicações** >  **de Diretório** > Ativo Novo**registo.**
 1. Na página **do Registo de inscrição,** insira um **Nome** para o registo da sua aplicação.
 1. No **Redirect URI,** selecione cliente público (ambiente de **trabalho & móvel)** e escreva o URL `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
-    > Para uma aplicação Windows, utilize o [pacote SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
+    > Para uma aplicação da Microsoft Store, utilize o [pacote SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
 1. Selecione **Criar**.
 1. Após a criação do registo da aplicação, copie o valor do ID da **Aplicação (cliente).**
 1. Selecione **permissões** > API**Adicione uma permissão** > **As minhas APIs**.
 1. Selecione o registo de aplicações que criou anteriormente para a sua aplicação App Service. Se não vir o registo da aplicação, certifique-se de que adicionou o âmbito **de user_impersonation** em [Criar uma inscrição de aplicação no Azure AD para](#register)a sua app App Service .
 1. Selecione **user_impersonation**e, em seguida, selecione **Adicionar permissões**.
 
-Já configurou uma aplicação de cliente nativo que pode aceder à sua aplicação app Service.
+Já configurou uma aplicação de cliente nativo que pode aceder à sua aplicação de Serviço de Aplicações em nome de um utilizador.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 
@@ -128,4 +133,4 @@ Já configurou uma aplicação de cliente nativo que pode aceder à sua aplicaç
 
 <!-- URLs. -->
 
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

@@ -7,16 +7,16 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0521f384a333c3054397fb0ec7c2ab907e54f67
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403575"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411758"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Encriptação de discos chave gerida pelo cliente
 
-O Azure HDInsight suporta encriptação de chaves gerida pelo cliente para dados em discos geridos e discos de recursos ligados a máquinas virtuais de cluster HDInsight. Esta funcionalidade permite-lhe utilizar o Cofre de Chaves Azure para gerir as chaves de encriptação que protegem os dados em repouso nos seus clusters HDInsight. 
+O Azure HDInsight suporta encriptação de chaves gerida pelo cliente para dados em discos geridos e discos de recursos ligados a máquinas virtuais de cluster HDInsight. Esta funcionalidade permite-lhe utilizar o Cofre de Chaves Azure para gerir as chaves de encriptação que protegem os dados em repouso nos seus clusters HDInsight.
 
 Todos os discos geridos no HDInsight estão protegidos com encriptação do serviço de armazenamento Azure (SSE). Por predefinição, os dados desses discos são encriptados utilizando chaves geridas pela Microsoft. Se ativar as chaves geridas pelo cliente para o HDInsight, fornece as chaves de encriptação para o HDInsight utilizar e gerir essas teclas utilizando o Cofre de Chaves Azure.
 
@@ -146,6 +146,42 @@ az hdinsight rotate-disk-encryption-key \
 --name MyCluster \
 --resource-group MyResourceGroup
 ```
+
+## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
+
+Para utilizar as chaves geridas pelo cliente utilizando um modelo de Gestor de Recursos, atualize o seu modelo com as seguintes alterações:
+
+1. No ficheiro **azuredeploy.json,** adicione o seguinte imóvel ao objeto dos recursos:
+
+    ```json
+       "diskEncryptionProperties":
+         {
+                 "vaultUri": "[parameters('diskEncryptionVaultUri')]",
+                  "keyName": "[parameters('diskEncryptionKeyName')]",
+                  "keyVersion": "[parameters('diskEncryptionKeyVersion')]",
+                   "msiResourceId": "[parameters('diskEncryptionMsiResourceId')]"
+         }
+
+1. In the **azuredeploy.parameters.json** file, add the following parameters. You can get the values of these parameters from the Key Vault URI and the managed Identity. For example, if you have the following URI and identity values,
+    * Sample key vault URI: https://<KeyVault_Name>.vault.azure.net/keys/clusterkey/<Cluster_Key_Value>
+    * Sample user-assigned managed identity: "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>
+
+    The parameters in the **azuredeploy.parameters.json** file are:
+
+    ```json
+   "diskEncryptionVaultUri": {
+            "value": "https://<KeyVault_Name>.vault.azure.net"
+        },
+        "diskEncryptionKeyName": {
+            "value": "clusterkey"
+        },
+        "diskEncryptionKeyVersion": {
+            "value": "<Cluster_Key_Value>"
+        },
+        "diskEncryptionMsiResourceId": {
+            "value": "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>"
+        }
+    ```
 
 ## <a name="faq-for-customer-managed-key-encryption"></a>FAQ para encriptação de chaves gerida pelo cliente
 

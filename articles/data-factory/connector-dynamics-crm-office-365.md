@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929460"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422094"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para a Dynamics 365 (Serviço Comum de Dados) ou O CRM da Dynamics utilizando a Azure Data Factory
 
@@ -324,7 +324,7 @@ Para copiar dados para a Dynamics, as seguintes propriedades são suportadas na 
 | ignorar Valores Nulos | Indica se deve ignorar valores nulos dos dados de entrada (exceto os campos-chave) durante uma operação de escrita.<br/>Os valores permitidos são **verdadeiros** e **falsos.**<br>- **Verdade**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização/atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.<br/>- **Falso**: Atualize os dados no objeto de destino para NULL quando fizer uma operação de atualização/atualização. Insira um valor NULO quando fizer uma operação de inserção. | Não (o padrão é falso) |
 
 >[!NOTE]
->O valor padrão do lavatório "**writeBatchSize**" e a atividade de cópia "**[parallelCopy](copy-activity-performance.md#parallel-copy)**" para o lavatório Dynamics são ambos 10. Portanto, 100 registos são submetidos à Dynamics simultaneamente.
+>O valor padrão do lavatório "**writeBatchSize**" e a atividade de cópia "**[parallelCopy](copy-activity-performance-features.md#parallel-copy)**" para o lavatório Dynamics são ambos 10. Portanto, 100 registos são submetidos à Dynamics simultaneamente.
 
 Para a Dynamics 365 online, existe um limite de [2 chamadas de lote simultâneopor organização.](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations) Se esse limite for ultrapassado, uma falha "Server Busy" é lançada antes de o primeiro pedido ser executado. Manter "writeBatchSize" menos ou igual a 10 evitaria tal estrangulamento de chamadas simultâneas.
 

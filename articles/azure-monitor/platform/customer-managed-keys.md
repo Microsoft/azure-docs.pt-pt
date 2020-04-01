@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 03/26/2020
-ms.openlocfilehash: 563a50d4589a83f710caa8ff2d2d95065909fc5f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: c8743385f8c3c801b2f06e4a30a8672d1d80acc4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384182"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422522"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerida pelo cliente do Azure Monitor 
 
@@ -33,18 +33,18 @@ Recomendamos que reveja [as limitações e constrangimentos](#limitations-and-co
 
 > [!NOTE]
 > Log Analytics e Application Insights estão a usar a mesma plataforma de loja de dados e motor de consulta.
-> Estamos a reunir estas duas lojas através da integração de Application Insights no Log Analytics para criar uma única loja unificada de registos no âmbito do Azure Monitor. Esta alteração está prevista para o segundo trimestre do ano civil de 2020. Se não tiver de implementar a CMK para os seus dados de Informação de Aplicação até lá, recomendamos que aguardar a conclusão da consolidação, uma vez que tais implementações serão interrompidas pela consolidação e terá de reconfigurar a CMK após a migração para o Log Espaço de trabalho de análise. O mínimo de 1TB por dia aplica-se ao nível do cluster e até que a consolidação esteja concluída durante o segundo trimestre, os Insights de Aplicação e o Log Analytics requerem clusters separados.
+> Estamos a reunir estas duas lojas através da integração de Application Insights no Log Analytics para criar uma única loja unificada de registos no âmbito do Azure Monitor. Esta alteração está prevista para o segundo trimestre do ano civil de 2020. Se não tiver de implementar a CMK para os dados dos seus Dados de Informação de Aplicação até lá, recomendamos que aguardar a conclusão da consolidação, uma vez que tais implementações serão interrompidas pela consolidação e terá de reconfigurar a CMK após a migração para o espaço de trabalho log Analytics. O mínimo de 1TB por dia aplica-se ao nível do cluster e até que a consolidação esteja concluída durante o segundo trimestre, os Insights de Aplicação e o Log Analytics requerem clusters separados.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Visão geral da chave gerida pelo cliente (CMK)
 
 [A encriptação no Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) é um requisito comum de privacidade e segurança nas organizações. Pode permitir que o Azure gere completamente a Encriptação no Rest, enquanto tem várias opções para gerir de perto as chaves de encriptação ou encriptação.
 
-A loja de dados Azure Monitor garante que todos os dados encriptados em repouso utilizam chaves geridas pelo Azure enquanto armazenados no Armazenamento Azure. O Azure Monitor também fornece uma opção de encriptação de dados utilizando a sua própria chave que é armazenada no [Cofre chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview), que é acedido usando a autenticação [de identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída pelo sistema. Esta chave pode ser protegida por [software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+A loja de dados Azure Monitor garante que todos os dados encriptados em repouso utilizam chaves geridas pelo Azure enquanto armazenados no Armazenamento Azure. O Azure Monitor também fornece uma opção de encriptação de dados utilizando a sua própria chave que está armazenada no seu [Cofre de Chaves Azure,](https://docs.microsoft.com/azure/key-vault/key-vault-overview)que é acedido usando a autenticação [de identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída pelo sistema. Esta chave pode ser protegida por [software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 O uso de encriptação do Monitor Azure é idêntico ao funcionamento da [encriptação do Azure Storage.](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)
 
 A frequência a que o Azure Monitor Storage acede ao Cofre chave para operações de embrulho e desembrulhar é entre 6 a 60 segundos.O Armazenamento do Monitor Azure respeita sempre as alterações nas permissões-chave no prazo de uma hora.
 
-Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração cmk, mas estamos a trabalhar para que o SSD seja encriptado com a CMK no início de 2020.
+Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para uma operação eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft, independentemente da configuração cmk, mas estamos a trabalhar para que o SSD seja encriptado com a CMK no primeiro semestre de 2020.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Como a CMK funciona no Monitor Azure
 
@@ -54,19 +54,19 @@ O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar ace
 1.  Cofre chave do cliente.
 2.  Recurso do *Cluster* log analytics do cliente tendo gerido a identidade com permissões para Key Vault – A identidade é suportada no nível de data-store (cluster ADX).
 3.  Azure Monitor dedicado cluster ADX.
-4.  Espaços de trabalho do cliente associados ao recurso Cluster para encriptação CMK.
+4.  Espaços de trabalho do cliente associados ao recurso *Cluster* para encriptação CMK.
 
 ## <a name="encryption-keys-management"></a>Gestão de chaves de encriptação
 
 Existem 3 tipos de chaves envolvidas na encriptação de dados de armazenamento:
 
-- **KEK** - Chave de encriptação chave no cofre de chaves (CMK)
+- **KEK** - Chave de Encriptação (CMK)
 - **AEK** - Chave de Encriptação de Conta
 - **DEK** - Chave de Encriptação de Dados
 
 Aplicam-se as seguintes regras:
 
-- A conta de armazenamento ADX gera uma chave de encriptação única para cada conta de armazenamento, que é conhecida como AEK.
+- As contas de armazenamento ADX geram uma chave de encriptação única para cada conta de Armazenamento, que é conhecida como AEK.
 
 - O AEK é usado para derivar DEKs, que são as chaves que são usadas para encriptar cada bloco de dados escritos em disco.
 
@@ -105,12 +105,10 @@ Onde *eyJ0eXAiO....* representa o símbolo completo da Autorização.
 Pode adquirir o símbolo utilizando um destes métodos:
 
 1. Utilize o método de [registos da Aplicação.](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
-
 2. No portal do Azure
     1. Navegue para o portal Azure em "ferramenta de desenvolvimento (F12)
     1. Procure uma corda de autorização em "Request Headers" numa das instâncias "batch?api-version". Parece: "autorização: símbolo \<\>do portador". 
     1. Copie e adicione à sua chamada API segundo os exemplos abaixo.
-
 3. Navegue para o site de documentação Azure REST. Prima "Experimente" em qualquer API e copie o token bearer.
 
 ### <a name="subscription-whitelisting"></a>Lista de subscrição
@@ -122,7 +120,7 @@ A capacidade cmk é uma funcionalidade de acesso precoce. As subscrições onde 
 
 ### <a name="storing-encryption-key-kek"></a>Chave de encriptação de armazenamento (KEK)
 
-Crie ou utilize um Cofre de Chave Azure que já tem de gerar, ou importar uma chave para ser usado para encriptação de dados. O Cofre de Chaves Azure deve ser configurado como recuperável para proteger a sua chave e o acesso aos seus dados no Monitor Azure. Pode verificar esta configuração sob propriedades no seu Cofre de Chave, tanto a *proteção Soft delete* como *a Purga* devem ser ativadas.
+Crie ou utilize um Cofre de Chave Azure que já tem de gerar, ou importar uma chave para ser usado para encriptação de dados. O Cofre de Chaves Azure deve ser configurado como recuperável para proteger a sua chave e o acesso aos seus dados no Monitor Azure. Pode verificar esta configuração sob propriedades no seu Cofre de Chaves, tanto a *proteção Soft delete* como *a purga* devem ser ativadas.
 
 Estas definições estão disponíveis via CLI e PowerShell:
 - [Eliminação de Forma Recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -130,11 +128,11 @@ Estas definições estão disponíveis via CLI e PowerShell:
 
 ### <a name="create-cluster-resource"></a>Criar recurso *cluster*
 
-Este recurso é utilizado como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho. Depois de receber a confirmação de que as suas subscrições foram listadas de branco, crie um recurso *de Cluster* Log Analytics na região onde estão localizados os seus espaços de trabalho. Os Insights de Aplicação e o Log Analytics requerem tipos separados de recursos *cluster.* O tipo de recurso *Cluster* é definido no momento da criação, definindo a propriedade "clusterType" para "LogAnalytics", ou "ApplicationInsights". O tipo de recurso cluster não pode ser alterado depois.
+Este recurso é utilizado como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics. Depois de receber a confirmação de que as suas subscrições foram listadas de branco, crie um recurso *de Cluster* Log Analytics na região onde estão localizados os seus espaços de trabalho. Os Insights de Aplicação e o Log Analytics requerem tipos separados de recursos *cluster.* O tipo de recurso *Cluster* é definido no momento da criação, definindo a propriedade *clusterType* para *LogAnalytics*, ou *ApplicationInsights*. O tipo de recurso cluster não pode ser alterado depois.
 
 Para obter insights de aplicação a configuração CMK, siga o conteúdo do Apêndice.
 
-Deve especificar o nível de reserva de capacidade (sku) para o recurso *Cluster* ao criar um recurso *cluster.* O nível de reserva de capacidade pode estar entre 1000 e 2000 e pode atualizá-lo em etapas de 100 passos posteriores. Se necessitar de um nível de reserva superior a 2000, contacte o seu contacto da Microsoft para o ativar. Esta propriedade não afeta a faturação atualmente -- uma vez que o modelo de preços para cluster dedicado é introduzido, a faturação aplicar-se-á a quaisquer implementações cmk existentes.
+Deve especificar o nível de reserva de capacidade (sku) ao criar um recurso *cluster.* O nível de reserva de capacidade pode estar entre 1.000 e 2.000 GB por dia e pode atualizá-lo em etapas de 100 mais tarde. Se necessitar de um nível de reserva superior a 2.000 GB por dia, contacte o seu contacto da Microsoft para o ativar. Esta propriedade não afeta a faturação atualmente -- uma vez que o modelo de preços para cluster dedicado é introduzido, a faturação aplicar-se-á a quaisquer implementações cmk existentes.
 
 **Criar**
 
@@ -163,9 +161,12 @@ A identidade é atribuída ao recurso *cluster* no momento da criação.
 
 202 Aceite. Esta é uma resposta padrão do Gestor de Recursos para operações assíncronas.
 
+>[!Important]
+> Demora algum tempo a completar o fornecimento do cluster ADX sub-ADX. Pode verificar o estado de provisionamento ao executar a chamada DAA DO GET REST sobre o recurso *Cluster* e olhando para o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e *bem sucedido* quando concluído.
+
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Fornecimento de loja de dados Azure Monitor (cluster ADX)
 
-Durante o período de acesso precoce da funcionalidade, o cluster ADX é aprovisionado manualmente pela equipa do produto assim que os passos anteriores estiverem concluídos. Utilize o seu canal Microsoft para o fornecimento enquanto fornece a resposta de recurso *cluster.* 
+Durante o período de acesso precoce da funcionalidade, o cluster ADX é aprovisionado manualmente pela equipa do produto assim que os passos anteriores estiverem concluídos. Utilize o seu canal Microsoft para este passo e forneça a resposta de recurso *cluster.* 
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -173,7 +174,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copie e guarde a resposta uma vez que necessitará destes detalhes em etapas posteriores
+> Copie e guarde a resposta uma vez que necessitará dos seus detalhes em etapas posteriores
 
 **Resposta**
 ```json
@@ -200,9 +201,7 @@ Authorization: Bearer <token>
 }
 ```
 
->[!Important]
-> Leva o fornecimento do cluster ADX sub-adx alguns minutos para ser concluído. O valor do Estado de *provisionamento* indica o seu estado, é *ProvisioningAccount* enquanto o provisionamento e "Bem sucedido" quando o provisionamento é concluído.
-> O GUID "principalid" é gerado pelo serviço de identidade gerido para o recurso *Cluster.*
+O GUID "principalid" é gerado pelo serviço de identidade gerido para o recurso *Cluster.*
 
 ### <a name="grant-key-vault-permissions"></a>Permissões do Cofre de Chaves grant
 
@@ -217,7 +216,7 @@ A permissão *Get* é necessária para verificar se o seu Cofre chave está conf
 
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>Atualizar recurso cluster com detalhes do identificador chave
 
-Este passo aplica-se por atualizações iniciais e futuras da versão chave no seu Cofre chave. Informa o Azure Monitor Storage sobre a nova versão chave.
+Este passo aplica-se por atualizações iniciais e futuras da versão chave no seu Cofre chave. Informa o Armazenamento do Monitor Azure sobre a versão chave a utilizar para encriptação de dados. Quando atualizado, a sua nova chave está a ser usada para embrulhar e desembrulhar a chave de armazenamento (AEK).
 
 Para atualizar o recurso *cluster* com os detalhes do *identificador Key* Vault Key, selecione a versão atual da sua chave no Cofre de Chaves Azure para obter os detalhes do identificador chave.
 
@@ -325,10 +324,10 @@ Content-type: application/json
 }
 ```
 
-Após a associação workspaces, os dados ingeridos nos seus espaços de trabalho são armazenados encriptados com a sua chave gerida.
+A associação workspace é realizada através de operações assíncronas do Gestor de Recursos, que podem demorar até 90 minutos para ser concluídas. O próximo passo mostra como o estado da associação workspace pode ser verificado. Após a associação workspaces, os dados ingeridos nos seus espaços de trabalho são armazenados encriptados com a sua chave gerida.
 
 ### <a name="workspace-association-verification"></a>Verificação da associação workspace
-Pode verificar se um espaço de trabalho está associado a um recurso *Custer* olhando para os [Espaços de Trabalho – Obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) resposta. O espaço de trabalho associado terá uma propriedade 'clusterResourceId' com o ID de recurso *cluster.*
+Pode verificar se um espaço de trabalho está associado a um recurso *cluster* olhando para os [Espaços de Trabalho – Obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) resposta. Os espaços de trabalho associados terão uma propriedade 'clusterResourceId' com um ID de recurso *cluster.*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
@@ -368,24 +367,24 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="cmk-kek-revocation"></a>Revogação da CMK (KEK)
 
-Pode revogar o seu acesso aos seus dados desativando a sua chave ou apagando a política de acesso ao recurso *cluster* no seu Cofre chave. O Armazenamento do Monitor Azure respeitará sempre as alterações nas permissões-chave dentro de uma hora, normalmente mais cedo, e o Armazenamento ficará indisponível. Quaisquer dados ingeridos para espaços de trabalho associados ao seu recurso *Cluster* são retirados e as consultas falharão. Os dados anteriormente ingeridos permanecem inacessíveis no Armazenamento do Monitor Azure, desde que a sua chave seja revogada e os seus espaços de trabalho não sejam eliminados. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados quando a retenção for alcançada.
+Pode revogar o seu acesso aos seus dados desativando a sua chave ou apagando a política de acesso ao recurso *cluster* no seu Cofre chave. O Armazenamento do Monitor Azure respeitará sempre as alterações nas permissões-chave dentro de uma hora, normalmente mais cedo, e o Armazenamento ficará indisponível. Quaisquer dados ingeridos para espaços de trabalho associados ao seu recurso *Cluster* são retirados e as consultas falharão. Os dados anteriormente ingeridos permanecem inacessíveis no Armazenamento do Monitor Azure desde que seja o seu recurso *Cluster* e os seus espaços de trabalho não sejam eliminados. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados quando a retenção for alcançada.
 
 O armazenamento irá fazer uma sondagem periódica no seu Cofre Chave para tentar desembrulhar a chave de encriptação e uma vez acedida, a ingestão de dados e a consulta retomam dentro de 30 minutos.
 
 ## <a name="cmk-kek-rotation"></a>Rotação CMK (KEK)
 
 A rotação da CMK requer uma atualização explícita do recurso *Cluster* com a nova versão chave no Cofre chave Azure. Para atualizar o Monitor Azure com a sua nova versão chave, siga as instruções na fase "Update *Cluster* resource with Key identifier details". Se atualizar a sua versão chave no Key Vault e não atualizar os novos detalhes do identificador chave no recurso *Cluster,* o Armazenamento do Monitor Azure continuará a utilizar a sua chave anterior.
-Todos os seus dados são acessíveis após a operação de rotação da chave, incluindo dados ingeridos antes da rotação e depois dele, uma vez que todos os dados permanecem encriptados pela Chave de Encriptação da Conta (AEK) enquanto estão agora a ser encriptados pela sua nova versão key Encryption Key (KEK).
+Todos os seus dados são acessíveis após a operação de rotação da chave, incluindo dados ingeridos antes da rotação e depois dele, uma vez que todos os dados permanecem encriptados pela Chave de Encriptação da Conta (AEK) enquanto o AEK está agora a ser encriptado pela sua nova versão key Encryption Key (KEK).
 
 ## <a name="limitations-and-constraints"></a>Limitações e constrangimentos
 
-- A funcionalidade CMK é suportada ao nível do cluster ADX e requer um cluster ADX Azure Monitor dedicado
+- A funcionalidade CMK é suportada ao nível do cluster ADX e requer um cluster ADX Azure Monitor dedicado com a obrigação de enviar 1TB por dia ou mais.
 
 - O número máximo de recursos *cluster* por subscrição é limitado a 2
 
-- *A* associação de recursos de cluster para o espaço de trabalho só deve ser transportada depois de ter recebido a confirmação do grupo de produtos de que o fornecimento de cluster ADX foi cumprido. Os dados enviados antes desta disposição serão retirados e não serão recuperáveis.
+- *A* associação de recursos de cluster para o espaço de trabalho só deve ser transportada depois de ter verificado que o fornecimento de cluster ADX foi cumprido. Os dados enviados antes desta disposição serão retirados e não serão recuperáveis.
 
-- A encriptação CMK aplica-se aos dados recentemente ingeridos após a configuração cmk. Os dados que foram ingeridos antes da configuração cmk, permanecem encriptados com a chave da Microsoft. Pode consultar os dados antes e depois da configuração cmk sem problemas.
+- A encriptação CMK aplica-se aos dados recentemente ingeridos após a configuração cmk. Os dados que foram ingeridos antes da configuração cmk, permanecem encriptados com a chave da Microsoft. Pode consultar os dados ingeridos antes e depois da configuração cmk sem problemas.
 
 - Uma vez que o espaço de trabalho está associado a um recurso *cluster,* não pode ser dissociado do recurso *Cluster,* uma vez que os dados são encriptados com a sua chave e não são acessíveis sem o seu KEK no Cofre chave Azure.
 
@@ -405,11 +404,11 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
 ## <a name="troubleshooting-and-management"></a>Resolução e gestão de problemas
 
 - Disponibilidade do cofre chave
-    - Em funcionamento normal, os caches de armazenamento AEK por curtos períodos de tempo periodicamente voltam ao Cofre chave para desembrulhar.
+    - Em funcionamento normal- Caches de armazenamento AEK por curtos períodos de tempo e volta ao Cofre chave para desembrulhar periodicamente.
     
-    - Erros de ligação transitórios. O armazenamento lida com erros transitórios (intervalos, falhas de ligação, problemas de DNS) permitindo que as chaves permaneçam em cache por mais tempo e isso supera quaisquer pequenos blips na disponibilidade. As capacidades de consulta e ingestão continuam sem interrupção.
+    - Erros de ligação transitórios -- O armazenamento trata de erros transitórios (intervalos, falhas de ligação, problemas de DNS) permitindo que as teclas permaneçam em cache por mais tempo e isso supera quaisquer pequenos blips na disponibilidade. As capacidades de consulta e ingestão continuam sem interrupção.
     
-    - Site ao vivo, a indisponibilidade de cerca de 30 minutos fará com que a conta de Armazenamento fique indisponível. A capacidade de consulta não está disponível e os dados ingeridos são caches durante várias horas usando a chave da Microsoft para evitar a perda de dados. Quando o acesso ao Key Vault é restaurado, a consulta fica disponível e os dados temporários em cache são ingeridos na loja de dados e encriptados com CMK.
+    - Site ao vivo - indisponibilidade de cerca de 30 minutos fará com que a conta de Armazenamento fique indisponível. A capacidade de consulta não está disponível e os dados ingeridos são caches durante várias horas usando a chave da Microsoft para evitar a perda de dados. Quando o acesso ao Key Vault é restaurado, a consulta fica disponível e os dados temporários em cache são ingeridos na loja de dados e encriptados com CMK.
 
 - Se criar um recurso *cluster* e especificar imediatamente o KeyVaultProperties, a operação pode falhar uma vez que a política de acesso não pode ser definida até que a identidade do sistema seja atribuída ao recurso *Cluster.*
 
@@ -465,7 +464,7 @@ Todos os seus dados são acessíveis após a operação de rotação da chave, i
     
   A mesma resposta que para os "recursos*de cluster* para um grupo de recursos", mas no âmbito da subscrição.
     
-- Eliminar um recurso *cluster* -- é executada uma operação de eliminação suave para permitir a recuperação do seu recurso *Cluster,* dos seus dados e espaços de trabalho associados no prazo de 14 dias, quer a eliminação tenha sido acidental ou intencional. Após o período de eliminação suave, o seu recurso *cluster* e os seus dados não são recuperáveis. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome.
+- Eliminar o seu recurso *Cluster* -- é executada uma operação de eliminação suave para permitir a recuperação do seu recurso Cluster, dos seus dados e espaços de trabalho associados no prazo de 14 dias, quer a eliminação tenha sido acidental ou intencional. O nome do recurso *Cluster* permanece reservado durante o período de eliminação suave e não pode criar um novo cluster com esse nome. Após o período de eliminação suave, o seu recurso *cluster* e os seus dados não são recuperáveis. Os espaços de trabalho associados são desassociados a partir do recurso *Cluster* e novos dados são ingeridos para armazenamento partilhado e encriptados com a chave microsoft.
 
   ```rst
   DELETE
@@ -488,7 +487,7 @@ Log Analytics e Application Insights estão a usar a mesma plataforma de loja de
 2020. Esta alteração irá trazer os dados do Seu Insight de Aplicação para os espaços de trabalho do Log Analytics e tornar possíveis consultas, insights e outras melhorias, enquanto a configuração da CMK no seu espaço de trabalho se aplicará também aos dados do Seu Insight de Aplicação.
 
 > [!NOTE]
-> Se não tiver de implementar a CMK para os seus dados de Insight de Aplicação antes da integração, recomendamos que a espera com a Application Insights CMK, uma vez que tais implementações serão interrompidas pela integração e terá de reconfigurar a CMK após a migração para o Log Espaço de trabalho de análise. O mínimo de 1TB por dia aplica-se ao nível do cluster e até que a consolidação esteja concluída durante o segundo trimestre, os Insights de Aplicação e o Log Analytics requerem clusters separados.
+> Se não tiver de implementar a CMK para os seus dados de Insight de Aplicação antes da integração, recomendamos que a espera com a Application Insights CMK, uma vez que tais implementações serão interrompidas pela integração e terá de reconfigurar a CMK após a migração para o espaço de trabalho log Analytics. O mínimo de 1TB por dia aplica-se ao nível do cluster e até que a consolidação esteja concluída durante o segundo trimestre, os Insights de Aplicação e o Log Analytics requerem clusters separados.
 
 ## <a name="application-insights-cmk-configuration"></a>Configuração CMK insights de aplicação
 
@@ -511,47 +510,26 @@ Authorization: Bearer <token>
 Content-type: application/json
 
 {
-  "location": "<region-name>",
-  "properties": {
-      "clusterType":"ApplicationInsights"
-  },
   "identity": {
-      "type": "systemAssigned"
-  }
-}
-```
-
-**Resposta**
-
-A identidade é atribuída ao recurso *cluster* no momento da criação.
-
-```json
-
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principle-id"
-  },
+    "type": "systemAssigned"
+    },
   "sku": {
     "name": "capacityReservation",
     "Capacity": 1000
     },
   "properties": {
-    "provisioningState": "Succeeded",
-    "clusterType": "ApplicationInsights", 
-    "clusterId": "cluster-id" 
+    "clusterType":"ApplicationInsights"
     },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
+  "location": "<region-name>"
 }
 ```
-"princípio-id" é um GUID que foi gerado pelo serviço de identidade gerido.
 
-> [!IMPORTANT]
-> Copie e guarde o valor de "princípio-id", uma vez que vai precisar dele nos próximos passos.
+**Resposta**
+
+202 Aceite. Esta é uma resposta padrão do Gestor de Recursos para operações assíncronas.
+
+>[!Important]
+> Leva o fornecimento do cluster ADX sub-adx alguns minutos para ser concluído. Pode verificar o estado de provisionamento ao executar a chamada DAA DO GET REST sobre o recurso *Cluster* e olhando para o valor do Estado de *provisionamento.* É *ProvisioningAccount* durante o provisionamento e "Succeeded" quando concluído.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associar um componente a um recurso *cluster* usando [componentes - Criar ou atualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
@@ -598,6 +576,9 @@ Authorization: Bearer <token>
   "location": "region-name"
   }
 ```
+
+> [!IMPORTANT]
+> Copie e guarde o valor de "princípio-id", uma vez que vai precisar dele nos próximos passos.
 
 **Associar um componente**
 

@@ -3,12 +3,12 @@ title: Monitorizar serviços Node.js com o Azure Application Insights | Microsof
 description: Monitorize o desempenho e diagnostique problemas em serviços Node.js com o Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670020"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411588"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "77670020"
 
 Para receber, armazenar e explorar os seus dados de monitorização, inclua o SDK no seu código e configure um recurso do Application Insights correspondente no Azure. O SDK envia dados para esse recurso para análise e exploração adicionais.
 
-O SDK para Node.js pode monitorizar automaticamente pedidos HTTP de entrada e saída, exceções e algumas métricas do sistema. A partir da versão 0.20, o SDK também pode monitorizar alguns pacotes de terceiros comuns, como MongoDB, MySQL e Redis. Todos os eventos relacionados com pedidos HTTP de entrada são correlacionados para resolução de problemas mais rápida.
+O SDK para Node.js pode monitorizar automaticamente pedidos HTTP de entrada e saída, exceções e algumas métricas do sistema. A partir da versão 0.20, o SDK também pode monitorizar [alguns pacotes comuns de terceiros](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), como MongoDB, MySQL e Redis. Todos os eventos relacionados com pedidos HTTP de entrada são correlacionados para resolução de problemas mais rápida.
 
 Pode utilizar a API TelemetryClient para instrumentalizar e monitorizar manualmente aspetos adicionais da sua aplicação e do seu sistema. A API TelemetryClient está descrita em mais detalhe posteriormente neste artigo.
 

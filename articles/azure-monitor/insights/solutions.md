@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275207"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437530"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Monitor Azure
 A monitorização de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve visão geral das soluções de monitorização no Azure e detalhes sobre a sua utilização e instalação.
@@ -83,11 +83,7 @@ Todas as soluções de monitorização requerem um espaço de [trabalho do Log A
 * Se uma solução requer uma conta de Automação, então o espaço de trabalho log Analytics e a conta de Automação devem estar ligados uns aos outros. Um espaço de trabalho de Log Analytics só pode estar ligado a uma conta de Automação, e uma conta de Automação só pode estar ligada a um espaço de trabalho de Log Analytics.
 * Para ser ligado, o espaço de trabalho log Analytics e a conta de Automação devem estar no mesmo grupo de recursos e região. A exceção é um espaço de trabalho na região leste dos EUA e conta de Automação no Leste dos EUA 2.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar uma ligação entre um espaço de trabalho log Analytics e uma conta de Automação
-A forma como especifica o espaço de trabalho log Analytics e a conta De automatização depende do método de instalação da sua solução.
-
-* Quando instala uma solução através do Mercado Azure, é solicitado para uma conta de espaço de trabalho e Automação. A ligação entre eles é criada se ainda não estiverem ligadas.
-* Para soluções fora do Mercado Azure, deve ligar o espaço de trabalho log Analytics e a conta de Automação antes de instalar a solução. Pode fazê-lo selecionando qualquer solução no Mercado Azure e selecionando o espaço de trabalho log Analytics e a conta de Automação. Não é preciso instalar a solução porque o link é criado assim que o espaço de trabalho log Analytics e a conta de Automação são selecionados. Assim que o link for criado, pode utilizar o espaço de trabalho e a Automação do Log Analytics para qualquer solução.
+Quando instala uma solução através do Mercado Azure, é solicitado para uma conta de espaço de trabalho e Automação. A ligação entre eles é criada se ainda não estiverem ligadas.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verifique a ligação entre um espaço de trabalho log Analytics e a conta de Automação
 Pode verificar a ligação entre um espaço de trabalho de Log Analytics e uma conta de Automação utilizando o seguinte procedimento.

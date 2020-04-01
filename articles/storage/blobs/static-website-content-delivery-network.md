@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 01/22/2020
-ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908556"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435225"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um site estático com o Azure CDN
 
-Pode ativar a Rede de Entrega de [Conteúdos Azure (CDN)](../../cdn/cdn-overview.md) para cache conteúdo a partir de um [site estático](storage-blob-static-website.md) que está hospedado numa conta de armazenamento Azure. Pode utilizar o Azure CDN para configurar o ponto final de domínio personalizado para o seu website estático, fornecer certificados SSL personalizados e configurar regras de reescrita personalizadas. Configurar o CDN Azure resulta em custos adicionais, mas fornece baixas latenciências consistentes ao seu website de qualquer parte do mundo. O Azure CDN também fornece encriptação SSL com o seu próprio certificado. 
+Pode ativar a Rede de Entrega de [Conteúdos Azure (CDN)](../../cdn/cdn-overview.md) para cache conteúdo a partir de um [site estático](storage-blob-static-website.md) que está hospedado numa conta de armazenamento Azure. Pode utilizar o Azure CDN para configurar o ponto final de domínio personalizado para o seu website estático, fornecer certificados Personalizados TLS/SSL e configurar regras de reescrita personalizadas. Configurar o CDN Azure resulta em custos adicionais, mas fornece baixas latenciências consistentes ao seu website de qualquer parte do mundo. O Azure CDN também fornece encriptação TLS com o seu próprio certificado. 
 
 Para obter informações sobre os preços do CDN Azure, consulte [os preços do CDN azure](https://azure.microsoft.com/pricing/details/cdn/).
 

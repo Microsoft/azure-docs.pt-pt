@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a0511a19477f3d76baf9c453316c5348cc31397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332659"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437454"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de fator telefone numa política personalizada do Diretório Ativo Azure B2C
 
@@ -24,12 +24,11 @@ ms.locfileid: "80332659"
 
 O Azure Ative Directory B2C (Azure AD B2C) fornece suporte para a inscrição e verificação dos números de telefone. Este perfil técnico:
 
-- Fornece uma interface de utilizador para interagir com o utilizador.
-- Usa a definição de conteúdo para controlar o aspeto e a sensação.
+- Fornece uma interface de utilizador para interagir com o utilizador para verificar ou inscrever um número de telefone.
 - Suporta chamadas telefónicas e mensagens de texto para validar o número de telefone.
 - Suporta vários números de telefone. O utilizador pode selecionar um dos números de telefone para verificar.  
-- Se for fornecido um número de telefone, a interface de utilizador do fator telefone pede ao utilizador que verifique o número de telefone. Caso não seja fornecido, pede ao utilizador que inscreveu um novo número de telefone.
-- Devolve uma reclamação indicando se o utilizador forneceu um novo número de telefone. Pode utilizar esta alegação para decidir se o número de telefone deve ser percetuado no perfil de utilizador da AD Azure.  
+- Devolve uma reclamação indicando se o utilizador forneceu um novo número de telefone. Pode utilizar esta alegação para decidir se o número de telefone deve ser percenóno ao perfil de utilizador Do Azure AD B2C.  
+- Usa uma [definição](contentdefinitions.md) de conteúdo para controlar o aspeto e a sensação.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -44,18 +43,24 @@ O exemplo seguinte mostra um perfil técnico de fator telefone para inscrição 
 </TechnicalProfile>
 ```
 
+## <a name="input-claims-transformations"></a>Input reclama transformações
+
+O elemento InputClaimsTransformations pode conter uma coleção de transformações de créditos de entrada que são usadas para modificar as reclamações de entrada, ou gerar novas. A seguinte transformação de `UserId` créditos de entrada gera uma reivindicação que é usada mais tarde na recolha de créditos de entrada.
+
+```xml
+<InputClaimsTransformations>
+  <InputClaimsTransformation ReferenceId="CreateUserIdForMFA" />
+</InputClaimsTransformations>
+```
+
 ## <a name="input-claims"></a>Reclamações de entrada
 
 O elemento InputClaims deve conter as seguintes reclamações. Também pode mapear o nome da sua reclamação para o nome definido no perfil técnico do fator de telefone. 
 
-```XML
-<InputClaims>
-  <!--A unique identifier of the user. The partner claim type must be set to `UserId`. -->
-  <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
-  <!--A claim that contains the phone number. If the claim is empty, Azure AD B2C asks the user to enroll a new phone number. Otherwise, it asks the user to verify the phone number. -->
-  <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
-</InputClaims>
-```
+|  Tipo de dados| Necessário | Descrição |
+| --------- | -------- | ----------- | 
+| string| Sim | Um identificador único para o utilizador. O nome da reclamação, ou `UserId`PartnerClaimType deve ser definido para . Esta alegação não deve conter informações pessoais identificáveis.|
+| string| Sim | Lista de tipos de reclamações. Cada reclamação contém um número de telefone. Se alguma das reclamações de entrada não contiver um número de telefone, o utilizador será solicitado a inscrever-se e verificar um novo número de telefone. O número de telefone validado é devolvido como uma reivindicação de saída. Se uma das alegações de entrada contiver um número de telefone, o utilizador é solicitado a verificar. Se várias reclamações de entrada contiverem um número de telefone, o utilizador é solicitado a escolher e verificar um dos números de telefone. |
 
 O exemplo que se segue demonstra a utilização de vários números de telefone. Para mais informações, consulte a [política da amostra.](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa)
 
@@ -67,22 +72,16 @@ O exemplo que se segue demonstra a utilização de vários números de telefone.
 </InputClaims>
 ```
 
-O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação inputClaims que são usados para modificar as reclamações de entrada ou gerar novas antes de apresentá-las na página do fator telefone.
-
 ## <a name="output-claims"></a>Reclamações de produção
 
 O elemento OutputClaims contém uma lista de reclamações devolvidas pelo perfil técnico do fator telefone.
 
-```xml
-<OutputClaims>
-  <!-- The verified phone number. The partner claim type must be set to `Verified.OfficePhone`. -->
-  <OutputClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" PartnerClaimType="Verified.OfficePhone" />
-  <!-- Indicates whether the new phone number has been entered by the user. The partner claim type must be set to `newPhoneNumberEntered`. -->
-  <OutputClaim ClaimTypeReferenceId="newPhoneNumberEntered" PartnerClaimType="newPhoneNumberEntered" />
-</OutputClaims>
-```
+|  Tipo de dados| Necessário | Descrição |
+|  -------- | ----------- |----------- |
+| boolean | Sim | Indica se o novo número de telefone foi introduzido pelo utilizador. O nome da reclamação, ou PartnerClaimType deve ser definido para`newPhoneNumberEntered`|
+| string| Sim | O número de telefone verificado. O nome da reclamação, ou `Verified.OfficePhone`PartnerClaimType deve ser definido para .|
 
-O elemento OutputClaimsTransformations pode conter uma coleção de elementos outputClaimsTransformation que são usados para modificar as reclamações de saída ou gerar novos.
+O elemento OutputClaimsTransformations pode conter uma coleção de elementos outputClaimsTransformation que são usados para modificar as reclamações de saída, ou gerar novos.
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -94,7 +93,9 @@ O elemento **CryptographicKeys** não é utilizado.
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Sim | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este perfil técnico. |
-| ManualPhoneNumberEntryAllowed| Não | Especifique se um utilizador pode ou não introduzir manualmente um número de telefone. Valores `true` possíveis: ou `false` (padrão).|
+| ManualPhoneNumberEntryAllowed| Não | Especifique se um utilizador pode ou não introduzir manualmente um número de telefone. Valores `true`possíveis: ou `false` (padrão).|
+| definição.autenticaçãoMode | Não | O método para validar o número de telefone. Valores `sms`possíveis: , `phone`ou `mixed` (padrão).|
+| definição.autodial| Não| Especifique se o perfil técnico deve ligar automaticamente ou enviar automaticamente um SMS. Valores `true`possíveis: ou `false` (padrão). O mostrador `setting.authenticationMode` automático requer que `sms`os `phone`metadados sejam definidos para, ou . A recolha de créditos de entrada deve ter um único número de telefone. |
 
 ### <a name="ui-elements"></a>Elementos da IU
 
@@ -103,4 +104,3 @@ Os elementos de interface do utilizador da página de autenticação do fator te
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [contas sociais e locais com](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) pacote de arranque MFA.
-

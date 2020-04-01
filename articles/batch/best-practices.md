@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: evansma
-ms.openlocfilehash: 16fb2786f180b1e28b76d9246d599a871278d00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: ea5cd8012324cc0727a46308f4d5621f2ce40727
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022737"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397932"
 ---
 # <a name="azure-batch-best-practices"></a>Boas práticas do Lote Azure
 

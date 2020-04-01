@@ -3,12 +3,12 @@ title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c941173a500a4159a37c7c31107b9a6eab872
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239973"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422444"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da política azure
 
@@ -432,15 +432,15 @@ Exemplo: Avalia as bases de dados do Servidor SQL para determinar se está ativa
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Este efeito é utilizado *mode* com `Microsoft.Kubernetes.Data`um modo de definição de política de . É usado para passar as regras de controlo de admissão gatekeeper v3 definidas com [o Quadro de Restrição OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para [O Agente de Política Aberta](https://www.openpolicyagent.org/) (OPA) para os clusters Kubernetes em Azure.
+Este efeito é utilizado *mode* com `Microsoft.Kubernetes.Data`um modo de definição de política de . É usado para passar as regras de controlo de admissão gatekeeper v3 definidas com [o Quadro de Restrição OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para o Agente de [Política Aberta](https://www.openpolicyagent.org/) (OPA) para clusters Kubernetes autogeridos em Azure.
 
 > [!NOTE]
-> [A Política Azure para Kubernetes](aks-engine.md) está em Pré-visualização e apenas apoia definições políticas incorporadas.
+> [A Política Azure para o Motor AKS](aks-engine.md) está na Pré-Visualização Pública e apenas suporta definições políticas incorporadas.
 
 ### <a name="enforceopaconstraint-evaluation"></a>Avaliação EnforceOPAConstraint
 
 O controlador de admissão do Agente de Política Aberta avalia qualquer novo pedido sobre o cluster em tempo real.
-A cada 15 minutos, uma varredura completa do cluster é concluída e os resultados reportados à Política Azure.
+A cada 5 minutos, uma varredura completa do cluster é concluída e os resultados reportados à Política Azure.
 
 ### <a name="enforceopaconstraint-properties"></a>Propriedades EnforceOPAConstraint
 
@@ -455,7 +455,7 @@ A propriedade **de detalhes** do efeito EnforceOPAConstraint tem as subproprieda
 
 ### <a name="enforceopaconstraint-example"></a>Exemplo de EnforceOPAConstraint
 
-Exemplo: Regra de controlo de admissão gatekeeper v3 para definir cpu de contentor e limites de recursos de memória em Kubernetes.
+Exemplo: Regra de controlo de admissão gatekeeper v3 para definir cpU de contentor e limites de recursos de memória no motor AKS.
 
 ```json
 "if": {
@@ -490,8 +490,8 @@ Exemplo: Regra de controlo de admissão gatekeeper v3 para definir cpu de conten
 
 Este efeito é utilizado *mode* com `Microsoft.ContainerService.Data`um modo de definição de política de . É usado para passar as regras de controlo de admissão Gatekeeper v2 definidas com [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) no Serviço [Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
-> [!IMPORTANT]
-> [A Política Azure para Kubernetes](rego-for-aks.md) está em Pré-visualização e apenas apoia definições políticas incorporadas. As políticas incorporadas estão na categoria **Kubernetes.** O efeito **EnforceRegoPolicy** e as políticas relacionadas da categoria **de serviço kubernetes** estão a ser _depreciadas._ Em vez disso, utilize o efeito [EnforceOPAConstraint](#enforceopaconstraint) atualizado.
+> [!NOTE]
+> [A Política Azure para AKS](rego-for-aks.md) está em Pré-visualização Limitada e apenas suporta definições políticas incorporadas
 
 ### <a name="enforceregopolicy-evaluation"></a>Avaliação EnforceRegoPolicy
 

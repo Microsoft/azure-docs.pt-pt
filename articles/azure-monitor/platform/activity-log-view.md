@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275051"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397312"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Ver e recuperar eventos de log da Atividade Azure
 
@@ -168,35 +168,6 @@ Obtenha Registos de Atividade sem filtro ou selecione:
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
-
-
-## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitorização de Logs de Atividade Analytics
-A solução de monitorização do Azure Log Analytics inclui múltiplas consultas de registo e vistas para analisar os registos de Registo de Atividade sintetizadores no seu espaço de trabalho Log Analytics.
-
-### <a name="prerequisites"></a>Pré-requisitos
-Tem de criar uma definição de diagnóstico para enviar o registo de Atividade supor a sua subscrição a um espaço de trabalho do Log Analytics. Consulte os [registos da plataforma Do Tamina](resource-logs-collect-workspace.md)do Collect Azure no espaço de trabalho do Log Analytics no Monitor Azure .
-
-### <a name="install-the-solution"></a>Instalar a solução
-Utilize o procedimento em [Instalar uma solução de monitorização](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução **Activity Log Analytics.** Não é necessária uma configuração adicional.
-
-### <a name="use-the-solution"></a>Use a solução
-Clique em **Registos** no topo da página **De registo** de atividade para abrir a solução de monitorização do Registo [de Atividades Analytics](activity-log-collect.md) para a subscrição. Ou aceda a todas as soluções de monitorização no menu monitor de **subscrição** no portal Azure. Selecione **Mais** na secção **Insights** para abrir a página **'Overview'** com os azulejos da solução. O azulejo **Azure Activity Logs** apresenta uma contagem do número de registos **azureActivity** no seu espaço de trabalho.
-
-![Azulejos de logs de atividade azure](media/collect-activity-logs/azure-activity-logs-tile.png)
-
-
-Clique no azulejo **Azure Activity Logs** para abrir a vista Registos de Atividade sintetizações **do Azure.** A vista inclui as peças de visualização na tabela a seguir. Cada peça lista até 10 itens que correspondam aos critérios dessas peças para o intervalo de tempo especificado. Pode executar uma consulta de registo que devolve todos os registos correspondentes clicando **Ver tudo** na parte inferior da peça.
-
-![Painel de logs de atividade azure](media/collect-activity-logs/activity-log-dash.png)
-
-| Parte de visualização | Descrição |
-| --- | --- |
-| Entradas de registo de atividade sinuosa do Azure | Mostra um gráfico de barras do top Azure Activity Log registo total total para o intervalo de data que selecionou e mostra uma lista dos 10 melhores participantes da atividade. Clique na tabela de barras `AzureActivity`para fazer uma pesquisa de registo. Clique num item de chamada para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse item. |
-| Registos de Atividade por Estado | Mostra um gráfico de donut para o estado de Registo de Atividade seletiva do Azure para a gama de datas selecionada e uma lista dos dez melhores registos de estado. Clique na tabela para fazer `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`uma consulta de registo para . Clique num item de estado para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse registo de estado. |
-| Registos de Atividade por Recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para `AzureActivity | summarize AggregatedValue = count() by Resource`fazer uma pesquisa de registo, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
-| Registos de Atividades por Fornecedor de Recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`uma consulta de log para , que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
-
-
 
 
 ## <a name="next-steps"></a>Passos seguintes

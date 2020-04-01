@@ -6,12 +6,12 @@ ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: a2d15dd520db16012f530d2ac6188a4642c89795
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 92b49197cc18133c9b67222a90546776f050163b
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75421647"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437912"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -21,7 +21,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Azure a https://portal.azure.com
+[Inscreva-se no Azure](https://portal.azure.com)
 
 ## <a name="create-automation-account"></a>Criar conta de Automatização
 

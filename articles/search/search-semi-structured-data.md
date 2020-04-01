@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.openlocfilehash: ce3b3839319de38020b968ff8db1ee6713b29c47
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78269982"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Bolhas de Índice JSON do Armazenamento Azure usando REST
@@ -27,11 +27,11 @@ Este tutorial utiliza o Carteiro e as [APIs](https://docs.microsoft.com/rest/api
 > * Configure e execute um indexante para ler o recipiente e extrair conteúdo pesquisável do armazenamento de blob Azure
 > * Pesquisar o índice que acabou de criar
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 + [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa existente 
 
@@ -64,7 +64,7 @@ Se possível, crie tanto na mesma região como grupo de recursos para proximidad
 
    + **Localização**. Se possível, escolha o mesmo local utilizado para a Pesquisa Cognitiva Azure e Serviços Cognitivos. Um único local anula as cargas de largura de banda.
 
-   + **Tipo de conta.** Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
+   + **Tipo de conta.** Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
 
 1. Clique em **Rever + Criar** para criar o serviço.
 
@@ -96,7 +96,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+1. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
 ![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
 
@@ -108,17 +108,17 @@ Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado co
 
 Os métodos de pedido para cada chamada neste tutorial são **POST** e **GET**. Fará três chamadas API para o seu serviço de pesquisa para criar uma fonte de dados, um índice e um indexante. A origem de dados inclui um ponteiro para a sua conta de armazenamento e os dados JSON. O serviço de pesquisa faz a ligação ao carregar os dados.
 
-Em Cabeçalhos, detete "Content-type" para `application/json` e desempor `api-key` para a chave de api do seu serviço de Pesquisa Cognitiva Azure. Assim que definir os cabeçalhos, pode usá-los para cada pedido neste exercício.
+Em Cabeçalhos, desloque `application/json` o `api-key` "Content-type" e coloque-o na chave de api do seu serviço de Pesquisa Cognitiva Azure. Assim que definir os cabeçalhos, pode usá-los para cada pedido neste exercício.
 
   ![URL de pedido de carteiro e cabeçalho](media/search-get-started-postman/postman-url.png "URL de pedido de carteiro e cabeçalho")
 
-Os URIs devem especificar uma versão api e cada chamada deve devolver um **201 Criado**. A versão api geralmente disponível para a utilização de matrizes JSON é `2019-05-06`.
+Os URIs devem especificar uma versão api e cada chamada deve devolver um **201 Criado**. A versão api geralmente disponível para a `2019-05-06`utilização de matrizes JSON é .
 
 ## <a name="3---create-a-data-source"></a>3 - Criar uma fonte de dados
 
 A [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) cria um objeto de pesquisa cognitiva Azure que especifica quais dados indexar.
 
-1. Detete o ponto final desta chamada para `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Substitua `[service name]` pelo nome do seu serviço de pesquisa. 
+1. Detete o ponto `https://[service name].search.windows.net/datasources?api-version=2019-05-06`final desta chamada para . Substitua `[service name]` pelo nome do seu serviço de pesquisa. 
 
 1. Copie o seguinte JSON no organismo de pedido.
 
@@ -161,7 +161,7 @@ A [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/cre
     
 A segunda chamada é [Create Index API,](https://docs.microsoft.com/rest/api/searchservice/create-index)criando um índice de Pesquisa Cognitiva Azure que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e os respetivos atributos.
 
-1. Detete o ponto final desta chamada para `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
+1. Detete o ponto `https://[service name].search.windows.net/indexes?api-version=2019-05-06`final desta chamada para . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
 1. Copie o seguinte JSON no organismo de pedido.
 
@@ -236,7 +236,7 @@ A segunda chamada é [Create Index API,](https://docs.microsoft.com/rest/api/sea
 
 Um indexante liga-se à fonte de dados, importa dados para o índice de pesquisa alvo, e opcionalmente fornece um calendário para automatizar a atualização de dados. A API REST é [Criar Indexer.](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-1. Detete o URI para esta chamada para `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
+1. Detete o URI `https://[service name].search.windows.net/indexers?api-version=2019-05-06`para esta chamada para . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
 1. Copie o seguinte JSON no organismo de pedido.
 
@@ -281,7 +281,7 @@ Pode começar a procurar assim que o primeiro documento estiver carregado.
 
 1. Mude o verbo para **GET**.
 
-1. Detete o URI para esta chamada para `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
+1. Detete o URI `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`para esta chamada para . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
 1. Envie o pedido. Esta é uma consulta de pesquisa completa de texto não especificada que devolve todos os campos marcados como recuperáveis no índice, juntamente com uma contagem de documentos. A resposta deve ser semelhante a:
 
@@ -313,11 +313,11 @@ Pode começar a procurar assim que o primeiro documento estiver carregado.
             . . . 
     ```
 
-1. Adicione o parâmetro de consulta `$select` para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  Para esta consulta, 100 documentos coincidem, mas por padrão, a Pesquisa Cognitiva Azure só devolve 50 nos resultados.
+1. Adicione `$select` o parâmetro de consulta para limitar `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`os resultados a menos campos: .  Para esta consulta, 100 documentos coincidem, mas por padrão, a Pesquisa Cognitiva Azure só devolve 50 nos resultados.
 
    ![Consulta parametrizada](media/search-semi-structured-data/lastquery.png "Consulta paramterizada")
 
-1. Um exemplo de consulta mais complexa incluiria `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que só devolve resultados em que os parâmetros Mínimas de Idade são superiores ou iguais a 30 e MaximumAge é inferior a 75. Substitua a expressão `$select` pela expressão `$filter`.
+1. Um exemplo de consulta mais `$filter=MinimumAge ge 30 and MaximumAge lt 75`complexa incluiria, que só devolve resultados em que os parâmetros Mínimas de Idade é maior ou igual a 30 e MaximumAge é inferior a 75. Substitua `$select` a `$filter` expressão com a expressão.
 
    ![Pesquisa semiestruturada](media/search-semi-structured-data/metadatashort.png)
 
@@ -340,7 +340,7 @@ O código de estado 204 é devolvido após uma eliminação com êxito.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 

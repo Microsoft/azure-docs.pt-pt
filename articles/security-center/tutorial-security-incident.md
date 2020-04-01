@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 84e747d4317347b585600f97bde0d140187ada65
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74559190"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435317"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -114,7 +114,7 @@ Se pretender desativar aprovisionamento automático:
 4. Selecione **Guardar**.
 
 >[!NOTE]
-> Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
+> A desativação automática não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
 ## <a name="next-steps"></a>Passos seguintes

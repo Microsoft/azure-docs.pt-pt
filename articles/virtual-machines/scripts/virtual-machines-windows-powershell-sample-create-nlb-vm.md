@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: f06d88e94c795955f7c9a0f5cdfea4e06c403a05
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74038845"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Balanceamento de carga do tráfego entre máquinas virtuais de elevada disponibilidade
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
+| [Rede Nova AzVirtual](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
 | [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
 | [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | Cria uma configuração de IP de front-end para um balanceador de carga. |
 | [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | Cria uma configuração do conjunto de endereços de back-end para um balanceador de carga. |
@@ -68,9 +68,9 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Cria uma máquina virtual. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-Você também pode criar as VMs usando sua própria imagem gerenciada personalizada. Na configuração da VM, por `Set-AzVMSourceImage` use os parâmetros `-Id` e `-VM` em vez de `-PublisherName`, `-Offer`, `-Skus`e `-Version`.
+Também pode criar os VMs utilizando a sua própria imagem gerida sob medida. `Set-AzVMSourceImage` Na configuração VM, `-Id` para `-VM` utilização `-PublisherName`dos `-Offer` `-Skus`parâmetros `-Version`e parâmetros em vez de, e .
 
-Por exemplo, a criação da configuração da VM seria:
+Por exemplo, criar o vm config seria:
 
 ```powershell
 $vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `

@@ -1,21 +1,21 @@
 ---
-title: Exemplos de Java para ilustrar o pool de conexões
-description: Este artigo lista exemplos de Java para ilustrar o pool de conexões.
+title: Amostras de Java para ilustrar o agrupamento de ligações
+description: Este artigo lista amostras de java para ilustrar o agrupamento de ligações.
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
 ms.openlocfilehash: 78b936b21aeeed1db69ac52b2c21e3c41708f62d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72600372"
 ---
-# <a name="java-sample-to-illustrate-connection-pooling"></a>Exemplo de Java para ilustrar o pool de conexões
+# <a name="java-sample-to-illustrate-connection-pooling"></a>Amostra de Java para ilustrar o agrupamento de ligações
 
-O código de exemplo abaixo ilustra o pool de conexões em Java.
+O código da amostra abaixo ilustra o agrupamento de ligação em java.
 
 ```java
 import java.sql.Connection;

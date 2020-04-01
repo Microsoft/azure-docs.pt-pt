@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 432604dd3db1629a4c9b10d0d5c8649f3817d97f
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: e05d84e8e06dbe63a1bc8e8ae1d401f186baac77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133065"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
 
@@ -24,7 +24,7 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Para criar um gateway de aplicação
+> * Criar um gateway de aplicação
 > * Criar serviços de escuta de back-end
 > * Criar regras de encaminhamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
@@ -32,15 +32,15 @@ Neste artigo, vai aprender a:
 
 ![Exemplo de encaminhamento multilocal](./media/tutorial-multiple-sites-powershell/scenario.png)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de executar `Login-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de correr `Login-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos Azure utilizando o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
@@ -75,7 +75,7 @@ $pip = New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
@@ -276,7 +276,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar registo CNAME no seu domínio
 
-Depois de criar o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-lo para criar um registo CNAME no seu domínio. Pode utilizar o [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway da aplicação. Copie o valor *fqdn* de DNSSettings e utilize-o como o valor do registo CNAME que criar. A utilização de registos A não é recomendada porque o VIP pode mudar quando o gateway da aplicação é reiniciado.
+Depois de criar o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-lo para criar um registo CNAME no seu domínio. Pode utilizar o [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway da aplicação. Copie o valor *fqdn* de DNSSettings e utilize-o como o valor do registo CNAME que criar. A utilização de registos A não é recomendada porque o VIP pode mudar quando o gateway da aplicação é reiniciado no V1 SKU.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -284,7 +284,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Tais como, http:\//www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Tais como,\/http: /www.contoso.com.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 

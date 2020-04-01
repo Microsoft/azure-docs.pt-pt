@@ -1,22 +1,22 @@
 ---
 title: Autenticação e autorização
-description: Saiba mais sobre a autenticação incorporada e suporte de autorização no Serviço de Aplicações Azure, e como pode ajudar a proteger a sua aplicação contra acesso não autorizado.
+description: Saiba mais sobre a autenticação incorporada e suporte de autorização no Azure App Service e funções Azure, e como pode ajudar a proteger a sua aplicação contra acesso não autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.openlocfilehash: 825d113bbe081ba6fb85da19ff6449824db92d10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475396"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437951"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
+# <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Serviço de Aplicações Azure e Funções Azure
 
 > [!NOTE]
-> Neste momento, o AAD V2 (incluindo o MSAL) não é suportado para serviços de aplicações azure e funções azure. Por favor, verifique se há novidades.
+> Neste momento, o [Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [mSAL)](../active-directory/develop/msal-overview.md)não é suportado para o Azure App Service e funções Azure. Por favor, verifique se há novidades.
 >
 
 O Azure App Service fornece suporte de autenticação e autorização incorporado, para que possa inscrever os utilizadores e aceder aos dados escrevendo o mínimo ou nenhum código na sua aplicação web, a API RESTful e a traseira móvel, bem como as [Funções Azure.](../azure-functions/functions-overview.md) Este artigo descreve como o Serviço de Aplicações ajuda a simplificar a autenticação e a autorização para a sua aplicação.
@@ -24,7 +24,7 @@ O Azure App Service fornece suporte de autenticação e autorização incorporad
 A autenticação e a autorização seguras requerem uma compreensão profunda da segurança, incluindo a federação, encriptação, gestão de [tokens web JSON (JWT),](https://wikipedia.org/wiki/JSON_Web_Token) tipos de [subvenções,](https://oauth.net/2/grant-types/)e assim por diante. O Serviço de Aplicações fornece estes utilitários para que possa gastar mais tempo e energia em fornecer valor de negócio ao seu cliente.
 
 > [!IMPORTANT]
-> Não é obrigado a utilizar o Serviço de Aplicações para AuthN/AuthO. Pode utilizar as funcionalidades de segurança agregadas no seu quadro web de eleição, ou pode escrever os seus próprios utilitários. No entanto, tenha em mente que o [Chrome 80 está a fazer alterações na sua implementação do SameSite para cookies](https://www.chromestatus.com/feature/5088147346030592) (data de lançamento em março de 2020), e a autenticação remota personalizada ou outros cenários que dependem da publicação de cookies transsite podem quebrar quando os navegadores Chrome do cliente forem atualizados. A suticidade é complexa porque precisa de suportar diferentes comportamentos do SameSite para diferentes navegadores. 
+> Não é obrigado a utilizar esta funcionalidade para autenticação e autorização. Pode utilizar as funcionalidades de segurança agregadas no seu quadro web de eleição, ou pode escrever os seus próprios utilitários. No entanto, tenha em mente que o [Chrome 80 está a fazer alterações na sua implementação do SameSite para cookies](https://www.chromestatus.com/feature/5088147346030592) (data de lançamento em março de 2020), e a autenticação remota personalizada ou outros cenários que dependem da publicação de cookies transsite podem quebrar quando os navegadores Chrome do cliente forem atualizados. A suticidade é complexa porque precisa de suportar diferentes comportamentos do SameSite para diferentes navegadores. 
 >
 > As versões ASP.NET Core 2.1 e acima hospedadas pelo App Service já estão corrigidas para esta alteração de rutura e manuseiem adequadamente o Chrome 80 e navegadores mais antigos. Além disso, o mesmo patch para ASP.NET Quadro 4.7.2 está a ser implementado nos casos do Serviço de Aplicações ao longo de janeiro de 2020. Para mais informações, incluindo como saber se a sua aplicação recebeu o patch, consulte a atualização de [cookies do Mesmo Site do Serviço de Aplicações Azure](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
@@ -46,11 +46,11 @@ Este módulo lida com várias coisas para a sua aplicação:
 
 O módulo funciona separadamente do seu código de aplicação e é configurado utilizando as definições da aplicação. Não são necessários SDKs, línguas específicas ou alterações ao código de aplicação. 
 
-### <a name="user-claims"></a>Reclamações dos utilizadores
+### <a name="userapplication-claims"></a>Reclamações de utilizador/aplicação
 
-Para todos os quadros linguísticos, o Serviço de Aplicações disponibiliza as reclamações do utilizador ao seu código injetando-as nos cabeçalhos de pedido. Para ASP.NET 4.6 aplicações, o Serviço de Aplicações povoa [o ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as alegações do `[Authorize]` utilizador autenticado, para que possa seguir o padrão de código .NET padrão, incluindo o atributo. Da mesma forma, para aplicações PHP, o App Service povoa a `_SERVER['REMOTE_USER']` variável. Para aplicações Java, as reclamações são [acessíveis a partir do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Para todos os quadros linguísticos, o App Service disponibiliza as reclamações no token de entrada (seja de um utilizador final autenticado ou de uma aplicação cliente) disponível para o seu código injetando-as nos cabeçalhos de pedido. Para ASP.NET 4.6 aplicações, o Serviço de Aplicações povoa [o ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as alegações do `[Authorize]` utilizador autenticado, para que possa seguir o padrão de código .NET padrão, incluindo o atributo. Da mesma forma, para aplicações PHP, o App Service povoa a `_SERVER['REMOTE_USER']` variável. Para aplicações Java, as reclamações são [acessíveis a partir do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Para [funções Azure,](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` não é hidratado para o código .NET, mas ainda pode encontrar as reclamações do utilizador nos cabeçalhos de pedido.
+Para [funções Azure,](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` não é povoado para o código .NET, mas ainda pode `ClaimsPrincipal` encontrar as reclamações do utilizador nos cabeçalhos de pedido, ou obter o objeto do contexto de pedido ou mesmo através de um parâmetro de ligação. Consulte [trabalhar com as identidades](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) dos clientes para obter mais informações.
 
 Para mais informações, consulte [as reclamações dos utilizadores](app-service-authentication-how-to.md#access-user-claims)do Access.
 
@@ -63,7 +63,7 @@ O App Service fornece uma loja de token incorporada, que é um repositório de f
 
 Normalmente, tem de escrever código para recolher, armazenar e refrescar estes tokens na sua aplicação. Com a loja de [fichas, basta recuperar os tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando precisar e dizer ao Serviço de [Aplicações para os refrescar](app-service-authentication-how-to.md#refresh-identity-provider-tokens) quando ficarem inválidos. 
 
-Os tokens id, tokens de acesso e fichas de atualização em cache para a sessão autenticada, e eles são acessíveis apenas pelo utilizador associado.  
+Os tokens id, tokens de acesso e tokens de atualização são cachepara a sessão autenticada, e são acessíveis apenas pelo utilizador associado.  
 
 Se não precisar de trabalhar com fichas na sua aplicação, pode desativar a loja de fichas.
 
@@ -93,7 +93,7 @@ O fluxo de autenticação é o mesmo para todos os fornecedores, mas difere cons
 - Com o fornecedor SDK: A aplicação inscreve os utilizadores manualmente no fornecedor e, em seguida, envia o símbolo de autenticação ao Serviço de Aplicações para validação. Este é normalmente o caso de aplicações sem navegador, que não podem apresentar a página de entrada do fornecedor ao utilizador. O código de aplicação gere o processo de entrada, pelo que também é chamado fluxo _de clientes_ ou fluxo de _cliente_. Este caso aplica-se aos clientes REST APIs, [Azure Functions](../azure-functions/functions-overview.md)e JavaScript, bem como aplicações de navegador que precisam de mais flexibilidade no processo de entrada. Aplica-se também a aplicações móveis nativas que assinam os utilizadores na utilização do SDK do fornecedor.
 
 > [!NOTE]
-> As chamadas de uma aplicação de navegador fidedigna no Serviço de Aplicações chamam outra API REST no Serviço de Aplicações ou [funções Azure](../azure-functions/functions-overview.md) podem ser autenticadas usando o fluxo direcionado para o servidor. Para mais informações, consulte Personalizar a autenticação e autorização no Serviço de [Aplicações.](app-service-authentication-how-to.md)
+> As chamadas de uma aplicação de navegador fidedigna no Serviço de Aplicações para outro Rest API no Serviço de Aplicações ou [Funções Azure](../azure-functions/functions-overview.md) podem ser autenticadas usando o fluxo direcionado para o servidor. Para mais informações, consulte Personalizar a autenticação e autorização no Serviço de [Aplicações.](app-service-authentication-how-to.md)
 >
 
 A tabela abaixo mostra os passos do fluxo de autenticação.

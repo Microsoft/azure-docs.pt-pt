@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244514"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422509"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oráculo utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -213,7 +213,7 @@ Para copiar dados da Oracle, delineie `OracleSource`o tipo de origem na atividad
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de `OracleSource`atividade de cópia deve ser definida para . | Sim |
 | oracleReaderQuery | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativa a carga divisória, tem de ligar os parâmetros correspondentes de partição incorporados na sua consulta. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
-| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Oracle. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** , e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de [`parallelCopies`](copy-activity-performance.md#parallel-copy) paralelismo para carregar simultaneamente dados de uma base de dados da Oracle é controlado pela definição da atividade da cópia. | Não |
+| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Oracle. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** , e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) paralelismo para carregar simultaneamente dados de uma base de dados da Oracle é controlado pela definição da atividade da cópia. | Não |
 | partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção `None`de partição não for . | Não |
 | nomes de partição | A lista de divisórias físicas que precisa de ser copiada. <br>Aplicar quando a `PhysicalPartitionsOfTable`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfTabularPartitionName` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
 | partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro** que será utilizado por divisórias de alcance para cópia paralela. Se não especificada, a chave principal da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a `DynamicRange`opção de partição for . Se utilizar uma consulta para recuperar os `?AdfRangePartitionColumnName` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
@@ -300,7 +300,7 @@ O conector Data Factory Oracle fornece a partilha de dados incorporados para cop
 
 ![Screenshot das opções de partição](./media/connector-oracle/connector-oracle-partition-options.png)
 
-Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Oráculo para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Oracle.
+Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Oráculo para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua base de dados Oracle.
 
 É sugerido que permita cópias paralelas com partilha de dados especialmente quando carrega uma grande quantidade de dados da sua base de dados Oracle. As seguintes são configurações sugeridas para diferentes cenários. Ao copiar dados para uma loja de dados baseada em ficheiros, é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 

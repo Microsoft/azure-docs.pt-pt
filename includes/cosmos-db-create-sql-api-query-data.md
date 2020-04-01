@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 64c900e01496dad0d5f6a96d8d790ae0c2a8c95a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 408fb2c40e645d9a8b10f1e04d282e134c5489a1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927406"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80502486"
 ---
 Pode utilizar consultas no Data Explorer para recuperar e filtrar os seus dados.
 
-1. No topo do separador **Itens** no Data Explorer, `SELECT * FROM c`reveja a consulta padrão . Esta consulta recupera e exibe todos os documentos da recolha por ordem de identificação. 
+1. No topo do separador **Itens** no Data Explorer, `SELECT * FROM c`reveja a consulta padrão . Esta consulta recupera e exibe todos os documentos do recipiente encomendado por ID. 
    
    ![A consulta predefinida no Data Explorer é "SELECT * FROM c"](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
    

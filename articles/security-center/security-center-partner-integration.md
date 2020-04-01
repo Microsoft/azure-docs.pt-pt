@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245385"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435756"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -36,7 +36,7 @@ O Centro de Segurança facilita a ativação de soluções de segurança integra
 Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidade por [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
-> O Security Center não instala o Agente de Monitorização da Microsoft em aparelhos virtuais parceiros porque a maioria dos fornecedores de segurança proíbem agentes externos a funcionar nos seus aparelhos.
+> O Security Center não instala o agente Log Analytics em aparelhos virtuais parceiros porque a maioria dos fornecedores de segurança proíbem agentes externos a funcionar nos seus aparelhos.
 >
 >
 

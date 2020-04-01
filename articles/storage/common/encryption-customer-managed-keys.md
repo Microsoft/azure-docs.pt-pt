@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6a3447a88aea1087c7ec327a956044ea94e793e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b5712094b9821dfa041cd5ba8617e86f7231bde
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79410041"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478018"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Utilize chaves geridas pelo cliente com cofre de chaves Azure para gerir encriptação de armazenamento azure
 
@@ -51,7 +51,7 @@ As chaves geridas pelo cliente só podem ser ativadas nas contas de armazenament
 
 Quando configura uma chave gerida pelo cliente, o Azure Storage envolve a chave de encriptação de dados de raiz para a conta com a chave gerida pelo cliente no cofre de chaves associado. Ativar as chaves geridas pelo cliente não afeta o desempenho e entra em vigor imediatamente.
 
-Quando modifica a chave que está a ser utilizada para encriptação de Armazenamento Azure, permitindo ou desativando chaves geridas pelo cliente, atualizando a versão chave ou especificando uma chave diferente, então a encriptação da chave raiz muda, mas os dados na sua conta De armazenamento Azure não precisa ser reencriptado.
+Quando modifica a chave que está a ser utilizada para encriptação de Armazenamento Azure, permitindo ou desativando as chaves geridas pelo cliente, atualizando a versão chave ou especificando uma tecla diferente, então a encriptação da chave raiz muda, mas os dados na sua conta De armazenamento Azure não precisam de ser novamente encriptados.
 
 Quando ativa ou desativa as chaves geridas pelo cliente, ou quando modifica a chave ou a versão chave, a proteção da chave de encriptação da raiz muda, mas os dados na sua conta De armazenamento do Azure não precisam de ser novamente encriptados.
 
@@ -68,7 +68,7 @@ Para aprender a usar chaves geridas pelo cliente com o Cofre chave Azure para en
 
 Para ativar as chaves geridas pelo cliente numa conta de armazenamento, deve utilizar um Cofre de Chave Azure para armazenar as suas chaves. Deve ativar as propriedades **Soft Delete** e **Não purgar** as propriedades no cofre da chave.
 
-Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação de Armazenamento Azure. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+Apenas as teclas RSA e RSA-HSM de 2048 são suportadas com encriptação de Armazenamento Azure. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
 
 ## <a name="rotate-customer-managed-keys"></a>Rode as chaves geridas pelo cliente
 

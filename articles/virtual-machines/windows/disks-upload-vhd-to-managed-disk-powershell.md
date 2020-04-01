@@ -1,27 +1,23 @@
 ---
-title: Faça upload de um vhd para Azure usando o Azure PowerShell
-description: Aprenda a carregar um vhd para um disco gerido pelo Azure e copie um disco gerido em todas as regiões, utilizando o Azure PowerShell, através do upload direto.
+title: Faça upload de um VHD para Azure ou copie um disco em todas as regiões - Azure PowerShell
+description: Aprenda a carregar um VHD para um disco gerido pelo Azure e copie um disco gerido em todas as regiões, utilizando o Azure PowerShell, através do upload direto.
 author: roygara
 ms.author: rogarana
-ms.date: 03/13/2020
+ms.date: 03/27/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 883fea1e25ded26c35e96d11edd8f417e96db30e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55606aeeb9f6445027f5da49821dbc4970764ade
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369561"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421053"
 ---
-# <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Faça upload de um vhd para Azure usando o Azure PowerShell
+# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
-Este artigo explica como enviar um vhd da sua máquina local para um disco gerido pelo Azure. Anteriormente, tinha de seguir um processo mais envolvido que incluía a realização dos seus dados numa conta de armazenamento e a gestão dessa conta de armazenamento. Agora, já não precisa de gerir uma conta de armazenamento, ou de fazer dados para fazer o upload de um vhd. Em vez disso, cria-se um disco gerido vazio e carrega-se um vhd diretamente para ele. Isto simplifica o upload de VMs no local para o Azure e permite-lhe carregar um VHD até 32 TiB diretamente num grande disco gerido.
-
-Se estiver a fornecer uma solução de backup para VMs IaaS em Azure, recomendamos que utilize o upload direto para restaurar as cópias de segurança dos clientes para os discos geridos. Se estiver a carregar um VHD de uma máquina externa para Azure, as velocidades dependem da largura de banda local. Se estiver a utilizar um VM Azure, a largura de banda será a mesma que os HDDs padrão.
-
-Atualmente, o upload direto é suportado para discos hdd padrão, SSD padrão e sSD premium. Ainda não é suportado para ultra SSDs.
+[!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,42 +26,49 @@ Atualmente, o upload direto é suportado para discos hdd padrão, SSD padrão e 
 - Se pretender fazer o upload de um VHD a partir do local: Um VHD de tamanho fixo que [foi preparado para o Azure,](prepare-for-upload-vhd-image.md)armazenado localmente.
 - Ou, um disco gerido em Azure, se pretender realizar uma ação de cópia.
 
-## <a name="create-an-empty-managed-disk"></a>Criar um disco gerido vazio
+## <a name="getting-started"></a>Introdução
 
-Para fazer o upload do seu vhd para o Azure, terá de criar um disco gerido vazio que esteja configurado para este processo de upload. Antes de criar um, há algumas informações adicionais que deve saber sobre estes discos.
+Se preferir fazer o upload de discos através de um GUI, pode fazê-lo usando o Azure Storage Explorer. Para mais detalhes consulte: [Use Azure Storage Explorer para gerir discos geridos pelo Azure](disks-use-storage-explorer-managed-disks.md)
+
+Para fazer o upload do seu VHD para o Azure, terá de criar um disco gerido vazio que esteja configurado para este processo de upload. Antes de criar um, há algumas informações adicionais que deve saber sobre estes discos.
 
 Este tipo de disco gerido tem dois estados únicos:
 
 - ReadToUpload, o que significa que o disco está pronto para receber um upload mas não foi gerada nenhuma assinatura de [acesso segura](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e o SAS foi gerado.
 
-Enquanto em qualquer um destes estados, o disco gerido será faturado com [preços HDD padrão,](https://azure.microsoft.com/pricing/details/managed-disks/)independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isto será verdade `revoke-access` até que seja chamado no disco gerido, que é necessário para ligar o disco a um VM.
+> [!NOTE]
+> Enquanto em qualquer um destes estados, o disco gerido será faturado com [preços HDD padrão,](https://azure.microsoft.com/pricing/details/managed-disks/)independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isto será verdade `revoke-access` até que seja chamado no disco gerido, que é necessário para ligar o disco a um VM.
 
-Antes de criar um HDD padrão vazio para upload, você precisará do tamanho do ficheiro em bytes do vhd que você quer carregar. O código de exemplo vai dar-lhe isso, mas, para fazê-lo por si mesmo, pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Este valor é utilizado ao especificar o parâmetro **-UploadSizeInBytes.**
+## <a name="create-an-empty-managed-disk"></a>Criar um disco gerido vazio
 
-Agora, na sua concha local, crie um HDD padrão vazio para carregar especificando a definição de **Upload** no parâmetro **-CreateOption,** bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig.](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) Em seguida, ligue para [o New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco:
+Antes de poder criar um HDD padrão vazio para o upload, vai precisar do tamanho do ficheiro do VHD que pretende carregar, em bytes. O código de exemplo vai dar-lhe isso, mas, para fazê-lo por si mesmo, pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Este valor é utilizado ao especificar o parâmetro **-UploadSizeInBytes.**
+
+Agora, na sua concha local, crie um HDD padrão vazio para carregar especificando a definição de **Upload** no parâmetro **-CreateOption,** bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig.](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) Em seguida, ligue para [o New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco.
+
+Substitua, `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` e, em seguida, executar os seguintes comandos:
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
 
-$diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location 'West US' -CreateOption 'Upload'
+$diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
-New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $diskconfig
+New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-Se quiser fazer o upload de um SSD premium ou de um SSD padrão, substitua **Standard_LRS** por **Premium_LRS** ou **StandardSSD_LRS**. Ultra SSD ainda não é suportado.
+Se quiser fazer o upload de um SSD premium ou de um SSD padrão, substitua **Standard_LRS** por **Premium_LRS** ou **StandardSSD_LRS**. Os discos ultra ainda não são suportados.
 
-Criou agora um disco gerido vazio que está configurado para o processo de upload. Para fazer o upload de um vhd para o disco, você precisará de um SAS rectilável, para que possa referenciar como o destino para o seu upload.
+Agora que criou um disco gerido vazio que está configurado para o processo de upload, pode enviar-lhe um VHD. Para fazer o upload de um VHD para o disco, você precisará de um SAS rectilável, para que possa referenciar como o destino para o seu upload.
 
-Para gerar um SAS writável do seu disco gerido vazio, utilize o seguinte comando:
+Para gerar um SAS de supreensível `<yourdiskname>` `<yourresourcegroupname>`do seu disco gerido vazio, substitua e , em seguida, use os seguintes comandos:
 
 ```powershell
-$diskSas = Grant-AzDiskAccess -ResourceGroupName 'myResouceGroup' -DiskName 'myDiskName' -DurationInSecond 86400 -Access 'Write'
+$diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
 
-$disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
+$disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
 
-## <a name="upload-vhd"></a>Upload vhd
+## <a name="upload-a-vhd"></a>Carregar um VHD
 
 Agora que tem um SAS para o seu disco gerido vazio, pode usá-lo para definir o disco gerido como destino para o seu comando de upload.
 
@@ -79,15 +82,17 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageB
 
 Depois de o upload estar completo e já não precisar de escrever mais dados para o disco, revogar o SAS. A revogação do SAS alterará o estado do disco gerido e permitirá que prenda o disco a um VM.
 
+`<yourdiskname>`Substitua `<yourresourcegroupname>`e, em seguida, execute o seguinte comando:
+
 ```powershell
-Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
+Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
 
 ## <a name="copy-a-managed-disk"></a>Copiar um disco gerido
 
-O upload direto também simplifica o processo de cópia de um disco gerido. Pode copiar dentro da mesma região ou região transversal (para outra região).
+O upload direto também simplifica o processo de cópia de um disco gerido. Pode copiar dentro da mesma região ou copiar o disco gerido para outra região.
 
-O guião seguinte fará isto por si, o processo é semelhante aos passos descritos anteriormente, com algumas diferenças já que está a trabalhar com um disco existente.
+O guião seguinte fará isto por si, o processo é semelhante aos passos descritos anteriormente, com algumas diferenças, uma vez que está a trabalhar com um disco existente.
 
 > [!IMPORTANT]
 > Tem de adicionar uma compensação de 512 quando estiver a fornecer o tamanho do disco em bytes de um disco gerido a partir do Azure. Isto porque Azure omite o rodapé ao devolver o tamanho do disco. A cópia falhará se não fizer isto. O seguinte guião já faz isto por ti.
@@ -124,6 +129,6 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que carregou com sucesso um vhd para um disco gerido, pode ligar o disco a um VM e começar a usá-lo.
+Agora que carregou com sucesso um VHD para um disco gerido, pode ligar o disco a um VM e começar a usá-lo.
 
 Para aprender a anexar um disco de dados a um VM, consulte o nosso artigo sobre o assunto: Fixe um disco de [dados a um VM windows com PowerShell](attach-disk-ps.md). Para utilizar o disco como disco OS, consulte [Criar um VM windows a partir de um disco especializado](create-vm-specialized.md#create-the-new-vm).

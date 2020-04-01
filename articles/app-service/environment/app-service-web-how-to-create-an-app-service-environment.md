@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 752334e3d594b1f95786aecaca134b74c4e264d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688701"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477790"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um ambiente de serviço de aplicações v1 
 
@@ -45,7 +45,7 @@ Para criar um App Service Environment v1, pode pesquisar o Azure Marketplace par
 3. Selecione ou especifique um novo grupo de recursos. O grupo de recursos utilizado para a sua ASE deve ser o mesmo que é utilizado para o seu VNet. Se selecionar um VNet pré-existente, a seleção do grupo de recursos para a sua ASE será atualizada para refletir a do seu VNet.
    
     ![][2]
-4. Faça as suas seleções de Rede Virtual e Localização. Pode optar por criar um novo VNet ou selecionar um VNet pré-existente. Se selecionar um novo VNet, então pode especificar um nome e localização. O novo VNet terá o intervalo de endereços 192.168.250.0/23 e uma subnet denominada **padrão** que é definida como 192.168.250.0/24. Também pode simplesmente selecionar um VNet Clássico ou Gestor de Recursos pré-existente. A seleção do Tipo VIP determina se a sua ASE pode ser diretamente acedida a partir da internet (Externa) ou se utiliza um Balancer de Carga Interna (ILB). Para saber mais sobre eles ler [Usando um Balancer de Carga Interna com um Ambiente de Serviço][ILBASE]de Aplicações . Se selecionar um tipo VIP de Externo, pode selecionar quantos endereços IP externos o sistema é criado para fins IPSSL. Se selecionar Interno, então precisa especificar o subdomínio que a Sua ASE utilizará. AsEs podem ser implantados em redes virtuais que *utilizam* gamas de endereços públicos, *ou* espaços de endereçoS RFC1918 (isto é, endereços privados). Para utilizar uma rede virtual com uma gama de endereços públicos, terá de criar o VNet com antecedência. Quando selecionar um VNet pré-existente, terá de criar uma nova subrede durante a criação da ASE. **Não é possível utilizar uma sub-rede pré-criada no portal. Pode criar uma ASE com uma subrede pré-existente se criar a sua ASE utilizando um modelo de gestor de recursos.** Para criar uma ASE a partir de um modelo, use a informação aqui, criando um ambiente de serviço de [aplicação a partir do modelo][ILBAseTemplate] e aqui, criando um Ambiente de Serviço de [Aplicações ILB a partir do modelo][ASEfromTemplate].
+4. Faça as suas seleções de Rede Virtual e Localização. Pode optar por criar um novo VNet ou selecionar um VNet pré-existente. Se selecionar um novo VNet, então pode especificar um nome e localização. O novo VNet terá o intervalo de endereços 192.168.250.0/23 e uma subnet denominada **padrão** que é definida como 192.168.250.0/24. Também pode simplesmente selecionar um VNet Clássico ou Gestor de Recursos pré-existente. A seleção do Tipo VIP determina se a sua ASE pode ser diretamente acedida a partir da internet (Externa) ou se utiliza um Balancer de Carga Interna (ILB). Para saber mais sobre eles ler [Usando um Balancer de Carga Interna com um Ambiente de Serviço][ILBASE]de Aplicações . Se selecionar um tipo VIP de Externo, pode selecionar quantos endereços IP externos o sistema é criado para fins IP SSL. Se selecionar Interno, então precisa especificar o subdomínio que a Sua ASE utilizará. AsEs podem ser implantados em redes virtuais que *utilizam* gamas de endereços públicos, *ou* espaços de endereçoS RFC1918 (isto é, endereços privados). Para utilizar uma rede virtual com uma gama de endereços públicos, terá de criar o VNet com antecedência. Quando selecionar um VNet pré-existente, terá de criar uma nova subrede durante a criação da ASE. **Não é possível utilizar uma sub-rede pré-criada no portal. Pode criar uma ASE com uma subrede pré-existente se criar a sua ASE utilizando um modelo de gestor de recursos.** Para criar uma ASE a partir de um modelo, use a informação aqui, criando um ambiente de serviço de [aplicação a partir do modelo][ILBAseTemplate] e aqui, criando um Ambiente de Serviço de [Aplicações ILB a partir do modelo][ASEfromTemplate].
 
 ### <a name="details"></a>Detalhes
 Uma ASE é criada com 2 Front Ends e 2 Trabalhadores. As Front Ends funcionam como os pontos finais HTTP/HTTPS e enviam tráfego para os Trabalhadores, que são as funções que acolhem as suas apps. Pode ajustar a quantidade após a criação da ASE e até pode configurar regras de escala automática nestes conjuntos de recursos. Para mais detalhes em torno da escala manual, gestão e monitorização de um Ambiente de Serviço de Aplicações, vá aqui: [Como configurar um Ambiente][ASEConfig] de Serviço de Aplicações 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa2e2fb4eb6e269f45494db6d87eef40182971a2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346932"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396859"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -186,6 +186,8 @@ Segue-se um exemplo de um perfil técnico RESTful configurado com um certificado
 
 ## <a name="oauth2-bearer-authentication"></a>Autenticação do portador OAuth2 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 A autenticação token do portador é definida no [Quadro de Autorização OAuth2.0: Utilização do token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). Na autenticação simbólica do portador, o Azure AD B2C envia um pedido http com um token no cabeçalho de autorização.
 
 ```http
@@ -196,6 +198,7 @@ Um símbolo portador é uma corda opaca. Pode ser um símbolo de acesso JWT ou q
 
 - **Símbolo do portador.** Para poder enviar o token ao portador no perfil técnico Restful, a sua política precisa primeiro de adquirir o token do portador e depois usá-lo no perfil técnico RESTful.  
 - **Ficha estática do portador.** Use esta abordagem quando a sua API REST emitir um sinal de acesso a longo prazo. Para utilizar um símbolo estático do portador, crie uma chave de política e faça uma referência do perfil técnico RESTful à sua chave de política. 
+
 
 ## <a name="using-oauth2-bearer"></a>Usando o portador OAuth2  
 

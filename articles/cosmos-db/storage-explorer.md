@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882355"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411676"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com dados com o Explorador de Armazenamento do Azure
 
@@ -215,14 +215,14 @@ Existem algumas razões pelas quais pode estar a ver este erro, sendo as duas ma
 
 + Está por detrás de um *proxy transparente*, o que significa que alguém (como o seu departamento de TI) está a intercetar o tráfego HTTPS, desencriptando-o e, em seguida, encriptando-o usando um certificado auto-assinado.
 
-+ Está a executar software, como software antivírus, que está a injetar um certificado SSL autoassinado nas mensagens HTTPS recebidas.
++ Está a executar software, como software antivírus, que está a injetar um certificado TLS/SSL auto-assinado nas mensagens HTTPS que recebe.
 
 Quando o Explorador de Armazenamento encontra um destes "certificados autoassinados", já não consegue saber se a mensagem HTTPS que está a receber foi adulterada. No entanto, se tiver uma cópia do certificado autoassinado, pode indicar ao Explorador de Armazenamento para confiar no mesmo. Se não tiver a certeza de quem está a injetar o certificado, pode tentar descobrir através dos seguintes passos:
 
-1. Instalar o Open SSL
+1. Instalar openssl
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões simples)
      - Mac e Linux: devem estar incluídos no sistema operativo
-2. Executar o Open SSL
+2. Run OpenSSL
     - Windows: aceda ao diretório de instalação, a **/bin/** e faça duplo clique em **openssl.exe**.
     - Mac e Linux: execute **openssl** a partir de um terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`

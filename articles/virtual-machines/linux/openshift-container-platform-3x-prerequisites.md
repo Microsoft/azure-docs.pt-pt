@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: b2b34a6fdf96613c5bc372e585598fabbe43d53d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8767a6ee6218223280ea6219e22540c53d1e89be
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066614"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409121"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para a implantação da Plataforma de Contentores OpenShift 3.11 em Azure
 
@@ -143,15 +143,15 @@ Para obter mais informações sobre os principais de serviço, consulte Criar um
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo de Gestor de Recursos
 
-Serão necessários segredos para a chave privada SSH **(sshPrivateKey),** azure AD client secret **(aadClientSecret),** palavra-passe de administração OpenShift **(openshiftPassword)** e senha de subscrição do Red Hat **(rhsmPasswordOrActivationKey).**  Além disso, se forem utilizados certificados SSL personalizados, terão de ser criados seis segredos adicionais - **routingcafile,** **routingcertfile,** **routingkeyfile,** **mastercafile,** **mastercertfile**e **masterkeyfile**.  Estes parâmetros serão explicados mais detalhadamente.
+Serão necessários segredos para a chave privada SSH **(sshPrivateKey),** azure AD client secret **(aadClientSecret),** palavra-passe de administração OpenShift **(openshiftPassword)** e senha de subscrição do Red Hat **(rhsmPasswordOrActivationKey).**  Além disso, se forem utilizados certificados TLS/SSL personalizados, terão de ser criados seis segredos adicionais - **routingcafile,** **routingcertfile,** **routingkeyfile,** **mastercafile,** **mastercertfile**e **masterkeyfile**.  Estes parâmetros serão explicados mais detalhadamente.
 
 O modelo refere nomes secretos específicos, pelo que **deve** utilizar os nomes arrojados acima indicados (sensível ao caso).
 
 ### <a name="custom-certificates"></a>Certificados Personalizados
 
-Por padrão, o modelo irá implantar um cluster OpenShift utilizando certificados auto-assinados para a consola web OpenShift e o domínio de encaminhamento. Se pretender utilizar certificados SSL personalizados, detete 'routingCertType' para 'custom' e 'masterCertType' para 'custom'.  Você precisará dos ficheiros CA, Cert e Key em formato .pem para os certificados.  É possível utilizar certificados personalizados para um, mas não para o outro.
+Por padrão, o modelo irá implantar um cluster OpenShift utilizando certificados auto-assinados para a consola web OpenShift e o domínio de encaminhamento. Se pretender utilizar certificados TLS/SSL personalizados, detete 'routingCertType' para 'custom' e 'masterCertType' para 'custom'.  Você precisará dos ficheiros CA, Cert e Key em formato .pem para os certificados.  É possível utilizar certificados personalizados para um, mas não para o outro.
 
-Tens de guardar estes ficheiros em segredos do Cofre chave.  Use o mesmo cofre de chaves que o usado para a chave privada.  Em vez de exigir 6 inputs adicionais para os nomes secretos, o modelo é codificado para usar nomes secretos específicos para cada um dos ficheiros de certificadoS SSL.  Guarde os dados do certificado utilizando as informações da tabela seguinte.
+Tens de guardar estes ficheiros em segredos do Cofre chave.  Use o mesmo cofre de chaves que o usado para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes secretos, o modelo é codificado para usar nomes secretos específicos para cada um dos ficheiros de certificadoS TLS/SSL.  Guarde os dados do certificado utilizando as informações da tabela seguinte.
 
 | Nome Secreto      | Ficheiro de certificado   |
 |------------------|--------------------|

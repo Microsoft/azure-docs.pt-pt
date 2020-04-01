@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68855564"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437136"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilizar o URI do Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Se a conta de Armazenamento de Data Lake Gen2 que deseja endereçar **não é** 
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificador**do `abfs` regime : O protocolo é utilizado como identificador do regime. Tem a opção de se ligar ou sem uma ligação segura à camada de tomada (SSL). Utilize `abfss` para se ligar a uma ligação de camada de tomada segura.
+1. **Identificador**do `abfs` regime : O protocolo é utilizado como identificador do regime. Tem a opção de se conectar com ou sem uma Segurança da Camada de Transporte (TLS), anteriormente conhecida como Camada de Tomadas Seguras (SSL), ligação. Utilize `abfss` para se ligar a uma ligação TLS.
 
 2. **Sistema de ficheiros**: A localização dos pais que detém os ficheiros e pastas. Este é o mesmo que os Contentores no serviço Azure Storage Blobs.
 

@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/27/2020
 ms.openlocfilehash: 5108335c0b5d0a51559653d51bfe6154237731f3
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78162659"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 
-Este tutorial demonstra **a cópia de uma série de tabelas da Base de Dados Azure SQL para a Azure Synapse Analytics (anteriormente SQL DW)** . Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para Azure SQL Database/Azure Synapse Analytics (anteriormente SQL DW)/Azure Blob, copiando diferentes caminhos de Blob para tabelas de bases de dados Azure SQL.
+Este tutorial demonstra **a cópia de uma série de tabelas da Base de Dados Azure SQL para a Azure Synapse Analytics (anteriormente SQL DW)**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para Azure SQL Database/Azure Synapse Analytics (anteriormente SQL DW)/Azure Blob, copiando diferentes caminhos de Blob para tabelas de bases de dados Azure SQL.
 
 > [!NOTE]
 > - Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -45,12 +45,12 @@ Neste cenário, tem várias tabelas na Base de Dados Azure SQL que pretende copi
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
 * O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela da lista, copie a tabela específica na Base de Dados Azure SQL para a tabela correspondente em Azure Synapse Analytics (anteriormente SQL DW) utilizando cópia encenada através do [armazenamento Blob e da PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Conta de Armazenamento do Azure**. A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
-* **Base de Dados SQL do Azure**. Esta base de dados contém os dados de origem. 
-* **Azure Synapse Analytics (anteriormente SQL DW)** . Este armazém de dados contém os dados copiados da Base de Dados SQL. 
+* **Conta de Armazenamento Azure.** A conta de Armazenamento do Azure é utilizada como armazenamento de blobs de teste na operação de cópia em massa. 
+* **Base de Dados Azure SQL**. Esta base de dados contém os dados de origem. 
+* **Azure Synapse Analytics (anteriormente SQL DW)**. Este armazém de dados contém os dados copiados da Base de Dados SQL. 
 
 ### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>Prepare a Base de Dados SQL e a Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -58,7 +58,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works LT, seguindo o artigo [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md). Este tutorial copia todas as tabelas desta base de dados de amostras para um Azure Synapse Analytics (anteriormente SQL DW).
 
-**Prepare a pia Azure Synapse Analytics (anteriormente SQL DW)** :
+**Prepare a pia Azure Synapse Analytics (anteriormente SQL DW)**:
 
 1. Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), consulte o artigo [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) para obter passos para criar um.
 
@@ -68,16 +68,16 @@ Crie uma Base de Dados SQL do Azure SQL com dados de exemplo do Adventure Works 
 
 Tanto para a Base de Dados SQL como para a Azure Synapse Analytics (anteriormente SQL DW), os serviços Azure acedem ao servidor SQL. Certifique-se de que **os serviços e recursos do Azure acedem a esta** definição de servidor e stão **ligados** para o seu servidor Azure SQL. Esta definição permite que o serviço Data Factory leia dados da sua Base de Dados Azure SQL e escreva dados para o seu Azure Synapse Analytics (anteriormente SQL DW). 
 
-Para verificar e ativar esta definição, aceda ao seu servidor Azure SQL > Security > Firewalls e redes virtuais > defina os **serviços e recursos do Allow Azure para aceder a este servidor** para **ON**.
+Para verificar e ligar esta definição, aceda ao seu servidor Azure SQL > Firewalls de segurança > e redes virtuais > definir os **serviços e recursos do Allow Azure para aceder a este servidor** a **ON**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Aceda ao [Portal do Azure](https://portal.azure.com). 
-1. À esquerda do menu do portal Azure, selecione **Criar um recurso** > **Analytics** > **Data Factory.** 
-   ![seleção da Fábrica de Dados no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. Vá ao [portal Azure.](https://portal.azure.com) 
+1. À esquerda do menu do portal Azure, selecione **Criar um recurso** > **Analytics** > **Data Factory**. 
+   ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página da nova fábrica de **dados,** introduza **a ADFTutorialBulkCopyDF** para **nome**. 
  
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se vir o erro seguinte no campo de nome, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialBulkCopyDF). Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
+   O nome da fábrica de dados Azure deve ser **globalmente único.** Se vir o erro seguinte no campo de nome, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialBulkCopyDF). Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
 1. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados. 
@@ -153,7 +153,7 @@ Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de tes
 1. Na janela **New Linked Service (Azure Blob Storage),** faça os seguintes passos: 
 
     a. Introduza **AzureStorageLinkedService** em **Nome**.                                                 
-    b. Selecione a sua **conta de armazenamento do Azure** em **Nome da conta de armazenamento**.
+    b. Selecione a sua **conta de Armazenamento Azure** para **o nome da conta de armazenamento**.
     
     c. Clique em **Criar**.
 
@@ -181,7 +181,7 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 
 ### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Criar um conjunto de dados para afundar a Azure Synapse Analytics (anteriormente SQL DW)
 
-1. Clique em **+ (mais)** , no painel do lado esquerdo, e clique em **Conjunto de Dados**. 
+1. Clique em **+ (mais)**, no painel do lado esquerdo, e clique em **Conjunto de Dados**. 
 1. Na janela **New Dataset,** selecione **Azure Synapse Analytics (anteriormente SQL DW)** e, em seguida, clique em **Continuar**.
 1. Na janela **'Propriedades definidas',** em **nome**, **introduza O Conjunto AzureSqlDWDataset**. Sob **o serviço Linked,** selecione **AzureSqlDWLinkedService**. Em seguida, clique em **OK**.
 1. Mude para o separador **Parâmetros**, clique em **+ Novo** e introduza **DWTableName** no nome do parâmetro. Se copiar/colar este nome a partir da página, certifique-se de que não há **nenhum personagem** espacial no final do **DWTableName**.
@@ -191,7 +191,7 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 
     ![Nome de tabela de ligação de conjunto de dados](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    b. Na página **Adicionar Conteúdo Dinâmico,** clique no **Nome DWTAble** em **Parâmetros**, que irá povoar automaticamente a caixa de texto de expressão superior `@dataset().DWTableName`, em seguida, clique em **Terminar**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
+    b. Na página **Adicionar Conteúdo Dinâmico,** clique no **Nome DWTAble** em **Parâmetros**, `@dataset().DWTableName`que irá povoar automaticamente a caixa de texto de expressão superior, em seguida, clique em **Terminar**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
 
     ![Construtor de parâmetro do conjunto de dados](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
  
@@ -201,7 +201,7 @@ Neste tutorial, vai criar dois pipelines, **IterateAndCopySQLTables** e **GetTab
 O pipeline **GetTableListAndTriggerCopyData** executa duas ações:
 
 * Procura a tabela do sistema da Base de Dados SQL do Azure para obter a lista de tabelas a copiar.
-* Aciona o pipeline **IterateAndCopySQLTables** para executar a cópia de dados real.
+* Aciona o pipeline **IterateAndCopySQLTables** para fazer a cópia real de dados.
 
 O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro. Para cada tabela da lista, copia dados da tabela em Azure SQL Database para Azure Synapse Analytics (anteriormente SQL DW) utilizando cópia encenada e PolyBase.
 
@@ -226,14 +226,14 @@ O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro.
 
     b. Mude para o separador **Definições,** clique na caixa de entrada para **itens**e, em seguida, clique no link de **conteúdo dinâmico Adicionar** abaixo. 
 
-    c. Na página **Adicionar Conteúdo Dinâmico,** inverta as secções de Variáveis e **Funções** do **Sistema,** clique na **tabelaLista** em **Parâmetros**, que irá automaticamente povoar a caixa de texto de expressão superior à medida que `@pipeline().parameter.tableList`. Em seguida, clique em **Terminar**. 
+    c. Na página **Adicionar Conteúdo Dinâmico,** colapsar as secções de Variáveis e **Funções** do **Sistema,** clique na `@pipeline().parameter.tableList` **tabelaLista** em **Parâmetros**, que irá automaticamente povoar a caixa de texto de expressão superior como . Em seguida, clique em **Concluir**. 
 
     ![Construtor de parâmetro do Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Mude para o separador **Atividades,** clique no ícone do **lápis** para adicionar uma atividade infantil à atividade **ForEach.**
-    ![](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png) de construtor de atividades Foreach
+    ![Construtor de atividades foreach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
-1. Na caixa de **ferramentas De Atividades,** expanda a **atividade de Move & Transfer**e a drag-drop Copy a atividade de dados da **Cópia** para a superfície do designer de pipeline. Repare no menu de trilho na parte superior. **IterateAndCopySQLTable** é o nome do pipeline e **iterateSQLTables** é o nome de atividade ForEach. O estruturador está no âmbito da atividade. Para voltar ao editor de pipeline do editor ForEach, pode clicar no link no menu breadcrumb. 
+1. Na caixa de **ferramentas De Atividades,** expanda a **Move & Transfer**e arrasta a atividade de dados da **Cópia** para a superfície do designer de pipeline. Repare no menu de trilho na parte superior. **IterateAndCopySQLTable** é o nome do pipeline e **iterateSQLTables** é o nome de atividade ForEach. O estruturador está no âmbito da atividade. Para voltar ao editor de pipeline do editor ForEach, pode clicar no link no menu breadcrumb. 
 
     ![Copy em ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
 
@@ -251,7 +251,7 @@ O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro.
 1. Mude para o separador **Sink** e siga os passos abaixo: 
 
     1. Selecione **AzureSqlDWDataset** em **Conjunto de Dados de Sink**.
-    1. Clique na caixa de entrada para o VALOR do parâmetro DWTableName -> selecione o **conteúdo dinâmico Adicionar** abaixo, introduza `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expressão como script, -> selecione **Finish**.
+    1. Clique na caixa de entrada para obter o valor do parâmetro DWTableName -> selecione o **conteúdo dinâmico Adicionar** abaixo, introduza `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` a expressão como script, -> selecione **Acabamento**.
     1. Para o método Copy, selecione **PolyBase**. 
     1. Limpe a opção **por defeito do tipo Use.** 
     1. Clique na caixa de entrada **Cópia prévia do Script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> introduza a seguinte expressão como um script -> selecione **Concluir**. 
@@ -266,7 +266,7 @@ O oleoduto **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro.
     1. Selecione a caixa de verificação para ativar a **encenação**.
     1. Selecione **AzureStorageLinkedService** em **Nome do Serviço Ligado da Conta de Armazenamento**.
 
-1. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas do mesmo. Certifique-se de que não há nenhum erro de validação. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>** .
+1. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas do mesmo. Certifique-se de que não há nenhum erro de validação. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>**.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Criar o pipeline GetTableListAndTriggerCopyData
 
@@ -311,7 +311,7 @@ Este oleoduto faz duas ações:
 
         ![Atividade Execute pipeline - página de definições](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 
-1. Para validar o pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>** .
+1. Para validar o pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>**.
 
 1. Para publicar entidades (conjuntos de dados, oleodutos, etc.) para o serviço Data Factory, clique em **Publicar tudo** em cima da janela. Aguarde até que a publicação seja bem-sucedida. 
 
@@ -326,7 +326,7 @@ Este oleoduto faz duas ações:
 1. Mude para o separador **Monitor.** Clique em **Refresh** até ver que corre para ambos os oleodutos da sua solução. Continue a atualizar a lista até ver o estado **Com Êxito**. 
 
 1. Para visualizar as operações associadas ao pipeline **GetTableListAndTriggerCopyData,** clique na ligação de nome do pipeline para o pipeline. Deverá ver duas execuções de atividade para esta execução de pipeline. 
-    ![monitor de gasoduto](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
+    ![Executar pipeline de monitorização](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
 1. Para visualizar a saída da atividade **de Procuração,** clique no link **'Saída'** junto à atividade sob a coluna **'NOME DE ATIVIDADE'.** Pode maximizar e restaurar a janela **Saída**. Depois de rever, clique em **X** para fechar a janela **Saída**.
 
     ```json
@@ -399,4 +399,4 @@ Neste tutorial, executou os passos seguintes:
 
 Avance para o tutorial seguinte para saber como copiar dados de forma incremental de uma origem para um destino:
 > [!div class="nextstepaction"]
->[Copiar dados incrementalmente](tutorial-incremental-copy-portal.md)
+>[Copiar dados de forma incremental](tutorial-incremental-copy-portal.md)

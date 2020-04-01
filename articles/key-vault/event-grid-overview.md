@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 039b7e57c1f98368ab33f9f17e19a741dc9eb5f4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78184915"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Cofre de chaves de monitorização com grelha de eventos Azure (pré-visualização)
@@ -45,8 +45,8 @@ As aplicações que lidam com eventos do Cofre chave devem seguir algumas práti
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do cofre da chave azure](key-vault-overview.md)
-- [Visão geral da Grelha de Eventos Azure](../event-grid/overview.md)
+- [Descrição geral do Azure Event Grid](../event-grid/overview.md)
 - Como: [Route Key Vault Events to Automation Runbook (pré-visualização)](event-grid-tutorial.md).
 - Como: [Receber e-mail quando um cofre chave muda](event-grid-logicapps.md)
 - [Esquema de evento sinuoso do evento Azure Event Grid para cofre de chaves Azure (pré-visualização)](../event-grid/event-schema-key-vault.md)
-- [Descrição geral da Automatização do Azure](../automation/index.yml)
+- [Visão geral da Automação Azure](../automation/index.yml)

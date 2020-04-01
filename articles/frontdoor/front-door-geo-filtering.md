@@ -9,16 +9,16 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 80641ca27949435f65222ecab17cc3079e2a6359
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471613"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411169"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica num domínio do Azure Front Door?
 

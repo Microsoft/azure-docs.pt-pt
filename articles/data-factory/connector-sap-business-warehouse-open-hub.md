@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: ad7d171cb115729e174090c1c80915abbde5999f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238735"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421215"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub utilizando a Azure Data Factory
 
@@ -187,9 +187,9 @@ Para copiar dados do SAP BW Open Hub, as seguintes propriedades são suportadas 
 | baseRequestId | A identificação do pedido de carregamento delta. Uma vez definido, apenas serão recuperados dados com pedido Deid **maior do que** o valor desta propriedade.  | Não |
 
 >[!TIP]
->Se a sua tabela Open Hub apenas contiver os dados gerados por id de pedido único, por exemplo, você sempre faz a carga completa e substitui os dados existentes na tabela, ou só executa o DTP uma vez para teste, lembre-se de desmarcar a opção "excluirLastRequest" para copiar a dados para fora.
+>Se a tabela Open Hub contiver apenas os dados gerados por um único ID de pedido, por exemplo, faz sempre a carga completa e substitui os dados existentes na tabela, ou só executa o DTP uma vez para teste, lembre-se de desmarcar a opção "excluirO Pedido" para copiar os dados.
 
-Para acelerar o carregamento de [`parallelCopies`](copy-activity-performance.md#parallel-copy) dados, pode definir a atividade de cópia para carregar dados do SAP BW Open Hub em paralelo. Por exemplo, se `parallelCopies` você definir para quatro, Data Factory executa simultaneamente quatro chamadas RFC, e cada chamada RFC recupera uma parte dos dados da sua tabela SAP BW Open Hub dividida pelo ID de pedido dTP e ID do pacote. Isto aplica-se quando o número de ID de pedido de `parallelCopies`DTP exclusivo + id pacote é maior do que o valor de . Ao copiar dados para uma loja de dados baseada em ficheiros, também é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
+Para acelerar o carregamento de [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) dados, pode definir a atividade de cópia para carregar dados do SAP BW Open Hub em paralelo. Por exemplo, se `parallelCopies` você definir para quatro, Data Factory executa simultaneamente quatro chamadas RFC, e cada chamada RFC recupera uma parte dos dados da sua tabela SAP BW Open Hub dividida pelo ID de pedido dTP e ID do pacote. Isto aplica-se quando o número de ID de pedido de `parallelCopies`DTP exclusivo + id pacote é maior do que o valor de . Ao copiar dados para uma loja de dados baseada em ficheiros, também é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
 **Exemplo:**
 

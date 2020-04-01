@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444116"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478214"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Criar um laboratório para ensinar ciência de dados com cadernos Python e Jupyter
 
@@ -34,10 +34,10 @@ Ative as definições descritas na tabela abaixo para a conta de laboratório. P
 
 | Definição de conta de laboratório | Instruções |
 | ------------------- | ------------ |
-| Imagem de mercado | Ative a máquina virtual da ciência dos dados - imagem [do Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) para utilização na sua conta de laboratório. |
+| Imagem de mercado | Ative a máquina virtual da ciência dos dados - imagem [do Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) para utilização na sua conta de laboratório. |
 
 >[!TIP]
->Este artigo irá focar-se na configuração de uma máquina de modeloque utiliza o sistema operativo Windows Server.  Também é possível criar uma aula de ciência de dados com cadernos Python e Jupyter usando a Máquina Virtual de [Ciência de Dados para Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) ou Data Science Virtual Machine para imagens [linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) do Azure Marketplace.
+>Este artigo irá focar-se na configuração de uma máquina de modeloque utiliza o sistema operativo Windows Server.  Também é possível criar uma aula de ciência de dados com cadernos Python e Jupyter usando imagens [de Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) do Azure Marketplace.
 
 ### <a name="lab-settings"></a>Configurações de laboratório
 
@@ -50,7 +50,7 @@ Utilize as definições na tabela abaixo ao configurar um laboratório de sala d
 
 ## <a name="template-machine"></a>Máquina de modelo
 
-A Máquina Virtual da [Ciência dos Dados - Imagem do Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) fornece as estruturas e ferramentas de aprendizagem profunda necessárias para este tipo de classe.  A imagem inclui Cadernos Jupyter e Código de Estúdio Visual.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) é uma aplicação web que permite aos cientistas de dados pegar em dados brutos, executar computações, e ver os resultados todos no mesmo ambiente.  Para a nossa máquina de modelos, a aplicação web estará a funcionar localmente.  [Visual Studio Code](https://code.visualstudio.com/) é um IDE que proporciona uma rica experiência interativa ao escrever e testar um caderno.  Para mais informações, consulte [Trabalhar com Cadernos Jupyter no Código do Estúdio Visual](https://code.visualstudio.com/docs/python/jupyter-support).
+A Máquina Virtual data [Science - Imagem do Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) fornece os quadros e ferramentas de aprendizagem profunda necessários para este tipo de classe.  A imagem inclui Cadernos Jupyter e Código de Estúdio Visual.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) é uma aplicação web que permite aos cientistas de dados pegar em dados brutos, executar computações, e ver os resultados todos no mesmo ambiente.  Para a nossa máquina de modelos, a aplicação web estará a funcionar localmente.  [Visual Studio Code](https://code.visualstudio.com/) é um IDE que proporciona uma rica experiência interativa ao escrever e testar um caderno.  Para mais informações, consulte [Trabalhar com Cadernos Jupyter no Código do Estúdio Visual](https://code.visualstudio.com/docs/python/jupyter-support).
 
 A tarefa restante para a criação da classe é fornecer cadernos locais.  Para obter instruções sobre como utilizar as amostras de Aprendizagem automática Azure, consulte [como configurar um ambiente com cadernos jupyter](../../machine-learning/how-to-configure-environment.md#jupyter).  Também pode fornecer os seus próprios cadernos na máquina do modelo.  Os cadernos serão copiados para todas as máquinas de estudantes quando o modelo for publicado.
 

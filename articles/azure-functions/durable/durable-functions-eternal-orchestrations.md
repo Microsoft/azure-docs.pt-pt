@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262984"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478812"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas em Funções Duráveis (Funções Azure)
 
@@ -90,8 +90,8 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
     [DurableClient] IDurableOrchestrationClient client)
 {
     string instanceId = "StaticId";
-    // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
+
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```

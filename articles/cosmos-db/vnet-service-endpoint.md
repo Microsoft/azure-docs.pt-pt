@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444624"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421319"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Aceder ao Azure Cosmos DB a partir de redes virtuais (VNet)
 
@@ -50,7 +50,7 @@ A autorização valida a permissão para a ação de recursos VNet mesmo que o u
 Apenas a rede virtual e as suas subredes adicionadas à conta Azure Cosmos têm acesso. Os seus VNets peered não podem aceder à conta até que as subredes dentro das redes virtuais peered sejam adicionadas à conta.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Qual é o número máximo de subredes autorizadas a aceder a uma única conta cosmos? 
-Atualmente, pode ter no máximo 64 subnets permitidas para uma conta Azure Cosmos.
+Atualmente, pode ter no máximo 256 subnets permitidas para uma conta Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Posso permitir o acesso da VPN e da Rota expresso? 
 Para aceder à conta Azure Cosmos sobre a rota Express a partir de instalações, você precisaria de ativar o peering da Microsoft. Uma vez que coloque regras de acesso à firewall IP ou à rede virtual, pode adicionar os endereços IP públicos utilizados para a Microsoft a espreitar na sua conta Azure Cosmos ip firewall para permitir no acesso aos serviços de instalações o acesso à conta Azure Cosmos. 

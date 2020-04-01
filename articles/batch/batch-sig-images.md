@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022941"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422441"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Use a Galeria de Imagem Partilhada para criar uma piscina personalizada
 
@@ -38,6 +38,9 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode for
 * **Versão de imagem e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagem contém informações sobre o porquê da imagem ter sido criada, para que ser o SISTEMA de Identificação e informações sobre o uso da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para mais informações, consulte definições de [imagem.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]
+> Tens de autenticar usando o Azure AD. Se utilizar o auth de chave partilhada, terá um erro de autenticação.  
 
 * **Uma conta do Azure Batch.** Para criar uma conta Batch, consulte o batch quickstarts utilizando o [portal Azure](quick-create-portal.md) ou [o Azure CLI](quick-create-cli.md).
 
@@ -86,6 +89,9 @@ Depois de ter criado com sucesso a sua imagem gerida, precisa de criar uma Galer
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Crie uma piscina a partir de uma imagem partilhada usando o Azure CLI
 
 Para criar uma piscina a partir da sua Imagem `az batch pool create` Partilhada utilizando o Azure CLI, utilize o comando. Especifique o `--image` ID de imagem partilhada no campo. Certifique-se de que o tipo OS e o SKU correspondem às versões especificadas por`--node-agent-sku-id`
+
+> [!NOTE]
+> Tens de autenticar usando o Azure AD. Se utilizar o auth de chave partilhada, terá um erro de autenticação.  
 
 ```azurecli
 az batch pool create \

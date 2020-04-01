@@ -1,23 +1,18 @@
 ---
 title: Replicar VMs azure stack para Azure usando a recuperação do site Azure Microsoft Docs
 description: Saiba como configurar a recuperação de desastres para Azure para VMs Azure Stack com o serviço de recuperação de sites Azure.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.topic: conceptual
-ms.service: site-recovery
 ms.date: 08/05/2019
-ms.author: raynew
-ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426569"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478506"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
-Este artigo mostra-lhe como configurar os VMs azure stack de recuperação de desastres para o Azure, utilizando o serviço de recuperação de [sítios Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Este artigo mostra-lhe como configurar os VMs azure stack de recuperação de desastres para o Azure, utilizando o serviço de recuperação de [sítios Azure](site-recovery-overview.md).
 
 A Recuperação do Site contribui para a continuidade do seu negócio e estratégia de recuperação de desastres (BCDR). O serviço garante que as suas cargas de trabalho VM permanecem disponíveis quando ocorrem interrupções inesperadas.
 
@@ -45,9 +40,9 @@ Com estes passos completos, pode então executar uma falha completa para Azure q
 
 **Localização** | **Componente** |**Detalhes**
 --- | --- | ---
-**Servidor de configuração** | Corre num único Azure Stack VM. | Em cada subscrição, configura um VM do servidor de configuração. Este VM executa os seguintes componentes de recuperação do site:<br/><br/> - Servidor de configuração: Coordena as comunicações entre as instalações e o Azure e gere a replicação de dados. - Servidor de processos: Atua como um portal de replicação. Recebe dados de replicação, otimiza com cache, compressão e encriptação; e envia-o para o armazém do Azure.<br/><br/> Se os VMs que pretende replicar excederem os limites indicados abaixo, pode configurar um servidor de processo autónomo separado. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
-**Serviço de mobilidade** | Instalado em cada VM que pretende replicar. | Nos passos deste artigo, preparamos uma conta para que o serviço de Mobilidade seja instalado automaticamente num VM quando a replicação estiver ativada. Se não quiser instalar o serviço automaticamente, existem vários outros métodos que pode utilizar. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
-**Azure** | Em Azure você precisa de um cofre de Serviços de Recuperação, uma conta de armazenamento, e uma rede virtual. |  Os dados replicados são armazenados na conta de armazenamento. Os VMs azure são adicionados à rede Azure quando ocorre a falha. 
+**Servidor de configuração** | Corre num único Azure Stack VM. | Em cada subscrição, configura um VM do servidor de configuração. Este VM executa os seguintes componentes de recuperação do site:<br/><br/> - Servidor de configuração: Coordena as comunicações entre as instalações e o Azure e gere a replicação de dados. - Servidor de processos: Atua como um portal de replicação. Recebe dados de replicação, otimiza com cache, compressão e encriptação; e envia-o para o armazém do Azure.<br/><br/> Se os VMs que pretende replicar excederem os limites indicados abaixo, pode configurar um servidor de processo autónomo separado. [Saiba mais](vmware-azure-set-up-process-server-scale.md).
+**Serviço de mobilidade** | Instalado em cada VM que pretende replicar. | Nos passos deste artigo, preparamos uma conta para que o serviço de Mobilidade seja instalado automaticamente num VM quando a replicação estiver ativada. Se não quiser instalar o serviço automaticamente, existem vários outros métodos que pode utilizar. [Saiba mais](vmware-azure-install-mobility-service.md).
+**Azure** | Em Azure você precisa de um cofre de Serviços de Recuperação, uma conta de armazenamento, e uma rede virtual. |  Os dados replicados são armazenados na conta de armazenamento. Os VMs azure são adicionados à rede Azure quando ocorre a falha.
 
 
 A replicação funciona da seguinte forma:
@@ -68,8 +63,8 @@ Eis o que precisas para preparar este cenário.
 **Requisito** | **Detalhes**
 --- | ---
 **Conta de subscrição do Azure** | Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/pricing/free-trial/)
-**Permissões de conta Azure** | A conta Azure que utiliza necessita de permissões para:<br/><br/> - Criar um cofre de serviço de recuperação<br/><br/> - Criar uma máquina virtual no grupo de recursos e rede virtual que utiliza para o cenário<br/><br/> - Escreva na conta de armazenamento que especifica<br/><br/> Tenha em atenção que:<br/><br/> -Se criar uma conta, é o administrador da sua subscrição e pode executar todas as ações.<br/><br/> - Se utilizar uma subscrição existente e não for o administrador, terá de trabalhar com o administrador para lhe atribuir permissões de Proprietário ou Contribuinte.<br/><br/> - Se precisar de mais permissões granulares, reveja [este artigo.](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control) 
-**VM de pilha de azure** | Você precisa de um VM Azure Stack na subscrição do inquilino, que será implementado como o servidor de configuração de recuperação do site. 
+**Permissões de conta Azure** | A conta Azure que utiliza necessita de permissões para:<br/><br/> - Criar um cofre de serviço de recuperação<br/><br/> - Criar uma máquina virtual no grupo de recursos e rede virtual que utiliza para o cenário<br/><br/> - Escreva na conta de armazenamento que especifica<br/><br/> Tenha em atenção que:<br/><br/> -Se criar uma conta, é o administrador da sua subscrição e pode executar todas as ações.<br/><br/> - Se utilizar uma subscrição existente e não for o administrador, terá de trabalhar com o administrador para lhe atribuir permissões de Proprietário ou Contribuinte.<br/><br/> - Se precisar de mais permissões granulares, reveja [este artigo.](site-recovery-role-based-linked-access-control.md)
+**VM de pilha de azure** | Você precisa de um VM Azure Stack na subscrição do inquilino, que será implementado como o servidor de configuração de recuperação do site.
 
 
 ### <a name="prerequisites-for-the-configuration-server"></a>Pré-requisitos para o servidor de configuração
@@ -77,7 +72,7 @@ Eis o que precisas para preparar este cenário.
 [!INCLUDE [site-recovery-config-server-reqs-physical](../../includes/site-recovery-config-server-reqs-physical.md)]
 
 
- 
+
 ## <a name="step-1-prepare-azure-stack-vms"></a>Passo 1: Prepare VMs de stack azure
 
 ### <a name="verify-the-operating-system"></a>Verifique o sistema operativo
@@ -89,7 +84,7 @@ Certifique-se de que os VMs estão a executar um dos sistemas operativos resumid
 --- | ---
 **Janelas de 64 bits** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (a partir de SP1)
 **CentOS** | 5,2 a 5,11, 6,1 a 6,9, 7,0 a 7,3
-**Ubuntu** | 14.04 Servidor LTS, servidor 16.04 LTS. Reveja [os núcleos apoiados](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#ubuntu-kernel-versions)
+**Ubuntu** | 14.04 Servidor LTS, servidor 16.04 LTS. Reveja [os núcleos apoiados](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
 ### <a name="prepare-for-mobility-service-installation"></a>Preparar para instalação de serviço de mobilidade
 
@@ -109,7 +104,7 @@ Cada VM que pretende replicar deve ter o serviço de Mobilidade instalado. Para 
     - Para isso, faça o **wf.msc** para abrir a consola Windows Firewall. Clique certo Para as **regras** > de entrada**nova regra**. Selecione **Predefinido**, e escolha partilha de **Ficheiros e Impressora** seletivada da lista. Complete o assistente, selecione para permitir a ligação > **Terminar**.
     - Para computadores de domínio, pode usar um GPO para fazer isto.
 
-    
+
 #### <a name="linux-machines"></a>Máquinas Linux
 
 - Certifique-se de que existe conectividade de rede entre o computador Linux e o servidor de processos.
@@ -143,7 +138,7 @@ Para cada máquina que pretende replicar, encontre o endereço IP:
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Passo 2: Criar um cofre e selecionar um objetivo de replicação
 
 1. No portal Azure, selecione Criar uma**Cópia de Segurança e Recuperação de Ferramentas** > de**Gestão**de **Recursos.** > 
-2. Em **Nome**, introduza um nome amigável para identificar o cofre. 
+2. Em **Nome**, introduza um nome amigável para identificar o cofre.
 3. No **grupo Recursos,** crie ou selecione um grupo de recursos. Estamos a usar **contosoRG.**
 4. No **Local,** entre na região de Azure. estamos a utilizar **Europa Ocidental**.
 5. Para aceder rapidamente ao cofre a partir do tablier, selecione **Pin para painel** > **criar**.
@@ -182,7 +177,7 @@ Instale a máquina do servidor de configuração, registe-a no cofre e descubra 
 
 Para instalar e registar o servidor de configuração, faça uma ligação RDP ao VM que pretende utilizar para o servidor de configuração e execute a Configuração Unificada.
 
-Antes de começar, certifique-se de que o relógio está [sincronizado com um servidor](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) de tempo no VM antes de começar. A instalação falha se o tempo for superior a cinco minutos da hora local.
+Antes de começar, certifique-se de que o relógio está [sincronizado com um servidor](/windows-server/networking/windows-time-service/windows-time-service-top) de tempo no VM antes de começar. A instalação falha se o tempo for superior a cinco minutos da hora local.
 
 Agora instale o servidor de configuração:
 
@@ -190,7 +185,7 @@ Agora instale o servidor de configuração:
 
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
-> 
+>
 > Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione 'Servidor **de Configuração'** > ***server name*** > nome Refresh**Server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
@@ -249,9 +244,9 @@ Certifique-se de que completou todas as tarefas no [Passo 1: Preparar](#step-1-p
 
 > [!NOTE]
 > O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
-> 
+>
 > Pode demorar 15 minutos ou mais tempo para as alterações produzirem efeitos e aparecerem no portal.
-> 
+>
 > Para monitorizar os VMs que adiciona, verifique a última hora descoberta de VMs nos **Servidores** > de Configuração**Último Contacto Em**. Para adicionar VMs sem aguardar a deteção agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 
 
@@ -261,16 +256,16 @@ Fazes um teste falhado para o Azure para ter a certeza que está tudo a funciona
 
 ### <a name="verify-machine-properties"></a>Verificar as propriedades da máquina
 
-Antes de executar uma falha de teste, verifique as propriedades da máquina e certifique-se de que cumprem os [requisitos do Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements). Pode ver e modificar propriedades da seguinte forma:
+Antes de executar uma falha de teste, verifique as propriedades da máquina e certifique-se de que cumprem os [requisitos do Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements). Pode ver e modificar propriedades da seguinte forma:
 
 1. Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 2. No painel **Item replicado**, existe um resumo das informações, do estado de funcionamento e dos pontos de recuperação mais recentes disponíveis da VM. Clique em **Propriedades** para ver mais detalhes.
 3. Em **Compute e Network,** modifique as definições conforme necessário.
 
-    - Pode modificar o nome, grupo de recursos, tamanho do alvo, conjunto de [disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md)e definições de disco geridas.
+    - Pode modificar o nome, grupo de recursos, tamanho do alvo, conjunto de [disponibilidade](/azure/virtual-machines/windows/tutorial-availability-sets)e definições de disco geridas.
     - Também pode visualizar e modificar as definições de rede. Estes incluem a rede/sub-rede a que o VM Azure é aderido após a falha, e o endereço IP que será atribuído ao VM.
 1. Em **Discos,** veja informações sobre o sistema operativo e os discos de dados no VM.
-   
+
 
 ### <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
@@ -288,19 +283,19 @@ Quando executa uma ativação pós-falha de teste, ocorre o seguinte:
 Executar uma falha de teste para um VM da seguinte forma:
 
 1. Em **Definições** > **Itens Replicados,** clique no VM > **+Falha de teste**.
-2. Para esta passagem, vamos selecionar para usar o último ponto de recuperação **processado.** 
+2. Para esta passagem, vamos selecionar para usar o último ponto de recuperação **processado.**
 3. No **Teste Failover,** selecione a rede Target Azure.
 4. Clique em **OK** para iniciar a ativação pós-falha.
 5. Acompanhe o progresso clicando no VM para abrir as suas propriedades. Ou, clique no trabalho **de Failover** de Teste em *nome* > de cofre**Definições** > **Empregos** >Trabalhos de**Recuperação do Site**.
 6. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Verifique se o VM tem o tamanho adequado, ligado à rede certa e em funcionamento.
-7. Deverá conseguir ligar-se à VM replicada no Azure agora. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover).
+7. Deverá conseguir ligar-se à VM replicada no Azure agora. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** na VM. Em **Notas,** guarde quaisquer observações associadas à falha do teste.
 
 ## <a name="fail-over-and-fail-back"></a>Ativação e reativação pós-falha
 
 Depois de configurar a replicação e fazer um exercício para ter certeza de que está tudo a funcionar, pode falhar as máquinas até ao Azure, conforme necessário.
 
-Antes de executar uma falha, se quiser ligar-se à máquina em Azure após a falha, [prepare-se para se ligar](https://docs.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure#prepare-to-connect-to-azure-vms-after-failover) antes de começar.
+Antes de executar uma falha, se quiser ligar-se à máquina em Azure após a falha, [prepare-se para se ligar](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) antes de começar.
 
 Em seguida, executar uma falha da seguinte forma:
 
@@ -308,7 +303,7 @@ Em seguida, executar uma falha da seguinte forma:
 1. Em **Definições** > **Itens Replicados,** clique na máquina > **Failover**.
 2. Selecione o ponto de recuperação que pretende utilizar.
 3. No **Teste Failover,** selecione a rede Target Azure.
-4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. Com esta definição, a Recuperação do Local tenta desligar a máquina de origem antes de iniciar a falha. No entanto, a falha continua mesmo que o encerramento falhe. 
+4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. Com esta definição, a Recuperação do Local tenta desligar a máquina de origem antes de iniciar a falha. No entanto, a falha continua mesmo que o encerramento falhe.
 5. Clique em **OK** para iniciar a ativação pós-falha. Pode acompanhar o progresso da falha na página **Jobs.**
 6. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Se se preparar para ligar após a falha, verifique se o VM tem o tamanho adequado, ligado à rede certa e em funcionamento.
 7. Depois de verificar o VM, clique **em comprometer-se** a terminar a falha. Isto elimina todos os pontos de recuperação disponíveis.
@@ -321,18 +316,18 @@ Em seguida, executar uma falha da seguinte forma:
 
 Quando o seu site principal estiver a funcionar novamente, pode voltar de Azure a Azure Stack. Para isso, você precisa baixar o VHD Azure VM e carregá-lo para Azure Stack.
 
-1. Desligue o VM Azure, para que o VHD possa ser descarregado. 
+1. Desligue o VM Azure, para que o VHD possa ser descarregado.
 2. Para começar a descarregar o VHD, instale o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 3. Navegue para o VM no Portal Azure (utilizando o nome VM).
 4. Em **Discos,** clique no nome do disco e recolha as definições.
 
-    - Como exemplo, o VHD URI utilizado https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd no nosso teste: pode ser desfeito para obter os seguintes parâmetros de entrada que são usados para descarregar o VHD.
+    - Como exemplo, o VHD URI utilizado `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` no nosso teste: pode ser desfeito para obter os seguintes parâmetros de entrada que são usados para descarregar o VHD.
         - Conta de Armazenamento: 502055westcentralus
         - Recipiente: wahv9b8d2ceb284fb59287
         - Nome VHD: copiado-3676553984.vhd
 
 5. Agora, use o Azure Storage Explorer para descarregar o VHD.
-6. Faça upload do VHD para Azure Stack com [estes passos](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
+6. Faça upload do VHD para Azure Stack com [estes passos](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. No VM existente ou no novo VM, prenda os VHDs carregados.
 8. Verifique se o Disco OS está correto e inicie o VM.
 

@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70142922"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437780"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>O que é o Azure Data Box Heavy?
 
@@ -116,7 +116,7 @@ Para obter informações mais atualizadas sobre a disponibilidade da região par
 
 Tome os seguintes passos para se inscrever na Data Box Heavy:
 
-1. Inicie sessão no Portal do Azure em: https://portal.azure.com.
+1. [Assine no portal Azure.](https://portal.azure.com)
 2. Clique **+ Crie um recurso** para criar um novo recurso. Procure o **Azure Data Box**. Selecione o serviço **Azure Data Box**.
 3. Clique em **Criar**.
 4. Escolha a subscrição que pretende utilizar para Data Box Heavy. Selecione a região onde pretende implementar o recurso Data Box Heavy. Na opção **Data Box Heavy**, clique em **Inscrever-se**.

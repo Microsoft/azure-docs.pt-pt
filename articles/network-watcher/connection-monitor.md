@@ -16,10 +16,10 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76834659"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
@@ -32,7 +32,7 @@ A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, com
 > * Gerar alertas em métricas de Monitor de Ligação
 > * Diagnosticar um problema de comunicação entre duas VMs e aprender a resolvê-lo
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,7 +46,7 @@ Crie duas VMs.
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione um sistema operativo. Neste tutorial, é utilizado o **Windows Server 2016 Datacenter**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
 
     |Definição|Valor|
     |---|---|
@@ -108,7 +108,7 @@ Crie um monitor de ligação para monitorizar a comunicação através da porta 
 
     ![Monitores de ligação](./media/connection-monitor/connection-monitors.png)
 
-2. Selecione o monitor com o nome **myVm1-myVm2(22)** , conforme mostra a imagem anterior, para ver detalhes do monitor, conforme mostra a imagem seguinte:
+2. Selecione o monitor com o nome **myVm1-myVm2(22)**, conforme mostra a imagem anterior, para ver detalhes do monitor, conforme mostra a imagem seguinte:
 
     ![Detalhes do monitor](./media/connection-monitor/vm-monitor.png)
 
@@ -153,7 +153,7 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
     | Prioridade                | 100            |
     | Nome                    | DenySshInbound |
 
-5. Como o monitor de ligação sonda em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, **Monitor de ligação** e, em seguida, selecione novamente o monitor **myVm1-myVm2(22)** . Os resultados são diferentes agora, conforme mostra a imagem seguinte:
+5. Como o monitor de ligação sonda em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, **Monitor de ligação** e, em seguida, selecione novamente o monitor **myVm1-myVm2(22)**. Os resultados são diferentes agora, conforme mostra a imagem seguinte:
 
     ![Falha nos detalhes do monitor](./media/connection-monitor/vm-monitor-fault.png)
 
@@ -167,7 +167,7 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

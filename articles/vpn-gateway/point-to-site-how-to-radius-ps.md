@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 25bc25d9ec12804cc20baa558dce67fb3f8269a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77149203"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411778"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação Ponto-a-Local a uma VNet utilizando a autenticação RADIUS: PowerShell
 
@@ -31,9 +31,9 @@ Este artigo ajuda-o a configurar uma configuração P2S com autenticação utili
 
 As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. O P2S cria a ligação VPN sobre o SSTP (Protocolo de Túnel de Tomada Segura), OpenVPN ou IKEv2.
 
-* SSTP é um túnel VPN baseado em SSL que é suportado apenas nas plataformas de cliente Windows. Consegue penetrar firewalls, pelo que é uma opção ideal para ligar ao Azure a partir de qualquer lugar. No lado do servidor, suportamos as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide que versão irá utilizar. Para o Windows 8.1 e versões posteriores, o SSTP utiliza 1.2 por predefinição.
+* SSTP é um túnel VPN baseado em TLS que é suportado apenas nas plataformas de clientes do Windows. Consegue penetrar firewalls, pelo que é uma opção ideal para ligar ao Azure a partir de qualquer lugar. No lado do servidor, suportamos as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide que versão irá utilizar. Para o Windows 8.1 e versões posteriores, o SSTP utiliza 1.2 por predefinição.
 
-* OpenVPN® Protocol, um protocolo VPN baseado em SSL/TLS. Uma solução SSL VPN pode penetrar firewalls, uma vez que a maioria das firewalls abrem a porta TCP 443, que o SSL utiliza. O OpenVPN pode ser utilizado para ligar a partir de dispositivos Android, iOS (versões 11.0 ou superior), Windows, Linux e Mac (versões OSX 10.13 ou superior).
+* OpenVPN® Protocol, um protocolo VPN baseado em SSL/TLS. Uma solução TLS VPN pode penetrar firewalls, uma vez que a maioria das firewalls abrem a porta TCP 443, que o TLS utiliza. O OpenVPN pode ser utilizado para ligar a partir de dispositivos Android, iOS (versões 11.0 ou superior), Windows, Linux e Mac (versões OSX 10.13 ou superior).
 
 * VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores).
 

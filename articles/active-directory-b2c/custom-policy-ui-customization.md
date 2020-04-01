@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476727"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396371"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C
 
@@ -30,7 +30,7 @@ Complete os passos em [Get started com políticas personalizadas.](custom-policy
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Modificar o ficheiro de extensões
+### <a name="4-modify-the-extensions-file"></a>4. Modificar o ficheiro de extensões
 
 Para configurar a personalização ui, copie a **Definição** de Conteúdo e os seus elementos infantis do ficheiro base para o ficheiro de extensões.
 
@@ -60,9 +60,9 @@ Para configurar a personalização ui, copie a **Definição** de Conteúdo e os
 
 1. Guarde o ficheiro de extensões.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Faça upload e teste a sua política personalizada atualizada
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Faça upload e teste a sua política personalizada atualizada
 
-### <a name="51-upload-the-custom-policy"></a>5.1 Faça upload da política personalizada
+#### <a name="51-upload-the-custom-policy"></a>5.1 Faça upload da política personalizada
 
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Procure e **selecione Azure AD B2C**.
@@ -70,7 +70,7 @@ Para configurar a personalização ui, copie a **Definição** de Conteúdo e os
 1. Selecione **a política personalizada de upload**.
 1. Faça upload do ficheiro de extensões que alterou anteriormente.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Teste a política personalizada usando **Run agora**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Teste a política personalizada usando **Run agora**
 
 1. Selecione a política que carregou e, em seguida, selecione **Executar agora**.
 1. Deverá poder inscrever-se através de um endereço de e-mail.

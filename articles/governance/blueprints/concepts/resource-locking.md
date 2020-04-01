@@ -1,18 +1,21 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio em Plantas Azure para proteger os recursos ao atribuir uma planta.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199704"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437741"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
 
 A criação de ambientes consistentes à escala só é verdadeiramente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como funciona o bloqueio de recursos em Plantas Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _missões de negação,_ consulte a [proteção](../tutorials/protect-new-resources.md) de novos recursos tutoriais.
+
+> [!NOTE]
+> Os bloqueios de recursos implantados pela Azure Blueprints são aplicados apenas aos recursos implantados pela atribuição do projeto. Os recursos existentes, como os dos grupos de recursos que já existem, não têm fechaduras adicionadas a eles.
 
 ## <a name="locking-modes-and-states"></a>Modos e estados de bloqueio
 

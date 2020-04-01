@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7d1a77800093ae01bc4eb1e1269d1e9a60f9ce26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8129239f152f6b359b930e56466052da12ef4d42
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616658"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437022"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Consultar o Apache Hive através do controlador JDBC no HDInsight)
 
@@ -31,7 +31,7 @@ Para obter mais informações sobre a Interface Hive JDBC, consulte [HiveJDBCInt
 
 ## <a name="jdbc-connection-string"></a>Cadeia de ligação JDBC
 
-As ligações JDBC a um cluster HDInsight em Azure são feitas sobre a porta 443, e o tráfego é seguro usando SSL. A porta de entrada pública que os clusters sentam atrás redireciona o tráfego para a porta que o HiveServer2 está realmente a ouvir. A seguinte cadeia de ligação mostra o formato a utilizar para o HDInsight:
+As ligações JDBC a um cluster HDInsight em Azure são feitas sobre a porta 443, e o tráfego é seguro usando TLS/SSL. A porta de entrada pública que os clusters sentam atrás redireciona o tráfego para a porta que o HiveServer2 está realmente a ouvir. A seguinte cadeia de ligação mostra o formato a utilizar para o HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 

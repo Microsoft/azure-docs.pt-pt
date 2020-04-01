@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 176cd9b0bf72a123bc644ebc27ee0e091aa54e97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245190"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474405"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -99,7 +99,7 @@ Normalmente, os endereços IP públicos são utilizados nos cenários seguintes:
 * Quando o utilizador tem de atualizar as regras de firewall para comunicar com os seus recursos do Azure.
 * Resolução de nomes DNS, em que a alteração de um endereço IP exigiria que os registos A fossem atualizados.
 * Os seus recursos do Azure comunicam com outros serviços ou aplicações que utilizam um modelo de segurança baseado no endereço IP.
-* Utiliza certificados SSL associados a um endereço IP.
+* Utiliza certificados TLS/SSL ligados a um endereço IP.
 
 > [!NOTE]
 > O Azure aloca endereços IP públicos a partir de um intervalo exclusivo de cada região em cada cloud do Azure. Pode transferir a lista de intervalos (prefixos) das clouds [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
@@ -115,13 +115,13 @@ Pode especificar uma etiqueta de nome de domínio DNS par um recurso IP público
 ### <a name="dns-best-practices"></a>Boas Práticas dNS
 Se alguma vez precisar de migrar para outra região, não pode migrar o FQDN do seu endereço IP público. Como uma boa prática, você pode usar o FQDN para criar um registo cname de domínio personalizado apontando para o endereço IP público em Azure. Se precisar de passar para um IP público diferente, será necessário uma atualização para o registo CNAME em vez de ter de atualizar manualmente o FQDN para o novo endereço. Pode utilizar [o Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um fornecedor externo de DNS para o seu Registo DNS. 
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Máquinas virtuais
 
 Pode associar um endereço IP público a uma máquina virtual do [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou do [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ao atribuí-lo à respetiva **interface de rede**. Pode atribuir um endereço IP público dinâmico ou estático a uma máquina virtual. Saiba mais sobre como [atribuir endereços IP a interfaces de rede](virtual-network-network-interface-addresses.md).
 
 ### <a name="internet-facing-load-balancers"></a>Balanceadores de carga com acesso à Internet
 
-Pode associar um endereço IP público criado com qualquer [SKU](#sku) a um [Balanceador de Carga do Azure](../load-balancer/load-balancer-overview.md) ao atribuí-lo à configuração do **front-end** do balanceador de carga. O endereço IP público serve como endereço IP virtual (VIP) com balanceamento de carga. Pode atribuir um endereço IP público dinâmico ou estático a um front-end de balanceador de carga. Também pode atribuir múltiplos endereços IP públicos a um front-end de balanceador de carga, que permite cenários de [vários VIPs](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como um ambiente multi-inquilinos com Web sites baseados em SSL. Para obter mais informações sobre os SKUs de balanceador de carga do Azure, veja [SKU standard de balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Pode associar um endereço IP público criado com qualquer [SKU](#sku) a um [Balanceador de Carga do Azure](../load-balancer/load-balancer-overview.md) ao atribuí-lo à configuração do **front-end** do balanceador de carga. O endereço IP público serve como endereço IP virtual (VIP) com balanceamento de carga. Pode atribuir um endereço IP público dinâmico ou estático a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um balancer de carga front-end, que permite cenários [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente multi-inquilino com websites baseados em TLS. Para obter mais informações sobre os SKUs de balanceador de carga do Azure, veja [SKU standard de balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>Gateways de VPN
 
@@ -159,7 +159,7 @@ Os endereços IP privados podem ser alocados de duas formas:
 - **Dinâmica**: o Azure atribui o endereço IP não atribuído ou não reservado seguinte disponível no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o endereço 10.0.0.10 a um novo recurso caso os endereços 10.0.0.4 a 10.0.0.9 já estejam atribuídos a outros recursos. Dinâmico é o método de alocação predefinido. Após a atribuição, os endereços IP dinâmicos só são lançados se uma interface de rede for eliminada, atribuída a uma sub-rede diferente dentro da mesma rede virtual, ou se o método de alocação for alterado para estático e for especificado um endereço IP diferente. Por predefinição, o Azure atribui o endereço atribuído de forma dinâmica anterior como endereço estático quando o utilizador altera o método de alocação de dinâmico para estático.
 - **Estática**: o utilizador seleciona e atribui um endereço IP não atribuído ou não reservado qualquer do intervalo de endereços da sub-rede. Por exemplo, se o intervalo de endereços de uma sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4 a 10.0.0.9 já estiverem atribuídos a outros recursos, o utilizador pode atribuir qualquer endereço entre 10.0.0.10 e 10.0.255.254. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se o utilizador alterar o método de alocação para dinâmico, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível do intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Máquinas virtuais
 
 Um ou mais endereços IP privados são atribuídos a uma ou mais **interfaces de rede** de uma máquina virtual do [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou do [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pode especificar o método de alocação como dinâmico ou estático para cada endereço IP privado.
 

@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 76d1ba2717ac3c8ac8e86687ef1754a8790f3e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72595072"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420550"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Reserve prefixo de endereço iPv6 público
 O IPv6 para a Rede Virtual Azure (VNet) permite-lhe hospedar aplicações em Azure com conectividade IPv6 e IPv4, tanto dentro de uma rede virtual como de e para a Internet. Além de reservar endereços IPv6 individuais, pode reservar gamas contíguas de endereços Azure IPv6 (conhecido sip Prefix) para a sua utilização. Estes artigos descrevem como criar endereços IP públicos iPv6 e gamas de endereços usando Azure PowerShell e CLI.
 
-> [!Important]
-> O IPv6 para a Rede Virtual Azure encontra-se atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ## <a name="create-a-single-reserved-ipv6-public-ip"></a>Crie um único IP público iPv6 reservado
 

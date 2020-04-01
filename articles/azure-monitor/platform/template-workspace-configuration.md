@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 357075caaf91769026deb839e038e5d42fb63a38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054687"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477978"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure
 
@@ -48,6 +48,9 @@ A tabela seguinte lista a versão API pelos recursos utilizados neste exemplo.
 
 O exemplo seguinte cria um espaço de trabalho usando um modelo da sua máquina local. O modelo JSON está configurado apenas para exigir o nome e a localização do novo espaço de trabalho. Utiliza valores especificados para outros parâmetros do espaço de trabalho, tais como o modo de controlo de [acesso,](design-logs-deployment.md#access-control-mode)o nível de preços, a retenção e o nível de reserva de capacidade.
 
+> [!WARNING]
+> O modelo seguinte cria um espaço de trabalho log Analytics e configura a recolha de dados. Isto pode alterar as suas definições de faturação. Reveja [a utilização e os custos com o Azure Monitor Logs](manage-cost-storage.md) para compreender a faturação dos dados recolhidos num espaço de trabalho do Log Analytics antes de os aplicar no seu ambiente Azure.
+
 Para reserva de capacidade, você define uma reserva de capacidade selecionada `CapacityReservation` para ingerir dados especificando o SKU e um valor em GB para a propriedade `capacityReservationLevel`. A lista seguinte detalha os valores e comportamentos suportados ao configurá-lo.
 
 - Uma vez estabelecido o limite de reserva, não pode mudar para um SKU diferente no prazo de 31 dias.
@@ -75,7 +78,7 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
     }
     ```
 
-> [Informação] para configurações de reserva de capacidade, use estas propriedades em "sku":
+   >[!NOTE]
+   >Para configurações de reserva de capacidade, utilize estas propriedades em "sku":
+   >* "nome": "CapacidadeReserva",
+   >* "capacidadeReservationLevel": 100
 
->   "nome": "CapacidadeReserva",
+2. Editar o modelo para satisfazer os seus requisitos. Considere criar um ficheiro de [parâmetros do Gestor](../../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar os parâmetros como valores inline. Reveja a referência do [modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais as propriedades e valores suportados. 
 
->   "capacidadeReservationLevel": 100
-
-
-2. Editar o modelo para satisfazer os seus requisitos. Reveja a referência do [modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais as propriedades e valores suportados. 
 3. Guarde este ficheiro como **modelo espaço de implantação.json** para uma pasta local.
+
 4. Está pronto para implementar este modelo. Utilize o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome e localização do espaço de trabalho como parte do comando. O nome do espaço de trabalho deve ser globalmente único em todas as subscrições do Azure.
 
    * Para a PowerShell utilize os seguintes comandos da pasta que contém o modelo:
@@ -176,7 +179,7 @@ A implementação pode demorar alguns minutos a concluir. Quando termina, vê-se
 A amostra do modelo seguinte ilustra como:
 
 1. Adicione soluções para o espaço de trabalho
-2. Criar buscas guardadas. Para garantir que as implementações não sobrepõem as buscas salvas acidentalmente, uma propriedade eTag deve ser adicionada no recurso "savedSearches" para anular e manter a idempotencde das pesquisas guardadas.
+2. Criar buscas guardadas. Para garantir que as implementações não sobrepõem as pesquisas guardadas acidentalmente, uma propriedade eTag deve ser adicionada no recurso "savedSearches" para anular e manter a idempotencde das pesquisas guardadas.
 3. Criar um grupo de computador
 4. Ativar a recolha de registos IIS de computadores com o agente Windows instalado
 5. Recolher contadores perf de discos lógicos de computadores Linux (% Inodos Usados; Megabytes grátis; % espaço usado; Transferências de disco/seg; Leituras/seg de disco; Escritas de Disco/seg)
@@ -197,7 +200,7 @@ A amostra do modelo seguinte ilustra como:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ A amostra do modelo seguinte ilustra como:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -605,7 +608,7 @@ A amostra do modelo seguinte ilustra como:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

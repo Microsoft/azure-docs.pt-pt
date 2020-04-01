@@ -1,6 +1,6 @@
 ---
-title: Tutorial de controles de aplicativo de acesso & – Central de segurança do Azure
-description: Este tutorial mostra como configurar uma política de acesso de VM just-in-time e uma política de controle de aplicativo.
+title: Tutorial de controlo si& de aplicações - Azure Security Center
+description: Este tutorial mostra-lhe como configurar uma política de acesso VM just-in-time e uma política de controlo de aplicações.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686329"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435510"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: proteger os seus recursos com o Centro de Segurança do Azure
-O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso à VM (just-in-time) de máquina virtual (JIT) reduz sua exposição a ataques, permitindo que você negue o acesso persistente às VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
+O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso da máquina virtual (VM) just-in-time (VM) reduz a sua exposição a ataques, permitindo-lhe negar o acesso persistente aos VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configurar uma política de acesso de VM just-in-time
+> * Configure uma política de acesso VM just-in-time
 > * Configurar uma política de controlo de aplicações
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode tentar o Nível Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ## <a name="manage-vm-access"></a>Gerir o acesso à VM
-O acesso à VM JIT pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário.
+O acesso ao VM JIT pode ser utilizado para bloquear o tráfego de entrada para os seus VMs Azure, reduzindo a exposição a ataques, proporcionando um fácil acesso à ligação aos VMs quando necessário.
 
-As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando o just-in-time está habilitado, a central de segurança usa regras de NSG (grupo de segurança de rede), que restringem o acesso a portas de gerenciamento para que não possam ser direcionadas por invasores.
+As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando o tempo é ativado, o Security Center utiliza as regras do Network Security Group (NSG), que restringem o acesso a portas de gestão para que não possam ser alvo de atacantes.
 
-1. No menu principal da central de segurança, selecione **acesso à VM just-in-time** em **defesa de nuvem avançada**.
+1. No menu principal do Security Center, selecione **acesso VM just-in-time** sob **DEFESA DE NUVEM AVANÇADA**.
 
    ![Acesso just-in-time à VM][1]
 
-   O **acesso just-in-time à VM** fornece informações sobre o estado de suas VMs:
+   **O acesso vm just-in-time** fornece informações sobre o estado dos seus VMs:
 
-   - **Configuradas** -VMs que foram configuradas para dar suporte ao acesso de VM just-in-time.
-   - **Recomendado** – VMs que podem dar suporte ao acesso à VM just-in-time, mas não foram configuradas para.
+   - **Configurados** - VMs que foram configurados para suportar acesso vM just-in-time.
+   - **Recomendado** - VMs que podem suportar acesso vm just-in-time, mas não foram configurados para.
    - **Nenhuma recomendação** - As razões que podem fazer com que uma VM não seja recomendada são:
 
-     - NSG ausente-a solução just-in-time exige que um NSG esteja em vigor.
-     - VM clássica-o acesso à VM just-in-time da central de segurança atualmente dá suporte apenas a VMs implantadas por meio de Azure Resource Manager.
-     - Outro – uma VM estará nessa categoria se a solução just-in-time estiver desativada na política de segurança da assinatura ou no grupo de recursos, ou se a VM não tiver um IP público e não tiver um NSG em vigor.
+     - NSG desaparecido - A solução just-in-time requer que um NSG esteja no lugar.
+     - O acesso VM clássico do Centro de Segurança just-in-time suporta atualmente apenas VMs implantados através do Azure Resource Manager.
+     - Outros - Um VM está nesta categoria se a solução just-in-time for desligada na política de segurança da subscrição ou do grupo de recursos, ou se o VM está faltando um IP público e não tem um NSG no lugar.
 
-2. Selecione uma VM recomendada e clique em **habilitar JIT em 1 VM** para configurar uma política just-in-time para essa VM:
+2. Selecione um VM recomendado e clique **em Ativar jIT em 1 VM** para configurar uma política justa para esse VM:
 
-   Você pode salvar as portas padrão que a central de segurança recomenda ou pode adicionar e configurar uma nova porta na qual você deseja habilitar a solução just-in-time. Neste tutorial, vamos adicionar uma porta ao selecionar **Adicionar**.
+   Pode guardar as portas padrão que o Security Center recomenda ou pode adicionar e configurar uma nova porta na qual pretende ativar a solução just-in-time. Neste tutorial, vamos adicionar uma porta ao selecionar **Adicionar**.
 
    ![Adicionar configuração da porta][2]
 
@@ -74,7 +74,7 @@ Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplica�
 
    ![Controlos de aplicações adaptáveis][3]
 
-   A secção **Grupos de recursos** contém três separadores:
+   A secção **de grupos de recursos** contém três separadores:
 
    - **Configurados**: lista de grupos de recursos que contêm as VMs que foram configuradas com o controlo de aplicações.
    - **Recomendados**: lista de grupos de recursos para os quais o controlo de aplicações é recomendado.
@@ -88,13 +88,13 @@ Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplica�
 
    - **NOME**: o caminho completo da aplicação
    - **PROCESSOS**: quantas aplicações residem em cada caminho
-   - **COMUNS**: "Sim" indica que estes processos foram executados na maioria das VMs deste grupo de recursos
-   - **EXPLORÁVEIS**: um ícone de aviso indica se as aplicações podem ser utilizadas por um atacante para ignorar as listas de permissões de aplicações. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
+   - **COMMON**: "Sim" indica que estes processos foram executados na maioria dos VMs deste grupo de recursos
+   - **EXPLOREABLE**: Um ícone de aviso indica se as aplicações podem ser utilizadas por um intruso para contornar a listagem de aplicações. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
 
 4. Depois de concluir as suas seleções, selecione **Criar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se você planeja continuar trabalhando com os tutoriais e guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
+Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com quickstarts e tutoriais subsequentes, continue a executar o nível Standard e mantenha o fornecimento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
 2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
@@ -104,20 +104,20 @@ Outros inícios rápidos e tutoriais desta coleção têm por base este início 
 
 Se pretender desativar aprovisionamento automático:
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
+1. Volte ao menu principal do Centro de Segurança e selecione a política de **segurança.**
 2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
 3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
 4. Selecione **Guardar**.
 
 >[!NOTE]
-> Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
+> A desativação automática não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a limitar a exposição a ameaças ao:
 
 > [!div class="checklist"]
-> * Configurando uma política de acesso de VM just-in-time para fornecer acesso controlado e auditado às VMs somente quando necessário
+> * Configurar uma política de acesso VM just-in-time para fornecer acesso controlado e auditado aos VMs apenas quando necessário
 > * Configurar uma política de controlos de aplicações adaptáveis para controlar as aplicações que podem ser executadas nas suas VMs
 
 Avance para o próximo tutorial para aprender a responder a incidentes de segurança.

@@ -1,6 +1,6 @@
 ---
-title: Encriptação Apache Kafka SSL & autenticação - Azure HDInsight
-description: Criar encriptação SSL para comunicação entre clientes Kafka e corretores Kafka, bem como entre corretores Kafka. Configurar a autenticação SSL dos clientes.
+title: Encriptação Apache Kafka TLS & autenticação - Azure HDInsight
+description: Configurar a encriptação TLS para comunicação entre clientes Kafka e corretores Kafka, bem como entre corretores Kafka. Configurar a autenticação SSL dos clientes.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,25 +8,25 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4a363caf61046cf39c31ae2d5f35622b7b9109f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 027a66f4b83225f3c776e1bff1d706f6f4dba976
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130026"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437002"
 ---
-# <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar encriptação e autenticação da camada de tomadas seguras (SSL) para Apache Kafka em Azure HDInsight
+# <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar encriptação e autenticação TLS para Apache Kafka em Azure HDInsight
 
-Este artigo mostra-lhe como configurar a encriptação SSL entre clientes Apache Kafka e corretores Apache Kafka. Também mostra como configurar a autenticação dos clientes (por vezes referido como SSL bidirecional).
+Este artigo mostra-lhe como configurar a encriptação Transport Layer Security (TLS), anteriormente conhecida como encriptação Secure Sockets Layer (SSL), entre clientes Apache Kafka e corretores Apache Kafka. Também mostra como configurar a autenticação dos clientes (por vezes referido como TLS bidirecional).
 
 > [!Important]
-> Existem dois clientes que pode utilizar para aplicações Kafka: um cliente Java e um cliente de consola. Apenas o `ProducerConsumer.java` cliente Java pode usar SSL tanto para produzir como consumir. O cliente `console-producer.sh` produtor de consolas não trabalha com a SSL.
+> Existem dois clientes que pode utilizar para aplicações Kafka: um cliente Java e um cliente de consola. Apenas o `ProducerConsumer.java` cliente Java pode usar TLS tanto para produzir como consumir. O cliente `console-producer.sh` produtor de consolas não trabalha com a TLS.
 
 > [!Note] 
 > O produtor de consolaS HDInsight Kafka com a versão 1.1 não suporta o SSL.
 ## <a name="apache-kafka-broker-setup"></a>Configuração de corretor Apache Kafka
 
-A configuração do corretor Kafka SSL utilizará quatro VMs de cluster HDInsight da seguinte forma:
+A configuração do corretor Kafka TLS utilizará quatro VMs de cluster HDInsight da seguinte forma:
 
 * headnode 0 - Autoridade de Certificados (CA)
 * nó de trabalhador 0, 1 e 2 - corretores
@@ -119,7 +119,7 @@ Utilize as seguintes instruções detalhadas para completar a configuração do 
 
     ```
 
-## <a name="update-kafka-configuration-to-use-ssl-and-restart-brokers"></a>Atualizar a configuração kafka para usar sSL e reiniciar corretores
+## <a name="update-kafka-configuration-to-use-tls-and-restart-brokers"></a>Atualizar a configuração kafka para usar TLS e reiniciar corretores
 
 Criou agora cada corretor kafka com uma loja de chaves e uma loja de fidedignidade, e importou os certificados corretos. Em seguida, modificar propriedades de configuração kafka relacionadas usando Ambari e, em seguida, reiniciar os corretores Kafka.
 
@@ -166,7 +166,7 @@ Para completar a modificação de configuração, faça os seguintes passos:
 
 ## <a name="client-setup-without-authentication"></a>Configuração do cliente (sem autenticação)
 
-Se não necessitar de autenticação, o resumo dos passos para configurar apenas a encriptação SSL é:
+Se não necessitar de autenticação, o resumo dos passos para configurar apenas a encriptação TLS é:
 
 1. Inscreva-se na AC (nó de cabeça ativa).
 1. Copie o ca cert para a máquina cliente da máquina CA (wn0).
@@ -219,7 +219,7 @@ Estes passos são detalhados nos seguintes fragmentos de código.
 ## <a name="client-setup-with-authentication"></a>Configuração do cliente (com autenticação)
 
 > [!Note]
-> Os seguintes passos só são necessários se estiver a configurar a encriptação SSL **e** a autenticação. Se estiver apenas a configurar a encriptação, consulte a [configuração do Cliente sem autenticação.](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
+> Os seguintes passos só são necessários se estiver a configurar a encriptação TLS **e** a autenticação. Se estiver apenas a configurar a encriptação, consulte a [configuração do Cliente sem autenticação.](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
 
 Os quatro passos seguintes resumem as tarefas necessárias para completar a configuração do cliente:
 
@@ -302,7 +302,7 @@ Os detalhes de cada passo são dados abaixo.
 ## <a name="verification"></a>Verificação
 
 > [!Note]
-> Se o HDInsight 4.0 e o Kafka 2.1 estiverem instalados, pode utilizar o produtor/consumidores da consola para verificar a sua configuração. Caso contrário, mande o produtor Kafka no porto 9092 e envie mensagens para o tema e, em seguida, utilize o consumidor kafka no porto 9093 que utiliza sSL.
+> Se o HDInsight 4.0 e o Kafka 2.1 estiverem instalados, pode utilizar o produtor/consumidores da consola para verificar a sua configuração. Caso contrário, mande o produtor Kafka no porto 9092 e envie mensagens para o tema e, em seguida, utilize o consumidor kafka no porto 9093 que utiliza TLS.
 
 ### <a name="kafka-21-or-above"></a>Kafka 2.1 ou superior
 

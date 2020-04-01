@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2019
+ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 348576fbbdd1037f9e2e792218b96bbbecf36668
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588370"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422151"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conecte dados da Microsoft Cloud App Security 
 
 
 
-Pode transmitir registos da [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) para o Azure Sentinel com um único clique. Esta ligação permite-lhe transmitir os alertas da Cloud App Security para o Azure Sentinel. 
+O conector [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) permite transmitir alertas e [registos de Cloud Discovery](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) do MCAS para o Azure Sentinel. Isto permitir-lhe-á ganhar visibilidade nas suas aplicações na nuvem, obter análises sofisticadas para identificar e combater ameaças cibernéticas e controlar como os seus dados viajam.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Utilizador com permissões de administrador global ou administrador de segurança
+- O seu utilizador deve ter lido e escrito permissões no espaço de trabalho.
+- O seu utilizador deve ter permissões de Administrador Global ou Administrador de Segurança no inquilino do espaço de trabalho.
 - Para transmitir registos da Cloud Discovery no Azure Sentinel, [ative o Azure Sentinel como o seu SIEM na Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
 
 > [!IMPORTANT]
@@ -43,18 +44,20 @@ Se já tem Cloud App Security, certifique-se de que está [ativado na sua rede](
 Se a Cloud App Security for implementada e ingerir os seus dados, os dados de alerta podem ser facilmente transmitidos para o Azure Sentinel.
 
 
-1. No Azure Sentinel, selecione **conectores de dados,** clique no azulejo **cloud App Security** e selecione página de **conector Open**.
+1. A partir do menu de navegação Azure Sentinel, selecione **conectores de dados**. A partir da lista de conectores, clique no azulejo **microsoft Cloud App Security** e, em seguida, no botão de página do **conector Open** na parte inferior direita.
 
-1. Selecione quais os registos que pretende transmitir para O Sentinel a dispor, pode escolher **registos** de **Alertas** e Cloud Discovery (pré-visualização). 
+1. Selecione quais os registos que pretende transmitir para O Sentinela Azul; pode escolher **Alertas** e **Registos de Descoberta de Nuvem** (pré-visualização). 
 
-1. Clique em **Ligar**.
+1. Clique em **Aplicar Alterações**.
 
-1. Para utilizar o esquema relevante no Log Analytics para os alertas de Segurança de Aplicações cloud, procure **securityAlert**.
+1. Para utilizar o esquema relevante no Log Analytics para `SecurityAlert` alertas de Segurança de Aplicações cloud, digite na janela de consulta. Para o esquema de logs `McasShadowItReporting`Cloud Discovery, escreva .
 
-
-
+> [!NOTE]
+> O Cloud Discovery ajuda a detetar e identificar tendências, agregando as ligações dos utilizadores subjacentes às aplicações em nuvem.
+>
+> Uma vez que os dados da Cloud Discovery são agregados por dia, esteja ciente de que até 24 horas dos dados mais recentes não serão refletidos no Azure Sentinel. No caso de uma investigação de baixo nível necessitar de dados mais imediatos, deve ser feito diretamente no aparelho de origem ou no serviço onde residem os dados brutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Microsoft Cloud App Security ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
-- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- Começar a detetar ameaças com o Azure Sentinel, usando regras [incorporadas](tutorial-detect-threats.md) ou [personalizadas.](tutorial-detect-threats-custom.md)

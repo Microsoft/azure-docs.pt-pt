@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 987cdd76ba533fa0ae4b37c2755fe84a00d14de5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604172"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435850"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -71,8 +71,8 @@ Os artefactos das máquinas são armazenados centralmente na mesma região que a
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gestão da recolha de dados provenientes de máquinas virtuais
 
-Quando ativar o Centro de Segurança do Azure, a recolha de dados é ativada para cada uma das suas subscrições do Azure. Também pode ativar a recolha de dados para as suas subscrições na secção Política de Segurança do Centro de Segurança do Azure. Quando a Recolha de Dados é ativada, o Centro de Segurança do Azure aprovisiona o Agente de Monitorização da Microsoft em todas as máquinas virtuais do Azure existentes suportadas e quaisquer máquinas novas criadas.
-O agente de Monitorização da Microsoft analisa várias configurações e eventos relacionados com a segurança em rastreios de [Rastreio de Eventos para o Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Além disso, o sistema operativo irá gerar eventos do registo de eventos durante a execução da máquina. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Agente de Monitorização da Microsoft lê as entradas de registo de eventos e rastreios ETW e copia-as para as suas áreas de trabalho para análise. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para as suas áreas de trabalho e permite eventos de criação de processos e auditoria da linha de comandos.
+Quando ativar o Centro de Segurança do Azure, a recolha de dados é ativada para cada uma das suas subscrições do Azure. Também pode ativar a recolha de dados para as suas subscrições na secção Política de Segurança do Centro de Segurança do Azure. Quando a recolha de dados é ativada, o Azure Security Center disponibiliza o agente Log Analytics em todas as máquinas virtuais existentes e as novas que são criadas.
+O agente Log Analytics verifica várias configurações relacionadas com a segurança e eventos em Rastreio de [Eventos para rastreios windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Além disso, o sistema operativo irá gerar eventos do registo de eventos durante a execução da máquina. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O agente Log Analytics lê as entradas de registo de eventos e os vestígios de ETW e copia-os para o seu espaço de trabalho para análise. O agente Log Analytics também copia ficheiros de despejo de falhas para o seu espaço de trabalho, activaeventos de criação de processos e permite a auditoria da linha de comando.
 
 Se estiver a utilizar o Centro de Segurança do Azure gratuito, também pode desativar a recolha de dados das máquinas virtuais na Política de Segurança. A Recolha de Dados é necessária para as subscrições no escalão Standard. A recolha de instantâneos e artefactos de discos de VM continua ativada, mesmo que a recolha de dados tenha sido desativada.
 
