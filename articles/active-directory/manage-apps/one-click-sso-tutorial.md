@@ -1,6 +1,6 @@
 ---
-title: Configuração de um clique, o único início de sessão (SSO) da sua aplicação do Azure Marketplace | Documentos da Microsoft
-description: Passos para configuração de um clique do SSO para a sua aplicação no Azure Marketplace.
+title: Configuração de um clique, única inscrição (SSO) da sua aplicação Azure Marketplace / Microsoft Docs
+description: Passos para configuração de um clique de SSO para a sua aplicação a partir do Mercado Azure.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,73 +17,73 @@ ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67872430"
 ---
-# <a name="one-click-app-configuration-of-single-sign-on"></a>Configuração de aplicações de um clique de início de sessão único
+# <a name="one-click-app-configuration-of-single-sign-on"></a>Configuração de aplicativo de um clique de um único sinal
 
- Neste tutorial, irá aprender a executar num único clique, o única início de sessão (SSO) configuração para SAML-suportar, aplicações do Azure Active Directory (Azure AD) no Azure Marketplace.
+ Neste tutorial, aprende-se a executar uma configuração de um clique e um único sinal (SSO) para aplicações de suporte a SAML, azure Ative Directory (Azure AD) a partir do Azure Marketplace.
 
-## <a name="introduction-to-one-click-sso"></a>Introdução ao SSO num único clique
+## <a name="introduction-to-one-click-sso"></a>Introdução ao SSO de um clique
 
-A funcionalidade SSO num único clique destina-se para configurar o início de sessão único para aplicações do Azure Marketplace que suportam o protocolo SAML. Na página de configuração do SSO do Azure AD, esta opção permite-lhe configurar automaticamente os metadados do Azure AD no lado do aplicativo. Dessa forma, pode configurar rapidamente a SSO com um mínimo de esforço manual.
+A funcionalidade SSO de um clique foi concebida para configurar um único sinal para aplicações do Azure Marketplace que suportam o protocolo SAML. Na página de configuração Azure AD SSO, esta opção permite configurar automaticamente os metadados Azure AD no lado da aplicação. Desta forma, pode configurar rapidamente o SSO com o mínimo de esforço manual.
 
-## <a name="advantages-of-one-click-sso"></a>Vantagens do SSO num único clique
+## <a name="advantages-of-one-click-sso"></a>Vantagens do SSO de um clique
 
-- Configuração rápida do SSO de aplicações do Azure Marketplace que exigem configuração manual no lado do aplicativo.
-- Configuração de SSO mais eficiente e precisa.
-- Nenhuma comunicação do parceiro ou suporte necessários à configuração do. O aplicativo fornece a interface do Usuário para a configuração de SAML.
+- Configuração Rápida SSO de aplicações Azure Marketplace que requerem configuração manual no lado da aplicação.
+- Configuração SSO mais eficiente e precisa.
+- Não é necessária nenhuma comunicação ou apoio de parceiros para a configuração. A aplicação fornece o UI para a configuração SAML.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição ativa do aplicativo para configurar com o SSO. Também precisa de credenciais de administrador.
-- O **segura de aplicações meu início de sessão extensão** da Microsoft instalado no browser. Para obter mais informações, consulte [aplicações de acesso e a utilização no portal minhas aplicações](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- Uma subscrição ativa da aplicação para configurar com SSO. Também precisa de credenciais de administração.
+- A **extensão de 'Sign-in'** Da Microsoft instalada no navegador. Para mais informações, consulte [O Acesso e utilize aplicações no portal My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
-## <a name="one-click-sso-configuration-steps"></a>Passos de configuração de SSO num único clique
+## <a name="one-click-sso-configuration-steps"></a>Passos de configuração SSO de um clique
 
 1. Adicione a aplicação do Azure Marketplace.
 
-2. Selecione **início de sessão único**.
+2. Selecione **um único sinal .**
 
-3. Selecione **ativar o início de sessão único**.
+3. **Selecione Ativar um único sinal .**
 
-4. Preencher os valores de configuração obrigatório na **configuração básica de SAML** secção.
+4. Povoe os valores de configuração obrigatórios na secção **de configuração Básica SAML.**
 
     > [!NOTE]
-    > Se a aplicação tiver declarações personalizadas que terá de configurar, manipulá-las antes de executar o SSO num único clique.
+    > Se a aplicação tiver alegações personalizadas de que precisa de configurar, manuseie-as antes de realizar um clique de SSO.
 
-5. Se a funcionalidade SSO de um clique está disponível para a sua aplicação do Azure Marketplace, verá seguinte ecrã. Poderá ter de instalar o **segura de aplicações meu início de sessão da extensão de browser** ao selecionar **instalar a extensão**.
+5. Se a funcionalidade SSO de um clique estiver disponível para a sua aplicação Azure Marketplace, consulte o ecrã seguinte. Poderá ter de instalar a extensão de **navegador 'Sessão' "My Apps Secure",** selecionando **a extensão**.
 
-   ![Instalar a extensão de browser seguro de aplicações My início de sessão](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
+   ![Instale a extensão de navegador de sessão de sinais de segurança das minhas aplicações](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Depois de adicionar a extensão para o navegador, selecione **programa de configuração \<nome da aplicação\>** . Após está redirecionado para o portal de administração do aplicativo, inicie sessão como administrador.
+6. Depois de adicionar a extensão ao navegador, **selecione \<'Configurar Nome de\>Aplicação 'Configurar'.** Depois de ser redirecionado para o portal de administração de aplicações, inscreva-se como administrador.
 
-   ![Configurar o nome da aplicação](./media/one-click-sso-tutorial/setup-sso.png)
+   ![Nome da aplicação de configuração](./media/one-click-sso-tutorial/setup-sso.png)
 
-7. A extensão do browser configura automaticamente o SSO no aplicativo. Confirme selecionando **Sim**.
+7. A extensão do navegador configura automaticamente o SSO na aplicação. Confirme selecionando **Sim**.
 
-   ![A guardar os dados preenchidos automaticamente](./media/one-click-sso-tutorial/save-autopopulate.png)
+   ![Salvar os dados auto-povoados](./media/one-click-sso-tutorial/save-autopopulate.png)
 
    > [!NOTE]
-   > Se a configuração de SSO para a sua aplicação requer passos adicionais, seguir as instruções para efetuar os passos.
+   > Se a configuração SSO para a sua aplicação necessitar de passos adicionais, seguindo as instruções para executar os passos.
 
-8. Após concluir a configuração, selecione **OK** para guardar as alterações.
+8. Depois de terminar a configuração, selecione **OK** para guardar as alterações.
 
-   ![Salvar os dados preenchidos automaticamente](./media/one-click-sso-tutorial/save-data.png)
+   ![Guarde os dados auto-povoados](./media/one-click-sso-tutorial/save-data.png)
 
-9. Apresenta uma janela de confirmação para informá-lo de que as definições de SSO com êxito estão configuradas.
+9. Uma janela de confirmação mostra para que saiba que as definições SSO estão configuradas com sucesso.
 
    ![SSO configurado](./media/one-click-sso-tutorial/sso-configured.png)
 
-10. Após a configuração é concluída, estiver terminada a aplicação e retornado para o portal do Azure.
+10. Depois de a configuração ter sucesso, é assinado fora da aplicação e devolvido ao portal Azure.
 
-11. Pode selecionar **testar** para testar o início de sessão único.
+11. Pode selecionar **o Teste** para testar um único sinal.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [O que é a extensão de browser seguro de aplicações My início de sessão?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+* [Lista de tutoriais sobre como integrar aplicações do SaaS com diretório ativo azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+* [O que é a extensão de navegador De Sintetizador as Minhas Aplicações?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
  

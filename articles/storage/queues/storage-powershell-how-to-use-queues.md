@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96828a854c340b89c26023ce60f9c85dd1bb4cdd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087066"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473927"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>Adicione uma mensagem a uma fila
 
-As operações que impactam as mensagens reais na fila utilizam a biblioteca de clientes de armazenamento .NET como exposta na PowerShell. Para adicionar uma mensagem a uma fila, crie uma nova instância do objeto de mensagem, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) class. Em seguida, chame o método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage). É possível criar uma CloudQueueMessage a partir de uma cadeia (no formato UTF-8) ou uma matriz de bytes.
+As operações que impactam as mensagens reais na fila utilizam a biblioteca de clientes de armazenamento .NET como exposta na PowerShell. Para adicionar uma mensagem a uma fila, crie uma nova instância do objeto de mensagem, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Em seguida, chame o método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage). É possível criar uma CloudQueueMessage a partir de uma cadeia (no formato UTF-8) ou uma matriz de bytes.
 
 O exemplo que se segue demonstra como adicionar uma mensagem à sua fila.
 

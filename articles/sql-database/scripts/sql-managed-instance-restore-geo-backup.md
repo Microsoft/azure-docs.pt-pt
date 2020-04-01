@@ -1,6 +1,6 @@
 ---
-title: Exemplo do PowerShell Restore backup geográfico-banco de dados SQL do Azure
-description: Azure PowerShell script de exemplo para restaurar um banco de dados SQL Instância Gerenciada do Azure de um backup com redundância geográfica.
+title: PowerShell exemplo Restaurar Geo-backup - Base de Dados Azure SQL
+description: Script de exemplo Azure PowerShell para restaurar uma Base de Dados de Instância Gerida Azure SQL a partir de uma cópia de segurança georedundante.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,21 +12,21 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
 ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74304082"
 ---
-# <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usar o PowerShell para restaurar um banco de dados Instância Gerenciada para outra região geográfica
+# <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Use powerShell para restaurar uma base de dados de instância gerida para outra geo-região
 
-Este exemplo de script do PowerShell restaura um banco de dados SQL do Azure Instância Gerenciada de uma região geográfica remota (restauração geográfica).  
+Este exemplo de script PowerShell restaura uma base de dados Azure SQL Managed Instance de uma geo-região remota (geo-restauro).  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer AZ PowerShell 1.4.0 ou mais tarde. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -61,7 +61,7 @@ $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $TargetResourceGroupName
@@ -74,12 +74,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Cria um backup com redundância geográfica do banco de dados Instância Gerenciada. |
-| [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Cria um banco de dados em um Instância Gerenciada do backup geográfico. |
+| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Cria uma cópia de segurança geo-redundante da Base de Dados de Instâncias Geridas. |
+| [Restaurar-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Cria uma base de dados sobre um Caso Gerido a partir de geo-backup. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o PowerShell, consulte a [documentação do Azure PowerShell](/powershell/azure/overview).
+Para mais informações sobre o PowerShell, consulte a [documentação do Azure PowerShell.](/powershell/azure/overview)
 
 Pode ver exemplos do script do PowerShell da Base de Dados SQL adicionais nos [scripts do PowerShell da Base de Dados SQL do Azure](../sql-database-powershell-samples.md).

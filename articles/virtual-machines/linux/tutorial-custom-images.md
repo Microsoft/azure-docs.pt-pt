@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar imagens de VM personalizadas com o CLI do Azure
+title: Tutorial - Crie imagens VM personalizadas com o Azure CLI
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar uma imagem de máquina virtual personalizada no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e629c605c0ffd3a7e0e1e53c3d661642b9dd01b7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74034502"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
@@ -33,15 +33,15 @@ As imagens personalizadas são como imagens do marketplace, mas são criadas por
 > * Listar todas as imagens na sua subscrição
 > * Eliminar uma imagem
 
-Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Os passos abaixo detalham como tornar uma VM existente numa imagem personalizada reutilizável que pode utilizar para criar novas instâncias da VM.
 
-Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for preciso, este [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pode criar um para si. Quando trabalhar no tutorial, substitua o grupo de recursos e os nomes da VM sempre que preciso.
+Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se necessário, esta amostra de [guião](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) pode criar uma para si. Quando trabalhar no tutorial, substitua o grupo de recursos e os nomes da VM sempre que preciso.
 
 ## <a name="create-a-custom-image"></a>Criar uma imagem personalizada
 
@@ -52,7 +52,7 @@ Para criar uma imagem de uma máquina virtual, tem de preparar a VM ao desaprovi
 O desaprovisionamento generaliza a VM ao remover informações específicas do computador. Esta generalização torna possível implementar várias VMs a partir de uma única imagem. Durante o desaprovisionamento, o nome do anfitrião é reposto para *localhost.localdomain*. Também são eliminadas as chaves de anfitrião do SSH, as configurações do servidor de nomes, a palavra-passe de raiz e as concessões DHCP em cache.
 
 > [!WARNING]
-> O desprovisionamento e a marcação da VM como generalizado tornarão a VM de origem inutilizável e não poderá ser reiniciada. 
+> A desprovisionamento e a marcação do VM como generalizado tornarão a fonte VM inutilizável, não podendo ser reiniciada. 
 
 Para desaprovisionar a VM, utilize o agente da VM do Azure (waagent). O agente da VM do Azure é instalado na VM e gere o aprovisionamento e a interação com o Controlador dos Recursos de Infraestrutura do Azure. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
 
@@ -111,7 +111,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Recomendamos que você limite o número de implantações simultâneas a 20 VMs de uma única imagem. Se você estiver planejando implantações simultâneas em grande escala de mais de 20 VMs da mesma imagem personalizada, deverá usar uma [Galeria de imagens compartilhadas](shared-image-galleries.md) com várias réplicas de imagem. 
+Recomendamos que limite o número de implementações simultâneas a 20 VMs de uma única imagem. Se estiver a planear implementações em larga escala e simultâneas de mais de 20 VMs a partir da mesma imagem personalizada, deve utilizar uma Galeria de [Imagem Partilhada](shared-image-galleries.md) com múltiplas réplicas de imagem. 
 
 ## <a name="image-management"></a>Gestão das imagens 
 
@@ -146,5 +146,5 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 Avance para o próximo tutorial para saber mais sobre máquinas virtuais de elevada disponibilidade.
 
 > [!div class="nextstepaction"]
-> [Criar VMs de elevada disponibilidade](tutorial-availability-sets.md).
+> [Criar VMs altamente disponíveis.](tutorial-availability-sets.md)
 

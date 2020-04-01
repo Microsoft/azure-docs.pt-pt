@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Corptax | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Corptax.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Corptax Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Corptax.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,173 +17,173 @@ ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cd09a35d5796cdc4267c9d01a901b4e3b812d7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67104389"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integração do Active Directory do Azure com Corptax
+# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integração do Diretório Ativo Azure com a Corptax
 
-Neste tutorial, saiba como integrar Corptax com o Azure Active Directory (Azure AD).
-Integrar Corptax no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar a Corptax com o Azure Ative Directory (Azure AD).
+Integrar a Corptax com a Azure AD proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Corptax.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Corptax (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar em Azure AD quem tem acesso à Corptax.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Corptax (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Corptax, terá dos seguintes itens:
+Para configurar a integração da Azure AD com a Corptax, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* Corptax logon único habilitado subscrição
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura ativada por inscrição individual corptax
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta Corptax **SP** iniciada SSO
+* Corptax apoia **SP** iniciado SSO
 
-## <a name="adding-corptax-from-the-gallery"></a>Adicionando Corptax da Galeria
+## <a name="adding-corptax-from-the-gallery"></a>Adicionando Corptax da galeria
 
-Para configurar a integração do Corptax com o Azure AD, terá de adicionar Corptax a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração da Corptax em Azure AD, você precisa adicionar Corptax da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar Corptax a partir da galeria, execute os seguintes passos:**
+**Para adicionar corptax da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select_azuread.png)
+    ![O botão Azure Ative Directory](common/select_azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise_applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise_applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add_new_app.png)
+    ![O novo botão de aplicação](common/add_new_app.png)
 
-4. Na caixa de pesquisa, escreva **Corptax**, selecione **Corptax** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Corptax,** selecione **Corptax** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
     ![Corptax na lista de resultados](common/search_new_app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Corptax com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Corptax deve ser estabelecido.
+Nesta secção, configura e testa o único sign-on azure ad com a Corptax com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Corptax.
 
-Para configurar e testar o Azure AD início de sessão único com Corptax, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o único sign-on azure ad com a Corptax, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Corptax Single Sign-On](#configure-corptax-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Corptax](#create-corptax-test-user)**  - para ter um equivalente da Eduarda Almeida na Corptax que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure O Sinal Único do Corptax](#configure-corptax-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create Corptax test user](#create-corptax-test-user)** - para ter uma contrapartida de Britta Simon na Corptax que está ligada à representação azure AD do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com Corptax, execute os seguintes passos:
+Para configurar o único sign-on azure ad com a Corptax, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Corptax** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da Corptax,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select_sso.png)
+    ![Configurar um único link de sinalização](common/select_sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select_saml_option.png)
+    ![Modo de seleção de sinal único](common/select_saml_option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit_urls.png)
+    ![Editar Configuração Básica do SAML](common/edit_urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Corptax domínio e URLs únicas início de sessão em informações](common/sp_intiated.png)
+    ![Corptax Domain e URLs informações únicas de inscrição](common/sp_intiated.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://asp.corptax.com`
+    Na caixa de texto **de URL sign-on,** escreva um URL:`https://asp.corptax.com`
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir **XML de metadados de Federação** e guarde-o no seu computador.
+5. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar **Metadados da Federação XML** e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-### <a name="configure-corptax-single-sign-on"></a>Configurar Corptax Single Sign-On
+### <a name="configure-corptax-single-sign-on"></a>Configure Corptax Single Sign-On
 
-Para configurar o início de sessão único num **Corptax** lado, terá de enviar o transferido **XML de metadados de Federação** para [equipa de suporte de Corptax](https://connect.corptax.com/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sign-on no lado **da Corptax,** você precisa enviar o descarregamento **da Federação Metadados XML** para a equipe de [suporte corptax](https://connect.corptax.com/). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new_user.png)
+    ![Novo botão de utilizador](common/new_user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user_properties.png)
+    ![A caixa de diálogo do Utilizador](common/user_properties.png)
 
-    a. Na **Name** , insira **BrittaSimon**.
+    a. No campo **Nome,** entre **brittaSimon.**
 
-    b. Na **nome de utilizador** , digite `brittasimon\@yourcompanydomain.extension`  
+    b. No campo de **nome do utilizador,** escreva`brittasimon\@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Corptax.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Corptax.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Corptax**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Corptax**.
 
-    ![Painel de aplicações empresariais](common/enterprise_applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise_applications.png)
 
-2. Na lista de aplicativos, escreva e selecione **Corptax**.
+2. Na lista de candidaturas, digite e selecione **Corptax**.
 
-    ![A ligação de Corptax na lista de aplicações](common/all_applications.png)
+    ![O link Corptax na lista de aplicações](common/all_applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users_groups_blade.png)
+    ![O link "Utilizadores e grupos"](common/users_groups_blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add_assign_user.png)
+    ![O painel de atribuição adicionar](common/add_assign_user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+7. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-corptax-test-user"></a>Criar utilizador de teste Corptax
+### <a name="create-corptax-test-user"></a>Criar o utilizador de teste corptax
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Corptax. Trabalhar com [equipa de suporte de Corptax](https://connect.corptax.com/) para adicionar os utilizadores na plataforma Corptax. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon na Corptax. Trabalhe com a equipa de suporte da [Corptax](https://connect.corptax.com/) para adicionar os utilizadores na plataforma Corptax. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-Quando clica no mosaico Corptax no painel de acesso, deve ser redirecionado para o abaixo Corptax página - 
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Quando clicar no azulejo Corptax no Painel de Acesso, deve ser redirecionado para a página abaixo do Corptax... 
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-Na **ambiente** caixa de texto, escreva o seu ambiente apropriado, deve ter automaticamente sessão iniciada no Corptax para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Na caixa de texto **Ambiente,** digite o seu ambiente apropriado, deve ser automaticamente inscrito no Corptax para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

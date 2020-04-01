@@ -7,15 +7,15 @@ ms.topic: include
 ms.author: pmorgan
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67722938"
 ---
-## <a name="putting-everything-together"></a>Colocando tudo junto
+## <a name="putting-everything-together"></a>Juntar tudo
 
-Eis como o completa `AzureSpatialAnchorsScript` arquivo de classe deve ser semelhante a, depois de todos os elementos diferentes foram colocados em conjunto. Pode utilizá-lo como referência para comparar em relação a seu próprio ficheiro e detetar se pode ter quaisquer diferenças à esquerda.
+Aqui está como `AzureSpatialAnchorsScript` o arquivo completo da classe deve ser, depois de todos os diferentes elementos terem sido reunidos. Pode usá-lo como referência para comparar com o seu próprio ficheiro, e detetar se pode ter alguma diferença.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
@@ -396,7 +396,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, já saiba mais sobre como utilizar o Azure âncoras geográficos numa nova aplicação Unity HoloLens. Para saber mais sobre como utilizar as âncoras espaciais do Azure numa nova aplicação Android, avance para o próximo tutorial.
+Neste tutorial, você aprendeu mais sobre como usar âncoras espaciais Azure numa nova app Unity HoloLens. Para saber mais sobre como usar as Âncoras Espaciais Azure numa nova aplicação Android, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [A partir de uma nova aplicação Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
+> [Começar uma nova aplicação Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
