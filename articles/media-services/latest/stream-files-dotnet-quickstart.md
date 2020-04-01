@@ -1,6 +1,6 @@
 ---
 title: Transmitir ficheiros de vídeo com os Serviços de Multimédia do Azure – .NET | Microsoft Docs
-description: Siga as etapas deste tutorial para criar uma nova conta dos serviços de mídia do Azure, codificar um arquivo e transmiti-lo para Player de Mídia do Azure.
+description: Siga os passos deste tutorial para criar uma nova conta Azure Media Services, codificar um ficheiro e transmiti-lo ao Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,10 @@ ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: df4092ecc3f7d075f1a2821854cdb668ee2cebe5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77191210"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - .NET
@@ -66,7 +66,7 @@ Para obter uma explicação sobre o que faz cada função no exemplo, examine o 
 Quando executar a aplicação, os URLs que podem ser utilizados para reproduzir o vídeo são apresentados através de protocolos diferentes. 
 
 1. Prima Ctrl + F5 para executar a aplicação *EncodeAndStreamFiles*.
-2. Escolha o protocolo **HLS** da Apple (termina com *manifest(format=m3u8-aapl)* ) e copie o URL de transmissão da consola.
+2. Escolha o protocolo **HLS** da Apple (termina com *manifest(format=m3u8-aapl)*) e copie o URL de transmissão da consola.
 
 ![Saída](./media/stream-files-tutorial-with-api/output.png)
 
@@ -79,8 +79,8 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 > [!NOTE]
 > Se um leitor estiver alojado num site de https, confirme que atualiza o URL para “https”.
 
-1. Abra um browser e navegue para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Na caixa **URL:** , cole um dos valores do URL de transmissão que recebeu quando executou a aplicação. 
+1. Abra um navegador web [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)e navegue para .
+2. Na caixa **URL:**, cole um dos valores do URL de transmissão que recebeu quando executou a aplicação. 
  
      Pode colar o URL em formato HLS, Dash ou Smooth e o Azure Media Player mudará para um protocolo de streaming apropriado para reprodução no seu dispositivo automaticamente.
 3. Prima **Atualizar Leitor**.
@@ -91,7 +91,7 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 Se já não precisar de nenhum dos recursos do seu grupo de recursos, incluindo os Serviços de Media e as contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 
-Execute o seguinte comando da CLI:
+Executar o seguinte comando CLI:
 
 ```azurecli
 az group delete --name amsResourceGroup

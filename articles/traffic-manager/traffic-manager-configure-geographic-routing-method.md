@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76938798"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configure o método de encaminhamento de tráfego geográfico utilizando o Traffic Manager
@@ -25,9 +25,9 @@ O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tr�
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil de gestor de tráfego
 
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/).
-2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
+2. Clique **em Criar um** > **perfil** > de Gestor de Tráfego**de** > Rede de recursos**Criar**.
 4. No **perfil Criar Gestor de Tráfego:**
-    1. Forneça um nome para o seu perfil. Este nome tem de ser único dentro da zona trafficmanager.net. Para aceder ao seu perfil de Gestor de Tráfego, utiliza o nome DNS `<profilename>.trafficmanager.net`.
+    1. Forneça um nome para o seu perfil. Este nome tem de ser único dentro da zona trafficmanager.net. Para aceder ao seu perfil de Gestor `<profilename>.trafficmanager.net`de Tráfego, utiliza o nome DNS .
     2. Selecione o método de encaminhamento **Geográfico.**
     3. Selecione a subscrição que pretende criar este perfil.
     4. Utilize um grupo de recursos existente ou crie um novo grupo de recursos para colocar este perfil abaixo. Se optar por criar um novo grupo de recursos, utilize o dropdown de localização do **Grupo de Recursos** para especificar a localização do grupo de recursos. Esta definição refere-se à localização do grupo de recursos, e não tem qualquer impacto no perfil do Gestor de Tráfego que é implantado globalmente.
@@ -38,7 +38,7 @@ O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tr�
 ## <a name="add-endpoints"></a>Adicionar pontos finais
 
 1. Procure o nome de perfil do Gestor de Tráfego que criou na barra de pesquisa do portal e clique no resultado quando este for mostrado.
-2. Navegue para **Definições** -> **pontos finais** no Gestor de Tráfego.
+2. Navegue para **Definições** -> **Pontos Finais** no Gestor de Tráfego.
 3. Clique em **Adicionar** para mostrar o **ponto final add**.
 3. Clique em **Adicionar** e no **ponto final add** que é apresentado, completo da seguinte forma:
 4. Selecione **Tipo** dependendo do tipo de ponto final que está a adicionar. Para perfis de encaminhamento geográfico utilizados na produção, recomendamos vivamente a utilização de tipos de pontos finais aninhados contendo um perfil infantil com mais de um ponto final. Para mais detalhes, consulte [as PERGUNTAS Frequentes sobre os métodos de encaminhamento de tráfego geográfico](traffic-manager-FAQs.md).

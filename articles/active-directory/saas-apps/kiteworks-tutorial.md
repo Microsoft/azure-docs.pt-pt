@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com a Kiteworks | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a Kiteworks.
+title: 'Tutorial: Integração do Diretório Ativo Azure com kiteworks Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Kiteworks.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,166 +16,166 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68248906"
 ---
-# <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutorial: Integrar a Kiteworks com o Azure Active Directory
+# <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutorial: Integrar Kiteworks com Diretório Ativo Azure
 
-Neste tutorial, irá aprender como integrar a Kiteworks com o Azure Active Directory (Azure AD). Quando a Kiteworks é integrar com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar Kiteworks com o Azure Ative Directory (Azure AD). Quando integrar kiteworks com a Azure AD, pode:
 
-* Controlar no Azure AD, quem tem acesso a Kiteworks.
-* Permita que os utilizadores ser automaticamente sessão iniciada a Kiteworks com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controlo em Azure AD que tem acesso a Kiteworks.
+* Ative que os seus utilizadores sejam automaticamente inscritos na Kiteworks com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Kiteworks início de sessão único (SSO) ativado na subscrição.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode ter um mês de experiência gratuita [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Kiteworks single sign-on (SSO) ativado subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* Oferece suporte a Kiteworks **SP** iniciada SSO
-* Oferece suporte a Kiteworks **Just In Time** aprovisionamento de utilizadores
+* Kiteworks suporta **SP** iniciado SSO
+* Kiteworks suporta o provisionamento de utilizadores **justo no tempo**
 
-## <a name="adding-kiteworks-from-the-gallery"></a>Adicionando a Kiteworks da Galeria
+## <a name="adding-kiteworks-from-the-gallery"></a>Adicionar Kiteworks da galeria
 
-Para configurar a integração do Kiteworks com o Azure AD, terá de adicionar a Kiteworks da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração das Kiteworks no Azure AD, precisa de adicionar Kiteworks da galeria à sua lista de aplicações geridas do SaaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **Kiteworks** na caixa de pesquisa.
-1. Selecione **Kiteworks** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** **digite Kiteworks** na caixa de pesquisa.
+1. Selecione **Kiteworks** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Configurar e testar o SSO do Azure AD com a Kiteworks com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Kiteworks.
+Configure e teste Azure AD SSO com Kiteworks utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Kiteworks.
 
-Para configurar e testar o SSO do Azure AD com a Kiteworks, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com kiteworks, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o Kiteworks SSO](#configure-kiteworks-sso)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Kiteworks](#create-kiteworks-test-user)**  - para ter um equivalente da Eduarda Almeida na Kiteworks que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure Kiteworks SSO](#configure-kiteworks-sso)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create Kiteworks test user](#create-kiteworks-test-user)** - para ter uma contrapartida de Britta Simon em Kiteworks que está ligada à representação da AD Azure do utilizador.
+6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Kiteworks** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **kiteworks,** encontre a secção **Gerir** e selecione **single sign-on**.
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** , digite os valores para os seguintes campos:
+1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<kiteworksURL>.kiteworks.com`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<kiteworksURL>.kiteworks.com`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<kiteworksURL>/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<kiteworksURL>/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente Kiteworks](https://accellion.com/support) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte ao [cliente kiteworks](https://accellion.com/support) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
+1. Na configuração de um único sinal com página **SAML,** na secção certificado de **assinatura SAML,** encontre **certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
-1. Sobre o **configurar a Kiteworks** secção, copie o URL adequado com base nos seus requisitos.
+1. Na secção De Configuração de **Kiteworks,** copie os URL(s) adequados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-kiteworks-sso"></a>Configurar o Kiteworks SSO
+### <a name="configure-kiteworks-sso"></a>Configure Kiteworks SSO
 
-1. Inicie sessão site da sua empresa Kiteworks como um administrador.
+1. Inscreva-se no site da empresa Kiteworks como administrador.
 
-1. Na barra de ferramentas na parte superior, clique em **definições**.
+1. Na barra de ferramentas na parte superior, clique em **Definições**.
 
-    ![Configurar o início de sessão único](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Configurar um único sinal](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
-1. Na **autenticação e autorização** secção, clique em **configuração de SSO**.
+1. Na secção **autenticação e autorização,** clique em **Configuração SSO**.
 
-    ![Configurar o início de sessão único](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Configurar um único sinal](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
-1. Na página de configuração de SSO, execute os seguintes passos:
+1. Na página de Configuração SSO, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
+    ![Configurar um único sinal](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
 
-    a. Selecione **autenticar através de SSO**.
+    a. **Selecione Autenticar via SSO**.
 
-    b. Selecione **iniciar AuthnRequest**.
+    b. Selecione **Iniciar AuthnRequest**.
 
-    c. Na **ID de entidade do IDP** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    c. Na caixa de texto **ID entity ID,** colhe o valor do **Identificador Azure AD,** que copiou do portal Azure.
 
-    d. Na **único URL de início de sessão no serviço** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    d. Na caixa de texto URL do serviço de **assinatura única,** colá o valor do URL de **Login,** que copiou do portal Azure.
 
-    e. Na **URL de serviço de fim de sessão único** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+    e. Na caixa de texto URL do **Serviço De Logout Único,** colá o valor do URL de **Logout,** que copiou do portal Azure.
 
-    f. Abra o seu certificado transferido no bloco de notas, copiar o conteúdo e, em seguida, cole-o para o **certificado de chave pública RSA** caixa de texto.
+    f. Abra o seu certificado descarregado no Bloco de Notas, copie o conteúdo e, em seguida, cole-o na caixa de texto do Certificado de **Chave Pública RSA.**
 
     g. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso a Kiteworks.
+Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso à Kiteworks.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Kiteworks**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-kiteworks-test-user"></a>Criar utilizador de teste Kiteworks
+### <a name="create-kiteworks-test-user"></a>Criar kiteworks utilizador de teste
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Kiteworks.
+O objetivo desta secção é criar uma utilizadora chamada Britta Simon em Kiteworks.
 
-Kiteworks suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder a Kiteworks, se não existir ainda.
+Kiteworks suporta o provisionamento just-in-time, que é por padrão habilitado. Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante uma tentativa de aceder à Kiteworks se ainda não existir.
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte a Kiteworks](https://accellion.com/support).
+> Se precisar de criar um utilizador manualmente, tem de contactar a equipa de [suporte kiteworks](https://accellion.com/support).
 
 ### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico Kiteworks no painel de acesso, deve ser automaticamente sessão iniciada na Kiteworks para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Kiteworks no Painel de Acesso, deve ser automaticamente inscrito nas Kiteworks para as quais configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

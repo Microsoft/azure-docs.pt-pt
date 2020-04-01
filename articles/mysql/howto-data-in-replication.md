@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 2148ce41267627d9d6e0437897a99a8dbdbe0746
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382771"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474037"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a Base de Dados Azure para a Replicação de Dados MySQL
 
-Neste artigo, você aprenderá como configurar a Replicação de Dados na Base de Dados Azure para o serviço MySQL configurando os servidores master e replica. A Replicação de Dados permite sincronizar dados de um servidor MySQL mestre que executa no local, em máquinas virtuais ou serviços de base de dados hospedados por outros fornecedores de nuvem numa réplica na Base de Dados Azure para o serviço MySQL. 
+Este artigo descreve como configurar a Replicação de Dados na Base de Dados Azure para o MySQL configurando os servidores mestre e réplica. Este artigo assume que tem alguma experiência anterior com servidores e bases de dados MySQL.
 
-Este artigo pressupõe que tem pelo menos alguma experiência anterior com servidores e bases de dados MySQL.
+Para criar uma réplica na Base de Dados Azure para o serviço MySQL, a Replicação data-in sincroniza os dados de um servidor MySQL mestre no local, em máquinas virtuais (VMs), ou em serviços de base de dados em nuvem.
 
 Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação data-in antes de executar os passos neste artigo.
 
@@ -47,7 +47,7 @@ Os seguintes passos preparam e configuram o servidor MySQL hospedado no local, n
 
    Por exemplo, certifique-se de que o servidor principal permite o tráfego de entrada e saída na porta 3306 e que o servidor principal tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
    
-   Teste a conectividade com o servidor principal tentando ligar-se a partir de uma ferramenta como a linha de comando MySQL hospedada noutra máquina ou a partir da [Casca de Nuvem Azure](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure 
+   Teste a conectividade com o servidor principal tentando ligar-se a partir de uma ferramenta como a linha de comando MySQL alojada noutra máquina ou a partir da [Casca de Nuvem Azure](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
 
 2. Ligue a exploração madeireira binária
 
@@ -71,7 +71,7 @@ Os seguintes passos preparam e configuram o servidor MySQL hospedado no local, n
 
 4. Criar um novo papel de replicação e configurar permissão
 
-   Crie uma conta de utilizador no servidor principal que esteja configurada com privilégios de replicação. Isto pode ser feito através de comandos SQL ou de uma ferramenta como a bancada mySQL. Considere se planeia replicar com o SSL, uma vez que esta terá de ser especificada na criação do utilizador. Consulte a documentação mySQL para entender como [adicionar contas](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) de utilizador no seu servidor principal. 
+   Crie uma conta de utilizador no servidor principal que esteja configurada com privilégios de replicação. Isto pode ser feito através de comandos SQL ou de uma ferramenta como a bancada mySQL. Considere se planeia replicar com o SSL, uma vez que esta terá de ser especificada na criação do utilizador. Consulte a documentação mySQL para entender como [adicionar contas](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) de utilizador no seu servidor principal. 
 
    Nos comandos abaixo, a nova função de replicação criada é capaz de aceder ao mestre a partir de qualquer máquina, e não apenas da máquina que acolhe o próprio mestre. Isto é feito especificando "syncuser@'%'" no comando do utilizador. Consulte a documentação mySQL para saber mais sobre [especificar nomes de conta](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 

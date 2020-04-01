@@ -3,12 +3,12 @@ title: Tipos de recursos suportados através da Saúde dos Recursos Azure [ Micr
 description: Tipos de recursos suportados através da saúde dos recursos azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258307"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478900"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos do Azure
 Abaixo está uma lista completa de todos os controlos executados através da saúde dos recursos por tipos de recursos.
@@ -47,6 +47,11 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |Cheques Executados|
 |---|
 |<ul><li>A conta pode ser alcançada a partir do centro de dados?</li><li>O Fornecedor de Recursos Cognitivos está disponível?</li><li>O Serviço Cognitivo está disponível na região apropriada?</li><li>As operações de leitura podem ser realizadas na conta de armazenamento que detém os metadados de recursos?</li><li>A quota de chamada da API foi atingida?</li><li>O limite de leitura da chamada da API já foi atingido?</li></ul>|
+
+## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
+|Cheques Executados|
+|---|
+|<ul><li>É o anfitrião em funcionamento</li><li>O hardware do hospedeiro está degradado?</li><li>O negócio do anfitrião está localizado?</li><li>O serviço de hardware do anfitrião curou-se para diferentes hardware?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Cheques Executados|

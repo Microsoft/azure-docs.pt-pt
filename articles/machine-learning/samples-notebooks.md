@@ -1,5 +1,5 @@
 ---
-title: Blocos de notas Jupyter do exemplo
+title: Exemplo de cadernos Jupyter
 titleSuffix: Azure Machine Learning
 description: Encontre e use os cadernos Jupyter para explorar o Python de Aprendizagem automática Azure para SDK.
 services: machine-learning
@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7242b82ee5c43878a33731bd1f02b685020f22b0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78673633"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explore a Aprendizagem automática Azure com os cadernos jupyter
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como aceder ao repositório a partir dos seguintes ambien
 
 - [Instância computacional de aprendizagem automática azure](#notebookvm)
 - [Traga o seu próprio servidor de caderno](#byo)
-- [Máquina Virtual da Ciência dos Dados](#dsvm)
+- [Máquina Virtual de Ciência de Dados](#dsvm)
 
 > [!NOTE]
 > Depois de clonar o repositório, encontrará cadernos tutoriais na pasta dos **tutoriais** e cadernos específicos de funcionalidades na pasta **"Como usar-azureml".**

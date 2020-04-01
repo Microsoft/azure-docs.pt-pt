@@ -9,10 +9,10 @@ ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79365428"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar diretores de serviço e atribuições de funções utilizando a PowerShell
@@ -65,13 +65,13 @@ Aqui estão as três credenciais que deve escrever e os cmdlets que precisa corr
     $svcPrincipalCreds.Value
     ```
 
-- ID do inquilino:
+- ID do Inquilino:
 
     ```powershell
     $aadContext.TenantId.Guid
     ```
 
-- ID da aplicação:
+- Application ID:
 
     ```powershell
     $svcPrincipal.AppId

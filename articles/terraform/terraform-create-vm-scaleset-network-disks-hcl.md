@@ -4,10 +4,10 @@ description: Aprenda a usar terrafora para configurar e verum conjunto de escala
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472235"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: Criar um conjunto de escala de máquina virtual Azure usando terrafora
@@ -18,7 +18,7 @@ Neste tutorial, aprende-se a usar a [Azure Cloud Shell](/azure/cloud-shell/overv
 
 > [!div class="checklist"]
 > * Configurar uma implementação do Terraform
-> * Utilizar variáveis e saídas para a implementação do Terraform
+> * Utilizar variáveis e resultados para a implementação do Terraform
 > * Criar e implementar a infraestrutura de rede
 > * Criar e implementar um conjunto de dimensionamento de máquinas virtuais e ligá-lo à rede
 > * Criar e implementar uma jumpbox para ligar às VMs através de SSH
@@ -36,7 +36,7 @@ Neste tutorial, aprende-se a usar a [Azure Cloud Shell](/azure/cloud-shell/overv
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
@@ -48,7 +48,7 @@ Neste tutorial, aprende-se a usar a [Azure Cloud Shell](/azure/cloud-shell/overv
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `vmss`.
+1. Crie um diretório denominado `vmss`.
 
     ```bash
     mkdir vmss
@@ -93,7 +93,7 @@ Dentro da Casca de Nuvem Azure, faça os seguintes passos:
    }
    ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="create-the-output-definitions-file"></a>Criar o ficheiro de definições de saída
 Nesta secção, vai criar o ficheiro que descreve a saída após a implementação.
@@ -115,7 +115,7 @@ Dentro da Casca de Nuvem Azure, faça os seguintes passos:
     }
    ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definir a infraestrutura de rede num modelo
 Nesta secção, vai criar a seguinte infraestrutura de rede num novo grupo de recursos do Azure:
@@ -173,7 +173,7 @@ Dentro da Casca de Nuvem Azure, faça os seguintes passos:
    }
    ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="provision-the-network-infrastructure"></a>Aprovisionar a infraestrutura de rede
 Utilizando a Casca de Nuvem Azure a partir do diretório onde criou os ficheiros de configuração (.tf) fazem os seguintes passos:
@@ -190,9 +190,9 @@ Utilizando a Casca de Nuvem Azure a partir do diretório onde criou os ficheiros
    terraform apply
    ```
 
-   Terraform pede-lhe um valor `location`, uma vez que a variável `location` é definida em `variables.tf`, mas nunca está definida. Pode introduzir qualquer localização válida, como, por exemplo, "E.U.A. Oeste", seguido de Enter (utilize parênteses em qualquer valor com espaços).
+   Terraform pede-lhe `location` um valor `location` à medida `variables.tf`que a variável é definida em , mas nunca está definida. Pode introduzir qualquer localização válida, como, por exemplo, "E.U.A. Oeste", seguido de Enter (utilize parênteses em qualquer valor com espaços).
 
-1. O Terraform imprime a saída conforme definido no ficheiro `output.tf`. Como mostra a seguinte imagem, o FQDN assume o seguinte formulário: `<ID>.<location>.cloudapp.azure.com`. O ID é um valor computacional e a localização é o valor proporcionado ao executar terrafora.
+1. O Terraform imprime a saída conforme definido no ficheiro `output.tf`. Como mostra a seguinte imagem, o FQDN `<ID>.<location>.cloudapp.azure.com`assume o seguinte formulário: . O ID é um valor computacional e a localização é o valor proporcionado ao executar terrafora.
 
    ![Conjunto de escala de máquina virtual totalmente qualificado nome de domínio para endereço IP público](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
@@ -374,7 +374,7 @@ Na Cloud Shell, faça os seguintes passos:
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 1. Crie um plano do Terraform para visualizar a implementação do conjunto de dimensionamento de máquinas virtuais (tem de especificar uma palavra-passe escolhida por si, bem como a localização para os seus recursos).
 
@@ -493,7 +493,7 @@ Uma caixa de *salto* SSH é um único servidor pelo qual "salta" para aceder a o
    }
    ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 1. Implemente a jumpbox.
 

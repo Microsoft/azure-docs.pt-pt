@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 48cb1ca1427ece0ee30a124b20d3918f1ace47eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4944fd36359f35ff516aa149b357a7cda042fdae
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78274140"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477042"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural para serviços cognitivos azure
 
@@ -28,9 +28,9 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 ## <a name="vision"></a>Visão
 
-* [Visão Computorizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
+* [Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
 * [Indexador de Vídeos](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-
+* [Reconhecedor de Tinta Digital](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
 ## <a name="speech"></a>Voz
 
 * [Discurso Personalizado](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
@@ -40,7 +40,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 ## <a name="language"></a>Idioma
 
-* [Verificação de feitiço sorhções](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
+* [Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
 * [Compreensão de Idiomas (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
 * [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
 * [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
@@ -49,7 +49,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 ## <a name="search"></a>Pesquisa
 
 * [Pesquisa Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
-* [Pesquisa de imagem bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
+* [Pesquisa de Imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
 * [Pesquisa do Bing Notícias](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
 * [Sugestão Automática do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages)
 * [Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)

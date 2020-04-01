@@ -4,17 +4,17 @@ description: Saiba como obter uma aplicação Linux Ruby a trabalhar no Azure Ap
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 6ce52b9754f69ef9c6eaf1f59062b6366670985f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 7339bb1ec2c16e9d6c83d2cbae8810b660b60765
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524041"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045473"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Construa uma app Ruby and Postgres no Azure App Service em Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Ruby e conectá-la a uma base de dados PostgreSQL. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial mostra como criar uma aplicação Ruby e conectá-la a uma base de dados PostgreSQL. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
 
 ![Aplicação Ruby on Rails em execução no Serviço de Aplicações do Azure](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/)
+* [Instalar o Git](https://git-scm.com/)
 * [Instalar o Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
 * [Instalar o Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Instalar e executar o PostgreSQL](https://www.postgresql.org/download/)
@@ -110,15 +110,15 @@ Para parar o servidor do Rails, escreva `Ctrl + C` no terminal.
 
 Neste passo, vai criar uma base de dados Postgres na [Base de Dados do Azure para PostgreSQL](/azure/postgresql/). Posteriormente, vai configurar a aplicação Ruby on Rails para se ligar a esta base de dados.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-postgres-server"></a>Criar um servidor Postgres
 
-Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
+Crie um servidor PostgreSQL com o [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) comando.
 
-Execute o seguinte comando na Cloud Shell e substitua um nome de servidor único para o *\<postgres-server-name>* espaço reservado. O nome do servidor tem de ser exclusivo em todos os servidores no Azure. 
+Execute o seguinte comando na Cloud Shell e * \<* substitua um nome de servidor único para o nome do servidor postgres>espaço reservado. O nome do servidor tem de ser exclusivo em todos os servidores no Azure. 
 
 ```azurecli-interactive
 az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
@@ -148,7 +148,7 @@ Após criar o servidor da Base de Dados do Azure para PostgreSQL, a CLI do Azure
 
 ### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor Postgres permitir ligações ao cliente com o comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. Substitua um nome de servidor único para o *\<postgres-server-name>* espaço reservado.
+Na Cloud Shell, crie uma regra de firewall para o seu [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) servidor Postgres para permitir ligações ao cliente utilizando o comando. Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. Substitua um nome * \<* de servidor único para o nome do servidor postgres>espaço reservado.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -160,13 +160,13 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Ligar ao servidor Postgres de produção localmente
 
-No Cloud Shell, ligue ao servidor Postgres no Azure. Utilize o valor especificado anteriormente para o _&lt;postgres-server-name>_ espaços reservados.
+No Cloud Shell, ligue ao servidor Postgres no Azure. Utilize o valor especificado anteriormente para o _ &lt;nome do servidor postgres>_ espaços reservados.
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
-Quando lhe for pedida uma palavra-passe, utilize _My5up3r$tr0ngPa$w0rd!_ , que especificou quando criou o servidor de base de dados.
+Quando lhe for pedida uma palavra-passe, utilize _My5up3r$tr0ngPa$w0rd!_, que especificou quando criou o servidor de base de dados.
 
 ### <a name="create-a-production-database"></a>Criar uma base de dados de produção
 
@@ -295,7 +295,7 @@ Neste passo, vai implementar a aplicação Rails ligada ao Postgres no Serviço 
 
 No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
-O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;postgres-server-name>_ .
+O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o nome de _ &lt;aplicação_ dos espaços reservados>e _ &lt;o nome do servidor de postgres>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"
@@ -311,7 +311,7 @@ rails secret
 
 Configure as variáveis necessárias para o ambiente de produção do Rails.
 
-No seguinte comando Cloud Shell, substitua as duas _&lt;saída de carris-secret>_ espaços reservados com a nova chave secreta que gerou no terminal local.
+No comando Cloud Shell seguinte, _ &lt;_ substitua os dois espaços reservados>de saída dos trilhos pela nova chave secreta que gerou no terminal local.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
@@ -463,13 +463,13 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Uma vez concluída a `git push`, navegue para a aplicação Azure e teste a nova funcionalidade.
+Uma `git push` vez que esteja completo, navegue para a aplicação Azure e teste a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

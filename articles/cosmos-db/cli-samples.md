@@ -1,6 +1,6 @@
 ---
-title: Exemplos de CLI do Azure para a API do Azure Cosmos DB SQL (Core)
-description: Exemplos de CLI do Azure para a API do Azure Cosmos DB SQL (Core)
+title: Amostras azure CLI para Azure Cosmos DB SQL (Core) API
+description: Amostras azure CLI para Azure Cosmos DB SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,23 +8,23 @@ ms.topic: sample
 ms.date: 9/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: defeacc3f0bc4cd9d77e538f8ceac5ca09a4068a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71272362"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Exemplos de CLI do Azure para a API do Azure Cosmos DB SQL (Core)
+# <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Amostras azure CLI para Azure Cosmos DB SQL (Core) API
 
-A tabela a seguir inclui links para scripts de CLI do Azure de exemplo para a API do Azure Cosmos DB SQL (Core). As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](/cli/azure/cosmosdb). Para obter CLI do Azure exemplos para outras APIs Azure Cosmos DB consulte, [API do Cassandra](cli-samples-cassandra.md), [API do MongoDB](cli-samples-mongodb.md), api do [Gremlin](cli-samples-gremlin.md)e [API de tabela](cli-samples-table.md). Todos os exemplos de script da CLI do Azure Cosmos DB podem ser encontrados no [repositório GitHub Azure Cosmos DB CLI](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+A tabela seguinte inclui links para a amostra de scripts Azure CLI para API Azure Cosmos DB SQL (Core). As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [referência Azure CLI](/cli/azure/cosmosdb). Para amostras Azure CLI para outras APIs da Azure Cosmos DB ver, [Cassandra API,](cli-samples-cassandra.md) [MongoDB API,](cli-samples-mongodb.md) [Gremlin API,](cli-samples-gremlin.md)e [Tabela API](cli-samples-table.md). Todas as amostras de script soro D DD Do Azure Cosmos podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
 | |  |
 |---|---|
-| [Criar uma conta, um banco de dados e um contêiner do Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta Azure Cosmos DB, um banco de dados e um contêiner para a API do SQL (núcleo). |
-| [Alterar taxa de transferência](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s em um banco de dados e contêiner.|
-| [Adicionar ou regiões de failover](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Adicionar uma região, alterar a prioridade do failover, disparar um failover manual.|
-| [Chaves de conta e cadeias de conexão](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | Listar chaves de conta, chaves somente leitura, regenerar chaves e listar cadeias de conexão.|
-| [Proteger com o firewall de IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma conta do cosmos com o firewall IP configurado.|
-| [Proteger nova conta com pontos de extremidade de serviço](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma conta do cosmos e proteja-se com os pontos de extremidade de serviço.|
-| [Proteger a conta existente com pontos de extremidade de serviço](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Atualize uma conta do cosmos para proteger com pontos de extremidade de serviço quando a sub-rede for eventualmente configurada.|
+| [Criar uma conta Azure Cosmos, base de dados e contentor](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, base de dados e recipiente Azure Cosmos DB para API SQL (Core). |
+| [Alterar a entrada](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize os RU/s numa base de dados e num recipiente.|
+| [Adicionar ou falhar regiões](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Adicione uma região, mude a prioridade de failover, desencadeie uma falha manual.|
+| [Chaves de conta e cordas de ligação](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | Lista as teclas da conta, as chaves apenas de leitura, as chaves regeneradas e as cordas de ligação da lista.|
+| [Seguro com firewall IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma conta Cosmos com firewall IP configurada.|
+| [Garantir nova conta com pontos finais de serviço](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Crie uma conta Cosmos e proteja com pontos finais de serviço.|
+| [Conta segura existente com pontos finais de serviço](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Atualize uma conta Cosmos para garantir com pontos finais de serviço quando a subnet for configurada.|
 |||

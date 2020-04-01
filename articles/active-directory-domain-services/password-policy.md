@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613192"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476030"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de passwords e contas em domínios geridos
 
@@ -105,20 +105,20 @@ Para criar uma política de senha personalizada, utilize as Ferramentas Administ
     * Definições como complexidade de palavra-passe, idade ou tempo de validade apenas para utilizadores criados manualmente num domínio gerido pelo Azure AD DS.
     * As definições de bloqueio da conta aplicam-se a todos os utilizadores, mas apenas entram em vigor dentro do domínio gerido e não no próprio Azure AD.
 
-    ![Criar uma política personalizada de senha de grãos finos](./media/how-to/custom-fgpp.png)
+    ![Criar uma política personalizada de senha de grãos finos](./media/password-policy/custom-fgpp.png)
 
 1. Descontrolar **Proteja contra a eliminação acidental**. Se esta opção for selecionada, não pode salvar o FGPP.
 1. Na secção **Aplica-se diretamente,** selecione o botão **Adicionar.** No diálogo **Select Users ou Groups,** selecione o botão **Locais.**
 
-    ![Selecione os utilizadores e grupos para aplicar a política de palavra-passe para](./media/how-to/fgpp-applies-to.png)
+    ![Selecione os utilizadores e grupos para aplicar a política de palavra-passe para](./media/password-policy/fgpp-applies-to.png)
 
 1. As políticas de senha só podem ser aplicadas a grupos. No diálogo **Local,** expanda o nome de domínio, como *aaddscontoso.com,* em seguida, selecione um OU, como **utilizadores AADDC**. Se tiver um OU personalizado que contenha um grupo de utilizadores que deseja candidatar, selecione esse OU.
 
-    ![Selecione a Ou a que o grupo pertence](./media/how-to/fgpp-container.png)
+    ![Selecione a Ou a que o grupo pertence](./media/password-policy/fgpp-container.png)
 
 1. Digite o nome do grupo ao ao que pretende aplicar a apólice e, em seguida, selecione **'Ver Nomes'** para validar que o grupo existe.
 
-    ![Procure e selecione o grupo para aplicar FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Procure e selecione o grupo para aplicar FGPP](./media/password-policy/fgpp-apply-group.png)
 
 1. Com o nome do grupo selecionado agora exibido na secção **Aplica-se diretamente à** secção, selecione **OK** para guardar a sua política de senha personalizada.
 

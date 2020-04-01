@@ -18,13 +18,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71212052"
 ---
-# <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para usuários específicos usando os hubs de notificação do Azure
+# <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: enviar notificações para utilizadores específicos com Hubs de Notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "71212052"
 Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end de ASP.NET WebAPI é utilizado para autenticar clientes. Quando o back-end autentica um utilizador de aplicação de cliente, adiciona automaticamente uma etiqueta ao registo de notificação. O back-end utiliza esta etiqueta para enviar notificações para o utilizador específico.
 
 > [!NOTE]
-> O código concluído deste tutorial pode ser encontrado no [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+> O código completo para este tutorial pode ser encontrado no [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 Neste tutorial, siga os seguintes passos:
 
@@ -48,7 +48,7 @@ Neste tutorial, siga os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial se baseia no Hub de notificação e no projeto do Visual Studio que você [criou no tutorial: Enviar notificações para plataforma universal do Windows aplicativos usando o tutorial de hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) de notificação do Azure. Por isso, conclua-o antes de iniciar este tutorial.
+Este tutorial baseia-se no projeto do Visual Studio e no Hub de Notificação que criou no [Tutorial: enviar notificações para aplicações de Plataforma Universal do Windows com Hubs de Notificação do Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Por isso, conclua-o antes de iniciar este tutorial.
 
 > [!NOTE]
 > Se estiver a utilizar Aplicações Móveis no Serviço de Aplicações do Azure como o seu serviço de back-end, veja a secção [Versão para Aplicações Móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) deste tutorial.
@@ -57,16 +57,16 @@ Este tutorial se baseia no Hub de notificação e no projeto do Visual Studio qu
 
 ## <a name="update-the-code-for-the-uwp-client"></a>Atualizar o código para o cliente UWP
 
-Nesta seção, você atualiza o código no projeto que você concluiu para o [tutorial: Enviar notificações para plataforma universal do Windows aplicativos usando o tutorial de hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) de notificação do Azure. O projeto já deve estar associado à Microsoft Store. Também deve estar configurado para utilizar o seu Hub de Notificação. Nesta secção, adicione o código para chamar o novo back-end de WebAPI e utilize-o para registar e enviar notificações.
+Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar notificações para aplicações de Plataforma Universal do Windows com Hubs de Notificação do Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). O projeto já deve estar associado à Microsoft Store. Também deve estar configurado para utilizar o seu Hub de Notificação. Nesta secção, adicione o código para chamar o novo back-end de WebAPI e utilize-o para registar e enviar notificações.
 
-1. No Visual Studio, abra a solução que você criou para [o tutorial: Envie notificações para Plataforma Universal do Windows aplicativos usando os hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)de notificação do Azure.
-2. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto Plataforma Universal do Windows (UWP) e clique em **gerenciar pacotes NuGet**.
-3. No lado esquerdo, selecione **procurar**.
+1. No Visual Studio, abra a solução que criou para o [Tutorial: enviar notificações para aplicações de Plataforma Universal do Windows com Hubs de Notificação do Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+2. No Solution Explorer, clique no projeto Universal Windows Platform (UWP) e clique em **Gerir pacotes NuGet**.
+3. No lado esquerdo, **selecione Browse**.
 4. Na caixa **Procurar**, escreva **Cliente HTTP**.
 5. Na lista de resultados, clique em **System.Net.Http** e clique em **Instalar**. Conclua a instalação.
 6. Na caixa **Procurar** no NuGet, escreva **Json.net**. Instale o pacote **Newtonsoft.json** e, em seguida, feche a janela Gestor de Pacote NuGet.
 7. No Explorador de Soluções, no projeto **WindowsApp**, faça duplo clique em **MainPage.xaml** para o abrir no editor do Visual Studio.
-8. `<Grid>` No código `MainPage.xaml` XML, substitua a seção pelo seguinte código: Esse código adiciona uma caixa de texto de nome de usuário e senha com a qual o usuário se autentica. Ele também adiciona caixas de texto para a mensagem de notificação e a marca de nome de usuário que deve receber a notificação:
+8. No `MainPage.xaml` código XML, `<Grid>` substitua a secção pelo seguinte código: Este código adiciona um nome de utilizador e uma caixa de texto de palavra-passe com o que o utilizador autentica. Adiciona ainda caixas de texto para a mensagem de notificação e a etiqueta de nome de utilizador que deve receber a notificação:
 
     ```xml
     <Grid>
@@ -118,7 +118,7 @@ Nesta seção, você atualiza o código no projeto que você concluiu para o [tu
         </StackPanel>
     </Grid>
     ```
-9. Em Gerenciador de soluções, abra o `MainPage.xaml.cs` arquivo para os projetos **(Windows 8.1)** e **(Windows Phone 8,1)** . Adicione as seguintes declarações `using` na parte superior dos ficheiros:
+9. No Solution Explorer, `MainPage.xaml.cs` abra o ficheiro para os projetos **(Windows 8.1)** e **(Windows Phone 8.1).** Adicione as seguintes declarações `using` na parte superior dos ficheiros:
 
     ```csharp
     using System.Net.Http;
@@ -128,12 +128,12 @@ Nesta seção, você atualiza o código no projeto que você concluiu para o [tu
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-10. No `MainPage.xaml.cs` para o projeto **WindowsApp** , adicione o `MainPage` seguinte membro à classe. Certifique-se de que substitui `<Enter Your Backend Endpoint>` pelo ponto final do back-end propriamente dito que obteve antes. Por exemplo, `http://mybackend.azurewebsites.net`.
+10. Para `MainPage.xaml.cs` o projeto **WindowsApp,** adicione o `MainPage` seguinte membro à classe. Certifique-se de que substitui o `<Enter Your Backend Endpoint>` pelo ponto final de back-end real obtido anteriormente. Por exemplo, `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-11. Adicione o código abaixo à classe MainPage no `MainPage.xaml.cs` para os projetos **(Windows 8.1)** e **(Windows Phone 8,1)** .
+11. Adicione o código abaixo à `MainPage.xaml.cs` classe MainPage para os projetos **(Windows 8.1)** e **(Windows Phone 8.1).**
 
     O método `PushClick` é o processador de cliques do botão **Enviar Notificação Push**. Chama o back-end para acionar uma notificação para todos os dispositivos com uma etiqueta de nome de utilizador que corresponde ao parâmetro `to_tag`. A mensagem de notificação é enviada como conteúdo JSON no corpo do pedido.
 
@@ -215,14 +215,14 @@ Nesta seção, você atualiza o código no projeto que você concluiu para o [tu
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Abra `App.xaml.cs` e localize a chamada para `InitNotificationsAsync()` no manipulador `OnLaunched()` de eventos. Comente ou elimine a chamada para `InitNotificationsAsync()`. O processador de botões inicia os registos de notificações.
+12. Abra `App.xaml.cs` e encontre `InitNotificationsAsync()` a `OnLaunched()` chamada no manipulador de eventos. Comente ou elimine a chamada para `InitNotificationsAsync()`. O processador de botões inicia os registos de notificações.
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
-13. Clique com o botão direito do rato no projeto **WindowsApp**, clique em **Adicionar** e em **Classe**. Nomeie a classe `RegisterClient.cs`e clique em **OK** para gerar a classe.
+13. Clique com o botão direito do rato no projeto **WindowsApp**, clique em **Adicionar** e em **Classe**. Nomeie `RegisterClient.cs`a classe e clique em **OK** para gerar a classe.
 
     Esta classe encapsula as chamadas REST necessárias para contactar o back-end da aplicação, para se registar para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](https://msdn.microsoft.com/library/dn743807.aspx). Utiliza um token de autorização guardado no armazenamento local quando clica no botão **Iniciar sessão e registar**.
 14. Adicione as seguintes declarações `using` na parte superior do ficheiro RegisterClient.cs:
@@ -342,7 +342,7 @@ Nesta seção, você atualiza o código no projeto que você concluiu para o [tu
 Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 
 > [!div class="nextstepaction"]
->[Enviar notificações push com base na localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[Enviar notificações push baseadas na localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png

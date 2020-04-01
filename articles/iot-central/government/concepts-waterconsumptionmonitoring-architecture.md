@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 3a64ca5b0c2a092f895873e097ea6beb9a235a37
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77017705"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitetura de referência da monitorização do consumo de água 
@@ -25,9 +25,9 @@ As soluções de monitorização do consumo de água podem ser construídas com 
 Conceitos:
 
 1. Dispositivos e conectividade  
-1. IoT Central 
+1. Centro de IoT 
 2. Extebilidade e integrações
-3. Aplicações de negócio
+3. Aplicações empresariais
 
 Vamos ver os componentes-chave que geralmente desempenham um papel numa solução de monitorização do consumo de água.
 
@@ -36,7 +36,7 @@ Esta secção refere-se a dispositivos utilizados para soluções de água intel
 
 Os dispositivos utilizados em soluções de água inteligente serão geralmente ligados através de redes de área de baixa potência (LPWAN), através de um operador de rede de terceiros. Para este tipo de dispositivos, pode utilizar a Ponte Central de [Dispositivos Azure IoT](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) para enviar os dados do seu dispositivo para a sua aplicação IoT na Central Azure IoT. Em alternativa, pode ter gateways de dispositivos que são capazes de IP e podem ligar-se diretamente à IoT Central.
 
-## <a name="iot-central"></a>IoT Central 
+## <a name="iot-central"></a>Centro de IoT 
 O Azure IoT Central é uma plataforma IoT App, que o faz começar a funcionar rapidamente na sua solução IoT. Pode marcar, personalizar e integrar a sua solução com serviços de terceiros.
 Depois de ligar os seus dispositivos de água inteligentes à IoT Central, obtém o comando e controlo do dispositivo, monitorização e alerta, interface do utilizador com RBAC incorporado, dashboards de insights configuráveis e opções de extensibility. 
 

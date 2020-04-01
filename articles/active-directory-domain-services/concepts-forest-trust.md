@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233704"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476433"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para as florestas de recursos em Serviços de Domínio de Diretório Ativo Azure
 
@@ -114,7 +114,7 @@ Muitas transações inter-domínio e interflorestais dependem de fundos de domí
 
 Quando um pedido de autenticação é referido a um domínio, o controlador de domínio nesse domínio deve determinar se existe uma relação de confiança com o domínio a partir do qual o pedido provém. A direção da confiança e se a confiança é transitiva ou não transitiva também deve ser determinada antes de autenticar o utilizador para aceder aos recursos no domínio. O processo de autenticação que ocorre entre domínios fidedignos varia de acordo com o protocolo de autenticação em uso. Os protocolos Kerberos V5 e NTLM processam referências para autenticação a um domínio de forma diferente
 
-### <a name="kerberos-v5-referral-processing"></a>Processamento de Referência Kerberos V5
+### <a name="kerberos-v5-referral-processing"></a>Processamento de referência Kerberos V5
 
 O protocolo de autenticação Kerberos V5 está dependente do serviço Net Logon em controladores de domínio para autenticação e autorização do cliente. O protocolo Kerberos liga-se a um Centro de Distribuição de Chaves online (KDC) e à loja de contas Ative Directory para bilhetes de sessão.
 
@@ -130,7 +130,7 @@ Se o cliente utilizar kerberos V5 para autenticação, solicita um bilhete para 
     * Se sim, envie ao cliente uma referência para o próximo domínio no caminho da confiança.
     * Se não, envie ao cliente uma mensagem negada por sessão.
 
-### <a name="ntlm-referral-processing"></a>Processamento de referência ntlm
+### <a name="ntlm-referral-processing"></a>Processamento de referência NTLM
 
 O protocolo de autenticação NTLM está dependente do serviço Net Logon em controladores de domínio para informação de autenticação e autorização do cliente. Este protocolo autentica clientes que não utilizam a autenticação Kerberos. A NTLM utiliza fundos fiduciários para passar pedidos de autenticação entre domínios.
 

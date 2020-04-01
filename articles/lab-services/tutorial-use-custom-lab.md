@@ -15,14 +15,14 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68360272"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acessar um laboratório no Azure DevTest Labs
-Neste tutorial, você usa o laboratório que foi criado no [tutorial: Crie um laboratório no Azure DevTest Labs](tutorial-create-custom-lab.md) .
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Aceder a um laboratório no Azure DevTest Labs
+Neste tutorial, vai utilizar o laboratório criado no [Tutorial: Criar um laboratório no Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 Neste tutorial, irá realizar as seguintes ações:
 
@@ -31,11 +31,11 @@ Neste tutorial, irá realizar as seguintes ações:
 > * Ligar à VM
 > * Anular reclamação da VM
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="access-the-lab"></a>Aceder ao laboratório
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu da esquerda. 
 3. Selecione **DevTest Labs** para tipo de recurso. 
 4. Selecione o laboratório. 
@@ -61,12 +61,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     Para ligar a uma VM do Linux, o acesso SSH e/ou RDP tem de estar ativado para a VM. Para obter passos para ligar a uma VM do Linux através de RDP, veja [Instalar e configurar o Ambiente de Trabalho Remoto para ligar a uma VM do Linux no Azure](../virtual-machines/linux/use-remote-desktop.md). 
 
     > [!NOTE]
-    > Há outras maneiras de acessar a página da máquina virtual para sua VM. Aqui estão algumas delas: 
+    > Existem outras formas de chegar à página Máquina Virtual para o seu VM. Aqui estão alguns deles: 
     > 
-    > 1. Pesquise todas as VMs em sua assinatura. Selecione sua VM na lista de VMs para acessar a página da **máquina virtual** .
-    > 2. Navegue até a página do **grupo de recursos** do grupo de recursos. Em seguida, selecione sua VM na lista de recursos no grupo de recursos para acessar a página da **máquina virtual** . 
+    > 1. Procure todos os VMs na sua subscrição. Selecione o seu VM na lista de VMs para chegar à página **Máquina Virtual.**
+    > 2. Navegue na página do **Grupo de Recursos** para o grupo de recursos. Em seguida, selecione o seu VM da lista de recursos do grupo de recursos para chegar à página **Máquina Virtual.** 
     >
-    > Não use o botão **conectar** na barra de ferramentas na página da **máquina virtual** que você obtém usando essas opções. Em vez disso, navegue até a página da **máquina virtual** na página do **DevTest Labs** , conforme mostrado neste artigo, e use o botão **conectar** na barra de ferramentas.
+    > Não utilize o botão **Connect** na barra de ferramentas na página **Máquina Virtual** a que obtém utilizando estas opções. Em vez disso, navegue para a página **Máquina Virtual** a partir da página **DevTest Labs,** como mostrado neste artigo, e, em seguida, use o botão **Connect** na barra de ferramentas.
 
 
 ## <a name="unclaim-the-vm"></a>Anular reclamação da VM
@@ -75,16 +75,16 @@ Depois de concluir a utilização da VM, anule a reclamação dela ao seguir est
 1. Na página da máquina virtual, selecione **Anular reclamação** na barra de ferramentas. 
 
     ![Anular reclamação da VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. A VM é encerrada antes de anular a reclamação dela. Você pode ver o status dessa operação em notificações.  
-3. Navegue de volta para a página do laboratório do DevTest clicando no nome do laboratório no menu de navegação estrutural na parte superior. 
+1. A VM é encerrada antes de anular a reclamação dela. Pode ver o estado desta operação em notificações.  
+3. Navegue de volta para a página do DevTest Lab clicando no seu nome de laboratório no menu de migalhas de pão no topo. 
     
-    ![Navegue de volta para o laboratório](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
-1. Confirme que você vê a VM na lista de **máquinas virtuais claimáveis** na parte inferior.
+    ![Navegue de volta ao laboratório](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Confirme que vê o VM na lista de **máquinas virtuais reivíveis** na parte inferior.
 
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este tutorial mostrou como aceder e utilizar um laboratório criado com o Azure DevTest Labs. Para obter mais informações sobre como aceder e utilizar VMs num laboratório, veja 
 
 > [!div class="nextstepaction"]
-> [How to: Usar VMs em um laboratório](devtest-lab-add-vm.md)
+> [Procedimento: Utilizar VMs num laboratório](devtest-lab-add-vm.md)
 

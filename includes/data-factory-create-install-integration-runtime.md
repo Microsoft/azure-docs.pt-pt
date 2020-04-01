@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76989094"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
@@ -20,7 +20,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
-2. Crie um integration runtime autoalojado. 
+2. Criar um integration runtime autoalojado. 
 
    ```powershell
    Set-AzDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -89,7 +89,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 2. [Transfira](https://www.microsoft.com/download/details.aspx?id=39717) o integration runtime autoalojado num computador windows local. Execute a instalação.
 
-3. Na página **Bem-vindo à Configuração do Microsoft Integration Runtime** , selecione**Seguinte**.
+3. Na página **Bem-vindo à Configuração do Microsoft Integration Runtime **, selecione**Seguinte**.
 
 4. Na página **Contrato de Licença do Utilizador Final**, aceite os termos e o contrato de licença e selecione **Seguinte**.
 
@@ -99,7 +99,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 7. Na página **Configuração do Microsoft Integration Runtime Concluída**, selecione **Concluir**.
 
-8. Na página **Registar o Integration Runtime (Autoalojado)** , cole a chave que guardou na secção anterior e selecione **Registar**. 
+8. Na página **Registar o Integration Runtime (Autoalojado)**, cole a chave que guardou na secção anterior e selecione **Registar**. 
 
     ![Registar o integration runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
@@ -109,7 +109,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Registado com êxito](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-14. Na página **Registar Integration Runtime (Autoalojado)** , selecione **Configuration Manager**.
+14. Na página **Registar Integration Runtime (Autoalojado)**, selecione **Configuration Manager**.
 
 15. Quando o nó for ligado ao serviço cloud, verá a página seguinte:
 

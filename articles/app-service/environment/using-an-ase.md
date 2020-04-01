@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/01/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7ca6882aea7225dcb97c9f913267b2543de07fef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133128"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477633"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 
@@ -88,7 +88,7 @@ Numa ASE, pode escalar um plano de Serviço de Aplicações até 100 instâncias
 
 ## <a name="ip-addresses"></a>Endereços IP
 
-O Serviço de Aplicações pode atribuir um endereço IP dedicado a uma aplicação. Esta capacidade está disponível depois de configurar o SSL baseado em IP, conforme descrito em [Bind um certificado SSL personalizado existente para o Serviço de Aplicações Azure][ConfigureSSL]. Num ILB ASE, não é possível adicionar mais endereços IP a serem utilizados para o SSL baseado em IP.
+O Serviço de Aplicações pode atribuir um endereço IP dedicado a uma aplicação. Esta capacidade está disponível depois de configurar o SSL baseado em IP, conforme descrito em [Bind um certificado TLS/SSL personalizado existente para o Serviço de Aplicações Azure][ConfigureSSL]. Num ILB ASE, não é possível adicionar mais endereços IP a serem utilizados para o SSL baseado em IP.
 
 Com uma ASE Externa, pode configurar o SSL baseado em IP para a sua aplicação da mesma forma que no Serviço de Aplicações multiarrendatárias. Há sempre um endereço sobressalente na ASE, até 30 endereços IP. Cada vez que se usa um, outro é adicionado para que um endereço esteja sempre disponível. É necessário um atraso de tempo para atribuir outro endereço IP. Este atraso impede a adição de endereços IP numa rápida sucessão.
 
@@ -138,7 +138,7 @@ Sem alterações adicionais, sistemas ci baseados na Internet como gitHub e Azur
 
 Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Pode vê-lo no perfil de publicação da app e no painel do portal da app (em **Overview** > **Essentials** e também em **Propriedades).**
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 A ASE tem 1 TB de armazenamento para todas as aplicações da ASE. Um plano de serviço de aplicações no SKU de preços isolados tem um limite de 250 GB por padrão. Se tiver cinco ou mais planos de Serviço de Aplicações, tenha cuidado para não exceder o limite de 1-TB da ASE. Se precisar de mais do que o limite de 250-GB num plano de Serviço de Aplicações, contacte o suporte para ajustar o limite do plano do Serviço de Aplicações para um máximo de 1 TB. Quando o limite do plano é ajustado, ainda há um limite de 1 TB em todos os planos do Serviço de Aplicações na ASE.
 

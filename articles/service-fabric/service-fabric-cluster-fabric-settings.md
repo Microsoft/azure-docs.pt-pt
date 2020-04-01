@@ -3,12 +3,12 @@ title: Alterar definições de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de atualização de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a4e64a4db70d419a3ef6441545d53abd298c85bb
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346797"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477906"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster De Tecido de Serviço que pode personalizar. Para clusters hospedados em Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para mais informações, consulte [Atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o ficheiro *ClusterConfig.json* e realizando uma atualização de configuração no seu cluster. Para mais informações, consulte [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -29,7 +29,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Tamanho do corpo |Uint, padrão é 16384 |Dinâmica| Dá o tamanho do pedaço em bytes usados para ler o corpo. |
 |CrlCheckingFlag|uint, padrão é 0x40000000000 |Dinâmica| Bandeiras para validação da cadeia de certificados de pedido/serviço; por exemplo, a VERIFICAção de 0x10000000000CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x2000000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x400000000CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x800000000CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Definição para 0 desativar a verificação de CRL A lista completa dos valores suportados é documentada pelo dwFlags of CertGetCertificateChain:https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |Predefinição de Pedido de Predefinição |Tempo em segundos. padrão é 120 |Dinâmica|Especifique a hora de tempo em segundos.  Dá o tempo de pedido padrão para os pedidos de http que estão sendo processados no gateway da aplicação http. |
-|Certificado de Cliente Avançado|bool, padrão é FALSO|Dinâmica|Quando definido como falso, o proxy inverso não solicitará o certificado de cliente. Quando definido como verdadeiro, o proxy inverso solicitará o certificado de cliente durante o aperto de mão SSL e encaminhará a cadeia de formato PEM codificada base64 para o serviço num cabeçalho chamado X-Cliente-Certificado.O serviço pode falhar o pedido com o código de estado apropriado depois de inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy inverso encaminhará um cabeçalho vazio e deixará o serviço tratar do caso. O procuramento inverso funcionará como uma camada transparente. Para saber mais, consulte [Configurar a autenticação](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)do certificado de cliente. |
+|Certificado de Cliente Avançado|bool, padrão é FALSO|Dinâmica|Quando definido como falso, o proxy inverso não solicitará o certificado de cliente. Quando definido como verdadeiro, o proxy inverso solicitará o certificado de cliente durante o aperto de mão SSL e encaminhará a cadeia de formato PEM codificada base64 para o serviço num cabeçalho chamado X-Cliente-Certificado.O serviço pode falhar o pedido com o código de estado apropriado após inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy inverso encaminhará um cabeçalho vazio e deixará o serviço tratar do caso. O procuramento inverso funcionará como uma camada transparente. Para saber mais, consulte [Configurar a autenticação](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)do certificado de cliente. |
 |GatewayAuthCredentialType |cadeia, padrão é "Nenhum" |Estático| Indica o tipo de credenciais de segurança a utilizar no ponto final da aplicação http valores válidos são None/X509. |
 |GatewayX509CertificadoFindType |cadeia, padrão é "FindByThumbprint" |Dinâmica| Indica como procurar um certificado na loja especificada pelo valor suportado gatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia, padrão é "" |Dinâmica| Pesquisar valor de filtro usado para localizar o certificado de gateway da aplicação http. Este certificado está configurado no ponto final https e também pode ser usado para verificar a identidade da app se necessário pelos serviços. FindValue é procurado primeiro; e se isso não existir; FindValueSecondary é procurado. |
@@ -55,9 +55,9 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
 |Tamanho MinReplicaSetSize|int, padrão é 0|Estático|O MinReplicaSetSize para BackupRestoreService |
-|Restrições de Colocação|cadeia, padrão é ""|Estático|  Os Constrangimentos de Colocação para o serviço BackupRestore |
+|Restrições de Colocação|cadeia, padrão é ""|Estático|    Os Constrangimentos de Colocação para o serviço BackupRestore |
 |Impressão secreta EncriptaçãoCertThumbprint|cadeia, padrão é ""|Dinâmica|Impressão digital do certificado de encriptação Secreta X509 |
-|SecretEncryptionCertX509StoreName|cadeia, padrão é "O meu"|   Dinâmica|    Isto indica o certificado a utilizar para encriptação e desencriptação de creds Nome da loja de certificados X.509 que é usado para encriptar credenciais de loja desencriptação usadas pelo serviço Backup Restore |
+|SecretEncryptionCertX509StoreName|cadeia, padrão é "O meu"|    Dinâmica|    Isto indica o certificado a utilizar para encriptação e desencriptação de creds Nome da loja de certificados X.509 que é usado para encriptar credenciais de loja desencriptação usadas pelo serviço Backup Restore |
 |Tamanho de replicação de alvos|int, padrão é 0|Estático| O TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -147,7 +147,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
 |Tamanho MinReplicaSetSize|int, padrão é 0|Estático|O MinReplicaSetSize para o serviço EventStore |
-|Restrições de Colocação|cadeia, padrão é ""|Estático|  Os Constrangimentos de Colocação para o serviço EventStore |
+|Restrições de Colocação|cadeia, padrão é ""|Estático|    Os Constrangimentos de Colocação para o serviço EventStore |
 |Tamanho de replicação de alvos|int, padrão é 0|Estático| O TargetReplicaSetSize para o serviço EventStore |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -270,7 +270,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |CommonNameNtlmPasswordSecret|SecureString, predefinido é comum:SecureString(")| Estático|O segredo da palavra-passe que usava como semente para gerar a mesma senha ao usar a autenticação NTLM |
 |DiskSpaceHealthReportingIntervalwhenclosetooutofdiskSpace |TimeSpan, o padrão é comum:TimeSpan::FromMinutes (5)|Dinâmica|Especifique a hora de tempo em segundos. O intervalo de tempo entre a verificação do espaço do disco para reportar evento de saúde quando o disco está perto do espaço. |
 |DiskSpaceHealthReportingIntervalwhenEnoughdiskSpace |TimeSpan, o padrão é comum:TimeSpan:FromMinutes(15)|Dinâmica|Especifique a hora de tempo em segundos. O intervalo de tempo entre a verificação do espaço do disco para reportar evento de saúde quando há espaço suficiente no disco. |
-|EnableImageStoreHealthReporting |bool, padrão é VERDADE |Estático|Config para determinar se o serviço de loja de arquivos deve reportar a sua saúde. |
+|EnableImageStoreHealthReporting |bool, padrão é VERDADE    |Estático|Config para determinar se o serviço de loja de arquivos deve reportar a sua saúde. |
 |FreediskSpaceNotificationSizeInKB|int64, padrão é\*25 1024 |Dinâmica|O tamanho do espaço de disco livre abaixo do qual pode ocorrer um aviso sanitário. O valor mínimo deste config e do FreeDiskSpaceNotificationThresholdPercentage são utilizados para determinar o envio do aviso sanitário. |
 |FreediskSpaceNotificationThresholdPercentage|duplo, padrão é 0.02 |Dinâmica|A percentagem de espaço de disco livre abaixo do qual pode ocorrer um aviso sanitário. O valor mínimo deste config e do FreeDiskSpaceNotificationInMB config são utilizados para determinar o envio de avisode saúde. |
 |Gerav1CommonNameAccount| bool, padrão é VERDADE|Estático|Especifica se gera uma conta com algoritmo de geração V1 de nome de utilizador. Começando com a versão 6.1 do Tecido de Serviço; uma conta com geração v2 é sempre criada. A conta V1 é necessária para atualizações de/para versões que não suportam a geração V2 (antes de 6.1).|
@@ -320,7 +320,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |MaxPercentDeltaUnhealthyNodes|int, padrão é 10|Estático|Política de avaliação da saúde de cluster: por cento máximo dos nós delta não saudáveis permitidos para que o cluster seja saudável |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, padrão é 15|Estático|Política de avaliação da saúde de upgrade do cluster: por cento máximo do delta dos nós não saudáveis em um domínio de upgrade permitido para que o cluster seja saudável |
 
-## <a name="hosting"></a>Hosting
+## <a name="hosting"></a>Alojamento
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
@@ -547,7 +547,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Intervalo de MinPlacement | Tempo em segundos, padrão é 1 |Dinâmica| Especifique a hora de tempo em segundos. Define o tempo mínimo que deve passar antes de duas rondas de colocação consecutivas. |
 |MoveExistingReplicaForPlacement | Bool, o padrão é verdade |Dinâmica|Definição que determina se mover a réplica existente durante a colocação. |
 |MovementPerPartitionThrottleCountingInterval | Tempo em segundos, padrão é 600 |Estático| Especifique a hora de tempo em segundos. Indicar o comprimento do intervalo passado para o qual rastrear os movimentos da réplica para cada partição (utilizado juntamente com o MovementPerPartitionThrottleThreshold). |
-|MovementPerPartitionThrottleThreshold | Uint, o padrão é 50 |Dinâmica| Não ocorrerá qualquer movimento relacionado com o equilíbrio para uma partilha se o número de movimentos relacionados de equilíbrio para réplicas dessa divisória tiver atingido ou ultrapassado o MovimentoPerFailoverUnitThrottleThreshold no intervalo anterior indicado por MovementPerPartitionThrottleCountingInterval. |
+|MovementPerPartitionThrottleThreshold | Uint, o padrão é 50 |Dinâmica| Não ocorrerá qualquer movimento relacionado com o equilíbrio para uma partição se o número de movimentos relacionados de equilíbrio para réplicas dessa divisória tiver atingido ou ultrapassado o MovementPerFailoverUnitThrottleThreshold no intervalo anterior indicado pelo MovementPerThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, o padrão é falso. |Dinâmica| Definição que determina se as réplicas dos pais podem ser movidas para corrigir restrições de afinidade.|
 |Serviços Parcialmente Place | Bool, o padrão é verdade |Dinâmica| Determina se todas as réplicas de serviço no cluster serão colocadas "tudo ou nada" dadas a nós limitados adequados para eles.|
 |PlaceChildWithoutParent | Bool, o padrão é verdade | Dinâmica|Definição que determina se a réplica do serviço infantil pode ser colocada se não houver réplica dos pais. |
@@ -568,8 +568,8 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |TraceCRMReasons |Bool, o padrão é verdade |Dinâmica|Especifica se deve traçar razões para a CRM emitiu movimentos para o canal de eventos operacionais. |
 |Prioridade de UpgradeDomínioRestri | Int, padrão é 1| Dinâmica|Determina a prioridade da restrição de domínio de atualização: 0: Difícil; 1: Macio; negativo: Ignorar. |
 |Relatórios UseMoveCostReports | Bool, o padrão é falso. | Dinâmica|Instrui o LB a ignorar o elemento de custo da função de pontuação; resultando um número potencialmente grande de movimentos para uma colocação melhor equilibrada. |
-|UseSeparateSecondaryLoad | Bool, o padrão é verdade | Dinâmica|Definição que determina se utilizar uma carga secundária diferente. |
-|UseSeparateSecondaryMoveCost|Bool, o padrão é FALSO | Dinâmica|Definição que determina se plB deve usar custos de movimento diferentes para o secundário em cada nó se useSeparateSecondaryMoveCost for desligado: - O custo de movimento reportado para o secundário num nó resultará em custos de movimento excessivos para cada secundário (em todos os outros nós) Se o custo de movimento reportado for desligado UseSeparateSecondaryMoveCost é ligado: - O custo de movimento reportado para o secundário num nó só produzirá efeito nesse secundário (nenhum efeito sobre os secundários em outros nós) - Se ocorrer uma falha de réplica - nova réplica é criada com o custo de movimento padrão especificado no serviço nível - Se PLB move réplica existente - o custo de movimento vai com ele |
+|UseSeparateSecondaryLoad | Bool, o padrão é verdade | Dinâmica|Definição que determina se deve ser utilizada uma carga separada para réplicas secundárias. |
+|UseSeparateSecondaryMoveCost | Bool, o padrão é falso. | Dinâmica|Definição que determina se o custo de movimento separado deve ser utilizado para réplicas secundárias. |
 |ValidaçãoDerestrição | Bool, o padrão é verdade |Dinâmica| Especifica se a expressão PlacementConstraint para um serviço é ou não validada quando o Serviço Descrição de um serviço é atualizado. |
 |ValidaçãoPrimaryPlacementConstraintOnPromote| Bool, o padrão é VERDADE |Dinâmica|Especifica se a expressão PlacementConstraint para um serviço é avaliada para preferência primária em failover. |
 |VerboseHealthReportLimit | Int, padrão é 20 | Dinâmica|Define o número de vezes que uma réplica tem de passar descolocada antes de ser comunicado um aviso sanitário (se o relatório de saúde verboso estiver ativado). |
@@ -685,7 +685,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |DefiniçõesX509Nome de Loja| cadeia, padrão é "MY"| Dinâmica|Loja de certificados X509 utilizada por tecido para proteção de configuração |
 |UseClusterCertForIpcServerTlsSecurity|bool, padrão é FALSO|Estático|Se usar certificado de cluster para proteger unidade de transporte IPC Server TLS |
 |X509Pasta|cadeia, padrão é /var/lib/waagent|Estático|Pasta onde estão localizados certificados X509 e chaves privadas |
-|TLS1_2_CipherList| string| Estático|Se for definido para uma corda não vazia; substitui a lista de cifrasuporta suportada para TLS1.2 e abaixo. Consulte a documentação "openssl-ciphers" para recuperar a lista de cifras apoiada e o formato de lista Exemplo de lista de cifra forte para TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA348: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA-AES256-GCM-SHA34: ECDHE-RSA ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Aplica-se apenas ao Linux. |
+|TLS1_2_CipherList| string| Estático|Se for definido para uma corda não vazia; substitui a lista de cifrasuporta suportada para TLS1.2 e abaixo. Consulte a documentação "openssl-ciphers" para recuperar a lista de cifras apoiada e o formato de lista Exemplo de lista de cifra forte para TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA3 RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" |
 
 ## <a name="securityadminclientx509names"></a>Segurança/AdminClientX509Names
 

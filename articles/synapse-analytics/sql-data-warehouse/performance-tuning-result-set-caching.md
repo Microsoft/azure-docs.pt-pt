@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 0c2190c29054301a8e21a9a27eb078802fbc9612
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350866"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474475"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados  
 Quando o conjunto de resultados está ativado, o SQL Analytics automaticamente caches a consulta resulta na base de dados do utilizador para uso repetitivo.  Isto permite que execuções subsequentes de consulta obtenha resultados diretamente da cache persistida para que a recomputação não seja necessária.   O conjunto de resultados reduz o desempenho da consulta e reduz o uso de recursos computacionais.  Além disso, as consultas utilizando o conjunto de resultados em cache não utilizam faixas de conmoedação e, portanto, não contam com os limites de moeda existentes. Por razões de segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso a dados que os utilizadores que criam os resultados em cache.  
@@ -65,10 +65,10 @@ O conjunto de resultados em cache é reutilizado para uma consulta se todos os s
 - Há uma correspondência exata entre a nova consulta e a consulta anterior que gerou a cache do conjunto de resultados.
 - Não existem alterações de dados ou esquemas nas tabelas onde o conjunto de resultados em cache foi gerado.
 
-Execute este comando para verificar se uma consulta foi executada com um golpe de cache de resultado ou falha. Se houver um impacto na cache, o result_cache_hit voltará 1.
+Execute este comando para verificar se uma consulta foi executada com um golpe de cache de resultado ou falha. A coluna result_set_cache devolve 1 para cache hit, 0 para cache falha, e valores negativos por razões pelas quais o resultado definido caching não foi usado. Verifique se [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7) para obter detalhes.
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
+SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

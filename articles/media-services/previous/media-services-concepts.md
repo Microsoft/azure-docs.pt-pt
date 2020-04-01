@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162910"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475239"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Serviços De Mídia Azure 
 
@@ -97,7 +97,7 @@ A Azure Media Services oferece múltiplas opções para a codificação de meios
 Ao começar com os Serviços de Media, é importante entender a diferença entre códigos e formatos de ficheiros.
 Os codecs são o software que implementa os algoritmos de compressão/descompressão, enquanto os formatos de ficheiros são recipientes que possuem o vídeo comprimido.
 
-A Media Services fornece uma embalagem dinâmica que lhe permite entregar o seu conteúdo codificado bitrate adaptativo MP4 ou Smooth Streaming em formatos de streaming suportados por Media Services (MPEG DASH, HLS, Smooth Streaming) sem ter de voltar a embalar estes formatos de streaming.
+O Media Services fornece uma embalagem dinâmica que lhe permite entregar o seu conteúdo codificado de bitrate adaptativo MP4 ou Smooth Streaming em formatos de streaming suportados por Media Services (MPEG DASH, HLS, Smooth Streaming) sem ter de voltar a embalar nestes formatos de streaming.
 
 Para tirar partido da [embalagem dinâmica,](media-services-dynamic-packaging-overview.md)é necessário codificar o seu ficheiro mezanino (fonte) num conjunto de ficheiros MP4 bitrate adaptáveis ou ficheiros adaptáveis de streaming suave e ter pelo menos um ponto final de streaming padrão ou premium em estado de partida.
 
@@ -166,7 +166,7 @@ Ao trabalhar com os Serviços de Media, recomenda-se codificar os seus ficheiros
 ### <a name="streaming-endpoint"></a>Ponto final de transmissão em fluxo
 Um StreamingEndpoint representa um serviço de streaming que pode entregar conteúdo diretamente a uma aplicação de jogador de clientes, ou a uma Rede de Entrega de Conteúdos (CDN) para posterior distribuição (a Azure Media Services fornece agora a integração Azure CDN.) O fluxo de saída de um serviço de ponto final de streaming pode ser um stream ao vivo, ou um Ativo a pedido de vídeo na sua conta de Media Services. Os clientes dos Serviços de Multimédia escolhem um ponto final de transmissão em fluxo **Standard** ou um ou mais pontos finais de transmissão em fluxo **Premium**, de acordo com as respetivas necessidades. O ponto final de streaming padrão é adequado para a maioria das cargas de trabalho de streaming. 
 
-O Ponto Final de Transmissão em Fluxo Standard é ideal para a maioria das cargas de trabalho de transmissão em fluxo. Os Pontos Finais de Streaming Standard oferecem a flexibilidade para entregar o seu conteúdo a praticamente todos os dispositivos através de embalagens dinâmicas em HLS, MPEG-DASH e Smooth Streaming, bem como encriptação dinâmica para microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Eles também escalam de públicos muito pequenos a muito grandes com milhares de espectadores simultâneos através da integração Azure CDN. Se tiver uma carga de trabalho avançada ou os seus requisitos de capacidade de streaming não se adequar em alvos padrão de saída de pontos finais de streaming ou se pretender controlar a capacidade do serviço StreamingEndpoint para lidar com as necessidades crescentes de largura de banda, recomenda-se que alocar unidades de escala (também conhecidas como unidades de streaming premium).
+O Ponto Final de Transmissão em Fluxo Standard é ideal para a maioria das cargas de trabalho de transmissão em fluxo. Os Pontos Finais de Streaming Standard oferecem a flexibilidade para entregar o seu conteúdo a praticamente todos os dispositivos através de embalagens dinâmicas em HLS, MPEG-DASH e Smooth Streaming, bem como encriptação dinâmica para microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Eles também escalam de públicos muito pequenos a muito grandes com milhares de espectadores simultâneos através da integração Azure CDN. Se tiver uma carga de trabalho avançada ou os seus requisitos de capacidade de streaming não se adequar em alvos de saída de pontos de streaming padrão ou se pretender controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda, recomenda-se a locar unidades de escala (também conhecidas como unidades de streaming premium).
 
 Recomenda-se a utilização de embalagens dinâmicas e/ou encriptação dinâmica.
 
@@ -180,7 +180,7 @@ Por predefinição pode ter até 2 pontos finais de streaming na sua conta de Me
 Só é cobrado quando o seu StreamingEndpoint está em estado de funcionamento.
 
 ### <a name="asset-delivery-policy"></a>Política de entrega de ativos
-Um dos passos no fluxo de trabalho de entrega de conteúdos dos Media Services é configurar políticas de [entrega de ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que pretende ser transmitido. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: no qual o protocolo de streaming deve ser embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou todos), quer queira ou não encriptar dinamicamente seu ativo e como (envelope ou encriptação comum).
+Um dos passos no fluxo de trabalho de entrega de conteúdos dos Media Services é configurar políticas de [entrega de ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que pretende ser transmitido. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: no qual o protocolo de streaming deve ser embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou todos), quer queira ou não encriptar de forma dinâmica o seu ativo e como (envelope ou encriptação comum).
 
 Se tiver um ativo encriptado de armazenamento, antes de o seu ativo poder ser transmitido, o servidor de streaming remove a encriptação de armazenamento e transmite o seu conteúdo utilizando a política de entrega especificada. Por exemplo, para entregar o seu ativo encriptado com a chave de encriptação Advanced Encryption Standard (AES), defino o tipo de política para DynamicEnvelopeEncryption. Para remover a encriptação do armazenamento e transmitir o ativo de forma clara, delineie o tipo de política para NoDynamicEncryption.
 
@@ -197,10 +197,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>Streaming URLs
 Transmitindo o seu conteúdo aos clientes. Para fornecer URLs de streaming aos utilizadores, primeiro deve criar um localizador OnDemandOrigin. Criar o localizador, dá-lhe o Caminho base para o ativo que contém o conteúdo que pretende transmitir. No entanto, para poder transmitir este conteúdo, precisa de modificar ainda mais este caminho. Para construir um URL completo para o ficheiro manifesto de streaming, deve concatenar o valor do caminho do localizador e o nome de ficheiro manifesto (nome de ficheiro.ism). Em seguida, anexar/Manifestar e um formato apropriado (se necessário) para o caminho do localizador.
 
-Também pode transmitir o seu conteúdo através de uma ligação SSL. Para isso, certifique-se de que os seus URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta a SSL com domínios personalizados.  
+Também pode transmitir o seu conteúdo através de uma ligação TLS. Para isso, certifique-se de que os seus URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.  
 
 >[!NOTE]
->Só é possível transmitir através do SSL se o ponto final de streaming a partir do qual entrega o seu conteúdo for criado após 10 de setembro de 2014. Se os seus URLs de streaming forem baseados nos pontos finais de streaming criados após o dia 10 de setembro, o URL contém "streaming.mediaservices.windows.net" (o novo formato). Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam O SSL. Se o seu URL estiver no formato antigo e quiser ser capaz de transmitir sobre o SSL, crie um novo ponto final de streaming. Utilize URLs criados com base no novo ponto final de streaming para transmitir o seu conteúdo através de SSL.
+>Só é possível transmitir através do TLS se o ponto final de streaming a partir do qual entrega o seu conteúdo for criado após 10 de setembro de 2014. Se os seus URLs de streaming forem baseados nos pontos finais de streaming criados após o dia 10 de setembro, o URL contém "streaming.mediaservices.windows.net" (o novo formato). Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se o seu URL estiver no formato antigo e quiser ser capaz de transmitir através de TLS, crie um novo ponto final de streaming. Utilize URLs criados com base no novo ponto final de streaming para transmitir o seu conteúdo através de TLS.
 
 A seguinte lista descreve diferentes formatos de streaming e dá exemplos:
 

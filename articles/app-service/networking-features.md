@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bc3d35830d833c0223a400140c53e583d2f6ed37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475430"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474901"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de rede de serviços de aplicação
 
@@ -81,7 +81,7 @@ Quando utiliza um endereço atribuído a uma aplicação, o seu tráfego continu
 * Suporte as necessidades SSL baseadas em IP para a sua aplicação
 * Detete um endereço dedicado para a sua aplicação que não seja partilhado com mais nada
 
-Pode aprender a definir um endereço na sua aplicação com o tutorial em [Configuração IP baseado em SSL][appassignedaddress]. 
+Pode aprender a definir um endereço na sua aplicação com o tutorial em [Adicionar um certificado TLS/SSL no Serviço de Aplicações Azure][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Restrições de acesso 
 

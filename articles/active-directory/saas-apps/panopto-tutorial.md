@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Panopto | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Panopto.
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Panopto Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Panopto.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,216 +16,216 @@ ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095017"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Active Directory do Azure com Panopto
+# <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Diretório Ativo Azure com o Panopto
 
-Neste tutorial, saiba como integrar Panopto com o Azure Active Directory (Azure AD).
-Integrar Panopto no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar o Panopto com o Azure Ative Directory (Azure AD).
+Integrar o Panopto com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Panopto.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Panopto (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Você pode controlar em Azure AD que tem acesso a Panopto.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Panopto (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Panopto, terá dos seguintes itens:
+Para configurar a integração da AD Azure com o Panopto, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Panopto logon único habilitado subscrição
+* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura de sinal único panopto
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta Panopto **SP** iniciada SSO
+* Panopto apoia **SP** iniciado SSO
 
-* Suporta Panopto **Just In Time** aprovisionamento de utilizadores
+* Panopto suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-panopto-from-the-gallery"></a>Adicionando Panopto da Galeria
+## <a name="adding-panopto-from-the-gallery"></a>Adicionando Panopto da galeria
 
-Para configurar a integração do Panopto com o Azure AD, terá de adicionar Panopto a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Panopto em Azure AD, precisa adicionar Panopto da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar Panopto a partir da galeria, execute os seguintes passos:**
+**Para adicionar Panopto da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Panopto**, selecione **Panopto** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Panopto,** selecione **Panopto** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![Panopto na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Panopto com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Panopto deve ser estabelecido.
+Nesta secção, configura e testa o único sign-on azure ad com panopto com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Panopto.
 
-Para configurar e testar o Azure AD início de sessão único com Panopto, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com o Panopto, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Panopto Single Sign-On](#configure-panopto-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Panopto](#create-panopto-test-user)**  - para ter um equivalente da Eduarda Almeida na Panopto que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Sign-On único do Panopto](#configure-panopto-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie o utilizador do teste Panopto](#create-panopto-test-user)** - para ter uma contrapartida de Britta Simon em Panopto que esteja ligada à representação da AD Azure do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com Panopto, execute os seguintes passos:
+Para configurar o único sinal de Azure AD com o Panopto, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Panopto** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **panopto,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![Panopto domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
+    ![Panopto Domain e URLs informações únicas de inscrição](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<tenant-name>.panopto.com`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<tenant-name>.panopto.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Panopto](mailto:support@panopto.com%E2%80%8E) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte a equipa de suporte do [Cliente Panopto](mailto:support@panopto.com%E2%80%8E) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-6. Sobre o **configurar Panopto** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na secção **'Configurar Panopto',** copie os URL(s) adequados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-panopto-single-sign-on"></a>Configurar Panopto Single Sign-On
+### <a name="configure-panopto-single-sign-on"></a>Configure panopto único sign-on
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Panopto como administrador.
+1. Numa janela diferente do navegador web, inicie sessão no site da empresa Panopto como administrador.
 
-2. Na barra de ferramentas do lado esquerdo, clique em **System**e, em seguida, clique em **fornecedores de identidade**.
+2. Na barra de ferramentas à esquerda, clique no **Sistema**, e clique em **Fornecedores de Identidade**.
    
-    ![Sistema](./media/panopto-tutorial/ic777670.png "sistema")
+    ![Sistema](./media/panopto-tutorial/ic777670.png "Sistema")
 
-3. Clique em **Adicionar fornecedor**.
+3. Clique em **Adicionar Fornecedor**.
    
-    ![Fornecedores de identidade](./media/panopto-tutorial/ic777671.png "fornecedores de identidade")
+    ![Fornecedores de Identidade](./media/panopto-tutorial/ic777671.png "Fornecedores de Identidade")
    
-4. Na secção de fornecedor de SAML, execute os seguintes passos:
+4. Na secção de fornecedores SAML, execute os seguintes passos:
    
-    ![Configuração de SaaS](./media/panopto-tutorial/ic777672.png "configuração de SaaS")
+    ![Configuração SaaS](./media/panopto-tutorial/ic777672.png "Configuração SaaS")
     
-    a. Partir do **tipo de fornecedor** lista, selecione **SAML20**.    
+    a. Na lista do **Tipo fornecedor,** selecione **SAML20**.    
     
-    b. Na **nome da instância** caixa de texto, escreva um nome para a instância.
+    b. Na caixa de texto **Nome de exemplo,** digite um nome para a instância.
 
-    c. Na **descrição amigável** caixa de texto, escreva uma descrição amigável.
+    c. Na caixa de texto **Descrição Amigável,** escreva uma descrição amigável.
     
-    d. Na **Url de página de devolução** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    d. Na caixa de texto **Bounce Page Url,** colá o valor do URL de **Login,** que copiou do portal Azure.
 
-    e. Na **emissor** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    e. Na caixa de texto **emitente,** cola o valor do **Identificador AD Azure,** que copiou do portal Azure.
 
-    f. Abra o seu certificado com codificação base 64, que transferiu do portal do Azure, copie o conteúdo de-lo na sua área de transferência e, em seguida, cole-os para o **chave pública** caixa de texto.
+    f. Abra o seu certificado codificado base-64, que descarregou do portal Azure, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o à caixa de texto **da Chave Pública.**
 
 5. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. No tipo de campo de **nome do utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Panopto.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso a Panopto.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Panopto**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Panopto**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Panopto**.
 
-    ![A ligação de Panopto na lista de aplicações](common/all-applications.png)
+    ![O link Panopto na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-panopto-test-user"></a>Criar utilizador de teste Panopto
+### <a name="create-panopto-test-user"></a>Criar o utilizador do teste panopto
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na Panopto. Panopto suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Panopto, é criado um novo após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado em Panopto. O Panopto suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Panopto, um novo é criado após a autenticação.
 
 >[!NOTE]
->Pode utilizar quaisquer outras Panopto utilizador conta criação ferramentas ou APIs fornecidas pelo Panopto para aprovisionar contas de utilizador do Azure AD.
+>Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador panopto ou APIs fornecidas pela Panopto para fornecer contas de utilizador azure AD.
 >
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico Panopto no painel de acesso, deve ser automaticamente sessão iniciada no Panopto para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Panopto no Painel de Acesso, deve ser automaticamente inscrito no Panopto para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

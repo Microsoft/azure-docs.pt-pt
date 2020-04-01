@@ -1,5 +1,5 @@
 ---
-title: Adicionar usuários a um grupo dinâmico-tutorial-Azure AD | Microsoft Docs
+title: Adicione utilizadores a um grupo dinâmico - tutorial - Azure AD [ Microsoft Docs
 description: Neste tutorial, via utilizar grupos com regras de adesão de utilizador para adicionar ou remover utilizadores automaticamente.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74027113"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros de grupos automaticamente
@@ -27,15 +27,15 @@ No Azure Active Directory (Azure AD), pode adicionar ou remover de forma automá
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um grupo de usuários convidados preenchido automaticamente de uma empresa parceira
+> * Criar um grupo de utilizadores convidados automaticamente povoados de uma empresa parceira
 > * Atribuir licenças para o grupo às características do parceiro específico para acesso por parte dos utilizadores convidados
 > * Bónus: proteja o grupo **Todos os utilizadores** mediante a remoção dos utilizadores convidados, para que, por exemplo, possa dar acesso aos seus utilizadores membros a sites internos
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso requer uma licença de Azure AD Premium para você como o administrador global do locatário. Se não tiver essa licença, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
+Esta funcionalidade requer uma licença Azure AD Premium para si como administradorglobal do inquilino. Se não tiver um, em Azure AD, selecione **Licenses** > **Products** > **Try/Buy**.
 
 Não é obrigatório atribuir licenças aos utilizadores para que os mesmos possam ser membros de grupos dinâmicos. Só precisa do número mínimo de licenças do Azure AD Premium P1 disponíveis no inquilino para abranger todos esses utilizadores. 
 
@@ -43,29 +43,29 @@ Não é obrigatório atribuir licenças aos utilizadores para que os mesmos poss
 
 Primeiro, vai criar um grupo para os utilizadores convidados que pertençam todos à mesma empresa parceira. Esses utilizadores precisam de um licenciamento especial, pelo que, regra geral, é mais eficiente criar um grupo para este fim.
 
-1. Entre no portal do Azure (https://portal.azure.com) com uma conta que seja o administrador global do seu locatário.
-2. Selecione **Azure Active Directory** > **Grupos** > **Novo grupo**.
-   ![selecionar o comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
+1. Inscreva-se no portalhttps://portal.azure.com) Azure ( com uma conta que é o administrador global do seu inquilino.
+2. Selecione **Azure Ative Directory** > **Groups** > **Novo grupo**.
+   ![selecionar comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
 3. No painel **Grupo**:
   
-   * Selecione **segurança** como o tipo de grupo.
-   * Insira `Guest users Contoso` como o nome e a descrição do grupo.
-   * Altere o **tipo de associação** para **usuário dinâmico**.
+   * Selecione **Segurança** como o tipo de grupo.
+   * Insira `Guest users Contoso` como nome e descrição para o grupo.
+   * Alterar **o tipo de membro** para Utilizador **Dinâmico**.
    
-4. Selecione **proprietários** e, na folha **Adicionar proprietários** , procure quaisquer proprietários desejados. Clique nos proprietários desejados para adicionar à seleção.
-5. Clique em **selecionar** para fechar a folha **Adicionar proprietários** .  
-6. Selecione **Editar consulta dinâmica** na caixa **membros dinâmicos do usuário** .
-7. Na folha **regras de associação dinâmica** :
+4. Selecione **Proprietários** e na procura de **lâminas Add Owners** para quaisquer proprietários desejados. Clique nos proprietários desejados para adicionar à seleção.
+5. Clique **em Selecionar** para fechar a lâmina Adicionar **Proprietários.**  
+6. **Selecione Editar consulta dinâmica** na caixa de membros do utilizador **Dynamic.**
+7. No painel **Regras de associação de grupo dinâmica**:
 
-   * No campo **Propriedade** , clique no valor existente e selecione **UserType**. 
-   * Verifique se o campo **operador** tem **igual** a selecionado.  
-   * Selecione o campo **valor** e insira **convidado**. 
-   * Clique no hiperlink **Adicionar expressão** para adicionar outra linha.
-   * No campo **e/ou** , selecione **e**.
-   * No campo de **Propriedade** , selecione **CompanyName**.
-   * Verifique se o campo **operador** tem **igual** a selecionado.
-   * No campo **valor** , insira **contoso**.
-   * Clique em **salvar** para fechar a folha **regras de associação dinâmica** .
+   * No campo **Propriedade,** clique no valor existente e selecione **userType**. 
+   * Verifique se o campo **Operator** tem **iguais selecionados.**  
+   * Selecione o campo **Valor** e introduza **O Convidado.** 
+   * Clique na hiperligação **Add Expression** para adicionar outra linha.
+   * No campo **E/Or,** selecione **E**.
+   * No campo **Propriedade,** selecione **nome da empresa**.
+   * Verifique se o campo **Operator** tem **iguais selecionados.**
+   * No campo **Valor,** entre **Contoso.**
+   * Clique em **Guardar** para fechar a lâmina de regras de **adesão Dinâmica.**
    
 8. No painel **Grupo**, selecione **Criar**, para criar o grupo.
 
@@ -89,10 +89,10 @@ Talvez o que tenha em mente seja atribuir todos os utilizadores convidados aos s
 **Para remover o grupo de utilizadores convidados**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta que seja a administradora global do seu inquilino.
-2. Selecione **Azure Active Directory** > **Grupos**. Selecione o grupo **Utilizadores convidados da Contoso**, selecione as reticências (...) e, em seguida, selecione **Eliminar**. Quando elimina o grupo, todas as licenças atribuídas são removidas.
+2. Selecione > **Grupos** **de DirectórioActivo Azure**. Selecione o grupo **Utilizadores convidados da Contoso**, selecione as reticências (...) e, em seguida, selecione **Eliminar**. Quando elimina o grupo, todas as licenças atribuídas são removidas.
 
 **Para restaurar o grupo Todos os utilizadores**
-1. Selecione **Azure Active Directory** > **Grupos**. Selecione o nome do grupo **Todos os utilizadores** para abri-lo.
+1. Selecione > **Grupos** **de DirectórioActivo Azure**. Selecione o nome do grupo **Todos os utilizadores** para abri-lo.
 1. Selecione **Regras de adesão dinâmica**, limpe o texto completo da regra e selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes

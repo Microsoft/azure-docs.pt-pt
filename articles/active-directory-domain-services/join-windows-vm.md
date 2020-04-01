@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481590"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476235"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Junte-se a uma máquina virtual do Windows Server para um domínio gerido
 
@@ -76,8 +76,6 @@ Se já tem um VM que pretende aderir ao domínio, salte para a secção para [se
 
     O RDP só deve ser ativado quando necessário, e limitado a um conjunto de gamas IP autorizadas. Esta configuração ajuda a melhorar a segurança do VM e reduz a área para potenciais ataques. Ou criar e utilizar um anfitrião do Azure Bastion que só permite o acesso através do portal Azure sobre o TLS. No próximo passo deste tutorial, você usa um anfitrião do Azure Bastion para ligar-se de forma segura ao VM.
 
-    Por enquanto, desative as ligações diretas de RDP ao VM.
-
     Sob **portas de entrada pública,** selecione *Nenhuma*.
 
 1. Quando terminar, selecione **Seguinte: Discos**.
@@ -96,22 +94,23 @@ Se já tem um VM que pretende aderir ao domínio, salte para a secção para [se
 
     ![Opte por gerir a configuração da sub-rede no portal Azure](./media/join-windows-vm/manage-subnet.png)
 
-1. No menu à esquerda da janela de rede virtual, selecione **espaço Address**. A rede virtual é criada com um único espaço de endereço de *10.0.1.0/24,* que é utilizado pela sub-rede predefinida.
+1. No menu à esquerda da janela de rede virtual, selecione **espaço Address**. A rede virtual é criada com um único espaço de endereço de *10.0.2.0/24,* que é utilizado pela sub-rede predefinida. Outras subredes, como as *cargas de trabalho* ou o Bastião Azure, também podem já existir.
 
     Adicione uma gama adicional de endereços IP à rede virtual. A dimensão desta gama de endereços e a gama real de endereços IP a utilizar depende de outros recursos de rede já implantados. A gama de endereços IP não deve sobrepor-se a quaisquer gamas de endereços existentes no seu ambiente Azure ou no local. Certifique-se de que dimensiona a gama de endereços IP suficientemente grande para o número de VMs que espera implantar na sub-rede.
 
-    No exemplo seguinte, é acrescentado um intervalo adicional de endereços IP de *10.0.2.0.0/24.* Quando estiver pronto, selecione **Guardar**.
+    No exemplo seguinte, é adicionada uma gama adicional de endereços IP de *10.0.5.0/24.* Quando estiver pronto, selecione **Guardar**.
 
-    ![Adicione uma gama adicional de endereços IP da rede virtual no portal Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Adicione uma gama adicional de endereços IP da rede virtual no portal Azure](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. Em seguida, no menu esquerdo da janela de rede virtual, selecione **Subnets,** em seguida, escolha **+ Subnet** para adicionar uma subnet.
 
-1. Selecione **+ Subnet,** em seguida, introduza um nome para a sub-rede, como *a gestão*. Forneça uma **gama de endereços (bloco CIDR)**, como *10.0.2.0/24*. Certifique-se de que esta gama de endereços IP não se sobrepõe a quaisquer outros intervalos de endereços existentes do Azure ou no local. Deixe as outras opções como valores predefinidos e, em seguida, selecione **OK**.
+1. Selecione **+ Subnet,** em seguida, introduza um nome para a sub-rede, como *a gestão*. Forneça uma **gama de endereços (bloco CIDR)**, como *10.0.5.0/24*. Certifique-se de que esta gama de endereços IP não se sobrepõe a quaisquer outros intervalos de endereços existentes do Azure ou no local. Deixe as outras opções como valores predefinidos e, em seguida, selecione **OK**.
 
     ![Criar uma configuração de sub-rede no portal Azure](./media/join-windows-vm/create-subnet.png)
 
 1. Leva alguns segundos para criar a sub-rede. Uma vez criado, selecione o *X* para fechar a janela da sub-rede.
 1. De volta ao painel **de Networking** para criar um VM, escolha a subnet que criou a partir do menu suspenso, como *a gestão.* Mais uma vez, certifique-se de que escolhe a sub-rede correta e não implemente o seu VM na mesma sub-rede que o seu domínio gerido pelo Azure AD DS.
+1. Para **IP público**, selecione *Nenhum* do menu suspenso, já que utiliza o Azure Bastion para se ligar à gestão e não precisa de um endereço IP público atribuído.
 1. Deixe as outras opções como valores predefinidos e, em seguida, selecione **Management**.
 1. Desbote **os diagnósticos** da bota para *desligar*. Deixe as outras opções como valores predefinidos e, em seguida, selecione **Review + criar**.
 1. Reveja as definições vM e, em seguida, selecione **Criar**.

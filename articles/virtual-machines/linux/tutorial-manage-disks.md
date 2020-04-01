@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 78b47075ba0c717ffd8e813f6cf1ebb86031a7e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239281"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060216"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -47,7 +47,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Para instalar aplicações e armazenar dados, podem ser adicionados mais discos de dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados duradouro e reativo. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM.
+Para instalar aplicações e armazenar dados, podem ser adicionados mais discos de dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
@@ -59,7 +59,7 @@ O Armazenamento Standard está protegido por HDDs e fornece armazenamento econó
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
+Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando seleciona um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
@@ -70,9 +70,9 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 
 A Azure Cloud Shell é uma concha interativa gratuita que pode suster para executar os passos deste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-## <a name="create-and-attach-disks"></a>Criar e anexar discos
+## <a name="create-and-attach-disks"></a>Criar e expor discos
 
 Os discos de dados podem ser criados e expostos no momento de criação da VM ou para uma VM existente.
 
@@ -110,14 +110,14 @@ az vm disk attach \
     --new
 ```
 
-## <a name="prepare-data-disks"></a>Preparar discos de dados
+## <a name="prepare-data-disks"></a>Preparar dados de discos
 
 Depois de um disco ser exposto à máquina virtual, o sistema operativo tem de ser configurado para utilizar o disco. O exemplo seguinte mostra como configurar manualmente um disco. Este processo também pode ser automatizado através da inicialização da cloud, que é abordada num [tutorial posterior](./tutorial-automate-vm-deployment.md).
 
 
 Crie uma ligação SSH com a máquina virtual. Substitua o endereço IP de exemplo pelo IP público da máquina virtual.
 
-```azurecli-interactive
+```console
 ssh 10.101.10.10
 ```
 
@@ -184,7 +184,7 @@ Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de 
 
 ### <a name="create-snapshot"></a>Criar instantâneo
 
-Antes de criar um instantâneo do disco da máquina virtual, é necessário o ID ou o nome do disco. Utilize o comando [az vm show](/cli/azure/vm#az-vm-show) para obter o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
+Antes de criar um instantâneo do disco da máquina virtual, é necessário o ID ou o nome do disco. Use o comando de [show az vm](/cli/azure/vm#az-vm-show) para devolver o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \

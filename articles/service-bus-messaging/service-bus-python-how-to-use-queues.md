@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76773499"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478652"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Quickstart: Use as filas de ônibus de serviço Azure com Python
 
@@ -32,7 +32,7 @@ Para mais informações sobre as bibliotecas de ônibus de serviço Python Azure
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma subscrição do Azure. Pode ativar os benefícios do seu Estúdio Visual ou dos benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Um espaço de nome de ônibus de serviço, criado seguindo os passos na [Quickstart: Use o portal Azure para criar um tópico de ônibus de serviço e subscrições](service-bus-quickstart-topics-subscriptions-portal.md). Copie a cadeia de ligação primária do ecrã de políticas de **acesso partilhado** para utilizar mais tarde neste artigo. 
-- Python 3.4x ou superior, com o pacote [de ônibus de serviço Python Azure][Python Azure Service Bus package] instalado. Para mais informações, consulte o Guia de [Instalação Python](/azure/python/python-sdk-azure-install). 
+- Python 3.4x ou superior, com o pacote [de ônibus de serviço Python Azure][Python Azure Service Bus package] instalado. Para mais informações, consulte o Guia de [Instalação Python](/azure/developer/python/azure-sdk-install). 
 
 ## <a name="create-a-queue"></a>Criar uma fila
 

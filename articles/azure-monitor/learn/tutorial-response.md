@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670377"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
@@ -26,16 +26,16 @@ Neste tutorial, ficará a saber como:
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
 
 ## <a name="create-alerts"></a>Criar alertas
 Os alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas guardadas ou pesquisa de registos personalizadas em intervalos regulares.  Pode criar alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, ausência de um evento ou um número de eventos é criado numa janela de tempo específica.  Por exemplo, os alertas podem ser utilizados para notificar quando a utilização da CPU excede determinado limiar, quando é detetada uma atualização em falta ou quando é gerado um evento depois da deteção que determinado serviço Windows ou Linux daemon não está a ser executado.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, será criado um alerta. A regra pode, em seguida, executar automaticamente uma ou mais ações, como notificá-lo do alerta proativamente ou invocar outro processo. 
 
 No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](tutorial-logs-dashboards.md).  É criado um alerta para cada máquina virtual que excede um limiar de 90%.  
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/tutorial-response/alert-rule-02.png)<br>
-3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho do Log Analytics e a VM criadas anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **espaço Padrão LAWork do** **Recurso** e, em seguida, clique em **Done**.<br><br> ![Criar alerta, passo 1](./media/tutorial-response/alert-rule-03.png)<br>
+3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho do Log Analytics e a VM criadas anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar alerta, passo 1](./media/tutorial-response/alert-rule-03.png)<br>
 4. Na secção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a nossa consulta guardada e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar lógica de sinal**, selecione *Azure VMs – Utilização do Processador* na lista.  O painel atualiza para apresentar as definições de configuração do alerta.  Na parte superior, mostra os resultados dos últimos 30 minutos do sinal selecionado e a consulta de pesquisa.  
 5. Configure o alerta com as seguintes informações:  
    a. Na lista pendente **Com base em**, selecione **Unidades métricas**.  Uma medição métrica cria um alerta para cada objeto na consulta com um valor que excede o nosso limiar especificado.  
@@ -43,7 +43,7 @@ No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica
    c. Na secção Acionar Alerta Com Base Em, selecione **Falhas de segurança consecutivas** e na lista pendente selecione **Maior que** e introduza 3.  
    d. Na secção Avaliação baseada em, modifique o valor **Período** para **30** minutos. A regra é executada a cada cinco minutos e devolve registos que foram criados nos últimos trinta minutos anteriores à hora atual.  Definir o período de tempo para uma janela maior tem em conta o potencial da latência de dados e garante que a consulta devolve dados para evitar um falso negativo em que o alerta nunca é acionado.  
 6. Clique em **Concluído** para concluir a regra de alerta.<br><br> ![Configurar sinal de alerta](./media/tutorial-response/alert-signal-logic-02.png)<br> 
-7. Agora passando ao segundo passo, indique o nome do alerta no campo **Nome da regra de alerta**, como **Percentagem da CPU maior que 90%** .  Especifique uma **Descrição** detalhando especificidades do alerta e selecione **Crítico (Grav 0)** como o valor de **Gravidade** nas opções fornecidas.<br><br> ![Configurar detalhes do alerta](./media/tutorial-response/alert-signal-logic-04.png)<br>
+7. Agora passando ao segundo passo, indique o nome do alerta no campo **Nome da regra de alerta**, como **Percentagem da CPU maior que 90%**.  Especifique uma **Descrição** detalhando especificidades do alerta e selecione **Crítico (Grav 0)** como o valor de **Gravidade** nas opções fornecidas.<br><br> ![Configurar detalhes do alerta](./media/tutorial-response/alert-signal-logic-04.png)<br>
 8. Para ativar imediatamente a regra de alerta na criação, aceite o valor predefinido de **Ativar regra após criação**.
 9. Para o terceiro e último passo, especifica um **Grupo de Ações**, que garante que as mesmas ações são feitas sempre que um alerta é acionado e pode ser utilizado para cada regra que definir.  Configure um novo grupo de ações com as seguintes informações:  
    a. Selecione **Novo grupo de ações** e o painel **Adicionar grupo de ações** é apresentado.  

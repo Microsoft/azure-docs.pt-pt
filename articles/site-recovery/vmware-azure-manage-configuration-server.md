@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257280"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478465"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para vMware VM/recuperação de desastres de servidor físico
 
@@ -270,9 +270,9 @@ Pode eliminar opcionalmente o servidor de configuração utilizando o PowerShell
 3. Para gerar o ficheiro de palavra-passe, execute **genpassphrase.exe -v > MobSvc.passphrase**.
 4. A sua palavra-passe será armazenada no ficheiro localizado em **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## <a name="renew-ssl-certificates"></a>Renovar certificados SSL
+## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
 
-O servidor de configuração tem um servidor web incorporado, que orquestra atividades do Serviço de Mobilidade, servidores de processos e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado SSL para autenticar clientes. O certificado expira após três anos e pode ser renovado a qualquer momento.
+O servidor de configuração tem um servidor web incorporado, que orquestra atividades do Serviço de Mobilidade, servidores de processos e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado TLS/SSL para autenticar clientes. O certificado expira após três anos e pode ser renovado a qualquer momento.
 
 ### <a name="check-expiry"></a>Verificar expiração
 

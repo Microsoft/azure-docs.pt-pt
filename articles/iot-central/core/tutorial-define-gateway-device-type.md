@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79298840"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
@@ -40,7 +40,7 @@ Este tutorial utiliza modelos de dispositivos para um dispositivo **Sensor S1** 
 
 Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
-1. No painel esquerdo, selecione **Modelos de dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de dispositivo**. Em **+** seguida, selecione para começar a adicionar o modelo.
 
 1. Desloque-se para baixo até poder ver o azulejo do dispositivo **Sensor S1.** Selecione o azulejo e, em seguida, selecione **Seguinte: Personalizar**.
 
@@ -48,7 +48,7 @@ Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
 Para criar um modelo de dispositivo para um dispositivo sensor de**ocupação RS40:**
 
-1. No painel esquerdo, selecione **Modelos de dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de dispositivo**. Em **+** seguida, selecione para começar a adicionar o modelo.
 
 1. Desloque-se para baixo até poder ver o azulejo do dispositivo *** RS40 Ocupação Sensor.** Selecione o azulejo e, em seguida, selecione **Seguinte: Personalizar**.
 
@@ -65,7 +65,7 @@ Neste tutorial cria-se um modelo de dispositivo para um dispositivo de gateway d
 
 Para adicionar um novo modelo de dispositivo de gateway à sua aplicação:
 
-1. No painel esquerdo, selecione **Modelos de dispositivo**. Em seguida, selecione **+** para começar a adicionar o modelo.
+1. No painel esquerdo, selecione **Modelos de dispositivo**. Em **+** seguida, selecione para começar a adicionar o modelo.
 
 1. Na página do **modelo Select,** selecione o azulejo **do Dispositivo IoT** e, em seguida, selecione **Seguinte: Personalizar**.
 
@@ -103,10 +103,10 @@ Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart
 
 1.  Utilize as informações na tabela seguinte para adicionar duas propriedades na nuvem ao seu modelo de dispositivo de gateway.
 
-    | Nome a apresentar      | Tipo semântico | Esquema |
+    | Nome a apresentar      | Semantic type (Tipo de semântica) | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Date   |
-    | Nome do cliente     | Nenhum          | String |
+    | Data da Última Assistência | Nenhuma          | Date   |
+    | Nome do cliente     | Nenhuma          | Cadeia |
 
 2. Selecione **Guardar**.
 
@@ -193,7 +193,7 @@ Ambos os seus dispositivos a jusante simulados estão agora ligados ao seu dispo
 
 Selecione um modelo de dispositivo de gateway e uma instância do dispositivo gateway e selecione **Juntar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

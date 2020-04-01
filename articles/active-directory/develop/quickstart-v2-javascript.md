@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 2649d885d31bcd0fef403e7e4eddbc828fd17b93
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 526922d73f2176825b8bba8982316f3c9c129963
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050261"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473576"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um sinal de acesso num JavaScript SPA
 
@@ -26,7 +26,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Nó.js](https://nodejs.org/en/download/)
+* [Node.js](https://nodejs.org/en/download/)
 * [Código de Estúdio Visual](https://code.visualstudio.com/download) (para editar ficheiros de projeto)
 
 
@@ -105,7 +105,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >

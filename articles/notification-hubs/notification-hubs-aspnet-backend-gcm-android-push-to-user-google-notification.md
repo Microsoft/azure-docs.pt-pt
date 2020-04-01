@@ -485,7 +485,7 @@ O passo seguinte consiste em atualizar a aplicação Android criada no [Tutorial
 Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 
 > [!div class="nextstepaction"]
->[Enviar notificações push com base na localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[Enviar notificações push baseadas na localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png

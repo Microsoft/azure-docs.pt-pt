@@ -12,10 +12,10 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: 9dcb185ab8375d46c75a12e6adaeeae2358c13ac
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022091"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Dados de exportação da Azure IoT Central e visualizam insights no Power BI
@@ -35,7 +35,7 @@ Neste tutorial, vai aprender a:
 Para concluir este tutorial, precisa de:
 
 * Para completar os dois tutoriais anteriores, [Crie uma aplicação de análise na loja na Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) e [personalize o painel de instrumentos do operador e gereos dispositivos em Azure IoT Central.](./tutorial-in-store-analytics-customize-dashboard-pnp.md)
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Uma conta do Power BI. Se não tiver uma conta Power BI, inscreva-se num [teste free Power BI Pro](https://app.powerbi.com/signupredirect?pbi_source=web) antes de começar.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -47,8 +47,8 @@ Antes de criar o seu hub de eventos e app lógica, precisa de criar um grupo de 
 1. Para **Subscrição**, selecione o nome da subscrição Azure que usou para criar a sua aplicação IoT Central.
 1. Para o nome do **grupo Resource,** insira a _análise da loja de retalho_*.
 1. Para a **Região,** selecione a mesma região que escolheu para a aplicação IoT Central.
-1. Selecione **revisão + criar**.
-1. Na página **revisar + criar** , selecione **criar**.
+1. Selecione **Rever + Criar**.
+1. Na página **Review + Criar,** selecione **Criar**.
 
 Tem agora um grupo de recursos chamado **retail store-analysis** na sua subscrição.
 
@@ -58,7 +58,7 @@ Antes de configurar o pedido de monitorização de retalho para exportar telemet
 
 1. No portal Azure, selecione **Criar um recurso** na parte superior esquerda do ecrã.
 1. Em **Search the Marketplace,** introduza Centros de _Eventos,_ e, em seguida, prima **Enter**.
-1. Sobre o **os Hubs de eventos** página, selecione **criar**.
+1. Na página Hubs do **Evento,** selecione **Criar**.
 1. Na página **Create Namespace,** tome os seguintes passos:
     * Introduza um nome único para o espaço de nome, como _o seu nome-retail-store-store-analysis_. O sistema verifica se este nome está disponível.
     * Escolha o nível de preços **básicos.**
@@ -93,7 +93,7 @@ Agora tem um hub de eventos, pode configurar a sua análise na loja - aplicaçã
 
 A exportação de dados pode demorar alguns minutos a começar a enviar telemetria para o seu centro de eventos. Pode ver o estado da exportação na página de exportações de **Dados:**
 
-![Configuração de exportação de dados contínuas](./media/tutorial-in-store-analytics-visualize-insights-pnp/export-configuration.png)
+![Configuração contínua da exportação de dados](./media/tutorial-in-store-analytics-visualize-insights-pnp/export-configuration.png)
 
 ## <a name="create-the-power-bi-datasets"></a>Criar os conjuntos de dados Power BI
 
@@ -103,12 +103,12 @@ O seu painel power bi apresentará dados da sua aplicação de monitorização d
 1. Selecione **Espaços de Trabalho**e, em seguida, selecione Criar um espaço de **trabalho**.
 1. Na página **Criar um espaço de trabalho,** introduza _analítica na loja - check-out_ como o **nome Workspace**.
 1. Percorra a parte inferior do **Welcome to the In-store analytics - checkout workspace** page, e selecione **Skip**.
-1. Na página do espaço de trabalho, selecione **Create > Streaming dataset**.
+1. Na página do espaço de trabalho, selecione **Criar > conjunto**de dados streaming .
 1. Na nova página de conjunto de dados de **streaming,** escolha **API**, e, em seguida, selecione **Next**.
 1. Introduza o _sensor da Zona 1_ como o nome **dataset**.
 1. Introduza os três **Valores do stream** na tabela seguinte:
 
-    | Nome de valor  | Tipo de valor |
+    | Nome do valor  | Tipo de valor |
     | ----------- | ---------- |
     | Carimbo de data/hora   | DateTime   |
     | Humidade    | Número     |
@@ -126,12 +126,12 @@ Esta solução utiliza um conjunto de dados de streaming para cada sensor porque
 
 Também precisa de um conjunto de dados de streaming para a telemetria de ocupação:
 
-1. Na página do espaço de trabalho, selecione **Create > Streaming dataset**.
+1. Na página do espaço de trabalho, selecione **Criar > conjunto**de dados streaming .
 1. Na nova página de conjunto de dados de **streaming,** escolha **API**, e, em seguida, selecione **Next**.
 1. Introduza o _sensor de ocupação_ como nome **dataset**.
 1. Introduza os cinco **Valores do stream** na tabela seguinte:
 
-    | Nome de valor     | Tipo de valor |
+    | Nome do valor     | Tipo de valor |
     | -------------- | ---------- |
     | Carimbo de data/hora      | DateTime   |
     | Comprimento da fila 1 | Número     |
@@ -183,7 +183,7 @@ Os seguintes passos mostram-lhe como criar a aplicação lógica no portal Azure
 
 Para adicionar a lógica ao design da sua aplicação lógica, selecione **a visão de Código:**
 
-1. Substitua `"actions": {},` pelo seguinte JSON. Substitua os dois espaços reservados `[YOUR RUUVITAG DEVICE ID 1]` e `[YOUR RUUVITAG DEVICE ID 2]` pelas identificações que observou dos seus dois dispositivos RuuviTag:
+1. Substitua-a `"actions": {},` com o seguinte JSON. Substitua os dois `[YOUR RUUVITAG DEVICE ID 1]` `[YOUR RUUVITAG DEVICE ID 2]` espaços reservados e os IDs que observou dos seus dois dispositivos RuuviTag:
 
     ```json
     "actions": {
@@ -384,7 +384,7 @@ Para adicionar a lógica ao design da sua aplicação lógica, selecione **a vis
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** da lista de **conteúdos Dinâmicos.**
     * Selecione o campo **humidade** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **humidade**.
     * Selecione o campo **Temperatura** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **a temperatura**.
-    * Selecione **guardar** para guardar as alterações. A ação **ambiental da Zona 1** parece a seguinte imagem: ambiente ![Zona 1](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-1-action.png)
+    * Selecione **Guardar** para guardar as alterações. A ação **ambiental da Zona** 1 ![parece a seguinte imagem: Ambiente da Zona 1](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-1-action.png)
 1. Selecione a ação **ambiental da Zona 2** e selecione Adicionar uma **ação**.
 1. Em **Search conectores e ações,** introduza **Power BI,** e, em seguida, prima **Enter**.
 1. Selecione as linhas Adicionar para uma ação **de conjunto de dados (pré-visualização).**
@@ -396,7 +396,7 @@ Para adicionar a lógica ao design da sua aplicação lógica, selecione **a vis
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** da lista de **conteúdos Dinâmicos.**
     * Selecione o campo **humidade** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **humidade**.
     * Selecione o campo **Temperatura** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **a temperatura**.
-    Selecione **guardar** para guardar as alterações.  A ação **ambiental da Zona 2** parece a seguinte imagem: ambiente ![Zona 2](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-2-action.png)
+    Selecione **Guardar** para guardar as alterações.  A ação **ambiental da Zona** 2 ![parece a seguinte imagem: Ambiente da Zona 2](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-2-action.png)
 1. Selecione a ação **De ocupação** e, em seguida, selecione a **ação Switch by Interface ID.**
 1. Selecione a ação **de interface do tempo dwell** e selecione Adicionar uma **ação**.
 1. Em **Search conectores e ações,** introduza **Power BI,** e, em seguida, prima **Enter**.
@@ -409,7 +409,7 @@ Para adicionar a lógica ao design da sua aplicação lógica, selecione **a vis
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** da lista de **conteúdos Dinâmicos.**
     * Selecione o campo **Dwell Time 1** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **DwellTime1**.
     * Selecione o campo **Dwell Time 2** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **DwellTime2**.
-    * Selecione **guardar** para guardar as alterações. A ação **da interface da Dwell Time** parece a seguinte imagem: ![ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-1.png)
+    * Selecione **Guardar** para guardar as alterações. A ação da interface do Tempo ![ **Dwell** parece a seguinte imagem: Ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-1.png)
 1. Selecione a ação de **interface People Count** e selecione Adicionar uma **ação**.
 1. Em **Search conectores e ações,** introduza **Power BI,** e, em seguida, prima **Enter**.
 1. Selecione as linhas Adicionar para uma ação **de conjunto de dados (pré-visualização).**
@@ -421,7 +421,7 @@ Para adicionar a lógica ao design da sua aplicação lógica, selecione **a vis
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** da lista de **conteúdos Dinâmicos.**
     * Selecione o campo **Queue Length 1** e, em seguida, selecione Ver **mais** ao lado da **Telemetria Parse**. Em seguida, selecione **contagem1**.
     * Selecione o campo **Queue Length 2** e, em seguida, selecione Ver **mais** ao lado da **Telemetria Parse**. Em seguida, selecione **contagem2**.
-    * Selecione **guardar** para guardar as alterações. A ação **de interface People Count** parece a seguinte imagem: ![ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-2.png)
+    * Selecione **Guardar** para guardar as alterações. A ação **de interface People** Count ![parece a seguinte imagem: Ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-2.png)
 
 A aplicação lógica funciona automaticamente. Para ver o estado de cada execução, navegue para a página **de visão geral** para a aplicação lógica no portal Azure:
 
@@ -430,8 +430,8 @@ A aplicação lógica funciona automaticamente. Para ver o estado de cada execu�
 Agora tem telemetria a fluir da sua aplicação IoT Central através do seu centro de eventos. Em seguida, a sua aplicação lógica analisa as mensagens do hub do evento e adiciona-as a um conjunto de dados de streaming Power BI. Agora, pode criar um dashboard Power BI para visualizar a telemetria:
 
 1. Inicie sessão na sua conta do **Power BI**.
-1. Selecione **Workspaces > In-store analytics - checkout**.
-1. Selecione **Create > Dashboard**.
+1. Selecione **Workspaces > Análise na loja - checkout**.
+1. Selecione **Criar > Dashboard**.
 1. Introduza a análise da **Loja** como nome do painel de instrumentos e selecione **Criar**.
 
 ### <a name="add-line-charts"></a>Adicionar gráficos de linha
@@ -475,11 +475,11 @@ Adicione quatro azulejos de cartão para mostrar o comprimento da fila e tempo d
 | Definição | #1 de cartão | #2 de cartão | #3 de cartão | #4 de cartão |
 | ------- | ------- | ------- | ------- | ------- |
 | Conjunto de dados | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação |
-| Tipo de visualização | Gráfico de coluna agrupada | Gráfico de coluna agrupada | Medidor | Medidor |
-| Eixo    | Carimbo de data/hora | Carimbo de data/hora | N/A | N/A |
+| Tipo de visualização | Gráfico de colunas agrupadas | Gráfico de colunas agrupadas | Medidor | Medidor |
+| Eixo    | Carimbo de data/hora | Carimbo de data/hora | N/D | N/D |
 | Valor | Tempo de habitação 1 | Tempo de habitação 2 | Comprimento da fila 1 | Comprimento da fila 2 |
-| Janela do tempo | 60 minutos | 60 minutos |  N/A | N/A |
-| Título | Tempo de habitação | Tempo de habitação | Comprimento da fila | Comprimento da fila |
+| Janela do tempo | 60 minutos | 60 minutos |  N/D | N/D |
+| Título | Tempo de habitação | Tempo de habitação | Comprimento da Fila | Comprimento da Fila |
 | Subtítulo | Checkout 1 | Checkout 2 | Checkout 1 | Checkout 2 |
 
 Redimensione e reorganize os azulejos no seu painel de instrumentos para parecer a seguinte imagem:
@@ -500,11 +500,11 @@ Pode eliminar o hub de eventos e a aplicação lógica no portal Azure, eliminan
 
 Pode eliminar os conjuntos de dados e o painel de instrumentos power BI, eliminando o espaço de trabalho da página de definições do Power BI para o espaço de trabalho.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Estes três tutoriais mostraram-lhe uma solução de ponta a ponta que utiliza a análise da loja - modelo de aplicação IoT Central de **checkout.** Ligou dispositivos à aplicação, usou o IoT Central para monitorizar os dispositivos e utilizou o Power BI para construir um dashboard para visualizar insights da telemetria do dispositivo. Um próximo passo recomendado é explorar um dos outros modelos de aplicação Da IoT Central:
 
 > [!div class="nextstepaction"]
-> * [Construir soluções energéticas com a IoT Central](../energy/overview-iot-central-energy.md)
-> * [Construir soluções governamentais com a IoT Central](../government/overview-iot-central-government.md)
-> * [Construir soluções de saúde com a IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> * [Criar soluções para o setor energético com o IoT Central](../energy/overview-iot-central-energy.md)
+> * [Criar soluções para a administração pública com o IoT Central](../government/overview-iot-central-government.md)
+> * [Criar soluções de cuidados de saúde com o IoT Central](../healthcare/overview-iot-central-healthcare.md)

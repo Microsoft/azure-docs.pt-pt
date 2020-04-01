@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ec1507e09a183f8d466a456b70151861f5f0e82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159443"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477016"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -66,7 +66,7 @@ Os valores de tempo limite e intervalo especificados determinam se uma instânci
 
 Podemos ilustrar o comportamento com um exemplo. Se tiver definido o número de respostas da sonda para 2 e o intervalo para 5 segundos, isto significa que 2 falhas de tempo de sonda devem ser observadas dentro de um intervalo de 10 segundos.  Como o momento em que uma sonda é enviada não é sincronizado quando a sua aplicação pode mudar de estado, podemos vincular o tempo para detetar por dois cenários:
 
-1. Se a sua aplicação começar a produzir uma resposta de sonda time-out pouco antes da primeira sonda chegar, a deteção destes eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração da aplicação começando a sinalizar uma saída para quando a primeira sonda chega.  Pode assumir que esta deteção demorará um pouco mais de 10 segundos.
+1. Se a sua aplicação começar a produzir uma resposta de sonda de tempo antes da chegada da primeira sonda, a deteção destes eventos levará 10 segundos (2 x 5 segundos de intervalo) mais a duração da aplicação começando a sinalizar uma saída para quando a primeira sonda chegar.  Pode assumir que esta deteção demorará um pouco mais de 10 segundos.
 2. Se a sua aplicação começar a produzir uma resposta de sonda time-out logo após a chegada da primeira sonda, a deteção destes eventos não começará até que a próxima sonda chegue (e sai) mais 10 segundos (intervalos de 2 x 5 segundos).  Pode assumir que esta deteção demorará pouco menos de 15 segundos.
 
 Para este exemplo, uma vez que a deteção tenha ocorrido, a plataforma demorará um pouco de tempo a reagir a esta mudança.  Isto significa uma dependendo de 
@@ -76,7 +76,10 @@ Para este exemplo, uma vez que a deteção tenha ocorrido, a plataforma demorar�
 3. quando a deteção foi comunicada em toda a plataforma 
 
 pode assumir que a reação a uma resposta de sonda de tempo demorará entre um mínimo de pouco mais de 10 segundos e um máximo de pouco mais de 15 segundos para reagir a uma alteração do sinal da aplicação.  Este exemplo é dado para ilustrar o que está a acontecer, no entanto, não é possível prever uma duração exata para além das orientações ásperas acima referidas ilustradas neste exemplo.
- 
+
+>[!NOTE]
+>A sonda de saúde vai sondar todos os casos de execução na piscina de backend. Se uma instância for interrompida, não será sondada até que seja reiniciada.
+
 ## <a name="probe-types"></a><a name="types"></a>Tipos de sonda
 
 O protocolo utilizado pela sonda de saúde pode ser configurado para um dos seguintes:
@@ -232,7 +235,7 @@ Para o equilíbrio de carga uDP, deve gerar um sinal de sonda de saúde personal
 
 Ao utilizar [regras de equilíbrio de carga seletivas](load-balancer-ha-ports-overview.md) ha portas com o Equilíbrio de Carga [Padrão,](load-balancer-standard-overview.md)todas as portas são equilibradas em carga e uma única resposta da sonda de saúde deve refletir o estado de toda a instância.
 
-Não traduza ou proxy uma sonda de saúde através da instância que recebe a sonda de saúde para outro caso no seu VNet, uma vez que esta configuração pode levar a falhas em cascata no seu cenário.  Considere o seguinte cenário: um conjunto de aparelhos de terceiros é implantado na piscina de backend de um recurso Load Balancer para fornecer escala e redundância para os aparelhos e a sonda de saúde é configurada para sondar uma porta que o aparelho de terceiros proxies ou traduz-se noutras máquinas virtuais atrás do aparelho.  Se sondar a mesma porta que está a utilizar para traduzir ou proxy pedidos para as outras máquinas virtuais atrás do aparelho, qualquer resposta da sonda de uma única máquina virtual atrás do aparelho marcará o aparelho morto. Esta configuração pode levar a uma falha em cascata de todo o cenário de aplicação como resultado de um único ponto final traseiro atrás do aparelho.  O gatilho pode ser uma falha intermitente da sonda que fará com que o Balancer de Carga marque o destino original (a instância do aparelho) e, por sua vez, pode desativar todo o cenário de aplicação. Sondar a saúde do próprio aparelho. A seleção da sonda para determinar o sinal de saúde é uma consideração importante para os cenários de aparelhos virtuais de rede (NVA) e deve consultar o seu fornecedor de aplicações para saber qual é o sinal de saúde adequado para tais cenários.
+Não traduza ou proxy uma sonda de saúde através da instância que recebe a sonda de saúde para outro caso no seu VNet, uma vez que esta configuração pode levar a falhas em cascata no seu cenário.  Considere o seguinte cenário: um conjunto de aparelhos de terceiros é implantado na piscina de backend de um recurso Load Balancer para fornecer escala e redundância para os aparelhos e a sonda de saúde está configurada para sondar uma porta que o aparelho de terceiros proxies ou traduz para outras máquinas virtuais atrás do aparelho.  Se sondar a mesma porta que está a utilizar para traduzir ou proxy pedidos para as outras máquinas virtuais atrás do aparelho, qualquer resposta da sonda de uma única máquina virtual atrás do aparelho marcará o aparelho morto. Esta configuração pode levar a uma falha em cascata de todo o cenário de aplicação como resultado de um único ponto final traseiro atrás do aparelho.  O gatilho pode ser uma falha intermitente da sonda que fará com que o Balancer de Carga marque o destino original (a instância do aparelho) e, por sua vez, pode desativar todo o cenário de aplicação. Sondar a saúde do próprio aparelho. A seleção da sonda para determinar o sinal de saúde é uma consideração importante para os cenários de aparelhos virtuais de rede (NVA) e deve consultar o seu fornecedor de aplicações para saber qual é o sinal de saúde adequado para tais cenários.
 
 Se não permitir o IP de [origem](#probesource) da sonda nas suas políticas de firewall, a sonda de saúde falhará, uma vez que não consegue chegar à sua instância.  Por sua vez, o Balancer load irá marcar o seu caso devido à falha da sonda de saúde.  Esta configuração errada pode fazer com que o seu cenário de aplicação equilibrado de carga falhe.
 

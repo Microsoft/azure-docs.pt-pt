@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845028"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474922"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realizar a deteção de intrusão de rede com o Observador de Rede e ferramentas de código aberto
 
@@ -38,7 +38,7 @@ Ambas as ferramentas de código aberto podem ser configuradas num VM Azure, perm
 
 ### <a name="install-suricata"></a>Instalar Suricata
 
-Para todos os outros métodos de instalação, visitehttps://suricata.readthedocs.io/en/latest/install.html
+Para todos os outros métodos de instalação, visitehttps://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. No terminal de linha de comando do seu VM executar os seguintes comandos:
 

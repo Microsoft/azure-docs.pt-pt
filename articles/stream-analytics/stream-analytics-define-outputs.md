@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e0b4bcac8494f136dde21b03422e12b72cecb8f3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366432"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475221"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -101,7 +101,7 @@ Quando estiver a usar o armazenamento Blob como saída, um novo ficheiro é cria
 * Se a saída for dividida por um campo personalizado, e for criada uma nova bolha por chave de partição se não existir.
 * Se a saída for dividida por um campo personalizado onde a chave de partilha da cardinalidade excede 8.000, e uma nova bolha é criada por chave de partição.
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Hubs de Eventos
 
 O serviço [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) é um evento de subscrição de editora altamente escalável ingestor. Pode recolher milhões de eventos por segundo. Uma utilização de um centro de eventos como saída é quando a saída de um trabalho de Stream Analytics se torna a entrada de outro trabalho de streaming. Para obter informações sobre o tamanho máximo da mensagem e otimização do tamanho do lote, consulte a secção de tamanho do lote de [saída.](#output-batch-size)
 
@@ -188,7 +188,7 @@ A tabela seguinte lista os nomes da propriedade e as suas descrições para a cr
 | Nome da tabela |O nome da mesa. A mesa é criada se não existir. |
 | Chave de partição |O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador único para a partição dentro de uma tabela que forma a primeira parte da chave primária de uma entidade. É um valor de cadeia que pode ter até 1 KB de tamanho. |
 | Chave de linha |O nome da coluna de saída que contém a chave da linha. A chave da linha é um identificador único para uma entidade dentro de uma partição. Forma a segunda parte da chave principal de uma entidade. A chave da linha é um valor de cadeia que pode ter até 1 KB de tamanho. |
-| Tamanho do lote |O número de registos para uma operação de lote. O incumprimento (100) é suficiente para a maioria dos postos de trabalho. Consulte a especificação de [funcionamento](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) do lote de mesa para obter mais detalhes sobre a modificação desta definição. |
+| Tamanho do lote |O número de registos para uma operação de lote. O incumprimento (100) é suficiente para a maioria dos postos de trabalho. Consulte a especificação de [funcionamento](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) do lote de mesa para obter mais detalhes sobre a modificação desta definição. |
 
 ## <a name="service-bus-queues"></a>Filas do Service Bus
 
@@ -342,18 +342,18 @@ O Azure Stream Analytics utiliza lotes de tamanho variável para processar event
 
 O quadro seguinte explica algumas das considerações relativas ao loteamento de saída:
 
-| Tipo de saída | Tamanho da mensagem má | Otimização do tamanho do lote |
+| Tipo de saída |    Tamanho da mensagem má | Otimização do tamanho do lote |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Consulte [os limites](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits)de armazenamento do Lago de Dados . | Utilize até 4 MB por operação de escrita. |
 | Base de Dados SQL do Azure | Configurável utilizando a contagem de lotes Max. 10.000 filas máximas e 100 linhas mínimas por inserção a granel por defeito por defeito.<br />Consulte [os limites Azure SQL](../sql-database/sql-database-resource-limits.md). |  Cada lote é inicialmente inserido a granel com a contagem máxima de lote. O lote é dividido ao meio (até a contagem mínima de lote) com base em erros retáveis da SQL. |
 | Armazenamento de Blobs do Azure | Consulte os limites de [armazenamento azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | O tamanho máximo do bloco de bolhas é de 4 MB.<br />A contagem máxima de blob bock é de 50.000. |
-| Azure Event Hubs  | 256 KB ou 1 MB por mensagem. <br />Ver limites de Centros de [Eventos](../event-hubs/event-hubs-quotas.md). |  Quando a partilha de entrada/saída não está alinhada, `EventData` cada evento é embalado individualmente e enviado num lote de até ao tamanho máximo da mensagem. Isto também acontece se forem utilizadas [propriedades de metadados personalizados.](#custom-metadata-properties-for-output) <br /><br />  Quando a divisão de entrada/saída está alinhada, vários eventos são embalados numa única `EventData` instância, até ao tamanho máximo da mensagem, e enviados. |
+| Azure Event Hubs    | 256 KB ou 1 MB por mensagem. <br />Ver limites de Centros de [Eventos](../event-hubs/event-hubs-quotas.md). |    Quando a partilha de entrada/saída não está alinhada, `EventData` cada evento é embalado individualmente e enviado num lote de até ao tamanho máximo da mensagem. Isto também acontece se forem utilizadas [propriedades de metadados personalizados.](#custom-metadata-properties-for-output) <br /><br />  Quando a divisão de entrada/saída está alinhada, vários eventos são embalados numa única `EventData` instância, até ao tamanho máximo da mensagem, e enviados.    |
 | Power BI | Ver [limites de API power BI Rest](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Armazenamento de Tabelas do Azure | Consulte os limites de [armazenamento azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | O predefinido é de 100 entidades por transação única. Pode configurá-lo a um valor menor, se necessário. |
-| Fila do Azure Service Bus   | 256 KB por mensagem para o nível Standard, 1MB para o nível Premium.<br /> Ver limites de [ônibus de serviço](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
+| Fila do Azure Service Bus    | 256 KB por mensagem para o nível Standard, 1MB para o nível Premium.<br /> Ver limites de [ônibus de serviço](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
 | Tópico do Azure Service Bus | 256 KB por mensagem para o nível Standard, 1MB para o nível Premium.<br /> Ver limites de [ônibus de serviço](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
-| Azure Cosmos DB   | Ver [limites de DB do Azure Cosmos.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits) | O tamanho do lote e a frequência de escrita são ajustados dinamicamente com base nas respostas do Azure Cosmos DB. <br /> Não existem limitações pré-determinadas do Stream Analytics. |
-| Funções do Azure   | | O tamanho do lote padrão é de 262.144 bytes (256 KB). <br /> A contagem de eventos padrão por lote é de 100. <br /> O tamanho do lote é configurável e pode ser aumentado ou diminuído nas [opções](#azure-functions)de saída do Stream Analytics .
+| Azure Cosmos DB    | Ver [limites de DB do Azure Cosmos.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits) | O tamanho do lote e a frequência de escrita são ajustados dinamicamente com base nas respostas do Azure Cosmos DB. <br /> Não existem limitações pré-determinadas do Stream Analytics. |
+| Funções do Azure    | | O tamanho do lote padrão é de 262.144 bytes (256 KB). <br /> A contagem de eventos padrão por lote é de 100. <br /> O tamanho do lote é configurável e pode ser aumentado ou diminuído nas [opções](#azure-functions)de saída do Stream Analytics .
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]

@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script CLI do Azure-reinicialização de VMs
+title: Amostra de script Azure CLI - VMs de reinício
 description: Exemplo do Script da CLI do Azure - Reiniciar VMs por etiqueta e ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5545fc07bd7b30225bcaf01eee8f10a141cd8d57
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 47a6db8d554cd0e6b913e887a4dd3d7bdc438ed0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040254"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066461"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 
@@ -33,13 +33,13 @@ Este exemplo mostra várias formas de obter algumas VMs e reiniciá-las.
 
 A primeira permite reiniciar todas as VMs no grupo de recursos.
 
-```bash
+```azurecli
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
 A segunda permite obter as VMs marcadas com `az resource list` e filtra pelos recursos que são VMs e reinicia-as.
 
-```bash
+```azurecli
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
@@ -77,7 +77,7 @@ Este script reinicia todas as VMs no grupo de recursos e, em seguida, reinicia a
 
 Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos, as VMs e todos os recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
