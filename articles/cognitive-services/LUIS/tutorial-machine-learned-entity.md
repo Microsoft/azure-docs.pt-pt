@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: extrair dados estruturados com entidade aprendida por máquinas - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Extrair dados estruturados de uma expressão utilizando a entidade aprendida pela máquina. Para aumentar a precisão de extração, adicione subcomponentes com descritores e restrições.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: e1709a5e86c8fed8d7f724ad1b105bd02df9fa56
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/31/2020
+ms.openlocfilehash: f521e634c129aaf03ee341328721bd89723e8264
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75381771"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478336"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados a partir da expressão do utilizador com entidades aprendizes de máquinas em Compreensão linguística (LUIS)
 
@@ -44,19 +36,19 @@ A entidade aprendida por máquinas suporta o conceito de [decomposição](luis-c
 
 Este tutorial adiciona uma entidade aprendida por máquinas para extrair dados de uma expressão.
 
-O objetivo de uma entidade é definir os dados a extrair. Isto inclui dar aos dados um nome, um tipo (se possível), qualquer resolução dos dados se houver ambiguidade, e o texto exato que compõe os dados.
+A entidade define os dados a extrair de dentro da expressão. Isto inclui dar aos dados um nome, um tipo (se possível), qualquer resolução dos dados se houver ambiguidade, e o texto exato que compõe os dados.
 
-Para definir a entidade, é necessário criar a entidade e depois rotular o texto que representa a entidade na expressão do exemplo. Estes exemplos rotulados ensinam ao LUIS o que é a entidade e onde pode ser encontrada numa expressão.
+Para definir a entidade, é necessário criar a entidade e depois rotular o texto que representa a entidade no exemplo de declarações dentro de todas as intenções. Estes exemplos rotulados ensinam ao LUIS o que é a entidade e onde pode ser encontrada numa expressão.
 
 ## <a name="entity-decomposability-is-important"></a>A descomposição da entidade é importante
 
-A descomposição da entidade é importante tanto para a previsão das intenções como para a extração de dados.
+A descomposição da entidade é importante tanto para a previsão das intenções como para a extração de dados com a entidade.
 
 Comece com uma entidade aprendida por máquinas, que é a entidade de início e de alto nível para a extração de dados. Em seguida, decomponha a entidade nas peças necessárias pela aplicação do cliente.
 
 Embora não saiba o quão detalhado pretende a sua entidade quando iniciar a sua aplicação, a melhor prática é começar com uma entidade aprendida com máquinas e depois decompor-se com subcomponentes à medida que a sua aplicação amadurece.
 
-Em termos práticos, irá criar uma entidade aprendida com máquinas para representar uma encomenda de uma aplicação de pizza. A ordem deve ter todas as peças necessárias para completar a encomenda. Para começar, a entidade irá extrair texto relacionado com a ordem, retirando o tamanho e a quantidade.
+Neste, cria-se uma entidade aprendida com máquinas para representar uma encomenda de uma aplicação de pizza. A ordem deve ter todas as peças necessárias para completar a encomenda. Para começar, a entidade irá extrair texto relacionado com a ordem, retirando o tamanho e a quantidade.
 
 Uma expressão `Please deliver one large cheese pizza to me` para `one large cheese pizza` deve extrair como ordem, em seguida, também extrair `1` e `large`.
 
@@ -92,7 +84,7 @@ Para extrair detalhes sobre uma encomenda de pizza, `Order` crie uma entidade de
     ![Adicionar estrutura à entidade](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Na caixa de **entidades aprendidas** por máquinas, na caixa **Estrutura,** adicione `Size` e, em seguida, selecione Enter.
-1. Para adicionar um **descritor,** selecione o `+` **descritor para** tamanho e, em seguida, selecione Criar uma nova lista de **frases**.
+1. Para adicionar um **descritor,** selecione o `+` na área de **Descritores** e, em seguida, selecione Criar uma nova lista de **frases**.
 
 1. Na caixa de **descritore sinuoso** da nova lista de frases, introduza o nome `SizeDescriptor` e introduza valores de: `small`, `medium`e `large`. Quando **a** caixa sugestões preencher, selecione `extra large`, e `xl`. Selecione **Feito** para criar a nova lista de frases.
 
@@ -108,7 +100,7 @@ Para extrair detalhes sobre uma encomenda de pizza, `Order` crie uma entidade de
 
     ![Rotule a entidade de tamanho para texto na expressão.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    A linha é sólida sob o texto porque tanto a rotulagem como a previsão coincidem porque rotulou explicitamente o texto.
+    A linha é sólida sob o texto porque tanto a rotulagem como a previsão coincidem porque rotulou _explicitamente_ o texto.
 
 1. Rotule `Order` a entidade nas restantes declarações juntamente com a entidade de tamanho. Os suportes quadrados do texto `Order` indicam `Size` a entidade rotulada e a entidade no seu interior.
 
@@ -132,7 +124,7 @@ Para extrair detalhes sobre uma encomenda de pizza, `Order` crie uma entidade de
     |--|
     |`pickup XL meat lovers pizza`|
 
-    A entidade de `Order` topo global, `Size` está rotulada e o subcomponente também está rotulado com linhas pontilhadas. Esta é uma previsão bem sucedida.
+    A entidade de `Order` topo global, `Size` está rotulada e o subcomponente também está rotulado com linhas pontilhadas.
 
     ![Nova expressão de exemplo prevista com entidade](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -160,20 +152,20 @@ Comece por adicionar a entidade de números pré-construída à app.
 
 ## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Criar entidade subcomponente com restrição para ajudar a extrair dados
 
-A `Order` entidade deve `Quantity` ter um subcomponente para determinar quantos de um item estão na ordem. A quantidade deve ser limitada a um número para que os dados extraídos sejam imediatamente utilizáveis pela aplicação do cliente.
+A `Order` entidade deve `Quantity` ter um subcomponente para determinar quantos de um item estão na ordem. A quantidade deve ser limitada a um número para que os dados extraídos estejam imediatamente disponíveis para a aplicação do cliente pelo nome.
 
 Uma restrição é aplicada como uma correspondência de texto, quer com correspondência exata (como uma entidade de lista) quer através de expressões regulares (como uma entidade de expressão regular ou uma entidade pré-construída).
 
 Ao utilizar uma restrição, apenas o texto que corresponde a essa restrição é extraído.
 
 1. Selecione **Entidades** e selecione a `Order` entidade.
-1. Selecione **+ Adicionar** `Quantity` Componente e, em seguida, introduza o nome e selecione Entrar para adicionar a nova entidade à aplicação.
-1. Após a notificação `Quantity` de sucesso, selecione o subcomponente e, em seguida, selecione o lápis 'Restrição'.
+1. Selecione **+ Adicionar** `Quantity` Componente e, em seguida, introduza o nome e selecione Entrar para adicionar o novo subcomponente à `Order` entidade.
+1. Após a notificação de sucesso, nas **Opções Avançadas,** selecione o lápis Restrito.
 1. Na lista de lançamentos, selecione o número pré-construído.
 
     ![Criar entidade de quantidade com número pré-construído como restrição.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    A `Quantity` entidade é aplicada se e apenas se for encontrado texto correspondente à entidade número pré-construída.
+    A `Quantity` entidade é aplicada quando o texto corresponde à entidade número pré-construída.
 
     A entidade com o constrangimento é criada mas ainda não aplicada às declarações de exemplo.
 
@@ -182,7 +174,7 @@ Ao utilizar uma restrição, apenas o texto que corresponde a essa restrição �
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Rotule a expressão do exemplo para ensinar LUIS sobre a entidade
 
-1. Selecione **Intenções** a partir da navegação à esquerda e, em seguida, selecione a intenção **OrderPizza.** Os três números nas seguintes expressões são rotulados, mas estão visualmente abaixo da linha da `Order` entidade. Este nível mais baixo significa que as entidades são encontradas, mas não são consideradas separadas da `Order` entidade.
+1. Selecione **Intenções** a partir da navegação à esquerda e, em seguida, selecione a intenção **OrderPizza.** Os três números nas seguintes expressões são rotulados, mas estão visualmente abaixo da linha da `Order` entidade. Este nível inferior significa que as entidades são `Order` encontradas, mas não são consideradas parte da entidade.
 
     ![O número pré-construído é encontrado, mas ainda não considerado à parte da entidade da Ordem.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
@@ -192,7 +184,7 @@ Ao utilizar uma restrição, apenas o texto que corresponde a essa restrição �
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treine a app para aplicar as alterações da entidade na app
 
-Selecione **Train** para treinar a app com estas novas expressões.
+Selecione **Train** para treinar a app com estas novas expressões. Após o `Quantity` treino, o subcomponente está `Order` corretamente previsto no componente. Esta previsão correta é indicada com uma linha sólida.
 
 ![Treine a aplicação e reveja as declarações de exemplo.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
@@ -213,7 +205,7 @@ Teste a aplicação utilizando o painel de **teste** interativo. Este processo p
 
     O tamanho foi corretamente identificado. Lembre-se que as declarações de exemplo na `OrderPizza` `medium` intenção não têm um exemplo de `SizeDescriptor` tamanho, mas use um descritor de uma lista de frases que inclua meio.
 
-    A quantidade não está corretamente prevista. Para corrigir isto, pode adicionar mais declarações de exemplo usando essa palavra `Quantity` para indicar quantidade e rotular essa palavra como uma entidade.
+    A quantidade não está corretamente prevista. Pode corrigi-lo na sua aplicação de cliente por incumprimento do tamanho de um (1) se não for devolvido nenhum tamanho na previsão LUIS.
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publique a app para aceder a ela a partir do ponto final http
 
@@ -223,7 +215,7 @@ Teste a aplicação utilizando o painel de **teste** interativo. Este processo p
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao final do URL no endereço e introduza a mesma consulta que inseriu no painel de teste interativo.
+1. Vá até ao final do URL no endereço e substitua _YOUR_QUERY_HERE_ pela mesma consulta que inseriu no painel de testes interativo.
 
     `deliver a medium veggie pizza`
 

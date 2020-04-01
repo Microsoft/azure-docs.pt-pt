@@ -4,15 +4,15 @@ description: Este artigo descreve como os Serviços de Análise Azure proporcion
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e750dce804ea93f3d3068ffd36bc7a73a50906a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78a6d41b638d79111a58830f0cb0d5190ea0796c
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73573364"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408672"
 ---
 # <a name="analysis-services-high-availability"></a>Serviços de Análise alta disponibilidade
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 1a2a370ac92ea3edf925d97af6f5e721c79d0d2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529701"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478078"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos Finais de Streaming (Origem) nos Serviços De Mídia Azure
 
@@ -68,7 +68,7 @@ CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem
 A faturação é proclamada| Diárias|Diárias
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Dimensionamento|Automaticamente escala até a entrada direcionada.|SUs adicional
+Escala|Automaticamente escala até a entrada direcionada.|SUs adicional
 Filtragem IP/G20/Hospedeiro personalizado <sup>1</sup>|Sim|Sim
 Download progressivo|Sim|Sim
 Utilização recomendada |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.
@@ -118,7 +118,7 @@ Esta secção fornece detalhes sobre algumas das propriedades do Streaming Endpo
     > [!NOTE]
     > O streaming Endpoints localizado no mesmo centro de dados não pode partilhar o mesmo nome de anfitrião personalizado.
 
-    Atualmente, a Media Services não suporta a SSL com domínios personalizados.
+    Atualmente, a Media Services não suporta TLS com domínios personalizados.
 
 - `maxCacheAge`- Substitui o cabeçalho de controlo de cache HTTP de idade máxima definido pelo ponto final de streaming em fragmentos de mídia e manifestos a pedido. O valor é definido em segundos.
 - `resourceState` -

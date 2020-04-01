@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 242fc115c5b2324c770de480fb19985e8b874893
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371252"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411015"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -353,11 +353,11 @@ Atualmente, um caso de Controlador Ingress só pode ser associado a um Gateway d
 
 O Gateway de Aplicação fornece três registos: 
 
-* **ApplicationGatewayAccessLog**: O registo de acesso contém cada pedido submetido ao frontend do gateway da aplicação. Os dados incluem o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. O registo de acesso é recolhido a cada 300 segundos. Contém um registo por porta de aplicação.
+* **ApplicationGatewayAccessLog**: O registo de acesso contém cada pedido submetido ao frontend do gateway da aplicação. Os dados incluem o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Contém um registo por porta de aplicação.
 * **ApplicationGatewayPerformanceLog**: O registo de desempenho capta informações de desempenho para cada gateway de aplicação. A informação inclui a entrada em bytes, pedidos totais servidos, contagem de pedidos falhada, e contagem de instâncias de backend saudável e pouco saudável.
 * **ApplicationGatewayFirewallLog**: Para os gateways de aplicação que configura com WAF, o registo de firewall contém pedidos que são registados através do modo de deteção ou do modo de prevenção.
 
-Para mais informações, consulte [backend saúde, registos de diagnóstico e métricas para Application Gateway](application-gateway-diagnostics.md).
+Todos os registos são recolhidos a cada 60 segundos. Para mais informações, consulte [backend saúde, registos de diagnóstico e métricas para Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como sei se os meus membros da piscina são saudáveis?
 

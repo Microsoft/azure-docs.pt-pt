@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Como carregar uma imagem - Pesquisa Visual do Bing'
+title: 'Tutorial: Como carregar imagem usando a API de Pesquisa Visual Bing'
 titleSuffix: Azure Cognitive Services
-description: Discrimina o processo de carregamento de uma imagem para o Bing obter informações sobre a mesma e, depois, a análise e apresentação da resposta.
+description: Aprenda a enviar uma imagem para Bing, obtenha informações sobre isso, mostre a resposta.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 84a8219221525400a9d3241c2f183d24344c2f6a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74689186"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477928"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Enviar imagens para a API de Pesquisa Visual bing
 

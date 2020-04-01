@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: fedc1f6ce8fbaeaf0d2cae3a1b04169192868e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6683c1b78b0e7ecba162026708c83843e2c08180
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270696"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478882"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligue-se a redes virtuais Azure a partir de Aplicações Lógicas Azure utilizando um ambiente de serviço de integração (ISE)
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como completar estas tarefas utilizando o portal Azure:
 * Crie o seu ISE.
 * Adicione capacidade extra ao seu ISE.
 
-Também pode criar um ISE utilizando as Aplicações Lógicas REST API, incluindo a configuração de chaves geridas pelo cliente:
+Também pode criar um ISE utilizando o [modelo de quickstart do Gestor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) de Recursos Azure ou utilizando as Aplicações Lógicas REST API, incluindo a configuração de chaves geridas pelo cliente:
 
 * [Criar um ambiente de serviço de integração (ISE) utilizando as Aplicações Lógicas REST API](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Configurar chaves geridas pelo cliente para encriptar dados em repouso para ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)
@@ -110,7 +110,7 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 | Azure Active Directory | Saída | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Gestão de ligações | Saída | 443 | VirtualNetwork  | AppService | |
 | Publicar registos de diagnóstico & métricas | Saída | 443 | VirtualNetwork  | AzureMonitor | |
-| Dependência de Armazenamento Azure | Saída | 80, 443, 445 | VirtualNetwork | Storage | |
+| Dependência de Armazenamento Azure | Saída | 80, 443, 445 | VirtualNetwork | Armazenamento | |
 | Dependência Azure SQL | Saída | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Saída | 1886 | VirtualNetwork | AzureMonitor | Necessário para a publicação do estado de saúde à Saúde dos Recursos |
 | Dependência do Log para event hub política e agente de monitorização | Saída | 5672 | VirtualNetwork | EventHub | |
@@ -135,7 +135,7 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Assinatura** | Sim | <*Nome de assinatura Azure*> | A subscrição Azure para usar para o seu ambiente |
+   | **Subscrição** | Sim | <*Nome de assinatura Azure*> | A subscrição Azure para usar para o seu ambiente |
    | **Grupo de recursos** | Sim | <*Nome do grupo azure-recursos*> | Um novo ou já existente grupo de recursos Azure onde você quer criar o seu ambiente |
    | **Nome do ambiente do serviço de integração** | Sim | <*nome ambiente*> | O seu nome ISE, que pode conter apenas letras,`_`números,`.`hífenes (),`-`sublinha ( e períodos ). |
    | **Localização** | Sim | <*Região do centro de dados azure*> | A região do datacenter azure onde implantar o seu ambiente |

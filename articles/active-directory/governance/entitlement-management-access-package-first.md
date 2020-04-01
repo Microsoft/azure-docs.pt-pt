@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/22/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75422662"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410603"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos da AD Azure
 
@@ -84,79 +84,83 @@ Um pacote de *acesso* é um conjunto de recursos que uma equipa ou projeto preci
 
 1. No portal Azure, na navegação à esquerda, clique no **Diretório Ativo Azure.**
 
-1. No menu esquerdo, clique em **Governança de Identidade**
+2. No menu esquerdo, clique em **Governança de Identidade**
 
-1. No menu esquerdo, clique em **pacotes de acesso**.  Se vir o **Access negado,** certifique-se de que está presente no seu diretório uma licença Azure AD Premium P2.
+3. No menu esquerdo, clique em **pacotes de acesso**.  Se vir o **Access negado,** certifique-se de que está presente no seu diretório uma licença Azure AD Premium P2.
 
-1. Clique em **Novo pacote de acesso**.
+4. Clique em **Novo pacote de acesso**.
 
     ![Gestão de direitos no portal Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-1. No separador **Basics,** digite o pacote de acesso à Campanha de **Marketing** e descrição **O acesso aos recursos para a campanha**.
+5. No separador **Basics,** digite o pacote de acesso à Campanha de **Marketing** e descrição **O acesso aos recursos para a campanha**.
 
-1. Deixe a lista de abandono do **Catálogo** definida para **o General**.
+6. Deixe a lista de abandono do **Catálogo** definida para **o General**.
 
     ![Novo pacote de acesso - Separador Basics](./media/entitlement-management-access-package-first/basics.png)
 
-1. Clique em **Seguir** para abrir o separador de **funções de Recurso.**
+7. Clique em **Seguir** para abrir o separador de **funções de Recurso.**
 
     Neste separador, seleciona os recursos e a função de recurso a incluir no pacote de acesso.
 
-1. Clique **em Grupos e Equipas**.
+8. Clique **em Grupos e Equipas**.
 
-1. No painel de grupos Select, encontre e selecione o grupo de **recursos de Marketing** que criou anteriormente.
+9. No painel de grupos Select, encontre e selecione o grupo de **recursos de Marketing** que criou anteriormente.
 
     Por padrão, vê-se grupos dentro e fora do catálogo **geral.** Quando selecionar um grupo fora do catálogo **Geral,** será adicionado ao catálogo **Geral.**
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Clique em **Selecionar** para adicionar o grupo à lista.
+10. Clique em **Selecionar** para adicionar o grupo à lista.
 
-1. Na lista de abandono do **papel,** selecione **Member**.
+11. Na lista de abandono do **papel,** selecione **Member**.
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Clique em **Seguir** para abrir o separador **Pedidos.**
+    >[!NOTE]
+    > Ao utilizar [grupos dinâmicos](../users-groups-roles/groups-create-rule.md) não verá outras funções disponíveis além do proprietário. Esta ação é propositada.
+    > ![Descrição geral do cenário](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+
+12. Clique em **Seguir** para abrir o separador **Pedidos.**
 
     Neste separador, cria-se uma política de pedidos. Uma *política* define as regras ou guarda-costas para aceder a um pacote de acesso. Cria uma política que permite a um utilizador específico no diretório de recursos solicitar este pacote de acesso.
 
-1. Nos **Utilizadores que podem solicitar** a secção de acesso, clique **para utilizadores no seu diretório** e, em seguida, clique em **utilizadores e grupos específicos**.
+13. Nos **Utilizadores que podem solicitar** a secção de acesso, clique **para utilizadores no seu diretório** e, em seguida, clique em **utilizadores e grupos específicos**.
 
     ![Novo pacote de acesso - Separador de pedidos](./media/entitlement-management-access-package-first/requests.png)
 
-1. Clique em **Adicionar utilizadores e grupos**.
+14. Clique em **Adicionar utilizadores e grupos**.
 
-1. No painel De utilizadores e grupos Select, selecione o utilizador **Requestor1** que criou anteriormente.
+15. No painel De utilizadores e grupos Select, selecione o utilizador **Requestor1** que criou anteriormente.
 
     ![Novo pacote de acesso - Separador de pedidos - Selecione utilizadores e grupos](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Clique em **Selecionar**.
+16. Clique em **Selecionar**.
 
-1. Desloque-se para as secções **de Aprovação** e Ativação de **Pedidos.**
+17. Desloque-se para as secções **de Aprovação** e Ativação de **Pedidos.**
 
-1. Licença **Exigir aprovação** definida para **Nº**.
+18. Licença **Exigir aprovação** definida para **Nº**.
 
-1. Para **ativar pedidos,** clique **em Sim** para permitir que este pacote de acesso seja solicitado assim que for criado.
+19. Para **ativar pedidos,** clique **em Sim** para permitir que este pacote de acesso seja solicitado assim que for criado.
 
     ![Novo pacote de acesso - Separador de pedidos - Aprovação e Solicitações de Habilitação](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Clique em **seguida** para abrir o separador **Lifecycle.**
+20. Clique em **seguida** para abrir o separador **Lifecycle.**
 
-1. Na secção **Expiração,** as atribuições do pacote de **acesso expiram** até **ao número de dias**.
+21. Na secção **Expiração,** as atribuições do pacote de **acesso expiram** até **ao número de dias**.
 
-1. Definir **As atribuições expiram após** **30** dias.
+22. Definir **As atribuições expiram após** **30** dias.
 
     ![Novo pacote de acesso - Separador lifecycle](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Clique em **Seguir** para abrir o **separador Rever + Criar.**
+23. Clique em **Seguir** para abrir o **separador Rever + Criar.**
 
     ![Novo pacote de acesso - Review + Criar separador](./media/entitlement-management-access-package-first/review-create.png)
 
     Após alguns momentos, deve ver uma notificação de que o pacote de acesso foi criado com sucesso.
 
-1. No menu esquerdo do pacote de acesso da Campanha de Marketing, clique em **Visão Geral**.
+24. No menu esquerdo do pacote de acesso da Campanha de Marketing, clique em **Visão Geral**.
 
-1. Copie o **link do portal My Access**.
+25. Copie o **link do portal My Access**.
 
     Vais usar este link para o próximo passo.
 

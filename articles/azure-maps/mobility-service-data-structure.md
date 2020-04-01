@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334452"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478698"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estruturas de dados no Serviço de Mobilidade Do Azure Maps
 
@@ -31,13 +31,13 @@ O `metroID` ID é uma área metropolitana que pode ser usada para chamar a API d
 
 ## <a name="stop-ids"></a>Parar iDs
 
-As paragens de trânsito podem ser referidas por dois tipos de IDs, o ID da Especificação Geral de Alimentação de [Trânsito (GFTS)](https://gtfs.org/) e o ID de paragem do Azure Maps. O ID GFTS é referido como o stopKey e o ID de paragem do Azure Maps é referido como stopID. Quando se refere frequentemente às paragens de trânsito, é encorajado a usar o ID de paragem do Azure Maps. stopID é mais estável e provável de permanecer o mesmo enquanto a paragem física existir. O ID de paragem GTFS é atualizado com mais frequência. Por exemplo, o ID de paragem GTFS pode ser atualizado de acordo com o pedido do fornecedor GTFS ou quando uma nova versão GTFS é lançada. Embora a paragem física não tenha mudado, o ID de paragem GTFS pode mudar.
+As paragens de trânsito podem ser referidas por dois tipos de IDs, o ID da Especificação Geral de Alimentação de [Trânsito (GFTS)](http://gtfs.org/) e o ID de paragem do Azure Maps. O ID GFTS é referido como o stopKey e o ID de paragem do Azure Maps é referido como stopID. Quando se refere frequentemente às paragens de trânsito, é encorajado a usar o ID de paragem do Azure Maps. stopID é mais estável e provável de permanecer o mesmo enquanto a paragem física existir. O ID de paragem GTFS é atualizado com mais frequência. Por exemplo, o ID de paragem GTFS pode ser atualizado de acordo com o pedido do fornecedor GTFS ou quando uma nova versão GTFS é lançada. Embora a paragem física não tenha mudado, o ID de paragem GTFS pode mudar.
 
 Para começar, pode solicitar paragens de trânsito nas proximidades utilizando a [API](https://aka.ms/AzureMapsMobilityNearbyTransit)de trânsito próximo .
 
 ## <a name="line-groups-and-lines"></a>Grupos de linhas e linhas
 
-O Serviço de Mobilidade utiliza um modelo paralelo de dados para Linhas e Grupos de Linhas. Este modelo é utilizado para lidar melhor com as alterações herdadas das rotas [GTFS](https://gtfs.org/) e os dados das viagens.
+O Serviço de Mobilidade utiliza um modelo paralelo de dados para Linhas e Grupos de Linhas. Este modelo é utilizado para lidar melhor com as alterações herdadas das rotas [GTFS](http://gtfs.org/) e os dados das viagens.
 
 
 ### <a name="line-groups"></a>Grupos de Linhas

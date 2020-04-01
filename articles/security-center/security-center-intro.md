@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 11201d6560319dd34ec829f1fb34bd13d45011d7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77918762"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435825"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
-O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados, e fornece proteção avançada contra ameaças em todas as suas cargas de trabalho híbridas na nuvem - quer estejam em Azure ou não - bem como nas instalações.
+O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados, e fornece proteção avançada contra ameaças em todas as suas cargas de trabalho híbridas na nuvem - quer estejam ou não em Azure - bem como nas instalações.
 
 Manter os seus recursos seguros é um esforço conjunto entre o seu fornecedor de nuvem, o Azure, e você, o cliente. Tem de se certificar de que as suas cargas de trabalho estão seguras à medida que se desloca para a nuvem, e ao mesmo tempo, quando se muda para o IaaS (infraestrutura como serviço) há mais responsabilidade do cliente do que havia no PaaS (plataforma como serviço) e no SaaS (software como serviço). O Azure Security Center fornece-lhe as ferramentas necessárias para endurecer a sua rede, proteger os seus serviços e certificar-se de que está em cima da sua postura de segurança.
 
@@ -49,7 +49,7 @@ Para o ajudar a proteger-se contra estes desafios, o Centro de Segurança fornec
 
 Como o Security Center faz parte do Azure, os serviços PaaS em Azure - incluindo tecido de serviço, bases de dados SQL e contas de armazenamento - são monitorizados e protegidos pelo Security Center sem necessitar de qualquer implantação.
 
-Além disso, o Security Center protege servidores não-Azure e máquinas virtuais na nuvem ou nas instalações, tanto para servidores Windows como Linux, instalando o Microsoft Monitoring Agent nos mesmos. As máquinas virtuais Azure são auto-aprovisionadas no Centro de Segurança.
+Além disso, o Security Center protege servidores não-Azure e máquinas virtuais na nuvem ou nas instalações, tanto para servidores Windows como Linux, instalando o agente Log Analytics nos mesmos. As máquinas virtuais Azure são auto-aprovisionadas no Centro de Segurança.
 
 Os eventos recolhidos dos agentes e do Azure estão correlacionados no motor de análise de segurança para lhe fornecer recomendações personalizadas (tarefas de endurecimento), que deve seguir para garantir que as suas cargas de trabalho estão seguras e alertas de segurança. Deve investigar esses alertas o mais rapidamente possível para garantir que ataques maliciosos não estão a ocorrer nas suas cargas de trabalho.
 
@@ -101,7 +101,7 @@ As recomendações ajudam-no a reduzir a superfície de ataque em cada um dos se
 
 A proteção contra ameaças do Security Center permite detetar e prevenir ameaças na Infraestruturas como camada de Serviço (IaaS), servidores não-Azure, bem como para plataformas como serviço (PaaS) em Azure.
 
-A proteção contra ameaças do Security Center inclui a análise da cadeia de morte de fusão, que correlaciona automaticamente alertas no seu ambiente com base na análise da cadeia de morte cibernética, para ajudá-lo a entender melhor a história completa de uma campanha de ataque, onde começou e o que tipo de impacto que teve nos seus recursos.
+A proteção contra ameaças do Security Center inclui a análise da cadeia de morte de fusão, que correlaciona automaticamente alertas no seu ambiente com base na análise da cadeia de morte cibernética, para ajudá-lo a entender melhor a história completa de uma campanha de ataque, onde começou e que tipo de impacto teve nos seus recursos.
 
 
 
@@ -133,13 +133,13 @@ O Azure Security Center for IoT (Internet of Things) simplifica a proteção da 
 
 ## <a name="get-secure-faster"></a>Fique seguro mais rápido
 
-Integração Native Azure (incluindo registos Azure Policy e Azure Monitor) combinada com integração perfeita com outras soluções de segurança da Microsoft, tais como Microsoft Cloud App Security e Windows Defender Advanced Threat Protection ajudam a certificar-se de que o seu a solução de segurança é abrangente, bem como simples de embarcar e sair.
+A integração native Azure (incluindo registos Azure Policy e Azure Monitor) combinada com uma integração perfeita com outras soluções de segurança da Microsoft, como a Microsoft Cloud App Security e o Windows Defender Advanced Threat Protection ajudam a garantir que a sua solução de segurança é abrangente, bem como simples de embarcar e lançar.
 
 Além disso, pode estender a solução completa para além do Azure a cargas de trabalho que correm noutras nuvens e em centros de dados no local.
 
 ### <a name="automatically-discover-and-onboard-azure-resources"></a>Descubra automaticamente e a bordo os recursos do Azure
 
-O Centro de Segurança proporciona uma integração nativa e perfeita com recursos Azure e Azure. Isso significa que você pode reunir uma história completa de segurança envolvendo política azure e políticas do Centro de Segurança incorporado em todos os seus recursos Azure, e certifique-se de que tudo é automaticamente aplicado aos recursos recém-descobertos à medida que os cria em Azure.
+O Centro de Segurança proporciona uma integração nativa e perfeita com recursos Azure e Azure. Isto significa que você pode reunir uma história de segurança completa envolvendo políticas azure policy e políticas do Centro de Segurança incorporado em todos os seus recursos Azure, e certifique-se de que tudo é automaticamente aplicado aos recursos recém-descobertos à medida que os cria em Azure.
 
 Extensa recolha de registos - os registos do Windows e do Linux são todos alavancados no motor de análise de segurança e utilizados para criar recomendações e alertas.
 

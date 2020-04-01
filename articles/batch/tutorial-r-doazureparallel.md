@@ -12,10 +12,10 @@ ms.date: 01/23/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 64daede5de4f2d1bbc69c65f88fe5b5875a0a5b8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77025848"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: executar uma simulação paralela em R com o Azure Batch 
@@ -40,12 +40,12 @@ Este tutorial mostra-lhe como implementar um conjunto do Batch e executar um tra
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Instalar doAzureParallel
 
-No console do RStudio, instale o [pacote GitHub do doAzureParallel](https://www.github.com/Azure/doAzureParallel). Os comandos seguintes transferem e instalam o pacote e as respetivas dependências na sua sessão atual de R: 
+Na consola RStudio, instale o [pacote DoAzureParallel GitHub](https://www.github.com/Azure/doAzureParallel). Os comandos seguintes transferem e instalam o pacote e as respetivas dependências na sua sessão atual de R: 
 
 ```R
 # Install the devtools package  
@@ -226,7 +226,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-A simulação distribui tarefas para os nós no conjunto do Batch. Pode ver a atividade no mapa térmico relativa ao conjunto no portal do Azure]. Aceda a **contas do Batch** > *myBatchAccount*. Clique em **Conjuntos** > *myPoolName*. 
+A simulação distribui tarefas para os nós no conjunto do Batch. Pode ver a atividade no mapa térmico relativa ao conjunto no portal do Azure]. Vá às **contas** > do Lote*myBatchAccount*. Clique em **Pools** > *myPoolName*. 
 
 ![Mapa térmico do conjunto que executa tarefas paralelas de R](media/tutorial-r-doazureparallel/pool.png)
 

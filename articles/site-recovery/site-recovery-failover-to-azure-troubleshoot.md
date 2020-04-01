@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257748"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478949"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Erros de resolução de problemas ao falhar em VMware VM ou máquina física para o Azure
 
@@ -128,7 +128,7 @@ Isto normalmente não é motivo de preocupação e geralmente pode ser ignorado 
 
 Este problema é indicado quando não consegue ver a loja de dados em Azure o portal ao tentar reproteger a máquina virtual que sofreu uma falha. Isto porque o alvo Principal não é reconhecido como uma máquina virtual sob vCenters adicionado à Recuperação do Site Azure.
 
-Para obter mais informações sobre a reproteção de uma máquina vitual, consulte [Reprotect e fail back machines to a site in-local after failover to Azure](vmware-azure-reprotect.md).
+Para obter mais informações sobre a reproteção de uma máquina virtual, consulte [Reprotect e fail back machines para um local no local após falha para Azure](vmware-azure-reprotect.md).
 
 Para resolver a questão:
 
@@ -138,7 +138,7 @@ Crie manualmente o alvo Master no vCenter que gere a sua máquina de origem. A l
 > 
 > As operações de descoberta e atualização do tecido podem demorar até 30 minutos para ser concluídas. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registo de Linux Master Target com CS falha com um erro SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>Registo de Linux Master Target com CS falha com erro TLS 35 
 
 O registo principal de recuperação do site Azure com o servidor de configuração falha devido ao proxy autenticado ser ativado no Alvo Principal. 
  

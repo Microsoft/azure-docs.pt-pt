@@ -3,12 +3,12 @@ title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral e comparação entre cofres de Serviços de Recuperação e cofres azure backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673243"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436968"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
@@ -32,11 +32,19 @@ Os cofres dos Serviços de Recuperação baseiam-se no modelo azure Resource Man
 
 - **Restauro instantâneo para VMs IaaS**: Utilizando cofres de Serviços de Recuperação, pode restaurar ficheiros e pastas de um VM IaaS sem restaurar todo o VM, o que permite tempos de restauro mais rápidos. O restauro instantâneo para VMs IaaS está disponível tanto para Windows como Para VMs Linux. [Mais informações](backup-instant-restore-capability.md)
 
+## <a name="storage-settings-in-the-recovery-services-vault"></a>Configurações de armazenamento no cofre dos Serviços de Recuperação
+
+Um cofre de Serviços de Recuperação é uma entidade que armazena os backups e pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup que estão associadas às máquinas virtuais protegidas.
+
+A Azure Backup trata automaticamente do armazenamento do cofre. Veja como [as definições de armazenamento podem ser alteradas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+
+Para saber mais sobre a redundância do armazenamento, consulte estes artigos sobre a redundância [geoe](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) [local.](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerir os seus cofres de Serviços de Recuperação no portal
 
 A criação e gestão de cofres de Serviços de Recuperação no portal Azure é fácil porque o serviço de backup integra-se noutros serviços do Azure. Esta integração significa que pode criar ou gerir um cofre de Serviços de Recuperação *no contexto do serviço alvo.* Por exemplo, para visualizar os pontos de recuperação de um VM, selecione o seu VM e clique em **Backup** no menu Operações.
 
-![Detalhes do cofre dos serviços de recuperação VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![Detalhes do cofre dos Serviços de Recuperação VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 Se o VM não tiver cópia de segurança configurada, irá institurá-lo a configurar a cópia de segurança. Se a cópia de segurança tiver sido configurada, verá informações de backup sobre o VM, incluindo uma lista de pontos de restauro.  
 

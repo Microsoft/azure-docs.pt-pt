@@ -3,13 +3,15 @@ title: Migrar VMs hiper-V para Azure com migração do servidor migratório Azur
 description: Saiba como migrar no local Hiper-V VMs para Azure com migração de servidores migratórios Azure
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2b9ed56186649b7644adbd1237ad74af50474cc5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80279713"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422687"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -62,7 +64,7 @@ Se seguiu o segundo tutorial e já tem um projeto Azure Migrate, adicione a ferr
 
 4. Na lista de ferramentas, selecione **Azure Migrate: Server Migration** > **Add tool**
 
-    ![Ferramenta de migração do servidor](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
+    ![Ferramenta de Migração do Servidor](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Instale o aparelho Migratório Azure

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: ead0ac04fbd2244fce97dd043ebd44f24fb0f67f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054925"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80395791"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminar e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -56,6 +56,17 @@ Pode eliminar um espaço de trabalho utilizando [powerShell,](https://docs.micro
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+### <a name="troubleshooting"></a>Resolução de problemas
+
+Deve ter permissões de 'Log Analytics Contributor' para eliminar o espaço de trabalho do Log Analytics.<br>
+Se receber uma mensagem de erro '*Este nome de espaço de trabalho já está em uso*' ao criar um espaço de trabalho, pode ser desde então:
+* O nome do espaço de trabalho não está disponível e está a ser usado por alguém da sua organização, ou por outro cliente.
+* O espaço de trabalho foi eliminado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar imediatamente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e execute a eliminação permanente:<br>
+   1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho.
+   2. [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho.
+   3. Crie um novo espaço de trabalho usando o mesmo nome de espaço de trabalho.
+
 
 ## <a name="permanent-workspace-delete"></a>Espaço de trabalho permanente apaga
 O método soft-delete pode não caber em alguns cenários, tais como desenvolvimento e teste, onde você precisa repetir uma implementação com as mesmas configurações e nome do espaço de trabalho. Nesses casos, pode eliminar permanentemente o seu espaço de trabalho e "anular" o período de eliminação suave. O espaço de trabalho permanente elimina a operação liberta o nome do espaço de trabalho e pode criar um novo espaço de trabalho com o mesmo nome.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/31/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76dd07a59a9fa7c0d6231a766ff4090c11f9f5bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331914"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476650"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação legado à Azure AD com acesso condicional   
 
@@ -92,13 +92,13 @@ Estes registos indicarão quais os utilizadores que ainda dependem da autentica�
 
 ### <a name="block-legacy-authentication"></a>Bloquear a autenticação legada 
 
-Numa política de Acesso Condicional, pode definir uma condição que está ligada às aplicações de clientes que são usadas para aceder aos seus recursos. A condição de aplicações do cliente permite-lhe reduzir o âmbito de aplicações usando a autenticação legado, selecionando **Outros clientes** para **aplicações Móveis e clientes de desktop.**
+Numa política de Acesso Condicional, pode definir uma condição que está ligada às aplicações de clientes que são usadas para aceder aos seus recursos. A condição de aplicações do cliente permite-lhe reduzir o âmbito de aplicações usando a autenticação legado, selecionando **clientes Exchange ActiveSync** e **outros clientes** em **aplicações Móveis e clientes de desktop.**
 
 ![Outros clientes](./media/block-legacy-authentication/01.png)
 
 Para bloquear o acesso a estas aplicações, é necessário selecionar **o acesso**ao Bloco .
 
-![Bloquear acesso](./media/block-legacy-authentication/02.png)
+![Bloquear o acesso](./media/block-legacy-authentication/02.png)
 
 ### <a name="select-users-and-cloud-apps"></a>Selecione utilizadores e aplicações na nuvem
 
@@ -106,7 +106,7 @@ Se quiser bloquear a autenticação do legado para a sua organização, provavel
 
 - Todos os utilizadores
 - Todas as aplicações em nuvem
-- Bloquear acesso
+- Bloquear o acesso
 
 ![Atribuições](./media/block-legacy-authentication/03.png)
 

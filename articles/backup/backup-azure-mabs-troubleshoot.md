@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Servidor de Ba
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673122"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421298"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -26,7 +26,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 - Se o registo estiver a falhar, certifique-se de que o servidor em que está a tentar instalar o Servidor de Backup Do Azure ainda não está registado com outro cofre.
 - Se a instalação Push falhar, verifique se o agente DPM já está instalado. Caso esteja, desinstale o agente e volte a tentar a instalação
 - [Confirme que nenhum outro processo ou software antivírus está a interferir com o Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
-- Certifique-se de que o serviço SQL Agent está em execução e definido como automático no servidor MAB<br>
+- Certifique-se de que o serviço SQL Agent está a funcionar e definido para automático no servidor MABS<br>
 
 ## <a name="invalid-vault-credentials-provided"></a>Credenciais de cofre inválidas fornecidas
 

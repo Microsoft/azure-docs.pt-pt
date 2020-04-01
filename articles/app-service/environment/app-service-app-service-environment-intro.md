@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687366"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478737"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução ao Ambiente de Serviço de Aplicações v1
 
@@ -48,7 +48,7 @@ Todos os recursos computacionais de um App Service Environment são dedicados ex
 
 Um Ambiente de Serviço de Aplicações é composto por um conjunto de recursos computacionais frontais, bem como um a três conjuntos de recursos de computação de trabalhadores.
 
-O pool frontal contém recursos computacionais responsáveis pela rescisão do SSL, bem como o equilíbrio automático de carga dos pedidos de aplicações dentro de um Ambiente de Serviço de Aplicações.
+O pool frontal contém recursos computacionais responsáveis pela rescisão de TLS, bem como o equilíbrio automático de carga dos pedidos de aplicações dentro de um Ambiente de Serviço de Aplicações.
 
 Cada grupo de trabalhadores contém recursos computacionais atribuídos aos Planos de Serviço de [Aplicações,][AppServicePlan]que por sua vez contêm uma ou mais aplicações do Serviço de Aplicações Azure.  Uma vez que pode haver até três piscinas de trabalhadores diferentes em um Ambiente de Serviço de Aplicações, você tem a flexibilidade para escolher diferentes recursos de computação para cada conjunto de trabalhadores.  
 

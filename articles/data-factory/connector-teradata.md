@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: c7c6cebf0a5c6371893dff52b2e8d7c064a40084
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257942"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421229"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -202,7 +202,7 @@ Para copiar dados da Teradata, as seguintes propriedades são suportadas na sec�
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de `TeradataSource`atividade de cópia deve ser definida para . | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativa a carga divisória, tem de ligar os parâmetros correspondentes de partição incorporados na sua consulta. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não (se for especificado o quadro no conjunto de dados) |
-| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Teradata. <br>Os valores de aditar são: **Nenhum** (padrão), **Hash** e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de [`parallelCopies`](copy-activity-performance.md#parallel-copy) paralelismo para carregar simultaneamente dados da Teradata é controlado pela definição da atividade da cópia. | Não |
+| partilhaOpOp | Especifica as opções de partilha de dados utilizadas para carregar dados da Teradata. <br>Os valores de aditar são: **Nenhum** (padrão), **Hash** e **DynamicRange**.<br>Quando uma opção de partição `None`é ativada (isto é, não), o grau de [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) paralelismo para carregar simultaneamente dados da Teradata é controlado pela definição da atividade da cópia. | Não |
 | partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None`é . | Não |
 | partitionColumnName | Especifique o nome da coluna de origem que será utilizada por divisória de alcance ou partição de Hash para cópia paralela. Se não especificado, o índice primário da tabela é detetado automaticamente e utilizado como coluna de partição. <br>Aplicar quando a `Hash` opção de partição for ou `DynamicRange`. Se utilizar uma consulta para recuperar os `?AdfHashPartitionCondition` `?AdfRangePartitionColumnName` dados de origem, ligue ou em que cláusula DE ONDE. Consulte o exemplo na cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
 | partiçãoUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a `DynamicRange`opção de partição é . Se utilizar a consulta para recuperar `?AdfRangePartitionUpbound` dados de origem, ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
@@ -250,7 +250,7 @@ O conector Data Factory Teradata fornece a partilha de dados incorporados para c
 
 ![Screenshot das opções de partição](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Teradata para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados do seu Teradata.
+Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Teradata para carregar dados por divisórias. O grau paralelo é [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados do seu Teradata.
 
 É sugerido que permita cópias paralelas com partilha de dados especialmente quando carrega uma grande quantidade de dados a partir do seu Teradata. As seguintes são configurações sugeridas para diferentes cenários. Ao copiar dados para uma loja de dados baseada em ficheiros, é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 

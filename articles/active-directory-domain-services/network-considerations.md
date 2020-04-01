@@ -4,19 +4,18 @@ description: Conheça algumas das considerações de design de rede virtual e re
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
-ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264196"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408822"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Serviços de Domínio AD Azure
 
@@ -76,7 +75,7 @@ Pode ligar uma rede virtual a outra rede virtual (VNet-to-VNet) da mesma forma q
 
 ![Conectividade de rede virtual usando um Gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-Para obter mais informações sobre a utilização de redes privadas virtuais, leia [Configure uma ligação de gateway VNet-to-VNet VPN utilizando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+Para obter mais informações sobre a utilização de redes privadas virtuais, leia [Configure uma ligação de gateway VNet-to-VNet VPN utilizando o portal Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
 ## <a name="name-resolution-when-connecting-virtual-networks"></a>Resolução de nomes ao ligar redes virtuais
 
@@ -97,11 +96,11 @@ Um domínio gerido por AD DS Azure cria alguns recursos de networking durante a 
 | Regras do balanceador de carga                     | Quando um domínio gerido por DS Azure AD é configurado para LDAP seguro na porta TCP 636, são criadas três regras e usadas num equilibrista de carga para distribuir o tráfego. |
 
 > [!WARNING]
-> Não elimine nenhum dos recursos de rede criados pela Azure AD DS. Se eliminar algum dos recursos da rede, ocorre uma falha no serviço Azure AD DS.
+> Não elimine ou modifique nenhum dos recursos de rede criados pelo Azure AD DS, tais como configurar manualmente o equilibrador de carga ou as regras. Se eliminar ou modificar qualquer um dos recursos da rede, pode ocorrer uma falha no serviço Azure AD DS.
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de segurança da rede e portos obrigatórios
 
-Um grupo de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa o Azure AD DS que contém um conjunto de regras que permitem ao serviço fornecer funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à subnet de rede virtual em que o seu domínio gerido pelo Azure AD DS está implantado.
+Um grupo de segurança de [rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa o Azure AD DS que contém um conjunto de regras que permitem ao serviço fornecer funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à subnet de rede virtual em que o seu domínio gerido pelo Azure AD DS está implantado.
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o Azure AD DS forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança da rede para a subnet de rede virtual em que o seu domínio gerido pelo Azure AD DS é implantado.
 

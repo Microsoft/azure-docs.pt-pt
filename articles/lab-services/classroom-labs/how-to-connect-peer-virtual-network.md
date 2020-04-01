@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: d2115b1dc7e9f3150e44eb5ee9417e88ebeaa279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370839"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474072"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares nos Serviços de Laboratório Azure 
 Este artigo fornece informações sobre o peering da sua rede de laboratórios com outra rede. 
@@ -38,6 +38,8 @@ Algumas redes no local estão ligadas à Rede Virtual Azure, quer através do [E
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configure no momento da criação de conta de laboratório
 Durante a criação de uma nova conta de laboratório, você pode escolher uma rede virtual existente que mostra na lista de dropdown da **rede virtual Peer** no separador **Advanced.** A rede virtual selecionada está conectada (peered) a laboratórios criados sob a conta de laboratório. Todas as máquinas virtuais em laboratórios que são criadas após a realização desta mudança teriam acesso aos recursos na rede virtual. 
+
+Existe também uma disposição para fornecer a gama de **endereços** de máquinas virtuais para os laboratórios. Se o intervalo de endereços for fornecido, todas as máquinas virtuais dos laboratórios sob a conta de laboratório serão criadas nessa gama de endereços. O intervalo de endereços deve ser da notação CIDR (por exemplo, 10.20.0.0.20) e não se sobrepor a quaisquer gamas de endereços existentes. Ao fornecer uma gama de endereços, é importante pensar sobre o número de máquinas virtuais que serão criadas nos laboratórios e fornecer uma gama de endereços para acomodar isso. Para um dado alcance, o número de laboratórios que pode acomodar será mostrado.
 
 ![Selecione VNet para peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 

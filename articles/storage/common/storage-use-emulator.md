@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72428311"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398003"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o emulador de armazenamento Azure para desenvolvimento e teste
 
@@ -325,6 +325,6 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Avalie o emulador de armazenamento de código aberto [azurite](https://github.com/arafato/azurite)de plataforma cruzada e mantido pela comunidade. 
+* Avalie o emulador de armazenamento de código aberto [azurite](https://github.com/azure/azurite)de plataforma cruzada e mantido pela comunidade. 
 * [As amostras de armazenamento azure que utilizam .NET](../storage-samples-dotnet.md) contém links para várias amostras de código que pode utilizar no desenvolvimento da sua aplicação.
 * Pode utilizar o [Microsoft Azure Storage Explorer](https://storageexplorer.com) para trabalhar com recursos na sua conta de armazenamento na nuvem e no emulador de armazenamento.

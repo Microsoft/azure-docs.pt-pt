@@ -2,13 +2,13 @@
 title: Melhorar a base de conhecimento - QnA Maker
 description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 8b2176731ce456b70521cc9208435d0b19943ab8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: 1eb0ed42f700c14350a5e4f1eff9b7592cbf8ef6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053071"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474897"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar a aprendizagem ativa sugerida questões na base de conhecimentos
 
@@ -203,7 +203,7 @@ Na [amostra Azure Bot,](https://aka.ms/activelearningsamplebot)ambas as atividad
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Exemplo C# código para Trem API com Bot Framework 4.x
 
-O código que se segue ilustra como enviar informações de volta para o Fabricante QnA com a API do comboio. Esta [amostra completa de código](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) está disponível no GitHub.
+O código que se segue ilustra como enviar informações de volta para o Fabricante QnA com a API do comboio.
 
 ```csharp
 public class FeedbackRecords
@@ -266,7 +266,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Exemplo Node.js código para Trem API com Bot Framework 4.x
 
-O código que se segue ilustra como enviar informações de volta para o Fabricante QnA com a API do comboio. Esta [amostra completa de código](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) está disponível no GitHub.
+O código que se segue ilustra como enviar informações de volta para o Fabricante QnA com a API do comboio.
 
 ```javascript
 async callTrain(stepContext){
@@ -331,8 +331,8 @@ A `SuggestedQuestions` coluna é um objeto JSON `autosuggested`de informação d
 ```
 
 Também pode utilizar as alterações de descarregamento API para rever estas alterações, utilizando REST ou qualquer um dos SDKs baseados em idiomas:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+* [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 
 Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informações e a recomendar sugestões para a sua base de conhecimentos.

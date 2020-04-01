@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4745d675086f1b07bf7fccf17c14c76e4b18fba2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76774546"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478065"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Quickstart: Use tópicos de ônibus de serviço e subscrições com Python
 
@@ -35,7 +35,7 @@ Este artigo descreve como usar python com tópicos e subscrições de ônibus de
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma subscrição do Azure. Pode ativar os benefícios do seu Estúdio Visual ou dos benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Um espaço de nome de ônibus de serviço, criado seguindo os passos na [Quickstart: Use o portal Azure para criar um tópico de ônibus de serviço e subscrições](service-bus-quickstart-topics-subscriptions-portal.md). Copie o nome do espaço de nome, o nome da chave de acesso partilhado e o valor chave principal do ecrã de políticas de **acesso partilhado** para usar mais tarde neste arranque rápido. 
-- Python 3.4x ou superior, com o pacote [Azure Python SDK][Azure Python package] instalado. Para mais informações, consulte o Guia de [Instalação Python](/azure/python/python-sdk-azure-install).
+- Python 3.4x ou superior, com o pacote [Azure Python SDK][Azure Python package] instalado. Para mais informações, consulte o Guia de [Instalação Python](/azure/developer/python/azure-sdk-install).
 
 ## <a name="create-a-servicebusservice-object"></a>Criar um objeto ServiceBusService
 

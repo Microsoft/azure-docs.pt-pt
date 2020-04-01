@@ -5,12 +5,12 @@ ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 00fc3a01e6f42c2704af9dbc807dce193ff2971c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117197"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419078"
 ---
 As imagens de máquinas virtuais padronizadas (VM) permitem às organizações migrar para a nuvem e garantir a consistência nas implementações. As imagens normalmente incluem definições de segurança e configuração predefinidas e software necessário. A configuração do seu próprio gasoduto de imagem requer tempo, infraestrutura e configuração, mas com o Azure VM Image Builder, basta fornecer uma configuração simples descrevendo a sua imagem, submeta-a ao serviço, e a imagem é construída e distribuída.
  
@@ -51,7 +51,7 @@ O AIB apoiará as imagens ossia base do Azure Marketplace:
 - Centos 7.6, 7.7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- Windows 10 RS5 Enterprise/Professional/Enterprise for Virtual Desktop (EVD) 
+- Windows 10 RS5 Enterprise/Enterprise multi-sessão/Profissional
 - Windows 2016
 - Windows 2019
 
@@ -78,7 +78,7 @@ O Azure Image Builder é um serviço Azure totalmente gerido que é acessível p
 
 ## <a name="permissions"></a>Permissões
 
-Para permitir que o Azure VM Image Builder distribua imagens para as imagens geridas ou para uma Galeria de Imagem Partilhada, terá de fornecer permissões 'Contributiva' para o serviço "Azure Virtual Machine Image Builder" (id da aplicação: cf32a0cc-373c-47c9-9156-0db11f6a6dfc ), nos grupos de recursos. 
+Para permitir que o Azure VM Image Builder distribua imagens para as imagens geridas ou para uma Galeria de Imagem Partilhada, terá de fornecer permissões 'Contributivas' para o serviço "Azure Virtual Machine Image Builder" (app ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) nos grupos de recursos. 
 
 Se estiver a utilizar uma versão de imagem ou imagem personalizada existente, então o Azure Image Builder necessitará de um mínimo de acesso 'Reader' a esses grupos de recursos.
 

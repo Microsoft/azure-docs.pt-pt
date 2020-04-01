@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687144"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476903"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o Ambiente do Serviço de Aplicações ILB no Gateway de Aplicação do Azure #
 
@@ -20,7 +20,7 @@ O [App Service Environment](./intro.md) é uma implantação do Azure App Servic
 
 As firewalls da aplicação web ajudam a proteger as suas aplicações web inspecionando o tráfego web de entrada para bloquear injeções SQL, Scripting Cross-Site, uploads de malware & aplicação DDoS e outros ataques. Também inspeciona as respostas dos servidores web back-end para prevenção de perdas de dados (DLP). Pode obter um dispositivo WAF no mercado Azure ou pode utilizar o Portal de [Aplicações Azure][appgw].
 
-O Portal de Aplicações Azure é um aparelho virtual que fornece o equilíbrio de carga da camada 7, a descarga SSL e a proteção da firewall da aplicação web (WAF). Pode ouvir num endereço IP público e o tráfego de rota para o seu ponto final de aplicação. As seguintes informações descrevem como integrar um gateway de aplicação configurado por WAF com uma aplicação num Ambiente de Serviço de Aplicações ILB.  
+O Portal de Aplicações Azure é um aparelho virtual que fornece um equilíbrio de carga da camada 7, descarregamento TLS/SSL e proteção de firewall de aplicação web (WAF). Pode ouvir num endereço IP público e o tráfego de rota para o seu ponto final de aplicação. As seguintes informações descrevem como integrar um gateway de aplicação configurado por WAF com uma aplicação num Ambiente de Serviço de Aplicações ILB.  
 
 A integração da porta de entrada de aplicações com o ILB App Service Environment está a nível de aplicações. Ao configurar o portal da aplicação com o seu Ambiente de Serviço de Aplicações ILB, está a fazê-lo para aplicações específicas no seu Ambiente de Serviço de Aplicações ILB. Esta técnica permite hospedar aplicações multiarrendatárias seguras num único Ambiente de Serviço de Aplicações ILB.  
 

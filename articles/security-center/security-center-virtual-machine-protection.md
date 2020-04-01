@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282643"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435637"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja as suas máquinas e aplicações
 Quando o Azure Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
@@ -84,10 +84,10 @@ Aqui você vê os detalhes de segurança para o VM ou computador. No fundo, pode
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Conjuntos de escala de máquina virtual
-O Security Center descobre automaticamente se tem conjuntos de escala e recomenda que instale o Microsoft Monitoring Agent nos mesmos.
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+O Security Center descobre automaticamente se tem conjuntos de escala e recomenda que instale o agente Log Analytics neles.
 
-Para instalar o Agente de Monitorização da Microsoft: 
+Para instalar o agente Log Analytics: 
 
 1. Selecione a recomendação **Instale o agente de monitorização no conjunto**de escala de máquina virtual . Obtém-se uma lista de conjuntos de escala não monitorizados.
 
@@ -95,7 +95,7 @@ Para instalar o Agente de Monitorização da Microsoft:
 
    ![Instalar MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Para definir novos conjuntos de escala para instalar automaticamente o Agente de Monitorização da Microsoft:
+Para definir novos conjuntos de escala para instalar automaticamente o agente Log Analytics:
 1. Vá à Política Azure e clique em **Definições**.
 
 1. Procure a política **Implementar o agente Log Analytics para conjuntos** de escala de máquinas virtuais do Windows e clique nele.
@@ -104,13 +104,13 @@ Para definir novos conjuntos de escala para instalar automaticamente o Agente de
 
 1. **Detete** o espaço de trabalho scope e Log **Analytics** e clique em **Atribuir**.
 
-Se pretender definir todos os conjuntos de escala existentes para instalar o Microsoft Monitoring Agent, na Política Azure, vá à **Remediation** e aplique a política existente aos conjuntos de escala existentes.
+Se quiser definir todos os conjuntos de escala existentes para instalar o agente Log Analytics, na Política Azure, vá à **Remediation** e aplique a política existente aos conjuntos de escala existentes.
 
 
 
 
 
-### <a name="cloud-services"></a><a name="cloud-services"></a>Serviços cloud
+### <a name="cloud-services"></a><a name="cloud-services"></a>Serviços em nuvem
 Para os serviços na nuvem, é criada uma recomendação quando a versão do sistema operativo está desatualizada.
 
 ![Serviços em nuvem](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
@@ -195,7 +195,7 @@ Quando clicar num dos VMs em execução, verá a página de detalhes com informa
 
 O Centro de Segurança analisa as suas configurações do Docker e fornece-lhe visibilidade sobre as configurações incorretas ao disponibilizar uma lista de todas as regras com falhas que foram analisadas. O Centro de Segurança fornece diretrizes para ajudá-lo a resolver estes problemas rapidamente e economizar tempo. O Centro de Segurança avalia continuamente as configurações do Docker e fornece o estado mais recente.
 
-![separador de recipiente](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![separador de recipiente](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

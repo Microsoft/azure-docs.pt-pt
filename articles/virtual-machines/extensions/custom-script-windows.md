@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066881"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478149"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -106,7 +106,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 > Apenas uma versão de uma extensão pode ser instalada num VM num momento, especificando o script personalizado duas vezes no mesmo modelo de Gestor de Recursos para o mesmo VM falhará.
 
 > [!NOTE]
-> Podemos usar este esquema dentro do recurso VirtualMachine ou como recurso autónomo. O nome do recurso tem de estar neste formato "virtualMachineName/extensionName", se esta extensão for utilizada como recurso autónomo no modelo ARM. 
+> Podemos usar este esquema dentro do recurso VirtualMachine ou como recurso autónomo. O nome do recurso tem de estar neste formato "virtualMachineName/extensionName", se esta extensão for utilizada como recurso autónomo no modelo ARM.
 
 ### <a name="property-values"></a>Valores patrimoniais
 
@@ -146,6 +146,8 @@ Utilizar configurações públicas talvez úteis para depuração, mas é recome
 As configurações públicas são enviadas em texto claro para o VM onde o script será executado.  As definições protegidas são encriptadas utilizando uma chave conhecida apenas pelo Azure e pelo VM. As definições são guardadas para o VM à medida que foram enviadas, isto é, se as definições foram encriptadas, são guardadas encriptadas no VM. O certificado utilizado para desencriptar os valores encriptados é armazenado no VM e utilizado para desencriptar as definições (se necessário) no prazo de execução.
 
 ####  <a name="property-managedidentity"></a>Propriedade: identidade gerida
+> [!NOTE]
+> Esta propriedade **deve** ser especificada apenas em configurações protegidas.
 
 O CustomScript (versão 1.10 em diante) suporta a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros(s) de URLs fornecidos na definição "fileUris". Permite ao CustomScript aceder a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
 

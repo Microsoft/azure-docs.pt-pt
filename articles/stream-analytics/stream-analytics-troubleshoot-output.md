@@ -6,46 +6,38 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79254290"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409254"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Saídas de Troubleshoot Azure Stream Analytics
 
-Esta página descreve problemas comuns com ligações de saída e como resolver problemas e endereçá-los.
+Este artigo descreve questões comuns com ligações de saída do Azure Stream Analytics, como resolver problemas de saída e como corrigir os problemas. Muitos passos de resolução de problemas requerem que os registos de diagnóstico sejam ativados para o seu trabalho de Stream Analytics. Se não tiver registos de diagnóstico ativados, consulte [o Troubleshoot Azure Stream Analytics utilizando registos](stream-analytics-job-diagnostic-logs.md)de diagnóstico .
 
 ## <a name="output-not-produced-by-job"></a>Saída não produzida por trabalho
+
 1.  Verifique a conectividade com as saídas utilizando o botão **de ligação** de teste para cada saída.
 
 2.  Veja as [**métricas de monitorização**](stream-analytics-monitoring.md) no separador **Monitor.** Como os valores são agregados, as métricas são adiadas por alguns minutos.
-    - Se os Eventos de Entrada > 0, o trabalho é capaz de ler os dados de entrada. Se os Eventos de Entrada não forem > 0, então:
-      - Para ver se a fonte de dados tem dados válidos, verifique-os utilizando o [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). Este cheque aplica-se se o trabalho estiver a usar o Event Hub como entrada.
-      - Verifique se o formato de serialização de dados e a codificação de dados são como esperado.
-      - Se o trabalho estiver a usar um Centro de Eventos, verifique se o corpo da mensagem é *nulo*.
+   * Se os Eventos de Entrada forem superiores a 0, o trabalho é capaz de ler os dados de entrada. Se os Eventos de Entrada não forem superiores a 0, então há um problema com a entrada do trabalho. Consulte as ligações de [entrada de Troubleshoot](stream-analytics-troubleshoot-input.md) para aprender a resolver problemas de ligação de entrada.
+   * Se os erros de conversão de dados forem superiores a 0 e subirem, consulte erros de dados do [Azure Stream Analytics](data-errors.md) para obter informações detalhadas sobre erros de conversão de dados.
+   * Se os Erros de Tempo de Execução forem superiores a 0, o seu trabalho pode receber dados, mas está a gerar erros durante o processamento da consulta. Para encontrar os erros, aceda aos [Registos de Auditoria](../azure-resource-manager/management/view-activity-logs.md) e filtre no estado *falhado.*
+   * Se o InputEvents for superior a 0 e os OutputEvents forem iguais a 0, um dos seguintes é verdade:
+      * O processamento da consulta resultou em zero eventos de saída.
+      * Eventos ou campos podem ser mal formados, resultando em saída zero após processamento de consulta.
+      * O trabalho não foi capaz de empurrar os dados para o lavatório de saída por razões de conectividade ou autenticação.
 
-    - Se os erros de conversão de dados > 0 e a escalada, o seguinte pode ser verdade:
-      - O evento de saída não está em conformidade com o esquema do afundador-alvo.
-      - O esquema do evento pode não corresponder ao esquema definido ou esperado dos eventos na consulta.
-      - Os tipos de dados de alguns dos campos do evento podem não corresponder às expectativas.
-
-    - Se os Erros de Prazo de Execução > 0, significa que o trabalho pode receber os dados, mas está a gerar erros durante o processamento da consulta.
-      - Para encontrar os erros, aceda aos [Registos de Auditoria](../azure-resource-manager/management/view-activity-logs.md) e filtre no estado *falhado.*
-
-    - Se os Eventos de Entrada > 0 e OutputEvents = 0, significa que um dos seguintes é verdade:
-      - O processamento da consulta resultou em zero eventos de saída.
-      - Os eventos ou os seus campos podem estar mal formados, resultando em saída zero após o processamento de consultas.
-      - O trabalho não foi capaz de empurrar os dados para o lavatório de saída por razões de conectividade ou autenticação.
-
-    - Em todos os casos de erro anteriormente mencionados, as mensagens de registo de operações explicam detalhes adicionais (incluindo o que está a acontecer), exceto nos casos em que a lógica da consulta filtrava todos os eventos. Se o processamento de vários eventos gerar erros, o Stream Analytics regista as três primeiras mensagens de erro do mesmo tipo dentro de 10 minutos para os registos de Operações. Em seguida, suprime erros idênticos adicionais com uma mensagem que diz "Os erros estão a acontecer muito rapidamente, estes estão a ser suprimidos."
+   Em todos os casos de erro anteriormente mencionados, as mensagens de registo de operações explicam detalhes adicionais (incluindo o que está a acontecer), exceto nos casos em que a lógica da consulta filtrava todos os eventos. Se o processamento de vários eventos gerar erros, os erros são agregados a cada 10 minutos.
 
 ## <a name="job-output-is-delayed"></a>Job output is delayed (A saída do trabalho está atrasada)
 
 ### <a name="first-output-is-delayed"></a>A primeira saída é adiada
+
 Quando é iniciado um trabalho do Stream Analytics, os eventos de entrada são lidos, mas pode haver um atraso na produção da saída, em determinadas circunstâncias.
 
 Grandes valores de tempo em elementos de consulta temporal podem contribuir para o atraso de saída. Para produzir uma saída correta ao longo das grandes janelas de tempo, o trabalho de streaming começa por ler dados do tempo mais recente possível (até há sete dias) para preencher a janela de tempo. Durante esse período, não é produzida qualquer saída até que a leitura de atualização dos eventos de entrada pendentes esteja completa. Este problema pode surgir quando o sistema atualiza os trabalhos de streaming, reiniciando assim o trabalho. Tais atualizações geralmente ocorrem uma vez a cada dois meses.
@@ -69,6 +61,7 @@ Estes fatores impactam a oportunidade da primeira saída que é gerada:
    - Para funções analíticas, a saída é gerada para cada evento, não há atraso.
 
 ### <a name="output-falls-behind"></a>A saída fica para trás
+
 Durante o funcionamento normal do trabalho, se descobrir que a saída do trabalho está a ficar para trás (latência mais longa e mais longa), pode identificar as causas da raiz examinando estes fatores:
 - Se a pia a jusante está estrangulada
 - Se a fonte a montante está acelerada
@@ -88,11 +81,11 @@ Note as seguintes observações ao configurar IGNORE_DUP_KEY para vários tipos 
 
 * Não é possível definir IGNORE_DUP_KEY numa chave primária ou numa restrição única que utiliza o ALTER INDEX, é necessário baixar e recriar o índice.  
 * Pode definir a opção IGNORE_DUP_KEY utilizando o ALTER INDEX para um índice único, diferente da chave primária/restrição única e criada utilizando a definição DE ÍNDICE DE CRIAÇÃO ou INDEX.  
+
 * IGNORE_DUP_KEY não se aplica aos índices de lojas de colunas porque não se pode impor uma singularidade nesses índices.  
 
 ## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Os nomes das colunas são minúsculos por Azure Stream Analytics
 Ao utilizar o nível de compatibilidade original (1.0), o Azure Stream Analytics costumava mudar os nomes das colunas para minúscula. Este comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, aconselhamos os clientes a mudarem-se para o nível de compatibilidade 1.1 e posterior. Pode encontrar mais informações sobre o nível de [compatibilidade para trabalhos de Azure Stream Analytics.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)
-
 
 ## <a name="get-help"></a>Obter ajuda
 

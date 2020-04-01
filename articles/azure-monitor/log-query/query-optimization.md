@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/28/2019
-ms.openlocfilehash: c32731ce2de2b0f886a1e21ee8ccad3996e395eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2019
+ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480271"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411435"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Monitor Azure
 O Azure Monitor Logs utiliza o [Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si e otimiza-os para a sua carga de trabalho de análise de registo. Quando executa uma consulta, está otimizada e encaminhada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto o Azure Monitor Logs como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos em que pode melhorar drasticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -57,7 +57,7 @@ O tempo de processamento de consulta é gasto em:
 - Recuperação de dados – a recuperação de dados antigos consumirá mais tempo do que a recuperação de dados recentes.
 - Tratamento de dados – lógica e avaliação dos dados. 
 
-Para além do tempo gasto nos nós de processamento de consulta, há tempo adicional que é gasto pelo Azure Monitor Logs para: autenticar o utilizador e verificar se estão autorizados a aceder a esses dados, localizar a loja de dados, analisar a consulta e alocar o processamento de consulta nósodes. Este tempo não está incluído no tempo total de CPU da consulta.
+Para além do tempo gasto nos nós de processamento de consulta, há tempo adicional que é gasto pela Azure Monitor Logs para: autenticar o utilizador e verificar se estão autorizados a aceder a esses dados, localizar a loja de dados, analisar a consulta e alocar os nós de processamento de consulta. Este tempo não está incluído no tempo total de CPU da consulta.
 
 ### <a name="early-filtering-of-records-prior-of-using-high-cpu-functions"></a>Filtração antecipada de registos antes da utilização de funções de CPU elevadas
 
@@ -155,6 +155,21 @@ Heartbeat
 
 > [!NOTE]
 > Este indicador apresenta apenas CPU do cluster imediato. Em consultas multi-regiões, representaria apenas uma das regiões. Em consulta multi-workspace, pode não incluir todos os espaços de trabalho.
+
+### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Evite a análise completa do XML e da JSON quando a análise de cordas funciona
+A análise completa de um objeto XML ou JSON pode consumir elevados recursos de CPU e memória. Em muitos casos, quando apenas um ou dois parâmetros são necessários e os objetos XML ou JSON são simples, é mais fácil analisá-los como cordas usando o [operador de parse](/azure/kusto/query/parseoperator) ou [outras técnicas](/azure/azure-monitor/log-query/parse-text)de análise de texto . O aumento de desempenho será mais significativo à medida que o número de registos no objeto XML ou JSON aumenta. É essencial quando o número de registos atinge dezenas de milhões.
+
+Por exemplo, a seguinte consulta devolverá exatamente os mesmos resultados que as consultas acima sem realizar a análise completa do XML. Note que faz algumas suposições sobre a estrutura de ficheiros XML, como o elemento FilePath vem depois do FileHash e nenhum deles tem atributos. 
+
+```Kusto
+//even more efficient
+SecurityEvent
+| where EventID == 8002 //Only this event have FileHash
+| where EventData !has "%SYSTEM32" //Early removal of unwanted records
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
+```
 
 
 ## <a name="data-used-for-processed-query"></a>Dados utilizados para consulta processada

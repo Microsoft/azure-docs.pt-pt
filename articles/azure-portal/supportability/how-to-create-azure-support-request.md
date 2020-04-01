@@ -7,14 +7,14 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248492"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478978"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar um pedido de suporte do Azure
 
@@ -43,7 +43,7 @@ Pode obter **suporte para Ajudar +** no portal Azure. Está disponível no menu 
 
 ### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-Para criar um pedido de apoio, deve ser administrador ou ser designado para o papel de [Colaborador de Pedido](../../role-based-access-control/built-in-roles.md#support-request-contributor) de Apoio ao nível da subscrição.
+Para criar um pedido de apoio, deve ser [proprietário,](../../role-based-access-control/built-in-roles.md#owner) [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou ser designado para o papel de [Colaborador de Pedido](../../role-based-access-control/built-in-roles.md#support-request-contributor) de Apoio ao nível da subscrição. Para criar um pedido de apoio sem subscrição, por exemplo, o cenário do Azure Ative Directory (AAD), deve ser um [Administrador](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Vá para ajudar + apoio do cabeçalho global
 

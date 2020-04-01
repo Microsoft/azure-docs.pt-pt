@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481539"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475836"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configure o LDAP seguro para um domínio gerido pelo Azure Ative Directory Domain Services
 
@@ -114,13 +114,13 @@ Estas duas chaves, as chaves *privadas* e *públicas,* certifiquem-se de que ape
 
 Antes de poder utilizar o certificado digital criado no passo anterior com o seu domínio gerido pela Azure AD DS, exporte o certificado para *a . Ficheiro de* certificado PFX que inclui a chave privada.
 
-1. Para abrir o diálogo *Executar,* selecione as teclas **Windows** e **R.**
+1. Para abrir o diálogo *Executar,* selecione as teclas **Windows** + **R.**
 1. Abra a Consola de Gestão da Microsoft (MMC) inserindo **mmc** no diálogo *Executar* e, em seguida, selecione **OK**.
-1. No pedido de Controlo de **Conta do Utilizador,** clique **em Sim** para lançar MMC como administrador.
-1. A partir do menu **'Ficheiro',** clique em **Adicionar/Remover snap-in...**
+1. No pedido de Controlo de **Conta do Utilizador,** então selecione **Sim** para lançar MMC como administrador.
+1. A partir do menu **'Ficheiro',** selecione **Adicionar/Remover snap-in...**
 1. No assistente de encaixe dos **Certificados,** escolha a **conta de Computador**e, em seguida, selecione **Next**.
 1. Na página **Select Computer,** escolha **computador local: (o computador em**que esta consola está a funcionar) e, em seguida, selecione **Terminar**.
-1. No diálogo **Add or Remove Snap-ins,** clique em **OK** para adicionar os certificados snap-in ao MMC.
+1. No diálogo **Add or Remove Snap-ins,** selecione **OK** para adicionar os certificados snap-in ao MMC.
 1. Na janela MMC, expanda a **Raiz da Consola.** Selecione **Certificados (Computador Local)** e, em seguida, expanda o nó **pessoal,** seguido do nó de **Certificados.**
 
     ![Abra a loja de certificados pessoais na Consola de Gestão da Microsoft](./media/tutorial-configure-ldaps/open-personal-store.png)
@@ -177,9 +177,6 @@ Os computadores clientes devem confiar no emitente do certificado LDAP seguro pa
 Com um certificado digital criado e exportado que inclui a chave privada, e o computador cliente definido para confiar na ligação, agora permite lDAP seguro no seu domínio gerido azure AD DS. Para permitir o LDAP seguro num domínio gerido por AD DS Azure, execute os seguintes passos de configuração:
 
 1. No [portal Azure,](https://portal.azure.com)insira *serviços* de domínio na caixa **de recursos de Pesquisa.** Selecione Serviços de **Domínio Azure AD** a partir do resultado da pesquisa.
-
-    ![Procure e selecione o seu domínio gerido azure AD DS no portal Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
 1. Escolha o seu domínio gerido, como *aaddscontoso.com*.
 1. No lado esquerdo da janela Azure AD DS, escolha **Secure LDAP**.
 1. Por predefinição, o acesso lDAP seguro ao seu domínio gerido é desativado. Alternar **o LDAP seguro** para **ativar**.
@@ -235,10 +232,10 @@ Com acesso LDAP seguro ativado através da internet, atualize a zona DNS para qu
 
 Configure o seu fornecedor externo de DNS para criar um registo de hospedeiro, como *o Ldaps,* para resolver este endereço IP externo. Para testar localmente a sua máquina primeiro, pode criar uma entrada no ficheiro de anfitriões do Windows. Para editar com sucesso o ficheiro dos anfitriões na sua máquina local, abra o Bloco de *Notas* como administrador e abra o ficheiro *C:\Windows\System32\drivers\etc*
 
-O seguinte exemplo de entrada dNS, quer com o seu fornecedor externo de DNS quer no ficheiro de anfitriões locais, resolve o tráfego para *ldaps.aaddscontoso.com* para o endereço IP externo de *40.121.19.239:*
+O seguinte exemplo de entrada dNS, quer com o seu fornecedor externo de DNS quer no ficheiro de anfitriões locais, resolve o tráfego para *ldaps.aaddscontoso.com* para o endereço IP externo de *168.62.205.103:*
 
 ```
-40.121.19.239    ldaps.aaddscontoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Teste de consultas ao domínio gerido
@@ -261,7 +258,7 @@ Para ver os objetos armazenados no seu domínio gerido pela AD DS:
 1. Selecione a opção de menu **Ver** e, em seguida, escolha **Tree**.
 1. Deixe o campo *BaseDN* em branco e, em seguida, selecione **OK**.
 1. Escolha um recipiente, como *utilizadores AADDC,* então selecione o recipiente à direita e escolha **Procurar**.
-1. Deixe os campos pré-povoados definidos e, em seguida, selecione **Executar**. Os resultados da consulta são mostrados na janela da direita.
+1. Deixe os campos pré-povoados definidos e, em seguida, selecione **Executar**. Os resultados da consulta são apresentados na janela da direita, como mostra a seguinte saída exemplo:
 
     ![Procure objetos no seu domínio gerido azure AD DS usando LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
@@ -273,7 +270,7 @@ Se tiver adicionado uma entrada DNS ao ficheiro de anfitriões locais do seu com
 
 1. Na sua máquina local, abra *o Bloco* de Notas como administrador
 1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc*
-1. Apagar a linha para o registo que adicionou, como`40.121.19.239    ldaps.aaddscontoso.com`
+1. Apagar a linha para o registo que adicionou, como`168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Passos seguintes
 

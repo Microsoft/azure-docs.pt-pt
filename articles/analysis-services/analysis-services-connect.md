@@ -4,19 +4,19 @@ description: Saiba como se conectar e obter dados de um servidor de Serviços de
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3231b46060cbb755ada000473c8fbe873cc51ef1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2875959a833134131fa6db6d51df0c2b47a39377
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73147308"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411304"
 ---
 # <a name="connecting-to-servers"></a>Ligar aos servidores
 
-Este artigo descreve a ligação a um servidor utilizando aplicações de modelação e gestão de dados como o SQL Server Management Studio (SSMS) ou o Visual Studio com projetos de Serviços de Análise, ou com aplicações de reporte de clientes como o Microsoft Excel, Power BI Desktop, ou aplicações personalizadas. As ligações aos Serviços de Análise Azure utilizam HTTPS.
+Este artigo descreve a ligação a um servidor utilizando aplicações de modelação e gestão de dados como o SQL Server Management Studio (SSMS) ou o Visual Studio com projetos de Serviços de Análise, ou com aplicações de reporte de clientes como o Microsoft Excel, Power BI Desktop ou aplicações personalizadas. As ligações aos Serviços de Análise Azure utilizam HTTPS.
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 

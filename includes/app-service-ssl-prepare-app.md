@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301012"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
@@ -21,7 +21,7 @@ Para criar encadernações de segurança personalizadas ou ativar certificados d
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o [Portal do Azure](https://portal.azure.com).
+Abra o [portal Azure.](https://portal.azure.com)
 
 ### <a name="navigate-to-your-web-app"></a>Navegue até à sua aplicação Web
 
@@ -37,7 +37,7 @@ Aterrou na página de gestão da sua aplicação web.
 
 ### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
-No painel de navegação esquerdo da página da aplicação Web, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)** .
+No painel de navegação esquerdo da página da aplicação Web, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)**.
 
 ![Menu de aumento vertical](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 

@@ -8,22 +8,25 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68834565"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411201"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instale micro Focus Enterprise Server 4.0 e Enterprise Developer 4.0 no Azure
 
 Este artigo mostra como configurar micro [Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) e [Micro Focus Enterprise Developer 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) no Azure.
 
 Uma carga de trabalho comum em Azure é um ambiente de desenvolvimento e teste. Este cenário é comum porque é tão rentável e fácil de implementar e derrubar. Com o Enterprise Server, a Micro Focus criou uma das maiores plataformas de realojamento do mainframe disponíveis. Pode executar cargas de trabalho z/OS numa plataforma x86 menos dispendiosa no Azure utilizando máquinas virtuais Windows ou Linux (VMs).
+
+> [!NOTE]
+> Em breve: Instruções para a instalação do [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) em VMs Azure.
 
 Esta configuração utiliza VMs Azure que executam a imagem do Windows Server 2016 do Azure Marketplace com o Microsoft SQL Server 2017 já instalado. Esta configuração também se aplica ao Azure Stack.
 

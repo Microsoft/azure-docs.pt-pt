@@ -4,21 +4,21 @@ description: Conheça os Serviços de Análise Azure, uma plataforma totalmente 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/20/2020
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7eb46e0eda1cd702f26829fac49ffe0e7916626f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240605"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410386"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-O Azure Analysis Services é uma plataforma como serviço (PaaS) totalmente gerida que fornece modelos de dados de nível empresarial na cloud. Utilize funcionalidades avançadas de mashup e modelos para combinar dados de várias origens, definir métricas e proteger os dados num único modelo de dados em tabela semântico fidedigno. O modelo de dados fornece uma forma mais fácil e rápida para os utilizadores navegarem em quantidades massivas de dados para a análise de dados ad hoc.
+O Azure Analysis Services é uma plataforma como serviço (PaaS) totalmente gerida que fornece modelos de dados de nível empresarial na cloud. Utilize funcionalidades avançadas de mashup e modelos para combinar dados de várias origens, definir métricas e proteger os dados num único modelo de dados em tabela semântico fidedigno. O modelo de dados fornece uma forma mais fácil e rápida para os utilizadores realizarem a análise de dados ad hoc usando ferramentas como Power BI e Excel.
 
 ![Origens de dados](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -38,7 +38,7 @@ O Azure Analysis Services está disponível nos escalões **Programador**, **Bá
 
 ### <a name="developer-tier"></a>Escalão de programador
 
-Este escalão é recomendado para cenários de avaliação, desenvolvimento e teste. Um único plano inclui as mesmas funcionalidades do escalão standard, mas a capacidade de processamento, as QPUs e o tamanho da memória são limitados. O aumento horizontal de réplicas de consultas *não está disponível* para este escalão. Este escalão não oferece um SLA.
+Este escalão é recomendado para cenários de avaliação, desenvolvimento e teste. Um único plano inclui as mesmas funcionalidades do escalão standard, mas a capacidade de processamento, as QPUs e o tamanho da memória são limitados. A escala de réplica de consulta *não está disponível* para este nível. Este escalão não oferece um SLA.
 
 |Planear  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -208,6 +208,10 @@ Os Projetos de Serviços de Análise da Microsoft estão disponíveis como um pa
 
 Faça a gestão dos seus servidores e das suas bases de dados de modelos com o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Ligue aos seus servidores na cloud. Execute scripts TMSL diretamente na janela de consultas XMLA e utilize-os, bem como o PowerShell, para automatizar tarefas. As funcionalidades e funções novas são disponibilizadas rapidamente - o SSMS é atualizado todos os meses.
 
+### <a name="open-source-tools"></a>Ferramentas de código aberto
+
+A Analysis Services tem uma comunidade vibrante de desenvolvedores que criam ferramentas. Certifique-se de verificar [o Tabular Editor](https://tabulareditor.github.io/), uma ferramenta de código aberto para criar, manter e gerir modelos tabular usando um editor intuitivo e leve. [O DAX Studio](https://daxstudio.org/)é uma excelente ferramenta de código aberto para a autoria, diagnóstico, afinação de desempenho e análise do DAX.
+
 ### <a name="powershell"></a>PowerShell
 
 As tarefas de gestão de recursos do servidor, como criar recursos de servidores, suspender ou retomar as operações do servidor, ou alterar o nível de serviço (nível) utilizam os cmdlets Azure PowerShell. Outras tarefas para gerir bases de dados, como adicionar ou remover membros de funções, processar ou executar scripts TMSL, utilizam os cmdlets do módulo SqlServer. Para saber mais, veja [Gerir o Azure Analysis Services com o PowerShell](analysis-services-powershell.md).
@@ -232,19 +236,15 @@ O Azure Analysis Services também suporta a utilização de [Vistas de Gestão D
 
 Esta secção inclui documentação específica do Azure Analysis Services. Utilize o índice no lado esquerdo do ecrã do browser para localizar artigos. 
 
-Como os modelos tabular dos Serviços de Análise Azure são praticamente os mesmos que os modelos tabular nos Serviços de Análise de Servidores SQL, há uma extensa biblioteca de tutoriais de modelação de dados partilhados, conceptuais, processuais, desenvolvedores e artigos de referência na documentação dos Serviços de Análise de [Servidores SQL.](https://docs.microsoft.com/analysis-services/analysis-services-overview) Os artigos na documentação do SQL Server Analysis Services mostram se também se aplicam ao Azure Analysis Services através de uma faixa com a indicação "APLICA-SE A" abaixo do título.
+Como os modelos tabular nos Serviços de Análise Azure são os mesmos que os modelos tabular nos Serviços de Análise de Servidores SQL e conjuntos de dados Power BI Premium, há uma extensa biblioteca de tutoriais de modelação de dados partilhados, conceptuais, processuais, desenvolvedores e artigos de referência na documentação dos Serviços de [Análise.](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current) Os artigos na documentação dos Serviços de Análise Partilhada mostram se também se aplicam aos Serviços de Análise Azure por um banner APPLY TO abaixo do título. Também pode utilizar o seletor de versão acima da tabela de conteúdos para ver apenas os artigos que se aplicam à plataforma que está a utilizar.
 
 ![Documentação partilhada](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>Contribua!
 
-A documentação do Analysis Services, como este artigo, é de livre acesso. Se tiver uma conta do GitHub, pode editar artigos ao clicar em Edit (Editar) na forma de um lápis no canto superior direito do ecrã do browser. Utilize o editor no browser e, em seguida, clique em Propose file change (Propor alteração de ficheiro). 
+A documentação do Analysis Services, como este artigo, é de livre acesso. Para saber mais sobre como pode contribuir, consulte o guia de colaboradores do [Docs.](https://docs.microsoft.com/contribute/) 
 
-![Documentação partilhada](./media/analysis-services-overview/aas-overview-edit.png)
-
-O seu contributo será analisado pela equipa de documentação e, se for aprovado, o seu nome de conta do GitHub será apresentado como contribuidor. Para saber mais, veja o [Guia de contribuidor do Docs](https://docs.microsoft.com/contribute/).
-
-A documentação do Azure Analysis Services também utiliza os [Problemas do GitHub](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Pode fornecer feedback sobre o produto ou a documentação. Utilize a opção **Comentários** na parte inferior de um artigo. Os Problemas do GitHub ainda não estão ativados para a documentação do SQL Server Analysis Services. 
+A documentação do Azure Analysis Services também utiliza os [Problemas do GitHub](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Pode fornecer feedback sobre o produto ou a documentação. Utilize a opção **Comentários** na parte inferior de um artigo. As Questões GitHub não estão ativadas para a documentação dos Serviços de Análise Partilhada. 
 
 ## <a name="blogs"></a>Blogues
 

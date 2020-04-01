@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 759ea9800a0ed051fed887adfb10b06f7a53b72f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529208"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397194"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>Exemplos de utilização do conector Microsoft Flow (Pré-visualização)
 
@@ -119,7 +119,9 @@ Visualize esta informação como um gráfico de tartes e envie-a por e-mail para
     * No campo *Body,* insira o corpo necessário de modo a que o resultado visualizado da consulta seja incluído no corpo do e-mail.
     * Para adicionar um anexo ao e-mail, adicione o Nome do Anexo e o Conteúdo do Anexo.
     
-    ![E-mail vários anexos](./media/flow-usage/flow-emailmultipleattachments.png)
+    ![E-mail vários anexos](./media/flow-usage/flow-email-multiple-attachments.png)
+
+    Para obter instruções completas sobre a criação de uma ação por e-mail, consulte os resultados da [consulta de Email Kusto](flow.md#email-kusto-query-results). 
 
 Resultados:
 

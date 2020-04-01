@@ -1,58 +1,114 @@
 ---
-title: Recolher registo de atividade do Azure no espaço de trabalho do Log Analytics
+title: Recolher e analisar o log de atividade do Azure no Monitor Azure
 description: Recolher o Registo de Atividades do Azure em Registos de MonitorEs Azure e utilizar a solução de monitorização para analisar e pesquisar o registo de atividade do Azure em todas as suas subscrições do Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/30/2019
-ms.openlocfilehash: 407bff10e2480c5210d3057bcccd6c60e591c165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/24/2020
+ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055314"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396791"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics no Monitor Azure
+# <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Recolher e analisar o log da Atividade Azure no Monitor Azure
+O [registo da Atividade Azure](platform-logs-overview.md) é um registo de [plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. Enquanto pode ver o registo de atividade no portal Azure, deve configurá-lo para enviar para um espaço de trabalho log Analytics para permitir funcionalidades adicionais do Monitor Azure. Este artigo descreve como executar esta configuração e como enviar o registo de atividade para centros de armazenamento e evento sinuosos do Azure.
 
-> [!WARNING]
-> Agora pode recolher o log da Atividade num espaço de trabalho do Log Analytics utilizando uma definição de diagnóstico semelhante à forma como recolhe registos de recursos. Consulte recolher e analisar registos de atividade do Azure no espaço de [trabalho do Log Analytics no Monitor Azure](diagnostic-settings-legacy.md).
+Recolher o Registo de Atividades num espaço de trabalho de Log Analytics proporciona as seguintes vantagens:
 
-O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Este artigo descreve como recolher o Registo de Atividades num espaço de trabalho do Log Analytics e como utilizar a solução de [monitorização](../insights/solutions.md)do Log Analytics de Atividades, que fornece consultas de registo e vistas para analisar estes dados. 
+- Nenhuma taxa de ingestão de dados ou de retenção de dados para os dados de registo de atividade armazenados num espaço de trabalho de Log Analytics.
+- Correlacionar dados de registo de atividade com outros dados de monitorização recolhidos pelo Azure Monitor.
+- Utilize consultas de registo para realizar análises complexas e obter informações profundas sobre as entradas de Registo de Atividade.
+- Utilize alertas de registo com entradas de Atividade que permitam uma lógica de alerta mais complexa.
+- Registo de registo de atividade de loja por mais de 90 dias.
+- Consolidar entradas de registo de várias subscrições do Azure e inquilinos num único local para análise em conjunto.
 
-Ligar o Registo de Atividade a um espaço de trabalho de Log Analytics proporciona os seguintes benefícios:
 
-- Consolidar o Registo de Atividades de várias subscrições do Azure num único local para análise.
-- Registo de Atividades da Loja por mais de 90 dias.
-- Correlacionar dados do Registo de Atividades com outros dados de monitorização recolhidos pelo Monitor Azure.
-- Utilize consultas de [registo](../log-query/log-query-overview.md) para realizar análises complexas e obter informações profundas sobre as entradas de Registo de Atividade.
 
-## <a name="connect-to-log-analytics-workspace"></a>Ligue-se ao espaço de trabalho log Analytics
-Um único espaço de trabalho pode ser ligado ao Registo de Atividades para múltiplas subscrições no mesmo inquilino Azure. Para recolha em vários inquilinos, consulte Collect Azure Activity Logs num espaço de trabalho log Analytics através de [subscrições em diferentes inquilinos do Azure Ative Directory.](activity-log-collect-tenants.md)
+## <a name="collecting-activity-log"></a>Registo de Atividades de Recolha
+O registo de Atividade é recolhido automaticamente para [visualização no portal Azure](activity-log-view.md). Para o recolher num espaço de trabalho do Log Analytics ou para o enviar centros de armazenamento ou eventos Azure, crie uma [definição de diagnóstico](diagnostic-settings.md). Este é o mesmo método utilizado pelos registos de recursos tornando-o consistente para todos os [registos da plataforma](platform-logs-overview.md).  
 
-> [!IMPORTANT]
-> Poderá receber um erro com o seguinte procedimento se os fornecedores de recursos Microsoft.OperationalInsights e Microsoft.OperationsManagement não estiverem registados para a sua subscrição. Consulte [os fornecedores e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) de recursos azure para registar estes fornecedores.
+Para criar uma definição de diagnóstico para o registo de atividade, selecione **definições** de diagnóstico do menu de **registo de atividade** no Monitor Azure. Consulte [a definição de diagnóstico Create para recolher registos e métricas da plataforma em Azure](diagnostic-settings.md) para obter detalhes sobre a criação da configuração. Consulte [as categorias no registo de atividade](activity-log-view.md#categories-in-the-activity-log) para obter uma descrição das categorias que pode filtrar. Se tiver alguma definição de legado, certifique-se de que as desativa antes de criar uma definição de diagnóstico. Ter ambos ativados pode resultar em dados duplicados.
 
-Utilize o seguinte procedimento para ligar o Registo de Atividade ao seu espaço de trabalho Log Analytics:
+![Definições de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+
+> [!NOTE]
+> Atualmente, só é possível criar uma definição de diagnóstico de nível de subscrição utilizando o portal Azure e um modelo de Gestor de Recursos. 
+
+
+## <a name="legacy-settings"></a>Configurações do legado 
+Embora as configurações de diagnóstico sejam o método preferido para enviar o registo de Atividade para diferentes destinos, os métodos legados continuarão a funcionar se não optar por substituir por uma definição de diagnóstico. As definições de diagnóstico têm as seguintes vantagens sobre métodos legados, e recomenda-se que atualize a sua configuração:
+
+- Método consistente para recolher todos os registos da plataforma.
+- Colete registo de Atividades em várias subscrições e inquilinos.
+- Filtrar a recolha para recolher apenas registos para determinadas categorias.
+- Colete todas as categorias de registo de Atividade. Algumas categorias não são recolhidas usando o método legado.
+- Latência mais rápida para ingestão de loging. O método anterior tem cerca de 15 minutos de latência, enquanto as definições de diagnóstico adicionam apenas cerca de 1 minuto.
+
+
+
+### <a name="log-profiles"></a>Perfis de registo
+Os perfis de registo são o método legado para o envio do registo de atividade saque a centros de armazenamento ou eventos Do Azure. Utilize o seguinte procedimento para continuar a trabalhar com um perfil de registo ou para desativá-lo em preparação para migrar para uma definição de diagnóstico.
+
+1. A partir do menu **Azure Monitor** no portal Azure, selecione **registo de atividade**.
+3. Clique em **Definições de diagnóstico**.
+
+   ![Definições de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Clique no banner roxo para a experiência do legado.
+
+    ![Experiência legado](media/diagnostic-settings-subscription/legacy-experience.png)
+
+### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
+O método legado para recolher o log de Atividade num espaço de trabalho do Log Analytics está a ligar o registo na configuração do espaço de trabalho. 
 
 1. A partir do menu de espaços de **trabalho Log Analytics** no portal Azure, selecione o espaço de trabalho para recolher o Registo de Atividades.
 1. Na secção **Fontes** de Dados do Espaço de Trabalho do menu do espaço de trabalho, selecione **o registo da Atividade Do Azure**.
 1. Clique na subscrição que pretende ligar.
 
-    ![Áreas de Trabalho](media/activity-log-export/workspaces.png)
+    ![Áreas de Trabalho](media/activity-log-collect/workspaces.png)
 
 1. Clique em Ligar o **Connect** para ligar o registo de atividade na subscrição ao espaço de trabalho selecionado. Se a subscrição já estiver ligada a outro espaço de trabalho, clique em **Desligar** primeiro para desconectá-la.
 
-    ![Conectar espaços de trabalho](media/activity-log-export/connect-workspace.png)
+    ![Conectar espaços de trabalho](media/activity-log-collect/connect-workspace.png)
 
-## <a name="analyze-in-log-analytics-workspace"></a>Analisar no espaço de trabalho log Analytics
-Quando ligar um Registo de Atividade a um espaço de trabalho de Log Analytics, as entradas serão escritas para o espaço de trabalho numa tabela chamada **AzureActivity** que pode recuperar com uma consulta de [log](../log-query/log-query-overview.md). A estrutura deste quadro varia consoante a [categoria de entrada de registo](activity-log-view.md#categories-in-the-activity-log). Consulte o esquema do evento De Log de Atividade do [Azure](activity-log-schema.md) para obter uma descrição de cada categoria.
+
+Para desativar a definição, execute o mesmo procedimento e clique em **Desligar** para remover a subscrição do espaço de trabalho.
+
+
+## <a name="analyze-activity-log-in-log-analytics-workspace"></a>Analisar o log de atividade no espaço de trabalho do Log Analytics
+Quando ligar um Registo de Atividade a um espaço de trabalho de Log Analytics, as entradas serão escritas para o espaço de trabalho numa tabela chamada *AzureActivity* que pode recuperar com uma consulta de [log](../log-query/log-query-overview.md). A estrutura deste quadro varia consoante a [categoria da entrada de registo](activity-log-view.md#categories-in-the-activity-log). Consulte o esquema do evento De Log de Atividade do [Azure](activity-log-schema.md) para obter uma descrição de cada categoria.
+
+
+### <a name="data-structure-changes"></a>Alterações na estrutura de dados
+As definições de diagnóstico recolhem os mesmos dados que o método legado utilizado para recolher o registo de Atividade com algumas alterações na estrutura da tabela *AzureActivity.*
+
+As colunas da tabela seguinte foram depreciadas no esquema atualizado. Ainda existem no *AzureActivity,* mas não terão dados. A substituição destas colunas não é nova, mas contém os mesmos dados que a coluna depreciada. Estão num formato diferente, pelo que poderá ser necessário modificar as consultas de registo que as utilizam. 
+
+| Coluna depreciada | Coluna de substituição |
+|:---|:---|
+| Estatuto de Atividade    | ActivityStatusValue    |
+| Subestatuto de atividade | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | Valor do Fornecedor de Recursos  |
+
+> [!IMPORTANT]
+> Em alguns casos, os valores nestas colunas podem estar em todas as maiúsculas. Se tiver uma consulta que inclua estas colunas, deve utilizar o [operador =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) para fazer uma comparação insensível.
+
+A seguinte coluna foi adicionada à *AzureActivity* no esquema atualizado:
+
+- Authorization_d
+- Claims_d
+- Properties_d
+
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitorização de Logs de Atividade Analytics
-A solução de monitorização do Azure Log Analytics inclui múltiplas consultas de registo e vistas para analisar os registos de Registo de Atividade sintetizadores no seu espaço de trabalho Log Analytics.
+A solução de monitorização Azure Log Analytics será depreciada em breve e substituída por um livro utilizando o esquema atualizado no espaço de trabalho log Analytics. Ainda pode utilizar a solução se já a tiver ativada, mas só poderá ser utilizada se estiver a recolher o registo de Atividade utilizando definições antigas. 
 
-### <a name="install-the-solution"></a>Instalar a solução
-Utilize o procedimento em [Instalar uma solução de monitorização](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução **Activity Log Analytics.** Não é necessária uma configuração adicional.
+
 
 ### <a name="use-the-solution"></a>Use a solução
 As soluções de monitorização são acedidas a partir do menu **Monitor** no portal Azure. Selecione **Mais** na secção **Insights** para abrir a página **'Overview'** com os azulejos da solução. O azulejo **Azure Activity Logs** apresenta uma contagem do número de registos **azureActivity** no seu espaço de trabalho.
@@ -64,12 +120,96 @@ Clique no azulejo **Azure Activity Logs** para abrir a vista Registos de Ativida
 
 ![Painel de logs de atividade azure](media/collect-activity-logs/activity-log-dash.png)
 
-| Parte de visualização | Descrição |
-| --- | --- |
-| Entradas de registo de atividade sinuosa do Azure | Mostra um gráfico de barras do top Azure Activity Log registo total total para o intervalo de data que selecionou e mostra uma lista dos 10 melhores participantes da atividade. Clique na tabela de barras `AzureActivity`para fazer uma pesquisa de registo. Clique num item de chamada para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse item. |
-| Registos de Atividade por Estado | Mostra um gráfico de donut para o estado de Registo de Atividade seletiva do Azure para a gama de datas selecionada e uma lista dos dez melhores registos de estado. Clique na tabela para fazer `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`uma consulta de registo para . Clique num item de estado para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse registo de estado. |
-| Registos de Atividade por Recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para `AzureActivity | summarize AggregatedValue = count() by Resource`fazer uma pesquisa de registo, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
-| Registos de Atividades por Fornecedor de Recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`uma consulta de log para , que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
+
+### <a name="enable-the-solution-for-new-subscriptions"></a>Ativar a solução para novas subscrições
+Em breve deixará de poder adicionar a solução Activity Logs Analytics à sua subscrição através do portal Azure. Pode adicioná-lo utilizando o seguinte procedimento com um modelo de gestor de recursos. 
+
+1. Copie o seguinte json num ficheiro chamado *ActivityLogTemplate*.json.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "defaultValue": "my-workspace",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "east us",
+              "west us",
+              "australia central",
+              "west europe"
+            ],
+            "defaultValue": "australia central",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        }
+      },
+        "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2015-11-01-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "features": {
+                    "searchVersion": 2
+                }
+            }
+        },
+        {
+            "type": "Microsoft.OperationsManagement/solutions",
+            "apiVersion": "2015-11-01-preview",
+            "name": "[concat('AzureActivity(', parameters('workspaceName'),')')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+            ],
+            "plan": {
+                "name": "[concat('AzureActivity(', parameters('workspaceName'),')')]",
+                "promotionCode": "",
+                "product": "OMSGallery/AzureActivity",
+                "publisher": "Microsoft"
+            },
+            "properties": {
+                "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]",
+                "containedResources": [
+                    "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName')), '/views/AzureActivity(',parameters('workspaceName'))]"
+                ]
+            }
+        },
+        {
+          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "kind": "AzureActivityLog",
+          "name": "[concat(parameters('workspaceName'), '/', subscription().subscriptionId)]",
+          "apiVersion": "2015-11-01-preview",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+              "[parameters('WorkspaceName')]"
+          ],
+          "properties": {
+              "linkedResourceId": "[concat(subscription().Id, '/providers/microsoft.insights/eventTypes/management')]"
+          }
+        }
+      ]
+    }    
+    ```
+
+2. Desdobrar o modelo utilizando os seguintes comandos PowerShell:
+
+    ```PowerShell
+    Connect-AzAccount
+    Select-AzSubscription <SubscriptionName>
+    New-AzResourceGroupDeployment -Name activitysolution -ResourceGroupName <ResourceGroup> -TemplateFile <Path to template file>
+    ```
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

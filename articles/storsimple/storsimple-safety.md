@@ -1,5 +1,5 @@
 ---
-title: Segurança para o seu dispositivo StorSimple / Microsoft Docs
+title: Instale e opere com segurança o dispositivo StorSimple
 description: Descreve convenções de segurança, diretrizes e considerações, e explica como instalar e operar com segurança o seu dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 480875c17d5ff5bb5c0d42d827b5477f45bf30f4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68963543"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396471"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instale e opere com segurança o seu dispositivo StorSimple
 

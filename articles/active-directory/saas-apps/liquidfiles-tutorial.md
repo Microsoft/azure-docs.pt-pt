@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com LiquidFiles | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e LiquidFiles.
+title: 'Tutorial: Integração de Diretório Ativo Azure com LiquidFiles [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o LiquidFiles.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,211 +17,211 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6514594d3119ebf8fab774c3e84c85e34bdfeaf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67097936"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integração do Active Directory do Azure com LiquidFiles
+# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integração de Diretório Ativo Azure com LiquidFiles
 
-Neste tutorial, saiba como integrar LiquidFiles com o Azure Active Directory (Azure AD).
-Integrar LiquidFiles no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar os LiquidFiles com o Azure Ative Directory (Azure AD).
+Integrar Ficheiros Líquidos com AD Azure proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao LiquidFiles.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para LiquidFiles (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar em Azure AD quem tem acesso a Ficheiros Líquidos.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no LiquidFiles (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com LiquidFiles, terá dos seguintes itens:
+Para configurar a integração da AD Azure com o LiquidFiles, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* LiquidFiles único início de sessão na subscrição ativada
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Subscrição ativada por um único sinal de LiquidFiles
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta LiquidFiles **SP** iniciada SSO
+* LiquidFiles suporta **SP** iniciado SSO
 
-## <a name="adding-liquidfiles-from-the-gallery"></a>Adicionando LiquidFiles da Galeria
+## <a name="adding-liquidfiles-from-the-gallery"></a>Adicionar Ficheiros Líquidos da galeria
 
-Para configurar a integração do LiquidFiles com o Azure AD, terá de adicionar LiquidFiles a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração dos LiquidFiles em Azure AD, é necessário adicionar Ficheiros Líquidos da galeria à sua lista de aplicações SaaS geridas.
 
-**Para adicionar LiquidFiles a partir da galeria, execute os seguintes passos:**
+**Para adicionar LiquidFiles da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **LiquidFiles**, selecione **LiquidFiles** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **LiquidFiles**, selecione **LiquidFiles** do painel de resultados e, em seguida, clique em adicionar o botão **Adicionar** a aplicação.
 
-    ![LiquidFiles na lista de resultados](common/search-new-app.png)
+    ![Ficheiros líquidos na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com LiquidFiles com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no LiquidFiles deve ser estabelecido.
+Nesta secção, configura e testa um único sign-on azure com LiquidFiles com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em LiquidFiles.
 
-Para configurar e testar o Azure AD início de sessão único com LiquidFiles, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com o LiquidFiles, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar LiquidFiles Single Sign-On](#configure-liquidfiles-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste LiquidFiles](#create-liquidfiles-test-user)**  - para ter um equivalente da Eduarda Almeida na LiquidFiles que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure liquidfiles single sign-on](#configure-liquidfiles-single-sign-on)** - para configurar as definições de início de sessão individuais no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie o utilizador](#create-liquidfiles-test-user)** de teste LiquidFiles - para ter uma contraparte da Britta Simon em LiquidFiles que esteja ligada à representação do utilizador da AD Azure.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com LiquidFiles, execute os seguintes passos:
+Para configurar o único sinal de Azure AD com o LiquidFiles, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **LiquidFiles** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **LiquidFiles,** selecione **single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![LiquidFiles domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
+    ![Informação de domínio e URLs de liquidfiles e URLs](common/sp-identifier-reply.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR_SERVER_URL>/saml/init`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<YOUR_SERVER_URL>/saml/init`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR_SERVER_URL>`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<YOUR_SERVER_URL>`
 
-    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR_SERVER_URL>/saml/consume`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<YOUR_SERVER_URL>/saml/consume`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente LiquidFiles](https://www.liquidfiles.com/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte ao [Cliente LiquidFiles](https://www.liquidfiles.com/support.html) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Na **certificado de assinatura SAML** secção, clique em **editar** botão para abrir **certificado de assinatura SAML** caixa de diálogo.
+5. Na secção Certificado de **Assinatura SAML,** clique no botão **Editar** para abrir o diálogo do Certificado de **Assinatura SAML.**
 
-    ![Editar o certificado de assinatura de SAML](common/edit-certificate.png)
+    ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
-6. Na **certificado de assinatura SAML** secção, copie a **THUMBPRINT** e guarde-o no seu computador.
+6. Na secção **Certificado de Assinatura SAML,** **copie** a IMPRESSÃO DIGITAL e guarde-a no seu computador.
 
-    ![Copie o valor do Thumbprint](common/copy-thumbprint.png)
+    ![Copiar valor de impressão digital](common/copy-thumbprint.png)
 
-7. Sobre o **configurar LiquidFiles** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Na secção **Configurar LiquidFiles,** copie os URL(s) adequados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-liquidfiles-single-sign-on"></a>Configurar LiquidFiles Single Sign-On
+### <a name="configure-liquidfiles-single-sign-on"></a>Configure LiquidFiles Single Sign-On
 
-1. Início de sessão no site da sua empresa LiquidFiles como administrador.
+1. Inscreva-se no site da empresa LiquidFiles como administrador.
 
-1. Clique em **início de sessão único** no **administração > configuração** no menu.
+1. Clique em **Iniciar sessão individual** no **> Configuração** do menu.
 
-1. Sobre o **configuração do início de sessão único** página, execute os seguintes passos
+1. Na página **de configuração de um único sinal,** execute os seguintes passos
 
-    ![Configurar o início de sessão único](./media/liquidfiles-tutorial/tutorial_single_01.png)
+    ![Configurar um único sinal](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
-    a. Como **início de sessão único no método**, selecione **SAML 2**.
+    a. Como **método de sinal único,** selecione **SAML 2**.
 
-    b. Na **URL de início de sessão do IDP** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    b. Na caixa de texto **IDP Login URL,** colá o valor do URL de **Login,** que copiou do portal Azure.
 
-    c. Na **URL de fim de sessão do IDP** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+    c. Na caixa de texto **IDP Logout URL,** colá o valor do URL de **Logout,** que copiou do portal Azure.
 
-    d. Na **impressão digital do certificado de IDP** caixa de texto, colar a **THUMBPRINT** valor que copiou do portal do Azure....
+    d. Na caixa de texto **IDP Cert Fingerprint,** colá o valor **THUMBPRINT** que copiou do portal Azure..
 
-    e. Na caixa de texto de formato de identificador de nome, digite o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    e. Na caixa de texto formato identificador de nome, escreva o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
-    f. Na caixa de texto Authn contexto, digite o valor `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+    f. Na caixa de texto authn `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`Context, escreva o valor .
 
     g. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No **User name** tipo `brittasimon@yourcompanydomain.extension`de campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para LiquidFiles.
+Nesta secção, permite que a Britta Simon utilize um único sign-on Azure, concedendo acesso aos LiquidFiles.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **LiquidFiles**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **LiquidFiles**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **LiquidFiles**.
 
-    ![A ligação de LiquidFiles na lista de aplicações](common/all-applications.png)
+    ![A ligação LiquidFiles na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-liquidfiles-test-user"></a>Criar utilizador de teste LiquidFiles
+### <a name="create-liquidfiles-test-user"></a>Criar o utilizador de teste LiquidFiles
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no LiquidFiles. Contactar o administrador de servidor LiquidFiles para ficar-adicionado como utilizador antes de iniciar sessão sua aplicação LiquidFiles.
+O objetivo desta secção é criar um utilizador chamado Britta Simon em LiquidFiles. Trabalhe com o administrador do servidor LiquidFiles para ser adicionado como utilizador antes de iniciar sessão na sua aplicação LiquidFiles.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico LiquidFiles no painel de acesso, deve ser automaticamente sessão iniciada no LiquidFiles para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo LiquidFiles no Painel de Acesso, deve ser automaticamente inscrito nos Ficheiros Líquidos para os quais configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

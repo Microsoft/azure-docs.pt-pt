@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b21061e8a939b91c637ef05bbe6375c0b3f82e8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383978"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475208"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configure um aplicativo Windows Java para o Serviço de Aplicações Azure
 
@@ -74,7 +74,7 @@ O Azure App Service suporta a afinação e personalização da caixa através do
 
 - [Configurar as definições da aplicação](configure-common.md#configure-app-settings)
 - [Configurar um domínio personalizado](app-service-web-tutorial-custom-domain.md)
-- [Configure as ligações SSL](configure-ssl-bindings.md)
+- [Configure ligações TLS](configure-ssl-bindings.md)
 - [Adicione um CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure o site kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -183,7 +183,7 @@ Para desativar esta funcionalidade, `WEBSITE_AUTH_SKIP_PRINCIPAL` crie `1`uma De
 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
-Siga as instruções no [nome 'Secure' um DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md) para fazer o upload de um certificado SSL existente e ligá-lo ao nome de domínio da sua aplicação. Por defeito, a sua aplicação continuará a permitir que as ligações HTTP sigam os passos específicos do tutorial para impor sSL e TLS.
+Siga as instruções no [nome 'Secure' um DNS personalizado com uma ligação TLS no Serviço de Aplicações Azure](configure-ssl-bindings.md) para fazer o upload de um certificado TLS/SSL existente e ligá-lo ao nome de domínio da sua aplicação. Por defeito, a sua aplicação continuará a permitir que as ligações HTTP sigam os passos específicos do tutorial para impor sSL e TLS.
 
 ### <a name="use-keyvault-references"></a>Utilizar referências keyVault
 
@@ -201,7 +201,7 @@ Esta secção mostra como ligar as aplicações java implantadas no Serviço de 
 ### <a name="configure-new-relic"></a>Configurar nova relíquia
 
 1. Criar uma conta New Relic no [NewRelic.com](https://newrelic.com/signup)
-2. Download the Java agent from NewRelic, it will have a file name similar to *newrelic-java-x.x.x.zip*.
+2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.x.zip*.
 3. Copie a chave da sua licença, terá de a configurar para configurar o agente mais tarde.
 4. Utilize a [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) para criar um novo diretório */home/site/wwwroot/apm*.
 5. Faça upload dos ficheiros do agente New Relic Java desembalados num diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.

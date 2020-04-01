@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279159"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411050"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para gateway de aplicação
 
@@ -91,14 +91,14 @@ O seguinte corte mostra um exemplo da resposta:
 }
 ```
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnóstico
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnósticos
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas nos gateways de aplicações. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos do armazenamento da Blob Azure e vistos em diferentes ferramentas, tais como [registos Do Monitor Azure,](../azure-monitor/insights/azure-networking-analytics.md)Excel e Power BI. Pode saber mais sobre os diferentes tipos de registos da seguinte lista:
 
 * **Registo de atividades**: Pode utilizar registos de atividade do [Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações submetidas à sua subscrição Azure e o seu estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
-* **Registo de acesso:** Pode utilizar este registo para visualizar os padrões de acesso do Application Gateway e analisar informações importantes. Isto inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registo de acesso é recolhido a cada 300 segundos. Este registo contém um registo por instância de Gateway de Aplicação. A instância De gateway de aplicação é identificada pela propriedade instanceId.
+* **Registo de acesso:** Pode utilizar este registo para visualizar os padrões de acesso do Application Gateway e analisar informações importantes. Isto inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registo de acesso é recolhido a cada 60 segundos. Este registo contém um registo por instância de Gateway de Aplicação. A instância De gateway de aplicação é identificada pela propriedade instanceId.
 * **Registo de desempenho:** Pode utilizar este registo para ver como as instâncias do Gateway da Aplicação estão a funcionar. Este registo captura informações de desempenho para cada instância, incluindo pedidos totais servidos, entrada em bytes, pedidos totais servidos, contagem de pedidos falhado, e contagem de instâncias saudáveis e pouco saudáveis. Um registo de desempenho é recolhido a cada 60 segundos. O registo performance está disponível apenas para o V1 SKU. Para o V2 SKU, utilize [métricas](application-gateway-metrics.md) para dados de desempenho.
-* **Registo de firewall**: Pode utilizar este registo para visualizar os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação configurado com a firewall da aplicação web.
+* **Registo de firewall**: Pode utilizar este registo para visualizar os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação configurado com a firewall da aplicação web. Os registos de firewall são recolhidos a cada 60 segundos. 
 
 > [!NOTE]
 > Os registos estão disponíveis apenas para recursos implantados no modelo de implementação do Gestor de Recursos Azure. Não é possível utilizar registos para recursos no modelo clássico de implantação. Para uma melhor compreensão dos dois modelos, consulte a implementação do Understanding Resource Manager e o artigo [de implantação clássico.](../azure-resource-manager/management/deployment-models.md)

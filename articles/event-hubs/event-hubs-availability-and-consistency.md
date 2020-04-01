@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2020
+ms.date: 03/27/2020
 ms.author: shvija
-ms.openlocfilehash: 808e813ad90626acec893a021634566f091c895f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 0546adb6131479a8f5d2e7e31819483200586839
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76904476"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397323"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
 
@@ -36,12 +36,63 @@ O teorema de Brewer define a consistência e a disponibilidade da seguinte forma
 O Event Hubs é construído em cima de um modelo de dados dividido. Pode configurar o número de divisórias no seu centro de eventos durante a configuração, mas não pode alterar este valor mais tarde. Uma vez que deve utilizar divisórias com Hubs de Eventos, tem de tomar uma decisão sobre disponibilidade e consistência para a sua aplicação.
 
 ## <a name="availability"></a>Disponibilidade
-A maneira mais simples de começar com os Centros de Eventos é usar o comportamento padrão. Se criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e utilizar o método **[Enviar,](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** os seus eventos são distribuídos automaticamente entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de up.
+A maneira mais simples de começar com os Centros de Eventos é usar o comportamento padrão. 
+
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 ou mais tarde)](#tab/latest)
+Se criar um novo objeto **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** e utilizar o método **[SendAsync,](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** os seus eventos são distribuídos automaticamente entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de up.
+
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 ou mais cedo)](#tab/old)
+Se criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e utilizar o método **[Enviar,](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** os seus eventos são distribuídos automaticamente entre divisórias no seu centro de eventos. Este comportamento permite a maior quantidade de tempo de up.
+
+---
 
 Para os casos de utilização que exijam o máximo de tempo de up, este modelo é preferido.
 
 ## <a name="consistency"></a>Consistência
-Em alguns cenários, a ordenação dos eventos pode ser importante. Por exemplo, pode querer que o seu sistema de back-end processe um comando de atualização antes de um comando de exclusão. Neste caso, pode definir a chave de partição `PartitionSender` num evento ou usar um objeto para enviar eventos apenas para uma determinada partição. Ao fazê-lo, assegura-se que, quando estes eventos são lidos a partir da partição, são lidos em ordem.
+Em alguns cenários, a ordenação dos eventos pode ser importante. Por exemplo, pode querer que o seu sistema de back-end processe um comando de atualização antes de um comando de exclusão. Neste caso, pode definir a chave de partição `PartitionSender` num evento ou utilizar um objeto (se estiver a usar a antiga biblioteca Microsoft.Azure.Messaging) para enviar apenas eventos para uma determinada partição. Ao fazê-lo, assegura-se que, quando estes eventos são lidos a partir da partição, são lidos em ordem. Se estiver a utilizar a biblioteca **Azure.Messaging.EventHubs** e para obter mais informações, consulte o [código de migração do PartitionSender para o EventHubProducerClient para publicar eventos para uma partição](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 ou mais tarde)](#tab/latest)
+
+```csharp
+var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
+var eventHubName = "<< NAME OF THE EVENT HUB >>";
+
+await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
+{
+    var batchOptions = new CreateBatchOptions() { PartitionId = "my-partition-id" };
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync(batchOptions);
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First")));
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second")));
+    
+    await producerClient.SendAsync(eventBatch);
+}
+```
+
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 ou mais cedo)](#tab/old)
+
+```csharp
+var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
+var eventHubName = "<< NAME OF THE EVENT HUB >>";
+
+var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
+var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+PartitionSender partitionSender = eventHubClient.CreatePartitionSender("my-partition-id");
+try
+{
+    EventDataBatch eventBatch = partitionSender.CreateBatch();
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First")));
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second")));
+
+    await partitionSender.SendAsync(eventBatch);
+}
+finally
+{
+    await partitionSender.CloseAsync();
+    await eventHubClient.CloseAsync();
+}
+```
+
+---
 
 Com esta configuração, lembre-se que se a partição específica para a qual está a enviar não estiver disponível, receberá uma resposta de erro. Como ponto de comparação, se não tiver uma afinidade com uma única partição, o serviço Event Hubs envia o seu evento para a próxima partição disponível.
 

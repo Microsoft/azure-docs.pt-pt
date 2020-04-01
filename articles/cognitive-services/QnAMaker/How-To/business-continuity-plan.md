@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2100426923418104c31933bf9d1406a6441d3841
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650474"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410919"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Crie um plano de continuidade de negócios para o seu serviço QnA Maker
 
@@ -33,7 +33,7 @@ A ideia de alto nível, tal como acima representada, é a seguinte:
 
 4. Uma vez criadas as pilhas primárias e secundárias, utilize o gestor de [tráfego](https://docs.microsoft.com/azure/traffic-manager/) para configurar os dois pontos finais e configurar um método de encaminhamento.
 
-5. Você precisaria criar um certificado Secure Sockets Layer (SSL) para o seu ponto final do gestor de tráfego. [Ligue o certificado SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nos seus serviços de Aplicação.
+5. Você precisaria criar um Transport Layer Security (TLS), anteriormente conhecido como Secure Sockets Layer (SSL), certificado para o seu ponto final do gestor de tráfego. [Ligue o certificado TLS/SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nos seus serviços de Aplicação.
 
 6. Por fim, utilize o ponto final do gestor de tráfego no seu Bot ou App.
 

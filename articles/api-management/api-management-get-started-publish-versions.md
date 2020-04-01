@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73176829"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
@@ -45,7 +45,7 @@ Neste tutorial, ficará a saber como:
 ![Menu de contexto da API - adicionar versão](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. Selecione **Demo Conference API** na lista de APIs.
-2. Selecione o menu de contexto ( **...** ) junto à mesma.
+2. Selecione o menu de contexto (**...**) junto à mesma.
 3. Selecione **+ Adicionar Versão**.
 
 > [!TIP]
@@ -94,8 +94,8 @@ Para os autores de chamadas verem a nova versão, esta tem de ser adicionada a u
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Navegar até ao portal do programador para ver a versão
 
 1. Selecione **Portal do Programador** no menu superior.
-2. Selecione **APIs** e clique na **API de conferência de demonstração**.
-3. Você deverá ver uma lista suspensa com várias versões ao lado do nome da API.
+2. Selecione **APIs** e clique na API da **Conferência de Demonstração**.
+3. Deve ver uma queda com várias versões ao lado do nome API.
 4. Selecione **v1**.
 5. Repare no **URL do pedido** da primeira operação na lista. Indica que o caminho do URL da API inclui **v1**.
 

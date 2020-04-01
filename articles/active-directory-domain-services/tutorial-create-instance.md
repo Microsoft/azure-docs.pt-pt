@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239176"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474215"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância de Serviços de Domínio de Diretório Ativo Azure
 
 Os Serviços de Domínio de Diretório Ativo Azure (Azure AD DS) fornecem serviços de domínio geridos, tais como a adesão ao domínio, política de grupo, autenticação LDAP, Kerberos/NTLM que é totalmente compatível com o Diretório Ativo do Windows Server. Você consome estes serviços de domínio sem implementar, gerir e remendar controladores de domínio por si mesmo. A Azure AD DS integra-se com o seu inquilino Azure AD existente. Esta integração permite que os utilizadores assinem usando as suas credenciais corporativas, e você pode usar grupos e contas de utilizador existentes para garantir o acesso aos recursos.
 
-Pode criar um domínio gerido utilizando opções de configuração predefinidas para a rede e sincronização, ou [definir manualmente estas definições][tutorial-create-instance-advanced]. Este tutorial mostra como usar opções padrão para criar e configurar uma instância Azure AD DS usando o portal Azure.
+Pode criar um domínio gerido utilizando opções de configuração predefinidas para a rede e sincronização, ou [definir manualmente estas definições][tutorial-create-instance-advanced]. Este tutorial mostra-lhe como usar opções padrão para criar e configurar uma instância Azure AD DS utilizando o portal Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -89,7 +89,7 @@ Complete os campos na janela *Basics* do portal Azure para criar uma instância 
 1. Introduza um nome de **domínio DNS** para o seu domínio gerido, tendo em conta os pontos anteriores.
 1. Escolha o **Local** Azure no qual deve ser criado o domínio gerido. Se escolher uma região que apoie zonas de disponibilidade, os recursos Da DS Azure são distribuídos por zonas para despedimentoadicional.
 
-    As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas.
+    As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas.
 
     Não há nada para configurar para que o Azure AD DS seja distribuído por zonas. A plataforma Azure lida automaticamente com a distribuição de recursos da zona. Para mais informações e para ver disponibilidade da região, consulte [As Zonas de Disponibilidade em Azure?][availability-zones]
 
@@ -104,8 +104,8 @@ Complete os campos na janela *Basics* do portal Azure para criar uma instância 
 
 Para criar rapidamente um domínio gerido pelo Azure AD DS, pode selecionar **O Review + criar** para aceitar opções adicionais de configuração predefinidas. As seguintes predefinições são configuradas quando escolher esta opção criar:
 
-* Cria uma rede virtual chamada *aadds-vnet* que utiliza a gama de endereços IP de *10.0.1.0/24*.
-* Cria uma sub-rede *denominada aadds-subnet* utilizando a gama de endereços IP de *10.0.1.0/24*.
+* Cria uma rede virtual chamada *aadds-vnet* que utiliza a gama de endereços IP de *10.0.2.0/24*.
+* Cria uma sub-rede *denominada aadds-subnet* utilizando a gama de endereços IP de *10.0.2.0/24*.
 * Sincroniza *todos os* utilizadores do Azure AD para o domínio gerido pelo Azure AD DS.
 
 Selecione **Review + crie** para aceitar estas opções de configuração predefinidas.
@@ -136,7 +136,7 @@ Com o Azure AD DS implementado com sucesso, configurar agora a rede virtual para
 
 1. O separador **Overview** para o seu domínio gerido mostra alguns **passos de configuração exigidos**. O primeiro passo de configuração é atualizar as definições do servidor DNS para a sua rede virtual. Uma vez configuradas corretamente as definições de DNS, este passo já não é mostrado.
 
-    Os endereços listados são os controladores de domínio para utilização na rede virtual. Neste exemplo, estes endereços são *10.0.1.4* e *10.0.1.5*. Mais tarde, poderá encontrar estes endereços IP no separador **Propriedades.**
+    Os endereços listados são os controladores de domínio para utilização na rede virtual. Neste exemplo, estes endereços são *10.0.2.4* e *10.0.2.5*. Mais tarde, poderá encontrar estes endereços IP no separador **Propriedades.**
 
     ![Configure as definições de DNS para a sua rede virtual com os endereços IP dos Serviços de Domínio Da AD Azure](./media/tutorial-create-instance/configure-dns.png)
 

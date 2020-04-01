@@ -4,17 +4,17 @@ titleSuffix: Azure Storage
 description: Neste arranque rápido, aprende-se a usar o Azure CLI para carregar uma bolha para o Azure Storage, descarregar uma bolha e listar as bolhas num recipiente.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 2e1b1ac2ea315759b18dc882b98837bca0a84d46
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298208"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061445"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, descarregar e listar bolhas com o Azure CLI
 
@@ -32,7 +32,7 @@ A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de
 
 Se optar por instalar e utilizar o Azure CLI localmente, este quickstart requer que esteja a executar a versão Azure CLI 2.0.46 ou posterior. Execute `az --version` para determinar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Se estiver a executar o Azure CLI localmente, tem de fazer login e autenticar. Este passo não é necessário se estiver a utilizar a Azure Cloud Shell. Para iniciar sessão no Azure CLI, faça `az login` e autenticar na janela do navegador:
+Se estiver a executar o Azure CLI localmente, tem de fazer login e autenticar. Este passo não é necessário se estiver a utilizar a Azure Cloud Shell. Para iniciar sessão no Azure CLI, executar `az login` e autenticar na janela do navegador:
 
 ```azurecli
 az login
@@ -44,11 +44,11 @@ Para mais informações sobre a autenticação' com o Azure CLI, consulte [O Sig
 
 Pode autorizar o acesso ao armazenamento Blob a partir do Azure CLI, quer com credenciais De AD Azure, quer utilizando a chave de acesso à conta de armazenamento. Recomenda-se a utilização de credenciais AD Azure. Este artigo mostra como autorizar operações de armazenamento blob usando a AD Azure.
 
-Os comandos Azure CLI para operações de dados contra o armazenamento Blob suportam o parâmetro `--auth-mode`, o que lhe permite especificar como autorizar uma determinada operação. Defina o parâmetro `--auth-mode` para `login` autorizar com credenciais Azure AD. Para mais informações, consulte [Autorizar o acesso a dados blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+O Azure CLI ordena operações de `--auth-mode` dados contra o suporte de armazenamento Blob, o parâmetro, que lhe permite especificar como autorizar uma determinada operação. Defina `--auth-mode` o `login` parâmetro para autorizar com credenciais Azure AD. Para mais informações, consulte [Autorizar o acesso a dados blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Apenas as operações de dados de armazenamento blob suportam o parâmetro `--auth-mode`. As operações de gestão, tais como a criação de um grupo de recursos ou uma conta de armazenamento, utilizam automaticamente credenciais de AD Azure para autorização.
+Apenas as operações `--auth-mode` de dados de armazenamento blob suportam o parâmetro. As operações de gestão, tais como a criação de um grupo de recursos ou uma conta de armazenamento, utilizam automaticamente credenciais de AD Azure para autorização.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos do Azure com o comando [az group create](/cli/azure/group). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -60,7 +60,7 @@ az group create \
     --location <location>
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Crie uma conta de armazenamento para fins gerais com o comando [az storage account create](/cli/azure/storage/account). A conta de armazenamento para fins gerais pode ser utilizada para os quatro serviços: blobs, ficheiros, tabelas e filas.
 

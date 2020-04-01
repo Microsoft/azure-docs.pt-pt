@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: e475c1bc1878c6b5a0efbbe41f2a3a0fe86bcff2
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
-ms.translationtype: HT
+ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389380"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411617"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Widgets de Indexer de Vídeo incorporados nas suas apps
 
@@ -66,16 +66,12 @@ Você pode usar o widget Editor para criar novos projetos e gerir as ideias de u
 
 1. Inscreva-se no site do Indexer de [Vídeo.](https://www.videoindexer.ai/)
 2. Selecione o vídeo com o que pretende trabalhar.
-3. Selecione o botão **Incorporado** que aparece sob o vídeo.
-
-    ![Botão incorporado no Indexer de Vídeo](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+3. Selecione o**</>** botão incorporado () que aparece sob o vídeo.
 
     Depois de selecionar o botão **Embed,** pode selecionar o widget que pretende incorporar na sua aplicação.
 4. Selecione o tipo de widget que deseja (**Cognitive Insights,** **Player,** ou **Editor).**
- 
-5. Copie o código incorporado e adicione-o à sua aplicação.
-
-    ![Código incorporado para app — Indexer de vídeo](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+5. Copiar o código incorporado (aparece em **Copiar o código incorporado** no diálogo Share & **Incorporado).**
+6. Adicione o código à sua aplicação.
 
 > [!NOTE]
 > Se tiver problemas em partilhar os seus `location` URLs de vídeo, adicione o parâmetro ao link. O parâmetro deve ser definido para as [regiões de Azure em que existe](regions.md)o Indexer de Vídeo. Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
@@ -239,7 +235,7 @@ Por exemplo, se quiser incorporar um widget que contenha apenas pessoas e palavr
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-O título da janela do iframe também `&title=<YourTitle>` pode ser personalizado fornecendo ao URL iframe. (Personaliza o <title> valor HTML).
+O título da janela do iframe também `&title=<YourTitle>` pode ser personalizado fornecendo ao URL iframe. (Personaliza o `<title>` valor HTML).
    
 Por exemplo, se quiser dar à sua janela de iframe o título "MyInsights", o URL será assim:
 
@@ -257,7 +253,7 @@ Por exemplo:
 
 Por padrão, o leitor de Indexer de Vídeo tem legendas fechadas autogeradas que são baseadas na transcrição do vídeo. A transcrição é extraída do vídeo com a linguagem de origem que foi selecionada quando o vídeo foi carregado.
 
-Se quiser incorporar com uma linguagem diferente, pode adicionar &legendas= código de linguagem< > ao URL do leitor incorporado. Se pretender que as legendas sejam exibidas por padrão, pode passar &showCaptions=verdade.
+Se quiser incorporar com uma linguagem diferente, `&captions=<Language Code>` pode adicionar ao URL do leitor incorporado. Se pretender que as legendas sejam exibidas por padrão, pode passar &showCaptions=verdade.
 
 O URL incorporado será então assim:
 

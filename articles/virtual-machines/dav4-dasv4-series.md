@@ -6,13 +6,13 @@ author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 809843bddc4216df4dab44330172d36778248b1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 56e86aa75b153b5cb005c96fca45373d30ffa8b4
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78162184"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437100"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
@@ -39,11 +39,9 @@ Os tamanhos da série Dav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</su
 | Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12000 / 187 / 93 | 4 / 4000 |
 | Standard_D16a_v4|  16 | 64 | 400 |32  | 24000 / 375 / 187 |8 / 8000 |
 | Standard_D32a_v4|  32 | 128| 800 | 32 | 48000 / 750 / 375 |8 / 16000 |
-| Standard_D48a_v4<sup>**</sup> | 48 | 192| 1200 | 32 | | |
-| Standard_D64a_v4<sup>**</sup> | 64 | 256 | 1600 | 32 | | |
-| Standard_D96a_v4<sup>**</sup> | 96 | 384 | 2400 | 32 | | |
-
-<sup>**</sup>Estes tamanhos estão em Pré-visualização.  Se estiver interessado em experimentar estes tamanhos [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)maiores, inscreva-se em .
+| Standard_D48a_v4| 48 | 192| 1200 | 32 | 96000 / 1000 / 500 | 8 / 24000 |
+| Standard_D64a_v4| 64 | 256 | 1600 | 32 | 96000 / 1000 / 500 | 8 / 30000 |
+| Standard_D96a_v4| 96 | 384 | 2400 | 32 | 96000 / 1000 / 500 | 8 / 30000 |
 
 ## <a name="dasv4-series"></a>Série Dasv4
 
@@ -66,11 +64,9 @@ Os tamanhos da série Dasv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 | Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 / 4000 |
 | Standard_D16as_v4|16|64|128|32|32000 / 255 (400)|25600 / 384|8 / 8000 |
 | Standard_D32as_v4|32|128|256|32|64000 / 510 (800)|51200 / 768|8 / 16000 |
-| Standard_D48as_v4<sup>**</sup>|48|192|384|32| | | 
-| Standard_D64as_v4<sup>**</sup>|64|256|512|32| | | 
-| Standard_D96as_v4<sup>**</sup>|96|384|768|32| | | 
-
-<sup>**</sup>Estes tamanhos estão em Pré-visualização.  Se estiver interessado em experimentar estes tamanhos [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)maiores, inscreva-se em .
+| Standard_D48as_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148|8 / 24000 |
+| Standard_D64as_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200|8 / 30000 | 
+| Standard_D96as_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200|8 / 30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -3,12 +3,12 @@ title: Sobre a cópia de segurança de partilha de ficheiros Azure
 description: Saiba como apoiar as ações de ficheiros azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78386723"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396271"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a cópia de segurança de partilha de ficheiros Azure
 
@@ -43,6 +43,15 @@ A cópia de segurança de partilha de ficheiros Azure é uma solução de backup
 6. Pode restaurar o conteúdo da partilha de ficheiros Azure (ficheiros individuais ou a parte completa) a partir de instantâneos disponíveis na partilha de ficheiros de origem. Uma vez desencadeada a operação, o URL instantâneo é recuperado da loja de metadados e os dados são listados e transferidos do instantâneo de origem para a parte de ficheiro-alvo da sua escolha.
 
 7. Os dados de backup e restauro de trabalho são empurrados para o serviço de monitorização de backup Azure. Isto permite-lhe monitorizar as cópias de segurança da nuvem para as suas partilhas de ficheiros num único dashboard. Além disso, também pode configurar alertas ou notificações de e-mail quando a saúde de backup é afetada. Os e-mails são enviados através do serviço de e-mail Azure.
+
+## <a name="backup-costs"></a>Custos de backup
+
+A cópia de segurança de partilha do Ficheiro Azure é uma solução baseada em instantâneos e os custos de armazenamento incorridos para instantâneos são faturados juntamente com a Utilização de Ficheiros Azure de acordo com os detalhes de preços [aqui](https://azure.microsoft.com/pricing/details/storage/files/)mencionados .
+
+No entanto, a taxa de exemplo protegida para alavancar a solução de backup é de acordo com o modelo de preços descrito na secção [Backup For Azure Files.](https://azure.microsoft.com/pricing/details/backup/) Atualmente, o preço real foi atualizado apenas para os EUA Do Oeste Central. Para outras regiões, os preços exatos serão atualizados em breve com algumas variações regionais, mas utilizando o mesmo modelo de preços.
+
+>[!NOTE]
+>Durante a pré-visualização, não existe "taxa de instância protegida" e será cobrado apenas por instantâneos de acordo com os preços [aqui](https://azure.microsoft.com/pricing/details/storage/files/)mencionados .
 
 ## <a name="next-steps"></a>Passos seguintes
 

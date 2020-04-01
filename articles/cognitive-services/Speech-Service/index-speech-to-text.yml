@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: b6f2fed7b5d6722b07b7f996c46e48ea0d86f755
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.openlocfilehash: dd42fd57d8daa00d5507405a0d5e3145b335de84
+  ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "80052846"
+  ms.lasthandoff: 03/30/2020
+  ms.locfileid: "80397778"
 landingContent:
 - title: Sobre o discurso-a-texto
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Preparar dados para discurso personalizado
-      url: how-to-custom-speech-test-data.md
+      url: how-to-custom-speech-test-and-train.md
     - text: Treine um modelo para discurso personalizado
       url: how-to-custom-speech-train-model.md
     - text: criar transcrições humanas

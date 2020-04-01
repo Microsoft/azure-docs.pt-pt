@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c81d2bc499c3d9cae262ef62be2dac2d7280be7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 83a13e0b1bb4d55b889d96e42c8f3f18ce0f2b73
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183844"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408931"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico SAML numa política personalizada do Diretório Ativo Azure B2C
 
@@ -90,11 +90,32 @@ O **atributo** nome do elemento protocolo `SAML2`tem de ser definido para .
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo fornecedor de identidade SAML ao abrigo da `AttributeStatement` secção. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no fornecedor de identidade. Também pode incluir reclamações que não sejam devolvidas pelo `DefaultValue` fornecedor de identidade desde que derpor o atributo.
 
-Para ler a afirmação SAML **NamedId** in **Subject** como uma `assertionSubjectName`reclamação normalizada, detete tea reivindicação Do Tipo de **Reclamação** de Parceiros para . Certifique-se de que o **NameId** é o primeiro valor na afirmação XML. Quando define mais do que uma afirmação, O Azure AD B2C escolhe o valor do assunto a partir da última afirmação.
+### <a name="subject-name-output-claim"></a>Reclamação de saída de nome de sujeito
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
+Para ler a afirmação SAML **NameId** no **Sujeito** como uma reclamação normalizada, detete teo Valor da Reclamação do **Parceiro** de reivindicação para o valor do `SPNameQualifier` atributo. Se `SPNameQualifier`o atributo não for apresentado, detete `NameQualifier` tea **reclamação Do Type** para valorizar o atributo. 
 
-O exemplo que se segue mostra as reclamações devolvidas pelo fornecedor de identidade do Facebook:
+
+Afirmação SAML: 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+Reivindicação de saída:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+Se `SPNameQualifier` ambos `NameQualifier` ou atributos não forem apresentados na afirmação SAML, detete a reclamação Do Tipo de Reclamação de **Parceiros** para `assertionSubjectName`. Certifique-se de que o **NameId** é o primeiro valor na afirmação XML. Quando define mais do que uma afirmação, O Azure AD B2C escolhe o valor do assunto a partir da última afirmação.
+
+O exemplo que se segue mostra as reclamações devolvidas por um fornecedor de identidade SAML:
 
 - A alegação **do emitenteUserId** está mapeada para a alegação **"Nome de nomede-objecto".**
 - A **first_name** reclamação está mapeada para a reclamação **do nome dado.**
@@ -118,6 +139,8 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
 </OutputClaims>
 ```
+
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 ## <a name="metadata"></a>Metadados
 

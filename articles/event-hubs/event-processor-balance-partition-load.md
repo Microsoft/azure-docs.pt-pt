@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 1244fe64d0c23782fdae7a0f92415bada4bef55a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907659"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398298"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibre a carga de partição em vários casos da sua aplicação
 Para escalar a sua aplicação de processamento de eventos, pode executar várias instâncias da aplicação e fazê-la equilibrar a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitiu-lhe equilibrar a carga entre várias instâncias do seu programa e eventos de checkpoint ao receber. Nas versões mais recentes (5.0 em diante), **o EventProcessorClient** (.NET e Java) ou o **EventHubConsumerClient** (Python e JavaScript) permite-lhe fazer o mesmo. O modelo de desenvolvimento é simplificado utilizando eventos. Subscreva os eventos em que está interessado ao registar um manipulador de eventos.
 
-Este artigo descreve um cenário de amostra para usar vários casos para ler eventos a partir de um centro de eventos e, em seguida, dar-lhe detalhes sobre funcionalidades do cliente do processador de eventos, que lhe permite receber eventos de várias divisórias ao mesmo tempo e carregar o equilíbrio com outros consumidores que usam o mesmo centro de eventos e grupo de consumidores.
+Este artigo descreve um cenário de amostra para usar vários casos para ler eventos a partir de um hub de eventos e, em seguida, dar-lhe detalhes sobre funcionalidades do cliente do processador de eventos, que lhe permite receber eventos de várias divisórias ao mesmo tempo e carregar o equilíbrio com outros consumidores que usam o mesmo hub de eventos e grupo de consumidores.
 
 > [!NOTE]
 > A chave para escalar para os Centros de Eventos é a ideia de consumidores divididos. Em contraste com o padrão dos [consumidores concorrentes,](https://msdn.microsoft.com/library/dn568101.aspx) o padrão de consumo dividido permite uma escala elevada, removendo o estrangulamento da contenção e facilitando o fim do paralelismo.
@@ -83,6 +83,13 @@ Se um processador de evento se desligar de uma divisória, outra instância pode
 
 Quando o ponto de verificação é realizado para marcar um evento como processado, uma entrada na loja de controlo é adicionada ou atualizada com o número de compensação e sequência do evento. Os utilizadores devem decidir a frequência de atualização do ponto de verificação. A atualização após cada evento processado com sucesso pode ter implicações de desempenho e custos, uma vez que desencadeia uma operação de escrita para a loja de controlo subjacente. Além disso, o checkpoint de cada evento é indicativo de um padrão de mensagens em fila para o qual uma fila de ônibus de serviço pode ser uma opção melhor do que um centro de eventos. A ideia por trás do Event Hubs é que recebes "pelo menos uma vez" a entrega em grande escala. Ao tornar os seus sistemas a jusante idempotentes, é fácil recuperar de falhas ou recomeços que resultam em que os mesmos eventos sejam recebidos várias vezes.
 
+> [!NOTE]
+> Se estiver a utilizar o Armazenamento Azure Blob como loja de controlo num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar o código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar Hubs de [Eventos numa versão Azure Stack Hub 2002,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão Específica da API de Armazenamento, consulte estas amostras no GitHub: 
+> - [.net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+
 ## <a name="thread-safety-and-processor-instances"></a>Instâncias de segurança e processador de fios
 
 Por predefinição, o processador de eventos ou o consumidor são seguros e comportam-se de forma sincronizada. Quando os eventos chegam para uma partição, a função que processa os eventos é chamada. Mensagens e chamadas subsequentes para esta função fazem fila nos bastidores, à medida que a bomba de mensagem continua a correr em segundo plano em outros fios. Esta segurança de rosca elimina a necessidade de coleções seguras e aumenta drasticamente o desempenho.
@@ -92,5 +99,5 @@ Veja as seguintes partidas rápidas:
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Pitão](get-started-python-send-v2.md)
+- [Python](get-started-python-send-v2.md)
 - [JavaScript](get-started-node-send-v2.md)

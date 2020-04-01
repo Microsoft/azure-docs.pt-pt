@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 1bb3372467919f1471fa9577cd60e9cecaf1750d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336923"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437597"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -79,14 +79,14 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para vMware
 O aparelho Azure Migrate precisa de conectividade com a internet.
 
 - Quando implanta o aparelho, a Azure Migrate faz uma verificação de conectividade aos URLs resumidos na tabela abaixo.
-- Se estiver a utilizar um proxy baseado em URL para se ligar à internet, permita o acesso a estes URLs, certificando-se de que o representante resolve quaisquer registos CNAME recebidos enquanto procura os URLs.
+- Se estiver a usar um proxy baseado em URL para se ligar à internet, tem de permitir o acesso a estes URLs, certificando-se de que o proxy resolve quaisquer registos CNAME recebidos enquanto procura os URLs.
 
 **URL** | **Detalhes**  
 --- | --- |
 *.portal.azure.com  | Navegue para o portal do Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inscreva-se na sua assinatura Azure.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Crie aplicativos de Diretório Ativo para o aparelho comunicar com a Azure Migrate.
-management.azure.com | Crie aplicativos ative diretório para o aparelho comunicar com o serviço Azure Migrate.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Crie aplicativos azure Ative Directory (AD) para que o aparelho se comunique com a Azure Migrate.
+management.azure.com | Crie aplicativos Azure AD para o aparelho comunicar com o serviço Azure Migrate.
 dc.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.
 *.vault.azure.net | Gerencie segredos no Cofre de Chaves Azure.
 aka.ms/* | Permitir o acesso a links aka. Utilizado para atualizações de aparelhos Azure Migrate.

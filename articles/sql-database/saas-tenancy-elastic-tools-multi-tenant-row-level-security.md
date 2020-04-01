@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822022"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398333"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilinos com ferramentas de base de dados elásticas e segurança ao nível da linha
 
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> Num projeto complexo, você pode precisar adicionar o predicado em centenas de mesas, o que pode ser aborrecido. Existe um procedimento armazenado por ajudantes que gera automaticamente uma política de segurança, e adiciona um predicado em todas as mesas num esquema. Para mais informações, consulte a publicação de blog na [Apply Row-Level Security para todas as tabelas - script de ajudante (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> Num projeto complexo, você pode precisar adicionar o predicado em centenas de mesas, o que pode ser aborrecido. Existe um procedimento armazenado por ajudantes que gera automaticamente uma política de segurança, e adiciona um predicado em todas as mesas num esquema. Para mais informações, consulte a publicação de blog na [Apply Row-Level Security para todas as tabelas - script de ajudante (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Agora, se executar o pedido de amostra novamente, os inquilinos vêem apenas fileiras que lhes pertencem. Além disso, a aplicação não pode inserir linhas que pertençam a inquilinos que não os atualmente ligados à base de dados do fragmento. Além disso, a aplicação não pode atualizar o TenantId em quaisquer linhas que possa ver. Se a aplicação tentar fazer qualquer uma delas, é levantada uma DbUpdateException.
 

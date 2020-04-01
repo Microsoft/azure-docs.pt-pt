@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: rohink
 ms.openlocfilehash: 49e0bce6eea8fac32f49bb905c225e898e709af0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77136290"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos finais específicos com base na subnet do utilizador utilizando o Traffic Manager
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 > * Adicionar pontos finais da VM ao perfil do Gestor de Tráfego
 > * Ver o Gestor de Tráfego em ação
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +47,7 @@ As VMs de teste são utilizadas para ilustrar o modo como o Gestor de Tráfego e
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ### <a name="create-websites"></a>Criar sites
 
@@ -63,13 +63,13 @@ Nesta secção, cria-se dois VMs *myIISVMEastUS* e *myIISVMWestEurope* nas regi�
 1. No canto superior esquerdo do portal Azure, selecione **Criar um recurso** > **Compute** > **Windows Server 2019 Datacenter**.
 2. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
 
-   - **Grupo de** **recursos** > de assinatura : Selecione **Criar novo** e, em seguida, digitar o **meu ResourceGroupTM1**.
-   - **Detalhes** da > **nome virtual**da máquina : *Digite myIISVMEastUS*.
-   - **Detalhes da instância** > **Região**: Selecione **East US**.
-   - **Conta administradora** > **Nome de utilizador**: Introduza um nome de utilizador à sua escolha.
-   - **Conta administradora** > **Palavra-passe**: Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
-   - **Regras do porto de entrada** > portas de entrada **públicas**: Selecione permitir **portas selecionadas**.
-   - **Regras** da porta de entrada > **Selecione portas de entrada :** Selecione **RDP** e **HTTP** na caixa de puxar para baixo.
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **Criar novo** e, em seguida, digitar o **meu ResourceGroupTM1**.
+   - **Detalhes da** > ocorrência**Nome da máquina virtual**: *Digite myIISVMEastUS*.
+   - **Região de Detalhes** > **Region**de Instância : Selecione **East US**.
+   - **Nome** > **de utilizador**da conta do administrador : Introduza um nome de utilizador à sua escolha.
+   - **Administrator Account** > **Password**da Conta do Administrador : Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Regras** > de entrada Regras de**entrada As portas de entrada públicas**: Selecione permitir portas **selecionadas**.
+   - **Regras da** > porta de entrada**Selecione portas de entrada**: Selecione **RDP** e **HTTP** na caixa de puxar para baixo.
 
 3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**, em seguida **Seguinte: Gestão**. Sob **monitorização,** descoloque os **diagnósticos da bota** para **desligar**.
 4. Selecione **Rever + criar**.
@@ -86,7 +86,7 @@ Nesta secção, instala o servidor IIS nos dois VMs - *myIISVMEastUS* & *myIISVM
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
-6. No ambiente de trabalho do servidor, navegue para **Ferramentas Administrativas do Windows**>**Gestor de Servidor**.
+6. No ambiente de trabalho do servidor, navegue para o**Gestor de Servidores**de **Ferramentas Administrativas**>do Windows .
 7. Lance o Windows PowerShell no *VM myIISVMEastUS,* e utilize os seguintes comandos para instalar o servidor IIS e atualizar o ficheiro htm predefinido.
 
     ```powershell-interactive
@@ -131,13 +131,13 @@ Nesta secção, cria-se um VM (*myVMEastUS* e *myVMWestEurope*) em cada região 
 1. No canto superior esquerdo do portal Azure, selecione **Criar um recurso** > **Compute** > **Windows Server 2019 Datacenter**.
 2. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
 
-   - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupTM1**.
-   - **Detalhes da > ** **nome virtual**da máquina : *Digite myVMEastUS*.
-   - **Detalhes da instância** > **Região**: Selecione **East US**.
-   - **Conta administradora** > **Nome de utilizador**: Introduza um nome de utilizador à sua escolha.
-   - **Conta administradora** > **Palavra-passe**: Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
-   - **Regras do porto de entrada** > portas de entrada **públicas**: Selecione permitir **portas selecionadas**.
-   - **Regras** da porta de entrada > **Selecione as portas de entrada**: Selecione **RDP** na caixa de puxar para baixo.
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **myResourceGroupTM1**.
+   - **Detalhes da** > ocorrência**Nome da máquina virtual**: *Digite myVMEastUS*.
+   - **Região de Detalhes** > **Region**de Instância : Selecione **East US**.
+   - **Nome** > **de utilizador**da conta do administrador : Introduza um nome de utilizador à sua escolha.
+   - **Administrator Account** > **Password**da Conta do Administrador : Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Regras** > de entrada Regras de**entrada As portas de entrada públicas**: Selecione permitir portas **selecionadas**.
+   - **Regras da** > porta de entrada**Selecione portas de entrada**: Selecione **RDP** na caixa de puxar para baixo.
 
 3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**, em seguida **Seguinte: Gestão**. Sob **monitorização,** descoloque os **diagnósticos da bota** para **desligar**.
 4. Selecione **Rever + criar**.
@@ -149,7 +149,7 @@ Nesta secção, cria-se um VM (*myVMEastUS* e *myVMWestEurope*) em cada região 
 
 Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados pontos finais com base no IP de origem do pedido.
 
-1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um** > **perfil** > de Gestor de Tráfego de**Rede** > de recursos**Create**.
 2. Em **Criar perfil do Gestor de Tráfego**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
 
     | Definição                 | Valor                                              |
@@ -165,11 +165,11 @@ Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados p
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
-Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS* & *myIISVMWestEurope* para direcionar o tráfego dos utilizadores com base na subnet da consulta do utilizador.
+Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS* & *myIISVMWestEurope* para direcionar o tráfego do utilizador com base na subnet da consulta do utilizador.
 
 1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
-2. Em **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+2. Em **Perfil do Gestor de Tráfego **, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
+3. Introduza, ou selecione, as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK:**
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
@@ -197,7 +197,7 @@ Para simplificar, utilize neste tutorial o nome DNS do perfil do Gestor de Tráf
 
 Pode determinar o nome DNS do perfil do Gestor de Tráfego da seguinte forma:
 
-1. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior. Nos resultados que são apresentados, clique no perfil do Gestor de Tráfego.
+1. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de **Tráfego** que criou na secção anterior. Nos resultados que são apresentados, clique no perfil do Gestor de Tráfego.
 2. Clique em **Descrição geral**.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. Nas implementações de produção, configure um nome de domínio personalizado associado ao nome de domínio do Gestor de Tráfego, utilizando um registo CNAME do DNS.
 

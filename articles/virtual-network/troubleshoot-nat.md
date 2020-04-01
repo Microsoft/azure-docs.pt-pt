@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 03/30/2020
 ms.author: allensu
-ms.openlocfilehash: 4a273801290a0a5833ebd83983a8b6b0ad856b45
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79408489"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396096"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Conectividade na rede virtual Desfilmo Azure NaT
 
@@ -40,14 +40,15 @@ Para resolver estes problemas, siga os passos na secção seguinte.
 
 Um único [recurso de gateway NAT](nat-gateway-resource.md) suporta de 64.000 até 1 milhão de fluxos simultâneos.  Cada endereço IP fornece 64.000 portas SNAT ao inventário disponível. Pode utilizar até 16 endereços IP por recurso de gateway NAT.  O mecanismo SNAT é descrito [aqui](nat-gateway-resource.md#source-network-address-translation) com mais detalhes.
 
-Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a forma como a conectividade de saída é estabelecida e gerida.  Leia esta secção atentamente.
+Frequentemente, a causa principal da exaustão do SNAT é um antipadrão para a forma como a conectividade de saída é estabelecida, gerida ou configurável os temporizadores alterados dos seus valores padrão.  Leia esta secção atentamente.
 
 #### <a name="steps"></a>Passos
 
-1. Investigue como a sua aplicação está a criar conectividade de saída (por exemplo, revisão de códigos ou captura de pacotes). 
-2. Determine se esta atividade é comportamento esperado ou se a aplicação está a portar-se mal.  Utilize [métricas](nat-metrics.md) no Monitor Azure para fundamentar as suas descobertas. Utilize a categoria "Falhada" para a métrica de Ligações SNAT.
-3. Avaliar se os padrões apropriados são seguidos.
-4. Avaliar se a exaustão da porta SNAT deve ser atenuada com endereços IP adicionais atribuídos ao recurso de gateway NAT.
+1. Verifique se modificou o tempo de paragem predefinido para um valor superior a 4 minutos.
+2. Investigue como a sua aplicação está a criar conectividade de saída (por exemplo, revisão de códigos ou captura de pacotes). 
+3. Determine se esta atividade é comportamento esperado ou se a aplicação está a portar-se mal.  Utilize [métricas](nat-metrics.md) no Monitor Azure para fundamentar as suas descobertas. Utilize a categoria "Falhada" para a métrica de Ligações SNAT.
+4. Avaliar se os padrões apropriados são seguidos.
+5. Avaliar se a exaustão da porta SNAT deve ser atenuada com endereços IP adicionais atribuídos ao recurso de gateway NAT.
 
 #### <a name="design-patterns"></a>Padrões de estrutura
 
@@ -55,15 +56,17 @@ Aproveite sempre que possível a reutilização da ligação e o agrupamento de 
 
 _**Solução:**_ Utilize padrões e boas práticas apropriados
 
+- Os recursos de gateway na NAT têm um prazo de inatividade padrão de TCP de 4 minutos.  Se esta definição for alterada para um valor mais elevado, o NAT manterá os fluxos mais longos e poderá causar uma pressão desnecessária no inventário da [porta SNAT](nat-gateway-resource.md#timers).
 - Os pedidos atómicos (um pedido por ligação) são uma má escolha de design. Esta escala de limites anti-padrão, reduz o desempenho e diminui a fiabilidade. Em vez disso, reutilizar as ligações HTTP/S para reduzir o número de ligações e portas SNAT associadas. A escala de aplicação aumentará e o desempenho melhorará devido à redução dos apertos de mão, despesas gerais e de operação criptográfica ao utilizar TLS.
 - O DNS pode introduzir muitos fluxos individuais em volume quando o cliente não está a cortar o resultado dos resolvers dNS. Use o cache.
 - Os fluxos uDP (por exemplo, as despesas com DNS) atribuem portas SNAT durante o tempo de paragem. Quanto mais tempo o tempo de paragem, maior a pressão sobre as portas SNAT. Utilize um tempo de paragem curto (por exemplo, 4 minutos).
 - Utilize piscinas de ligação para moldar o volume de ligação.
-- Nunca abandone silenciosamente um fluxo de TCP e confie em temporizadores de TCP para limpar o fluxo. Isto deixará o Estado alocado em sistemas intermédios e pontos finais, e tornará as portas indisponíveis para outras ligações. Isto pode desencadear falhas na aplicação e exaustão de SNAT. 
-- Os valores do temporizador próximo da TCP não devem ser alterados sem um conhecimento especializado do impacto. Enquanto o TCP irá recuperar, o desempenho da sua aplicação pode ser impactado negativamente quando os pontos finais de uma ligação têm expectativas desajustadas. O desejo de mudar os temporizadores é geralmente um sinal de um problema de design subjacente. Rever seguindo recomendações.
+- Nunca abandone silenciosamente um fluxo de TCP e confie em temporizadores de TCP para limpar o fluxo. Se não deixar que o TCP feche explicitamente a ligação, o Estado permanece alocado em sistemas intermédios e pontos finais e torna as portas SNAT indisponíveis para outras ligações. Isto pode desencadear falhas na aplicação e exaustão de SNAT. 
+- Não altere os valores de temporizador estomato de Nível OS sem conhecimento especializado do impacto. Enquanto a pilha de TCP irá recuperar, o desempenho da sua aplicação pode ser impactado negativamente quando os pontos finais de uma ligação têm expectativas desajustadas. O desejo de mudar os temporizadores é geralmente um sinal de um problema de design subjacente. Rever seguindo recomendações.
 
 Muitas vezes, a exaustão do SNAT também pode ser amplificada com outros anti-padrões na aplicação subjacente. Reveja estes padrões e boas práticas adicionais para melhorar a escala e a fiabilidade do seu serviço.
 
+- Explore o impacto da redução do [tempo inativo](nat-gateway-resource.md#timers) do TCP para valores mais baixos, incluindo o tempo inativo padrão de 4 minutos para libertar o inventário da porta SNAT mais cedo.
 - Considere padrões de [sondagens assíncronos](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) para operações de longa duração para libertar recursos de ligação para outras operações.
 - Os fluxos de longa duração (por exemplo, ligações TCP reutilizadas) devem utilizar vidas de manutenção de TCP ou manutenção da camada de aplicação para evitar o tempo de saída dos sistemas intermédios. Aumentar o tempo inativo é um último recurso e pode não resolver a causa principal. Um período de tempo prolongado pode causar falhas de taxas baixas quando o tempo expira e introduzir atrasos e falhas desnecessárias.
 - Os padrões de [repetição graciosos](https://docs.microsoft.com/azure/architecture/patterns/retry) devem ser utilizados para evitar repetições/explosões agressivas durante a falha transitória ou recuperação de falhas.
@@ -175,7 +178,7 @@ Pode indicar interesse em capacidades adicionais através da [Rede Virtual NAT U
 ## <a name="next-steps"></a>Passos seguintes
 
 * Conheça a [Rede Virtual NAT](nat-overview.md)
-* Aprenda ab Fry fora [do recurso de gateway NAT](nat-gateway-resource.md)
+* Saiba mais sobre o [recurso de gateway NAT](nat-gateway-resource.md)
 * Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .
 * [Diga-nos o que construir a seguir para a Rede Virtual NAT no UserVoice](https://aka.ms/natuservoice).
 

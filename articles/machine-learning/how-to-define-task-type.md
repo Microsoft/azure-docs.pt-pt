@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: a58959904559cd3b2cec27762f2df93cfea72abd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fef3f0347d963b8a7d5fe2f1ca771293e9c3d2a9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75540532"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475498"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>Como definir uma tarefa de aprendizagem automática 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,6 +76,6 @@ Pode definir a tarefa como parte da sua experiência automatizada ml executar cr
 
 + Saiba mais sobre [ml automatizado](concept-automated-ml.md) em Azure Machine Learning.
 + Saiba mais sobre [auto-formação de um modelo de previsão de série seletiva](how-to-auto-train-forecast.md) em Azure Machine Learning
-+ Experimente o tutorial automatizado de classificação de [aprendizagem automática.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation)
-+ Experimente o caderno de amostras de regressão de [aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) de máquinas.
++ Experimente o tutorial automatizado de classificação de [aprendizagem automática.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
++ Experimente o caderno de amostras de regressão de [aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) de máquinas.
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251040"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476549"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhar com canais que recebem fluxo ao vivo multibitado a partir de codificadores no local
 
@@ -112,7 +112,7 @@ Um canal fornece um ponto final de entrada (URL ingerir) que especifica no codif
 
 Pode obter os URLs ingerir quando criar o canal. Para obter estes URLs, o canal não tem que estar no estado **de Execução.** Quando estiver pronto para começar a empurrar dados para o canal, o canal deve estar no estado **de Execução.** Depois de o canal começar a ingerir dados, pode pré-visualizar o seu fluxo através do URL de pré-visualização.
 
-Tem a opção de ingerir um fluxo ao vivo de MP4 fragmentado (Smooth Streaming) sobre uma ligação SSL. Para ingerir sobre o SSL, certifique-se de atualizar o URL ingerir para HTTPS. Atualmente, não pode ingerir RTMP sobre a SSL.
+Tem a opção de ingerir um fluxo ao vivo de MP4 fragmentado (Smooth Streaming) sobre uma ligação TLS. Para ingerir sobre tLS, certifique-se de atualizar o URL ingerir para HTTPS. Atualmente, não pode ingerir RTMP sobre TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo do quadro de chaves
 Quando se está a utilizar um codificador ao vivo no local para gerar fluxo multibitado, o intervalo do quadro-chave especifica a duração do grupo de imagens (GOP) como utilizado por esse codificador externo. Depois de o canal receber este fluxo de entrada, pode entregar o seu live stream às aplicações de reprodução do cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming over HTTP (DASH) e HTTP Live Streaming (HLS). Quando se está a fazer streaming ao vivo, o HLS é sempre embalado dinamicamente. Por padrão, os Serviços de Media calculam automaticamente a relação de embalagem do segmento HLS (fragmentos por segmento) com base no intervalo do quadro-chave que é recebido do codificador ao vivo.

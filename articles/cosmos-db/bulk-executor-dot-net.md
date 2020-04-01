@@ -6,17 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246880"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478843"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize a biblioteca executor a granel .NET para realizar operações a granel em Azure Cosmos DB
+
+> [!NOTE]
+> Esta biblioteca de executor a granel descrita neste artigo é mantida para aplicações utilizando a versão .NET SDK 2.x. Para novas aplicações, pode utilizar o suporte a **granel** que está diretamente disponível com a [versão 3.x .NET SDK](tutorial-sql-api-dotnet-bulk-import.md) e não requer qualquer biblioteca externa. 
+
+> Se está a utilizar a biblioteca de executora a granel e planeia migrar para suporte a granel no novo SDK, utilize os passos no [guia migratório](how-to-migrate-from-bulk-executor-library.md) para migrar a sua aplicação.
 
 Este tutorial fornece instruções sobre a utilização da biblioteca do executor a granel .NET para importar e atualizar documentos para um contentor Azure Cosmos. Para saber sobre a biblioteca de executores a granel e como ajuda a alavancar a entrada e armazenamento maciços, consulte o artigo de visão geral da [biblioteca de executores a granel.](bulk-executor-overview.md) Neste tutorial, você verá uma aplicação de amostra .NET que importa a granel documentos gerados aleatoriamente em um recipiente Azure Cosmos. Após a importação, mostra como pode atualizar em massa os dados importados especificando patches como operações a executar em campos de documentos específicos.
 

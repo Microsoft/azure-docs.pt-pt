@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que pode fazer com alertas métricos e 
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: b6d8bc69a407838025c5e78e0a1c773ab457c409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480237"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397978"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -51,7 +51,7 @@ Digamos que criou uma regra simples de alerta métrico Dynamic Thresholds da seg
 - Olhar para trás períodos: 4
 - Número de Violações: 4
 
-Uma vez criada a regra de alerta, o algoritmo de aprendizagem automática Dynamic Thresholds adquirirá dados históricos que estão disponíveis, calculará o limiar que melhor se adequa ao padrão de comportamento da série métrica e aprenderá continuamente com base em novos dados para fazer o limiar mais preciso.
+Uma vez criada a regra de alerta, o algoritmo de aprendizagem automática Dynamic Thresholds adquirirá dados históricos que estão disponíveis, calculará o limiar que melhor se adequa ao padrão de comportamento da série métrica e aprenderá continuamente com base em novos dados para tornar o limiar mais preciso.
 
 A partir do momento em que a regra de alerta é criada, o monitor executa a cada 1 min e analisa os valores métricos nos últimos 20 minutos agrupados em períodos de 5 minutos e verifica se a média dos valores do período em cada um dos 4 períodos excede o limiar esperado. Se a condição for satisfeita, a percentagem média de CPU nos últimos 20 minutos (quatro períodos de 5 minutos) desviou-se do comportamento esperado quatro vezes, a regra de alerta dispara uma notificação ativada. Se tiver configurado um e-mail ou uma ação de web hook no grupo de ação associado à regra de alerta, receberá uma notificação ativada em ambos.
 
@@ -128,7 +128,7 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 
 | Serviço | Azure Público | Governo | China |
 |:--------|:--------|:--------|:--------|
-| Virtual Machines  | **Sim** | Não | Não |
+| Máquinas virtuais  | **Sim** | Não | Não |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | Não |
 | Piscinas elásticas de servidor SQL | **Sim** | **Sim** | Não |
 | Dispositivos de borda de caixa de dados | **Sim** | **Sim** | Não |
@@ -140,6 +140,10 @@ Pode especificar o âmbito de monitorização por uma regra de alerta métrica �
 - todas as máquinas virtuais (numa região do Azure) numa única subscrição
 
 Criar regras de alerta métrico que monitorizem múltiplos recursos é como [criar qualquer outro alerta métrico](alerts-metric.md) que monitorize um único recurso. A única diferença é que escolheria todos os recursos que pretende monitorizar. Também pode criar estas regras através de modelos de [Gestor de Recursos Azure.](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources) Receberá notificações individuais para cada recurso monitorizado.
+
+> [!NOTE]
+>
+> Numa regra de alerta métrico que monitoriza vários recursos, apenas uma condição é permitida.
 
 ## <a name="typical-latency"></a>Latência típica
 

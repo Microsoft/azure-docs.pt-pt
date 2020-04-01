@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 09/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a852807ab685e85b76d26e5b39c99a32f645bbd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e12ad66c635632b29b70000b6e227ddcbb5357b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71838168"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80501799"
 ---
-As rotas definidas pelo utilizador com um destino 0.0.0.0/0 e NSGs na GatewaySubnet **não são suportadas**. Gateways criados com esta configuração serão bloqueados da criação. Os gateways requerem acesso aos controladores de gestão para funcionarem corretamente.
+As rotas definidas pelo utilizador com um destino 0.0.0.0/0 e NSGs na GatewaySubnet **não são suportadas**. Gateways criados com esta configuração serão bloqueados da criação. Os gateways requerem acesso aos controladores de gestão para funcionarem corretamente. [A propagação](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol]) da rota BGP deve ser definida como "Ativada" na GatewaySubnet para garantir a disponibilidade do gateway. Se isto estiver programado para desativar, o portal não funcionará.

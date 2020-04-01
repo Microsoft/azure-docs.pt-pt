@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264683"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476736"
 ---
 # <a name="deliver-content-to-customers"></a>Entregar conteúdo aos clientes
 Ao entregar os seus conteúdos de streaming ou vídeo-on-demand aos clientes, o seu objetivo é entregar vídeos de alta qualidade a vários dispositivos em diferentes condições de rede.
@@ -40,7 +40,7 @@ Este artigo dá uma visão geral de conceitos importantes de entrega de conteúd
 Para verificar questões conhecidas, consulte [questões conhecidas.](media-services-deliver-content-overview.md#known-issues)
 
 ## <a name="dynamic-packaging"></a>Empacotamento dinâmico
-Com a embalagem dinâmica que a Media Services fornece, pode entregar o seu conteúdo codificado de bitrate adaptativo MP4 ou Smooth Streaming em formatos de streaming suportados por Media Services (MPEG-DASH, HLS, Smooth Streaming,) sem ter de voltar a embalar estes formatos de streaming. Recomendamos que entregue o seu conteúdo com embalagens dinâmicas.
+Com a embalagem dinâmica que os Media Services fornecem, pode entregar o seu conteúdo bitrate bitrate adaptativo MP4 ou Smooth Streaming codificado em formatos de streaming suportados por Media Services (MPEG-DASH, HLS, Smooth Streaming,) sem ter de voltar a embalar nestes formatos de streaming. Recomendamos que entregue o seu conteúdo com embalagens dinâmicas.
 
 Para tirar partido da embalagem dinâmica, é necessário codificar o seu ficheiro mezanino (fonte) num conjunto de ficheiros MP4 de bitrate adaptativo ou ficheiros de streaming suave de bitrate adaptativo.
 
@@ -82,10 +82,10 @@ As tecnologias de bitrate adaptável permitem que as aplicações de jogadores d
 Para fornecer URLs de streaming aos utilizadores, primeiro deve criar um localizador OnDemandOrigin. A criação do localizador dá-lhe o caminho base para o ativo que contém o conteúdo que pretende transmitir. No entanto, para poder transmitir este conteúdo, precisa de modificar ainda mais este caminho. Para construir um URL completo para o ficheiro manifesto de streaming, deve concatenar o valor do percurso do localizador e o nome de ficheiro manifesto (nome de ficheiro.ism). Em seguida, anexar **/Manifesto** e um formato apropriado (se necessário) para o caminho do localizador.
 
 > [!NOTE]
-> Também pode transmitir o seu conteúdo através de uma ligação SSL. Para isso, certifique-se de que os seus URLs de streaming começam com HTTPS. Note que, atualmente, a AMS não suporta a SSL com domínios personalizados.  
+> Também pode transmitir o seu conteúdo através de uma ligação TLS. Para isso, certifique-se de que os seus URLs de streaming começam com HTTPS. Note que, atualmente, a AMS não suporta TLS com domínios personalizados.  
 > 
 
-Só é possível transmitir através do SSL se o ponto final de streaming a partir do qual entrega o seu conteúdo for criado após 10 de setembro de 2014. Se os seus URLs de streaming forem baseados nos pontos finais de streaming criados após 10 de setembro de 2014, o URL contém "streaming.mediaservices.windows.net". Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam O SSL. Se o seu URL estiver no formato antigo e quiser ser capaz de transmitir sobre o SSL, crie um novo ponto final de streaming. Utilize URLs com base no novo ponto final de streaming para transmitir o seu conteúdo através de SSL.
+Só é possível transmitir através do TLS se o ponto final de streaming a partir do qual entrega o seu conteúdo for criado após 10 de setembro de 2014. Se os seus URLs de streaming forem baseados nos pontos finais de streaming criados após 10 de setembro de 2014, o URL contém "streaming.mediaservices.windows.net". Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se o seu URL estiver no formato antigo e quiser ser capaz de transmitir através de TLS, crie um novo ponto final de streaming. Utilize URLs com base no novo ponto final de streaming para transmitir o seu conteúdo através de TLS.
 
 ## <a name="streaming-url-formats"></a><a id="URLs"/>Formatos URL de streaming
 
@@ -155,7 +155,7 @@ Um ponto final de streaming representa um serviço de streaming que pode entrega
 
 ## <a name="known-issues"></a>Problemas conhecidos
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Alterações na versão manifesto smooth streaming
-Antes da libertação do serviço de julho de 2016-- quando os ativos produzidos pela Media Encoder Standard, Media Encoder Premium Workflow, ou o anterior Encoder Azure Media foram transmitidos usando embalagens dinâmicas -- o manifesto Smooth Streaming devolvido estaria em conformidade com a versão 2.0. Na versão 2.0, as durações do fragmento não utilizam as chamadas etiquetas de repetição ('r'). Por exemplo:
+Antes da libertação do serviço de julho de 2016 -- quando os ativos produzidos pela Media Encoder Standard, Media Encoder Premium Workflow, ou o anterior Azure Media Encoder foram transmitidos utilizando embalagens dinâmicas -- o manifesto Smooth Streaming devolvido estaria em conformidade com a versão 2.0. Na versão 2.0, as durações do fragmento não utilizam as chamadas etiquetas de repetição ('r'). Por exemplo:
 
 
     <?xml version="1.0" encoding="UTF-8"?>

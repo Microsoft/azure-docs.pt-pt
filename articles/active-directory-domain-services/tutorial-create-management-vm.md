@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar um VM de gestão para serviços de domínio de diretório ativo Azure  Microsoft Docs
+title: Tutorial - Criar um VM de gestão para serviços de domínio de diretório ativo Azure [ Microsoft Docs
 description: Neste tutorial, aprende-se a criar e configurar uma máquina virtual do Windows que utiliza para administrar a instância de Serviços de Domínio do Diretório Ativo azure.
 author: iainfoulds
 manager: daveba
@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 09fcf88c6dfe90380f387c6d72c751634f5b1606
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239141"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475790"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar um VM de gestão para configurar e administrar um domínio gerido pelo Azure Ative Directory Domain Services
 
@@ -141,7 +141,7 @@ Estão disponíveis ações do Common Ative Directory Administrative Center, tai
 
 Também pode utilizar o *Módulo de Diretório Ativo para windows PowerShell,* instalado como parte das ferramentas administrativas, para gerir ações comuns no seu domínio gerido pelo Azure AD DS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: 80557eb3776ba17a4922d1fc384b87419ffbd67e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79096587"
 ---
 # <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configure o ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
@@ -60,8 +60,8 @@ As seguintes instruções levam-no através dos passos 1 a 4 do [Create e config
    | **Tipo** |**Interno** |
    | **Rede virtual** |O VNet padrão que foi criado deve chamar-se **VM1VNET**. |
    | **Sub-rede** |Selecione a sub-rede em que as instâncias do Servidor SQL estão dentro. A predefinição deve ser **VM1Subnet**.|
-   | **Atribuição de endereçoIP** |**Estática** |
-   | **Endereço IP privado** |Utilize o endereço IP `virtualip` que foi criado no cluster. |
+   | **Atribuição de endereçoIP** |**Estático** |
+   | **Endereço IP privado** |Utilize `virtualip` o endereço IP que foi criado no cluster. |
    | **Subscrição** |Utilize a subscrição que foi utilizada para o seu grupo de recursos. |
    | **Grupo de recursos** |Selecione o grupo de recursos em que os casos do Servidor SQL estão. |
    | **Localização** |Selecione a localização Azure onde os casos do Servidor SQL estão. |
@@ -99,9 +99,9 @@ A sonda define como o Azure verifica qual dos casos do SQL Server detém atualme
    | --- | --- |
    | **Nome** |Um nome de texto representando a sonda. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
-   | **Porta** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
+   | **Porto** |Pode utilizar qualquer porta disponível. Por exemplo, *59999*. |
    | **Intervalo** |*5* |
-   | **Limiar insalubre** |*2* |
+   | **Limiar com funcionamento incorreto** |*2* |
 
 4.  Clique em **OK**. 
 
@@ -128,10 +128,10 @@ As regras de equilíbrio de carga configuram como o equilibrador de carga direci
    | --- | --- |
    | **Nome** |Um nome de texto que representa as regras de equilíbrio da carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
-   | **Porta** |*1433* |
-   | **Porto backend** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno do servidor direto)** . |
+   | **Porto** |*1433* |
+   | **Porta back-end** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (retorno do servidor direto)**. |
    | **Sonda** |Use o nome da sonda que criou para este equilibrador de carga. |
-   | **Persistência da sessão** |**Nenhuma.** |
+   | **Persistência da sessão** |**Nenhum** |
    | **Tempo limite (minutos)** |*4* |
    | **IP flutuante (devolução do servidor direto)** |**Ativado** |
 
@@ -150,7 +150,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     sudo pcs resource create azure_load_balancer azure-lb port=59999
     ```
 
-1. Crie um grupo que contenha o recurso `virtualip` e `azure_load_balancer`:
+1. Crie um grupo `virtualip` `azure_load_balancer` que contenha o e o recurso:
 
     ```bash
     sudo pcs resource group add virtualip_group azure_load_balancer virtualip
@@ -192,7 +192,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
 
 1. No nó principal, executar o seguinte comando em SQLCMD ou SSMS:
 
-    - Substitua o endereço IP utilizado abaixo pelo endereço IP `virtualip`.
+    - Substitua o endereço IP `virtualip` utilizado abaixo pelo endereço IP.
 
     ```sql
     ALTER AVAILABILITY
@@ -203,19 +203,19 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     GO
     ```
 
-1. Inicie sessão em cada nó VM. Utilize o seguinte comando para abrir o ficheiro dos anfitriões e configurar a resolução de nome supérbio para o `ag1-listener` em cada máquina.
+1. Inicie sessão em cada nó VM. Utilize o seguinte comando para abrir o ficheiro dos `ag1-listener` anfitriões e configurar a resolução de nome supérbio para a máquina em cada máquina.
 
     ```
     sudo vi /etc/hosts
     ```
 
-    No **vi** editor, introduza `i` para inserir texto e, numa linha em branco, adicione o IP do `ag1-listener`. Em seguida, adicione `ag1-listener` depois de um espaço junto ao IP.
+    No **vi** editor, `i` insira para inserir texto, e numa `ag1-listener`linha em branco, adicione o IP do . Em `ag1-listener` seguida, adicione depois de um espaço ao lado do IP.
 
     ```output
     <IP of ag1-listener> ag1-listener
     ```
 
-    Para sair do **editor vi,** primeiro acerte na chave **Esc,** e depois insira o comando `:wq` para escrever o ficheiro e desistir. Faça isso em cada nó.
+    Para sair do **editor vi,** primeiro acerte na `:wq` chave **Esc,** e depois insira o comando para escrever o ficheiro e desistir. Faça isso em cada nó.
 
 ## <a name="test-the-listener-and-a-failover"></a>Teste o ouvinte e uma falha
 
@@ -223,7 +223,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
 
 1. Utilize o SQLCMD para iniciar sessão no nó principal do Servidor SQL utilizando o nome de ouvinte do grupo de disponibilidade:
 
-    - Utilize um login que tenha sido previamente criado e substitua `<YourPassword>` pela palavra-passe correta. O exemplo abaixo utiliza o login `sa` que foi criado com o Servidor SQL.
+    - Utilize um login que tenha `<YourPassword>` sido previamente criado e substitua-o pela palavra-passe correta. O exemplo abaixo `sa` utiliza o login que foi criado com o Servidor SQL.
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
@@ -235,13 +235,13 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     SELECT @@SERVERNAME
     ```
 
-    A sua saída deve mostrar o nó primário atual. Isto deve ser `VM1` se nunca testou uma falha.
+    A sua saída deve mostrar o nó primário atual. Isto deve `VM1` ser se nunca testou uma falha.
 
-    Saia da sessão SQL digitando o comando `exit`.
+    Saia da sessão SQL digitando o `exit` comando.
 
 ### <a name="test-a-failover"></a>Teste uma falha
 
-1. Executar o seguinte comando para falhar manualmente a réplica primária para `<VM2>` ou outra réplica. Substitua `<VM2>` pelo valor do seu nome de servidor.
+1. Executar o seguinte comando para falhar manualmente `<VM2>` sobre a réplica primária para ou outra réplica. Substitua-o `<VM2>` pelo valor do seu nome de servidor.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -253,15 +253,15 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     sudo pcs constraint list --full
     ```
 
-    Verá que foi acrescentado um constrangimento com a `cli-prefer-ag_cluster-master` de identificação.
+    Verá que foi adicionado `cli-prefer-ag_cluster-master` um constrangimento com a identificação.
 
-1. Retire a restrição com `cli-prefer-ag_cluster-master` de identificação utilizando o seguinte comando:
+1. Retire a restrição com id `cli-prefer-ag_cluster-master` utilizando o seguinte comando:
 
     ```bash
     sudo pcs constraint remove cli-prefer-ag_cluster-master
     ```
 
-1. Verifique os seus recursos de cluster utilizando o comando `sudo pcs resource`, e deve ver que a instância primária está agora `<VM2>`.
+1. Verifique os recursos do `sudo pcs resource`cluster utilizando o comando , e `<VM2>`deve ver se a instância principal é agora .
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource
@@ -275,7 +275,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
 
 1. Utilize o SQLCMD para iniciar sessão na sua réplica primária utilizando o nome do ouvinte:
 
-    - Utilize um login que tenha sido previamente criado e substitua `<YourPassword>` pela palavra-passe correta. O exemplo abaixo utiliza o login `sa` que foi criado com o Servidor SQL.
+    - Utilize um login que tenha `<YourPassword>` sido previamente criado e substitua-o pela palavra-passe correta. O exemplo abaixo `sa` utiliza o login que foi criado com o Servidor SQL.
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>

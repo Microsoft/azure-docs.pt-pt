@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234455"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476988"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral das portas de alta disponibilidade
 
@@ -95,7 +95,7 @@ Pode configurar *um* recurso público do Standard Load Balancer para os recursos
 ## <a name="limitations"></a>Limitações
 
 - As regras de equilíbrio de carga das portas HA estão disponíveis apenas para o Equilibrador de Carga Padrão interno.
-- A combinação de uma regra de equilíbrio de carga das portas HA e de uma regra de equilíbrio de carga das portas não-HA não é suportada.
+- A combinação de uma regra de equilíbrio de carga das portas HA e de uma regra de equilíbrio de carga das portas não-HA que indique mato de backend não é suportada.
 - Os fragmentos ip existentes serão encaminhados pelas regras de equilíbrio de carga da HA Ports para o mesmo destino que o primeiro pacote.  Não é suportado a fragmentação de IP de um pacote UDP ou TCP.
 - A simetria do fluxo (principalmente para cenários NVA) é suportada com instância de backend e uma única NIC (e configuração IP única) apenas quando utilizada como indicado no diagrama acima e utilizando regras de equilíbrio de carga ha ports. Não é fornecido em nenhum outro cenário. Isto significa que dois ou mais recursos da Load Balancer e respetivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e o diagrama para [os aparelhos virtuais da rede](#nva). Quando estiver a utilizar vários NICs ou a sandes de NVA entre um equilibrista de carga público e interno, a simetria do fluxo não está disponível.  Poderá contornar esta situação através da fonte NAT'ing, o fluxo de entrada para o IP do aparelho para permitir que as respostas cheguem ao mesmo NVA.  No entanto, recomendamos vivamente a utilização de um único NIC e utilizando a arquitetura de referência mostrada no diagrama acima.
 

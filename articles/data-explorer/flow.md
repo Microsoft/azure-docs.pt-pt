@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/15/2020
-ms.openlocfilehash: 7745888dcaa1324d4a9d956e93d0504c8da8c026
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.openlocfilehash: 198b78d5bab15057fdb6c7f6d4e8fff9f77d496e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501780"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397110"
 ---
 # <a name="microsoft-flow-connector-preview"></a>Conector Microsoft Flow (Pré-visualização)
 
@@ -116,7 +116,7 @@ Utilize o comando de controlo executar e visualizar a ação dos resultados para
 ### <a name="run-query-and-list-results"></a>Executar consulta e resultados da lista
 
 > [!Note]
-> Se a sua consulta começar com um ponto (o que significa que é um comando de [controlo),](https://docs.microsoft.com/azure/kusto/management/index)use comando de [controlo de execução e visualize os resultados](#run-control-command-and-visualize-results)
+> Se a sua consulta começar com um ponto (o que significa que é um comando de [controlo),](https://docs.microsoft.com/azure/kusto/management/index)use o [comando de controlo executar e visualize os resultados](#run-control-command-and-visualize-results).
 
 Esta ação envia uma consulta ao aglomerado de Kusto. As ações que são adicionadas depois iteram sobre cada linha dos resultados da consulta.
 
@@ -130,7 +130,7 @@ O exemplo seguinte desencadeia uma consulta a cada minuto e envia um e-mail com 
 ### <a name="run-query-and-visualize-results"></a>Executar consulta e visualizar resultados
         
 > [!Note]
-> Se a sua consulta começar com um ponto (o que significa que é um comando de [controlo),](https://docs.microsoft.com/azure/kusto/management/index)use comando de [controlo de execução e visualize os resultados](#run-control-command-and-visualize-results)
+> Se a sua consulta começar com um ponto (o que significa que é um comando de [controlo),](https://docs.microsoft.com/azure/kusto/management/index)use o [comando de controlo executar e visualize os resultados](#run-control-command-and-visualize-results).
         
 Utilize a consulta de Executar e visualize a ação dos resultados para visualizar o resultado da consulta de Kusto como uma tabela ou gráfico. Por exemplo, utilize este fluxo para receber relatórios diários de ICM por e-mail. 
     
@@ -147,17 +147,21 @@ Pode incluir um passo em qualquer fluxo para enviar relatórios por e-mail para 
 
 1. Selecione **+ Novo Passo** para adicionar um novo passo ao seu fluxo.
 1. No campo de pesquisa, insira o Office 365 e selecione **Office 365 Outlook**.
-1. Selecione **Enviar uma mensagem de e-mail**.
+1. Selecione **Enviar um e-mail (V2)**.
 1. Insira o endereço de e-mail para onde pretende que o relatório de e-mail seja enviado.
 1. Insira o tema do e-mail.
-1. No campo *Body,* a partir do campo de conteúdo Dinâmico, selecione **Corpo**.
+1. Selecione **a vista código**.
+1. Coloque o cursor no campo *Body* e selecione **Adicionar conteúdo dinâmico**.
+1. Selecione **BodyHtml**.
+    ![Enviar e-mail](./media/flow/flow-send-email.png)
 1. Selecione **Mostrar opções avançadas**.
 1. No campo *anexos Nome -1,* selecione **Nome de Anexo**.
 1. No campo conteúdo de *anexos,* selecione **Conteúdo do Anexo**.
+1. Se necessário, adicione mais anexos. 
 1. Se necessário, estabeleça o nível de importância.
 1. Selecione **Guardar**.
 
-![Enviar e-mail](./media/flow/flow-sendemail.png)
+![Enviar e-mail](./media/flow/flow-add-attachments.png)
 
 ## <a name="check-if-your-flow-succeeded"></a>Verifique se o seu fluxo foi bem sucedido
 

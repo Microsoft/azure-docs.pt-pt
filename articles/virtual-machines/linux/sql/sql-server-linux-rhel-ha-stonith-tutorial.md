@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
 ms.openlocfilehash: 40c91f67231fb6a9d01191ee5215eae8d4dc045b
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79096696"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configure grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
@@ -36,17 +36,17 @@ Neste tutorial, ficará a saber como:
 
 Este tutorial utilizará a interface de linha de comando Azure (CLI) para implantar recursos no Azure.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Se preferir instalar e utilizar o CLI localmente, este tutorial requer a versão Azure CLI 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, este tutorial requer a versão Azure CLI 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um Grupo de Recursos
 
 Se tiver mais de uma subscrição, [detete a subscrição](/cli/azure/manage-azure-subscriptions-azure-cli) para a qual pretende utilizar estes recursos.
 
-Utilize o seguinte comando para criar um Grupo de Recursos `<resourceGroupName>` numa região. Substitua `<resourceGroupName>` com um nome à sua escolha. Estamos a usar `East US 2` para este tutorial. Para mais informações, consulte o seguinte [Quickstart](../quick-create-cli.md).
+Utilize o seguinte comando para `<resourceGroupName>` criar um Grupo de Recursos numa região. Substitua-o `<resourceGroupName>` por um nome à sua escolha. Estamos a `East US 2` usar para este tutorial. Para mais informações, consulte o seguinte [Quickstart](../quick-create-cli.md).
 
 ```azurecli-interactive
 az group create --name <resourceGroupName> --location eastus2
@@ -54,7 +54,7 @@ az group create --name <resourceGroupName> --location eastus2
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-O próximo passo é criar um Conjunto de Disponibilidade. Execute o seguinte comando em Azure Cloud Shell e substitua `<resourceGroupName>` pelo nome do Grupo de Recursos. Escolha um nome para `<availabilitySetName>`.
+O próximo passo é criar um Conjunto de Disponibilidade. Execute o seguinte comando em Azure Cloud Shell e substitua-o `<resourceGroupName>` pelo nome do Grupo de Recursos. Escolha um `<availabilitySetName>`nome para .
 
 ```azurecli-interactive
 az vm availability-set create \
@@ -128,7 +128,7 @@ Deve obter os seguintes resultados assim que o comando terminar:
     ]
     ```
 
-    Para este tutorial, estamos a escolher a imagem `RedHat:RHEL-HA:7.6:7.6.2019062019`.
+    Para este tutorial, estamos a `RedHat:RHEL-HA:7.6:7.6.2019062019`escolher a imagem.
 
     > [!IMPORTANT]
     > Os nomes das máquinas devem ter menos de 15 caracteres para configurar o Grupo de Disponibilidade. O nome de utilizador não pode conter caracteres maiúsculos e as palavras-passe devem ter mais de 12 caracteres.
@@ -138,7 +138,7 @@ Deve obter os seguintes resultados assim que o comando terminar:
     - `<resourceGroupName>`
     - `<VM-basename>`
     - `<availabilitySetName>`
-    - `<VM-Size>` - Um exemplo seria "Standard_D16_v3"
+    - `<VM-Size>`- Um exemplo seria "Standard_D16_v3"
     - `<username>`
     - `<adminPassword>`
 
@@ -176,7 +176,7 @@ Deve obter resultados semelhantes aos seguintes, uma vez que o comando esteja co
 ```
 
 > [!IMPORTANT]
-> A imagem predefinida que é criada com o comando acima cria um disco OS de 32GB por padrão. Pode ficar sem espaço com esta instalação predefinida. Pode utilizar o seguinte parâmetro adicionado ao comando `az vm create` acima para criar um disco OS com 128GB como exemplo: `--os-disk-size-gb 128`.
+> A imagem predefinida que é criada com o comando acima cria um disco OS de 32GB por padrão. Pode ficar sem espaço com esta instalação predefinida. Pode utilizar o seguinte parâmetro adicionado `az vm create` ao comando acima para criar um disco `--os-disk-size-gb 128`OS com 128GB como exemplo: .
 >
 > Em seguida, pode configurar o Gestor de [VolumeLógico (LVM)](../../../virtual-machines/linux/configure-lvm.md) se precisar de expandir os volumes de pastas apropriados para acomodar a sua instalação.
 
@@ -206,7 +206,7 @@ Ligue-se a cada nó VM e siga o guia abaixo para ativar ha. Para mais informaç�
 > [!TIP]
 > Será mais fácil se abrir uma sessão de SSH a cada um dos VMs simultaneamente, uma vez que os mesmos comandos terão de ser executados em cada VM ao longo do artigo.
 >
-> Se estiver a copiar e colar vários comandos `sudo`, e for solicitado uma senha, os comandos adicionais não serão executados. Executar cada comando separadamente.
+> Se estiver a copiar e `sudo` colar vários comandos, e for solicitado uma senha, os comandos adicionais não serão executados. Executar cada comando separadamente.
 
 
 1. Executar os seguintes comandos em cada VM para abrir as portas de firewall pacemaker:
@@ -239,7 +239,7 @@ Ligue-se a cada nó VM e siga o guia abaixo para ativar ha. Para mais informaç�
     sudo vi /etc/hosts
     ```
 
-    No **vi** editor, insira `i` para inserir texto, e numa linha em branco, adicione o **IP privado** do VM correspondente. Em seguida, adicione o nome VM após um espaço ao lado do IP. Cada linha deve ter uma entrada separada.
+    No **vi** editor, `i` insira para inserir texto, e numa linha em branco, adicione o **IP privado** do VM correspondente. Em seguida, adicione o nome VM após um espaço ao lado do IP. Cada linha deve ter uma entrada separada.
 
     ```output
     <IP1> <VM1>
@@ -250,7 +250,7 @@ Ligue-se a cada nó VM e siga o guia abaixo para ativar ha. Para mais informaç�
     > [!IMPORTANT]
     > Recomendamos que utilize o seu endereço **IP privado** acima. A utilização do endereço IP público nesta configuração fará com que a configuração falhe e não recomendamos expor o seu VM a redes externas.
 
-    Para sair do **editor vi,** primeiro acerte na chave **Esc,** e depois insira o comando `:wq` para escrever o ficheiro e desistir.
+    Para sair do **editor vi,** primeiro acerte na `:wq` chave **Esc,** e depois insira o comando para escrever o ficheiro e desistir.
 
 ## <a name="create-the-pacemaker-cluster"></a>Criar o cluster Pacemaker
 
@@ -275,7 +275,7 @@ Nesta secção, ativamos e iniciaremos o serviço pcsd e, em seguida, configurar
 
 1. No nó principal, execute os seguintes comandos para configurar o cluster.
 
-    - Ao executar o comando `pcs cluster auth` para autenticar os nós do cluster, será solicitado para obter uma senha. Introduza a palavra-passe para o utilizador **hacluster** criada anteriormente.
+    - Ao executar `pcs cluster auth` o comando para autenticar os nós do cluster, será solicitado para obter uma senha. Introduza a palavra-passe para o utilizador **hacluster** criada anteriormente.
 
     ```bash
     sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
@@ -356,15 +356,15 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### <a name="register-a-new-application-in-azure-active-directory"></a>Registe uma nova aplicação no Diretório Ativo do Azure
  
  1. Ir para https://portal.azure.com
- 2. Abra a lâmina do [Diretório Ativo Azure.](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) Vá para propriedades e anote o ID de diretório. Este é o `tenant ID`
+ 2. Abra a lâmina do [Diretório Ativo Azure.](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) Vá à Properties e escreva a identificação do Diretório. Este é o`tenant ID`
  3. Clique nas [ **inscrições da App**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique em **Novo Registo**
- 5. Insira um **Nome** como `<resourceGroupName>-app`, selecione **Contas apenas neste diretório** de organização
- 6. Selecione Application Type **Web**, introduza um URL de iniciar sessão (por exemplo, http://localhost) e clique em Adicionar. O URL de inscrição não é utilizado e pode ser qualquer URL válido. Uma vez feito, Clique **no Registo**
+ 5. Insira `<resourceGroupName>-app`um **Nome** como , selecione **Contas apenas neste diretório** de organização
+ 6. Selecione Application Type **Web,** introduza http://localhost) um URL de iniciar sessão (por exemplo, clique em Adicionar. O URL de inscrição não é utilizado e pode ser qualquer URL válido. Uma vez feito, Clique **no Registo**
  7. Selecione **Certificados e segredos** para o seu novo registo de Aplicações e, em seguida, clique em **Novo segredo de cliente**
  8. Introduza uma descrição para uma nova chave (segredo de cliente), selecione **Nunca expira** e clique em **Adicionar**
  9. Escreva o valor do segredo. É usado como palavra-passe para o Diretor de Serviço
-10. Selecione **Descrição geral**. Anote o ID da aplicação. É usado como nome de utilizador (ID de login nos passos abaixo) do Diretor de Assistência
+10. Selecione **Descrição geral**. Escreva o ID da inscrição. É usado como nome de utilizador (ID de login nos passos abaixo) do Diretor de Assistência
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Criar um papel personalizado para o agente da cerca
 
@@ -372,8 +372,8 @@ Siga o tutorial para [Criar uma função personalizada para os recursos Azure ut
 
 O seu ficheiro json deve ser semelhante ao seguinte:
 
-- Substitua `<username>` por um nome à sua escolha. Isto é para evitar qualquer duplicação ao criar esta definição de papel.
-- Substitua `<subscriptionId>` com o seu ID de subscrição Azure.
+- Substitua-o `<username>` por um nome à sua escolha. Isto é para evitar qualquer duplicação ao criar esta definição de papel.
+- Substitua-a `<subscriptionId>` pelo seu ID de subscrição Azure.
 
 ```json
 {
@@ -396,7 +396,7 @@ O seu ficheiro json deve ser semelhante ao seguinte:
 
 Para adicionar o papel, executar o seguinte comando:
 
-- Substitua `<filename>` com o nome do ficheiro.
+- Substitua `<filename>` pelo nome do ficheiro.
 - Se estiver a executar o comando de um caminho diferente da pasta a que o ficheiro é guardado, inclua o caminho da pasta do ficheiro no comando.
 
 ```bash
@@ -433,33 +433,33 @@ Deverá ver o resultado seguinte:
 
 ### <a name="assign-the-custom-role-to-the-service-principal"></a>Atribuir o papel personalizado ao Diretor de Serviço
 
-Atribuir o papel personalizado `Linux Fence Agent Role-<username>` que foi criado no último passo para o Diretor de Serviço. Não utilize a função de proprietário mais!
+Atribuir o papel `Linux Fence Agent Role-<username>` personalizado que foi criado no último passo para o Diretor de Serviço. Não use mais o papel de Proprietário!
  
 1. Ir para https://portal.azure.com
 2. Abra a [lâmina de todos os recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
 3. Selecione a máquina virtual do primeiro nó de cluster
 4. Clique no **controlo de acesso (IAM)**
 5. Clique **em Adicionar uma atribuição de funções**
-6. Selecione o papel `Linux Fence Agent Role-<username>` da lista **de papéis**
-7. Na lista **Select,** introduza o nome da aplicação acima criada, `<resourceGroupName>-app`
-8. Clicar em **Guardar**
+6. Selecione `Linux Fence Agent Role-<username>` o papel da lista **de papéis**
+7. Na lista **Select,** insira o nome da aplicação acima criada,`<resourceGroupName>-app`
+8. Clique em **Guardar**
 9. Repita os passos acima para o nó de todos os aglomerados.
 
 ### <a name="create-the-stonith-devices"></a>Criar os dispositivos STONITH
 
 Executar os seguintes comandos no nó 1:
 
-- Substitua o `<ApplicationID>` pelo valor de identificação do registo de inscrição na sua candidatura.
-- Substitua o `<servicePrincipalPassword>` pelo valor do segredo do cliente.
-- Substitua o `<resourceGroupName>` pelo Grupo de Recursos da sua subscrição utilizada para este tutorial.
-- Substitua o `<tenantID>` e o `<subscriptionId>` da sua Assinatura Azure.
+- Substitua `<ApplicationID>` o valor de identificação do seu registo de candidatura.
+- Substitua `<servicePrincipalPassword>` o valor pelo segredo do cliente.
+- Substitua `<resourceGroupName>` o Grupo de Recursos da sua subscrição utilizada para este tutorial.
+- Substitua `<tenantID>` o `<subscriptionId>` e o da sua Assinatura Azure.
 
 ```bash
 sudo pcs property set stonith-timeout=900
 sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" passwd="<servicePrincipalPassword>" resourceGroup="<resourceGroupName>" tenantId="<tenantID>" subscriptionId="<subscriptionId>" power_timeout=240 pcmk_reboot_timeout=900
 ```
 
-Uma vez que já adicionámos uma regra à nossa firewall para permitir o serviço HA –`--add-service=high-availability`), não há necessidade de abrir as seguintes portas de firewall em todos os nós: 2224, 3121, 21064, 5405. No entanto, se estiver a ter algum tipo de problemas de ligação com ha, use o seguinte comando para abrir estas portas que estão associadas com HA.
+Uma vez que já adicionámos uma regra`--add-service=high-availability`à nossa firewall para permitir o serviço HA , não há necessidade de abrir as seguintes portas de firewall em todos os nós: 2224, 3121, 21064, 5405. No entanto, se estiver a ter algum tipo de problemas de ligação com ha, use o seguinte comando para abrir estas portas que estão associadas com HA.
 
 > [!TIP]
 > Você pode opcionalmente adicionar todas as portas deste tutorial de uma só vez para economizar algum tempo. As portas que precisam de ser abertas são explicadas nas suas secções relativas abaixo. Se quiser adicionar todos os portos agora, adicione os portos adicionais: 1433 e 5022.
@@ -503,7 +503,7 @@ sudo yum install -y mssql-tools unixODBC-devel
 ```
  
 > [!NOTE] 
-> Para conveniência, adicione /opt/mssql-tools/bin/ à variável ambiente PATH. Isto permite-lhe executar as ferramentas sem especificar o caminho completo. Executar os seguintes comandos para modificar o PATH para sessões de login e sessões interativas/não-login:</br></br>
+> Para conveniência, adicione /opt/mssql-tools/bin/ à variável ambiente PATH. Isto permite-lhe executar as ferramentas sem especificar o caminho completo. Execute os comandos seguintes para modificar PATH para sessões de início de sessão e sessões interativas/sem início de sessão:</br></br>
 `echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile`</br>
 `echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc`</br>
 `source ~/.bashrc`
@@ -552,7 +552,7 @@ Atualmente não apoiamos a autenticação aditiva para o ponto final da AG. Port
     > [!IMPORTANT]
     > Se estiver a ligar-se remotamente à sua instância do SQL Server, terá de ter a porta 1433 aberta na sua firewall. Também terá de permitir ligações de entrada à porta 1433 no seu NSG para cada VM. Para mais informações, consulte [Criar uma regra](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) de segurança para criar uma regra de segurança de entrada.
 
-    - Substitua o `<Master_Key_Password>` pela sua própria senha.
+    - Substitua `<Master_Key_Password>` a palavra-passe com a sua própria senha.
 
 
     ```sql
@@ -562,9 +562,9 @@ Atualmente não apoiamos a autenticação aditiva para o ponto final da AG. Port
     ```
 
  
-1. Ligue-se à réplica primária utilizando SSMS ou SQL CMD. Os comandos abaixo criarão um certificado em `/var/opt/mssql/data/dbm_certificate.cer` e uma chave privada em `var/opt/mssql/data/dbm_certificate.pvk` na sua réplica principal do SQL Server:
+1. Ligue-se à réplica primária utilizando SSMS ou SQL CMD. Os comandos abaixo criarão `/var/opt/mssql/data/dbm_certificate.cer` um certificado `var/opt/mssql/data/dbm_certificate.pvk` e uma chave privada na sua réplica principal do SQL Server:
 
-    - Substitua o `<Private_Key_Password>` pela sua própria senha.
+    - Substitua `<Private_Key_Password>` a palavra-passe com a sua própria senha.
 
 ```sql
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
@@ -579,19 +579,19 @@ BACKUP CERTIFICATE dbm_certificate
 GO
 ```
 
-Saia da sessão CmD SQL executando o comando `exit` e volte à sua sessão SSH.
+Saia da sessão CmD SQL executando o `exit` comando e volte à sua sessão SSH.
  
 ### <a name="copy-the-certificate-to-the-secondary-replicas-and-create-the-certificates-on-the-server"></a>Copie o certificado para as réplicas secundárias e crie os certificados no servidor
 
 1. Copie os dois ficheiros que foram criados para a mesma localização em todos os servidores que irão acolher réplicas de disponibilidade.
  
-    No servidor principal, execute o seguinte comando `scp` para copiar o certificado para os servidores-alvo:
+    No servidor principal, execute `scp` o seguinte comando para copiar o certificado para os servidores-alvo:
 
-    - Substitua `<username>` e `<VM2>` pelo nome de utilizador e nome VM de destino que está a utilizar.
+    - `<username>` Substitua `<VM2>` e com o nome de utilizador e o nome VM do alvo que está a usar.
     - Execute este comando para todas as réplicas secundárias.
 
     > [!NOTE]
-    > Não tens de correr `sudo -i`, o que te dá o ambiente de raiz. Podias apenas executar o comando `sudo` em frente a cada comando, como fizemos anteriormente neste tutorial.
+    > Não tens de correr, `sudo -i`o que te dá o ambiente de raiz. Podias mandar `sudo` o comando em frente a cada comando, como fizemos anteriormente neste tutorial.
 
     ```bash
     # The below command allows you to run commands in the root environment
@@ -604,9 +604,9 @@ Saia da sessão CmD SQL executando o comando `exit` e volte à sua sessão SSH.
 
 1. No servidor alvo, execute o seguinte comando:
 
-    - Substitua `<username>` pelo seu nome de utilizador.
-    - O comando `mv` move os ficheiros ou diretórios de um lugar para outro.
-    - O comando `chown` é usado para alterar o proprietário e grupo de ficheiros, diretórios ou links.
+    - Substitua-o `<username>` pelo seu nome de utilizador.
+    - O `mv` comando move os ficheiros ou o diretório de um lugar para outro.
+    - O `chown` comando é usado para alterar o proprietário e grupo de ficheiros, diretórios ou links.
     - Execute estes comandos para todas as réplicas secundárias.
 
     ```bash
@@ -651,7 +651,7 @@ GO
 Ligue-se à instância do Servidor SQL que acolhe a réplica primária utilizando O SQL CMD ou o SSMS. Executar o seguinte comando para criar o Grupo de Disponibilidade:
 
 - Substitua `ag1` pelo nome do Grupo de Disponibilidade pretendido.
-- Substitua os valores `<VM1>`, `<VM2>`e `<VM3>` pelos nomes dos casos do Servidor SQL que acolhem as réplicas.
+- Substitua `<VM1>` `<VM2>`os `<VM3>` valores e valores pelos nomes dos casos do SQL Server que acolhem as réplicas.
 
 ```sql
 CREATE AVAILABILITY GROUP [ag1]
@@ -688,7 +688,7 @@ GO
 
 Em todos os servidores SQL, crie um login SQL para Pacemaker. O seguinte Transact-SQL cria um login.
 
-- Substitua `<password>` pela sua própria senha complexa.
+- Substitua-a `<password>` pela sua própria senha complexa.
 
 ```sql
 USE [master]
@@ -716,7 +716,7 @@ Em todos os Servidores SQL, guarde as credenciais utilizadas para o login do Ser
     <password>
     ```
 
-    Para sair do **editor vi,** primeiro acerte na chave **Esc,** e depois insira o comando `:wq` para escrever o ficheiro e desistir.
+    Para sair do **editor vi,** primeiro acerte na `:wq` chave **Esc,** e depois insira o comando para escrever o ficheiro e desistir.
 
 1. Tornar o ficheiro apenas legível por raiz:
 
@@ -789,7 +789,7 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-Se a lista de `synchronization_state_desc` sincronizada para `db1`, isto significa que as réplicas são sincronizadas. Os secundários mostram `db1` na réplica primária.
+Se `synchronization_state_desc` a lista sincronizada, `db1`isto significa que as réplicas são sincronizadas. Os secundários estão a aparecer `db1` na réplica primária.
 
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Criar recursos de grupo de disponibilidade no cluster Pacemaker
 
@@ -797,7 +797,7 @@ Seguiremos o guia para criar os recursos do grupo de [disponibilidade no cluster
 
 ### <a name="create-the-ag-cluster-resource"></a>Criar o recurso de cluster AG
 
-1. Utilize o seguinte comando para criar o recurso `ag_cluster` no grupo de disponibilidade `ag1`.
+1. Utilize o seguinte comando `ag_cluster` para criar o `ag1`recurso no grupo de disponibilidade .
 
     ```bash
     sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
@@ -820,7 +820,7 @@ Seguiremos o guia para criar os recursos do grupo de [disponibilidade no cluster
 
 ### <a name="create-a-virtual-ip-resource"></a>Criar um recurso IP virtual
 
-1. Utilize um endereço IP estático disponível da sua rede para criar um recurso IP virtual. Pode encontrar um utilizando a ferramenta de comando `nmap`.
+1. Utilize um endereço IP estático disponível da sua rede para criar um recurso IP virtual. Pode encontrar um utilizando `nmap`a ferramenta de comando .
 
     ```bash
     nmap -sP <IPRange>
@@ -836,7 +836,7 @@ Seguiremos o guia para criar os recursos do grupo de [disponibilidade no cluster
 
 1. Criar o recurso IP virtual utilizando o seguinte comando:
 
-    - Substitua o valor `<availableIP>` abaixo por um endereço IP não utilizado.
+    - Substitua `<availableIP>` o valor abaixo por um endereço IP não utilizado.
 
     ```bash
     sudo pcs resource create virtualip ocf:heartbeat:IPaddr2 ip=<availableIP>
@@ -916,7 +916,7 @@ Daemon Status:
 
 Para garantir que a configuração foi bem sucedida até agora, vamos testar uma falha. Para mais informações, consulte [Sempre on Availability Group failover no Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
-1. Executar o seguinte comando para falhar manualmente a réplica primária para `<VM2>`. Substitua `<VM2>` pelo valor do seu nome de servidor.
+1. Executar o seguinte comando para falhar manualmente `<VM2>`a réplica primária para . Substitua-o `<VM2>` pelo valor do seu nome de servidor.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -936,13 +936,13 @@ Para garantir que a configuração foi bem sucedida até agora, vamos testar uma
     Ticket Constraints:
     ```
 
-1. Retire a restrição com `cli-prefer-ag_cluster-master` de identificação utilizando o seguinte comando:
+1. Retire a restrição com id `cli-prefer-ag_cluster-master` utilizando o seguinte comando:
 
     ```bash
     sudo pcs constraint remove cli-prefer-ag_cluster-master
     ```
 
-1. Verifique os seus recursos de cluster utilizando o comando `sudo pcs resource`, e deve ver que a instância primária está agora `<VM2>`.
+1. Verifique os recursos do `sudo pcs resource`cluster utilizando o comando , e `<VM2>`deve ver se a instância principal é agora .
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource
@@ -960,14 +960,14 @@ Para garantir que a configuração foi bem sucedida até agora, vamos testar uma
 
 ## <a name="test-fencing"></a>Esgrima de Teste
 
-Pode testar o STONITH executando o seguinte comando. Tente executar o comando abaixo do `<VM1>` para `<VM3>`.
+Pode testar o STONITH executando o seguinte comando. Tente executar o `<VM1>` comando `<VM3>`abaixo de . .
 
 ```bash
 sudo pcs stonith fence <VM3> --debug
 ```
 
 > [!NOTE]
-> Por defeito, a ação da cerca traz o nó para fora e, em seguida, ligado. Se quiser apenas desligar o nó, use a opção `--off` no comando.
+> Por defeito, a ação da cerca traz o nó para fora e, em seguida, ligado. Se quiser apenas desligar o nó, `--off` utilize a opção no comando.
 
 Deve obter a seguinte saída:
 

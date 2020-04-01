@@ -1,22 +1,22 @@
 ---
 title: Configure a autenticação da Microsoft
-description: Saiba como configurar a autenticação da Conta Microsoft como fornecedor de identidade para a sua aplicação App Service.
+description: Saiba como configurar a autenticação da Conta Microsoft como fornecedor de identidade para o seu App Service ou aplicação Funções Azure.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ea745aa00f8990a2d1232a19780fdc70e2f78996
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842338"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437969"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configure a sua app de serviço de aplicações para utilizar o login da Conta Microsoft
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configure o seu app service ou app Funções Azure para usar login da Conta Microsoft
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este tópico mostra-lhe como configurar o Azure App Service para utilizar a AAD para suportar logins pessoais da conta da Microsoft.
+Este tópico mostra-lhe como configurar o Azure App Service ou as Funções Azure para utilizar a AAD para suportar logins pessoais da conta da Microsoft.
 
 > [!NOTE]
 > Tanto as contas pessoais da Microsoft como as contas organizacionais utilizam o fornecedor de identidade AAD. Neste momento, não é possível configurar este fornecedor de identidade para suportar ambos os tipos de login.
@@ -61,4 +61,4 @@ Está agora pronto para utilizar a Conta Microsoft para autenticação na sua ap
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

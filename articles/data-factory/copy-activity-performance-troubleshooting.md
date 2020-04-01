@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531457"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421040"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -88,7 +88,7 @@ Quando o desempenho da atividade de cópia não corresponder às suas expectativ
 
   - Verifique a sua fonte de cópia e o padrão de afundar: 
 
-    - Se o seu padrão de cópia suportar mais do que 4 Unidades de Integração de Dados (DIUs) - consulte [esta secção](copy-activity-performance.md#data-integration-units) em detalhes, geralmente pode tentar aumentar os DIUs para obter um melhor desempenho. 
+    - Se o seu padrão de cópia suportar mais do que 4 Unidades de Integração de Dados (DIUs) - consulte [esta secção](copy-activity-performance-features.md#data-integration-units) em detalhes, geralmente pode tentar aumentar os DIUs para obter um melhor desempenho. 
 
     - Caso contrário, considere dividir um único conjunto de dados grandes em vários conjuntos de dados mais pequenos, e deixar esses trabalhos de cópia executados simultaneamente cada parte de dados. Pode fazê-lo com Lookup/GetMetadata + ForEach + Copy. Consulte [ficheiros Copios os ficheiros de vários recipientes](solution-template-copy-files-multiple-containers.md), [migrar dados da Amazon S3 para ADLS Gen2](solution-template-migration-s3-azure.md), ou copiar a granel com [modelos](solution-template-bulk-copy-with-control-table.md) de solução de tabela de controlo como exemplo geral.
 
@@ -102,7 +102,7 @@ Quando o desempenho da atividade de cópia não corresponder às suas expectativ
 
   - Verifique a sua fonte de cópia e o padrão de afundar: 
 
-    - Se o seu padrão de cópia suportar mais do que 4 Unidades de Integração de Dados (DIUs) - consulte [esta secção](copy-activity-performance.md#data-integration-units) em detalhes, geralmente pode tentar aumentar os DIUs para obter um melhor desempenho. 
+    - Se o seu padrão de cópia suportar mais do que 4 Unidades de Integração de Dados (DIUs) - consulte [esta secção](copy-activity-performance-features.md#data-integration-units) em detalhes, geralmente pode tentar aumentar os DIUs para obter um melhor desempenho. 
 
     - Caso contrário, afina gradualmente as [cópias paralelas,](copy-activity-performance-features.md)note que muitas cópias paralelas podem até prejudicar o desempenho.
 

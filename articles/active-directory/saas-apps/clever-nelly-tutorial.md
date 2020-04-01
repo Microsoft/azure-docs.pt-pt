@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Nelly inteligente | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Nelly inteligente.
+title: 'Tutorial: Integração do Diretório Ativo Azure com Clever Nelly Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Clever Nelly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,150 +17,150 @@ ms.date: 06/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac9647bf6a9e2e763bcfb6e3d840cdccd2b6c305
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67595014"
 ---
-# <a name="tutorial-integrate-clever-nelly-with-azure-active-directory"></a>Tutorial: Integrar Nelly inteligente com o Azure Active Directory
+# <a name="tutorial-integrate-clever-nelly-with-azure-active-directory"></a>Tutorial: Integrar Clever Nelly com Diretório Ativo Azure
 
-Neste tutorial, irá aprender como integrar Nelly inteligente com o Azure Active Directory (Azure AD). Quando integrar Nelly inteligente com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar Clever Nelly com Azure Ative Directory (Azure AD). Quando integrar clever Nelly com Azure AD, pode:
 
-* Controlar no Azure AD que tenha acesso ao Nelly inteligente.
-* Permita que os utilizadores ser automaticamente sessão iniciada para Nelly inteligentes com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controlo em Azure AD que tem acesso a Clever Nelly.
+* Permita que os seus utilizadores sejam automaticamente inscritos na Clever Nelly com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Inteligente Nelly início de sessão único (SSO) ativado na subscrição.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode ter um mês de experiência gratuita [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Smart Nelly single sign-on (SSO) enabled subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Oferece suporte a Nelly inteligente **SP e IDP** iniciada SSO.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. Clever Nelly apoia **SP e IDP** iniciado SSO.
 
-## <a name="adding-clever-nelly-from-the-gallery"></a>Adicionando Nelly inteligente da Galeria
+## <a name="adding-clever-nelly-from-the-gallery"></a>Adicionando Clever Nelly da galeria
 
-Para configurar a integração do Nelly inteligente para o Azure AD, terá de adicionar Nelly inteligente a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração de Clever Nelly em Azure AD, você precisa adicionar Clever Nelly da galeria à sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **Nelly inteligente** na caixa de pesquisa.
-1. Selecione **Nelly inteligente** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **da galeria,** digite **Clever Nelly** na caixa de pesquisa.
+1. Selecione **Clever Nelly** no painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Configurar e testar o SSO do Azure AD com Nelly inteligente com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Nelly inteligente.
+Configure e teste Azure AD SSO com Clever Nelly usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Clever Nelly.
 
-Para configurar e testar o SSO do Azure AD com Nelly inteligente, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com clever Nelly, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o SSO de Nelly inteligente](#configure-clever-nelly-sso)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Nelly inteligente](#create-clever-nelly-test-user)**  - para ter um equivalente da Eduarda Almeida na Nelly inteligente que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure Clever Nelly SSO](#configure-clever-nelly-sso)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie um utilizador](#create-clever-nelly-test-user)** de teste Clever Nelly - para ter uma contrapartida de Britta Simon em Clever Nelly que está ligada à representação do utilizador da AD Azure.
+6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Nelly inteligente** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Clever Nelly,** encontre a secção **Gerir** e selecione **single sign-on**.
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, introduza os valores para os seguintes campos:
+1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na **identificador** caixa de texto, escreva um URL:
+    a. Na caixa de texto **identificador,** digite um URL:
 
-    | Ambiente | Padrão de URL |
+    | Ambiente | Padrão URL |
     | - | - |
-    | Teste | `https://test.elephantsdontforget.com/plato`|
+    | Test | `https://test.elephantsdontforget.com/plato`|
     | Produção | `https://secure.elephantsdontforget.com/plato` |
     | | |
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL:
+    b. Na caixa de texto **URL resposta,** escreva um URL:
 
-    | Ambiente | Padrão de URL |
+    | Ambiente | Padrão URL |
     | - | - |
-    | Teste | `https://test.elephantsdontforget.com/plato/callback?client_name=SAML2Client`|
+    | Test | `https://test.elephantsdontforget.com/plato/callback?client_name=SAML2Client`|
     | Produção | `https://secure.elephantsdontforget.com/plato/callback?client_name=SAML2Client` |
     | | |
 
-1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:
+    Na caixa de texto **de URL sign-on,** escreva um URL:
 
-    | Ambiente | Padrão de URL |
+    | Ambiente | Padrão URL |
     | - | - |
-    | Teste | `https://test.elephantsdontforget.com/plato/sso/microsoft/index.xhtml`|
+    | Test | `https://test.elephantsdontforget.com/plato/sso/microsoft/index.xhtml`|
     | Produção | `https://secure.elephantsdontforget.com/plato/sso/microsoft/index.xhtml` |
     | | |
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente inteligente do Nelly](mailto:support@elephantsdontforget.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de [apoio ao cliente Clever Nelly](mailto:support@elephantsdontforget.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+1. Na configuração do Single Sign-On com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/copy-metadataurl.png)
+    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-### <a name="configure-clever-nelly-sso"></a>Configurar o SSO de Nelly inteligente
+### <a name="configure-clever-nelly-sso"></a>Configure Clever Nelly SSO
 
-Para configurar o início de sessão único num **Nelly inteligente** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de Nelly inteligente](mailto:support@elephantsdontforget.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sign-on no lado **clever Nelly,** você precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipe de [suporte Clever Nelly](mailto:support@elephantsdontforget.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso a Nelly inteligente.
+Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concedendo acesso a Clever Nelly.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **Nelly inteligente**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Clever Nelly**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-clever-nelly-test-user"></a>Criar utilizador de teste Nelly inteligente
+### <a name="create-clever-nelly-test-user"></a>Criar o utilizador de teste Clever Nelly
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Nelly inteligente. Trabalhar com [equipa de suporte de Nelly inteligente](mailto:support@elephantsdontforget.com) para adicionar os utilizadores na plataforma Nelly inteligente. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon em Clever Nelly. Trabalhe com a equipa de [suporte Clever Nelly](mailto:support@elephantsdontforget.com) para adicionar os utilizadores na plataforma Clever Nelly. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico Nelly inteligente no painel de acesso, deve ser automaticamente sessão iniciada na Nelly inteligente para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Clever Nelly no Painel de Acesso, deve ser automaticamente inscrito na Smart Nelly para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

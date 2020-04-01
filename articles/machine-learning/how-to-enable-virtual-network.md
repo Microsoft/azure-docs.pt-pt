@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/13/2020
-ms.openlocfilehash: c813e8a27a7f85eccff2c23d9ffdcfa4a1442f34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 6e300bbec097201b33f0c576db91c2ca720fb921
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282839"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437360"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
     - Em __redes Virtuais,__ selecione a ligação __de rede virtual Existente.__ Esta ação adiciona a rede virtual onde reside o seu cálculo (ver passo 1).
 
         > [!IMPORTANT]
-        > A conta de armazenamento deve estar na mesma rede virtual que os casos de cálculo ou clusters utilizados para a formação ou inferência.
+        > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que os casos de cálculo ou clusters utilizados para a formação ou inferência.
 
     - Selecione os __serviços de confiança da Microsoft para aceder a esta__ caixa de verificação de conta de armazenamento.
 
@@ -180,8 +180,6 @@ Se não quiser utilizar as regras de saída por defeito e pretender limitar o ac
    - Armazenamento Azure, utilizando etiqueta de __serviço__ de __armazenamento.RegionName__. Onde `{RegionName}` está o nome de uma região de Azure.
    - Registo de contentores Azure, utilizando etiqueta de __serviço__ de __AzureContainerRegistry.RegionName__. Onde `{RegionName}` está o nome de uma região de Azure.
    - Azure Machine Learning, utilizando __a etiqueta__ de serviço do __AzureMachineLearning__
-   
-- Para um __cálculo,__ adicione também os seguintes itens:
    - Gestor de Recursos Azure, utilizando etiqueta de __serviço__ do __AzureResourceManager__
    - Diretório Azure Ative, utilizando etiqueta de __serviço__ do __AzureActiveDirectory__
 
@@ -242,19 +240,19 @@ Para mais informações, consulte [Criar um conjunto de Lotes Azure numa rede vi
 
 Para criar um cluster de Computação de Aprendizagem automática, utilize os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho Azure Machine Learning.
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/)e, em seguida, selecione a sua subscrição e espaço de trabalho.
 
-1. Na secção __Aplicação,__ __selecione Compute__, e, em seguida, selecione __Adicionar compute__.
+1. Selecione __Compute__ à esquerda.
 
-1. Para configurar este recurso computacional para utilizar uma rede virtual, faça as seguintes ações:
+1. Selecione __clusters__ de treino __+__ a partir do centro e, em seguida, selecione .
 
-    a. Para __configuração da rede,__ selecione __Advanced__.
+1. No diálogo new __Training Cluster,__ expanda a secção de __definições Avançadas.__
 
-    b. Na lista de drop-down do __grupo Resource,__ selecione o grupo de recursos que contém a rede virtual.
+1. Para configurar este recurso computacional para utilizar uma rede virtual, execute as seguintes ações na secção de __rede virtual Configure:__
 
-    c. Na lista de drop-down da __rede Virtual,__ selecione a rede virtual que contém a sub-rede.
-
-    d. Na lista de abandono da __Subnet,__ selecione a sub-rede para utilizar.
+    1. Na lista de drop-down do __grupo Resource,__ selecione o grupo de recursos que contém a rede virtual.
+    1. Na lista de drop-down da __rede Virtual,__ selecione a rede virtual que contém a sub-rede.
+    1. Na lista de abandono da __Subnet,__ selecione a sub-rede para utilizar.
 
    ![As definições de rede virtual para Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -356,29 +354,25 @@ Para adicionar AKS numa rede virtual ao seu espaço de trabalho, use os seguinte
 >
 > A instância AKS e a rede virtual Azure devem estar na mesma região. Se proteger a conta de armazenamento Azure(s) utilizada pelo espaço de trabalho numa rede virtual, devem estar na mesma rede virtual que a instância AKS.
 
-1. No [portal Azure,](https://portal.azure.com)certifique-se de que o NSG que controla a rede virtual tem uma regra de entrada que está ativada para o Azure Machine Learning utilizando o __AzureMachineLearning__ como **FONTE**.
+> [!WARNING]
+> O Azure Machine Learning não suporta a utilização de um Serviço Azure Kubernetes que tenha ligação privada ativada.
 
-    [![Azure Machine Learning Add Compute pane](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/)e, em seguida, selecione a sua subscrição e espaço de trabalho.
 
-1. Selecione o seu espaço de trabalho Azure Machine Learning.
+1. Selecione __Compute__ à esquerda.
 
-1. Na secção __Aplicação,__ __selecione Compute__, e, em seguida, selecione __Adicionar compute__.
+1. Selecione clusters de __inferência__ a __+__ partir do centro e, em seguida, selecione .
 
-1. Para configurar este recurso computacional para utilizar uma rede virtual, faça as seguintes ações:
+1. No diálogo __New Inference Cluster,__ selecione __Advanced__ sob __a configuração da Rede__.
 
-    - Para __configuração da rede,__ selecione __Advanced__.
+1. Para configurar este recurso computacional para utilizar uma rede virtual, execute as seguintes ações:
 
-    - Na lista de drop-down do __grupo Resource,__ selecione o grupo de recursos que contém a rede virtual.
-
-    - Na lista de drop-down da __rede Virtual,__ selecione a rede virtual que contém a sub-rede.
-
-    - Na lista de entrega da __Subnet,__ selecione a sub-rede.
-
-    - Na caixa de __endereços do Serviço Kubernetes,__ introduza a gama de endereços de serviço Kubernetes. Esta gama de endereços utiliza uma gama IP de notação inter-domínio sem classe (CIDR) para definir os endereços IP disponíveis para o cluster. Não deve sobrepor-se a quaisquer gamas IP da sub-rede (por exemplo, 10.0.0.0/16).
-
-    - Na caixa de endereços IP do __serviço DNS kubernetes,__ introduza o endereço IP do serviço DNS da Kubernetes. Este endereço IP é atribuído ao serviço DNS kubernetes. Deve estar dentro da gama de endereços de serviço Kubernetes (por exemplo, 10.0.0.10).
-
-    - Na caixa de endereços da __ponte Docker,__ entre na ponte docker. Este endereço IP é atribuído à Ponte Docker. Não deve estar em nenhuma gama IP sub-rede, ou na gama de endereços de serviço Kubernetes (por exemplo, 172.17.0.1/16).
+    1. Na lista de drop-down do __grupo Resource,__ selecione o grupo de recursos que contém a rede virtual.
+    1. Na lista de drop-down da __rede Virtual,__ selecione a rede virtual que contém a sub-rede.
+    1. Na lista de entrega da __Subnet,__ selecione a sub-rede.
+    1. Na caixa de __endereços do Serviço Kubernetes,__ introduza a gama de endereços de serviço Kubernetes. Esta gama de endereços utiliza uma gama IP de notação inter-domínio sem classe (CIDR) para definir os endereços IP disponíveis para o cluster. Não deve sobrepor-se a quaisquer gamas IP da sub-rede (por exemplo, 10.0.0.0/16).
+    1. Na caixa de endereços IP do __serviço DNS kubernetes,__ introduza o endereço IP do serviço DNS da Kubernetes. Este endereço IP é atribuído ao serviço DNS kubernetes. Deve estar dentro da gama de endereços de serviço Kubernetes (por exemplo, 10.0.0.10).
+    1. Na caixa de endereços da __ponte Docker,__ entre na ponte docker. Este endereço IP é atribuído à Ponte Docker. Não deve estar em nenhuma gama IP sub-rede, ou na gama de endereços de serviço Kubernetes (por exemplo, 172.17.0.1/16).
 
    ![Azure Machine Learning: Machine Learning Compute configurações de rede virtual](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
@@ -445,7 +439,7 @@ except:
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
-    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
     
@@ -456,7 +450,7 @@ except:
     aks_target.wait_for_completion(show_output = True)
 ```
 
-__Azure CLI__
+__CLI do Azure__
 
 ```azurecli-interactive
 az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
@@ -466,7 +460,7 @@ O conteúdo `body.json` do ficheiro referenciado pelo comando é semelhante ao s
 
 ```json
 { 
-    "location": “<region>”, 
+    "location": "<region>", 
     "properties": { 
         "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
         "computeType": "AKS", 
@@ -504,7 +498,102 @@ Para obter mais informações sobre a configuração de uma regra de rede, consu
 
 ## <a name="use-azure-container-registry"></a>Utilizar o Azure Container Registry
 
-Ao utilizar uma rede virtual com o Azure Machine Learning, __não__ coloque o Registo de Contentores Azure para o espaço de trabalho na rede virtual. Esta configuração não é suportada.
+> [!IMPORTANT]
+> O Registo de Contentores Azure (ACR) pode ser colocado dentro de uma rede virtual, no entanto deve cumprir os seguintes pré-requisitos:
+>
+> * O seu espaço de trabalho azure machine learning deve ser a edição da Enterprise. Para obter informações sobre upgrade, consulte [Upgrade para a Edição Enterprise](how-to-manage-workspace.md#upgrade).
+> * O registo do seu contentor Azure deve ser versão Premium. Para obter mais informações sobre a atualização, consulte [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+> * O registo do seu contentor Azure deve estar na mesma rede virtual e sub-rede que a conta de armazenamento e os alvos de cálculo utilizados para treino ou inferência.
+> * O seu espaço de trabalho azure machine learning deve conter um aglomerado de [computação azure machine learning](how-to-set-up-training-targets.md#amlcompute).
+>
+>     Quando o ACR está por detrás de uma rede virtual, o Azure Machine Learning não pode usá-lo para construir diretamente imagens do Docker. Em vez disso, o cluster de cálculo é usado para construir as imagens.
+
+1. Para encontrar o nome do Registo de Contentores Azure para o seu espaço de trabalho, utilize um dos seguintes métodos:
+
+    __Portal do Azure__
+
+    A partir da secção geral do seu espaço de trabalho, o valor __do registo__ liga-se ao Registo de Contentores Azure.
+
+    ![Registo de contentores azure para o espaço de trabalho](./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png)
+
+    __CLI do Azure__
+
+    Se [tiver instalado a extensão de Machine Learning para o Azure CLI,](reference-azure-machine-learning-cli.md)pode utilizar o `az ml workspace show` comando para mostrar as informações do espaço de trabalho.
+
+    ```azurecli-interactive
+    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
+    ```
+
+    Este comando devolve um `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`valor semelhante a . A última parte da corda é o nome do Registo de Contentores Azure para o espaço de trabalho.
+
+1. Para limitar o acesso à sua rede virtual, utilize os passos no acesso à [rede Configure para registo](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Ao adicionar a rede virtual, selecione a rede virtual e a subnet para os seus recursos de Aprendizagem automática Azure.
+
+1. Utilize o Azure Machine Learning Python SDK para configurar um cluster de cálculo para construir imagens de estivadores. O seguinte código de corte demonstra como fazê-lo:
+
+    ```python
+    from azureml.core import Workspace
+    # Load workspace from an existing config file
+    ws = Workspace.from_config()
+    # Update the workspace to use an existing compute cluster
+    ws.update(image_build_compute = 'mycomputecluster')
+    ```
+
+    > [!IMPORTANT]
+    > A sua conta de armazenamento, o cluster de cálculo e o Registo de Contentores Azure devem estar todos na mesma sub-rede da rede virtual.
+    
+    Para mais informações, consulte a referência do método [de atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-)
+
+1. Se estiver a utilizar o Private Link para o seu espaço de trabalho de Aprendizagem automática Azure e colocar o Registo de Contentores Azure para o seu espaço de trabalho numa rede virtual, também deve aplicar o seguinte modelo de Gestor de Recursos Azure. Este modelo permite que o seu espaço de trabalho se comunique com a ACR através do Link Privado.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyVaultArmId": {
+        "type": "string"
+        },
+        "workspaceName": {
+        "type": "string"
+        },
+        "containerRegistryArmId": {
+        "type": "string"
+        },
+        "applicationInsightsArmId": {
+        "type": "string"
+        },
+        "storageAccountArmId": {
+        "type": "string"
+        },
+        "location": {
+        "type": "string"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.MachineLearningServices/workspaces",
+        "apiVersion": "2019-11-01",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "identity": {
+            "type": "SystemAssigned"
+        },
+        "sku": {
+            "tier": "enterprise",
+            "name": "enterprise"
+        },
+        "properties": {
+            "sharedPrivateLinkResources":
+    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
+            "keyVault": "[parameters('keyVaultArmId')]",
+            "containerRegistry": "[parameters('containerRegistryArmId')]",
+            "applicationInsights": "[parameters('applicationInsightsArmId')]",
+            "storageAccount": "[parameters('storageAccountArmId')]"
+        }
+        }
+    ]
+    }
+    ```
 
 ## <a name="next-steps"></a>Passos seguintes
 

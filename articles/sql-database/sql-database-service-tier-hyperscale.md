@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a9917010b7301bf70c3bebf68c35d82f4839e0f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255837"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409051"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -25,7 +25,7 @@ A Base de Dados Azure SQL baseia-se na arquitetura do motor de base de dados do 
 -  Hyperscale
 -  Business Critical/Premium
 
-O nível de serviço Hyperscale na Base de Dados Azure SQL é o mais recente nível de serviço no modelo de compra baseado em vCore. Este nível de serviço é um nível de desempenho altamente escalável de armazenamento e cálculo que aproveita a arquitetura Azure para dimensionar os recursos de armazenamento e computação para uma Base de Dados Azure SQL substancialmente para além dos limites disponíveis para o Propósito Geral e Negócios Níveis de serviço críticos.
+O nível de serviço Hyperscale na Base de Dados Azure SQL é o mais recente nível de serviço no modelo de compra baseado em vCore. Este nível de serviço é um nível de desempenho altamente escalável de armazenamento e cálculo que aproveita a arquitetura Azure para dimensionar os recursos de armazenamento e computação para uma Base de Dados Azure SQL substancialmente para além dos limites disponíveis para os níveis de serviço de Propósito Geral e Business Critical.
 
 > 
 > [!NOTE]
@@ -205,8 +205,7 @@ Estas são as limitações atuais para o nível de serviço de hiperescala a par
 | Problema | Descrição |
 | :---- | :--------- |
 | O painel 'Gerir backups' para um servidor lógico não mostra que as bases de dados de Hiperescala serão filtradas do servidor SQL  | A Hiperscale tem um método separado para gerir backups, e como tal as definições de retenção a longo prazo e ponto no tempo de retenção de reserva não se aplicam/são invalidadas. Assim, as bases de dados de hiperescala não aparecem no painel 'Gerir backup'. |
-| Restauro para um ponto anterior no tempo | Uma vez que uma base de dados é migrada para o nível de serviço de hiperescala, restaurar para um ponto no tempo antes da migração não é suportado.|
-| Restaurar o DB não-hiperescala para hiperescala e vice-versa | Não é possível restaurar uma base de dados de hiperescala numa base de dados não hiperescala, nem pode restaurar uma base de dados não hiperescala numa base de dados de Hiperescala.|
+| Restauro para um ponto anterior no tempo | Pode restaurar uma base de dados de hiperescala numa base de dados não hiperescala, dentro do período de retenção de bases de dados não hiperescala. Não é possível restaurar uma base de dados não hiperescala numa base de dados de Hiperescala.|
 | Se uma base de dados tiver um ou mais ficheiros de dados maiores do que 1 TB, a migração falha | Em alguns casos, pode ser possível contornar esta questão, reduzindo os ficheiros grandes para menos de 1 TB. Se migrar uma base de dados que está a ser utilizada durante o processo de migração, certifique-se de que nenhum ficheiro é superior a 1 TB. Utilize a seguinte consulta para determinar o tamanho dos ficheiros de base de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerida | A Instância Gerida pela Base de Dados Azure SQL não é suportada atualmente com bases de dados de hiperescala. |
 | Conjuntos Elásticos |  As Piscinas Elásticas não são suportadas atualmente com hiperescala de base de dados SQL.|

@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 063f2e1005db177420da7f81b799ab01fd212d7e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77163012"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478471"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Envie eventos ou receba eventos a partir de centros de eventos utilizando javaScript (versão azure/event-hubs 5)
 Este quickstart mostra como enviar eventos e receber eventos de um hub de eventos usando o pacote 5 JavaScript **azure/event-hubs.** 
@@ -109,6 +109,10 @@ Parabéns! Agora enviaste eventos para um centro de eventos.
 
 ## <a name="receive-events"></a>Receber eventos
 Nesta secção, você recebe eventos de um hub de eventos usando uma loja de controlo de armazenamento Azure Blob numa aplicação JavaScript. Executa pontos de verificação de metadados em mensagens recebidas em intervalos regulares numa bolha de Armazenamento Azure. Esta abordagem facilita a continuação de receber mensagens mais tarde de onde deixou de lado.
+
+> [!NOTE]
+> Se estiver a funcionar no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a correr [na versão Azure Stack Hub 2002,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento a versão API 2017-11-09. Para um exemplo sobre como direcionar uma versão API de Armazenamento específica, consulte amostras [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) no GitHub. Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento Do Hub De Pilha Azure: Diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Crie uma conta de armazenamento Azure e um recipiente de bolhas
 Para criar uma conta de armazenamento Azure e um recipiente de bolhas, faça as seguintes ações:

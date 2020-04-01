@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7400c8288d8901460e462ce43b69815e178a718c
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 6771060f05a03c82879738dc5e8caccb67e55abc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384012"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Azure Ative Directory integração individual de assinatura com citrix NetScaler (autenticação baseada em Kerberos)
 
@@ -219,7 +219,7 @@ Para ligar o equilibrador de carga ao servidor virtual:
 
 ### <a name="bind-the-certificate"></a>Ligue o certificado
 
-Para publicar este serviço como SSL, ligue o certificado do servidor e, em seguida, teste a sua aplicação:
+Para publicar este serviço como TLS, ligue o certificado do servidor e, em seguida, teste a sua aplicação:
 
 1. Em **Certificado,** selecione **No Server Certificate**.
 

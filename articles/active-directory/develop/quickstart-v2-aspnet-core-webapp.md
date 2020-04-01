@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 72c363c34a3e7e01cb32917dd87237e4bbfc9490
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e60d3f0221bce836f49e87a96c762e68cf8a60ad
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249154"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473683"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 Neste arranque rápido, você usa uma amostra de código para saber como uma aplicação web ASP.NET Core pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -38,22 +38,22 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar manualmente as informações de registo da aplicação à sua solução, siga estes passos:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `AspNetCore-Quickstart`.
->    - No **Redirect URI,** adicione `https://localhost:44321/`, e selecione **Register**.
+>    - Na secção **Nome,** introduza um nome de aplicação significativo que `AspNetCore-Quickstart`será apresentado aos utilizadores da aplicação, por exemplo.
+>    - No **Redirecione URI,** adicione `https://localhost:44321/`, e selecione **Register**.
 > 1. Selecione o menu **de Autenticação** e, em seguida, adicione as seguintes informações:
->    - Em **Redirecionar uris,** adicione `https://localhost:44321/signin-oidc`, e selecione **Save**.
->    - Na secção **de definições Avançadas,** coloque o URL de **logout** para `https://localhost:44321/signout-oidc`.
->    - Sob **subvenção implícita,** verifique as **fichas de identificação.**
+>    - Em **Redirecionar URIs,** adicione `https://localhost:44321/signin-oidc`, e selecione **Guardar**.
+>    - Na secção **de definições avançadas,** coloque **o URL de logout** para `https://localhost:44321/signout-oidc`.
+>    - Em **Concessão implícita**, selecione **Tokens de ID**.
 >    - Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configure a sua aplicação no portal Azure
-> Para a amostra de código para este arranque rápido funcionar, você precisa adicionar URLs de resposta como `https://localhost:44321/` e `https://localhost:44321/signin-oidc`, adicionar o URL de Logout como `https://localhost:44321/signout-oidc`, e solicitar fichas de identificação para serem emitidas pelo ponto final de autorização.
+> Para a amostra de código para este arranque rápido funcionar, `https://localhost:44321/` `https://localhost:44321/signin-oidc`você precisa adicionar URLs de resposta como e , adicionar o URL de Logout como `https://localhost:44321/signout-oidc`, e solicitar tokens de ID para serem emitidos pelo ponto final de autorização.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -68,19 +68,19 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 > [!div class="sxs-lookup" renderon="portal"]
 > Executar o projeto usando o Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Descarregue a amostra de código]()
+> [Descarregue a amostra de código](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
 > Configurámos o seu projeto com valores das propriedades da sua aplicação e está pronto para ser executado. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Passo 3: Executar o seu projeto Estúdio Visual
 > 1. Extrair o ficheiro zip para uma pasta local dentro da pasta raiz - por exemplo, **C:\Azure-Samples**
 > 1. Abra a solução no Estúdio Visual 
-> 1. Editar o ficheiro **appsettings.json.** Encontre `ClientId` e atualize o valor da `ClientId` com o valor de ID da **aplicação (cliente)** da aplicação que registou. 
+> 1. Editar o ficheiro **appsettings.json.** Encontre `ClientId` e atualize `ClientId` o valor da **Aplicação (cliente) o** valor de ID da aplicação que registou. 
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -91,14 +91,14 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` - é o ID de **Aplicação (cliente)** para a aplicação que registou no portal Azure. Pode encontrar o ID de **Aplicação (cliente)** na página **de visão geral** da aplicação.
-> - `Enter_the_Tenant_Info_Here` - é uma das seguintes opções:
+> - `Enter_the_Application_Id_here`- é o ID de **Aplicação (cliente)** para a aplicação registada no portal Azure. Pode encontrar o ID de **Aplicação (cliente)** na página **de visão geral** da aplicação.
+> - `Enter_the_Tenant_Info_Here`- é uma das seguintes opções:
 >   - Se a sua candidatura apoiar **contas apenas neste diretório organizacional,** substitua este valor pelo **nome** de Id do **Arrendatário** (por exemplo, contoso.microsoft.com)
 >   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -142,30 +142,30 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-O método `AddAuthentication` configura o serviço para adicionar autenticação baseada em cookies, que é usado em cenários de navegador e definir o desafio para OpenID Connect. 
+O `AddAuthentication` método configura o serviço para adicionar autenticação baseada em cookies, que é usado em cenários de navegador e para definir o desafio para OpenID Connect. 
 
-A linha que contém `.AddAzureAd` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. É configurado para iniciar sessão utilizando o ponto final da plataforma de identidade da Microsoft.
+A linha `.AddAzureAd` que contém adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. É configurado para iniciar sessão utilizando o ponto final da plataforma de identidade da Microsoft.
 
 > |Onde  |  |
 > |---------|---------|
 > | ClientId  | Id de aplicação (cliente) da aplicação registada no portal Azure. |
-> | Autoridade | O ponto final do STS para o utilizador autenticar. Normalmente, este é <https://login.microsoftonline.com/{tenant}/v2.0> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu id inquilino, ou *comum* para uma referência ao ponto final comum (usado para aplicações multi-inquilinos) |
-> | TokenValidationParameters | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` deverá `false` indicar que pode aceitar inscrições a partir de quaisquer contas pessoais, ou de trabalho ou escolares. |
+> | Autoridade | O ponto final do STS para o utilizador autenticar. Normalmente, <https://login.microsoftonline.com/{tenant}/v2.0> isto é para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu id inquilino, ou *comum* para uma referência ao ponto final comum (usado para aplicações multi-inquilinos) |
+> | TokenValidaçãoParâmetros | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está `false` definido para indicar que pode aceitar inscrições de qualquer conta pessoal, ou de trabalho ou escolar. |
 
 
 > [!NOTE]
-> Definir `ValidateIssuer = false` é uma simplificação para este arranque rápido. Em aplicações reais é necessário validar o emitente.
+> A `ValidateIssuer = false` definição é uma simplificação para este arranque rápido. Em aplicações reais é necessário validar o emitente.
 > Veja as amostras para entender como fazê-lo.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteger um controlador ou o método de um controlador
 
-Pode proteger um controlador ou métodos controladores utilizando o atributo `[Authorize]`. Este atributo restringe o acesso ao controlador ou métodos, permitindo apenas utilizadores autenticados, o que significa que o desafio de autenticação pode ser iniciado para aceder ao controlador se o utilizador não for autenticado.
+Pode proteger um controlador ou `[Authorize]` métodos controladores utilizando o atributo. Este atributo restringe o acesso ao controlador ou métodos, permitindo apenas utilizadores autenticados, o que significa que o desafio de autenticação pode ser iniciado para aceder ao controlador se o utilizador não for autenticado.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Confira o repo do GitHub para este tutor do Core ASP.NET para obter mais informações, incluindo instruções sobre como adicionar a autenticação a uma nova aplicação core Web ASP.NET, como ligar para o Microsoft Graph, e outras APIs da Microsoft, como ligar para as suas próprias APIs, como adicionar autorização, como assinar utilizadores em nuvens nacionais, ou com identidades sociais e muito mais:
+Consulte o repo do GitHub para este ASP.NET tutorial Core para mais informações, incluindo instruções sobre como adicionar autenticação a uma nova aplicação core Web ASP.NET, como ligar para o Microsoft Graph, e outras APIs da Microsoft, como ligar para as suas próprias APIs, como adicionar autorização, como assinar utilizadores em nuvens nacionais, ou com identidades sociais e muito mais :
 
 > [!div class="nextstepaction"]
 > [tutorial da Web App ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

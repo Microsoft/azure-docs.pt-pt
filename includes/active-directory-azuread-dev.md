@@ -15,10 +15,10 @@ ms.date: 081/24/2020
 ms.author: ryanwi
 ms.custom: include file
 ms.openlocfilehash: 3f4c413178206dcd9e6aca38ffd5c6490e12bd65
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77163879"
 ---
 > [!IMPORTANT]

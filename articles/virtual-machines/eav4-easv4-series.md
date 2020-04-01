@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: e05a2b97a25ce4cab7d619f4b62d405765cb08db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab45298dbcb8988da7d0211fcbde3087d0099038
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164394"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437087"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
@@ -40,11 +40,9 @@ Os tamanhos da série Eav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</su
 | Padrão\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
 | Padrão\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / 10000 |
 | Padrão\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16000 |
-| Padrão\_E48a\_v4<sup>**</sup> |48|384|1200|32| | |
-| Padrão\_E64a\_v4<sup>**</sup> |64|512|1600|32| | |
-| Padrão\_E96a\_v4<sup>**</sup> |96|672|2400|32| | |
-
-<sup>**</sup>Estes tamanhos estão em Pré-visualização. Se estiver interessado em experimentar estes tamanhos [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)maiores, inscreva-se em .
+| Padrão\_E48a\_v4|48|384|1200|32|96000 / 1000 (500)|8 / 24000 |
+| Padrão\_E64a\_v4|64|512|1600|32|96000 / 1000 (500)|8 / 30000 |
+| Padrão\_E96a\_v4|96|672|2400|32|96000 / 1000 (500)|8 / 30000 |
 
 ## <a name="easv4-series"></a>Série Easv4
 
@@ -68,11 +66,9 @@ Os tamanhos da série Easv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 | Standard_E16as_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / 8000 |
 | Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10000 |
 | Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / 16000 |
-| Standard_E48as_v4<sup>**</sup> |48|384|768|32|  | |
-| Standard_E64as_v4<sup>**</sup> |64|512|1024|32| | |
-| Standard_E96as_v4<sup>**</sup> |96|672|1344|32| | |  
-
-<sup>**</sup>Estes tamanhos estão em Pré-visualização. Se estiver interessado em experimentar estes tamanhos [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)maiores, inscreva-se em .
+| Standard_E48as_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 / 24000 |
+| Standard_E64as_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 / 30000 |
+| Standard_E96as_v4|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 / 30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

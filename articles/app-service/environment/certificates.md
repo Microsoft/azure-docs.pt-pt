@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688648"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477509"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicações 
 
@@ -22,7 +22,7 @@ A ASE é um sistema de inquilinos único. Por ser inquilino único, existem algu
 
 ## <a name="ilb-ase-certificates"></a>Certificados ILB ASE 
 
-Se estiver a utilizar uma ASE Externa, então as suas aplicações são contactadas por [nome de aplicação]. [asename].p.azurewebsites.net. Por padrão, todas as ASEs, mesmo as ASLb, são criadas com certificados que seguem este formato. Quando se tem um ILB ASE, as aplicações são contactadas com base no nome de domínio que especifica ao criar o ILB ASE. Para que as aplicações suportem o SSL, é necessário fazer o upload de certificados. Obtenha um certificado SSL válido utilizando autoridades internas de certificados, adquirindo um certificado a um emitente externo ou utilizando um certificado auto-assinado. 
+Se estiver a utilizar uma ASE Externa, então as suas aplicações são contactadas por [nome de aplicação]. [asename].p.azurewebsites.net. Por padrão, todas as ASEs, mesmo as ASLb, são criadas com certificados que seguem este formato. Quando se tem um ILB ASE, as aplicações são contactadas com base no nome de domínio que especifica ao criar o ILB ASE. Para que as aplicações suportem o TLS, é necessário fazer o upload de certificados. Obtenha um certificado TLS/SSL válido utilizando autoridades de certificados internos, adquirindo um certificado a um emitente externo ou utilizando um certificado auto-assinado. 
 
 Existem duas opções para configurar certificados com o seu ILB ASE.  Pode definir um certificado de padrão wildcard para o ILB ASE ou definir certificados nas aplicações web individuais da ASE.  Independentemente da escolha que fizer, os seguintes atributos de certificado devem ser configurados corretamente:
 
@@ -58,7 +58,7 @@ As aplicações que estão hospedadas numa ASE podem usar as funcionalidades de 
 - SSL baseado em IP, que só é suportado com uma ASE externa.  Um ILB ASE não suporta SSL baseado em IP.
 - KeyVault recebeu certificados 
 
-As instruções para o upload e gestão desses certificados estão disponíveis em [Adicionar um certificado SSL no Serviço de Aplicações Azure](../configure-ssl-certificate.md).  Se estiver simplesmente a configurar certificados para corresponder a um nome de domínio personalizado que atribuiu à sua aplicação web, essas instruções serão suficientes. Se estiver a carregar o certificado para uma aplicação web ILB ASE com o nome de domínio predefinido, especifique o site scm no SAN do certificado, tal como foi notado anteriormente. 
+As instruções para o upload e gestão desses certificados estão disponíveis em [Adicionar um certificado TLS/SSL no Serviço de Aplicações Azure](../configure-ssl-certificate.md).  Se estiver simplesmente a configurar certificados para corresponder a um nome de domínio personalizado que atribuiu à sua aplicação web, essas instruções serão suficientes. Se estiver a carregar o certificado para uma aplicação web ILB ASE com o nome de domínio predefinido, especifique o site scm no SAN do certificado, tal como foi notado anteriormente. 
 
 ## <a name="tls-settings"></a>Definições tls 
 

@@ -142,4 +142,4 @@ Para que os Serviços de Media apliquem a Transform no vídeo ou áudio especifi
 
 ## <a name="see-also"></a>Consulte também
 
-[Azure CLI](/cli/azure/ams)
+[CLI do Azure](/cli/azure/ams)

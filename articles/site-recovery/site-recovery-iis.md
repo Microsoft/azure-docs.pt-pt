@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954672"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478283"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastres para uma aplicação web baseada em IIS de vários níveis
 
 O software de aplicação é o motor da produtividade do negócio numa organização. Várias aplicações web podem servir diferentes propósitos numa organização. Algumas aplicações, como aplicações utilizadas para processamento de folha de pagamento, aplicações financeiras e websites voltados para o cliente, podem ser cruciais para uma organização. Para evitar a perda de produtividade, é importante que a organização tenha estas aplicações continuamente em funcionamento. Mais importante ainda, ter estas aplicações consistentemente disponíveis pode ajudar a prevenir danos à marca ou imagem da organização.
 
-As aplicações web críticas são normalmente configuradas como aplicações de vários níveis: a web, a base de dados e a aplicação estão em diferentes níveis. Além de serem distribuídas por vários níveis, as aplicações também podem usar vários servidores em cada nível para carregar o equilíbrio do tráfego. Além disso, os mapeamentos entre vários níveis e no servidor web podem ser baseados em endereços IP estáticos. No failover, alguns destes mapeamentos precisam de ser atualizados, especialmente se vários websites estiverem configurados no servidor web. Se as aplicações web utilizarem o SSL, tem de atualizar as encadernações do certificado.
+As aplicações web críticas são normalmente configuradas como aplicações de vários níveis: a web, a base de dados e a aplicação estão em diferentes níveis. Além de serem distribuídas por vários níveis, as aplicações também podem usar vários servidores em cada nível para carregar o equilíbrio do tráfego. Além disso, os mapeamentos entre vários níveis e no servidor web podem ser baseados em endereços IP estáticos. No failover, alguns destes mapeamentos precisam de ser atualizados, especialmente se vários websites estiverem configurados no servidor web. Se as aplicações web utilizarem TLS, deve atualizar as encadernações do certificado.
 
 Os métodos tradicionais de recuperação que não se baseiam na replicação envolvem o backup de vários ficheiros de configuração, definições de registo, encadernações, componentes personalizados (COM ou .NET), conteúdo e certificados. Os ficheiros são recuperados através de um conjunto de passos manuais. Os métodos tradicionais de recuperação de ficheiros de backup e recuperação manual são pesados, propensos a erros e não escaláveis. Por exemplo, pode facilmente esquecer-se de fazer back-up de certificados. Depois do fracasso, não tem escolha a não ser comprar novos certificados para o servidor.
 
@@ -118,22 +118,22 @@ Cada site consiste em informações vinculativas. As informações vinculativas 
 >
 > Se definir o site vinculado a **Tudo não atribuído,** não precisa de atualizar este pós-falha vinculativo. Além disso, se o endereço IP associado a um site não for alterado após a falha, não precisa de atualizar a ligação do site. (A manutenção do endereço IP depende da arquitetura da rede e das subredes atribuídas aos locais primários e de recuperação. Atualizá-los pode não ser viável para a sua organização.)
 
-![Screenshot que mostra a definição da ligação SSL](./media/site-recovery-iis/sslbinding.png)
+![Screenshot que mostra a definição da ligação TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
 Se associar o endereço IP a um site, atualize todas as ligações do site com o novo endereço IP. Para alterar as ligações do site, adicione um script de [atualização de nível web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após o Grupo 3 no plano de recuperação.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Atualizar o endereço IP do equilibrador de carga
 Se tiver uma máquina virtual ARR, para atualizar o endereço IP, adicione um [script de failover IIS ARR](https://aka.ms/asr-iis-arrtier-failover-script-classic) após o Grupo 4.
 
-#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Encadernação de certificado SSL para uma ligação HTTPS
-Um site pode ter um certificado SSL associado que ajuda a garantir uma comunicação segura entre o servidor web e o navegador do utilizador. Se o website tiver uma ligação HTTPS, e também tiver um site HTTPS associado vinculando-se ao endereço IP do servidor IIS com uma encadernação de certificado SSL, deve adicionar um novo link de site para o certificado com o endereço IP da pós-falha da máquina virtual IIS.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Ligação de certificado TLS/SSL para uma ligação HTTPS
+Um site pode ter um certificado TLS/SSL associado que ajuda a garantir uma comunicação segura entre o servidor web e o navegador do utilizador. Se o website tiver uma ligação HTTPS, e também tiver um site HTTPS associado vinculando-se ao endereço IP do servidor IIS com uma ligação de certificado TLS/SSL, deve adicionar um novo link de site para o certificado com o endereço IP da pós-falha da máquina virtual IIS.
 
-O certificado SSL pode ser emitido contra estes componentes:
+O certificado TLS/SSL pode ser emitido contra estes componentes:
 
 * O nome de domínio totalmente qualificado do site.
 * O nome do servidor.
 * Um certificado wildcard para o nome de domínio.  
-* Um endereço IP. Se o certificado SSL for emitido contra o endereço IP do servidor IIS, outro certificado SSL deve ser emitido contra o endereço IP do servidor IIS no site Do Azure. É necessário criar uma encadernação Adicional ssl para este certificado. Por isso, recomendamos que não utilize um certificado SSL emitido contra o endereço IP. Esta opção é menos utilizada e em breve será depreciada de acordo com as novas alterações da autoridade de certificados/fórum do navegador.
+* Um endereço IP. Se o certificado TLS/SSL for emitido contra o endereço IP do servidor IIS, outro certificado TLS/SSL tem de ser emitido contra o endereço IP do servidor IIS no site do Azure. É necessário criar uma ligação adicional de TLS para este certificado. Por isso, recomendamos que não utilize um certificado TLS/SSL emitido contra o endereço IP. Esta opção é menos utilizada e em breve será depreciada de acordo com as novas alterações da autoridade de certificados/fórum do navegador.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Atualizar a dependência entre o nível web e o nível de aplicação
 Se tiver uma dependência específica da aplicação baseada no endereço IP das máquinas virtuais, deve atualizar esta dependência após a falha.

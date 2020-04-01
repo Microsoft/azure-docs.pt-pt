@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 318b3e3f774a4381434fd56154f4c0d95c28c7a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479520"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437515"
 ---
 # <a name="references"></a>Referências
 
@@ -162,7 +162,7 @@ As APIs Azure FarmBeats podem ser acedidas por um utilizador ou por uma inscriç
     - Volte à **visão geral**e selecione o link ao lado da Manage Application no **diretório local**.
     - Vá a **Propriedades** para capturar o ID do **Objeto**.
 
-4. Vá ao seu [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) e faça o seguinte:
+4. Vá ao seu Datahub<yourdatahub>Swagger (https://.azurewebsites.net/swagger/index.html) e faça o seguinte:
     - Vá para a **RoleAssignment API.**
     - Execute um POST para criar um objeto **roleAssignment** para o ID do **objeto** que acabou de criar.
 

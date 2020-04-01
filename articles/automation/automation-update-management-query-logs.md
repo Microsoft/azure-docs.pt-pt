@@ -3,14 +3,14 @@ title: Registos de Gestão de Atualização De Consulta Azure
 description: Este artigo descreve como consultar os registos para Gestão de Atualizações no seu espaço de trabalho Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 03/11/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79216837"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437848"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Registos de atualizações de consulta para Gestão de Atualizações em Registos de Monitores Azure
 
@@ -144,7 +144,7 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 | CriticalUpdatesMissing | Número de atualizações críticas em falta que são aplicáveis. | 
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
 | NETRuntimeVersion | Versão da .NET Framework instalada no computador Windows. |
-| OldestMissingSecurityUpdateBucket | Os valores são:<br> *Recentes*<br> *Há 30 dias.*<br> *Há 60 dias*<br> *Mais antiga* | 
+| OldestMissingSecurityUpdateBucket | Os valores são:<br> *Recente* se o valor for inferior a 30 dias<br> *Há 30 dias.*<br> *Há 60 dias*<br> *Há 90 dias.*<br> *Há 120 dias*<br> *Há 150 dias*<br> *Há 180 dias*<br> *Mais velho* quando o valor é superior a 180 dias | 
 | OldestMissingSecurityUpdateInDays | Número total de dias para a atualização mais antiga detetada conforme aplicável que não foi instalada. |
 | OsVersion | A versão do sistema operativo. |
 | OtherUpdatesMissing | Contagem de atualizações detetadas em falta. |

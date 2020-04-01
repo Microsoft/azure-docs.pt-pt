@@ -1,5 +1,5 @@
 ---
-title: C#tutorial sobre o uso de facetas para ajudar a navegação
+title: C# tutorial sobre o uso de facetas para ajudar na navegação
 titleSuffix: Azure Cognitive Search
 description: Este tutorial baseia-se no projeto "Pesquisa de resultados de paginação - Pesquisa Cognitiva Azure", para adicionar navegação de faceta. Aprenda como as facetas podem ser usadas para reduzir facilmente uma pesquisa.
 manager: nitinme
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121563"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C#Tutorial: Use facetas para ajudar na navegação - Pesquisa Cognitiva Azure
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C# tutorial: Use facetas para ajudar na navegação - Pesquisa Cognitiva Azure
 
 As facetas são usadas para ajudar a navegação, fornecendo ao utilizador um conjunto de links para usar para concentrar a sua pesquisa. Facetas são atributos dos dados (como a categoria, ou uma característica específica, de um hotel nos nossos dados de amostra).
 
-Este tutorial baseia-se no projeto de paging criado no [ C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
+Este tutorial baseia-se no projeto de paging criado no [C# Tutorial: Pesquisa resultados paginação - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-Tenha [ C# o Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Tenha o [C# Tutorial: Resultados de pesquisa paginação - Projeto](tutorial-csharp-paging.md) de Pesquisa Cognitiva Azure em funcionamento. Este projeto pode ser a sua própria versão, ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="set-model-properties-as-isfacetable"></a>Definir propriedades do modelo como IsFacetable
 
@@ -109,7 +109,7 @@ Precisamos que o controlador passe as listas de facetas para a vista. Precisamos
 
 O controlador doméstico precisa de uma nova ação, **Facet,** e atualizações para as suas ações de **Index** e **Page** existentes, bem como atualizações para o método **RunQueryAsync.**
 
-1. Abra o ficheiro do controlador doméstico e adicione a declaração **de utilização,** para permitir que a **Lista&lt;&gt;** construção.
+1. Abra o ficheiro do controlador doméstico e adicione a declaração **de utilização,** para ativar a construção da **&lt;cadeia&gt; lista.**
 
     ```cs
     using System.Collections.Generic;
@@ -344,7 +344,7 @@ A vista vai exigir algumas mudanças significativas.
     }
     ```
 
-2. Para a vista, organizamos a saída numa tabela, para alinhar cuidadosamente as listas de facetas à esquerda, e os resultados à direita. Abra o ficheiro index.cshtml. Substitua todo o conteúdo do corpo HTML &lt;&gt; etiquetas, com o seguinte código.
+2. Para a vista, organizamos a saída numa tabela, para alinhar cuidadosamente as listas de facetas à esquerda, e os resultados à direita. Abra o ficheiro index.cshtml. Substitua todo o &lt;conteúdo&gt; das etiquetas corporais HTML, com o seguinte código.
 
     ```cs
     <body>
@@ -560,4 +560,4 @@ Considere os seguintes takeaways deste projeto:
 No próximo tutorial, olhamos para os resultados de encomendas. Até este ponto, os resultados são encomendados simplesmente na ordem de que estão localizados na base de dados.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: Encomende os resultados- Pesquisa Cognitiva Azure](tutorial-csharp-orders.md)
+> [C# tutorial: Encomende os resultados- Pesquisa Cognitiva Azure](tutorial-csharp-orders.md)

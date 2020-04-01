@@ -2,13 +2,13 @@
 title: Move Os VMs Azure para um novo grupo de subscrição ou recursos
 description: Utilize o Gestor de Recursos Azure para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: 97c49f90dab2aafd89de322e57ad44ff1fc9d367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75479764"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478659"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -27,18 +27,40 @@ Os seguintes cenários ainda não são suportados:
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com Backup Azure
 
-Para mover máquinas virtuais configuradas com Cópia de Segurança Azure, utilize a seguinte suver:
+Para mover máquinas virtuais configuradas com Cópia de Segurança Azure, tem de eliminar os pontos de restauro do cofre.
+
+Se o [soft delete](../../../backup/backup-azure-security-feature-cloud.md) estiver ativado para a sua máquina virtual, não pode mover a máquina virtual enquanto esses pontos de restauro forem mantidos. Ou [desativa risa suavemente](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) ou espera 14 dias após a eliminação dos pontos de restauro.
+
+### <a name="portal"></a>Portal
+
+1. Selecione a máquina virtual configurada para cópia de segurança.
+
+1. No painel esquerdo, selecione **Backup**.
+
+1. Selecione **parar a cópia de segurança**.
+
+1. **Selecione Eliminar dados de volta**.
+
+1. Depois de ser apagado, pode mover o cofre e a máquina virtual para a subscrição do alvo. Depois da mudança, podecontinuar os reforços.
+
+### <a name="powershell"></a>PowerShell
 
 * Encontre a localização da sua Máquina Virtual.
 * Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1` com o seguinte padrão de nomeação: por exemplo, AzureBackupRG_westus2_1
-* Se no portal Azure, verifique "Mostrar tipos ocultos"
 * Se estiver no PowerShell, utilize o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Encontre o recurso `Microsoft.Compute/restorePointCollections` com tipo que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
+
+### <a name="azure-cli"></a>CLI do Azure
+
+* Encontre a localização da sua Máquina Virtual.
+* Encontre um grupo de recursos `AzureBackupRG_<location of your VM>_1` com o seguinte padrão de nomeação: por exemplo, AzureBackupRG_westus2_1
 * Se no CLI, use o`az resource list -g AzureBackupRG_<location of your VM>_1`
 * Encontre o recurso `Microsoft.Compute/restorePointCollections` com tipo que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
 * Apague este recurso. Esta operação elimina apenas os pontos de recuperação instantâneas, não os dados de back-up no cofre.
-* Depois de ser apagado, pode mover o cofre e a máquina virtual para a subscrição do alvo. Após a mudança, pode continuar as cópias de segurança sem perda de dados.
-* Para obter informações sobre a deslocação de cofres do Serviço de Recuperação para backup, consulte [as limitações dos Serviços](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)de Recuperação .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).
+* Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../move-resource-group-and-subscription.md).
+
+* Para obter informações sobre a deslocação de cofres do Serviço de Recuperação para backup, consulte [as limitações dos Serviços](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)de Recuperação .
