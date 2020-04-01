@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 393c3a06a2366a7d6947faf8bbfe038d6c5982fc
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160071"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419667"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicação de página única: Adquira um símbolo para chamar a API
 
@@ -76,20 +76,40 @@ O invólucro MSAL Angular fornece o intercetor HTTP, que adquirirá automaticame
 Pode especificar os âmbitos para `protectedResourceMap` APIs na opção de configuração. `MsalInterceptor`solicitará estes âmbitos ao adquirir automaticamente fichas.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 Para o sucesso e falha da aquisição de token silencioso, a MSAL Angular fornece callbacks que pode subscrever. Também é importante lembrar de cancelar a inscrição.
@@ -103,7 +123,7 @@ Para o sucesso e falha da aquisição de token silencioso, a MSAL Angular fornec
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -149,16 +169,16 @@ Pode utilizar reclamações opcionais para os seguintes fins:
 
 - Inclua reclamações adicionais em fichas para a sua aplicação.
 - Mude o comportamento de certas alegações que a AD Azure devolve em fichas.
-- Adicione e aceda a reclamações personalizadas para a sua aplicação. 
+- Adicione e aceda a reclamações personalizadas para a sua aplicação.
 
 Para solicitar reclamações `IdToken`opcionais, pode enviar `claimsRequest` um `AuthenticationParameters.ts` objeto de reclamações stringified para o campo da classe.
 
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],

@@ -1,6 +1,6 @@
 ---
-title: Exemplos de CLI do Azure – conjunto de dimensionamento com redundância de zona
-description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure executando o Ubuntu em vários Zonas de Disponibilidade.
+title: Amostras Azure CLI - Conjunto de escala redundante de zona
+description: Este script cria um conjunto de escala de máquina virtual Azure que executa Ubuntu em várias Zonas de Disponibilidade.
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -10,13 +10,13 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d03eb9ca86472670caf89f8a9f9c4cf861b2eb62
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278728"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona com CLI do Azure
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Crie um conjunto de máquinas virtuais redundante com o Azure CLI
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu em várias Zonas de Disponibilidade. Depois de executar o script, pode aceder à máquina virtual através de RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

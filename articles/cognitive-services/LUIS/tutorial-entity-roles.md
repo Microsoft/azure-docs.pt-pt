@@ -1,26 +1,18 @@
 ---
 title: 'Tutorial: Dados contextuais com funções - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Encontre dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/30/2020
+ms.openlocfilehash: fdb463896e531619ea7ebe7c384729763dc84138
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75447911"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475817"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados contexicamente relacionados com uma expressão
 
-Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, uma origem e locais de destino para um transfer de uma cidade para outra. Ambos os dados podem ser necessários e estão relacionados uns com os outros.
+Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, locais de origem e destino para um transfer de uma cidade para outra. Ambos os dados podem ser necessários e estão relacionados uns com os outros.
 
 Uma função pode ser usada com qualquer tipo de entidade pré-construída ou personalizada, e usada em ambos os exemplos e padrões.
 
@@ -49,24 +41,26 @@ Deve ser utilizada uma função quando os dados da entidade para extrair:
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
-1. Inscreva-se no portal DE PRÉ-visualização LUIS com o URL de [https://preview.luis.ai](https://preview.luis.ai).
+1. Inscreva-se no portal de [ **pré-visualização** ](https://preview.luis.ai)luis.
 
-1. Selecione Criar nova `HumanResources` **aplicação,** insira o nome e mantenha a cultura padrão, **inglês**. Deixe a descrição em branco.
-
-1. Selecione **Done** (Concluído).
+1. Selecione **+ Nova aplicação para conversação,** introduza o nome `HumanResources` e mantenha a cultura padrão, **inglês**. Deixe a descrição e o recurso de previsão vazios. Selecione **Done** (Concluído).
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Criar uma intenção de mover funcionários entre cidades
 
+Uma intenção é usada para classificar as palavras do utilizador com base na intenção do utilizador, determinada a partir do texto de linguagem natural.
+
+Para classificar uma expressão, a intenção necessita de exemplos de declarações de utilizadores que devem ser classificadas com esta intenção.
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Selecione **Create new intent** (Criar nova intenção).
+1. Selecione **+ Criar**.
 
 1. Introduza `MoveEmployeeToCity` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de ecrã da caixa de diálogo Criar nova de intenção com](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
-1. Adicione expressões de exemplo à intenção.
+1. Adicione várias declarações de exemplo a esta intenção que espera que um utilizador pergunte.
 
     |Expressões de exemplo|
     |--|
@@ -85,24 +79,29 @@ Deve ser utilizada uma função quando os dados da entidade para extrair:
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Adicionar geografia de entidade pré-construídaV2
 
-A entidade pré-construída, geografiaV2, extrai informações de localização, incluindo nomes da cidade. Uma vez que as proclamações têm dois nomes da cidade, relativos uns aos outros em contexto, usam papéis para extrair esse contexto.
+A entidade pré-construída, **geografiaV2,** extrai informações de localização, incluindo nomes da cidade. Uma vez que as proclamações têm dois nomes da cidade, relativos uns aos outros em contexto, usam papéis para extrair esse contexto.
 
 1. Selecione **Entidades** da navegação do lado esquerdo.
 
-1. Selecione Adicionar entidade `geo` **pré-construída**e, em seguida, selecione na barra de pesquisa para filtrar as entidades pré-construídas.
+1. Selecione + Adicione a `geo` **entidade pré-construída**e, em seguida, introduza na barra de pesquisa para filtrar as entidades pré-construídas.
 
     > [!div class="mx-imgBorder"]
     > ![Adicione geografiaV2 entidade pré-construída à app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 
 1. Selecione a caixa de verificação e selecione **Done**.
+
+## <a name="add-roles-to-prebuilt-entity"></a>Adicionar funções a entidade pré-construída
+
 1. Na lista **de Entidades,** selecione o **geografiaV2** para abrir a nova entidade.
-1. Adicione duas `Origin`funções, e `Destination`.
+1. Para adicionar um **+** papel, selecione `Origin`e `Destination`adicione as seguintes duas funções: . e .
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar funções a entidade pré-construída](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+## <a name="label-entity-roles-in-example-utterances"></a>Papel de entidade de etiquetaem em declarações por exemplo
+
 1. Selecione **Intenções** a partir da navegação do lado esquerdo e, em seguida, selecione a intenção **MoveEmployeeToCity.** Note que os nomes da cidade estão rotulados com a entidade pré-construída **geografiaV2**.
-1. Na barra de ferramentas de contexto, selecione a **paleta Entidade**.
+1. Na barra de ferramentas de contexto, selecione a **paleta Entidade** com o ícone do _lápis_.
 
     > [!div class="mx-imgBorder"]
     > ![Selecione Paleta de Entidades a partir da barra de ferramentas de conteúdo](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
@@ -122,18 +121,21 @@ A entidade pré-construída, geografiaV2, extrai informações de localização,
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treine a app para que as alterações à intenção possam ser testadas
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+Para treinar a aplicação, selecione **Train**. A formação aplica as alterações, como as novas entidades e as expressões rotuladas, ao modelo ativo.
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publique a app para que o modelo treinado seja consultado a partir do ponto final
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publique a app para aceder a ela a partir do ponto final http
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+
 
 ## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtenha intenção e previsão de entidade a partir do ponto final
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 
-1. Vá para o final do URL na barra de endereço e introduza `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro de `q`corda é, a **consulta**de expressão. Esta expressão não é a mesma que qualquer uma das declarações rotuladas, `MoveEmployee` pelo que é um bom teste e deve devolver a intenção com a entidade extraída.
+1. Vá até ao fim do URL na _YOUR_QUERY_HERE_ barra `Please move Carl Chamerlin from Tampa to Portland`de endereços e substitua YOUR_QUERY_HERE por .
+
+Esta expressão não é a mesma que qualquer uma das declarações rotuladas, `MoveEmployee` pelo que é um bom teste e deve devolver a intenção com a entidade extraída.
 
     ```json
     {
@@ -171,11 +173,9 @@ A entidade pré-construída, geografiaV2, extrai informações de localização,
     }
     ```
 
-    A intenção correta está prevista e a matriz de entidades tem tanto a origem como as funções de destino na propriedade das **entidades correspondentes.**
+    The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informações relacionadas
 

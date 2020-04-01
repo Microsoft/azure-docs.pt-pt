@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: e65ca30e4f15b6f69f39160c67813047c40ce8ee
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274118"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(DEPRECIADO) Atualizar uma aplicação em Kubernetes
@@ -87,7 +87,7 @@ Obtenha o nome do servidor de início de sessão com o comando [az acr list](/cl
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Utilize a [etiqueta do docker](https://docs.docker.com/engine/reference/commandline/tag/) para assinalar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do Azure Container Registry ou o nome do anfitrião público do registo. Também tenha em atenção que a versão da imagem é atualizada para `redis-v2`.
+Utilize a [etiqueta do docker](https://docs.docker.com/engine/reference/commandline/tag/) para etiquetar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do Azure Container Registry ou o nome do anfitrião público do registo. Também tenha em atenção que a versão da imagem é atualizada para `redis-v2`.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
@@ -171,4 +171,4 @@ Neste tutorial, atualiza uma aplicação e implementa esta atualização num clu
 Avance para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitorizar o Kubernetes com o Log Analytics (Monitor Kubernetes with Log Analytics)](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitorizar o Kubernetes com o Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

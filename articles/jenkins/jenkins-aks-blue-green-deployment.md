@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, kubernetes, k8s, aks, implementação azul ver
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251479"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
@@ -113,10 +113,10 @@ Pode configurar uma implementação azul/verde no AKS manualmente ou utilizar um
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>Configurar o cluster do Kubernetes através do script de configuração de exemplo
 1. Edite o ficheiro **deploy/aks/setup/setup.sh**, substituindo os seguintes marcadores de posição pelos valores adequados para o seu ambiente: 
 
-   - **&lt;your-resource-group-name>**
-   - **&lt;your-kubernetes-cluster-name>**
-   - **&lt;your-location>**
-   - **&lt;your-dns-name-suffix>**
+   - **&lt;>de grupo de recursos**
+   - **&lt;seu-kubernetes-cluster-nome>**
+   - **&lt;>de localização**
+   - **&lt;seu-dns-nome-sufixo>**
 
      ![Captura de ecrã do script setup.sh no bash, com vários marcadores de posição realçados](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
@@ -143,7 +143,7 @@ Pode configurar uma implementação azul/verde no AKS manualmente ou utilizar um
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Atualize o nome DNS dos pontos finais públicos e de teste. Quando cria um cluster do Kubernetes, também cria um [grupo de recursos adicional](https://github.com/Azure/AKS/issues/3), com o padrão de nomenclatura **MC_&lt;your-resource-group-name> _&lt;your-kubernetes-cluster-name>_ &lt;your-location>** .
+1. Atualize o nome DNS dos pontos finais públicos e de teste. Quando cria um cluster do Kubernetes, também cria um [grupo de recursos adicional](https://github.com/Azure/AKS/issues/3), com o padrão de nomenclatura **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**.
 
     Localize os IPs públicos no grupo de recursos.
 
@@ -197,9 +197,9 @@ Nesta secção, vai aprender a preparar o servidor Jenkins para executar uma com
    sudo apt-get install git maven 
    ```
    
-1. [Instale o Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce). Confirme que o utilizador `jenkins` tem permissão para executar os comandos `docker`.
+1. [Instalar docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce). Confirme que o utilizador `jenkins` tem permissão para executar os comandos `docker`.
 
-1. [Instale o kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+1. [Instale kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 1. [Transfira o jq](https://stedolan.github.io/jq/download/).
 
@@ -247,7 +247,7 @@ Nesta secção, vai aprender a preparar o servidor Jenkins para executar uma com
 ## <a name="create-the-job"></a>Criar o trabalho
 1. Adicione um trabalho novo do tipo **Pipeline**.
 
-1. Selecione **Pipeline** > **Definition** > **Pipeline script from SCM** (Pipeline > Definição > Script de pipeline de SCM).
+1. Selecione script **pipeline de** > **definição** > de pipeline**a partir de SCM**.
 
 1. Introduza o URL do repositório de SCM com &lt;your-forked-repo>.
 
@@ -289,4 +289,4 @@ Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os c
 Neste tutorial, aprendeu a implementar no AKS com o Jenkins e o padrão de implementação azul/verde. Para saber mais sobre o fornecedor de Jenkins do Azure, veja o site Jenkins no Azure.
 
 > [!div class="nextstepaction"]
-> [Jenkins no Azure](/azure/jenkins/)
+> [Jenkins em Azure](/azure/jenkins/)

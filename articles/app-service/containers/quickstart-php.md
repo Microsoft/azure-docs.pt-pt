@@ -4,13 +4,13 @@ description: Inicie-se com aplicações Linux no Azure App Service, implementand
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7608c10f2d101a3c24209a5e09bccc6dc31401ca
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validatem seodec18
+ms.openlocfilehash: 5a2abaf49071c90ea4fe0d5b5a454ce91f2cb1e4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524109"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046062"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Crie uma app PHP no App Service no Linux
 
@@ -18,7 +18,7 @@ ms.locfileid: "77524109"
 > Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar no Serviço de Aplicações no _Windows,_ consulte [Criar uma aplicação PHP no Azure](../app-service-web-get-started-php.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação PHP para o Azure App Service no Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação PHP para o Azure App Service no Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Aplicação Web de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -30,8 +30,8 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
-* <a href="https://php.net" target="_blank">Instalar o PHP</a>
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://php.net" target="_blank">Instalar PHP</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -70,7 +70,7 @@ Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Navegue no site para ver a sua aplicação recém-criada com imagem incorporada. Substitua _&lt;nome de aplicação>_ com o nome da sua aplicação.
+Navegue no site para ver a sua aplicação recém-criada com imagem incorporada. Substitua o _ &lt;nome da aplicação>_ pelo nome da sua aplicação.
 
 ```bash
 http://<app_name>.azurewebsites.net

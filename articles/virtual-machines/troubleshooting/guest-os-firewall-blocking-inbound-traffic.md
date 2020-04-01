@@ -1,6 +1,6 @@
 ---
 title: Firewall Do Os do Azure VM Está bloqueando o tráfego de entrada Microsoft Docs
-description: ''
+description: Saiba como corrigir o problema de ligação do Portal de Ambiente de Trabalho Remoto (RDP) que a firewall do sistema operativo do hóspede está a bloquear o tráfego de entrada.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72028788"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422548"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall do Os Do MS de Hóspedes Azure está bloqueando o tráfego de entrada
 

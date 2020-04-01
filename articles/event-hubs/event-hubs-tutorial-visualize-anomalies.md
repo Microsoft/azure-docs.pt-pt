@@ -10,10 +10,10 @@ ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
 ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77163182"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
@@ -38,23 +38,23 @@ Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-- Instalar o [Visual Studio](https://www.visualstudio.com/). 
+- Instalar [o Estúdio Visual.](https://www.visualstudio.com/) 
 - Precisa de uma conta do Power BI para analisar a saída de uma tarefa do Stream Analytics. Pode [experimentar o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).
 
-## <a name="set-up-resources"></a>Configurar os recursos
+## <a name="set-up-resources"></a>Configurar recursos
 
 Para este tutorial, precisa de um espaço de nomes de Hubs de Eventos e de um hub de eventos. Pode criar estes recursos com a CLI do Azure ou com o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no final, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 As secções seguintes descrevem como executar estes passos obrigatórios. Siga as instruções da CLI *ou* do PowerShell para executar os seguintes passos:
 
-1. Crie um [grupo de recursos](../azure-resource-manager/management/overview.md). 
+1. Criar um [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Crie um espaço de nomes dos Hubs de Eventos. 
 
 3. Crie um hub de eventos.
 
 > [!NOTE]
-> Existem variáveis definidas em cada script de que precisará mais à frente no tutorial. Estas variáveis incluem o nome do grupo de recursos ($resourceGroup), o espaço de nomes do hub de eventos ( **$eventHubNamespace**) e o nome do hub de eventos ( **$eventHubName**). Estas variáveis são referidas com os respetivos prefixos de cifrão ($) neste artigo, para que saiba que foram definidas no script.
+> Existem variáveis definidas em cada script de que precisará mais à frente no tutorial. Estas variáveis incluem o nome do grupo de recursos ($resourceGroup), o espaço de nomes do hub de eventos (**$eventHubNamespace**) e o nome do hub de eventos (**$eventHubName**). Estas variáveis são referidas com os respetivos prefixos de cifrão ($) neste artigo, para que saiba que foram definidas no script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
@@ -159,8 +159,8 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 As amostras do Event Hubs [no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluem uma aplicação do Detetor de Anomalias que produz dados de teste para si. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
 
 1. Transfira os [exemplos de Hubs de Eventos do Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) do GitHub e deszipe o ficheiro localmente.
-2. Navegue para a pasta **\azure-event-hubs-master\samples\DotNet\\** pasta. 
-3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector\\** e clique em **anomalyDetector.sln** para abrir a solução no Estúdio Visual. 
+2. Navegue para a pasta **\azure-event-hubs-master\samples\DotNet\\ ** pasta. 
+3. Mude para a pasta **Azure.Messaging.EventHubs\AnomalyDetector\\ ** e clique duas vezes em **AnomalyDetector.sln** para abrir a solução no Estúdio Visual. 
 
     Para utilizar a versão antiga da amostra que utiliza o antigo pacote Microsoft.Azure.EventHubs, abra a solução a partir da pasta **Microsoft.Azure.EventHubs\AnomalyDetector.** 
 3. Abra o ficheiro Program.cs e substitua **Event Hubs connection string** pela cadeia de ligação que guardou quando executou o script. 
@@ -178,7 +178,7 @@ Agora, pode transmitir dados em fluxo para o seu hub de eventos. Para utilizar e
 
    **Nome da tarefa**: utilize **contosoEHjob**. Este campo é o nome da tarefa e tem de ser globalmente exclusivo.
 
-   **Subscrição**: selecione a sua subscrição.
+   **Subscrição**: Selecione a sua subscrição.
 
    **Grupo de recursos**: utilize o mesmo grupo de recursos utilizado pelo seu hub de eventos (**ContosoResourcesEH**).
 
@@ -203,7 +203,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
    **Alias de entrada**: utilize **contosoinputs**. Este campo é o nome do fluxo de entrada, utilizado quando define a consulta para os dados.
 
-   **Subscrição**: selecione a sua subscrição.
+   **Subscrição**: Selecione a sua subscrição.
 
    **Espaço de nomes dos Hubs de Eventos**: selecione o seu espaço de nomes do Hub de Eventos ($**eventHubNamespace**). 
 
@@ -221,9 +221,9 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 
-1. Em **Topologia da Tarefa**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
+1. Em **Topologia de Tarefas**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
 
-2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: utilize **contosooutputs**. Este campo é o alias exclusivo para a saída. 
 
@@ -245,7 +245,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 Esta consulta serve para obter os dados que, por fim, são enviados para a visualização do Power BI. Utiliza **contosoinputs** e **contosooutputs**, que definiu anteriormente quando configurou a tarefa. Esta consulta obtém as transações de cartão de crédito que considera fraudulentas, que são transações nas quais o mesmo número de cartão de crédito tem várias transações em diferentes localizações no mesmo intervalo de cinco segundos.
 
-1. Em **Topologia da Tarefa**, clique em **Consulta**.
+1. Em **Topologia de Tarefas**, clique em **Consulta**.
 
 2. Substitua a consulta pela seguinte: 
 
@@ -290,7 +290,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 1. Execute a aplicação Deteção de Anomalias para enviar dados para o hub de eventos enquanto estiver a configurar a visualização do Power BI. Pode ser necessário executá-la várias vezes, uma vez que gera apenas 1000 transações de cada vez que é executada.
 
-2. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
+2. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
 3. Aceda a **A minha área de trabalho**.
 
@@ -351,7 +351,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 Se quiser remover todos os recursos que criou, remova os dados de visualização do Power BI e, em seguida, elimine o grupo de recursos. Eliminar o grupo de recursos elimina todos os recursos incluídos no grupo. Neste caso, remove o hub de eventos, o espaço de nomes do Hub de Eventos, tarefa do Stream Analytics e o próprio grupo de recursos. 
 
-### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
 Inicie sessão na sua conta do Power BI. Aceda a **A minha área de trabalho**. Na linha com o nome do dashboard, clique no ícone de lixo. Em seguida, aceda a **Conjuntos de Dados** e clique no ícone de lixo para eliminar o conjunto de dados (**contosoehdataset**).
 

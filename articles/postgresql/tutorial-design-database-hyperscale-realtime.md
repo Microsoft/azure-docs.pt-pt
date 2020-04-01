@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76716323"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Desenhe um dashboard de análise em tempo real utilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
@@ -86,7 +86,7 @@ Pode ver as mesas recém-criadas na lista de tabelas agora com este comando psql
 
 Uma implantação de hiperescala armazena linhas de mesa em diferentes nódosos com base no valor de uma coluna designada pelo utilizador. Esta "coluna de distribuição" marca como os dados são espalhados por nós.
 
-Vamos definir a coluna de distribuição para ser o local\_id, a chave do fragmento. No psql, executar estas funções:
+Vamos definir a coluna de\_distribuição para ser id local, a chave do fragmento. No psql, executar estas funções:
 
   ```sql
 SELECT create_distributed_table('http_request',      'site_id');
@@ -95,7 +95,7 @@ SELECT create_distributed_table('http_request_1min', 'site_id');
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
-Agora o nosso grupo de servidores deve estar pronto para ingerir alguns dados. Podemos executar o seguinte localmente a partir da nossa ligação `psql` para inserir continuamente dados.
+Agora o nosso grupo de servidores deve estar pronto para ingerir alguns dados. Podemos executar o seguinte `psql` localmente a partir da nossa ligação para inserir continuamente dados.
 
 ```sql
 DO $$
@@ -122,7 +122,7 @@ DO $$
 END $$;
 ```
 
-A consulta insere aproximadamente oito linhas a cada segundo. As filas são armazenadas em diferentes nós de trabalhador, tal como dirigido pela coluna de distribuição, `site_id`.
+A consulta insere aproximadamente oito linhas a cada segundo. As filas são armazenadas em diferentes nós de trabalhador, `site_id`tal como dirigido pela coluna de distribuição, .
 
    > [!NOTE]
    > Deixe a consulta de geração de dados em execução, e abra uma segunda ligação psql para os restantes comandos neste tutorial.
@@ -155,7 +155,7 @@ A consulta anterior funciona bem nas fases iniciais, mas o seu desempenho degrad
 
 Podemos garantir que o nosso dashboard se mantenha rápido, rolando regularmente os dados brutos numa tabela agregada. Pode experimentar a duração da agregação. Usamos uma tabela de agregação por minuto, mas pode quebrar os dados em 5, 15 ou 60 minutos.
 
-Para executar este roll-up mais facilmente, vamos colocá-lo em uma função plpgsql. Executar estes comandos em psql para criar a função `rollup_http_request`.
+Para executar este roll-up mais facilmente, vamos colocá-lo em uma função plpgsql. Executar estes comandos em psql para criar a `rollup_http_request` função.
 
 ```sql
 -- initialize to a time long ago
@@ -220,7 +220,7 @@ Na produção, pode embrulhar estas consultas numa função e chamá-las a cada 
 
 Nos passos anteriores, criou os recursos do Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Visão Geral'* para o seu grupo de servidores. Quando solicitado numa página pop-up, confirme o nome do grupo do servidor e clique no *botão* Eliminar final.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a fornecer um grupo de servidores de Hiperescala (Citus). Ligaste-lhe com o PSQL, criaste um esquema e distribuíste dados. Aprendeu a consultar dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar dados antigos.
 

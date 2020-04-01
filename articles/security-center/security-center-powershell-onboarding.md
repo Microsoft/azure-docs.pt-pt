@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603685"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435481"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque do Azure Security Center usando o PowerShell
 
@@ -29,13 +29,13 @@ O Onboarding Azure Security Center utilizando o PowerShell permite-lhe automatiz
 
 Este artigo fornece um script PowerShell de amostra que pode ser modificado e usado no seu ambiente para lançar o Security Center através das suas subscrições. 
 
-Neste exemplo, permitiremos o Centro de Segurança numa subscrição com ID: d07c0080-170c-4c24-861d-9c81742786c e aplicaras as definições recomendadas que proporcionam um alto nível de proteção, implementando o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de Segurança, que fornece o nível padrão de Centro de capacidades avançadas de proteção e deteção de ameaças:
+Neste exemplo, permitiremos o Centro de Segurança numa subscrição com ID: d07c0080-170c-4c24-861d-9c81742786c e aplicaras as definições recomendadas que proporcionam um alto nível de proteção, implementando o nível padrão de Centro de Segurança, que fornece capacidades avançadas de proteção e deteção de ameaças:
 
 1. Desempor o [nível padrão de proteção do Centro de Segurança.](https://azure.microsoft.com/pricing/details/security-center/) 
  
-2. Detete o espaço de trabalho do Log Analytics para o qual o Microsoft Monitoring Agent enviará os dados que recolhe nos VMs associados à subscrição – neste exemplo, um espaço de trabalho definido pelo utilizador existente (myWorkspace).
+2. Detete o espaço de trabalho do Log Analytics para o qual o agente Log Analytics enviará os dados que recolhe nos VMs associados à subscrição – neste exemplo, um espaço de trabalho definido pelo utilizador existente (myWorkspace).
 
-3. Ativar o fornecimento automático de agentes do Security Center que [implementa o Agente de Monitorização da Microsoft](security-center-enable-data-collection.md#auto-provision-mma).
+3. Ativar o fornecimento automático de agentes do Security Center que [implementa o agente Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Detete o CISO da organização [como o contacto de segurança para alertas do Centro de Segurança e eventos notáveis.](security-center-provide-security-contact-details.md)
 
@@ -68,7 +68,7 @@ Estes passos devem ser realizados antes de executar o Centro de Segurança cmdle
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Instalação automática do Agente de Monitorização da Microsoft nos seus VMs Azure:
+4.  Instalação automática do agente Log Analytics nos seus VMs Azure:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     

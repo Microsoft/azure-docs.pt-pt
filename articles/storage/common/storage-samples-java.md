@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 46f19748ea56777bd1c23b3cf066fa28787d8882
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77486105"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Amostras de armazenamento azure usando bibliotecas de clientes v12 Java
@@ -41,7 +41,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
       [Criar um cliente de serviço blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
    :::column-end:::
    :::column span="":::
-      [Lista de contentores](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
+      [Listar contentores](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -73,12 +73,12 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
       [Criar um cliente de contentores](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L57)
    :::column-end:::
    :::column span="":::
-      [Criar um recipiente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L64)
+      [Criar um contentor](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L64)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista de bolhas](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
+      [Listar blobs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
    :::column-end:::
    :::column span="":::
       [Eliminar um contentor](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L123)
@@ -89,15 +89,15 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 
 :::row:::
    :::column span="":::
-      [Faça upload de uma bolha](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
+      [Carregar um blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
    :::column-end:::
    :::column span="":::
-      [Descarregue uma bolha](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
+      [Transferir um blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Apagar uma bolha](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L118)
+      [Eliminar um blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L118)
    :::column-end:::
    :::column span="":::
       [Faça upload de uma bolha de um ficheiro grande](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L95)
@@ -219,7 +219,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Descarregue um ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L127)
+      [Transferir um ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L127)
    :::column-end:::
 :::row-end:::
 
@@ -280,7 +280,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Eliminar uma parte](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L151)
+      [Eliminar uma partilha](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L151)
    :::column-end:::
 :::row-end:::
 
@@ -318,15 +318,15 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
       [Criar um cliente de ficheiros](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L45)
    :::column-end:::
    :::column span="":::
-      [Faça upload de um ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
+      [Carregar um ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Descarregue um ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
+      [Transferir um ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
    :::column-end:::
    :::column span="":::
-      [Obtenha propriedades de arquivo](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
+      [Obter as propriedades do ficheiro](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -401,7 +401,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Apagar uma fila](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L64)
+      [Eliminar uma fila](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L64)
    :::column-end:::
 :::row-end:::
 
@@ -425,7 +425,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de amostras e d
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Mesas de consulta](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
+      [Consulta tabelas](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
    :::column-end:::
    :::column span="":::
       [Mesa ACL/propriedades](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)

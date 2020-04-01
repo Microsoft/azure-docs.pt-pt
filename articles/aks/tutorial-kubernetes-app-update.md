@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77593381"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar uma aplicação no Serviço Kubernetes do Azure (AKS)
@@ -30,7 +30,7 @@ Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. 
 
 Também foi clonado um repositório de aplicações que inclui o código de origem da aplicação e foi utilizado um ficheiro do Docker Compose pré-criado neste tutorial. Verifique se criou um clone do repo, e mudou os diretórios para o diretório clonado. Se ainda não tiver concluído estes passos e quiser seguir em frente, comece pelo [Tutorial 1 – Criar imagens][aks-tutorial-prepare-app]de contentores .
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="update-an-application"></a>Atualizar uma aplicação
 
@@ -50,11 +50,11 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Guarde e feche o ficheiro. Em `vi`, use `:wq`.
+Guarde e feche o ficheiro. Dentro, `vi` `:wq`use.
 
 ## <a name="update-the-container-image"></a>Atualizar a imagem de contentor
 
-Para recriar a imagem frontal e testar a aplicação atualizada, utilize a [composição do estivador][docker-compose]. O argumento `--build` serve para instruir o Docker Compose para voltar a criar a imagem de aplicação:
+Para voltar a criar a imagem de front-end e testar a aplicação atualizada, utilize [docker-compose][docker-compose]. O argumento `--build` serve para instruir o Docker Compose para voltar a criar a imagem de aplicação:
 
 ```console
 docker-compose up --build -d
@@ -70,19 +70,19 @@ Os valores atualizados fornecidos no ficheiro *config_file.cfg* são apresentado
 
 ## <a name="tag-and-push-the-image"></a>Etiquetar e enviar a imagem
 
-Para utilizar corretamente a imagem atualizada, etiquete a imagem *azure-vote-front* com o nome do servidor de início de sessão do registo do ACR. Obtenha o nome do servidor de início de sessão com o comando [az acr list](/cli/azure/acr):
+Para utilizar corretamente a imagem atualizada, etiquete a imagem *azure-vote-front* com o nome do servidor de início de sessão do registo do ACR. Obtenha o nome do servidor de login com o comando [da lista az acr:](/cli/azure/acr)
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Utilize a [etiqueta do docker][docker-tag] para assinalar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do ACR ou pelo nome de anfitrião do registo público e atualize a versão da imagem para *:v2* da seguinte forma:
+Utilize a [etiqueta do docker][docker-tag] para etiquetar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do ACR ou pelo nome de anfitrião do registo público e atualize a versão da imagem para *:v2* da seguinte forma:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Agora use [o docker push][docker-push] para carregar a imagem para o seu registo. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do ACR.
+Agora, utilize [docker push][docker-push] para carregar a imagem para o registo. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do ACR.
 
 > [!NOTE]
 > Se tiver problemas em empurrar para o seu registo ACR, certifique-se de que ainda está registado. Execute o comando de [login az acr][az-acr-login] utilizando o nome do seu Registo de Contentores Azure que criou na etapa de Registo de Contentores [Do Mato Criar.](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) Por exemplo, `az acr login --name <azure container registry name>`.
@@ -93,7 +93,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>Implementar a aplicação atualizada
 
-Para fornecer o máximo de tempo de uptime, várias instâncias da cápsula de aplicação devem estar em execução. Verifique o número de instâncias frontais em execução com o comando [kubectl get pods:][kubectl-get]
+Para fornecer o máximo de tempo de uptime, várias instâncias da cápsula de aplicação devem estar em execução. Verifique se o número de instâncias de front-end em execução com o comando [kubectl get pods][kubectl-get]:
 
 ```
 $ kubectl get pods
@@ -160,7 +160,7 @@ Neste tutorial, atualizou uma aplicação e lançou esta atualização para o se
 Avance para o próximo tutorial para saber como atualizar um cluster do AKS para uma nova versão do Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Upgrade Kubernetes][aks-tutorial-upgrade]
+> [Atualizar Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

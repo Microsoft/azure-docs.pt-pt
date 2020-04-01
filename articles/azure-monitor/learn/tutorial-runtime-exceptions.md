@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670428"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
@@ -40,7 +40,7 @@ Para concluir este tutorial:
 - O tutorial controla a identificação de uma exceção na sua aplicação, por isso, modifique o código no seu ambiente de desenvolvimento ou de teste para gerar uma exceção. 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 
 ## <a name="analyze-failures"></a>Analisar falhas
@@ -63,7 +63,7 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
 
     ![Amostras dos pedidos com falhas](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência](../../azure-monitor/app/transaction-diagnostics.md). Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
+6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência.](../../azure-monitor/app/transaction-diagnostics.md) Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
 
     ![Detalhes dos pedidos com falhas](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -83,9 +83,9 @@ O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua 
 
     ![Depurar o instantâneo](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-4. Em seguida, tem a opção para transferir este instantâneo para o Visual Studio onde poderemos localizar o código real que precisa de ser corrigido. Para isso, clique em **Baixar instantâneos**.
+4. Em seguida, tem a opção de descarregar este instantâneo para o Visual Studio, onde podemos localizar o código real que precisa de ser corrigido. Para isso, clique em **Baixar instantâneos**.
 5. O instantâneo é carregado para o Visual Studio.
-6. Agora, pode executar uma sessão de depuração no Visual Studio Enterprise, que identifica rapidamente a linha de código que causou a exceção.
+6. Agora pode executar uma sessão de depuração na Visual Studio Enterprise que rapidamente identifica a linha de código que causou a exceção.
 
     ![Exceção no código](media/tutorial-runtime-exceptions/exception-code.png)
 

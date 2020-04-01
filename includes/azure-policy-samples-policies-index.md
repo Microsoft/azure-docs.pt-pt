@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: bdd46f06357a806a707882a623520235e3903581
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79381573"
 ---
 ## <a name="app-configuration"></a>App Configuration
@@ -82,7 +82,7 @@ ms.locfileid: "79381573"
 
 [!INCLUDE [azure-policy-samples-policies-kubernetes-service](azure-policy-samples-policies-kubernetes-service.md)]
 
-## <a name="lighthouse"></a>Farol
+## <a name="lighthouse"></a>Lighthouse
 
 [!INCLUDE [azure-policy-samples-policies-lighthouse](azure-policy-samples-policies-lighthouse.md)]
 

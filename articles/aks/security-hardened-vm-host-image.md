@@ -2,42 +2,41 @@
 title: Endurecimento de segurança nos anfitriões de máquinas virtuais AKS
 description: Saiba mais sobre o endurecimento de segurança no hospedeiro DO O da AKS VM
 services: container-service
-author: saudas
+author: mlearned
 ms.topic: article
 ms.date: 09/11/2019
-ms.author: saudas
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594385"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420905"
 ---
-# <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Endurecimento de segurança nos anfitriões de máquinas virtuais AKS 
+# <a name="security-hardening-for-aks-agent-node-host-os"></a>Reforço de segurança para o nó de agente AKS anfitrião OS
 
 O Serviço Azure Kubernetes (AKS) é um serviço seguro compatível com as normas SOC, ISO, PCI DSS e HIPAA. Este artigo cobre o endurecimento de segurança aplicado aos anfitriões de máquinas virtuais AKS. Para obter mais informações sobre a segurança da AKS, consulte conceitos de [segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
 
-Os clusters AKS são implantados em máquinas virtuais hospedeiras, que executam um SISTEMA otimizado de segurança. Este osso hospedeiro baseia-se atualmente numa imagem Ubuntu 16.04.LTS com um conjunto de medidas adicionais de endurecimento de segurança aplicadas (ver detalhes de endurecimento de segurança).   
+> [!Note]
+> Este documento é remepto apenas aos agentes linux na AKS.
 
-O objetivo do hospedeiro de segurança endurecido o SISTEMA é reduzir a área de ataque da superfície e permitir a implantação de contentores de forma segura. 
+Os clusters AKS são implantados em máquinas virtuais hospedeiras, que executam um SISTEMA otimizado de segurança que é utilizado para contentores em funcionamento no AKS. Este osso hospedeiro baseia-se numa imagem **Ubuntu 16.04.LTS** com endurecimento de segurança adicional e otimizações aplicadas (ver detalhes de endurecimento de segurança).
+
+O objetivo do sistema de segurança endurecido do hospedeiro o SISTEMA é reduzir a área de ataque da superfície e otimizar para a implantação de contentores de forma segura.
 
 > [!Important]
-> O SISTEMA de segurança endurecido não é referenciado por CIS. Embora existam sobreposições com referências de CIS, o objetivo não é ser compatível com o CIS. O objetivo do endurecimento do OS do hospedeiro é convergir num nível de segurança consistente com os padrões internos de segurança do anfitrião da Microsoft. 
+> O SISTEMA de segurança endurecido não é referenciado por CIS. Embora existam sobreposições com referências de CIS, o objetivo não é ser compatível com o CIS. O objetivo do endurecimento do OS do hospedeiro é convergir num nível de segurança consistente com os padrões internos de segurança do anfitrião da Microsoft.
 
-## <a name="security-hardening-features"></a>Características de endurecimento de segurança 
+## <a name="security-hardening-features"></a>Características de endurecimento de segurança
 
-* A AKS fornece um sistema operativo de hospedas otimizado para a segurança por padrão. Não existe uma opção atual para selecionar um sistema operativo alternativo. 
+* A AKS fornece um sistema operativo de hospedas otimizado para a segurança por padrão. Não existe opção de selecionar um sistema operativo alternativo.
 
 * O Azure aplica patches diários (incluindo patches de segurança) aos anfitriões de máquinas virtuais AKS. Algumas destas manchas exigirão um reboot, enquanto outras não. É responsável por agendar reboots de anfitriões de VM AKS, se necessário. Para obter orientações sobre como automatizar o remendo AKS, consulte [os remendos aks](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
-Abaixo está um resumo do trabalho de endurecimento de imagem que é implementado no AKS-Engine para produzir o hospedeiro otimizado de segurança OS. O trabalho foi implementado [neste projeto GitHub.](https://github.com/Azure/aks-engine/projects/7)  
+## <a name="what-is-configured"></a>O que está configurado
 
-O AKS-Engine não promove nem adere a qualquer norma de segurança específica neste momento, mas os IDs de auditoria do CIS (Center for Internet Security) são fornecidos para conveniência quando aplicável. 
-
-## <a name="whats-configured"></a>O que está configurado?
-
-| CIS  | Descrição da auditoria| 
+| CIS  | Descrição da auditoria|
 |---|---|
 | 1.1.1.1 |Certifique-se de que a montagem de sistemas de ficheiros cramfs está desativada|
 | 1.1.1.2 |Certifique-se de que a montagem de sistemas de ficheiros freevxfs está desativada|
@@ -78,9 +77,9 @@ O AKS-Engine não promove nem adere a qualquer norma de segurança específica n
 
 ## <a name="additional-notes"></a>Notas adicionais
  
-* Para reduzir ainda mais a área da superfície do ataque, alguns condutores de módulos de kernel desnecessários foram desativados no SISTEMA. 
+* Para reduzir ainda mais a área da superfície do ataque, alguns condutores de módulos de kernel desnecessários foram desativados no SISTEMA.
 
-* O SISTEMA de segurança não é suportado fora da plataforma AKS. 
+* O Sistema operativo reforçado de segurança é construído e mantido especificamente para aks e NÃO é suportado fora da plataforma AKS.
 
 ## <a name="next-steps"></a>Passos seguintes  
 

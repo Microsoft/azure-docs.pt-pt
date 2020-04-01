@@ -1,5 +1,5 @@
 ---
-title: Tutorial do MongoDB, reagir e node. js para o Azure
+title: MongoDB, React e Node.js tutorial para Azure
 description: Saiba como criar uma aplicação MongoDB com o React e o Node.js no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB nesta série de tutoriais em vídeo.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,17 +10,17 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.openlocfilehash: 4efaa90281ddcebf1b800e1016578e38c24be651
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "69614110"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar uma aplicação MongoDB com o React e o Azure Cosmos DB  
 
-Este tutorial de vídeo com várias parte demonstra como criar uma aplicação de acompanhamento de heroes com um front-end do React. O aplicativo usado node e Express para o servidor, conecta-se ao banco de dados Cosmos configurado com a [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md)e, em seguida, conecta o front-end da reagem à parte do servidor do aplicativo. O tutorial também demonstra como fazer o dimensionamento de ponto e clique de Cosmos DB no portal do Azure e como implantar o aplicativo na Internet para que todos possam controlar seus Heroes favoritos. 
+Este tutorial de vídeo com várias parte demonstra como criar uma aplicação de acompanhamento de heroes com um front-end do React. A aplicação usou o Nó e o Express para o servidor, conecta-se à base de dados cosmos configurada com a [API do Azure Cosmos DB para MongoDB,](mongodb-introduction.md)e depois liga a extremidade frontal do React à parte do servidor da app. O tutorial também demonstra como fazer escala de ponto e clique de Cosmos DB no portal Azure e como implementar a app para a internet para que todos possam rastrear os seus heróis favoritos. 
 
-O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) dá suporte à compatibilidade de protocolo de conexão com o MongoDB, permitindo que os clientes usem Azure Cosmos DB no lugar do MongoDB.  
+[A Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) suporta a compatibilidade do protocolo de arame com a MongoDB, permitindo aos clientes utilizarem o Azure Cosmos DB no lugar da MongoDB.  
 
 Este tutorial com várias parte abrange as seguintes tarefas:
 
@@ -69,7 +69,7 @@ Este vídeo mostra como criar uma conta do Azure Cosmos DB no portal do Azure, i
 
 ## <a name="read-and-create-heroes-in-the-app"></a>Ler e criar heroes na aplicação
 
-Este vídeo mostra como ler Heroes e criar Heroes no banco de dados Cosmos, bem como testar esses métodos usando o postmaster e a interface do usuário reagir. 
+Este vídeo mostra como ler heróis e criar heróis na base de dados cosmos, bem como como testar esses métodos usando o Carteiro e a UI react. 
 
 > [!VIDEO https://www.youtube.com/embed/AQK9n_8fsQI] 
 
@@ -92,7 +92,7 @@ Se não pretender continuar a utilizar esta aplicação, siga os passos abaixo p
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou. 
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -106,5 +106,5 @@ Neste tutorial, ficou a saber como:
 Pode avançar para o próximo tutorial para ficar a saber como importar dados do MongoDB para o Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importar dados da MongoDB para o Azure Cosmos DB](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md) (Importar dados do MongoDB para o Azure Cosmos DB)
  

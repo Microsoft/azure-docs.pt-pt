@@ -1,6 +1,6 @@
 ---
-title: Exemplos de Azure PowerShell – criar um conjunto de dimensionamento de máquinas virtuais completo
-description: Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016, onde os recursos individuais são configurados e criados.
+title: Amostras Azure PowerShell - Crie um conjunto completo de escala de máquina virtual
+description: Este script cria um conjunto de máquinas virtuais que executa o Windows Server 2016, onde os recursos individuais são configurados e criados.
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -9,15 +9,15 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 522dc1e24b8d3c4abd7b24dd3e0901e02b78992d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278697"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais completo com o PowerShell
 
-Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Os recursos individuais são configurados e criados, em vez de usar as [Opções de criação de recurso interno disponíveis aqui em New-AzVmss](powershell-sample-create-simple-scale-set.md). Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
+Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Os recursos individuais são configurados e criados, em vez de utilizarem as [opções de criação de recursos incorporados disponíveis aqui em New-AzVmss.](powershell-sample-create-simple-scale-set.md) Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
 | [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | Cria uma configuração de IP de front-end para um balanceador de carga. |
 | [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | Cria uma configuração do conjunto de endereços de back-end para um balanceador de carga. |
@@ -55,7 +55,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [New-AzVmssConfig](/powershell/module/az.Compute/New-azVmssConfig) | Cria uma configuração de conjunto de dimensionamento. Esta configuração inclui informações como o número de instâncias VM para criar, o SKU (tamanho) de VM e o modo de política de atualização. A configuração é adicionada pelos cmdlets adicionais e é utilizada durante a criação do conjunto de dimensionamento. |
 | [Set-AzVmssStorageProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Defina a imagem a ser utilizada para as instâncias VM e adicione-a à configuração de conjunto de dimensionamento. |
 | [Set-AzVmssOsProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Define o nome de utilizador administrativo, as credenciais de palavra-passe e o prefixo de atribuição de nomes de VM. Adicione estes valores à configuração do conjunto de dimensionamento. |
-| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.Compute/Add-azVmssNetworkInterfaceConfiguration) | Adicione uma interface de rede virtual às instâncias de VM, com base na configuração de IP. Adicione estes valores à configuração do conjunto de dimensionamento. |
+| [Reconfiguração Add-AzVmssNetworkInterface](/powershell/module/az.Compute/Add-azVmssNetworkInterfaceConfiguration) | Adicione uma interface de rede virtual às instâncias de VM, com base na configuração de IP. Adicione estes valores à configuração do conjunto de dimensionamento. |
 | [New-AzVmss](/powershell/module/az.Compute/New-azVmss) | Crie o conjunto de dimensionamento, com base nas informações fornecidas na configuração do conjunto de dimensionamento. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o moconavi | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o moconavi.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a moconavi Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o moconavi.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,214 +16,214 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 038520e662a205bc173035fd19656cbaf4800239
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160515"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: integração do Azure Active Directory com o moconavi
+# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Diretório Ativo Azure com a moconavi
 
-Neste tutorial, você aprenderá a integrar o moconavi com o Azure Active Directory (Azure AD).
-A integração do moconavi ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, aprende-se a integrar o Moconavi com o Azure Ative Directory (Azure AD).
+Integrar o moconavi com a Azure AD proporciona-lhe os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao moconavi.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao moconavi (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Pode controlar em Azure AD quem tem acesso a moconavi.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na moconavi (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao moconavi, você precisará dos seguintes itens:
+Para configurar a integração da AD Azure com o moconavi, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* assinatura habilitada para logon único do moconavi
+* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* assinatura moconavi única ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* o moconavi dá suporte ao SSO iniciado por **SP**
+* moconavi apoia **SP** iniciado SSO
 
-## <a name="adding-moconavi-from-the-gallery"></a>Adicionando o moconavi da Galeria
+## <a name="adding-moconavi-from-the-gallery"></a>Adicionando moconavi da galeria
 
-Para configurar a integração do moconavi ao Azure AD, você precisará adicionar o moconavi da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do moconavi em Azure AD, você precisa adicionar moconavi da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar o moconavi da galeria, execute as seguintes etapas:**
+**Para adicionar moconavi da galeria, execute os seguintes passos:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **moconavi**, selecione **moconavi** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **moconavi,** selecione **moconavi** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
      ![moconavi na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o moconavi, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no moconavi.
+Nesta secção, configura e testa o único sign-on azure ad com moconavi com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em moconavi.
 
-Para configurar e testar o logon único do Azure AD com o moconavi, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Azure AD com moconavi, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do moconavi](#configure-moconavi-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do moconavi](#create-moconavi-test-user)** – para ter um equivalente de Brenda Simon no moconavi que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o moconavi Single Sign-On](#configure-moconavi-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Crie um utilizador de teste de moconavi](#create-moconavi-test-user)** - para ter uma contrapartida de Britta Simon em moconavi que esteja ligada à representação da AD Azure do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o logon único do Azure AD com o moconavi, execute as seguintes etapas:
+Para configurar o único signo da Azure AD com o moconavi, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **moconavi** , selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **moconavi,** selecione **Single sign-on**.
 
-    ![Link configurar logon único](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![informações de logon único de domínio e URLs do moconavi](common/sp-identifier-reply.png)
+    ![moconavi Domínio e URLs informações únicas de inscrição](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
+    a. Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<yourserverurl>/moconavi-saml2/saml/login`
 
-    b. Na caixa **identificador** , digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2`
+    b. Na caixa **de identificador,** digite um URL utilizando o seguinte padrão:`https://<yourserverurl>/moconavi-saml2`
 
-    c. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/SSO`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de logon, o identificador e a URL de resposta reais. Contate a [equipe de suporte ao cliente do moconavi](mailto:support@recomot.co.jp) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL, Identificador e Resposta real. Contacte a equipa de apoio ao [cliente da Moconavi](mailto:support@recomot.co.jp) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
+5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download do certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar moconavi** , copie as URLs apropriadas de acordo com seu requisito.
+6. Na secção **Configurar moconavi,** copie os URL(s) adequados de acordo com o seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de logon
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de logout
+    c. Logout URL
 
-### <a name="configure-moconavi-single-sign-on"></a>Configurar o logon único do moconavi
+### <a name="configure-moconavi-single-sign-on"></a>Configure moconavi Single Sign-On
 
-Para configurar o logon único no lado do **moconavi** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [moconavi](mailto:support@recomot.co.jp). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Para configurar um único sinal no lado de **Moconavi,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte de Moconavi](mailto:support@recomot.co.jp). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo usuário](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
+    b. No **tipo** de campo de nome utilizador **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao moconavi.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso a moconavi.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **moconavi**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **moconavi**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **moconavi**.
+2. Na lista de aplicações, selecione **moconavi**.
 
-    ![O link do moconavi na lista de aplicativos](common/all-applications.png)
+    ![O link moconavi na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-moconavi-test-user"></a>Criar usuário de teste do moconavi
+### <a name="create-moconavi-test-user"></a>Criar o utilizador de teste moconavi
 
-Nesta seção, você criará um usuário chamado Brenda Simon no moconavi. Trabalhe com a [equipe de suporte do moconavi](mailto:support@recomot.co.jp) para adicionar os usuários na plataforma do moconavi. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta secção, cria-se uma utilizadora chamada Britta Simon em moconavi. Trabalhe com a equipa de [suporte da Moconavi](mailto:support@recomot.co.jp) para adicionar os utilizadores na plataforma moconavi. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-1. Instale o moconavi da Microsoft Store.
+1. Instale moconavi na loja da Microsoft.
 
-2. Inicie o moconavi.
+2. Começa a moconavi.
 
-3. Clique no botão de **configuração conectar** .
+3. Clique no botão de **definição De Ligar.**
 
-    ![Testando o logon único](./media/moconavi-tutorial/testing1.png)
+    ![Testar um único sinal](./media/moconavi-tutorial/testing1.png)
 
-4. Digite `https://mcs-admin.moconavi.biz/gateway` na caixa de texto **conectar à URL** e clique no botão **concluído** .
+4. Introduza `https://mcs-admin.moconavi.biz/gateway` a **Connect na caixa** de texto URL e, em seguida, clique no botão **Done.**
 
-    ![Testando o logon único](./media/moconavi-tutorial/testing2.png)
+    ![Testar um único sinal](./media/moconavi-tutorial/testing2.png)
 
-5. Na captura de tela a seguir, execute as seguintes etapas:
+5. Na seguinte imagem, execute os seguintes passos:
 
-    ![Testando o logon único](./media/moconavi-tutorial/testing3.png)
+    ![Testar um único sinal](./media/moconavi-tutorial/testing3.png)
 
-    a. Insira a **chave de autenticação de entrada**:`azureAD` na caixa de texto chave de autenticação de **entrada** .
+    a. Introduza a **chave de autenticação de entrada**:`azureAD` na caixa de texto chave de autenticação de **entrada.**
 
-    b. Insira a **ID de usuário de entrada**: `your ad account` na caixa de texto ID de usuário de **entrada** .
+    b. Introduza o ID `your ad account` do utilizador de **entrada**: na caixa de texto ID do utilizador de **entrada.**
 
-    c. Clique em **logon**.
+    c. Clique **em login**.
 
-6. Insira a senha do Azure AD na caixa de texto **senha** e clique no botão **logon** .
+6. Insera a sua palavra-passe Azure AD na **password** textbox e, em seguida, clique no botão **Iniciar sessão.**
 
-    ![Testando o logon único](./media/moconavi-tutorial/testing4.png)
+    ![Testar um único sinal](./media/moconavi-tutorial/testing4.png)
 
-7. A autenticação do Azure AD é bem-sucedida quando o menu é exibido.
+7. A autenticação azure AD é bem sucedida quando o menu é apresentado.
 
-    ![Testando o logon único](./media/moconavi-tutorial/testing5.png)
+    ![Testar um único sinal](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

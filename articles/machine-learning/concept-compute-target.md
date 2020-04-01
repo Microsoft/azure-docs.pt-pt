@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270423"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398188"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos da computação no Azure Machine Learning? 
 
@@ -48,12 +48,14 @@ Saiba onde e como implementar o seu modelo para um alvo de [cálculo.](how-to-de
 
 Um recurso computacional gerido é criado e gerido pela Azure Machine Learning. Este cálculo está otimizado para cargas de trabalho de aprendizagem automática. Os clusters de computação azure Machine Learning e os [exemplos](concept-compute-instance.md) de cálculo são os únicos computas geridos. No futuro, poderão ser adicionados recursos computacionais adicionais.
 
-Pode criar instâncias computacionais de Aprendizagem automática Azure (pré-visualização) ou calcular clusters em:
+Pode criar instâncias computacionais de Aprendizagem automática Azure (pré-visualização) ou calcular clusters a partir de:
+* Azure Machine Learning studio
+* Portal do Azure
+* Aulas de Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* [SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* Modelo do Resource Manager
 
-| | Azure Machine Learning studio | Portal do Azure | SDK | Modelo do Resource Manager | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| Instância de computação | sim | sim | sim | sim |  |
-| Cluster computacional | sim | sim | sim | sim | sim |
+Também pode criar clusters computacionais utilizando a extensão de [aprendizagem automática para o Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
 Quando criados estes recursos computacionais são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de alvos computacionais.
 

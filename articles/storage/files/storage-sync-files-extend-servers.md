@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Alargar servidores de ficheiros Windows com Sincronização de Ficheiros Azure  Microsoft Docs
+title: Tutorial - Alargar servidores de ficheiros Windows com Sincronização de Ficheiros Azure [ Microsoft Docs
 description: Saiba como alargar os servidores de ficheiros do Windows com o Azure File Sync, do início ao fim.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77597903"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir os servidores de ficheiros do Windows com o Azure File Sync
@@ -26,11 +26,11 @@ O artigo demonstra os passos básicos para alargar a capacidade de armazenamento
 > * Criar um grupo de sincronização e um ponto final na cloud
 > * Criar um ponto final de servidor
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -44,7 +44,7 @@ Para este tutorial, tem de fazer o seguinte antes de poder implementar o Azure F
 
 No computador local, crie uma pasta nova com o nome _FilesToSync_ e adicione um ficheiro de texto denominado _mytestdoc.txt_. Vais enviar esse ficheiro para a partilha de ficheiros mais tarde neste tutorial.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -97,7 +97,7 @@ Neste momento, criou uma conta de armazenamento e uma partilha de ficheiros com 
    1. No separador **Discos,** sob **as opções do Disco,** deixe as predefinições.
    1. Em **DISCDS DE DADOS,** selecione **Criar e fixe um novo disco**.
 
-   1. Utilize as definições predefinidas exceto o **Tamanho (GiB)** , que pode alterar para **1 GB** para este tutorial.
+   1. Utilize as definições predefinidas exceto o **Tamanho (GiB)**, que pode alterar para **1 GB** para este tutorial.
 
       ![Detalhes do disco de dados](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -132,7 +132,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Em s
 
 ### <a name="prepare-the-windows-server"></a>Preparar o servidor Windows
 
-Para o servidor Datacenter Do Windows Server 2016, desative a configuração de segurança melhorada do Internet Explorer. Este passo só é necessário para o registo inicial do servidor. Pode reativá-la depois de o servidor estar registado.
+Relativamente ao servidor Windows Server 2016 Datacenter, desative a Configuração de Segurança Avançada do Internet Explorer. Este passo só é necessário para o registo inicial do servidor. Pode reativá-la depois de o servidor estar registado.
 
 No Windows Server 2016 Datacenter VM, o Server Manager abre automaticamente.  Se o Gestor do Servidor não abrir por padrão, procure-o no Menu Iniciar.
 
@@ -152,7 +152,7 @@ Agora, pode adicionar o disco de dados à VM
 
 ### <a name="add-the-data-disk"></a>Adicionar o disco de dados
 
-1. Ainda no **Windows Server 2016 Datacenter** VM, selecione **Ficheiros e serviços** de armazenamento > **Volumes** > **Discos**.
+1. Ainda no **Windows Server 2016 Datacenter** VM, selecione **Ficheiros e serviços** > de armazenamento**Volumes Disks** > **Disks**.
 
     ![Disco de dados](media/storage-sync-files-extend-servers/your-disk.png)
 
@@ -164,9 +164,9 @@ Agora, pode adicionar o disco de dados à VM
    Nesta fase, pôs o disco online e criou um volume. Abra o Explorador de Ficheiros no VM do Servidor do Windows para confirmar a presença do disco de dados recentemente adicionado.
 
 1. No File Explorer no VM, expanda **este PC** e abra a nova unidade. Neste exemplo, a unidade é a F:.
-1. Clique com botão direito do rato e selecione **Novo** > **Pasta**. Dê à pasta o nome _FilesToSync_.
+1. Clique à direita e selecione **Nova** > **Pasta**. Dê à pasta o nome _FilesToSync_.
 1. Abra a pasta **FilesToSync.**
-1. Faça duplo clique e selecione **Novo** > **Documento de Texto**. Dê ao ficheiro de texto o nome _MyTestFile_.
+1. Clique à direita e selecione **Novo** > **Documento de Texto**. Dê ao ficheiro de texto o nome _MyTestFile_.
 
     ![Adicionar um ficheiro de texto novo](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -223,7 +223,7 @@ Para implementar o Azure File Sync, coloca-se pela primeira vez um recurso **do 
    | **Localização** | E.U.A. Leste |
 
 1. Quando tiver terminado, selecione **Criar** para implementar o **Serviço de Sincronização do Armazenamento**.
-1. Selecione o separador **Notificações** > **Vá para o recurso**.
+1. Selecione o separador **Notificações** > **vá para o recurso**.
 
 ## <a name="install-the-agent"></a>Instalar o agente
 
@@ -238,19 +238,19 @@ O agente do Azure File Sync é um pacote transferível que permite a sincroniza�
 
    ![Selecionar o agente](media/storage-sync-files-extend-servers/select-agent.png)
 
-1. **Selecione Permitir uma vez** > **executar** > **abrir**.
+1. **Selecione Permitir uma vez** > **Run** > **aberto**.
 1. Se ainda não tiver fechado a janela do PowerShell, feche-a.
 1. Aceite as predefinições do **Assistente de Configuração do Agente de Sincronização de Armazenamento**.
 1. Selecione **Instalar**.
 1. Selecione **Concluir**.
 
-Implementou o Serviço de Sincronização Azure e instalou o agente no Windows Server 2016 Datacenter VM. Agora precisa de registar o VM com o Serviço de Sincronização de Armazenamento.
+Implementou o Serviço de Sincronização do Azure e instalou o agente na VM do Windows Server 2016 Datacenter. Agora, tem de registar a VM no Serviço de Sincronização de Armazenamento.
 
 ## <a name="register-windows-server"></a>Registar o Windows Server
 
 Registar o seu servidor Windows com um Serviço de Sincronização de Armazenamento estabelece uma relação de confiança entre o seu servidor (ou cluster) e o Serviço de Sincronização de Armazenamento. Um servidor só pode ser registado num Serviço de Sincronização de Armazenamento. Pode sincronizar com outros servidores e partilhas de ficheiros Azure que estão associadas a esse Serviço de Sincronização de Armazenamento.
 
-O UI de Registo do Servidor deve ser aberto automaticamente após a instalação do agente Dessincronização de ficheiros Azure. Se não o fizer, pode abri-lo manualmente a partir da sua localização de ficheiro: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
+O UI de Registo do Servidor deve ser aberto automaticamente após a instalação do agente Dessincronização de ficheiros Azure. Se não o fizer, pode abri-lo manualmente a partir da sua localização de ficheiro:`C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
 1. Quando o UI de Registo do Servidor abrir no VM, selecione **OK**.
 1. Selecione Iniciar o **'Iniciar' o 'Iniciar' o 'Iniciar' por 'Iniciar' o 'Sign**
@@ -262,7 +262,7 @@ O UI de Registo do Servidor deve ser aberto automaticamente após a instalação
    | | |
    | ----- | ----- |
    | Valor | Descrição |
-   | **Subscrição do Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
+   | **Assinatura Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
    | **Grupo de Recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento. Use _afsresgroup101918_ para este tutorial. |
    | **Serviço de Sincronização de Armazenamento** | O nome do Serviço de Sincronização de Armazenamento. Use _afssyncservice02_ para este tutorial. |
 
@@ -285,7 +285,7 @@ Os grupos de sincronização definem a topologia da sincronização para um conj
    | **Nome do grupo de sincronização** | Este nome tem de ser exclusivo no Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome que lhe pareça lógico. Use *afssyncgroup* para este tutorial.|
    | **Subscrição** | A subscrição na qual implementou o Serviço de Sincronização de Armazenamento neste tutorial. |
    | **Conta de armazenamento** | Escolha **a conta de armazenamento Select**. No painel que aparece, selecione a conta de armazenamento que tem a partilha de ficheiros Azure que criou. Use *afsstoracct101918* para este tutorial. |
-   | **Partilha de ficheiros do Azure** | O nome da partilha de ficheiros Azure que criou. Use *afsfileshare* para este tutorial. |
+   | **Partilha de ficheiros Azure** | O nome da partilha de ficheiros Azure que criou. Use *afsfileshare* para este tutorial. |
 
 1. Selecione **Criar**.
 

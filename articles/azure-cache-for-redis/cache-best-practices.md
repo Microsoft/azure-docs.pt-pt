@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 71056fd04069b861b37a595b1a4f2a8bba4a01ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75689964"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478620"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Seguindo estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável do seu Cache Azure para a instância Redis.
@@ -51,7 +51,7 @@ Existem várias coisas relacionadas com o uso da memória dentro da sua instânc
  * [Java - Que cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [Alface (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
- * [Nó.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
+ * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
  * [Provedor estatal de sessão de Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
@@ -67,7 +67,7 @@ Infelizmente, não há uma resposta fácil.  Cada pedido precisa decidir que ope
 Se quiser testar como funciona o seu código em condições de erro, considere utilizar a [função Reboot](cache-administration.md#reboot). Reiniciar permite-lhe ver como os blips de ligação afetam a sua aplicação.
 
 ## <a name="performance-testing"></a>Teste de desempenho
- * **Comece por `redis-benchmark.exe` usar** para obter uma sensação de possível entrada/latência antes de escrever os seus próprios testes perf.  A documentação de referência redis pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Note que o referencial de redis não suporta sSL, por isso terá de [ativar a porta Não-SSL através do Portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com janelas de redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
+ * **Comece por `redis-benchmark.exe` usar** para obter uma sensação de possível entrada/latência antes de escrever os seus próprios testes perf.  A documentação de referência redis pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Note que o redis-benchmark não suporta TLS, por isso terá de [ativar a porta Não-TLS através do Portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com janelas de redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
  * O VM cliente utilizado para testes deve estar **na mesma região que a** sua instância redis cache.
  * **Recomendamos a utilização da Série VM Dv2** para o seu cliente, uma vez que têm melhor hardware e darão os melhores resultados.
  * Certifique-se de que o VM do cliente que utiliza tem **pelo menos tanto computação e largura* de banda como a cache que está a ser testada. 

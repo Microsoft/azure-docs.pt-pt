@@ -1,5 +1,5 @@
 ---
-title: Configure hybrid Azure Ative Directory junta-se a domínios federados  Microsoft Docs
+title: Configure hybrid Azure Ative Directory junta-se a domínios federados [ Microsoft Docs
 description: Saiba como configurar o Diretório Ativo Azure híbrido para domínios federados.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a61c89199c89f09b5cc0e553dbbf48655ad1b6a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239099"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
@@ -32,7 +32,7 @@ Um ambiente federado deve ter um fornecedor de identidade que suporte os seguint
 
 - **WiAorMULTIAUTHN reivindica:** Esta alegação é necessária para fazer a adesão híbrida azure para dispositivos de nível inferior Windows.
 - **Protocolo WS-Trust:** Este protocolo é necessário para autenticar os dispositivos ad sinuosos do Windows atual ida e voltado com a AD Azure.
-  Quando estiver a utilizar AD FS, tem de ativar os seguintes pontos finais wS-Trust: `/adfs/services/trust/2005/windowstransport`
+  Quando estiver a utilizar AD FS, tem de ativar os seguintes pontos finais wS-Trust:`/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
    `/adfs/services/trust/13/usernamemixed`
@@ -40,7 +40,7 @@ Um ambiente federado deve ter um fornecedor de identidade que suporte os seguint
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Tanto as **adfs/services/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através da consola de gestão AD FS no âmbito do **Serviço** > **Endpoints**.
+> Tanto as **adfs/services/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através da consola de gestão AD FS em**pontos finais**de **serviço** > .
 
 Neste tutorial, você aprende a configurar o Híbrido Azure AD juntar-se a dispositivos de computadores ligados ao domínio Ative Directory em um ambiente federado usando AD FS.
 
@@ -79,9 +79,9 @@ A adesão à Hybrid Azure AD requer que os dispositivos tenham acesso aos seguin
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - Serviço de Token de Segurança da sua organização (STS) (Para domínios federados)
-- `https://autologon.microsoftazuread-sso.com` (Se utilizar ou planeia utilizar SSO sem emenda)
+- `https://autologon.microsoftazuread-sso.com`(Se utilizar ou planeia utilizar SSO sem emenda)
 
-Começando pelo Windows 10 1803, se o híbrido instantâneo Azure AD se juntar a um ambiente federado usando AD FS falha, contamos com o Azure AD Connect para sincronizar o objeto de computador em Azure AD que é posteriormente usado para completar o registo do dispositivo para o Azure híbrido AD junta-se. Verifique se o Azure AD Connect sincronizou os objetos informáticos dos dispositivos que pretende ser híbrido Azure AD juntou-se ao Azure AD. Se os objetos do computador pertencerem a unidades organizacionais específicas (OUs), também deve configurar as OUs para sincronizar em Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador utilizando o Azure AD Connect, consulte a [filtragem do Configure utilizando o Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+Começando pelo Windows 10 1803, se o híbrido instantâneo Azure AD se juntar a um ambiente federado usando AD FS falha, contamos com o Azure AD Connect para sincronizar o objeto de computador em Azure AD que é posteriormente usado para completar o registo do dispositivo para a adesão híbrida azure AD. Verifique se o Azure AD Connect sincronizou os objetos informáticos dos dispositivos que pretende ser híbrido Azure AD juntou-se ao Azure AD. Se os objetos do computador pertencerem a unidades organizacionais específicas (OUs), também deve configurar as OUs para sincronizar em Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador utilizando o Azure AD Connect, consulte a [filtragem do Configure utilizando o Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
 Se a sua organização necessitar de acesso à internet através de um proxy de saída, a Microsoft recomenda a implementação do [Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para ativar os computadores do Windows 10 para o registo do dispositivo com a AD Azure. Se encontrar problemas de configuração e gestão do WPAD, consulte a [deteção automática de Troubleshoot](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
@@ -160,11 +160,11 @@ Se alguns dos seus dispositivos unidos pelo domínio forem dispositivos de níve
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar as definições de intranet local para o registo de dispositivos
 
-Para completar com sucesso a adesão híbrida do Azure AD aos seus dispositivos de nível inferior windows e para evitar solicitações de certificado quando os dispositivos autenticarem o Azure AD, pode empurrar uma política para os seus dispositivos unidos pelo domínio para adicionar os seguintes URLs à zona intranet local na Internet Explorador:
+Para completar com sucesso a adesão híbrida do Azure AD aos seus dispositivos de nível inferior windows e para evitar solicitações de certificadoquando os dispositivos autenticarem o Azure AD, pode empurrar uma política para os seus dispositivos unidos pelo domínio para adicionar os seguintes URLs à zona intranet local no Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - STS da sua organização (para domínios federados)
-- `https://autologon.microsoftazuread-sso.com` (Para SSO sem emenda)
+- `https://autologon.microsoftazuread-sso.com`(Para SSO sem emenda)
 
 Também deve ativar **as atualizações para** a barra de estado através do script na zona intranet local do utilizador.
 
@@ -172,13 +172,13 @@ Também deve ativar **as atualizações para** a barra de estado através do scr
 
 Para registar dispositivos de nível inferior do Windows, as organizações devem instalar o [Microsoft Workplace Join para computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join para computadores não Windows 10 está disponível no Microsoft Download Center.
 
-Pode implementar o pacote utilizando um sistema de distribuição de software como o [Microsoft Endpoint Configuration Manager](/configmgr/). O pacote suporta as opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual ramo do Gestor de Configuração oferece benefícios em versões anteriores, como a capacidade de rastrear registos concluídos.
+Pode implementar o pacote utilizando um sistema de distribuição de software como o [Microsoft Endpoint Configuration Manager](/configmgr/). O pacote suporta as opções `quiet` de instalação silenciosa padrão com o parâmetro. O atual ramo do Gestor de Configuração oferece benefícios em versões anteriores, como a capacidade de rastrear registos concluídos.
 
 O instalador cria uma tarefa programada no sistema que funciona no contexto do utilizador. A tarefa é desencadeada quando o utilizador faz o sinal de si no Windows. A tarefa junta-se silenciosamente ao dispositivo com a AD Azure utilizando as credenciais do utilizador depois de autenticar com a AD Azure.
 
 ## <a name="verify-the-registration"></a>Verificar o registo
 
-Para verificar o estado de registo do dispositivo no seu inquilino Azure, pode utilizar o cmdlet **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** no módulo PowerShell do [Diretório Ativo Azure](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pode utilizar o cmdlet **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** no [módulo PowerShell do Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 Quando utilizar o cmdlet **Get-MSolDevice** para verificar os dados do serviço:
 
@@ -188,8 +188,8 @@ Quando utilizar o cmdlet **Get-MSolDevice** para verificar os dados do serviço:
 
 **Para verificar os detalhes do serviço:**
 
-1. Abra o Windows PowerShell como administrador.
-1. Insira `Connect-MsolService` para ligar ao seu inquilino Azure.  
+1. Abra o Windows PowerShell Como um administrador.
+1. Entre `Connect-MsolService` para ligar ao seu inquilino Azure.  
 1. Introduza `get-msoldevice -deviceId <deviceId>`.
 1. Certifique-se de que **Ativado** está definido como **Verdadeiro**.
 

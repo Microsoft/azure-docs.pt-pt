@@ -3,12 +3,12 @@ title: Backup de ficheiros e pastas - questões comuns
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com o Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273426"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421314"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre o backup de ficheiros e pastas
 
@@ -57,6 +57,10 @@ Os dados de cópia de segurança são enviados para o datacenter do cofre no qua
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>O agente MARS suporta a duplicação do Windows Server 2012?
 
 Sim. O agente MARS converte os dados duplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para backup, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
+
+### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Preciso de permissões de administrador para instalar e configurar o agente MARS?
+
+Sim, a instalação do Agente MARS e a configuração de backups utilizando a consola MARS precisam que o utilizador seja um administrador local no servidor protegido.
 
 ## <a name="manage-backups"></a>Gerir cópias de segurança
 

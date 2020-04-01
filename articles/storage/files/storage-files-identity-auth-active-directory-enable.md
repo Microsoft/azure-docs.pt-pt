@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: rogarana
-ms.openlocfilehash: deead728812a34c6f432f59666cd22ba79f5409e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: b7820bc3d1b14e87064e4120edcffb6762041db9
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281294"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411489"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure
 
@@ -67,11 +67,7 @@ A autenticação ad (pré-visualização) do Azure Files está disponível na ma
 
 A autenticação ad files Azure não está disponível em:
 - E.U.A. Oeste
-- E.U.A.Oeste 2
-- E.U.A. Leste
-- E.U.A. Leste 2
-- Europa ocidental
-- Europa do Norte
+
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 

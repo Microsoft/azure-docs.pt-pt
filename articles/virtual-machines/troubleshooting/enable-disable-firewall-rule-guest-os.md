@@ -1,6 +1,6 @@
 ---
 title: Ativar ou desativar uma regra de firewall num osso de hóspedes em Azure VM [ Microsoft Docs
-description: ''
+description: Saiba como utilizar ferramentas remotas on-line ou offline ou configurações de registo para ativar ou desativar as regras de firewall do OS de um VM Otário remoto.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71086440"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422902"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO convidado da VM do Azure
 

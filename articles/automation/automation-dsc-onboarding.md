@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 0bf70b73098427847c73b4dd962d56d44fe6ee2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283213"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410941"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Máquinas de embarque para gestão pela Configuração do Estado da Automação Azure
 
@@ -107,7 +107,7 @@ Pode embarcar em servidores Linux que executam no local ou em outros ambientes e
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - Para encontrar a chave de registo e url de registo da sua conta Deautomação, consulte o [Embarque utilizando de forma segura a](#onboarding-securely-using-registration) secção de registo se este artigo.
+   - Para encontrar a chave de registo e URL de registo da sua conta De automação, consulte o [Embarque utilizando de forma segura a](#onboarding-securely-using-registration) secção de registo deste artigo.
 
 3. Se as predefinições do PowerShell DSC Local Configuration Manager (LCM) não corresponderem à sua caixa de utilização, ou se pretender abordo de máquinas que apenas reportam à Configuração do Estado da Automação Azure, siga os passos 4-7. Caso contrário, proceda diretamente ao passo 7.
 

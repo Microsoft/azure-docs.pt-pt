@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: c78c1d3ce6dae874ace2abfa8b2bbec6d489538a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4025c620aea49dfb26ab203630c121d29d88d9d7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536484"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474526"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -52,7 +52,7 @@ O principal fator é a dimensão do conjunto de dados na memória, ou seja, como
  
 Se estivera a usar Pandas, não há razão para ter mais de 1 vCPU, já que é tudo o que vai usar. Você pode facilmente paralelizar a muitos vCPUs em um único conjunto de computação de Machine Learning Azure exemplo/nó `import pandas as pd` `import modin.pandas as pd`via Modin e Dask/Ray, e escalar para fora para um grande cluster, se necessário, simplesmente mudando para . 
  
-Se não conseguir obter um virtual suficientemente grande para os dados, tem duas opções: usar uma estrutura como Spark ou Dask para realizar o processamento dos dados 'fora de memória', ou seja, o dataframe é carregado na divisória DERAM por partição e processado, sendo o resultado final reunidos no final. Se isto for demasiado lento, o Spark ou o Dask permitem-lhe escalar para um cluster que ainda pode ser utilizado interativamente. 
+Se não conseguir obter um virtual suficientemente grande para os dados, tem duas opções: utilizar uma estrutura como spark ou Dask para realizar o processamento dos dados 'fora de memória', ou seja, o dataframe é carregado na divisória RAM por partição e processamento, com o resultado final a ser recolhido no final. Se isto for demasiado lento, o Spark ou o Dask permitem-lhe escalar para um cluster que ainda pode ser utilizado interativamente. 
 
 ## <a name="dataset-types"></a>Tipos de conjuntos de dados
 
@@ -108,6 +108,7 @@ Por predefinição, quando cria um Conjunto tabularDataset, os tipos de dados da
 > Se o seu armazenamento estiver por trás de uma rede virtual ou firewall, apenas é suportada a criação de um conjunto de dados através do SDK. Para criar o seu conjunto de dados, certifique-se de incluir os parâmetros `validate=False` e `infer_column_types=False` no seu `from_delimited_files()` método. Isto ignora a verificação inicial de validação e garante que pode criar o seu conjunto de dados a partir destes ficheiros seguros. 
 
 ```Python
+from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 
 # create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean

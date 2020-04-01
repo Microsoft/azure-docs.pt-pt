@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ad074ca2cc9cd335d6697a2383998246468907ad
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052452"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398000"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
@@ -50,7 +50,7 @@ Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Si
    Instale o Docker na sua máquina seguindo as instruções adequadas para o seu sistema operativo: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux.](https://docs.docker.com/install/)
+   * [Linux](https://docs.docker.com/install/)
 
 1. Obtenha o recipiente da ferramenta `docker pull` de rotulagem da amostra com o comando.
     ```

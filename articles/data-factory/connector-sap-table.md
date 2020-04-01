@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: e98ff7fd914bb86cae256bb1bf6c19086758d463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65e51258b3a24b14b5171968645e88420e92dd5a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371550"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421064"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP utilizando a Azure Data Factory
 
@@ -230,7 +230,7 @@ Para copiar dados de uma tabela SAP, são suportadas as seguintes propriedades:
 <br/>
 >Tomando `partitionOption` `partitionOnInt` como exemplo, o número de linhas em cada partição é `partitionUpperBound` `partitionLowerBound`calculado`maxPartitionsNumber`com esta fórmula: (linhas totais que caem entre e )/ .<br/>
 <br/>
->Para carregar divisórias de dados paralelas à cópia [`parallelCopies`](copy-activity-performance.md#parallel-copy) de aceleração, o grau paralelo é controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua tabela SAP. Recomendamos vivamente `maxPartitionsNumber` fazer um múltiplo do valor da `parallelCopies` propriedade. Ao copiar dados para uma loja de dados baseada em ficheiros, também é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
+>Para carregar divisórias de dados paralelas à cópia [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de aceleração, o grau paralelo é controlado pela regulação da atividade da cópia. Por exemplo, se `parallelCopies` definir para quatro, data Factory gera simultaneamente e executa quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados da sua tabela SAP. Recomendamos vivamente `maxPartitionsNumber` fazer um múltiplo do valor da `parallelCopies` propriedade. Ao copiar dados para uma loja de dados baseada em ficheiros, também é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
 Em, `rfcTableOptions`pode utilizar os seguintes operadores comuns de consulta SAP para filtrar as linhas:
 

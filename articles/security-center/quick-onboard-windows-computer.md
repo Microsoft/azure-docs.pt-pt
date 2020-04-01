@@ -1,6 +1,6 @@
 ---
 title: Carregar computadores Windows para o Centro de Segurança do Azure
-description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Microsoft Monitoring Agent) num computador Windows.
+description: Este quickstart mostra-lhe como fornecer o agente Log Analytics num computador Windows.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686499"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435934"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
-Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
+Depois de embarcar nas suas subscrições do Azure, pode ativar o Security Center para os recursos que correm fora do Azure, por exemplo no local ou noutras nuvens, ao fornecer o agente Log Analytics.
 
-Este início rápido mostra-lhe como instalar o MMA num computador Windows.
+Este arranque rápido mostra-lhe como instalar o agente Log Analytics num computador Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -72,7 +72,7 @@ Agora tem de instalar o ficheiro transferido no computador de destino.
 9. Na página **Pronto para Instalar**, reveja as suas opções e selecione **Instalar**.
 10. Na página **Configuração concluída com êxito**, selecione **Concluir**
 
-Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração e confirmar que o agente está ligado.
+Quando estiver concluído, o **agente Log Analytics** aparece no Painel de **Controlo**. Pode rever a configuração e confirmar que o agente está ligado.
 
 Para obter mais informações sobre como instalar e configurar o agente, veja [Ligar computadores Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -93,10 +93,10 @@ Para remover o agente:
 
 1. **Painel de Controlo**Aberto .
 2. Abra **Programas e Funcionalidades**.
-3. Em **Programas e Funcionalidades**, selecione **Microsoft Monitoring Agent** e clique em **Desinstalar**.
+3. Em **Programas e Funcionalidades,** selecione **o agente Log Analytics** e clique em **Desinstalar**.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste início rápido, aprovisionou o MMA num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
+Neste arranque rápido, você forprovisionou o agente Log Analytics num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)

@@ -1,25 +1,25 @@
 ---
-title: Encontre imagens semelhantes de pesquisas anteriores usando ImageInsightsToken - Bing Visual Search
+title: Encontre imagens semelhantes de pesquisas anteriores usando fichas de imagem e a API de Pesquisa Visual Bing
 titleSuffix: Azure Cognitive Services
-description: Utilize o Bing Visual Search SDK para obter URLs de imagens especificadas pela ImageInsightsToken.
+description: Utilize a biblioteca de clientes bing Visual Search para obter URLs de imagens de pesquisas anteriores.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 03/27/2020
+ms.date: 03/31/2020
 ms.author: aahi
-ms.openlocfilehash: d005800ed317ff21389f18e4440858ea11042e53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad24a8a194a11c3fd5f7f77ea8c52197d5438edc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370086"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477916"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Tutorial: Encontre imagens semelhantes de pesquisas anteriores usando um símbolo de imagem
 
-O SDK de Pesquisa Visual permite-lhe encontrar imagens `ImageInsightsToken`online de pesquisas anteriores que devolvem um . Esta aplicação `ImageInsightsToken` recebe um e utiliza o símbolo numa pesquisa subsequente. Em seguida, `ImageInsightsToken` envia o bing e devolve resultados que incluem URLs de Pesquisa bing e URLs de imagens semelhantes encontradas online.
+A biblioteca de clientes da Procura Visual permite-lhe encontrar `ImageInsightsToken`imagens online de pesquisas anteriores que devolvem um . Esta aplicação `ImageInsightsToken` recebe um e utiliza o símbolo numa pesquisa subsequente. Em seguida, `ImageInsightsToken` envia o bing e devolve resultados que incluem URLs de Pesquisa bing e URLs de imagens semelhantes encontradas online.
 
 O código fonte completo para este tutorial pode ser encontrado com manipulação adicional de erros e anotações no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
@@ -36,9 +36,9 @@ O código fonte completo para este tutorial pode ser encontrado com manipulaçã
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Obtenha o ImageInsightsToken do Bing Image Search SDK
+## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Obtenha o ImageInsightsToken da biblioteca de clientes bing Image Search
 
-Esta aplicação `ImageInsightsToken` utiliza um obtido através do [Bing Image Search SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Numa nova aplicação de consola C#, crie `ImageSearchClient()`um cliente para ligar para a API usando . Em `SearchAsync()` seguida, use com a sua consulta:
+Esta aplicação `ImageInsightsToken` utiliza um obtido através da biblioteca de [clientes Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Numa nova aplicação de consola C#, crie `ImageSearchClient()`um cliente para ligar para a API usando . Em `SearchAsync()` seguida, use com a sua consulta:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));

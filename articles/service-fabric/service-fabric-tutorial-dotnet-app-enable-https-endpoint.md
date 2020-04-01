@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238931"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
@@ -40,9 +40,9 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Instale o Visual Studio 2019](https://www.visualstudio.com/) na versão 15.5 ou mais tarde com o **desenvolvimento do Azure** e ASP.NET e trabalhos de **desenvolvimento web.**
-* [Instale o SDK do Service Fabric](service-fabric-get-started.md)
+* [Instale o SDK de Tecido de Serviço](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obter um certificado ou criar um certificado de desenvolvimento autoassinado
 
@@ -68,7 +68,7 @@ Thumbprint                                Subject
 
 ## <a name="define-an-https-endpoint-in-the-service-manifest"></a>Definir um ponto final de HTTPS no manifesto de serviço
 
-Inicie o Visual Studio como **administrador** e abra a solução Voting. No Explorador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. O manifesto do serviço declara os pontos finais do serviço.  Localize a secção **Pontos finais** e edite o ponto final "ServiceEndpoint" existente.  Mude o nome para "EndpointHttps", defina o protocolo como *https*, o tipo como *Input* e a porta como a *443*.  Guarde as alterações.
+Inicie o Visual Studio como **administrador** e abra a solução Voting. No Solution Explorer, abra *o VotingWeb/PackageRoot/ServiceManifest.xml*. O manifesto do serviço declara os pontos finais do serviço.  Localize a secção **Pontos finais** e edite o ponto final "ServiceEndpoint" existente.  Mude o nome para "EndpointHttps", defina o protocolo como *https*, o tipo como *Input* e a porta como a *443*.  Guarde as alterações.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -152,8 +152,8 @@ serviceContext =>
 
 Adicione também o seguinte método para que esse Kestrel possa encontrar o certificado no arquivo `Cert:\LocalMachine\My` pelo requerente.  
 
-Substitua "&lt;your_CN_value&gt;" por "mytestcert" se tiver criado um certificado auto-assinado com o comando PowerShell anterior, ou utilize o NC do seu certificado.
-Esteja ciente de que no caso de implantação local para `localhost` é preferível usar "CN=localhost" para evitar exceções de autenticação.
+Substitua&lt;&gt;"your_CN_value" por "mytestcert" se tiver criado um certificado auto-assinado com o comando PowerShell anterior, ou utilize o NC do seu certificado.
+Esteja ciente de que, no `localhost` caso de implantação local, é preferível utilizar "CN=localhost" para evitar exceções de autenticação.
 
 ```csharp
 private X509Certificate2 GetHttpsCertificateFromStore()
@@ -180,7 +180,7 @@ Num passo anterior, importou o certificado para o arquivo `Cert:\LocalMachine\My
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configurar o ponto de entrada da configuração do serviço
 
-No Explorador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*.  Na secção **CodePackage**, adicione o nó **SetupEntryPoint** node e, em seguida, o nó **ExeHost**.  Em **ExeHost**, defina **Program** como "Setup.bat" e **WorkingFolder** como "CodePackage".  Quando inicia o serviço VotingWeb, o script Setup.bat é executado na pasta CodePackage antes de VotingWeb.exe ser iniciado.
+No Solution Explorer, abra *o VotingWeb/PackageRoot/ServiceManifest.xml*.  Na secção **CodePackage**, adicione o nó **SetupEntryPoint** node e, em seguida, o nó **ExeHost**.  Em **ExeHost**, defina **Program** como "Setup.bat" e **WorkingFolder** como "CodePackage".  Quando inicia o serviço VotingWeb, o script Setup.bat é executado na pasta CodePackage antes de VotingWeb.exe ser iniciado.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -337,17 +337,17 @@ Depois, na secção VotingWebPkg **ServiceManifestImport**, configure uma polít
 
 No Solution Explorer, selecione a aplicação **de votação** e detete a propriedade URL da **aplicação** para "https:\//localhost:443".
 
-Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Após a implementação da aplicação, um navegador web abre para https:\//localhost:443. Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
+Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Após a implementação da aplicação, um\/navegador web abre para https: /localhost:443. Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
 ![Aplicação Voting][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalar o certificado nos nós de cluster remoto
 
-Antes de implementar a aplicação para o Azure, instale o certificado na loja `Cert:\LocalMachine\My` de todos os nós de cluster remoto.  Os serviços podem mover-se para diferentes nós do cluster.  Quando o serviço Web de front-end é iniciado num nó de cluster, o script de arranque irá procurar o certificado e configurar as permissões de acesso.
+Antes de implementar a aplicação para o `Cert:\LocalMachine\My` Azure, instale o certificado na loja de todos os nós de cluster remoto.  Os serviços podem mover-se para diferentes nós do cluster.  Quando o serviço Web de front-end é iniciado num nó de cluster, o script de arranque irá procurar o certificado e configurar as permissões de acesso.
 
-Em primeiro lugar, exporte o certificado para um ficheiro PFX. Abra a aplicação certlm.msc e navegue para **Personal** (Pessoal) >**Certificates** (Certificados).  Clique à direita no certificado *mytestcert* e selecione **Todas as Tarefas**>**Exportação**.
+Em primeiro lugar, exporte o certificado para um ficheiro PFX. Abra o pedido certlm.msc e navegue para**Certificados** **Pessoais**>.  Clique à direita no certificado *mytestcert* e selecione **Todas as Tarefas**>**Exportação**.
 
-![Exportar certificado][image4]
+![Exportar o certificado][image4]
 
 No assistente de exportação, escolha **Yes, export the private key** (Sim, exportar a chave privada) e escolha o formato Personal Information Exchange (PFX).  Exporte o ficheiro para *C:\Users\sfuser\votingappcert.pfx*.
 
@@ -385,11 +385,11 @@ $slb | Set-AzLoadBalancer
 
 Guarde todos os ficheiros, mude de Debug para Release e prima F6 para recompilar.  No Explorador de Soluções, clique com o botão direito do rato em **Voting** e selecione **Publish** (Publicar). Selecione o ponto final da ligação do cluster criado em [Implementar uma aplicação num cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md) ou selecione outro cluster.  Clique em **Publish** para publicar a aplicação no cluster remoto.
 
-Quando a aplicação estiver implementada, abra um browser e navegue para [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (atualize o URL com o ponto final da ligação do cluster). Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
+Quando a aplicação for implementada, abra [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) um navegador web e navegue para (atualize o URL com o ponto final de ligação para o seu cluster). Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
 ![Aplicação Voting][image3]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

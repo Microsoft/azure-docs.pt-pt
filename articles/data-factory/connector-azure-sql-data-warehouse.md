@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 950bbc17af920f104f31af4d324f5546ff29217e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257959"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422185"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) utilizando a Azure Data Factory 
 
@@ -427,7 +427,7 @@ Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definiç
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
     | [Blob do Azure](connector-azure-blob-storage.md)                | Autenticação chave da conta, autenticação de identidade gerida |
     | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | Autenticação do principal de serviço                            |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | Autenticação chave da conta, autenticação de identidade gerida |
+    | [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md) | Autenticação chave da conta, autenticação de identidade gerida |
 
     >[!IMPORTANT]
     >Se o seu Armazenamento Azure estiver configurado com ponto final de serviço VNet, deve utilizar a autenticação de identidade gerida - consulte o [Impacto da utilização de pontos finais de serviço VNet com armazenamento Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Conheça as configurações necessárias na Fábrica de Dados da [Azure Blob - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 - gerido sitia](connector-azure-data-lake-storage.md#managed-identity) de autenticação de identidade respectivamente.
@@ -485,7 +485,7 @@ Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definiç
 
 ### <a name="staged-copy-by-using-polybase"></a>Cópia encenada usando polyBase
 
-Quando os seus dados de origem não forem compatíveis com a PolyBase, ative a cópia de dados através de uma instância provisória de armazenamento Azure Blob (não pode ser o Armazenamento Premium Azure). Neste caso, a Azure Data Factory converte automaticamente os dados para satisfazer os requisitos de formato de dados da PolyBase. Em seguida, invoca a PolyBase para carregar dados no Armazém de Dados SQL. Finalmente, limpa os seus dados temporários a partir do armazenamento de bolhas. Consulte [a cópia encenada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia dos dados através de uma instância de armazenamento de Azure Blob.
+Quando os seus dados de origem não forem compatíveis com a PolyBase, ative a cópia de dados através de uma instância provisória de armazenamento Azure Blob (não pode ser o Armazenamento Premium Azure). Neste caso, a Azure Data Factory converte automaticamente os dados para satisfazer os requisitos de formato de dados da PolyBase. Em seguida, invoca a PolyBase para carregar dados no Armazém de Dados SQL. Finalmente, limpa os seus dados temporários a partir do armazenamento de bolhas. Consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre a cópia dos dados através de uma instância de armazenamento de Azure Blob.
 
 Para utilizar esta funcionalidade, crie um serviço ligado ao [Armazenamento Azure Blob](connector-azure-blob-storage.md#linked-service-properties) que se refira à conta de armazenamento Azure com o armazenamento de blob provisório. Em seguida, especifique as `enableStaging` propriedades e propriedades `stagingSettings` para a Atividade de Cópia, conforme mostrado no seguinte código.
 
@@ -605,7 +605,7 @@ A utilização da declaração COPY suporta a seguinte configuração:
     | [Blob do Azure](connector-azure-blob-storage.md)                | [Texto delimitado](format-delimited-text.md)             | Autenticação chave de conta, autenticação de assinatura de acesso partilhado, autenticação do principal de serviço, autenticação de identidade gerida |
     | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Autenticação da chave de conta, autenticação de assinatura de acesso partilhado |
     | &nbsp;                                                       | [ORC](format-orc.md)                        | Autenticação da chave de conta, autenticação de assinatura de acesso partilhado |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | [Texto delimitado](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticação chave de conta, autenticação do principal de serviço, autenticação de identidade gerida |
+    | [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md) | [Texto delimitado](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticação chave de conta, autenticação do principal de serviço, autenticação de identidade gerida |
 
     >[!IMPORTANT]
     >Se o seu Armazenamento Azure estiver configurado com ponto final de serviço VNet, deve utilizar a autenticação de identidade gerida - consulte o [Impacto da utilização de pontos finais de serviço VNet com armazenamento Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Conheça as configurações necessárias na Fábrica de Dados da [Azure Blob - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 - gerido sitia](connector-azure-data-lake-storage.md#managed-identity) de autenticação de identidade respectivamente.
@@ -613,7 +613,7 @@ A utilização da declaração COPY suporta a seguinte configuração:
 2. As definições de formato são com as seguintes:
 
    1. Para o `compression` **Parquet:** não pode haver **compressão,** **Snappy**ou **GZip**.
-   2. Para **ORC:** `compression` não pode ser **compressão,** **zlib**ou **Snappy**.
+   2. Para **ORC:** `compression` não pode **```zlib```** haver **compressão,** ou **Snappy**.
    3. Para **texto delimitado:**
       1. `rowDelimiter`é explicitamente definido como **um único personagem** ou "**\r\n**", o valor padrão não é suportado.
       2. `nullValue`é deixado como padrão ou definido para **cadeia vazia** ("").
@@ -705,7 +705,7 @@ As definições específicas do Azure Synapse Analytics estão disponíveis no s
 
 * Exemplo SQL:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Tamanho do lote**: Introduza um tamanho de lote para encaixar grandes dados em leituras.
+**Tamanho do lote**: Introduza um tamanho de lote para encaixar grandes dados em leituras. Nos fluxos de dados, a ADF utilizará esta definição para definir o cachede colunar Spark. Este é um campo de opção que utilizará os defeitos da Spark se ficar em branco.
 
 **Nível de isolamento**: O padrão para fontes SQL no fluxo de dados de mapeamento é lido sem compromisso. Pode alterar o nível de isolamento aqui para um destes valores:
 * Ler Comprometido

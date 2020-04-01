@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 96d9a0722ae04dc150b639dced34fa290da93630
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159422"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475621"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -537,9 +537,9 @@ As aulas para os serviços web locais, azure container `azureml.core.webservice`
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### <a name="securing-deployments-with-ssl"></a>Assegurar implementações com sLL
+### <a name="securing-deployments-with-tls"></a>Assegurar implementações com TLS
 
-Para obter mais informações sobre como garantir uma implementação de serviço web, consulte [Use SSL para garantir um serviço web](how-to-secure-web-service.md#enable).
+Para obter mais informações sobre como garantir uma implementação de serviço web, consulte [Enable TLS e implemente](how-to-secure-web-service.md#enable).
 
 ### <a name="local-deployment"></a><a id="local"></a>Implantação local
 
@@ -907,6 +907,24 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+NOTA: Os modelos que suportam predict_proba utilizarão este método por defeito. Para anular isto para usar, preveja que pode modificar o corpo do POST como abaixo:
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
 NOTA: Estas dependências estão incluídas no recipiente de inferência sklearn pré-construído:
 
 ```yaml
@@ -1154,7 +1172,7 @@ def run(request):
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Serviços web Secure Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Use tLS para garantir um serviço web através de Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo azure machine learning implementado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de Aprendizagem automática Azure com Insights de Aplicação](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

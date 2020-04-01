@@ -5,16 +5,16 @@ author: jjbfour
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: fd21117219ea3db6946e7a1b889d92702af65b58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650490"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398464"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Visão geral dos fornecedores de recursos personalizados do Azure
 
-Azure Custom Resource Providers é uma plataforma de extensibility para o Azure. Permite-lhe definir APIs personalizados que podem ser usados para enriquecer a experiência azure padrão. Esta documentação descreve:
+Azure Custom Resource Providers é uma plataforma de extensibility para o Azure. Permite-lhe definir APIs personalizadas que podem ser usadas para enriquecer a experiência azure padrão. Esta documentação descreve:
 
 - Como construir e implementar um Fornecedor de Recursos Personalizados Azure.
 - Como utilizar os Fornecedores de Recursos Personalizados Azure para alargar os fluxos de trabalho existentes.

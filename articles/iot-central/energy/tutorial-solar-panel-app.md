@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: d5ea3d3420cb598693ccaede7ee10d2f8c4fd839
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77025780"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e passar pelo modelo de aplicação de monitorização do painel solar 
@@ -44,7 +44,7 @@ Pode criar esta aplicação em três passos simples:
 2. Selecione o separador **Energia** e clique **em Criar aplicação** sob o azulejo de monitorização de **painéis solares.** 
 
     > [!div class="mx-imgBorder"]
-    > ![construir app](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    > ![Construir App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
 3. **Criar app** abrirá novo formulário de **aplicação.** Preencha os detalhes solicitados, conforme indicado no valor abaixo:
     * **Nome da candidatura**: Escolha um nome para a sua aplicação IoT Central. 
@@ -52,7 +52,7 @@ Pode criar esta aplicação em três passos simples:
     * Teste gratuito de 7 dias : Se já tiver uma subscrição Azure, **recomenda-se**a definição predefinida. Se não tiver uma assinatura Azure, comece com um teste gratuito.
     * **Faturação Informação**: A aplicação em si é gratuita. Os detalhes do Diretório, Azure e Região são necessários para fornecer os recursos para a sua app.
     * Clique em criar o botão **Na** parte inferior da página e a sua aplicação será criada dentro de um minuto ou mais.
-        ![novo formulário de candidatura](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Novo formulário de candidatura](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
         ![Nova informação de faturação de formulário de aplicação](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
@@ -74,26 +74,26 @@ A Adatum é uma empresa de energia fictícia, que monitoriza e gere painéis sol
 * Operações de comando e controlo, tais como ativar a versão do painel e da atualização do firmware. No modelo, os botões de comando mostram as possíveis funcionalidades e não enviam comandos reais.
 
 > [!div class="mx-imgBorder"]
-> ![painel solar monitoramento](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+> ![Painel de monitorização de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>Dispositivos
 A aplicação vem com um dispositivo de painel solar de amostra. Pode ver os detalhes do dispositivo clicando no separador **Dispositivos.**
 
 > [!div class="mx-imgBorder"]
-> ![dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+> ![Dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
 
 Clique no dispositivo de amostra **SP0123456789** para ver os detalhes do dispositivo. Na página **Update Properties,** pode atualizar as propriedades do dispositivo e visualizar os valores atualizados no painel de instrumentos. 
 
 > [!div class="mx-imgBorder"]
-> propriedades do painel solar ![](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+> ![Propriedades de painéis solares](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>Modelo de dispositivo
 Clique no separador de **modelos do dispositivo** para ver o modelo do dispositivo do painel solar. O modelo tem interface pré-definido para Dados, Propriedades, Comandos e Vistas.
 
 > [!div class="mx-imgBorder"]
-> ![modelo de dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+> ![Modelo de dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -103,7 +103,7 @@ Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação
 2. Selecione as definições de Aplicação e clique em Eliminar o botão na parte inferior da página. 
 
     > [!div class="mx-imgBorder"]
-    > ![Eliminar](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png) de aplicação
+    > ![Excluir aplicação](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

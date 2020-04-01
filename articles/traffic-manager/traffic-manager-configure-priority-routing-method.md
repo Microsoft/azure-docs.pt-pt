@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: rohink
 ms.openlocfilehash: ca223a19ff7ddeae95878f941f3cf295664e62b4
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76938731"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar método de encaminhamento de tráfego prioritário no Traffic Manager
@@ -34,7 +34,7 @@ Um padrão comum para a falha do serviço é enviar tráfego para um serviço pr
     1. Para configurações do método de **encaminhamento**de tráfego, verifique se o método de encaminhamento de tráfego é **Prioridade**. Caso contrário, clique em **Prioridade** a partir da lista de abandono.
     2. Detete as definições do **monitor Endpoint** idênticas a todos os pontos finais deste perfil da seguinte forma:
         1. Selecione o **Protocolo**apropriado e especifique o número **da Porta.** 
-        2. Para **o path** tipo um corte dianteiro */* . Para monitorizar os pontos finais, deve especificar um caminho e um nome de ficheiro. Um corte para a frente "/" é uma entrada válida para o caminho relativo e implica que o ficheiro está no diretório raiz (padrão).
+        2. Para **o caminho** */* tipo um corte para a frente . Para monitorizar os pontos finais, deve especificar um caminho e um nome de ficheiro. Um corte para a frente "/" é uma entrada válida para o caminho relativo e implica que o ficheiro está no diretório raiz (padrão).
         3. No topo da página, clique em **Guardar**.
 5. Na secção **Definições,** clique em **Pontos Finais**.
 6. Na lâmina **Endpoints,** reveja a ordem prioritária para os seus pontos finais. Quando selecionar o método de encaminhamento de tráfego **Prioritário,** a ordem dos pontos finais selecionados importa. Verifique a ordem prioritária dos pontos finais.  O ponto final primário está no topo. Verifique duas vezes a encomenda que é apresentada. todos os pedidos serão encaminhados para o primeiro ponto final e se o Gestor de Tráfego detetar que não é saudável, o tráfego falha automaticamente até ao ponto final seguinte. 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a429a1e454e73a1a9d544e308e5b2d60052d91a9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7a31eece6629558b14b614853addce59642e698b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349764"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422730"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -38,7 +38,9 @@ Para descarregar o ficheiro **deployer.log,** faça o seguinte:
 **Ação corretiva:**
 
 1. Vá ao seu grupo de recursos FarmBeats Datahub.   
+
 2. Selecione o Site de **Eventos** (DatafeedEventHubNamespace) e, em seguida, verifique o número de mensagens que chegam.
+
 3. Efetue um dos seguintes procedimentos:   
    - Se não houver *mensagens de entrada,* contacte o parceiro do dispositivo.  
    - Se houver *mensagens de entrada,* contacte farmbeatssupport@microsoft.com. Prenda os seus registos datahub e acelerador e a telemetria capturada.
@@ -52,6 +54,7 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 **Ação corretiva:**
 
 1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo para o seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga os [passos aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar parceiro.
+
 2. Certifique-se de que utilizou o formato de mensagem telemetria correto:
 
 ```json
@@ -83,9 +86,12 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 
 1. Em Datahub Swagger, vá à API partner.
 2. Selecione **Tente** > **Try it out** > **executar**.
-3. Reparem na identificação do parceiro de sensor que lhe interessa.
-4. Volte para a API partner e selecione **Get/ID\<>**.
-5. Especifique o ID do parceiro a partir do passo 3 e, em seguida, selecione **Executar**.
+
+> [!NOTE]
+> A identificação do parceiro de sensores que te interessa.
+
+3. Volte para a API partner e selecione **Get/ID\<>**.
+4. Especifique o ID do parceiro a partir do passo 3 e, em seguida, selecione **Executar**.
 
    A resposta DaPI deve ter a cadeia de ligação Do Event Hubs.
 
