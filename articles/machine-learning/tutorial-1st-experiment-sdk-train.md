@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238679"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546039"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
@@ -28,7 +28,7 @@ Neste tutorial, irá aprender as seguintes tarefas:
 > [!div class="checklist"]
 > * Conecte o seu espaço de trabalho e crie uma experiência
 > * Carregue mato de dados e treine modelos de aprendizagem de ficção científica
-> * Ver resultados de treino no portal
+> * Ver resultados de formação no estúdio
 > * Obter o melhor modelo
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -89,7 +89,7 @@ X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 
 ## <a name="train-a-model"></a>Preparar um modelo
 
-Treinar um modelo simples de aprendizagem de ficção científica pode ser facilmente feito localmente para treino em pequena escala, mas quando treina muitas iterações com dezenas de diferentes permutações de recursos e configurações de hiperparâmetros, é fácil perder a noção dos modelos que treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você treinou e como você você treinou e os treinou. O seguinte padrão de design mostra como alavancar o SDK para acompanhar facilmente o seu treino na nuvem.
+Treinar um modelo simples de aprendizagem de ficção pode ser facilmente feito localmente para treinoem em pequena escala, mas quando treina muitas iterações com dezenas de diferentes permutações de recursos e configurações de hiperparâmetros, é fácil perder a noção dos modelos que treinou e como os treinou. O seguinte padrão de design mostra como alavancar o SDK para acompanhar facilmente o seu treino na nuvem.
 
 Construa um guião que treine modelos de ridge em um loop através de diferentes valores alfa hiperparâmetros.
 
@@ -124,32 +124,33 @@ O código acima realiza o seguinte:
 
 1. Para cada valor de hiperparâmetro alfa na `alphas` matriz, uma nova execução é criada dentro da experiência. O valor alfa é registado para diferenciar entre cada corrida.
 1. Em cada corrida, um modelo Ridge é instantâneo, treinado e usado para executar previsões. O erro quadrado-raiz-médio é calculado para os valores reais versus previstos, e depois registrado na execução. Neste ponto, a execução tem metadados anexados tanto para o valor alfa como para a precisão rmse.
-1. Em seguida, o modelo para cada execução é serializado e carregado para a execução. Isto permite-lhe descarregar o ficheiro modelo a partir da execução no portal.
+1. Em seguida, o modelo para cada execução é serializado e carregado para a execução. Isto permite-lhe descarregar o ficheiro modelo a partir da execução no estúdio.
 1. No final de cada iteração a `run.complete()`corrida é completada através da chamada .
 
-Depois de concluído o treino, ligue para a `experiment` variável para obter um link para a experiência no portal.
+Depois de concluído o treino, ligue para a `experiment` variável para obter um link para a experiência no estúdio.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatórios</th><th>Página do Docs</th></tr><tr><td>diabetes-experiência</td><td>seu-trabalho espaço-nome</td><td>Link para o portal Azure</td><td>Ligação à Documentação</td></tr></table>
+<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatórios</th><th>Página do Docs</th></tr><tr><td>diabetes-experiência</td><td>seu-trabalho espaço-nome</td><td>Link para estúdio de machine learning Azure</td><td>Ligação à Documentação</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>Ver resultados de formação no portal
+## <a name="view-training-results-in-studio"></a>Ver resultados de formação em estúdio
 
-Seguir o **portal Link to Azure** leva-o à página principal de experiências. Aqui você vê todos os indivíduos corre na experiência. Quaisquer valores personalizados `rmse`(e,`alpha_value` neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para os gráficos e azulejos no topo da página de experimentação. Para adicionar uma métrica registada a um gráfico ou azulejo, paire sobre ele, clique no botão de edição e encontre a sua métrica personalizada.
+Seguir o **estúdio Link to Azure Machine Learning** leva-o à página principal de experiências. Aqui você vê todos os indivíduos corre na experiência. Quaisquer valores personalizados `rmse`(e,`alpha_value` neste caso) tornam-se campos para cada corrida, e também ficam disponíveis para os gráficos e azulejos no topo da página de experimentação. Para adicionar uma métrica registada a um gráfico ou azulejo, paire sobre ele, clique no botão de edição e encontre a sua métrica personalizada.
 
 Quando os modelos de treino em escala ao longo de centenas e milhares de runs separados, esta página torna fácil ver todos os modelos que treinou, especificamente como foram treinados, e como as suas métricas únicas mudaram ao longo do tempo.
 
-![Página principal de experimentação no Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Página principal de experiências no estúdio.":::
 
-Clicar num link de número `RUN NUMBER` de execução na coluna leva-o à página para cada execução individual. O separador predefinido **Detalhes** mostram-lhe informações mais detalhadas em cada execução. Navegue para o separador **Saídas** e veja o `.pkl` ficheiro do modelo que foi carregado para a execução durante cada iteração de treino. Aqui pode descarregar o ficheiro modelo, em vez de ter de o retreinar manualmente.
 
-![Executar página de detalhes no Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+Selecione um link `RUN NUMBER` de número de execução na coluna para ver a página para uma execução individual. O separador predefinido **Detalhes** mostram-lhe informações mais detalhadas em cada execução. Navegue para o separador **Outputs + logs** e veja o `.pkl` ficheiro do modelo que foi carregado para a execução durante cada iteração de treino. Aqui pode descarregar o ficheiro modelo, em vez de ter de o retreinar manualmente.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Executar a página de detalhes no estúdio.":::
 
 ## <a name="get-the-best-model"></a>Obtenha o melhor modelo
 
-Além de poder descarregar ficheiros de modelos a partir da experiência no portal, também pode descarregá-los programáticamente. O código seguinte iténio através de cada execução na experiência, e acede tanto às métricas de execução registadas como aos detalhes de execução (que contém o run_id). Isto acompanha a melhor execução, neste caso a corrida com o menor erro de raiz-média-quadrado.
+Além de poder descarregar ficheiros de modelos a partir da experiência no estúdio, também pode descarregá-los programáticamente. O código seguinte iténio através de cada execução na experiência, e acede tanto às métricas de execução registadas como aos detalhes de execução (que contém o run_id). Isto acompanha a melhor execução, neste caso a corrida com o menor erro de raiz-média-quadrado.
 
 ```python
 minimum_rmse_runid = None
@@ -214,7 +215,7 @@ Neste tutorial, fez as seguintes tarefas:
 > [!div class="checklist"]
 > * Ligou o seu espaço de trabalho e criou uma experiência
 > * Dados carregados e modelos de aprendizagem de ficção científica treinados
-> * Resultados de treino visualizados no portal e modelos recuperados
+> * Resultados de formação visualizados no estúdio e modelos recuperados
 
 [Implemente o seu modelo](tutorial-deploy-models-with-aml.md) com a Azure Machine Learning.
 Aprenda a desenvolver experiências automatizadas de [aprendizagem automática](tutorial-auto-train-models.md) de máquinas.

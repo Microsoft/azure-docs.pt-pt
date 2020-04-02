@@ -15,12 +15,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e74ff320f26a4b6fa7d1caf3d4effca5e10669f4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77086058"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546219"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Utilize o modo de dispositivo partilhado na sua aplicação Android
 
@@ -96,9 +96,9 @@ Se colocar `"account_mode":"SINGLE"` no ficheiro config MSAL, pode lançar com s
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 
-/*Configure your sample app and save state for this activity*/ 
+/*Configure your sample app and save state for this activity*/
 PublicClientApplication.create(this.getApplicationCOntext(),
-  R.raw.auth_config, 
+  R.raw.auth_config,
   new PublicClientApplication.ApplicationCreatedListener(){
   @Override
   public void onCreated(IPublicClientApplication application){
@@ -109,7 +109,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   public void onError(MsalException exception{
   /*Fail to initialize PublicClientApplication */
   }
-});  
+});
 ```
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>Detetar modo de conta única vs. múltiplas
@@ -134,7 +134,7 @@ private IPublicClientApplication mApplication;
 
 O `loadAccount` método recupera a conta do utilizador assinado. O `onAccountChanged` método determina se o utilizador inscrito mudou e, em caso afirmativo, limpe:
 
-```java 
+```java
 private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
@@ -157,12 +157,12 @@ private void loadAccount()
         updateSingedOutUI();
       }
     }
-    @Override 
-    public void onError(@NonNull Exception exception) 
+    @Override
+    public void onError(@NonNull Exception exception)
     {
     }
   }
-}  
+}
 ```
 
 ### <a name="globally-sign-in-a-user"></a>Assine globalmente um utilizador
@@ -233,7 +233,7 @@ Lance a App Autenticador e navegue para a página principal da conta. Assim que 
 ![Autenticador adicionar ecrã de conta](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
  Vá ao painel **Definições** utilizando a barra de menus à direita. Selecione **Registo do Dispositivo** nas contas do Trabalho & **Escola**.
- 
+
  ![Autenticador adicionar ecrã de conta](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
  Quando clicar neste botão, será-lhe pedido que autorize o acesso aos contactos do dispositivo. Isto deve-se à integração da conta do Android no dispositivo. Escolha **permitir**.
@@ -260,10 +260,10 @@ Uma vez colocado um dispositivo em modo partilhado, torna-se conhecido da sua or
 
 ## <a name="running-the-sample-app"></a>Executar a aplicação de amostra
 
-A Aplicação da Amostra é uma aplicação simples que vai chamar a API do gráfico da sua organização. n primeira execução será solicitado a consentir, uma vez que o pedido é novo na sua conta de empregado.
+A Aplicação da Amostra é uma aplicação simples que vai chamar a API do gráfico da sua organização. Na primeira corrida será solicitado o consentimento, uma vez que o pedido é novo na sua conta de empregado.
 
 ![Tela de informação de config app](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o modo partilhado no [modo de dispositivo partilhado para dispositivos Android](shared-device-mode.md)
+Saiba mais sobre o modo partilhado no [modo de dispositivo partilhado para dispositivos Android](msal-android-shared-devices.md)

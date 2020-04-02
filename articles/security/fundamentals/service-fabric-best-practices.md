@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75548824"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549236"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Service Fabric
 A implementação de uma aplicação no Azure é rápida, fácil e rentável. Antes de implementar a sua aplicação na nuvem em produção, reveja a nossa lista de boas práticas essenciais e recomendadas para implementar clusters seguros na sua aplicação.
@@ -32,7 +32,7 @@ Recomendamos as seguintes boas práticas de segurança do Tecido de Serviço Azu
 -   Utilize certificados X.509.
 -   Configure as políticas de segurança.
 -   Implementar a configuração de segurança de Atores Fiáveis.
--   Configure o SSL para tecido de serviço Azure.
+-   Configure TLS para tecido de serviço Azure.
 -   Utilize o isolamento da rede e a segurança com o Tecido de Serviço Azure.
 -   Configure o Cofre chave Azure para segurança.
 -   Atribuir utilizadores a funções.
@@ -118,13 +118,13 @@ Cada ator é definido como um exemplo de um tipo de ator, idêntico à forma com
 [As configurações](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) de segurança do replicador são usadas para fixar o canal de comunicação que é utilizado durante a replicação. Esta configuração impede que os serviços vejam o tráfego de replicação uns dos outros e garante que os dados altamente disponíveis são seguros. Por predefinição, uma secção de configuração de segurança vazia impede a segurança da replicação.
 As configurações do replicador configuram o replicador que é responsável por tornar o Estado fornecedor de ator altamente fiável.
 
-## <a name="configure-ssl-for-azure-service-fabric"></a>Configure SSL para tecido de serviço Azure
-O processo de autenticação do servidor [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) os pontos finais da gestão do cluster a um cliente de gestão. O cliente de gestão reconhece então que está a falar com o verdadeiro cluster. Este certificado também fornece um [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md) para a API de gestão HTTPS e para service Fabric Explorer em HTTPS.
+## <a name="configure-tls-for-azure-service-fabric"></a>Configure TLS para tecido de serviço Azure
+O processo de autenticação do servidor [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) os pontos finais da gestão do cluster a um cliente de gestão. O cliente de gestão reconhece então que está a falar com o verdadeiro cluster. Este certificado também fornece um [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) para a API de gestão HTTPS e para service Fabric Explorer em HTTPS.
 Tem de obter um nome de domínio personalizado para o cluster. Quando solicitar um certificado a uma autoridade de certificado, o nome do certificado deve corresponder ao nome de domínio personalizado que utiliza para o seu cluster.
 
-Para configurar o SSL para uma aplicação, primeiro precisa de obter um certificado SSL que tenha sido assinado por um CA. A AC é um terceiro de confiança que emite certificados para fins de segurança SSL. Se ainda não tem um certificado SSL, precisa de obter um de uma empresa que venda certificados SSL.
+Para configurar o TLS para uma aplicação, é necessário obter primeiro um certificado SSL/TLS que tenha sido assinado por um CA. A AC é um terceiro de confiança que emite certificados para fins de segurança TLS. Se ainda não tem um certificado SSL/TLS, precisa de obter um de uma empresa que venda certificados SSL/TLS.
 
-O certificado deve satisfazer os seguintes requisitos relativos aos certificados SSL no Azure:
+O certificado deve satisfazer os seguintes requisitos relativos aos certificados SSL/TLS em Azure:
 -   O certificado deve conter uma chave privada.
 
 -   O certificado deve ser criado para troca de chaves e ser exportável para um ficheiro de intercâmbio de informações pessoais (.pfx).
@@ -135,13 +135,13 @@ O certificado deve satisfazer os seguintes requisitos relativos aos certificados
     - Solicite um certificado de uma AC com um nome de assunto que corresponda ao nome de domínio personalizado do seu serviço. Por exemplo, se o seu nome de domínio personalizado for**contoso.com,** o certificado da sua CA deve ter o nome de assunto **.contoso.com** ou __contoso__**www.contoso.com**. __www__
 
     >[!NOTE]
-    >Não é possível obter um certificado SSL a partir de um CA para o domínio __cloudapp__**.net.**
+    >Não é possível obter um certificado SSL/TLS de um CA para o domínio __cloudapp__**.net.**
 
 -   O certificado deve usar um mínimo de encriptação de 2.048 bits.
 
 O protocolo HTTP é inseguro e está sujeito a ataques de escuta. Os dados que são transmitidos através do HTTP são enviados como texto simples do navegador web para o servidor web ou entre outros pontos finais. Os atacantes podem intercetar e visualizar dados sensíveis que são enviados via HTTP, tais como dados do cartão de crédito e logins de conta. Quando os dados são enviados ou publicados através de um browser via HTTPS, o SSL garante que as informações sensíveis são encriptadas e seguras de interceção.
 
-Para saber mais sobre a utilização de certificados SSL, consulte [configure SSL para aplicações Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+Para saber mais sobre a utilização de certificados SSL/TLS, consulte [Configurar TLS para uma aplicação no Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Utilize o isolamento e a segurança da rede com o Tecido de Serviço Azure
 Configurar um cluster seguro de 3 nódétipo utilizando o modelo do Gestor de [Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) como amostra. Controle o tráfego de rede de entrada e saída utilizando o modelo e os grupos de segurança da rede.

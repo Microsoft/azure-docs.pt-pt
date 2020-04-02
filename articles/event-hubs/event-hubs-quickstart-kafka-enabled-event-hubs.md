@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 4a0d7d30ea02af222ab4a758c18b46d7488e1a8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d196611dcf9f29e981977b8506ad9623f4629b53
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280716"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521640"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Hubs de Eventos usando o protocolo Kafka
 Este quickstart mostra como transmitir para Os Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma mudança de configuração nas suas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
@@ -32,7 +32,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 * [Git](https://www.git-scm.com/)
 
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos ativado para Kafka
+## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka para o espaço de nome está ativado automaticamente. Você pode transmitir eventos a partir das suas aplicações que usam o protocolo Kafka em centros de eventos de nível padrão. Siga instruções passo a passo no [Create a event hub utilizando o portal Azure](event-hubs-create.md) para criar um espaço de nome de hubs de evento de nível **padrão.** 
 
 > [!NOTE]
@@ -98,7 +98,7 @@ Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka
     Pode encontrar aqui o código de origem para a classe de [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java)manipulador de amostras CustomAuthenticateCallbackHandler no GitHub .
 
     Você pode encontrar todas as amostras oAuth para Centros de Eventos para Kafka [aqui](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
-7. Execute o código e processo de consumidor, a partir de Hubs de Eventos ativados pelo Kafka, com os seus clientes do Kafka:
+7. Execute o código de consumo e processe eventos a partir do centro de eventos utilizando os seus clientes Kafka:
 
     ```java
     mvn clean package
@@ -113,5 +113,5 @@ Neste artigo, aprendeu a transmitir para O Hubs de Eventos sem alterar os seus c
 - [Saiba mais sobre Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 - [Quickstarts para Hubs de Eventos para Kafka no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
 - [Tutoriais para Hubs de Eventos para Kafka no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
-- Use [mirrormaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos de Kafka nas instalações para Kafka habilitado Centros de Eventos na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
-- Saiba como transmitir para os Hubs de Eventos ativados pelo Kafka através do [Apache Flink](event-hubs-kafka-flink-tutorial.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+- Use [mirrormaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos de Kafka nas instalações para Event Hubs na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
+- Saiba como transmitir para Centros de Eventos usando [Apache Flink](event-hubs-kafka-flink-tutorial.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

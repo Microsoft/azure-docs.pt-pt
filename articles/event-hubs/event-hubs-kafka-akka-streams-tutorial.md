@@ -1,6 +1,6 @@
 ---
 title: Utilização de Streams Akka para Apache Kafka - Hubs de eventos azure Microsoft Docs
-description: Este artigo fornece informações sobre como ligar a Akka Streams a um centro de eventos ativado por Apache Kafka.
+description: Este artigo fornece informações sobre como ligar a Akka Streams a um centro de eventos Azure.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 729e78959f93b1aa1563a049a64c553929c4f97e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c53fcc7b4b99e77237ba7ea9219aef4182f2af61
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283638"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521828"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
 Este tutorial mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. O Azure Event Hubs para o Kafka suporta a [versão 1.0 da Apache Kafka.](https://kafka.apache.org/10/documentation.html)
@@ -49,7 +49,7 @@ Para completar este tutorial, certifique-se de que tem os seguintes pré-requisi
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Um espaço de nome de Event Hubs é necessário para enviar ou receber de qualquer serviço de Hubs de Eventos. Consulte [create Kafka Enabled Event Hubs](event-hubs-create.md) para obter um ponto final do Event Hubs Kafka. Certifique-se de copiar a cadeia de ligação De Eventos Hubs para posterior utilização.
+Um espaço de nome de Event Hubs é necessário para enviar ou receber de qualquer serviço de Hubs de Eventos. Consulte [Criar um centro de eventos](event-hubs-create.md) para informações detalhadas. Certifique-se de copiar a cadeia de ligação De Eventos Hubs para posterior utilização.
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 

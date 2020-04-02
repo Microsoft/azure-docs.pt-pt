@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441264"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519677"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma aplicação web Node.js utilizando o JavaScript SDK para gerir uma conta SQL API em Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Nó.js](sql-api-nodejs-application.md)
-> * [Pitão](sql-api-python-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -83,7 +83,7 @@ Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arqui
    npm start
    ```
 
-1. Pode ver a sua nova aplicação [http://localhost:3000](http://localhost:3000)navegando no seu navegador para .
+1. Pode ver a sua aplicação nova ao navegar para `http://localhost:3000`.
    
    ![Saiba Node.js - Captura de ecrã da aplicação Olá, Mundo numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -359,7 +359,7 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Construir uma interface de utilizador
 
-Agora, vamos criar a interface de utilizador para que um utilizador possa interagir com a aplicação. A aplicação Express que criámos nas secções anteriores utiliza o **Jade** como motor de vista.
+Agora vamos construir a interface do utilizador para que um utilizador possa interagir com a aplicação. A aplicação Express que criámos nas secções anteriores utiliza o **Jade** como motor de vista.
 
 1. O ficheiro **layout.jade** no diretório **vistas** é utilizado como um modelo global para outros ficheiros **.jade**. Neste passo, irá modificá-lo para utilizar o Twitter Bootstrap, que é um conjunto de ferramentas utilizado para criar um site.  
 

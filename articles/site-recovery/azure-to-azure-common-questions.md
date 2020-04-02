@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d71301534d56ef8eca68951c8c9f9a1570b3a6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282261"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547881"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
 
@@ -93,7 +93,7 @@ Ao utilizar a Recuperação do Site, pode replicar e recuperar VMs entre duas re
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>A Recuperação do Site requer conectividade à Internet?
 
-Não, a Recuperação do Site não requer conectividade na Internet. Mas requer acesso a URLs de Recuperação do Site e intervalos IP, como mencionado em rede na recuperação de desastres do [Azure VM.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)
+Não, a Recuperação do Site não requer conectividade na Internet. Mas requer acesso a URLs de Recuperação do Site e intervalos IP, como mencionado em rede na recuperação de desastres do [Azure VM.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>Posso replicar uma aplicação que tem um grupo de recursos separados para níveis separados?
 

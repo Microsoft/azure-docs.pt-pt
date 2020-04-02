@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899843"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547032"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para pesquisa cognitiva azure
 
@@ -41,7 +41,9 @@ As camadas são diferenciadas por:
 
 O nível que selecionar determina a taxa de faturação. A seguinte imagem do portal Azure mostra os níveis disponíveis, menos preços (que pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Grátis,** **Básicos**e **Standard** são os níveis mais comuns.
 
-**O Free** cria um serviço de pesquisa limitado num cluster, partilhado com outros subscritores. Você pode completar pequenos projetos, incluindo quickstarts e tutoriais, mas você não pode escalar o serviço ou executar cargas de trabalho significativas. **Basic** e **Standard** são os níveis de faturação mais utilizados, sendo a **Standard** o padrão.
+**O Free** cria um serviço de pesquisa limitado para projetos menores, incluindo quickstarts e tutoriais. Internamente, réplicas e divisórias partilhadas entre vários subscritores. Não é possível escalar um serviço gratuito ou executar cargas de trabalho significativas.
+
+**Basic** e **Standard** são os níveis de faturação mais utilizados, sendo a **Standard** o padrão. Com recursos dedicados sob o seu controlo, pode implementar projetos maiores, otimizar o desempenho e definir a capacidade.
 
 ![Níveis de preços da Pesquisa Cognitiva Azure](media/search-sku-tier/tiers.png "Níveis de preços da Pesquisa Cognitiva Azure")
 
@@ -55,10 +57,10 @@ Pode saber mais sobre os vários níveis na página de [preços,](https://azure.
 
 Uma solução construída sobre a Pesquisa Cognitiva Azure pode incorrer em custos das seguintes formas:
 
-+ Custo base do serviço na configuração mínima (criar um serviço)
++ Custo fixo do próprio serviço, funcionando 24x7, com configuração mínima (uma divisória e réplica)
 + Custo incremental ao escalonar (adicionar réplicas ou divisórias)
 + Cargas de largura de banda (transferência de dados de saída) 
-+ Pesquisa cognitiva (anexar Serviços Cognitivos para enriquecimento de IA, armazenamento Azure para loja de conhecimento)
++ Pesquisa cognitiva (anexação de Serviços Cognitivos para enriquecimento de IA, ou utilização de armazenamento Azure para loja de conhecimento)
 
 ### <a name="service-costs"></a>Custos de serviço
 
@@ -106,13 +108,13 @@ A maioria dos clientes traz apenas uma parte da capacidade total on-line, manten
 
 As seguintes sugestões podem ajudá-lo a manter os custos no mínimo:
 
-- Criar todos os recursos na mesma região, ou em tão poucas regiões quanto possível, para minimizar ou eliminar os encargos de largura de banda.
++ Criar todos os recursos na mesma região, ou em tão poucas regiões quanto possível, para minimizar ou eliminar os encargos de largura de banda.
 
-- Consolidar todos os serviços num só grupo de recursos, como a Pesquisa Cognitiva Azure, os Serviços Cognitivos e quaisquer outros serviços Azure utilizados na sua solução. No portal Azure, encontre o grupo de recursos e utilize os comandos de Gestão de **Custos** para obter informações sobre os gastos reais e projetados.
++ Consolidar todos os serviços num só grupo de recursos, como a Pesquisa Cognitiva Azure, os Serviços Cognitivos e quaisquer outros serviços Azure utilizados na sua solução. No portal Azure, encontre o grupo de recursos e utilize os comandos de Gestão de **Custos** para obter informações sobre os gastos reais e projetados.
 
-- Considere a Web App Azure para a sua aplicação frontal para que os pedidos e respostas permaneçam dentro do limite do data center.
++ Considere a Web App Azure para a sua aplicação frontal para que os pedidos e respostas permaneçam dentro do limite do data center.
 
-- Aumentar para operações intensivas de recursos, como indexação, e, em seguida, reajustar para baixo para trabalhos de trabalho de consulta regular. Comece com a configuração mínima para A Pesquisa Cognitiva Azure (uma SU composta por uma divisória e uma réplica), e depois monitorize a atividade do utilizador para identificar padrões de utilização que indiquem a necessidade de mais capacidade. Se houver um padrão previsível, poderá sincronizar a escala com a atividade (teria de escrever código para automatizar isto).
++ Aumentar para operações intensivas de recursos, como indexação, e, em seguida, reajustar para baixo para trabalhos de trabalho de consulta regular. Comece com a configuração mínima para A Pesquisa Cognitiva Azure (uma SU composta por uma divisória e uma réplica), e depois monitorize a atividade do utilizador para identificar padrões de utilização que indiquem a necessidade de mais capacidade. Se houver um padrão previsível, poderá sincronizar a escala com a atividade (teria de escrever código para automatizar isto).
 
 Além disso, visite [a Faturação e a gestão](https://docs.microsoft.com/azure/billing/billing-getting-started) de custos para ferramentas e funcionalidades incorporadas relacionadas com os gastos.
 
@@ -130,7 +132,6 @@ Na Pesquisa Cognitiva Azure, a capacidade é estruturada como *réplicas* e *div
 
 > [!NOTE]
 > Todos os níveis Standard e Storage Optimized suportam [combinações flexíveis de réplicas e divisórias](search-capacity-planning.md#chart) para que possa [otimizar o seu sistema para velocidade ou armazenamento](search-performance-optimization.md) alterando o equilíbrio. O nível Básico oferece até três réplicas para alta disponibilidade, mas tem apenas uma divisória. Os níveis gratuitos não fornecem recursos dedicados: os recursos de computação são partilhados por vários subscritores.
-
 
 ### <a name="evaluating-capacity"></a>Capacidade de avaliação
 
@@ -152,7 +153,7 @@ Uma abordagem para estimar a capacidade é começar com o nível Livre. Lembre-s
 
 + [Criar um serviço gratuito.](search-create-service-portal.md)
 + Prepare um pequeno conjunto de dados representativo.
-+ [Construa um índice inicial no portal](search-create-index-portal.md) e note o seu tamanho. Características e atributos têm impacto no armazenamento. Por exemplo, adicionar sugestionadores (tipo à letra) aumentará os requisitos de armazenamento. Utilizando o mesmo conjunto de dados, poderá tentar criar múltiplas versões de um índice, com diferentes atributos em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["Implicações de armazenamento" na Criação de um índice básico](search-what-is-an-index.md#index-size).
++ [Construa um índice inicial no portal](search-create-index-portal.md) e note o seu tamanho. Características e atributos têm impacto no armazenamento. Por exemplo, adicionar sugestionantes (consultas de pesquisa como o tipo de pesquisa) aumentará os requisitos de armazenamento. Utilizando o mesmo conjunto de dados, poderá tentar criar múltiplas versões de um índice, com diferentes atributos em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["Implicações de armazenamento" na Criação de um índice básico](search-what-is-an-index.md#index-size).
 
 Com uma estimativa aproximada na mão, pode duplicar esse montante para o orçamento de dois índices (desenvolvimento e produção) e, em seguida, escolher o seu nível em conformidade.
 
@@ -196,7 +197,7 @@ As funcionalidades de nível livre e pré-visualização não fornecem [acordos 
 
 + Permitir que as métricas construam em torno de consultas e recolha dados em torno de padrões de utilização (consultas durante o horário de trabalho, indexação durante horas fora do pico). Utilize estes dados para informar as decisões de prestação de serviços. Embora não seja prático numa cadência de hora ou de dia, pode ajustar dinamicamente divisórias e recursos para acomodar alterações planeadas em volumes de consulta. Também pode acomodar alterações não planeadas mas sustentadas se os níveis se mantiverem o tempo suficiente para justificar a tomada de medidas.
 
-+ Lembre-se que a única desvantagem de subprovisionamento é que poderá ter de demolir um serviço se os requisitos reais forem maiores do que as suas previsões. Para evitar perturbações no serviço, criaria um novo serviço a um nível mais elevado e executava-o lado a lado até que todas as aplicações e pedidos visassem o novo ponto final.
++ Lembre-se que a única desvantagem de providenciar é que poderá ter de demolir um serviço se os requisitos reais forem maiores do que as suas previsões. Para evitar perturbações no serviço, criaria um novo serviço a um nível mais elevado e executava-o lado a lado até que todas as aplicações e pedidos visassem o novo ponto final.
 
 ## <a name="next-steps"></a>Passos seguintes
 

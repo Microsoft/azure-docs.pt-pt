@@ -7,103 +7,100 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 124f1ce3d30ce87d5e9d8fa027e5a7d6c0b3cb17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8543894f3f518df6b9b0054973ca1683b82e38f1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481607"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548999"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa em Pesquisa Cognitiva Azure
-Este artigo fornece orientações sobre como implementar elementos padrão de uma página de resultados de pesquisa, tais como contagem total, recuperação de documentos, ordenar ordens e navegação. As opções relacionadas com a página que contribuem com dados ou informações para os resultados da sua pesquisa são especificadas através dos pedidos do Documento de [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviados para o seu serviço de Pesquisa Cognitiva Azure. 
 
-Na API REST, os pedidos incluem um comando GET, caminho e parâmetros de consulta que informam o serviço o que está a ser solicitado, e como formular a resposta. No SDK .NET, o Equivalente API é [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
+Este artigo explica como obter uma resposta de consulta que recue com uma contagem total de documentos correspondentes, resultados paginados, resultados classificados e termos de sucesso.
 
-Para gerar rapidamente uma página de pesquisa para o seu cliente, explore estas opções:
+A estrutura de uma resposta é determinada por parâmetros na consulta: Documento de [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) na API REST, ou [Classe DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no .NET SDK.
 
-+ Utilize o gerador de [aplicação](search-create-app-portal.md) no portal para criar uma página HTML com uma barra de pesquisa, navegação faceada e área de resultados.
-+ Siga a [sua primeira aplicação em C#](tutorial-csharp-create-first-app.md) tutorial para criar um cliente funcional.
+## <a name="result-composition"></a>Composição do resultado
 
-Várias amostras de código incluem uma interface frontal web, que você pode encontrar aqui: [new York City Jobs demo app](https://aka.ms/azjobsdemo), Código de amostra [JavaScript com um site de demonstração ao vivo](https://github.com/liamca/azure-search-javascript-samples), e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Embora um documento de pesquisa possa consistir num grande número de campos, normalmente apenas alguns são necessários para representar cada documento no conjunto de resultados. Num pedido de consulta, `$select=<field list>` anexar para especificar quais os campos que aparecem na resposta. Um campo deve ser atribuído como **Recuperável** no índice a incluir num resultado. 
 
-> [!NOTE]
-> Um pedido válido inclui uma série de elementos, tais como `api-version`um URL de serviço e caminho, verbo HTTP, e assim por diante. Para a brevidade, aparamos os exemplos para destacar apenas a sintaxe que é relevante para a paginação. Para mais informações sobre a sintaxe de pedido, consulte [AFP](https://docs.microsoft.com/rest/api/searchservice)
->
+Os campos que funcionam melhor incluem aqueles que contrastam e diferenciam entre documentos, fornecendo informações suficientes para convidar uma resposta de clique por parte do utilizador. Num site de e-commerce, pode ser um nome de produto, descrição, marca, cor, tamanho, preço e classificação. Para a amostra incorporada do índice hotéis-sample-sample, pode ser um campo no seguinte exemplo:
 
-## <a name="total-hits-and-page-counts"></a>Total de resultados e Contagens de Páginas
-
-Mostrar o número total de resultados devolvidos de uma consulta, e depois devolver esses resultados em pedaços menores, é fundamental para praticamente todas as páginas de pesquisa.
-
-![][1]
-
-Na Pesquisa Cognitiva Azure, `$count` `$top`utiliza-se os , e `$skip` parâmetros para devolver estes valores. O exemplo seguinte mostra um pedido de amostra de acessototal `@odata.count`de acessos num índice chamado "catálogo online", devolvido como:
-
-    GET /indexes/online-catalog/docs?$count=true
-
-Recupere documentos em grupos de 15, e também mostre o total de acessos, a partir da primeira página:
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-Os resultados paginantes `$top` `$skip`requerem `$top` tanto e, quando especifica quantos itens `$skip` devem devolver num lote, e especifica quantos itens devem saltar. No exemplo seguinte, cada página mostra os próximos 15 itens, `$skip` indicados pelos saltos incrementais no parâmetro.
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
-
-## <a name="layout"></a>Esquema
-
-Numa página de resultados de pesquisa, é melhor mostrar uma imagem de miniatura, um subconjunto de campos e um link para uma página completa do produto.
-
- ![][2]
-
-Na Pesquisa Cognitiva Azure, `$select` utilizaria e um pedido de [Pesquisa API](https://docs.microsoft.com/rest/api/searchservice/search-documents) para implementar esta experiência.
-
-Para devolver um subconjunto de campos para um layout em azulejo:
-
-    GET /indexes/online-catalog/docs?search=*&$select=productName,imageFile,description,price,rating
-
-Imagens e ficheiros de mídia não são diretamente pesquisáveis e devem ser armazenados noutra plataforma de armazenamento, como o armazenamento do Azure Blob, para reduzir custos. No índice e nos documentos, defina um campo que armazene o endereço URL do conteúdo externo. Em seguida, pode utilizar o campo como referência de imagem. O URL da imagem deve estar no documento.
-
-Para recuperar uma página de descrição do produto para um evento **onClick,** utilize o [Documento de Procuração](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) para passar na chave do documento para recuperar. O tipo de dados `Edm.String`da chave é . Neste exemplo, é *246810*.
-
-    GET /indexes/online-catalog/docs/246810
-
-## <a name="sort-by-relevance-rating-or-price"></a>Ordenar por relevância, classificação ou preço
-
-Ordenar encomendas muitas vezes padrão à relevância, mas é comum disponibilizar as encomendas de classificação alternativas prontamente disponíveis para que os clientes possam rapidamente remodelar os resultados existentes numa ordem de classificação diferente.
-
- ![][3]
-
-Na Pesquisa Cognitiva Azure, a `$orderby` triagem baseia-se na expressão, `"Sortable": true.` `$orderby` para todos os campos indexados como cláusula A é uma expressão OData. Para obter informações sobre sintaxe, consulte a [sintaxe de expressão OData para filtros e cláusulas de encomenda.](query-odata-filter-orderby-syntax.md)
-
-A relevância está fortemente associada a perfis de pontuação. Pode utilizar a pontuação padrão, que se baseia na análise de texto e estatísticas para classificar todos os resultados, com pontuações mais altas a irem para documentos com jogos mais ou mais fortes num termo de pesquisa.
-
-As ordens de classificação alternativas são tipicamente associadas a eventos **onClick** que chamam de volta a um método que constrói a ordem de classificação. Por exemplo, dado este elemento de página:
-
- ![][4]
-
-Criaria um método que aceita a opção de classificação selecionada como entrada, e devolve uma lista ordenada para os critérios associados a essa opção.
-
- ![][5]
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+    {  
+      "search": "sandy beaches",
+      "select": "HotelId, HotelName, Description, Rating, Address/City"
+      "count": true
+    }
+```
 
 > [!NOTE]
-> Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância num perfil de pontuação personalizado. Um perfil de pontuação personalizado dá-lhe uma forma de impulsionar itens que são mais benéficos para o seu negócio. Consulte adicionar perfis de [pontuação](index-add-scoring-profiles.md) para obter mais informações.
->
+> Se quiser incluir ficheiros de imagem num resultado, como uma foto ou logotipo do produto, guarde-os fora da Pesquisa Cognitiva Azure, mas inclua um campo no seu índice para fazer referência ao URL de imagem no documento de pesquisa. Os índices de amostra que suportam imagens nos resultados incluem a demonstração de **realestate-sample-us,** apresentada neste [quickstart](search-create-app-portal.md), e a app de [demonstração new york city Jobs](https://aka.ms/azjobsdemo).
+
+## <a name="results-returned"></a>Resultados devolvidos
+
+Por predefinição, o motor de busca retorna até aos primeiros 50 jogos, conforme determinado pela pontuação de pesquisa se a consulta for pesquisa completa de texto, ou numa ordem arbitrária para consultas exatas de correspondência.
+
+Para devolver um número diferente `$top` de `$skip` documentos correspondentes, adicione e parâmetros ao pedido de consulta. A lista que se segue explica a lógica.
+
++ Adicione `$count=true` para obter uma contagem do número total de documentos correspondentes dentro de um índice.
+
++ Devolva o primeiro conjunto de 15 documentos correspondentes mais uma contagem de correspondências totais:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
+
++ Volte o segundo set, saltando os primeiros `$top=15&$skip=15`15 para obter os próximos 15: . Faça o mesmo no terceiro conjunto de 15:`$top=15&$skip=30`
+
+Os resultados das consultas paginadas não são garantidos para serem estáveis se o índice subjacente estiver a mudar. A paging altera `$skip` o valor de cada página, mas cada consulta é independente e opera na visão atual dos dados tal como existem no índice em tempo de consulta (por outras palavras, não há cache ou instantâneo de resultados, como os encontrados numa base de dados geral).
+ 
+Segue-se um exemplo de como se pode obter duplicados. Assuma um índice com quatro documentos:
+
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+    { "id": "4", "rating": 1 }
+ 
+Agora assuma que quer resultados devolvidos dois de cada vez, ordenados pela classificação. Executaria esta consulta para obter a `$top=2&$skip=0&$orderby=rating desc`primeira página dos resultados: , produzindo os seguintes resultados:
+
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+ 
+No serviço, assuma que um quinto documento é `{ "id": "5", "rating": 4 }`adicionado ao índice entre chamadas de consulta: .  Pouco depois, executa uma consulta para ir `$top=2&$skip=2&$orderby=rating desc`buscar a segunda página: e obtém estes resultados:
+
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+ 
+Note que o documento 2 é recolhido duas vezes. Isto porque o novo documento 5 tem um valor maior para a classificação, por isso classifica antes do documento 2 e aterra na primeira página. Embora este comportamento possa ser inesperado, é típico de como um motor de busca se comporta.
+
+## <a name="ordering-results"></a>Ordenar resultados
+
+Para consultas completas de pesquisa de texto, os resultados são automaticamente classificados por uma pontuação de pesquisa, calculada com base na frequência de prazo e proximidade de um documento, com pontuações mais altas indo para documentos com mais ou mais fósforos em um termo de pesquisa. As pontuações de pesquisa transmitem sentido geral de relevância, em relação a outros documentos no mesmo conjunto de resultados, e não são garantidos ser consistentes de uma consulta para a seguinte.
+
+À medida que trabalha com consultas, pode notar pequenas discrepâncias nos resultados ordenados. Há várias explicações para o porquê disto poder ocorrer.
+
+| Condição | Descrição |
+|-----------|-------------|
+| Volatilidade dos dados | O conteúdo de um índice varia à medida que adiciona, modifica ou elimina documentos. As frequências de prazo mudarão à medida que as atualizações de índices são processadas ao longo do tempo, afetando as pontuações de pesquisa de documentos correspondentes. |
+| Localização de execução de consulta | Para serviços que utilizam múltiplas réplicas, são emitidas consultas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular uma pontuação de pesquisa são calculadas numa base por réplica, com resultados fundidos e encomendados na resposta à consulta. As réplicas são sobretudo espelhos uns dos outros, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica poderia ter apagado documentos que contribuem para as suas estatísticas, que foram fundidos a partir de outras réplicas. Geralmente, as diferenças nas estatísticas por réplica são mais percetíveis em índices mais pequenos. |
+| Quebrar um empate entre pontuações de pesquisa idênticas | As discrepâncias nos resultados ordenados também podem ocorrer quando os documentos de pesquisa têm pontuações idênticas. Neste caso, ao refazer a mesma consulta, não há garantias de que documento aparecerá primeiro. |
+
+### <a name="consistent-ordering"></a>Ordenação consistente
+
+Dada a flexão na pontuação de pesquisa, você pode querer explorar outras opções se a consistência nas ordens de resultados é um requisito de aplicação. A abordagem mais fácil é classificar por um valor de campo, como classificação ou data. Para cenários em que se queira classificar por um campo específico, como [ `$orderby` ](query-odata-filter-orderby-syntax.md)uma classificação ou data, pode definir explicitamente uma expressão , que pode ser aplicada a qualquer campo indexado como **Sortível**.
+
+Outra opção é usar um perfil de [pontuação personalizado.](index-add-scoring-profiles.md) Os perfis de pontuação dão-lhe mais controlo sobre o ranking de itens nos resultados da pesquisa, com a capacidade de aumentar os jogos encontrados em campos específicos. A lógica adicional de pontuação pode ajudar a superar pequenas diferenças entre réplicas porque as pontuações de pesquisa de cada documento estão mais afastadas. Recomendamos o algoritmo de [classificação](index-ranking-similarity.md) para esta abordagem.
 
 ## <a name="hit-highlighting"></a>Detetor de ocorrências
 
-Pode aplicar formatação em termos correspondentes nos resultados da pesquisa, facilitando a identificação da partida. As instruções de destaque do hit são fornecidas no pedido de [consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+O destaque do hit refere-se à formatação de texto (como destaques arrojados ou amarelos) aplicados a um termo correspondente num resultado, facilitando a identificação da partida. As instruções de destaque do hit são fornecidas no pedido de [consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). O motor de busca encerra o termo `highlightPreTag` `highlightPostTag`correspondente em etiquetas e, e o seu código trata da resposta (por exemplo, aplicando uma fonte arrojada).
 
-A formatação é aplicada a consultas de termo inteiros. Consultas em termos parciais, tais como pesquisa difusa ou pesquisa de wildcard que resultam em expansão de consulta no motor, não podem usar o destaque do hit.
+A formatação é aplicada a consultas de termo inteiros. No exemplo seguinte, os termos "areia", "areia", "praias", "praia" encontradas dentro do campo Descrição estão marcados para destaque. Consultas em termos parciais, tais como pesquisa difusa ou pesquisa de wildcard que resultam em expansão de consulta no motor, não podem usar o destaque do hit.
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
     {  
-      "search": "something",  
-      "highlight": "Description"  
+      "search": "sandy beaches",  
+      "highlight": "Description"
     }
 ```
 
@@ -112,30 +109,11 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 >
 > Quando estiver a escrever o código do cliente que implementa o destaque, esteja ciente desta mudança. Note que isso não irá impactá-lo a menos que crie um serviço de pesquisa completamente novo.
 
-## <a name="faceted-navigation"></a>Navegação por facetas
+## <a name="next-steps"></a>Passos seguintes
 
-A navegação de pesquisa é comum numa página de resultados, muitas vezes localizada na parte lateral ou no topo de uma página. Na Pesquisa Cognitiva Azure, a navegação facetada proporciona uma pesquisa auto-direcionada com base em filtros predefinidos. Consulte [a navegação facetada na Pesquisa Cognitiva Azure](search-faceted-navigation.md) para obter detalhes.
+Para gerar rapidamente uma página de pesquisa para o seu cliente, considere estas opções:
 
-## <a name="filters-at-the-page-level"></a>Filtros ao nível da página
++ [Gerador de Aplicações,](search-create-app-portal.md)no portal, cria uma página HTML com uma barra de pesquisa, navegação faceada e área de resultados que inclui imagens.
++ [Criar a sua primeira aplicação em C#](tutorial-csharp-create-first-app.md) é um tutorial que constrói um cliente funcional. O código da amostra demonstra consultas paginadas, realçação de sucesso e triagem.
 
-Se o seu design de solução incluir páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, uma aplicação de retalho online que tem departamentos listados no topo da página), pode inserir uma expressão de [filtro](search-filters.md) ao lado de um evento **onClick** para abrir uma página em um estado pré-filtrado.
-
-Pode enviar um filtro com ou sem expressão de pesquisa. Por exemplo, o seguinte pedido filtrar-se-á no nome da marca, devolvendo apenas os documentos que o correspondem.
-
-    GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
-
-Consulte documentos de [pesquisa (API de pesquisa cognitiva azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter mais informações sobre `$filter` expressões.
-
-## <a name="see-also"></a>Veja também
-
-- [API REST do Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice)
-- [Operações indexadas](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-- [Operações documentais](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Navegação Faceted em Pesquisa Cognitiva Azure](search-faceted-navigation.md)
-
-<!--Image references-->
-[1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG
-[2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
-[3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
-[4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
+Várias amostras de código incluem uma interface frontal web, que você pode encontrar aqui: [new York City Jobs demo app](https://aka.ms/azjobsdemo), Código de amostra [JavaScript com um site de demonstração ao vivo](https://github.com/liamca/azure-search-javascript-samples), e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).

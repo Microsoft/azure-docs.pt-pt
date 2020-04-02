@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2970ebf42acb87e93f8b827b3687b219da5867c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9225cfd9793a84f371387d6450a3dfa80ba74de3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80244295"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547530"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Linha de base de segurança azure para registo de contentores azure
 
@@ -68,7 +68,6 @@ Proteja os seus recursos de rede:https://docs.microsoft.com/azure/security-cente
 Pode utilizar o azure Security Center Just In Time Network acesso para configurar NSGs para limitar a exposição de pontos finais a endereços IP aprovados por um período limitado. Além disso, utilize o Azure Security Center Adaptive Network Hardening para recomendar configurações de NSG que limitem os IPs de Portos e Fonte supor com base na inteligência real de tráfego e ameaças.
 
 Como configurar a proteção DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
 
 Como implantar o Firewall Azure:https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 

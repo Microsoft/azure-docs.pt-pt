@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 76dc964b7fe7f5e8acfcfb03b2e89bebb2caa176
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a74d5e609c615bb6b973eceebb144c58e46f7cd
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613382"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519464"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelos serviços de domínio da Azure AD existentes
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72437949"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547790"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração do Estado desejada com modelos de Gestor de Recursos Azure
 
-Este artigo descreve o modelo do Gestor de Recursos Azure para o manipulador de extensão de [configuração do Estado Desejado (DSC).](dsc-overview.md) Muitos dos exemplos utilizam o **RegistrationURL** (fornecido como string) e **a Chave** de Registo (fornecida como [PSCredential)](/dotnet/api/system.management.automation.pscredential)para bordo com a Automação Azure. Para mais detalhes sobre a obtenção desses valores, consulte máquinas de [embarque para gestão pela Configuração do Estado da Automação Azure - Registo seguro](/azure/automation/automation-dsc-onboarding#secure-registration).
+Este artigo descreve o modelo do Gestor de Recursos Azure para o manipulador de extensão de [configuração do Estado Desejado (DSC).](dsc-overview.md) Muitos dos exemplos utilizam o **RegistrationURL** (fornecido como string) e **a Chave** de Registo (fornecida como [PSCredential)](/dotnet/api/system.management.automation.pscredential)para bordo com a Automação Azure. Para mais detalhes sobre a obtenção desses valores, consulte máquinas de [embarque para gestão pela Configuração do Estado da Automação Azure - Registo seguro](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
 
 > [!NOTE]
 > Pode encontrar exemplos de esquemas ligeiramente diferentes. A mudança de esquema ocorreu no lançamento de outubro de 2016. Para mais detalhes, consulte [Atualização de um formato anterior](#update-from-a-previous-format).

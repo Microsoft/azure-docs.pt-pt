@@ -13,17 +13,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 054b5c7d13df39de4fa57167e0363c0b4acf9b08
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4cabd63dc39590a9bf728528f3e7b3aa5d3f6b04
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80280750"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521764"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Event Hubs usando análise de stream 
 Este artigo mostra como transmitir dados para Os Hubs de Eventos e processá-lo com o Azure Stream Analytics. Ele acompanha-te pelos seguintes passos: 
 
-1. Crie um espaço de nome sanado por Kafka.
+1. Crie um espaço de nomes dos Hubs de Eventos.
 2. Crie um cliente Kafka que envie mensagens para o centro do evento.
 3. Crie um trabalho de Stream Analytics que copie dados do centro do evento para um armazenamento de blob Azure. 
 
@@ -41,7 +41,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 * Uma **conta de Armazenamento Azure.** Se não tem um, [crie um](../storage/common/storage-account-create.md) antes de prosseguir. O trabalho do Stream Analytics neste walkthrough armazena os dados de saída num armazenamento de blob Azure. 
 
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos ativado para Kafka
+## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka para o espaço de nome está ativado automaticamente. Você pode transmitir eventos a partir das suas aplicações que usam o protocolo Kafka em centros de eventos de nível padrão. Siga instruções passo a passo no [Create a event hub utilizando o portal Azure](event-hubs-create.md) para criar um espaço de nome de hubs de evento de nível **padrão.** 
 
 > [!NOTE]
@@ -185,7 +185,7 @@ Neste artigo, aprendeu a transmitir para O Hubs de Eventos sem alterar os seus c
 
 - [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 - [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) (Hubs de Eventos para Apache Kafka)
-- [How to create Kafka enabled Event Hubs](event-hubs-create.md) (Como criar os Hubs de Eventos ativados para Kafka)
+- [Criar um hub de eventos](event-hubs-create.md)
 - [Transmitir em fluxo para os Hubs de Eventos a partir das suas aplicações Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)

@@ -9,20 +9,20 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5a21f36136c6f1d77a2e9cb9108f539c9fb39334
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4c93ffa7828710c26200408666c03a28fd7f3d3c
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77134869"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549281"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Quickstart: Construa uma app Java para gerir dados da API da Azure Cosmos DB Cassandra
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
-> * [Nó.js](create-cassandra-nodejs.md)
-> * [Pitão](create-cassandra-python.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
 >  
 
 Neste arranque rápido, cria-se uma conta API Da API da Azure Cosmos DB Cassandra, e usa-se uma aplicação Cassandra Java clonada do GitHub para criar uma base de dados e um contentor da Cassandra. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, basede-chaves e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
@@ -66,7 +66,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação do Cassandra a 
 
 Este passo é opcional. Se estiver interessado em saber de que forma o código cria os recursos da base de dados, pode rever os fragmentos seguintes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). Estes snippets são todos retirados do ficheiro *sRC/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.*  
 
-* As opções anfitrião de Cassandra, porta, nome de utilizador, palavra-passe e SSL estão definidas. As informações de cadeia de ligação provêm da página da cadeia de ligação no portal do Azure.
+* As opções de anfitrião Cassandra, porta, nome de utilizador, palavra-passe e TLS/SSL estão definidas. As informações de cadeia de ligação provêm da página da cadeia de ligação no portal do Azure.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -168,9 +168,9 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. Na linha 6, se pretender utilizar um certificado SSL específico, em seguida, substitua `<SSL key store file location>` com a localização do certificado SSL. Se não for fornecido um valor, o certificado JDK instalado em <JAVA_HOME>/jre/lib/segurança/cacerts é utilizado. 
+5. Na linha 6, se pretender utilizar um certificado específico TLS/SSL, substitua-o `<SSL key store file location>` pela localização do certificado TLS/SSL. Se não for fornecido um valor, o certificado JDK instalado em <JAVA_HOME>/jre/lib/segurança/cacerts é utilizado. 
 
-6. Se tiver alterado a linha 6 para utilizar um certificado SSL específico, atualize a linha 7 para utilizar a palavra-passe para esse certificado. 
+6. Se alterou a linha 6 para utilizar um certificado específico TLS/SSL, atualize a linha 7 para utilizar a palavra-passe para esse certificado. 
 
 7. Guarde o ficheiro *config.properties.*
 

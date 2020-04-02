@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
-ms.author: barclayn
-ms.openlocfilehash: 7821fdc0dfda5db8d660a38a59efc774e30b9f4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 997bd480fd8b552d7cff61d7a4798e0a3d4db5bf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68727461"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548651"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Cibersegurança
 

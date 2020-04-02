@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade nas funcionalidades de conectividade back-end do Azure: Controlar a análise de planos / Microsoft Docs'
+title: 'Interoperabilidade em Azure : Controlar a análise de planos'
 description: Este artigo fornece a análise do plano de controlo da configuração do teste que pode utilizar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site-to-site e o peering de rede virtual em Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873850"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518276"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilidade nas funcionalidades de conectividade back-end azure: Controlar a análise de planos
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilidade em Azure : Controlar a análise de planos
 
 Este artigo descreve a análise do plano de controlo da [configuração][Setup]do teste . Também pode rever a configuração da [configuração][Configuration] do teste e a análise do plano de [dados][Data-Analysis] da configuração do teste.
 

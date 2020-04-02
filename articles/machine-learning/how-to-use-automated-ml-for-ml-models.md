@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 9999d74bf6bef3e8351460add7efc8bdbfcd1045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa85e80f1a90191a0a34a6962437c27a9d57ef65
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270033"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547558"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -178,17 +178,27 @@ O machine learning automatizado oferece pré-processamento e guarda-costas de da
 
 ### <a name="data-guardrails"></a>Guarda-costas de dados
 
-Os guarda-costas de dados são aplicados automaticamente para ajudá-lo a identificar potenciais problemas com os seus dados (por exemplo, valores em falta, desequilíbrio de classe) e ajudar a tomar medidas corretivas para melhores resultados. Existem muitas boas práticas que estão disponíveis e podem ser aplicadas para obter resultados fiáveis. 
-
-A tabela que se segue descreve os guarda-costas de dados atualmente suportados, e os estados associados que os utilizadores podem encontrar ao submeter a sua experiência.
+Os guarda-costas de dados são aplicados quando a funcionalidade automática está ativada ou a validação é definida para auto. Os guarda-costas ajudam-no a identificar potenciais problemas com os seus dados (por exemplo, valores em falta, desequilíbrio de classe) e ajudam a tomar medidas corretivas para melhorar os resultados. Existem muitas boas práticas que estão disponíveis e podem ser aplicadas para obter resultados fiáveis. Os utilizadores podem rever os guardrails de dados no estúdio dentro do ```show_output=True``` separador **De guarda-dados** de uma execução automatizada de ML ou definindo ao submeter uma experiência utilizando o Python SDK. A tabela seguinte descreve os guarda-costas de dados atualmente suportados, e os estados associados que os utilizadores podem encontrar ao submeter a sua experiência.
 
 Guarda-costas|Estado|Condição&nbsp;&nbsp;para o gatilho
 ---|---|---
-Imputação&nbsp;de valores em falta&nbsp; |**Passado** <br> <br> **Fixo**|    Nenhum valor em falta em&nbsp;nenhuma das colunas de entrada <br> <br> Algumas colunas têm valores em falta
-Validação cruzada|**Concluído**|Se não for fornecido nenhum conjunto de validação explícita
-Deteção&nbsp;de&nbsp;recurso de alta&nbsp;cardinalidade|    **Passado** <br> <br>**Concluído**|    Não foram detetados grandes características de cardinalidade <br><br> Foram detetadas colunas de entrada de alta cardinalidade
-Deteção de equilíbrio de classes    |**Passado** <br><br><br>**Alertado** |As aulas são equilibradas nos dados da formação; Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras <br> <br> As aulas nos dados de formação são desequilibradas
-Consistência dos dados da série temporal|**Passado** <br><br><br><br> **Fixo** |<br> Foram analisados os valores de {horizon, lag, rolling window} e não foram detetados potenciais problemas fora da memória. <br> <br>Os valores selecionados {horizon, lag, rolling window} foram analisados e potencialmente causarão a sua experiência a ficar sem memória. O lag ou a janela de rolamento foram desligados.
+Falta de valores de características imputação |**Passado** <br><br><br> **Concluído**| Não foram detetados valores de funcionalidade sem falta nos seus dados de treino. Saiba mais sobre a [falta de imputação de valor.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Os valores de funcionalidade em falta foram detetados nos seus dados de treino e imputados.
+Manipulação de recurso de alta cardinalidade |**Passado** <br><br><br> **Concluído**| Os seus contributos foram analisados, e não foram detetados grandes características de cardinalidade. Saiba mais sobre a deteção de recurso de [alta cardinalidade.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Características de alta cardeal foram detetadas nas suas inputs e foram tratadas.
+Manipulação de validação dividida |**Concluído**| *A configuração de validação foi definida como 'auto' e os dados de treino continham **menos** de 20.000 linhas.* <br> Cada iteração do modelo treinado foi validada através da validação cruzada. Saiba mais sobre [os dados de validação.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *A configuração de validação foi definida como 'auto' e os dados de treino continham **mais** de 20.000 linhas.* <br> Os dados de entrada foram divididos num conjunto de dados de formação e num conjunto de dados de validação para validação do modelo.
+Deteção de equilíbrio de classes |**Passado** <br><br><br><br> **Alertado** | As suas inputs foram analisadas, e todas as aulas são equilibradas nos seus dados de treino. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras. <br><br><br> As aulas desequilibradas foram detetadas nas suas inputs. Para corrigir o viés do modelo, corrigir o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
+Deteção de problemas de memória |**Passado** <br><br><br><br> **Concluído** |<br> Foram analisados os valores de {horizon, lag, rolling window} e não foram detetados potenciais problemas fora da memória. Saiba mais sobre [as configurações](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de previsão da série de tempo. <br><br><br>Os valores selecionados {horizon, lag, rolling window} foram analisados e potencialmente causarão a sua experiência a ficar sem memória. As configurações de lag ou janela sonorizadora foram desligadas.
+Deteção de frequências |**Passado** <br><br><br><br> **Concluído** |<br> A série de tempo foi analisada e todos os pontos de dados estão alinhados com a frequência detetada. <br> <br> As séries de tempo foram analisadas e foram detetados pontos de dados que não se alinham com a frequência detetada. Estes pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de séries temporais.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+
+#### <a name="data-guardrail-states"></a>Estados da Guarda de Dados
+Os guarda-costas de dados vão exibir um dos três estados: "Passado", "Feito ou "Alertado".
+
+Estado| Descrição
+----|----
+Passado| Não foram detetados problemas de dados e não é necessária qualquer ação do utilizador. 
+Concluído| Foram aplicadas alterações aos seus dados. Encorajamos os utilizadores a rever as ações corretivas que o AUTOMATED ML tomou para garantir que as alterações se alinham com os resultados esperados. 
+Alertado| Foi detetada uma questão de dados que não podia ser corrigida. Encorajamos os utilizadores a rever e corrigir o problema. 
+
+A versão anterior do ML automatizado apresentava um quarto estado: "Fixo". As experiências mais recentes não vão exibir este estado, e todos os guarda-costas que exibiram o estado 'Fixo' irão agora exibir 'Done'.   
 
 ## <a name="run-experiment-and-view-results"></a>Executar resultados de experiência e visualização
 

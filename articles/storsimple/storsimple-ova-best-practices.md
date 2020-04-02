@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298841"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544331"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas da Matriz Virtual do StorSimple
 
@@ -161,8 +161,8 @@ Tenha em mente as seguintes boas práticas ao fornecer ações ou volumes no seu
 
 * Os tamanhos dos ficheiros relativos ao tamanho provisionado de uma parte tiered podem ter impacto no desempenho do tiering. Trabalhar com ficheiros grandes pode resultar numa saída lenta. Ao trabalhar com ficheiros grandes, recomendamos que o maior ficheiro seja inferior a 3% do tamanho da ação.
 * Pode ser criado um máximo de 16 volumes/ações na matriz virtual. Para os limites de tamanho dos volumes/ações fixas e nitentes locais, consulte sempre os [limites de Matriz Virtual StorSimple](storsimple-ova-limits.md).
-* Ao criar um volume, fator no consumo de dados esperado, bem como no crescimento futuro. O volume não pode ser expandido mais tarde.
-* Uma vez criado o volume, não é possível reduzir o tamanho do volume no StorSimple.
+* Ao criar um volume, fator no consumo de dados esperado, bem como no crescimento futuro. O volume ou a partilha não podem ser expandidos posteriormente.
+* Uma vez criado o volume/partilha, não é possível reduzir o tamanho do volume/parte no StorSimple.
 * Ao escrever para um volume hierárquico no StorSimple, quando os dados de volume atingem um determinado limiar (em relação ao espaço local reservado para o volume), a IO é estrangulada. Continuar a escrever para este volume atrasa significativamente a OI. Embora possa escrever para um volume hierárquico para além da sua capacidade provisionada (não impedimos ativamente o utilizador de escrever para além da capacidade prevista), vê uma notificação de alerta no sentido de ter sobrestimado. Uma vez que veja o alerta, é imperativo que tome medidas corretivas como eliminar os dados de volume (a expansão do volume não é suportada atualmente).
 * Para casos de utilização de recuperação de desastres, uma vez que o número de ações/volumes admissíveis é de 16 e o número máximo de ações/volumes que podem ser processados paralelamente é também de 16, o número de ações/volumes não tem influência nos seus RPO e RTOs.
 

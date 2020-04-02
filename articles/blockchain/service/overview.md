@@ -1,15 +1,15 @@
 ---
 title: Visão geral do Serviço Azure Blockchain
 description: Visão geral do Serviço Azure Blockchain
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205077"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529147"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ O Azure Blockchain Service é um serviço de contabilidade totalmente gerido que
 * Gestão de consórcio incorporado
 * Desenvolver contratos inteligentes com ferramentas de desenvolvimento familiares
 
-O Azure Blockchain Service foi concebido para suportar vários protocolos de contabilidade. Atualmente, fornece apoio ao livro-razão ethereum [Quorum](https://www.goquorum.com/) utilizando o mecanismo de consenso [IBFT.](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
+O Azure Blockchain Service foi concebido para suportar vários protocolos de contabilidade. Atualmente, fornece apoio ao livro-razão Ethereum [Quorum](https://www.goquorum.com/) utilizando o mecanismo de consenso de Tolerância à [Falta bizantina de Istambul (IBFT).](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
 
 Estas funcionalidades não exigem praticamente qualquer ação de administração e são todas fornecidas sem custos adicionais. Você pode focar-se no desenvolvimento de aplicações e lógica de negócio, em vez de alocar tempo e recursos para gerir máquinas virtuais e infraestruturas. Além disso, pode continuar a desenvolver a sua aplicação com as ferramentas de código aberto e plataforma da sua escolha para oferecer as suas soluções sem ter de aprender novas competências.
 
@@ -33,13 +33,13 @@ O Azure Blockchain Service oferece dois níveis de serviço: *Básico* e *Standa
 
 ![Escalões de preço](./media/overview/pricing-tiers.png)
 
-Além de oferecer dois nós validadores, o nível *Standard* fornece 2 *vCores* para cada transação e nó validante, enquanto o nível Basic oferece uma configuração de 1 vCore.  Ao oferecer 2 vCores para transações e nós validadores, 1 vCore pode ser dedicado ao livro de contabilidade Quorum enquanto os restantes 1 vCore podem ser usados para outros serviços relacionados com a infraestrutura, garantindo um desempenho ótimo para as cargas de trabalho de blockchain de produção. Para obter mais informações sobre os detalhes dos preços, consulte os preços do [Serviço Azure Blockchain](https://azure.microsoft.com/pricing/details/blockchain-service).
+Além de oferecer dois nós validadores, o nível *Standard* fornece dois *vCores* para cada transação e nó validante, enquanto o nível *Basic* oferece uma configuração de 1 vCore.  Ao oferecer 2 vCores para transações e nós validadores, 1 vCore pode ser dedicado ao livro de contabilidade Quorum enquanto os restantes 1 vCore podem ser usados para outros serviços relacionados com a infraestrutura, garantindo um desempenho ótimo para as cargas de trabalho de blockchain de produção. Para obter mais informações sobre os detalhes dos preços, consulte os preços do [Serviço Azure Blockchain](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Segurança e manutenção
 
 Depois de fornecer o seu primeiro membro blockchain, tem a capacidade de adicionar nós de transação adicionais ao seu membro.  Por predefinição, os nós de transação são protegidos através de regras de firewall e requerem configuração para acesso.  Além disso, todos os nós de transação encriptam dados em movimento via TLS.  Existem várias opções para garantir o acesso ao nó de transações, incluindo regras de firewall, autenticação básica, chaves de acesso e integração do Diretório Ativo Azure. Para mais informações, consulte os nós de [transação e](configure-transaction-nodes.md) configure o [acesso ao Diretório Ativo Azure](configure-aad.md).
 
-Como um serviço gerido, o Azure Blockchain Service garante que os nós do seu membro blockchain são remendados com o mais recente sistema operativo de anfitrião e atualizações de pilhas de software ledger, configuradas para alta disponibilidade (apenas nível Standard), eliminando grande parte dos DevOps necessário para os tradicionais nódosos de blockchain IaaS.  Para obter mais informações sobre patching e atualizações, consulte [as versões de contabilidade do Azure Blockchain Service suportadas](ledger-versions.md).
+Como um serviço gerido, o Azure Blockchain Service garante que os nós do seu membro blockchain são remendados com as mais recentes atualizações de pilhas de software de sistema operativo de anfitrião e ledger, configuradas para alta disponibilidade (apenas nível Standard), eliminando grande parte dos DevOps necessários para os tradicionais nós de blockchain IaaS.  Para obter mais informações sobre patching e atualizações, consulte [as versões de contabilidade do Azure Blockchain Service suportadas](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Monitorização e registos
 

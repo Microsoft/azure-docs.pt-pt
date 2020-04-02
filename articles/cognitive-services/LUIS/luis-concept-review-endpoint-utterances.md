@@ -1,22 +1,14 @@
 ---
 title: Rever a expressão do utilizador - LUIS
-titleSuffix: Azure Cognitive Services
 description: Com aprendizagem ativa, a sua revisão endpoint pronuncia-se para a correta intenção e entidade. LUIS escolhe as palavras de ponto final de que não tem a certeza.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: diberry
-ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219942"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546857"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para permitir a aprendizagem ativa através da revisão de expressões de pontos finais
 A aprendizagem ativa é uma das três estratégias para melhorar a precisão da previsão e a mais fácil de implementar. Com aprendizagem ativa, a sua revisão endpoint pronuncia-se para a correta intenção e entidade. LUIS escolhe as palavras de ponto final de que não tem a certeza.
@@ -29,6 +21,8 @@ Luis adiciona declarações à lista de revisão quando a intenção de disparo 
 
 ## <a name="single-pool-for-utterances-per-app"></a>Piscina única para expressões por app
 A lista de declarações de **pontofinal** da Revisão não muda com base na versão. Há um único conjunto de expressões para rever, independentemente da versão da expressão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final.
+
+No [REST API,](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)o nome da versão é necessário e tem de existir na aplicação, mas não é utilizado para além dessa validação. As declarações de revisão aplicam-se a uma aplicação inteira. Se remover as palavras de uma _versão,_ todas as versões são afetadas.
 
 ## <a name="where-are-the-utterances-from"></a>Onde estão as expressões de
 As declarações de endpoint são retiradas de consultas de utilizador final no ponto final http da aplicação. Se a sua aplicação não for publicada ou ainda não tiver recebido acessos, não tem nenhuma expressão para rever. Se não forem recebidos acessos de ponto final para uma intenção ou entidade específica, não tem declarações para rever que os contenham.

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/17/2020
-ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77426280"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548513"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criação e utilização de geo-replicação ativa
 
@@ -36,7 +36,7 @@ Se, por alguma razão, a sua base de dados primária falhar, ou simplesmente nec
 
 Pode gerir a replicação e a falha de uma base de dados individual ou de um conjunto de bases de dados num servidor ou numa piscina elástica utilizando geo-replicação ativa. Pode fazê-lo usando:
 
-- O [portal do Azure](sql-database-geo-replication-portal.md)
+- O [portal Azure](sql-database-geo-replication-portal.md)
 - [PowerShell: Base de dados única](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Piscina elástica](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - [Transact-SQL: Base de dados única ou piscina elástica](/sql/t-sql/statements/alter-database-azure-sql-database)
@@ -146,7 +146,7 @@ O cliente que executa as alterações precisa de acesso à rede ao servidor prim
 
    ```sql
    create user geodrsetup for login geodrsetup
-   alter role geodrsetup dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup
    ```
 
 1. Tome nota do SID do novo login utilizando esta consulta: 

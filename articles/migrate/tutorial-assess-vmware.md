@@ -3,12 +3,12 @@ title: Avaliar VMs VMware para migração para o Azure
 description: Descreve como avaliar os VMs no local para migração para Azure usando a Avaliação do Servidor Migratório Azure.
 ms.topic: tutorial
 ms.date: 03/23/2019
-ms.openlocfilehash: f33e56f7e0af920363475edfa7e86977c2efd1d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336734"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548749"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Avaliar VMware VMs utilizando a avaliação do servidor migratório Azure
 
@@ -163,7 +163,7 @@ O aparelho precisa de se ligar ao VCenter Server para descobrir os dados de conf
 1. Em especificar os detalhes do **servidor vCenter,** especifique o nome (FQDN) ou o endereço IP da instância do servidor vCenter. Pode deixar a porta predefinida ou especificar uma porta personalizada na qual o VCenter Server ouve.
 2. No **nome do utilizador** e na **palavra-passe,** especifique as credenciais de conta vCenter Server que o aparelho utilizará para descobrir VMs na instância vCenter Server. 
 
-    - Deveria ter criado uma conta com as permissões necessárias no [tutorial anterior.](/tutorial-prepare-vmware.md#set-up-an-account-for-assessment)
+    - Deveria ter criado uma conta com as permissões necessárias no [tutorial anterior.](tutorial-prepare-vmware.md#set-up-an-account-for-assessment)
     - Se pretender analisar a descoberta de objetos VMware específicos (centros de dados vCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou VMs individuais),reveja as instruções [deste artigo](set-discovery-scope.md) para restringir a conta utilizada pela Azure Migrate.
 
 3. Selecione **validate a ligação** para se certificar de que o aparelho pode ligar-se ao VCenter Server.

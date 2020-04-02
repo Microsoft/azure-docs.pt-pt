@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b344886e89a10a027cba169e92056a6dda443d8d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: c56e6729307a1cad998a060202f51cb8f29bf94a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421948"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548328"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -332,7 +332,7 @@ Serviço Azure: [Gestão API](../api-management/index.yml)
 > | Ação | Microsoft.ApiManagement/service/read | Ler metadados para uma instância do Serviço de Gestão da API |
 > | Ação | Microsoft.ApiManagement/service/delete | Eliminar a instância do Serviço de Gestão da API |
 > | Ação | Microsoft.ApiManagement/service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizados para um Serviço de Gestão API |
-> | Ação | Microsoft.ApiManagement/service/updatecertificate/action | Carregue o certificado SSL para um Serviço de Gestão API |
+> | Ação | Microsoft.ApiManagement/service/updatecertificate/action | Carregue o certificado TLS/SSL para um Serviço de Gestão API |
 > | Ação | Microsoft.ApiManagement/service/backup/action | Serviço de Gestão aPI de backup para o recipiente especificado em uma conta de armazenamento fornecida por utilizador |
 > | Ação | Microsoft.ApiManagement/service/restore/action | Restaurar o Serviço de Gestão da API do recipiente especificado numa conta de armazenamento fornecida pelo utilizador |
 > | Ação | Microsoft.ApiManagement/service/managedeployments/action | Alterar SKU/unidades, adicionar/remover implantações regionais do Serviço de Gestão aPI |

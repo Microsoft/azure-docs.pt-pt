@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a167ac1cc9b9ca8cc8951f14f43ba4cf5d10551
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 908d0fb9d494ec048e6b254f91ec1faf56b47c90
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294418"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529406"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta Da Dynamics 365 Business Central
 
@@ -267,7 +267,7 @@ Necessária se a sua oferta tiver de ser instalada juntamente com outra extensã
 
 ### <a name="url-to-app-installation"></a>URL para instalação de aplicativos
 
-Se selecionou **O Connect** acima, forneça o URL para a instalação da sua aplicação aqui.
+Se selecionou **O Connect** acima, forneça o URL para a instalação da sua aplicação aqui. Para serviços conectados que não necessitem de instalação, forneça o URL para a sua página de aterragem de serviço ou página de inscrição.
 
 ## <a name="test-drive-technical-configuration"></a>Configuração técnica de test drive
 

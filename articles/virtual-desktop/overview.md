@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 01767e88714bfb4e134957298505edd218d462d3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294834"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546931"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -43,7 +43,7 @@ Com o Windows Virtual Desktop, pode configurar um ambiente escalável e flexíve
 * Crie um ambiente completo de virtualização no ambiente de trabalho na sua subscrição Azure sem ter de executar quaisquer servidores de gateway adicionais.
 * Publique o número de piscinas hospedeiras que precisar para acomodar as suas diversas cargas de trabalho.
 * Traga a sua própria imagem para cargas de trabalho de produção ou teste a partir da Galeria Azure.
-* Reduzir os custos com recursos conjuntos e multi-sessões. Com a nova capacidade multi-sessão do Windows 10 Enterprise exclusiva para o Windows Virtual Desktop e Remote Desktop Session Host (RDSH) no Windows Server, pode reduzir consideravelmente o número de máquinas virtuais e sistema operativo (OS) enquanto ainda é fornecendo os mesmos recursos aos seus utilizadores.
+* Reduzir os custos com recursos conjuntos e multi-sessões. Com a nova capacidade multi-sessão do Windows 10 Enterprise exclusiva para o Windows Virtual Desktop e remote Desktop Session Host (RDSH) no Windows Server, pode reduzir consideravelmente o número de máquinas virtuais e sistema operativo (OS) sobrecarga, fornecendo ainda os mesmos recursos aos seus utilizadores.
 * Fornecer propriedade individual através de ambientes de trabalho pessoais (persistentes).
 
 Pode implementar e gerir ambientes de trabalho virtuais:
@@ -89,21 +89,38 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ser:
 
 As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter acesso aos seguintes URLs:
 
-|Endereço|Porta de saída|Objetivo|
-|---|---|---|
-|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|
-|*.blob.core.windows.net|Porta TCP 443|Agente, atualizações de pilha sXS, e tráfego de agente|
-|*.core.windows.net|Porta TCP 443|Tráfego de agente|
-|*.servicebus.windows.net|Porta TCP 443|Tráfego de agente|
-|prod.warmpath.msftcloudes.com|Porta TCP 443|Tráfego de agente|
-|catalogartifact.azureedge.net|Porta TCP 443|Azure Marketplace|
-|kms.core.windows.net|Porta TCP 1688|Ativação do Windows 10|
+|Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Tráfego de serviço|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações de pilhas de agente e SXS|AzureCloud|
+|*.core.windows.net|443|Tráfego de agente|AzureCloud|
+|*.servicebus.windows.net|443|Tráfego de agente|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|Tráfego de agente|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Ativação do Windows|Internet|
+
+
 
 >[!IMPORTANT]
 >A abertura destes URLs é essencial para uma implementação fiável do Windows Virtual Desktop. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem a sites e recursos do Windows Virtual Desktop, e não incluem URLs para outros serviços como o Azure Ative Directory.
 
+A tabela a seguir lista URLs opcionais a que as suas máquinas virtuais Azure possam ter acesso:
+
+|Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autenticação aos Serviços Online Da MS|Nenhuma|
+|*.events.data.microsoft.com|443|Serviço de Telemetria|Nenhuma|
+|www.msftconnecttest.com|443|Deteta se o SO está ligado à internet|Nenhuma|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhuma|
+|login.windows.net|443|Login para MS Serviços Online, Office 365|Nenhuma|
+|*.sfx.ms|443|Atualizações para software de cliente OneDrive|Nenhuma|
+|*.digicert.com|443|Verificação de revogação do certificado|Nenhuma|
+
+
 >[!NOTE]
 >O Windows Virtual Desktop atualmente não tem uma lista de intervalos de endereços IP que pode whitelist para permitir o tráfego de rede. Só apoiamos urLs específicos de whitelisting neste momento.
+>
+>Para obter uma lista de URLs relacionados com o Office, incluindo URLs relacionados com o Diretório Ativo Azure necessários, consulte os intervalos de [endereços office 365 URLs e IP](/office365/enterprise/urls-and-ip-address-ranges).
 >
 >Deve utilizar o caracteres wildcard (*) para URLs que envolvam tráfego de serviço. Se preferir não usar * para tráfego relacionado com agentes, eis como encontrar os URLs sem wildcards:
 >
@@ -137,15 +154,15 @@ Os seguintes clientes do Ambiente de Trabalho Remoto suportam o Windows Virtual 
 
 Os clientes do Ambiente de Trabalho Remoto devem ter acesso aos seguintes URLs:
 
-|Endereço|Porta de saída|Objetivo|Cliente(s)|
+|Endereço|Porta TCP de saída|Objetivo|Cliente(s)|
 |---|---|---|---|
-|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|Todos|
-|*.servicebus.windows.net|Porta TCP 443|Dados de resolução de problemas|Todos|
-|go.microsoft.com|Porta TCP 443|Microsoft FWLinks|Todos|
-|aka.ms|Porta TCP 443|Encurtador de URL da Microsoft|Todos|
-|docs.microsoft.com|Porta TCP 443|Documentação|Todos|
-|privacy.microsoft.com|Porta TCP 443|Declaração de privacidade|Todos|
-|query.prod.cms.rt.microsoft.com|Porta TCP 443|Atualizações de clientes|Ambiente de Trabalho do Windows|
+|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
+|*.servicebus.windows.net|443|Dados de resolução de problemas|Todos|
+|go.microsoft.com|443|Microsoft FWLinks|Todos|
+|aka.ms|443|Encurtador de URL da Microsoft|Todos|
+|docs.microsoft.com|443|Documentação|Todos|
+|privacy.microsoft.com|443|Declaração de privacidade|Todos|
+|query.prod.cms.rt.microsoft.com|443|Atualizações de clientes|Ambiente de Trabalho do Windows|
 
 >[!IMPORTANT]
 >A abertura destes URLs é essencial para uma experiência de cliente fiável. O bloqueio do acesso a estes URLs não é suportado e afetará a funcionalidade do serviço. Estes URLs apenas correspondem aos sites e recursos dos clientes, e não incluem URLs para outros serviços como o Azure Ative Directory.

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 856410f2166ae442e8beadf36eac312748407b13
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77526824"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529736"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Criar um ambiente de pré-visualização de insights da Série de Tempo Azure
 
@@ -30,7 +30,6 @@ Neste tutorial, ficará a saber como:
 > * Execute uma amostra de acelerador de soluções para transmitir dados para o ambiente de pré-visualização da Série de Tempo Azure Insights.
 > * Realizar análises básicas sobre os dados.
 > * Defina um modelo e hierarquia do Modelo série de tempo e associe-o aos seus casos.
-> * Utilize o conector Power BI e visualize os dados no Power BI.
 
 >[!TIP]
 > [Os aceleradores de soluções IoT](https://www.azureiotsolutions.com/Accelerators) fornecem soluções pré-reconfiguradas de nível empresarial que pode usar para acelerar o desenvolvimento de soluções IoT personalizadas.
@@ -88,7 +87,7 @@ Esta secção descreve como criar um ambiente de pré-visualização da Série D
     | Parâmetro | Ação |
     | --- | ---|
     | **Nome do ambiente** | Introduza um nome único para o ambiente de pré-visualização da Série de Tempo Azure Insights. |
-    | **Assinatura** | Insira a subscrição onde pretende criar o ambiente de pré-visualização da Série de Tempo Azure Insights. A melhor prática é utilizar a mesma subscrição que os restantes recursos IoT que são criados pelo simulador do dispositivo. |
+    | **Subscrição** | Insira a subscrição onde pretende criar o ambiente de pré-visualização da Série de Tempo Azure Insights. A melhor prática é utilizar a mesma subscrição que os restantes recursos IoT que são criados pelo simulador do dispositivo. |
     | **Grupo de recursos** | Selecione um grupo de recursos existente ou crie um novo grupo de recursos para o recurso ambiente de pré-visualização da Série De Tempo Azure Insights. Um grupo de recursos é um contentor de recursos do Azure. A melhor prática é usar o mesmo grupo de recursos que os outros recursos IoT que são criados pelo simulador do dispositivo. |
     | **Localização** | Selecione uma região de data center para o seu ambiente de pré-visualização da Série de Tempo Azure Insights. Para evitar uma latência adicional, o melhor é criar o seu ambiente de pré-visualização de Insights da Série De Tempo Azure na mesma região que o seu hub IoT criado pelo simulador do dispositivo. |
     | **Escalão** |  Selecione **PAYG** *(pay-as-you-go).* Este é o SKU para o produto de pré-visualização da Série De Tempo Azure Insights. |
@@ -111,7 +110,7 @@ Esta secção descreve como criar um ambiente de pré-visualização da Série D
    | **Nome** | Introduza um valor único para o nome de origem do evento. |
    | **Tipo de fonte** | Selecione **IoT Hub**. |
    | **Selecione um hub** | Escolha **Selecione existente**. |
-   | **Assinatura** | Selecione a subscrição que utilizou para o simulador do dispositivo. |
+   | **Subscrição** | Selecione a subscrição que utilizou para o simulador do dispositivo. |
    | **Nome Do Hub IoT** | Selecione o nome do hub IoT que criou para o simulador do dispositivo. |
    | **Política de acesso ao Hub IoT** | Selecione **iothubowner**. |
    | **Grupo de consumidores IoT Hub** | Selecione **Novo,** introduza um nome único e, em seguida, selecione **+ Adicionar**. O grupo de consumidores deve ser um valor único na Pré-visualização da Série de Tempo Azure Insights. |
@@ -359,3 +358,8 @@ Saiba mais sobre os modelos da Série De Tempo:
 
 > [!div class="nextstepaction"]
 > [Modelação de dados de pré-visualização da Série De Tempo Azure Insights](./time-series-insights-update-tsm.md)
+
+Saiba mais sobre Ligar o seu ambiente a Power BI
+
+> [!div class="nextstepaction"]
+> [Visualizar dados da Time Series Insights em Power BI](./how-to-connect-power-bi.md)

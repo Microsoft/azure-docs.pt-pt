@@ -8,15 +8,15 @@ ms.service: virtual-machines-linux
 ms.subservice: monitoring
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 3281b4dafa5436c9df760ac8aa3fc82f535b4286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0971b542065972a8f150083245e4ed31e42e2c67
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944870"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521633"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure
 
@@ -689,11 +689,15 @@ openssl x509 -noout -issuer -in signer.pem
 openssl x509 -noout -subject -in intermediate.pem
 # Verify the issuer for the intermediate certificate
 openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain
+# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
 Nos casos em que o certificado intermédio não possa ser descarregado devido a restrições de rede durante a validação, o certificado intermédio pode ser fixado. No entanto, o Azure passará os certificados de acordo com a prática padrão do PKI. Os certificados fixados teriam de ser atualizados quando o capotamento acontecesse. Sempre que estiver prevista uma alteração para atualizar o certificado intermédio, o blog do Azure será atualizado e os clientes do Azure serão notificados. Os certificados intermédios podem ser encontrados [aqui.](https://www.microsoft.com/pki/mscorp/cps/default.htm) Os certificados intermédios para cada uma das regiões podem ser diferentes.
+
+> [!NOTE]
+>O certificado intermédio para azure China 21Vianet será da DigiCert Global Root CA em vez de Baltimore.
+Além disso, se tivesse fixado os certificados intermédios para a Azure China como parte da alteração da autoridade da cadeia de raízes, os certificados intermédios terão de ser atualizados.
 
 ### <a name="storage-profile"></a>Perfil de armazenamento
 
@@ -820,7 +824,7 @@ Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl

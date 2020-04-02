@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6dc902b6a26c175713381b4fce88934dca3f409e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e0339cf4431d3ed36f50b43134803079e30b101
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283587"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521748"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Use O MirrorMaker Kafka com Hubs de Eventos para Apache Kafka
 
-Este tutorial mostra como espelhar um corretor Kafka num centro de eventos ativado por Kafka usando kafka MirrorMaker.
+Este tutorial mostra como espelhar um corretor Kafka num centro de eventos usando Kafka MirrorMaker.
 
    ![Kafka MirrorMaker com Hubs de Eventos](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="introduction"></a>Introdução
 Uma das principais considerações para as aplicações modernas em escala de nuvem é a capacidade de atualizar, melhorar e alterar infraestruturas sem interromper o serviço. Este tutorial mostra como um hub de eventos e kafka MirrorMaker podem integrar um oleoduto kafka existente em Azure, "espelhando" o fluxo de entrada kafka no serviço Event Hubs. 
 
-Um ponto final do Azure Event Hubs Kafka permite-lhe ligar-se aos Hubs de Eventos Azure utilizando o protocolo Kafka (isto é, clientes Kafka). Ao fazer alterações mínimas numa aplicação Kafka, pode ligar-se aos Hubs de Eventos Azure e usufruir dos benefícios do ecossistema Azure. Kafka habilitado Event Hubs atualmente suporta as versões Kafka 1.0 e mais tarde.
+Um ponto final do Azure Event Hubs Kafka permite-lhe ligar-se aos Hubs de Eventos Azure utilizando o protocolo Kafka (isto é, clientes Kafka). Ao fazer alterações mínimas numa aplicação Kafka, pode ligar-se aos Hubs de Eventos Azure e usufruir dos benefícios do ecossistema Azure. O Event Hubs suporta atualmente as versões Kafka 1.0 e posteriormente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,11 +56,11 @@ Para concluir este tutorial, confirme que tem:
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-É necessário um espaço de nomes dos Hubs de Eventos para enviar e receber a partir de qualquer serviços dos Hubs de Eventos. Para obter instruções sobre como conseguir um ponto final de Kafka dos Hubs de Eventos, veja [Creating a Kafka enabled Event Hub](event-hubs-create.md) (Criar um hub de eventos com Kafka ativado). Certifique-se de copiar a cadeia de ligação De Eventos Hubs para posterior utilização.
+É necessário um espaço de nomes dos Hubs de Eventos para enviar e receber a partir de qualquer serviços dos Hubs de Eventos. Consulte [a Criação de um centro](event-hubs-create.md) de eventos para instruções para criar um espaço de nome e um centro de eventos. Certifique-se de copiar a cadeia de ligação De Eventos Hubs para posterior utilização.
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 
-Agora que tem uma cadeia de ligação Kafka Habilitada para o Event Hubs, clone `mirror-maker` os Hubs de Eventos Azure para o repositório Kafka e navegue para a subpasta:
+Agora que tem uma cadeia de ligação Event Hubs, clone os Hubs `mirror-maker` de Eventos Azure para o repositório Kafka e navegue para a subpasta:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -118,7 +118,7 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 
 Para verificar se os eventos estão a chegar ao centro do evento, consulte as estatísticas de ingresso no [portal Azure,](https://azure.microsoft.com/features/azure-portal/)ou dirija um consumidor contra o centro do evento.
 
-Com o MirrorMaker a funcionar, quaisquer eventos enviados para a fonte do cluster Kafka são recebidos tanto pelo cluster Kafka como pelo serviço de hub de eventos ativado por Kafka. Ao utilizar o MirrorMaker e um ponto final do Event Hubs Kafka, pode migrar um oleoduto Kafka existente para o serviço gerido do Azure Event Hubs sem alterar o cluster existente ou interromper qualquer fluxo de dados em curso.
+Com o MirrorMaker a funcionar, quaisquer eventos enviados para a fonte do aglomerado Kafka são recebidos tanto pelo cluster Kafka como pelo centro de eventos espelhado. Ao utilizar o MirrorMaker e um ponto final do Event Hubs Kafka, pode migrar um oleoduto Kafka existente para o serviço gerido do Azure Event Hubs sem alterar o cluster existente ou interromper qualquer fluxo de dados em curso.
 
 ## <a name="samples"></a>Amostras
 Consulte as seguintes amostras no GitHub:

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a83c6381d3f068eecc2dda4838b981a8b59ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135840"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520132"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com netvision Compas
 
@@ -69,7 +69,7 @@ Para configurar e testar o Azure AD SSO com a Netvision Compas, complete os segu
     1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
     1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
 1. **[Configure o Netvision Compas SSO](#configure-netvision-compas-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
-    1. **[Crie o utilizador de teste Netvision Compas](#create-netvision-compas-test-user)** - para ter uma contrapartida de B.Simon na Netvision Compas que esteja ligada à representação do utilizador da AD Azure.
+    1. **[Configure o utilizador de teste Netvision Compas](#configure-netvision-compas-test-user)** - para ter uma contrapartida de B.Simon em Netvision Compas que esteja ligada à representação do utilizador da AD Azure.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -95,13 +95,11 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte ao [Cliente Netvision Compas](mailto:contact@net.vision) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
+1. Na configuração de um único registo com a página **SAML,** na secção certificado de **assinatura SAML,** encontre **metadados da Federação XML** e selecione **Download** para descarregar o ficheiro de metadados e guardá-lo no seu computador.
 
-    ![O link de descarregamento do Certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-1. Na secção Configurar a **Netvision Compas,** copie os URL(s) adequados com base no seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
@@ -135,17 +133,58 @@ Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, conceden
 
 ## <a name="configure-netvision-compas-sso"></a>Configure Netvision Compas SSO
 
-Para configurar um único sinal no lado da **Netvision Compas,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte da Netvision Compas.](mailto:contact@net.vision) Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
+Nesta secção, ativa o SAML SSO no **Netvision Compas**.
+1. Inicie sessão no **Netvision Compas** utilizando uma conta administrativa e aceda à área administrativa.
 
-### <a name="create-netvision-compas-test-user"></a>Criar o utilizador de teste Netvision Compas
+    ![Área de administração](media/netvision-compas-tutorial/admin.png)
 
-Nesta secção, cria-se um utilizador chamado B.Simon na Netvision Compas. Trabalhe com a equipa de suporte da [Netvision Compas](mailto:contact@net.vision) para adicionar os utilizadores na plataforma Netvision Compas. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
+1. Localize a área **do Sistema** e selecione **Fornecedores de Identidade**.
+
+    ![IdPs de administração](media/netvision-compas-tutorial/admin-idps.png)
+
+1. Selecione a ação **Add** para registar o Azure AD como um novo IDP.
+
+    ![Adicionar IDP](media/netvision-compas-tutorial/idps-add.png)
+
+1. Selecione **SAML** para o **tipo Fornecedor**.
+1. Introduza valores significativos para o **nome do display** e os campos **descrição.**
+1. Atribuir os utilizadores **do Netvision Compas** ao IDP selecionando a partir da lista de **utilizadores disponíveis** e, em seguida, selecionando o botão **adicionado selecionado.** Os utilizadores também podem ser atribuídos ao IDP enquanto seguem o procedimento de provisionamento.
+1. Para obter a opção **Metadata** SAML clique no botão **Escolha Ficheiro** e selecione o ficheiro de metadados previamente guardado no seu computador.
+1. Clique em **Guardar**.
+
+    ![Editar IDP](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### <a name="configure-netvision-compas-test-user"></a>Configure Netvision Compas test user
+
+Nesta secção, configura um utilizador existente no **Netvision Compas** para utilizar o Azure AD para SSO.
+1. Siga o procedimento de provisionamento de utilizadores **da Netvision Compas,** conforme definido pela sua empresa ou edite uma conta de utilizador existente.
+1. Ao definir o perfil do utilizador, certifique-se de que o endereço **de e-mail (pessoal)** do utilizador corresponde ao nome de utilizador da AD Azure: username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+
+    ![Editar utilizador](media/netvision-compas-tutorial/user-config.png)
+
+Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de ad do Azure AD.
+
+### <a name="using-the-access-panel-idp-initiated"></a>Utilizando o Painel de Acesso (IDP iniciado).
 
 Quando clicar no azulejo Netvision Compas no Painel de Acesso, deve ser automaticamente inscrito no Netvision Compas para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+
+### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Acesso direto à Netvision Compas (SP iniciado).
+
+1. Aceda ao URL **Netvision Compas.** Por exemplo, `https://tenant.compas.cloud`.
+1. Introduza o nome de utilizador **netvision Compas** e selecione **Next**.
+
+    ![Utilizador de início de sessão](media/netvision-compas-tutorial/login-user.png)
+
+1. **(opcional)** Se o utilizador for atribuído a vários IDPs dentro do **Netvision Compas,** é apresentada uma lista de IDPs disponíveis. Selecione o IDP Azure AD configurado anteriormente em **Netvision Compas**.
+
+    ![Escolha de login](media/netvision-compas-tutorial/login-choose.png)
+
+1. É redirecionado para a AD Azure para realizar a autenticação. Uma vez autenticado com sucesso, deverá ser automaticamente inscrito na **Netvision Compas** para a qual configura o SSO.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

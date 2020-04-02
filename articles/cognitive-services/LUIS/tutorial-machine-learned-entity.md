@@ -2,13 +2,13 @@
 title: 'Tutorial: extrair dados estruturados com entidade aprendida por máquinas - LUIS'
 description: Extrair dados estruturados de uma expressão utilizando a entidade aprendida pela máquina. Para aumentar a precisão de extração, adicione subcomponentes com descritores e restrições.
 ms.topic: tutorial
-ms.date: 03/31/2020
-ms.openlocfilehash: f521e634c129aaf03ee341328721bd89723e8264
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/01/2020
+ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478336"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545860"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados a partir da expressão do utilizador com entidades aprendizes de máquinas em Compreensão linguística (LUIS)
 
@@ -215,7 +215,7 @@ Teste a aplicação utilizando o painel de **teste** interativo. Este processo p
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao final do URL no endereço e substitua _YOUR_QUERY_HERE_ pela mesma consulta que inseriu no painel de testes interativo.
+1. Vá até ao final do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ pela mesma consulta que inseriu no painel de teste interativo.
 
     `deliver a medium veggie pizza`
 

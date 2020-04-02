@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f75f8392b01e69760171c13c0e6d3b2e22b20dea
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 5b4347cb5032b7f3651d0d3fcb20dc5d416f9bee
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421194"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546559"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Armazenamento Azure e Base de Dados SQL) e o Azure acolheu serviços de clientes/parceiros sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -53,15 +53,15 @@ A Azure Private Link oferece os seguintes benefícios:
 |  |  Azure Database for MariaDB         | Todas as regiões públicas      |   GA <br/> [Mais informações](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | Todas as regiões públicas      |   GA   <br/> [Mais informações](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |  |Serviço Azure Kubernetes - Kubernetes API | Todas as regiões públicas      |   GA   <br/> [Mais informações](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|  |Azure Search | LESTE DOS EUA, OESTE DOS EUA, CENTRO-SUL DOS EUA |   Pré-visualização    |
+|  |Azure Search | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA |   Pré-visualização    |
 |  |Registo de Contentores do Azure | Todas as regiões públicas      |   Pré-visualização   |
 |  |Configuração da Aplicação Azure | Todas as regiões públicas      |   Pré-visualização   |
-|  |Azure Backup | LESTE DOS EUA, OESTE DOS EUA, CENTRO-SUL DOS EUA     |   Pré-visualização   |
+|  |Azure Backup | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA     |   Pré-visualização   |
 |  |Hub de Eventos do Azure | Todas as regiões públicas      |   Pré-visualização    |
 |  |Service Bus do Azure | Todas as regiões públicas      |   Pré-visualização   |
 |  |Reencaminhamento do Azure | Todas as regiões públicas      |   Pré-visualização   |
-|  |Azure Event Grid| Todas as regiões públicas      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Aplicações Web do Azure | LESTE DOS EUA, OESTE DOS EUA, CENTRO-SUL DOS EUA      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Event Grid| LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |Aplicações Web do Azure | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
 Para obter as notificações mais atualizadas, consulte a página de [atualizações da Rede Virtual Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

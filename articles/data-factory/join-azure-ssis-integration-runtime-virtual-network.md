@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4819eaf2a65cf542029cf36f262d0cea5be75f2e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964354"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521950"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Join an Azure-SSIS integration runtime to a virtual network (Associar um runtime de integração do Azure-SSIS a uma rede virtual)
 
@@ -129,7 +129,7 @@ O utilizador que criar o IR Azure-SSIS deve ter as seguintes permissões:
 
 Se pretender levar os seus próprios endereços IP públicos estáticos para o Ir Azure-SSIS ao juntar-se a uma rede virtual, certifique-se de que satisfazem os seguintes requisitos:
 
-- Devem ser fornecidos exatamente dois não utilizados que ainda não estejam associados a outros recursos do Azure. O extra será usado quando atualizarmos periodicamente o seu IR Azure-SSIS.
+- Devem ser fornecidos exatamente dois não utilizados que ainda não estejam associados a outros recursos do Azure. O extra será usado quando atualizarmos periodicamente o seu IR Azure-SSIS. Note que um endereço IP público não pode ser partilhado entre os seus IRs Ativos Azure-SSIS.
 
 - Ambos devem ser estáticos do tipo padrão. Consulte as [SKUs do Endereço IP Público](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) para mais detalhes.
 
@@ -170,7 +170,7 @@ Se necessitar de implementar um NSG para a sub-rede utilizada pelo seu IR Azure-
 | Saída | TCP | VirtualNetwork | * | Internet | 80 | (Opcional) Os nós do seu Ir Azure-SSIS na rede virtual utilizam esta porta para descarregar uma lista de revogação de certificados a partir da internet. Se bloquear este tráfego, poderá sentir uma desvalorização de desempenho quando iniciar o IR e perder capacidade para verificar a lista de revogação do certificado para uso do certificado. Se quiser reduzir ainda mais o destino a certas FQDNs, consulte a **secção Use Azure ExpressRoute ou UDR**|
 | Saída | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | (Opcional) Esta regra só é exigida quando os nós do seu IR Azure-SSIS na rede virtual acedem a um SSISDB hospedado pelo seu servidor de base de dados SQL. Se a sua política de ligação ao servidor sQL Database estiver definida para **Proxy** em vez de **Redirecionar,** apenas é necessária a porta 1433. <br/><br/> Esta regra de segurança de saída não é aplicável a um SSISDB hospedado pela sua instância gerida na rede virtual ou servidor de Base de Dados Azure configurado com ponto final privado. |
 | Saída | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Opcional) Esta regra só é exigida quando os nós do seu IR Azure-SSIS na rede virtual acedem a um SSISDB hospedado pela sua instância gerida na rede virtual ou servidor de base de dados Azure configurado com ponto final privado. Se a sua política de ligação ao servidor sQL Database estiver definida para **Proxy** em vez de **Redirecionar,** apenas é necessária a porta 1433. |
-| Saída | TCP | VirtualNetwork | * | Storage | 445 | (Opcional) Esta regra só é necessária quando pretender executar o pacote SSIS armazenado em Ficheiros Azure. |
+| Saída | TCP | VirtualNetwork | * | Armazenamento | 445 | (Opcional) Esta regra só é necessária quando pretender executar o pacote SSIS armazenado em Ficheiros Azure. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Utilize azure ExpressRoute ou UDR
@@ -191,10 +191,55 @@ Por exemplo, se o seu IR `UK South` Azure-SSIS estiver localizado e pretender in
 > [!NOTE]
 > Esta abordagem incorre num custo adicional de manutenção. Verifique regularmente a gama IP e adicione novas gamas ip no seu UDR para evitar quebrar o IR Azure-SSIS. Recomendamos verificar mensalmente a gama IP porque quando o novo IP aparecer na etiqueta de serviço, o IP levará mais um mês a entrar em vigor. 
 
+Para facilitar a configuração das regras uDR, pode executar o seguinte script powershell para adicionar regras uDR para serviços de gestão de Lotes Azure:
+```powershell
+$Location = "[location of your Azure-SSIS IR]"
+$RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
+$RouteTableResourceName = "[resource name of your Azure Route Table ]"
+$RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
+$ServiceTags = Get-AzNetworkServiceTag -Location $Location
+$BatchServiceTagName = "BatchNodeManagement." + $Location
+$UdrRulePrefixForBatch = $BatchServiceTagName
+if ($ServiceTags -ne $null)
+{
+    $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
+    if ($BatchIPRanges -ne $null)
+    {
+        Write-Host "Start to add rule for your route table..."
+        for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
+        {
+            $UdrRuleName = "$($UdrRulePrefixForBatch)_$($i)"
+            Add-AzRouteConfig -Name $UdrRuleName `
+                -AddressPrefix $BatchIPRanges.Properties.AddressPrefixes[$i] `
+                -NextHopType "Internet" `
+                -RouteTable $RouteTable `
+                | Out-Null
+            Write-Host "Add rule $UdrRuleName to your route table..."
+        }
+        Set-AzRouteTable -RouteTable $RouteTable
+    }
+}
+else
+{
+    Write-Host "Failed to fetch service tags, please confirm that your Location is valid."
+}
+```
+
 Para que o aparelho de firewall permita o tráfego de saída, é necessário permitir a saída para as portas abaixo, tal como o requisito nas regras de saída do NSG.
 -   Porto 443 com destino como serviços Azure Cloud.
 
-    Se utilizar o Firewall Azure, pode especificar a regra da rede com a Etiqueta de Serviço AzureCloud, caso contrário poderá permitir o destino como todos no aparelho de firewall.
+    Se utilizar o Firewall Azure, pode especificar a regra da rede com a Etiqueta de Serviço AzureCloud. Para firewall dos outros tipos, você pode simplesmente permitir o destino como todo para a porta 443 ou permitir abaixo fQDNs com base no tipo do seu ambiente Azure:
+    | Ambiente Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Público      | <ul><li><b>Fábrica de Dados Azure (Gestão)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Armazenamento Azure (Gestão)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Registo de contentores azure (configuração personalizada)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.io</li></ul></li><li><b>Centro de Eventos (Madeireiro)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Serviço de registo da Microsoft (Utilização Interna)</b></li><li style="list-style-type:none"><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Fábrica de Dados Azure (Gestão)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Armazenamento Azure (Gestão)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Registo de contentores azure (configuração personalizada)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.us</li></ul></li><li><b>Centro de Eventos (Madeireiro)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>Serviço de registo da Microsoft (Utilização Interna)</b></li><li style="list-style-type:none"><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | Azure China 21Vianet     | <ul><li><b>Fábrica de Dados Azure (Gestão)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.cn</li></ul></li><li><b>Armazenamento Azure (Gestão)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Registo de contentores azure (configuração personalizada)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.cn</li></ul></li><li><b>Centro de Eventos (Madeireiro)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>Serviço de registo da Microsoft (Utilização Interna)</b></li><li style="list-style-type:none"><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul>
+
+    Quanto às FQDNs de Armazenamento Azure, Registo de Contentores Azure e Centro de Eventos, também pode optar por ativar os seguintes pontos finais de serviço para a sua rede virtual, de modo a que o tráfego de rede para estes pontos finais passe pela rede de espinha dorsal Azure em vez de ser encaminhado para o seu aparelho de firewall:
+    -  Microsoft.Storage
+    -  Microsoft.ContainerRegistry
+    -  Microsoft.EventHub
+
 
 -   Porta 80 com destino como sites de descarregamento CRL.
 
@@ -219,7 +264,7 @@ Para que o aparelho de firewall permita o tráfego de saída, é necessário per
     Se utilizar o Firewall Azure, pode especificar a regra da rede com a Etiqueta do Serviço de Armazenamento, caso contrário poderá permitir o destino como url específico de armazenamento de ficheiros azure no aparelho firewall.
 
 > [!NOTE]
-> Para o Azure SQL e armazenamento, se configurar pontos finais de serviço da Rede Virtual na sua subnet, então o tráfego entre o Azure-SSIS IR e o Azure SQL na mesma região \ Armazenamento Azure na mesma região ou região emparelhada será encaminhado diretamente para a rede de espinhas do Microsoft Azure em vez do seu aparelho de firewall.
+> Para o Azure SQL e armazenamento, se configurar pontos finais de serviço da Rede Virtual na sua subnet, o tráfego entre o Azure-SSIS IR e o Azure SQL na mesma região \ O Armazenamento Azure na mesma região ou região emparelhada será encaminhado diretamente para a rede de espinhas do Microsoft Azure em vez do seu aparelho de firewall.
 
 Se não precisar de capacidade para inspecionar o tráfego de saída do IR Azure-SSIS, pode simplesmente aplicar a rota para forçar todo o tráfego para o próximo tipo de **internet**do tipo hop:
 
@@ -241,7 +286,7 @@ O IR Azure-SSIS necessita de criar certos recursos de rede no mesmo grupo de rec
 > [!NOTE]
 > Agora pode trazer os seus próprios endereços IP públicos estáticos para o IR Azure-SSIS. Neste cenário, criaremos apenas o balanceador de carga Azure e o grupo de segurança da rede sob o mesmo grupo de recursos que os seus endereços IP públicos estáticos em vez da rede virtual.
 
-Esses recursos serão criados quando o seu IR Azure-SSIS começar. Serão apagados quando o seu IR Azure-SSIS parar. Se trouxer os seus próprios endereços IP públicos estáticos para o IR Azure-SSIS, não serão eliminados quando o seu IR Azure-SSIS parar. Para evitar que o seu IR Azure-SSIS pare, não reutilize estes recursos de rede nos seus outros recursos. 
+Esses recursos serão criados quando o seu IR Azure-SSIS começar. Serão apagados quando o seu IR Azure-SSIS parar. Se trouxer os seus próprios endereços IP públicos estáticos para o Ir Azure-SSIS, os seus próprios endereços IP públicos estáticos não serão eliminados quando o seu IR Azure-SSIS parar. Para evitar que o seu IR Azure-SSIS pare, não reutilize estes recursos de rede nos seus outros recursos.
 
 Certifique-se de que não tem nenhum bloqueio de recursos no grupo/subscrição de recursos a que pertencem os endereços IP públicos estáticos/rede virtual. Se configurar um bloqueio de leitura/exclusão, iniciar e parar o seu IR Azure-SSIS falhará, ou deixará de responder.
 
@@ -249,6 +294,8 @@ Certifique-se de que não tem uma política Azure que impeça a criação dos se
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresss 
+
+Certifique-se de que a quota de recursos da sua subscrição é suficiente para os três recursos de rede acima. Especificamente, para cada IR Azure-SSIS criado em rede virtual, você precisa reservar duas quotas gratuitas para cada um dos três recursos de rede acima. A quota extra será utilizada quando atualizarmos periodicamente o seu IR Azure-SSIS.
 
 ### <a name="faq"></a><a name="faq"></a>Perguntas Frequentes
 
@@ -262,7 +309,7 @@ Certifique-se de que não tem uma política Azure que impeça a criação dos se
 
   Agora pode trazer os seus próprios endereços IP públicos estáticos para o IR Azure-SSIS. Neste caso, pode adicionar os seus endereços IP à lista de autorizações da firewall para obter as suas fontes de dados. Também pode considerar outras opções abaixo para garantir o acesso de dados do seu IR Azure-SSIS dependendo do seu cenário:
 
-  - Se a sua fonte de dados estiver no local, depois de ligar uma rede virtual à sua rede no local e de se juntar ao seu IR Azure-SSIS à subnet da rede virtual, pode adicionar a gama de endereços IP privado dessa sub-rede à lista de suporte da firewall para a sua fonte de dados .
+  - Se a sua fonte de dados estiver no local, depois de ligar uma rede virtual à sua rede no local e de se juntar ao seu IR Azure-SSIS à subnet de rede virtual, pode adicionar a gama de endereços IP privado dessa sub-rede à lista de suporte da firewall para a sua fonte de dados.
   - Se a sua fonte de dados for um serviço Azure que suporta pontos finais de serviço de rede virtual, pode configurar um ponto final de serviço de rede virtual na sua subnet de rede virtual e juntar-se ao seu IR Azure-SSIS a essa subnet. Em seguida, pode adicionar uma regra de rede virtual com essa sub-rede à firewall para a sua fonte de dados.
   - Se a sua fonte de dados for um serviço de nuvem não Azure, pode utilizar um UDR para direcionar o tráfego de saída do seu Azure-SSIS IR para um Firewall NVA/Azure através de um endereço IP público estático. Em seguida, pode adicionar o endereço IP público estático da sua Firewall NVA/Azure à lista de autorizações da firewall para a sua fonte de dados.
   - Se nenhuma das opções acima atende às suas necessidades, considere [configurar um IR auto-hospedado como procuração para o seu IR Azure-SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). Em seguida, pode adicionar o endereço IP público estático da máquina que acolhe o seu IV auto-hospedado na lista de autorizações da firewall para a sua fonte de dados.

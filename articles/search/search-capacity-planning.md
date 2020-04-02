@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462569"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546266"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste a capacidade na Pesquisa Cognitiva Azure
 
@@ -38,7 +38,8 @@ Um único serviço deve dispor de recursos suficientes para lidar com todas as c
 
 Regra geral, as aplicações de pesquisa tendem a necessitar de mais réplicas do que divisórias, especialmente quando as operações de serviço são tendenciosas para a carga de trabalho de consulta. A secção de [alta disponibilidade](#HA) explica porquê.
 
-Adicionar mais réplicas ou divisórias aumenta o seu custo de funcionamento do serviço. Certifique-se de verificar a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para entender as implicações de faturação de adicionar mais nós. O [gráfico abaixo](#chart) pode ajudá-lo a cruzar o número de unidades de pesquisa necessárias para uma configuração específica.
+> [!NOTE]
+> A adição de mais réplicas ou divisórias aumenta o custo de funcionamento do serviço, e pode introduzir ligeiras variações na forma como os resultados são encomendados. Certifique-se de verificar a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para entender as implicações de faturação de adicionar mais nós. O [gráfico abaixo](#chart) pode ajudá-lo a cruzar o número de unidades de pesquisa necessárias para uma configuração específica. Para obter mais informações sobre como réplicas adicionais impactam o processamento de consultas, consulte [os resultados da encomenda](search-pagination-page-layout.md#ordering-results).
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e divisórias
 

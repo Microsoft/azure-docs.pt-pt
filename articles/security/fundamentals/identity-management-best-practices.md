@@ -3,7 +3,7 @@ title: Identidade azul & aceder às melhores práticas de segurança Microsoft D
 description: Este artigo fornece um conjunto de boas práticas para a gestão de identidade e controlo de acesso utilizando capacidades Azure incorporadas.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73053348"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548464"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e Gestão de Identidades do Azure
 
@@ -269,7 +269,7 @@ Avalie as contas atribuídas ou elegíveis para o papel de administradora global
 **Boas práticas**: Exigir que todas as contas críticas de administração sejam sem palavra-passe (preferida) ou exijam a autenticação multi-factor.
 **Detalhe**: Utilize a [aplicação Microsoft Authenticator](/azure/active-directory/authentication/howto-authentication-phone-sign-in) para iniciar sessão em qualquer conta DaD Azure sem utilizar uma palavra-passe. Tal como o [Windows Hello for Business,](/windows/security/identity-protection/hello-for-business/hello-identity-verification)o Autenticador Microsoft utiliza a autenticação baseada em chaves para permitir uma credencial do utilizador que está ligada a um dispositivo e utiliza autenticação biométrica ou PIN.
 
-Exigir autenticação multi-factor Azure no início do registo para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administrador ada do Azure: Administrador Global, Administrador de Funções Privilegiadas, Administrador Online de Intercâmbio e SharePoint Online Administrador. Ative a [Autenticação de Vários Fatores para as suas contas de administração e certifique-se](/azure/active-directory/authentication/howto-mfa-userstates) de que os utilizadores de contas de administração se registaram.
+Exija a autenticação multi-factor Azure no início do registo para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administrador ada do Azure: Administrador Global, Administrador de Funções Privilegiadas, Administrador Online de Intercâmbio e Administrador Online SharePoint. Ative a [Autenticação de Vários Fatores para as suas contas de administração e certifique-se](/azure/active-directory/authentication/howto-mfa-userstates) de que os utilizadores de contas de administração se registaram.
 
 **Boas práticas**: Para contas de administração crítica, tenha uma estação de trabalho de administração onde não são permitidas tarefas de produção (por exemplo, navegação e e-mail). Isto protegerá as suas contas de administração de vetores de ataque que usam navegação e e-mail e reduzem significativamente o risco de um incidente grave.
 **Detalhe**: Utilize uma estação de trabalho de administração. Escolha um nível de segurança da estação de trabalho:

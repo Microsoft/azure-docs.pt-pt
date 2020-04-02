@@ -3,7 +3,7 @@ title: Serviços e Tecnologias de Segurança Azure Microsoft Docs
 description: O artigo fornece uma lista com curadoria de serviços e tecnologias de Segurança Azure.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: barbkess
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
-ms.author: barclayn
-ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726566"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549210"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços e tecnologias de segurança disponíveis no Azure
 
@@ -35,7 +35,7 @@ Com o tempo, esta lista vai mudar e crescer, tal como o Azure. Certifique-se de 
 |--------|--------|
 |[Centro&nbsp;de&nbsp;Segurança Azure](/azure/security-center/security-center-intro)| Uma solução de proteção de carga de trabalho em nuvem que fornece gestão de segurança e proteção avançada de ameaças através de cargas de trabalho híbridas em nuvem.|
 |[Azure Key Vault](/azure/key-vault/key-vault-overview)| Uma loja de segredos seguros para as palavras-passe, cordas de ligação e outras informações que você precisa para manter as suas aplicações funcionando. |
-|[Registos do Monitor Azure](/azure/log-analytics/log-analytics-overview)|Um serviço de monitorização que recolhe telemetria e outros dados, e fornece um motor de linguagem e análise de consulta para fornecer insights operacionais para as suas apps e recursos. Pode ser usado sozinho ou com outros serviços, como o Security Center. |
+|[Registos do Azure Monitor](/azure/log-analytics/log-analytics-overview)|Um serviço de monitorização que recolhe telemetria e outros dados, e fornece um motor de linguagem e análise de consulta para fornecer insights operacionais para as suas apps e recursos. Pode ser usado sozinho ou com outros serviços, como o Security Center. |
 |[Laboratórios Azure Dev/Test](/azure/lab-services/devtest-lab-overview)|Um serviço que ajuda os desenvolvedores e testadores a criar rapidamente ambientes em Azure, minimizando os resíduos e controlando os custos.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -87,9 +87,9 @@ Com o tempo, esta lista vai mudar e crescer, tal como o Azure. Certifique-se de 
 | [Gateway de Aplicação do Azure](/azure/application-gateway/application-gateway-introduction)|Um equilibrador de carga de aplicação web avançado que pode encaminhar com base em URL e realizar a descarga SSL. |
 |[Firewall de aplicação web](/azure/frontdoor/waf-overview) (WAF)|Uma funcionalidade do Application Gateway que fornece proteção centralizada das suas aplicações web a partir de explorações e vulnerabilidades comuns|
 | [Equilibrador de carga Azure](/azure/load-balancer/load-balancer-overview)|Um equilibrador de carga de rede de aplicações TCP/UDP. |
-| [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| Uma ligação WAN dedicada entre as redes no local e as Redes Virtuais Azure. |
+| [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| Uma ligação WAN dedicada entre as redes no local e as Redes Virtuais Azure. |
 | [Gestor de Tráfego Azure](/azure/traffic-manager/traffic-manager-overview)| Um equilibrador de carga DNS global.|
 | [Procuração de aplicação Azure](/azure/active-directory/active-directory-application-proxy-get-started)| Uma extremidade frontal autenticada usada para garantir o acesso remoto para aplicações web alojadas no local. |
 |[Azure Firewall](/azure/firewall/overview)|Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure.|
-|[Proteção contra DDoS do Azure](/azure/virtual-network/ddos-protection-overview)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
+|[Proteção Azure DDoS](/azure/virtual-network/ddos-protection-overview)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
 |[Pontos finais do serviço de rede virtual](/azure/virtual-network/virtual-network-service-endpoints-overview)|Estende o espaço de endereços privados da sua rede virtual e a identidade do seu VNet aos serviços Azure, através de uma ligação direta.|

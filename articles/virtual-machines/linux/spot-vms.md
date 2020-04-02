@@ -1,27 +1,20 @@
 ---
-title: Utilize VMs de spot azure (pré-visualização)
+title: Use Azure Spot VMs
 description: Saiba como usar VMs Azure Spot para economizar em custos
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9a9989f7b8e75be09a72d76f84d664504b3af474
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5bfb46410c40d394e62bf1e6bfb1f1c964c7efdd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74790135"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547402"
 ---
-# <a name="preview-use-spot-vms-in-azure"></a>Pré-visualização: Use VMs spot em Azure
+# <a name="use-spot-vms-in-azure"></a>Use VMs spot em Azure
 
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  

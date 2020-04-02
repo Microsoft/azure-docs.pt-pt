@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: fe132ee6ab90fdae99463f11ecf46f352690b810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43d15a7252819a3e4f7635e37458b75e9b7ecca7
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69984358"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546276"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados da Oracle para azure cosmos DB Cassandra API conta usando Blitzz
 
@@ -36,7 +36,7 @@ A solução de migração de Blitzz segue uma abordagem passo a passo para migra
 
 * É tolerante a falhas e garante exatamente uma vez que a entrega de dados mesmo durante uma falha de hardware ou software no sistema.
 
-* Ele protege os dados durante o trânsito usando uma variedade de metodologias de segurança como SSL, encriptação.
+* Ele protege os dados durante o trânsito usando uma variedade de metodologias de segurança como TLS/SSL, encriptação.
 
 * Oferece serviços para converter lógica seletória complexa de negócios escrita em PL/SQL para lógica de negócio equivalente em Azure Cosmos DB.
 
@@ -44,7 +44,7 @@ A solução de migração de Blitzz segue uma abordagem passo a passo para migra
 
 Esta secção descreve os passos necessários para configurar blitzz e migra dados da base de dados da Oracle para o Azure Cosmos DB.
 
-1. Do computador onde planeia instalar o replicante Blitzz, adicione um certificado de segurança. Este certificado é exigido pelo replicante Blitzz para estabelecer uma ligação SSL com a especificada conta Azure Cosmos DB. Pode adicionar o certificado com os seguintes passos:
+1. Do computador onde planeia instalar o replicante Blitzz, adicione um certificado de segurança. Este certificado é exigido pelo replicante Blitzz para estabelecer uma ligação TLS com a especificada conta Azure Cosmos DB. Pode adicionar o certificado com os seguintes passos:
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: ad3b38a12020c56c31e03879b3fbcb9a8dda25f1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d0f30272a4e605449c946ca402db4f3ba00735bc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136872"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520529"
 ---
 # <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>Quickstart: Use Java e Maven/Gradle para criar e publicar uma função no Azure
 
@@ -28,7 +28,7 @@ Este artigo mostra-lhe como construir e publicar uma função Java para funçõe
 Para desenvolver funções com o Java, tem de ter o seguinte instalado:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), versão 8
-- [Azure CLI]
+- [CLI do Azure]
 - [Funções Azure Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou superior
 ::: zone pivot="java-build-tools-maven" 
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
@@ -67,13 +67,10 @@ Maven pede-lhe valores necessários para terminar gerando o projeto na implanta�
 | **artefactoId** | Um valor que é o nome do jarro, sem um número de versão. Os exemplos desta utilização `fabrikam-functions`rápida. |
 | **Versão** | Escolha o valor `1.0-SNAPSHOT`padrão de . |
 | **pacote** | Um valor que é o pacote Java para o código de função gerado. Utilize a predefinição. Os exemplos desta utilização `com.fabrikam.functions`rápida. |
-| **nome de app** | Nome globalmente único que identifica a sua nova aplicação de funções no Azure. Utilize o padrão, que é o _artefactoId_ anexado com um número aleatório. Tome nota deste valor, vai precisar mais tarde. |
-| **appRegi** | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. A predefinição é `westus`. Executar este comando [Azure CLI] para obter uma lista de todas as regiões:<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | Nome para o novo [grupo de recursos](../azure-resource-manager/management/overview.md) para criar a sua aplicação de função. Utilização `myResourceGroup`, que é usada por exemplos neste arranque rápido. Um grupo de recursos deve ser exclusivo da sua subscrição Azure.|
 
 Digite `Y` ou prima Introduza para confirmar.
 
-Maven cria os ficheiros do projeto numa nova pasta com `fabrikam-functions`um nome de _artefactoId_, que neste exemplo é . Executar o seguinte comando para alterar o diretório para a pasta do projeto criada.
+Maven cria os ficheiros do projeto numa nova pasta com `fabrikam-functions`um nome de **artefactoId**, que neste exemplo é . Executar o seguinte comando para alterar o diretório para a pasta do projeto criada.
 ```bash
 cd fabrikam-function
 ```
@@ -235,5 +232,5 @@ Criou um projeto de funções Java com uma função ativada http, executa-o na s
 > [Adicionar uma ligação de saída de fila de armazenamento Azure](functions-add-output-binding-storage-queue-java.md)
 
 
-[Azure CLI]: /cli/azure
-[Portal Azure]: https://portal.azure.com
+[CLI do Azure]: /cli/azure
+[Portal do Azure]: https://portal.azure.com

@@ -18,12 +18,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e0682a33540cafd8ebab1bb248d462b30ee4dc2a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127545"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521559"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Tutorial: Enviar notificações push para dispositivos Android usando firebase
 
@@ -31,7 +31,7 @@ ms.locfileid: "80127545"
 
 Este tutorial mostra-lhe como usar hubs de notificação Azure e Mensagens cloud firebase (FCM) para empurrar notificações para uma aplicação Android. Neste tutorial, irá criar uma aplicação Android em branco que recebe notificações push através do Firebase Cloud Messaging (FCM).
 
-O código completo para este tutorial pode ser descarregado [a partir do GitHub.](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp)
+O código completo para este tutorial pode ser descarregado [a partir do GitHub.](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp)
 
 Neste tutorial, siga os seguintes passos:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73796241"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521873"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
 
@@ -234,6 +234,15 @@ Para resolver este problema, elimine o epeering de ambas as redes virtuais e, em
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Falhou em espiar uma rede virtual databricks
 
 Para resolver este problema, configure a rede virtual de observação sob **os Tijolos de Dados Do Azure**e, em seguida, especifique a rede virtual alvo utilizando o ID de **recurso**. Para obter mais informações, consulte a [rede virtual Peer a Databricks para uma rede virtual remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+
+### <a name="the-remote-virtual-network-lacks-a-gateway"></a>A rede virtual remota carece de um portal
+
+Este problema ocorre quando você observa redes virtuais de diferentes inquilinos e mais tarde quer configurar `Use Remote Gateways`. Uma limitação do portal Azure é que não pode validar a presença de uma rede virtual de gateway na rede virtual de outro inquilino.
+
+Há duas formas de resolver a questão:
+
+ * Elimine os pares e `Use Remote Gateways` ative a opção quando criar um novo epeering.
+ * Utilize powerShell ou CLI, em vez do `Use Remote Gateways`portal Azure, para ativar .
 
 ## <a name="next-steps"></a>Passos seguintes
 

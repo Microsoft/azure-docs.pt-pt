@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5a34ac2d1b7401d31ae518334aedc15c626b66a3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77158014"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529494"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-eventhubs)
 
@@ -110,7 +110,7 @@ Crie um evento singular transformando uma cadeia na sua codificação de byte UT
         // handling different flavors of ingestion to Event Hubs here.
         final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
 
-        // Each EventHubClient instance spins up a new TCP/SSL connection, which is expensive.
+        // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 
@@ -144,7 +144,7 @@ Parabéns! Enviou agora mensagens para um hub de eventos.
 
 ### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Apêndice: Como as mensagens são encaminhadas para divisórias eventHub
 
-Antes de as mensagens serem recuperadas pelos consumidores, têm de ser publicadas primeiro nas divisórias pelas editoras. Quando as mensagens são publicadas no hub do evento sincronicamente utilizando o método sendSync() no com.microsoft.azure.eventhubs.EventHubs.EventHubClient object, a mensagem pode ser enviada para uma partição específica ou distribuída para todas as divisórias disponíveis de forma redonda dependendo se a chave de partição é especificada ou não.
+Antes de as mensagens serem recuperadas pelos consumidores, têm de ser publicadas primeiro nas divisórias pelas editoras. Quando as mensagens são publicadas para o hub de eventos sincronicamente utilizando o método sendSync() no com.microsoft.azure.eventhubs.EventHubS.EventHubClient object, a mensagem pode ser enviada para uma divisória específica ou distribuída para todas as divisórias disponíveis de forma redonda, dependendo se a chave de partição está especificada ou não.
 
 Quando uma cadeia que representa a chave da divisória for especificada, a chave será hashed para determinar para que divisória enviar o evento.
 
@@ -384,7 +384,7 @@ Este tutorial utiliza uma única instância do EventProcessorHost. Para aumentar
 
 ### <a name="publishing-messages-to-eventhub"></a>Publicar Mensagens ao EventHub
 
-Antes de as mensagens serem recuperadas pelos consumidores, têm de ser publicadas primeiro nas divisórias pelas editoras. Vale a pena notar que quando as mensagens são publicadas no hub do evento sincronicamente utilizando o método sendSync() no com.microsoft.azure.eventhubs.EventHubS.EventHubClient, a mensagem pode ser enviada para uma partição específica ou distribuída para todas as divisórias disponíveis de forma redonda, dependendo se a chave de partição é especificada ou não.
+Antes de as mensagens serem recuperadas pelos consumidores, têm de ser publicadas primeiro nas divisórias pelas editoras. Vale a pena notar que, quando as mensagens são publicadas para o hub de eventos sincronicamente utilizando o método sendSync() no com.microsoft.azure.eventhubs.eventhubs.EventHubClient, a mensagem pode ser enviada para uma divisória específica ou distribuída para todas as divisórias disponíveis de forma redonda, dependendo se a chave de partição está especificada ou não.
 
 Quando uma cadeia que representa a chave da divisória é especificada, a chave é hashed para determinar para que divisória enviar o evento.
 

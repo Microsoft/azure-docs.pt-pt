@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 1ca03cde57a9496054d0860fbb70bd286caabe46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533254"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520729"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes Windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Monitor Azure, bem como quaisquer registos ou métricas únicos, conforme definido numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [O Monitor Azure para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center](/azure/security-center/)e [Azure Automation.](../../automation/automation-intro.md)
@@ -156,23 +156,27 @@ O agente Windows começará a utilizar exclusivamente a assinatura SHA-2 no dia 
 
 
 ## <a name="network-requirements"></a>Requisitos da rede
-O agente do Linux e do Windows comunica a saída do serviço Azure Monitor através da porta TCP 443, e se a máquina se ligar através de uma firewall ou servidor proxy para comunicar através da Internet, reveja os requisitos abaixo para entender a configuração da rede Necessário. Se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à Internet, pode configurar um [gateway Log Analytics](gateway.md) e, em seguida, configurar o agente para ligar através da porta de entrada para os registos do Monitor Azure. O agente pode então receber informações de configuração e enviar dados recolhidos dependendo das regras de recolha de dados e soluções de monitorização que tenha ativado no seu espaço de trabalho.
+O agente do Linux e do Windows comunica a saída para o serviço Azure Monitor através da porta TCP 443, e se a máquina se ligar através de uma firewall ou servidor proxy para comunicar através da Internet, reveja os requisitos abaixo para entender a configuração de rede necessária. Se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à Internet, pode configurar um [gateway Log Analytics](gateway.md) e, em seguida, configurar o agente para ligar através da porta de entrada para os registos do Monitor Azure. O agente pode então receber informações de configuração e enviar dados recolhidos dependendo das regras de recolha de dados e soluções de monitorização que tenha ativado no seu espaço de trabalho.
 
 ![Diagrama de comunicação do agente de log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+A tabela que se segue lista as informações de configuração de procuração e firewall que são necessárias para que os agentes linux e Windows se comuniquem com os registos do Monitor Azure.
 
-## <a name="network-firewall-requirements"></a>Requisitos de firewall de rede
-As informações abaixo listam as informações de configuração de procuração e firewall necessárias para que o agente Linux e Windows se comuniquem com os registos do Monitor Azure.  
+### <a name="firewall-requirements"></a>Requisitos de firewall
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Saída|Sim |  
+|*.ods.opinsights.azure.com |Porto 443 |Entrada e saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Entrada e saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Entrada e saída|Sim |
+|*.azure-automation.net |Porto 443 |Entrada e saída|Sim |
+|*.azure.com |Porto 443|Entrada e saída|Sim |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte a [gestão do Governo azure.](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs) 
 
 Se planeia utilizar o Trabalhador do Livro Híbrido Azure Automation para se ligar e registar-se no serviço automationpara utilizar livros de execução ou soluções de gestão no seu ambiente, deve ter acesso ao número de porta e aos URLs descritos na Configuração da sua rede para o Trabalhador do [Livro de Execução Híbrido.](../../automation/automation-hybrid-runbook-worker.md#network-planning) 
+
+### <a name="proxy-configuration"></a>Configuração do proxy
 
 O agente Windows e Linux suporta a comunicação através de um servidor proxy ou de log analytics para o Monitor Azure utilizando o protocolo HTTPS.  A autenticação anónima e básica (nome de utilizador/palavra-passe) são suportadas.  Para o agente Windows ligado diretamente ao serviço, a configuração proxy é especificada durante a instalação ou [após a implementação](agent-manage.md#update-proxy-settings) do Painel de Controlo ou com powerShell.  
 
