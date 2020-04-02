@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ac6d72cbb69796851e58098138d51bb0988be4ec
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052080"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520982"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -59,7 +59,7 @@ O personalizer usou a aprendizagem de reforço para selecionar a melhor ação, 
 
 A [API](https://go.microsoft.com/fwlink/?linkid=2092082) do Personalizer's **Rank** é chamada _sempre_ que apresentar conteúdo, em tempo real. Isto é conhecido como um **evento,** notado com um ID de _evento._
 
-A [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **de Recompensa** personalizada pode ser chamada em tempo real ou atrasada para melhor se adaptar à sua infraestrutura. Determina a pontuação da recompensa com base nas necessidades do seu negócio. Isso pode ser um único valor, como 1 para o bem, e 0 para o mal, ou um número produzido por um algoritmo que criatendo os seus objetivos e métricas de negócio.
+A [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **de Recompensa** personalizada pode ser chamada em tempo real ou atrasada para melhor se adaptar à sua infraestrutura. Determina a pontuação da recompensa com base nas necessidades do seu negócio. O resultado da recompensa é entre 0 e 1. Isso pode ser um único valor, como 1 para o bem, e 0 para o mal, ou um número produzido por um algoritmo que criatendo os seus objetivos e métricas de negócio.
 
 ## <a name="personalizer-content-requirements"></a>Requisitos de conteúdo personalizado
 
@@ -101,6 +101,6 @@ Uma vez que a Personalizer utiliza informação coletiva em quase tempo real par
 * [O que é a Aprendizagem de Reforço?](concepts-reinforcement-learning.md)
 * [Conheça as funcionalidades e ações para o pedido de Rank](concepts-features.md)
 * [Saiba determinar a pontuação para o pedido de Recompensa](concept-rewards.md)
-* [Arranques rápidos](sdk-learning-loop.md)
+* [Guias de Início Rápido](sdk-learning-loop.md)
 * [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Use a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266783"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546328"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Encriptação de disco azure para VMs do Windows 
 
@@ -30,11 +30,13 @@ Pode aprender os fundamentos da encriptação do Disco Azure para windows em pou
 
 ## <a name="supported-vms-and-operating-systems"></a>VMs e sistemas operativos suportados
 
-### <a name="supported-vm-sizes"></a>Tamanhos de VM suportados
+### <a name="supported-vms"></a>VMs suportados
 
 Os VMs do Windows estão disponíveis numa [gama de tamanhos.](sizes-general.md) A Encriptação do Disco Azure não está disponível em [VMs básicos, sérieA,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais com menos de 2 GB de memória.
 
 A Encriptação azure Disk também está disponível para VMs com armazenamento premium.
+
+A encriptação do disco Azure não está disponível nas [VMs da Geração 2)](generation-2.md#generation-1-vs-generation-2-capabilities)e nas [séries Lsv2.](../lsv2-series.md) Para mais exceções, consulte [encriptação do disco Azure: cenários não suportados](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 

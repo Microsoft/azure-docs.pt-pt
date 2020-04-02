@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 1b9d593b0f0895e2ba75fae7ab7e78ea883c8907
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397194"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521714"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>Exemplos de utilização do conector Microsoft Flow (Pré-visualização)
 
@@ -24,8 +24,6 @@ Para mais informações, consulte o [conector Microsoft Flow (Pré-visualizaçã
 * [Empurre dados para power bi dataset](#push-data-to-power-bi-dataset)
 * [Consultas condicionais](#conditional-queries)
 * [Envie vários gráficos de fluxo de explorador de dados Azure](#email-multiple-azure-data-explorer-flow-charts)
-* [Envie um e-mail diferente para diferentes contactos](#send-a-different-email-to-different-contacts)
-* [Criar uma tabela HTML personalizada](#create-a-custom-html-table)
 
 ## <a name="microsoft-flow-connector-and-sql"></a>Conector Microsoft Flow e SQL
 
@@ -101,23 +99,21 @@ Visualize esta informação como um gráfico de tartes e envie-a por e-mail para
 
 ## <a name="email-multiple-azure-data-explorer-flow-charts"></a>Envie vários gráficos de fluxo de explorador de dados Azure
 
-1. Crie um novo Fluxo com o gatilho "Recurrence" e defina o intervalo do Fluxo e a frequência. 
+1. Crie um novo Fluxo com o gatilho de recorrência e defina o intervalo do Fluxo e a frequência. 
 1. Adicione um novo passo, com um ou mais Kusto - Corra a consulta e visualize as ações de resultados. 
 
     ![Executar várias consultas num fluxo](./media/flow-usage/flow-severalqueries.png)
 1. Para cada Kusto - Executar consulta e visualizar resultado, defina os seguintes campos:
-    * URL do cluster (no campo Nome do *Cluster)*
+    * URL do Cluster
     * Nome da Base de Dados
-    * Consulta e Tipo de Gráfico (Tabela HTML/ Gráfico de Tarte/ Gráfico de Tempo/ Gráfico de Barras/ Introduza o valor personalizado).
+    * Consulta e Gráfico Tipo (tabela HTML, gráfico de tartes, gráfico de tempo, gráfico de barras ou insira um valor personalizado).
 
     ![Visualizar resultados com vários anexos](./media/flow-usage/flow-visualizeresultsmultipleattachments.png)
 
-    > [!IMPORTANT]
-    > Nos campos *De Nome do Cluster,* introduza o URL do cluster.
-
-1. Adicione um enviar uma ação de e-mail. 
-    * No campo *Body,* insira o corpo necessário de modo a que o resultado visualizado da consulta seja incluído no corpo do e-mail.
-    * Para adicionar um anexo ao e-mail, adicione o Nome do Anexo e o Conteúdo do Anexo.
+1. Adicione uma ação de e-mail (v2): 
+    1. Na secção do corpo, selecione o ícone da vista de código.
+    1. No campo **Body,** insira o BodyHtml necessário de modo a que o resultado visualizado da consulta seja incluído no corpo do e-mail.
+    1. Para adicionar um anexo ao e-mail, adicione o Nome do Anexo e o Conteúdo do Anexo.
     
     ![E-mail vários anexos](./media/flow-usage/flow-email-multiple-attachments.png)
 
@@ -128,68 +124,6 @@ Resultados:
 [![](./media/flow-usage/flow-resultsmultipleattachments.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
 
 [![](./media/flow-usage/flow-resultsmultipleattachments2.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
-
-## <a name="send-a-different-email-to-different-contacts"></a>Envie um e-mail diferente para diferentes contactos
-
-Pode aproveitar o Microsoft Flow para enviar diferentes e-mails personalizados para diferentes contactos. Os endereços de e-mail e os conteúdos de e-mail são o resultado de uma consulta de Kusto.
-
-Exemplo:
-
-![E-mail dinâmico usando uma consulta de Kusto](./media/flow-usage/flow-dynamicemailkusto.png)
-
-> [!IMPORTANT]
-> No campo Nome do *Cluster,* introduza o URL do cluster.
-
-![E-mail dinâmico na ação de fluxo](./media/flow-usage/flow-dynamicemail.png)
-
-## <a name="create-a-custom-html-table"></a>Criar uma tabela HTML personalizada
-
-Pode aproveitar o Microsoft Flow para criar e utilizar elementos HTML personalizados, como uma tabela HTML personalizada.
-
-O exemplo que se segue demonstra como criar uma tabela HTML personalizada. A tabela HTML terá as suas linhas coloridas por nível de registo (o mesmo que no Azure Data Explorer).
-
-Siga estas instruções para criar um Fluxo semelhante:
-
-1. Crie um novo Kusto - Corra a consulta e aliste a ação de resultados.
-
-    ![Resultados da lista para uma tabela HTML](./media/flow-usage/flow-listresultforhtmltable.png)
-
-> [!IMPORTANT]
-> No campo Nome do *Cluster,* introduza o URL do cluster.
-
-1. Loop sobre os resultados da consulta e crie o corpo de mesa HTML: 
-    1. Para criar uma variável para segurar a cadeia HTML, selecione **Novo passo**
-    1. Selecione **Adicionar uma ação** e procurar Variáveis. 
-    1. Selecione **Variáveis - Inicializar variável**. 
-    1. Inicialize uma variável de cadeia da seguinte forma:
-
-    ![Inicializar uma variável](./media/flow-usage/flow-initializevariable.png)
-
-1. Loop sobre os resultados:
-    1. Selecione **Novo passo**.
-    1. Selecionar **Adicionar uma ação**.
-    1. Pesquisa de Variáveis. 
-    1. Selecione **Variáveis - Apêndice à variável**de cadeia . 
-    1. Selecione o nome variável que inseminiscou antes e crie as linhas de tabela HTML utilizando os resultados da consulta. 
-    Ao selecionar os resultados da consulta, aplicar a cada um é adicionado automaticamente.
-
-    No exemplo abaixo, `if` a expressão é usada para definir o estilo de cada linha:
-
-    ```if(equals(items('Apply_to_each')?['Level'], 'Warning'), 'Yellow', if(equals(items('Apply_to_each')?['Level'], 'Error'), 'red', 'white'))```
-
-    [![](./media/flow-usage/flow-createhtmltableloopcontent.png "Create HTML table loop content")](./media/flow-usage/flow-createhtmltableloopcontent.png#lightbox)
-
-1. Criar o conteúdo HTML completo: 
-    1. Adicione uma nova ação fora Apply a cada um. 
-    No exemplo seguinte, a ação utilizada é Enviar um e-mail.
-    1. Defina a sua tabela HTML utilizando a variável dos passos anteriores. 
-    1. Se estiver a enviar um e-mail, selecione **Opções avançadas do Show** e, em Is HTML, selecione **Sim**.
-
-    ![Email de mesa HTML personalizado](./media/flow-usage/flow-customhtmltablemail.png)
-
-Resultado:
-
-![Resultado personalizado do e-mail de mesa HTML](./media/flow-usage/flow-customhtmltableresult.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

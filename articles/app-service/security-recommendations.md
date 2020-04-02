@@ -1,18 +1,18 @@
 ---
 title: Recomendações de segurança
 description: Implemente as recomendações de segurança para ajudar a cumprir as suas obrigações de segurança, conforme indicado no nosso modelo de responsabilidade partilhada. Melhore a segurança da sua aplicação.
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50e2666aa533a5111055a095c612b58bfe6f9db4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684116"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546710"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendações de segurança para o Serviço de Aplicações
 

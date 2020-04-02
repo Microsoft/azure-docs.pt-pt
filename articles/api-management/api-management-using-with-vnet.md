@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: dcc2c38238f707a5d43cde03502c589add9461b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335930"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547370"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -102,7 +102,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 * **Configuração personalizada**do servidor DNS : O serviço de Gestão API depende de vários serviços Azure. Quando a API Management é hospedada num VNET com um servidor DNS personalizado, precisa de resolver os nomes de anfitriões desses serviços Azure. Por favor, siga [esta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientação sobre a configuração personalizada do DNS. Consulte a tabela das portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
-> Se planeia utilizar um (s) Servidor(s) Personalizado dNS para o VNET, deverá instalá-lo **antes** de implementar um serviço de Gestão API no mesmo. Caso contrário, precisa de atualizar o serviço de Gestão API sempre que alterar o Servidor(s) DNS, executando a Operação de [Configuração](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates) da Rede Aplicada
+> Se planeia utilizar um (s) Servidor(s) Personalizado dNS para o VNET, deverá instalá-lo **antes** de implementar um serviço de Gestão API no mesmo. Caso contrário, precisa de atualizar o serviço de Gestão API sempre que alterar o Servidor(s) DNS, executando a Operação de [Configuração](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates) da Rede Aplicada
 
 * **Os portos necessários para**a Gestão da API : O tráfego de entrada e saída para a subnet em que a API Management é implantada pode ser controlado através do Grupo de Segurança da [Rede][Network Security Group]. Se alguma destas portas não estiver disponível, a API Management pode não funcionar corretamente e pode tornar-se inacessível. Ter uma ou mais destas portas bloqueadas é outra questão comum de configuração errada ao utilizar a Gestão API com um VNET.
 
@@ -133,6 +133,8 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 + **Acesso DNS**: O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se existir um servidor DNS personalizado na outra extremidade de um gateway VPN, o servidor DNS deve ser acessível a partir da subnet que acolhe a Gestão API.
 
 + **Métricas e Monitorização da Saúde**: Conectividade da rede de saída para os pontos finais de monitorização do Azure, que se resolvem nos seguintes domínios:
+
++ **Etiquetas**de serviço regionais ": As regras do NSG que permitem a conectividade de saída com etiquetas de serviço de armazenamento, SQL e EventHubs podem utilizar as versões regionais das etiquetas correspondentes à região que contém a instância de Gestão API (por exemplo, Storage.WestUS para uma instância de Gestão API na região dos EUA Ocidental). Em destacamentos multi-regiões, o NSG em cada região deve permitir o tráfego das etiquetas de serviço para aquela região.
 
     | Ambiente Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -170,7 +172,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
   > [!IMPORTANT]
   > Depois de ter validado a conectividade, certifique-se de remover todos os recursos implantados na sub-rede, antes de implementar a Gestão API na sub-rede.
 
-* **Atualizações Incrementais**: Ao efazer alterações na sua rede, consulte a [API NetworkStatus,](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)para verificar se o serviço de Gestão API não perdeu acesso a nenhum dos recursos críticos, dos quais depende. O estado de conectividade deve ser atualizado a cada 15 minutos.
+* **Atualizações Incrementais**: Ao efazer alterações na sua rede, consulte a [API NetworkStatus,](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus)para verificar se o serviço de Gestão API não perdeu acesso a nenhum dos recursos críticos, dos quais depende. O estado de conectividade deve ser atualizado a cada 15 minutos.
 
 * **Links de Navegação**de Recursos : Ao implantar na subnet vnet estilo Gestor de Recursos, a API Management reserva a subnet, criando uma Ligação de navegação de recursos. Se a sub-rede já contiver um recurso de um fornecedor diferente, a implantação **falhará**. Da mesma forma, quando você move um serviço de Gestão API para uma subnet diferente ou eliminá-lo, removeremos essa ligação de navegação de recursos.
 

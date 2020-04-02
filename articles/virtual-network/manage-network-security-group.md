@@ -6,18 +6,17 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: a22adef5510e24c2dc07ffb39c9687d500644f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ed4ce6befda76069e965501a320dc110129a024
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066441"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521036"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -55,7 +54,7 @@ Há um limite para quantos grupos de segurança de rede você pode criar para ca
 
     | Definição | Ação |
     | --- | --- |
-    | **Assinatura** | Escolha a sua subscrição. |
+    | **Subscrição** | Escolha a sua subscrição. |
     | **Grupo de recursos** | Escolha um grupo de recursos existente, ou selecione **Criar novo** para criar um novo grupo de recursos. |
     | **Nome** | Introduza uma cadeia de texto única dentro de um grupo de recursos. |
     | **Região** | Escolha o local que deseja. |
@@ -273,7 +272,7 @@ Um grupo de segurança de aplicações contém zero ou mais interfaces de rede. 
 
     | Definição | Ação |
     | --- | --- |
-    | **Assinatura** | Escolha a sua subscrição. |
+    | **Subscrição** | Escolha a sua subscrição. |
     | **Grupo de recursos** | Escolha um grupo de recursos existente, ou selecione **Criar novo** para criar um novo grupo de recursos. |
     | **Nome** | Introduza uma cadeia de texto única dentro de um grupo de recursos. |
     | **Região** | Escolha o local que deseja. |

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: 67b68cc8a1db4a058675dc51fb3805093c455908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5389c064e137358670aecabe97f1cea38dfbcbf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276670"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549279"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Replicação de problemas na recuperação de desastres da VM Azure
 
@@ -81,7 +81,7 @@ Recomendamos a criação de um ponto final do serviço de rede na sua rede virtu
 
 ### <a name="network-connectivity"></a>Conectividade de rede
 
-Para que a replicação da recuperação do site funcione, precisa do VM para fornecer conectividade de saída a URLs específicos ou intervalos IP. Pode ter o seu VM atrás de uma firewall ou utilizar regras do grupo de segurança da rede (NSG) para controlar a conectividade de saída. Se assim for, pode ter problemas. Para se certificar de que todos os URLs estão ligados, consulte a [conectividade de saída para URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)de Recuperação do Local .
+Para que a replicação da recuperação do site funcione, precisa do VM para fornecer conectividade de saída a URLs específicos ou intervalos IP. Pode ter o seu VM atrás de uma firewall ou utilizar regras do grupo de segurança da rede (NSG) para controlar a conectividade de saída. Se assim for, pode ter problemas. Para se certificar de que todos os URLs estão ligados, consulte a [conectividade de saída para URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)de Recuperação do Local .
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-past-x-minutes"></a>Error ID 153006 - Nenhum ponto de recuperação consistente com aplicações disponíveis para o VM nos minutos "X" passados
 

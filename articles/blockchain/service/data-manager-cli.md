@@ -1,15 +1,15 @@
 ---
 title: Configure Blockchain Data Manager usando O Serviço Azure CLI - Azure Blockchain
 description: Crie e gerencie um Gestor de Dados blockchain para o Serviço Azure Blockchain utilizando o Azure CLI
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: 5ceca96f760ab62ca7f3df9ad26139b9b4a3e5be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455934"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529595"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Blockchain Data Manager com a CLI do Azure
 
@@ -26,7 +26,7 @@ Para configurar uma instância do Gestor de Dados blockchain, você:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instale o mais recente [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e assinou a utilização. `az login`
-* Complete [Quickstart: Use visual studio code para ligar a uma rede](connect-vscode.md) de consórcio azure Blockchain Service
+* Complete [Quickstart: Use visual studio code para ligar a uma rede](connect-vscode.md)de consórcio azure Blockchain Service . O nível *Padrão* do Serviço Blockchain Azure é recomendado ao utilizar o Gestor de Dados blockchain.
 * Criar um tópico de grelha de [eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Saiba mais sobre [os manipuladores de eventos na Grelha de Eventos Azure](../../event-grid/event-handlers.md)
 

@@ -2,7 +2,7 @@
 title: Conceber soluções resilientes com proteção DDoS Azure
 description: Saiba como pode usar dados de registo para obter informações profundas sobre a sua aplicação.
 services: security
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
-ms.author: barclayn
-ms.openlocfilehash: 8d3fc809999508bf3d49c3765c90017e89e80fa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624045"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548671"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection - Conceção de soluções resilientes
 

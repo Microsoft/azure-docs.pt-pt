@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9184808b71cce03882022fd37967fe421e64062
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71104971"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548988"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como guardar e configurar a sua configuração do serviço de Gestão de API com Git
 
@@ -223,7 +223,7 @@ A definição `$ref-policy`final, os mapas para as declarações de política gl
 A `apis` pasta contém uma pasta para cada API na instância de serviço, que contém os seguintes itens.
 
 * `apis\<api name>\configuration.json`- esta é a configuração da API e contém informações sobre o URL do serviço de backend e as operações. Esta é a mesma informação que seria devolvida se chamasse `application/json` [saquear uma API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) com `export=true` em formato.
-* `apis\<api name>\api.description.html`- esta é a descrição da API e corresponde ao `description` imóvel da entidade [API.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property)
+* `apis\<api name>\api.description.html`- esta é a descrição da API e corresponde ao `description` imóvel da entidade [API.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty)
 * `apis\<api name>\operations\`- esta `<operation name>.description.html` pasta contém ficheiros que mapeiam as operações na API. Cada ficheiro contém a descrição de uma única operação `description` na API, que mapeia a propriedade da [entidade operacional](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta grupos

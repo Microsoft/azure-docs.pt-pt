@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65824945"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519709"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento de uma aplicação
 
@@ -33,8 +33,11 @@ Certas condições devem ser verdadeiras para que um utilizador consinta nas per
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Solicitando erro de permissões não autorizadas
 * **AADSTS90093:** &lt;o clienteAppDisplayName&gt; está a solicitar uma ou mais permissões que não está autorizado a conceder. Contacte um administrador, que possa consentir com este pedido em seu nome.
+* **AADSTS90094:** &lt;o clienteAppDisplayName&gt; precisa de autorização para aceder a recursos na sua organização que apenas um administrador pode conceder. Peça a um administrador para conceder permissão para esta aplicação antes de poder utilizá-la.
 
 Este erro ocorre quando um utilizador que não é administrador da empresa tenta utilizar uma aplicação que está a solicitar permissões que apenas um administrador pode conceder. Este erro pode ser resolvido por um administrador que concede acesso ao pedido em nome da sua organização.
+
+Este erro também pode ocorrer quando um utilizador é impedido de consentir com uma aplicação devido à Microsoft detetar que o pedido de permissões é arriscado. Neste caso, será também registado um evento de auditoria com uma categoria de "Gestão de Aplicações", Tipo de Atividade de "Consentimento para aplicação" e Motivo de Estado da "aplicação arriscada detetada".
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede concessão de erros de permissões
 * **AADSTS90093:** Um administrador &lt;do&gt; tenantDisplayName definiu uma política &lt;que o&gt; impede de conceder o nome da app as permissões que está a solicitar. Contacte um &lt;administrador&gt;do tenantDisplayName, que pode conceder permissões a esta aplicação em seu nome.

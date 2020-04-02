@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 411c06e19b932b441f27a3c7578d847c6dfc1f7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55fa14f367dbf24e951fde8e9075a34499a510b1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336998"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547082"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 

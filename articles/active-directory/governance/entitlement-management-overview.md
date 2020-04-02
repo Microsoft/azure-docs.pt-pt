@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3deb87fec8241ad6126314f3f6ce5fb9600ad1fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 477bb5430214b497f90e3cb6d5df69f9fcf4035f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128550"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546164"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -101,7 +101,7 @@ O diagrama que se segue mostra um exemplo dos diferentes elementos na gestão de
 
 Os pacotes de acesso não substituem outros mecanismos de atribuição de acesso.  São mais adequados em situações como:
 
-- Os empregados precisam de acesso limitado ao tempo para uma determinada tarefa.  Por exemplo, você pode usar licenciamento baseado em grupo e um grupo dinâmico para garantir que todos os colaboradores têm uma caixa de correio Exchange Online, e depois usar pacotes de acesso para situações em que os colaboradores precisam de acesso adicional, como para ler recursos departamentais de outro departamento.
+- Os empregados precisam de acesso limitado ao tempo para uma determinada tarefa.  Por exemplo, você pode usar licenciamento baseado em grupo e um grupo dinâmico para garantir que todos os colaboradores têm uma caixa de correio Exchange Online, e, em seguida, usar pacotes de acesso para situações em que os colaboradores precisam de acesso adicional, como ler recursos departamentais de outro departamento.
 - O acesso tem de ser aprovado pelo gestor de um empregado ou por outras pessoas designadas.
 - Os departamentos desejam gerir as suas próprias políticas de acesso aos seus recursos sem o envolvimento das TI.  
 - Duas ou mais organizações estão a colaborar num projeto e, como resultado, vários utilizadores de uma organização terão de ser trazidos via Azure AD B2B para aceder aos recursos de outra organização.
@@ -132,15 +132,16 @@ Para melhor compreender a gestão do direito e a sua documentação, pode remete
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Nuvens especializadas, como o Governo Azure, a Azure Germany e a Azure China 21Vianet, não estão atualmente disponíveis para uso.
+Nuvens especializadas, como a Azure Germany, e a Azure China 21Vianet, não estão atualmente disponíveis para uso.
 
 ### <a name="how-many-licenses-must-you-have"></a>Quantas licenças tem de ter?
 
-Certifique-se de que o seu diretório tem pelo menos tantas licenças Azure AD Premium P2 como tem colaboradores que irão realizar as seguintes tarefas:
+Certifique-se de que o seu diretório tem pelo menos tantas licenças Azure AD Premium P2 como tem:
 
 - Utilizadores membros que **possam** solicitar um pacote de acesso.
 - Membro e utilizadores convidados que solicitem um pacote de acesso.
 - Membros e utilizadores convidados que aprovam pedidos de um pacote de acesso.
+- Membros e utilizadores convidados que tenham uma atribuição direta a um pacote de acesso.
 
 As licenças Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
 

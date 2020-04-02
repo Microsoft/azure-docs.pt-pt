@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
-ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721477"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545957"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Execute operações de armazenamento de mesa azure com a Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -117,7 +117,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>Propriedade CloudTable de referência de uma tabela específica
 
 > [!IMPORTANT]
-> O uso do CloudTable é obrigatório quando se trabalha com o módulo **AzTable** PowerShell. Ligue para o comando **Get-AzTable** para obter a referência a este objeto. Este comando também cria a tabela se ainda não existir.
+> O uso do CloudTable é obrigatório quando se trabalha com o módulo **AzTable** PowerShell. Ligue para o comando **Get-AzStorageTable** para obter a referência a este objeto. Este comando também cria a tabela se ainda não existir.
 
 Para efetuar operações numa tabela utilizando o **AzTable,** precisa de uma referência à propriedade CloudTable de uma tabela específica.
 

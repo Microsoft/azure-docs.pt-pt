@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19e4033b462cda9511ee45420bd4c1a76cc36b92
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298739"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518962"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Junte-se a uma máquina virtual do Windows Server para um domínio gerido pelo Azure Ative Directory Services usando um modelo de Gestor de Recursos
 

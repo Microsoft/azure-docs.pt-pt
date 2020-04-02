@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
-ms.openlocfilehash: 8a72d3dc7f7b3fddf66df8111b1e92116a62883a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474021"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549145"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
 
@@ -151,7 +151,7 @@ A latência para reretomar automaticamente e fazer uma pausa automática numa ba
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Encriptação de dados transparente gerida pelo cliente (BYOK)
 
-Se utilizar [encriptação transparente](transparent-data-encryption-byok-azure-sql.md) de dados (BYOK) e a base de dados sem servidores for em pausa automática quando ocorrer a eliminação ou revogação da chave, a base de dados permanece no estado de pausa automática.  Neste caso, quando a base de dados for retomada, a base de dados permanece on-line até que o seu estado transite para inacessível após aproximadamente 10 minutos ou menos.  Uma vez que a base de dados se torna inacessível, o processo de recuperação é o mesmo que para as bases de dados de cálculo provisionadas.  Se a base de dados sem servidor estiver on-line quando ocorrer a eliminação ou revogação da chave, a base de dados também fica inacessível após aproximadamente 10 minutos ou menos da mesma forma que com as bases de dados de cálculo provisionadas.
+Se utilizar [encriptação transparente](transparent-data-encryption-byok-azure-sql.md) de dados (BYOK) e a base de dados sem servidores for em pausa automática quando ocorrer a eliminação ou revogação da chave, a base de dados permanece no estado de pausa automática.  Neste caso, após a próxima retoma da base de dados, a base de dados torna-se inacessível dentro de aproximadamente 10 minutos.  Uma vez que a base de dados se torna inacessível, o processo de recuperação é o mesmo que para as bases de dados de cálculo provisionadas.  Se a base de dados sem servidor estiver on-line quando ocorrer a eliminação ou revogação da chave, a base de dados também fica inacessível após aproximadamente 10 minutos ou menos da mesma forma que com as bases de dados de cálculo provisionadas.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Embarque em nível de computação sem servidor
 

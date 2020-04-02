@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d224bd9e9e7b1f8fc9eb45d85e78811d8642fc78
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867506"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519569"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função RBAC para acesso a dados de blob e fila
 
@@ -23,13 +23,13 @@ O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos gar
 
 Quando uma função RBAC é atribuída a um diretor de segurança da AD Azure, o Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser consultado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um recipiente ou fila individual. Um diretor de segurança da AD Azure pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Este artigo descreve como usar o portal Azure para atribuir funções RBAC. O portal Azure fornece uma interface simples para atribuir funções RBAC e gerir o acesso aos seus recursos de armazenamento. Também pode atribuir funções RBAC para recursos de blob e fila utilizando ferramentas de linha de comando Azure ou as APIs de gestão de armazenamento Azure. Para obter mais informações sobre as funções RBAC para recursos de armazenamento, consulte [O acesso authenticado a blobs e filas Azure utilizando o Diretório Ativo Azure.](storage-auth-aad.md) 
+Este artigo descreve como usar o portal Azure para atribuir funções RBAC. O portal Azure fornece uma interface simples para atribuir funções RBAC e gerir o acesso aos seus recursos de armazenamento. Também pode atribuir funções RBAC para recursos de blob e fila utilizando ferramentas de linha de comando Azure ou as APIs de gestão de armazenamento Azure. Para obter mais informações sobre as funções RBAC para recursos de armazenamento, consulte [O acesso authenticado a blobs e filas Azure utilizando o Diretório Ativo Azure.](storage-auth-aad.md)
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Funções RBAC para bolhas e filas
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinar o âmbito dos recursos 
+## <a name="determine-resource-scope"></a>Determinar o âmbito dos recursos
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -52,11 +52,11 @@ As seguintes secções descrevem cada um destes passos com mais detalhes.
 
 Antes de atribuir um papel a um diretor de segurança, não se esqueça de considerar o âmbito das permissões que está a conceder. Reveja a secção de âmbito de [recurso Determine](#determine-resource-scope) para decidir o âmbito adequado.
 
-O procedimento aqui mostrado atribui uma função a um recipiente, mas pode seguir os mesmos passos para atribuir uma função a uma fila: 
+O procedimento aqui mostrado atribui uma função a um recipiente, mas pode seguir os mesmos passos para atribuir uma função a uma fila:
 
 1. No [portal Azure,](https://portal.azure.com)vá à sua conta de armazenamento e exiba a **visão geral** da conta.
-1. Em Serviços, selecione **Blobs**. 
-1. Localize o recipiente para o qual pretende atribuir uma função e exiba as definições do recipiente. 
+1. Em Serviços, selecione **Blobs**.
+1. Localize o recipiente para o qual pretende atribuir uma função e exiba as definições do recipiente.
 1. Selecione **o controlo de acesso (IAM)** para visualizar as definições de controlo de acesso para o recipiente. Selecione o separador de **atribuições de funções** para ver a lista de atribuições de papéis.
 
     ![Screenshot mostrando as definições de controlo de acesso do recipiente](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 1b87fa795047070db9a10ceec4b69dd6f7c042a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43650fc3dbd5fc1aabe676a4f2631e1655b25e5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217194"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547946"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento 
 
@@ -105,6 +105,12 @@ ___
 <code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
 Devolve o primeiro valor não nulo de um conjunto de inputs. Todas as inputs devem ser do mesmo tipo* ``coalesce(10, 20) -> 10``
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
+___
+### <code>columnNames</code>
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
+Obtém todas as colunas de saída para um fluxo. Pode passar um nome de fluxo opcional como segundo argumento.
+* ``columnNames()``
+* ``columnNames('DeriveStream')``
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

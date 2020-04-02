@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b95a3e32bc2b8df3d02453e42fa9bbc3719134b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614071"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519167"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (OU) num domínio gerido pela Azure AD Domain Services
 
 As unidades organizacionais (OUs) nos Serviços de Domínio do Diretório Ativo (AD DS) permitem agrupar logicamente objetos como contas de utilizador, contas de serviço ou contas de computador. Em seguida, pode atribuir administradores a OUs específicos e aplicar a política do grupo para impor configurações de configuração específicas.
 
-Os domínios geridos pela Azure AD DS incluem dois OUs incorporados - *Computadores AADDC* e *utilizadores AADDC*. O *AADDC Computers* OU contém objetos de computador para todos os computadores que estão unidos ao domínio gerido. O *AADDC Users* OU inclui utilizadores e grupos sincronizados com o inquilino da AD Azure. À medida que cria e executa cargas de trabalho que utilizam O DS Azure, poderá ter de criar contas de serviço para aplicações que se autentem. Para organizar estas contas de serviço, muitas vezes cria um OU personalizado no domínio gerido pelo Azure AD DS e, em seguida, cria contas de serviço dentro desse OU.
+Os domínios geridos pela Azure AD DS incluem as seguintes duas OUs incorporadas:
+
+* *AADDC Computers* - contém objetos de computador para todos os computadores que estão unidos ao domínio gerido.
+* *Utilizadores AADDC* - inclui utilizadores e grupos sincronizados com o inquilino da AD Azure.
+
+À medida que cria e executa cargas de trabalho que utilizam O DS Azure, poderá ter de criar contas de serviço para aplicações que se autentem. Para organizar estas contas de serviço, muitas vezes cria um OU personalizado no domínio gerido pelo Azure AD DS e, em seguida, cria contas de serviço dentro desse OU.
 
 Num ambiente híbrido, as OUs criadas num ambiente AD DS no local não são sincronizadas com o Azure AD DS. Os domínios geridos pela Azure AD DS utilizam uma estrutura de U. plana. Todas as contas e grupos de utilizadores estão armazenados no contentor *aaddc utilizadores,* apesar de estarem sincronizados de diferentes domínios ou florestas no local, mesmo que tenha configurado uma estrutura hierárquica de Ou lá.
 
 Este artigo mostra-lhe como criar um OU no seu domínio gerido pelo Azure AD DS.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -68,19 +71,19 @@ Para criar um OU personalizado, utilize as Ferramentas Administrativas de Diret�
 1. Para criar e gerir as OUs, selecione **Ative Directory Administrative Center** a partir da lista de ferramentas administrativas.
 1. No painel esquerdo, escolha o seu domínio gerido azure AD DS, como *aaddscontoso.com*. É apresentada uma lista das OUs e recursos existentes:
 
-    ![Selecione o seu domínio gerido azure AD DS no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
+    ![Selecione o seu domínio gerido azure AD DS no Ative Directory Administrative Center](./media/create-ou/create-ou-adac-overview.png)
 
 1. O painel **Tasks** é mostrado no lado direito do Centro Administrativo de Diretório Ativo. Sob o domínio, como *aaddscontoso.com,* selecione **Unidade Organizacional nova >.**
 
-    ![Selecione a opção de criar um novo OU no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
+    ![Selecione a opção de criar um novo OU no Ative Directory Administrative Center](./media/create-ou/create-ou-adac-new-ou.png)
 
 1. No diálogo **Create Organizational Unit,** especifique um **nome** para o novo OU, como *MyCustomOu*. Forneça uma breve descrição para a U, como a Custom OU para contas de *serviço.* Se desejar, também pode definir o campo **Managed By** para a U. Para criar o OU personalizado, selecione **OK**.
 
-    ![Criar uma Ou personalizada do Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
+    ![Criar uma Ou personalizada do Ative Directory Administrative Center](./media/create-ou/create-ou-dialog.png)
 
 1. De volta ao Ative Directory Administrative Center, o OU personalizado está agora listado e está disponível para utilização:
 
-    ![Ou personalizado disponível para uso no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+    ![Ou personalizado disponível para uso no Ative Directory Administrative Center](./media/create-ou/create-ou-done.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

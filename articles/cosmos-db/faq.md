@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 75cef47c1ed2b6da054442a4a1215141e67ad1b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c994caf094918b39204437b5194d81a64affc66
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498569"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545665"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Também pode utilizar o [Emulador Db Azure Cosmos](local-emulator.md) para desen
 
 Para fazer uma pergunta técnica, pode colocar num destes dois fóruns de perguntas e respostas:
 
-* [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Transbordo de pilhas.](https://stackoverflow.com/questions/tagged/azure-cosmosdb) Stack Overflow é o melhor para questões de programação. Certifique-se de que a sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e forneça o máximo de [detalhes possível, tornando a questão clara e responsável.](https://stackoverflow.com/help/how-to-ask)
 
 Para solicitar novas funcionalidades, crie um novo pedido na [voz do Utilizador.](https://feedback.azure.com/forums/263030-azure-cosmos-db)
@@ -219,7 +219,7 @@ A API do Azure Cosmos DB para MongoDB é uma camada de compatibilidade de protoc
 
 A forma mais rápida de se ligar a uma base de dados da Cosmos com a API da Azure Cosmos DB para o MongoDB é dirigir-se ao [portal Azure.](https://portal.azure.com) Vá à sua conta e, em seguida, no menu de navegação à esquerda, clique em **Quick Start**. O Quickstart é a melhor forma de obter códigos para ligar à sua base de dados.
 
-A Azure Cosmos DB impõe requisitos e padrões de segurança rigorosos. As contas Azure Cosmos DB requerem autenticação e comunicação segura via SSL, por isso certifique-se de usar TLSv1.2.
+A Azure Cosmos DB impõe requisitos e padrões de segurança rigorosos. As contas Azure Cosmos DB requerem autenticação e comunicação segura via TLS, por isso certifique-se de usar TLSv1.2.
 
 Para mais informações, consulte [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
@@ -293,7 +293,7 @@ Para o .NET SDK em particular, existem algumas classes e métodos que o Azure Co
 Pode partilhar o seu feedback de qualquer uma das seguintes formas:
 
 * [Voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Transbordo de pilhas.](https://stackoverflow.com/questions/tagged/azure-cosmosdb) Stack Overflow é o melhor para questões de programação. Certifique-se de que a sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e forneça o máximo de [detalhes possível, tornando a questão clara e responsável.](https://stackoverflow.com/help/how-to-ask)
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Qual é a cadeia de ligação que preciso de usar para ligar à API da tabela?

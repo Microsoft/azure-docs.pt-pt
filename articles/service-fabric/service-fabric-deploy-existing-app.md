@@ -2,15 +2,16 @@
 title: Implementar um tecido de serviço existente executável para o Tecido de Serviço Azure
 description: Aprenda a embalar uma aplicação existente como um hóspede executável, para que possa ser implantado para um cluster de Tecido de Serviço.
 ms.topic: conceptual
-ms.date: 07/02/2017
-ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75377111"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520492"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pacote e implementação de um executável existente para o Tecido de Serviço
+
 Ao embalar um executável existente como [hóspede executável,](service-fabric-guest-executables-introduction.md)pode optar por utilizar um modelo de projeto do Estúdio Visual ou [criar manualmente o pacote](#manually)de aplicações . Utilizando o Visual Studio, a estrutura do pacote de aplicações e os ficheiros manifestos são criados pelo novo modelo de projeto para si.
 
 > [!TIP]
@@ -18,6 +19,7 @@ Ao embalar um executável existente como [hóspede executável,](service-fabric-
 >
 
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Use o Estúdio Visual para embalar e implementar um executável existente
+
 O Visual Studio fornece um modelo de serviço service Fabric para ajudá-lo a implementar um hóspede executável para um cluster de Tecido de Serviço.
 
 1. Escolha **o Arquivo** > **Novo Projeto**e crie uma aplicação de Tecido de Serviço.
@@ -37,6 +39,13 @@ O Visual Studio fornece um modelo de serviço service Fabric para ajudá-lo a im
 
 Por exemplo, consulte [Criar a sua primeira aplicação executável de hóspedes usando o Visual Studio](quickstart-guest-app.md).
 
+### <a name="packaging-multiple-executables-with-visual-studio"></a>Embalagem múltiplas executáveis com Estúdio Visual
+
+Você pode usar o Visual Studio para produzir um pacote de aplicação que contém vários executáveis de hóspedes. Depois de adicionar o primeiro hóspede executável, clique no projeto de aplicação e selecione o **serviço Add->New Service Fabric** para adicionar o segundo projeto executável ao hóspede executável à solução.
+
+> [!NOTE]
+> Se optar por ligar a fonte no projeto Do Estúdio Visual, construindo a solução Visual Studio, certificar-se-á de que o seu pacote de aplicações está atualizado com alterações na fonte.
+
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Use Yeoman para embalar e implementar um executável existente no Linux
 
 O procedimento para criar e implantar um hóspede executável no Linux é o mesmo que implementar uma aplicação csharp ou java.
@@ -47,9 +56,17 @@ O procedimento para criar e implantar um hóspede executável no Linux é o mesm
 
 Yeoman cria um pacote de aplicação com a aplicação apropriada e ficheiros manifestos juntamente com scripts de instalação e desinstalação.
 
+### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Embalagem múltiplas executáveis usando Yeoman em Linux
+
+Para adicionar outro serviço a uma aplicação já criada com o `yo`, execute os seguintes passos:
+
+1. Altere o diretório para a raiz da aplicação existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é a aplicação criada por Yeoman.
+2. Corra `yo azuresfguest:AddService` e forneça os detalhes necessários.
+
 <a id="manually"></a>
 
 ## <a name="manually-package-and-deploy-an-existing-executable"></a>Embalar manualmente e implementar um executável existente
+
 O processo de embalagem manual de um hóspede executável baseia-se nos seguintes passos gerais:
 
 1. Crie a estrutura de diretório de pacotes.
@@ -57,14 +74,12 @@ O processo de embalagem manual de um hóspede executável baseia-se nos seguinte
 3. Editar o ficheiro manifesto de serviço.
 4. Editar o ficheiro manifesto da aplicação.
 
-<!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
--->
-
 ### <a name="create-the-package-directory-structure"></a>Criar a estrutura de diretório de pacotes
+
 Pode começar por criar a estrutura do diretório, como descrito no Pacote uma App de [Tecido de Serviço Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Adicione o código e os ficheiros de configuração da aplicação
+
 Depois de ter criado a estrutura do diretório, pode adicionar o código e os ficheiros de configuração da aplicação sob os diretórios de código e config. Também pode criar diretórios ou subdiretórios adicionais sob o código ou diretórios de config.
 
 O Service `xcopy` Fabric faz um dos conteúdos do diretório raiz da aplicação, pelo que não existe uma estrutura predefinida para utilizar além de criar dois diretórios, código e configurações de topo. (Pode escolher nomes diferentes se quiser. Mais detalhes estão na secção seguinte.)
@@ -75,6 +90,7 @@ O Service `xcopy` Fabric faz um dos conteúdos do diretório raiz da aplicação
 >
 
 ### <a name="edit-the-service-manifest-file"></a>Editar o ficheiro manifesto de serviço
+
 O próximo passo é editar o ficheiro manifesto de serviço para incluir as seguintes informações:
 
 * O nome do tipo de serviço. Este é um ID que o Service Fabric usa para identificar um serviço.
@@ -114,6 +130,7 @@ Segue-se um exemplo `ServiceManifest.xml` de um ficheiro:
 As seguintes secções passam pelas diferentes partes do ficheiro que precisa de atualizar.
 
 #### <a name="update-servicetypes"></a>Atualizar Tipos de Serviços
+
 ```xml
 <ServiceTypes>
   <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />
@@ -133,6 +150,7 @@ O elemento CodePackage especifica a localização (e versão) do código do serv
 O `Name` elemento é utilizado para especificar o nome do diretório no pacote de aplicações que contém o código do serviço. `CodePackage`também tem `version` o atributo. Isto pode ser usado para especificar a versão do código, e também pode ser potencialmente usado para atualizar o código do serviço utilizando a infraestrutura de gestão do ciclo de vida da aplicação em Tecido de Serviço.
 
 #### <a name="optional-update-setupentrypoint"></a>Opcional: Ponto de configuração de atualização
+
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -147,6 +165,7 @@ Existe apenas um SetupEntryPoint, pelo que os scripts de configuração precisam
 No exemplo anterior, o SetupEntryPoint executa `LaunchConfig.cmd` um ficheiro `scripts` de lote chamado que está localizado no subdiretório do diretório de código (assumindo que o elemento WorkingFolder está definido para CodeBase).
 
 #### <a name="update-entrypoint"></a>Ponto de entrada atualizado
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -171,12 +190,14 @@ O `ExeHost` elemento especifica o executável (e os argumentos) que devem ser ut
 A WorkingFolder é útil para definir o diretório de trabalho correto para que os caminhos relativos possam ser utilizados pelas scripts de aplicação ou inicialização.
 
 #### <a name="update-endpoints-and-register-with-naming-service-for-communication"></a>Atualizar pontos finais e registar-se com o Serviço de Nomeação para comunicação
+
 ```xml
 <Endpoints>
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
 </Endpoints>
 
 ```
+
 No exemplo anterior, `Endpoint` o elemento especifica os pontos finais que a aplicação pode ouvir. Neste exemplo, a aplicação Node.js ouve em http no porto 3000.
 
 Além disso, pode pedir ao Service Fabric que publique este ponto final no Serviço de Nomeação para que outros serviços possam descobrir o endereço final deste serviço. Isto permite-lhe comunicar entre serviços que são executáveis por hóspedes.
@@ -189,9 +210,11 @@ No exemplo seguinte, uma vez implementado o serviço, no Service Fabric `http://
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000"  UriScheme="http" PathSuffix="myapp/" Type="Input" />
 </Endpoints>
 ```
+
 Pode utilizar estes endereços com [procuração inversa](service-fabric-reverseproxy.md) para comunicar entre serviços.
 
 ### <a name="edit-the-application-manifest-file"></a>Editar o ficheiro manifesto da aplicação
+
 Depois de configurar `Servicemanifest.xml` o ficheiro, tem de `ApplicationManifest.xml` fazer algumas alterações no ficheiro para garantir que o tipo e o nome corretos são utilizados.
 
 ```xml
@@ -204,6 +227,7 @@ Depois de configurar `Servicemanifest.xml` o ficheiro, tem de `ApplicationManife
 ```
 
 #### <a name="servicemanifestimport"></a>ServiceManifestImport
+
 No `ServiceManifestImport` elemento, pode especificar um ou mais serviços que pretende incluir na aplicação. Os serviços `ServiceManifestName`são referenciados, o que especifica `ServiceManifest.xml` o nome do diretório onde o ficheiro está localizado.
 
 ```xml
@@ -213,6 +237,7 @@ No `ServiceManifestImport` elemento, pode especificar um ou mais serviços que p
 ```
 
 ## <a name="set-up-logging"></a>Configurar a exploração madeireira
+
 Para executáveis de hóspedes, é útil poder ver registos de consolas para saber se os scripts de aplicação e configuração mostram algum erro.
 A reorientação da consola `ServiceManifest.xml` pode `ConsoleRedirection` ser configurada no ficheiro utilizando o elemento.
 
@@ -241,6 +266,7 @@ A reorientação da consola `ServiceManifest.xml` pode `ConsoleRedirection` ser 
 Os ficheiros de registo são guardados numa das diretórios de trabalho do serviço. Para determinar onde os ficheiros estão localizados, utilize o Service Fabric Explorer para determinar em que nó o serviço está a funcionar e qual o diretório de trabalho que está a ser utilizado. Este processo é abordado mais tarde neste artigo.
 
 ## <a name="deployment"></a>Implementação
+
 O último passo é implementar a [sua aplicação.](service-fabric-deploy-remove-applications.md) O seguinte script PowerShell mostra como implementar a sua aplicação para o cluster de desenvolvimento local, e iniciar um novo serviço de Tecido de Serviço.
 
 ```powershell
@@ -281,14 +307,14 @@ Se navegar até ao nó e navegar para a aplicação, verá as informações esse
 
 ![Localização no disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-Se navegar no diretório utilizando o Server Explorer, pode encontrar o diretório de trabalho e a pasta de registo do serviço, como mostra a seguinte imagem: 
+Se navegar no diretório utilizando o Server Explorer, pode encontrar o diretório de trabalho e a pasta de registo do serviço, como mostra a seguinte imagem:
 
 ![Localização do registo](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste artigo, aprendeu a embalar um hóspede executável e a implantá-lo para o Service Fabric. Consulte os seguintes artigos para obter informações e tarefas relacionadas.
 
 * [Amostra para embalagem e implantação de um hóspede executável,](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)incluindo uma ligação ao pré-lançamento da ferramenta de embalagem
 * [Amostra de dois executáveis convidados (C# e nodejs) comunicando através do serviço naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
-* [Implementar vários executáveis convidados](service-fabric-deploy-multiple-apps.md)
 * [Crie a sua primeira aplicação de Tecido de Serviço usando o Estúdio Visual](service-fabric-tutorial-create-dotnet-app.md)

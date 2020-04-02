@@ -3,12 +3,12 @@ title: Backup VMs vMware com servidor de backup Azure
 description: Neste artigo, aprenda a usar o Servidor de Backup Azure para fazer backup vMware VMware vMware num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273478"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529510"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMs vMware com servidor de backup Azure
 
@@ -130,41 +130,52 @@ O Servidor de Backup Azure precisa de uma conta de utilizador com permissões pa
 
 ### <a name="role-permissions"></a>Permissões de papéis
 
-| **Privilégios para vCenter 6.5 e acima da conta de utilizador**        | **Privilégios para conta de utilizador vCenter 6.0**               | **Privilégios para conta de utilizador vCenter 5.5** |
-| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AllocateSpace                                      |                                                           |                                             |
-| Datastore.Navegue na loja de dados                                   | Datastore.AllocateSpace                                   | Rede.Atribuir                              |
-| Datastore.Operações de ficheiros de baixo nível                          | Global.Gerir atributos personalizados                           | Datastore.AllocateSpace                     |
-| Cluster de loja de dados. Configure um cluster de datatstore             | Global.set atributo personalizado                               | VirtualMachine.Config.ChangeTracking        |
-| Global.Desativar métodos                                       | Host.Local operations. Criar máquina virtual              | VirtualMachine.state.RemoveSnapshot         |
-| Global.Enable métodos                                        | A rede. Rede de atribuição                                   | VirtualMachine.State.CreateSnapshot         |
-| Global.Licenças                                              | Um recurso. Atribuir máquina virtual ao conjunto de recursos         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Evento Global.Log                                             | Máquina virtual. Configuração.Adicione novo disco                | VirtualMachine.Interact.Poweroff            |
-| Global.Gerir atributos personalizados                              | Máquina virtual. Configuração.Avançado                    | VirtualMachine.Inventory.Create             |
-| Global.set atributo personalizado                                  | Máquina virtual. Configuração.Rastreio de alterações do disco        | VirtualMachine.Config.AddNewDisk            |
-| Rede.Atribua rede                                       | Máquina virtual. Configuração.Dispositivo USB de hospedar             | VirtualMachine.Config.HostUSBDevice         |
-| Um recurso. Atribuir máquina virtual ao conjunto de recursos            | Máquina virtual. Configuração.Consultas de ficheiros não possuídos         | VirtualMachine.Config.AdvancedConfig        |
-| Máquina virtual. Configuração.Adicione novo disco                   | Máquina virtual. Configuração.Colocação de ficheiros de troca          | VirtualMachine.Config.SwapPlacement         |
-| Máquina virtual. Configuração.Avançado                       | Máquina virtual. Interação.Desligar                     | Global.ManageCustomFields                   |
-| Máquina virtual. Configuração.Rastreio de alterações do disco           | Máquina virtual. O inventário. Criar novo                     |                                             |
-| Máquina virtual. Configuração.Aluguer de disco                     | Máquina virtual. Provisionamento.Permitir o acesso ao disco            |                                             |
-| Máquina virtual. Configuração.Estender o disco virtual            | Máquina virtual. O provisionamento. Permitir o acesso ao disco apenas para leitura |                                             |
-| Máquina virtual. Operações de Hóspedes.Modificações de Operação de Hóspedes | Máquina virtual. Gestão instantânea. Criar instantâneo       |                                             |
-| Máquina virtual. Operações de Hóspedes.Execução do Programa de Operação Convidado | Máquina virtual. Gestão instantânea. Remover instantâneo       |                                             |
-| Máquina virtual. Operações de Hóspedes.Consultas de Operação De Hóspedes     |                                                           |                                             |
-| Máquina virtual. Interação. Ligação do dispositivo              |                                                           |                                             |
-| Máquina virtual. Interação. Gestão do sistema operativo convidado pela VIX API |                                                           |                                             |
-| Máquina virtual. Inventário.Registo                          |                                                           |                                             |
-| Máquina virtual. Inventário.Remover                            |                                                           |                                             |
-| Máquina virtual. Provisionamento.Permitir o acesso ao disco              |                                                           |                                             |
-| Máquina virtual. Provisionamento.Permitir acesso adisco apenas para leitura    |                                                           |                                             |
-| Máquina virtual. Provisionamento.Permitir o download de máquinavirtual |                                                           |                                             |
-| Máquina virtual. Gestão instantânea. Criar instantâneo        |                                                           |                                             |
-| Máquina virtual. Gestão instantânea. Remover instantâneo         |                                                           |                                             |
-| Máquina virtual. Gestão instantânea. Reverter para instantâneo      |                                                           |                                             |
-| vApp.Adicionar máquina virtual                                     |                                                           |                                             |
-| vApp.Atribuir conjunto de recursos                                    |                                                           |                                             |
-| vApp.Unregister                                              |                                                           |                                             |
+| **Privilégios para conta de utilizador vCenter 6.7**              | **Privilégios para conta de utilizador vCenter 6.5**             |
+| --------------------------------------------------------- | -------------------------------------------------------- |
+| Datastore.Espaço de atribuição                                  | Datastore.Espaço de atribuição                                 |
+| Evento Global.Log                                          | Evento Global.Log                                         |
+| Global.Gerea atributos personalizados                           | Global.Gerea atributos personalizados                          |
+| Rede.Atribuir                                            | Rede.Atribuir                                           |
+| Um recurso. Atribuir máquina virtual ao conjunto de recursos        | Um recurso. Atribuir máquina virtual ao conjunto de recursos       |
+| Virtualmachine.Configuration.AddNewdisk                   | Virtualmachine.Configuration.AddNewdisk                  |
+| VirtualMachine.Configuração. Adicionar ou remover dispositivo       | VirtualMachine.Configuração. Adicionar ou remover dispositivo      |
+| VirtualMachine.Configuration.Advanced                     | VirtualMachine.Configuration.Advanced                    |
+| VirtualMachine.Configuration.Toggle Disk Change Tracking | VirtualMachine.Configuration.Disk Change Tracking       |
+| VirtualMachine.Configuration.Configure dispositivo USB do anfitrião   | VirtualMachine.Configuration.Host USB Device            |
+| VirtualMachine.Configuration.Consulta ficheiros não possuídos         | VirtualMachine.Configuration.Consulta ficheiros não possuídos        |
+| VirtualMachine.Configuration.Change Swapfile Placement   | VirtualMachine.Configuration.Swapfile Placement         |
+| VirtualMachine.Interaction.Off                      | VirtualMachine.Interaction.Off                     |
+| VirtualMachine.Inventory.Create New                       | VirtualMachine.Inventory.Create New                      |
+| VirtualMachine.Provisioning.Permitir o acesso ao disco            | VirtualMachine.Provisioning.Permitir o acesso ao disco           |
+| VirtualMachine.Provisioning.Permitir acesso a ficheiros            | VirtualMachine.Provisioning.Permitir acesso a ficheiros           |
+| VirtualMachine.Provisioning.Permitir acesso a disco apenas de leitura  | VirtualMachine.Provisioning.Permitir acesso a disco apenas de leitura |
+| VirtualMachine.Snapshot Management.Create Snapshot       | VirtualMachine.Snapshot Management.Create Snapshot      |
+| VirtualMachine.Snapshot Management.Remove Snapshot       | VirtualMachine.Snapshot Management.Remove Snapshot      |
+
+<br>
+
+| **Privilégios para conta de utilizador vCenter 6.0**                | **Privilégios para conta de utilizador vCenter 5.5** |
+| ---------------------------------------------------------- | ------------------------------------------- |
+| Datastore.AllocateSpace                                    | Rede.Atribuir                              |
+| Global.Gerir atributos personalizados                           | Datastore.AllocateSpace                     |
+| Global.set atributo personalizado                               | VirtualMachine.Config.ChangeTracking        |
+| Host.Local operations. Criar máquina virtual              | VirtualMachine.state.RemoveSnapshot         |
+| A rede.  Rede de atribuição                                   | VirtualMachine.State.CreateSnapshot         |
+| Um recurso.  Atribuir máquina virtual ao conjunto de recursos         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Máquina virtual. Configuração.Adicione novo disco                | VirtualMachine.Interact.Poweroff            |
+| Máquina virtual. Configuração.Avançado                    | VirtualMachine.Inventory.Create             |
+| Máquina virtual. Configuração.Rastreio de alterações do disco        | VirtualMachine.Config.AddNewDisk            |
+| Máquina virtual. Configuração.Dispositivo USB de hospedar             | VirtualMachine.Config.HostUSBDevice         |
+| Máquina virtual. Configuração.Consultas de ficheiros não possuídos         | VirtualMachine.Config.AdvancedConfig        |
+| Máquina virtual. Configuração.Colocação de ficheiros de troca          | VirtualMachine.Config.SwapPlacement         |
+| Máquina virtual. Interação.Desligar                     | Global.ManageCustomFields                   |
+| Máquina virtual. O inventário. Criar novo                     |                                             |
+| Máquina virtual. Provisionamento.Permitir o acesso ao disco            |                                             |
+| Máquina virtual. O provisionamento. Permitir o acesso ao disco apenas para leitura |                                             |
+| Máquina virtual. Gestão instantânea. Criar instantâneo       |                                             |
+| Máquina virtual. Gestão instantânea. Remover instantâneo       |                                             |
+
+
 
 ## <a name="create-a-vmware-account"></a>Criar uma conta VMware
 

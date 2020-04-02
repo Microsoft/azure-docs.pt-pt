@@ -3,7 +3,7 @@ title: Boas práticas de segurança para cargas de trabalho iaaS em Azure Micros
 description: " A migração de cargas de trabalho para o Azure IaaS traz oportunidades para reavaliar os nossos projetos "
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: rkarlin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 0a4daf61d6b791a01f5bfb18e6cfca8118b2f421
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: fadf07f312c86f8ca15f5a97ebbe99e84bcffc89
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255949"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548232"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as melhores práticas de segurança para VMs e sistemas operativos.

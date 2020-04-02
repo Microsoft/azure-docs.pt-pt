@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839053"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528424"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Configure Azure VM para ligar a uma instância gerida pela Base de Dados Azure SQL
 
@@ -75,7 +75,7 @@ A maneira mais fácil de criar uma máquina virtual cliente com todas as ferrame
 
    | Definição| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
-   | **Assinatura** | Uma subscrição válida | Deve ser uma subscrição na qual tem permissão para criar novos recursos. |
+   | **Subscrição** | Uma subscrição válida | Deve ser uma subscrição na qual tem permissão para criar novos recursos. |
    | **Grupo de Recursos** |O grupo de recursos que especificou no início rápido da [Create Managed Instance.](sql-database-managed-instance-get-started.md)|Este grupo de recursos deve ser aquele em que existe o VNet.|
    | **Localização** | A localização do grupo de recursos | Este valor é povoado com base no grupo de recursos selecionado. |
    | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
@@ -120,7 +120,7 @@ Os passos seguintes mostram como ligar à máquina virtual recentemente criada a
 
 4. Feche o **Formulário de Ligação à forma** da máquina virtual.
 5. Para ligar à sua VM, abra o ficheiro RDP transferido.
-6. Quando solicitado, selecione **Connect**. Num Mac, precisa de um cliente RDP como este [Cliente de Ambiente de Trabalho Remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) a partir da Mac App Store.
+6. Quando solicitado, selecione **Connect**. Num Mac, precisa de um cliente RDP como este [Cliente de Ambiente de Trabalho Remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) a partir da Mac App Store.
 
 7. Introduza o nome de utilizador e a palavra-passe especificado ao criar a máquina virtual e, em seguida, escolha **OK**.
 

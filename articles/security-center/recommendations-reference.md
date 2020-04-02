@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: f0e74a366e8dbb515f2f50748eb4a5c76088a723
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 8f4703330190d3907e9a6e3aead8892fe69e7c13
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398022"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521222"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -105,7 +105,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**Variáveis da conta de automação devem ser encriptadas**|Ativar a encriptação de ativos variáveis da conta de Automação ao armazenar dados sensíveis.<br>(Política relacionada: Encriptação deve ser ativada nas variáveis da conta de Automação)|Alta|N|Recursos computacionais (conta de automação)|
 |**A encriptação do disco deve ser aplicada em máquinas virtuais**|Criptografe os seus discos de máquina virtual utilizando encriptação de disco azure tanto para máquinas virtuais Windows como Linux. A Encriptação do Disco Azure (ADE) aproveita a funcionalidade bitLocker padrão da indústria do Windows e a funcionalidade DM-Crypt do Linux para fornecer encriptação de OS e discos de dados para ajudar a proteger e proteger os seus dados e ajudar a cumprir os compromissos de segurança e conformidade organizacionais no cofre chave do cliente Azure. Quando o seu requisito de conformidade e segurança requer que encripte o fim dos dados utilizando as suas chaves de encriptação, incluindo a encriptação do disco efémero (temporário) localmente ligado, utilize a encriptação do disco Azure. Em alternativa, por padrão, os Discos Geridos são encriptados em repouso por padrão utilizando a Encriptação do Serviço de Armazenamento Azure, onde as chaves de encriptação são chaves geridas pela Microsoft em Azure. Se isto cumprir os seus requisitos de conformidade e segurança, pode alavancar a encriptação de disco gerida por defeito para satisfazer os seus requisitos.<br>(Política relacionada: encriptação de disco deve ser aplicada em máquinas virtuais)|Alta|N|Máquina|
 |**Máquinas virtuais devem ser migradas para novos recursos do Gestor de Recursos Do Azure**|Utilize o Gestor de Recursos Azure para as suas máquinas virtuais para fornecer melhorias de segurança tais como: controlo de acesso mais forte (RBAC), melhor auditoria, implementação e governação baseadas em Recursos, acesso a identidades geridas, acesso a cofre chave para segredos, autenticação baseada em AD Azure e suporte para tags e grupos de recursos para uma gestão de segurança mais fácil.<br>(Política relacionada: As máquinas virtuais devem ser migradas para novos recursos do Gestor de Recursos Azure)|Baixa|N|Máquina|
-|**A solução de avaliação de vulnerabilidade deve ser instalada nas suas máquinas virtuais**|Instale uma solução de avaliação de vulnerabilidade solução nas suas máquinas virtuais<br>(Política relacionada: Avaliação de vulnerabilidade deve ser instalada em máquinas virtuais)|Médio|N|Máquina|
+|**A solução de avaliação de vulnerabilidade deve ser instalada nas suas máquinas virtuais**|Instale uma solução de avaliação de vulnerabilidade solução nas suas máquinas virtuais<br>(Política relacionada: As vulnerabilidades devem ser remediadas por uma solução de avaliação de vulnerabilidade)|Médio|N|Máquina|
 |**Vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades**|As máquinas virtuais para as quais é implementada uma solução 3ª parte de avaliação de vulnerabilidade estão a ser continuamente avaliadas contra aplicações e vulnerabilidades de SO. Sempre que tais vulnerabilidades são encontradas, estas estão disponíveis para mais informações como parte da recomendação.<br>(Política relacionada: As vulnerabilidades devem ser remediadas por uma solução de avaliação de vulnerabilidade)|Alta|N|Máquina|
 |**As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas**|Remediar vulnerabilidades na configuração de segurança das suas máquinas para protegê-las de ataques.<br>(Política relacionada: As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas)|Baixa|N|Máquina|
 |**As vulnerabilidades nas configurações de segurança dos contentores devem ser remediadas**|Remediar vulnerabilidades na configuração de segurança em máquinas com o Docker instalado para protegê-las de ataques.<br>(Política relacionada: As vulnerabilidades nas configurações de segurança dos contentores devem ser remediadas)|Alta|N|Máquina|

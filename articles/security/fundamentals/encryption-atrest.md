@@ -3,7 +3,7 @@ title: Encriptação de dados do Microsoft Azure em repouso [ Microsoft Docs
 description: Este artigo fornece uma visão geral da encriptação de dados do Microsoft Azure no descanso, as capacidades globais e considerações gerais.
 services: security
 documentationcenter: na
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
-ms.author: barclayn
-ms.openlocfilehash: d8aa643dcf9734ac983c9c4c0d53bda24ce4688d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mbaldwin
+ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125077"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548634"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest
 
@@ -125,13 +125,13 @@ Cada uma das encriptações do lado do servidor nos modelos de repouso implica c
 
 #### <a name="server-side-encryption-using-service-managed-keys"></a>Encriptação do lado do servidor usando chaves geridas pelo serviço
 
-Para muitos clientes, o requisito essencial é garantir que os dados são encriptados sempre que estão em repouso. A encriptação do lado do servidor utilizando chaves geridas pelo serviço permite este modelo, permitindo que os clientes marquem o recurso específico (Conta de Armazenamento, SQL DB, etc.) para encriptação e deixando todos os aspetos de gestão chave, tais como emissão de chaves, rotação e backup para a Microsoft . A maioria dos Serviços Azure que suportam encriptação em repouso normalmente suportam este modelo de descarregamento da gestão das chaves de encriptação para o Azure. O fornecedor de recursos Azure cria as chaves, coloca-as em armazenamento seguro e recupera-as quando necessário. Isto significa que o serviço tem acesso total às chaves e o serviço tem total controlo sobre a gestão do ciclo de vida credencial.
+Para muitos clientes, o requisito essencial é garantir que os dados são encriptados sempre que estão em repouso. A encriptação do lado do servidor utilizando chaves geridas pelo serviço permite este modelo, permitindo que os clientes marquem o recurso específico (Conta de Armazenamento, SQL DB, etc.) para encriptação e deixando todos os aspetos de gestão chave, tais como emissão de chaves, rotação e backup para a Microsoft. A maioria dos Serviços Azure que suportam encriptação em repouso normalmente suportam este modelo de descarregamento da gestão das chaves de encriptação para o Azure. O fornecedor de recursos Azure cria as chaves, coloca-as em armazenamento seguro e recupera-as quando necessário. Isto significa que o serviço tem acesso total às chaves e o serviço tem total controlo sobre a gestão do ciclo de vida credencial.
 
 ![gerido](./media/encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
 A encriptação do lado do servidor utilizando chaves geridas pelo serviço, portanto, rapidamente aborda a necessidade de ter encriptação em repouso com baixas despesas gerais para o cliente. Quando disponível, um cliente normalmente abre o portal Azure para o fornecedor de subscrição e recursos alvo e verifica uma caixa indicando, eles gostariam que os dados fossem encriptados. Em alguns gestores de recursos, a encriptação do lado do servidor com chaves geridas pelo serviço está a ser adenada por defeito.
 
-A encriptação do lado do servidor com chaves geridas pela Microsoft implica que o serviço tem acesso total para armazenar e gerir as chaves. Embora alguns clientes queiram gerir as chaves porque sentem que ganham maior segurança, o custo e o risco associados a uma solução de armazenamento de chaves personalizadas devem ser considerados na avaliação deste modelo. Em muitos casos, uma organização pode determinar que os constrangimentos de recursos ou riscos de uma solução no local podem ser maiores do que o risco de gestão na nuvem da encriptação em chaves de descanso.  No entanto, este modelo pode não ser suficiente para organizações que têm requisitos para controlar a criação ou ciclo de vida das chaves de encriptação ou para ter pessoal diferente a gerir as chaves de encriptação de um serviço do que aqueles que gerem o serviço (isto é, segregação de gestão chave do modelo de gestão global para o serviço).
+A encriptação do lado do servidor com chaves geridas pela Microsoft implica que o serviço tem acesso total para armazenar e gerir as chaves. Embora alguns clientes queiram gerir as chaves porque sentem que ganham maior segurança, o custo e o risco associados a uma solução de armazenamento de chaves personalizadas devem ser considerados na avaliação deste modelo. Em muitos casos, uma organização pode determinar que os constrangimentos de recursos ou riscos de uma solução no local podem ser maiores do que o risco de gestão na nuvem da encriptação em chaves de descanso.  No entanto, este modelo pode não ser suficiente para as organizações que têm requisitos para controlar a criação ou ciclo de vida das chaves de encriptação ou para ter pessoal diferente a gerir as chaves de encriptação de um serviço do que as que gerem o serviço (isto é, a segregação da gestão chave do modelo de gestão global do serviço).
 
 ##### <a name="key-access"></a>Acesso chave
 
@@ -268,7 +268,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Power BI                         | Sim                | Pré-visualização, RSA 2048-bit | -                  |
 | **Análise**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sim                | -                  | -                  |
-| Event Hubs                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
+| Hubs de Eventos                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Funções                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
@@ -283,7 +283,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Container Instances              | Sim                | Sim                | -                  |
 | Registo de Contentor               | Sim                | Sim                | -                  |
 | **Computação**                      |                    |                    |                    |
-| Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
+| Virtual Machines                 | Sim                | Sim, RSA 2048-bit  | -                  |
 | Conjunto de escala de máquina virtual        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Serviço de Aplicações                      | Sim                | Sim                | -                  |
@@ -324,7 +324,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Blob Storage                     | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento em Disco                     | Sim                | Sim                | -                  |
 | Armazenamento de disco gerido             | Sim                | Sim                | -                  |
-| File Storage                     | Sim                | Sim, RSA 2048-bit  | -                  |
+| Armazenamento de Ficheiros                     | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
 | Azure NetApp Files               | Sim                | -                  | -                  |

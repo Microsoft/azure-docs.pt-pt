@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73810332"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528220"
 ---
 # <a name="in-memory-sample"></a>Amostra de memória
 
@@ -41,7 +41,7 @@ Pode criar a base de dados da amostra AdventureWorksLT com alguns cliques no [po
 Para uma demonstração de desempenho mais simplista, mas visualmente apelativa para In-Memory OLTP, consulte:
 
 - Lançamento: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
-- Código fonte: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
+- Código fonte: [in-memory-oltp-demo-source-code](https://github.com/microsoft/sql-server-samples/tree/master/samples/features/in-memory-database)
 
 #### <a name="installation-steps"></a>Passos de instalação
 
@@ -413,7 +413,7 @@ Numa base de dados com o nível de preços P2, pode esperar cerca de nove vezes 
 
 #### <a name="tools"></a>Ferramentas
 
-- [Portal Azure](https://portal.azure.com/)
+- [Portal do Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

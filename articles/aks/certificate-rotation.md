@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: f299b13baf5811b92bdc2e40b027868617d7574c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368524"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549074"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Certificados de rotação no Serviço Azure Kubernetes (AKS)
 
@@ -32,7 +32,7 @@ A AKS gera e utiliza os seguintes certificados, Autoridades de Certificados e Co
 * Cada kubelet também cria um Pedido de Assinatura de Certificado (CSR), assinado pelo Cluster CA, para comunicação do kubelet para o servidor API.
 * A loja de valor-chave etcd tem um certificado assinado pelo Cluster CA para comunicação de etcd para o servidor API.
 * A loja de valor-chave etcd cria um CA que assina certificados para autenticar e autorizar a replicação de dados entre réplicas etcd no cluster AKS.
-* O agregador API utiliza o Cluster CA para emitir certificados de comunicação com outras APIs, tais como O Corretor de Serviçoaberto para o Azure. O agregador API também pode ter o seu próprio CA para a emissão desses certificados, mas atualmente utiliza o Cluster CA.
+* O agregador API utiliza o Cluster CA para emitir certificados para comunicação com outras APIs. O agregador API também pode ter o seu próprio CA para a emissão desses certificados, mas atualmente utiliza o Cluster CA.
 * Cada nó usa um símbolo de Conta de Serviço (SA), assinado pelo Cluster CA.
 * O `kubectl` cliente tem um certificado para comunicar com o cluster AKS.
 

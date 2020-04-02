@@ -10,12 +10,12 @@ ms.date: 02/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b0f2ad7566d0204871a9c6441315d6201662d92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53eca8a0b9e7cc9abb8f89cd56fca5df28f2de0f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616295"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521933"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizar o acesso a dados no Armazenamento Do Azure
 
@@ -33,7 +33,7 @@ O quadro seguinte descreve as opções que o Azure Storage oferece para autoriza
 
 Cada opção de autorização é brevemente descrita abaixo:
 
-- **Integração do Azure Ative Directory (Azure AD)** para bolhas e filas. A Azure AD fornece um controlo de acesso baseado em funções (RBAC) para um controlo fino sobre o acesso de um cliente aos recursos numa conta de armazenamento. Para obter mais informações sobre a integração da AD Azure para bolhas e filas, consulte [Autorizar o acesso a blobs e filas Azure utilizando o Diretório Ativo Azure.](storage-auth-aad.md)
+- **Integração do Azure Ative Directory (Azure AD)** para bolhas e filas. A Azure AD fornece um controlo de acesso baseado em funções (RBAC) para o controlo do acesso de um cliente aos recursos numa conta de armazenamento. Para obter mais informações sobre a integração da AD Azure para bolhas e filas, consulte [Autorizar o acesso a blobs e filas Azure utilizando o Diretório Ativo Azure.](storage-auth-aad.md)
 
 - **Autenticação azure Ative Directory Domain Services (Azure AD DS)** para Ficheiros Azure. O Azure Files suporta a autorização baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através do Azure AD DS. Pode utilizar o RBAC para um controlo fino sobre o acesso de um cliente aos recursos do Azure Files numa conta de armazenamento. Para mais informações sobre a autenticação dos Ficheiros Azure utilizando serviços de domínio, consulte a nossa [visão geral](../files/storage-files-active-directory-overview.md).
 

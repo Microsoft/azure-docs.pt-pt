@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264118"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546144"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação e diretor de serviço seletiva azure que possa aceder a recursos
 
@@ -99,7 +99,7 @@ Exporte este certificado para um ficheiro utilizando o snap-in do Certificado de
 
 1. Para visualizar os seus certificados, em **Certificados - Utilizador Atual** no painel esquerdo, expanda o diretório **Pessoal.**
 1. Clique à direita no certificado que criou, selecione **Todas as tarefas->Exportação**.
-1. Siga o assistente de exportação de certificados.  Exportar a chave privada, especificar uma palavra-passe para o ficheiro cert e exportar para um ficheiro.
+1. Siga o assistente de exportação de certificados.  Não exporte a chave privada e exporte para um . Arquivo cer.
 
 Para fazer o upload do certificado:
 
@@ -148,7 +148,7 @@ Deve ter permissões suficientes para registar uma candidatura com o seu inquili
 1. No painel esquerdo, selecione **as definições do utilizador**.
 1. Verifique a definição de registos da **App.** Este valor só pode ser definido por um administrador. Se definido para **Sim**, qualquer utilizador do inquilino Azure AD pode registar uma aplicação.
 
-Se a definição de registos da aplicação estiver definida para **Não,** apenas os utilizadores com uma função de administrador podem registar este tipo de aplicações. Consulte [as funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) de funções para conhecer as funções de administrador disponíveis e as permissões específicas em Azure AD que são dadas a cada função. Se a sua conta for atribuída a função de Utilizador, mas a definição de registo da aplicação está limitada aos utilizadores de administração, peça ao seu administrador que lhe atribua uma das funções do administrador que possam criar e gerir todos os aspetos dos registos de aplicações, ou para permitir que os utilizadores se registem apps.
+Se a definição de registos da aplicação estiver definida para **Não,** apenas os utilizadores com uma função de administrador podem registar este tipo de aplicações. Consulte [as funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) de funções para conhecer as funções de administrador disponíveis e as permissões específicas em Azure AD que são dadas a cada função. Se a sua conta for atribuída a função de Utilizador, mas a definição de registo da aplicação está limitada aos utilizadores de administração, peça ao seu administrador que lhe atribua uma das funções de administrador que possam criar e gerir todos os aspetos dos registos de aplicações, ou para permitir que os utilizadores registem aplicações.
 
 ### <a name="check-azure-subscription-permissions"></a>Verifique as permissões de subscrição do Azure
 

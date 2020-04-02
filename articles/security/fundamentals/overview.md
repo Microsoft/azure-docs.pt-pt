@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045878"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545977"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -138,7 +138,7 @@ No Application Diagnostics é possível ver eventos agrupados nas seguintes form
 -   Erros de Aplicações (apresenta eventos de exceção)
 -   Desempenho (apresenta eventos de desempenho)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 A secção fornece informações adicionais sobre as principais funcionalidades na segurança de armazenamento do Azure e informações sumárias sobre estas capacidades.
 
 ### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
@@ -233,11 +233,11 @@ O Microsoft [Azure Application Gateway](../../application-gateway/overview.md) f
 
 ![Gateway de Aplicação](./media/overview/azure-security-fig2.png)
 
-Permite-lhe otimizar a produtividade da quinta web descarregando a terminação intensiva de SSL cpu para o Gateway de Aplicação (também conhecido como "ssl offload" ou "ponte SSL"). Também fornece outras capacidades de encaminhamento da Camada 7, incluindo distribuição de robin redondo do tráfego de entrada, afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, e a capacidade de hospedar vários websites por trás de um único Gateway de aplicação. O Application Gateway do Azure é um balanceador de carga de 7 camadas.
+Permite-lhe otimizar a produtividade da quinta web descarregando a rescisão intensiva de TLS cpu para o Gateway de Aplicação (também conhecido como "descarregamento tLS" ou "ponte TLS"). Também fornece outras capacidades de encaminhamento da Camada 7, incluindo distribuição de robin redondo do tráfego de entrada, afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, e a capacidade de hospedar vários websites por trás de um único Gateway de aplicação. O Application Gateway do Azure é um balanceador de carga de 7 camadas.
 
 Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local.
 
-A aplicação fornece muitas funcionalidades do Controlador de Entrega de Aplicações (ADC), incluindo equilíbrio de carga HTTP, afinidade de sessão baseada em cookies, descarga secure [Sockets Layer (SSL),](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) sondas de saúde personalizadas, suporte para vários sites, e muitos outros.
+A aplicação fornece muitas funcionalidades do Controlador de Entrega de Aplicações (ADC), incluindo equilíbrio de carga HTTP, afinidade de sessão baseada em cookies, [descarregamento de TLS,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)sondas de saúde personalizadas, suporte para vários sites, e muitos outros.
 
 ### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 O Firewall de aplicação web é uma funcionalidade do Portal de [Aplicações Azure](../../application-gateway/overview.md) que fornece proteção às aplicações web que utilizam o gateway de aplicações para funções padrão de Controlo de Entrega de Aplicações (ADC). A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
@@ -323,7 +323,7 @@ As Atualizações de Patch fornecem a base para encontrar e corrigir potenciais 
 [O Centro](../../security-center/security-center-intro.md) de Segurança ajuda-o a prevenir, detetar e responder a ameaças, e proporciona-lhe uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece monitorização integrada de Segurança e gestão de políticas em todas as suas subscrições do Azure, ajuda a detetar ameaças que de outra forma podem passar despercebidas, e trabalha com um vasto ecossistema de soluções de segurança.
 
 ## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
-A segurança de sistemas, aplicações e dados começa com controlos de acesso baseados na identidade. As funcionalidades de gestão de identidade e acesso que são incorporadas em produtos e serviços empresariais da Microsoft ajudam a proteger as suas informações organizacionais e pessoais de acesso não autorizado, ao mesmo tempo que as disponibilizam a utilizadores legítimos sempre e onde quer que sejam. precisa.
+A segurança de sistemas, aplicações e dados começa com controlos de acesso baseados na identidade. As funcionalidades de gestão de identidade e acesso que estão incorporadas em produtos e serviços empresariais da Microsoft ajudam a proteger as suas informações organizacionais e pessoais do acesso não autorizado, ao mesmo tempo que as disponibilizam a utilizadores legítimos sempre e onde quer que precisem.
 
 ### <a name="secure-identity"></a>Identidade Segura
 A Microsoft utiliza múltiplas práticas e tecnologias de segurança em todos os seus produtos e serviços para gerir a identidade e o acesso.

@@ -1,22 +1,15 @@
 ---
 title: 'Tutorial: Revisão das declarações de pontofinal - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as declarações recebidas através do ponto final luis http que luis não tem certeza. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843978"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548731"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de pontofinal
 Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as declarações, recebidas através do ponto final luis HTTPS, de que o LUIS não tem a certeza. Você deve rever as declarações de ponto final como uma parte regular da sua manutenção agendada do LUIS.
@@ -46,15 +39,11 @@ Utilize os seguintes passos para importar uma aplicação.
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. Na [pré-visualização](https://preview.luis.ai)do portal LUIS, importe o ficheiro .json para uma nova app.
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`.
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treine a app para aplicar as alterações da entidade na app
 
-    > [!TIP]
-    > Clonar numa nova versão é uma boa prática antes de modificar a sua aplicação. Quando terminar uma versão, exporte a versão (como um ficheiro .json ou .lu) e verifique o ficheiro no seu sistema de controlo de origem.
-
-
-1. Para treinar a aplicação, selecione **Train**.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publique a app para aceder a ela a partir do ponto final http
 
@@ -66,7 +55,7 @@ Nesta aplicação, tem intenções e entidades, mas não tem qualquer utilizaç�
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Utilize o ponto final para adicionar as seguintes expressões.
+1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ pelas palavras na tabela seguinte. Para cada expressão, submeta a expressão, e obtenha o resultado. Em seguida, substitua a expressão no final com a próxima expressão.
 
     |Expressão de endpoint|Intenção alinhada|
     |--|--|
@@ -110,9 +99,9 @@ Reveja as declarações finais para uma intenção corretamente alinhada. Embora
 
 Para verificar as declarações corretamente alinhadas do exemplo, melhorou a previsão da aplicação, tente uma expressão próxima da expressão corrigida.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá para o final do URL no endereço e introduza `Are there any natural language processing jobs in my department right now?`. O último parâmetro de `q`corda é, a **consulta**de expressão.
+1. Vá até ao fim do URL na _YOUR_QUERY_HERE_ barra `Are there any natural language processing jobs in my department right now?`de endereços e substitua YOUR_QUERY_HERE por .
 
    ```json
     {

@@ -2,20 +2,20 @@
 title: Recomendações de segurança para cofre de chaves Azure
 description: Recomendações de segurança para o Cofre chave Azure. Implementar esta orientação irá ajudá-lo a cumprir as suas obrigações de segurança, conforme descrito no nosso modelo de responsabilidade partilhada
 services: key-vault
-author: barclayn
+author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: article
 ms.date: 09/30/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 9fd41ae9b61a9c74fd5d99dd71199cfde06f5cb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d18dca2d7c44ac9db5ebabc5cc10f2f0b3f2c069
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78192375"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546362"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendações de segurança para cofre de chaves Azure
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: fb6094ec418d2b212759bddd2c4d49c7e6193849
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73690698"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529209"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ligue-se à Base de Dados SQL utilizando C e C++
 
@@ -28,7 +28,7 @@ Certifique-se de que tem os itens seguintes:
 
 * Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Estúdio Visual.](https://www.visualstudio.com/downloads/) Tem de instalar os componentes linguísticos C++ para construir e executar esta amostra.
-* [Desenvolvimento visual do Estúdio Linux.](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e) Se estiver a desenvolver-se no Linux, também deve instalar a extensão Visual Studio Linux.
+* [Desenvolvimento visual do Estúdio Linux.](https://docs.microsoft.com/cpp/linux/?view=vs-2019) Se estiver a desenvolver-se no Linux, também deve instalar a extensão Visual Studio Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Base de Dados Azure SQL e Servidor SQL em máquinas virtuais
 O Azure SQL foi construído no Microsoft SQL Server e foi concebido para fornecer um serviço de alta disponibilidade, desempenho e escalável. Existem muitos benefícios em utilizar o SQL Azure sobre a sua base de dados proprietária que funciona nas instalações. Com o SQL Azure não tem de instalar, configurar, manter ou gerir a sua base de dados, mas apenas o conteúdo e a estrutura da sua base de dados. Coisas típicas com as quais nos preocupamos com bases de dados como tolerância a falhas e redundância estão todas incorporadas.

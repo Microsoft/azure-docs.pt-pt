@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152567"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549191"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Sugestões de desempenho para o Azure Cosmos DB e Async Java
 
@@ -112,7 +112,7 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
 
         + **Utilize a multithreading na sua aplicação para uma transferência eficiente** de dados do TCP - Depois de fazer um pedido, a sua aplicação deve subscrever para receber dados noutra linha. Não o fazer força a operação "meio duplex" não intencional e os pedidos subsequentes estão bloqueados à espera da resposta do pedido anterior.
 
-        + **Efetuar cargas de trabalho intensivas em cálculos num fio dedicado** - Por razões semelhantes à ponta anterior, operações como o processamento complexo de dados são melhor colocadas num fio separado. Um pedido que recolha dados de outra loja de dados (por exemplo, se o fio utilizar as lojas de dados Azure Cosmos DB e Spark simultaneamente) pode experimentar um aumento da latência e recomenda-se que desovar um fio adicional que aguarda uma resposta do outro loja de dados.
+        + **Efetuar cargas de trabalho intensivas em cálculos num fio dedicado** - Por razões semelhantes à ponta anterior, operações como o processamento complexo de dados são melhor colocadas num fio separado. Um pedido que recolha dados de outra loja de dados (por exemplo, se o fio utilizar as lojas de dados Azure Cosmos DB e Spark simultaneamente) pode experimentar um aumento da latência e recomenda-se que desovar um fio adicional que aguarda uma resposta da outra loja de dados.
 
             + A rede IO subjacente no SDK Async Java é gerida pela Netty, veja estas dicas para evitar padrões de [codificação que bloqueiam fios De Netty IO](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
@@ -230,9 +230,9 @@ Então, se estás a perguntar"Como posso melhorar o meu desempenho na base de da
     * - nofile 100000
     ```
 
-* **Utilize a implementação nativa de SSL para rede**
+* **Utilize a implementação nativa de TLS/SSL para rede**
 
-    Netty pode usar OpenSSL diretamente para a pilha de implementação SSL para obter um melhor desempenho. Na ausência desta rede de configuração recairá para a implementação padrão do SSL da Java.
+    A Netty pode usar o OpenSSL diretamente para a pilha de implementação tLS para obter um melhor desempenho. Na ausência desta rede de configuração recairá para a implementação padrão de TLS da Java.
 
     em Ubuntu:
     ```bash

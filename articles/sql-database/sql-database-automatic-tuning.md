@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: d4762c86268353ff0464ff3919250cd86f0038d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 7488fd5f8a572788933856f03bb0ad4351885704
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214105"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518232"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Sintonização automática na Base de Dados Azure SQL
 
@@ -69,7 +69,7 @@ As opções automáticas de afinação disponíveis na Base de Dados Azure SQL s
 
 A sintonização automática para bases de dados individuais e agropcadas utiliza o **ÍNDICE DE CRIAÇÃO,** **ÍNDICE DE QUEDA**e RECOMENDAÇÕES de assessoria de dados **FORCE LAST GOOD PLAN** para otimizar o desempenho da sua base de dados. Para mais informações, consulte [as recomendações do consultor da Base](sql-database-advisor-portal.md)de Dados no portal Azure , no [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Pode aplicar manualmente recomendações de afinação utilizando o portal Azure ou pode permitir que a sintonização automática aplique recomendações de afinação para si. Os benefícios de deixar o sistema aplicar de forma autónoma recomendações de afinação para si é que ele automaticamente valida que existe um ganho positivo para o desempenho da carga de trabalho, e se não houver uma melhoria significativa de desempenho detetada, irá reverter automaticamente a recomendação de afinação. Por favor, note que em caso de consultas afetadas por recomendações de afinação que não são executadas frequentemente, a fase de validação pode demorar até 72 horas por design.
+Pode aplicar manualmente recomendações de afinação utilizando o portal Azure ou pode permitir que a sintonização automática aplique recomendações de afinação para si. Os benefícios de permitir que o sistema aplique autonomamente recomendações de afinação para si é que ele valida automaticamente que existe um ganho positivo para o desempenho da carga de trabalho, e se não houver uma melhoria significativa de desempenho detetada, reverterá automaticamente a recomendação de afinação. Por favor, note que em caso de consultas afetadas por recomendações de afinação que não são executadas frequentemente, a fase de validação pode demorar até 72 horas por design.
 
 Caso esteja a aplicar recomendações de afinação através do T-SQL, a validação automática de desempenho e os mecanismos de inversão não estão disponíveis. As recomendações aplicadas desta forma permanecerão ativas e apresentadas na lista de recomendações de afinação para 24-48 horas. antes que o sistema os retire automaticamente. Se quiser remover uma recomendação mais cedo, pode descartá-la do portal Azure.
 
@@ -93,3 +93,4 @@ A sintonização automática, por exemplo, bases de dados numa instância gerida
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender sobre a inteligência incorporada usada na afinação automática, consulte as bases de [dados Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)de Inteligência Artificial.
+- Para saber como funciona a afinação automática sob o capot, consulte [automaticamente a indexação automática de milhões de bases de dados na Base de Dados SQL](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf)do Microsoft Azure .

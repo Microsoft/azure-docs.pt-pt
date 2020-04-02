@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250429"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548442"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação de disco azure para VMs Linux 
 
@@ -32,7 +32,7 @@ Você pode aprender os fundamentos da Encriptação de Disco Azure para Linux em
 
 ## <a name="supported-vms-and-operating-systems"></a>VMs e sistemas operativos suportados
 
-### <a name="supported-vm-sizes"></a>Tamanhos de VM suportados
+### <a name="supported-vms"></a>VMs suportados
 
 Os VMs Linux estão disponíveis numa [gama de tamanhos.](sizes.md) A Encriptação do Disco Azure não está disponível em [VMs básicos, série A,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais que não cumprem estes requisitos mínimos de memória:
 
@@ -44,7 +44,9 @@ Os VMs Linux estão disponíveis numa [gama de tamanhos.](sizes.md) A Encriptaç
 
 Uma vez que o processo de encriptação do disco OS esteja concluído em máquinas virtuais Linux, o VM pode ser configurado para ser executado com menos memória. 
 
-A Encriptação azure Disk também está disponível para VMs com armazenamento premium. 
+A Encriptação azure Disk também está disponível para VMs com armazenamento premium.
+
+A encriptação do disco Azure não está disponível nas [VMs da Geração 2)](generation-2.md#generation-1-vs-generation-2-capabilities)e nas [séries Lsv2.](../lsv2-series.md) Para mais exceções, consulte [encriptação do disco Azure: cenários não suportados](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 

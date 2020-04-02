@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar cofres de Serviços de Recuperação 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: e722996f516d21445d8e0028df925ca44eb02bfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295023"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529386"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -90,6 +90,7 @@ Para este processo, existem implicações de preços como está ao nível do arm
 >- Reveja a [matriz](backup-support-matrix.md#cross-region-restore) de suporte para uma lista de tipos e regiões geridos apoiados.
 >- A funcionalidade Cross Region Restore (CRR) encontra-se atualmente disponível apenas nas seguintes regiões: 
 >    - E.U.A. Centro-Oeste
+>    - E.U.A. Oeste
 >    - E.U.A.Oeste 2
 >    - E.U.A. Centro-Sul
 >    - E.U.A. Leste
@@ -101,11 +102,14 @@ Para este processo, existem implicações de preços como está ao nível do arm
 >    - Austrália Sudeste
 >    - Índia Central
 >    - Sul da Índia
+>    - Oeste da Índia
 >    - Leste do Japão
 >    - Oeste do Japão
 >    - Ásia Sudeste
 >    - Sul do Reino Unido
 >    - Oeste do Reino Unido
+>    - Europa ocidental
+>    - Europa do Norte
 >    - França Central
 >    - Coreia do Sul Central
 >    - Sul da Coreia do Sul

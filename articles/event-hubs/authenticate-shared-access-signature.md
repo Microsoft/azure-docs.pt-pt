@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545578"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521327"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
 A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo de acesso que concede aos clientes que têm a assinatura de acesso partilhado. Aqui estão alguns dos controlos que pode definir num SAS: 
@@ -33,7 +33,7 @@ Este artigo abrange a autenticação dos recursos do Event Hubs utilizando a SAS
 
 
 ## <a name="configuring-for-sas-authentication"></a>Configuração para autenticação SAS
-Você pode configurar a regra de autorização de acesso partilhada EventHubs em um espaço de nome de Event Hubs, ou uma entidade (caso de hub de evento ou Tópico kafka em um espaço de nome baseado em EventoS). Configurar uma regra de autorização de acesso partilhado a um grupo de consumidores não é atualmente suportado, mas pode utilizar regras configuradas num espaço de nome ou entidade para garantir o acesso ao grupo de consumidores. 
+Pode configurar a regra de autorização de acesso partilhada EventHubs num espaço de nome de Event Hubs, ou numa entidade (instância de hub de eventos ou Tópico kafka num centro de eventos). Configurar uma regra de autorização de acesso partilhado a um grupo de consumidores não é atualmente suportado, mas pode utilizar regras configuradas num espaço de nome ou entidade para garantir o acesso ao grupo de consumidores. 
 
 A imagem que se segue mostra como as regras de autorização se aplicam às entidades da amostra. 
 

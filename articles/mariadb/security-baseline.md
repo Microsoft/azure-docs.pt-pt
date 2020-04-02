@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9cff47c61fc08305427b25f949884b1ef089fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3a79b0d31cc18b8ff77f02ce4ce3d517d7a638
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289670"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548687"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Linha de Base de Segurança Azure para Base de Dados Azure para MariaDB
 
@@ -894,9 +894,9 @@ Como fornecer a autenticação do Cofre Chave com uma identidade gerida:https://
 
 **Orientação**: A base de dados Azure para o servidor MariaDB não suporta atualmente a autenticação do Diretório Ativo Azure para aceder a bases de dados.  Ao criar a Base de Dados Azure para o servidor MariaDB, fornece credenciais para um utilizador administrador. Este administrador pode ser utilizado para criar utilizadores mariadb adicionais.  
 
-Para máquinas virtuais Azure ou aplicações web em execução no Serviço de Aplicações Azure que estão a ser utilizados para aceder à sua Base de Dados Azure para servidor MariaDB, utilize a Identidade de Serviço Gerida em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para a Base de Dados Azure para ODDD, utilize a Identidade de Serviço Gerida em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para a Base de Dados Azure para OMariaDB servidor.  Certifique-se de que o Soft Delete do cofre de chaves está ativado.
+Para máquinas virtuais Azure ou aplicações web em execução no Serviço de Aplicações Azure que estão a ser utilizados para aceder à sua Base de Dados Azure para servidor MariaDB, utilize a Identidade de Serviço Gerida em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para o Azure Database para o servidor MariaDB.  Certifique-se de que o Soft Delete do cofre de chaves está ativado.
 
-Utilize identidades geridas para fornecer aos serviços Azure uma identidade gerida automaticamente no Diretório Ativo Azure (AD). Identidades Geridas permite-lhe autenticar qualquer serviço que suporte a autenticação AD Azure, incluindo o Key Vault, sem qualquer credencial no seu código. Como configurar identidades geridas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmHow integrar-se com identidades geridas pelo Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Utilize identidades geridas para fornecer aos serviços Azure uma identidade gerida automaticamente no Diretório Ativo Azure (AD). Identidades Geridas permite-lhe autenticar qualquer serviço que suporte a autenticação AD Azure, incluindo o Key Vault, sem qualquer credencial no seu código. Como configurar identidades geridas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm. Como integrar-se com identidades https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identitygeridas azure: .
 
 
 

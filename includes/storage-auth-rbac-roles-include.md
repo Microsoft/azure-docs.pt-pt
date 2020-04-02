@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4b10955a1d3b85acbcae109836bebc03ec04c72c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d73bab76860abf3e9fa442dad44e1ddb66d147a3
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76279423"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519552"
 ---
 O Azure fornece as seguintes funções de RBAC incorporadopara autorizar o acesso a dados de blob e fila utilizando a Azure AD e a OAuth:
 
@@ -24,6 +24,8 @@ O Azure fornece as seguintes funções de RBAC incorporadopara autorizar o acess
 - [Leitor de dados](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader)de fila de armazenamento : Utilize para conceder permissões de leitura apenas para as filas Azure.
 - [Processador de mensagens](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor)de dados de fila de armazenamento: Utilize para conceder espreite, recuperar e eliminar permissões a mensagens nas filas de armazenamento do Azure.
 - [Remetente](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)de mensagens de dados de fila de armazenamento: Utilize para conceder permissões adicionais a mensagens nas filas de armazenamento do Azure.
+
+Para obter informações detalhadas sobre as funções rBAC incorporadas para o Armazenamento Azure tanto para os serviços de dados como para o serviço de gestão, consulte a secção **de Armazenamento** em papel [integrado azure para o Azure RBAC.](../articles/role-based-access-control/built-in-roles.md#storage) Além disso, para informações sobre os diferentes tipos de funções que fornecem permissões no Azure, consulte funções de administrador de [subscrição Classic, funções Azure RBAC e Funções Azure AD.](../articles/role-based-access-control/rbac-and-directory-admin-roles.md)
 
 > [!NOTE]
 > As atribuições de funções RBAC podem demorar até cinco minutos para se propagar.

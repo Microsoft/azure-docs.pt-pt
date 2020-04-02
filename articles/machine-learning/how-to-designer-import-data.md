@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: bd1c2ca182ae8be8425246f691dca805bf38637b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064021"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546760"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importe os seus dados para o designer de machine learning Azure (pré-visualização)
 
@@ -60,7 +60,7 @@ Para obter informações detalhadas sobre como utilizar o módulo de dados de im
 
 ## <a name="supported-sources"></a>Fontes apoiadas
 
-Esta secção lista as fontes de dados suportadas pelo designer. Os dados entram no designer a partir de uma datastore ou de conjunto de [dados tabular](how-to-create-register-datasets.md#dataset-types).
+Esta secção lista as fontes de dados suportadas pelo designer. Os dados chegam ao designer a partir de uma datastore ou de conjunto de [dados tabular](how-to-create-register-datasets.md#dataset-types).
 
 ### <a name="datastore-sources"></a>Fontes de datastore
 Para obter uma lista de fontes suportadas de datastore, consulte os dados do Access nos serviços de [armazenamento do Azure.](how-to-access-data.md#supported-data-storage-service-types)

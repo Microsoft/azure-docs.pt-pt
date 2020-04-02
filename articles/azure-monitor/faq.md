@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 777e4e1f8fdd05345d949fe8c78b4a5b1953b8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298255"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528507"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Monitor Azure frequentemente questionado
 
@@ -177,7 +177,7 @@ Especifique um Grupo de [Ação](platform/action-groups.md) existente ou novo pa
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Quais são os requisitos de firewall para os agentes do Monitor Azure?
-Consulte [os requisitos](platform/log-analytics-agent.md#network-firewall-requirements)de firewall da Rede para obter detalhes sobre os requisitos de firewall.
+Consulte [os requisitos](platform/log-analytics-agent.md#firewall-requirements)de firewall da Rede para obter detalhes sobre os requisitos de firewall.
 
 
 ## <a name="visualizations"></a>Visualizações
@@ -682,7 +682,7 @@ A funcionalidade Azure Monitor para Mapas vMs baseia-se no Mapa de Serviços, ma
 * Não é possível criar novos grupos de máquinas de mapas de serviço na funcionalidade Azure Monitor para Mapas vMs.  
 
 ### <a name="why-do-my-performance-charts-show-dotted-lines"></a>Porque é que os meus gráficos de desempenho mostram linhas pontilhadas?
-Isto pode ocorrer por algumas razões.  Nos casos em que há uma lacuna na recolha de dados, retratamos as linhas como pontilhadas.  Se tiver modificado a frequência de amostragem de dados para os contadores de desempenho ativados (a definição predefinida é recolher dados a cada 60 segundos), pode ver linhas pontilhadas na tabela se escolher um intervalo de tempo estreito para o gráfico e a sua frequência de amostragem é inferior à o tamanho do balde utilizado na tabela (por exemplo, a frequência de amostragem é de 10 minutos e cada balde na tabela é de 5 minutos).  A escolha de um intervalo de tempo mais alargado para visualizar deve fazer com que as linhas de gráfico apareçam como linhas sólidas em vez de pontos neste caso.
+Isto pode ocorrer por algumas razões.  Nos casos em que há uma lacuna na recolha de dados, retratamos as linhas como pontilhadas.  Se tiver modificado a frequência de amostragem de dados para os contadores de desempenho ativados (a definição predefinida é recolher dados a cada 60 segundos), pode ver linhas pontilhadas na tabela se escolher um intervalo de tempo estreito para o gráfico e a sua frequência de amostragem for inferior ao tamanho do balde utilizado na tabela (por exemplo, a frequência de amostragem é de 10 minutos e cada balde na tabela é de 5 minutos).  A escolha de um intervalo de tempo mais alargado para visualizar deve fazer com que as linhas de gráfico apareçam como linhas sólidas em vez de pontos neste caso.
 
 ### <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Os grupos são apoiados com o Monitor Azure para VMs?
 Sim, uma vez instalado o agente dependency recolhemos informações dos VMs para exibir grupos com base em subscrição, grupo de recursos, conjuntos de escala de máquinas virtuais e serviços na nuvem.  Se tem usado o Service Map e criado grupos de máquinas, estes também são apresentados.  Os grupos de computador também aparecerão no filtro dos grupos se os tiver criado para o espaço de trabalho que está a ver. 

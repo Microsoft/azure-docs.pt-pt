@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 160873fe889d7eccc7efd08b4767854a5b24c484
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613038"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518977"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configure sincronização de telescópios de Azure AD para Serviços de Domínio de Diretório Ativo Azure
 
@@ -42,18 +42,20 @@ Utiliza o portal Azure ou powerShell para configurar as definições de sincroni
 
 | Ação | | |
 |--|--|--|
-| Criar um domínio gerido por AD DS azure e configurar a sincronização com o âmbito | [Portal Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificar a sincronização com âmbito | [Portal Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Desativar a sincronização com âmbito | [Portal Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Criar um domínio gerido por AD DS azure e configurar a sincronização com o âmbito | [Portal do Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificar a sincronização com âmbito | [Portal do Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Desativar a sincronização com âmbito | [Portal do Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Alterar o âmbito da sincronização faz com que o domínio gerido pelo Azure AD DS ressincronizasse todos os dados.
+> Alterar o âmbito da sincronização faz com que o domínio gerido pelo Azure AD DS ressincronizasse todos os dados. As seguintes considerações são aplicáveis:
 > 
 >  * Quando muda a margem de sincronização para um domínio gerido por DS Azure AD, ocorre uma resincronização completa.
 >  * Os objetos que já não são necessários no domínio gerido pelo Azure AD DS são eliminados. Novos objetos são criados no domínio gerido.
 >  * A ressincronização pode demorar muito tempo a ser concluída. O tempo de sincronização depende do número de objetos como utilizadores, grupos e membros do grupo no domínio gerido pelo Azure AD DS e no diretório Azure AD. Para grandes diretórios com muitas centenas de milhares de objetos, a ressincronização pode demorar alguns dias.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Ativar a sincronização com âmbito utilizando o portal Azure
+
+Para permitir a sincronização scoped no portal Azure, complete os seguintes passos:
 
 1. Siga o [tutorial para criar e configurar uma instância Azure AD DS](tutorial-create-instance-advanced.md). Complete todos os pré-requisitos e passos de implantação que não o âmbito da sincronização.
 1. Escolha **o Scopeed** na etapa de sincronização e, em seguida, selecione os grupos Azure AD para sincronizar com a instância Azure AD DS.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>Ativar a sincronização com âmbito utilizando o PowerShell
 
-Utilize o PowerShell para completar este conjunto de passos. Consulte as instruções para ativar os Serviços de [Domínio de Diretório Ativo Azure utilizando powerShell](powershell-create-instance.md). Alguns passos neste artigo são modificados ligeiramente para configurar a sincronização scoped.
+Utilize o PowerShell para completar os seguintes passos. Consulte as instruções para ativar os Serviços de [Domínio de Diretório Ativo Azure utilizando powerShell](powershell-create-instance.md). Alguns passos neste artigo são modificados ligeiramente para configurar a sincronização scoped.
 
 1. Complete as seguintes tarefas do artigo para permitir o Azure AD DS utilizando o PowerShell. Pare no degrau para criar o domínio gerido. Configura a sincronização com o âmbito de aplicação, cria-se o domínio gerido pelo Azure AD DS.
 

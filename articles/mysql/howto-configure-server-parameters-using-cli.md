@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 5f3027909d1c4684e2ef5d1b6e967cb11f570fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: ca5f80e57f90e4dd26ac2e4a175998ff3de2c102
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062420"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546424"
 ---
 # <a name="customize-server-parameters-by-using-azure-cli"></a>Personalize os parâmetros do servidor utilizando o Azure CLI
 Pode listar, mostrar e atualizar parâmetros de configuração para uma Base de Dados Azure para servidor MySQL utilizando o Azure CLI, o utilitário da linha de comando Azure. Um subconjunto de configurações do motor é exposto ao nível do servidor e pode ser modificado. 
@@ -55,10 +55,10 @@ Este código reinicia a configuração de registo de **\_\_consulta lenta** para
 
 ### <a name="populating-the-time-zone-tables"></a>Povoar as tabelas do fuso horário
 
-As tabelas de fuso horário no `az_load_timezone` seu servidor podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada de trabalho MySQL.
+As tabelas de fuso horário no `mysql.az_load_timezone` seu servidor podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada de trabalho MySQL.
 
 > [!NOTE]
-> Se estiver a `az_load_timezone` executar o comando a partir da Bancada de Trabalho MySQL, poderá ter de desligar o modo de atualização seguro primeiro utilizando `SET SQL_SAFE_UPDATES=0;`.
+> Se estiver a `mysql.az_load_timezone` executar o comando a partir da Bancada de Trabalho MySQL, poderá ter de desligar o modo de atualização seguro primeiro utilizando `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();

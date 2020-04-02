@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277183"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520681"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa seletiva para funções azure
 
@@ -352,7 +352,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Fila de mesa única 
 
@@ -540,7 +540,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -564,7 +564,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 |**rowKey** |**RowKey** | Opcional. A chave da fila da entidade da mesa para ler. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**tomar** |**Tomar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**filtro** |**Filtro** | Opcional. Uma expressão de filtro OData para entrada de mesa no JavaScript. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se `connection` definir para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza `AzureWebJobsStorage`a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada .|
+|**conexão** |**Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. A definição pode ser o nome de uma definição de aplicação pré-fixa "AzureWebJobs" ou nome de corda de ligação. Por exemplo, se o seu nome de definição for "AzureWebJobsMyStorage", pode especificar "MyStorage" aqui. O tempo de execução das Funções procurará automaticamente uma definição de aplicação que se incomode "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza `AzureWebJobsStorage`a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -600,7 +600,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 Desloque as propriedades e propriedades. `filter` `take` Não se `partitionKey` acomode ou. `rowKey` Aceda à entidade da tabela de `context.bindings.<BINDING_NAME>`entrada (ou entidades) utilizando . Os objetos desserializados têm `RowKey` e `PartitionKey` propriedades.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os dados da tabela são transmitidos para a função como uma cadeia JSON. Desserialize a mensagem `json.loads` ligando como mostrado no [exemplo](#input)da entrada .
 
@@ -743,7 +743,7 @@ module.exports = function (context) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo que se segue demonstra como utilizar a ligação de saída de armazenamento da tabela. A `table` ligação está configurada na *função.json* `partitionKey`atribuindo `connection`valores a, `name` `tableName`, , e:
 
@@ -925,7 +925,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -971,7 +971,7 @@ Em alternativa, pode `CloudTable` utilizar um parâmetro de método para escreve
 
 Aceda ao evento `context.bindings.<name>` `<name>` de saída utilizando onde `name` está o valor especificado na propriedade da *função.json*.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Existem duas opções para colocar uma mensagem de linha de armazenamento de tabela a partir de uma função:
 

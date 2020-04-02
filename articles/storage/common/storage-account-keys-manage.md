@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/18/2019
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75975792"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521273"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerir as chaves de acesso à conta de armazenamento
 
@@ -52,6 +52,8 @@ Siga este processo para rodar as chaves da sua conta de armazenamento:
 
 > [!NOTE]
 > A Microsoft recomenda a utilização de apenas uma das chaves em todas as suas aplicações ao mesmo tempo. Se utilizar a Chave 1 em alguns locais e a Chave 2 noutros, não poderá rodar as chaves sem que alguma aplicação perca acesso.
+
+Para rodar as chaves de acesso de uma conta, o utilizador deve ser um Administrador de Serviço, ou deve ser atribuído uma função RBAC que inclua a **Microsoft.Storage/storageAccounts/regeneratekey/action**. Algumas funções de RBAC incorporadas que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e Serviço de Serviço chave de conta de **armazenamento.** Para obter mais informações sobre o papel de Administrador de Serviço, consulte funções de administrador de [subscrição Classic, funções Azure RBAC e funções Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções rBAC incorporadas para o Armazenamento Azure, consulte a secção de **armazenamento** em [papel azure incorporado para o Azure RBAC.](../../role-based-access-control/built-in-roles.md#storage)
 
 ## <a name="next-steps"></a>Passos seguintes
 

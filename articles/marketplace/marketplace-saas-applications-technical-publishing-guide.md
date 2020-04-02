@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288364"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544288"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação das Ofertas de aplicações SaaS
 
@@ -25,8 +25,8 @@ Aplicações SaaS estão disponíveis em ambas as Lojas Azure O seguinte quadro 
 
 | Opção storefront | Listagem | Julgamento/Transact |  
 | --- | --- | --- |  
-| AppSource | Sim (Contate-me) | Sim (PowerBI/Dinâmica) |
-| Mercado Azure | Não | Sim (Apps SaaS) |   
+| AppSource | Sim | Sim |
+| Mercado Azure | Não | Sim |   
 
 **Lista:**  A opção de publicação de Listagem consiste num tipo de oferta contacte-me e é utilizada quando não é viável uma participação a nível de Teste ou Transação. O benefício desta abordagem é que permite que os editores com uma solução no mercado comecem imediatamente a receber pistas que podem ser transformadas em negócios para aumentar o seu negócio.  
 **Trial/Transação:**  O cliente tem a opção de comprar ou solicitar diretamente um teste para a sua solução. A experiência Experimental aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorem a sua solução antes de comprar. Com uma experiência de Trial, você terá melhores chances de promoção nas montras, e você deve esperar mais e mais pistas mais ricas a partir de compromissos com o cliente. Os ensaios devem incluir apoio gratuito, pelo menos durante o período experimental.  
@@ -95,7 +95,7 @@ Além disso, o Azure Ative Directory fornece um site para verificar se há Atual
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilização do Diretório Ativo Azure para permitir ensaios  
 
-A Microsoft autentica todos os utilizadores do Marketplace com AD Azure, por isso, quando um utilizador autenticado clica através da sua listagem de Teste no Marketplace e é redirecionado para o seu ambiente Trial, pode fornecer o utilizador diretamente a um Trial sem exigir um passo adicional de inscrição. O símbolo que a sua aplicação recebe do Azure AD durante a autenticação inclui informações valiosas do utilizador que pode utilizar para criar uma conta de utilizador na sua app, permitindo-lhe automatizar a experiência de provisionamento e aumentar a probabilidade de conversão. Para obter mais informações sobre o símbolo, consulte [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+A Microsoft autentica todos os utilizadores do Marketplace com AD Azure, pelo que quando um utilizador autenticado clica através da sua listagem de Teste no Marketplace e é redirecionado para o seu ambiente Trial, pode fornecer o utilizador diretamente a um Trial sem necessitar de um passo adicional de entrada. O símbolo que a sua aplicação recebe do Azure AD durante a autenticação inclui informações valiosas do utilizador que pode utilizar para criar uma conta de utilizador na sua app, permitindo-lhe automatizar a experiência de provisionamento e aumentar a probabilidade de conversão. Para obter mais informações sobre o símbolo, consulte [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Utilizar o AD Azure para permitir a autenticação de 1 clique na sua aplicação ou o Trial faz o seguinte:  
 * Simplifica a experiência do cliente do Marketplace para o Trial.  

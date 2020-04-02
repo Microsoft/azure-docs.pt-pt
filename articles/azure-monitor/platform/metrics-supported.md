@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 03/17/2020
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e01ed9f784d77b3c425c60de31ab87f86dbb688b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 674321878cfce2d05189700a8b5118e233d9044d
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500595"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520711"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
@@ -24,6 +24,9 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 > *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 > Para obter uma lista de métricas de plataforma exportáveis através de configurações de diagnóstico, consulte [este artigo](metrics-supported-export-diagnostic-settings.md).
+
+
+
 
 
 
@@ -101,15 +104,15 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Eventos EventHubDrop|Eventos de EventHub abandonados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho da fila atingido|Localização|
 |EventHubTotalBytesSent|Tamanho dos eventos EventHub|Bytes|Total|Tamanho total dos eventos EventHub em bytes|Localização|
 |Pedidos|Pedidos|Contagem|Total|Gateway solicitar métricas com múltiplas dimensões|Localização,Nome de anfitrião,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory,GatewayResponseCodeCategory|
+|Conectividade de Rede|Estado de Conectividade da Rede de Recursos (Pré-visualização)|Contagem|Total|Estado de conectividade de rede de tipos de recursos dependentes do serviço de gestão da API|Localização,Recurso|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configuraçãoStores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|HttpIncomingRequestCount|HttpIncomingRequestCount|Contagem|Contagem|Número total de pedidos de http de entrada.|Nenhuma|
-|Contagem de pedidos falhado|Contagem de pedidos falhado|Contagem|Contagem|Pedidos de http falhados.|Nenhuma|
-|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Contagem|Média|Latência a pedido de http.|Nenhuma|
+|HttpIncomingRequestCount|HttpIncomingRequestCount|Contagem|Contagem|Número total de pedidos de http de entrada.|Código de Estado|
+|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Contagem|Média|Latência a pedido de http.|Código de Estado|
 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
@@ -171,21 +174,21 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Deixando PoolNodeCount|Deixando a contagem do nó da piscina|Contagem|Total|Número de nós saindo da Piscina|Nenhuma|
 |InutilizávelNodeCount|Contagem inutilizável de nó|Contagem|Total|Número de nós inutilizáveis|Nenhuma|
 |Contagem de NodeS pré-empreitada|Contagem de nósinos preempted|Contagem|Total|Número de nós pré-empreitados|Nenhuma|
-|Evento TaskStartEvent|Eventos de início de tarefa|Contagem|Total|Número total de tarefas que começaram|Nenhuma|
-|Evento TaskComplete|Tarefa Completa Eventos|Contagem|Total|Número total de tarefas que completaram|Nenhuma|
-|TaskFailEvent|Eventos de falha de tarefa|Contagem|Total|Número total de tarefas que completaram num estado falhado|Nenhuma|
-|Evento PoolCreate|Piscina Criar Eventos|Contagem|Total|Número total de piscinas que foram criadas|Nenhuma|
-|PoolResizeStartEvent|Eventos de início de redimensionar piscina|Contagem|Total|Número total de redimensionos de piscina que começaram|Nenhuma|
-|PoolResizeCompleteEvent|Piscina Redimensionar eventos completos|Contagem|Total|Número total de redimensionos de piscina que tenham concluído|Nenhuma|
-|PoolDeleteStartEvent|Pool Delete Eventos de Início|Contagem|Total|Número total de eliminações de piscinas que começaram|Nenhuma|
-|PoolDeleteCompleteEvent|Pool Eliminar Eventos Completos|Contagem|Total|Número total de eliminações de piscinas que tenham concluído|Nenhuma|
-|JobDeleteCompleteEvent|Job Delete Complete Events|Contagem|Total|Número total de postos de trabalho que foram eliminados com êxito.|Nenhuma|
-|JobDeleteStartEvent|Job Delete Start Events|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem suprimidos.|Nenhuma|
-|Evento Completo jobDisable|Desativação de trabalho eventos completos|Contagem|Total|Número total de postos de trabalho com êxito incapacitados.|Nenhuma|
-|Evento JobDisableStart|Eventos de início de desativação de emprego|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem desativados.|Nenhuma|
-|Evento JobStartEvent|Eventos de início de trabalho|Contagem|Total|Número total de postos de trabalho que foram iniciados com sucesso.|Nenhuma|
-|Evento De Terminação de Trabalho|Trabalho terminar eventos completos|Contagem|Total|Número total de postos de trabalho que foram encerrados com sucesso.|Nenhuma|
-|Evento JobTerminateStartEvent|Trabalho terminar eventos de início|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem encerrados.|Nenhuma|
+|Evento TaskStartEvent|Eventos de início de tarefa|Contagem|Total|Número total de tarefas que começaram|poolId,jobId|
+|Evento TaskComplete|Tarefa Completa Eventos|Contagem|Total|Número total de tarefas que completaram|poolId,jobId|
+|TaskFailEvent|Eventos de falha de tarefa|Contagem|Total|Número total de tarefas que completaram num estado falhado|poolId,jobId|
+|Evento PoolCreate|Piscina Criar Eventos|Contagem|Total|Número total de piscinas que foram criadas|poolId|
+|PoolResizeStartEvent|Eventos de início de redimensionar piscina|Contagem|Total|Número total de redimensionos de piscina que começaram|poolId|
+|PoolResizeCompleteEvent|Piscina Redimensionar eventos completos|Contagem|Total|Número total de redimensionos de piscina que tenham concluído|poolId|
+|PoolDeleteStartEvent|Pool Delete Eventos de Início|Contagem|Total|Número total de eliminações de piscinas que começaram|poolId|
+|PoolDeleteCompleteEvent|Pool Eliminar Eventos Completos|Contagem|Total|Número total de eliminações de piscinas que tenham concluído|poolId|
+|JobDeleteCompleteEvent|Job Delete Complete Events|Contagem|Total|Número total de postos de trabalho que foram eliminados com êxito.|jobId|
+|JobDeleteStartEvent|Job Delete Start Events|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem suprimidos.|jobId|
+|Evento Completo jobDisable|Desativação de trabalho eventos completos|Contagem|Total|Número total de postos de trabalho com êxito incapacitados.|jobId|
+|Evento JobDisableStart|Eventos de início de desativação de emprego|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem desativados.|jobId|
+|Evento JobStartEvent|Eventos de início de trabalho|Contagem|Total|Número total de postos de trabalho que foram iniciados com sucesso.|jobId|
+|Evento De Terminação de Trabalho|Trabalho terminar eventos completos|Contagem|Total|Número total de postos de trabalho que foram encerrados com sucesso.|jobId|
+|Evento JobTerminateStartEvent|Trabalho terminar eventos de início|Contagem|Total|Número total de postos de trabalho que foram solicitados para serem encerrados.|jobId|
 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/espaços de trabalho
@@ -417,6 +420,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 
 
 
+
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationapplicationfirewallpolicies
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -537,11 +541,12 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |DataIn|Dados em|Bytes|Total|Tamanho dos dados de entrada em bytes.|Nome ApiName,OperaçãoNome,Região|
 |DataOut|Dados out|Bytes|Total|Tamanho dos dados de saída em bytes.|Nome ApiName,OperaçãoNome,Região|
 |Latência|Latência|MilliSeconds|Média|Latência em milissegundos.|Nome ApiName,OperaçãoNome,Região|
+|TotalTokenCalls|Total de chamadas simbólicas|Contagem|Total|Número total de chamadas simbólicas.|Nome ApiName,OperaçãoNome,Região|
 |CaracteresTraduzidos|Caracteres traduzidos|Contagem|Total|Número total de caracteres no pedido de texto.|Nome ApiName,OperaçãoNome,Região|
 |Caracteres Treinados|Personagens treinados|Contagem|Total|Número total de caracteres treinados.|Nome ApiName,OperaçãoNome,Região|
 |Duração das sessões de discurso|Duração da sessão de discurso|Segundos|Total|Duração total da sessão de discurso em segundos.|Nome ApiName,OperaçãoNome,Região|
 |Total de Transações|Total de Transações|Contagem|Total|Número total de transações.|Nenhuma|
-|TotalTokenCalls|Total de chamadas simbólicas|Contagem|Total|Número total de chamadas simbólicas.|Nome ApiName,OperaçãoNome,Região|
+|Imagens Processadas|Imagens Processadas|Contagem|Total| Número de Transações para processamento de imagem.|ApiName,Nome de Recurso,Canal,Região|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -556,16 +561,16 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|IOPS de escrita de disco|Nenhuma|
 |Créditos cpu restantes|Créditos cpu restantes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhuma|
 |Créditos da CPU consumidos|Créditos da CPU consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhuma|
-|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
-|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec (Depreciado)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec (Depreciado)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|QD do disco de dados (depreciado)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
-|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS por disco ler operações/sec|Operações de leitura de disco osso/sec (depreciado)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec (Depreciado)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS Por Disco QD|QD do disco osso (depreciado)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
+|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
+|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco QD|[QD do disco de dados [(depreciado)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS Por Disco QD|QD do disco [osso (depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
 |Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN|
 |Data Disk Write Bytes/seg|Data Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|LUN|
 |Operações de leitura de disco de dados/sec|Data Disk Ler Operações/Sec (Pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|LUN|
@@ -578,8 +583,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Profundidade da Fila do Disco do SO|Profundidade da fila do disco osso (pré-visualização)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
 |Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos correntes na direção de entrada (tráfego que vai para o VM)|Nenhuma|
 |Fluxos de saída|Fluxos de saída|Contagem|Média|Os fluxos de saída são o número de fluxos correntes na direção de saída (tráfego a sair do VM)|Nenhuma|
-|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada (pré-visualização)|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhuma|
-|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída (pré-visualização)|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|Nenhuma|
+|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhuma|
+|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|Nenhuma|
 |Premium Data Disk Cache Ler Sucesso|Vídeo de cache de disco premium (pré-visualização)|Percentagem|Média|Premium Data Disk Cache Ler Sucesso|LUN|
 |Cache de disco de dados premium ler miss|Cache de disco de dados premium Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium ler miss|LUN|
 |Premium OS Disk Cache Ler Sucesso|Premium OS Cache Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Sucesso|Nenhuma|
@@ -601,16 +606,16 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|IOPS de escrita de disco|VMName|
 |Créditos cpu restantes|Créditos cpu restantes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhuma|
 |Créditos da CPU consumidos|Créditos da CPU consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhuma|
-|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
-|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec (Depreciado)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec (Depreciado)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|QD do disco de dados (depreciado)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
-|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS por disco ler operações/sec|Operações de leitura de disco osso/sec (depreciado)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec (Depreciado)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS Por Disco QD|QD do disco osso (depreciado)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
+|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
+|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco QD|QD do disco de dados [(depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS Por Disco QD|QD do disco [osso (depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
 |Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN,VMName|
 |Data Disk Write Bytes/seg|Data Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|LUN,VMName|
 |Operações de leitura de disco de dados/sec|Data Disk Ler Operações/Sec (Pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|LUN,VMName|
@@ -623,8 +628,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Profundidade da Fila do Disco do SO|Profundidade da fila do disco osso (pré-visualização)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|VMName|
 |Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos correntes na direção de entrada (tráfego que vai para o VM)|VMName|
 |Fluxos de saída|Fluxos de saída|Contagem|Média|Os fluxos de saída são o número de fluxos correntes na direção de saída (tráfego a sair do VM)|VMName|
-|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada (pré-visualização)|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|VMName|
-|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída (pré-visualização)|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|VMName|
+|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|VMName|
+|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|VMName|
 |Premium Data Disk Cache Ler Sucesso|Vídeo de cache de disco premium (pré-visualização)|Percentagem|Média|Premium Data Disk Cache Ler Sucesso|LUN,VMName|
 |Cache de disco de dados premium ler miss|Cache de disco de dados premium Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium ler miss|LUN,VMName|
 |Premium OS Disk Cache Ler Sucesso|Premium OS Cache Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Sucesso|VMName|
@@ -646,16 +651,16 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Operações de escrita de disco/sec|Operações de escrita de disco/sec|CondeEmSegundo|Média|IOPS de escrita de disco|Nenhuma|
 |Créditos cpu restantes|Créditos cpu restantes|Contagem|Média|Número total de créditos disponíveis para rebentar|Nenhuma|
 |Créditos da CPU consumidos|Créditos da CPU consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Nenhuma|
-|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
-|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec (Depreciado)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec (Depreciado)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|QD do disco de dados (depreciado)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
-|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec (Depreciado)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS por disco ler operações/sec|Operações de leitura de disco osso/sec (depreciado)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec (Depreciado)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
-|OS Por Disco QD|QD do disco osso (depreciado)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
+|Por Disco Ler Bytes/seg|Data Disk Read Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
+|Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
+|Por Disco QD|QD do disco de dados [(depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|As operações de escrita de OS por disco/sec|Operações de Escrita de Disco OS/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
+|OS Por Disco QD|QD do disco [osso (depreciado)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
 |Data Disk Ler Bytes/seg|Data Disk Read Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec lidos a partir de um único disco durante o período de monitorização|LUN|
 |Data Disk Write Bytes/seg|Data Disk Write Bytes/Sec (Pré-visualização)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|LUN|
 |Operações de leitura de disco de dados/sec|Data Disk Ler Operações/Sec (Pré-visualização)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|LUN|
@@ -668,8 +673,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Profundidade da Fila do Disco do SO|Profundidade da fila do disco osso (pré-visualização)|Contagem|Média|Profundidade de fila de disco osso (ou comprimento da fila)|Nenhuma|
 |Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos correntes na direção de entrada (tráfego que vai para o VM)|Nenhuma|
 |Fluxos de saída|Fluxos de saída|Contagem|Média|Os fluxos de saída são o número de fluxos correntes na direção de saída (tráfego a sair do VM)|Nenhuma|
-|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada (pré-visualização)|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhuma|
-|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída (pré-visualização)|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|Nenhuma|
+|Taxa máxima de criação dos fluxos de entrada|Taxa máxima de criação dos fluxos de entrada|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de entrada (tráfego que vai para o VM)|Nenhuma|
+|Taxa máxima de criação dos fluxos de saída|Taxa máxima de criação dos fluxos de saída|CondeEmSegundo|Média|A taxa máxima de criação dos fluxos de saída (tráfego saindo do VM)|Nenhuma|
 |Premium Data Disk Cache Ler Sucesso|Vídeo de cache de disco premium (pré-visualização)|Percentagem|Média|Premium Data Disk Cache Ler Sucesso|LUN|
 |Cache de disco de dados premium ler miss|Cache de disco de dados premium Leia Miss (Pré-visualização)|Percentagem|Média|Cache de disco de dados premium ler miss|LUN|
 |Premium OS Disk Cache Ler Sucesso|Premium OS Cache Cache Read Hit (Pré-visualização)|Percentagem|Média|Premium OS Disk Cache Ler Sucesso|Nenhuma|
@@ -734,6 +739,21 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Utilização hyperVMemory|Edge Compute - Uso da Memória|Percentagem|Média|Quantidade de RAM em Uso|Nome de instância|
 
 
+## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.DataCatalog/datacatalogs
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|Distribuição de ActivosByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte|
+|Tipo de armazenamento de bens|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|Tipo de armazenamento|
+|NumberOfAssetsWithClassifications|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de etiqueta.|Nenhuma|
+|ScanCancelado|Scan Cancelado|Contagem|Total|Indica o número de exames cancelados.|Nenhuma|
+|ScanCompleted|Digitalização Concluída|Contagem|Total|Indica o número de exames concluídos com sucesso.|Nenhuma|
+|ScanFailed|Scan Failed|Contagem|Total|Indica que o número de exames falhou.|Nenhuma|
+|ScanTimeTaken|Tempo de digitalização tomado|Segundos|Total|Indica o tempo total de digitalização em segundos.|Nenhuma|
+|Utilizadores Catalogativos|Utilizadores Ativos Diários|Contagem|Total|Número de utilizadores ativos diariamente|Nenhuma|
+|Utilização de catálogos|Distribuição de Utilização por Operação|Contagem|Total|Indique o número de operação que o utilizador faz para o catálogo, ou é, Acesso, Pesquisa, Glossário.|Operação|
+
+
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactores
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -775,6 +795,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |JobauendedSuccess|Tempo de U de sucesso|Segundos|Total|Tempo total da UA para empregos bem sucedidos.|Nenhuma|
 |JobauendedFail|Tempo falhado da UA|Segundos|Total|Tempo total da UA para empregos falhados.|Nenhuma|
 |JobauendedCancelado|Hora da U Cancelada|Segundos|Total|Total de tempo da UA para trabalhos cancelados.|Nenhuma|
+|Palco de Emprego|Empregos em Palco|Contagem|Total|Número de empregos em cada fase.|Nenhuma|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/contas
@@ -786,6 +807,18 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Leitura de Dados|Leitura de Dados|Bytes|Total|Quantidade total de dados lidos a partir da conta.|Nenhuma|
 |WriteRequests|Pedidos de Escrita|Contagem|Total|Contagem de dados escrevem pedidos para a conta.|Nenhuma|
 |Pedidos de Leitura|Ler Pedidos|Contagem|Total|Contagem de dados lê pedidos para a conta.|Nenhuma|
+
+
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/contas
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|Contagem de partilhas|Ações Enviadas|Contagem|Máximo|Número de ações enviadas na conta|Nome de partilha|
+|Contagem de Subscrições de Ações|Ações Recebidas|Contagem|Máximo|Número de ações recebidas na conta|Nome de Subscrição de Ações|
+|SucessoShareSynchronizations|Envio de imagens bem sucedidas da partilha|Contagem|Contagem|Número de ações enviadas conseguiu instantâneos na conta|Nenhuma|
+|Sincronizações falhadas do ShareSync|Snapshots falhados da partilha enviada|Contagem|Contagem|Número de imagens falhadas da conta|Nenhuma|
+|Subscrição de Subscrições de Subscrição de Subscrições bem sucedidas|Fotografias bem sucedidas da partilha recebida|Contagem|Contagem|Número de ações recebidas conseguiu instantâneos na conta|Nenhuma|
+|Subscrição falhadaDesubscrição de subscrições|Fotos falhadas de partilha recebidas|Contagem|Contagem|Número de imagens falhadas da conta|Nenhuma|
 
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servidores
@@ -866,6 +899,23 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhuma|
 
 
+## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft.DBforPostgreSQL/singleservers
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|cpu_percent|Por cento do CPU|Percentagem|Média|Por cento do CPU|Nenhuma|
+|memory_percent|Por cento da memória|Percentagem|Média|Por cento da memória|Nenhuma|
+|iops|IOPS|Contagem|Média|IO Operações por segundo|Nenhuma|
+|storage_percent|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|Nenhuma|
+|storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma|
+|active_connections|Conexões Ativas|Contagem|Média|Conexões Ativas|Nenhuma|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Network out através de conexões ativas|Nenhuma|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Rede Em conexões ativas|Nenhuma|
+|connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma|
+|connections_succeeded|Conexões bem sucedidas|Contagem|Total|Conexões bem sucedidas|Nenhuma|
+|maximum_used_transactionIDs|IDs máximos de transação usada|Contagem|Média|IDs máximos de transação usada|Nenhuma|
+
+
 
 
 
@@ -900,6 +950,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |d2c.endpoints.egress.storage.blobs|Encaminhamento: bolhas entregues ao armazenamento|Contagem|Total|O número de vezes que o encaminhamento do IoT Hub entregou bolhas aos pontos finais de armazenamento.|Nenhuma|
 |Entregas eventgrid|Entregas da Grelha de Eventos (pré-visualização)|Contagem|Total|O número de eventos do IoT Hub publicados na Event Grid. Utilize a dimensão Resultado para o número de pedidos bem sucedidos e falhados. A dimensão do Tipohttps://aka.ms/ioteventgrid)de Evento mostra o tipo de evento .|Resourceid,Resultado,Tipo de Evento|
 |EventGridLatency|Latência da Grelha de Eventos (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) de quando o evento Iot Hub foi gerado até quando o evento foi publicado para Event Grid. Este número é uma média entre todos os tipos de eventos. Utilize a dimensão EventType para ver a latência de um tipo específico de evento.|ResourceId,EventType|
+|Entregas de encaminhamento|Entregas de encaminhamento (pré-visualização)|Milissegundos|Total|O número de vezes que o IoT Hub tentou entregar mensagens a todos os pontos finais usando o encaminhamento. Para ver o número de tentativas bem sucedidas ou falhadas, utilize a dimensão Resultado. Para ver a razão do fracasso, como inválido, abandonado ou órfão, utilize a dimensão FailureReasonCategory. Também pode utilizar as dimensões EndpointName e EndpointType para entender quantas mensagens foram entregues nos seus diferentes pontos finais. O valor métrico aumenta em uma para cada tentativa de entrega, incluindo se a mensagem é entregue em vários pontos finais ou se a mensagem for entregue ao mesmo ponto final várias vezes.|ResourceId,EndpointType,EndpointName,FailureReasonCategory,Resultado,RoutingSource|
+|EncaminhamentoDeliveryLatency|Latência de entrega de encaminhamento (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens no IoT Hub e a mensagem de telemetria entrando num ponto final. Pode utilizar as dimensões EndpointName e EndpointType para compreender a latência dos seus diferentes pontos finais.|ResourceId,EndpointType,EndpointName,RoutingSource|
 |d2c.twin.read.success.success|Leituras gémeas bem sucedidas de dispositivos|Contagem|Total|A contagem de todas as leituras gémeas bem sucedidas iniciadas pelo dispositivo.|Nenhuma|
 |d2c.twin.read.failure.failure|Leituras gémeas falhadas de dispositivos|Contagem|Total|A contagem de todas as leituras gémeas iniciadas pelo dispositivo falhado.|Nenhuma|
 |d2c.twin.read.size|Tamanho da resposta das leituras gémeas dos dispositivos|Bytes|Média|A média, min e máximo de todas as leituras gémeas bem sucedidas.|Nenhuma|
@@ -949,6 +1001,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Tentativas de Attestation|Tentativas de atestação|Contagem|Total|Número de atestados de dispositivos tentados|ProvisioningServiceName,Status,Protocol|
 
 
+
+
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -956,32 +1010,62 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Região Add|Região Adicionada|Contagem|Contagem|Região Adicionada|Região|
 |Armazenamento Disponível|Armazenamento Disponível|Bytes|Total|Total de armazenamento disponível reportado em 5 minutos granularidade|Nome de recolha,Nome da Base de Dados,Região|
 |Encerramentos de CassandraConnection|Encerramentos de conexões Cassandra|Contagem|Total|Número de ligações cassandra que foram fechadas, reportadas a uma granularidade de 1 minuto|APIType,Região,ClosureReason|
+|CassandraKeyspaceDelete|Cassandra Keyspace apagada|Contagem|Contagem|Cassandra Keyspace apagada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
+|CassandraKeyspaceThroughputUpdate|Cassandra Keyspace Entrada atualizada|Contagem|Contagem|Cassandra Keyspace Entrada atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraKeyspaceUpdate|Cassandra Keyspace Atualizado|Contagem|Contagem|Cassandra Keyspace Atualizado|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |CassandraRequestCharges|Cassandra Request Charges|Contagem|Total|RUs consumidos para pedidos de Cassandra feitos|APIType,Nome de base de dados,Nome de recolha,Região,Tipo de Funcionamento,Tipo de Recursos|
 |Pedidos de Cassandra|Pedidos de Cassandra|Contagem|Contagem|Número de pedidos de Cassandra feitos|APIType,Nome de base de dados,Nome de recolha,Região,Tipo de Operação,Tipo de Recurso,Errorcode|
+|CassandraTableDelete|Mesa Cassandra apagada|Contagem|Contagem|Mesa Cassandra apagada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|CassandraTableThroughputUpdate|Entrada de tabela Cassandra atualizada|Contagem|Contagem|Entrada de tabela Cassandra atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraTableUpdate|Tabela Cassandra Atualizada|Contagem|Contagem|Tabela Cassandra Atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |CreateAccount|Conta Criada|Contagem|Contagem|Conta Criada|Nenhuma|
 |Utilização de dados|Utilização de Dados|Bytes|Total|Utilização total de dados reportado sintetizando a 5 minutos granularidade|Nome de recolha,Nome da Base de Dados,Região|
 |DeleteAccount|Conta Eliminada|Contagem|Contagem|Conta Eliminada|Nenhuma|
 |Contagem de documentos|Contagem de Documentos|Contagem|Total|Contagem total de documentos reportada a 5 minutos de granularidade|Nome de recolha,Nome da Base de Dados,Região|
 |DocumentQuota|Quota de Documento|Bytes|Total|Quota total de armazenamento reportada em 5 minutos granularidade|Nome de recolha,Nome da Base de Dados,Região|
+|GremlinDatabaseDelete|Base de Dados Gremlin eliminada|Contagem|Contagem|Base de Dados Gremlin eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
+|GremlinDatabaseThroughputupdate|Entrada de base de dados Gremlin atualizada|Contagem|Contagem|Entrada de base de dados Gremlin atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinDatabaseUpdate|Base de Dados Gremlin Atualizada|Contagem|Contagem|Base de Dados Gremlin Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphDelete|Gráfico de Gremlin eliminado|Contagem|Contagem|Gráfico de Gremlin eliminado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|GremlinGraphThroughputUpdate|Entrada de gráfico de gremlin atualizada|Contagem|Contagem|Entrada de gráfico de gremlin atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphUpdate|Gráfico de Gremlin Atualizado|Contagem|Contagem|Gráfico de Gremlin Atualizado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |Utilização de índices|Utilização do índice|Bytes|Total|Utilização total do índice reportada a 5 minutos de granularidade|Nome de recolha,Nome da Base de Dados,Região|
 |MetadadosPedidos|Pedidos de Metadados|Contagem|Contagem|Contagem de pedidos de metadados. Cosmos DB mantém recolha de metadados do sistema para cada conta, que lhe permite enumerar coleções, bases de dados, etc, e suas configurações, gratuitamente.|Nome de base de dados,Nome de recolha,Região,StatusCode,Função|
-|MongoRequestCharge|Taxa de pedido de Mongo|Contagem|Total|Unidades de Pedido de Mongo Consumidas|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
-|Pedidos de Mongo|Pedidos de Mongo|Contagem|Contagem|Número de pedidos de Mongo feitos|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
+|MongoCollectionDelete|Coleção Mongo apagada|Contagem|Contagem|Coleção Mongo apagada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|MongoCollectionThroughputUpdate|Mongo Collection Throughput Atualizado|Contagem|Contagem|Mongo Collection Throughput Atualizado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoCollectionUpdate|Coleção Mongo Atualizada|Contagem|Contagem|Coleção Mongo Atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDBDatabaseUpdate|Base de Dados de Mongo Atualizada|Contagem|Contagem|Base de Dados de Mongo Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDatabaseDelete|Base de Dados mongo eliminada|Contagem|Contagem|Base de Dados mongo eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
+|MongoDatabaseThroughputUpdate|Entrada de base de dados de Mongo atualizada|Contagem|Contagem|Entrada de base de dados de Mongo atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoRequestCharge|Taxa de pedido de Mongo|Contagem|Total|Unidades de Pedido de Mongo Consumidas|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode,Status|
+|Pedidos de Mongo|Pedidos de Mongo|Contagem|Contagem|Número de pedidos de Mongo feitos|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode,Status|
 |MongoRequestsCount|Taxa de pedido de Mongo|CondeEmSegundo|Média|Pedido de Mongo Conde por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
 |MongoRequestsDelete|Taxa de pedido de exclusão de Mongo|CondeEmSegundo|Média|Mongo Apagar pedido por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
 |MongoRequestsInsert|Taxa de pedido de inserção de Mongo|CondeEmSegundo|Média|Mongo Inserir contagem por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
 |MongoRequestsQuery|Taxa de pedido de consulta de Mongo|CondeEmSegundo|Média|Pedido de consulta de Mongo por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
 |MongoRequestsUpdate|Taxa de pedido de atualização de Mongo|CondeEmSegundo|Média|Pedido de Atualização de Mongo por segundo|Nome de base de dados,Nome de recolha,Região,Nome de Comando,Errorcode|
+|Consumo normalizado RU|Consumo ru normalizado|Percentagem|Máximo|Percentagem de consumo max RU por minuto|Nome de recolha,Nome da Base de Dados,Região|
 |ProvisionedThroughput|Débito Aprovisionado|Contagem|Máximo|Débito Aprovisionado|Nome base de dados,Nome de recolha|
 |RegiãoFailover|Região falhou|Contagem|Contagem|Região falhou|Nenhuma|
 |Região de Remoção|Região Removida|Contagem|Contagem|Região Removida|Região|
 |ReplicaçãoTardia|Latência de Replicação P99|MilliSeconds|Média|Latência de replicação P99 entre fonte e regiões-alvo para conta geoactiva|SourceRegion,TargetRegion|
+|ServerSideLatency|Latência lateral do servidor|MilliSeconds|Média|Latência lateral do servidor|nome da base de dados,collectionname,região,Modo de Ligação,Tipo de Operação,PublicaPIType|
 |ServiçoDisponibilidade|Disponibilidade de Serviço|Percentagem|Média|Conta solicita disponibilidade de uma hora, dia ou mês|Nenhuma|
-|TotaldeUnidades de Pedidos|Total de Unidades de Pedido|Contagem|Total|Unidades de Pedido consumidas|Nome de base de dados,Nome de recolha,Região,StatusCode,OperationType|
-|TotalRequests|Total de Pedidos|Contagem|Contagem|Número de pedidos feitos|Nome de base de dados,Nome de recolha,Região,StatusCode,OperationType|
+|SqlContainerDelete|Recipiente Sql eliminado|Contagem|Contagem|Recipiente Sql eliminado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|SqlContainerThroughputUpdate|Entrada de recipiente sql atualizada|Contagem|Contagem|Entrada de recipiente sql atualizada|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlContainerUpdate|Recipiente Sql Atualizado|Contagem|Contagem|Recipiente Sql Atualizado|Nome de recursos,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseDelete|Base de Dados Sql Eliminada|Contagem|Contagem|Base de Dados Sql Eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
+|SqlDatabaseThroughputUpdate|Entrada de base de dados Sql atualizada|Contagem|Contagem|Entrada de base de dados Sql atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseUpdate|Base de Dados Sql Atualizada|Contagem|Contagem|Base de Dados Sql Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|Tabela tabelaDelete|Tabela AzureTable eliminada|Contagem|Contagem|Tabela AzureTable eliminada|Nome de recursos,ApiKind,ApiKindResourceType,OperationType|
+|TableTableThroughputUpdate|Entrada de tabela azuretable atualizada|Contagem|Contagem|Entrada de tabela azuretable atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TableTableUpdate|Tabela AzureTable Atualizada|Contagem|Contagem|Tabela AzureTable Atualizada|Nome de recursos,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TotaldeUnidades de Pedidos|Total de Unidades de Pedido|Contagem|Total|Unidades de Pedido consumidas|Nome de base de dados,Nome de recolha,Região,StatusCode,OperationType,Status|
+|TotalRequests|Total de Pedidos|Contagem|Contagem|Número de pedidos feitos|Nome de base de dados,Nome de recolha,Região,StatusCode,OperationType,Status|
 |UpdateAccountKeys|Chaves de conta atualizadas|Contagem|Contagem|Chaves de conta atualizadas|Tipo de chave|
 |Definições de Rede de Atualizações|Definições de rede de conta atualizadas|Contagem|Contagem|Definições de rede de conta atualizadas|Nenhuma|
 |Definições de replicação de 'Actualizações', Replicação de Contas|Definições de replicação de conta atualizadas|Contagem|Contagem|Definições de replicação de conta atualizadas|Nenhuma|
+|AtualizaçãoDiagnosticsSettings|Definições de diagnóstico de conta atualizadas|Contagem|Contagem|Definições de diagnóstico de conta atualizadas|DiagnósticoDefiniçõesNome,Nome do Grupo de Recursos|
 
 
 
@@ -1023,6 +1107,21 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Contagem de eventos abandonados|Eventos abandonados|Contagem|Total|Total deixou cair eventos correspondentes a esta subscrição de evento|DropReason,EventSubscriptionName|
 |DeadLetteredCount|Eventos com Letras Mortas|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason,EventSubscriptionName|
 
+## <a name="microsofteventgridsystemtopics"></a>Microsoft.EventGrid/systemTopics
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|Contagem de Sucessos|Eventos Publicados|Contagem|Total|Total de eventos publicados para este tópico|Nenhuma|
+|PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Eventos totais não publicaram para este tópico|ErrorType,Error|
+|Contagem de eventos incomparáveis|Eventos Incomparáveis|Contagem|Total|Eventos totais que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhuma|
+|PublicarSuccessLatencyInMs|Publicar Latência de Sucesso|Milissegundos|Total|Publicar latência de sucesso em milissegundos|Nenhuma|
+|MatchedEventCount|Eventos Combinados|Contagem|Total|Total de eventos combinados com esta subscrição do evento|Nome de subscrição de eventos|
+|Contagem de falhas de tentativa de entrega|Eventos falhados de entrega|Contagem|Total|Eventos totais não entregaram a esta subscrição do evento|Error,ErrorType,EventSubscriptionName|
+|Contagem de Sucessos de Entrega|Eventos Entregues|Contagem|Total|Total de eventos entregues a esta subscrição do evento|Nome de subscrição de eventos|
+|DestinationProcessingDurationInMs|Duração do processamento do destino|Milissegundos|Média|Duração do processamento do destino em milissegundos|Nome de subscrição de eventos|
+|Contagem de eventos abandonados|Eventos abandonados|Contagem|Total|Total deixou cair eventos correspondentes a esta subscrição de evento|DropReason,EventSubscriptionName|
+|DeadLetteredCount|Eventos com Letras Mortas|Contagem|Total|Total de eventos com letras mortas correspondentes a esta subscrição do evento|DeadLetterReason,EventSubscriptionName|
+
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -1042,6 +1141,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |PublicarFailCount|Publicar Eventos Falhados|Contagem|Total|Eventos totais não publicaram para este tópico|ErrorType,Error|
 |Contagem de eventos incomparáveis|Eventos Incomparáveis|Contagem|Total|Eventos totais que não correspondem a nenhuma das subscrições do evento para este tópico|Nenhuma|
 |PublicarSuccessLatencyInMs|Publicar Latência de Sucesso|Milissegundos|Total|Publicar latência de sucesso em milissegundos|Nenhuma|
+
 
 
 
@@ -1106,6 +1206,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |CapturedBytes|Bytes capturados.|Bytes|Total|Bytes capturados para Microsoft.EventHub.|Nenhuma|
 |CPU|CPU|Percentagem|Máximo|Utilização do CPU para o Cluster do Hub de Eventos em percentagem|Função|
 |Memória Disponível|Memória Disponível|Percentagem|Máximo|Memória disponível para o Cluster Do Hub de Eventos em percentagem da memória total.|Função|
+|Tamanho|Tamanho de um EventHub em Bytes.|Bytes|Média|Tamanho de um EventHub em Bytes.|Função|
 
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -1126,9 +1227,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Capacidade Observada|Capacidade Observada|Contagem|Média|A capacidade reportada à escala automática quando foi executada.|Nenhuma|
 |ScaleActionsIniciado|Ações de escala iniciadas|Contagem|Total|A direção da operação de escala.|Direção de Escala|
 
-
-
-
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Componentes
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -1141,9 +1239,9 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |navegadorTimings/recepçãoDura|Tempo de resposta de receção|MilliSeconds|Média|Tempo entre o primeiro e o último bytes, ou até a desconexão.|Nenhuma|
 |navegadorTimings/sendDura|Enviar tempo de pedido|MilliSeconds|Média|Tempo entre a ligação da rede e receber o primeiro byte.|Nenhuma|
 |browserTimings/totalDuração|Tempo de carga da página do navegador|MilliSeconds|Média|O tempo do pedido do utilizador até do M, folhas de estilo, scripts e imagens são carregados.|Nenhuma|
-|dependências/contagem|Chamadas de dependência|Contagem|Contagem|Contagem de chamadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,operação/sintético,cloud/roleInstance,cloud/roleName/roleName|
-|dependências/duração|Duração da dependência|MilliSeconds|Média|Duração das chamadas efetuadas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,operação/sintético,cloud/roleInstance,cloud/roleName/roleName|
-|dependências/falhado|Falhas de chamada de dependência|Contagem|Contagem|Contagem de chamadas de dependência falhadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,operação/sintético,cloud/roleInstance,cloud/roleName/roleName|
+|dependências/contagem|Chamadas de dependência|Contagem|Contagem|Contagem de chamadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,dependência/resultadoCódigo,operação/sintético, nuvem/roleInstance,cloud/roleName|
+|dependências/duração|Duração da dependência|MilliSeconds|Média|Duração das chamadas efetuadas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,dependência/resultadoCódigo,operação/sintético, nuvem/roleInstance,cloud/roleName|
+|dependências/falhado|Falhas de chamada de dependência|Contagem|Contagem|Contagem de chamadas de dependência falhadas feitas pela aplicação a recursos externos.|dependência/tipo,dependência/desempenhoBucket,dependência/sucesso,dependência/target,dependência/resultadoCódigo,operação/sintético, nuvem/roleInstance,cloud/roleName|
 |pageViews/count|Vistas da página|Contagem|Contagem|Contagem de visualizações de página.|operação/sintético,cloud/roleName|
 |páginaVistas/duração|Tempo de carga da vista da página|MilliSeconds|Média|Tempo de carga da vista da página|operação/sintético,cloud/roleName|
 |performanceCounters/requestExecutionTime|HTTP solicitar tempo de execução|MilliSeconds|Média|Tempo de execução do pedido mais recente.|nuvem/roleInstance|
@@ -1164,6 +1262,20 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |exceções/servidor|Exceções ao servidor|Contagem|Contagem|Contagem de exceções não apanhadas lançadas na aplicação do servidor.|cliente/isServer,cloud/roleName,cloud/roleInstance|
 |vestígios/contagem|Traces|Contagem|Contagem|Contagem de documentos de rastreio|traço/gravidadeN,operação/sintético,cloud/roleName,cloud/roleInstance|
 
+
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|connectedDeviceCount|Total de dispositivos conectados|Contagem|Média|Número de dispositivos ligados à IoT Central|Nenhuma|
+|c2d.property.read.success|Successful Device Property Reads from IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade de sucesso iniciada a partir da IoT Central|Nenhuma|
+|c2d.property.read.failure|Propriedade do dispositivo falhado lê da IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade falhada iniciada a partir da IoT Central|Nenhuma|
+|d2c.property.read.success|Imóvel de sucesso lê a partir de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedades bem sucedidas iniciadaa a partir de dispositivos|Nenhuma|
+|d2c.property.read.failure|Propriedade do dispositivo falhado lê a partir de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedade falhada iniciada a partir de dispositivos|Nenhuma|
+|c2d.property.update.success|Atualizações de propriedade de dispositivos bem-sucedidos da IoT Central|Contagem|Total|A contagem de todas as atualizações de propriedade bem sucedidas iniciadas a partir da IoT Central|Nenhuma|
+|c2d.property.update.failure|Atualizações de propriedade de dispositivos falhados da IoT Central|Contagem|Total|A contagem de todas as atualizações de propriedade falhadas iniciadas a partir da IoT Central|Nenhuma|
+|d2c.property.update.success.success|Atualizações de propriedade de dispositivos bem-sucedidos de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade bem sucedidas iniciadas a partir de dispositivos|Nenhuma|
+|d2c.property.update.failure.failure|Atualizações de propriedade de dispositivos falhados a partir de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade falhadas iniciadas a partir de dispositivos|Nenhuma|
 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/cofres
@@ -1189,10 +1301,10 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |EventosProcessadosForEventHubs|Eventos processados (para Hubs de Evento/IoT)|Contagem|Total|Número de eventos processados pelo cluster ao ingerir em Event/IoT Hub|EventStatus|
 |IngestionResult|Resultado da ingestão|Contagem|Contagem|Número de operações de ingestão|IngestionResultDetails|
 |CPU|CPU|Percentagem|Média|Nível de utilização do CPU|Nenhuma|
-|Exportação ContínuaNumOfRecordsExported|Exportação contínua – numdos de registos exportados|Contagem|Total|Número de registos exportados, disparados por cada artefacto de armazenamento escrito durante a operação de exportação|Nenhuma|
+|Exportação ContínuaNumOfRecordsExported|Exportação contínua – numdos de registos exportados|Contagem|Total|Número de registos exportados, disparados por cada artefacto de armazenamento escrito durante a operação de exportação|Nome de exportação contínua,Base de Dados|
 |ExportUtilização|Utilização das exportações|Percentagem|Máximo|Utilização das exportações|Nenhuma|
 |Contagem contínua de gastos com exportações|Contagem pendente de exportação contínua|Contagem|Máximo|O número de postos de trabalho de exportação continuados pendentes prontos para a execução|Nenhuma|
-|ContinuamenteExportMaxLatenessMinutes|Minutos contínuos de atraso de exportação max|Contagem|Máximo|O atraso máximo em minutos de todas as exportações contínuas pendentes e prontas para a execução|Nenhuma|
+|ContinuamenteExportMaxLatenessMinutes|Exportação Contínua Max Lateness|Contagem|Máximo|O atraso (em minutos) reportado pelos contínuos trabalhos de exportação no cluster|Nenhuma|
 |Resultado contínuo da exportação|Resultado contínuo da exportação|Contagem|Contagem|Indica se a Exportação Contínua foi bem sucedida ou fracassada|Nome de exportação contínua,Resultado,Base de Dados|
 |StreamingIngestDura|Duração do ingest de streaming|Milissegundos|Média|Streaming de duração da ingestão em milissegundos|Nenhuma|
 |StreamingIngestDataRate|Taxa de dados de ingestão de streaming|Contagem|Média|Taxa de dados de ingerir streaming (MB por segundo)|Nenhuma|
@@ -1202,6 +1314,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |TotalNumberOfThrottledQueries|Número total de consultas estranguladas|Contagem|Total|Número total de consultas estranguladas|Nenhuma|
 |TotalNumberOfThrottledCommands|Número total de comandos estrangulados|Contagem|Total|Número total de comandos estrangulados|Tipo de comando|
 |TotalNumberOfExtents|Número total de extensões|Contagem|Total|Número total de extensões de dados|Nenhuma|
+|Contagem de casos|Contagem de Instâncias|Contagem|Média|Contagem total de instâncias|Nenhuma|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
@@ -1242,11 +1355,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |BillingUsageNativeOperation|Utilização de faturação para execuções de operações nativas|Contagem|Total|Número de execuções de operações nativas a serem cobradas.|Nenhuma|
 |BillingUsageStandardConnector|Utilização de faturação para execuções de conector padrão|Contagem|Total|Número de execuções de conector padrão a serem cobradas.|Nenhuma|
 |Consumo de armazenamento de armazenamento de dólares de faturação|Utilização de faturação para execuções de consumo de armazenamento|Contagem|Total|Número de execuções de consumo de armazenamento a serem cobradas.|Nenhuma|
-|BillingUsageNativeOperation|Utilização de faturação para execuções de operações nativas|Contagem|Total|Número de execuções de operações nativas a serem cobradas.|Nenhuma|
-|BillingUsageStandardConnector|Utilização de faturação para execuções de conector padrão|Contagem|Total|Número de execuções de conector padrão a serem cobradas.|Nenhuma|
-|Consumo de armazenamento de armazenamento de dólares de faturação|Utilização de faturação para execuções de consumo de armazenamento|Contagem|Total|Número de execuções de consumo de armazenamento a serem cobradas.|Nenhuma|
-
-
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Lógica/integraçãoServiceEnvironments
 
@@ -1289,15 +1397,26 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
+|Corridas Canceladas|Corridas Canceladas|Contagem|Total|Número de corridas canceladas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Cancelar Corridas Solicitadas|Cancelar Corridas Solicitadas|Contagem|Total|Número de corridas onde o cancelamento foi solicitado para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Corridas Concluídas|Corridas Concluídas|Contagem|Total|Número de execuções concluídas com sucesso para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Corridas Iniciadas|Corridas Iniciadas|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Corridas falhadas|Corridas falhadas|Contagem|Total|Número de corridas falhou para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Finalizando Corridas|Finalizando Corridas|Contagem|Total|Número de corridas inseridas em estado finalizador para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Não responder corre|Não responder corre|Contagem|Total|Número de corridas que não respondem para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Não começou corridas|Não começou corridas|Contagem|Total|Número de corridas em estado não iniciado para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Preparação de Corridas|Preparação de Corridas|Contagem|Total|Número de corridas que se preparam para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Corridas de Provisionamento|Corridas de Provisionamento|Contagem|Total|Número de execuções que estão a provisionar para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Corridas em fila|Corridas em fila|Contagem|Total|Número de corridas que estão na fila para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Corridas Iniciadas|Corridas Iniciadas|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Iniciar corridas|Iniciar corridas|Contagem|Total|Número de corridas iniciadas para este espaço de trabalho|Cenário,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Erros|Erros|Contagem|Total|Número de erros de execução neste espaço de trabalho|Cenário|
+|Avisos|Avisos|Contagem|Total|Número de avisos de execução neste espaço de trabalho|Cenário|
 |Registo de Modelos Bem Sucedido|Registo de Modelos Bem Sucedido|Contagem|Total|Número de registos de modelos que conseguiram neste espaço de trabalho|Cenário|
 |Registo de Modelos Falhado|Registo de Modelos Falhado|Contagem|Total|Número de registos de modelos que falharam neste espaço de trabalho|Cenário,Código de Estado|
 |Modelo Implantação Iniciada|Modelo Implantação Iniciada|Contagem|Total|Número de implementações de modelos iniciadas neste espaço de trabalho|Cenário|
 |Model Deploy Succeeded|Model Deploy Succeeded|Contagem|Total|Número de implementações de modelos que conseguiram neste espaço de trabalho|Cenário|
 |Implementação do modelo falhou|Implementação do modelo falhou|Contagem|Total|Número de implementações de modelos que falharam neste espaço de trabalho|Cenário,Código de Estado|
-|Nósodes totais|Nósodes totais|Contagem|Média|Número de nós totais. Este total inclui alguns de Nós Ativos, Nós Ociosos, Nós Inutilizáveis, Nós Preempted, Deixando nós|Cenário,ClusterName|
+|Nósodes totais|Nósodes totais|Contagem|Média|Número de nós totais. Este total inclui alguns de Nós Ativos, Nós ociosos, nós inutilizáveis, nós pré-mepted, deixando nós|Cenário,ClusterName|
 |Nódosativos Ativos|Nódosativos Ativos|Contagem|Média|Número de nós de Aitve. Estes são os nódosos que estão ativamente a gerir um trabalho.|Cenário,ClusterName|
 |Nódoas ociosas|Nódoas ociosas|Contagem|Média|Número de nós ociosos. Os nódoas ociosas são os nódosos que não estão a gerir nenhum emprego, mas podem aceitar novos empregos se disponíveis.|Cenário,ClusterName|
 |Nós Inutilizáveis|Nós Inutilizáveis|Contagem|Média|Número de nós inutilizáveis. Nós inutilizáveis não são funcionais devido a algum problema irresolúvel. O Azure vai reciclar estes nódosos.|Cenário,ClusterName|
@@ -1344,13 +1463,21 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Contagem de Políticas de Streaming|Contagem de políticas de streaming|Contagem|Média|Quantas políticas de streaming já estão criadas na conta de serviço sinuoso atual|Nenhuma|
 |StreamingPolicyQuotaUsedPercentage|Quota de política de streaming utilizada percentagem|Percentagem|Média|Política de Streaming utilizada percentagem na conta de serviço de mídia atual|Nenhuma|
 
+
+## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|ActivosConvertidos|Ativos Convertidos|Contagem|Total|Número total de ativos convertidos|Appid,Resourceid,SDKversion|
+|ActiveRenderingSessions|Sessões ativas de renderização|Contagem|Total|Número total de sessões de renderização ativa|Appid,Resourceid,SessionType,SDKversion|
+
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/volumes
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |MédiaDeLeitura|Latência média de leitura|MilliSeconds|Média|Latência média de leitura em milissegundos por operação|Nenhuma|
 |MédiaWriteLatency|Latência média de escrita|MilliSeconds|Média|Latência média de escrita em milissegundos por operação|Nenhuma|
-|Volumelógico|Tamanho lógico do volume|Bytes|Média|Tamanho lógico do volume (bytes usados)|Nenhuma|
+|Volumelógico|Volume Consumido Tamanho|Bytes|Média|Tamanho lógico do volume (bytes usados)|Nenhuma|
 |VolumeSnapshotSize|Tamanho do instantâneo de volume|Bytes|Média|Tamanho de todos os instantâneos em volume|Nenhuma|
 |Leituras|Ler iops|CondeEmSegundo|Média|Ler operações de in/fora por segundo|Nenhuma|
 |WriteIops|Escrever iops|CondeEmSegundo|Média|Escreva operações in/out por segundo|Nenhuma|
@@ -1359,8 +1486,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|VolumePoolAllocatedUsed|Piscina de volume atribuída|Bytes|Média|Tamanho usado atribuído da piscina|Nenhuma|
-|VolumePoolTotalLogicalSize|Volume pool tamanho lógico total|Bytes|Média|Soma do tamanho lógico de todos os volumes pertencentes à piscina|Nenhuma|
+|VolumePoolAllocatedUsed|Piscina atribuída ao tamanho do volume|Bytes|Média|Tamanho usado atribuído da piscina|Nenhuma|
+|VolumePoolTotalLogicalSize|Piscina Consumida Tamanho|Bytes|Média|Soma do tamanho lógico de todos os volumes pertencentes à piscina|Nenhuma|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
@@ -1383,7 +1510,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |SnatConnectionCount|Contagem de ligação sNAT|Contagem|Total|Número total de novas ligações SNAT criadas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ConnectionState|
 |AlocadoSnatPorts|Portas SNAT atribuídas (Pré-visualização)|Contagem|Total|Número total de portas SNAT atribuídas dentro do prazo|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
 |SnatPorts Usados|Portas SNAT usadas (Pré-visualização)|Contagem|Total|Número total de portas SNAT utilizadas dentro do período de tempo|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
-
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
@@ -1458,8 +1584,11 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Pedidos Falhados|Pedidos com Falhas|Contagem|Total|Contagem de pedidos falhados que o Application Gateway serviu|BackendSettingsPool|
 |Estatuto de Resposta|Estado de Resposta|Contagem|Total|Estado de resposta http devolvido por Application Gateway|HttpStatusGroup|
 |CurrentConnections|Conexões Atuais|Contagem|Total|Contagem das ligações atuais estabelecidas com gateway de aplicação|Nenhuma|
+|NewConnectionsPerSecond|Novas ligações por segundo|CondeEmSegundo|Média|Novas ligações por segundo estabelecidas com Application Gateway|Nenhuma|
 |CpuUtilização|Utilização do CPU|Percentagem|Média|Utilização atual do CPU do Gateway de Aplicação|Nenhuma|
 |Unidades de Capacidade|Unidades de Capacidade Atuais|Contagem|Média|Unidades de Capacidade consumidas|Nenhuma|
+|FixedBillableCapacityUnits|Unidades de Capacidade Facturaveta Fixa|Contagem|Média|Unidades de capacidade mínima que serão carregadas|Nenhuma|
+|Unidades estimadas de Capacidade faturada|Unidades de Capacidade Faturadas Estimadas|Contagem|Média|Unidades de capacidade estimadas que serão carregadas|Nenhuma|
 |ComputeUnits|Unidades Computadas Atuais|Contagem|Média|Unidades Computadas consumidas|Nenhuma|
 |BackendResponseStatus|Estado de resposta de backend|Contagem|Total|O número de códigos de resposta HTTP gerados pelos membros do backend. Isto não inclui quaisquer códigos de resposta gerados pelo Gateway da Aplicação.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
 |Protocolo TLS|Protocolo TLS cliente|Contagem|Total|O número de pedidos tLS e não-TLS iniciados pelo cliente que estabeleceu a ligação com o Gateway de Aplicação. Para ver a distribuição do protocolo TLS, filtre pela dimensão do Protocolo TLS.|Ouvinte,TlsProtocol|
@@ -1473,6 +1602,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Contagem compatível|Distribuição total de regras de firewall v1|Contagem|Total|Web Application Firewall v1 Distribuição total de regras para o tráfego de entrada|RuleGroup,RuleId|
 |Contagem bloqueada|Web Application Firewall v1 Blocked Requests Rule Distribution|Contagem|Total|Web Application Firewall v1 bloqueado solicita a distribuição de regras|RuleGroup,RuleId|
 |BlockedReqCount|Contagem de pedidos bloqueados firewall v1 bloqueados|Contagem|Total|Contagem de pedidos bloqueados firewall v1|Nenhuma|
+
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
@@ -1500,6 +1630,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Protocolo de Linha|Protocolo de Linha|Contagem|Média|Estatuto do protocolo de linha da porta|Ligação|
 |PortBitsInPerSecond|BitsInPerSecond|CondeEmSegundo|Média|Bits ingressando Azure por segundo|Ligação|
 |PortBitsOutPerSecond|BitsOutPerSecond|CondeEmSegundo|Média|Bits a esganar Azure por segundo|Ligação|
+
+
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -1568,6 +1700,18 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |BackendHealthPercentage|Percentagem de Saúde Endend|Percentagem|Média|A percentagem de sondas de saúde bem sucedidas do proxy HTTP/S para backends|Backend,BackendPool|
 |Contagem de pedidos de firewall da web|Contagem de pedidos de firewall de aplicação web|Contagem|Total|O número de pedidos de clientes processados pela Firewall de Aplicação Web|Nome de política,Nome de Regras,Ação|
 
+
+## <a name="microsoftnetworkprivatednszones"></a>Microsoft.Network/privateDnsZones
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|Volume de Consultas|Volume de consulta|Contagem|Total|Número de consultas servidas para uma zona privada de DNS|Nenhuma|
+|RecordSetCount|Contagem de conjuntos de discos|Contagem|Máximo|Número de conjuntos de recordes numa zona privada de DNS|Nenhuma|
+|Utilização de RecordSetCapacity|Utilização da capacidade do conjunto de registos|Percentagem|Máximo|Por cento da capacidade do Record set utilizada por uma zona Privada de DNS|Nenhuma|
+|Contagem de ligações virtual|Contagem de ligações de rede virtual|Contagem|Máximo|Número de Redes Virtuais ligadas a uma zona Privada de DNS|Nenhuma|
+|VirtualNetworkLinkCapacityUtilização|Utilização da capacidade de ligação de rede virtual|Percentagem|Máximo|Por cento da capacidade de Ligação de Rede Virtual utilizada por uma zona Privada de DNS|Nenhuma|
+|VirtualNetworkWithRegistrationLinkCount|Contagem de ligações de registo de rede virtual|Contagem|Máximo|Número de Redes Virtuais ligadas a uma zona Privada de DNS com registo automático ativado|Nenhuma|
+|VirtualNetworkWithRegistrationCapacityUtilização|Utilização da capacidade de ligação de registo de rede virtual|Percentagem|Máximo|Por cento da Ligação de Rede Virtual com capacidade de registo automático utilizada por uma zona Privada de DNS|Nenhuma|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -1693,20 +1837,12 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Average_Size armazenado em arquivos de paging|Tamanho armazenado em arquivos de paging|Contagem|Média|Average_Size armazenado em arquivos de paging|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_Uptime|Tempo de subida|Contagem|Média|Average_Uptime|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_Users|Utilizadores|Contagem|Média|Average_Users|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Avg. de Disco seg/Leitura|Avg. Disk sec/Read|Contagem|Média|Average_Avg. de Disco seg/Leitura|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Avg. de Disco seg/Escrita|Avg. Disk sec/Write|Contagem|Média|Average_Avg. de Disco seg/Escrita|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |comprimento da fila do disco de Average_Current|Comprimento da fila do disco atual|Contagem|Média|comprimento da fila do disco de Average_Current|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|leituras Average_Disk/seg|Leituras/seg de disco|Contagem|Média|leituras Average_Disk/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|transferências Average_Disk/seg|Transferências de disco/seg|Contagem|Média|transferências Average_Disk/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Disk Escreve/seg|Escritas de Disco/seg|Contagem|Média|Average_Disk Escreve/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_Free Megabytes|Megabytes grátis|Contagem|Média|Average_Free Megabytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% espaço livre|% Espaço Livre|Contagem|Média|Average_% espaço livre|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_Available MBytes|MBytes disponíveis|Contagem|Média|Average_Available MBytes|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_% bytes comprometidos em uso|% Bytes Comprometidos em Uso|Contagem|Média|Average_% bytes comprometidos em uso|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_Bytes recebido/seg|Bytes Recebidos/seg|Contagem|Média|Average_Bytes recebido/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_Bytes Enviado/seg|Bytes Enviado/seg|Contagem|Média|Average_Bytes Enviado/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Average_Bytes Total/seg|Bytes Total/seg|Contagem|Média|Average_Bytes Total/seg|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
-|Average_% tempo do processador|% de Tempo do Processador|Contagem|Média|Average_% tempo do processador|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |comprimento da fila Average_Processor|Comprimento da fila do processador|Contagem|Média|comprimento da fila Average_Processor|Computador,Nome de objeto,nome de caso,contrapata,Sourcesystem|
 |Heartbeat|Heartbeat|Contagem|Total|Heartbeat|Computador,OSType,Versão,SourceComputerId|
 |Atualizar|Atualizar|Contagem|Média|Atualizar|Computador,Produto,Classificação,Estado de Atualização,Opcional,Aprovado|
@@ -1727,6 +1863,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Taxa de tráfego ingresso|Taxa de tráfego de ingresso|BitsPerSecond|Média|Taxa de tráfego ingresso em bits por segundo|Ligação|
 |EgressTrafficRate|Taxa de tráfego de egress|BitsPerSecond|Média|Taxa de tráfego de egress em bits por segundo|Ligação|
 
+
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -1736,6 +1873,22 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |qpu_high_utilization_metric|Maior Utilização de QPU|Contagem|Total|Utilização alta qpu em última hora, 1 para alta utilização de QPU, caso contrário 0|Sem Dimensões|
 |memory_metric|Memória|Bytes|Média|Memória. Intervalo 0-3 GB para A1, 0-5 GB para A2, 0-10 GB para A3, 0-25 GB para A4, 0-50 GB para A5 e 0-100 GB para A6|Sem Dimensões|
 |memory_thrashing_metric|Degradação de Memória|Percentagem|Média|A memória média a bater.|Sem Dimensões|
+
+
+## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/contas
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|Distribuição de ActivosByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, são classificados com essa etiqueta.|Classificação,Fonte,ResourceId|
+|Tipo de armazenamento de bens|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|Tipo de armazenamento,ResourceId|
+|Utilizadores Catalogativos|Utilizadores Ativos Diários|Contagem|Total|Número de utilizadores ativos diariamente|ResourceId|
+|Utilização de catálogos|Distribuição de Utilização por Operação|Contagem|Total|Indique o número de operação que o utilizador faz para o catálogo, ou é, Acesso, Pesquisa, Glossário.|Operação,Resourceid|
+|NumberOfAssetsWithClassifications|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de etiqueta.|ResourceId|
+|ScanCancelado|Scan Cancelado|Contagem|Total|Indica o número de exames cancelados.|ResourceId|
+|ScanCompleted|Digitalização Concluída|Contagem|Total|Indica o número de exames concluídos com sucesso.|ResourceId|
+|ScanFailed|Scan Failed|Contagem|Total|Indica que o número de exames falhou.|ResourceId|
+|ScanTimeTaken|Tempo de digitalização tomado|Segundos|Total|Indica o tempo total de digitalização em segundos.|ResourceId|
+
 
 
 
@@ -1849,8 +2002,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |cache_hit_percent|Percentagem de impacto cache|Percentagem|Máximo|Cache atingiu a percentagem. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |cache_used_percent|Cache usado percentagem|Percentagem|Máximo|Cache usado percentagem. Aplica-se apenas aos armazéns de dados.|Nenhuma|
-|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
-|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
+|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Utilização de CPU em percentagem do processo SQL DB. Não aplicável aos armazéns de dados.|Nenhuma|
+|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Utilização da memória em percentagem do processo SQL DB. Não aplicável aos armazéns de dados.|Nenhuma|
 |tempdb_data_size|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb. Não aplicável aos armazéns de dados.|Nenhuma|
 |tempdb_log_size|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb. Não aplicável aos armazéns de dados.|Nenhuma|
 |tempdb_log_used_percent|Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado. Não aplicável aos armazéns de dados.|Nenhuma|
@@ -1860,9 +2013,23 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |app_memory_percent|Percentagem de memória de aplicativos|Percentagem|Média|Percentagem de memória de aplicativos. Aplica-se a bases de dados sem servidores.|Nenhuma|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Armazenamento de dados atribuídos. Não aplicável aos armazéns de dados.|Nenhuma|
 |memory_usage_percent|Percentagem de memória|Percentagem|Máximo|Percentagem de memória. Aplica-se apenas aos armazéns de dados.|Nenhuma|
+|dw_backup_size_gb|Tamanho do armazenamento de dados|Contagem|Total|O tamanho do armazenamento de dados é composto pelo tamanho dos seus dados e pelo registo de transações. A métrica é contada para a parte de 'Armazenamento' da sua conta. Aplica-se apenas aos armazéns de dados.|Nenhuma|
+|dw_snapshot_size_gb|Tamanho do armazenamento instantâneo|Contagem|Total|Tamanho de armazenamento instantâneo é o tamanho das alterações incrementais capturadas por instantâneos para criar pontos de restauro definidos pelo utilizador e automáticos. A métrica é contada para a parte de 'Armazenamento' da sua conta. Aplica-se apenas aos armazéns de dados.|Nenhuma|
+|dw_geosnapshot_size_gb|Tamanho do armazenamento de recuperação de desastres|Contagem|Total|O tamanho do armazenamento de recuperação de desastres reflete-se como "Armazenamento de Recuperação de Desastres" na sua conta. Aplica-se apenas aos armazéns de dados.|Nenhuma|
+|wlg_allocation_relative_to_system_percent|Atribuição de grupo de carga de trabalho por cento do sistema|Percentagem|Máximo|Percentagem atribuída de recursos relativamente a todo o sistema por grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
+|wlg_allocation_relative_to_wlg_effective_cap_percent|Atribuição do grupo de carga de trabalho por cento de recursos da tampa|Percentagem|Máximo|Percentagem atribuída de recursos relativamente aos recursos limite siespecificados por grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
+|wlg_active_queries|Consultas ativas do grupo de trabalho|Contagem|Total|Consultas ativas dentro do grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
+|wlg_queued_queries|Consultas de grupo de trabalho em fila|Contagem|Total|Consultas na fila dentro do grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
+|active_queries|Consultas ativas|Contagem|Total|Consultas ativas em todos os grupos de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nenhuma|
+|queued_queries|Consultas em fila|Contagem|Total|Consultas em fila em todos os grupos de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nenhuma|
+|wlg_active_queries_timeouts|Intervalos de consulta de grupo de trabalho|Contagem|Total|Consultas que têm cronometrado para o grupo de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
+|wlg_effective_min_resource_percent|Por cento de recursos min eficazes|Percentagem|Máximo|Percentagem mínima de recursos reservados e isolados para o grupo de carga de trabalho, tendo em conta o nível mínimo de serviço. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
+|wlg_effective_cap_resource_percent|Por cento de recursos de tampa eficazes|Percentagem|Máximo|Um limite rígido à percentagem de recursos permitidos para o grupo de carga de trabalho, tendo em conta a Percentagem efetiva de Recursos Min atribuída a outros grupos de carga de trabalho. Aplica-se apenas aos armazéns de dados.|Nome de grupo de trabalho,IsuserDefined|
 |full_backup_size_bytes|Tamanho total do armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de reserva completa. Aplica-se às bases de dados baseadas em vCore. Não aplicável às bases de dados de Hiperescala.|Nenhuma|
 |diff_backup_size_bytes|Tamanho diferencial de armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de backup diferencial. Aplica-se às bases de dados baseadas em vCore. Não aplicável às bases de dados de Hiperescala.|Nenhuma|
-|log_backup_size_bytes|Registar tamanho de armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de backup de registo. Aplica-se às bases de dados baseadas em vCore. Não aplicável às bases de dados de Hiperescala.|Nenhuma|
+|log_backup_size_bytes|Registar tamanho de armazenamento de backup|Bytes|Máximo|Tamanho acumulado de armazenamento de backup de registo. Aplica-se às bases de dados baseadas em vCore e em hiperescala.|Nenhuma|
+|snapshot_backup_size_bytes|Tamanho de armazenamento de backup instantâneo|Bytes|Máximo|Tamanho cumulativo de armazenamento de backup instantâneo. Aplica-se às bases de dados de Hiperescala.|Nenhuma|
+|base_blob_size_bytes|Tamanho de armazenamento de bolha de base|Bytes|Máximo|Tamanho de armazenamento de bolhas base. Aplica-se às bases de dados de Hiperescala.|Nenhuma|
 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servidores/elasticPools
@@ -1893,8 +2060,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |database_cpu_limit|Limite de CPU|Contagem|Média|Limite de CPU|Base de Dados Resourceid|
 |cpu_used|CPU utilizado|Contagem|Média|CPU usado. Aplica-se a piscinas elásticas baseadas em vCore.|Nenhuma|
 |database_cpu_used|CPU utilizado|Contagem|Média|CPU utilizado|Base de Dados Resourceid|
-|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas.|Nenhuma|
-|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas.|Nenhuma|
+|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Utilização de CPU em percentagem do processo SQL DB. Aplica-se a piscinas elásticas.|Nenhuma|
+|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Utilização da memória em percentagem do processo SQL DB. Aplica-se a piscinas elásticas.|Nenhuma|
 |tempdb_data_size|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb|Nenhuma|
 |tempdb_log_size|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de log tempdb|Nenhuma|
 |tempdb_log_used_percent|Log por cento temporário usado|Percentagem|Máximo|Log por cento temporário usado|Nenhuma|
@@ -2090,6 +2257,46 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |InputEventsSourcesBacklogged|Eventos de entrada atrasados|Contagem|Máximo|Eventos de entrada atrasados|Nome lógico,Partitionid|
 |InputEventsSourcesPerSecond|Fontes de entrada recebidas|Contagem|Total|Fontes de entrada recebidas|Nome lógico,Partitionid|
 
+## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/espaços de trabalho
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|OrquestraçãoPipelineRunsEnded|Gasodutos terminados|Contagem|Total|Contagem de corridas de gasoduto sinuoso que conseguiu, falhou ou foram cancelados|Resultado,FalhaType,Pipeline|
+|OrquestraçãoActivityRunsEnded|As corridas de atividades terminaram|Contagem|Total|Contagem de atividades de orquestração que conseguiu, falhou ou foram cancelados|Resultado,FalhaType,Atividade,ActivityType,Pipeline|
+|OrquestraçõesTriggersEnded|Os gatilhos terminaram|Contagem|Total|Contagem de gatilhos de orquestração que conseguiu, falhou ou foram cancelados|Resultado,FalhaType,Gatilho|
+|Tentativas de Login SQLOnDemandLogin|Tentativas de login|Contagem|Total|Contagem de tentativas de login que succed ou falhou|Resultado|
+|SQLOnDemandQueriesEnded|As consultas terminaram|Contagem|Total|Contagem de consultas que sucederam, falharam ou foram cancelados|Resultado|
+|SQLOnDemandQueryProcessadobytes|Dados tratados|Bytes|Total|Quantidade de dados tratados por consultas|Nenhuma|
+
+## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft.Synapse/workspaces/bigDataPools
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|SparkJobsEnded|Aplicações terminadas|Contagem|Total|Contagem de candidaturas terminadas|JobType,JobResult|
+|Capacidade de Núcleos|Capacidade de núcleos|Contagem|Máximo|Capacidade de núcleos|Nenhuma|
+|Capacidade de memóriaGB|Capacidade de memória (GB)|Contagem|Máximo|Capacidade de memória (GB)|Nenhuma|
+
+## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|DWULimit|Limite de DWU|Contagem|Máximo|Objetivo de nível de serviço da piscina SQL|Nenhuma|
+|DWUUsed|DWU usado|Contagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido pelo limite de DWU * Percentagem de DWU|Nenhuma|
+|DWUUsedPercent|DWU percentagem utilizada|Percentagem|Máximo|Representa uma representação de alto nível de uso em toda a piscina SQL. Medido tomando o máximo entre a percentagem de CPU e a percentagem de Dados IO|Nenhuma|
+|ConexõesBlockedByFirewall|Ligações bloqueadas por firewall|Contagem|Total|Contagem de ligações bloqueadas por regras de firewall. Reveja as políticas de controlo de acesso para o seu pool SQL e monitorize estas ligações se a contagem for elevada|Nenhuma|
+|CacheHitPercent adaptativo|Percentagem de impacto de cache adaptativa|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a métrica da percentagem de impacto da cache para determinar se deve escalar para capacidade adicional ou reexecutar cargas de trabalho para hidratar a cache|Nenhuma|
+|CacheUsedPercent adaptativo|Cache adaptável utilizada percentagem|Percentagem|Máximo|Mede a forma como as cargas de trabalho estão a utilizar a cache adaptativa. Utilize esta métrica com a métrica de percentagem utilizada para determinar se deve escalar para capacidade adicional ou reexecutar cargas de trabalho para hidratar a cache|Nenhuma|
+|LocalTempDBUsedPercent|A temperatura local usou a percentagem|Percentagem|Máximo|Utilização temporária local em todos os nós de computação - valores são emitidos a cada cinco minutos|Nenhuma|
+|MemoryUsedPercent|Percentagem usada na memória|Percentagem|Máximo|Utilização da memória em todos os nós da piscina SQL|Nenhuma|
+|Ligações|Ligações|Contagem|Total|Contagem de logins totais para a piscina SQL|Resultado|
+|WLGActiveQueries|Consultas ativas do grupo de trabalho|Contagem|Total|As consultas ativas dentro do grupo de carga de trabalho. A utilização desta métrica não filtrada e não dividida apresenta todas as consultas ativas em execução no sistema|IsuserDefined,WorkloadGroup|
+|WLGActiveQueriesTimeouts|Intervalos de consulta de grupo de trabalho|Contagem|Total|Consultas para o grupo de trabalho que tem cronometrado. Os intervalos de consulta reportados por esta métrica são apenas uma vez que a consulta tenha começado a ser executada (não inclui tempo de espera devido a bloqueio ou esperas de recursos)|IsuserDefined,WorkloadGroup|
+|WLGAllocationBySystemPercent|Atribuição de grupo de carga de trabalho por cento do sistema|Percentagem|Máximo|A repartição percentual dos recursos em relação a todo o sistema|IsuserDefined,WorkloadGroup|
+|WLGAllocationByMaxResourcePercent|Atribuição do grupo de carga de trabalho por cento de recursos máximos|Percentagem|Máximo|Apresenta a repartição percentual de recursos em relação ao recurso efetiva da tampa por grupo de carga de trabalho. Esta métrica proporciona a utilização eficaz do grupo de carga de trabalho|IsuserDefined,WorkloadGroup|
+|WLGEffectiveCapResourcePercent|Por cento de recursos de tampa eficazes|Percentagem|Máximo|O custo efetivo do recurso da tampa para o grupo de carga de trabalho. Se houver outros grupos de carga de trabalho com min_percentage_resource > 0, o effective_cap_percentage_resource é reduzido proporcionalmente|IsuserDefined,WorkloadGroup|
+|wlg_effective_min_resource_percent|Por cento de recursos min eficazes|Percentagem|Mínimo|A definição efetiva da percentagem de recursos min permitiu considerar o nível de serviço e as definições do grupo de carga de trabalho. O min_percentage_resource eficaz pode ser ajustado mais alto em níveis de serviço mais baixos|IsuserDefined,WorkloadGroup|
+|WLGQueuedQueries|Consultas de grupo de trabalho em fila|Contagem|Total|Contagem acumulada de pedidos em fila após o limite máximo de conmoedação foi atingido|IsuserDefined,WorkloadGroup|
+
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/ambientes
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -2103,6 +2310,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |IngressReceivedMessagesCountlag|Ingress Recebeu Mensagens Count Lag|Contagem|Média|Diferença entre o número de sequência da última mensagem enqueuada na partição da fonte do evento e o número de sequência de mensagens que estão a ser processadas em Ingress|Nenhuma|
 |WarmStorageMaxProperties|Propriedades Max de Armazenamento Quente|Contagem|Máximo|Número máximo de propriedades permitidas pelo ambiente para S1/S2 SKU e número máximo de propriedades permitidas pela Warm Store para PAYG SKU|Nenhuma|
 |Propriedades De Armazenamento Quente|Propriedades usadas de armazenamento quente |Contagem|Máximo|Número de propriedades utilizadas pelo ambiente para S1/S2 SKU e número de propriedades utilizadas pela Warm Store para PAYG SKU|Nenhuma|
+
+
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/ambientes/fontes de eventos
 
@@ -2171,7 +2380,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |TcpLastAck|TCP Last Ack|Contagem|Média|TCP Last Ack|Instância|
 |TcpTimeWait|Tempo de Espera do TCP|Contagem|Média|Tempo de Espera do TCP|Instância|
 
-## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (excluindo funções)
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
 > [!NOTE]
 > O Uso do Sistema de **Ficheiros** é uma nova métrica a ser lançada globalmente, não são esperados dados a não ser que tenha sido listado em branco para pré-visualização privada.
@@ -2217,35 +2426,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Gen2Collections|Coleções de lixo gen 2|Contagem|Total|Coleções de lixo gen 2|Instância|
 |HealthCheckStatus|Estado do controlo de saúde|Contagem|Média|Estado do controlo de saúde|Instância|
 |Utilização do Sistema de Ficheiros|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhuma|
-
-## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
-
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
-|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
-|Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
-|Conjunto de Funções de Memória|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
-|Conjunto de trabalho de memória média|Conjunto de trabalho médio da memória|Bytes|Média|Conjunto de trabalho médio da memória|Instância|
-|Unidades de Execução de Funções|Unidades de Execução de Funções|MB / Milliseconds|Total|[Unidades de Execução de Funções](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instância|
-|Contagem de execuções de funções|Contagem de execução de funções|Contagem|Total|Contagem de execução de funções|Instância|
-|PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
-|IoReadBytesPerSecond|IO Ler Bytes por Segundo|BytesPerSecond|Total|IO Ler Bytes por Segundo|Instância|
-|IoWriteBytesPerSecond|IO Escrever Bytes por Segundo|BytesPerSecond|Total|IO Escrever Bytes por Segundo|Instância|
-|IoOtherBytesPerSecond|IO Outros Bytes por Segundo|BytesPerSecond|Total|IO Outros Bytes por Segundo|Instância|
-|IoReadOperationsPerSecond|IO Ler Operações por segundo|BytesPerSecond|Total|IO Ler Operações por segundo|Instância|
-|IoWriteOperationsPerSecond|IO Write Operations por segundo|BytesPerSecond|Total|IO Write Operations por segundo|Instância|
-|IoOtherOperationsPerSecond|IO outras operações por segundo|BytesPerSecond|Total|IO outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de candidaturas|Contagem|Média|Pedidos na fila de candidaturas|Instância|
-|CurrentAssemblies|Assembleias atuais|Contagem|Média|Assembleias atuais|Instância|
-|TotalAppDomains|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
-|TotalAppDomínios Descarregados|Total de domínios de aplicativos descarregados|Contagem|Média|Total de domínios de aplicativos descarregados|Instância|
-|Gen0Collections|Coleções de lixo gen 0|Contagem|Total|Coleções de lixo gen 0|Instância|
-|Gen1Collections|Coleções de lixo da Gen 1|Contagem|Total|Coleções de lixo da Gen 1|Instância|
-|Gen2Collections|Coleções de lixo gen 2|Contagem|Total|Coleções de lixo gen 2|Instância|
-|HealthCheckStatus|Estado do controlo de saúde|Contagem|Média|Estado do controlo de saúde|Instância|
-|Utilização do Sistema de Ficheiros|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhuma|
-
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 

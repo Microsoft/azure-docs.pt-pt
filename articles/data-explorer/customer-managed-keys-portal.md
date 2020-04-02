@@ -7,12 +7,12 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: c014ed2c25711677617d3bf8ff5d2f0f968a3b14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180196f2c368207b76811700fd845406098600df
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80301047"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529442"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente utilizando o portal Azure
 
@@ -46,7 +46,7 @@ Este artigo mostra-lhe como ativar a encriptação de chaves geridas pelo client
 
     ![Salvar a chave gerida pelo cliente](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
-Ao ativar as chaves geridas pelo cliente para o seu cluster Azure Data Explorer, estará a criar um sistema de identidade atribuído ao cluster se não existir. Além disso, você estará fornecendo as permissões de visualização necessárias para o seu cluster Azure Data Explorer no cofre de chaves selecionado e obterá as propriedades do Key Vault. 
+Ao ativar as chaves geridas pelo cliente para o seu cluster Azure Data Explorer, estará a criar um sistema de identidade atribuído ao cluster se não existir. Além disso, você estará fornecendo as permissões de get, wrapKey e unwarpKey necessárias para o seu cluster Azure Data Explorer no Cofre de Chaves selecionado e obter as propriedades do Cofre chave. 
 
 > [!NOTE]
 > Selecione **Off** para remover a chave gerida pelo cliente depois de ter sido criada.

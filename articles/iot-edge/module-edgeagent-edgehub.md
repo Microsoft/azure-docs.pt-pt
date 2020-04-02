@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284840"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546194"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente IoT Edge e dos gémeos do módulo IoT Edge
 
@@ -55,6 +55,7 @@ O módulo twin para o agente `$edgeAgent` IoT Edge é chamado e coordena as comu
 | módulos. {móduloId}.status | {"running" \| "stop"} | Sim |
 | módulos. {moduleId}.restartPolicy | {"nunca" \| "on-failure" \| "on-inhealthy" \| "always"} | Sim |
 | módulos. {moduleId}.imagePullPolicy | {"on-create" \| "nunca"} | Não |
+| módulos. {moduleId}.env | Uma lista de variáveis ambientais para passar para o módulo. Toma o formato`"<name>": {"value": "<value>"}` | Não |
 | módulos. {moduleId}.definições.image | O URI para a imagem do módulo. | Sim |
 | módulos. {moduleId}.settings.createOptions | Um JSON stringizado contendo as opções para a criação do recipiente do módulo. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
 | módulos. {moduleId}.configuração.id | A identificação da implementação que implantou este módulo. | O IoT Hub define esta propriedade quando o manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |

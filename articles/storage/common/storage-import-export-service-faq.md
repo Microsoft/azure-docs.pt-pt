@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: dcf9a278bfc0ede844f8eb59e3a256e40a47c57d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282431"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519487"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação Azure: perguntas frequentes
 
@@ -99,15 +99,17 @@ Pode enviar unidades para o centro de dados Azure utilizando qualquer transporta
 > [!NOTE]
 > Os centros de dados na Índia exigem uma carta de declaração no seu papel timbrado (challan de entrega) para devolver os discos. Para organizar o passe de entrada necessário, deve também reservar a recolha com o seu transportador selecionado e partilhar os detalhes com o datacenter.
 
-### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Há alguma restrição com o envio da minha unidade internacional?
+### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Há alguma restrição com o envio e a minha viagem internacionalmente?
 
 Por favor, note que os meios de comunicação físicos que está a enviar podem precisar para atravessar fronteiras internacionais. É responsável por garantir que os seus meios físicos e dados são importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar os meios físicos, consulte os seus assessores para verificar se os seus meios e dados podem ser enviados legalmente para o centro de dados identificado. Isto ajudará a garantir que chega à Microsoft em tempo útil.
+
+Após o upload estar concluído, o processo de devolução da unidade(s) a um endereço internacional pode demorar mais do que os 2-3 dias típicos necessários para o envio local. Durante a fase listada no portal Azure como Embalagem, a equipa da Data Box está a garantir que a documentação correta é fornecida para garantir que o envio está em conformidade com os vários requisitos internacionais de importação e exportação.
 
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Há requisitos especiais para entregar os meus discos a um datacenter?
 
 Os requisitos dependem das restrições específicas do centro de dados Azure.
 
-- Existem alguns sites que requerem um número de ID de entrada do Microsoft datacenter para ser escrito na encomenda por razões de segurança. Antes de enviar as suas unidades ou discos para oadbops@microsoft.comdatacenter, contacte a Azure DataBox Operations () para obter este número. Sem este número, o pacote será rejeitado.
+- Existem alguns sites, como austrália, Alemanha e REINO UNIDO Sul, que exigem que um número de ID de entrada do Microsoft seja escrito na encomenda por razões de segurança. Antes de enviar as suas unidades ou discos para oadbops@microsoft.comdatacenter, contacte a Azure DataBox Operations () para obter este número. Sem este número, o pacote será rejeitado.
 - Os centros de dados na Índia requerem os dados pessoais do condutor, como o Cartão de Identificação do Governo ou o Número de Prova. (por exemplo, PAN, AADHAR, DL), nome, contacto e o número da placa de carro para obter um passe de entrada do portão. Para evitar atrasos na entrega, informe a sua transportadora sobre estes requisitos.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Ao criar um emprego, o endereço de envio é um local diferente da minha conta de armazenamento. O que devo fazer?

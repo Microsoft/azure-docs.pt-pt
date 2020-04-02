@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170290"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529427"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure o seu laboratório em Azure DevTest Labs para usar um gateway remoto de ambiente de trabalho
 No Azure DevTest Labs, pode configurar uma porta remota de ambiente de trabalho para o seu laboratório para garantir o acesso seguro às máquinas virtuais do laboratório (VMs) sem ter de expor a porta RDP. O laboratório fornece um lugar central para os utilizadores do laboratório verem e ligarem-se a todas as máquinas virtuais a que têm acesso. O botão **Connect** na página **Máquina Virtual** cria um ficheiro RDP específico da máquina que pode abrir para ligar à máquina. Pode ainda personalizar e fixar a ligação RDP ligando o seu laboratório a um gateway remoto de ambiente de trabalho. 
@@ -43,7 +43,7 @@ Esta abordagem é mais segura porque o utilizador do laboratório autentica dire
 Para trabalhar com a funcionalidade de autenticação token DevTest Labs, existem alguns requisitos de configuração para as máquinas de gateway, serviços de nome de domínio (DNS) e funções.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisitos para máquinas remotas de gateway seleção de ambiente de trabalho
-- O certificado SSL deve ser instalado na máquina de porta de entrada para manusear o tráfego HTTPS. O certificado deve corresponder ao nome de domínio totalmente qualificado (FQDN) do equilibrante de carga para a exploração de gateway ou o FQDN da própria máquina se houver apenas uma máquina. Os certificados SSL não funcionam.  
+- O certificado TLS/SSL deve ser instalado na máquina de porta de entrada para manusear o tráfego HTTPS. O certificado deve corresponder ao nome de domínio totalmente qualificado (FQDN) do equilibrante de carga para a exploração de gateway ou o FQDN da própria máquina se houver apenas uma máquina. Os certificados TLS/SSL não funcionam.  
 - Um certificado de assinatura instalado nas máquinas gateway. Crie um certificado de assinatura utilizando o script [Create-SigningCertificate.ps1.](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1)
 - Instale o módulo de [autenticação pluggable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que suporta a autenticação simbólica para o gateway remoto do ambiente de trabalho. Um exemplo de tal `RDGatewayFedAuth.msi` módulo é que vem com imagens do [System Center Virtual Machine Manager (VMM).](/system-center/vmm/install-console?view=sc-vmm-1807) Para mais informações sobre o System Center, consulte a [documentação do System Center](https://docs.microsoft.com/system-center/) e [detalhes de preços.](https://www.microsoft.com/cloud-platform/system-center-pricing)  
 - O servidor de gateway pode `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`lidar com pedidos feitos para .
@@ -58,7 +58,7 @@ A função Azure trata `https://{function-app-uri}/app/host/{lab-machine-name}/p
 
 ## <a name="requirements-for-network"></a>Requisitos para a rede
 
-- O DNS para o FQDN associado ao certificado SSL instalado nas máquinas de gateway deve direcionar o tráfego para a máquina de gateway ou para o equilibrante de carga da quinta da máquina de gateway.
+- Os DNS para o FQDN associados ao certificado TLS/SSL instalado nas máquinas de gateway devem direcionar o tráfego para a máquina de gateway ou para o equilibrista de carga da exploração de máquinas gateway.
 - Se a máquina de laboratório utilizar iPs privados, deve haver um caminho de rede desde a máquina de gateway até à máquina de laboratório, seja através da partilha da mesma rede virtual ou da utilização de redes virtuais esparsas.
 
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configure o laboratório para usar a autenticação simbólica 
@@ -79,7 +79,7 @@ Configure o laboratório para utilizar a autenticação simbólica utilizando es
 1. Da lista de laboratórios, selecione o seu **laboratório.**
 1. Na página do laboratório, selecione **Configuração e políticas.**
 1. No menu esquerdo, na secção **Definições,** selecione **definições de Laboratório**.
-1. Na secção **remote desktop,** introduza o nome de domínio totalmente qualificado (FQDN) ou endereço IP da máquina de gateway ou quinta dos serviços de secretária remotos para o campo **gateway hostname.** Este valor deve corresponder ao FQDN do certificado SSL utilizado nas máquinas de gateway.
+1. Na secção **remote desktop,** introduza o nome de domínio totalmente qualificado (FQDN) ou endereço IP da máquina de gateway ou quinta dos serviços de secretária remotos para o campo **gateway hostname.** Este valor deve corresponder ao FQDN do certificado TLS/SSL utilizado nas máquinas gateway.
 
     ![Opções remotas de ambiente de trabalho em configurações de laboratório](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. Na secção de ambiente de **trabalho Remote,** para o segredo de **token gateway,** insira o nome do segredo criado anteriormente. Este valor não é a chave da função em si, mas o nome do segredo no cofre chave do laboratório que contém a chave da função.
@@ -110,7 +110,7 @@ O [repositório Azure DevTest Labs GitHub](https://github.com/Azure/azure-devtes
 Siga estes passos para configurar uma solução de amostra para a quinta remota de gateway seletiva.
 
 1. Crie um certificado de assinatura.  Executar [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Guarde a impressão digital, a palavra-passe e a codificação base64 do certificado criado.
-2. Pegue um certificado SSL. A FQDN associada ao certificado SSL deve ser para o domínio que controla. Guarde a impressão digital, a palavra-passe e a codificação base64 para este certificado. Para obter a impressão digital utilizando o PowerShell, utilize os seguintes comandos.
+2. Obtenha um certificado TLS/SSL. A FQDN associada ao certificado TLS/SSL deve ser para o domínio que controla. Guarde a impressão digital, a palavra-passe e a codificação base64 para este certificado. Para obter a impressão digital utilizando o PowerShell, utilize os seguintes comandos.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -132,9 +132,9 @@ Siga estes passos para configurar uma solução de amostra para a quinta remota 
     - casosCount – Número de máquinas de gateway para criar.  
     - sempreOn – Indica se manter a aplicação azure functions criada em estado quente ou não. Manter a aplicação Funções Azure evitará atrasos quando os utilizadores tentam ligar-se ao seu VM de laboratório, mas isso tem implicações de custos.  
     - tokenLifetime – O tempo que o token criado será válido. O formato é HH:MM:SS.
-    - sslCertificado – A codificação Base64 do certificado SSL para a máquina gateway.
-    - sslCertificatePassword – A palavra-passe do certificado SSL para a máquina gateway.
-    - sslCertificateThumbprint - A impressão digital do certificado para identificação na loja de certificados local do certificado SSL.
+    - sslCertificate – A codificação Base64 do certificado TLS/SSL para a máquina gateway.
+    - sslCertificatePassword – A palavra-passe do certificado TLS/SSL para a máquina gateway.
+    - sslCertificateThumbprint - A impressão digital do certificado para identificação no certificado local do certificado TLS/SSL.
     - sinalCertificado – A codificação Base64 para certificado de assinatura para a máquina gateway.
     - signCertificatePassword – A palavra-passe para assinar certificado para a máquina gateway.
     - signCertificateThumbprint - A impressão digital do certificado para identificação no certificado local do certificado de assinatura.
@@ -157,7 +157,7 @@ Siga estes passos para configurar uma solução de amostra para a quinta remota 
         - A data de validade {utc} é a data, na UTC, na qual expirará o token SAS e o token SAS já não pode ser utilizado para aceder à conta de armazenamento.
 
     Grave os valores para gatewayFQDN e gatewayIP a partir da saída de implementação do modelo. Também terá de guardar o valor da chave de função para a função recém-criada, que pode ser encontrada no separador de definições da [aplicação Fun.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
-5. Configure o DNS de modo a que o FQDN da SSL cert direcione para o endereço IP do gatewayIP a partir de etapa anterior.
+5. Configure dNS de modo a que fQDN de TLS/SSL cert direcione para o endereço IP de gatewayIP a partir de passo anterior.
 
     Após a criação da quinta Remote Desktop Gateway e as atualizações adequadas do DNS, está pronta para ser usada por um laboratório em DevTest Labs. O nome de **anfitrião** do portal e as definições secretas de **gateway** devem ser configuradas para utilizar a ou as máquinas de gateway que implementou. 
 

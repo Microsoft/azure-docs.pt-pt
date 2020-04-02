@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8aedc78772858815a18425fb1e6cb36a4600f647
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385100"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548293"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -80,7 +80,7 @@ $ras.Count
 
 ## <a name="access-denied-or-permission-errors"></a>Erros de acesso negados ou de permissão
 
-- Se obtém o erro de permissões "O cliente com id de objeto não tem autorização para realizar ação sobre o âmbito (código: AutorizaçãoFalha)" quando tentar criar um recurso, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha escrito permissão para o recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
+- Se obtém o erro de permissões "O cliente com id de objeto não tem autorização para realizar ação sobre o âmbito (código: AutorizaçãoFalha)" quando tentar criar um recurso, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha permissão de escrita para o recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
 - Se obtém o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tentar criar ou atualizar um bilhete de `Microsoft.Support/supportTickets/write` suporte, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha a permissão, como o Colaborador do Pedido de [Apoio.](built-in-roles.md#support-request-contributor)
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Atribuições de funções com diretor de segurança desconhecido
@@ -179,7 +179,7 @@ Estes itens requerem acesso **por escrito** ao plano do Serviço de **Aplicaçõ
 
 Estes itens requerem acesso **por escrito** a todo o **grupo Derecursos** que contém o seu website:  
 
-* Certificados e encadernações SSL (os certificados SSL podem ser partilhados entre sites do mesmo grupo de recursos e geolocalização)  
+* Certificados e encadernações TLS/SSL (os certificados TLS/SSL podem ser partilhados entre sites do mesmo grupo de recursos e geolocalização)  
 * Regras de alerta  
 * Definições de escala automática  
 * Componentes de insights de aplicação  

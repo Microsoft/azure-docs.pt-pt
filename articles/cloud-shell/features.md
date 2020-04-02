@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366245"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521019"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades & ferramentas para Casca de Nuvem Azure
 
@@ -44,7 +44,7 @@ Os ficheiros fora do estado da `$HOME` máquina não são persistidos em sessõe
 
 ### <a name="azure-drive-azure"></a>Unidade Azure (Azure:)
 
-PowerShell em Cloud Shell inicia-te`Azure:`na unidade Azure ().
+PowerShell em Cloud Shell fornece a`Azure:`unidade Azure ( ). Pode mudar para a unidade `cd Azure:` Azure com e `cd  ~`voltar para o seu diretório de casa com .
 A unidade Azure permite uma fácil descoberta e navegação de recursos Azure, tais como Compute, Network, Storage etc. similar esquelético sinuoso à navegação do sistema de ficheiros.
 Pode continuar a utilizar os [conhecidos cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure) para gerir estes recursos, independentemente da unidade em que se encontram.
 Quaisquer alterações feitas aos recursos Azure, quer feitas diretamente no portal Azure, quer através de cmdlets Azure PowerShell, refletem-se na unidade Azure.  Pode correr `dir -Force` para refrescar os seus recursos.
@@ -78,7 +78,7 @@ Cloud Shell inclui autenticação pré-configurada para ferramentas de código a
 |Construir ferramentas            |modelo<br> maven<br> npm<br> pip         |
 |Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Rio Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Bases de Dados              |Cliente MySQL<br> Cliente PostgreSql<br> [utilidade sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |iPython Cliente<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terrafora](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansível](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Outros                  |iPython Cliente<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Suporte de idiomas
 

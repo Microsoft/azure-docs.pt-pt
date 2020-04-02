@@ -9,16 +9,18 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 680e68d17637d71c1a1e5e8cfa539ee90028ac4e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: c8b63a2676690004d23094b490fea0ef150ab9cb
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478759"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546417"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Recursos de credenciais na Automatização do Azure
 
-Um ativo credencial automationis detém um objeto que contém credenciais de segurança, como um nome de utilizador e uma palavra-passe. Os livros de execução e as configurações dSC utilizam cmdlets que aceitam um objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) para autenticação. Em alternativa, podem extrair o nome `PSCredential` de utilizador e a palavra-passe do objeto para fornecer a alguma aplicação ou serviço que exija a autenticação. A Azure Automation armazena de forma segura as propriedades de uma credencial e acesso às propriedades numa configuração de rumbook ou DSC com a atividade [Get-AutomationPSCredential.](#activities-used-to-access-credentials)
+Um ativo credencial automationis detém um objeto que contém credenciais de segurança, como um nome de utilizador e uma palavra-passe. Os livros de execução e as configurações dSC utilizam cmdlets que aceitam um objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) para autenticação. Em alternativa, podem extrair o nome `PSCredential` de utilizador e a palavra-passe do objeto para fornecer a alguma aplicação ou serviço que exija a autenticação. 
+
+A Azure Automation armazena de forma segura as propriedades de uma credencial. O acesso às propriedades através de um livro de execução ou de uma configuração DSC utiliza a atividade [Get-AutomationPSCredential.](#activities-used-to-access-credentials)
 
 > [!NOTE]
 > Os ativos seguros na Automatização Azure incluem credenciais, certificados, ligações e variáveis encriptadas. Estes ativos são encriptados e armazenados na Automatização Azure utilizando uma chave única que é gerada para cada conta De Automação. Esta chave está armazenada no Cofre chave. Antes de armazenar um ativo seguro, a chave é carregada a partir do Cofre chave e depois usada para encriptar o ativo.
@@ -27,11 +29,11 @@ Um ativo credencial automationis detém um objeto que contém credenciais de seg
 
 ## <a name="azure-powershell-az-cmdlets-used-for-credential-assets"></a>Cmdlets Azure PowerShell Az usados para ativos credenciais
 
-Para o módulo Azure PowerShell Az, os cmdlets na tabela seguinte são utilizados para criar e gerir ativos credenciais automation com o Windows PowerShell. Eles enviam como parte do [módulo Az.Automation,](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)que está disponível para uso em livros de automação e configurações DSC. Consulte [o suporte do módulo Az na Automação Azure.](https://docs.microsoft.com/azure/automation/az-modules)
+Como parte do módulo Azure PowerShell Az, os cmdlets na tabela seguinte são usados para criar e gerir ativos credenciais automation com o Windows PowerShell. Eles enviam no [módulo Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), que está disponível para uso em livros de automação e configurações DSC. Consulte [o suporte do módulo Az na Automação Azure.](https://docs.microsoft.com/azure/automation/az-modules)
 
 | Cmdlet | Descrição |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera informações sobre um ativo credencial. Este cmdlet não devolve um objeto PSCredential.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera informações sobre um ativo credencial. Este cmdlet não devolve `PSCredential` um objeto.  |
 | [Novo AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Cria uma nova credencial de Automação. |
 | [Remover-AutomaçãoCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Remove uma credencial de Automação. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Define as propriedades para uma credencial de Automação existente. |
@@ -48,7 +50,7 @@ As atividades na tabela seguinte são utilizadas para aceder a credenciais em li
 
 Para o desenvolvimento local utilizando o Kit `Get-AutomationPSCredential` de Ferramentas de Autor de Automação Azure, o cmdlet faz parte do conjunto [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9). Para o Azure trabalhar com o contexto `Orchestrator.AssetManagement.Cmdlets`Automation, o cmdlet está em . Ver [Gerir módulos em Automação Azure.](modules.md)
 
-Para conseguir recuperar `PSCredential` objetos no seu código, pode instalar o [addon Ise de Automação Microsoft Azure para o PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon).
+Para `PSCredential` recuperar objetos no seu código, pode instalar o [addon IsE de automação do Microsoft Azure para o PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon).
 
 ```azurepowershell
 Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser -Force
@@ -85,6 +87,9 @@ Pode criar um novo ativo credencial utilizando o portal Azure ou utilizando o Wi
 2. No painel New Credential, introduza um nome credencial apropriado seguindo os seus padrões de nomeação. 
 3. Digite o seu ID de acesso no campo de nome do **utilizador.** 
 4. Para ambos os campos de senha, introduza a sua chave de acesso secreta.
+
+    ![Criar nova credencial](../media/credentials/credential-create.png)
+
 5. Se a caixa de autenticação de vários fatores for verificada, desverifique-a. 
 6. Clique em **Criar** para salvar o novo ativo credencial.
 
@@ -93,8 +98,7 @@ Pode criar um novo ativo credencial utilizando o portal Azure ou utilizando o Wi
 
 ### <a name="create-a-new-credential-asset-with-windows-powershell"></a>Criar um novo ativo credencial com o Windows PowerShell
 
-O exemplo que se segue mostra como criar um novo ativo credencial automation. Um `PSCredential` objeto é criado primeiro com o nome e a senha, e depois usado para criar o ativo credencial. Em alternativa, pode `Get-Credential` utilizar o cmdlet para solicitar ao utilizador que digite um nome e uma senha.
-
+O exemplo que se segue mostra como criar um novo ativo credencial automation. Um `PSCredential` objeto é criado primeiro com o nome e a senha, e depois usado para criar o ativo credencial. Em vez disso, `Get-Credential` pode utilizar o cmdlet para pedir ao utilizador que digite um nome e uma senha.
 
 ```powershell
 $user = "MyDomain\MyUser"
@@ -105,7 +109,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Usando uma credencial PowerShell
 
-Uma configuração de rumbook ou DSC `Get-AutomationPSCredential` recupera um ativo credencial com a atividade. Esta atividade recupera `PSCredential` um objeto que pode utilizar com uma atividade ou cmdlet que requer uma credencial. Também pode recuperar as propriedades do objeto credencial para usar individualmente. O objeto tem propriedades para o nome de utilizador e a senha segura. Em alternativa, pode utilizar o método [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) para recuperar um objeto [NetworkCredential](/dotnet/api/system.net.networkcredential) que representa uma versão não segura da palavra-passe.
+Uma configuração de rumbook ou DSC `Get-AutomationPSCredential` recupera um ativo credencial com a atividade. Esta atividade recupera `PSCredential` um objeto que pode utilizar com uma atividade ou cmdlet que requer uma credencial. Também pode recuperar as propriedades do objeto credencial para usar individualmente. O objeto tem propriedades para o nome de utilizador e a palavra-passe segura. Em alternativa, pode utilizar o método [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) para recuperar um objeto [NetworkCredential](/dotnet/api/system.net.networkcredential) que representa uma versão não segura da palavra-passe.
 
 > [!NOTE]
 > `Get-AzAutomationCredential`não recupera `PSCredential` um objeto que possa ser utilizado para autenticação. Só fornece informações sobre a credencial. Se precisar de utilizar uma credencial num livro de rum, deve recuperá-la como objeto `PSCredential` que utiliza `Get-AutomationPSCredential`.
@@ -142,7 +146,7 @@ Pode adicionar `Get-AutomationPSCredential` uma atividade a um livro de execuç�
 
 ![Adicione credencial à tela](../media/credentials/credential-add-canvas.png)
 
-A imagem que se segue mostra um exemplo de utilização de uma credencial num livro gráfico. Neste caso, a credencial é utilizada para fornecer autenticação para um livro de execução aos recursos Azure, conforme descrito na [Usa Azure AD em Azure Automation para autenticar o Azure.](../automation-use-azure-ad.md) A primeira atividade recupera a credencial que tem acesso à subscrição do Azure. A atividade de ligação à conta utiliza então esta credencial para fornecer autenticação para quaisquer atividades que venham depois dela. Uma [ligação de](../automation-graphical-authoring-intro.md#links-and-workflow) `Get-AutomationPSCredential` gasoduto é usada aqui, uma vez que espera um único objeto.  
+A imagem que se segue mostra um exemplo de utilização de uma credencial num livro gráfico. Neste caso, a credencial prevê a autenticação de um livro de execução aos recursos Azure, conforme descrito na [Usa Azure AD em Azure Automation para autenticar o Azure.](../automation-use-azure-ad.md) A primeira atividade recupera a credencial que tem acesso à subscrição do Azure. A atividade de ligação à conta utiliza então esta credencial para fornecer autenticação para quaisquer atividades que venham depois dela. Uma [ligação de](../automation-graphical-authoring-intro.md#links-and-workflow) `Get-AutomationPSCredential` gasoduto é usada aqui, uma vez que espera um único objeto.  
 
 ![Adicione credencial à tela](../media/credentials/get-credential.png)
 

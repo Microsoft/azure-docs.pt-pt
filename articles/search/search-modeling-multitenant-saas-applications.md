@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113271"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549017"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multiarrendatárias e pesquisa cognitiva Azure
 Uma aplicação multiarrendatária é aquela que fornece os mesmos serviços e capacidades a qualquer número de inquilinos que não possam ver ou partilhar os dados de qualquer outro inquilino. Este documento discute estratégias de isolamento de inquilinos para aplicações multiarrendatárias construídas com pesquisa cognitiva Azure.
@@ -51,7 +51,7 @@ No nível de preços S3 da Azure Cognitive Search, existe uma opção para o mod
 
 O S3 HD permite que os muitos pequenos índices sejam embalados sob a gestão de um único serviço de pesquisa, negociando a capacidade de escalar índices usando divisórias para a capacidade de hospedar mais índices num único serviço.
 
-Concretamente, um serviço S3 poderia ter entre 1 e 200 índices que juntos poderiam acolher até 1,4 mil milhões de documentos. Por outro lado, um S3 HD permitiria que os índices individuais subissem apenas até 1 milhão de documentos, mas pode lidar com até 1000 índices por partição (até 3000 por serviço) com uma contagem total de documentos de 200 milhões por partição (até 600 milhões por serviço).
+Um serviço S3 foi concebido para acolher um número fixo de índices (máximo 200) e permitir que cada índice escalasse em tamanho horizontalmente à medida que novas divisórias são adicionadas ao serviço. Adicionar divisórias aos serviços S3 HD aumenta o número máximo de índices que o serviço pode acolher. O tamanho máximo ideal para um índice S3HD individual é de cerca de 50 - 80 GB, embora não exista um limite de tamanho duro em cada índice imposto pelo sistema.
 
 ## <a name="considerations-for-multitenant-applications"></a>Considerações para aplicações multiarrendatárias
 As aplicações multiarrendatárias devem efetivamente distribuir recursos entre os inquilinos, preservando ao mesmo tempo algum nível de privacidade entre os vários inquilinos. Existem algumas considerações ao conceber a arquitetura para tal aplicação:
@@ -78,7 +78,7 @@ Num modelo index-per-inquilino, vários inquilinos ocupam um único serviço de 
 
 Os inquilinos obtêm isolamento de dados porque todos os pedidos de pesquisa e operações documentais são emitidos a um nível de índice em Pesquisa Cognitiva Azure. Na camada de candidatura, é necessário sensibilizar os vários inquilinos para os índices adequados, gerindo também recursos ao nível do serviço em todos os inquilinos.
 
-Um atributo-chave do modelo index-per-inquilino é a capacidade de o desenvolvedor de aplicações sobrepor a capacidade de um serviço de pesquisa entre os inquilinos da aplicação. Se os inquilinos tiverem uma distribuição desigual da carga de trabalho, a combinação ideal de inquilinos pode ser distribuída através dos índices de um serviço de pesquisa para acomodar uma série de inquilinos altamente ativos e intensivos de recursos, ao mesmo tempo que servem uma longa cauda de menos inquilinos ativos. A compensação é a incapacidade do modelo para lidar com situações em que cada inquilino é simultaneamente altamente ativo.
+Um atributo-chave do modelo index-per-inquilino é a capacidade de o desenvolvedor de aplicações sobrepor a capacidade de um serviço de pesquisa entre os inquilinos da aplicação. Se os inquilinos tiverem uma distribuição desigual da carga de trabalho, a combinação ideal de inquilinos pode ser distribuída através dos índices de um serviço de pesquisa para acomodar uma série de inquilinos altamente ativos e intensivos de recursos, ao mesmo tempo que servem uma longa cauda de inquilinos menos ativos. A compensação é a incapacidade do modelo para lidar com situações em que cada inquilino é simultaneamente altamente ativo.
 
 O modelo index-per-tenant fornece a base para um modelo de custo variável, onde todo um serviço de Pesquisa Cognitiva Azure é comprado antecipadamente e, em seguida, preenchido com inquilinos. Isto permite que a capacidade não utilizada seja designada para ensaios e contas gratuitas.
 

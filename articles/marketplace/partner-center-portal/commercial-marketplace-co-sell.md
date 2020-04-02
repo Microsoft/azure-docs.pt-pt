@@ -7,26 +7,26 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: f290b08d1f625600d03c9540b28c289e9b449471
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475154"
+ms.locfileid: "80517930"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de co-venda no Partner Center
 
-Fornecer informações sobre o separador Co-sell é inteiramente opcional. É necessário alcançar o co-sell Ready e ip co-sell Ready status. As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua solução ao avaliar o seu ajuste para as necessidades do cliente. Não está disponível diretamente para os clientes. Para mais informações, consulte [a venda através da Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Fornecer informações sobre o separador Co-sell é inteiramente opcional. É necessário alcançar o co-sell Ready e ip co-sell Ready status. As informações que fornecer serão utilizadas pelas equipas de vendas da Microsoft para saber mais sobre a sua solução ao avaliar o seu ajuste para as necessidades do cliente. Não está disponível diretamente para os clientes. Para mais informações, consulte [a venda através da Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 A opção de co-venda no Partner Center está atualmente disponível para alguns tipos de oferta. O suporte para tipos de oferta adicionais será disponibilizado ao longo do tempo.
 
 | **Tipo de Oferta** | **Página de co-venda disponível no Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Software como Serviço (SaaS) |     Disponibilidade geral em abril de 2020     |
+| Software como Serviço (SaaS) |     Disponibilidade geral abril 2020      |
 | Dinâmica 365 para envolvimento com clientes & PowerApps      |     Já disponível      |
 | Dynamics 365 for Operations     |     Já disponível       |
-| Dynamics 365 Business Central      |  Disponibilidade geral em abril de 2020    |
-| Aplicação do Azure     |     Disponibilidade geral em abril de 2020     |
+| Dynamics 365 Business Central      |  Disponibilidade geral abril 2020     |
+| Aplicação do Azure     |     Disponibilidade geral abril 2020     |
 | Máquina Virtual do Azure      |     A ser anunciado       |
 | Contentor Azure     |     A ser anunciado       |
 | Serviço de Consultoria      |     A ser anunciado       |
@@ -66,8 +66,7 @@ Pode fornecer garantias para a Microsoft utilizar para avaliar as necessidades d
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
-| *Cliente de uma página* | Descrição pronta para o cliente da sua oferta. As equipas de vendas da Microsoft podem partilhar esta informação com os clientes para ajudar a determinar se a sua oferta pode ser um bom encaixe e garantir que está pronta para o cliente. <br> <br> Utilize um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Modelo de uma página do Microsoft Azure </li> <li> Modelo de uma página do Microsoft Dynamics 365 </li> <li> Modelo de um pager do escritório 365 </li> <li> Modelo de uma página do Windows 10 </li> </ul>
- |
+| *Cliente de uma página* | Descrição pronta para o cliente da sua oferta. As equipas de vendas da Microsoft podem partilhar esta informação com os clientes para ajudar a determinar se a sua oferta pode ser um bom encaixe e garantir que está pronta para o cliente. <br> <br> Utilize um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Modelo de uma página do Microsoft Azure </li> <li> Modelo de uma página do Microsoft Dynamics 365 </li> <li> Modelo de um pager do escritório 365 </li> <li> Modelo de uma página do Windows 10 </li> </ul> |
 | *Apresentação do cliente* | Slide deck para lançar a sua solução e a sua proposta de valor. Depois de garantir que a sua oferta está pronta para o cliente, as equipas de vendas da Microsoft podem partilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implementar uma solução conjunta. A apresentação deve abranger o que a sua solução faz, como pode ajudar os clientes, para que indústrias a solução é, e como se compara a soluções concorrentes. <br> <br> Utilize o modelo disponível no Partner Center.|
 | *Estudo de caso de cliente* | Estas informações mostram a um potencial cliente como você e a Microsoft implementaram esta solução com sucesso em casos anteriores. <br> <br> Utilize o modelo disponível no Partner Center. |
 | *Vitórias verificáveis do cliente (opcional)* | Exemplos específicos de sucessos do cliente após a implementação da sua solução. |

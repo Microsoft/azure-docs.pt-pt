@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/06/2020
+ms.date: 03/31/2020
 ms.author: radeltch
-ms.openlocfilehash: 69dcf91957263cea36f8ff6db6a7af14588998ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 215cfd033a3fe8eb0ad9896c1f45f1e0f788823f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927212"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521374"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 
@@ -277,16 +277,20 @@ Os passos nesta secção utilizam os seguintes prefixos:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Criar os volumes lógicos. Um volume linear é `lvcreate` criado `-i` quando se utiliza sem o interruptor. Sugerimos que crie um volume listrado para um `-i` melhor desempenho em I/S, onde o argumento deve ser o número do volume físico subjacente. Neste documento, são utilizados dois volumes físicos `-i` para o volume de dados, pelo que o argumento da comutação está definido para **2**. Um volume físico é utilizado para o `-i` volume de registo, pelo que nenhum interruptor é explicitamente utilizado. Utilize `-i` o interruptor e detetetete-o para o número do volume físico subjacente quando utilizar mais de um volume físico para cada dados, registo ou volumes partilhados.
+   Criar os volumes lógicos. Um volume linear é `lvcreate` criado `-i` quando se utiliza sem o interruptor. Sugerimos que crie um volume listrado para um melhor desempenho em I/S e alinhe os tamanhos das riscas com os valores documentados nas configurações de [armazenamento VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). O `-i` argumento deve ser o número dos `-I` volumes físicos subjacentes e o argumento é o tamanho das riscas. Neste documento, são utilizados dois volumes físicos `-i` para o volume de dados, pelo que o argumento da comutação está definido para **2**. O tamanho das riscas para o volume de dados é **de 256KiB**. Um volume físico é utilizado para o `-i` `-I` volume de registo, pelo que nenhum ou interruptor é explicitamente utilizado para os comandos de volume de registo.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   > [!IMPORTANT]
+   > Utilize `-i` o interruptor e detetetete-o para o número do volume físico subjacente quando utilizar mais de um volume físico para cada dados, registo ou volumes partilhados. Utilize `-I` o interruptor para especificar o tamanho das riscas, quando criar um volume listrado.  
+   > Consulte as configurações de [armazenamento VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para configurações de armazenamento recomendadas, incluindo tamanhos de listras e número de discos.  
+
+   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
    sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
    sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
    sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
    </code></pre>
-
+  
    Crie os diretórios de montagem e copie o UUID de todos os volumes lógicos:
 
    <pre><code>sudo mkdir -p /hana/data/<b>HN1</b>

@@ -2,13 +2,14 @@
 title: Suporte para migração de servidores físicos em Azure Migrate
 description: Saiba mais sobre o suporte à migração de servidores físicos em Azure Migrate.
 ms.topic: conceptual
+ms.custom: fasttrack-edit
 ms.date: 01/07/2020
-ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269552"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520288"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidores físicos
 
@@ -43,7 +44,7 @@ A tabela resume o suporte aos servidores físicos que pretende migrar utilizando
 **Rede/Armazenamento** | Para obter as informações mais recentes, reveja os pré-requisitos de [rede](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) para a Recuperação do Site. A Azure Migrate fornece requisitos idênticos de rede/armazenamento.
 **Requisitos do Azure** | Para obter as mais recentes informações, reveja os requisitos da [rede Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [cálculo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) para a Recuperação do Site. A Azure Migrate tem requisitos idênticos para a migração do servidor físico.
 **Serviço de mobilidade** | O agente de serviço de Mobilidade deve ser instalado em cada máquina que pretende migrar.
-**Bota UEFI** | A máquina migrada em Azure será automaticamente convertida para uma bota BIOS Azure VM.<br/><br/> O disco osso deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
+**Bota UEFI** | A máquina migrada em Azure será automaticamente convertida para uma bota BIOS Azure VM. Apenas o servidor executa o Windows Server 2012 e mais tarde suportado.<br/><br/> O disco osso deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
 **Disco-alvo** | As máquinas só podem ser migradas para discos geridos (HDD padrão, SSD premium) em Azure.
 **Tamanho do disco** | Disco de 2 TB OS; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por máquina.

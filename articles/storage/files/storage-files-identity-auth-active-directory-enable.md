@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: b7820bc3d1b14e87064e4120edcffb6762041db9
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: dbcc204f71a9bfe4f48f51ab6af36014e130cb7f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411489"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548957"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure
 
@@ -63,11 +63,7 @@ Antes de ativar a autenticação de AD para as ações de ficheiros Azure, certi
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação ad (pré-visualização) do Azure Files está disponível na maioria das [regiões públicas.](https://azure.microsoft.com/global-infrastructure/regions/)
-
-A autenticação ad files Azure não está disponível em:
-- E.U.A. Oeste
-
+A autenticação ad (pré-visualização) do Azure Files está disponível em [todas as regiões da Nuvem Pública](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 

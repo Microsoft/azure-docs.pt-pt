@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3182daa4ebf3becc824b600d1e487e12b875b275
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824002"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529661"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implemente e explore uma aplicação SaaS multiarrendatária que utiliza o padrão de base de dados por inquilino com base de dados SQL
 
@@ -128,7 +128,7 @@ A aplicação Wingtip utiliza o [*Gestor de Tráfego Azure*](../traffic-manager
 
     | Parte URL        | Descrição       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | As partes dos eventos da app Wingtip.<br /><br /> *-dpt* distingue a implementação de *bilhetes wingtip de* outras implementações. Exemplos são as implementações *de* aplicações individuais por inquilino *(-sa*) ou base de *dados multiarrendatária* *(-mt).* |
+    | eventos.wingtip-dpt | As partes dos eventos da app Wingtip.<br /><br /> *-dpt* distingue a implementação de *bilhetes wingtip de* outras implementações. Exemplos são as implementações *de* aplicações individuais por inquilino *(-sa*) ou base de *dados multiarrendatária* *(-mt).* |
     | . * &lt;utilizador&gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gestor de Tráfego, URL base. |
     | fabrikamjazzclub | Identifica o inquilino chamado Fabrikam Jazz Club. |

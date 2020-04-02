@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366841"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547925"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
@@ -128,6 +128,19 @@ $RGName = "ResourceGroup"
 Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
+
+### <a name="schedule-a-runbook-in-the-azure-portal"></a>Agende um livro de corridas no portal Azure
+
+Quando o seu livro de execução tiver sido publicado, pode agendá-lo para o funcionamento.
+
+1. Abra o livro de corridas no portal Azure.
+2. Selecione **Horários** em **Recursos**.
+3. Selecione **Adicionar um horário**.
+4. No painel 'AgendaR Runbook', selecione Link um horário para o seu livro de **execução**.
+5. Escolha **Criar um novo horário** no painel de horários.
+6. Introduza um nome, descrição e outros parâmetros no painel de horários novo. 
+7. Assim que a programação for criada, realce-a e clique em **OK**. Deve agora estar ligado ao seu livro de corridas.
+8. Procure um e-mail na sua caixa de correio para notificá-lo do estado do livro de recortes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c27fa8f80140e6db92ea0f998852507260cc278
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faaff9e9ad5982efac6409f2284158a3d0711331
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159545"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548411"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Alargar o suporte para O Servidor SQL 2008 e SQL Server 2008 R2 com Azure
 
@@ -66,7 +66,7 @@ O Serviço de [Migração](/azure/dms/dms-overview) de Bases de Dados é uma op�
 
 As soluções de recuperação de desastres para o EOS SQL Server num VM Azure são as seguintes:
 
-- **Backups do SQL Server**: Utilize backup azure para ajudar a proteger o seu EOS SQL Server 2008 e 2008 R2 contra ransomware, eliminação acidental e corrupção com RPO de 15 min e recuperação pontual. Para mais detalhes, consulte [este artigo.](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support)
+- **Backups do SQL Server**: Utilize backup azure para ajudar a proteger o seu EOS SQL Server 2008 e 2008 R2 contra ransomware, eliminação acidental e corrupção com RPO de 15 min e recuperação pontual. Para mais detalhes, consulte [este artigo.](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support)
 - **Envio de registos:** Pode criar uma réplica de transporte de registo sonante noutra zona ou região de Azure com restauros contínuos para reduzir o RTO. Precisa configurar manualmente o envio de diáriode sessão.
 - **Recuperação do site Azure:** Pode replicar o seu VM entre zonas e regiões através da replicação de Recuperação do Sítio Azure. O SQL Server requer instantâneos consistentes com aplicações para garantir a recuperação em caso de desastre. A Recuperação do Site Azure oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais o tempo de recuperação do Servidor SQL) para a recuperação de desastres do Servidor EOS SQL.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299350"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548308"
 ---
 # <a name="azure-best-practices-for-network-security"></a>As melhores práticas do Azure para a segurança da rede
 Este artigo discute uma coleção de boas práticas azure para melhorar a segurança da sua rede. Estas boas práticas derivam da nossa experiência com o networking Azure e as experiências de clientes como você.
@@ -153,12 +153,12 @@ Recomendamos que utilize o equilíbrio de carga sempre que puder, e conforme apr
 - Aceita apenas uma ligação segura, por isso a comunicação não encriptada ao servidor não é uma opção aceitável.
 - Requer vários pedidos http na mesma ligação TCP de longa duração para ser encaminhado ou carregado equilibrado para diferentes servidores back-end.
 
-**Opção de equilíbrio de cargas:** Utilize o Gateway de [Aplicação Azure,](/azure/application-gateway/application-gateway-introduction)um equilibrador de carga de tráfego web HTTP. O Application Gateway suporta a encriptação SSL de ponta a ponta e a [rescisão ssl](/azure/application-gateway/application-gateway-introduction) no gateway. Os servidores web podem então ser descarregados da encriptação e desencriptação e do tráfego que flui desencriptado para os servidores de back-end.
+**Opção de equilíbrio de cargas:** Utilize o Gateway de [Aplicação Azure,](/azure/application-gateway/application-gateway-introduction)um equilibrador de carga de tráfego web HTTP. O Application Gateway suporta a encriptação TLS de ponta a ponta e a [rescisão de TLS](/azure/application-gateway/application-gateway-introduction) no gateway. Os servidores web podem então ser descarregados da encriptação e desencriptação e do tráfego que flui desencriptado para os servidores de back-end.
 
 **Cenário**: É necessário carregar ligações de entrada de saldo a partir da internet entre os seus servidores localizados numa rede virtual Azure. Os cenários são quando:
 
 - Tenha aplicações apátridas que aceitem pedidos de entrada na internet.
-- Não exija sessões pegajosas ou descarregamento sl. Sessões pegajosas é um método usado com o Equilíbrio de Carga de Aplicação, para alcançar a afinidade do servidor.
+- Não exija sessões pegajosas ou descarregamento de TLS. Sessões pegajosas é um método usado com o Equilíbrio de Carga de Aplicação, para alcançar a afinidade do servidor.
 
 **Opção de equilíbrio de cargas:** Utilize o portal Azure para criar um [equilibrador](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) de carga externo que espalhe pedidos de entrada em vários VMs para fornecer um nível de disponibilidade mais elevado.
 

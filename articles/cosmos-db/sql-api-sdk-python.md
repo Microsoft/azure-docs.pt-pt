@@ -8,22 +8,22 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70137346"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547705"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para SQL API: Notas de lançamento e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Nó.js](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Java assíncrono](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
-> * [Pitão](sql-api-sdk-python.md)
+> * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
@@ -36,7 +36,7 @@ ms.locfileid: "70137346"
 |**Documentação da API**|[Documentação de referência da API python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**Instruções de instalação SDK**|[Instruções de instalação Python SDK](https://github.com/Azure/azure-cosmos-python)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
-|**Começar**|[Começar com o Python SDK](sql-api-python-application.md)|
+|**Introdução**|[Começar com o Python SDK](sql-api-python-application.md)|
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>Notas de versão
@@ -84,7 +84,7 @@ ms.locfileid: "70137346"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Suporte adicional para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
-* Adicionou uma opção para desativar a verificação SSL ao concorrer contra o Emulador DB Cosmos.
+* Adicionou uma opção para desativar a verificação de TLS ao concorrer contra o Emulador DB Cosmos.
 * Removeu a restrição do módulo de pedidos dependentes para ser exatamente 2.10.0.
 * Baixada a entrada mínima em coleções divididas de 10.100 RU/s para 2500 RU/s.
 * Suporte adicional para permitir a exploração de scripts durante a execução do procedimento armazenado.
@@ -102,7 +102,7 @@ ms.locfileid: "70137346"
 ### <a name="190"></a><a name="1.9.0"/>1.9.0
 * Acrescentou o apoio político de novo para pedidos acelerados. (Os pedidos de aceleração recebem uma taxa de pedido demasiado grande, código de erro 429.) Por padrão, o Azure Cosmos DB retenta nove vezes por cada pedido quando o código de erro 429 é encontrado, honrando a retryAfter time no cabeçalho de resposta. Um intervalo de repetição fixo pode agora ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy se pretender ignorar o tempo de repetição devolvido pelo servidor entre as repetições. A Azure Cosmos DB aguarda agora um máximo de 30 segundos por cada pedido que está a ser estrangulado (independentemente da contagem de tentativas) e devolve a resposta com o código de erro 429. Este tempo também pode ser ultrapassado na propriedade RetryOptions no objeto ConnectionPolicy.
 * Cosmos DB agora devolve x-ms-throttle-retry-count e x-ms-throttle-try-wait-time-ms como os cabeçalhos de resposta em cada pedido para denotar a contagem de aceleração e o tempo acumulado que o pedido esperou entre as tentativas.
-* Removeu a classe RetryPolicy e a propriedade correspondente (retry_policy) exposta na classe document_client e introduziu uma classe RetryOptions expondo a propriedade RetryOptions na classe ConnectionPolicy que pode ser usada para sobrepor parte da opções de retry padrão.
+* Removeu a classe RetryPolicy e a propriedade correspondente (retry_policy) exposta na classe document_client e introduziu uma classe RetryOptions expondo a propriedade RetryOptions na classe ConnectionPolicy que pode ser usada para anular algumas das opções de retry predefinidos.
 
 ### <a name="180"></a><a name="1.8.0"/>1.8.0
 * Acrescentou o apoio às contas de base de dados multi-regiões.

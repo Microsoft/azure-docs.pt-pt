@@ -15,12 +15,12 @@ ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ba07a0b0d3be0366179bba14c786fafad8753dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280699"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545645"
 ---
 # <a name="azure-built-in-roles"></a>Papéis azure embutidos
 
@@ -1093,7 +1093,7 @@ Permite-lhe gerir os perfis do Traffic Manager, mas não permite controlar quem 
 }
 ```
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 
 ### <a name="avere-contributor"></a>Colaborador avere
@@ -4644,7 +4644,7 @@ Pode gerir o serviço, mas não as APIs
 > | Microsoft.ApiManagement/service/managedeployments/action | Alterar SKU/unidades, adicionar/remover implantações regionais do Serviço de Gestão aPI |
 > | Microsoft.ApiManagement/service/read | Ler metadados para uma instância do Serviço de Gestão da API |
 > | Microsoft.ApiManagement/service/restore/action | Restaurar o Serviço de Gestão da API do recipiente especificado numa conta de armazenamento fornecida pelo utilizador |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Carregue o certificado SSL para um Serviço de Gestão API |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Carregue o certificado TLS/SSL para um Serviço de Gestão API |
 > | Microsoft.ApiManagement/service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizados para um Serviço de Gestão API |
 > | Microsoft.ApiManagement/service/write | Criar ou atualizar a instância do Serviço de Gestão aPI |
 > | Microsoft.Authorization/*/read | Ler papéis e atribuições de papéis |

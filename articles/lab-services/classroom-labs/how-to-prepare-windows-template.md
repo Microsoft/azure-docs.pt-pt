@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515008"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521177"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelo do Windows em Serviços de Laboratório Azure
 
@@ -185,7 +185,7 @@ Recomendamos que todas as aplicações da Microsoft Store sejam atualizadas para
 3. Selecione **Baixar** e atualizar a partir do menu suspenso.
 4. Clique no botão **de atualização Get.**
 
-Também pode utilizar o Powershell para atualizar as aplicações da Microsoft Store que já estão instaladas.
+Também pode utilizar o PowerShell para atualizar as aplicações da Microsoft Store que já estão instaladas.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
@@ -234,3 +234,6 @@ Instale outras aplicações comumente utilizadas para o ensino através da aplic
 ## <a name="conclusion"></a>Conclusão
 
 Este artigo mostrou-lhe passos opcionais para preparar o seu Modelo De VM do Windows para uma classe eficaz.  As medidas incluem a instalação do OneDrive e a instalação do Office 365, a instalação das atualizações para windows e a instalação de atualizações para aplicações da Microsoft Store.  Também discutimos como definir atualizações para uma programação que funciona melhor para a sua aula.  
+
+## <a name="next-steps"></a>Passos seguintes
+Veja o artigo sobre como controlar o comportamento de encerramento do Windows para ajudar na gestão de custos: [Guia para controlar o comportamento](how-to-windows-shutdown.md) de encerramento do Windows

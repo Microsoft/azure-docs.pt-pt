@@ -1,6 +1,6 @@
 ---
-title: Encriptação de ativos seguros na automação
-description: A automação azure protege os ativos seguros usando vários níveis de encriptação. Por padrão, a encriptação é feita utilizando chaves geridas pela Microsoft. Os clientes podem configurar as suas contas de automação para usar chaves geridas pelo cliente para encriptação. Este artigo descreve os detalhes de ambos os modos de encriptação e como pode alternar entre os dois.
+title: Criptografia ativos seguros na Automação Azure
+description: A Azure Automation protege os ativos seguros usando vários níveis de encriptação. Por padrão, a encriptação é feita utilizando chaves geridas pela Microsoft. Os clientes podem configurar as suas contas de automação para usar chaves geridas pelo cliente para encriptação. Este artigo descreve os detalhes de ambos os modos de encriptação e como pode alternar entre os dois.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,18 +9,18 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246240"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547761"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Ativos seguros na Automação Azure
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Criptografia ativos seguros na Automação Azure
 
 Os ativos seguros na Automatização Azure incluem credenciais, certificados, ligações e variáveis encriptadas. Estes ativos estão protegidos na Automatização Azure utilizando vários níveis de encriptação. Com base na chave de nível superior utilizada para a encriptação, existem dois modelos para encriptação:
--   Utilização de chaves geridas pela Microsoft
--   Utilização de chaves geridas pelo cliente
+-    Utilização de chaves geridas pela Microsoft
+-    Utilização de chaves geridas pelo cliente
 
 ## <a name="microsoft-managed-keys"></a>Chaves geridas pela Microsoft
 
@@ -40,7 +40,7 @@ Ao ativar a encriptação com chaves geridas pelo cliente para uma conta Automat
 
 Uma nova conta Automation é sempre encriptada utilizando chaves geridas pela Microsoft. Não é possível ativar as chaves geridas pelo cliente no momento em que a conta é criada. As chaves geridas pelo cliente são armazenadas no Cofre chave Azure, e o cofre chave deve ser aprovisionado com políticas de acesso que concedem permissões-chave à identidade gerida que está associada à conta Automation. A identidade gerida só está disponível após a criação da conta de armazenamento.
 
-Quando modifica a chave que está a ser utilizada para encriptação de ativos seguros Azure Automation, permitindo ou desativando chaves geridas pelo cliente, atualizando a versão chave ou especificando uma chave diferente, a encriptação da chave de encriptação da conta muda, mas os ativos seguros em a sua conta Azure Automation não precisa de ser reencriptada.
+Ao modificar a chave utilizada para encriptação de ativos seguros Azure Automation, permitindo ou desativando chaves geridas pelo cliente, atualizando a versão chave ou especificando uma chave diferente, a encriptação da chave de encriptação da conta muda, mas os ativos seguros na sua conta Azure Automation não precisam de ser novamente encriptados.
 
 As três secções seguintes descrevem a mecânica de ativar as chaves geridas pelo cliente para uma conta De automação. 
 

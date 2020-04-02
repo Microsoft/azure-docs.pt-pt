@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 8a82d2ad3e79633bb930348c6162996e961c4306
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b6e28fc92361fe20fc34e92386bf17199b19617
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612960"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519031"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Compreender os estados de saúde e resolver domínios suspensos nos Serviços de Domínio de Diretório Ativo azure
 

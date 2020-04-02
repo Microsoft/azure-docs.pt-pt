@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9333bb36971fc28a23a443e50d191abeef05b758
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57368331e83111836e13b6c3796cacad9816e318
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78208172"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521267"
 ---
 Para visualizar e copiar as chaves de acesso à sua conta de armazenamento ou a linha de ligação do portal Azure:
 
@@ -26,3 +26,5 @@ Para visualizar e copiar as chaves de acesso à sua conta de armazenamento ou a 
     ![Screenshot mostrando como ver chaves de acesso no portal Azure](media/storage-view-keys-include/portal-connection-string.png)
 
 Pode utilizar qualquer uma das teclas para aceder ao Armazenamento Azure, mas em geral é uma boa prática usar a primeira tecla e reservar a utilização da segunda tecla para quando estiver a rodar chaves.
+
+Para visualizar ou ler as chaves de acesso de uma conta, o utilizador deve ser um Administrador de Serviço, ou deve ser atribuído uma função RBAC que inclua a **Microsoft.Storage/storageAccounts/listkeys/action**. Algumas funções de RBAC incorporadas que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e Serviço de Serviço chave de conta de **armazenamento.** Para obter mais informações sobre o papel de Administrador de Serviço, consulte funções de administrador de [subscrição Classic, funções Azure RBAC e funções Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções incorporadas para o Armazenamento Azure, consulte a secção de **armazenamento** em [papel azure incorporado para o Azure RBAC.](../articles/role-based-access-control/built-in-roles.md#storage)

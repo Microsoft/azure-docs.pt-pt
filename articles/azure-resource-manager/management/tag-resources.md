@@ -2,13 +2,13 @@
 title: Recursos de etiquetas, grupos de recursos e subscrições para organização lógica
 description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: ffc97df0923e26c3abf0eed8e7810f3b1dc61ed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132274"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548484"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use tags para organizar os seus recursos Azure e hierarquia de gestão
 
@@ -20,7 +20,7 @@ Para recomendações sobre como implementar uma estratégia de marcação, consu
 
 ## <a name="required-access"></a>Acesso obrigatório
 
-Para aplicar etiquetas a um recurso, tem de ter acesso ao tipo de recursos **Microsoft.Resources/tags.** A função **Tag Contributor** permite aplicar tags a uma entidade sem ter acesso à própria entidade.
+Para aplicar etiquetas a um recurso, tem de ter acesso ao tipo de recursos **Microsoft.Resources/tags.** A função [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) permite aplicar tags a uma entidade sem ter acesso à própria entidade. Atualmente, a função de colaborador de etiquetas não pode aplicar tags a recursos ou grupos de recursos através do portal. Pode aplicar etiquetas a subscrições através do portal. Suporta todas as operações de marcação através da PowerShell e da REST API.  
 
 O papel [de Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário à aplicação de etiquetas a qualquer entidade. Para aplicar etiquetas a apenas um tipo de recurso, utilize a função de contribuinte para esse recurso. Por exemplo, para aplicar etiquetas em máquinas virtuais, utilize o Colaborador da [Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
@@ -28,7 +28,7 @@ O papel [de Contribuinte](../../role-based-access-control/built-in-roles.md#cont
 
 ### <a name="apply-tags"></a>Aplicar etiquetas
 
-A Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Deve ter o Azure PowerShell 3.6.1 ou mais tarde para utilizar estes comandos.
+A Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Deve ter o módulo Az.Resources 1.12.0 ou mais tarde. Pode verificar a `Get-Module Az.Resources`sua versão com . Pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou mais tarde.
 
 O **New-AzTag** substitui todas as etiquetas no recurso, grupo de recursos ou subscrição. Ao ligar para o comando, passe a identificação de recursos da entidade que pretende marcar.
 

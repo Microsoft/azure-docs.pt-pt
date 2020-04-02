@@ -1,5 +1,5 @@
 ---
-title: Ver atrasos relativos nas regiões de Azure a partir de locais específicos Microsoft Docs
+title: Ver atrasos relativos nas regiões de Azure a partir de locais específicos
 description: Saiba como ver as tardias relativas entre os fornecedores de Internet para as regiões de Azure a partir de locais específicos.
 services: network-watcher
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840541"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521385"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Ver latência relativa para as regiões do Azure a partir de localizações específicas
 

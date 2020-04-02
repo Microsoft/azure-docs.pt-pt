@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: e4dfc33756a287b6d2f6e41edded3332ca85241d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62c1e29b668c3ef58b0e26e2749c55b913279425
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274934"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545684"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos suportados para alertas métricos no Monitor Do Azure
 
@@ -42,7 +42,7 @@ Aqui está a lista completa de fontes métricas de monitor estoque azure suporta
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices|Não|Sim| |
 |Microsoft.CognitiveServices/accounts| N/D | Não | [Serviços Cognitivos](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines |Sim | Sim | [Máquinas Virtuais](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets |N/D | Sim |[Conjuntos de escala de máquina virtual](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachineScaleSets |N/D | Sim |[Conjuntos de dimensionamento de máquinas virtuais](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Sim| Não | [Grupos de contentores](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Sim | Não | [Clusters Geridos](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Sim | Sim | |
@@ -56,9 +56,9 @@ Aqui está a lista completa de fontes métricas de monitor estoque azure suporta
 |Microsoft.EventGrid/domínios|Não|Sim| |
 |Microsoft.EventGrid/tópicos |Sim | Não |[Tópicos da Grelha de Eventos](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
 |Microsoft.EventHub/clusters |Sim| Não |[Aglomerados de Hubs de Eventos](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
-|Microsoft.EventHub/espaços de nome |Sim| Não |[Hubs de eventos](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
+|Microsoft.EventHub/espaços de nome |Sim| Não |[Hubs de Eventos](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/cofres| Não |Não |[Cofres](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
-|Microsoft.Logic/workflows |N/D | Não |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
+|Microsoft.Logic/workflows |N/D | Não |[Aplicações Lógicas](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/espaços de trabalho|Sim| Não | [Aprendizagem automática](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.NetApp/netAppAccounts/capacityPools |Sim| Não | [Piscinas de Capacidade Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
 |Microsoft.NetApp/netAppAccounts/capacityPools/volumes |Sim| Não | [Azure NetApp Volumes](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
@@ -77,7 +77,7 @@ Aqui está a lista completa de fontes métricas de monitor estoque azure suporta
 |Microsoft.PowerBIDedicated/capacities | N/D | Não | [Capacidades](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices |N/D|Não | [Serviços de pesquisa](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/espaços de nome |Sim| Não |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
-|Microsoft.Sql/servidores/elasticPools |   Não | Sim |
+|Microsoft.Sql/servidores/elasticPools |    Não | Sim |
 |Microsoft.Sql/servidores/bases de dados    | Não | Sim |
 |Microsoft.Storage/storageAccounts |Sim | Não | [Contas de Armazenamento](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Armazenamento/armazenamentoContas/serviços | Sim| Não | [Serviços Blob,](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices) [Serviços de Arquivo,](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices) [Serviços de Fila](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de Mesa](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
@@ -86,7 +86,7 @@ Aqui está a lista completa de fontes métricas de monitor estoque azure suporta
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sim | Não | [App Service Ambiente Piscinas multi-funções](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sim | Não | [Piscinas de trabalhadores do ambiente do serviço de aplicativos](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Sim | Não | [Planos de Serviço de Aplicações](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Sim | Não | [Serviços](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions) de Aplicações|
+|Microsoft.Web/sites | Sim | Não | [Serviços Aplicacionais](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Sim | Não | [Slots de serviço de aplicativos](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 
 ## <a name="payload-schema"></a>Esquema de carga útil

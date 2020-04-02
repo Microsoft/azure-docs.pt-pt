@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f50115732940eab14db30842be85b47cb4a552e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299525"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520777"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -68,7 +68,7 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
 - Se esta função estiver ativada para o disco, não poderá desativá-la.
     Se precisa de trabalhar em torno disto, tem de [copiar todos os dados](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) para um disco gerido completamente diferente que não esteja a utilizar chaves geridas pelo cliente.
-- Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080, sem outras teclas ou tamanhos.
+- Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2048, sem outras teclas ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptados utilizando as mesmas chaves geridas pelo cliente e devem estar na mesma subscrição.
 - As imagens criadas a partir de discos que são encriptados com encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptadas com as mesmas chaves geridas pelo cliente.
 - Imagens personalizadas encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente não podem ser usadas na galeria de imagens partilhadas.

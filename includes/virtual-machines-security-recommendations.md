@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines
-author: barclayn
+author: msmbaldwin
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/13/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: d0ede337f2ae17f28cd02df7ed35919bd9955e7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74048571"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545909"
 ---
 Este artigo contém recomendações de segurança para máquinas virtuais Azure. Siga estas recomendações para ajudar a cumprir as obrigações de segurança descritas no nosso modelo de responsabilidade partilhada. As recomendações também o ajudarão a melhorar a segurança global para as soluções da sua aplicação web. Para obter mais informações sobre o que a Microsoft faz para cumprir as responsabilidades do prestador de serviços, consulte [responsabilidades partilhadas para a computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 

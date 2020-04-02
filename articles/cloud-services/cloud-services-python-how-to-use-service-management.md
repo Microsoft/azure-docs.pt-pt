@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 50501413a63921a9a34be1c04ed259990922b686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae44ce77ce480cc1bc56ead5547e003d7d4bb39c
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70141471"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547588"
 ---
 # <a name="use-service-management-from-python"></a>Use a gestão de serviços da Python
 Este guia mostra-lhe como executar programáticamente tarefas comuns de gestão de serviços da Python. A classe **ServiceManagementService** no [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta o acesso programático a grande parte da funcionalidade relacionada com a gestão de serviços que está disponível no [portal Azure.][management-portal] Pode utilizar esta funcionalidade para criar, atualizar e eliminar serviços na nuvem, implementações, serviços de gestão de dados e máquinas virtuais. Esta funcionalidade pode ser útil na construção de aplicações que necessitem de acesso programático à gestão de serviços.
@@ -30,10 +30,10 @@ A API de Gestão de Serviços Azure proporciona acesso programático a grande pa
 Para utilizar a API de Gestão de Serviços, é necessário [criar uma conta Azure.](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="concepts"></a><a name="Concepts"> </a>Conceitos
-O Azure SDK para Python envolve a API de [Gestão][svc-mgmt-rest-api]de Serviços, que é uma API REST. Todas as operações da API são realizadas ao longo do SSL e autenticadas mutuamente utilizando certificados V3 X.509. O serviço de gestão pode ser acedido a partir de um serviço em funcionamento em Azure. Também pode ser acedido diretamente através da Internet a partir de qualquer aplicação que possa enviar um pedido HTTPS e receber uma resposta HTTPS.
+O Azure SDK para Python envolve a API de [Gestão][svc-mgmt-rest-api]de Serviços, que é uma API REST. Todas as operações da API são realizadas através de TLS e autenticadas mutuamente utilizando certificados V3 X.509. O serviço de gestão pode ser acedido a partir de um serviço em funcionamento em Azure. Também pode ser acedido diretamente através da Internet a partir de qualquer aplicação que possa enviar um pedido HTTPS e receber uma resposta HTTPS.
 
 ## <a name="installation"></a><a name="Installation"> </a>Instalação
-Todas as funcionalidades descritas neste `azure-servicemanagement-legacy` artigo estão disponíveis no pacote, que pode instalar utilizando pip. Para obter mais informações sobre a instalação (por exemplo, se for novo em Python), consulte [Instalar Python e o Azure SDK](/azure/python/python-sdk-azure-install).
+Todas as funcionalidades descritas neste `azure-servicemanagement-legacy` artigo estão disponíveis no pacote, que pode instalar utilizando pip. Para obter mais informações sobre a instalação (por exemplo, se for novo em Python), consulte [Instalar Python e o Azure SDK](/azure/developer/python/azure-sdk-install).
 
 ## <a name="connect-to-service-management"></a><a name="Connect"> </a>Ligar à gestão de serviços
 Para se ligar ao ponto final da gestão do serviço, precisa do seu ID de subscrição Azure e de um certificado de gestão válido. Pode obter o seu ID de subscrição através do [portal Azure][management-portal].

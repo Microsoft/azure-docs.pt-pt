@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 11f9097fc4875f0a4300ac56dafe7af9a0b00c97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454623"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549163"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são protegidos localmente no servidor, enquanto todos os outros ficheiros são tiered para Ficheiros Azure com base em definições de política. Quando um ficheiro é nivelado, o filtro de ficheiroS De ficheiros Azure Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem tanto o atributo "offline" como o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS atributo definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -51,7 +51,22 @@ Quando há mais de um ponto final do servidor num volume, o limiar de espaço li
 
 <a id="date-tiering-policy"></a>
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Como funciona a política de camadas de dados em conjunto com a política de arrumo de espaço livre no volume? 
-Ao ativar o tiering da nuvem num ponto final do servidor, definiu uma política de espaço livre de volume. Tem sempre precedência sobre quaisquer outras políticas, incluindo a política de datas. Opcionalmente, pode ativar uma política de data para cada ponto final do servidor nesse volume, o que significa que apenas os ficheiros acedidos (isto é, lidos ou escritos) dentro do intervalo de dias que esta política descreve serão mantidos locais, com quaisquer ficheiros mais estalados nidificados. Tenha em mente que a política de espaço livre de volume sempre tem precedência, e quando não há espaço livre suficiente no volume para reter tantos dias de ficheiros como descrito pela política de data, o Azure File Sync continuará a tiering os ficheiros mais frios até que o volume seja livre a percentagem de espaço é cumprida.
+Ao ativar o tiering da nuvem num ponto final do servidor, definiu uma política de espaço livre de volume. Tem sempre precedência sobre quaisquer outras políticas, incluindo a política de datas. Opcionalmente, pode ativar uma política de data para cada ponto final do servidor nesse volume. Esta política gere que apenas os ficheiros acedidos (isto é, lidos ou escritos) dentro do intervalo de dias que esta política descreve serão mantidos locais. Os ficheiros não acedidos com o número de dias especificados serão nividados. 
+
+Cloud Tiering utiliza o último tempo de acesso para determinar quais os ficheiros que devem ser nilutos. O controlador de filtro de nível de nuvem (storagesync.sys) rastreia o último tempo de acesso e regista a informação na loja de calor de nível de nuvem. Pode ver a loja de calor utilizando um cmdlet powerShell local.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> O último carimbo de tempo acedido não é uma propriedade rastreada pela NTFS e, portanto, não é visível por padrão no File Explorer. Não utilize a última marca modificada num ficheiro para verificar se a política de data funciona como esperado. Esta marca de tempo só escreve, não lê. Utilize o cmdlet mostrado para obter o último carimbo de tempo acedido para esta avaliação.
+
+> [!WARNING]
+> Não ligue a função NTFS de rastrear o carimbo de última hora para ficheiros e pastas. Esta funcionalidade está desligada por defeito porque tem um grande impacto no desempenho. O Azure File Sync acompanhará os tempos de acesso mais rápido de forma automática e muito eficiente e não utiliza esta função NTFS.
+
+Tenha em mente que a política de espaço livre de volume sempre tem precedência, e quando não há espaço livre suficiente no volume para reter tantos dias de ficheiros como descrito pela política de data, o Azure File Sync continuará a tiering os ficheiros mais frios até que a percentagem de espaço livre de volume seja satisfeita.
 
 Por exemplo, digamos que tem uma política de tiering baseada em datas de 60 dias e uma política de espaço livre de volume de 20%. Se, após a aplicação da política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre de volume sairá em vigor e anulará a política de data. Isto resultará na sua enumeração de mais ficheiros, de modo a que a quantidade de dados mantidos no servidor possa ser reduzida de 60 dias de dados para 45 dias. Inversamente, esta política vai forçar o tiering de ficheiros que caem fora do seu intervalo de tempo, mesmo que não tenha atingido o seu limite de espaço livre – por isso, um ficheiro com 61 dias será nivelado mesmo que o seu volume esteja vazio.
 

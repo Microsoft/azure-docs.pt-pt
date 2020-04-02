@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: ganesr
-ms.openlocfilehash: 4666022fc62fcb423906b46f0ff2274a2191f341
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: d04032075166d2edd273c7f22bfb0d54aeccd8b3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437616"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545809"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Sobre as Zonas de Borda Azure - Pré-visualização
 
@@ -73,9 +73,6 @@ Os casos de uso típico incluem:
 As Zonas edge serão oferecidas em parceria com os seguintes operadores:
 
 - AT&T (Atlanta, Dallas e Los Angeles)
-- Etisalat
-- Rogers
-- Vodafone
 
 ## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Zonas de borda privada azure
 

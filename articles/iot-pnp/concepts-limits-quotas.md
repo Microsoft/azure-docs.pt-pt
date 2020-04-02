@@ -3,16 +3,16 @@ title: Limites e quotas IoT Plug e Play Preview / Microsoft Docs
 description: Compreenda os limites, quotas e estrangulamentos que se aplicam quando utiliza o Plug IoT e a Pré-visualização.
 author: miagdp
 ms.author: miag
-ms.date: 12/26/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531382"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518175"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites de pré-visualização de plug e reprodução ioT
 
@@ -27,19 +27,19 @@ Para a pré-visualização pública, os seguintes limites e quotas aplicam-se a 
 | Número de modelos de capacidade do dispositivo (DCMs) ou interfaces que podem ser registadas por hub | 1500 ||
 | Número máximo de interfaces que podem ser registadas por dispositivo | 40 ||
 | Número máximo de DCMs que podem ser registados por dispositivo | 1 ||
-| Tamanho máximo da interface/ficheiro DCM | 512 chars ||
+| Tamanho máximo da interface/ficheiro DCM | 512 KB ||
 | Tamanho máximo de um nome de interface | 256 chars ||
 | Tamanho máximo de um nome de propriedade  | 64 bytes, 7 níveis de profundidade (e `$iotin`o primeiro nível é reservado para) | Caracteres permitidos: a-z, A-Z, 0-9 (não como o primeiro personagem), e sublinham. |
 | Tamanho máximo de um valor patrimonial | 512 bytes ||
 | Tamanho máximo de um nome de comando | 100 bytes ||
 | Tamanho gémeo do dispositivo | O mesmo que [os limites do Hub IoT](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Resolução API apela através do SKU (independentemente das unidades) | 100 pedido/segundo ||
+| Resolução API apela através do SKU (independentemente das unidades) | 100 pedidos/segundo ||
 
 ## <a name="model-repository"></a>Repositório modelo
 
 Para a pré-visualização pública, aplicam-se os seguintes limites e quotas a um repositório modelo:
 
-| Limites, restrições e aceleradores| Valor |
+| Limites, restrições e aceleradores | Valor |
 |-----|-----|
 | Número de repositórios de modelos de empresa por inquilino do Diretório Ativo Azure | 1 |
 | Número de chaves de autorização por repositório modelo | 10  |

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126793"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545875"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localize a interface de utilizador da sua aplicação utilizando uma política personalizada no Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A personalização linguística no Azure Ative Directory B2C (Azure AD B2C) permite-lhe acomodar diferentes idiomas de acordo com as necessidades do seu cliente. A Microsoft fornece as traduções para 36 idiomas, mas também pode fornecer as suas próprias traduções para qualquer idioma. Mesmo que a sua experiência seja fornecida apenas para uma única língua, pode personalizar qualquer texto nas páginas. 
+A personalização linguística no Azure Ative Directory B2C (Azure AD B2C) permite-lhe acomodar diferentes idiomas de acordo com as necessidades do seu cliente. A Microsoft fornece as traduções para [36 idiomas,](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)mas também pode fornecer as suas próprias traduções para qualquer idioma. Mesmo que a sua experiência seja fornecida apenas para uma única língua, pode personalizar qualquer texto nas páginas. 
 
 Este artigo mostra-lhe como apoiar vários locais ou idiomas na política para viagens de utilizador. A localização requer três passos: configurar a lista explícita de línguas suportadas, fornecer cordas e coleções específicas da linguagem e editar a [definição](contentdefinitions.md) de conteúdo para a página. 
 

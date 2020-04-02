@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 758e6123fd09df1e3f8b2e883a729b9fec4328d1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8bcf59ee863bb2fd2a3213480372ad215c2fc00d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367294"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528594"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestão e manutenção do agente máquina conectada
 
@@ -61,6 +61,9 @@ O Assistente de Configuração descobre se existe uma versão anterior e, em seg
 ### <a name="linux-agent"></a>Agente Linux
 
 Para atualizar o agente numa máquina Linux para a versão mais recente, envolve dois comandos. Um comando para atualizar o índice de pacotelocal com a lista dos pacotes mais recentes disponíveis dos repositórios, e um comando para atualizar o pacote local. 
+
+> [!NOTE]
+> Para atualizar o agente, deve ter permissões de acesso *à raiz* ou com uma conta que tenha direitos elevados usando o Sudo.
 
 #### <a name="upgrade-ubuntu"></a>Upgrade Ubuntu
 
@@ -112,13 +115,11 @@ As ações do comando [zypper,](https://en.opensuse.org/Portal:Zypper) tais como
 
 ## <a name="remove-the-agent"></a>Remova o agente
 
-Utilize um dos seguintes procedimentos para desinstalar o agente Windows ou Linux utilizando a linha de comando ou o assistente de configuração descrito nesta secção. Antes de desinstalar o agente, desligue primeiro a máquina do Azure Arc para servidores (pré-visualização) completando estes passos: 
-
-1. Abra o Arco Azure para servidores (pré-visualização) indo para o [portal Azure](https://aka.ms/hybridmachineportal).
-
-2. Selecione a máquina na lista, selecione a elipse (**...**) e, em seguida, selecione **Delete**.
+Execute um dos seguintes métodos para desinstalar o windows ou o agente Máquina Conectada Linux da máquina. A remoção do agente não desregistra a máquina com Arc para servidores (pré-visualização), este é um processo separado que executa quando já não precisa de gerir a máquina em Azure.
 
 ### <a name="windows-agent"></a>Agente do Windows
+
+Ambos os métodos seguintes removem o agente, mas não removem a pasta *C:\Program Files\AzureConnectedMachineAgent* na máquina.
 
 #### <a name="uninstall-from-control-panel"></a>Desinstalar do Painel de Controlo
 
@@ -158,6 +159,9 @@ Para desinstalar o agente manualmente a partir do Pedido de Comando ou utilizar 
 
 ### <a name="linux-agent"></a>Agente Linux
 
+> [!NOTE]
+> Para desinstalar o agente, deve ter permissões de acesso *à raiz* ou com uma conta que tenha direitos elevados usando o Sudo.
+
 Para desinstalar o agente Linux, o comando a utilizar depende do sistema operativo Linux.
 
 - Para Ubuntu, executar o seguinte comando:
@@ -177,3 +181,11 @@ Para desinstalar o agente Linux, o comando a utilizar depende do sistema operati
     ```bash
     sudo zypper remove azcmagent
     ```
+
+## <a name="unregister-machine"></a>Máquina de não registar
+
+Se planeia parar de gerir a máquina com serviços de suporte no Azure, execute os seguintes passos para desregistar a máquina com o Arc para servidores (pré-visualização). Pode executar estes passos antes ou depois de ter removido o agente máquina conectada da máquina.
+
+1. Abra o Arco Azure para servidores (pré-visualização) indo para o [portal Azure](https://aka.ms/hybridmachineportal).
+
+2. Selecione a máquina na lista, selecione a elipse (**...**) e, em seguida, selecione **Delete**.

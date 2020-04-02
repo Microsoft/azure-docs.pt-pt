@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 80ec9b2bbf10d8f500e7f9e0369faca3b9663633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79a821a4c8fe4cb2d048f0dcb0a6e091462a1779
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74129396"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548797"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Ligar a fontes de dados de Tecidos Azure
 
@@ -31,11 +31,11 @@ A lista seguinte fornece as fontes de dados em Azure que pode utilizar com os Br
 - [Base de dados Azure SQL](/azure/databricks/data/data-sources/sql-databases)
 
     Este link fornece a API DataFrame para a ligação às bases de dados SQL utilizando jDBC e como controlar o paralelismo das leituras através da interface JDBC. Este tópico fornece exemplos detalhados usando a API Scala, com exemplos abreviados python e Spark SQL no final.
-- [Azure Data Lake Storage](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)
+- [Armazenamento do Azure Data Lake](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)
 
     Este link fornece exemplos sobre como usar o principal de serviço de Diretório Ativo Azure para autenticar com o Armazenamento do Lago De Dados Azure. Também fornece instruções sobre como aceder aos dados no Armazenamento do Lago De Dados Azure a partir de Tijolos de Dados Azure.
 
-- [Armazenamento de Blobs do Azure](/azure/databricks/data/data-sources/azure/azure-storage)
+- [Armazenamento Azure Blob](/azure/databricks/data/data-sources/azure/azure-storage)
 
     Este link fornece exemplos sobre como aceder diretamente ao Armazenamento De Azure Blob a partir de Tijolos de Dados Azure utilizando a chave de acesso ou o SAS para um determinado recipiente. O link também fornece informações sobre como aceder ao Armazenamento De Azure Blob a partir de Tijolos de Dados Azure usando a API RDD.
 
@@ -43,11 +43,11 @@ A lista seguinte fornece as fontes de dados em Azure que pode utilizar com os Br
 
     Este link fornece instruções sobre como usar o [conector Azure Cosmos DB Spark](https://github.com/Azure/azure-cosmosdb-spark) da Azure Databricks para aceder a dados em Azure Cosmos DB.
 
-- [Hubs de Eventos do Azure](/azure/event-hubs/event-hubs-spark-connector)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-spark-connector)
 
     Este link fornece instruções sobre como utilizar o [conector Azure Event Hubs Spark](https://github.com/Azure/azure-event-hubs-spark) a partir de Databricks Azure para aceder a dados em Hubs de Eventos Azure.
 
-- [Armazém de dados Azure SQL](/azure/databricks/data/data-sources/azure/sql-data-warehouse)
+- [Armazém de dados Azure SQL](/azure/synapse-analytics/sql-data-warehouse/)
 
     Este link fornece instruções sobre como utilizar o conector Azure SQL Data Warehouse para ligar a partir de Tijolos de Dados Azure.
     

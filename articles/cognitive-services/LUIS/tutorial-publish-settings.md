@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Publicar configurações - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Neste tutorial, altere as definições de publicação para obter melhores previsões.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
-ms.author: diberry
-ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 19913d16ecb1457ad4edb93ea34e4b96a590aca0
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75890392"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545778"
 ---
 # <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Tutorial: Adicionar análise de sentimento como um cenário de publicação
 
@@ -67,11 +59,11 @@ Por se trata de uma definição de publicação, não se vê rotulado nas págin
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até ao fim do URL no endereço e introduza a seguinte expressão:
+1. Vá até ao fim do URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por:
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    O último parâmetro de `query`corda é, a **consulta**de expressão. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `OrderPizza` com a análise de sentimentos extraída.
+    Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `OrderPizza` com a análise de sentimentos extraída.
 
     ```json
     {
@@ -122,9 +114,7 @@ Por se trata de uma definição de publicação, não se vê rotulado nas págin
 
     A análise de sentimento é positiva com uma pontuação de 86%.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informações relacionadas
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299524"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520782"
 ---
 ### <a name="portal"></a>Portal
 
@@ -42,7 +42,7 @@ A configuração de chaves geridas pelo cliente para os seus discos exigirá que
 
     ![Screenshot do painel de definições de recursos do Cofre chave. Mostra o botão de geração/importação dentro das definições.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Deixe ambos os tipos de **chave** definidos para **RSA** e **RSA Tamanho** de chave definido para **2080**.
+1. Deixe ambos os tipos de **chave** definidos para **RSA** e **RSA Tamanho** de chave definido para **2048**.
 1. Preencha as restantes seleções conforme quiser e, em seguida, selecione **Criar**.
 
     ![Screenshot da criação de uma lâmina chave que aparece uma vez que gera/importa botão é selecionado](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588047"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529103"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de fornecedores de inteligência de ameaças
 
@@ -42,6 +42,10 @@ Pode transmitir indicadores de ameaça ao Azure Sentinel utilizando um dos produ
 - [Plataforma de inteligência de ameaça de código aberto MISP](https://www.misp-project.org/)
     
     Para obter um script de amostra que forneça aos clientes instâncias MISP para migrar indicadores de ameaça para a API de Segurança do Gráfico da Microsoft, consulte o [MISP para o Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
+
+- [Anomali ThreatStream](https://www.anomali.com/products/threatstream)
+
+    Para descarregar o Integrador e Extensões do ThreatStream e as instruções para ligar a inteligência Do ThreatStream à API de Segurança do Gráfico do Microsoft, consulte a página de [downloads do ThreatStream.](https://ui.threatstream.com/downloads)
 
 - [Redes Palo Alto MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     

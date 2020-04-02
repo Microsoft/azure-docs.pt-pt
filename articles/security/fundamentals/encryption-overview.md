@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: barclayn
-ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mbaldwin
+ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125054"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548613"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da encriptação azure
 

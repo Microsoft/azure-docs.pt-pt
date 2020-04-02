@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed64ee3d0e024c32be08ed4e010a6933033c3f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e96f9484c103ebe75e21705b94cf35b9e16c54f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476523"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529336"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -251,6 +251,8 @@ A encriptação do disco azure não funciona para os seguintes cenários, funcio
 - Discos efémeros osso.
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não se limitando a) DFS, GFS, DRDB e CephFS.
 - Mover um VMs encriptado para outra subscrição.
+- Gen2 VMs (ver: [Suporte para geração 2 VMs em Azure)](generation-2.md#generation-1-vs-generation-2-capabilities)
+- VMs série Lsv2 (ver: [Lsv2-series)](../lsv2-series.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

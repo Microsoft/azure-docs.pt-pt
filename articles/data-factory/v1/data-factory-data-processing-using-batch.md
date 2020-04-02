@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972883"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546932"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala utilizando fábrica de dados e lote
 > [!NOTE]
@@ -430,7 +430,7 @@ Esta secção fornece mais detalhes sobre o código no método Executar.
     } while (continuationToken != null);
 
     ```
-   Para mais informações, consulte a documentação para o método [ListBlobsSegmented.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented)
+   Para mais informações, consulte a documentação para o método [ListBlobsSegmented.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 
 1. O código para trabalhar através do conjunto de bolhas logicamente vai dentro do loop do-while. No método **Executar,** o loop do-while passa a lista de bolhas para um método chamado **Calcular**. O método devolve uma variável de cadeia chamada **saída** que é o resultado de ter iterado através de todas as bolhas do segmento.
 
@@ -965,7 +965,7 @@ Depois de processar dados, pode consumi-lo com ferramentas online como o Power B
 * [Azure e Power BI: Visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referências
-* [Fábrica de Dados Azure](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Introdução ao serviço data factory](data-factory-introduction.md)
   * [Começar com data factory](data-factory-build-your-first-pipeline.md)

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 2ddc56c60c547bd4ce48d620a83fb79246762bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86304fc7776f49c999924b8609f2d26120cee372
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69642490"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549089"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Ativar a ligação do navegador em máquinas virtuais de laboratório 
 
 A DevTest Labs integra-se com o [Azure Bastion,](https://docs.microsoft.com/azure/bastion/)que lhe permite ligar-se às suas máquinas virtuais através de um browser. Primeiro é necessário ativar a ligação do navegador em máquinas virtuais de laboratório.
 
-Como proprietário de um laboratório, você pode permitir o acesso a todas as máquinas virtuais de laboratório através de um navegador. Não precisa de um cliente, agente ou peça de software adicional. A Azure Bastion fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre o SSL. Quando se conecta através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público. Para mais informações, veja [o que é Azure Bastion?](../bastion/bastion-overview.md)
+Como proprietário de um laboratório, você pode permitir o acesso a todas as máquinas virtuais de laboratório através de um navegador. Não precisa de um cliente, agente ou peça de software adicional. A Azure Bastion fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre TLS. Quando se conecta através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público. Para mais informações, veja [o que é Azure Bastion?](../bastion/bastion-overview.md)
 
 > [!NOTE]
 > Ativar a ligação do navegador em máquinas virtuais de laboratório está em pré-visualização.
