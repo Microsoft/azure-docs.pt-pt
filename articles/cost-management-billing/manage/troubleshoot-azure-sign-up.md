@@ -5,15 +5,15 @@ author: v-miegge
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 04e7e3e2818968cd14cd5caf606155171a25e5e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202833"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409463"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Resolver problemas de inscrição no Azure
 

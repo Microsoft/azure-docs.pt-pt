@@ -4,15 +4,15 @@ description: Este artigo descreve alguns problemas comuns que podem ocorrer com 
 author: bandersmsft
 ms.author: banders
 ms.date: 03/03/2020
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3e488cab2705458cfce8517fcbe7c72ce8843596
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272275"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411557"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao Azure EA Portal
 

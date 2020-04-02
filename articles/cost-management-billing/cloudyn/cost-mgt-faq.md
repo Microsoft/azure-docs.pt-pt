@@ -1,24 +1,26 @@
 ---
-title: Perguntas mais frequentes sobre a Cloudyn no Azure | Microsoft Docs
+title: Perguntas mais frequentes sobre a Cloudyn no Azure
 description: Este artigo fornece respostas a algumas das perguntas comuns sobre a Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
-ms.topic: troubleshooting
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770084"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411245"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas mais frequentes sobre a Cloudyn
 
 Este artigo aborda algumas questões comuns sobre a Cloudyn. Se tiver dúvidas sobre a Cloudyn, pode utilizar a página [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn) (FAQs sobre a Cloudyn).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Como posso resolver problemas comuns de configuração da empresa indireta?
 
@@ -58,13 +60,13 @@ Se não conseguir ver dados de recomendação do Otimizador, o mais provável é
 
 Para ativar uma conta:
 
-1.  No portal do Cloudyn, clique em **Definições** na parte superior direita e selecione **Contas da Cloud**.
-2.  No separador Contas do Microsoft Azure, procure contas com uma subscrição **desativada**.
-3.  À direita de uma conta desativada, clique no símbolo **editar**, semelhante a um lápis.
-4.  O ID do inquilino e o ID da tarifa são detetados automaticamente. Clique em **Seguinte**.
-5.  Será redirecionado para o portal do Azure. Inicie sessão no portal e autorize o Cloudyn Collector a aceder aos dados do Azure.
-6.  Em seguida, será redirecionado para a página Gestão de contas da Cloudyn e a sua subscrição será atualizada com o Estado de Conta **ativo**. É apresentado um símbolo de marca de verificação verde.
-7.  Se não for apresentado um símbolo de marca de verificação verde para uma ou mais subscrições, isso significará que não tem permissões para criar uma aplicação de leitor (CloudynCollector) para a subscrição. Os passos 3 e 4 têm de ser repetidos por um utilizador com permissões superiores na subscrição.  
+1.    No portal do Cloudyn, clique em **Definições** na parte superior direita e selecione **Contas da Cloud**.
+2.    No separador Contas do Microsoft Azure, procure contas com uma subscrição **desativada**.
+3.    À direita de uma conta desativada, clique no símbolo **editar**, semelhante a um lápis.
+4.    O ID do inquilino e o ID da tarifa são detetados automaticamente. Clique em **Seguinte**.
+5.    Será redirecionado para o portal do Azure. Inicie sessão no portal e autorize o Cloudyn Collector a aceder aos dados do Azure.
+6.    Em seguida, será redirecionado para a página Gestão de contas da Cloudyn e a sua subscrição será atualizada com o Estado de Conta **ativo**. É apresentado um símbolo de marca de verificação verde.
+7.    Se não for apresentado um símbolo de marca de verificação verde para uma ou mais subscrições, significa que não tem permissões para criar uma aplicação de leitor (CloudynCollector) para a subscrição. Os passos 3 e 4 têm de ser repetidos por um utilizador com permissões superiores na subscrição.  
 
 Depois de concluir os passos anteriores, pode ver as recomendações do Otimizador dentro de um a dois dias. No entanto, pode demorar até cinco dias para que sejam disponibilizados todos os dados de otimização.
 
@@ -75,7 +77,7 @@ Primeiro, vamos ver o cenário mais comum que faz com que as contas de utilizado
 
 > O Admin1 pode ser um Fornecedor de Soluções Cloud da Microsoft ou um utilizador do Contrato Enterprise. A organização está preparada para começar a utilizar a Cloudyn.  Regista-se através do portal do Azure e inicia sessão no portal da Cloudyn. Como pessoa que regista o serviço da Cloudyn e inicia sessão no portal da Cloudyn, o Admin1 torna-se no *administrador principal*. O Admin1 não cria contas de utilizador. No entanto, através do portal da Cloudyn, cria contas do Azure e configura uma hierarquia de entidades. O Admin1 informa o Admin2, um administrador inquilino, que tem de se registar na Cloudyn e iniciar sessão no portal da Cloudyn.
 >
-> O Admin2 regista-se através do portal do Azure. No entanto, quando tenta iniciar sessão no portal da Cloudyn, recebe um erro a indicar que a conta está **suspensa**. O administrador principal, Admin1, é notificado da suspensão da conta. O Admin1 tem de ativar a conta do Admin2 e conceder *acesso de entidade de administração* às entidades apropriadas, permitir acesso de gestão de utilizadores e ativar a conta de utilizador.
+> O Admin2 regista-se através do portal do Azure. No entanto, quando tenta iniciar sessão no portal da Cloudyn, recebe um erro a indicar que a conta está **suspensa**. O administrador principal, Admin1, é notificado da suspensão da conta. O Admin1 tem de ativar a conta do Admin2 e conceder *acesso de entidade de administração* às entidades apropriadas, permitir o acesso de gestão de utilizadores e ativar a conta de utilizador.
 
 
 Se receber um alerta com um pedido para permitir o acesso a um utilizador, terá de ativar a conta de utilizador.
@@ -95,7 +97,7 @@ Recomendamos que crie, pelo menos, duas contas de administrador da Cloudyn no ca
 
 Se não conseguir iniciar sessão no portal da Cloudyn, verifique se está a utilizar o URL correto para iniciar sessão na Cloudyn. [Utilize](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)https://azure.cloudyn.com.
 
-Evite utilizar o URL direto da Cloudyn https://app.cloudyn.com.
+Evite utilizar o URL direto da Cloudyn `https://app.cloudyn.com`.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Como posso ativar contas desativadas com as credenciais do Azure?
 

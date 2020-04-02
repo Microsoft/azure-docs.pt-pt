@@ -4,15 +4,15 @@ description: Este artigo acompanha-o através dos passos necessários para criar
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 73c8f86e4c0bdbbbe35f17a48da4a9b340e4ec5f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 38efc86d1bdc185f39d3ea502a64d0f3cf7edcc0
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203054"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408254"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar um pedido de suporte para a Cloudyn
 

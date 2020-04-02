@@ -5,15 +5,15 @@ author: v-miegge
 ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 3374fc948c2ed3c75108e49eb6129f3976f8c956
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 59cad232ae4d16b8f74942e1e6026171ae1b8269
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202969"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408422"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Resolução de problemas de pagamento no Azure
 
