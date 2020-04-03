@@ -1,6 +1,6 @@
 ---
 title: Otimizar as transações
-description: Aprenda a otimizar o desempenho do seu código transacional no SQL Analytics, minimizando ao mesmo tempo o risco de retrocessos longos.
+description: Aprenda a otimizar o desempenho do seu código transacional no Synapse SQL, minimizando o risco de retrocessos longos.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,29 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 700f4717db652d678255aaa9fce6ff8b8ff3b52f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350594"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582134"
 ---
-# <a name="optimizing-transactions-in-sql-analytics"></a>Otimização de transações no SQL Analytics
-Aprenda a otimizar o desempenho do seu código transacional no SQL Analytics, minimizando ao mesmo tempo o risco de retrocessos longos.
+# <a name="optimizing-transactions-in-synapse-sql"></a>Otimização de transações no Synapse SQL
+
+Aprenda a otimizar o desempenho do seu código transacional no Synapse SQL, minimizando o risco de retrocessos longos.
 
 ## <a name="transactions-and-logging"></a>Transações e exploração madeireira
-As transações são um componente importante de um motor de base de dados relacional. O SQL Analytics utiliza transações durante a modificação de dados. Estas transações podem ser explícitas ou implícitas. As declarações de INSIRA, ATUALIZAÇÃO e DELETE são todos exemplos de transações implícitas. As transações explícitas utilizam o BEGIN TRAN, o COMMIT TRAN ou o ROLLBACK TRAN. As transações explícitas são normalmente utilizadas quando várias declarações de modificação precisam de ser ligadas numa única unidade atómica. 
 
-A SQL Analytics comete alterações na base de dados utilizando registos de transações. Cada distribuição tem o seu próprio registo de transações. Os registos de transações são automáticos. Não é necessária nenhuma configuração. No entanto, embora este processo garanta a escrita, introduz uma sobrecarga no sistema. Pode minimizar este impacto escrevendo código sinuoso e eficiente. O código transaccionalmente eficiente enquadra-se, em geral, em duas categorias.
+As transações são um componente importante de um motor de base de dados relacional. As transações são utilizadas durante a modificação de dados. Estas transações podem ser explícitas ou implícitas. As declarações de INSIRA, ATUALIZAÇÃO e DELETE são todos exemplos de transações implícitas. As transações explícitas utilizam o BEGIN TRAN, o COMMIT TRAN ou o ROLLBACK TRAN. As transações explícitas são normalmente utilizadas quando várias declarações de modificação precisam de ser ligadas numa única unidade atómica. 
+
+As alterações na base de dados são rastreadas utilizando registos de transações. Cada distribuição tem o seu próprio registo de transações. Os registos de transações são automáticos. Não é necessária nenhuma configuração. No entanto, embora este processo garanta a escrita, introduz uma sobrecarga no sistema. Pode minimizar este impacto escrevendo código sinuoso e eficiente. O código transaccionalmente eficiente enquadra-se, em geral, em duas categorias.
 
 * Utilize construções mínimas de exploração madeireira sempre que possível
 * Processar dados utilizando lotes com âmbito de aplicação para evitar transações singulares de longo prazo
 * Adote um padrão de comutação de divisórias para grandes modificações numa determinada partição
 
 ## <a name="minimal-vs-full-logging"></a>Mínimo vs. exploração madeireira completa
+
 Ao contrário das operações totalmente registadas, que utilizam o registo de transações para acompanhar todas as alterações de linha, as operações minimamente registadas registam apenas a atribuição de extensão e alterações de meta-dados. Portanto, o registo mínimo envolve o registo apenas das informações necessárias para reverter a transação após uma falha, ou para um pedido explícito (ROLLBACK TRAN). Uma vez que muito menos informação é rastreada no registo de transações, uma operação minimamente registada executa melhor do que uma operação de tamanho semelhante totalmente registada. Além disso, como menos escritos vão o registo de transações, uma quantidade muito menor de dados de registo é gerada e assim é mais eficiente em E/S.
 
 Os limites de segurança da transação aplicam-se apenas às operações totalmente registadas.
@@ -41,6 +44,7 @@ Os limites de segurança da transação aplicam-se apenas às operações totalm
 > 
 
 ## <a name="minimally-logged-operations"></a>Operações minimamente registadas
+
 As seguintes operações são capazes de ser minimamente registadas:
 
 * CRIAR TABELA COMO SELECIONADO[(CTAS)](sql-data-warehouse-develop-ctas.md)
@@ -78,14 +82,13 @@ CTAS e INSERT... SELECT são ambas as operações de carga a granel. No entanto,
 Vale a pena notar que quaisquer escritos para atualizar índices secundários ou não agrupados serão sempre operações totalmente registadas.
 
 > [!IMPORTANT]
-> Uma base de dados SQL Analytics tem 60 distribuições. Portanto, assumindo que todas as linhas estão distribuídas uniformemente e aterrando numa única divisória, o seu lote terá de conter 6.144.000 linhas ou maiores para ser minimamente registado ao escrever para um Índice de Colunas Agrupadas. Se a tabela for dividida e as linhas inseridas forem inseridas, então precisará de 6.144.000 linhas por limite de divisória assumindo a distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limiar de 102.400 linhas para que a inserção seja minimamente registada na distribuição.
-> 
+> Uma base de dados de piscina Synapse SQL tem 60 distribuições. Portanto, assumindo que todas as linhas estão distribuídas uniformemente e aterrando numa única divisória, o seu lote terá de conter 6.144.000 linhas ou maiores para ser minimamente registado ao escrever para um Índice de Colunas Agrupadas. Se a tabela for dividida e as linhas inseridas forem inseridas, então precisará de 6.144.000 linhas por limite de divisória assumindo a distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limiar de 102.400 linhas para que a inserção seja minimamente registada na distribuição.
 > 
 
 Carregar dados numa tabela não vazia com um índice agrupado pode muitas vezes conter uma mistura de linhas totalmente registadas e minimamente registadas. Um índice agrupado é uma árvore equilibrada (b-árvore) de páginas. Se a página que está a ser escrita já contiver linhas de outra transação, então estas escritas serão totalmente registadas. No entanto, se a página estiver vazia, então a escrita para essa página será minimamente registada.
 
 ## <a name="optimizing-deletes"></a>Otimizar elimina
-Delete é uma operação totalmente registada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou `SELECT` numa divisória, muitas vezes faz mais sentido para os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Uma vez criado, use [RENAME](/sql/t-sql/statements/rename-transact-sql) para trocar a sua mesa antiga com a mesa recém-criada.
+Delete é uma operação totalmente registada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou `SELECT` numa divisória, muitas vezes faz mais sentido para os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Uma vez criado, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a sua mesa antiga com a mesa recém-criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -116,7 +119,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Otimização de atualizações
-Update é uma operação totalmente registada.  Se precisar de atualizar um grande número de linhas numa tabela ou numa partição, muitas vezes pode ser muito mais eficiente utilizar uma operação minimamente registada, como [as CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para o fazer.
+Update é uma operação totalmente registada.  Se precisar de atualizar um grande número de linhas numa tabela ou numa partição, muitas vezes pode ser muito mais eficiente utilizar uma operação minimamente registada, como [as CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para o fazer.
 
 No exemplo abaixo, foi convertida uma atualização completa do quadro para um CTAS para que seja possível o abate mínimo.
 
@@ -177,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Recriar grandes tabelas pode beneficiar da utilização de funcionalidades de gestão de carga de trabalho do SQL Analytics. Para mais informações, consulte [as classes de recursos para gestão](resource-classes-for-workload-management.md)da carga de trabalho.
+> Recriar grandes tabelas pode beneficiar da utilização de funcionalidades de gestão de carga de trabalho de piscina Synapse SQL. Para mais informações, consulte [as classes de recursos para gestão](resource-classes-for-workload-management.md)da carga de trabalho.
 > 
 > 
 
@@ -405,7 +408,8 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Pausa e orientação de escala
-O SQL Analytics permite-lhe [parar, retomar e escalar](sql-data-warehouse-manage-compute-overview.md) a sua piscina SQL a pedido. Quando você pausa ou escala o seu pool SQL, é importante entender que quaisquer transações a bordo são terminadas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. Se a sua carga de trabalho tiver emitido uma modificação de dados de longo curso e incompleta antes da pausa ou operação de escala, então este trabalho terá de ser desfeito. Esta destruição pode ter impacto no tempo que leva para parar ou escalar a sua piscina SQL. 
+
+Synapse SQL permite-lhe [parar, retomar e escalar](sql-data-warehouse-manage-compute-overview.md) a sua piscina SQL a pedido. Quando você pausa ou escala o seu pool SQL, é importante entender que quaisquer transações a bordo são terminadas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. Se a sua carga de trabalho tiver emitido uma modificação de dados de longo curso e incompleta antes da pausa ou operação de escala, então este trabalho terá de ser desfeito. Esta destruição pode ter impacto no tempo que leva para parar ou escalar a sua piscina SQL. 
 
 > [!IMPORTANT]
 > Ambos `UPDATE` `DELETE` e stão a ser operações totalmente registadas, pelo que estas operações de desfazer/redo podem demorar significativamente mais tempo do que as operações mínimas equivalentes. 
@@ -414,9 +418,10 @@ O SQL Analytics permite-lhe [parar, retomar e escalar](sql-data-warehouse-manage
 
 O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de fazer uma pausa ou escalonar o pool SQL. No entanto, este cenário pode nem sempre ser prático. Para mitigar o risco de uma longa reversão, considere uma das seguintes opções:
 
-* Reescrever operações de longo prazo utilizando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+* Reescrever operações de longo prazo utilizando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Quebrar a operação em pedaços; operando em um subconjunto das linhas
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte [as Transações no SQL Analytics](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte as [Melhores Práticas do Armazém de Dados SQL](sql-data-warehouse-best-practices.md).
+
+Consulte [as transações em Synapse SQL](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte as [Melhores Práticas do Armazém de Dados SQL](sql-data-warehouse-best-practices.md).
 

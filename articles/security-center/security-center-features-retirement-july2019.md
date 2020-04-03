@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f923db5c730f6dec15f4fc211ab7acbd009ac7f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521424"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583223"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Funcionalidades do Centro de Segurança de Aposentação (julho 2019)
 
@@ -97,7 +97,7 @@ Todas as funcionalidades do painel de acesso **de identidade &** acesso no Log A
 
 ## <a name="security-events-map"></a>Mapa de eventos de segurança<a name="menu_securityeventsmap"></a>
 
-O Centro de Segurança fornece-lhe um mapa de [alertas](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) de segurança para ajudar a identificar ameaças de segurança. O botão de mapa de **eventos de segurança** nesse mapa abre um dashboard que lhe permite visualizar eventos de segurança bruta no espaço de trabalho selecionado.
+O Centro de Segurança fornece-lhe um mapa de alertas de segurança para ajudar a identificar ameaças de segurança. O botão de mapa de **eventos de segurança** nesse mapa abre um dashboard que lhe permite visualizar eventos de segurança bruta no espaço de trabalho selecionado.
 
 Removemos o botão de mapa de **eventos de segurança** e o painel de instrumentos por espaço de trabalho.
 
@@ -136,7 +136,7 @@ Para mais informações sobre alertas personalizados de aposentadoria, consulte 
 
 ## <a name="security-alerts-investigation"></a>Segurança alerta investigação<a name="menu_investigate"></a>
 
-[A funcionalidade de investigação](https://docs.microsoft.com/azure/security-center/security-center-investigation) no Centro de Segurança ajuda-o a triagem de um potencial incidente de segurança. A funcionalidade permite-lhe compreender o alcance de um incidente e rastrear a sua causa principal. Removemos esta funcionalidade do Centro de Segurança porque foi substituída por uma experiência melhorada no [Azure Sentinel.](https://azure.microsoft.com/services/azure-sentinel/)
+A funcionalidade de investigação no Centro de Segurança ajuda-o a triagem de um potencial incidente de segurança. A funcionalidade permite-lhe compreender o alcance de um incidente e rastrear a sua causa principal. Removemos esta funcionalidade do Centro de Segurança porque foi substituída por uma experiência melhorada no [Azure Sentinel.](https://azure.microsoft.com/services/azure-sentinel/)
 
 ![Incidente de segurança][14]
 

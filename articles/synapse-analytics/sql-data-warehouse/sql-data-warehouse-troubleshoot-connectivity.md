@@ -1,6 +1,6 @@
 ---
 title: Conectividade de resolução de problemas
-description: Conectividade de resolução de problemas na SQL Analytics.
+description: Conectividade de resolução de problemas na piscina SYnapse SQL.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 689a2e549c2627c607b6549f164e55a73318f63e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2b0e144220e36de6157101190adb838ae651d7c4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350048"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583331"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Troubleshooting connectivity issues (Resolver problemas de conectividade)
 
-Este artigo lista técnicas comuns de resolução de problemas em torno da ligação à sua base de dados SQL Analytics.
+Este artigo lista técnicas comuns de resolução de problemas em torno da ligação à sua piscina SYnapse SQL.
 - [Verifique a disponibilidade do serviço](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
 - [Verificar operação de dimensionamento ou em pausa](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
 - [Verificar as definições de firewall](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
@@ -32,33 +32,33 @@ Este artigo lista técnicas comuns de resolução de problemas em torno da liga�
 
 ## <a name="check-service-availability"></a>Verifique a disponibilidade do serviço
 
-Verifique se o serviço está disponível. No portal Azure, vá à base de dados da SQL Analytics que está a tentar ligar. No painel TOC esquerdo, clique em **Diagnosticar e resolver problemas**.
+Verifique se o serviço está disponível. No portal Azure, vá à piscina Synapse SQL que está a tentar ligar. No painel TOC esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 ![Selecione saúde de recursos](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-O estado do seu SQL Analytics será mostrado aqui. Se o serviço não estiver **disponível,** verifique mais passos.
+O estado da sua piscina SYnapse SQL será mostrado aqui. Se o serviço não estiver **disponível,** verifique mais passos.
 
 ![Serviço Disponível](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se a sua saúde de Recursos mostrar que a sua instância SQL Analytics está pausada ou escalonada, siga a orientação para retomar a sua instância.
+Se a sua saúde de Recursos mostrar que a sua instância de piscina Synapse SQL está pausada ou escalonada, siga a orientação para retomar a sua instância.
 
 ![Serviço Pausado](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Informações adicionais sobre saúde de recursos podem ser encontradas aqui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificar operação de dimensionamento ou em pausa
 
-Verifique o portal para ver se a sua instância SQL Analytics está pausada ou a escalar.
+Verifique o portal para ver se a sua instância de piscina Synapse SQL está pausada ou escalonada.
 
 ![Serviço Pausado](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se verificar que o seu serviço está pausado ou escalonado, verifique se não é durante o seu horário de manutenção. No portal para a sua *visão geral*do SQL Analytics, você verá o horário de manutenção eleito.
+Se verificar que o seu serviço está pausado ou escalonado, verifique se não é durante o seu horário de manutenção. No portal para a sua *visão*geral da piscina Synapse SQL, você verá o horário de manutenção eleito.
 
 ![Horário de manutenção de visão geral](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Caso contrário, consulte o seu administrador de TI para verificar se esta manutenção não é um evento agendado. Para retomar a instância SQL Analytics, siga os passos [aqui](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute)descritos .
+Caso contrário, consulte o seu administrador de TI para verificar se esta manutenção não é um evento agendado. Para retomar a instância da piscina Synapse SQL, siga os passos [aqui](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute)descritos .
 
 ## <a name="check-your-firewall-settings"></a>Verificar as definições de firewall
 
-A base de dados SQL Analytics comunica através da porta 1433.Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Informações adicionais sobre configurações de firewall podem ser encontradas [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+A piscina SQL synapse comunica sobre a porta 1433.Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433. Informações adicionais sobre configurações de firewall podem ser encontradas [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as definições de Ponto Final de Serviço/VNet
 
@@ -68,7 +68,7 @@ Se estiver a receber erros 40914 e 40615, consulte [a descrição do erro e](htt
 
 ### <a name="software"></a>Software
 
-Verifique para se certificar de que está a utilizar as ferramentas mais recentes para se ligar à sua base de dados SQL Analytics:
+Verifique se está a utilizar as mais recentes ferramentas para se ligar à sua piscina SYnapse SQL:
 
 * SSMS
 * Azure Data Studio
@@ -113,7 +113,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemas de ligação intermitentes
 
-Verifique se o servidor está sobrecarregado com um grande número de pedidos em fila. Poderá ter de aumentar a sua instância SQL Analytics para obter recursos adicionais.
+Verifique se o servidor está sobrecarregado com um grande número de pedidos em fila. Você pode precisar de escalar o seu pool SQL Synapse para obter recursos adicionais.
 
 ## <a name="common-error-messages"></a>Mensagens de erro comuns
 

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 2df83e3b62994381895315b2ef100299e40b745e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366513"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607537"
 ---
 # <a name="sql-database-release-notes"></a>Notas de lançamento da Base de Dados SQL
 
@@ -42,7 +42,7 @@ Este artigo lista as funcionalidades da Base de Dados SQL que estão atualmente 
 |Compilação Diferida Variável de Tabela (sob o nível de compatibilidade 150)|Para obter informações, consulte [A Compilação Diferida variável da tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |
 
-### <a name="managed-instance"></a>[Instância Gerida](#tab/managed-instance)
+### <a name="managed-instance"></a>[Instância gerida](#tab/managed-instance)
 
 | Funcionalidade | Detalhes |
 | ---| --- |
@@ -78,6 +78,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
+|[Permissões em grupo de recursos não aplicadas à Instância Gerida](#permissions-on-resource-group-not-applied-to-managed-instance)|Fev 2020|Tem Sem-teto||
 |[Limitação da falha manual via portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem Sem-teto||
 |[As funções do Agente SQL precisam de permissões de EXECUÇÃ explícitas para logins não-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem Sem-teto||
 |[Os trabalhos do Agente SQL podem ser interrompidos pelo reinício do processo do Agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dez 2019|Sem Sem Suver|Mar 2020|
@@ -101,6 +102,12 @@ As seguintes funcionalidades estão ativadas no modelo de implementação de ins
 |A restauração da base de dados ponto-a-tempo do nível Business Critical para o nível de Propósito Geral não terá sucesso se a base de dados de origem contiver objetos OLTP na memória.||Resolvido|Out 2019|
 |Recurso de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura||Resolvido|Out 2019|
 |Bases de dados contidas não suportadas em instância gerida||Resolvido|Ago 2019|
+
+### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Permissões no grupo de recursos não aplicadas a instância gerida
+
+A função RBAC do colaborador de instância gerida quando aplicada a um grupo de recursos (RG) não é aplicada à Instância Gerida e não tem qualquer efeito.
+
+**Supor :** Configurar função de Colaborador de Instância Gerida para utilizadores ao nível da subscrição.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitação da falha manual via portal para grupos de failover
 

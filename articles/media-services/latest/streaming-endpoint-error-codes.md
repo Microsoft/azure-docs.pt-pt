@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65411379"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582687"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erros de streaming endpoint (Origem) 
 
@@ -202,7 +202,7 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 - [Encoding error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode) (Códigos de erro de codificação)
 - [Conceitos de Serviços De Mídia Azure](concepts-overview.md)
-- [Quotas e Limitações](limits-quotas-constraints.md)
+- [Quotas e limites](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

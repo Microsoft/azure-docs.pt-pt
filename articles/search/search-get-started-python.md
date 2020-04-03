@@ -2,26 +2,26 @@
 title: 'Quickstart: Criar um índice de pesquisa em Python usando APIs REST'
 titleSuffix: Azure Cognitive Search
 description: Explica como criar um índice, dados de carga e consultas de execução usando Python, Jupyter Notebooks e a API de Pesquisa Cognitiva Azure.
-author: tchristiani
+author: HeidiSteen
 manager: nitinme
-ms.author: terrychr
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/01/2020
+ms.openlocfilehash: fd87dbe125e84c171cc35a2b242879c44bc50fd9
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78227108"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585933"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Quickstart: Criar um índice de pesquisa cognitiva azure em Python usando cadernos Jupyter
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C #](search-create-index-dotnet.md)
+> * [C#](search-create-index-dotnet.md)
 > * [Carteiro (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
@@ -197,7 +197,7 @@ Para empurrar documentos, utilize um pedido HTTP POST para o ponto final do URL 
         "@search.action": "upload",
         "HotelId": "3",
         "HotelName": "Triple Landscape Hotel",
-        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel's restaurant services.",
         "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
         "Category": "Resort and Spa",
         "Tags": [ "air conditioning", "bar", "continental breakfast" ],
@@ -256,45 +256,59 @@ Este passo mostra-lhe como consultar um índice utilizando os documentos de [pes
 
    ```python
    searchstring = '&search=*&$count=true'
-   ```
 
-1. Numa nova célula, forneça o seguinte exemplo para pesquisar nos termos "hotéis" e "wifi". Adicione $select especificar quais os campos a incluir nos resultados da pesquisa.
-
-   ```python
-   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
-   ```
-
-1. Noutra cela, formula um pedido. Este pedido GET visa a recolha de docs do índice hotéis-quickstart, e anexa a consulta que especificou no passo anterior.
-
-   ```python
    url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-1. Corre em cada passo. Os resultados devem ser semelhantes aos seguintes resultados. 
+1. Numa nova célula, forneça o seguinte exemplo para pesquisar nos termos "hotéis" e "wifi". Adicione $select especificar quais os campos a incluir nos resultados da pesquisa.
+
+   ```python
+   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)   
+   ```
+
+   Os resultados devem ser semelhantes aos seguintes resultados. 
 
     ![Pesquisar um índice](media/search-get-started-python/search-index.png "Pesquisar um índice")
 
-1. Experimente outros exemplos de consulta para sentir a sintaxe. Pode substituir `searchstring` os seguintes exemplos e, em seguida, reexecutar o pedido de pesquisa. 
-
-   Aplicar um filtro: 
+1. Em seguida, aplique uma expressão $filter que selecione apenas aqueles hotéis com uma classificação superior a 4. 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)     
    ```
 
-   Veja os dois primeiros resultados:
+1. Por padrão, o motor de busca devolve os 50 melhores documentos, mas pode usar o topo e saltar para adicionar paginação e escolher quantos documentos em cada resultado. Esta consulta devolve dois documentos em cada conjunto de resultados.
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
-    Encomenda por um campo específico:
+1. Neste último exemplo, use $orderby para classificar os resultados pela cidade. Este exemplo inclui campos da coleção Address.
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
 ## <a name="clean-up"></a>Limpeza

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 504dfb721c7b87d5497c73851d0694601b253d5c
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529698"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585299"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -19,7 +19,7 @@ Este artigo fornece soluções para questões comuns da Azure FarmBeats. Para ob
 ## <a name="install-issues"></a>Instalar problemas
 
   > [!NOTE]
-  > Se estiver a reiniciar a instalação devido a um erro, certifique-se de eliminar o Grupo de Recursos ou eliminar todos os recursos do Grupo de Recursos antes de reiniciar a instalação.
+  > Se estiver a reiniciar a instalação devido a um erro, certifique-se de eliminar o **Grupo de Recursos** ou eliminar todos os recursos do Grupo de Recursos antes de reiniciar a instalação.
 
 ### <a name="invalid-sentinel-credentials"></a>Credenciais Sentinelinas inválidas
 
@@ -31,7 +31,7 @@ Aumente a quota ou elimine as contas de lote não utilizadas e reinicie a instal
 
 ### <a name="invalid-resource-group-location"></a>Localização do grupo de recursos inválido
 
-Certifique-se de que o Grupo de Recursos está no mesmo local que a Região especificada durante a instalação.
+Certifique-se de que o **Grupo de Recursos** está no mesmo local que a **Região** especificada durante a instalação.
 
 ### <a name="other-install-issues"></a>Outros problemas de instalação
 
@@ -39,11 +39,11 @@ Contacte-nos com os seguintes detalhes:
 
 - O seu ID de subscrição
 - Nome do Grupo de Recursos
-- Fixe o ficheiro de registo para a falha de implantação utilizando os passos abaixo:
+- Siga os passos abaixo para anexar o ficheiro de registo para a falha de implantação:
 
-    1. Navegue para o Grupo de Recursos no portal Azure.
-    2. Selecione As implementações na secção Definições do lado esquerdo.
-    3. Para cada implementação que mostrar "Falhado", clique em detalhes e descarregue os detalhes da implementação. Prenda este ficheiro ao correio.
+    1. Navegue para o **Grupo de Recursos** no portal Azure.
+    2. Selecione **As implementações** na secção **Definições** do lado esquerdo.
+    3. Para cada implementação que mostrar **Failed**, selecione através dos detalhes e descarregue os detalhes da implementação. Prenda este ficheiro ao correio.
 
 ## <a name="sensor-telemetry"></a>Telemetria do sensor
 
@@ -51,11 +51,12 @@ Contacte-nos com os seguintes detalhes:
 
 **Sintoma**: Dispositivos ou sensores estão implantados e ligou farmBeats com o seu parceiro de dispositivo, mas não pode obter ou ver dados de telemetria no FarmBeats.
 
-**Ação corretiva:**
+**Ação corretiva**
 
 1. Vá ao seu grupo de recursos FarmBeats Datahub.
 2. Selecione o Site de **Eventos** (DatafeedEventHubNamespace) e, em seguida, verifique o número de mensagens que chegam.
 3. Efetue um dos seguintes procedimentos:
+
    - Se não houver *mensagens de entrada,* contacte o parceiro do dispositivo.  
    - Se houver *mensagens de entrada,* contacte-nos com os registos do Datahub e do Acelerador e a telemetria capturada.
 
@@ -65,9 +66,9 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 
 **Sintoma**: Dispositivos ou sensores são implantados e você criou os dispositivos/sensores em FarmBeats e ingerido telemetria para o EventHub, mas você não pode obter ou ver dados de telemetria em FarmBeats.
 
-**Ação corretiva:**
+**Ação corretiva**
 
-1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo para o seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga os [passos aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar parceiro.
+1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo para o seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga estes [passos](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
 
 2. Certifique-se de que utilizou o formato de mensagem telemetria correto:
 
@@ -96,7 +97,7 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Não tenha a cadeia de conexão Azure Event Hubs
 
-**Ação corretiva:**
+**Ação corretiva**
 
 1. Em Datahub Swagger, vá à API partner.
 2. Selecione **Tente** > **Try it out** > **executar**.
@@ -113,7 +114,7 @@ Para entender como descarregar registos, aceda à secção ["Recolher registos m
 
 **Sintomas**: Os dispositivos estão instalados e ligou o FarmBeats ao seu parceiro de dispositivo. Os dispositivos estão online e enviam dados de telemetria, mas parecem offline.
 
-**Ação corretiva**: O intervalo de reporte não está configurado para este dispositivo. Para definir o intervalo de reporte, contacte o fabricante do dispositivo. 
+**Ação corretiva** O intervalo de reporte não está configurado para este dispositivo. Para definir o intervalo de reporte, contacte o fabricante do dispositivo. 
 
 ### <a name="error-deleting-a-device"></a>Erro ao apagar um dispositivo
 
@@ -123,7 +124,7 @@ Enquanto está a apagar um dispositivo, pode encontrar um dos seguintes cenário
 
 **Significando:** O dispositivo está associado a múltiplos sensores que são implantados na exploração.
 
-**Ação corretiva:**  
+**Ação corretiva**  
 
 1. Elimine os sensores associados ao dispositivo através do Acelerador.  
 2. Se quiser associar os sensores a um dispositivo diferente, peça ao seu parceiro do dispositivo para fazer o mesmo.  
@@ -140,15 +141,15 @@ Enquanto está a apagar um dispositivo, pode encontrar um dos seguintes cenário
 
     > [!NOTE]
     > Não é possível apagar um dispositivo se os sensores estiverem associados a ele. Para obter mais informações sobre como eliminar os sensores associados, consulte a secção **de sensores Delete** in [Get dados de sensores dos parceiros de sensores](get-sensor-data-from-sensor-partner.md).
-    > Os parceiros não têm acesso para apagar um dispositivo ou sensor. Só os administradores têm acesso para fazer o mesmo.
+    > Os parceiros não têm permissão para apagar um dispositivo ou sensor. Só os administradores têm permissão para apagar.
 
 ## <a name="issues-with-jobs"></a>Questões com emprego
 
 ### <a name="farmbeats-internal-error"></a>Erro interno FarmBeats
 
-**Mensagem**: "FarmBeats erro interno, consulte guia de resolução de problemas para mais detalhes".
+**Mensagem**: "FarmBeats erro interno, consulte guia de resolução de problemas para mais detalhes."
 
-**Ação corretiva**: Esta questão pode resultar de uma falha temporária no gasoduto de dados. Criar o trabalho de novo. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
+**Ação corretiva** Esta questão pode resultar de uma falha temporária no gasoduto de dados. Criar o trabalho de novo. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
 
 ## <a name="accelerator-troubleshooting"></a>Resolução de problemas do acelerador
 
@@ -158,15 +159,15 @@ Enquanto está a apagar um dispositivo, pode encontrar um dos seguintes cenário
 
 **Mensagem**: "Não foram encontrados utilizadores correspondentes."
 
-**Ação corretiva**: Verifique o ID de e-mail para o qual está a tentar adicionar uma atribuição de funções. O ID de e-mail deve ser uma correspondência exata do ID, que está registado para esse utilizador no Diretório Ativo. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
+**Ação corretiva** Verifique o ID de e-mail para o qual está a tentar adicionar uma atribuição de funções. O ID de e-mail deve ser uma correspondência exata do ID, que está registado para esse utilizador no Diretório Ativo. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Incapaz de iniciar sessão no Acelerador
 
 **Mensagem**: "Erro: Não está autorizado a ligar para o serviço. Contacte o administrador para obter autorização."
 
-**Ação corretiva**: Peça ao administrador que o autorize a aceder à implementação farmBeats. Isto pode ser feito fazendo uma publicação das APIs de Atribuição de Funções ou através do Controlo de Acesso no painel **definições** no Acelerador.  
+**Ação corretiva** Peça ao administrador que o autorize a aceder à implementação do FarmBeats. Isto pode ser feito fazendo uma publicação das APIs de Atribuição de Funções ou através do Controlo de Acesso no painel **definições** no Acelerador.  
 
-Se já lhe foi concedido acesso e está a enfrentar este erro, tente novamente refrescando a página. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
+Se já lhe foi concedido acesso e enfrentando este erro, tente novamente refrescando a página. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
 
 ![Project FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
@@ -176,13 +177,11 @@ Se já lhe foi concedido acesso e está a enfrentar este erro, tente novamente r
 
 **Mensagem**: "Erro: Ocorreu um erro desconhecido".
 
-**Ação corretiva**: Este erro ocorre se deixar a página inativa por muito tempo. Atualize a página.  
-
-Se o erro persistir, contacte-nos com a mensagem de erro/registos.
+**Ação corretiva** Este erro ocorre se deixar a página inativa por muito tempo. Atualize a página. Se o erro persistir, contacte-nos com a mensagem/registos de erro.
 
 **Problema**: FarmBeats Accelerator não está a mostrar a versão mais recente, mesmo depois de ter atualizado o FarmBeatsDeployment.
 
-**Ação corretiva**: Este erro ocorre devido à persistência do trabalhador de serviço no navegador. Faça o seguinte:
+**Ação corretiva** Este erro ocorre devido à persistência do trabalhador de serviço no navegador. Faça o seguinte:
 
 1. Feche todos os separadores do navegador que tenham o Acelerador aberto e feche a janela do navegador.
 2. Inicie uma nova instância do navegador e recarregue o Acelerador URI. Esta ação carrega a nova versão do Acelerador.
@@ -193,30 +192,30 @@ Se o erro persistir, contacte-nos com a mensagem de erro/registos.
 
 **Mensagem de falha de emprego**: "A autenticação total é necessária para aceder a este recurso."
 
-**Ação corretiva:**
+**Ação corretiva**: Faça um dos seguintes:
 
-Efetue uma das seguintes ações:
+- Atualizar FarmBeats com o nome de utilizador/senha correto utilizando os passos abaixo e voltar a tentar o trabalho.
 
-- Atualizar FarmBeats com o nome de utilizador /senha correto usando os passos abaixo e voltar a tentar o trabalho.
+  **Atualizar nome de utilizador Sentinel**
 
-    *Atualizar nome de utilizador Sentinel*
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
-    3. Selecione armazenamento da conta de armazenamento***** -> Contentores -> ficheiros de preparação de lotes -> to_vm -> config.ini
-    4. Clique em Editar
+    3. Selecione armazenamento da conta de armazenamento***** > **contentores** > **ficheiros de** > preparação**to_vm** > **config.ini**
+    4. **Selecione Editar**
     5. Atualize o nome de utilizador na secção sentinel_account
 
-    *Atualizar palavra-passe do Sentinel*
+  **Atualizar palavra-passe do Sentinel**
+
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
     3. Selecione keyvault-*****
     4. Selecione Políticas de Acesso em Definições
-    5. Clique em "Adicionar política de acesso"
-    6. Utilize "Gestão secreta" para configurar a partir do modelo e adicione-se ao Principal
-    7. Clique em Adicionar e, em seguida, clique em Guardar na página Políticas de Acesso
-    8. Clique em Segredos em Definições
-    9. Clique na palavra-passe do Sentinel
-    10. Criar uma nova versão do valor e capacitá-la
+    5. **Selecione Adicionar Política de Acesso**
+    6. Use **a gestão secreta** para configurar a partir do modelo e adicione-se ao Principal
+    7. Selecione **Adicionar**, e, em seguida, selecione **Guardar** na página Políticas de **Acesso**
+    8. Selecione **Segredos** em **Definições**
+    9. Selecione **Palavra-passe sentinela**
+    10. Crie uma nova versão do valor e ative-a.
 
 - Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e depois verificar se o trabalho é bem sucedido.
 
@@ -228,7 +227,7 @@ Mensagem de **insucesso de emprego:**"Oops, algo correu mal. A página a que est
 
 1. Abra o [Sentinel](https://scihub.copernicus.eu/dhus/) no seu navegador para ver se o site está acessível.
 2. Se o site não estiver acessível, verifique se qualquer firewall, rede da empresa ou outro software de bloqueio está impedindo o acesso ao site e, em seguida, tome as medidas necessárias para permitir o URL Sentinel. 
-3. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e depois verificar se o trabalho é bem sucedido.  
+3. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Servidor Sentinel: Para baixo para manutenção
 
@@ -242,7 +241,7 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
    Para obter informações sobre quaisquer atividades de manutenção planeadas ou não planeadas do Sentinel, aceda ao site [Copernicus Open Access Hub News.](https://scihub.copernicus.eu/news/)  
 
-2. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e depois verificar se o trabalho é bem sucedido.
+2. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinela: Número máximo de ligações alcançadas
 
@@ -252,7 +251,7 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 **Ação corretiva**: Tente qualquer uma das seguintes seguintes:
 
-* Espere que os outros trabalhos terminem antes de recandidatar-se ao trabalho falhado.
+* Espere que os outros trabalhos terminem antes de reexecutar o trabalho falhado.
 * Crie uma nova conta Sentinel e, em seguida, atualize o nome de utilizador sentinel e a palavra-passe no FarmBeats.
 
 ### <a name="sentinel-server-refused-connection"></a>Servidor Sentinel: Ligação recusada
@@ -265,14 +264,15 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
    Para obter informações sobre quaisquer atividades de manutenção planeadas ou não planeadas do Sentinel, aceda ao site [Copernicus Open Access Hub News.](https://scihub.copernicus.eu/news/)  
 
-2. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e depois verificar se o trabalho é bem sucedido.
+2. Reexecutar o trabalho falhado, ou executar um trabalho de índices de satélite por um intervalo de data de 5 a 7 dias, e, em seguida, verificar se o trabalho é bem sucedido.
 
 ### <a name="soil-moisture-map-has-white-areas"></a>Mapa da humidade do solo tem áreas brancas
 
-**Emissão**: O mapa da humidade do solo foi gerado, mas o mapa tem principalmente áreas brancas.
+**Emissão**: O mapa da humidade do **solo** foi gerado, mas o mapa tem principalmente áreas brancas.
 
 **Ação corretiva**: Esta questão pode ocorrer se os índices de satélite gerados para o tempo para o qual o mapa foi solicitado tiver valores NDVI inferiores a 0,3. Para mais informações, visite [o Guia Técnico do Sentinel.](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)
-1. Reexecutar o trabalho para um intervalo de data diferente e verificar se os valores NDVI nos índices de satélite são superiores a 0,3
+
+1. Refaça o trabalho para uma gama de datas diferente e verifique se os valores NDVI nos índices de satélite são superiores a 0,3.
 
 ## <a name="collect-logs-manually"></a>Recolher registos manualmente
 

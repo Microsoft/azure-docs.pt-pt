@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 8ef117425f945d14db535ea3ecedc50d18819868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1245ed89376de4ce777137d8427e03487d0432ab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280172"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586118"
 ---
 # <a name="cloud-partner-portal-migration-to-partner-center"></a>Migração do Cloud Partner Portal para o Centro de Parceiros
 
@@ -20,14 +20,13 @@ Para agilizar a sua conta e oferecer experiência de gestão, a Microsoft está 
 
 | **Tipo de Oferta** | **Gestão de ofertas migrada do Cloud Partner Portal para partner Center** | **Capacidade de atualizar co-venda de garantias no Partner Center** |
 |    -----------------------    |    -----------------------------  |  -----------------------------  |
-| Software como Serviço (SaaS) |     Já disponível       |   Disponibilidade geral em torno de fev. 2020      |
+| Software como Serviço (SaaS) |     Já disponível       |   Disponibilidade geral abril 2020      |
 | Dinâmica 365 para envolvimento com clientes & PowerApps      |     Já disponível        |   Já disponível      |
 | Dynamics 365 for Operations     |     Já disponível       |   Já disponível     |
-| Dynamics 365 Business Central      |     Já disponível        |   Disponibilidade geral em torno de fev. 2020     |
-| Aplicação do Azure     |     Disponibilidade geral dez 2019       |   Disponibilidade geral em torno de fev. 2020     |
-| Máquina Virtual do Azure      |     A ser anunciado       |   A ser anunciado    |
-| Contentor Azure     |     A ser anunciado       |   A ser anunciado     |
-| Serviço de Consultoria      |     A ser anunciado       |   A ser anunciado     |
-| Módulo IoT Edge      |     A ser anunciado       |   A ser anunciado     |
-| App de serviço power BI     |     A ser anunciado       |   A ser anunciado     |
-|  |  |
+| Dynamics 365 Business Central      |     Já disponível        |   Disponibilidade geral abril 2020     |
+| Aplicação do Azure     |     Já disponível       |   Disponibilidade geral abril 2020     |
+| Máquina Virtual do Azure      |     Disponibilidade geral abril-maio 2020       |   A ser anunciado    |
+| Contentor Azure     |     Disponibilidade geral abril-maio 2020       |   A ser anunciado     |
+| Serviço de Consultoria      |     Disponibilidade geral abril-maio 2020       |   A ser anunciado     |
+| Módulo IoT Edge      |     Disponibilidade geral abril-maio 2020       |   A ser anunciado     |
+| App de serviço power BI     |     Disponibilidade geral abril-maio 2020       |   A ser anunciado     |

@@ -3,12 +3,12 @@ title: Visão geral dos recursos de segurança
 description: Conheça as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a atender às necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 91a0f29862b0c9c35e562c143e28ebbc6c39cf94
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80423187"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585823"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -66,6 +66,8 @@ O serviço de backup Azure utiliza o agente microsoft Azure Recovery Services (M
 * Uma camada adicional de autenticação é adicionada sempre que uma operação crítica como mudar uma palavra-passe é executada. Esta validação destina-se a garantir que tais operações só podem ser realizadas por utilizadores que tenham credenciais Azure válidas. [Saiba mais sobre as funcionalidades que previnem ataques.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks)
 
 * Os dados de cópia de segurança eliminados são conservados por mais 14 dias a partir da data de eliminação. Isto garante a recuperabilidade dos dados dentro de um determinado período de tempo, pelo que não há perda de dados mesmo que um ataque aconteça. Além disso, um maior número de pontos mínimos de recuperação são mantidos para proteger contra dados corruptos. [Saiba mais sobre a recuperação de dados de backup eliminados](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+
+* Para dados com cópia de segurança utilizando o agente microsoft Azure Recovery Services (MARS), é utilizada uma frase-passe para garantir que os dados são encriptados antes de serem enviados para o Azure Backup e desencriptados apenas após o download do Azure Backup. Os detalhes da frase-passe só estão disponíveis para o utilizador que criou a frase-passe e para o agente que está configurado com a sua configuração. Nada é transmitido ou partilhado com o serviço. Isto garante a segurança total dos seus dados, uma vez que quaisquer dados expostos inadvertidamente (como um ataque homem-no-meio na rede) são inutilizáveis sem a palavra-passe, e a frase-passe não é enviada na rede.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Cumprimento dos requisitos de segurança padronizados
 

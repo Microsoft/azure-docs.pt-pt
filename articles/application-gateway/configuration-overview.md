@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f31c24c96732ec3311ea904fc9c63344e2d14109
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371246"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585910"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -168,8 +168,6 @@ Escolha HTTP ou HTTPS:
 
 - Se escolher HTTP, o tráfego entre o cliente e o gateway da aplicação não está encriptado.
 
-- Escolha HTTPS se quiser [a rescisão de TLS](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) ou a [encriptação TLS](https://docs.microsoft.com/azure/application-gateway/ssl-overview)de ponta a ponta . O tráfego entre o cliente e o portal da aplicação está encriptado. E a ligação TLS termina na porta de entrada de aplicações. Se pretender encriptação TLS de ponta a ponta, tem de escolher HTTPS e configurar a definição **http-end.** Isto garante que o tráfego é reencriptado quando viaja desde a porta de entrada da aplicação até à parte de trás.
-
 - Escolha HTTPS se quiser [a rescisão de TLS](features.md#secure-sockets-layer-ssltls-termination) ou a [encriptação TLS](https://docs.microsoft.com/azure/application-gateway/ssl-overview)de ponta a ponta . O tráfego entre o cliente e o portal da aplicação está encriptado. E a ligação TLS termina na porta de entrada de aplicações. Se pretender encriptação TLS de ponta a ponta, tem de escolher HTTPS e configurar a definição **http-end.** Isto garante que o tráfego é reencriptado quando viaja desde a porta de entrada da aplicação até à parte de trás.
 
 
@@ -197,7 +195,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 O suporte WebSocket é ativado por padrão. Não existe uma definição configurável pelo utilizador para o ativar ou desativar. Pode utilizar WebSockets com ouvintes HTTP e HTTPS.
 
-### <a name="custom-error-pages"></a>Páginas de erros personalizadas
+### <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
 Pode definir erro personalizado a nível global ou ao nível do ouvinte. Mas a criação de páginas de erro personalizadas a nível global a partir do portal Azure não é atualmente suportada. Pode configurar uma página de erro personalizada para um erro de firewall de aplicação web 403 ou uma página de manutenção 502 ao nível do ouvinte. Deve também especificar um URL de bolha acessível ao público para o código de estado de erro dado. Para obter mais informações, consulte [Criar páginas de erro personalizadas do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
@@ -296,7 +294,7 @@ O gateway de aplicação direciona o tráfego para os servidores back-end utiliz
 
 ### <a name="cookie-based-affinity"></a>Afinidade com base no cookie
 
-O Portal de Aplicações Azure utiliza cookies geridos por gateway para manter as sessões de utilizador. Quando um utilizador envia o primeiro pedido para o Application Gateway, define um cookie de afinidade na resposta com um valor hash que contém os detalhes da sessão, de modo que os pedidos subsequentes que transportam o cookie de afinidade serão encaminhados para o mesmo servidor de backend para mantendo a ciseração. 
+O Portal de Aplicações Azure utiliza cookies geridos por gateway para manter as sessões de utilizador. Quando um utilizador envia o primeiro pedido para o Application Gateway, define um cookie de afinidade na resposta com um valor de hash que contém os detalhes da sessão, de modo que os pedidos subsequentes que transportam o cookie de afinidade serão encaminhados para o mesmo servidor de backend para manter a stickiness. 
 
 Esta funcionalidade é útil quando pretende manter uma sessão de utilizador no mesmo servidor e quando o estado da sessão é guardado localmente no servidor para uma sessão de utilizador. Se a aplicação não conseguir lidar com a afinidade baseada em cookies, não pode utilizar esta funcionalidade. Para usá-lo, certifique-se de que os clientes suportam cookies.
 

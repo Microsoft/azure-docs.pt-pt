@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350994"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586059"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concurrency para Azure Synapse Analytics
 Veja os limites de memória e concurrency atribuídos aos vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.  
@@ -73,7 +73,7 @@ Com a introdução de grupos de carga de [trabalho,](sql-data-warehouse-workload
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de condivisões para classes de recursos
-Para garantir que cada consulta tem recursos suficientes para executar de forma eficiente, a SQL Analytics em Azure Synapse rastreia a utilização de recursos atribuindo slots de condivisa a cada consulta. O sistema coloca consultas numa fila baseada na importância e nas faixas de câmbio. As consultas esperam na fila até estarem disponíveis suficientes slots de condivisões. As faixas de [importância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e conmoedação determinam a priorização do CPU. Para mais informações, consulte [Analisar a sua carga de trabalho](analyze-your-workload.md)
+Para garantir que cada consulta tem recursos suficientes para executar de forma eficiente, a utilização de recursos é rastreada atribuindo slots de moeda a cada consulta. O sistema coloca consultas numa fila baseada na importância e nas faixas de câmbio. As consultas esperam na fila até estarem disponíveis suficientes slots de condivisões. As faixas de [importância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e conmoedação determinam a priorização do CPU. Para mais informações, consulte [Analisar a sua carga de trabalho](analyze-your-workload.md)
 
 **Classes de recursos estáticos**
 

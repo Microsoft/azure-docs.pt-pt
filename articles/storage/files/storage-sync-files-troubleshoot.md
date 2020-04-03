@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ebe5ddf72e13b1a66ded7a90976e0b6209a26dfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060973"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607499"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Podes ter as caches que precisares em todo o mundo.
@@ -187,7 +187,7 @@ Set-AzStorageSyncServerEndpoint `
 
 Este problema pode ocorrer se o processo de Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) não estiver em execução ou o servidor não conseguir aceder ao serviço Dessincronização de ficheiros Azure.
 
-No servidor que está a mostrar como "Aparece offline" no portal, veja o Evento ID 9301 no registo de eventos da Telemettry (localizado em Aplicações e Serviços\Microsoft\FileSync\Agent in Event Viewer) para determinar por que razão o servidor não consegue aceder ao Ficheiro Sincronizado Azure serviço. 
+No servidor que está a mostrar como "Aparece offline" no portal, veja o Event ID 9301 no registo de eventos da Telemettry (localizado em Aplicações e Serviços\Microsoft\FileSync\Agent in Event Viewer) para determinar por que razão o servidor não consegue aceder ao serviço Dessincronização de Ficheiros Azure. 
 
 - Se o **GetNextJob concluído com** o estado: 0 está registado, o servidor pode comunicar com o serviço Dessincronização de ficheiros Azure. 
     - Abra o Gestor de Tarefas no servidor e verifique se o processo Monitor da Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se não estiver em execução, experimente primeiro reiniciar o servidor. Se o reinício do servidor não resolver o problema, atualize para a [versão do agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) do Azure File Sync mais recente. 
@@ -588,7 +588,7 @@ Se este erro persistir por mais de algumas horas, crie um pedido de apoio e entr
 | **Cadeia do erro** | CERT_E_UNTRUSTEDROOT |
 | **Reparação necessária** | Sim |
 
-Este erro poderá ocorrer se a sua organização estiver a utilizar um proxy de terminação SSL ou se uma entidade maliciosa estiver a intercetar o tráfego entre o servidor e o serviço Azure File Sync. Se tiver a certeza de que este comportamento é esperado (devido ao facto de a sua organização estar a utilizar um proxy de terminação SSL), poderá ignorar a verificação de certificados com uma substituição de registo.
+Este erro pode acontecer se a sua organização estiver a usar um proxy de terminação de TLS ou se uma entidade maliciosa estiver a intercetar o tráfego entre o seu servidor e o serviço Dessincronização de Ficheiros Azure. Se tem a certeza de que isso é esperado (porque a sua organização está a usar um representante de terminação de TLS), ignora a verificação de certificadocom uma sobreposição de registo.
 
 1. Crie o valor do registo SkipCheckingPinnedRootCertificate.
 
@@ -602,7 +602,7 @@ Este erro poderá ocorrer se a sua organização estiver a utilizar um proxy de 
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Ao definir este valor de registo, o agente do Azure File Sync aceitará qualquer certificado SSL fidedigno ao transferir dados entre o servidor e o serviço cloud.
+Ao definir este valor de registo, o agente Dessincronização de Ficheiros Azure aceitará qualquer certificado TLS/SSL de confiança local ao transferir dados entre o servidor e o serviço de nuvem.
 
 <a id="-2147012894"></a>**Não foi possível estabelecer uma ligação com o serviço.**  
 

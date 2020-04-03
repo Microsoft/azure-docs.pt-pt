@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1809902fb153c5c9c83a9d00b6f817fde975d0fe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 06fc9edd55aa51c985cbb981fc5a6892d0ca75e5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349902"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583127"
 ---
 # <a name="what-is-workload-management"></a>O que é a gestão da carga de trabalho?
 
@@ -36,11 +36,12 @@ A capacidade de desempenho de um armazém de dados é determinada pelas unidades
 
 
 ## <a name="workload-management-concepts"></a>Conceitos de gestão da carga de trabalho
-No passado, para a SQL Analytics em Azure Synapse geriste o desempenho da consulta através de aulas de [recursos.](resource-classes-for-workload-management.md)  As classes de recursos permitidas para atribuir memória a uma consulta baseada na adesão ao papel.  O principal desafio com as classes de recursos é que, uma vez configurados, não havia governação ou capacidade de controlar a carga de trabalho.  
+
+No passado, para a piscina Synapse SQL em Azure Synapse você geriu o desempenho da consulta através de classes de [recursos](resource-classes-for-workload-management.md).  As classes de recursos permitidas para atribuir memória a uma consulta baseada na adesão ao papel.  O principal desafio com as classes de recursos é que, uma vez configurados, não havia governação ou capacidade de controlar a carga de trabalho.  
 
 Por exemplo, a concessão de uma adesão ao utilizador ad-hoc ao smallrc permitiu que esse utilizador consumisse 100% da memória no sistema.  Com as classes de recursos, não há como reservar e garantir que os recursos estão disponíveis para cargas de trabalho críticas.
 
-A gestão da carga de trabalho da SQL Analytics em Azure Synapse consiste em três conceitos de alto nível: Classificação da Carga de [Trabalho,](sql-data-warehouse-workload-classification.md) [Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md) e Isolamento da Carga de [Trabalho.](sql-data-warehouse-workload-isolation.md)  Estas capacidades dão-lhe mais controlo sobre a forma como a sua carga de trabalho utiliza os recursos do sistema.
+A gestão da carga de trabalho do conjunto Synapse SQL em Azure Synapse consiste em três conceitos de alto nível: Classificação da Carga de [Trabalho,](sql-data-warehouse-workload-classification.md) [Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md) e Isolamento da Carga de [Trabalho.](sql-data-warehouse-workload-isolation.md)  Estas capacidades dão-lhe mais controlo sobre a forma como a sua carga de trabalho utiliza os recursos do sistema.
 
 A classificação da carga de trabalho é o conceito de atribuir um pedido a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, esta atribuição foi feita através de adesão a [papéis](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class)usando sp_addrolemember .  Isto pode agora ser feito através do [CREATE WORKLOAD CLASSIFER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  A capacidade de classificação fornece um conjunto mais rico de opções, tais como etiqueta, sessão e tempo para classificar pedidos.
 

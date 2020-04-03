@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: a0bc6aef1becd53217be0eeb8c865b5c78a5d69f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b46c9f8b0cad74f3a4e9be8903270a60993c01f4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239472"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585889"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Como instalar um controlador de entrada de gateway de aplicação (AGIC) usando um novo gateway de aplicação
 
@@ -71,7 +71,7 @@ Siga os passos abaixo para criar um objeto [principal](https://docs.microsoft.co
 ## <a name="deploy-components"></a>Componentes de implantação
 Este passo irá adicionar os seguintes componentes à sua subscrição:
 
-- [Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 - Gateway de [aplicação](https://docs.microsoft.com/azure/application-gateway/overview) v2
 - [Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) com 2 [subredes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 - [Endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
@@ -263,7 +263,7 @@ Para instalar a Identidade do Pod AAD no seu cluster:
 
 
    > [!NOTE]
-   > Os `identityResourceID` `identityClientID` valores e são criados durante os passos [Criar uma Identidade,](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-new.md#create-an-identity) e poderiam ser obtidos novamente usando o seguinte comando:
+   > Os `identityResourceID` `identityClientID` valores e são criados durante os passos dos [Componentes de Implantação,](ingress-controller-install-new.md#deploy-components) e que poderiam ser obtidos novamente utilizando o seguinte comando:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```

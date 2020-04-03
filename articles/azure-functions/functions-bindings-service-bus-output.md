@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277443"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582259"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus de serviço Azure para funções Azure
 
@@ -21,7 +21,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que envia uma mensagem de fila de ônibus de serviço:
 
@@ -138,7 +138,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O exemplo que se segue demonstra como escrever para uma fila de ônibus de serviço em Python.
 
@@ -227,7 +227,7 @@ As funções java também podem escrever para um tópico de ônibus de serviço.
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -265,7 +265,7 @@ Os atributos não são suportados por C# Script.
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
@@ -295,7 +295,7 @@ A tabela a seguir explica as propriedades de configuração de ligação que def
 
 Nas Funções Azure 1.x, o tempo de funcionamento cria a `accessRights` `manage`fila se não existir e tem definido para . Nas Funções versão 2.x e superior, a fila ou tópico já deve existir; se especificar uma fila ou tópico que não existe, a função falhará. 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Utilize os seguintes tipos de parâmetros para a ligação de saída:
 
@@ -333,7 +333,7 @@ Ao trabalhar com funções C#:
 
 Aceda à fila `context.bindings.<name from function.json>`ou tópico utilizando . Pode atribuir uma corda, uma matriz de byte ou um objeto JavaScript `context.binding.<name>`(desserializado em JSON) a .
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Utilize o [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) em vez da encadernação de saída incorporada.
 
@@ -383,6 +383,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
+|pré-fetchCount|0|Obtém ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar.|
 |maxAutoRenovar Duração|00:05:00|A duração máxima dentro da qual o bloqueio da mensagem será renovado automaticamente.|
 |autoComplete|true|Se o gatilho deve marcar imediatamente a mensagem como completa (autocompleta) ou esperar que a função saia com sucesso para ligar completa.|
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o backback que a bomba de mensagem deve iniciar. Por predefinição, o tempo de execução das Funções processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar apenas `maxConcurrentCalls` uma única fila ou mensagem de tópico de cada vez, definida para 1. |

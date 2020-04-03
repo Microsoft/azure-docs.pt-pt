@@ -11,21 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a5bb048a2368f60a83e70dcd6d1ce663ce70a885
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350923"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583861"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
-Quando os utilizadores consultam uma tabela de colunas no SQL Analytics, o optimizador verifica os valores mínimos e máximos armazenados em cada segmento.  Segmentos que estão fora dos limites do predicado de consulta não são lidos do disco à memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos para ler e seu tamanho total são pequenos.   
+Quando os utilizadores consultam uma tabela de colunas na piscina SYnapse SQL, o optimizador verifica os valores mínimos e máximos armazenados em cada segmento.  Segmentos que estão fora dos limites do predicado de consulta não são lidos do disco à memória.  Uma consulta pode obter um desempenho mais rápido se o número de segmentos para ler e seu tamanho total são pequenos.   
 
-## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de lojas de colunas agrupadas não ordenados 
-Por predefinição, para cada tabela SQL Analytics criada sem uma opção de índice, um componente interno (construtor de índices) cria um índice de colunas agrupada (CCI) não ordenado.  Os dados de cada coluna são comprimidos num segmento separado do grupo de remo CCI.  Há metadados na gama de valores de cada segmento, por isso segmentos que estão fora dos limites do predicado de consulta não são lidos a partir do disco durante a execução da consulta.  O CCI oferece o mais alto nível de compressão de dados e reduz o tamanho dos segmentos para ler para que as consultas possam correr mais rápido. No entanto, como o construtor de índices não classifica os dados antes de os comprimir em segmentos, podem ocorrer segmentos com gamas de valor sobrepostas, fazendo com que as consultas leiam mais segmentos a partir do disco e demorem mais tempo a terminar.  
+## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Índice de lojas de colunas agrupadas não ordenados
 
-Ao criar um CCI ordenado, o motor SQL Analytics classifica os dados existentes na memória pela chave de encomenda(s) antes que o construtor de índices os comprime em segmentos de índice.  Com os dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição do segmento pode ser evitada.  Dada a grande dimensão dos dados nas tabelas SQL Analytics, este cenário não acontece com frequência.  
+Por predefinição, para cada tabela criada sem uma opção de índice, um componente interno (construtor de índices) cria um índice de loja de colunas agrupada não ordenado (CCI) nele.  Os dados de cada coluna são comprimidos num segmento separado do grupo de remo CCI.  Há metadados na gama de valores de cada segmento, por isso segmentos que estão fora dos limites do predicado de consulta não são lidos a partir do disco durante a execução da consulta.  O CCI oferece o mais alto nível de compressão de dados e reduz o tamanho dos segmentos para ler para que as consultas possam correr mais rápido. No entanto, como o construtor de índices não classifica os dados antes de os comprimir em segmentos, podem ocorrer segmentos com gamas de valor sobrepostas, fazendo com que as consultas leiam mais segmentos a partir do disco e demorem mais tempo a terminar.  
+
+Ao criar um CCI ordenado, o motor SQL synapse classifica os dados existentes na memória pela chave de ordem(s) antes que o construtor de índices os comprime em segmentos de índice.  Com os dados classificados, a sobreposição de segmentos é reduzida permitindo que as consultas tenham uma eliminação de segmento mais eficiente e, portanto, um desempenho mais rápido porque o número de segmentos a ler a partir do disco é menor.  Se todos os dados puderem ser classificados na memória de uma só vez, então a sobreposição do segmento pode ser evitada.  Devido a grandes tabelas em armazéns de dados, este cenário não acontece com frequência.  
 
 Para verificar se o segmento varia para uma coluna, execute este comando com o seu nome de mesa e coluna:
 
@@ -49,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Numa tabela CCI ordenada, os novos dados resultantes do mesmo lote de DML ou de operações de carregamento de dados estão classificados dentro desse lote, não existe uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados da tabela.  No SQL Analytics, o índice de colunas REBUILD é uma operação offline.  Para uma mesa dividida, a REBUILD é feita uma partição de cada vez.  Os dados da partição que está a ser reconstruída estão "offline" e indisponíveis até que a REBUILD esteja completa para essa partição. 
+> Numa tabela CCI ordenada, os novos dados resultantes do mesmo lote de DML ou de operações de carregamento de dados estão classificados dentro desse lote, não existe uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados da tabela.  Em Synapse SQL, o índice de colunas REBUILD é uma operação offline.  Para uma mesa dividida, a REBUILD é feita uma partição de cada vez.  Os dados da partição que está a ser reconstruída estão "offline" e indisponíveis até que a REBUILD esteja completa para essa partição. 
 
 ## <a name="query-performance"></a>Desempenho de consultas
 
@@ -115,14 +116,15 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Pré-classificar os dados pela chave de classificação(s) antes de os colocar em tabelas SQL Analytics.
 
+- Pré-classificar os dados pela ou chaves de classificação antes de os colocar em tabelas.
 
 Eis um exemplo de uma distribuição ordenada da tabela CCI que tem zero segmento sem sobreposição seguindo recomendações acima. A tabela CCI ordenada é criada numa base de dados DWU1000c via CTAS a partir de uma tabela de 20 GB de heap utilizando MAXDOP 1 e xbiggerc.  O CCI é encomendado numa coluna BIGINT sem duplicados.  
 
 ![Segment_No_Overlapping](./media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>Criar CCI encomendado em mesas grandes
+
 Criar um CCI ordenado é uma operação offline.  Para tabelas sem divisórias, os dados não serão acessíveis aos utilizadores até que o processo de criação de CCI ordenado esteja concluído.   Para as tabelas divididas, uma vez que o motor cria a partição ordenada do CCI por partição, os utilizadores ainda podem aceder aos dados em divisórias onde a criação ordenada do CCI não está em processo.   Pode utilizar esta opção para minimizar o tempo de inatividade durante a criação ordenada do CCI em grandes tabelas: 
 
 1.    Crie divisórias na mesa grande alvo (chamada Table_A).
@@ -135,6 +137,7 @@ Criar um CCI ordenado é uma operação offline.  Para tabelas sem divisórias, 
 ## <a name="examples"></a>Exemplos
 
 **A. Para verificar se há colunas ordenadas e ordem ordenada:**
+
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -143,6 +146,7 @@ WHERE column_store_order_ordinal <>0
 ```
 
 **B. Alterar a coluna de colunas, adicionar ou remover colunas da lista de encomendas ou mudar do CCI para o CCI ordenado:**
+
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)
@@ -150,4 +154,5 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Para obter mais dicas de desenvolvimento, consulte a [visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)

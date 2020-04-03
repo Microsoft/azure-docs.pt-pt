@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691008"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607598"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com bases de dados individuais, reunidas e por exemplo na Base de Dados Azure SQL
 
@@ -95,7 +95,7 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação. 
 - Uma conta de armazenamento Azure partilhada para o diretório de trabalho utilizado por replicação. 
 - A porta 445 (saída do TCP) tem de ser aberta nas regras de segurança da subnet de instância gerida para aceder à parte do ficheiro Azure. 
-- A porta 1433 (saída de TCP) tem de ser aberta se o Editor/Distribuidor estiver numa instância gerida e o assinante estiver no local.
+- A porta 1433 (saída de TCP) tem de ser aberta se o Editor/Distribuidor estiver numa instância gerida e o assinante não o fizer. Também pode ser necessário alterar a regra de segurança `allow_linkedserver_outbound` de saída da NSG para `virtualnetwork` `internet`a etiqueta de serviço de **destino** porta 1433 de . 
 - Todos os tipos de participantes de replicação (Editor, Distribuidor, Pull Subscriber e Push Subscriber) podem ser colocados em instâncias geridas, mas o editor e o distribuidor devem estar na nuvem ou ambos no local.
 - Se o editor, o distribuidor e/ou o assinante existirem em diferentes redes virtuais, então o peering VPN deve ser estabelecido entre cada entidade, de modo a que haja VPN a espreitar entre o editor e o distribuidor, e/ou existe VPN a espreitar entre o distribuidor e o assinante. 
 
@@ -124,7 +124,7 @@ O editor e o distribuidor estão configurados numa única instância gerida e di
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Editor com distribuidor remoto em instância gerida
 
-Nesta configuração, uma instância gerida publica alterações ao distribuidor colocadas em outra instância gerida que pode servir muitas instâncias geridas por fontes e distribuir alterações a um ou muitos alvos em instância gerida, base de dados única, base de dados pooled, ou Servidor SQL.
+Nesta configuração, uma instância gerida publica alterações ao distribuidor colocadas em outra instância gerida que pode servir muitas instâncias geridas por fontee distribuir alterações em um ou muitos alvos em instância gerida, base de dados única, base de dados pooled ou SQL Server.
 
 ![Casos separados para Editor e Distribuidor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 

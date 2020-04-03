@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979226"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582987"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerir os dados dos utilizadores encontrados numa investigação do Azure Security Center
 Este artigo fornece informações sobre como gerir os dados dos utilizadores encontrados na funcionalidade de investigação do Azure Security Center. Os dados de investigação são armazenados em [registos do Monitor Azure](../log-analytics/log-analytics-overview.md) e expostos no Centro de Segurança. A gestão dos dados dos utilizadores inclui a capacidade de eliminar ou exportar dados.
@@ -26,7 +26,7 @@ Este artigo fornece informações sobre como gerir os dados dos utilizadores enc
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Procurar e identificar dados pessoais
-No portal Azure, pode utilizar a funcionalidade de [investigação](../security-center/security-center-investigation.md) do Security Center para procurar dados pessoais. A funcionalidade de investigação está disponível em Alertas de **Segurança.**
+No portal Azure, pode utilizar a funcionalidade de investigação do Security Center para procurar dados pessoais. A funcionalidade de investigação está disponível em Alertas de **Segurança.**
 
 A funcionalidade de investigação mostra todas as entidades, informações do utilizador e dados sob o separador **Entidades.**
 

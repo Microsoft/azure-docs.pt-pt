@@ -1,6 +1,6 @@
 ---
 title: Declarações do T-SQL
-description: Links para a documentação para declarações T-SQL suportadas no SQL Analytics.
+description: Links para a documentação para declarações T-SQL suportadas na piscina SYnapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 53609049f69f0a3d50430ef512a5bf4a8ffd6d82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 011a850a44948bf5eee28a40d59dcf7672d866e8
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351359"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586375"
 ---
-# <a name="t-sql-statements-supported-in-sql-analytics"></a>Declarações T-SQL suportadas na SQL Analytics
-Links para a documentação para declarações T-SQL suportadas no SQL Analytics.
+# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Declarações T-SQL suportadas na piscina SYnapse SQL
+
+Links para a documentação para declarações T-SQL suportadas na piscina SYnapse SQL.
 
 ## <a name="data-definition-language-ddl-statements"></a>Declarações de Linguagem de Definição de Dados (DDL)
+
 * [ALTERAR BASE DE DADOS](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTERAR VISÃO MATERIALIZADA](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (Pré-visualização) 
@@ -60,11 +62,13 @@ Links para a documentação para declarações T-SQL suportadas no SQL Analytics
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>Declarações de linguagem de manipulação de dados (DML)
+
 * [ELIMINAR](https://msdn.microsoft.com/library/ms189835.aspx)
-* [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
+* [INSERIR](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## <a name="database-console-commands"></a>Comandos de Consola de Base de Dados
+
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (Pré-visualização)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -77,6 +81,7 @@ Links para a documentação para declarações T-SQL suportadas no SQL Analytics
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>Declarações de consulta
+
 * [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx)
 * [COM common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [EXCETO E INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
@@ -95,6 +100,7 @@ Links para a documentação para declarações T-SQL suportadas no SQL Analytics
 * [Subqueides](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Declarações de segurança
+
 * Permissões: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY,](https://msdn.microsoft.com/library/ms188338.aspx) [REVOGAÇÃO](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTERAR AUTORIZAÇÃO](https://msdn.microsoft.com/library/ms187359.aspx)
 * [CERTIFICADO DE ALTERAÇÃO](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -120,4 +126,5 @@ Links para a documentação para declarações T-SQL suportadas no SQL Analytics
 * [CHAVE MASTER ABERTA](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações de referência, consulte [elementos linguísticos T-SQL no SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md), e visualizações do [sistema no SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Para obter mais informações de referência, consulte [elementos linguísticos T-SQL na piscina Synapse SQL](sql-data-warehouse-reference-tsql-language-elements.md)e vistas do [sistema na piscina Synapse SQL](sql-data-warehouse-reference-tsql-system-views.md).

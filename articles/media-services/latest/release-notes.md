@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1db7009096635fc1279ce8a8358e0d8131209722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372591"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582790"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -177,7 +177,7 @@ Para mais informações, consulte [Clouds e regiões em que existem serviços de
 
 Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de Media.
 
-* O tamanho máximo do ficheiro suportado para processamento foi atualizado. Vês, [Quotas e limitações.](limits-quotas-constraints.md)
+* O tamanho máximo do ficheiro suportado para processamento foi atualizado. Vês, [Quotas e limites.](limits-quotas-constraints.md)
 * [Codificar melhorias de velocidades.](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)
 
 ## <a name="april-2019"></a>Abril de 2019

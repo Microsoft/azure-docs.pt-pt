@@ -428,12 +428,10 @@
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
     - name: SDK de Dispositivo C
       href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
-    - name: Azure IoT Edge
-      href: 'http://azure.github.io/iot-edge/'
     - name: REST (Dispositivo)
       href: 'https://docs.microsoft.com/rest/api/iothub/device'
     - name: REST (Serviço)
-      href: 'https://docs.microsoft.com/rest/api/iothub/service'
+      href: 'https://docs.microsoft.com/rest/api/iothub/service/configuration'
     - name: REST (Recurso do Hub IoT)
       href: 'https://docs.microsoft.com/rest/api/iothub/iothubresource'
     - name: REST (Certificados)

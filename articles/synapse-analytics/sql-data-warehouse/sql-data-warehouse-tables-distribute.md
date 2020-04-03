@@ -1,6 +1,6 @@
 ---
 title: Orientação de design de tabelas distribuídas
-description: Recomendações para a conceção de mesas distribuídas por hash e rodada distribuídas no SQL Analytics.
+description: Recomendações para a conceção de mesas distribuídas por haxixe e rodapé distribuídos em piscina Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 35106e73a3a4a143bf22c72c4fe8ac6798ac5219
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8a93f3ada8e56853b78321bdc7d99a667cee6158
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351342"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583509"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Orientação para a conceção de tabelas distribuídas no SQL Analytics
-Recomendações para a conceção de mesas distribuídas por hash e rodada distribuídas no SQL Analytics.
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Orientação para conceber tabelas distribuídas na piscina SQL synapse
 
-Este artigo assume que está familiarizado com os conceitos de distribuição de dados e movimento de dados no SQL Analytics.Para mais informações, consulte a [arquitetura de processamento paralelo (MPP) da SQL Analytics.](massively-parallel-processing-mpp-architecture.md) 
+Recomendações para a conceção de mesas distribuídas por haxixe e rodapé distribuídos em piscinas Synapse SQL.
+
+Este artigo assume que está familiarizado com os conceitos de distribuição de dados e movimento de dados no pool SQL synapse.Para mais informações, consulte [a Azure Synapse Analytics em grande paralelo de processamento (MPP).](massively-parallel-processing-mpp-architecture.md) 
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma mesa distribuída?
+
 Uma tabela distribuída aparece como uma única mesa, mas as filas são realmente armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo de hash ou robin redondo.  
 
 **As tabelas distribuídas por hash** melhoram o desempenho da consulta em grandes tabelas de factos, e são o foco deste artigo. **As mesas de rodapé** são úteis para melhorar a velocidade de carregamento. Estas escolhas de design têm um impacto significativo na melhoria da consulta e do desempenho de carregamento.
@@ -34,15 +36,16 @@ Como parte do design de tabela, compreenda o máximo possível sobre os seus dad
 
 - Qual é o tamanho da mesa?   
 - Quantas vezes a mesa é refrescada?   
-- Tenho tabelas de factos e dimensões numa base de dados da SQL Analytics?   
+- Tenho tabelas de fatos e dimensões numa piscina Synapse SQL?   
 
 
 ### <a name="hash-distributed"></a>Hash distribuído
+
 Uma tabela distribuída por hash distribui linhas de mesa através dos nós computacionais utilizando uma função de hash determinista para atribuir cada linha a uma [distribuição](massively-parallel-processing-mpp-architecture.md#distributions). 
 
 ![Mesa distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Mesa distribuída")  
 
-Uma vez que valores idênticos sempre têm a mesma distribuição, o SQL Analytics tem conhecimento incorporado das localizações da linha. O SQL Analytics utiliza este conhecimento para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta. 
+Uma vez que valores idênticos sempre têm a mesma distribuição, o armazém de dados tem conhecimento incorporado das localizações da linha. No pool SYnapse SQL este conhecimento é usado para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta. 
 
 As mesas distribuídas por hash funcionam bem para grandes mesas de facto saem num esquema estelar. Podem ter um grande número de linhas e ainda alcançar um alto desempenho. Existem, naturalmente, algumas considerações de design que o ajudam a obter o desempenho que o sistema distribuído foi projetado para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo. 
 
@@ -52,6 +55,7 @@ Considere utilizar uma tabela distribuída por hash quando:
 - A tabela tem operações frequentes de inserção, atualização e exclusão. 
 
 ### <a name="round-robin-distributed"></a>Robin redondo distribuído
+
 Uma mesa distribuída por robin redondo distribui linhas de mesa uniformemente em todas as distribuições. A atribuição de filas para distribuição é aleatória. Ao contrário das tabelas distribuídas por hash, as filas com valores iguais não estão garantidas para serem atribuídas à mesma distribuição. 
 
 Como resultado, o sistema às vezes precisa invocar uma operação de movimento de dados para organizar melhor os seus dados antes que possa resolver uma consulta.  Este passo extra pode abrandar as suas consultas. Por exemplo, juntar-se a uma mesa de robin redondo geralmente requer remodelação das linhas, o que é um sucesso de desempenho.
@@ -65,7 +69,7 @@ Considere utilizar a distribuição de robin redondo para a sua tabela nos segui
 - Se a adesão for menos significativa do que outras juntas na consulta
 - Quando a mesa é uma mesa de preparação temporária
 
-Os dados do tutorial [Load New York taxicab](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) dão um exemplo de carregamento de dados numa mesa de preparação de robin redondo no SQL Analytics.
+Os dados do tutorial [Load New York taxicab](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) dão um exemplo de carregamento de dados numa mesa de preparação de robin redondo.
 
 
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
@@ -109,7 +113,7 @@ Para equilibrar o processamento paralelo, selecione uma coluna de distribuição
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimize o movimento de dados
 
-Para obter as consultas de resultados corretos, as consultas podem mover dados de um nó computacional para outro. O movimento de dados geralmente acontece quando as consultas têm adenárias e agregações em tabelas distribuídas. Escolher uma coluna de distribuição que ajude a minimizar o movimento de dados é uma das estratégias mais importantes para otimizar o desempenho da sua base de dados SQL Analytics.
+Para obter as consultas de resultados corretos, as consultas podem mover dados de um nó computacional para outro. O movimento de dados geralmente acontece quando as consultas têm adenárias e agregações em tabelas distribuídas. Escolher uma coluna de distribuição que ajude a minimizar o movimento de dados é uma das estratégias mais importantes para otimizar o desempenho do seu pool SQL Synapse.
 
 Para minimizar o movimento de dados, selecione uma coluna de distribuição que:
 
@@ -217,7 +221,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela distribuída, utilize uma destas declarações:
 
-- [TABELA CREATE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CRIAR TABELA AS SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [TABELA DE CRIAÇÃO (piscina SYnapse SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CRIAR TABELA COMO SELECT (piscina Synapse SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

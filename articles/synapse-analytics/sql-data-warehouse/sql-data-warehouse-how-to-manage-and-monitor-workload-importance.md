@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fdac8ebc56291292559f6718de5f0092c7d8e063
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 114f8d637a927a899807a676fb3e1b45f5c7687c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350473"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585749"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerir e monitorizar a importância da carga de trabalho no Azure Synapse Analytics
 
-Gerir e monitorizar a importância do nível de pedido da SQL Analytics no Azure Synapse utilizando DMVs e vistas de catálogo.
+Gerir e monitorizar a importância do nível de pedido synapse SQL em Azure Synapse utilizando DMVs e vistas de catálogo.
 
 ## <a name="monitor-importance"></a>Monitorizar a importância
 
