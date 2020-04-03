@@ -1,26 +1,26 @@
 ---
-title: Co-venda de códigos estatais [ Mercado Azure
-description: Utilize estes códigos estado/província ao fornecer informações de contacto na página de Co-venda da sua oferta.
+title: Co-venda de códigos estatais e províncias [ Mercado Azure
+description: Utilize estes códigos estatais e províncias ao fornecer informações de contacto na página de Co-venda da sua oferta.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277044"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619365"
 ---
-# <a name="co-sell-state-codes"></a>Co-vender códigos estatais
+# <a name="co-sell-state-and-province-codes"></a>Co-venda de códigos estatais e províncias
 
 Se aplicável, utilize estes códigos para fornecer informações estatais/províncias ao [fornecer informações de contacto na página de Co-venda da sua oferta](commercial-marketplace-co-sell.md#contacts).
 
-## <a name="stateprovince-table"></a>Tabela Estado/Província
+## <a name="us-states-and-territories"></a>Estados e territórios dos EUA
 
-|   Nome estado/província               |   Código    |
+|   Nome do Estado e do território          |   Código    |
 |-------------------------------------|-----------|
 | Alabama                             | US-AL     |
 | Alasca                              | US-AK     |
@@ -78,7 +78,40 @@ Se aplicável, utilize estes códigos para fornecer informações estatais/prov�
 | Ilhas Marianas do Norte            | US-MP     |
 | Porto Rico                         | US-PR     |
 | Ilhas Periféricas menores dos Estados Unidos | US-UM    |
-|Ilhas Virgens, E.U.A.                 | US-VI     |
+| Ilhas Virgens, E.U.A.                 | US-VI    |
+
+## <a name="canadian-provinces-and-territories"></a>Províncias e territórios canadianos
+
+|   Nome da província e do território       |   Código    |
+|-------------------------------------|-----------|
+| Alberta                             |  CA-AB    |
+| Colúmbia Britânica                    |  CA-BC    |
+| Manitoba                            |  CA-MB    |
+| Novo Brunswick                       |  CA-NB    |
+| Terra Nova e Labrador           |  CA-NL    |
+| Nova Escócia                         |  CA-NS    |
+| Ontário                             |  CA-ON    |
+| Ilha Príncipe Eduardo                |  CA-PE    |
+| Quebec                              |  CA-QC    |
+| Saskatchewan                        |  CA-SK    |
+| Territórios do Noroeste               |  CA-NT    |
+| Nunavut                             |  CA-NU    |
+| Yukon                               |  CA-YT    |
+
+
+## <a name="australian-states-and-territories"></a>Estados e territórios australianos
+
+|   Nome do Estado e do território          |   Código    |
+|-------------------------------------|-----------|
+| Nova Gales do Sul                     |  AU-NSW   |
+| Queensland                          |  AU-QLD   |
+| Sul da Austrália                     |  AU-SA    |
+| Tasmânia                            |  AU-TAS   |
+| Victoria                            |  AU-VIC   |
+| Austrália Ocidental                   |  AU-WA    |
+| Território da Capital Australiana        |  AU-ACT   |
+| Território do Norte                  |  AU-NT    |
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

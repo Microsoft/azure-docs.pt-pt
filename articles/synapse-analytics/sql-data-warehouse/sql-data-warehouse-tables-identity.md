@@ -1,6 +1,6 @@
 ---
 title: Usar a IDENTIDADE para criar chaves de substituição
-description: Recomendações e exemplos para a utilização da propriedade IDENTITY para criar chaves de substituição nas mesas da SQL Analytics.
+description: Recomendações e exemplos para a utilização da propriedade IDENTITY para criar chaves de substituição em mesas em piscina Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab8f4a64f7273f0fa15c20f324e132003d5afe32
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d4a9880ed7ab26d0127026f49c0bc781cfc2a941
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351302"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586337"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Utilização da IDENTIDADE para criar chaves de substituição no SQL Analytics
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utilização da IDENTIDADE para criar chaves de substituição na piscina SYnapse SQL
 
-Recomendações e exemplos para a utilização da propriedade IDENTITY para criar chaves de substituição nas mesas da SQL Analytics.
+Recomendações e exemplos para a utilização da propriedade IDENTITY para criar chaves de substituição em mesas em piscina Synapse SQL.
 
 ## <a name="what-is-a-surrogate-key"></a>O que é uma chave de substituição
 
-Uma chave de substituição em uma mesa é uma coluna com um identificador único para cada linha. A chave não é gerada a partir dos dados da tabela. Os modeladores de dados gostam de criar chaves de substituição nas suas tabelas quando projetam modelos SQL Analytics. Você pode usar a propriedade IDENTITY para alcançar este objetivo de forma simples e eficaz sem afetar o desempenho da carga.  
+Uma chave de substituição em uma mesa é uma coluna com um identificador único para cada linha. A chave não é gerada a partir dos dados da tabela. Os modeladores de dados gostam de criar chaves de substituição nas suas tabelas quando projetam modelos de armazém de dados. Você pode usar a propriedade IDENTITY para alcançar este objetivo de forma simples e eficaz sem afetar o desempenho da carga.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criar uma tabela com uma coluna IDENTITY
 
-A propriedade IDENTITY foi projetada para escalar todas as distribuições na base de dados SQL Analytics sem afetar o desempenho da carga. Por isso, a implementação do IDENTIDADE está orientada para a consecução destes objetivos.
+A propriedade IDENTITY foi projetada para escalar todas as distribuições na piscina SYnapse SQL sem afetar o desempenho da carga. Por isso, a implementação do IDENTIDADE está orientada para a consecução destes objetivos.
 
 Pode definir uma tabela como tendo a propriedade IDENTITY quando criar a tabela pela primeira vez usando sintaxe semelhante à seguinte declaração:
 
@@ -50,7 +50,7 @@ Esta restante secção destaca as nuances da implementação para ajudá-lo a co
 
 ### <a name="allocation-of-values"></a>Atribuição de valores
 
-A propriedade IDENTITY não garante a ordem em que os valores de substituição são atribuídos, o que reflete o comportamento do SQL Server e da Base de Dados Azure SQL. No entanto, na SQL Analytics, a ausência de uma garantia é mais acentuada.
+A propriedade IDENTITY não garante a ordem em que os valores de substituição são atribuídos, o que reflete o comportamento do SQL Server e da Base de Dados Azure SQL. No entanto, na piscina SYnapse SQL, a ausência de uma garantia é mais acentuada.
 
 O exemplo seguinte é uma ilustração:
 
@@ -100,7 +100,7 @@ CRIAR TABELA COMO SELECT (CTAS) segue o mesmo comportamento do Servidor SQL que 
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserir explicitamente valores numa coluna IDENTITY
 
-A SQL `SET IDENTITY_INSERT <your table> ON|OFF` Analytics suporta a sintaxe. Pode utilizar esta sintaxe para inserir explicitamente valores na coluna IDENTIDADE.
+Piscina Synapse SQL `SET IDENTITY_INSERT <your table> ON|OFF` suporta sintaxe. Pode utilizar esta sintaxe para inserir explicitamente valores na coluna IDENTIDADE.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas nas suas dimensões. Um exemplo é a linha -1 ou "membro desconhecido".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Não é possível `CREATE TABLE AS SELECT` utilizar atualmente quando se carrega dados numa tabela com uma coluna IDENTITY.
 >
 
-Para obter mais informações sobre os dados de carregamento, consulte [O Extrato, Carga e Transformação (ELT) para as](design-elt-data-loading.md) [melhores práticas](guidance-for-loading-data.md)de Análise E Carregamento da SQL .
+Para obter mais informações sobre os dados de carregamento, consulte [O Extrato, Carga e Transformação (ELT) para piscina Synapse SQL](design-elt-data-loading.md) e [carregar as melhores práticas.](guidance-for-loading-data.md)
 
 ## <a name="system-views"></a>Vistas de sistema
 
@@ -195,7 +195,7 @@ A propriedade IDENTITY não pode ser usada:
 - Quando a coluna é também a chave de distribuição
 - Quando a mesa é uma mesa externa
 
-As seguintes funções relacionadas não são suportadas no SQL Analytics:
+As seguintes funções relacionadas não são suportadas na piscina SYnapse SQL:
 
 - [IDENTIDADE()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

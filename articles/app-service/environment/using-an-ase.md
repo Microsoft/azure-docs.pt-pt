@@ -4,24 +4,24 @@ description: Aprenda a criar, publicar e escalar aplicações num Ambiente de Se
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 01/01/2020
+ms.date: 3/26/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477633"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586123"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 
 Um Ambiente de Serviço de Aplicações (ASE) é uma implantação do Azure App Service numa subnet na instância de rede virtual Azure de um cliente. Uma ASE consiste em:
 
-- **Extremidades dianteiras**: Sempre que HTTP ou HTTPS terminam num Ambiente de Serviço de Aplicações.
-- **Trabalhadores**: Os recursos que acolhem as suas apps.
-- **Base de Dados**: Contém informações que definem o ambiente.
-- **Armazenamento**: Utilizado para acolher as aplicações publicadas pelo cliente.
+- **Extremidades dianteiras**: Onde HTTP ou HTTPS terminam num Ambiente de Serviço de Aplicações
+- **Trabalhadores**: Os recursos que acolhem as suas apps
+- **Base de Dados**: Detém informação que define o ambiente
+- **Armazenamento**: Utilizado para acolher as aplicações publicadas pelo cliente
 
 Pode implementar uma ASE com um IP virtual externo ou interno (VIP) para acesso à aplicação. Uma implantação com um VIP externo é geralmente chamada de *ASE Externa*. Uma implantação com um VIP interno é chamada de *ILB ASE* porque utiliza um equilibrista interno de carga (ILB). Para saber mais sobre o ILB ASE, consulte [Criar e utilizar um ILB ASE][MakeILBASE].
 
@@ -120,6 +120,22 @@ Para obter informações sobre como criar um ILB ASE, consulte [Criar e utilizar
 
 O URL SCM é utilizado para aceder à consola Kudu ou para publicar a sua aplicação utilizando o Web Deploy. Para obter informações sobre a consola Kudu, consulte a [consola Kudu para o Azure App Service][Kudu]. A consola Kudu dá-lhe um UI web para depurar, carregar ficheiros, editar ficheiros e muito mais.
 
+### <a name="dns-configuration"></a>Configuração do DNS 
+
+Quando utiliza uma ASE Externa, as aplicações feitas na sua ASE estão registadas com o Azure DNS. Com um ILB ASE, tens de gerir o teu próprio DNS. 
+
+Para configurar o DNS com o seu ILB ASE:
+
+    create a zone for <ASE name>.appserviceenvironment.net
+    create an A record in that zone that points * to the ILB IP address
+    create an A record in that zone that points @ to the ILB IP address
+    create a zone in <ASE name>.appserviceenvironment.net named scm
+    create an A record in the scm zone that points * to the ILB IP address
+
+As definições dNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a apenas serem acessíveis por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas aplicações num ILB ASE. Se pretender criar uma zona chamada *contoso.net,* pode fazê-lo e apontá-lo para o endereço IP ILB. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O site scm só está disponível em * &lt;appname&gt;.scm.&lt; nome de&gt;asename .appserviceenvironment.net.* 
+
+A zona *&lt; chamada. o nome&gt;de asename .appserviceenvironment.net* é globalmente único. Antes de maio de 2019, os clientes puderam especificar o sufixo de domínio da ASE ILB. Se quisesse usar *.contoso.com* para o sufixo de domínio, poderia fazê-lo e isso incluiria o site scm. Houve desafios com este modelo, incluindo; gestão do certificado SSL predefinido, falta de inscrição única com o site scm, e a obrigação de utilizar um certificado wildcard. O processo de atualização do certificado padrão ILB ASE também foi disruptivo e causou o reinício da aplicação. Para resolver estes problemas, o comportamento da ILB ASE foi alterado para utilizar um sufixo de domínio baseado no nome da ASE e com um sufixo da Microsoft. A alteração do comportamento da ILB ASE só afeta as ASE ILB feitas após maio de 2019. As ASE ILB pré-existentes devem ainda gerir o certificado predefinido da ASE e a sua configuração DNS.
+
 ## <a name="publishing"></a>Publicar
 
 Numa ASE, tal como com o Serviço de Aplicações multiarrendatárias, pode publicar através destes métodos:
@@ -132,7 +148,7 @@ Numa ASE, tal como com o Serviço de Aplicações multiarrendatárias, pode publ
 
 Com uma ASE Externa, estas opções editoriais funcionam da mesma forma. Para mais informações, consulte a Implantação no Serviço de [Aplicações Azure][AppDeploy].
 
-A publicação é significativamente diferente com um ILB ASE, para o qual os pontos finais de publicação estão todos disponíveis apenas através do ILB. O ILB encontra-se num IP privado na sub-rede ASE na rede virtual. Se não tiver acesso à rede ao ILB, não pode publicar nenhuma aplicação nessa ASE. Como se nota no [Create e utilize um ILB ASE,][MakeILBASE]tem de configurar o DNS para as aplicações no sistema. Este requisito inclui o ponto final do SCM. Se os pontos finais não forem definidos corretamente, não pode publicar. Os seus IDEs também devem ter acesso à rede ao ILB para publicar diretamente no mesmo.
+Com um ILB ASE, os pontos finais de publicação só estão disponíveis através do ILB. O ILB encontra-se num IP privado na sub-rede ASE na rede virtual. Se não tiver acesso à rede ao ILB, não pode publicar nenhuma aplicação nessa ASE. Como se nota no [Create e utilize um ILB ASE,][MakeILBASE]tem de configurar o DNS para as aplicações no sistema. Este requisito inclui o ponto final do SCM. Se os pontos finais não forem definidos corretamente, não pode publicar. Os seus IDEs também devem ter acesso à rede ao ILB para publicar diretamente no mesmo.
 
 Sem alterações adicionais, sistemas ci baseados na Internet como gitHub e Azure DevOps não funcionam com um ILB ASE porque o ponto final de publicação não é acessível à Internet. Pode ativar a publicação de um ILB ASE da Azure DevOps instalando um agente de libertação auto-hospedado na rede virtual que contém o ILB ASE. Em alternativa, também pode utilizar um sistema CI que utiliza um modelo de pull, como o Dropbox.
 
@@ -169,7 +185,18 @@ Para permitir o registo na sua ASE:
 
 ![Definições de registo de diagnóstico da ASE][4]
 
-Se integrar o Log Analytics, pode ver os registos selecionando **Registos** do portal ASE e criando uma consulta contra o **AppServiceEnvironmentPlatformLogs**.
+Se integrar o Log Analytics, pode ver os registos selecionando **Registos** do portal ASE e criando uma consulta contra o **AppServiceEnvironmentPlatformLogs**. Os registos só são emitidos quando a Sua ASE tem um evento que irá desencadeá-lo. Se a Sua ASE não tiver tal evento, não haverá registos. Para ver rapidamente um exemplo de logs no seu espaço de trabalho Log Analytics, execute uma operação à escala com um dos planos do Serviço de Aplicações na sua ASE. Em seguida, pode fazer uma consulta contra os **AppServiceEnvironmentPlatformLogs** para ver esses registos. 
+
+**Criar um alerta**
+
+Para criar um alerta contra os seus registos, siga as instruções em [Criar, ver e gerir alertas][logalerts]de registo utilizando o Monitor Azure . Em resumo:
+
+* Abra a página Alertas no seu portal ASE
+* Selecione **nova regra de alerta**
+* Selecione o seu Recurso para ser o seu espaço de trabalho Log Analytics
+* Detete a sua condição com uma pesquisa de log personalizada para usar uma consulta como, "AppServiceEnvironmentPlatformLogs ] onde a ResultDescription contém "começou a escalar" ou o que quiser. Estabeleça o limiar conforme apropriado. 
+* Adicione ou crie um grupo de ação como desejado. O grupo de ação é onde define a resposta ao alerta, como o envio de um e-mail ou uma mensagem SMS
+* Diga o seu alerta e guarde-o.
 
 ## <a name="upgrade-preference"></a>Preferência de upgrade
 
@@ -245,3 +272,4 @@ Para eliminar uma ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[logalerts]: ../../azure-monitor/platform/alerts-log.md

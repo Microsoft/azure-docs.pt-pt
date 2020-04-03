@@ -1,20 +1,23 @@
 ---
 title: Métricas suportadas pelo Monitor Azure por tipo de recurso
 description: Lista de métricas disponíveis para cada tipo de recurso com o Monitor Azure.
-author: anirudhcavale
+author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.date: 03/17/2020
-ms.author: ancav
+ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 674321878cfce2d05189700a8b5118e233d9044d
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 79bae9712cea04425cc36414ec56fdddd4345eab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520711"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586031"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
+
+> [!NOTE]
+> Esta lista é em grande parte gerada automaticamente a partir da API DE MÉTRICAS de Monitor Azure. Qualquer modificação feita nesta lista via Github pode ser redigida sem aviso prévio. Contacte o autor deste artigo para obter mais informações sobre como efazer atualizações permanentes.
 
 O Azure Monitor fornece várias formas de interagir com métricas, incluindo mapeá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. Abaixo está uma lista completa de todas as métricas atualmente disponíveis com o pipeline métrico do Azure Monitor. Outras métricas podem estar disponíveis no portal ou usando APIs legados. Esta lista abaixo inclui apenas métricas disponíveis utilizando o gasoduto métrico Azure Monitor consolidado. As métricas são organizadas pelo espaço de nome. Para obter uma lista de serviços e os espaços de nome que lhes pertencem, consulte os fornecedores de [recursos para os serviços Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) Para consultar e aceder a estas métricas programáticamente, por favor use a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
@@ -24,10 +27,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 > *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 > Para obter uma lista de métricas de plataforma exportáveis através de configurações de diagnóstico, consulte [este artigo](metrics-supported-export-diagnostic-settings.md).
-
-
-
-
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servidores
@@ -565,7 +564,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Por Disco Escreva Bytes/seg|Data Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito sumo durante o período de monitorização|SlotId|
 |Por disco ler operações/sec|Operações de leitura de disco de dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização|SlotId|
 |Por Operações de Escrita de Disco/Sec|Operações de Escrita de Disco de Dados/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Escreva IOPS a partir de um único disco durante o período de monitorização|SlotId|
-|Por Disco QD|[QD do disco de dados [(depreciado)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|Por Disco QD|QD do disco de dados [(preprecated)](portal-disk-metrics-deprecation.md)[portal-disk-metrics-deprecation.md)|Contagem|Média|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
 |OS Per Disk Ler Bytes/seg|Os Discos Ler Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec lido saem de um único disco durante o período de monitorização do disco OS|Nenhuma|
 |OS Por Disco Escreva Bytes/seg|Os Disk Write Bytes/Sec [(Depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Bytes/Sec escrito a um único disco durante o período de monitorização do disco OS|Nenhuma|
 |OS por disco ler operações/sec|Operações de leitura de disco osso/sec [(depreciado)](portal-disk-metrics-deprecation.md)|CondeEmSegundo|Média|Leia iOPS a partir de um único disco durante o período de monitorização do disco OS|Nenhuma|
@@ -1974,8 +1973,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 
 
 
-
-
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servidores/bases de dados
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -2002,8 +1999,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |cache_hit_percent|Percentagem de impacto cache|Percentagem|Máximo|Cache atingiu a percentagem. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |cache_used_percent|Cache usado percentagem|Percentagem|Máximo|Cache usado percentagem. Aplica-se apenas aos armazéns de dados.|Nenhuma|
-|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Utilização de CPU em percentagem do processo SQL DB. Não aplicável aos armazéns de dados.|Nenhuma|
-|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Utilização da memória em percentagem do processo SQL DB. Não aplicável aos armazéns de dados.|Nenhuma|
+|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
+|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
 |tempdb_data_size|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb. Não aplicável aos armazéns de dados.|Nenhuma|
 |tempdb_log_size|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb. Não aplicável aos armazéns de dados.|Nenhuma|
 |tempdb_log_used_percent|Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado. Não aplicável aos armazéns de dados.|Nenhuma|
@@ -2060,8 +2057,8 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |database_cpu_limit|Limite de CPU|Contagem|Média|Limite de CPU|Base de Dados Resourceid|
 |cpu_used|CPU utilizado|Contagem|Média|CPU usado. Aplica-se a piscinas elásticas baseadas em vCore.|Nenhuma|
 |database_cpu_used|CPU utilizado|Contagem|Média|CPU utilizado|Base de Dados Resourceid|
-|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Utilização de CPU em percentagem do processo SQL DB. Aplica-se a piscinas elásticas.|Nenhuma|
-|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Utilização da memória em percentagem do processo SQL DB. Aplica-se a piscinas elásticas.|Nenhuma|
+|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas.|Nenhuma|
+|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas.|Nenhuma|
 |tempdb_data_size|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb|Nenhuma|
 |tempdb_log_size|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de log tempdb|Nenhuma|
 |tempdb_log_used_percent|Log por cento temporário usado|Percentagem|Máximo|Log por cento temporário usado|Nenhuma|
@@ -2351,15 +2348,6 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A utilização da CPU. Este valor é reportado com 100% representando todos os núcleos de processador escarnecidos do sistema. Como exemplo, um VM de 2 vias usando 50% de um sistema de quatro núcleos está completamente usando dois núcleos.|Nenhuma|
 |PercentageCpuReady|CpU percentual pronto|Milissegundos|Total|O tempo de preparação é o tempo que espera que a CPU(s) fique disponível no intervalo de atualização anterior.|Nenhuma|
 
-
-
-
-
-
-
-
-
-
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
@@ -2380,7 +2368,7 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |TcpLastAck|TCP Last Ack|Contagem|Média|TCP Last Ack|Instância|
 |TcpTimeWait|Tempo de Espera do TCP|Contagem|Média|Tempo de Espera do TCP|Instância|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (excluindo funções) 
 
 > [!NOTE]
 > O Uso do Sistema de **Ficheiros** é uma nova métrica a ser lançada globalmente, não são esperados dados a não ser que tenha sido listado em branco para pré-visualização privada.
@@ -2410,6 +2398,37 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 |Alças|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Fios|Contagem de fios|Contagem|Média|Contagem de fios|Instância|
+|PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
+|IoReadBytesPerSecond|IO Ler Bytes por Segundo|BytesPerSecond|Total|IO Ler Bytes por Segundo|Instância|
+|IoWriteBytesPerSecond|IO Escrever Bytes por Segundo|BytesPerSecond|Total|IO Escrever Bytes por Segundo|Instância|
+|IoOtherBytesPerSecond|IO Outros Bytes por Segundo|BytesPerSecond|Total|IO Outros Bytes por Segundo|Instância|
+|IoReadOperationsPerSecond|IO Ler Operações por segundo|BytesPerSecond|Total|IO Ler Operações por segundo|Instância|
+|IoWriteOperationsPerSecond|IO Write Operations por segundo|BytesPerSecond|Total|IO Write Operations por segundo|Instância|
+|IoOtherOperationsPerSecond|IO outras operações por segundo|BytesPerSecond|Total|IO outras operações por segundo|Instância|
+|RequestsInApplicationQueue|Pedidos na fila de candidaturas|Contagem|Média|Pedidos na fila de candidaturas|Instância|
+|CurrentAssemblies|Assembleias atuais|Contagem|Média|Assembleias atuais|Instância|
+|TotalAppDomains|Domínios totais de aplicativos|Contagem|Média|Domínios totais de aplicativos|Instância|
+|TotalAppDomínios Descarregados|Total de domínios de aplicativos descarregados|Contagem|Média|Total de domínios de aplicativos descarregados|Instância|
+|Gen0Collections|Coleções de lixo gen 0|Contagem|Total|Coleções de lixo gen 0|Instância|
+|Gen1Collections|Coleções de lixo da Gen 1|Contagem|Total|Coleções de lixo da Gen 1|Instância|
+|Gen2Collections|Coleções de lixo gen 2|Contagem|Total|Coleções de lixo gen 2|Instância|
+|HealthCheckStatus|Estado do controlo de saúde|Contagem|Média|Estado do controlo de saúde|Instância|
+|Utilização do Sistema de Ficheiros|Utilização do sistema de ficheiros|Bytes|Média|Utilização do sistema de ficheiros|Nenhuma|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
+
+> [!NOTE]
+> O Uso do Sistema de **Ficheiros** é uma nova métrica a ser lançada globalmente, não são esperados dados a não ser que tenha sido listado em branco para pré-visualização privada.
+
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|BytesReceived|Dados em|Bytes|Total|Dados em|Instância|
+|BytesSent|Dados out|Bytes|Total|Dados out|Instância|
+|Http5xx|Erros do servidor http|Contagem|Total|Erros do servidor http|Instância|
+|Conjunto de Funções de Memória|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
+|Conjunto de trabalho de memória média|Conjunto de trabalho médio da memória|Bytes|Média|Conjunto de trabalho médio da memória|Instância|
+|Unidades de Execução de Funções|Unidades de Execução de Funções|MB / Milliseconds|Total|[Unidades de Execução de Funções](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instância|
+|Contagem de execuções de funções|Contagem de execução de funções|Contagem|Total|Contagem de execução de funções|Instância|
 |PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
 |IoReadBytesPerSecond|IO Ler Bytes por Segundo|BytesPerSecond|Total|IO Ler Bytes por Segundo|Instância|
 |IoWriteBytesPerSecond|IO Escrever Bytes por Segundo|BytesPerSecond|Total|IO Escrever Bytes por Segundo|Instância|
@@ -2510,3 +2529,4 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 * [Ler sobre métricas no Monitor Azure](data-platform.md)
 * [Criar alertas para as métricas](alerts-overview.md)
 * [Métricas de exportação para armazenamento, Hub de Eventos ou Log Analytics](platform-logs-overview.md)
+

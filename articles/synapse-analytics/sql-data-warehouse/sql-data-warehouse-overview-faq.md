@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 766615a92e616a254cca4b2b3ce1ccde40118275
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350256"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586513"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (ex-SQL DW) Frequentemente fez perguntas
 
@@ -29,9 +29,9 @@ P. O que aconteceu ao Azure SQL Data Warehouse?
 
 R. Azure Synapse é azure SQL Data Warehouse (SQL DW) evoluído. Levamos o mesmo armazém de dados líder da indústria para um novo nível de desempenho e capacidades. Pode continuar a executar as suas cargas de trabalho de armazém de dados existentes em produção com a Azure Synapse e beneficiar automaticamente das novas capacidades, que estão em pré-visualização. Para mais informações, consulte [o What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-P. O que é SQL Analytics?
+P. O que é piscina Synapse SQL?
 
-R. O SQL Analytics refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis com o Azure Synapse. Para mais informações, consulte, [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. O pool SQL da Synapse refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis com o Azure Synapse. Para mais informações, consulte, [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 P. Como posso começar com Azure Synapse?
 
@@ -49,7 +49,7 @@ P. Posso ligar o Power BI?
 
 R. Sim! Embora o Power BI suporte a consulta direta com o Azure Synapse, não se destina a um grande número de utilizadores ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere utilizar o Power BI em cima dos Serviços de Análise do Azure ou do Serviço de Análise IaaS.
 
-P. Quais são os limites de capacidade da SQL Analytics?
+P. O que são os limites de capacidade de piscina Synapse SQL?
 
 R. Consulte a nossa página de [limites](sql-data-warehouse-service-capacity-limits.md) de capacidade atual. 
 
@@ -83,16 +83,15 @@ R. Muitas funcionalidades são suportadas. As funcionalidades que não são supo
 
 ## <a name="tooling-and-administration"></a>Ferramentas e administração
 
-P. O SQL Analytics suporta APIs REST?
+P. A piscina Synapse SQL suporta APIs REST?
 
-R. Sim. A maior parte da funcionalidade REST que pode ser usada com base de dados SQL também está disponível com o SQL Analytics. Pode encontrar informações da API dentro das páginas de documentação REST ou [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
+R. Sim. A maior parte da funcionalidade REST que pode ser usada com base de dados SQL também está disponível com piscina SYnapse SQL. Pode encontrar informações da API dentro das páginas de documentação REST ou [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 ## <a name="loading"></a>Carregamento
 
 P. Que clientes apoiam?
 
-R. Suporte ao condutor para SQL Analytics pode ser encontrado na página [De conexão Strings](sql-data-warehouse-connection-strings.md)
+R. Suporte ao condutor para piscina SYnapse SQL pode ser encontrado na página [De conexão Strings](sql-data-warehouse-connection-strings.md)
 
 P: Que formatos de ficheiro são suportados pela PolyBase?
 
@@ -108,7 +107,8 @@ R: Não, a PolyBase só interage com os componentes de armazenamento.
 
 P: Posso ligar-me ao HDI?
 
-R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver uma das camadas hDFS, pode carregar esses dados num armazém de dados da SQL Analytics. No entanto, não é possível gerar cálculo de push down para a instância DeI. 
+R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver uma camada HDFS, pode carregar esses dados numa piscina SYnapse SQL. No entanto, não é possível gerar cálculo de push down para a instância DeI. 
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Para mais informações sobre o Azure Synapse como um todo, consulte a nossa página [de visão geral.](sql-data-warehouse-overview-faq.md)

@@ -103,7 +103,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Regiões
       href: regions.md
-    - name: Perguntas mais frequentes
+    - name: FAQs
       href: faq.md
     - name: Conformidade
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
@@ -111,3 +111,5 @@
       href: release-notes.md
     - name: Voz do utilizador
       href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: Blogues
+      href: 'https://azure.microsoft.com/blog/tag/video-indexer/'

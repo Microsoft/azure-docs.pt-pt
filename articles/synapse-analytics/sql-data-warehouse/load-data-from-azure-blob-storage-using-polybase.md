@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Carregue os dados do táxi de Nova Iorque'
-description: Tutorial usa portal Azure e SQL Server Management Studio para carregar dados de táxi de Nova Iorque a partir de uma bolha azure global para SQL Analytics.
+description: Tutorial usa portal Azure e SQL Server Management Studio para carregar dados de táxi de Nova Iorque a partir de uma bolha azure global para Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1614538f6ab735720d090f66fee0e017e96cf72
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e17b5be0f4f3d568bd5ec836659c4444b384b2fa
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346731"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583752"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do táxi de Nova Iorque
 
@@ -60,7 +60,7 @@ Siga estes passos para criar uma base de dados em branco.
    | Definição            | Valor sugerido       | Descrição                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
    | *Nome**            | mySampleDataWarehouse | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). |
-   | **Assinatura**   | A sua subscrição     | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
+   | **Subscrição**   | A sua subscrição     | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos** | myResourceGroup       | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
    | **Selecione fonte**  | Base de dados vazia        | Especifica para criar uma base de dados vazia. Tenha em atenção que um armazém de dados é um tipo de base de dados. |
 

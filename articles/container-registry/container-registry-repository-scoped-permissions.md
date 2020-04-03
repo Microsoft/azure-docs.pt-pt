@@ -3,12 +3,12 @@ title: Permissões aos repositórios no Registo de Contentores de Azure
 description: Crie um símbolo com permissões revestidas a repositórios específicos num registo para puxar ou empurrar imagens, ou realizar outras ações
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 7d390bf4d97561e374c70f184534ac4f98a40611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444320"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618834"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Crie um símbolo com permissões de repositório
 
@@ -27,6 +27,7 @@ Os cenários para a criação de um símbolo incluem:
 
 * Esta funcionalidade só está disponível num registo de contentores **Premium.** Para obter informações sobre os níveis e limites de serviço de registo, consulte o [Registo de Contentores Azure SKUs](container-registry-skus.md).
 * Não é possível atribuir permissões de reposição a uma identidade de Diretório Ativo Azure, como um diretor de serviço ou identidade gerida.
+* Não é possível criar um mapa de âmbito num registo habilitado para [acesso anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)à pull .
 
 ## <a name="concepts"></a>Conceitos
 

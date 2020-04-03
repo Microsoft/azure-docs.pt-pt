@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268785"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585363"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a base de dados Azure SQL gerida?
 
@@ -67,7 +67,7 @@ As principais características dos casos geridos são mostradas na tabela seguin
 | Suporte do portal | Sim|
 | Serviço integrado de Integração (SSIS) | Não - O SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | Não - SSAS é [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
-| Serviço de Reporte Incorporado (SSRS) | Não - use Power BI ou SSRS IaaS |
+| Serviço de Reporte Incorporado (SSRS) | Não - utilize [relatórios paginados Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou aperte sSRS em Azure VM. Embora a Managed Instance não possa executar o SSRS como um serviço, pode hospedar bases de dados de catálogo SSRS 2019 para um servidor de relatórios externo usando a autenticação do Servidor SQL. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
@@ -146,7 +146,7 @@ O quadro seguinte resume as operações e as durações globais típicas:
 
 |Categoria  |Operação  |Segmento de longo prazo  |Duração estimada  |
 |---------|---------|---------|---------|
-|**Implantação** |Primeira instância numa sub-rede vazia|Criação de cluster virtual|90% das operações terminam em 4 horas|
+|**Implementação** |Primeira instância numa sub-rede vazia|Criação de cluster virtual|90% das operações terminam em 4 horas|
 |Implementação |Primeira instância de outra geração de hardware numa subnet não vazia (por exemplo, primeira instância de Gen 5 numa subnet com instâncias gen 4)|Criação de cluster virtual*|90% das operações terminam em 4 horas|
 |Implementação |Criação em primeira instância de 4 vCores, numa subnet vazia ou não vazia|Criação de cluster virtual**|90% das operações terminam em 4 horas|
 |Implementação |Criação subsequente de instâncias dentro da sub-rede não vazia (2º, 3º, etc. instância)|Redimensionamento de cluster virtual|90% das operações terminam em 2,5 horas|
@@ -247,7 +247,7 @@ A migração de uma base de dados encriptada para uma instância gerida é supor
 
 ## <a name="azure-active-directory-integration"></a>Integração de Diretório Ativo Azure
 
-A opção de implementação de instância gerida suporta os tradicionais logins e logins de motor de base de dados do servidor SQL integrados com o Azure Ative Directory (AAD). Os principais servidores da Azure AD **(pré-visualização pública)** são a versão em nuvem Azure dos logins de base de dados no local que está a utilizar no seu ambiente no local. Os diretores de servidores da Azure AD (logins) permitem especificar utilizadores e grupos do seu inquilino do Diretório Ativo Azure como verdadeiros diretores de âmbito de instância, capazes de realizar qualquer operação de nível de instância, incluindo consultas de base de dados cruzadas dentro do mesmo gerido instância.
+A opção de implementação de instância gerida suporta os tradicionais logins e logins de motor de base de dados do servidor SQL integrados com o Azure Ative Directory (AAD). Os principais servidores da Azure AD **(pré-visualização pública)** são a versão em nuvem Azure dos logins de base de dados no local que está a utilizar no seu ambiente no local. Os diretores de servidores da Azure AD (logins) permitem especificar utilizadores e grupos do seu inquilino do Diretório Ativo Azure como verdadeiros diretores de âmbito de instância, capazes de executar qualquer operação de nível de instância, incluindo consultas de base de dados cruzadas dentro da mesma instância gerida.
 
 É introduzida uma nova sintaxe para criar os principais servidores Da Azure AD (logins), **from EXTERNAL PROVIDER**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, e reveja a [Provisão de um administrador de Diretório Ativo Azure para o seu](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artigo de exemplo gerido.
 

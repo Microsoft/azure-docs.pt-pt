@@ -1,6 +1,6 @@
 ---
 title: Instalar o Estúdio Visual 2019
-description: Instale ferramentas de desenvolvimento de estúdio visual e servidor SQL (SSDT) para SQL Analytics
+description: Instale ferramentas de desenvolvimento de estúdio visual e servidor SQL (SSDT) para Synapse SQL
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
@@ -12,12 +12,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d0a1772706fa838f51322d5f5d5bd1b46eb9144a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: aa2f903611f52f8f7a8ede0040b592a7dddd0e89
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351631"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584452"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Começar com o Visual Studio 2019
 Visual Studio **2019** SQL Server Data Tools (SSDT) é uma única ferramenta que lhe permite fazer o seguinte:
@@ -34,7 +34,7 @@ Consulte [o Download Visual Studio 2019][] para descarregar e instalar o Visual 
 
 ## <a name="unsupported-features-in-ssdt"></a>Características não suportadas em SSDT
 
-Há momentos em que os lançamentos de funcionalidades para o SQL Analytics podem não incluir suporte para SSDT. As seguintes funcionalidades não são atualmente suportadas:
+Há momentos em que os lançamentos de funcionalidades para Synapse SQL podem não incluir suporte para SSDT. As seguintes funcionalidades não são atualmente suportadas:
 
 - [Pontos de vista materializados](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (em curso)
 - [Índices de colunas agrupadas ordenados](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (em curso)

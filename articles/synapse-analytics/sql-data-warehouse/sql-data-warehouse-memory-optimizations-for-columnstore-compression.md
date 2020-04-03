@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a640f2f260c94cd7502aa79badb32bd26abebb11
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 81191fd3b654f612f2621757f3006268276477de
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350311"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586540"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de remo para a loja de colunas
 
@@ -89,7 +89,7 @@ quando as colunas de cadeias curtas utilizam tipos de dados de cadeias de <= 32 
 
 As cordas compridas são comprimidas com um método de compressão concebido para comprimir o texto. Este método de compressão usa um *dicionário* para armazenar padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada longa coluna de cordas no grupo de remo.
 
-Para uma discussão aprofundada dos requisitos de memória da columnstore, consulte o vídeo [SQL Analytics: configuração e orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para uma discussão aprofundada dos requisitos de memória da loja de colunas, consulte o vídeo [Synapse SQL: configuração e orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reduzir os requisitos de memória
 
@@ -141,4 +141,4 @@ O tamanho dWU e a classe de recursos do utilizador em conjunto determinam a quan
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para encontrar mais formas de melhorar o desempenho do SQL Analytics, consulte a visão geral do [Desempenho.](cheat-sheet.md)
+Para encontrar mais formas de melhorar o desempenho da Synapse SQL, consulte a [visão geral](cheat-sheet.md)do Desempenho .

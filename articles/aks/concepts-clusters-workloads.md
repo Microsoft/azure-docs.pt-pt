@@ -4,12 +4,12 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho das 
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259646"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617442"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)
 
@@ -67,7 +67,7 @@ Para executar as suas aplicações e serviços de apoio, precisa de um *nó*Kube
 
 O tamanho do VM Azure para os seus nós define quantos CPUs, quanto memória e o tamanho e tipo de armazenamento disponíveis (como SSD de alto desempenho ou HDD regular). Se antecipar a necessidade de aplicações que requerem grandes quantidades de CPU e memória ou armazenamento de alto desempenho, planeje o tamanho do nó em conformidade. Também pode aumentar o número de nós no seu cluster AKS para satisfazer a procura.
 
-No AKS, a imagem VM para os nós do seu cluster é atualmente baseada em Ubuntu Linux ou Windows Server 2019. Quando se cria um cluster AKS ou escala o número de nós, a plataforma Azure cria o número solicitado de VMs e os confunde. Não há configuração manual para realizar. Os nós de agente são cobrados como máquinas virtuais padrão, por isso quaisquer descontos que tenha no tamanho VM que você está usando (incluindo [reservas Azure][reservation-discounts]) são automaticamente aplicados.
+No AKS, a imagem VM para os nós do seu cluster é atualmente baseada em Ubuntu Linux ou Windows Server 2019. Quando se cria um cluster AKS ou eslarga o número de nós, a plataforma Azure cria o número solicitado de VMs e os confunde. Não há configuração manual para realizar. Os nós de agente são cobrados como máquinas virtuais padrão, por isso quaisquer descontos que tenha no tamanho VM que você está usando (incluindo [reservas Azure][reservation-discounts]) são automaticamente aplicados.
 
 Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de execução do contentor ou incluir pacotes personalizados, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine]. O upstream `aks-engine` lança funcionalidades e fornece opções de configuração antes de serem oficialmente suportadas em clusters AKS. Por exemplo, se desejar utilizar um tempo de execução `aks-engine` de um contentor que não seja o Moby, pode utilizar para configurar e implantar um cluster Kubernetes que satisfaça as suas necessidades atuais.
 
@@ -96,7 +96,7 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 
 1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e a rescisão de contentores. Por defeito no AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve ter sempre pelo menos 750 Mi alocadas.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de corrida para libertar a memória na máquina hospedeira e protegê-la. Esta é uma ação reativa uma vez que a memória disponível diminui para além do limiar de 750Mi.
 
-2. O segundo valor é uma taxa progressiva de reservas de memória para o daemon kubelet funcionar corretamente (reservado para kube).
+2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (reservado para kube).
     - 25% dos primeiros 4 GB de memória
     - 20% dos próximos 4 GB de memória (até 8 GB)
     - 10% dos próximos 8 GB de memória (até 16 GB)
@@ -118,7 +118,7 @@ Para as melhores práticas associadas, consulte [as melhores práticas para func
 Os nódosos da mesma configuração são agrupados em *piscinas*de nó . Um aglomerado de Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho são definidos quando se cria um cluster AKS, que cria uma piscina de *nós padrão*. Este conjunto de nós padrão em AKS contém os VMs subjacentes que executam os seus nós de agente.
 
 > [!NOTE]
-> Para garantir que o seu cluster funcione de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós padrão.
+> Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós padrão.
 
 Quando escala ou atualiza um cluster AKS, a ação é executada contra o conjunto de nós padrão. Você também pode optar por escalar ou atualizar uma piscina de nó específica. Para operações de upgrade, os recipientes de funcionamento estão programados em outros nós na piscina do nó até que todos os nós sejam atualizados com sucesso.
 

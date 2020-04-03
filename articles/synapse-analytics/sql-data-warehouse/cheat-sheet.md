@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f2019f8538b6997d8fe802a1e90069e88274eb0c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8e0515727c2155b91f18398bd9def700f4a15b34
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349129"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619416"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de batota para Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -115,7 +115,7 @@ Os grupos de recursos são usados como forma de alocar memória a consultas. Se 
 
 Se reparar em que as consultas demoram demasiado tempo, confirme se os utilizadores não são executados em classes de recursos grandes. Estas classes consomem muitos blocos de simultaneidade e podem fazer com que outras consultas sejam colocadas em fila.
 
-Finalmente, usando a Gen2 de [piscina SQL,](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)cada classe de recursos recebe 2,5 vezes mais memória do que a Gen1.
+Finalmente, usando a Gen2 de [piscina SQL,](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)cada classe de recursos recebe 2,5 vezes mais memória do que a Gen1.
 
 Saiba mais como trabalhar com [classes de recursos e a simultaneidade](resource-classes-for-workload-management.md).
 

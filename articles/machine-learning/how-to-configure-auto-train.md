@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4cf940e38a84ea2eeb1896c8f7c628c8d5734374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247134"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618544"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -166,7 +166,7 @@ Alguns exemplos incluem:
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['kNN regressor'],
+      whitelist_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,
@@ -245,7 +245,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble-configuration"></a><a name="ensemble"></a>Configuração do conjunto
 
-Os modelos do Conjunto são ativados por padrão, e aparecem como as iterações de execução final numa corrida automatizada de aprendizagem automática. Atualmente, os métodos de conjunto suportados são o voto e o empilhamento. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal de os modelos da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
+Os modelos do Conjunto são ativados por padrão, e aparecem como as iterações de execução final numa corrida automatizada de aprendizagem automática. Atualmente, os métodos de conjunto suportados são o voto e o empilhamento. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal dos modelos a partir da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
 
 Existem múltiplos argumentos predefinidos `kwargs` que `AutoMLConfig` podem ser fornecidos como num objeto para alterar o comportamento padrão do conjunto de pilhas.
 

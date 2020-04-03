@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061453"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619119"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -90,7 +90,7 @@ Poderá achar que as séries de valores a seguir a cada parâmetro são algo cr�
 Agora que o SAS é gerado, copie o valor de retorno e guarde-o em algum lugar para ser usado num próximo passo. Se gerou o seu SAS utilizando um método diferente do ClI Azure, terá de remover a inicial `?` se estiver presente. Este personagem é um separador DEURL que já é fornecido no modelo de URL mais tarde neste tópico onde o SAS é usado.
 
 > [!IMPORTANT]
-> Na produção, transmita sempre tokens os SAS através de SSL. Além disso, os tokens SAS devem gerados no servidor e enviados para a página HTML, de modo a serem transmitidos novamente para o Armazenamento de Blobs do Azure. Uma abordagem que pode considerar passa por utilizar uma função sem servidor para gerar os tokens SAS. O portal do Azure inclui modelos de funções que têm a capacidade de gerar um SAS com uma função de JavaScript.
+> Na produção, passe sempre tokens SAS utilizando TLS. Além disso, os tokens SAS devem gerados no servidor e enviados para a página HTML, de modo a serem transmitidos novamente para o Armazenamento de Blobs do Azure. Uma abordagem que pode considerar passa por utilizar uma função sem servidor para gerar os tokens SAS. O portal do Azure inclui modelos de funções que têm a capacidade de gerar um SAS com uma função de JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementar a página HTML
 

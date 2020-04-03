@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477bb5430214b497f90e3cb6d5df69f9fcf4035f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546164"
+ms.locfileid: "80582550"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -43,7 +43,7 @@ Estes problemas são agravados para os utilizadores que precisam de acesso de ou
 - Ninguém pode não conhecer todos os indivíduos específicos dos diretórios de outra organização para poder convidá-los
 - Mesmo que pudessem convidar estes utilizadores, ninguém naquela organização se lembraria de gerir de forma consistente todo o acesso do utilizador.
 
-A gestão de direitos da Azure AD pode ajudar a enfrentar estes desafios.  Para saber mais sobre como os clientes têm usado a gestão de direitos da Azure AD, você pode ler o estudo de [caso Avanade](https://aka.ms/AvanadeELMCase) e o estudo de [caso Centrica](https://aka.ms/CentricaELMCase).  Este vídeo fornece uma visão geral da gestão de direitos e do seu valor:
+A gestão de direitos da Azure AD pode ajudar a enfrentar estes desafios.  Para saber mais sobre como os clientes têm usado a gestão de direitos da Azure AD, você pode ler o estudo de [caso Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) e o estudo de [caso Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Este vídeo fornece uma visão geral da gestão de direitos e do seu valor:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 

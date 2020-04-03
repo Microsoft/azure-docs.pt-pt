@@ -4,15 +4,15 @@ description: Aprenda a integrar-se com o Azure Firewall para garantir o tráfego
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84fcb9076bbc1e75d46d9a6682c96035576ae09e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3dadb57c6358623974de1a27e1601d99b28fee32
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475447"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584320"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloquear um ambiente de serviço de aplicações
 
@@ -215,6 +215,8 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |gmstorageprodsn1.queue.core.windows.net:443 |
 |gmstorageprodsn1.table.core.windows.net:443 |
 |rteventservice.trafficmanager.net:443 |
+|ctldl.windowsupdate.com:80 |
+|ctldl.windowsupdate.com:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dependências wildcard HTTP/HTTPS 
 
@@ -225,6 +227,8 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
 | \*.identity.azure.net:443 |
+| \*.ctldl.windowsupdate.com:80 |
+| \*.ctldl.windowsupdate.com:443 |
 
 #### <a name="linux-dependencies"></a>Dependências linux 
 

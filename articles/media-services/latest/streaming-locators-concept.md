@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302887"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582677"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -36,7 +36,7 @@ Também pode especificar o tempo de início e fim no seu Localizador de Streamin
 
 * **Localizadores** de streaming não são atualizáveis. 
 * As propriedades dos **Localizadores** de Streaming que são do tipo Datetime estão sempre em formato UTC.
-* Deverá conceber um conjunto limitado de políticas para a sua conta de Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limitações.](limits-quotas-constraints.md)
+* Deverá conceber um conjunto limitado de políticas para a sua conta de Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limites.](limits-quotas-constraints.md)
 
 ## <a name="create-streaming-locators"></a>Criar localizadores de streaming  
 

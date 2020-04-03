@@ -15,12 +15,12 @@
       href: quick-backup-vm-powershell.md
     - name: Fazer uma cópia de segurança de uma VM - CLI
       href: quick-backup-vm-cli.md
-    - name: Fazer uma cópia de segurança de uma VM - modelo do Resource Manager
-      displayName: ARM
+    - name: Fazer uma cópia de segurança de uma VM - Modelo do ARM
+      displayName: Resource Manager
       href: quick-backup-vm-template.md
 - name: Tutoriais
   items:
-    - name: Fazer cópias de segurança de VMs do Azure em escala
+    - name: Fazer uma cópia de segurança de várias VMs do Azure
       href: tutorial-backup-vm-at-scale.md
     - name: Fazer cópias de segurança de VMs do Azure com o PowerShell
       href: tutorial-backup-azure-vm.md
@@ -58,6 +58,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matriz de suporte do agente MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matriz de suporte de cópia de segurança do SQL Server
+          href: sql-support-matrix.md
         - name: Matriz de suporte de cópia de segurança do SAP HANA
           href: sap-hana-backup-support-matrix.md
         - name: SKUs de VM com suporte para o Azure Policy
@@ -164,10 +166,10 @@
           href: backup-azure-manage-mars.md
     - name: Cópia de segurança da partilha de Ficheiros do Azure
       items:
+        - name: Descrição geral
+          href: azure-file-share-backup-overview.md
         - name: No portal do Azure
           items:
-            - name: Descrição geral
-              href: azure-file-share-backup-overview.md
             - name: Cópia de segurança
               href: backup-afs.md
             - name: Restauro
@@ -336,6 +338,8 @@
           href: backup-rm-template-samples.md
     - name: Segurança
       items:
+        - name: Descrição geral
+          href: security-overview.md
         - name: Controlo de Acesso Baseado em Funções
           href: backup-rbac-rs-vault.md
         - name: Segurança para cargas de trabalho na cloud
@@ -382,6 +386,8 @@
       href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Recursos
   items:
+    - name: Conformidade
+      href: compliance-offerings.md
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fórum do MSDN

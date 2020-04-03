@@ -1,6 +1,6 @@
 ---
-title: Recomendações da SQL Analytics
-description: Conheça as recomendações da SQL Analytics e como são geradas
+title: Recomendações Synapse SQL
+description: Conheça as recomendações do SYnapse SQL e como são geradas
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -11,18 +11,18 @@ ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6d57fdb035e076c75363d23fbf36d39eeb72bb3f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c4bbd98cc28b242be5310fab76521a80de8fcb7c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350695"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584129"
 ---
-# <a name="sql-analytics-recommendations"></a>Recomendações da SQL Analytics
+# <a name="synapse-sql-recommendations"></a>Recomendações Synapse SQL
 
-Este artigo descreve as recomendações da SQL Analytics servidas através do Azure Advisor.  
+Este artigo descreve as recomendações synapse SQL servidas através do Azure Advisor.  
 
-A SQL Analytics fornece recomendações para garantir que a carga de trabalho do seu armazém de dados seja consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com o [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) A SQL Analytics recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos abaixo juntamente com a forma de aplicar as ações recomendadas.
+A Synapse SQL fornece recomendações para garantir que a carga de trabalho do seu armazém de dados seja consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com o [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) A Synapse SQL recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos abaixo juntamente com a forma de aplicar as ações recomendadas.
 
 Pode [consultar as suas recomendações](https://aka.ms/Azureadvisor) hoje! Atualmente esta funcionalidade é aplicável apenas aos armazéns de dados gen2. 
 

@@ -9,20 +9,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 7e3e9e6c76d67db03ea812a4832e98f4449c9aba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: de4a9324cd1cfaccec6dcca6a8dfc057d37275c0
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77061680"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619245"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Quickstart: Migrar uma aplicação web mongoDB node.js existente para Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Nó.js](create-mongodb-nodejs.md)
-> * [Pitão](create-mongodb-flask.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
@@ -230,7 +230,7 @@ No objeto `db`, substitua o valor do `uri`, conforme apresentado no exemplo segu
 ```
 
 > [!NOTE] 
-> A `ssl=true` opção é importante porque [cosmos DB requer SSL](connect-mongodb-account.md#connection-string-requirements). 
+> A `ssl=true` opção é importante devido aos requisitos da Cosmos DB. Para mais informações, consulte [os requisitos](connect-mongodb-account.md#connection-string-requirements)de cadeia de ligação .
 >
 >
 

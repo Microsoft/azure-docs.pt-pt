@@ -9,14 +9,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755214"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618763"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger as chaves do Azure Cosmos com o Azure Key Vault 
+
+>[!IMPORTANT]
+> A solução recomendada para aceder às teclas Azure Cosmos DB é utilizar uma identidade gerida atribuída pelo [sistema.](managed-identity-based-authentication.md) Se o seu serviço não puder tirar partido das identidades geridas, utilize a [solução baseada em cert](certificate-based-authentication.md). Se tanto a solução de identidade gerida como a solução baseada em cert não satisfazem as suas necessidades, por favor, utilize a solução de cofre chave abaixo.
 
 Ao utilizar o Azure Cosmos DB para as suas aplicações, pode aceder à base de dados, coleções, documentos utilizando o ponto final e a chave dentro do ficheiro de configuração da aplicação.  No entanto, não é seguro colocar chaves e URL diretamente no código de aplicação porque estão disponíveis em formato de texto claro para todos os utilizadores. Vai querer garantir que o ponto final e as chaves estão disponíveis, mas através de um mecanismo protegido. É aqui que o Azure Key Vault o pode ajudar a armazenar e gerir, de forma segura, os segredos das aplicações.
 
@@ -30,7 +33,7 @@ Os seguintes passos são necessários para armazenar e ler chaves de acesso Azur
 
 ## <a name="create-a-key-vault"></a>Criar um Key Vault
 
-1. Inscreva-se no [Portal Azure.](https://portal.azure.com/)  
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).  
 2. Selecione **Criar um recurso > Cofre chave > de segurança**.  
 3. Na secção **Criar cofre de chaves**, forneça as seguintes informações:  
    * **Nome:** Forneça um nome único para o seu Cofre chave.  

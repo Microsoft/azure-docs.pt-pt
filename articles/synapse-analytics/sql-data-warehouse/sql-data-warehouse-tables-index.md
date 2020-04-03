@@ -1,6 +1,6 @@
 ---
 title: Tabelas de indexação
-description: Recomendações e exemplos para tabelas de indexação no SQL Analytics.
+description: Recomendações e exemplos para tabelas de indexação na piscina SYnapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ced965f94808bdc672f694bede5c239178891f97
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d5acc2b69ed521af4fd4777dc9f3496290078379
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351279"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583275"
 ---
-# <a name="indexing-tables-in-sql-analytics"></a>Tabelas de indexação em SQL Analytics
+# <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação na piscina Synapse SQL
 
-Recomendações e exemplos para tabelas de indexação no SQL Analytics.
+Recomendações e exemplos para tabelas de indexação na piscina SYnapse SQL.
 
 ## <a name="index-types"></a>Tipos de índice
 
-O SQL Analytics oferece várias opções de indexação, incluindo índices de lojas de [colunas agrupadas,](/sql/relational-databases/indexes/columnstore-indexes-overview) [índices agrupados e índices não agrupados,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)e uma opção não indexada também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+O pool SYnapse SQL oferece várias opções de indexação, incluindo índices de lojas de [colunas agrupadas,](/sql/relational-databases/indexes/columnstore-indexes-overview) [índices agrupados e índices não agrupados,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)e uma opção não indexada também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (SQL Analytics).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (Piscina Synapse SQL).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
 
 ## <a name="clustered-columnstore-indexes"></a>Índices de lojas de colunas agrupadas
 
-Por padrão, o SQL Analytics cria um índice de loja de colunas agrupado quando não são especificadas opções de índice numa tabela. As tabelas de lojas de colunas agrupadas oferecem tanto o nível mais alto de compressão de dados como o melhor desempenho global de consulta.  As tabelas de lojas de colunas agrupadas geralmente superam tabelas de índices ou heap agrupadas e são geralmente a melhor escolha para grandes tabelas.  Por estas razões, a loja de colunas agrupada é o melhor lugar para começar quando não tem a certeza de como indexar a sua tabela.  
+Por padrão, o pool SQL Synapse cria um índice de loja de colunas agrupado quando não são especificadas opções de índice numa tabela. As tabelas de lojas de colunas agrupadas oferecem tanto o nível mais alto de compressão de dados como o melhor desempenho global de consulta.  As tabelas de lojas de colunas agrupadas geralmente superam tabelas de índices ou heap agrupadas e são geralmente a melhor escolha para grandes tabelas.  Por estas razões, a loja de colunas agrupada é o melhor lugar para começar quando não tem a certeza de como indexar a sua tabela.  
 
 Para criar uma tabela de colunas agrupada, basta especificar o ÍNDICE DE COLUMNSTORE Clustered na cláusula COM, ou deixar a cláusula COM desligada:
 
@@ -52,7 +52,7 @@ Existem alguns cenários em que a loja de colunas agrupada pode não ser uma boa
 
 ## <a name="heap-tables"></a>Mesas de heap
 
-Quando estiver temporariamente a aterrar dados no SQL Analytics, poderá descobrir que usar uma tabela de heap torna o processo global mais rápido. Isto porque as cargas em pilhas são mais rápidas do que para indexar tabelas e em alguns casos a leitura subsequente pode ser feita a partir de cache.  Se estiver a carregar dados apenas para os encenar antes de realizar mais transformações, carregar a tabela para a mesa de heap é muito mais rápido do que carregar os dados para uma tabela de colunas agrupada. Além disso, carregar dados para uma [mesa temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que carregar uma tabela para armazenamento permanente.  
+Quando estiver temporariamente a aterrar dados na piscina SYnapse SQL, poderá descobrir que usar uma tabela de heap torna o processo global mais rápido. Isto porque as cargas em pilhas são mais rápidas do que para indexar tabelas e em alguns casos a leitura subsequente pode ser feita a partir de cache.  Se estiver a carregar dados apenas para os encenar antes de realizar mais transformações, carregar a tabela para a mesa de heap é muito mais rápido do que carregar os dados para uma tabela de colunas agrupada. Além disso, carregar dados para uma [mesa temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que carregar uma tabela para armazenamento permanente.  
 
 Para pequenas mesas de lookup, menos de 60 milhões de filas, muitas vezes as mesas de amontoada fazem sentido.  As tabelas de colunas de cluster começam a obter uma compressão ideal uma vez que há mais de 60 milhões de linhas.
 
@@ -190,7 +190,7 @@ Estes fatores podem fazer com que um índice de colunas tenha significativamente
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pressão de memória quando o índice foi construído
 
-O número de linhas por grupo de linhas comprimidos está diretamente relacionado com a largura da linha e com a quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Portanto, a melhor prática é dar a sessão que está a escrever para as tabelas de índices da sua loja de colunas acesso ao máximo de memória possível.  Uma vez que existe uma compensação entre a memória e a conmoeda, a orientação sobre a atribuição certa de memória depende dos dados em cada linha da sua tabela, das unidades SQL Analytics atribuídas ao seu sistema, e do número de slots de moeda que pode dar à sessão que é escrevendo dados para a sua mesa.
+O número de linhas por grupo de linhas comprimidos está diretamente relacionado com a largura da linha e com a quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Portanto, a melhor prática é dar a sessão que está a escrever para as tabelas de índices da sua loja de colunas acesso ao máximo de memória possível.  Uma vez que existe uma compensação entre a memória e a conmoeda, a orientação sobre a atribuição certa de memória depende dos dados de cada linha da sua tabela, das unidades de armazém de dados atribuídas ao seu sistema, e do número de ranhuras de condivisões que pode dar à sessão que está a escrever dados à sua tabela.
 
 ### <a name="high-volume-of-dml-operations"></a>Grande volume de operações dML
 
@@ -204,13 +204,13 @@ As operações de atualização e inserção em lotação que excedam o limiar a
 
 ### <a name="small-or-trickle-load-operations"></a>Operações de carga pequenas ou gotas
 
-Pequenas cargas que fluem para bases de dados SQL Analytics também são por vezes conhecidas como cargas de gotas. Normalmente representam um fluxo quase constante de dados que estão a ser ingeridos pelo sistema. No entanto, como este fluxo está próximo de continuar, o volume de linhas não é particularmente grande. Mais frequentemente do que não, os dados estão significativamente abaixo do limiar exigido para uma carga direta para o formato de colunastore.
+Pequenas cargas que fluem para a piscina Synapse SQL também são por vezes conhecidas como cargas de gotas. Normalmente representam um fluxo quase constante de dados que estão a ser ingeridos pelo sistema. No entanto, como este fluxo está próximo de continuar, o volume de linhas não é particularmente grande. Mais frequentemente do que não, os dados estão significativamente abaixo do limiar exigido para uma carga direta para o formato de colunastore.
 
 Nestas situações, muitas vezes é melhor aterrar os dados primeiro no armazenamento de blob Azure e deixá-los acumular antes do carregamento. Esta técnica é frequentemente conhecida como *micro-lotação*.
 
 ### <a name="too-many-partitions"></a>Demasiadas divisórias
 
-Outra coisa a ter em conta é o impacto da partilha nas tabelas de colunas agrupadas.  Antes de se dividir, a SQL Analytics já divide os seus dados em 60 bases de dados.  A partilha divide ainda mais os seus dados.  Se dividir os seus dados, considere que **cada** partição necessita de pelo menos 1 milhão de linhas para beneficiar de um índice de lojas de colunas agrupadas.  Se dividir a sua mesa em 100 divisórias, então a sua tabela precisa de pelo menos 6 mil milhões de linhas para beneficiar de um índice de lojas de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas). Se a sua tabela de 100 divisórias não tiver 6 mil milhões de linhas, reduza o número de divisórias ou considere utilizar uma mesa de heap.
+Outra coisa a ter em conta é o impacto da partilha nas tabelas de colunas agrupadas.  Antes de se partir, o pool SQL synapse já divide os seus dados em 60 bases de dados.  A partilha divide ainda mais os seus dados.  Se dividir os seus dados, considere que **cada** partição necessita de pelo menos 1 milhão de linhas para beneficiar de um índice de lojas de colunas agrupadas.  Se dividir a sua mesa em 100 divisórias, então a sua tabela precisa de pelo menos 6 mil milhões de linhas para beneficiar de um índice de lojas de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas). Se a sua tabela de 100 divisórias não tiver 6 mil milhões de linhas, reduza o número de divisórias ou considere utilizar uma mesa de heap.
 
 Uma vez que as suas tabelas tenham sido carregadas com alguns dados, siga os passos abaixo para identificar e reconstruir tabelas com índices de colunas agrupadas sub-ideais.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Reconstruir um índice no SQL Analytics é uma operação offline.  Para obter mais informações sobre os índices de reconstrução, consulte a secção DERECONSTRUÇÃO DO ÍNDICE ALTER em Índices de Colunas de [desfragmentação](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)e [ÍNDICE ALTER](/sql/t-sql/statements/alter-index-transact-sql).
+Reconstruir um índice na piscina SYnapse SQL é uma operação offline.  Para obter mais informações sobre os índices de reconstrução, consulte a secção DERECONSTRUÇÃO DO ÍNDICE ALTER em Índices de Colunas de [desfragmentação](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)e [ÍNDICE ALTER](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passo 3: Verificar que a qualidade do segmento de colunas agrupadas melhorou
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Para mais detalhes sobre a recriação de divisórias utilizando CTAS, consulte [A utilização de divisórias no SQL Analytics](sql-data-warehouse-tables-partition.md).
+Para mais detalhes sobre a recriação de divisórias utilizando CTAS, consulte [A utilização de divisórias na piscina SYnapse SQL](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

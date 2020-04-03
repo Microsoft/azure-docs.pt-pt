@@ -5,12 +5,12 @@ author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282253"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617117"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligar a um serviço seguro com o proxy inverso
 
@@ -77,7 +77,7 @@ Especifique a Política de **Validação** de Certificados de Aplicação com va
 
    Para especificar a lista de impressões digitais de nome comum do serviço e emitente, adicione uma secção [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) em **definições**de tecido, como mostrado abaixo. Os pares de impressão de polegar estampa de impressão de vários certificados podem ser adicionados na matriz de **parâmetros.** 
 
-   Se o proxy inverso do ponto final estiver ligado a apresentar um certificado que o nome comum e a impressão digital emitentes correspondem a qualquer um dos valores aqui especificados, o canal SSL é estabelecido. 
+   Se o proxy inverso do ponto final estiver ligado a apresentar um certificado que o nome comum e a impressão digital emitentes correspondem a qualquer um dos valores aqui especificados, é estabelecido um canal TLS.
    Ao não corresponder aos dados do certificado, o proxy inverso falha o pedido do cliente com um código de estado 502 (Bad Gateway). A linha de estado HTTP também conterá a frase "Certificado SSL inválido". 
 
    ```json
@@ -143,7 +143,7 @@ Especifique a Política de **Validação** de Certificados de Aplicação com va
    }
    ```
 
-   Se a impressão digital do certificado de servidor estiver listada nesta entrada de config, o proxy inverso sucede à ligação SSL. Caso contrário, encerra a ligação e falha o pedido do cliente com um 502 (Bad Gateway). A linha de estado HTTP também conterá a frase "Certificado SSL inválido".
+   Se a impressão digital do certificado de servidor estiver listada nesta entrada de config, o proxy inverso sucede à ligação TLS. Caso contrário, encerra a ligação e falha o pedido do cliente com um 502 (Bad Gateway). A linha de estado HTTP também conterá a frase "Certificado SSL inválido".
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de seleção de pontos finais quando os serviços expõem pontos finais seguros e não seguros
 O tecido de serviço suporta configurar vários pontos finais para um serviço. Para mais informações, consulte [Especificar recursos num manifesto](service-fabric-service-manifest-resources.md)de serviço .
@@ -173,12 +173,12 @@ O proxy inverso seleciona um dos pontos finais para encaminhar o pedido com base
 > Ao operar em **SecureOnlyMode**, se um cliente tiver especificado um **ListenerName** correspondente a um ponto final HTTP (não garantido), o proxy inverso falha o pedido com um código de estado HTTP 404 (não encontrado).
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configuração da autenticação do certificado de cliente através do proxy inverso
-A rescisão do SSL ocorre no proxy inverso e todos os dados do certificado de cliente são perdidos. Para que os serviços realizem a autenticação do certificado de cliente, especifique a definição **de ForwardClientCertificate** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+A rescisão de TLS ocorre no proxy inverso e todos os dados do certificado de cliente são perdidos. Para que os serviços realizem a autenticação do certificado de cliente, especifique a definição **de ForwardClientCertificate** na secção [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
-1. Quando o **ForwardClientCertificate** estiver definido como **falso,** o proxy inverso não solicitará o certificado de cliente durante o seu aperto de mão SSL com o cliente.
+1. Quando o **ForwardClientCertificate** estiver definido como **falso,** o proxy inverso não solicitará o certificado de cliente durante o seu aperto de mão TLS com o cliente.
 Este é o comportamento padrão.
 
-2. Quando o **ForwardClientCertificate** estiver definido como **verdadeiro,** o proxy inverso solicita o certificado do cliente durante o seu aperto de mão SSL com o cliente.
+2. Quando o **ForwardClientCertificate** estiver definido como **verdadeiro,** o proxy inverso solicita o certificado do cliente durante o seu aperto de mão TLS com o cliente.
 Em seguida, encaminhará os dados do certificado de cliente num cabeçalho HTTP personalizado chamado **X-Cliente-Certificado**. O valor do cabeçalho é a cadeia de formato PEM codificada base64 do certificado do cliente. O serviço pode suceder/falhar o pedido com o código de estado adequado após a inspeção dos dados do certificado.
 Se o cliente não apresentar um certificado, o proxy inverso encaminha um cabeçalho vazio e deixe o serviço tratar da caixa.
 

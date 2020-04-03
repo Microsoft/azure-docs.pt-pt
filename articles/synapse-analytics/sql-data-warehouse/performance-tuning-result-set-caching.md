@@ -1,6 +1,6 @@
 ---
 title: Otimização do desempenho com a colocação em cache dos resultados
-description: Visão geral da funcionalidade de cching do conjunto de resultados para sQL Analytics em Azure Synapse Analytics
+description: Resumo da função de cching do conjunto de resultados para piscina SQL Synapse em Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,26 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ef5be63b2068297aedf4cf12d914da09b1efed41
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474475"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583823"
 ---
-# <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados  
-Quando o conjunto de resultados está ativado, o SQL Analytics automaticamente caches a consulta resulta na base de dados do utilizador para uso repetitivo.  Isto permite que execuções subsequentes de consulta obtenha resultados diretamente da cache persistida para que a recomputação não seja necessária.   O conjunto de resultados reduz o desempenho da consulta e reduz o uso de recursos computacionais.  Além disso, as consultas utilizando o conjunto de resultados em cache não utilizam faixas de conmoedação e, portanto, não contam com os limites de moeda existentes. Por razões de segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso a dados que os utilizadores que criam os resultados em cache.  
+# <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
+
+Quando o conjunto de resultados está ativado, o conjunto SQL synapse automaticamente caches a consulta resulta na base de dados do utilizador para uso repetitivo.  Isto permite que execuções subsequentes de consulta obtenha resultados diretamente da cache persistida para que a recomputação não seja necessária.   O conjunto de resultados reduz o desempenho da consulta e reduz o uso de recursos computacionais.  Além disso, as consultas utilizando o conjunto de resultados em cache não utilizam faixas de conmoedação e, portanto, não contam com os limites de moeda existentes. Por razões de segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso a dados que os utilizadores que criam os resultados em cache.  
 
 ## <a name="key-commands"></a>Comandos-chave
-[Ligue o resultado ligado/DESLIGADO para uma base de dados do utilizador](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
 
-[Ligue o resultado ligado/OFF para uma sessão](https://docs.microsoft.com/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)
+[Ligue o resultado ligado/DESLIGADO para uma base de dados do utilizador](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Verifique o tamanho do conjunto de resultados em cache](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest)  
+[Ligue o resultado ligado/OFF para uma sessão](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Limpe a cache](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)
+[Verifique o tamanho do conjunto de resultados em cache](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+
+[Limpe a cache](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="whats-not-cached"></a>O que não está em cache  
 
@@ -39,7 +41,7 @@ Uma vez que o conjunto de resultados é ligado para uma base de dados, os result
 - Consultas de retornar dados com tamanho de linha superior a 64KB
 
 > [!IMPORTANT]
-> As operações para criar cache de conjunto de resultados e recuperar dados da cache acontecem no nó de controlo de uma instância SQL Analytics.
+> As operações para criar cache de conjunto de resultados e recuperar dados da cache acontecem no nó de controlo de uma instância de piscina Synapse SQL.
 > Quando o resultado é ligado, as consultas de execução que devolvem grandes resultados definidos (por exemplo, >1 milhão de linhas) podem causar uma alta utilização de CPU no nó de controlo e abrandar a resposta global da consulta na instância.  Essas consultas são comumente usadas durante a exploração de dados ou operações ETL. Para evitar stressar o nó de controlo e causar problema sancionadis, os utilizadores devem desligar o resultado da OFF, que atira o cache na base de dados antes de executar este tipo de consultas.  
 
 Execute esta consulta pelo tempo tomado pelo resultado definir operações de cache para uma consulta:
@@ -76,7 +78,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 O tamanho máximo da cache do conjunto de resultados é de 1 TB por base de dados.  Os resultados em cache são automaticamente invalidados quando os dados de consulta subjacentes mudam.  
 
-O despejo em cache é gerido pela SQL Analytics automaticamente seguindo este horário: 
+O despejo em cache é gerido automaticamente seguindo este horário: 
 - A cada 48 horas se o conjunto de resultados não tiver sido utilizado ou tiver sido invalidado. 
 - Quando o conjunto de resultados se aproxima do tamanho máximo.
 
@@ -87,4 +89,5 @@ Os utilizadores podem esvaziar manualmente toda a cache do conjunto de resultado
 A pausa numa base de dados não esvazia o conjunto de resultados em cache.  
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Para obter mais dicas de desenvolvimento, consulte a [visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md) 

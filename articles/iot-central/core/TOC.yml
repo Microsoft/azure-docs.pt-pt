@@ -33,7 +33,7 @@
       items:
         - name: Criar um grupo de dispositivos
           href: tutorial-use-device-groups.md
-    - name: Transformar
+    - name: Transformação
       items:
         - name: Criar uma regra
           href: tutorial-create-telemetry-rules.md
@@ -81,14 +81,10 @@
           href: howto-create-personal-dashboards.md
         - name: Executar uma tarefa
           href: howto-run-a-job.md
-        - name: Modelo de dispositivo da versão
-          href: howto-version-device-template.md
-    - name: Transformar
+    - name: Transformação
       items:
         - name: Exportar dados para destinos no Azure
           href: howto-export-data.md
-        - name: Explorar as APIs do IoT Central
-          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
         - name: Criar webhooks em regras
           href: howto-create-webhooks.md
         - name: Ligar grupos de ações do Azure Monitor em regras

@@ -1,6 +1,6 @@
 ---
 title: Utilização de rótulos para consultas de instrumentos
-description: Dicas para utilizar etiquetas para consultas de instrumentos no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+description: Dicas para usar etiquetas para consultas de instrumentos na piscina SYnapse SQL para desenvolver soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,19 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 828e4a406cd0fb12877af44263ab1f338c20850c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c1a4ffcab3d10f1dc91ce036e995ae0026a0d718
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351683"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619022"
 ---
-# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Utilização de etiquetas para consultas de instrumentos no Armazém de Dados Azure SQL
-Dicas para utilizar etiquetas para consultas de instrumentos no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utilização de etiquetas para consultas de instrumentos na piscina Synapse SQL
+Incluídos neste artigo estão dicas para desenvolver soluções usando etiquetas para consultas de instrumentos na piscina SQL.
 
 
 ## <a name="what-are-labels"></a>O que são rótulos?
-O SQL Data Warehouse suporta um conceito chamado etiquetas de consulta. Antes de entrar em profundidade, vamos olhar para um exemplo:
+A piscina SQL suporta um conceito chamado etiquetas de consulta. Antes de entrar em profundidade, vamos olhar para um exemplo:
 
 ```sql
 SELECT *
@@ -32,11 +32,13 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-A última linha marca a corda "My Consulta Label" à consulta. Esta etiqueta é particularmente útil, uma vez que a etiqueta é que pode ser consultada através dos DMVs. A consulta de etiquetas fornece um mecanismo para localizar consultas de problemas e ajudar a identificar o progresso através de uma execução elt.
+A última linha marca a corda "My Consulta Label" à consulta. Esta etiqueta é útil porque a etiqueta é que pode ser consultada através dos DMVs. 
 
-Uma boa convenção de nomeação ajuda muito. Por exemplo, iniciar a etiqueta com PROJETO, PROCEDIMENTO, DECLARAÇÃO ou COMENTÁRIO ajuda a identificar exclusivamente a consulta entre todo o código no controlo de fontes.
+A consulta de etiquetas fornece um mecanismo para localizar consultas de problemas e ajudar a identificar o progresso através de uma execução elt.
 
-A seguinte consulta utiliza uma visão de gestão dinâmica para pesquisar por etiqueta.
+Uma boa convenção de nomeação ajuda muito. Por exemplo, iniciar a etiqueta com PROJETO, PROCEDIMENTO, DECLARAÇÃO ou COMENTÁRIO identifica exclusivamente a consulta entre todo o código no controlo de fontes.
+
+A seguinte consulta utiliza uma visão de gestão dinâmica para pesquisar por etiqueta:
 
 ```sql
 SELECT  *

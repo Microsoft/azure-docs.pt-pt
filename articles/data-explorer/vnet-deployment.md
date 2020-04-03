@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: c1ad8390bc5db72636c637c2ffb817e34674d0fa
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b0530ddada68cc9d07753a3b8ab30bff642e26dd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548853"
+ms.locfileid: "80618669"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Implemente o cluster Azure Data Explorer na sua Rede Virtual
 
@@ -106,7 +106,7 @@ A implementação do cluster Azure Data Explorer na sua subnet permite-lhe confi
 | BrasilSul | 191.233.25.183 |
 | Canadá Central | 40.82.188.208 |
 | Leste do Canadá | 40.80.255.12 |
-| Índia Central | 40.81.249.251 |
+| Índia Central | 40.81.249.251, 104.211.98.159 |
 | E.U.A. Central | 40.67.188.68 |
 | EUA Centrais EUA | 40.89.56.69 |
 | Ásia Leste | 20.189.74.103 |
@@ -125,12 +125,12 @@ A implementação do cluster Azure Data Explorer na sua subnet permite-lhe confi
 | África do Sul Ocidental | 102.133.0.97 |
 | E.U.A. Centro-Sul | 20.45.3.60 |
 | Ásia Sudeste | 40.119.203.252 |
-| Sul da Índia | 40.81.72.110 |
+| Sul da Índia | 40.81.72.110, 104.211.224.189 |
 | Sul do Reino Unido | 40.81.154.254 |
 | Oeste do Reino Unido | 40.81.122.39 |
 | E.U.A. Centro-Oeste | 52.159.55.120 |
 | Europa ocidental | 51.145.176.215 |
-| Oeste da Índia | 40.81.88.112 |
+| Oeste da Índia | 40.81.88.112, 104.211.160.120 |
 | E.U.A. Oeste | 13.64.38.225 |
 | E.U.A. Oeste 2 | 40.90.219.23 |
 

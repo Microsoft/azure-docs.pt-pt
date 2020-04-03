@@ -4,16 +4,16 @@ description: Saiba como levar a sua solução Azure IoT Edge do desenvolvimento 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/09/2019
+ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5320c9d7f1ea5ae882c67ee631f5bbafbf97b039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd24631f8e6b4f3f87438bf22654016dd7699950
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530874"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618309"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge em produção
 
@@ -134,11 +134,25 @@ Ao passar dos cenários de teste para os cenários de produção, lembre-se de r
   * Gerencie o acesso ao seu registo de contentores
   * Use tags para gerir versões
 
-### <a name="manage-access-to-your-container-registry"></a>Gerencie o acesso ao seu registo de contentores
+### <a name="manage-access-to-your-container-registry-with-a-service-principal"></a>Gerencie o acesso ao seu registo de contentores com um diretor de serviço
 
 Antes de implementar módulos para produzir dispositivos IoT Edge, certifique-se de que controla o acesso ao registo do seu contentor para que os forasteiros não possam aceder ou fazer alterações nas imagens do seu contentor. Utilize um registo privado, não público, de contentores para gerir imagens de contentores.
 
-Nos tutoriais e outradocumentação, instruímos-o a usar as mesmas credenciais de registo de contentores no seu dispositivo IoT Edge que utiliza na sua máquina de desenvolvimento. Estas instruções destinam-se apenas a ajudá-lo a configurar ambientes de teste e desenvolvimento mais facilmente, e não deve ser seguido num cenário de produção. O Registo de Contentores Azure recomenda [a autenticação com os diretores](../container-registry/container-registry-auth-service-principal.md) de serviço quando aplicações ou serviços puxam imagens de contentores de forma automatizada ou sem vigilância, como fazem os dispositivos IoT Edge. Crie um diretor de serviço com acesso apenas de leitura ao seu registo de contentores e forneça esse nome de utilizador e senha no manifesto de implementação.
+Nos tutoriais e outradocumentação, instruímos-o a usar as mesmas credenciais de registo de contentores no seu dispositivo IoT Edge que utiliza na sua máquina de desenvolvimento. Estas instruções destinam-se apenas a ajudá-lo a configurar ambientes de teste e desenvolvimento mais facilmente, e não deve ser seguido num cenário de produção. O Registo de Contentores Azure recomenda [a autenticação com os diretores](../container-registry/container-registry-auth-service-principal.md) de serviço quando aplicações ou serviços puxam imagens de contentores de forma automatizada ou sem vigilância (sem cabeça), como fazem os dispositivos IoT Edge.
+
+Para criar um diretor de serviço, execute os dois scripts conforme descrito na [criação de um diretor](../container-registry/container-registry-auth-aci.md#create-a-service-principal)de serviço . Estes scripts fazem as seguintes tarefas:
+
+* O primeiro guião cria o diretor de serviço. Produz o ID principal do Serviço e a senha principal do Serviço. Guarde estes valores de forma segura nos seus registos.
+
+* O segundo guião cria atribuições de funções para conceder ao diretor de serviço, que pode ser executado posteriormente, se necessário. Recomendamos a aplicação da função `role` de utilizador **acrPull** para o parâmetro. Para obter uma lista de funções, consulte [funções e permissões](../container-registry/container-registry-roles.md) do Registo de Contentores do Azure
+
+Para autenticar utilizando um diretor de serviço, forneça o ID principal de serviço e a palavra-passe que obteve a partir do primeiro script.
+
+* Para o nome de utilizador ou identificação do cliente, especifique o ID principal do serviço.
+
+* Para a palavra-passe ou segredo do cliente, especifique a palavra-passe principal do serviço.
+
+Para um exemplo de lançamento de um contentor com o Azure CLI, consulte [Authenticate utilizando o diretor de serviço](../container-registry/container-registry-auth-aci.md#authenticate-using-the-service-principal).
 
 ### <a name="use-tags-to-manage-versions"></a>Use tags para gerir versões
 

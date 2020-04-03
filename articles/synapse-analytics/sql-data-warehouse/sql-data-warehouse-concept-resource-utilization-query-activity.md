@@ -11,18 +11,20 @@ ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9d2a9bb0fcaab38f897987a1922e9c95497821d4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0b7accec9fdce1ad81a08aee17b37d655409948b
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350674"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607561"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta no Azure Synapse Analytics
-A Azure Synapse Analytics proporciona uma rica experiência de monitorização dentro do portal Azure para visualizar informações sobre a carga de trabalho do seu armazém de dados. O portal Azure é a ferramenta recomendada para monitorizar o seu armazém de dados, uma vez que fornece períodos de retenção configuráveis, alertas, recomendações e gráficos e dashboards personalizáveis para métricas e registos. O portal também permite integrar-se com outros serviços de monitorização do Azure, como o Azure Monitor (logs) com a Anaanálise de Registos, para proporcionar uma experiência de monitorização holística não só para o seu armazém de dados, mas também para toda a sua plataforma de análise Azure para uma integrada experiência de monitorização. Esta documentação descreve quais as capacidades de monitorização disponíveis para otimizar e gerir a sua plataforma de análise com o SQL Analytics. 
 
-## <a name="resource-utilization"></a>Utilização de recursos 
-As seguintes métricas estão disponíveis no portal Azure para sQL Analytics. Estas métricas são surgidas através do [Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)
+A Azure Synapse Analytics proporciona uma rica experiência de monitorização dentro do portal Azure para visualizar informações sobre a carga de trabalho do seu armazém de dados. O portal Azure é a ferramenta recomendada para monitorizar o seu armazém de dados, uma vez que fornece períodos de retenção configuráveis, alertas, recomendações e gráficos e dashboards personalizáveis para métricas e registos. O portal também permite integrar-se com outros serviços de monitorização do Azure, como o Azure Monitor (logs) com a Log analytics, para proporcionar uma experiência de monitorização holística não só para o seu armazém de dados, mas também para toda a sua plataforma de análise Azure para uma experiência de monitorização integrada. Esta documentação descreve quais as capacidades de monitorização disponíveis para otimizar e gerir a sua plataforma de análise. 
+
+## <a name="resource-utilization"></a>Utilização de recursos
+
+As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Estas métricas são surgidas através do [Monitor Azure.](../../azure-monitor/platform/data-collection.md#metrics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 
 | Nome métrico             | Descrição                                                  | Tipo de Agregação |
@@ -41,27 +43,28 @@ As seguintes métricas estão disponíveis no portal Azure para sQL Analytics. E
 | Percentagem de impacto cache    | (cache hits / cache miss) * 100 onde os hits de cache é a soma de todos os segmentos de lojas de colunas atinge na cache local SSD e cache miss é o segmento de loja de colunas que falha na cache SSD local resumida em todos os nós | Avg, Min, Max    |
 | Cache usado percentagem   | (cache utilizada / cache capacidade) * 100 onde a cache utilizada é a soma de todos os bytes na cache SSD local em todos os nós e capacidade de cache é a soma da capacidade de armazenamento da cache SSD local em todos os nós | Avg, Min, Max    |
 | Percentagem de temperatura local | Utilização temporária local em todos os nós de computação - valores são emitidos a cada cinco minutos | Avg, Min, Max    |
-| Tamanho do armazenamento de dados | Tamanho total dos dados carregados na base de dados. Isto inclui dados residentes em quadros CCI e não CCI onde o tamanho das tabelas não CCI é medido pelo tamanho total dos ficheiros de base de dados | Soma |
-| Tamanho da recuperação de desastres | Tamanho total do geo-backup tomado a cada 24 horas | Soma |
-| Tamanho de armazenamento instantâneo | Tamanho total de instantâneos tirados para fornecer pontos de restauro de base de dados. Isto inclui instantâneos automatizados e definidos pelo utilizador. | Soma |
+| Tamanho do armazenamento de dados (GB) | Tamanho total dos dados carregados na base de dados. Isto inclui dados residentes em quadros CCI e não CCI onde o tamanho das tabelas não CCI é medido pelo tamanho total dos ficheiros de base de dados | Soma |
+| Tamanho da recuperação de desastres (GB) | Tamanho total do geo-backup tomado a cada 24 horas | Soma |
+| Tamanho de armazenamento instantâneo (GB) | Tamanho total de instantâneos tirados para fornecer pontos de restauro de base de dados. Isto inclui instantâneos automatizados e definidos pelo utilizador. | Soma |
 
 Coisas a considerar ao visualizar métricas e definir alertas:
 
-- A DWU utilizada representa apenas uma **representação de alto nível de utilização** em toda a piscina SQL e não se destina a ser um indicador abrangente de utilização. Para determinar se deve escalar para cima ou para baixo, considere todos os fatores que podem ser impactados pela DWU, tais como a conmoeda, a memória, a capacidade de cache tempdb e adaptativa. Recomendamos [executar a sua carga de trabalho em diferentes configurações de DWU](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview#finding-the-right-size-of-data-warehouse-units) para determinar o que funciona melhor para cumprir os seus objetivos de negócio.
+- A DWU utilizada representa apenas uma **representação de alto nível de utilização** em toda a piscina SQL e não se destina a ser um indicador abrangente de utilização. Para determinar se deve escalar para cima ou para baixo, considere todos os fatores que podem ser impactados pela DWU, tais como a conmoeda, a memória, a capacidade de cache tempdb e adaptativa. Recomendamos [executar a sua carga de trabalho em diferentes configurações de DWU](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) para determinar o que funciona melhor para cumprir os seus objetivos de negócio.
 - Ligações falhadas e bem sucedidas são reportadas para um determinado armazém de dados - não para o servidor lógico
 - A percentagem de memória reflete a utilização mesmo que o armazém de dados esteja em estado de inatividade - não reflete o consumo ativo de memória da carga de trabalho. Utilize e rastreie esta métrica juntamente com outros (tempdb, cache gen2) para tomar uma decisão holística sobre se a escala para uma capacidade adicional de cache aumentará o desempenho da carga de trabalho para satisfazer os seus requisitos.
 
-
 ## <a name="query-activity"></a>Atividade de consulta
-Para uma experiência programática ao monitorizar o SQL Analytics via T-SQL, o serviço fornece um conjunto de Pontos de Vista de Gestão Dinâmica (DMVs). Estas opiniões são úteis quando se desloque ativamente problemas e identifique estrangulamentos de desempenho com a sua carga de trabalho.
 
-Para ver a lista de DMVs que a SQL Analytics fornece, consulte esta [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
+Para uma experiência programática ao monitorizar o Synapse SQL via T-SQL, o serviço fornece um conjunto de Pontos de Vista de Gestão Dinâmica (DMVs). Estas opiniões são úteis quando se desloque ativamente problemas e identifique estrangulamentos de desempenho com a sua carga de trabalho.
+
+Para ver a lista de DMVs que se aplicam ao Synapse SQL, consulte esta [documentação](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Métricas e registos de diagnóstico
-Ambas as métricas e registos podem ser exportados para o Monitor Azure, especificamente o componente de [registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) e podem ser acedidos programáticamente através de consultas de [registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). A latência de registo para SQL Analytics é de cerca de 10-15 minutos. Para mais detalhes sobre os fatores com impacto na latência, visite a seguinte documentação.
 
+Ambas as métricas e registos podem ser exportados para o Monitor Azure, especificamente o componente de [registos do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acedidos programáticamente através de consultas de [registo](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A latência de log para Synapse SQL é de cerca de 10-15 minutos. Para mais detalhes sobre os fatores com impacto na latência, visite a seguinte documentação.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Os seguintes guias como descrever descrevem cenários comuns e utilizam casos ao monitorizar e gerir o seu armazém de dados:
 
-- [Monitorize a carga de trabalho do seu armazém de dados com DMVs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [Monitorize a carga de trabalho do seu armazém de dados com DMVs](/sql-data-warehouse/sql-data-warehouse-manage-monitor?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  

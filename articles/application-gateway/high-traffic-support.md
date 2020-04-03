@@ -7,18 +7,21 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: e3f8445f68ec959ce1bb0d1ba4029807bd25907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257432"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617204"
 ---
-# <a name="application-gateway-high-traffic-support"></a>Suporte de tráfego elevado da Application Gateway 
+# <a name="application-gateway-high-traffic-support"></a>Suporte de tráfego elevado para o Gateway de Aplicação
 
-Este artigo descreve algumas diretrizes sugeridas para ajudá-lo a configurar o seu Gateway de Aplicação para lidar com o tráfego extra devido a cenários de volume de tráfego elevado, como a situação COVID-19. Pode utilizar o Gateway de Aplicação com firewall de aplicação web (WAF) para uma forma escalável e segura de gerir o tráfego para as suas aplicações web. 
+>[!NOTE]
+> Este artigo descreve algumas diretrizes sugeridas para ajudá-lo a configurar o seu Gateway de Aplicação para lidar com o tráfego extra devido ao elevado volume de tráfego que pode ocorrer devido à crise COVID-19.
 
-As seguintes sugestões ajudam-no a configurar o Application Gateway com a WAF para lidar com o tráfego extra. 
+Pode utilizar o Gateway de Aplicação com firewall de aplicação web (WAF) para uma forma escalável e segura de gerir o tráfego para as suas aplicações web.
+
+As seguintes sugestões ajudam-no a configurar o Application Gateway com a WAF para lidar com o tráfego extra.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Use o v2 SKU sobre v1 para as suas capacidades autoscalcificadas e benefícios de desempenho
 O v2 SKU oferece autoscalcificação para garantir que o seu Gateway de Aplicação pode aumentar à medida que o tráfego aumenta. Também oferece outros benefícios significativos de desempenho, tais como 5x melhor desempenho de descarregamento TLS, tempos de implementação e atualização mais rápidos, redundância de zona, e muito mais quando comparado com v1. Para mais informações, consulte a nossa [documentação v2.](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 

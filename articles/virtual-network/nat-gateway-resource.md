@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: 8234bb82ba1f4ff9bd7aea9887121d9c703ac4a3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 405d9bc09462f2940567080ec86775baf066d70d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473285"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584572"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conceber redes virtuais com recursos de gateway NAT
 
@@ -67,19 +67,18 @@ O exemplo seguinte é um corte de um modelo de Gestor de Recursos Azure.  Este m
 - **natgatewayname** - Nome da porta de entrada NAT.
 - **localização** - Região azure onde se encontra recurso.
 - **nome público** - Nome do IP público de saída associado à porta de entrada NAT.
-- **nome públicoprefixo** - Nome do prefixo IP público de saída associado ao gateway NAT.
 - **vnetname** - Nome da rede virtual.
 - **subnome** - Nome da subnet associada ao gateway NAT.
 
 O número total de endereços IP fornecidos por todos os endereços IP e recursos de prefixo não podem exceder 16 endereços IP no total. É permitido qualquer número de endereços IP entre 1 e 16.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="256-281":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 Quando o recurso de gateway NAT foi criado, pode ser usado em uma ou mais subredes de uma rede virtual. Especifique quais as subredes que utilizam este recurso de gateway NAT. Um portal NAT não é capaz de abranger mais do que uma rede virtual. Não é necessário atribuir a mesma porta de entrada NAT a todas as subredes de uma rede virtual. As subredes individuais podem ser configuradas com diferentes recursos de gateway NAT.
 
 Os cenários que não utilizem zonas de disponibilidade serão regionais (nenhuma zona especificada). Se estiver a usar zonas de disponibilidade, pode especificar uma zona para isolar o NAT numa zona específica. A redundância da zona não é apoiada. Rever [as zonas de disponibilidade](#availability-zones)do NAT.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 Os gateways NAT são definidos com uma propriedade numa subnet dentro de uma rede virtual. Os fluxos criados por máquinas virtuais no **subnome subnet de sub-rede** de **vnetname** de rede virtual usarão o gateway NAT. Toda a conectividade de saída utilizará os endereços IP associados ao **nome natgateway** como endereço IP de origem.
 

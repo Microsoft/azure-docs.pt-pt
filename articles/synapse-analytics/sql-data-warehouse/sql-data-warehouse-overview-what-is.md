@@ -10,19 +10,19 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a118d028cc85eb858dd0dc1fa6d5d2268f7db43b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 3363c4f5828f412bd11ca57e3c5f9013910a8055
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350395"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586450"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
 O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. Azure Synapse reúne estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para as necessidades imediatas de BI e machine learning
 
 Azure Synapse tem quatro componentes:
-- SQL Analytics: Análise completa baseada em T-SQL – Geralmente Disponível
+- Synapse SQL: Análise completa baseada em T-SQL – Geralmente Disponível
     - Piscina SQL (pagamento por DWU provisionado) 
     - SQL on-demand (pagamento por TB processado) – (Pré-visualização)
 - Faísca: Faísca Apache profundamente integrada (Pré-visualização) 
@@ -32,13 +32,13 @@ Azure Synapse tem quatro componentes:
 > [!NOTE]
 > Para aceder às funcionalidades de pré-visualização do Azure Synapse, solicite acesso [aqui.](https://aka.ms/synapsepreview) A Microsoft triagemtodos os pedidos e responderá o mais rapidamente possível.
 
-## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>SQL Analytics e piscina SQL em Azure Synapse
+## <a name="synapse-sql-pool-in-azure-synapse"></a>Piscina SQL synapse em Azure Synapse
 
-O SQL Analytics refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis no Azure Synapse. 
+O pool SQL da Synapse refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis em Azure Synapse. 
 
-A piscina SQL representa uma coleção de recursos analíticos que estão a ser provisionados ao utilizar o SQL Analytics. O tamanho da piscina SQL é determinado por Unidades de Armazenamento de Dados (DWU).
+A piscina SQL representa uma coleção de recursos analíticos que estão a ser provisionados ao utilizar o SYnapse SQL. O tamanho da piscina SQL é determinado por Unidades de Armazenamento de Dados (DWU).
 
-Importar big data com consultas simples [polyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL e, em seguida, usar o poder de MPP para executar análises de alto desempenho. À medida que se integra e analisa, o SQL Analytics tornar-se-á a versão única da verdade com que o seu negócio pode contar para insights mais rápidos e robustos.  
+Importar big data com consultas simples [polyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL e, em seguida, usar o poder de MPP para executar análises de alto desempenho. À medida que se integra e analisa, o pool SQL da Synapse tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos.  
 
 ## <a name="key-component-of-a-big-data-solution"></a>Componente chave de uma solução de big data
 
@@ -46,9 +46,9 @@ O armazenamento de dados é um componente chave de uma solução de big data bas
 
 ![Solução de armazém de dados](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
 
-Numa solução de dados da cloud, os dados são ingeridos em arquivos de macrodados a partir de várias origens. Uma vez num arquivo de macrodados, os algoritmos do Hadoop, do Spark e de machine learning preparam os dados. Quando os dados estão prontos para a realização de análises complexas, o SQL Analytics utiliza o PolyBase para criar consultas relativas aos arquivo de macrodados. O PolyBase utiliza consultas padrão do T-SQL para introduzir os dados em tabelas do SQL Analytics.
+Numa solução de dados da cloud, os dados são ingeridos em arquivos de macrodados a partir de várias origens. Uma vez num arquivo de macrodados, os algoritmos do Hadoop, do Spark e de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool SQL synapse usa a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas Padrão T-SQL para trazer os dados para mesas de bilhar Synapse SQL.
  
-O SQL Analytics armazena dados em tabelas relacionais com armazenamento em colunas. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Em comparação com os sistemas de bases de dados tradicionais, as consultas de análise terminam em segundos em vez de minutos ou horas em vez de dias. 
+Piscina Synapse SQL armazena dados em tabelas relacionais com armazenamento colunaar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Em comparação com os sistemas de bases de dados tradicionais, as consultas de análise terminam em segundos em vez de minutos ou horas em vez de dias. 
 
 Os resultados das análises podem ser enviados para aplicações ou bases de dados de relatórios em todo o mundo. Em seguida, os analistas empresariais podem obter informações para tomar decisões mais adequadas.
 

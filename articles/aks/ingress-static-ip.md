@@ -4,12 +4,12 @@ description: Aprenda a instalar e configurar um controlador de ingresso NGINX co
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e79bbe76a751097acd5c9d3c42dbd4020b6866b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191355"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617277"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de ingresso com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -48,7 +48,12 @@ Em seguida, crie um endereço IP público com o método de atribuição *estáti
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
-Agora implemente o gráfico *de nginx-ingresscom* Helm. Adicione `--set controller.service.loadBalancerIP` o parâmetro e especifique o seu próprio endereço IP público criado no passo anterior. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
+Agora implemente o gráfico *de nginx-ingresscom* Helm. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de ingresso, certifique-se de que há mais de um nó no seu cluster AKS.
+
+Deve passar dois parâmetros adicionais para a libertação helm para que o controlador de entrada seja informado tanto do endereço IP estático do equilibrista de carga a atribuir ao serviço do controlador de entrada, como da etiqueta de nome DNS aplicada ao recurso de endereço IP público. Para que os certificados HTTPS funcionem corretamente, é utilizada uma etiqueta de nome DNS para configurar um FQDN para o endereço IP do controlador de entrada.
+
+1. Adicione `--set controller.service.loadBalancerIP` o parâmetro. Especifique o seu próprio endereço IP público que foi criado no passo anterior.
+1. Adicione `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` o parâmetro. Especifique uma etiqueta de nome DNS a aplicar ao endereço IP público que foi criado na etapa anterior.
 
 O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
@@ -57,6 +62,8 @@ O controlador de entrada também tem de estar agendado num nó do Linux. Os nós
 
 > [!TIP]
 > Se quiser ativar a [preservação ip][client-source-ip] de origem do cliente `--set controller.service.externalTrafficPolicy=Local` para pedidos de contentores no seu cluster, adicione ao comando de instalação helm. O IP de origem do cliente é armazenado no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de ingresso com a preservação IP de origem do cliente ativada, a passagem do SSL não funcionará.
+
+Atualize o seguinte script com o **endereço IP** do seu controlador de ingresso e um **nome único** que gostaria de usar para o prefixo FQDN:
 
 ```console
 # Create a namespace for your ingress resources
@@ -69,6 +76,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
 ```
 
 Quando o serviço de equilíbrio de carga Kubernetes é criado para o controlador de entrada NGINX, o seu endereço IP estático é atribuído, como mostra a seguinte saída exemplo:
@@ -83,27 +91,14 @@ nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none> 
 
 Ainda não foram criadas regras de ingresso, pelo que a página padrão 404 do controlador de ingresso NGINX é exibida se navegar para o endereço IP público. As regras de ingresso estão configuradas nos seguintes passos.
 
-## <a name="configure-a-dns-name"></a>Configurar um nome DNS
-
-Para que os certificados HTTPS funcionem corretamente, configure um FQDN para o endereço IP do controlador de entrada. Atualize o seguinte script com o endereço IP do seu controlador de ingresso e um nome único que gostaria de utilizar para o FQDN:
+Pode verificar se a etiqueta de nome DNS foi aplicada consultando o FQDN no endereço IP público da seguinte forma:
 
 ```azurecli-interactive
 #!/bin/bash
-
-# Public IP address of your ingress controller
-IP="40.121.63.72"
-
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
-
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query $("[?name=='myAKSPublicIP'].[dnsSettings.fqdn]") -o tsv
 ```
 
-O controlador de entrada está agora acessível através do FQDN.
+O controlador de entrada está agora acessível através do endereço IP ou do FQDN.
 
 ## <a name="install-cert-manager"></a>Instalar o cert-manager
 

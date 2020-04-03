@@ -3,14 +3,14 @@ title: Perguntas mais frequentes
 description: Respostas para perguntas frequentes relacionadas com o serviço de registo de contentores do Azure
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403213"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618797"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores de Azure
 
@@ -104,7 +104,8 @@ Leva algum tempo para propagar alterações nas regras da firewall. Depois de al
 - [Como ativar o TLS 1.2?](#how-to-enable-tls-12)
 - [O Registo de Contentores Azure suporta o Content Trust?](#does-azure-container-registry-support-content-trust)
 - [Como posso dar acesso a puxar ou empurrar imagens sem permissão para gerir o recurso de registo?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [Como posso permitir a quarentena automática de imagem para um registo](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Como posso permitir a quarentena automática de imagem para um registo?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Como posso permitir o acesso anónimo?](#how-do-i-enable-anonymous-pull-access)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Como posso aceder ao Registo de Docker HTTP API V2?
 
@@ -251,13 +252,18 @@ Com o uso `AcrPull` apenas do ou `AcrPush` papel, o designado não tem a permiss
 
 A quarentena de imagem é atualmente uma característica de pré-visualização do ACR. Pode ativar o modo de quarentena de um registo de modo que apenas as imagens que tenham passado com sucesso são visíveis para os utilizadores normais. Para mais detalhes, consulte o [repo Do Cr GitHub](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
+### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso permitir o acesso anónimo?
+
+A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Para permitir o acesso do público, abra um bilhete de apoio para https://aka.ms/acr/support/create-ticket. Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e verificações de saúde
 
 - [Verifique a saúde com`az acr check-health`](#check-health-with-az-acr-check-health)
 - [estivador puxa falhas com erro: net/http: pedido cancelado enquanto aguarda a ligação (Cliente.Timeout ultrapassado enquanto aguarda cabeçalhos)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push sucede mas puxar estivador falha com erro: não autorizado: autenticação necessária](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login`sucede, mas os comandos de estivadores falham com erro: não autorizado: autenticação necessária](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [Ativar e obter os registos de depuração do daemon do estivador](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [Ativar e obter os registos de depuração do daemon do estivador](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [Novas permissões de utilizador podem não ser eficazes imediatamente após a atualização](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [As informações de autenticação não são dadas no formato correto nas chamadas diretas rest API](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Porque é que o portal Azure não enumera todos os meus repositórios ou etiquetas?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
@@ -323,13 +329,13 @@ Os `--signature-verification` detalhes podem ser `man dockerd`encontrados corren
 
 Certifique-se de que utiliza um URL `docker push myregistry.azurecr.io/myimage:latest`de servidor de minúsculas minúsculas, por exemplo, mesmo que o nome do recurso de registo seja maiúsculo ou misto, como `myRegistry`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Ativar e obter os registos de depuração do daemon Docker  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Ativar e obter os registos de depuração do daemon Docker    
 
 Comece `dockerd` com `debug` a opção. Em primeiro lugar, crie o`/etc/docker/daemon.json`ficheiro de configuração do Daemon Docker () se não existir, e adicione a opção: `debug`
 
 ```json
-{   
-    "debug": true   
+{    
+    "debug": true    
 }
 ```
 
@@ -339,12 +345,12 @@ Então, reinicie o daemon. Por exemplo, com Ubuntu 14.04:
 sudo service docker restart
 ```
 
-Os detalhes podem ser encontrados na documentação do [Docker.](https://docs.docker.com/engine/admin/#enable-debugging) 
+Os detalhes podem ser encontrados na documentação do [Docker.](https://docs.docker.com/engine/admin/#enable-debugging)    
 
- * Os registos podem ser gerados em diferentes locais, dependendo do seu sistema. Por exemplo, para Ubuntu 14.04, é `/var/log/upstart/docker.log`.   
+ * Os registos podem ser gerados em diferentes locais, dependendo do seu sistema. Por exemplo, para Ubuntu 14.04, é `/var/log/upstart/docker.log`.    
 Consulte a [documentação do Docker](https://docs.docker.com/engine/admin/#read-the-logs) para obter detalhes.    
 
- * Para o Docker for Windows, os registos são gerados em %LOCALAPPDATA%/docker/. No entanto, pode ainda não conter todas as informações sobre depuração.   
+ * Para o Docker for Windows, os registos são gerados em %LOCALAPPDATA%/docker/. No entanto, pode ainda não conter todas as informações sobre depuração.    
 
    Para aceder ao registo completo do daemon, poderá necessitar de alguns passos extras:
 

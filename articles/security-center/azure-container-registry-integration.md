@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 069ce6ca1e76a9bd954031708702c973387abbaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c1b48d3715d838827f88f99fc0849d25677fdcc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78205998"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585730"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registo de Contentores Azure com o Centro de Segurança
 

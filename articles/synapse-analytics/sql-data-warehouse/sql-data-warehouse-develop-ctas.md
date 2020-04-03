@@ -1,6 +1,6 @@
 ---
 title: CRIAR TABELA COMO SELECIONADO (CTAS)
-description: Explicação e exemplos da declaração CREATE TABLE AS SELECT (CTAS) no SQL Analytics para o desenvolvimento de soluções.
+description: Explicação e exemplos da declaração CREATE TABLE AS SELECT (CTAS) no Synapse SQL para o desenvolvimento de soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: bb9ff52bd7d2e4cfd1a1df4d780a4c369380284f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e5dc8835a6d5f235cf269edd4e9f069c904e1b7e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350608"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582152"
 ---
-# <a name="create-table-as-select-ctas-in-sql-analytics"></a>CRIAR TABELA COMO SELECT (CTAS) em SQL Analytics
+# <a name="create-table-as-select-ctas"></a>CRIAR TABELA COMO SELECIONADO (CTAS)
 
-Este artigo explica a declaração de CriaÇÃO COMO SELECT (CTAS) T-SQL no SQL Analytics para o desenvolvimento de soluções. O artigo também fornece exemplos de código.
+Este artigo explica a declaração de CriaÇÃO COMO SELECT (CTAS) T-SQL em Synapse SQL para o desenvolvimento de soluções. O artigo também fornece exemplos de código.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-A declaração [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) é uma das funcionalidades T-SQL mais importantes disponíveis. CtAS é uma operação paralela que cria uma nova tabela com base na saída de uma declaração SELECT. CtAS é a forma mais simples e rápida de criar e inserir dados numa tabela com um único comando.
+A declaração [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS) é uma das funcionalidades T-SQL mais importantes disponíveis. CtAS é uma operação paralela que cria uma nova tabela com base na saída de uma declaração SELECT. CtAS é a forma mais simples e rápida de criar e inserir dados numa tabela com um único comando.
 
 ## <a name="selectinto-vs-ctas"></a>SELECIONE... INTO vs CTAS
 
-CTAS é uma versão mais personalizável do [SELECT... EM](/sql/t-sql/queries/select-into-clause-transact-sql) declaração.
+CTAS é uma versão mais personalizável do [SELECT... EM](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) declaração.
 
 Segue-se um exemplo de um simples SELECT... EM:
 
@@ -123,7 +123,7 @@ DROP TABLE FactInternetSales_old;
 
 ## <a name="use-ctas-to-work-around-unsupported-features"></a>Utilize ctas para trabalhar em torno de características não suportadas
 
-Também pode utilizar ctas para trabalhar em torno de uma série de funcionalidades não suportadas listadas abaixo. Este método pode muitas vezes revelar-se útil, porque não só o seu código será compatível, como muitas vezes será executado mais rapidamente no SQL Analytics. Este desempenho é o resultado do seu design totalmente paralparado. Os cenários incluem:
+Também pode utilizar ctas para trabalhar em torno de uma série de funcionalidades não suportadas listadas abaixo. Este método pode muitas vezes revelar-se útil, porque não só o seu código será compatível, como muitas vezes será executado mais rapidamente em Synapse SQL. Este desempenho é o resultado do seu design totalmente paralparado. Os cenários incluem:
 
 * ANSI junta-se em UPDATEs
 * ANSI JOINs em DELETEs
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-O SQL Analytics não suporta que a `FROM` ANSI se junte à cláusula de uma `UPDATE` declaração, pelo que não pode utilizar o exemplo anterior sem o modificar.
+A Synapse SQL não suporta que a `FROM` ANSI se junte à cláusula de uma `UPDATE` declaração, pelo que não pode utilizar o exemplo anterior sem o modificar.
 
 Pode utilizar uma combinação de um CTAS e uma união implícita para substituir o exemplo anterior:
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI junta-se à substituição para eliminar declarações
 
-Por vezes, a melhor abordagem para a `DELETE` apagar dados é utilizar ctas, especialmente para declarações que usam ANSI aderir à sintaxe. Isto porque a SQL Analytics não suporta a `FROM` ANSI `DELETE` junta-se à cláusula de uma declaração. Em vez de apagar os dados, selecione os dados que pretende guardar.
+Por vezes, a melhor abordagem para a `DELETE` apagar dados é utilizar ctas, especialmente para declarações que usam ANSI aderir à sintaxe. Isto porque a Synapse SQL não suporta a `FROM` ANSI `DELETE` junta-se à cláusula de uma declaração. Em vez de apagar os dados, selecione os dados que pretende guardar.
 
 Segue-se um exemplo `DELETE` de uma declaração convertida:
 
@@ -412,7 +412,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Pode ver que a consistência do tipo e a manutenção de propriedades de nulidade num CTAS são uma boa prática de engenharia. Ajuda a manter a integridade nos seus cálculos, e também garante que a troca de divisórias é possível.
 
-CtAS é uma das declarações mais importantes na SQL Analytics. Certifique-se de que entende completamente. Consulte a [documentação CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CtAS é uma das declarações mais importantes no Synapse SQL. Certifique-se de que entende completamente. Consulte a [documentação CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Passos seguintes
 

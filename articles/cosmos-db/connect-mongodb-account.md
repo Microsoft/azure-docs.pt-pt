@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e3ab6282a3c61e12dce5dd17bc0859c0d73a7724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051726"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617043"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB
 
@@ -51,11 +51,11 @@ Este tutorial fornece duas formas de recuperar informações da cadeia de ligaç
 ## <a name="connection-string-requirements"></a>Requisitos de cordas de ligação
 
 > [!Important]
-> A Azure Cosmos DB tem rigorosos requisitos e padrões de segurança. As contas Da Azure Cosmos DB requerem autenticação e comunicação segura via *SSL*. 
+> A Azure Cosmos DB tem rigorosos requisitos e padrões de segurança. As contas Da Azure Cosmos DB requerem autenticação e comunicação segura via *TLS*. 
 >
 >
 
-A Azure Cosmos DB suporta o formato de cadeia de cordas de ligação MongoDB padrão URI, com um par de requisitos específicos: as contas Azure Cosmos DB requerem autenticação e comunicação segura via SSL. Então, o formato de cadeia de ligação é:
+A Azure Cosmos DB suporta o formato de cadeia de cordas de ligação MongoDB padrão URI, com um par de requisitos específicos: as contas Azure Cosmos DB requerem autenticação e comunicação segura via TLS. Então, o formato de cadeia de ligação é:
 
     mongodb://username:password@host:port/[database]?ssl=true
 

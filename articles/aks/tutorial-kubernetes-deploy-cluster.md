@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: bc31a4197b08cbeb1a99820d7ff490f20147c7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 72d7d3b8a4dc2831f397326d54560358c19b9b92
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78191270"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616816"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -27,7 +27,7 @@ Em tutoriais adicionais, a aplicação Azure Vote é implantada para o cluster, 
 
 Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para uma instância do Azure Container Registry. Se ainda não fez estes passos, e gostaria de seguir em frente, comece no Tutorial 1 – Criar imagens de [contentores.][aks-tutorial-prepare-app]
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 

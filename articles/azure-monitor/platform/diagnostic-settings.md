@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672417"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585386"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure
 [Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar registos de plataformas para diferentes destinos.
@@ -37,7 +37,7 @@ Os registos da plataforma podem ser enviados para os destinos na tabela seguinte
 | Destino | Descrição |
 |:---|:---|
 | [Área de trabalho do Log Analytics](resource-logs-collect-workspace.md) | A recolha de registos num espaço de trabalho do Log Analytics permite-lhe analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registo poderosas e também para alavancar outras funcionalidades do Monitor de Acesso, como alertas e visualizações. |
-| [Hubs de eventos](resource-logs-stream-event-hubs.md) | O envio de registos para Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. |
+| [Centros de eventos](resource-logs-stream-event-hubs.md) | O envio de registos para Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. |
 | [Conta de armazenamento azure](resource-logs-collect-storage.md) | Arquivar registos numa conta de armazenamento Azure é útil para auditoria, análise estática ou cópia de segurança. |
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Criar configurações de diagnóstico no portal Azure
@@ -53,7 +53,7 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
     
         ![Definições de diagnóstico](media/diagnostic-settings/menu-monitor.png)
 
-    - Para o registo de atividade, clique em **iniciar sessão de atividade** no menu Do Monitor **Azure** e, em seguida, **definições de diagnóstico**. Certifique-se de que desativa qualquer configuração do legado para o registo de Atividade. Consulte [as definições existentes](diagnostic-settings-legacy.md#disable-existing-settings) para obter mais detalhes.
+    - Para o registo de atividade, clique em **iniciar sessão de atividade** no menu Do Monitor **Azure** e, em seguida, **definições de diagnóstico**. Certifique-se de que desativa qualquer configuração do legado para o registo de Atividade. Consulte [as definições existentes](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) para obter mais detalhes.
 
         ![Definições de diagnóstico](media/diagnostic-settings/menu-activity-log.png)
 

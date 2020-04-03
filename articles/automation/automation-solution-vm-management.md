@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef3176c99cd57ae229b602feb3c825081fcfe3e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 906c7728365cc902549bd46c57972e1c90af979c
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548379"
+ms.locfileid: "80607483"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário de expediente na Automatização do Azure
 
@@ -112,9 +112,9 @@ Todos os livros de execução dos pais incluem o parâmetro _WhatIf._ Quando def
 |AutoStop_CreateAlert_Child | VMObject <br> Ação de Alerta <br> WebHookURI | Ligou do livro dos pais. Este livro de execução cria alertas numa base por recurso para o cenário AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> O que if: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta azure sobre VMs nos grupos de subscrição ou recursos direcionados. <br> VMList: Lista separada da Víramida de VMs. Por exemplo, _vm1, vm2, vm3_.<br> *O que If* valida a lógica do livro sem executar.|
 |AutoStop_Disable | nenhuma | Desativa os alertas AutoStop e o horário predefinido.|
-|AutoStop_VM_Child | WebHookData | Ligou do livro dos pais. As regras de alerta chamam a este livro de corridas para parar o Clássico VM.|
+|AutoStop_VM_Child | WebHookData | Ligou do livro dos pais. As regras de alerta chamam este livro de corridas para parar o VM clássico.|
 |AutoStop_VM_Child_ARM | WebHookData |Ligou do livro dos pais. As regras de alerta chamam este livro de corridas para parar o VM.  |
-|ScheduledStartStop_Base_Classic | CloudServiceName<br> Ação: Iniciar ou Parar<br> VMList  | Este livro de corridas usado para realizar o início ou paragem de ação no grupo VM clássico pela Cloud Services.<br> VMList: Lista separada da Víramida de VMs. Por exemplo, _vm1, vm2, vm3_. |
+|ScheduledStartStop_Base_Classic | CloudServiceName<br> Ação: Iniciar ou Parar<br> VMList  | Este livro de execução usado para realizar início ou paragem de ação no grupo Classic VM pela Cloud Services.<br> VMList: Lista separada da Víramida de VMs. Por exemplo, _vm1, vm2, vm3_. |
 |ScheduledStartStop_Child | VMName <br> Ação: Iniciar ou Parar <br> ResourceGroupName | Ligou do livro dos pais. Executa uma ação de início ou paragem para a paragem programada.|
 |ScheduledStartStop_Child_Classic | VMName<br> Ação: Iniciar ou Parar<br> ResourceGroupName | Ligou do livro dos pais. Executa uma ação de início ou paragem para a paragem programada para VMs clássicos. |
 |ScheduledStartStop_Parent | Ação: Iniciar ou Parar <br>VMList <br> O que if: Verdadeiro ou Falso | Esta definição afeta todos os VMs na subscrição. Editar o **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** apenas executar nestes grupos de recursos direcionados. Também pode excluir VMs específicos atualizando a **variável External_ExcludeVMNames.**<br> VMList: Lista separada da Víramida de VMs. Por exemplo, _vm1, vm2, vm3_.<br> _O que If_ valida a lógica do livro sem executar.|
@@ -140,8 +140,8 @@ A tabela seguinte lista as variáveis criadas na sua conta De automação. Só m
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando valores através de uma vírvia, direcionado para ações de paragem.|
 |External_WaitTimeForVMRetrySeconds |O tempo de espera em segundos para que as ações sejam realizadas nos VMs para o livro de arranque/paragem sequenciado.<br> O valor predefinido é de 2100 segundos e suporta configurar até um valor máximo de 10800 ou três horas.|
 |Internal_AutomationAccountName | Especifica o nome da conta Automation.|
-|Internal_AutoSnooze_ARM_WebhookURI | Especifica Webhook URI chamado para o cenário De Paragem Automática para VMs clássicos.|
-|Internal_AutoSnooze_WebhookUri | Especifica Webhook URI chamado para o cenário DeParagem Automático.|
+|Internal_AutoSnooze_ARM_WebhookURI | Especifica Webhook URI chamado para o cenário De Paragem Automática para VMs.|
+|Internal_AutoSnooze_WebhookUri | Especifica Webhook URI chamado para o cenário De Paragem Automática para VMs clássicos.|
 |Internal_AzureSubscriptionId | Especifica o ID de subscrição do Azure.|
 |Internal_ResourceGroupName | Especifica o nome do grupo de recursos da conta Automation.|
 

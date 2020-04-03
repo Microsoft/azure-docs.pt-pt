@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: af303928490d2570fa9430bd4b9d30c4a49df304
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 91cf594e74d91b8b4df2108d23459016fa843700
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675494"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586607"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração C (pré-visualização)
 
@@ -33,7 +33,7 @@ A figura que se segue ilustra como os programas de procuração local de disposi
 * [SSH/RDP sobre fluxos de dispositivos IoT Hub usando proxy C#](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP sobre fluxos de dispositivos IoT Hub utilizando proxy NodeJS](./quickstart-device-streams-proxy-nodejs.md).
 
-![Configuração local de procuração](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Configuração local de procuração](./media/quickstart-device-streams-proxy-c/device-stream-proxy-diagram.png)
 
 1. O representante local de serviço liga-se ao hub IoT e inicia um fluxo de dispositivo soro para o dispositivo alvo.
 

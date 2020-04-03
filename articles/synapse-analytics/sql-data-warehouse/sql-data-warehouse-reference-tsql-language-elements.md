@@ -1,6 +1,6 @@
 ---
 title: Elementos de linguagem do T-SQL
-description: Links para a documentação para declarações T-SQL suportadas no SQL Analytics.
+description: Links para a documentação para declarações T-SQL suportadas na piscina SYnapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 040a6d519896d71227777168ea9de9612f97ca6e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f27a0a351e4a446dc950ac13f850bd14b2b3c65a
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351421"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586405"
 ---
-# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Elementos linguísticos T-SQL suportados no SQL Analytics
-Links para a documentação para elementos linguísticos T-SQL suportados no SQL Analytics.
+# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementos linguísticos T-SQL suportados na piscina Synapse SQL
+
+Links para a documentação para elementos linguísticos T-SQL suportados na piscina SYnapse SQL.
 
 ## <a name="core-elements"></a>Elementos centrais
+
 * [convenções de sintaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [regras de nomeação objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
@@ -37,6 +39,7 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [USE](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Lotes, controlo do fluxo e variáveis
+
 * [COMEÇA... FIM](https://msdn.microsoft.com/library/ms190487.aspx)
 * [RUTURA](https://msdn.microsoft.com/library/ms181271.aspx)
 * [DECLARAR@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
@@ -48,6 +51,7 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [ENQUANTO](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operadores
+
 * [+ (Adicionar)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Concatenação de Cordas)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -57,6 +61,7 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Personagem wildcard(s) para combinar
+
 * [= (Iguais)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (maior do que)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (menos do que)](https://msdn.microsoft.com/library/ms179873.aspx)
@@ -74,6 +79,7 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [OU](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bitwise
+
 * [& (Bitwise And)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bitwise OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Bitwise exclusivo OR)](https://msdn.microsoft.com/library/ms190277.aspx)
@@ -83,6 +89,7 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [&= (Bitwise And EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Funções
+
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -227,12 +234,15 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transações
+
 * [transações](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Sessões de diagnóstico
+
 * [CRIAR SESSÃO DE DIAGNÓSTICO](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>Procedimentos
+
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -256,6 +266,7 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>Declarações do SET
+
 * [CONJUNTO ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +289,6 @@ Links para a documentação para elementos linguísticos T-SQL suportados no SQL
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações de referência, consulte [as declarações t-SQL no SQL Analytics](sql-data-warehouse-reference-tsql-statements.md), e as vistas do [Sistema no SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Para obter mais informações de referência, consulte [declarações T-SQL em piscina Synapse SQL](sql-data-warehouse-reference-tsql-statements.md), e vistas do [sistema na piscina Synapse SQL](sql-data-warehouse-reference-tsql-system-views.md).
 

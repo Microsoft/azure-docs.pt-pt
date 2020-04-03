@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85fa6a989ae1a6214392914ffd46cd12af27a8d2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4aa0e7da1e77334a8b9048dab4a461133f220bd1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350484"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582456"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configure importância da carga de trabalho no Azure Synapse Analytics
 
-Definir importância no SQL Analytics para O Synapse Azure permite-lhe influenciar o agendamento de consultas. Consultas com maior importância serão agendadas antes de consultas com menor importância. Para atribuir importância a consultas, é necessário criar um classificador de carga de trabalho.
+Definir importância no Synapse SQL para O Synapse Azure permite-lhe influenciar o agendamento de consultas. Consultas com maior importância serão agendadas antes de consultas com menor importância. Para atribuir importância a consultas, é necessário criar um classificador de carga de trabalho.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Criar um Classificador de Carga de Trabalho com Importância
 

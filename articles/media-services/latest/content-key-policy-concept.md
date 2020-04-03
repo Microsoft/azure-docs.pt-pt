@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74969909"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586000"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
@@ -32,7 +32,7 @@ Normalmente, associa a sua política de chave de conteúdo ao seu Localizador de
 > [!IMPORTANT]
 > Por favor, reveja as seguintes recomendações.
 
-* Deverá conceber um conjunto limitado de políticas para a sua conta de Serviço de Media e reutilizá-las para os seus localizadores de streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limitações.](limits-quotas-constraints.md)
+* Deverá conceber um conjunto limitado de políticas para a sua conta de Serviço de Media e reutilizá-las para os seus localizadores de streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limites.](limits-quotas-constraints.md)
 * As políticas-chave de conteúdo são instáveis. Pode levar até 15 minutos para os caches de entrega chave atualizarem e pegarem na política atualizada. 
 
    Ao atualizar a apólice, está a sobrepor-se ao seu cache CDN existente, o que pode causar problemas de reprodução para os clientes que estão a utilizar conteúdo em cache.  

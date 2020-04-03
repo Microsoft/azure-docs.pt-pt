@@ -5,69 +5,75 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 776834937d81a3ba84e3c1db56496a7d951d7982
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 21fa1c4faa4a080b9b495e1481fdadcd7e8bea10
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548347"
+ms.locfileid: "80619485"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte do módulo Az na Automatização do Azure
 
-A Azure Automation suporta a utilização do [módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) nos seus livros de execução. O módulo Az não é importado automaticamente em quaisquer contas de Automação novas ou existentes. 
+A Azure Automation suporta a utilização do [módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) nos seus livros de execução. O módulo Rollup Az não é importado automaticamente em quaisquer contas de Automação novas ou existentes. 
 
 ## <a name="considerations"></a>Considerações
 
-Há muitas coisas a ter em conta ao usar o módulo Az na Automação Azure. Os livros e módulos podem ser utilizados por soluções de nível superior na sua conta Automation. Editar livros de execução ou atualizar módulos pode potencialmente causar problemas com os seus livros de execução. Deve testar cuidadosamente todos os livros e soluções numa conta `Az` de Automação separada antes de importar os novos módulos. Quaisquer modificações nos módulos podem afetar negativamente a solução [Iniciar/Parar.](automation-solution-vm-management.md) Não recomendamos alterar módulos e livros de execução em contas de Automação que contenham quaisquer soluções. Este comportamento não é específico dos módulos Az. Este comportamento deve ser tomado em consideração ao introduzir quaisquer alterações na sua conta Deautomação.
+Há muitas coisas a ter em conta ao usar o módulo Rollup Az na Automação Azure. Os livros e módulos podem ser utilizados por soluções de nível superior na sua conta Automation. Editar livros de execução ou atualizar módulos pode potencialmente causar problemas com os seus livros de execução. Deve testar cuidadosamente todos os livros e soluções numa conta de Automação separada antes de importar novos módulos Az. Quaisquer modificações nos módulos podem afetar negativamente a solução [Iniciar/Parar.](automation-solution-vm-management.md) Não recomendamos alterar módulos e livros de execução em contas de Automação que contenham quaisquer soluções. Este comportamento não é específico dos módulos Az. Deve ser tomado em consideração ao introduzir quaisquer alterações na sua conta Automation.
 
-Importar um `Az` módulo na sua conta Automation não importa automaticamente o módulo na sessão PowerShell que os livros de execução usam. Os módulos são importados para a sessão PowerShell nas seguintes situações:
+Importar um módulo Az na sua conta Automation não importa automaticamente o módulo na sessão PowerShell que os livros de execução usam. Os módulos são importados para a sessão PowerShell nas seguintes situações:
 
-* Quando um cmdlet de um módulo é invocado a partir de um livro de corridas
-* Quando um livro de rume `Import-Module` o importa explicitamente com o cmdlet
-* Quando outro módulo dependendo do módulo é importado para uma sessão powerShell
+* Quando um livro de corridas invoca um cmdlet de um módulo
+* Quando um livro de resta importa `Import-Module` o módulo explicitamente com o cmdlet
+* Quando um livro importa outro módulo dependendo do módulo
 
 > [!IMPORTANT]
-> É importante certificar-se de que os livros `Az` de `AzureRM` execução numa conta automation apenas importam ou módulos nas sessões PowerShell utilizadas por livros de execução e não ambos. Se `Az` for importado antes `AzureRM` num livro de execução, o livro de execução completa, mas um erro que refira o [Get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) cmdlet aparece nos fluxos de trabalho e os cmdlets podem não ser executados corretamente. Se importar `AzureRM` e, em seguida, `Az`o seu livro de execução ainda estiver `Az` `AzureRM` completo, mas recebe um erro nos fluxos de trabalho afirmando que ambos e não podem ser importados na mesma sessão ou usados no mesmo livro de execução.
+> Certifique-se de que os livros de execução numa conta automation importam módulos Az ou [módulos AzureRM,](https://www.powershellgallery.com/packages/AzureRM/6.13.1) mas não ambos, numa sessão powerShell. Se um livro de recortes importar módulos Az antes dos módulos AzureRM, o livro de execução completa. No entanto, um erro que refira o [Get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) cmdlet aparece nos fluxos de trabalho e os cmdlets podem não ser executados corretamente. Se o livro de recortes importar módulos AzureRM antes dos módulos Az, o livro de execução também completa. Neste caso, porém, recebe um erro nos fluxos de trabalho afirmando que tanto a Az como a AzureRM não podem ser importadas na mesma sessão ou usadas no mesmo livro de corridas.
 
 ## <a name="migrating-to-az-modules"></a>Migrar para módulos Az
 
-Recomenda-se que teste a migração para módulos Az numa conta de automação de teste. Uma vez criada a conta Automation, pode utilizar as instruções nesta secção para trabalhar com os módulos.
+Recomenda-se que teste uma migração para módulos Az numa conta de automação de teste. Assim que criar esta conta, pode utilizar as instruções nesta secção para trabalhar com os módulos.
 
-### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-cmdlets"></a>Parar e desmarcar todos os livros de execução que usam cmdlets AzureRM
+### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>Parar e desmarcar todos os livros que usam módulos AzureRM
 
-Para garantir que não executa os livros `AzureRM` de execução existentes que utilizem cmdlets, deve parar e desmarcar todos os livros que utilizam `AzureRM` módulos. Pode ver quais os horários existentes e quais os horários que devem ser removidos através do código de execução semelhante a este exemplo.
+Para garantir que não executa quaisquer livros de execução existentes que utilizem módulos AzureRM, pare e desmarque todos os livros de execução afetados. Pode ver quais os horários existentes e quais os horários a remover executando código semelhante a este exemplo:
 
   ```powershell-interactive
   Get-AzureRmAutomationSchedule -AutomationAccountName "<AutomationAccountName>" -ResourceGroupName "<ResourceGroupName>" | Remove-AzureRmAutomationSchedule -WhatIf
   ```
 
-É importante rever cada horário separadamente para garantir que pode reagendar no futuro para os seus livros de execução, se necessário.
+É importante rever cada horário separadamente para garantir que pode reagendar no futuro para os seus livros, se necessário.
 
 ### <a name="import-the-az-modules"></a>Importar os módulos Az
 
-Apenas importe os módulos Az que são necessários para os seus livros de execução. Não importe o `Az` módulo de rollup, pois inclui todos os `Az.*` módulos. Esta orientação é a mesma para todos os módulos.
+>[!NOTE]
+>Os seus livros de execução importam apenas os módulos Az necessários. Não importe o módulo Az rollup, pois inclui todos os módulos Az. Esta orientação é a mesma para todos os módulos.
 
-O módulo [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma `Az.*` dependência para os outros módulos. Por esta razão, este módulo precisa de ser importado para a sua conta de Automação antes de importar quaisquer outros módulos.
+O módulo [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma dependência para os outros módulos Az. Por esta razão, os seus livros de execução devem importar este módulo para a sua conta Desmase antes de importar quaisquer outros módulos.
 
-Na sua conta de Automação, selecione **Módulos** em **Recursos Partilhados**. Clique na **Galeria Browse** para abrir a página **da Galeria De Navegação.**  Na barra de pesquisa, introduza `Az.Accounts`o nome do módulo (por exemplo). Na página do Módulo PowerShell, clique **em Importar** para importar o módulo para a sua conta Deautomação.
+Para importar os módulos no portal Azure:
+
+1. Na sua conta de Automação, selecione **Módulos** em **Recursos Partilhados**. 
+2. Clique na **Galeria Browse** para abrir a página da Galeria De Navegação.  
+3. Na barra de pesquisa, introduza o `Az.Accounts`nome do módulo, por exemplo, . 
+4. Na página do Módulo PowerShell, clique **em Importar** para importar o módulo para a sua conta Deautomação.
 
 ![Módulos de importação da conta Automation](media/az-modules/import-module.png)
 
-Este processo de importação também pode ser feito através da [PowerShell Gallery,](https://www.powershellgallery.com) procurando o módulo para importação. Assim que encontrar o módulo, selecione-o e sob o **separador De automação Azure,** clique em **Implementar para automação Azure**.
+Este processo de importação também pode ser feito através da [PowerShell Gallery,](https://www.powershellgallery.com) procurando o módulo para importação. Assim que encontrar o módulo, selecione-o, escolha o separador **De automação Azure** e clique em **Implementar para automação Azure**.
 
 ![Importar módulos diretamente da galeria](media/az-modules/import-gallery.png)
 
 ## <a name="testing-your-runbooks"></a>Testar os seus livros de execução
 
-Assim `Az` que os módulos forem importados para a sua conta Automation, pode começar a editar os seus livros de execução para utilizar os módulos Az. A maioria dos cmdlets tem os `AzureRM` mesmos nomes, exceto que foi alterado para `Az`. Para obter uma lista de módulos que não seguem esta convenção de nomeação, consulte [a lista de exceções](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
+Depois de importar os módulos Az para a conta Automation, pode começar a editar os seus livros de execução para utilizar os módulos. A maioria dos cmdlets tem os mesmos nomes que para o módulo AzureRM, exceto que o prefixo AzureRM (ou AzureRm) foi alterado para Az. Para obter uma lista de módulos que não seguem esta convenção de nomeação, consulte [a lista de exceções](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
-Uma forma de testar a modificação de um livro de `Enable-AzureRMAlias -Scope Process` execução para utilizar os novos cmdlets é utilizando no início do livro de execução. Ao adicionar este comando ao seu livro de execução, o script pode ser executado sem alterações.
+Uma forma de testar a modificação de um livro de `Enable-AzureRmAlias -Scope Process` execução para utilizar os novos cmdlets é utilizando no início do livro de execução. Ao adicionar este comando ao seu livro de execução, o script pode ser executado sem alterações.
 
 ## <a name="after-migration-details"></a>Detalhes pós-migração
 
-Depois de concluída a migração, não tente `AzureRM` começar a utilizar os livros utilizando módulos na conta Automation. Também é recomendado não importar `AzureRM` ou atualizar módulos na conta. Considere a conta `Az`migrada para, e opere apenas com `Az` módulos. 
+Depois de concluída a migração, não tente iniciar os livros de execução utilizando módulos AzureRM na conta Automation. Também é recomendado não importar ou atualizar módulos AzureRM na conta. Considere a conta migrada para Az, e opere apenas com módulos Az. 
 
-Quando uma nova conta Automation é `AzureRM` criada, os módulos existentes ainda estão instalados. Ainda pode atualizar os livros `AzureRM` de execução tutoriais com cmdlets. Não devias publicar estes livros.
+Quando cria uma nova conta Automation, os módulos AzureRM existentes ainda estão instalados. Ainda pode atualizar os livros de execução tutoriais com cmdlets AzureRM. No entanto, não deve executar estes livros de execução.
 
 ## <a name="next-steps"></a>Passos seguintes
 

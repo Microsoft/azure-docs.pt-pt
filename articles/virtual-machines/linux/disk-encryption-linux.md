@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7df3c07518a9211bd1abf785e3f4954c41ebffc
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: cf6f53639cff23a9e709b44a1ddf1332df2164b7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529455"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586052"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs do Linux
 
@@ -407,6 +407,8 @@ A encriptação do disco azure não funciona para os seguintes cenários, funcio
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não se limitando a): DFS, GFS, DRDB e CephFS.
 - Mover um VM encriptado para outra subscrição.
 - Kernel Crash Dump (kdump).
+- Oracle ACFS (Sistema de Ficheiros de Cluster ASM)
+- Gen2 VMs (ver: [Suporte para geração 2 VMs em Azure)](generation-2.md#generation-1-vs-generation-2-capabilities)
 - VMs série Lsv2 (ver: [Lsv2-series)](../lsv2-series.md)
 
 ## <a name="next-steps"></a>Passos seguintes

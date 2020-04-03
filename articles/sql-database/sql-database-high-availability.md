@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/14/2019
-ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 1c4ed77112e8c06db1946d756239e02cb187f3ef
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269656"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618440"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados Azure SQL
 

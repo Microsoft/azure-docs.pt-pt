@@ -1,6 +1,6 @@
 ---
 title: Usando loops T-SQL
-description: Dicas para utilizar loops T-SQL e substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.
+description: Dicas para o desenvolvimento de soluções utilizando loops T-SQL e substituindo os cursores na piscina SYnapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,28 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: afb2160cb9b4e34d3d17db86bac9cd3be79886d0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4cec4801f2a15ebf858f50377c9718fdacac4e29
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351596"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619008"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Utilização de loops T-SQL no Armazém de Dados SQL
-Dicas para utilizar loops T-SQL e substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.
+# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Usando loops T-SQL na piscina Synapse SQL
+Incluídos neste artigo estão dicas para o desenvolvimento da solução de piscina SQL utilizando loops T-SQL e substituindo os cursores.
 
 ## <a name="purpose-of-while-loops"></a>Propósito dos loops WHILE
 
-O SQL Data Warehouse suporta o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql) para executar repetidamente blocos de declaração. Este loop WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código termine especificamente o loop usando a palavra-chave BREAK. Os loops são úteis para substituir os cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade de leitura rápida. Portanto, os loops [WHILE] são uma excelente alternativa para substituir os cursores.
+A piscina Synapse SQL suporta o loop [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) para executar repetidamente blocos de declaração. Este loop WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código termine especificamente o loop usando a palavra-chave BREAK. 
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>Substituição de cursores no Armazém de Dados SQL
-No entanto, antes de mergulhar na cabeça primeiro, deve perguntar a si mesmo a seguinte pergunta: "Será que este cursor pode ser reescrito para usar operações baseadas em set?." Em muitos casos, a resposta é sim e muitas vezes é a melhor abordagem. Uma operação baseada em conjunto geralmente funciona mais rápido do que uma abordagem iterativa, linha a linha.
+Os loops são úteis para substituir os cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade de leitura rápida. Assim, loops WHILE são uma ótima alternativa para substituir os cursores.
 
-Os cursores de leitura para a frente rápidos podem ser facilmente substituídos por uma construção em loop. O seguinte é um exemplo simples. Este exemplo de código atualiza as estatísticas de cada tabela da base de dados. Ao iterar sobre as mesas no loop, cada comando executa em sequência.
+## <a name="replacing-cursors-in-synapse-sql-pool"></a>Substituição de cursores na piscina Synapse SQL
+No entanto, antes de mergulhar na cabeça primeiro, deve perguntar a si mesmo a seguinte pergunta: "Será que este cursor pode ser reescrito para usar operações baseadas em set?" 
+
+Em muitos casos, a resposta é sim e é frequentemente a melhor abordagem. Uma operação baseada em conjunto geralmente funciona mais rápido do que uma abordagem iterativa, linha a linha.
+
+Os cursores de leitura para a frente rápidos podem ser facilmente substituídos por uma construção em loop. O exemplo que se segue é simples. Este exemplo de código atualiza as estatísticas de cada tabela da base de dados. Ao iterar sobre as mesas no loop, cada comando executa em sequência.
 
 Em primeiro lugar, crie uma tabela temporária contendo um número único de linha utilizado para identificar as declarações individuais:
 

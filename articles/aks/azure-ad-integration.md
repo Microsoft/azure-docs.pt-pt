@@ -4,12 +4,12 @@ description: Como criar clusters azure Ative Directory Service (AKS) habilitados
 services: container-service
 ms.topic: article
 ms.date: 02/02/2019
-ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de57a46f92fab2486aa7722daf8745a01be1f4f6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596594"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617587"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o Azure Kubernetes Service
 
@@ -116,9 +116,9 @@ A segunda aplicação Azure AD é usada quando se inscreveu no Kubernetes CLI (k
     c. Selecione **Web** para o tipo URI redirecionamento *https://aksazureadclient*e, em seguida, introduza qualquer valor formato URI, tais como .
 
     >[!NOTE]
-    >Se estiver a criar um novo cluster ativado por RBAC para suportar o Monitor Azure para contentores, adicione os seguintes dois URLs adicionais de redirecionamento a esta lista como tipos de aplicações **Web.** O valor url da `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` primeira base deve ser `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`e o valor url da segunda base deve ser .
+    >Se estiver a criar um novo cluster ativado por RBAC para suportar o Monitor Azure para contentores, adicione os seguintes dois URLs adicionais de redirecionamento a esta lista como tipos de aplicações **Web.** O valor url da `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` primeira base deve ser e o segundo valor URL base deve ser`https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
-    >Se estiver a utilizar esta funcionalidade na Azure China, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` o valor url da `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`primeira base deve ser e o valor url da segunda base deve ser .
+    >Se estiver a usar esta funcionalidade na Azure China, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` o valor URL da primeira base deve ser e o valor url da segunda base deve ser`https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
     >Para mais informações, consulte [como configurar a funcionalidade Live Data (pré-visualização)](../azure-monitor/insights/container-insights-livedata-setup.md) para o Monitor Azure para contentores e as etapas para configurar a autenticação no âmbito da secção de [autenticação integrada da Configuração AD.](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)
 

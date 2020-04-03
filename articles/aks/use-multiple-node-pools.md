@@ -4,12 +4,12 @@ description: Aprenda a criar e gerir várias piscinas de nós para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422317"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616506"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Crie e gerencie várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
@@ -41,7 +41,7 @@ As seguintes limitações aplicam-se quando cria e gere clusters AKS que suporta
 Para começar, crie um cluster AKS com uma única piscina de nó. O exemplo seguinte usa o [grupo AZ criar][az-group-create] comando para criar um grupo de recursos chamado *myResourceGroup* na região *oriental.* Um cluster AKS chamado *myAKSCluster* é então criado usando as [aks az criar][az-aks-create] comando. Uma *versão --kubernetes* de *1.15.7* é usada para mostrar como atualizar um conjunto de nó num passo seguinte. Pode especificar qualquer [versão Kubernetes suportada][supported-versions].
 
 > [!NOTE]
-> O equilíbrio de carga *Básico* SKU não é **suportado** quando se utilizam várias piscinas de nó. Por padrão, os clusters AKS são criados com o balanceador de carga *Standard* SKU do portal Azure CLI e Azure.
+> O equilíbrio de carga *Básico* SKU não é **suportado** quando se utilizam várias piscinas de nó. Por padrão, os clusters AKS são criados com o balanceador de carga *Standard* SKU a partir do portal Azure CLI e Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -420,7 +420,7 @@ O programador Kubernetes pode usar manchas e tolerâncias para restringir o que 
 
 Para obter mais informações sobre como usar funcionalidades agendadas avançadas da Kubernetes, consulte [as melhores práticas para funcionalidades avançadas de programadores em AKS][taints-tolerations]
 
-Neste exemplo, aplique uma mancha no nó baseado em GPU usando o comando --nó-manchas. Especifique o nome do seu nó baseado `kubectl get nodes` em GPU a partir da saída do comando anterior. A mancha é aplicada como uma *chave:valor* e, em seguida, uma opção de agendamento. O exemplo seguinte utiliza o par *sku=gpu* e define as cápsulas de outra forma têm a capacidade *NoSchedule:*
+Neste exemplo, aplique uma mancha no nó baseado em GPU usando o comando --nó-manchas. Especifique o nome do seu nó baseado `kubectl get nodes` em GPU a partir da saída do comando anterior. A mancha é aplicada como um par *chave=valor* e, em seguida, uma opção de agendamento. O exemplo seguinte utiliza o par *sku=gpu* e define as cápsulas de outra forma têm a capacidade *NoSchedule:*
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -480,7 +480,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Apenas as cápsulas que tenham esta mancha aplicada podem ser programadas em nós em *gpunodepool*. Qualquer outra cápsula seria programada na piscina de nó de *nodepool1.* Se você criar piscinas adicionais de nós, você pode usar manchas adicionais e tolerações para limitar o que as cápsulas podem ser programadas nesses recursos do nó.
+Apenas as cápsulas que tenham esta tolerância aplicada podem ser programadas em nós em *gpunodepool*. Qualquer outra cápsula seria programada na piscina de nó de *nodepool1.* Se você criar piscinas adicionais de nós, você pode usar manchas adicionais e tolerações para limitar o que as cápsulas podem ser programadas nesses recursos do nó.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especifique uma mancha, etiqueta ou etiqueta para uma piscina de nó
 

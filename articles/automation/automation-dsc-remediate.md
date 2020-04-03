@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: a6c7639cb4988eb13dfaa1c151085cda6e53b5d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4ca76f4be9d00e185f8774fc33296d1af1aeece
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68614501"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585506"
 ---
 # <a name="remediate-non-compliant-dsc-servers"></a>Remediar servidores DSC não compatíveis
 
@@ -40,7 +40,7 @@ Update-DscConfiguration -Wait -Verbose
 Funcionalidade semelhante não está disponível para servidores Linux.
 A única opção é repetir o processo de registo.
 Para os nós Azure, a correção de deriva pode ser feita a partir do portal ou utilizando cmdlets Az Automation.
-Os detalhes sobre este processo estão documentados na página [Máquinas de embarque para gestão pela Configuração do Estado da Automação Azure](/azure/automation/automation-dsc-onboarding#azure-portal).
+Os detalhes sobre este processo estão documentados na página [Máquinas de embarque para gestão pela Configuração do Estado da Automação Azure](/azure/automation/automation-dsc-onboarding#onboard-a-vm-using-azure-portal).
 Para nós híbridos, a correção de deriva pode ser feita usando os scripts Python incluídos.
 Consulte a documentação no [PowerShell DSC para o repo linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445209"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583573"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilize comandos de extensão MongoDB para gerir dados armazenados na API da Azure Cosmos DB para o MongoDB 
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API da Azure Cosmos DB para mongoDB utilizando qualquer um dos condutores de [clientes MongoDB](https://docs.mongodb.org/ecosystem/drivers)de código aberto. A API da Azure Cosmos DB para a MongoDB permite a utilização de condutores de clientes existentes, aderindo ao [protocolo de arame MongoDB.](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API da Azure Cosmos DB para a MongoDB utilizando qualquer um dos condutores de [clientes MongoDB](https://docs.mongodb.org/ecosystem/drivers)de código aberto. A API da Azure Cosmos DB para a MongoDB permite a utilização de condutores de clientes existentes, aderindo ao [protocolo de arame MongoDB.](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)
 
-Ao utilizar a API do Azure Cosmos DB para mongoDB, pode usufruir dos benefícios cosmos DB tais como distribuição global, sharding automático, alta disponibilidade, garantias de latência, automática, encriptação em repouso, backups e muito mais, preservando os seus investimentos na sua aplicação MongoDB.
+Ao utilizar a API do Azure Cosmos DB para mongoDB, pode usufruir dos benefícios cosmos DB tais como distribuição global, sharding automático, alta disponibilidade, garantias de latência, automática, encriptação em repouso, backups e muito mais, preservando os seus investimentos na sua app MongoDB.
 
 ## <a name="mongodb-protocol-support"></a>Apoio ao protocolo MongoDB
 
-Por padrão, a API do Azure Cosmos DB para MongoDB é compatível com a versão 3.2 do servidor MongoDB, para mais detalhes, ver [funcionalidades suportadas e sintaxe.](mongodb-feature-support.md) As funcionalidades ou operadores de consulta adicionados na versão 3.4 do MongoDB estão atualmente disponíveis como pré-visualização na API do Azure Cosmos DB para mongoDB. Os comandos de extensão seguinte suportam a funcionalidade específica azure Cosmos DB ao executar operações CRUD nos dados armazenados na API da Azure Cosmos DB para MongoDB:
+Por padrão, a API do Azure Cosmos DB para MongoDB é compatível com a versão 3.2 do servidor MongoDB, para mais detalhes, ver [funcionalidades suportadas e sintaxe.](mongodb-feature-support.md) As funcionalidades ou operadores de consulta adicionados na versão 3.4 do MongoDB estão atualmente disponíveis como pré-visualização na API do Azure Cosmos DB para mongoDB. Os comandos de extensão seguinte suportam a funcionalidade específica do Azure Cosmos DB ao executar operações CRUD nos dados armazenados na API da Azure Cosmos DB para mongoDB:
 
 * [Criar base de dados](#create-database)
 * [Base de dados de atualizações](#update-database)
@@ -160,12 +160,12 @@ O comando de extensão de coleção cria uma nova coleção MongoDB. O nome da b
 
 A tabela seguinte descreve os parâmetros dentro do comando:
 
-|**Campo**|**Tipo** |**Descrição** |
-|---------|---------|---------|
-| customAction    | string | Nome do comando personalizado. Deve ser "CreateCollection"     |
-| coleção      | string | Nome da coleção                                   |
-| ofertaThroughput | int    | Entrada aprovisionada para definir na base de dados. É um parâmetro opcional. |
-| fragmentoChave        | string | Caminho de Shard Key para criar uma coleção espumosa. É um parâmetro opcional. |
+| **Campo** | **Tipo** | **Necessário** | **Descrição** |
+|---------|---------|---------|---------|
+| customAction | string | Necessário | Nome do comando personalizado. Deve ser "CreateCollection".|
+| coleção | string | Necessário | Nome da coleção. Não são permitidos personagens especiais.|
+| ofertaThroughput | int | Opcional* | Entrada aprovisionada para definir na base de dados. Se este parâmetro não for fornecido, irá desempor-se ao mínimo, 400 RU/s. * Para especificar a entrada para além de `shardKey` 10.000 RU/s, é necessário o parâmetro.|
+| fragmentoChave | string | Opcional* | O caminho para a Chave do Fragmento para a coleção espumosa. Este parâmetro é necessário se colocar mais de 10.000 RU/s em `offerThroughput`.  Se for especificado, todos os documentos inseridos exigirão este valor. |
 
 ### <a name="output"></a>Saída
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Criar uma coleção escaced**
 
-Para criar uma coleção esfarto com o nome "testCollection" e a sua provisão de 1000 RUs, utilize o seguinte comando:
+Para criar uma coleção esfarvidada com o nome "testCollection" e a provisão de 1000 RUs, e uma propriedade shardkey "a.b", utilize o seguinte comando:
 
 ```shell
 use test

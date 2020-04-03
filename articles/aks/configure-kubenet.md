@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3fe1d36b859884ab19a645e5693c7e7931fe5c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368473"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617249"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Este artigo mostra-lhe como usar a rede *kubenet* para criar e usar uma subnet d
 * A rede virtual para o cluster AKS deve permitir a conectividade de acesso à Internet.
 * Não crie mais do que um aglomerado AKS na mesma sub-rede.
 * Os clusters AKS `169.254.0.0/16` `172.30.0.0/16`não `172.31.0.0/16`podem `192.0.2.0/24` utilizar, ou para a gama de endereços de serviço Kubernetes.
-* O principal de serviço utilizado pelo cluster AKS deve ter pelo menos permissões de Colaborador de [Rede](../role-based-access-control/built-in-roles.md#network-contributor) na subrede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de Colaborador de Rede incorporada, são necessárias as seguintes permissões:
+* O principal de serviço utilizado pelo cluster AKS deve ter pelo menos uma função de Colaborador de [Rede](../role-based-access-control/built-in-roles.md#network-contributor) na subrede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de Colaborador de Rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 

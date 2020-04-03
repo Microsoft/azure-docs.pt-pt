@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970517"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585963"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de exemplo do Azure Disk Encryption 
 
@@ -80,7 +80,7 @@ A tabela que se segue mostra quais os parâmetros que podem ser utilizados no sc
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para encriptação do disco OS
 
-* O VM deve estar a utilizar uma distribuição compatível com encriptação de disco OS, tal como listado nos [sistemas operativos suportados pela Encriptação do Disco Azure.](disk-encryption-overview.md#supported-vm-sizes) 
+* O VM deve estar a utilizar uma distribuição compatível com encriptação de disco OS, tal como listado nos [sistemas operativos suportados pela Encriptação do Disco Azure.](disk-encryption-overview.md#supported-vms) 
 * O VM deve ser criado a partir da imagem do Marketplace no Azure Resource Manager.
 * VM azure com pelo menos 4 GB de RAM (o tamanho recomendado é de 7 GB).
 * (Para RHEL e CentOS) Desativar o SELinux. Para desativar o SELinux, consulte "4.4.2. Desativando o SELinux" no [Guia do Utilizador e Administrador selinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) no VM.

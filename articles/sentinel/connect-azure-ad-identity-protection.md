@@ -9,18 +9,18 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/17/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d42ff28ddd2d883feb25139096d781efe64d50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b82ddfef57efaaca0ae43750cd306a63a772b911
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588574"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616832"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Conecte dados da Proteção de Identidade da AD Azure
 
 
 
-Pode transmitir registos da [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) para o Azure Sentinel para transmitir alertas para o Azure Sentinel para ver dashboards, criar alertas personalizados e melhorar a investigação. A Azure Ative Directory Identity Protection proporciona uma visão consolidada dos utilizadores de risco, deteções de risco e vulnerabilidades, com a capacidade de remediar imediatamente o risco, e definir políticas para remediar automaticamente eventos futuros. O serviço baseia-se na experiência da Microsoft em proteger as identidades dos consumidores e ganha uma precisão tremenda a partir do sinal de mais de 13 mil milhões de logins por dia. 
+Pode transmitir registos da [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) para o Azure Sentinel para transmitir alertas para o Azure Sentinel para ver dashboards, criar alertas personalizados e melhorar a investigação. A Azure Ative Directory Identity Protection proporciona uma visão consolidada dos utilizadores de risco, deteções de risco e vulnerabilidades, com a capacidade de remediar imediatamente o risco, e definir políticas para remediar automaticamente eventos futuros. O serviço baseia-se na experiência da Microsoft em proteger as identidades dos consumidores e ganha uma precisão tremenda a partir do sinal de mais de 13 mil milhões de logins por dia. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

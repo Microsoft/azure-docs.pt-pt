@@ -1,6 +1,6 @@
 ---
-title: Ligar ao Azure SQL Data Warehouse
-description: Fique ligado ao Armazém de Dados Azure SQL.
+title: Ligue-se à piscina Synapse SQL
+description: Fique ligado à piscina SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,30 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 72825f588ff92383858020cdbcd92c7de3078ed5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 70dd1ae883ee1f44672dccb802c0e770d7676440
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350663"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619067"
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Ligar ao Azure SQL Data Warehouse
-Fique ligado ao Armazém de Dados Azure SQL.
+# <a name="connect-to-synapse-sql-pool"></a>Ligue-se à piscina Synapse SQL
+Fique ligado à piscina SQL.
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
-O nome do servidor no exemplo seguinte é samplesvr.database.windows.net. Descubra o nome de servidor completamente qualificado:
+O nome do servidor no exemplo seguinte é sqlpoolservername.database.windows.net. Descubra o nome de servidor completamente qualificado:
 
-1. Vá ao [portal Azure.][Azure portal]
-2. Clique em **Armazéns de dados SQL**.
-3. Clique no armazém de dados à qual se quer ligar.
+1. Vá ao [portal Azure.](https://portal.azure.com)
+2. Clique em **Azure Synapse Analytics**.
+3. Clique na piscina SQL a que pretende ligar.
 4. Localize o nome do servidor completo.
    
     ![Nome de servidor completo](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Controladores e cadeias de ligação suportados
-O Azure SQL Data Warehouse suporta [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Para encontrar a versão mais recente e documentação, clique num dos controladores anteriores. Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, clique nas cordas de **ligação** da base de dados Show a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
+A piscina SQL suporta [ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC.](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx) Para encontrar a versão mais recente e documentação, clique num dos controladores anteriores. 
+
+Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, clique nas cordas de **ligação** da base de dados Show a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
 
 > [!NOTE]
 > Considere definir o tempo limite da ligação como 300 segundos, para permitir que a ligação sobreviva a curtos períodos de indisponibilidade.
@@ -60,36 +62,15 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 ## <a name="connection-settings"></a>Definições de ligação
-O SQL Data Warehouse uniformiza algumas definições durante a ligação e a criação do objeto. Estas definições não podem ser substituídas e incluem:
+A piscina SQL normaliza algumas configurações durante a ligação e criação de objetos. Estas definições não podem ser substituídas e incluem:
 
 | Definição de base de dados | Valor |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |ON |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
-| [DATEFORMAT][DATEFORMAT] |mdy |
-| [DATEFIRST][DATEFIRST] |7 |
+| [ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx) |ON |
+| [QUOTED_IDENTIFIERS](https://msdn.microsoft.com/library/ms174393.aspx) |ON |
+| [DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx) |mdy |
+| [DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx) |7 |
 
 ## <a name="next-steps"></a>Passos seguintes
-Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)][Query with Visual Studio]. Para saber mais sobre as opções de autenticação, veja [Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)][Authentication to Azure SQL Data Warehouse].
-
-<!--Articles-->
-[Query with Visual Studio]:sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]:sql-data-warehouse-authentication.md
-
-<!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-[ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
-[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
-[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
-[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
-
-<!--Other-->
-[Azure portal]: https://portal.azure.com
-
-<!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
-
+Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](sql-data-warehouse-query-visual-studio.md). Para saber mais sobre opções de autenticação, consulte [Autenticação para Anapse Analytics Azure](sql-data-warehouse-authentication.md).
 

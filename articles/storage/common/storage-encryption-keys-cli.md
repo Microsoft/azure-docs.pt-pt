@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c20fcdf6a725da9d7b053f0ad98efec6aca88f81
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ea944d4cfa3006c33f1dee3dd8e6ee6088681aa7
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478206"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618648"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configure as chaves geridas pelo cliente com o Cofre de Chave Azure utilizando o Azure CLI
 
@@ -73,7 +73,7 @@ az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
     --object-id $storage_account_principal \
-    --key-permissions get recover unwrapKey wrapKey
+    --key-permissions get unwrapKey wrapKey
 ```
 
 ## <a name="create-a-new-key"></a>Criar uma nova chave

@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a7f27215c7ba053933d9d12658253ea92aefa526
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351118"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586315"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Armazém de Dados (DWUs)
 
@@ -24,7 +24,7 @@ Recomendações sobre a escolha do número ideal de unidades de armazém de dado
 
 ## <a name="what-are-data-warehouse-units"></a>O que são Unidades de Armazém de Dados
 
-Uma [piscina SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão a ser provisionados ao utilizar o [SQL Analytics.](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Estes três recursos são agregados em unidades de escala de cálculo chamadas Unidades de Armazém de Dados (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. Uma alteração ao nível do seu serviço altera o número de DWUs que estão disponíveis para o sistema, o que por sua vez ajusta o desempenho, e o custo, do seu sistema.
+Uma [piscina Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão a ser aprovisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Estes três recursos são agregados em unidades de escala de cálculo chamadas Unidades de Armazém de Dados (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. Uma alteração ao nível do seu serviço altera o número de DWUs que estão disponíveis para o sistema, o que por sua vez ajusta o desempenho, e o custo, do seu sistema.
 
 Para um desempenho mais elevado, pode aumentar o número de unidades de armazém de dados. Para menos desempenho, reduza as unidades de armazém de dados. Os custos de armazenamento e de computação são faturados em separado, pelo que a alteração das unidades do armazém de dados não afeta os custos de armazenamento.
 

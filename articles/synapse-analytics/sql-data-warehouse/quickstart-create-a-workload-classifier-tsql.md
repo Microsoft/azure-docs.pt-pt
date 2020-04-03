@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9d41aa3447caebfeeffc05c36b5073f57c3e16cd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6354390c44c0991b0d6bf36cba8efd4272f9c73d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350811"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583771"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Quickstart: Criar um classificador de carga de trabalho usando T-SQL
 
@@ -25,7 +25,7 @@ Neste arranque rápido, você rapidamente criará um classificador de carga de t
 Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
-> A criação de um caso SQL Analytics no Azure Synapse Analytics pode resultar num novo serviço de faturação.  Para mais informações, consulte o preço da [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de uma piscina SQL Synapse no Azure Synapse Analytics pode resultar num novo serviço de faturação.  Para mais informações, consulte o preço da [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
@@ -109,5 +109,5 @@ Siga estes passos para limpar recursos.
 ## <a name="next-steps"></a>Passos seguintes
 
 - Agora criaste um classificador de carga de trabalho. Faça algumas perguntas como TheCEO para ver como se apresentam. Veja [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) dm_pdw_exec_requests para ver as consultas e a importância atribuída.
-- Para obter mais informações sobre a gestão da carga de trabalho da SQL Analytics, consulte a [importância da carga de trabalho](sql-data-warehouse-workload-importance.md) e a [classificação da carga de trabalho.](sql-data-warehouse-workload-classification.md)
+- Para obter mais informações sobre a gestão da carga de trabalho Synapse SQL, consulte a [Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md) e a [Classificação da Carga de Trabalho](sql-data-warehouse-workload-classification.md).
 - Consulte os artigos de como [configurar](sql-data-warehouse-how-to-configure-workload-importance.md) a importância da carga de trabalho e como gerir e monitorizar a Gestão da [Carga de Trabalho.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

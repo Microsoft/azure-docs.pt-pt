@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 03/26/2020
-ms.openlocfilehash: c8743385f8c3c801b2f06e4a30a8672d1d80acc4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422522"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582508"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerida pelo cliente do Azure Monitor 
 
@@ -50,11 +50,11 @@ Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (a
 
 O Azure Monitor aproveita a identidade gerida atribuída ao sistema para dar acesso ao seu Cofre chave Azure.A identidade gerida atribuída pelo sistema só pode ser associada a um único recurso Azure. A identidade da loja de dados Azure Monitor (cluster ADX) é suportada ao nível do cluster e isto dita que a capacidade cmk é entregue num cluster ADX dedicado. Para suportar a CMK em vários espaços de trabalho, um novo recurso Log Analytics *(Cluster)* funciona como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics. Este conceito está em conformidade com a restrição de identidade atribuída pelo Sistema e a identidade é mantida entre o cluster ADX e o recurso Log Analytics *Cluster,* enquanto os dados de todos os espaços de trabalho associados estão protegidos com a chave Key Vault. O armazenamento de cluster ADX de\'base utiliza a identidade gerida que está associada ao recurso *Cluster* para autenticar e aceder ao seu Cofre chave Azure via Diretório Ativo Azure.
 
-![Visão geral da CMK](media/customer-managed-keys/cmk-overview.png)
-1.  Cofre chave do cliente.
-2.  Recurso do *Cluster* log analytics do cliente tendo gerido a identidade com permissões para Key Vault – A identidade é suportada no nível de data-store (cluster ADX).
-3.  Azure Monitor dedicado cluster ADX.
-4.  Espaços de trabalho do cliente associados ao recurso *Cluster* para encriptação CMK.
+![Visão geral da CMK](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    Cofre chave do cliente.
+2.    Recurso do *Cluster* log analytics do cliente tendo gerido a identidade com permissões para Key Vault – A identidade é suportada no nível de data-store (cluster ADX).
+3.    Azure Monitor dedicado cluster ADX.
+4.    Espaços de trabalho do cliente associados ao recurso *Cluster* para encriptação CMK.
 
 ## <a name="encryption-keys-management"></a>Gestão de chaves de encriptação
 
@@ -210,7 +210,7 @@ Atualize o seu Cofre chave com uma nova política de acesso que concede permiss�
 - Permissões-chave: selecione permissões 'Get', 'Wrap Key' e 'Desembrulhar chave'.
 - Selecione principal: introduza o valor principal-id que devolveu na resposta no passo anterior.
 
-![conceder permissões chave vault](media/customer-managed-keys/grant-key-vault-permissions.png)
+![conceder permissões chave vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 A permissão *Get* é necessária para verificar se o seu Cofre chave está configurado como recuperável para proteger a sua chave e o acesso aos dados do Monitor Azure.
 

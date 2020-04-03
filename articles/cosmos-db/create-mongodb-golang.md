@@ -7,20 +7,20 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 94be0ec16aedc317f1be41998356bc52b66f7e86
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75441953"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619198"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Quickstart: Construa uma aplicação de consola utilizando a API da Azure Cosmos DB para MongoDB e Golang SDK
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Nó.js](create-mongodb-nodejs.md)
-> * [Pitão](create-mongodb-flask.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
@@ -93,7 +93,7 @@ Os seguintes fragmentos são retirados do ficheiro main.go.
 
 ### <a name="connecting-the-go-app-to-cosmos-db"></a>Ligar a app Go ao Cosmos DB
 
-A API da Azure Cosmos DB para mongoDB suporta a ligação ativada pelo SSL. Para se ligar, é necessário definir a função **DialServer** em [mgo. DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo), e faça uso dos [tls.* Função de marcação* ](https://golang.org/pkg/crypto/tls#Dial) para executar a ligação.
+A API da Azure Cosmos DB para MongoDB suporta a ligação ativada pelo TLS. Para se ligar, é necessário definir a função **DialServer** em [mgo. DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo), e faça uso dos [tls.* Função de marcação* ](https://golang.org/pkg/crypto/tls#Dial) para executar a ligação.
 
 O seguinte código Golang snippet liga a aplicação Go com a API da Azure Cosmos DB para MongoDB. A classe *DialInfo* tem opções para estabelecer uma sessão.
 
@@ -129,7 +129,7 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-O método **mgo.Dial()** é utilizado quando não existir uma ligação SSL. Para uma ligação SSL, o método **mgo.DialWithInfo()** é necessário.
+O **mgo. O método de marcação()** é utilizado quando não existe ligação TLS. Para uma ligação TLS, o **mgo. É** necessário o método DialWithInfo()
 
 Uma instância do objeto **DialWIthInfo{}** é utilizada para criar o objeto de sessão. Quando a sessão é estabelecida, pode aceder à coleção com o seguinte fragmento de código:
 

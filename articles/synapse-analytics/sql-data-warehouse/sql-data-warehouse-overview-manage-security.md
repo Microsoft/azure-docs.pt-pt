@@ -1,7 +1,6 @@
 ---
 title: Proteja uma base de dados
-description: Dicas para garantir uma base de dados e desenvolver soluções no recurso de piscina SQL da SQL Analytics.
-services: synapse-analytics
+description: Dicas para garantir uma base de dados e desenvolver soluções num recurso de piscina Synapse SQL.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,14 +11,15 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6ae9580803563971764eec4bd18fcc2430cee06d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 46d32fdca615833bd602480ac182585da898ab98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350190"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586427"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteja uma base de dados em Azure Synapse
+
 > [!div class="op_single_selector"]
 > * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
@@ -28,9 +28,10 @@ ms.locfileid: "80350190"
 > 
 > 
 
-Este artigo irá acompanhá-lo através do básico de garantir a sua piscina SQL dentro do SQL Analytics. Em particular, este artigo faz com que você tenha começado com recursos para limitar o acesso, proteger dados e monitorizar atividades numa base de dados aprovisionada usando o pool SQL.
+Este artigo irá acompanhá-lo através do básico de garantir a sua piscina Synapse SQL. Em particular, este artigo faz com que você tenha começado com recursos para limitar o acesso, proteger dados e monitorizar atividades numa base de dados aprovisionada usando o pool SQL.
 
 ## <a name="connection-security"></a>Segurança da Ligação
+
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
 As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista branca. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 
@@ -42,6 +43,7 @@ O Azure Synapse Analytics utiliza regras de firewall IP ao nível do servidor. N
 As ligações à sua piscina SQL são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
 
 ## <a name="authentication"></a>Autenticação
+
 A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O pool SQL suporta atualmente a Autenticação do Servidor SQL com um nome de utilizador e senha, e com diretório Ativo Azure. 
 
 Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Utilizando estas credenciais, pode autenticar qualquer base de dados desse servidor como proprietário da base de dados, ou "dbo" através da Autenticação do Servidor SQL.

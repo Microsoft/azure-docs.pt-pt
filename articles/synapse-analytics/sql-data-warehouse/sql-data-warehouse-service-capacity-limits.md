@@ -1,6 +1,6 @@
 ---
 title: Limites de capacidade - Azure Synapse Analytics (anteriormente SQL DW)
-description: Valores máximos permitidos para vários componentes do SQL Analytics em Azure Synapse.
+description: Valores máximos permitidos para vários componentes da piscina SYnapse SQL em Azure Synapse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a0343dd55149fa3c2c17af1f246595a56e4c6ec2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350086"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583534"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade da Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -30,7 +30,7 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54,000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota DTU de 54.000, que permite até DW5000c. Esta quota é apenas um limite de segurança. Pode aumentar a sua quota [criando um bilhete](sql-data-warehouse-get-started-create-support-ticket.md) de apoio e selecionando a *Quota* como o tipo de pedido.  Para calcular as suas necessidades de DTU, multiplique o 7.5 pelo Total de DWU necessário, ou multiplique 9,5 pelo total de cDWU necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Pode visualizar o seu consumo atual de DTU a partir da opção de servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Ligação de base de dados |Sessões abertas simultâneas máximas |1024<br/><br/>O número de sessões abertas simultâneas variará em função da DWU selecionada. DWU600c e acima suportam um máximo de 1024 sessões abertas. DWU500c e abaixo, suporte um limite máximo simultâneo de sessão aberta de 512. Note que existem limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de moeda é ultrapassado, o pedido entra numa fila interna onde espera ser processado. |
 | Ligação de base de dados |Memória máxima para declarações preparadas |20 MB |
-| [Gestão da carga de trabalho](resource-classes-for-workload-management.md) |Consultas simultâneas máximas |128<br/><br/>  Um máximo de 128 consultas simultâneas serão executadas e as restantes consultas serão em fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os utilizadores são atribuídos a classes de recursos mais elevados ou quando a definição da unidade de armazém de [dados](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas de DMV, são sempre autorizadas a correr e não impactam o limite de consulta simultânea. Para mais detalhes sobre a execução de consulta simultânea, consulte o artigo sobre os máximos de [moeda.](memory-concurrency-limits.md) |
+| [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas simultâneas máximas |128<br/><br/>  Um máximo de 128 consultas simultâneas serão executadas e as restantes consultas serão em fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os utilizadores são atribuídos a classes de recursos mais elevados ou quando a definição da unidade de armazém de [dados](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas de DMV, são sempre autorizadas a correr e não impactam o limite de consulta simultânea. Para mais detalhes sobre a execução de consulta simultânea, consulte o artigo sobre os máximos de [moeda.](memory-concurrency-limits.md) |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Gb máximo |399 GB por DW100c. Portanto, em DWU1000c, a temperatura é dimensionada para 3,99 TB. |
 ||||
 

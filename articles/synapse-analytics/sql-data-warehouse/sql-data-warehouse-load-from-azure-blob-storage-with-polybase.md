@@ -1,6 +1,6 @@
 ---
-title: Carregar dados de retalho da CarregueContoso para um armazém de dados DaSQL Analytics
-description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho Contoso para a Azure SQL Analytics.
+title: Carregar dados de retalho da Contoso para um armazém de dados Synapse SQL
+description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho Contoso em Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62105b783577d70ae975cf514304d2c564357641
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351470"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583997"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Carregar dados de retalho da CarregueContoso para um armazém de dados DaSQL Analytics
+# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Carregar dados de retalho da Contoso para um armazém de dados Synapse SQL
 
-Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho contoso num armazém de dados DaQL Analytics. 
+Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho contoso num armazém de dados Synapse SQL.
 
 Neste tutorial irá:
 
@@ -30,11 +30,11 @@ Neste tutorial irá:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para executar este tutorial, precisa de uma conta Azure que já tenha um armazém de dados SQL Analytics. Se não tiver um armazém de dados aprovisionado, consulte Criar um armazém de [dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta Azure que já tem um armazém de dados Synapse SQL. Se não tiver um armazém de dados aprovisionado, consulte Criar um armazém de [dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configure a fonte de dados
 
-A PolyBase utiliza objetos externos T-SQL para definir a localização e os atributos dos dados externos. As definições externas de objetos são armazenadas no seu armazém de dados SQL Analytics. Os dados são armazenados externamente.
+A PolyBase utiliza objetos externos T-SQL para definir a localização e os atributos dos dados externos. As definições externas de objetos são armazenadas no seu armazém de dados Synapse SQL. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
@@ -121,7 +121,7 @@ GO
 
 ## <a name="create-the-external-tables"></a>Criar as tabelas externas
 
-Executar o seguinte script para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que está a fazer aqui é definir nomes de colunas e tipos de dados, e encadi-los à localização e formato dos ficheiros de armazenamento de blob Azure. A definição é armazenada no armazém de dados SQL Analytics e os dados ainda estão no Blob de Armazenamento Azure.
+Executar o seguinte script para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que está a fazer aqui é definir nomes de colunas e tipos de dados, e encadi-los à localização e formato dos ficheiros de armazenamento de blob Azure. A definição está armazenada no armazém de dados e os dados ainda estão no Blob de Armazenamento Azure.
 
 O parâmetro **LOCATION** é a pasta sob a pasta raiz no Blob de Armazenamento Azure. Cada mesa está numa pasta diferente.
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compressão da loja de colunas
 
-Por padrão, o armazém de dados SQL Analytics armazena a tabela como um índice de lojas de colunas agrupadas. Após a conclusão de uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há razões diferentes para isto acontecer. Para saber mais, consulte a gestão dos índices da [columnstore.](sql-data-warehouse-tables-index.md)
+Por padrão, o armazém de dados Synapse SQL armazena a tabela como um índice de loja de colunas agrupado. Após a conclusão de uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há razões diferentes para isto acontecer. Para saber mais, consulte a gestão dos índices da [columnstore.](sql-data-warehouse-tables-index.md)
 
 Para otimizar o desempenho da consulta e a compressão da loja de colunas após uma carga, reconstrua a tabela para forçar o índice da loja de colunas a comprimir todas as linhas. 
 

@@ -1,6 +1,6 @@
 ---
 title: Mesas de partição
-description: Recomendações e exemplos para a utilização de divisórias de mesa no SQL Analytics
+description: Recomendações e exemplos para a utilização de divisórias de mesa na piscina SYnapse SQL
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,36 +11,42 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c40198225535fb79053773fb8c04d48253008912
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4e19c20036d74752b75a668d6a37c46ef1b008e6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351238"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583192"
 ---
-# <a name="partitioning-tables-in-sql-analytics"></a>Mesas de partição em SQL Analytics
-Recomendações e exemplos para a utilização de divisórias de mesa no SQL Analytics.
+# <a name="partitioning-tables-in-synapse-sql-pool"></a>Mesas de partição na piscina Synapse SQL
+
+Recomendações e exemplos para a utilização de divisórias de mesa na piscina Synapse SQL.
 
 ## <a name="what-are-table-partitions"></a>O que são divisórias de mesa?
-As divisórias de mesa permitem-lhe dividir os seus dados em grupos de dados mais pequenos. Na maioria dos casos, as divisórias de mesa são criadas numa coluna de data. A partilha é suportada em todos os tipos de tabelaS SQL Analytics; incluindo loja de colunas agrupada, índice agrupado e pilha. A partilha também é suportada em todos os tipos de distribuição, incluindo tanto o hash como o robin redondo distribuídos.  
+
+As divisórias de mesa permitem-lhe dividir os seus dados em grupos de dados mais pequenos. Na maioria dos casos, as divisórias de mesa são criadas numa coluna de data. A partilha é suportada em todos os tipos de mesa de bilhar Synapse SQL; incluindo loja de colunas agrupada, índice agrupado e pilha. A partilha também é suportada em todos os tipos de distribuição, incluindo tanto o hash como o robin redondo distribuídos.  
 
 A partilha pode beneficiar a manutenção de dados e o desempenho da consulta. Quer beneficie tanto ou apenas um depende da forma como os dados são carregados e se a mesma coluna pode ser usada para ambos os fins, uma vez que a partilha só pode ser feita numa coluna.
 
 ### <a name="benefits-to-loads"></a>Benefícios para cargas
-O principal benefício da partilha no SQL Analytics é melhorar a eficiência e o desempenho dos dados de carregamento através da utilização da eliminação, comutação e fusão da partilha. Na maioria dos casos, os dados são divididos numa coluna de data selada intimamente ligada à ordem em que os dados são carregados na base de dados. Um dos maiores benefícios da utilização de divisórias para manter os dados que evita a exploração madeireira de transações. Embora simplesmente inserir, atualizar ou apagar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar divisórias durante o seu processo de carga pode melhorar substancialmente o desempenho.
+
+O principal benefício da partilha no pool SQL synapse é melhorar a eficiência e o desempenho dos dados de carregamento através da eliminação da partilha, comutação e fusão. Na maioria dos casos, os dados são divididos numa coluna de data selada intimamente ligada à ordem em que os dados são carregados na base de dados. Um dos maiores benefícios da utilização de divisórias para manter os dados que evita a exploração madeireira de transações. Embora simplesmente inserir, atualizar ou apagar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar divisórias durante o seu processo de carga pode melhorar substancialmente o desempenho.
 
 A troca de divisórias pode ser utilizada para remover ou substituir rapidamente uma secção de uma mesa.  Por exemplo, uma tabela de factos de venda pode conter apenas dados nos últimos 36 meses. No final de cada mês, o mês mais antigo dos dados de vendas é apagado da tabela.  Estes dados podem ser eliminados através de uma declaração de eliminação para eliminar os dados relativos ao mês mais antigo. No entanto, eliminar uma grande quantidade de dados consecutivos com uma declaração de exclusão pode demorar demasiado tempo, bem como criar o risco de grandes transações que demoram muito tempo a reverter se algo correr mal. Uma abordagem mais ótima é deixar cair a mais antiga partilha de dados. Onde apagar as linhas individuais pode levar horas, apagar uma partição inteira pode levar segundos.
 
 ### <a name="benefits-to-queries"></a>Benefícios para consultas
+
 A partilha também pode ser usada para melhorar o desempenho da consulta. Uma consulta que aplica um filtro a dados divididos pode limitar a varredura apenas às divisórias elegíveis. Este método de filtragem pode evitar uma varredura completa da tabela e apenas digitalizar um subconjunto de dados menor. Com a introdução de índices de lojas de colunas agrupadas, os benefícios de desempenho da eliminação predicada são menos benéficos, mas em alguns casos pode haver um benefício para consultas. Por exemplo, se a tabela de factos de venda for dividida em 36 meses usando o campo de data de venda, então as consultas que filtram na data de venda podem saltar a procura em divisórias que não correspondem ao filtro.
 
 ## <a name="sizing-partitions"></a>Partições de tamanho
+
 Embora a partilha possa ser usada para melhorar o desempenho de alguns cenários, criar uma tabela com **demasiadas** divisórias pode prejudicar o desempenho em algumas circunstâncias.  Estas preocupações são especialmente verdadeiras para as tabelas de lojas de colunas agrupadas. Para que a partilha seja útil, é importante entender quando usar a partilha e o número de divisórias para criar. Não existe uma regra rígida e rápida sobre quantas divisórias são demasiadas, depende dos seus dados e de quantas divisórias você carrega simultaneamente. Um esquema de partição bem sucedido geralmente tem dezenas a centenas de divisórias, não milhares.
 
-Ao criar divisórias em mesas de lojas de **colunas agrupadas,** é importante considerar quantas linhas pertencem a cada divisória. Para uma ótima compressão e desempenho das tabelas de colunas agrupadas, é necessário um mínimo de 1 milhão de linhas por distribuição e partição. Antes de as divisórias serem criadas, a SQL Analytics já divide cada tabela em 60 bases de dados distribuídas. Qualquer divisória adicionada a uma mesa é além das distribuições criadas nos bastidores. Utilizando este exemplo, se a tabela de factos de vendas contivesse 36 divisórias mensais, e dado que uma base de dados SQL Analytics tem 60 distribuições, então a tabela de factos de vendas deve conter 60 milhões de filas por mês, ou 2,1 mil milhões de filas quando todos os meses são povoados. Se uma tabela contiver menos do que o número mínimo recomendado de linhas por partição, considere utilizar menos divisórias para aumentar o número de linhas por partição. Para obter mais informações, consulte o artigo [indexante,](sql-data-warehouse-tables-index.md) que inclui consultas que podem avaliar a qualidade dos índices de colunas de cluster.
+Ao criar divisórias em mesas de lojas de **colunas agrupadas,** é importante considerar quantas linhas pertencem a cada divisória. Para uma ótima compressão e desempenho das tabelas de colunas agrupadas, é necessário um mínimo de 1 milhão de linhas por distribuição e partição. Antes de as divisórias serem criadas, a piscina SQL synapse já divide cada tabela em 60 bases de dados distribuídas. Qualquer divisória adicionada a uma mesa é além das distribuições criadas nos bastidores. Utilizando este exemplo, se a tabela de factos de venda contivesse 36 divisórias mensais, e dado que um synapse SQL tem 60 distribuições, então a tabela de factos de venda deve conter 60 milhões de filas por mês, ou 2,1 mil milhões de filas quando todos os meses são povoados. Se uma tabela contiver menos do que o número mínimo recomendado de linhas por partição, considere utilizar menos divisórias para aumentar o número de linhas por partição. Para obter mais informações, consulte o artigo [indexante,](sql-data-warehouse-tables-index.md) que inclui consultas que podem avaliar a qualidade dos índices de colunas de cluster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferenças de sintaxe do SQL Server
-A SQL Analytics introduz uma forma de definir divisórias mais simples do que o SQL Server. Funções e esquemas de partição não são utilizados no SQL Analytics tal como estão no Servidor SQL. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. Embora a sintaxe da partilha possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. O SQL Server e o SQL Analytics suportam uma coluna de partição por tabela, que pode ser dividida em separado. Para saber mais sobre a partilha, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes)
+
+O pool SQL synapse introduz uma forma de definir divisórias que são mais simples que o SQL Server. Funções e esquemas de partição não são utilizados na piscina SQL synapse como estão no Servidor SQL. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. Embora a sintaxe da partilha possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. SQL Server e Synapse SQL suporteuma coluna de partição por tabela, que pode ser dividida com variação. Para saber mais sobre a partilha, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes)
 
 O exemplo seguinte utiliza a declaração [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) para dividir a tabela FactInternetSales na coluna OrderDateKey:
 
@@ -69,12 +75,13 @@ WITH
 ```
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Partição migratória do Servidor SQL
-Para migrar as definições de partição do Servidor SQL para SQL Analytics simplesmente:
+
+Para migrar as definições de partição do SQL Server para a piscina Synapse SQL simplesmente:
 
 - Elimine o esquema de [partição](/sql/t-sql/statements/create-partition-scheme-transact-sql)do Servidor SQL .
 - Adicione a definição de [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql) à sua TABELA CREATE.
 
-Se estiver a migrar uma tabela dividida a partir de uma instância do SQL Server, o Seguinte SQL pode ajudá-lo a descobrir o número de linhas que em cada partição. Tenha em mente que se a mesma granularidade de partição for utilizada no SQL Analytics, o número de linhas por partição diminui em um fator de 60.  
+Se estiver a migrar uma tabela dividida a partir de uma instância do SQL Server, o Seguinte SQL pode ajudá-lo a descobrir o número de linhas que em cada partição. Tenha em mente que se a mesma granularidade de partição for utilizada na piscina SYnapse SQL, o número de linhas por divisória diminui em um fator de 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -111,11 +118,13 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="partition-switching"></a>Troca de divisórias
-A SQL Analytics suporta a divisão, a fusão e a troca. Cada uma destas funções é executada utilizando a declaração [ALTER TABLE.](/sql/t-sql/statements/alter-table-transact-sql)
+
+A piscina Synapse SQL suporta a divisão, a fusão e a troca. Cada uma destas funções é executada utilizando a declaração [ALTER TABLE.](/sql/t-sql/statements/alter-table-transact-sql)
 
 Para trocar divisórias entre duas tabelas, deve certificar-se de que as divisórias se alinham nos respetivos limites e que as definições de tabela correspondem. Dado que não existem restrições de verificação para impor o leque de valores numa tabela, a tabela de origem deve conter os mesmos limites de divisória que a tabela-alvo. Se os limites da divisória não forem iguais, então o interruptor de partição falhará, uma vez que os metadados da divisória não serão sincronizados.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Como dividir uma divisória que contém dados
+
 O método mais eficiente para dividir uma divisória que já contém dados é usar uma `CTAS` declaração. Se a mesa dividida for uma loja de colunas agrupada, a divisória da mesa deve estar vazia antes de poder ser dividida.
 
 O exemplo seguinte cria uma tabela de colunas dividida. Insere uma linha em cada divisória:
@@ -227,7 +236,8 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Carregue novos dados em divisórias que contenham dados num só passo
-Carregar dados em divisórias com troca de divisórias é uma forma conveniente de encenar novos dados numa tabela que não é visível para os utilizadores o interruptor nos novos dados.  Pode ser um desafio em sistemas ocupados para lidar com a contenção de bloqueio associada à troca de divisórias.  Para limpar os dados existentes numa `ALTER TABLE` partição, um usado para ser necessário para desativar os dados.  Em `ALTER TABLE` seguida, outro foi obrigado a mudar os novos dados.  No SQL Analytics, a `TRUNCATE_TARGET` opção `ALTER TABLE` é suportada no comando.  Com `TRUNCATE_TARGET` `ALTER TABLE` o comando substitui os dados existentes na partilha com novos dados.  Abaixo está um `CTAS` exemplo que usa para criar uma nova tabela com os dados existentes, insere novos dados, em seguida, muda todos os dados de volta para a tabela alvo, sobrepondo os dados existentes.
+
+Carregar dados em divisórias com troca de divisórias é uma forma conveniente de encenar novos dados numa tabela que não é visível para os utilizadores o interruptor nos novos dados.  Pode ser um desafio em sistemas ocupados para lidar com a contenção de bloqueio associada à troca de divisórias.  Para limpar os dados existentes numa `ALTER TABLE` partição, um usado para ser necessário para desativar os dados.  Em `ALTER TABLE` seguida, outro foi obrigado a mudar os novos dados.  Na piscina Synapse SQL, a opção `TRUNCATE_TARGET` é suportada no `ALTER TABLE` comando.  Com `TRUNCATE_TARGET` `ALTER TABLE` o comando substitui os dados existentes na partilha com novos dados.  Abaixo está um `CTAS` exemplo que usa para criar uma nova tabela com os dados existentes, insere novos dados, em seguida, muda todos os dados de volta para a tabela alvo, sobrepondo os dados existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -252,6 +262,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ```
 
 ### <a name="table-partitioning-source-control"></a>Controlo de fonte de divisão de tabelas
+
 Para evitar que a definição da tabela seja **enferrujada** no seu sistema de controlo de fontes, é melhor considerar a seguinte abordagem:
 
 1. Crie a tabela como uma mesa dividida, mas sem valores de partição
@@ -331,5 +342,6 @@ Para evitar que a definição da tabela seja **enferrujada** no seu sistema de c
 Com esta abordagem, o código de controlo de origem permanece estático e os valores de fronteira de divisão são autorizados a ser dinâmicos; evoluindo com a base de dados ao longo do tempo.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Para obter mais informações sobre o desenvolvimento de tabelas, consulte os artigos sobre [a visão geral](sql-data-warehouse-tables-overview.md)da tabela .
 

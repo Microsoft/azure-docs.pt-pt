@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: fcdb8af770fa0068e8413d4609a56223a9a20ce2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345903"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582204"
 ---
 # <a name="manage-assets"></a>Gerir recursos
 
@@ -60,7 +60,7 @@ Depois de os ficheiros digitais serem enviados para armazenamento e associados a
 
     **AssetContainerSas.listContainerSas** tem um parâmetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) `expiryTime`no qual se define . A hora deve ser fixada para < 24 horas.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, mude uma enquanto utiliza a outra e depois comece a usar a nova tecla e rode a outra tecla). O 1º URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento 2.
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque ajuda com a falha e rotação perfeita das chaves da conta de armazenamento. O primeiro URL SAS representa a primeira chave da conta de armazenamento e o segundo URL SAS representa a segunda chave.
 3. Utilize as APIs ou SDKs de Armazenamento Azure (por exemplo, o [Storage REST API](../../storage/common/storage-rest-api-auth.md) ou [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para fazer o upload de ficheiros para o recipiente 'Activo'.
 4. Utilize as APIs dos Serviços de Multimédia v3 para criar uma Transformação e um Trabalho para processar o Recurso “de entrada”. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos).
 5. Transmita o conteúdo do ativo "output".

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b285daa465c8d069b359e94c9203c1ffbea24c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f3d6580b738a77de9654de0df9b4ce1120fc6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970674"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584042"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Encriptação de disco azure para IaaS VMs FAQ
 
@@ -37,7 +37,7 @@ Para começar, leia a visão geral da [Encriptação do Disco Azure.](disk-encry
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Que tamanhos vm e sistemas operativos suportam encriptação de disco azure?
 
-O artigo de encriptação de [disco azure](disk-encryption-overview.md) lista os [tamanhos VM](disk-encryption-overview.md#supported-vm-sizes) e [sistemas operativos VM](disk-encryption-overview.md#supported-operating-systems) que suportam a encriptação do disco Azure.
+O artigo de encriptação de [disco azure](disk-encryption-overview.md) lista os [tamanhos VM](disk-encryption-overview.md#supported-vms) e [sistemas operativos VM](disk-encryption-overview.md#supported-operating-systems) que suportam a encriptação do disco Azure.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Posso encriptar volumes de arranque e dados com encriptação de disco azure?
 
@@ -93,7 +93,7 @@ Utilize a versão mais recente do Azure PowerShell SDK para configurar a Encript
 > [!NOTE]
 > A extensão de pré-visualização de encriptação do disco Linux Azure "Microsoft.OSTCExtension.AzureDiskCryptonForLinux" é depreciada. Esta extensão foi publicada para a versão de pré-visualização de encriptação do disco Azure. Não deve utilizar a versão de pré-visualização da extensão nos seus testes ou implantação de produção.
 
-> Para cenários de implementação como o Azure Resource Manager (ARM), onde é necessário implementar a extensão de encriptação do disco Azure para o Linux VM para permitir a encriptação no seu VM Linux IaaS, deve utilizar a extensão suportada pela produção de encriptação do disco Azure " Microsoft.Azure.Security.AzureDiskCryptonForLinux".
+> Para cenários de implementação como o Azure Resource Manager (ARM), onde é necessário implementar a extensão de encriptação do disco Azure para o Linux VM para permitir a encriptação no seu VM Linux IaaS, deve utilizar a extensão suportada pela produção de encriptação do disco Azure "Microsoft.Azure.Security.AzureDiskCryptonForLinux".
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>Posso aplicar encriptação do Disco Azure na minha imagem personalizada do Linux?
 

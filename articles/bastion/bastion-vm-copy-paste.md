@@ -2,17 +2,17 @@
 title: 'Copiar e colar de e para uma máquina virtual: Azure Bastion'
 description: Neste artigo, aprenda como copiar e colar de e para um VM Azure usando Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989540"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619310"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar a uma máquina virtual: Bastião Azure
 

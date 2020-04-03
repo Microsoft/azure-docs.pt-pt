@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 84e747d4317347b585600f97bde0d140187ada65
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435317"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585775"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -32,7 +32,7 @@ O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode tentar o Nível Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para analisar as funcionalidades abrangidas por este tutorial, deve estar no nível de preços Standard do Security Center. Pode tentar o Nível Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ## <a name="scenario"></a>Cenário
 A Contoso migrou recentemente alguns dos recursos no local para o Azure, incluindo algumas cargas de trabalho de linha de negócio baseadas em máquinas virtuais e bases de dados SQL. De momento, a CSIRT (Equipa de Resposta a Incidentes de Segurança Informática) da Contoso tem dificuldade em investigar problemas de segurança porque as informações de segurança não estão integradas com as respetivas ferramentas atuais de resposta a incidentes. Esta falta de integração apresenta um problema durante a fase de Deteção (demasiados falsos positivos), bem como durante as fases de Avaliação e Diagnóstico. Como parte desta migração, eles decidem se pretendem que o Centro de Segurança os ajude a resolver este problema.
@@ -87,7 +87,7 @@ O Centro de Segurança proporciona uma vista unificada de todos os alertas de se
 
    ![Investigação](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-   O mapa de investigação é uma representação gráfica das entidades que estão ligadas a este incidente ou alerta de segurança. Ao clicar numa entidade no mapa, as informações sobre essa entidade mostrarão entidades novas e o mapa expande-se. As propriedades da entidade que está selecionada no mapa estão realçadas no painel do lado direito da página. As informações disponíveis em cada separador variam de acordo com a entidade selecionada. Durante o processo de investigação, reveja todas as informações relevantes para compreender melhor o movimento de um atacante.
+   O mapa de investigação é uma representação gráfica das entidades que estão ligadas a este incidente ou alerta de segurança. Ao clicar numa entidade no mapa, as informações sobre essa entidade mostrarão entidades novas e o mapa expande-se. As propriedades da entidade que está selecionada no mapa estão realçadas no painel do lado direito da página. As informações disponíveis em cada separador variam de acordo com a entidade selecionada. Durante o processo de investigação, reveja todas as informações relevantes para entender melhor o movimento do agressor.
 
 2. Se precisar de mais provas ou se tiver de investigar adicionalmente entidades que tenham sido encontradas durante a investigação, avance para o passo seguinte.
 
@@ -124,8 +124,3 @@ Neste tutorial, ficou a conhecer as funcionalidades do Centro de Segurança que 
 > * Incidentes de segurança que sejam uma combinação de alertas relacionados para um recurso
 > * Mapa de investigação, que é uma representação gráfica das entidades que estão ligadas a um incidente ou alerta de segurança
 > * Capacidades de pesquisa para localizar mais provas de sistemas comprometidos
-
-Para saber mais sobre a funcionalidade de investigação do Centro de Segurança, veja:
-
-> [!div class="nextstepaction"]
-> [Investigar incidentes e alertas](security-center-investigation.md)

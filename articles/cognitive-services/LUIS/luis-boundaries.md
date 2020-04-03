@@ -1,22 +1,14 @@
 ---
 title: Limites - LUIS
-titleSuffix: Azure Cognitive Services
 description: Este artigo contém os limites conhecidos da compreensão da linguagem dos serviços cognitivos azure (LUIS). Luis tem várias áreas de fronteira. O modelo de fronteira controla as intenções, entidades e características no LUIS. Limites de quota com base no tipo-chave. A combinação de teclado controla o website da LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/07/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 6c021e68f8b76d8b0d3e6e9ff21c242580f53313
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 04/02/2020
+ms.openlocfilehash: 4aa69cb0fd36fe5bf4ea2928022aea602b8830d6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520948"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618859"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo LUIS e chaves
 Luis tem várias áreas de fronteira. O primeiro é o limite do [modelo,](#model-boundaries)que controla as intenções, entidades e características no LUIS. A segunda área é [os limites](#key-limits) de quota com base no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o site da LUIS. Uma quarta área é a [região mundial mapeando](luis-reference-regions.md) entre o site de autor luis e as APIs [endpoint](luis-glossary.md#endpoint) LUIS.
@@ -40,7 +32,7 @@ Se a sua aplicação exceder os limites e limites do modelo LUIS, considere util
 | [Pré-visualização - Entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1k por pedido de ponto final de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 Padrão.quaisquer entidades por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|
 | [Padrão.qualquer](./luis-concept-entity-types.md)|100 por aplicação, 3 padrão.quaisquer entidades por padrão |
-| [Lista de frases][phrase-list]|500 listas de frases. 10 listas de frases globais devido ao modelo como um limite de características. A fraselista não permutável tem um máximo de 5.000 frases. A Lista de Frases Intercambiáveis tem um máximo de 50.000 frases. Número máximo de frases totais por aplicação de 500.000 frases.|
+| [Lista de frases][phrase-list]|500 listas de frases. 10 listas de frases globais devido ao modelo como um limite de características. A lista de frases não permutáveis tem um máximo de 5.000 frases. A lista de frases intercambiáveis tem um máximo de 50.000 frases. Número máximo de frases totais por aplicação de 500.000 frases.|
 | [Entidades pré-criadas](./luis-prebuilt-entities.md) | sem limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres no máximo. por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 funções por aplicação. 10 funções por entidade|
@@ -77,26 +69,41 @@ Não utilize os seguintes caracteres nos seguintes nomes.
 |Nomes de intenção, entidade e papéis|`:`<br>`$` <br> `&`|
 |Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Utilização chave
+## <a name="resource-usage-and-limits"></a>Utilização e limites de recursos
 
-Language Understand tem teclas separadas, um tipo para autoria, e um tipo para consulta do ponto final da previsão. Para saber mais sobre as diferenças entre os tipos-chave, consulte [as chaves finais de autor e](luis-concept-keys.md)previsão de consulta em LUIS .
+Language Understand tem recursos separados, um tipo para autoria, e um tipo para consulta do ponto final da previsão. Para saber mais sobre as diferenças entre os tipos-chave, consulte [as chaves finais de autor e](luis-concept-keys.md)previsão de consulta em LUIS .
 
 <a name="key-limits"></a>
 
-## <a name="resource-key-limits"></a>Limites de chave de recursos
+### <a name="authoring-resource-limits"></a>Limites de recursos de autoria
 
-As teclas de recursos têm limites diferentes para a autoria e o ponto final. A chave final da consulta de previsão LUIS só é válida para consultas de ponto final.
+Use o `LUIS.Authoring` _tipo,_ ao filtrar recursos no portal Azure. LUIS limita 500 aplicações por recurso de autoria Azure.
 
-* 500 candidaturas por recurso de autoria azure
+|Recurso de autoria|TPS de autoria|
+|--|--|
+|Inicial|1 milhão/mês, 5/segundo|
+|F0 - Nível livre |1 milhão/mês, 5/segundo|
 
-|Chave|Criação|Ponto Final|Objetivo|
-|--|--|--|--|
-|Inicial|1 milhão/mês, 5/segundo|1.000/mês, 5/segundo|Autor da sua app LUIS|
-|F0 - Nível livre |1 milhão/mês, 5/segundo|10 mil/mês, 5/segundo|Consultando o seu ponto final LUIS|
-|S0 - Nível básico|-|50/segundo|Consultando o seu ponto final LUIS|
-|S0 - Nível standard|-|50/segundo|Consultando o seu ponto final LUIS|
-|[Integração de análise de sentimento](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|A adição de informações de sentimento, incluindo a extração de dados de frase-chave, é fornecida sem precisar de outro recurso Azure. |
-|[Integração da fala](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 mil pedidos de ponto final por custo unitário|Converter expressão falada em expressão de texto e devolver resultados do LUIS|
+* TPS = Transações por segundo
+
+[Saiba mais sobre preços.][pricing]
+
+### <a name="query-prediction-resource-limits"></a>Limites de recursos de previsão de consulta
+
+Use o `LUIS` _tipo,_ ao filtrar recursos no portal Azure. O recurso final de previsão de consulta LUIS, utilizado no tempo de execução, só é válido para consultas de ponto final.
+
+|Recurso de previsão de consulta|TPS de consulta|
+|--|--|
+|F0 - Nível livre |10 mil/mês, 5/segundo|
+|S0 - Nível standard|50/segundo|
+
+### <a name="sentiment-analysis"></a>Análise de sentimentos
+
+[A integração](luis-how-to-publish-app.md#enable-sentiment-analysis)da análise de sentimentos, que fornece informações sobre sentimentos, é fornecida sem precisar de outro recurso Azure.
+
+### <a name="speech-integration"></a>Integração da fala
+
+[A integração da fala](../speech-service/how-to-recognize-intents-from-speech-csharp.md) fornece 1.000 pedidos de ponto final por custo unitário.
 
 [Saiba mais sobre preços.][pricing]
 

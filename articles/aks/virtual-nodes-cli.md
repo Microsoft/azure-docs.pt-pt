@@ -4,12 +4,12 @@ description: Aprenda a usar o Azure CLI para criar um cluster Azure Kubernetes S
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 31e8b5aceb356ca1415419650a9df3070462bde0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475532"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616470"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Crie e configure um cluster Azure Kubernetes Services (AKS) para utilizar nós virtuais usando o Azure CLI
 
@@ -19,7 +19,7 @@ Este artigo mostra-lhe como criar e configurar os recursos de rede virtuais e o 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam no ACI e no cluster AKS. Para fornecer esta comunicação, é criada uma subnet de rede virtual e são atribuídas permissões delegadas. Os nós virtuais só funcionam com clusters AKS criados usando redes *avançadas.* Por padrão, os clusters AKS são criados com networking *básico.* Este artigo mostra-lhe como criar uma rede virtual e subredes, em seguida, implementar um cluster AKS que usa networking avançado.
+Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma subnet de rede virtual e são atribuídas permissões delegadas. Os nós virtuais só funcionam com clusters AKS criados usando redes *avançadas.* Por padrão, os clusters AKS são criados com networking *básico.* Este artigo mostra-lhe como criar uma rede virtual e subredes, em seguida, implementar um cluster AKS que usa networking avançado.
 
 Se não utilizou previamente o ACI, registe o prestador de serviços com a sua subscrição. Pode verificar o estado do registo do fornecedor ACI utilizando o comando da [lista de fornecedores az,][az-provider-list] como se pode ver no seguinte exemplo:
 
@@ -30,9 +30,9 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 O fornecedor *Microsoft.ContainerInstance* deve reportar como *Registado*, como mostra a seguinte saída exemplo:
 
 ```output
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 Se o fornecedor aparecer como *NotRegistered*, registe o fornecedor utilizando o registo do [fornecedor az,][az-provider-register] tal como mostrado no seguinte exemplo:
@@ -155,7 +155,7 @@ Implanta um cluster AKS na subnet AKS criada num passo anterior. Obtenha a ident
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Utilize o comando [az aks create][az-aks-create] para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Substituir `<subnetId>` pelo ID obtido no passo anterior, e depois `<appId>` e `<password>` com o 
+Utilize o comando [az aks create][az-aks-create] para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Substitua-a `<subnetId>` pelo ID obtido no `<appId>` passo `<password>` anterior e, em seguida, e com os valores recolhidos na secção anterior.
 
 ```azurecli-interactive
 az aks create \
@@ -302,7 +302,7 @@ Se já não pretender utilizar nós virtuais, pode desativá-los utilizando o co
 
 Se necessário, [https://shell.azure.com](https://shell.azure.com) vá abrir a Azure Cloud Shell no seu navegador.
 
-Primeiro, apague a cápsula Helloworld que corre no nó virtual:
+Primeiro, elimine a `aci-helloworld` cápsula que corre no nó virtual:
 
 ```console
 kubectl delete -f virtual-node.yaml

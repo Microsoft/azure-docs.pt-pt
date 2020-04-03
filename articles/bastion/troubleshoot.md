@@ -2,19 +2,19 @@
 title: Troubleshoot Azure Bastion [ Microsoft Docs
 description: Neste artigo, aprenda a resolver os problemas de Azure Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.author: cherylmc
-ms.openlocfilehash: de112ff441bb53a0b3bc7f4ffa4456f1c241682c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73512954"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619174"
 ---
-# <a name="troubleshoot-azure-bastion"></a>Troubleshoot Azure Bastion
+# <a name="troubleshoot-azure-bastion"></a>Resolver problemas do Azure Bastion
 
 Este artigo mostra-lhe como resolver o tiroteio de Azure Bastion.
 

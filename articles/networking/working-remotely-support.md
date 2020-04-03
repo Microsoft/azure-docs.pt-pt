@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: 78081329b70edff5ed2c728cb2f7c3e562a44e56
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346307"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618919"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhar remotamente utilizando serviços de networking Azure
 
@@ -29,8 +29,6 @@ Nem todas as redes (por exemplo, redes privadas de WAN e núcleo corporativo) ex
 
 Os planeadores de rede podem ajudar a aliviar os estrangulamentos e aliviar o congestionamento da rede, tendo em conta que diferentes tipos de tráfego precisam de diferentes prioridades de tratamento de rede e de alguma reorientação/distribuição de carga inteligente. Por exemplo, o tráfego tele-medecine em tempo real de interação médico-paciente é de alta importância e atraso/nervosismo sensível. Considerando que a replicação do mesmo tráfego entre armazéns não é sensível a atrasos. O tráfego anterior deve ser encaminhado através da mais ideal via de rede com maior qualidade de serviço; que é aceitável encaminhar o tráfego posterior por via sub-óptima.
 
->[!NOTE] 
->No final deste artigo, estão listadas ligações a artigos que alavancam diferentes funcionalidades de networking e ecossistemas de rede Azure para apoiar os utilizadores que trabalham remotamente.
 
 
 ## <a name="sharing-our-best-practices---azure-network-is-designed-for-elasticity-and-high-availability"></a>Partilhar as nossas melhores práticas - A rede Azure é projetada para elasticidade e alta disponibilidade
@@ -45,17 +43,18 @@ A rede Microsoft foi concebida para satisfazer os requisitos e proporcionar um d
 
 ## <a name="enable-employees-to-work-remotely"></a>Permitir que os colaboradores trabalhem remotamente
 
-O gateway Azure VPN suporta as ligações VPN ponto-a-local (P2S) e Site-to-Site (S2S). Utilizando o portal Azure VPN, pode escalar as ligações do seu colaborador para aceder de forma segura tanto aos seus recursos implantados azure como aos seus recursos no local. Para mais informações, consulte [Como permitir que os utilizadores trabalhem remotamente](https://go.microsoft.com/fwlink/?linkid=2123770). 
+O gateway Azure VPN suporta as ligações VPN ponto-a-local (P2S) e Site-to-Site (S2S). Utilizando o portal Azure VPN, pode escalar as ligações do seu colaborador para aceder de forma segura tanto aos seus recursos implantados azure como aos seus recursos no local. Para mais informações, consulte [Como permitir que os utilizadores trabalhem remotamente](../vpn-gateway/work-remotely-support.md). 
 
-Se estiver a utilizar o Protocolo de Túnel de Tomadas Seguras (SSTP), o número de ligações simultâneas está limitado a 128. Para obter um maior número de ligações, sugerimos a transição para OpenVPN ou IKEv2. Para mais informações, consulte [Transição para protocolo OpenVPN ou IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
+Se estiver a utilizar o Protocolo de Túnel de Tomadas Seguras (SSTP), o número de ligações simultâneas está limitado a 128. Para obter um maior número de ligações, sugerimos a transição para OpenVPN ou IKEv2. Para mais informações, consulte [Transição para protocolo OpenVPN ou IKEv2 da SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md
+).
 
-Para aceder aos seus recursos implantados no Azure, os desenvolvedores remotos poderiam utilizar a solução Azure Bastion, em vez da ligação VPN para obter acesso seguro à concha (RDP ou SSH) sem exigir o acesso a IPs públicos sobre os VMs. Para mais informações, consulte [Trabalhar remotamente utilizando o Bastião Azure.](https://go.microsoft.com/fwlink/?linkid=2123939)
+Para aceder aos seus recursos implantados no Azure, os desenvolvedores remotos poderiam utilizar a solução Azure Bastion, em vez da ligação VPN para obter acesso seguro à concha (RDP ou SSH) sem exigir o acesso a IPs públicos sobre os VMs. Para mais informações, consulte [Trabalhar remotamente utilizando o Bastião Azure.](../bastion/work-remotely-support.md)
 
-Para agregar a conexão VPN em larga escala, apoiar quaisquer ligações entre recursos em diferentes locais globais, em diferentes hubs regionais e redes virtuais faladas, e para otimizar a utilização de várias redes de banda larga doméstica pode usar O WAN Virtual Azure. Para mais informações, ver [Lutando para atender ao trabalho a partir de necessidades domésticas? Aqui é onde o Azure Virtual WAN pode ajudar.](https://go.microsoft.com/fwlink/?linkid=2123769)
+Para agregar a conexão VPN em larga escala, para apoiar quaisquer ligações entre recursos em diferentes locais globais, em diferentes hubs regionais e redes virtuais faladas, e para otimizar a utilização de várias redes de banda larga doméstica, você pode usar O WAN Virtual Azure. Para mais informações, ver [Lutando para atender ao trabalho a partir de necessidades domésticas? Aqui é onde o Azure Virtual WAN pode ajudar.](../virtual-wan/work-remotely-support.md)
 
 Outra forma de suportar uma mão de obra remota é implementar uma Infraestrutura de Ambiente de Trabalho Virtual (VDI) hospedada na sua rede virtual Azure, protegida com uma Firewall Azure. Por exemplo, o Windows Virtual Desktop (WVD) é um serviço de virtualização de computadores e aplicações que funciona em Azure. Com o Windows Virtual Desktop, pode configurar um ambiente escalável e flexível na sua subscrição Azure sem a necessidade de executar quaisquer servidores de gateway adicionais. Você é apenas responsável pelas máquinas virtuais WVD na sua rede virtual. Para mais informações, consulte o suporte de [trabalho remoto Azure Firewall](../firewall/remote-work-support.md). 
 
-O Azure também tem um conjunto rico de parceiros de ecossistemas. Os nossos parceiros Network Virtual Appliances no Azure também podem ajudar a escalar a conectividade VPN. Para mais informações, consulte [as considerações do Aparelho Virtual da Rede (NVA) para trabalhos remotos](https://go.microsoft.com/fwlink/?linkid=2123771).
+O Azure também tem um conjunto rico de parceiros de ecossistemas. Os nossos parceiros Network Virtual Appliances no Azure também podem ajudar a escalar a conectividade VPN. Para mais informações, consulte [as considerações do Aparelho Virtual da Rede (NVA) para trabalhos remotos](../vpn-gateway/nva-work-remotely-support.md).
 
 ## <a name="extend-employees-connection-to-access-globally-distributed-resources"></a>Alargar a ligação dos colaboradores ao acesso a recursos distribuídos globalmente
 
@@ -71,7 +70,7 @@ Os seguintes serviços Azure podem ajudar a permitir aos colaboradores o acesso 
 
 ## <a name="scale-customer-connectivity-to-frontend-resources"></a>Escalar a conectividade do cliente para fazer frente aos recursos
 
-Durante os momentos em que mais pessoas ficam online, muitos sites corporativos experimentam um aumento do tráfego de clientes. O Portal de Aplicações Azure pode ajudar a gerir este aumento da carga de trabalho frontal. Para mais informações, consulte o [suporte de tráfego elevado do Application Gateway.](https://go.microsoft.com/fwlink/?linkid=2123940)
+Durante os momentos em que mais pessoas ficam online, muitos sites corporativos experimentam um aumento do tráfego de clientes. O Portal de Aplicações Azure pode ajudar a gerir este aumento da carga de trabalho frontal. Para mais informações, consulte o [suporte de tráfego elevado do Application Gateway.](../application-gateway/high-traffic-support.md)
 
 ## <a name="microsoft-support-for-multi-cloud-traffic"></a>Suporte da Microsoft para tráfego multi-nuvem
 
@@ -83,13 +82,13 @@ Os seguintes artigos discutem como diferentes funcionalidades de networking Azur
 
 | **Artigo** | **Última atualização** |
 | --- | --- |
-| [Como permitir que os utilizadores trabalhem remotamente](https://go.microsoft.com/fwlink/?linkid=2123770) | 23 de março de 2020 |
-| [Lutando para atender ao trabalho das necessidades de casa? Aqui é onde O WAN Virtual Azure pode ajudar](https://go.microsoft.com/fwlink/?linkid=2123769) | 23 de março de 2020 |
-| [Suporte de tráfego elevado da Application Gateway](https://go.microsoft.com/fwlink/?linkid=2123940) | 23 de março de 2020 |
-| [Considerações de aparelhos virtuais de rede (NVA) para trabalhos remotos](https://go.microsoft.com/fwlink/?linkid=2123771)| 23 de março de 2020 |
+| [Como permitir que os utilizadores trabalhem remotamente](../vpn-gateway/work-remotely-support.md) | 23 de março de 2020 |
+| [Lutando para atender ao trabalho das necessidades de casa? Aqui é onde O WAN Virtual Azure pode ajudar](../virtual-wan/work-remotely-support.md) | 23 de março de 2020 |
+| [Suporte de tráfego elevado para o Gateway de Aplicação](../application-gateway/high-traffic-support.md) | 23 de março de 2020 |
+| [Considerações de aparelhos virtuais de rede (NVA) para trabalhos remotos](../vpn-gateway/nva-work-remotely-support.md)| 23 de março de 2020 |
 | [Transição para o protocolo OpenVPN ou IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | 23 de março de 2020 |
-| [Trabalhar remotamente usando o Bastião Azure](https://go.microsoft.com/fwlink/?linkid=2123939) | 23 de março de 2020 |
-| [Utilização do Azure ExpressRoute para criar conectividade híbrida para suportar utilizadores remotos](https://go.microsoft.com/fwlink/?linkid=2123768) | 23 de março de 2020 |
+| [Trabalhar remotamente usando o Bastião Azure](../bastion/work-remotely-support.md) | 23 de março de 2020 |
+| [Utilização do Azure ExpressRoute para criar conectividade híbrida para suportar utilizadores remotos](../expressroute/work-remotely-support.md) | 23 de março de 2020 |
 | [Suporte de trabalho remoto Azure Firewall](../firewall/remote-work-support.md)|25 de março de 2020|
 
 <!--Link References-->

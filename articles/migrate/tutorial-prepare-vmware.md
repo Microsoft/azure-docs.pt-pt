@@ -4,12 +4,12 @@ description: Saiba como se preparar para avaliação/migração de VMware VMs co
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: aecc82ff4403c044fae95eb9b7c8c7561fcb82b6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336672"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619434"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
@@ -36,7 +36,7 @@ Precisa destas permissões para estas tarefas em Azure, antes de poder avaliar o
 
 **Tarefa** | **Detalhes** 
 --- | --- 
-**Criar um projeto Azure Migrate** | A sua conta Azure precisa de permissões de tributo ou proprietário para criar um projeto. 
+**Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões do Colaborador ou proprietário para criar um projeto. 
 **Registe os fornecedores de recursos** | A Azure Migrate utiliza um aparelho azure migratório leve para descobrir e avaliar VMware VMs, e migrar para Azure com Azure Migrate:Server Assessment.<br/><br/> Durante o registo do aparelho, os fornecedores de recursos são registados com a assinatura escolhida no aparelho. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registar os fornecedores de recursos, necessita de uma função de Colaborador ou Proprietário na subscrição.
 **Criar aplicativos Azure AD** | Ao registar o aparelho, a Azure Migrate cria aplicações azure Ative Directory (Azure AD). <br/><br/> - A primeira aplicação é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho e os respetivos serviços em funcionamento no Azure.<br/><br/> - A segunda aplicação é utilizada exclusivamente para aceder ao KeyVault criado na subscrição do utilizador para a migração VMware VM sem agente. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Precisa de permissões para criar aplicações Azure AD (disponíveis no Desenvolvedor de Aplicações).
 **Criar um cofre chave** | Para migrar VMware VMs usando migração sem agente, a Azure Migrate cria um Cofre chave para gerir as chaves de acesso da conta de armazenamento de replicação na sua subscrição.<br/><br/> Para criar o cofre, você precisa de permissões de atribuição de papéis no grupo de recursos em que o projeto Azure Migrate reside.

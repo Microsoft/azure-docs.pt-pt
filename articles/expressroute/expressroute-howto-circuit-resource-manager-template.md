@@ -2,25 +2,24 @@
 title: 'Modelo Azure ExpressRoute: Crie um circuito ExpressRoute'
 description: Criar, fornecer, excluir e desabastecer um circuito ExpressRoute.
 services: expressroute
-author: cherylmc
+author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/13/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
-ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: ac2fb2f884feb0fbe6fbb1731ebe7c8bdad5114b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981142"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616515"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Crie um circuito ExpressRoute usando o modelo de Gestor de Recursos Azure
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
+> * [CLI do Azure](howto-circuit-cli.md)
 > * [Modelo Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
@@ -64,7 +63,7 @@ Para criar um Circuito ExpressRoute implantando um modelo:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **O nível SKU** determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium.](expressroute-faqs.md#expressroute-premium) Pode especificar *Local,* *Standard* ou *Premium.*
+   * **O nível SKU** determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium.](expressroute-faqs.md#expressroute-premium) Pode especificar *Local,**Standard ou *Premium*.
    * **A família SKU** determina o tipo de faturação. Pode especificar *os dados medidos* para um plano de dados medido e *dados ilimitados* para um plano de dados ilimitado. Pode alterar o tipo de faturação de *Dados Medidos* para *Dados Ilimitados,* mas não pode alterar o tipo de Dados *Ilimitados* para *Dados Medidos*. Um circuito *local* é *apenas Ilimitado.*
    * **Localização de observação** é o local físico onde você está olhando com a Microsoft.
 

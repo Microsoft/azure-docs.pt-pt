@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: f8f5ab99086ee38e2f56247ce31f8ac0e7affc81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6191e67f097b5ab471c5b31eff11a0e570d1c990
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128993"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617031"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 
@@ -32,7 +32,7 @@ Este artigo abrange muitos dos conceitos de autenticação que você precisa ent
 
 Em vez de criar aplicações que cada um mantenha o seu próprio nome de utilizador e informações de palavra-passe, que incorre num elevado fardo administrativo quando precisa de adicionar ou remover utilizadores através de várias aplicações, as aplicações podem delegar essa responsabilidade num fornecedor de identidade centralizado.
 
-O Azure Ative Directory (Azure AD) é um fornecedor de identidade centralizado na nuvem. Delegar a autenticação e autorização permite que cenários como políticas de Acesso Condicional que exijam que um utilizador esteja num local específico, a utilização da autenticação multifactor, bem como permitir que um utilizador assine uma vez e depois seja automaticamente assinou em todas as aplicações web que partilham o mesmo diretório centralizado. Esta capacidade é referida como Single Sign On (SSO).
+O Azure Ative Directory (Azure AD) é um fornecedor de identidade centralizado na nuvem. Delegar a autenticação e autorização permite que cenários como as políticas de Acesso Condicional que exijam que um utilizador esteja num local específico, o uso da autenticação multifactor, bem como permitir que um utilizador assine uma vez e depois seja automaticamente inscrito em todas as aplicações web que partilhem o mesmo diretório centralizado. Esta capacidade é referida como Single Sign On (SSO).
 
 Um fornecedor de identidade centralizado é ainda mais importante para apps que têm utilizadores localizados em todo o mundo que não necessariamente se inscrevem na rede da empresa. A Azure AD autentica os utilizadores e fornece fichas de acesso. Um [sinal de acesso](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) é um símbolo de segurança que é emitido por um servidor de autorização. Contém informações sobre o utilizador e a aplicação para a qual se destina o símbolo; que podem ser usados para aceder a APIs web e outros recursos protegidos.
 
@@ -170,7 +170,7 @@ Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão 
 A autenticação do utilizador acontece através do browser. O protocolo OpenID utiliza mensagens padrão de protocolo HTTP.
 * A aplicação web envia um HTTP 302 (redirecionamento) para o navegador para utilizar o Azure AD.
 * Quando o utilizador é autenticado, o Azure AD envia o token para a aplicação web utilizando um redirecionamento através do navegador.
-* O redirecionamento é fornecido pela aplicação web sob a forma de um URI redirecionado. Este URI redirecionado está registado no objeto de aplicação Azure AD. Pode haver vários URIs redirecionados porque a aplicação pode ser implementada em vários URLs. Assim, a aplicação web também terá de especificar o redirecionamento uRi para usar.
+* O redirecionamento é fornecido pela aplicação web sob a forma de um URI redirecionado. Este URI redirecionado está registado no objeto de aplicação Azure AD. Pode haver vários URIs redirecionados porque a aplicação pode ser implementada em vários URLs. Assim, a aplicação web também terá de especificar o uri redirecionamento para usar.
 * A Azure AD verifica que o URI redirecionado enviado pela aplicação web é um dos URIs de redirecionamento registados para a aplicação.
 
 ## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Fluxo de entrada de aplicativos de desktop e aplicativo móvel com AD Azure

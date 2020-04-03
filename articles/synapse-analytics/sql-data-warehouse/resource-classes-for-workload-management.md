@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47fd30fbb6e6836d6edf18ac68164d515f3aeb93
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ac9ff1f46e1d2d0ddaa313499340b4723c7da07
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350740"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584258"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestão da carga de trabalho com aulas de recursos na Azure Synapse Analytics
 
-Orientação para a utilização de classes de recursos para gerir a memória e a conmoeda para consultas SQL Analytics em Azure Synapse.  
+Orientação para a utilização de classes de recursos para gerir a memória e a conmoeda para consultas de piscina Synapse SQL em Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>O que são classes de recursos
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recursos do utilizador.  As classes de recursos são limites de recursos pré-determinados no SQL Analytics que regem os recursos computacionais e a moeda para a execução de consultas. As classes de recursos podem ajudá-lo a configurar recursos para as suas consultas, estabelecendo limites no número de consultas que funcionam simultaneamente e nos recursos computacionais atribuídos a cada consulta.  Há uma troca entre a memória e a conmoeda.
+A capacidade de desempenho de uma consulta é determinada pela classe de recursos do utilizador.  As classes de recursos são limites de recursos pré-determinados no pool SQL synapse que regem os recursos computacionais e a moeda para a execução de consultas. As classes de recursos podem ajudá-lo a configurar recursos para as suas consultas, estabelecendo limites no número de consultas que funcionam simultaneamente e nos recursos computacionais atribuídos a cada consulta.  Há uma troca entre a memória e a conmoeda.
 
 - As classes de recursos mais pequenos reduzem a memória máxima por consulta, mas aumentam a conmoeda.
 - As classes de recursos maiores aumentam a memória máxima por consulta, mas reduzem a conmoeda.
@@ -82,7 +82,7 @@ A atribuição de memória para cada classe de recursos é a seguinte.
 
 Por predefinição, cada utilizador é membro da classe de recursos **dinâmicos smallrc**.
 
-A classe de recursos do administrador de serviço é fixada em smallrc e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de provisionamento.  O administrador de serviço neste contexto é o login especificado para o "Login de administração do Servidor" ao criar uma nova instância SQL Analytics com um novo servidor.
+A classe de recursos do administrador de serviço é fixada em smallrc e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de provisionamento.  O administrador de serviço neste contexto é o login especificado para o "Login de administração do Servidor" ao criar um novo pool SQL Synapse com um novo servidor.
 
 > [!NOTE]
 > Os utilizadores ou grupos definidos como administrador ativo do Diretório são também administradores de serviços.
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a gestão de utilizadores de bases de dados e segurança, consulte [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice de colunas agrupadas, consulte [otimizações de memória para compressão](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)de colunas .
+Para obter mais informações sobre a gestão de utilizadores de bases de dados e segurança, consulte [Secure uma base de dados em Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice de colunas agrupadas, consulte [otimizações de memória para compressão](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)de colunas .
 

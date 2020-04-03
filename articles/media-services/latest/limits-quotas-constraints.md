@@ -1,6 +1,6 @@
 ---
-title: Quotas e limitações nos Serviços de Media Azure
-description: Este tópico descreve quotas e limitações nos Serviços de Media Microsoft Azure.
+title: Quotas e limites nos Serviços de Mídia Azure
+description: Este tópico descreve quotas e limites nos Serviços de Media Microsoft Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 6fb2f8f9172533a2c7f4aa03e99bd08e16a1f1dc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2d4f5f83335f6f115362bcf66cf69d7f9de7eaa5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545915"
+ms.locfileid: "80582327"
 ---
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas e limites dos Serviços De Mídia Azure
 
@@ -79,7 +79,7 @@ Qualquer registo de emprego na sua conta com mais de 90 dias será automaticamen
 | Saídas ao vivo por evento ao vivo |3 <sup>(5)</sup> |
 | Duração da saída de Max Live | 25 horas |
 
-<sup>4</sup> Para obter informações detalhadas sobre as limitações do Evento Ao Vivo, consulte a [comparação e limitações](live-event-types-comparison.md)dos tipos de eventos ao vivo .
+<sup>4</sup> Para obter informações detalhadas sobre os limites do Evento Ao Vivo, consulte a [comparação e os limites](live-event-types-comparison.md)dos tipos de eventos ao vivo.
 
 <sup>5</sup> Saídas ao vivo começam na criação e param quando eliminados.
 
@@ -87,7 +87,7 @@ Qualquer registo de emprego na sua conta com mais de 90 dias será automaticamen
 
 | Recurso | Limite Predefinido | 
 | --- | --- | 
-| [Pontos Finais de Streaming](streaming-endpoint-concept.md) (parados ou em execução) por conta de Media Services|2 (fixo)|
+| [Pontos Finais de Streaming](streaming-endpoint-concept.md) (parados ou em execução) por conta de Media Services|2 |
 | [Filtros do Manifesto Dinâmico](filters-dynamic-manifest-overview.md)|100|
 | [Políticas de Transmissão em Fluxo](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming exclusivos associados](streaming-locators-concept.md) a um Ativo ao mesmo tempo | 100<sup>(7)</sup> (fixo) |

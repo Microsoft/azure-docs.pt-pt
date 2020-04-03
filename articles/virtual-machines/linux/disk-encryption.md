@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 912677a10d7098b891a4f6972b61761cd72cf292
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520777"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585949"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -34,7 +34,11 @@ Por padrão, os discos geridos utilizam chaves de encriptação geridas pela pla
 
 ## <a name="customer-managed-keys"></a>Chaves geridas pelo cliente
 
-Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as suas chaves RSA](../../key-vault/key-vault-hsm-protected-keys.md) para o seu Cofre chave ou gerar novas chaves RSA no Cofre de Chaves Azure. Os discos geridos pelo Azure tratam da encriptação e da desencriptação de uma forma totalmente transparente usando [encriptação](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)de envelopes. Encripta dados utilizando uma chave de encriptação de dados baseada em [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), que está, por sua vez, protegida usando as suas chaves. Tem de conceder acesso a discos geridos no seu Cofre de Chaves para utilizar as suas chaves para encriptar e desencriptar o DEK. Isto permite-lhe o controlo total dos seus dados e chaves. Pode desativar as chaves ou revogar o acesso aos discos geridos a qualquer momento. Também pode auditar o uso da chave de encriptação com monitorização do Cofre de Chaves Azure para garantir que apenas discos geridos ou outros serviços Azure fidedignos acedem às suas chaves.
+Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as suas chaves RSA](../../key-vault/key-vault-hsm-protected-keys.md) para o seu Cofre chave ou gerar novas chaves RSA no Cofre de Chaves Azure. 
+
+Os discos geridos pelo Azure tratam da encriptação e da desencriptação de uma forma totalmente transparente usando [encriptação](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)de envelopes. Encripta dados utilizando uma chave de encriptação de dados baseada em [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), que está, por sua vez, protegida usando as suas chaves. O serviço de Armazenamento gera chaves de encriptação de dados e encripta-as com chaves geridas pelo cliente utilizando encriptação RSA. A encriptação do envelope permite-lhe rodar (alterar) as suas chaves periodicamente de acordo com as suas políticas de conformidade sem afetar os seus VMs. Quando roda as chaves, o serviço de armazenamento encripta as chaves de encriptação de dados com as novas chaves geridas pelo cliente. 
+
+Tem de conceder acesso a discos geridos no seu Cofre de Chaves para utilizar as suas chaves para encriptar e desencriptar o DEK. Isto permite-lhe o controlo total dos seus dados e chaves. Pode desativar as chaves ou revogar o acesso aos discos geridos a qualquer momento. Também pode auditar o uso da chave de encriptação com monitorização do Cofre de Chaves Azure para garantir que apenas discos geridos ou outros serviços Azure fidedignos acedem às suas chaves.
 
 Para SSDs premium, SSDs padrão e HDDs padrão: Quando desativar ou eliminar a sua chave, quaisquer VMs com discos que utilizem essa tecla desligam-se automaticamente. Depois disso, os VMs não serão utilizáveis a menos que a chave esteja ativada novamente ou atribua uma nova chave.
 
@@ -187,6 +191,32 @@ az disk create -n $diskName -g $rgName -l $location --encryption-type Encryption
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
 az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
+
+```
+
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Altere a chave de um DiskEncryptionSet para rodar a chave para todos os recursos referentes ao DiskEncryptionSet
+
+```azurecli
+
+rgName=yourResourceGroupName
+keyVaultName=yourKeyVaultName
+keyName=yourKeyName
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+
+keyVaultId=$(az keyvault show --name $keyVaultName--query [id] -o tsv)
+
+keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+
+az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url $keyVaultKeyUrl --source-vault $keyVaultId
+
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Encontre o estado da encriptação do lado do servidor de um disco
+
+```azurecli
+
+az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
 
 ```
 

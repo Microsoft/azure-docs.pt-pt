@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1acbcdf1aeed383591626c083f3335d9d7cf61c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0fb6bd68026684599d94270906f1792e084ec5f6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79381545"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80624386"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |GitHub |
 |---|---|---|---|---|
@@ -23,4 +23,4 @@ ms.locfileid: "79381545"
 |[Só devem ser instaladas extensões VM aprovadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc0e996f8-39cf-4af9-9f45-83fbde810432) |Esta política rege as extensões de máquinas virtuais que não são aprovadas. |Auditoria, Negação, Deficientes |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_ApprovedExtensions_Audit.json)
 |[Remendar a imagem automática do OS em conjuntos de escala de máquina virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) |Esta política impõe que a correção automática de imagem de OS em conjuntos de escala de máquinavirtual mantenha sempre as Máquinas Virtuais seguras aplicando com segurança os mais recentes patches de segurança todos os meses. |negar |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSSOSUpgradeHealthCheck_Deny.json)
 |[Os discos não ligados devem ser encriptados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fb2) |Esta política audita qualquer disco não ligado sem encriptação ativada. |Auditoria, Deficientes |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/UnattachedDisk_Encryption_Audit.json)
-|[Máquinas virtuais devem ser migradas para novos recursos do Gestor de Recursos Do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Utilize o novo Gestor de Recursos Azure para as suas máquinas virtuais para fornecer melhorias de segurança tais como: controlo de acesso mais forte (RBAC), melhor auditoria, implantação e governação baseadaem em Recursos Azure, acesso a identidades geridas, acesso a cofre chave para segredos, autenticação baseada em Azure AD e suporte para tags e grupos de recursos para uma gestão mais fácil da segurança |Auditoria, Negação, Deficientes |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json)
+|[Máquinas virtuais devem ser migradas para novos recursos do Gestor de Recursos Do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Utilize o novo Gestor de Recursos Azure para as suas máquinas virtuais para fornecer melhorias de segurança tais como: controlo de acesso mais forte (RBAC), melhor auditoria, implantação e governação baseadaem em recursos azure, acesso a identidades geridas, acesso a cofre chave para segredos, autenticação baseada em AD Azure e suporte para tags e grupos de recursos para uma gestão de segurança mais fácil |Auditoria, Negação, Deficientes |1.0.0 |[Ligação](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json)

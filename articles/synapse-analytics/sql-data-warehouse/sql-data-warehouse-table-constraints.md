@@ -1,6 +1,6 @@
 ---
 title: Chaves primárias, estrangeiras e únicas
-description: Suporte de restrições de mesa no SQL Analytics em Azure Synapse Analytics
+description: Suporte de restrições de mesa na piscina SQL synapse em Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,30 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b9336a5e230e90e1abd7f2d40d431b988385c009
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 881e4f0110e3c0f35301e2ae6be40f2510f42539
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350024"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583498"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Chave primária, chave estrangeira e chave única no SQL Analytics
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chave primária, chave estrangeira e chave única na piscina SYnapse SQL
 
-Conheça os constrangimentos de tabela no SQL Analytics, incluindo chave primária, chave estrangeira e chave única.
+Aprenda sobre os constrangimentos de mesa na piscina SYnapse SQL, incluindo chave primária, chave estrangeira e chave única.
 
-## <a name="table-constraints"></a>Restrições de tabela 
-A SQL Analytics suporta estas restrições de tabela: 
+## <a name="table-constraints"></a>Restrições de tabela
+
+A piscina SYnapse SQL suporta estas restrições de tabela: 
 - A CHAVE PRIMÁRIA só é suportada quando não são utilizadas não agrupadas e não executadas.    
-- É utilizada uma restrição única com não o 'IMPOSTO' não forçado.   
+- É utilizada uma restrição única com não o 'IMPOSTO' não forçado.
 
-A restrição de CHAVE ESTRANGEIRA não é suportada no SQL Analytics.  
+A restrição CHAVE ESTRANGEIRA não é suportada na piscina Synapse SQL.  
 
 ## <a name="remarks"></a>Observações
-Ter chave primária e/ou chave única permite que o motor SQL Analytics gere um plano de execução ideal para uma consulta.  Todos os valores numa coluna principal ou numa coluna de restrição única devem ser únicos. 
 
-Depois de criar uma tabela com chave primária ou restrição única no SQL Analytics, os utilizadores precisam de se certificar de que todos os valores dessas colunas são únicos.  Uma violação disso pode fazer com que a consulta devolva resultados imprecisos.  Este exemplo mostra como uma consulta pode devolver resultados imprecisos se a chave primária ou coluna de restrição única incluir valores duplicados.  
+Ter chave primária e/ou chave única permite que o motor de piscina Synapse SQL gere um plano de execução ideal para uma consulta.  Todos os valores numa coluna principal ou numa coluna de restrição única devem ser únicos.
+
+Depois de criar uma tabela com chave primária ou restrição única na piscina SYnapse SQL, os utilizadores precisam de se certificar de que todos os valores dessas colunas são únicos.  Uma violação disso pode fazer com que a consulta devolva resultados imprecisos.  Este exemplo mostra como uma consulta pode devolver resultados imprecisos se a chave primária ou coluna de restrição única incluir valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -158,12 +160,13 @@ a1          total
 ```
 
 ## <a name="examples"></a>Exemplos
-Crie uma tabela SQL Analytics com uma chave primária: 
+
+Crie uma mesa de bilhar Synapse SQL com uma chave primária: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Crie uma tabela SQL Analytics com uma restrição única:
+Crie uma mesa de bilhar SYnapse SQL com uma restrição única:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +174,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar as tabelas para a sua base de dados SQL Analytics, o próximo passo é carregar dados na tabela. Para um tutorial de carregamento, consulte o Carregamento de dados para as bases de [dados Da SQL Analytics](load-data-wideworldimportersdw.md).
+Depois de criar as tabelas para o seu pool SQL Synapse, o próximo passo é carregar dados na tabela. Para um tutorial de carregamento, consulte os dados de carregamento para a [piscina Synapse SQL](load-data-wideworldimportersdw.md).

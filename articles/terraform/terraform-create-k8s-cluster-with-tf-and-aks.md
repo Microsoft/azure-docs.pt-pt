@@ -4,12 +4,12 @@ description: Neste tutorial, você cria um Cluster Kubernetes com Serviço Azure
 keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7a84d7562e99e53ff7be75b7d40795cd3f9e203
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78945301"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618927"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: Criar um cluster Kubernetes com o Serviço Azure Kubernetes usando terrafora
 
@@ -28,7 +28,7 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 - **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](terraform-install-configure.md)
 
-- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para appId, displayName, password, e tenant.
+- **Diretor de serviço Azure**: Siga as instruções na secção **Principal Criar o serviço** principal no artigo, Criar um serviço [Azure com o Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para appId, displayName, password, e tenant.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
@@ -303,7 +303,7 @@ Nesta secção, vê como fazer as seguintes tarefas:
 
 ## <a name="create-the-kubernetes-cluster"></a>Criar o cluster do Kubernetes
 
-Nesta secção, pode ver como utilizar o comando `terraform init` para criar os recursos definidos nos ficheiros de configuração que criou nas secções anteriores.
+Nesta secção, vê como utilizar `terraform init` o comando para criar os recursos definidos nos ficheiros de configuração que criou nas secções anteriores.
 
 1. Em Cloud Shell, inicialize terraforma. Substitua os espaços reservados por valores adequados para o seu ambiente.
 

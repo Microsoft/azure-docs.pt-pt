@@ -2,17 +2,17 @@
 title: Ativar e trabalhar com registos de diagnóstico da Azure Bastion
 description: Neste artigo, aprenda a ativar e trabalhar com registos de diagnóstico da Azure Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989455"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619267"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Ativar e trabalhar com registos de diagnóstico da Bastion
 

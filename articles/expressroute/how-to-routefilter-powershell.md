@@ -2,24 +2,24 @@
 title: 'ExpressRoute: Filtros de rota- Microsoft peering:Azure PowerShell'
 description: Este artigo descreve como configurar filtros de rotas para o Microsoft Peering usando o PowerShell
 services: expressroute
-author: ganesr
+author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: cade33e77eb0d3ddd818a6ce3dbd7c6cf72811d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fa53258321b22e1683122edca1816f6d4c291b5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74037411"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618602"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configure filtros de rotas para o peering da Microsoft: PowerShell
 > [!div class="op_single_selector"]
-> * [Portal do Azure](how-to-routefilter-portal.md)
+> * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [Azure CLI](how-to-routefilter-cli.md)
+> * [CLI do Azure](how-to-routefilter-cli.md)
 > 
 
 Os filtros de rota são uma forma de consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos neste artigo ajudam-no a configurar e a gerir filtros de rotas para circuitos ExpressRoute.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b21db3e842898e8ce11b560714888b946373300e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60691103"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616437"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
 
@@ -47,7 +47,7 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
    * **Nível de serviço**   
      Este campo mostra o objetivo de desempenho do conjunto de capacidade.  
-     Especifique o nível de serviço para o conjunto de capacidades: [**Premium**](azure-netapp-files-service-levels.md#Premium) ou [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Especifique o nível de serviço para o pool de capacidade: [**Ultra,**](azure-netapp-files-service-levels.md#Ultra) [**Premium**](azure-netapp-files-service-levels.md#Premium)ou [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
    * **Tamanho**     
      Especifique o tamanho do conjunto de capacidade que está a comprar.        

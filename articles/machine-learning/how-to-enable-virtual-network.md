@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 6e300bbec097201b33f0c576db91c2ca720fb921
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437360"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607605"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Empregos de experimentação e inferência secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Este artigo também fornece informações detalhadas sobre *configurações avan
 > A menos que seja especificamente convocado, a utilização de recursos como contas de armazenamento ou alvos de cálculo dentro de uma rede virtual funcionará tanto com os gasodutos de aprendizagem automática, como com fluxos de trabalho não oleodutos, como as execuções de scripts.
 
 > [!WARNING]
-> A Microsoft não suporta a utilização do designer de machine learning Azure ou de machine learning automatizado (do estúdio) com recursos dentro de uma rede virtual.
+> A Microsoft não suporta utilizar as funcionalidades do Estúdio de Aprendizagem automática do Azure Machine Learning, tais como ML automatizado, Datasets, Datalabeling, Designer e Notebooks se o armazenamento subjacente tiver uma rede virtual ativada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

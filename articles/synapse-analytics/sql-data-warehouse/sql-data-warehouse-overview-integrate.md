@@ -1,6 +1,6 @@
 ---
 title: Construir soluções integradas
-description: Soluções e parceiros que se integram com um armazém de dados aprovisionado com recurso ao SQL Analytics.
+description: Soluções e parceiros que se integram com uma piscina SYnapse SQL.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 680e561c08c5113e3d7f26b00422f3696bb133e9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c8e3598e55d3f90ab2b7401380406677f56c0ce3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350230"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586490"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrar outros serviços com um armazém de dados SQL Analytics 
-A capacidade SQL Analytics dentro do Azure Synapse Analytics permite aos utilizadores integrarem-se com muitos dos outros serviços em Azure. Utilizando o SQL Analytics, pode criar um armazém de dados através do seu recurso SQL Pool, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
+# <a name="integrate-other-services-with-a-synapse-sql-pool"></a>Integrar outros serviços com piscina Synapse SQL
+
+A capacidade de piscina SYnapse SQL dentro do Azure Synapse Analytics permite aos utilizadores integrarem-se com muitos dos outros serviços em Azure. Utilizando o Synapse SQL, pode criar um armazém de dados através do seu recurso de piscina SQL, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
 
 * Power BI
 * Azure Data Factory

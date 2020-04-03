@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246191"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618328"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
 
@@ -39,8 +39,8 @@ A configuração das chaves, a formatação e as melhores práticas são resumid
 
 A Pré-visualização da Série de Tempo Azure suporta as seguintes fontes de evento:
 
-- [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
-- [Hubs de Eventos do Azure](../event-hubs/event-hubs-about.md)
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
 A Pré-visualização da Série de Tempo Azure suporta um máximo de duas fontes de eventopor exemplo.
 
@@ -91,7 +91,7 @@ Em geral, as taxas de ingresso são vistas como o fator do número de dispositiv
 
 *  **Número de dispositivos** × Frequência de **emissão** de evento × **Tamanho de cada evento**.
 
-Por padrão, a pré-visualização time Series Insights pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (MBps) por ambiente Time Series Insights**.
+Por padrão, a pré-visualização time Series Insights pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (MBps) por ambiente Time Series Insights**. Existem limitações adicionais [por partição](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits)do hub.
 
 > [!TIP] 
 > * O apoio ambiental para ingerir velocidades até 16 MBps pode ser fornecido medendo a pedido.
@@ -99,7 +99,7 @@ Por padrão, a pré-visualização time Series Insights pode ingerir dados de en
  
 * **Exemplo 1:**
 
-    A Transportes De Contoso tem 100.000 dispositivos que emitem um evento três vezes por minuto. O tamanho de um evento é de 200 bytes. Estão a usar um Event Hub com quatro divisórias como fonte do evento Time Series Insights.
+    A Transportes De Contoso tem 100.000 dispositivos que emitem um evento três vezes por minuto. O tamanho de um evento é de 200 bytes. Estão a usar um Hub com quatro divisórias como fonte do evento Time Series Insights.
 
     * A taxa de ingestão para o seu ambiente Time Series Insights seria: **100.000 dispositivos * 200 bytes/evento * (3/60 evento/seg) = 1 MBps**.
     * A taxa de ingestão por partição seria de 0,25 MBps.
@@ -107,11 +107,11 @@ Por padrão, a pré-visualização time Series Insights pode ingerir dados de en
 
 * **Exemplo 2:**
 
-    Contoso Fleet Analytics tem 60.000 dispositivos que emitem um evento a cada segundo. Eles estão usando uma contagem de partição IoT Hub 24 de 4 como a fonte do evento Time Series Insights. O tamanho de um evento é de 200 bytes.
+    Contoso Fleet Analytics tem 60.000 dispositivos que emitem um evento a cada segundo. Eles estão usando um Event Hub com uma contagem de partição de 4 como a fonte do evento Time Series Insights. O tamanho de um evento é de 200 bytes.
 
-    * A taxa de ingestão ambiental seria: **20.000 dispositivos * 200 bytes/evento * 1 evento/seg = 4 MBps**.
-    * A taxa por divisória seria de 1 MBps.
-    * A Frota De Contoso Analytics pode submeter um pedido à Time Series Insights através do portal Azure para aumentar a taxa de ingestão para o seu ambiente.
+    * A taxa de ingestão ambiental seria: **60.000 dispositivos * 200 bytes/evento * 1 evento/seg = 12 MBps**.
+    * A taxa de partição por divisória seria de 3 MBps.
+    * A taxa de ingestão da Frota De Contoso Analytics está acima dos limites ambientais e de partição. Podem submeter um pedido à Time Series Insights através do portal Azure para aumentar a taxa de ingestão para o seu ambiente, e criar um Event Hub com mais divisórias para estar dentro dos limites de Pré-visualização.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Divisórias do hub e por limites de partição
 

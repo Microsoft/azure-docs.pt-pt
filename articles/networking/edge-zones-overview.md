@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: d04032075166d2edd273c7f22bfb0d54aeccd8b3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545809"
+ms.locfileid: "80618705"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Sobre as Zonas de Borda Azure - Pré-visualização
 
@@ -132,11 +132,13 @@ Dispomos de um rico ecossistema de fornecedores vNF, ISVs e parceiros MSP para p
 | SIs e Operadores Globais | Operadores Móveis |
 | --- | --- |
 | Amdocs                       | Etisalat             |
-| Torre Americana               | Rogers               |
-| Expeto                       | Rio Singtel              |
-| Sem Fios Federado           | Vodafone             |
-| Infosys                      |      *                |
-| Tecnologia Mahindra                |      *                |
+| Torre Americana               | Comunicações NTT   |
+| Ligação century                 | Proximus             |
+| Expeto                       | Rogers               |
+| Sem Fios Federado           | SK Telecom           |
+| Infosys                      | Telefonica           |
+| Tecnologia Mahindra                | Telstra              |
+|        *                     | Vodafone             |
 
 [Contacte a equipa](https://aka.ms/EdgeZonesPartner) private Edge Zones para obter mais informações sobre como se tornar um parceiro.
 

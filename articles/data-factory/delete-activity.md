@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927527"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618271"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
 
 Pode utilizar a Atividade de Exclusão na Fábrica de Dados Azure para eliminar ficheiros ou pastas de lojas de armazenamento no local ou lojas de armazenamento em nuvem. Utilize esta atividade para limpar ou arquivar ficheiros quando já não forem necessários.
 
 > [!WARNING]
-> Os ficheiros ou as pastas eliminadas não podem ser restaurados. Tenha cuidado ao utilizar a ação Eliminar para eliminar ficheiros ou pastas.
+> Os ficheiros ou pastas eliminados não podem ser restaurados (a menos que o armazenamento tenha sido ativado por eliminação suave). Tenha cuidado ao utilizar a ação Eliminar para eliminar ficheiros ou pastas.
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -40,9 +40,9 @@ Aqui ficam algumas recomendações para a utilização da atividade Delete:
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
--   [Armazenamento Azure Blob](connector-azure-blob-storage.md)
+-   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
+-   [Armazenamento do Azure Data Lake Ger2](connector-azure-data-lake-storage.md)
 -   [Armazenamento de Ficheiros do Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Lojas de dados do sistema de ficheiros
@@ -327,7 +327,7 @@ Pode criar um pipeline para limpar os ficheiros antigos ou expirados, aproveitan
 Pode mover um ficheiro utilizando uma atividade de cópia para copiar um ficheiro e, em seguida, eliminar uma atividade para eliminar um ficheiro num pipeline.  Quando pretender mover vários ficheiros, pode utilizar a atividade GetMetadata + Atividade de filtragem + Atividade foreach + Atividade de cópia + Eliminar a atividade como na seguinte amostra:
 
 > [!NOTE]
-> Se pretender mover toda a pasta definindo um conjunto de dados que contenha apenas um caminho de pasta e, em seguida, utilizando uma atividade de cópia e uma atividade de Eliminar para referência ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação.  Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que NÃO foi copiado para o destino ainda, apagando toda a pasta. 
+> Se pretender mover toda a pasta definindo um conjunto de dados que contenha apenas um caminho de pasta e, em seguida, utilizando uma atividade de cópia e uma atividade de Eliminar para referência ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação.  Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que ainda não foi copiado para o destino, eliminando toda a pasta. 
 
 #### <a name="sample-pipeline"></a>Gasoduto de amostra
 
