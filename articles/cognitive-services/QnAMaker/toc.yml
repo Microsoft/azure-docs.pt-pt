@@ -22,6 +22,8 @@
       href: Quickstarts/quickstart-sdk.md
 - name: Tutoriais
   items:
+    - name: Integrar no Power Virtual Agents
+      href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Testar com o ficheiro batch
       href: Quickstarts/batch-testing.md
 - name: Conceitos

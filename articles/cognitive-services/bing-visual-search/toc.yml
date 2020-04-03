@@ -24,17 +24,11 @@
           href: quickstarts/ruby.md
         - name: Utilizar o Go
           href: quickstarts/go.md
-    - name: SDK
+    - name: Biblioteca de cliente
       expanded: true
       items:
-        - name: 'Utilizar C#'
-          href: visual-search-sdk-c-sharp.md
-        - name: Com Node.js
-          href: visual-search-sdk-node.md
-        - name: Utilizar o Python
-          href: visual-search-sdk-python.md
-        - name: Utilizar o Java
-          href: visual-search-sdk-java.md
+        - name: Bibliotecas de cliente da Pesquisa Visual do Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: A carregar uma imagem
