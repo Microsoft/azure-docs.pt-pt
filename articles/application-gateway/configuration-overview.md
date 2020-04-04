@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585910"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632180"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -118,7 +118,7 @@ Para este cenário, utilize NSGs na subnet Application Gateway. Coloque as segui
 
   **Cenário 1**: UDR para aparelhos virtuais
 
-  Qualquer cenário em que 0.0.0.0/0 precise de ser redirecionado através de qualquer aparelho virtual, de uma rede virtual hub/spoke, ou no local (túnel forçado) não é suportado para a pré-visualização pública v2. 
+  Qualquer cenário em que 0.0.0.0/0 precise de ser redirecionado através de qualquer aparelho virtual, de uma rede virtual hub/spoke, ou no local (túnel forçado) não é suportado para V2.
 
 ## <a name="front-end-ip"></a>IP frontal
 

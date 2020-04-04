@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472133"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632597"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Fluxos de dados de resolução de problemas na Fábrica de Dados de Azure
 
@@ -56,6 +56,18 @@ Este artigo explora métodos comuns de resolução de problemas para fluxos de d
 - **Causas**: Nenhum nome da coluna foi especificado
 - **Recomendação**: Detete um pseudónimo se utilizar uma função SQL, como min()/max(), etc.
 
+### <a name="error-code-getcommand-outputasync-failed"></a>Código de erro: GetCommand OutputAsync falhou
+
+- **Mensagem**: Durante o depuramento do Fluxo de Dados e pré-visualização de dados: GetCommand OutputAsync falhou com ...
+- **Causas**: Trata-se de um erro de serviço de back-end. Pode voltar a tentar a operação e reiniciar também a sua sessão de depuração.
+- **Recomendação**: Se voltar a tentar e reiniciar não resolver o problema, contacte o apoio ao cliente.
+
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Código de erro: Acerte a exceção inesperada e a execução falhou
+
+- **Mensagem**: Durante a execução da atividade do Fluxo de Dados: Atingir uma exceção inesperada e a execução falhou.
+- **Causas**: Trata-se de um erro de serviço de back-end. Pode voltar a tentar a operação e reiniciar também a sua sessão de depuração.
+- **Recomendação**: Se voltar a tentar e reiniciar não resolver o problema, contacte o apoio ao cliente.
+
 ## <a name="general-troubleshooting-guidance"></a>Orientação geral de resolução de problemas
 
 1. Verifique o estado das ligações do conjunto de dados. Em cada transformação de Origem e Sink, visite o Serviço Linked para cada conjunto de dados que está a utilizar e testa as ligações.
@@ -68,7 +80,7 @@ Para obter mais ajuda para resolução de problemas, experimente estes recursos:
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de funcionalidade sinuosos da Fábrica de Dados](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Fórum MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Overflow forum para fábrica de dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre data factory](https://twitter.com/hashtag/DataFactory)
 *  [ADF mapeando dados fluxos Performance Guide](concepts-data-flow-performance.md)

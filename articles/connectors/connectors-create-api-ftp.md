@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 94ca609d9dc070e6e2b4dc878ecd8dfaf9331ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77648177"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656339"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros FTP utilizando aplicações lógicas do Azure
 
@@ -27,7 +27,7 @@ Pode utilizar gatilhos que obtêm respostas do seu servidor FTP e disponibilizar
 
 ## <a name="limitations"></a>Limitações
 
-* O conector FTP suporta apenas FTP explícito sobre SSL (FTPS) e não é compatível com FTPS implícito.
+* O conector FTP suporta apenas FTP explícito sobre TLS/SSL (FTPS) e não é compatível com FTPS implícito.
 
 * Por predefinição, as ações ftp podem ler ou escrever ficheiros com *50 MB ou menores*. Para lidar com ficheiros superiores a 50 MB, as ações FTP suportam [a manipulação da mensagem](../logic-apps/logic-apps-handle-large-messages.md). A ação de conteúdo do **ficheiro Get** utiliza implicitamente a chunking.
 

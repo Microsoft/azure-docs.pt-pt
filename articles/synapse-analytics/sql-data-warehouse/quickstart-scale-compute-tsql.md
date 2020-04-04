@@ -11,37 +11,37 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ba0bcc61cbfbb16652021045a3b25bbcee72df2c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 780137c8e081917b317656de3caba60dfaea4810
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350767"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633738"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Quickstart: Scale compute in Azure Synapse Analytics usando T-SQL
 
-Computação de escala em Azure Synapse Analytics (anteriormente SQL DW) utilizando o T-SQL e o SQL Server Management Studio (SSMS). [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos. 
+Computação de escala em Azure Synapse Analytics (anteriormente SQL DW) utilizando o T-SQL e o SQL Server Management Studio (SSMS). [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
 Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
- 
+Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+
 ## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
 
 Utilize [Início Rápido: criar e Ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados com o nome **mySampleDataWarehouse**. Complete o quickstart para garantir que tem uma regra de firewall e pode ligar-se ao seu armazém de dados a partir do SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
+Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 
 2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
 
-   | Definição       | Valor sugerido | Descrição | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Definição       | Valor sugerido | Descrição |
+   | ------------ | ------------------ | ------------------------------------------------- |
    | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
    | Nome do servidor | O nome de servidor completamente qualificado | Eis um exemplo: **mySampleDataWarehouseservername.database.windows.net.** |
    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
@@ -57,38 +57,40 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
     ![Objetos de base de dados](./media/quickstart-scale-compute-tsql/connected.png)
 
 ## <a name="view-service-objective"></a>Ver objetivo do serviço
-A definição de objetivo de serviço contém o número de unidades de armazém de dados para o armazém de dados. 
+
+A definição de objetivo de serviço contém o número de unidades de armazém de dados para o armazém de dados.
 
 Para ver as unidades de armazém de dados atual para o seu armazém de dados:
 
 1. Sob a ligação com **mySampleDataWarehouseservername.database.windows.net,** expandir bases **de dados**do sistema .
 2. Clique com o botão direito do rato em **mestra** e selecione **Nova Consulta**. É aberta uma nova janela de consulta.
-3. Execute a seguinte consulta para selecionar a partir da vista de gestão dinâmica sys.database_service_objectives. 
+3. Execute a seguinte consulta para selecionar a partir da vista de gestão dinâmica sys.database_service_objectives.
 
     ```sql
     SELECT
         db.name [Database]
-    ,   ds.edition [Edition]
-    ,   ds.service_objective [Service Objective]
+    ,    ds.edition [Edition]
+    ,    ds.service_objective [Service Objective]
     FROM
-        sys.database_service_objectives ds
+         sys.database_service_objectives ds
     JOIN
         sys.databases db ON ds.database_id = db.database_id
-    WHERE 
+    WHERE
         db.name = 'mySampleDataWarehouse'
     ```
 
-4. Os seguintes resultados mostram **mySampleDataWarehouse** tem um objetivo de serviço de DW400. 
+4. Os seguintes resultados mostram **mySampleDataWarehouse** tem um objetivo de serviço de DW400.
 
     ![iew-current-dwu](./media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## <a name="scale-compute"></a>Dimensionar computação
+
 No Azure Synapse, pode aumentar ou diminuir os recursos computacionais ajustando unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades do data warehouse:
 
 1. Clique com o botão direito do rato em **mestra** e selecione **Nova Consulta**.
-2. Utilize o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) instrução de T-SQL para modificar o objetivo de serviço. Execute a consulta seguinte para alterar o objetivo de serviço para DW300. 
+2. Utilize o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) instrução de T-SQL para modificar o objetivo de serviço. Execute a consulta seguinte para alterar o objetivo de serviço para DW300.
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
@@ -96,6 +98,7 @@ Para alterar as unidades do data warehouse:
     ```
 
 ## <a name="monitor-scale-change-request"></a>Pedido de alteração de dimensionamento do monitor
+
 Para ver o progresso do pedido de alteração anterior, pode utilizar a sintaxe de T-SQL `WAITFORDELAY` para consultar a vista de gestão dinâmica sys.dm_operation_status (DMV).
 
 Para consultar o estado de alteração do objeto do serviço:
@@ -104,11 +107,11 @@ Para consultar o estado de alteração do objeto do serviço:
 2. Execute a consulta seguinte para consultar o sys.dm_operation_status DMV.
 
     ```sql
-    WHILE 
+    WHILE
     (
         SELECT TOP 1 state_desc
         FROM sys.dm_operation_status
-        WHERE 
+        WHERE
             1=1
             AND resource_type_desc = 'Database'
             AND major_resource_id = 'mySampleDataWarehouse'
@@ -122,17 +125,18 @@ Para consultar o estado de alteração do objeto do serviço:
     END
     PRINT 'Complete';
     ```
+
 3. A saída resultante mostra um registo da consulta de estado.
 
     ![Estado da operação](./media/quickstart-scale-compute-tsql/polling-output.png)
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do armazém de dados
 
-Quando um armazém de dados está em pausa, não é possível ligar-se ao mesmo com T-SQL. Para ver o estado atual do armazém de dados, pode utilizar um cmdlet do PowerShell. Por exemplo, veja [Verificar o estado do armazém de dados - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
+Quando um armazém de dados está em pausa, não é possível ligar-se ao mesmo com T-SQL. Para ver o estado atual do armazém de dados, pode utilizar um cmdlet do PowerShell. Por exemplo, veja [Verificar o estado do armazém de dados - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Verificar o estado da operação
 
-Para devolver informações sobre várias operações de gestão no seu Azure Synapse, ecorra a seguinte consulta no [DMV sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Por exemplo, devolve a operação e o estado da operação, que é IN_PROGRESS ou COMPLETED.
+Para devolver informações sobre várias operações de gestão no seu Azure Synapse, ecorra a seguinte consulta no [DMV sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Por exemplo, devolve a operação e o estado da operação, que é IN_PROGRESS ou COMPLETED.
 
 ```sql
 SELECT *
@@ -140,12 +144,12 @@ FROM
     sys.dm_operation_status
 WHERE
     resource_type_desc = 'Database'
-AND 
+AND
     major_resource_id = 'mySampleDataWarehouse'
 ```
 
-
 ## <a name="next-steps"></a>Passos seguintes
+
 Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure Synapse, continue ao tutorial para carregar dados.
 
 > [!div class="nextstepaction"]

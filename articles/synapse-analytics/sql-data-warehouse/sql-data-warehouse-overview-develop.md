@@ -1,5 +1,5 @@
 ---
-title: Recursos para o desenvolvimento de um armazém de dados na Azure Synapse Analytics
+title: Recursos para desenvolver uma piscina SQL Synapse em Azure Synapse Analytics
 description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,18 +10,18 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: aa0f5fd631dfa3e4deca4853c27a667fcf312fec
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350282"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633158"
 ---
-# <a name="design-decisions-and-coding-techniques-for-a-data-warehouse-in-azure-synapse-analytics"></a>Decisões de conceção e técnicas de codificação para um armazém de dados na Azure Synapse Analytics 
- Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as principais decisões de design, recomendações e técnicas de codificação para um armazém de dados em Azure Synapse.
+# <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisões de conceção e técnicas de codificação para uma piscina SQL Synapse em Azure Synapse Analytics 
+ Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as decisões de design chave, recomendações e técnicas de codificação para uma piscina SQL em Azure Synapse.
 
 ## <a name="key-design-decisions"></a>Decisões-chave de design
-Os seguintes artigos destacam conceitos e decisões de design para o desenvolvimento de um armazém de dados distribuído utilizando a capacidade SQL Analytics em Azure Synapse:
+Os seguintes artigos destacam conceitos e decisões de design para o desenvolvimento de um armazém de dados distribuído utilizando a capacidade de piscina SQL em Azure Synapse:
 
 * [conexões](sql-data-warehouse-connect-overview.md)
 * [conmoeda](resource-classes-for-workload-management.md)
@@ -34,7 +34,7 @@ Os seguintes artigos destacam conceitos e decisões de design para o desenvolvim
 * [estatísticas](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendações de desenvolvimento e técnicas de codificação
-Os seguintes artigos apresentam técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de um armazém de dados com a SQL Analytics:
+Os seguintes artigos apresentam técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de um pool SQL:
 
 * [procedimentos armazenados](sql-data-warehouse-develop-stored-procedures.md)
 * [rótulos](sql-data-warehouse-develop-label.md)

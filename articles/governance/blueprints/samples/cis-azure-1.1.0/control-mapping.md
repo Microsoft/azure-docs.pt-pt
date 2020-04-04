@@ -3,12 +3,12 @@ title: CIS Microsoft Azure Foundations Benchmark controlos de amostras de projet
 description: Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations para a Política Azure.
 ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74707415"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656971"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendações da amostra de projeto de referência da CIS Microsoft Azure Foundations
 
@@ -245,7 +245,7 @@ Esta planta atribui definições de [Política Azure](../../../policy/overview.m
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Certifique-se de que a 'ligação SSL' está definida como 'ACTIVADA' para o Servidor de Base de Dados MySQL
 
-Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados MySQL aplicam as ligações SSL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados MySQL aplicam as ligações TLS/SSL.
 
 - Impor a ligação SSL deve ser ativada para servidores de base de dados MySQL
 
@@ -257,7 +257,7 @@ Esta planta atribui uma definição de [Política Azure](../../../policy/overvie
 
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Certifique-se de que a 'ligação SSL' está definida como 'ACTIVADA' para o Servidor de Base de Dados PostgreSQL
 
-Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados PostgreSQL aplicam as ligações SSL.
+Esta planta atribui uma definição de [Política Azure](../../../policy/overview.md) que o ajuda a garantir que os servidores de base de dados PostgreSQL apliquem ligações TLS/SSL.
 
 - Impor a ligação SSL deve ser ativada para servidores de base de dados PostgreSQL
 

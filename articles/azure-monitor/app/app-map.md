@@ -4,12 +4,12 @@ description: Monitorize topoologias de aplicações complexas com o mapa de apli
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666280"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657383"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas da triagem
 
@@ -85,7 +85,7 @@ Para ver alertas ativos e as regras subjacentes que fazem com que os alertas sej
 
 O Mapa de Aplicações utiliza a propriedade do nome da **nuvem** para identificar os componentes no mapa. O Application Insights SDK adiciona automaticamente a propriedade de nome de papel em nuvem à telemetria emitida por componentes. Por exemplo, o SDK adicionará um nome de site ou nome de serviço à propriedade de nome de papel na nuvem. No entanto, existem casos em que pode querer anular o valor predefinido. Para anular o nome do papel da nuvem e alterar o que é exibido no Mapa de Aplicações:
 
-### <a name="netnet-core"></a>Núcleo .NET/.NET
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **Escreva TelemettryInitializer personalizado como abaixo.**
 
@@ -153,7 +153,26 @@ Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) 
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+Começando com insights de aplicação Java SDK 2.5.0, `<RoleName>` pode `ApplicationInsights.xml` especificar o nome da função cloud adicionando ao seu ficheiro, por exemplo.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Se utilizar a Bota de Mola com o arranque da Bota de Mola Insights de Aplicação, a única alteração necessária é definir o seu nome personalizado para a aplicação no ficheiro application.properties.
+
+`spring.application.name=<name-of-app>`
+
+O arranque da Bota de primavera atribuirá automaticamente o nome do papel da nuvem ao valor que introduzir para a propriedade spring.application.name.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +193,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-Começando com insights de aplicação Java SDK 2.5.0, `<RoleName>` pode `ApplicationInsights.xml` especificar o nome da função cloud adicionando ao seu ficheiro, por exemplo.
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Se utilizar a Bota de Mola com o arranque da Bota de Mola Insights de Aplicação, a única alteração necessária é definir o seu nome personalizado para a aplicação no ficheiro application.properties.
-
-`spring.application.name=<name-of-app>`
-
-O arranque da Bota de primavera atribuirá automaticamente o nome do papel da nuvem ao valor que introduzir para a propriedade spring.application.name.
-
-### <a name="clientbrowser-side-javascript"></a>JavaScript lado cliente/navegador
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +203,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Compreender o nome do papel da nuvem no contexto do Mapa de Aplicações
 
@@ -254,7 +255,7 @@ Se está com dificuldades em pôr o Mapa de Aplicações a funcionar como espera
 
 O Mapa de Aplicações constrói um nó de aplicação para cada nome de papel de nuvem único presente na sua telemetria de pedido e um nó de dependência para cada combinação única de tipo, alvo e nome de papel em nuvem na sua telemetria de dependência. Se houver mais de 10.000 nós na sua telemetria, o Mapa de Aplicações não será capaz de pegar todos os nós e links, por isso o seu mapa estará incompleto. Se isso acontecer, aparecerá uma mensagem de aviso ao visualizar o mapa.
 
-Além disso, o Mapa de Aplicações apenas suporta até 1000 nós separados não agrupados prestados ao mesmo tempo. O Mapa de Aplicações reduz a complexidade visual ao agrupar dependências que têm o mesmo tipo e chamadas, mas se a sua telemetria tiver demasiados nomes de papéis de nuvem únicos ou demasiados tipos de dependência, esse agrupamento será insuficiente, e o mapa será incapaz de render.
+Além disso, o Mapa de Aplicações apenas suporta até 1000 nós separados não agrupados prestados ao mesmo tempo. O Mapa de Aplicações reduz a complexidade visual ao agrupar dependências que têm o mesmo tipo e chamadas, mas se a sua telemetria tiver demasiados nomes únicos em nuvem ou demasiados tipos de dependência, esse agrupamento será insuficiente, e o mapa será incapaz de renderizar.
 
 Para corrigir isto, terá de alterar a sua instrumentação para definir corretamente o nome da nuvem, o tipo de dependência e os campos-alvo da dependência.
 

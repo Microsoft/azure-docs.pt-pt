@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 8ac9ff1f46e1d2d0ddaa313499340b4723c7da07
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 86cc081ef47eb2ac2e8e0a49bc79e8973f34baf1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584258"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633698"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestão da carga de trabalho com aulas de recursos na Azure Synapse Analytics
 
@@ -65,7 +65,7 @@ As classes dinâmicas de recursos são implementadas com estas funções de base
 - maiorc
 - xbiggerc
 
-A atribuição de memória para cada classe de recursos é a seguinte. 
+A atribuição de memória para cada classe de recursos é a seguinte.
 
 | Nível de Serviço  | smallrc           | mediumrc               | maiorc                | xbiggerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
@@ -75,8 +75,6 @@ A atribuição de memória para cada classe de recursos é a seguinte.
 | DW400c         | 6.25%             | 10%                    | 22%                    | 70%                    |
 | DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
 | DW1000c para<br> DW300000c | 3%       | 10%                    | 22%                    | 70%                    |
-
-
 
 ### <a name="default-resource-class"></a>Classe de recursos padrão
 
@@ -285,8 +283,8 @@ IF @DWU IS NULL
 BEGIN
 -- Selecting proper DWU for the current DB if not specified.
 
-SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500 
-  ELSE Mem*100 
+SELECT @DWU = 'DW'+ CAST(CASE WHEN Mem> 4 THEN Nodes*500
+  ELSE Mem*100
   END AS VARCHAR(10)) +'c'
     FROM (
       SELECT Nodes=count(distinct n.pdw_node_id), Mem=max(i.committed_target_kb/1000/1000/60)
@@ -594,5 +592,4 @@ GO
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a gestão de utilizadores de bases de dados e segurança, consulte [Secure uma base de dados em Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice de colunas agrupadas, consulte [otimizações de memória para compressão](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)de colunas .
-
+Para obter mais informações sobre a gestão de utilizadores de bases de dados e segurança, consulte [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice de colunas agrupadas, consulte [otimizações de memória para compressão](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)de colunas .

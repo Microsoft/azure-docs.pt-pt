@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438023"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632576"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu app service ou app Funções Azure para usar login Azure AD
 
@@ -78,7 +78,7 @@ Execute os seguintes passos:
 1. Após a criação do registo da aplicação, copie o ID da **Aplicação (cliente)** e o **ID do Diretório (inquilino)** para mais tarde.
 1. Selecione **Autenticação**. Sob **a subvenção Implícita,** ative **fichas de ID** para permitir o openID Connect user sign-ins do Serviço de Aplicações.
 1. (Opcional) Selecione **Branding**. No URL da **página inicial,** introduza o URL da sua aplicação App Service e selecione **Guardar**.
-1. Selecione Expor um**conjunto** **API** > . Comente no URL da sua app App Service e selecione **Save**.
+1. Selecione Expor um**conjunto** **API** > . Para aplicativo de inquilino único, colhe no URL da sua app App Service e selecione **Save** e para aplicação multi-inquilino, cola no URL que é baseado em um dos domínios verificados pelo inquilino e, em seguida, selecione **Save**.
 
    > [!NOTE]
    > Este valor é o **ID DE Aplicação URI** do registo da aplicação. Se a sua aplicação web necessitar de acesso a uma API na nuvem, precisa do **ID URI** da aplicação web quando configurar o recurso cloud App Service. Pode usá-lo, por exemplo, se quiser que o serviço de nuvem conceda explicitamente acesso à aplicação web.

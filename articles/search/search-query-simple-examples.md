@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72808187"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656426"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Criar uma consulta simples na Pesquisa Cognitiva Azure
 
-Na Pesquisa Cognitiva Azure, a [simples sintaxe](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) de consulta invoca o parser de consulta padrão para executar consultas completas de pesquisa de texto contra um índice. Este parser é rápido e lida com cenários comuns, incluindo pesquisa completa de texto, pesquisa filtrada e facetada, e geo-pesquisa. 
+Na Pesquisa Cognitiva Azure, a [simples sintaxe](query-simple-syntax.md) de consulta invoca o parser de consulta padrão para executar consultas completas de pesquisa de texto contra um índice. Este parser é rápido e lida com cenários comuns, incluindo pesquisa completa de texto, pesquisa filtrada e facetada, e geo-pesquisa. 
 
 Neste artigo, usamos exemplos para ilustrar a simples sintaxe.
 
-Uma sintaxe de consulta alternativa é [Full Lucene,](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)suportando estruturas de consulta mais complexas, como a pesquisa fuzzy e wildcard, que pode levar mais tempo para processar. Para mais informações e exemplos que demonstrem a completa [sintaxe, consulte Use a sintaxe lucene completa](search-query-lucene-examples.md).
+Uma sintaxe de consulta alternativa é [Full Lucene,](query-lucene-syntax.md)suportando estruturas de consulta mais complexas, como a pesquisa fuzzy e wildcard, que pode levar mais tempo para processar. Para mais informações e exemplos que demonstrem a completa [sintaxe, consulte Use a sintaxe lucene completa](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formular pedidos no Carteiro
 

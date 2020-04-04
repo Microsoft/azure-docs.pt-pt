@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 568fc880711d42941fd9aef2ea19b8ac3123793a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 7da20a0bf87b33f05ea7f1d457157c5b7ee2ec7b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384250"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631518"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -76,10 +76,10 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzurePlatformLKM** | Serviço de licenciamento ou gestão de chaves do Windows.<br/><br/>Pode utilizar esta etiqueta para desativar os defeitos para licenciamento. Seja cauteloso quando usar esta etiqueta. Recomendamos que leia [considerações da plataforma Azure.](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)  Recomendamos também que realize testes antes de utilizar esta etiqueta. | Saída | Não | Não |
 | **AzureResourceManager** | Gestor de Recursos Azure. | Saída | Não | Não |
 | **AzureSignalR** | Sinal azul. | Saída | Não | Não |
-| **Recuperação do AzureSite** | Azure Site Recovery.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,****GuestAndHybridManagement** and **Storage.** | Saída | Não | Não |
+| **Recuperação do AzureSite** | Recuperação do site Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das tags **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,****GuestAndHybridManagement** and **Storage.** | Saída | Não | Não |
 | **AzureTrafficManager** | Endereços IP do Gestor de Tráfego Azure.<br/><br/>Para obter mais informações sobre os endereços IP do Gestor de Tráfego, consulte [o Gestor de Tráfego do Azure FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Entrada | Não | Sim |  
 | **Gestão de BatchNode** | Tráfego de gestão para implantações dedicadas ao Lote Azure. | Ambos | Não | Sim |
-| **CognitiveServicesManagement** | O endereço varia para tráfego para Serviços Cognitivos Azure. | Saída | Não | Não |
+| **CognitiveServicesManagement** | O endereço varia para tráfego para Serviços Cognitivos Azure. | Ambos | Não | Não |
 | **DataFactory**  | Azure Data Factory | Ambos | Não | Não |
 | **Gestão dataFactory** | Tráfego de gestão para a Azure Data Factory. | Saída | Não | Não |
 | **Dynamics365ForMarketingEmail** | O endereço varia para o serviço de e-mail de marketing da Dynamics 365. | Saída | Sim | Não |
@@ -126,7 +126,7 @@ Pode recuperar programáticamente a lista atual de tags de serviço juntamente c
 
 - [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [CLI do Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
 > Enquanto está em pré-visualização pública, a Discovery API pode devolver informações menos atuais do que as informações devolvidas pelos downloads da JSON. (Ver a próxima secção.)

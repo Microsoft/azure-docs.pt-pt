@@ -1,17 +1,26 @@
 ---
-author: wolfma61
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/16/2018
-ms.author: wolfma
-ms.openlocfilehash: 17f2aa8e70f8d8e18c5c7500d34060c0ed027c84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/27/2020
+ms.author: dapine
+ms.openlocfilehash: 7a00361581071ddf54893c42246b8c7ad4ac5722
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67184545"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656713"
 ---
-## <a name="get-the-samples"></a>Pegue as amostras.
+## <a name="sample-source-code"></a>Código fonte da amostra
 
-Para as amostras mais recentes, consulte o [repositório](https://aka.ms/csspeech/samples) de código de amostra sdk do Discurso dos Serviços Cognitivos no GitHub.
-
+:::row:::
+    :::column span="3":::
+        O SDK do Discurso mantém ativamente um grande conjunto de exemplos num repositório de código aberto. Para o repositório de código fonte da amostra, visite o <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK no GitHub <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Existem amostras para C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity e Xamarin.
+    :::column-end:::
+    :::column:::
+        <br>
+        <div class="icon is-large">
+            <img alt="GitHub" src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" width="60px">
+        </div>
+    :::column-end:::
+:::row-end:::

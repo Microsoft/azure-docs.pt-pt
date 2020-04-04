@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: bd384f2b4dd879c30fafd2b765dd9ba0efb12447
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348397"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652192"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -152,6 +152,9 @@ Cosmos DB suporta itens de consulta usando [SQL](how-to-sql-query.md). O quadro 
 | Máximo joins por consulta| 5<sup>*</sup>|
 | UDFs máximos por consulta| 10<sup>*</sup>|
 | Pontos máximos por polígono| 4096 |
+| Caminhos máximos incluídos por contentor| 500 |
+| Caminhos máximos excluídos por contentor| 500 |
+| Propriedades máximas num índice composto| 8 |
 
 <sup>*</sup>Pode aumentar estes limites de consulta SQL contactando o Suporte Azure.
 
@@ -163,7 +166,7 @@ A tabela seguinte enumera os limites específicos do suporte à funcionalidade M
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| Tamanho máximo da memória da consulta MongoDB | 40 MB |
+| Tamanho máximo da memória de consulta MongoDB (Esta limitação é apenas para a versão do servidor 3.2) | 40 MB |
 | Tempo máximo de execução para operações da MongoDB| 30 anos |
 | Tempo limite de ligação inativo para o fecho da ligação lateral do servidor* | 30 minutos |
 

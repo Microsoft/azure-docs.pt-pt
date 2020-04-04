@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211704"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637930"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientação sobre a implementação de aplicações web utilizando modelos de Gestor de Recursos Azure
 
@@ -109,7 +109,7 @@ O nome da sua aplicação web deve ser globalmente único. Você pode usar uma c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Se o seu modelo incluir um recurso [Microsoft.Web/certificados](/azure/templates/microsoft.web/certificates) para a ligação SSL, e o certificado estiver armazenado num Cofre de Chaves, deve certificar-se de que a identidade do Serviço de Aplicações pode aceder ao certificado.
+Se o seu modelo incluir um recurso [Microsoft.Web/certificados](/azure/templates/microsoft.web/certificates) para a ligação TLS/SSL, e o certificado estiver armazenado num Cofre de Chaves, deve certificar-se de que a identidade do Serviço de Aplicações pode aceder ao certificado.
 
 No Azure global, o diretor de serviços de aplicações tem a identificação de **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para conceder acesso ao Key Vault para o diretor de serviço de aplicações, utilize:
 

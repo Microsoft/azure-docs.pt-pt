@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5b4347cb5032b7f3651d0d3fcb20dc5d416f9bee
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1bef4e5f4129ddc8300d61d609392ce0b07b74b8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546559"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656258"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Armazenamento Azure e Base de Dados SQL) e o Azure acolheu serviços de clientes/parceiros sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -62,6 +62,7 @@ A Azure Private Link oferece os seguintes benefícios:
 |  |Reencaminhamento do Azure | Todas as regiões públicas      |   Pré-visualização   |
 |  |Azure Event Grid| LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/event-grid/network-security)   |
 |  |Aplicações Web do Azure | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Machine Learning | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Pré-visualização   <br/> [Mais informações](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 
 Para obter as notificações mais atualizadas, consulte a página de [atualizações da Rede Virtual Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

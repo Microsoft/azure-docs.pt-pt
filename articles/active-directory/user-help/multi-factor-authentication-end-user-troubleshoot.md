@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897733"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632904"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com verificação de dois fatores e sua conta de trabalho ou escola
 
@@ -86,7 +86,7 @@ Passos opcionais:
 
 - Descarregue, instale e instale a aplicação Microsoft Authenticator no seu dispositivo móvel seguindo os passos no Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
 
-- Turn on two-factor verification for your trusted devices by following the steps in the **Turn on two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) article.
+- Ligue a verificação de dois fatores para os seus dispositivos fidedignos seguindo os passos na verificação de **dois fatores de turn on on on on a secção de dispositivos fidedignos** do artigo de definições do [método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Estou com problemas em iniciar sessão no meu dispositivo móvel enquanto viajo.
 
@@ -99,6 +99,8 @@ As palavras-passe da aplicação substituem a sua senha normal por aplicações 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Não posso desligar a verificação de dois fatores.
 
 Se estiver a usar a verificação de dois fatores alain@contoso.comcom o seu trabalho ou conta escolar (por exemplo), o mais provável significa que a sua organização decidiu que deve usar esta funcionalidade de segurança adicional. Como a sua organização decidiu que deve usar esta funcionalidade, não há como desligá-la individualmente. Se, no entanto, estiver a utilizar a verificação de dois fatores com uma conta pessoal, como, alain@outlook.comtem a capacidade de ligar e desligar a funcionalidade. Para obter instruções sobre como controlar a verificação de dois fatores para as suas contas pessoais, consulte [a verificação de dois fatores ligado ou desligado para](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)a sua conta Microsoft .
+
+Se não conseguir desativar a verificação de dois fatores, também pode ser devido aos incumprimentos de segurança que foram aplicados ao nível da organização. Para mais informações sobre falhas de segurança, veja o que é segurança [defulta?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema.
 

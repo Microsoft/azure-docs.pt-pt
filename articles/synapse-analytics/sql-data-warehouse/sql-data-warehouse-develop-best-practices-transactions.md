@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582134"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633569"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Otimização de transações no Synapse SQL
 
@@ -24,7 +24,7 @@ Aprenda a otimizar o desempenho do seu código transacional no Synapse SQL, mini
 
 ## <a name="transactions-and-logging"></a>Transações e exploração madeireira
 
-As transações são um componente importante de um motor de base de dados relacional. As transações são utilizadas durante a modificação de dados. Estas transações podem ser explícitas ou implícitas. As declarações de INSIRA, ATUALIZAÇÃO e DELETE são todos exemplos de transações implícitas. As transações explícitas utilizam o BEGIN TRAN, o COMMIT TRAN ou o ROLLBACK TRAN. As transações explícitas são normalmente utilizadas quando várias declarações de modificação precisam de ser ligadas numa única unidade atómica. 
+As transações são um componente importante de um motor de base de dados relacional. As transações são utilizadas durante a modificação de dados. Estas transações podem ser explícitas ou implícitas. As declarações de INSIRA, ATUALIZAÇÃO e DELETE são todos exemplos de transações implícitas. As transações explícitas utilizam o BEGIN TRAN, o COMMIT TRAN ou o ROLLBACK TRAN. As transações explícitas são normalmente utilizadas quando várias declarações de modificação precisam de ser ligadas numa única unidade atómica.
 
 As alterações na base de dados são rastreadas utilizando registos de transações. Cada distribuição tem o seu próprio registo de transações. Os registos de transações são automáticos. Não é necessária nenhuma configuração. No entanto, embora este processo garanta a escrita, introduz uma sobrecarga no sistema. Pode minimizar este impacto escrevendo código sinuoso e eficiente. O código transaccionalmente eficiente enquadra-se, em geral, em duas categorias.
 
@@ -39,9 +39,7 @@ Ao contrário das operações totalmente registadas, que utilizam o registo de t
 Os limites de segurança da transação aplicam-se apenas às operações totalmente registadas.
 
 > [!NOTE]
-> As operações minimamente registadas podem participar em transações explícitas. À medida que todas as alterações nas estruturas de atribuição são rastreadas, é possível reverter as operações minimamente registadas. 
-> 
-> 
+> As operações minimamente registadas podem participar em transações explícitas. À medida que todas as alterações nas estruturas de atribuição são rastreadas, é possível reverter as operações minimamente registadas.
 
 ## <a name="minimally-logged-operations"></a>Operações minimamente registadas
 
@@ -64,10 +62,9 @@ As seguintes operações são capazes de ser minimamente registadas:
 
 > [!NOTE]
 > As operações internas de circulação de dados (como broadcast e SHUFFLE) não são afetadas pelo limite de segurança da transação.
-> 
-> 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Extração mínima com carga a granel
+
 CTAS e INSERT... SELECT são ambas as operações de carga a granel. No entanto, ambos são influenciados pela definição da tabela-alvo e dependem do cenário de carga. O quadro que se segue explica quando as operações a granel são totalmente ou minimamente registadas:  
 
 | Índice Primário | Cenário de carga | Modo de exploração madeireira |
@@ -83,11 +80,11 @@ Vale a pena notar que quaisquer escritos para atualizar índices secundários ou
 
 > [!IMPORTANT]
 > Uma base de dados de piscina Synapse SQL tem 60 distribuições. Portanto, assumindo que todas as linhas estão distribuídas uniformemente e aterrando numa única divisória, o seu lote terá de conter 6.144.000 linhas ou maiores para ser minimamente registado ao escrever para um Índice de Colunas Agrupadas. Se a tabela for dividida e as linhas inseridas forem inseridas, então precisará de 6.144.000 linhas por limite de divisória assumindo a distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limiar de 102.400 linhas para que a inserção seja minimamente registada na distribuição.
-> 
 
 Carregar dados numa tabela não vazia com um índice agrupado pode muitas vezes conter uma mistura de linhas totalmente registadas e minimamente registadas. Um índice agrupado é uma árvore equilibrada (b-árvore) de páginas. Se a página que está a ser escrita já contiver linhas de outra transação, então estas escritas serão totalmente registadas. No entanto, se a página estiver vazia, então a escrita para essa página será minimamente registada.
 
 ## <a name="optimizing-deletes"></a>Otimizar elimina
+
 Delete é uma operação totalmente registada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou `SELECT` numa divisória, muitas vezes faz mais sentido para os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Uma vez criado, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a sua mesa antiga com a mesa recém-criada.
 
 ```sql
@@ -98,7 +95,7 @@ CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
 (    CLUSTERED COLUMNSTORE INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -113,12 +110,13 @@ WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
---Step 02. Rename the Tables to replace the 
+--Step 02. Rename the Tables to replace the
 RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Otimização de atualizações
+
 Update é uma operação totalmente registada.  Se precisar de atualizar um grande número de linhas numa tabela ou numa partição, muitas vezes pode ser muito mais eficiente utilizar uma operação minimamente registada, como [as CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para o fazer.
 
 No exemplo abaixo, foi convertida uma atualização completa do quadro para um CTAS para que seja possível o abate mínimo.
@@ -126,12 +124,12 @@ No exemplo abaixo, foi convertida uma atualização completa do quadro para um C
 Neste caso, estamos retrospetivamente adicionando um valor de desconto às vendas na tabela:
 
 ```sql
---Step 01. Create a new table containing the "Update". 
+--Step 01. Create a new table containing the "Update".
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
 (    CLUSTERED INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -140,15 +138,15 @@ WITH
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -165,7 +163,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
@@ -181,10 +179,9 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 > [!NOTE]
 > Recriar grandes tabelas pode beneficiar da utilização de funcionalidades de gestão de carga de trabalho de piscina Synapse SQL. Para mais informações, consulte [as classes de recursos para gestão](resource-classes-for-workload-management.md)da carga de trabalho.
-> 
-> 
 
 ## <a name="optimizing-with-partition-switching"></a>Otimização com comutação de divisórias
+
 Se confrontado com modificações em larga escala dentro de uma [divisória](sql-data-warehouse-tables-partition.md)de mesa, então um padrão de comutação de divisória faz sentido. Se a modificação de dados for significativa e abranger várias divisórias, então a epísero sobre as divisórias obtém o mesmo resultado.
 
 Os passos para executar um interruptor de partição são os seguintes:
@@ -223,11 +220,11 @@ SELECT     s.name                            AS [schema_name]
 FROM        sys.schemas                    AS s
 JOIN        sys.tables                    AS t    ON  s.[schema_id]        = t.[schema_id]
 JOIN        sys.indexes                    AS i    ON     t.[object_id]        = i.[object_id]
-JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id] 
-                                                AND i.[index_id]        = p.[index_id] 
+JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id]
+                                                AND i.[index_id]        = p.[index_id]
 JOIN        sys.partition_schemes        AS h    ON     i.[data_space_id]    = h.[data_space_id]
 JOIN        sys.partition_functions        AS f    ON     h.[function_id]        = f.[function_id]
-LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id] 
+LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id]
                                                 AND r.[boundary_id]        = p.[partition_number]
 WHERE i.[index_id] <= 1
 )
@@ -246,7 +243,7 @@ Este procedimento maximiza a reutilização do código e mantém o exemplo de co
 O código que se segue demonstra os passos mencionados anteriormente para alcançar uma rotina completa de comutação de divisórias.
 
 ```sql
---Create a partitioned aligned empty table to switch out the data 
+--Create a partitioned aligned empty table to switch out the data
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
     DROP TABLE [dbo].[FactInternetSales_out]
@@ -256,7 +253,7 @@ CREATE TABLE [dbo].[FactInternetSales_out]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
@@ -278,20 +275,20 @@ CREATE TABLE [dbo].[FactInternetSales_in]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -308,7 +305,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
@@ -347,9 +344,10 @@ DROP TABLE #ptn_data
 ```
 
 ## <a name="minimize-logging-with-small-batches"></a>Minimizar a exploração madeireira com pequenos lotes
+
 Para grandes operações de modificação de dados, pode fazer sentido dividir a operação em pedaços ou lotes para examinar a unidade de trabalho.
 
-Um seguinte código é um exemplo de funcionamento. O tamanho do lote foi definido para um número trivial para destacar a técnica. Na realidade, o tamanho do lote seria significativamente maior. 
+Um seguinte código é um exemplo de funcionamento. O tamanho do lote foi definido para um número trivial para destacar a técnica. Na realidade, o tamanho do lote seria significativamente maior.
 
 ```sql
 SET NO_COUNT ON;
@@ -409,12 +407,10 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Pausa e orientação de escala
 
-Synapse SQL permite-lhe [parar, retomar e escalar](sql-data-warehouse-manage-compute-overview.md) a sua piscina SQL a pedido. Quando você pausa ou escala o seu pool SQL, é importante entender que quaisquer transações a bordo são terminadas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. Se a sua carga de trabalho tiver emitido uma modificação de dados de longo curso e incompleta antes da pausa ou operação de escala, então este trabalho terá de ser desfeito. Esta destruição pode ter impacto no tempo que leva para parar ou escalar a sua piscina SQL. 
+Synapse SQL permite-lhe [parar, retomar e escalar](sql-data-warehouse-manage-compute-overview.md) a sua piscina SQL a pedido. Quando você pausa ou escala o seu pool SQL, é importante entender que quaisquer transações a bordo são terminadas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. Se a sua carga de trabalho tiver emitido uma modificação de dados de longo curso e incompleta antes da pausa ou operação de escala, então este trabalho terá de ser desfeito. Esta destruição pode ter impacto no tempo que leva para parar ou escalar a sua piscina SQL.
 
 > [!IMPORTANT]
-> Ambos `UPDATE` `DELETE` e stão a ser operações totalmente registadas, pelo que estas operações de desfazer/redo podem demorar significativamente mais tempo do que as operações mínimas equivalentes. 
-> 
-> 
+> Ambos `UPDATE` `DELETE` e stão a ser operações totalmente registadas, pelo que estas operações de desfazer/redo podem demorar significativamente mais tempo do que as operações mínimas equivalentes.
 
 O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de fazer uma pausa ou escalonar o pool SQL. No entanto, este cenário pode nem sempre ser prático. Para mitigar o risco de uma longa reversão, considere uma das seguintes opções:
 
@@ -424,4 +420,3 @@ O melhor cenário é permitir que as transações de modificação de dados de v
 ## <a name="next-steps"></a>Passos seguintes
 
 Consulte [as transações em Synapse SQL](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte as [Melhores Práticas do Armazém de Dados SQL](sql-data-warehouse-best-practices.md).
-

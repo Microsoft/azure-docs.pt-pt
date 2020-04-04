@@ -4,19 +4,19 @@ description: Que informações são usadas para ajudar a autenticar utilizadores
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848294"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653639"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Recolha de dados de utilizadores de autenticação multi-factor Azure
 
@@ -141,7 +141,7 @@ Para a versão 8.0 do MFA Server, o seguinte processo permite que os administrad
 - Procure `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer\<cópias de segurança para " nome de utilizador>" (inclua as cotações na pesquisa) para encontrar todas as instâncias do registo do utilizador adicionadas ou alteradas.
    - Estes registos podem ser limitados (mas não eliminados) desverificando **"Alterações** de utilizador de registo" no servidor mfa UX, secção de registo, separador Ficheiros de Registo.
    - Se o syslog estiver configurado e **"Registar alterações** no utilizador" é verificado na secção MFA Server UX, Logging, syslog, então as entradas de registo podem ser recolhidas a partir do syslog.
-- Outras ocorrências do nome de utilizador em MultiFactorAuthSvc.log e outros ficheiros de registo do Servidor MFA relativos a tentativas de autenticação são consideradas operacionais e duplicadas para as informações fornecidas através do MultiFactorAuthGdpr.exe exportação ou SDK do Serviço Web GetUserGdpr.
+- Outras ocorrências do nome de utilizador em MultiFactorAuthSvc.log e outros ficheiros de registo do MFA Server relativos a tentativas de autenticação são consideradas operacionais e duplicadas para as informações fornecidas utilizando multiFactorAuthGdpr.exe exportação ou Serviço Web SDK GetUserGdpr.
 
 ## <a name="delete-data-from-mfa-server"></a>Eliminar dados do Servidor MFA
 

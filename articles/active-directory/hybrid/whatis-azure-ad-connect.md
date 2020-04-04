@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11c57065e21c48a23148cacd91a42737edc13538
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80049398"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631730"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -26,7 +26,7 @@ O Azure AD Connect é a ferramenta da Microsoft concebida para satisfazer e atin
 - [Autenticação pass-through](how-to-connect-pta.md) - Um método de entrada que permite aos utilizadores usar a mesma senha no local e na nuvem, mas não requer a infraestrutura adicional de um ambiente federado.
 - [Integração](how-to-connect-fed-whatis.md) da Federação - A Federação é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura AD FS no local. Também fornece capacidades de gestão AD FS, tais como renovação de certificado seleções e implementações adicionais de servidores AD FS.
 - [Sincronização](how-to-connect-sync-whatis.md) - Responsável pela criação de utilizadores, grupos e outros objetos.  Além de garantir que as informações de identidade dos seus utilizadores e grupos no local estão a corresponder à nuvem.  Esta sincronização também inclui hashes de senha.
--      [Monitorização da Saúde](whatis-hybrid-identity-health.md) - Azure AD Connect Health pode fornecer uma monitorização robusta e fornecer uma localização central no portal Azure para ver esta atividade. 
+- [Monitorização da Saúde](whatis-hybrid-identity-health.md) - Azure AD Connect Health pode fornecer uma monitorização robusta e fornecer uma localização central no portal Azure para ver esta atividade. 
 
 
 ![O que é o Azure AD Connect](./media/whatis-hybrid-identity/arch.png)

@@ -4,19 +4,19 @@ description: Ativar o acesso à chave de segurança sem palavras-passe para o Az
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e088d239a91edeff34ecd1a7dc5be7a9f8628da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129151"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653942"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sinal de entrada da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -95,7 +95,7 @@ Se quiser partilhar problemas de feedback ou de encontro durante a pré-visualiz
 
 O fornecimento e o desprovisionamento de chaves de segurança não estão disponíveis na pré-visualização pública.
 
-### <a name="upn-changes"></a>Alterações upn
+### <a name="upn-changes"></a>Alterações de UPN
 
 Estamos a trabalhar no apoio a uma funcionalidade que permite a mudança da UPN no Azure AD híbrido e a Azure AD juntou-se a dispositivos. Se a UPN de um utilizador mudar, já não pode modificar as chaves de segurança FIDO2 para contabilizar a alteração. A resolução é redefinir o dispositivo e o utilizador tem de voltar a registar-se.
 

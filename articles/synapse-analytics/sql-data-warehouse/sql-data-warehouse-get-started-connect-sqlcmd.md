@@ -1,6 +1,6 @@
 ---
 title: Conecte-se com sqlcmd
-description: Utilize o utilitário de linha de comandos sqlcmd para ligar e consultar um Azure SQL Data Warehouse.
+description: Utilize um utilitário de linha de comando sqlcmd para ligar e consultar uma piscina Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118997c39b56254eb47bc24350a0558e0b7620f9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: cfb1b7558f8d7675009a0ebc729cc1a560f03d12
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350495"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633383"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Ligar ao SQL Data Warehouse com sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Ligue-se à piscina SYnapse SQL com sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -28,14 +28,14 @@ ms.locfileid: "80350495"
 > 
 > 
 
-Utilize o utilitário de linha de comandos [sqlcmd][sqlcmd] para ligar e consultar um Azure SQL Data Warehouse.  
+Utilize o utilitário de linha de comando [sqlcmd] [sqlcmd] para ligar e consultar uma piscina SQL.  
 
 ## <a name="1-connect"></a>1. Ligar
-Para começar com [sqlcmd,][sqlcmd]abra o pedido de comando e **introduza sqlcmd** seguido da cadeia de ligação para a sua base de dados sQL Data Warehouse. A cadeia de ligação requer os parâmetros seguintes:
+Para começar com [sqlcmd][sqlcmd], abra o pedido de comando e **introduza sqlcmd** seguido da cadeia de ligação para a sua base de dados de piscina SQL. A cadeia de ligação requer os parâmetros seguintes:
 
 * **Server (-S):** servidor sob a forma `<`Nome do Servidor`>`. database.windows.net
 * **Database (-d):** nome da base de dados.
-* **Enable Quoted Identifiers (-I):** os identificadores delimitado por aspas têm de estar ativados para ligar a uma instância do SQL Data Warehouse.
+* **Ativar identificadores citados (-I):** Os identificadores citados devem ser ativados para se ligarem a uma instância de piscina SQL.
 
 Para utilizar a Autenticação do SQL Server tem de adicionar os parâmetros de nome de utilizador/palavra-passe:
 
@@ -84,14 +84,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
-
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+Para mais informações sobre as opções disponíveis em sqlcmd, consulte [documentação sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx) .

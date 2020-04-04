@@ -4,19 +4,19 @@ description: A implementar a autenticação RADIUS e Servidor Multi-Factor Authe
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425208"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652952"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrar a autenticação RADIUS com o Servidor Multi-Factor Authentication do Azure
 
@@ -77,9 +77,9 @@ Configurou com êxito o Servidor Multi-Factor Authentication do Azure. O Servido
 
 Para configurar o cliente RADIUS, utilize as diretrizes:
 
-* Configure a sua aplicação/servidor para autenticar através de RADIUS no endereço IP do Servidor Multi-Factor Authentication do Azure, que funciona como servidor RADIUS.
+* Configure o seu aparelho/servidor para autenticar via RADIUS para o endereço IP do Servidor de Autenticação Multifactor Azure, que funciona como o servidor RADIUS.
 * Utilize o mesmo segredo partilhado que foi configurado anteriormente.
-* Configure o tempo limite de RADIUS para 30 a 60 segundos, de modo a que exista tempo suficiente para validar as credenciais do utilizador, executar a verificação de dois passos, receber a respetiva resposta e, em seguida, responder ao pedido de acesso RADIUS.
+* Configure o tempo de tempo DE 30-60 segundos para que haja tempo para validar as credenciais do utilizador, efetuar a verificação em duas etapas, receber a sua resposta e, em seguida, responder ao pedido de acesso RADIUS.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 3/11/2020
-ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 4/3/2020
+ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549145"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657069"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
 
@@ -151,13 +151,13 @@ A latência para reretomar automaticamente e fazer uma pausa automática numa ba
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Encriptação de dados transparente gerida pelo cliente (BYOK)
 
-Se utilizar [encriptação transparente](transparent-data-encryption-byok-azure-sql.md) de dados (BYOK) e a base de dados sem servidores for em pausa automática quando ocorrer a eliminação ou revogação da chave, a base de dados permanece no estado de pausa automática.  Neste caso, após a próxima retoma da base de dados, a base de dados torna-se inacessível dentro de aproximadamente 10 minutos.  Uma vez que a base de dados se torna inacessível, o processo de recuperação é o mesmo que para as bases de dados de cálculo provisionadas.  Se a base de dados sem servidor estiver on-line quando ocorrer a eliminação ou revogação da chave, a base de dados também fica inacessível após aproximadamente 10 minutos ou menos da mesma forma que com as bases de dados de cálculo provisionadas.
+Se utilizar [encriptação transparente](transparent-data-encryption-byok-azure-sql.md) de dados (BYOK) e a base de dados sem servidores for em pausa automática quando ocorrer a eliminação ou revogação da chave, a base de dados permanece no estado de pausa automática.  Neste caso, após a próxima retoma da base de dados, a base de dados torna-se inacessível dentro de aproximadamente 10 minutos.  Uma vez que a base de dados se torna inacessível, o processo de recuperação é o mesmo que para as bases de dados de cálculo provisionadas.  Se a base de dados sem servidor estiver on-line quando ocorrer a eliminação ou revogação da chave, a base de dados também fica inacessível dentro de aproximadamente 10 minutos da mesma forma que com as bases de dados de cálculo aprovisionadas.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Embarque em nível de computação sem servidor
 
 A criação de uma nova base de dados ou a mudança de uma base de dados existente para um nível de computação sem servidor segue o mesmo padrão que a criação de uma nova base de dados no nível de cálculo aprovisionado e envolve os dois passos seguintes.
 
-1. Especifique o nome objetivo do serviço. O objetivo de serviço prescreve o nível de serviço, geração de hardware e vCores max. A tabela que se segue mostra as opções objetivas do serviço:
+1. Especifique o objetivo de serviço. O objetivo de serviço prescreve o nível de serviço, geração de hardware e vCores max. A tabela que se segue mostra as opções objetivas do serviço:
 
    |Nome objetivo de serviço|Camada de serviços|Geração de hardware|Max vCores|
    |---|---|---|---|
@@ -176,12 +176,12 @@ A criação de uma nova base de dados ou a mudança de uma base de dados existen
    |Parâmetro|Escolhas de valor|Valor predefinido|
    |---|---|---|---|
    |Min vCores|Depende de max vCores configurados - ver [limites de recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCores|
-   |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desativar a pausa automática: -1|60 minutos|
+   |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 10 minutos<br>Desativar a pausa automática: -1|60 minutos|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Criar nova base de dados no nível de computação sem servidor 
 
-Os exemplos seguintes criam uma nova base de dados no nível de computação sem servidor. Os exemplos especificam explicitamente os min vCores, max vCores e atraso de pausa automática.
+Os exemplos seguintes criam uma nova base de dados no nível de computação sem servidor.
 
 #### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
@@ -205,7 +205,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Utilizar transact-SQL (T-SQL)
 
-O exemplo seguinte cria uma nova base de dados no nível de computação sem servidor.
+Ao utilizar o T-SQL, são aplicados valores predefinidos para os vcores min e o atraso de pausa automática.
 
 ```sql
 CREATE DATABASE testdb
@@ -216,7 +216,7 @@ Para mais detalhes, consulte [CREATE DATABASE](/sql/t-sql/statements/create-data
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Mover base de dados do nível de cálculo provisionado para o nível de computação sem servidor
 
-Os exemplos seguintes movem uma base de dados do nível de cálculo provisionado para o nível de computação sem servidor. Os exemplos especificam explicitamente os min vCores, max vCores e atraso de pausa automática.
+Os exemplos seguintes movem uma base de dados do nível de cálculo provisionado para o nível de computação sem servidor.
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
@@ -237,7 +237,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Utilizar transact-SQL (T-SQL)
 
-O exemplo seguinte move uma base de dados do nível de cálculo provisionado para o nível de computação sem servidor.
+Ao utilizar o T-SQL, são aplicados valores predefinidos para os vcores min e o atraso de pausa automática.
 
 ```sql
 ALTER DATABASE testdb 

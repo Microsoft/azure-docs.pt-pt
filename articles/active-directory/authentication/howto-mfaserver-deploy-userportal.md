@@ -4,19 +4,19 @@ description: Introdução ao Azure MFA e ao portal de utilizador.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e68c2a75254d1b387c45e31c5830849c6127756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051190"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653201"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
 
@@ -162,9 +162,9 @@ Se o utilizador selecionar o método de autenticação Chamada de Voz ou tiver s
 
 ![Registar números de telefone primários e de cópia de segurança](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página pede-lhe que crie um PIN. Depois de introduzir os seus números de telefone e PIN (se aplicável), o utilizador clica no botão **Call Me Now to Authenticate.** O Multi-Factor Authentication do Azure realiza uma chamada telefónica de autenticação para o número de telefone principal do utilizador. O utilizador tem de atender a chamada e introduzir o PIN (se aplicável), e premir # para avançar para o próximo passo do processo de autoinscrição.
+Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página pede-lhe que crie um PIN. Depois de introduzir os seus números de telefone e PIN (se aplicável), o utilizador clica no botão **Call Me Now to Authenticate.** A Autenticação De Vários Fatores Azure realiza uma verificação de chamada telefónica para o número de telefone primário do utilizador. O utilizador tem de atender a chamada e introduzir o PIN (se aplicável), e premir # para avançar para o próximo passo do processo de autoinscrição.
 
-Se o utilizador selecionar o método de autenticação por Mensagem SMS ou tiver sido pré-configurado para utilizar este método, a página pede-lhe o respetivo número de telemóvel. Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página também lhe pede para introduzir um PIN.  Depois de introduzir o seu número de telefone e PIN (se aplicável), o utilizador clica no botão **Text Me Now para Autenticar.** O Multi-Factor Authentication do Azure realiza uma verificação por SMS para o telemóvel do utilizador. O utilizador recebe a mensagem de texto com um código de acesso de uso individual (OTP) e, em seguida, responde à mensagem com esse OTP e o respetivo PIN (se aplicável).
+Se o utilizador selecionar o método de autenticação por Mensagem SMS ou tiver sido pré-configurado para utilizar este método, a página pede-lhe o respetivo número de telemóvel. Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página também lhe pede para introduzir um PIN.  Depois de introduzir o seu número de telefone e PIN (se aplicável), o utilizador clica no botão **Text Me Now para Autenticar.** A Autenticação Multi-Factor Azure realiza uma verificação sms para o telemóvel do utilizador. O utilizador recebe a mensagem de texto com um código de acesso de uso individual (OTP) e, em seguida, responde à mensagem com esse OTP e o respetivo PIN (se aplicável).
 
 ![Verificação do portal do utilizador utilizando SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -175,7 +175,7 @@ Se o utilizador selecionar o método de verificação de Aplicação Móvel, a p
 
 A página apresenta então um código de ativação e um URL, juntamente com uma imagem de código de barras. Se for pedido ao utilizador para utilizar um PIN quando fizer a autenticação, a página também lhe pede para introduzir um PIN. O utilizador introduz o código de ativação e o URL na aplicação Microsoft Authentication ou utiliza o leitor de código de barras para ler a imagem de código de barras e clica no botão Ativar.
 
-Após a ativação estar concluída, o utilizador clica no botão **Autenticar-me Agora**. O Multi-Factor Authentication do Azure realiza uma verificação para a aplicação móvel do utilizador. O utilizador tem de introduzir o PIN (se aplicável), e premir o botão Autenticar na aplicação móvel para avançar para o próximo passo do processo de autoinscrição.
+Após a ativação estar concluída, o utilizador clica no botão **Autenticar-me Agora**. A Autenticação Multi-Factor Azure realiza uma verificação na aplicação móvel do utilizador. O utilizador tem de introduzir o PIN (se aplicável), e premir o botão Autenticar na aplicação móvel para avançar para o próximo passo do processo de autoinscrição.
 
 Se os administradores tiverem configurado o Servidor Multi-Factor Authentication do Azure para recolher perguntas e respostas de segurança, o utilizador é então direcionado para a página Perguntas de Segurança. O utilizador tem de selecionar quatro perguntas de segurança e fornecer respostas às perguntas selecionadas.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54f77f55a127cd712d43419eb6a85fd5d93a478c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75421905"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652166"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Estado de trabalho avançado e fluxos de trabalho da Automação para os registos do Monitor Azure
 
@@ -30,45 +30,96 @@ Para começar a enviar os seus registos de Automação para os registos do Monit
 
 * O mais recente lançamento do [Azure PowerShell.](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 * Uma área de trabalho do Log Analytics. Para mais informações, consulte [Iniciar com registos do Monitor Azure](../log-analytics/log-analytics-get-started.md).
-* O ResourceId para a sua conta De automação Azure.
+* O ID de recursos para a sua conta De automação Azure.
 
-Para encontrar o ResourceId para a sua conta De automação Azure:
+Utilize o seguinte comando para encontrar o ID de recurso para a sua conta De automação Azure:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
 Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
-Para encontrar o ResourceId para o seu espaço de trabalho Log Analytics, execute o seguinte PowerShell:
+Para encontrar o ID de recursos para o seu espaço de trabalho Log Analytics, execute o seguinte comando PowerShell:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Se tiver mais de uma conta de Automação, ou espaços de trabalho, na saída dos comandos anteriores, encontre o *Nome* necessário para configurar e copiar o valor para *O Desordeiro*.
+Se tiver mais de uma conta de Automação ou espaço de trabalho na saída dos comandos anteriores, encontre o nome que precisa para configurar e copiar o valor para o ID do recurso.
 
-Se precisar de encontrar o *Nome* da sua conta Automation, no portal Azure selecione a sua conta Automação a partir da lâmina da **conta Automation** e selecione Todas **as definições**. A partir do painel **Todas as definições**, em **Definições da Conta** selecione **Propriedades**.  No painel **Propriedades**, pode ter em atenção estes valores.<br> ![Propriedades](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)da Conta de Automação.
+1. No portal Azure, selecione a sua conta De automação a partir da lâmina da **conta Automation** e selecione Todas **as definições**. 
+2. A partir da lâmina **de todas as definições,** em definições de **conta,** selecione **Propriedades**.  
+3. Na lâmina **Propriedades,** note estes valores.<br> ![Propriedades da](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)conta de automação.
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Instale a integração com os registos do Monitor Azure
 
-1. No seu computador, inicie o **Windows PowerShell** a partir do ecrã **Iniciar.**
-2. Executar o seguinte PowerShell e editar `[your resource id]` `[resource id of the log analytics workspace]` o valor para e com os valores do passo anterior.
+## <a name="azure-monitor-log-records"></a>Registos de registos do Monitor Azure
+
+Os diagnósticos da Azure Automation criam dois tipos de `AzureDiagnostics`registos em registos do Monitor Azure, marcados como . As tabelas nas secções seguintes são exemplos de registos que a Azure Automation gera e os tipos de dados que aparecem nos resultados de pesquisa de registo.
+
+### <a name="job-logs"></a>Registos de trabalhos
+
+| Propriedade | Descrição |
+| --- | --- |
+| TimeGenerated |Data e hora da execução do trabalho do runbook. |
+| RunbookName_s |O nome do runbook. |
+| Caller_s |O chamador que iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
+| Tenant_g | GUID que identifica o inquilino para quem liga. |
+| JobId_g |GUID que identifica o trabalho do livro. |
+| Tipo de resultados |O estado do trabalho do runbook. Os valores possíveis são:<br>- Novo<br>- Criado<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>- Concluído |
+| Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
+| OperationName | O tipo de operação realizada em Azure. Para automação, o valor é Job. |
+| Recurso | O nome da conta Automation |
+| SourceSystem | Sistema que os registos do Azure Monitor utilizam para recolher os dados. O valor é sempre Azure para diagnósticos Azure. |
+| Descrição do resultado |O estado do resultado do trabalho do livro de corridas. Os valores possíveis são:<br>- Trabalho iniciado<br>- Trabalho falhado<br>- Trabalho Concluído |
+| CorrelationId |A correlação GUID do trabalho do livro de corridas. |
+| ResourceId |A identificação de recursos da conta Azure Automation do livro de execução. |
+| SubscriptionId | A assinatura Azure GUID para a conta Automation. |
+| ResourceGroup | O nome do grupo de recursos para a conta Automation. |
+| ResourceProvider | O fornecedor de recursos. O valor é MICROSOFT. A AUTOMAÇÃO. |
+| ResourceType | O tipo de recurso. O valor é AUTOMAÇÃOCONTAS. |
+
+### <a name="job-streams"></a>Fluxos de trabalho
+| Propriedade | Descrição |
+| --- | --- |
+| TimeGenerated |Data e hora da execução do trabalho do runbook. |
+| RunbookName_s |O nome do runbook. |
+| Caller_s |O chamador que iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
+| StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Em Curso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso |
+| Tenant_g | GUID que identifica o inquilino para quem liga. |
+| JobId_g |GUID que identifica o trabalho do livro. |
+| Tipo de resultados |O estado do trabalho do runbook. Os valores possíveis são:<br>- Em curso |
+| Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
+| OperationName | Tipo de operação realizada em Azure. Para automação, o valor é Job. |
+| Recurso | O nome da conta de Automação. |
+| SourceSystem | Sistema que os registos do Azure Monitor utilizam para recolher os dados. O valor é sempre Azure para diagnósticos Azure. |
+| Descrição do resultado |Descrição que inclui o fluxo de saída do livro de execução. |
+| CorrelationId |A correlação GUID do trabalho do livro de corridas. |
+| ResourceId |A identificação de recursos da conta Azure Automation do livro de execução. |
+| SubscriptionId | A assinatura Azure GUID para a conta Automation. |
+| ResourceGroup | O nome do grupo de recursos para a conta Automation. |
+| ResourceProvider | O fornecedor de recursos. O valor é MICROSOFT. A AUTOMAÇÃO. |
+| ResourceType | O tipo de recurso. O valor é AUTOMAÇÃOCONTAS. |
+
+## <a name="setting-up-integration-with-azure-monitor-logs"></a>Criação de integração com registos do Monitor Azure
+
+1. No seu computador, inicie o Windows PowerShell a partir do ecrã **Iniciar.**
+2. Executar os seguintes comandos PowerShell e `[your resource ID]` `[resource ID of the log analytics workspace]` editar o valor para e com os valores da secção anterior.
 
    ```powershell-interactive
-   $workspaceId = "[resource id of the log analytics workspace]"
-   $automationAccountId = "[resource id of your automation account]"
+   $workspaceId = "[resource ID of the log analytics workspace]"
+   $automationAccountId = "[resource ID of your Automation account]"
 
    Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
-Depois de executar este script, pode demorar uma hora até começar a ver registos em registos do Monitor Azure de novos JobLogs ou JobStreams a serem escritos.
+Depois de executar este script, pode demorar uma hora até começar a `JobLogs` `JobStreams` ver registos em registos do Monitor Azure de novos ou a serem escritos.
 
 Para ver os registos, faça a seguinte consulta na pesquisa de registo sessão de análise de registo:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificar a configuração
 
-Para confirmar que a sua conta De automação está a enviar registos para o seu espaço de trabalho Log Analytics, verifique se os diagnósticos estão corretamente configurados na conta Automation utilizando o seguinte PowerShell:
+Para confirmar que a sua conta Deautomaestá a enviar registos para o seu espaço de trabalho Log Analytics, verifique se os diagnósticos estão corretamente configurados na conta Automation utilizando o seguinte comando PowerShell.
 
 ```powershell-interactive
 Get-AzDiagnosticSetting -ResourceId $automationAccountId
@@ -76,57 +127,8 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 
 Na saída, certifique-se de que:
 
-* Em *Registos,* o valor para *Ativado* é *verdadeiro*.
-* O valor do *WorkspaceId* está definido para o ResourceId do seu espaço de trabalho Log Analytics.
-
-## <a name="azure-monitor-log-records"></a>Registos de registos do Monitor Azure
-
-Os diagnósticos da Azure Automation criam dois tipos de registos nos registos do Monitor Azure e são marcados como **AzureDiagnostics**. As seguintes consultas utilizam a linguagem de consulta atualizada para os registos do Monitor Azure. Para obter informações sobre consultas comuns entre a linguagem de consulta do legado e a nova linguagem de consulta Azure Kusto visite legacy à nova folha de batota da [linguagem da consulta azure Kusto](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
-
-### <a name="job-logs"></a>Registos de Emprego
-
-| Propriedade | Descrição |
-| --- | --- |
-| TimeGenerated |Data e hora da execução do trabalho do runbook. |
-| RunbookName_s |O nome do runbook. |
-| Caller_s |Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
-| Tenant_g | GUID que identifica o inquilino para o Chamador. |
-| JobId_g |GUID que é o Id do trabalho do runbook. |
-| Tipo de resultados |O estado do trabalho do runbook. Os valores possíveis são:<br>- Novo<br>- Criado<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>- Concluído |
-| Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
-| OperationName | Especifica o tipo de operação efetuada no Azure. Para automação, o valor é Job. |
-| Recurso | Nome da conta Automation |
-| SourceSystem | A forma como os registos do Monitor Azure recolheram os dados. Sempre *Azure* para diagnósticos Azure. |
-| Descrição do resultado |Descreve o estado do resultado do trabalho do runbook. Os valores possíveis são:<br>- Trabalho iniciado<br>- Trabalho falhado<br>- Trabalho Concluído |
-| CorrelationId |GUID que é o Id de Correlação do trabalho do runbook. |
-| ResourceId |Especifica o id de recurso da conta Azure Automation do livro de execução. |
-| SubscriptionId | O Id de subscrição Azure (GUID) para a conta Automation. |
-| ResourceGroup | Nome do grupo de recursos para a conta Automation. |
-| ResourceProvider | A MICROSOFT. AUTOMAÇÃO |
-| ResourceType | AUTOMATIZAÇÃOCONTAS |
-
-
-### <a name="job-streams"></a>Fluxos de Emprego
-| Propriedade | Descrição |
-| --- | --- |
-| TimeGenerated |Data e hora da execução do trabalho do runbook. |
-| RunbookName_s |O nome do runbook. |
-| Caller_s |Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
-| StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Em Curso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso |
-| Tenant_g | GUID que identifica o inquilino para o Chamador. |
-| JobId_g |GUID que é o Id do trabalho do runbook. |
-| Tipo de resultados |O estado do trabalho do runbook. Os valores possíveis são:<br>- Em curso |
-| Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
-| OperationName | Especifica o tipo de operação efetuada no Azure. Para automação, o valor é Job. |
-| Recurso | Nome da conta Automation |
-| SourceSystem | A forma como os registos do Monitor Azure recolheram os dados. Sempre *Azure* para diagnósticos Azure. |
-| Descrição do resultado |Inclui o fluxo de saída do runbook. |
-| CorrelationId |GUID que é o Id de Correlação do trabalho do runbook. |
-| ResourceId |Especifica o id de recurso da conta Azure Automation do livro de execução. |
-| SubscriptionId | O Id de subscrição Azure (GUID) para a conta Automation. |
-| ResourceGroup | Nome do grupo de recursos para a conta Automation. |
-| ResourceProvider | A MICROSOFT. AUTOMAÇÃO |
-| ResourceType | AUTOMATIZAÇÃOCONTAS |
+* Abaixo, `Logs`o `Enabled` valor para é verdade.
+* `WorkspaceId`está definido `ResourceId` para o valor para o seu espaço de trabalho Log Analytics.
 
 ## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Visualização de registos de automação em registos do Monitor Azure
 
@@ -135,39 +137,44 @@ Agora que começou a enviar os seus registos de trabalho da Automation para os r
 Para ver os registos, faça a seguinte consulta:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envie um e-mail quando um trabalho de livro de recortes falhar ou suspender
+
 Um dos principais clientes pede é a capacidade de enviar um e-mail ou um texto quando algo corre mal com um trabalho de livro de corridas.
 
 Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os registos de trabalho do livro de execução que devem invocar o alerta. Clique no botão **Alerta** para criar e configurar a regra de alerta.
 
 1. A partir da página de visualização geral do espaço de trabalho Log Analytics, clique em **ver registos**.
-2. Crie uma consulta de pesquisa de registo para o seu `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` alerta digitando a seguinte pesquisa no campo de consulta: Também pode agrupar pelo Nome do Livro de Corridas utilizando:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Também pode agrupar pelo nome do livro de corridas utilizando:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
-   Se configurar registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. O nome da conta de automação pode ser encontrado no campo Derecursos na pesquisa de JobLogs.
+   Se configurar registos a partir de mais de uma conta Automation ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta de Automação. O nome da conta `Resource` de automação `JobLogs`pode ser encontrado no campo na procura de .
 3. Para abrir o ecrã de **regra Criar,** clique + **Nova Regra** de Alerta no topo da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [alertas de registo no Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Encontre todos os empregos que tenham concluído com erros
+
 Além de alertar sobre falhas, pode descobrir quando um trabalho de livro tem um erro não terminante. Nestes casos, a PowerShell produz um fluxo de erros, mas os erros não terminadores não fazem com que o seu trabalho suspenda ou falhe.
 
 1. No seu espaço de trabalho Log Analytics, clique em **Registos**.
-2. No campo de consulta, digite `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` e, em seguida, clique no botão **'Procurar'.**
+2. No campo de consulta, escreva `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`.
+3. Clique no botão **'Procurar'.**
 
 ### <a name="view-job-streams-for-a-job"></a>Ver fluxos de trabalho para um trabalho
-Quando se está a depurar um emprego, também pode querer ver os fluxos de emprego. A seguinte consulta mostra todos os fluxos para um único trabalho com GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
+
+Quando se está a depurar um emprego, talvez queira ver os fluxos de emprego. A seguinte consulta mostra todos os fluxos para um único trabalho com GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
 
 ### <a name="view-historical-job-status"></a>Ver histórico estado de trabalho
-Finalmente, talvez queira sondar o seu histórico de trabalho ao longo do tempo. Pode usar esta consulta para procurar o estado dos seus trabalhos ao longo do tempo.
+
+Finalmente, talvez queiras visualizar o teu histórico de emprego ao longo do tempo. Pode usar esta consulta para procurar o estado dos seus trabalhos ao longo do tempo.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
 <br> ![Gráfico de estado histórico de trabalho de log analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
-## <a name="remove-diagnostic-settings"></a>Remover as definições de diagnóstico
+## <a name="removing-diagnostic-settings"></a>Remoção de definições de diagnóstico
 
-Para remover a definição de diagnóstico da Conta de Automação, execute os seguintes comandos:
+Para remover a definição de diagnóstico da conta Automation, execute o seguinte comando:
 
 ```powershell-interactive
-$automationAccountId = "[resource id of your automation account]"
+$automationAccountId = "[resource ID of your Automation account]"
 
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```

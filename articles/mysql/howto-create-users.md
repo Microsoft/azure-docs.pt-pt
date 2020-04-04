@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c4e95164badaf0b255f5ee76d0fec7686c2abf8b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 4/2/2020
+ms.openlocfilehash: 99b614de87c666d1cb1fb8a34eaafadf6fa82849
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382873"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632555"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Criar utilizadores na Base de Dados Azure para servidor MySQL
 
@@ -19,9 +19,12 @@ Este artigo descreve como pode criar utilizadores numa Base de Dados Azure para 
 
 Quando criou a sua Base de Dados Azure para o MySQL, forneceu um servidor de nome de utilizador de login e palavra-passe. Para mais informações, pode seguir o [Quickstart](quickstart-create-mysql-server-database-using-azure-portal.md). Pode localizar o nome de utilizador de login do seu servidor a partir do portal Azure.
 
-O utilizador do servidor obtém certos privilégios para o seu servidor como listado: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENTE, CRIAR VISTA, MOSTRAR VISTA, CRIAR ROTINA, ALTERAR ROTINA, CRIAR UTILIZADOR, EVENTO, GATILHO
+O utilizador do servidor obtém certos privilégios para o seu servidor como listado: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Assim que for criada a Base de Dados Azure para o servidor MySQL, pode utilizar a primeira conta de utilizador do servidor para criar utilizadores adicionais e conceder acesso à administração dos mesmos. Além disso, a conta de administração do servidor pode ser usada para criar utilizadores menos privilegiados que tenham acesso a esquemas de base de dados individuais.
+
+> [!NOTE]
+> O papel super privilegiado e dBA não são apoiados. Reveja os [privilégios](concepts-limits.md#privilege-support) no artigo de limitações para entender o que não é suportado no serviço.
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Como criar utilizadores adicionais de administração na Base de Dados Azure para mySQL
 

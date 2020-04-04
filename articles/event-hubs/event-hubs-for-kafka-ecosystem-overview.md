@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 6dcbf0ad0f6678d892c5c02446cac09b4325384c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3525bc7a25550a79ceeb008e3c69c77a56aa0a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283655"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632858"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final de Kafka que pode ser usado pelas suas aplicações baseadas em Kafka como alternativa para executar o seu próprio cluster Kafka. O Event Hubs suporta [o protocolo Apache Kafka 1.0 e mais tarde,](https://kafka.apache.org/documentation/)e trabalha com as suas aplicações kafka existentes, incluindo o MirrorMaker.  
@@ -94,16 +94,6 @@ Aqui está a lista de características kafka que ainda não são suportadas:
 *   Riachos Kafka
 
 ## <a name="next-steps"></a>Passos seguintes
-
-Este artigo forneceu uma introdução aos Centros de Eventos para Kafka. Para saber mais, consulte os seguintes links:
-
-- [Como criar um centro de eventos](event-hubs-create.md)
-- [Transmitir em fluxo para os Hubs de Eventos a partir das suas aplicações Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
-- [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
-- [Integrar kafka Connect com um hub de eventos](event-hubs-kafka-connect-tutorial.md)
-- [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
+Este artigo forneceu uma introdução aos Centros de Eventos para Kafka. Para saber mais, consulte o guia de [desenvolvimento da Apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Utilização de transações
-description: Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+title: Utilize transações em piscina Synapse SQL
+description: Este artigo inclui dicas para implementar transações e desenvolver soluções em piscina SYnapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,30 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a14201131eac5ce1efc4020c9ce0f40a80cac8a3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: fdbffba7bee84c32d11f8b60431a35f185d9e637
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351577"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633435"
 ---
-# <a name="using-transactions-in-sql-data-warehouse"></a>Utilização de transações no Armazém de Dados SQL
-Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+# <a name="use-transactions-in-synapse-sql-pool"></a>Utilize transações em piscina Synapse SQL
+Este artigo inclui dicas para implementar transações e desenvolver soluções em pool SQL.
 
 ## <a name="what-to-expect"></a>O que esperar
-Como seria de esperar, o SQL Data Warehouse suporta transações como parte da carga de trabalho do armazém de dados. No entanto, para garantir que o desempenho do SQL Data Warehouse é mantido à escala, algumas funcionalidades são limitadas quando comparadas com o Servidor SQL. Este artigo destaca as diferenças e lista os outros. 
+Como seria de esperar, o pool SQL suporta transações como parte da carga de trabalho do armazém de dados. No entanto, para garantir que o pool SQL é mantido em escala, algumas funcionalidades são limitadas quando comparadas com o SQL Server. Este artigo destaca as diferenças. 
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento de transações
-O SQL Data Warehouse implementa transações acidais. O nível de isolamento do apoio transacional é incumpridor para LER NÃO COMPROMETIDO.  Pode alterá-lo para LER ISOLAMENTO INSTANTÂNEO COMPROMETIDO, ligando a opção de base de dados READ_COMMITTED_SNAPSHOT para uma base de dados de utilizador quando ligado à base de dados principal.  Uma vez ativadas, todas as transações nesta base de dados são executadas sob o isolamento de INSTANTÂNEOS READ COMMITTED e a definição de READ UNCOMMITTED on session level não será honrada. Verifique as opções de CONJUNTO DE BASE DE [DADOS ALTER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obter detalhes.
+O pool SQL implementa transações acidais. O nível de isolamento do apoio transacional é incumpridor para LER NÃO COMPROMETIDO.  Pode alterá-lo para LER ISOLAMENTO INSTANTÂNEO COMPROMETIDO, ligando a opção de base de dados READ_COMMITTED_SNAPSHOT para uma base de dados de utilizador quando ligado à base de dados principal.  
+
+Uma vez ativadas, todas as transações nesta base de dados são executadas sob o isolamento de INSTANTÂNEOS READ COMMITTED e a definição de READ UNCOMMITTED on session level não será honrada. Verifique as opções de CONJUNTO DE BASE DE [DADOS ALTER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obter detalhes.
 
 ## <a name="transaction-size"></a>Tamanho da transação
-Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Por conseguinte, a atribuição total pode ser calculada multiplicando o limite pela contagem de distribuição. Para aproximar o número máximo de linhas na transação, divida a tampa de distribuição pelo tamanho total de cada linha. Para colunas de comprimento variável, considere tomar um comprimento médio da coluna em vez de usar o tamanho máximo.
+Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Por conseguinte, a atribuição total pode ser calculada multiplicando o limite pela contagem de distribuição. 
 
-No quadro abaixo foram apresentados os seguintes pressupostos:
+Para aproximar o número máximo de linhas na transação, divida a tampa de distribuição pelo tamanho total de cada linha. Para colunas de comprimento variável, considere tomar um comprimento médio da coluna em vez de usar o tamanho máximo.
+
+Na tabela seguinte, foram apresentados dois pressupostos:
 
 * Ocorreu uma distribuição uniforme de dados 
 * O comprimento médio da linha é de 250 bytes
@@ -84,14 +88,17 @@ Para otimizar e minimizar a quantidade de dados escritos no registo, consulte o 
 > 
 
 ## <a name="transaction-state"></a>Estado de transação
-O SQL Data Warehouse utiliza a função XACT_STATE() para reportar uma transação falhada utilizando o valor -2. Este valor significa que a transação falhou e está marcada apenas para reversão.
+O pool SQL utiliza a função XACT_STATE() para reportar uma transação falhada utilizando o valor -2. Este valor significa que a transação falhou e está marcada apenas para reversão.
 
 > [!NOTE]
-> O uso de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o Servidor SQL. O SQL Server utiliza o valor -1 para representar uma transação não comprometedora. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como não comprometedor. Por `SELECT 1/0` exemplo, provocaria um erro, mas não forçaria uma transação num estado não comprometedor. O SQL Server também permite leituras na transação não comprometedora. No entanto, o SQL Data Warehouse não o permite fazê-lo. Se ocorrer um erro dentro de uma transação do SQL Data Warehouse, entrará automaticamente no estado -2 e não poderá efazer mais declarações selecionadas até que a declaração tenha sido relançada. Por isso, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
-> 
-> 
+> O uso de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o Servidor SQL. O SQL Server utiliza o valor -1 para representar uma transação não comprometedora. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como não comprometedor. Por exemplo, `SELECT 1/0` provocaria um erro, mas não forçaria uma transação num estado não comprometedor. 
 
-Por exemplo, no SQL Server pode ver uma transação que se parece com a seguinte:
+O SQL Server também permite leituras na transação não comprometedora. No entanto, a piscina SQL não permite que faça isso. Se ocorrer um erro dentro de uma transação de pool SQL, entrará automaticamente no estado -2 e não poderá efazer mais declarações selecionadas até que a declaração tenha sido relançada. 
+
+Como tal, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
+
+
+Por exemplo, no SQL Server, pode ver uma transação que se parece com a seguinte:
 
 ```sql
 SET NOCOUNT ON;
@@ -131,11 +138,11 @@ SELECT @xact_state AS TransactionState;
 
 O código anterior dá a seguinte mensagem de erro:
 
-Msg 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual foi abortada e quaisquer alterações pendentes foram revertidas. Causa: Uma transação num estado só de reversão não foi explicitamente revertida antes de uma declaração dDL, DML ou SELECT.
+Msg 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual foi abortada e quaisquer alterações pendentes foram revertidas. A causa desta questão é que uma transação num estado só de reversão não seja explicitamente relançada antes de uma declaração dDL, DML ou SELECT.
 
 Não terá a saída das funções ERROR_*.
 
-No Armazém de Dados SQL o código tem de ser ligeiramente alterado:
+No pool SQL o código precisa de ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -177,17 +184,19 @@ O comportamento esperado é agora observado. O erro na transação é gerido e a
 Tudo o que mudou foi que o retrocesso da transação tinha de acontecer antes da leitura das informações de erro no bloco CATCH.
 
 ## <a name="error_line-function"></a>Error_Line() função()
-Vale também a pena notar que o SQL Data Warehouse não implementa nem suporta a função ERROR_LINE.). Se tiver isto no seu código, tem de o remover para estar em conformidade com o SQL Data Warehouse. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais detalhes, consulte [o](sql-data-warehouse-develop-label.md) artigo label.
+Vale também a pena notar que o pool SQL não implementa nem suporta a função ERROR_LINE(). Se tiver isto no seu código, tem de removê-lo para estar em conformidade com a piscina SQL. 
+
+Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais detalhes, consulte [o](sql-data-warehouse-develop-label.md) artigo label.
 
 ## <a name="using-throw-and-raiserror"></a>Utilização de THROW e RAISERROR
-O THROW é a implementação mais moderna para levantar exceções no SQL Data Warehouse, mas o RAISERROR também é suportado. No entanto, há algumas diferenças que merecem prestar atenção.
+O THROW é a implementação mais moderna para levantar exceções no pool SQL, mas o RAISERROR também é suportado. No entanto, há algumas diferenças que merecem prestar atenção.
 
 * Os números de mensagens de erro definidos pelo utilizador não podem estar na gama de 100.000 - 150.000 para THROW
 * As mensagens de erro RAISERROR são fixadas em 50.000
 * O uso de sys.messages não é suportado
 
 ## <a name="limitations"></a>Limitações
-O SQL Data Warehouse tem algumas outras restrições relacionadas com transações.
+O pool SQL tem algumas outras restrições relacionadas com transações.
 
 São os seguintes:
 
@@ -199,5 +208,5 @@ São os seguintes:
 * Nenhum suporte para dDL como CREATE TABLE dentro de uma transação definida pelo utilizador
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre otimização de transações, consulte [as melhores práticas de Transações.](sql-data-warehouse-develop-best-practices-transactions.md) Para conhecer outras boas práticas do SQL Data Warehouse, consulte as [melhores práticas do SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Para saber mais sobre otimização de transações, consulte [as melhores práticas de Transações.](sql-data-warehouse-develop-best-practices-transactions.md) Para conhecer outras boas práticas de piscina SQL, consulte as [melhores práticas do Pool SQL.](sql-data-warehouse-best-practices.md)
 

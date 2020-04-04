@@ -6,13 +6,13 @@ tags: azure-service-management
 ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
-ms.custom: mvc
-ms.openlocfilehash: b1d5f20ccd2f2c637d7db668af10ef331947d018
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, fasttrack-edit
+ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74971201"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637912"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modelos de Gestor de Recursos Azure para serviço de aplicações
 
@@ -28,11 +28,12 @@ Para conhecer a sintaxe jSON e propriedades para recursos de Serviços de Aplica
 | [App ligada a um repositório GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Implementa uma aplicação do App Service que retira código do GitHub. |
 | [App com ranhuras de implementação personalizadas](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Implementa uma aplicação de Serviço de Aplicações com ranhuras/ambientes de implementação personalizadas. |
 |**Configurar uma aplicação**||
-| [Certificado de aplicativo de Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Implementa um certificado de aplicação do App Service a partir de um segredo azure Key Vault e usa-o para encadernação SSL. |
+| [Certificado de aplicativo de Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Implementa um certificado de aplicação do App Service a partir de um segredo azure Key Vault e usa-o para ligação TLS/SSL. |
 | [App com um domínio personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Implementa uma aplicação de Serviço de Aplicações com um nome de anfitrião personalizado. |
-| [App com domínio personalizado e SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Implementa uma aplicação de Serviço de Aplicações com um nome de anfitrião personalizado e obtém um certificado de aplicação da Key Vault para a ligação SSL. |
+| [App com domínio personalizado e SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Implementa uma aplicação de Serviço de Aplicações com um nome de anfitrião personalizado e obtém um certificado de aplicação da Key Vault para a ligação TLS/SSL. |
 | [App com extensão GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Implementa uma aplicação de Serviço de Aplicações com a extensão do site Golang. Em seguida, pode executar as aplicações Web desenvolvidas no Golang no Azure. |
 | [App com Java 8 e Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Implementa uma aplicação de Serviço de Aplicações com Java 8 e Tomcat 8 ativado. Em seguida, pode executar aplicações Java no Azure. |
+| [App com integração regional vNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-service-regional-vnet-integration)| Implementa uma aplicação de Serviço de Aplicações com integração vnet regional ativada. |
 |**Proteger uma aplicação**||
 | [App integrada com Gateway de Aplicação Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Implementa uma aplicação de Serviço de Aplicações e um Gateway de Aplicações, e isola o tráfego usando o ponto final do serviço e restrições de acesso. |
 |**Aplicativo Linux com recursos conectados**||
@@ -47,5 +48,5 @@ Para conhecer a sintaxe jSON e propriedades para recursos de Serviços de Aplica
 |**Ambiente de serviço de aplicativos**||
 | [Criar um Ambiente de Serviço de Aplicações v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual. |
 | [Criar um ambiente de Serviço de Aplicações v2 com um endereço ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Cria um ambiente de Serviço de Aplicações v2 na sua rede virtual com um endereço de balanceador de carga interno privado. |
-| [Configura o certificado SSL predefinido para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações v2 ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | Configura o certificado SSL predefinido para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações v2 ILB. |
+| [Configura o certificado SSL predefinido para um ambiente de Serviço de Aplicações ILB ou um ambiente de Serviço de Aplicações v2 ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | Configura o certificado padrão TLS/SSL para um ambiente de serviço de aplicações ILB ou um ambiente de serviço de aplicações ILB v2. |
 | | |

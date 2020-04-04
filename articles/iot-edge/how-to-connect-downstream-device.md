@@ -8,12 +8,12 @@ ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ddda38d887cdfe30b449847e2f625ba17f33898
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9415ca20b859468528b56d27355430c4fc5a0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510809"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652075"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -182,7 +182,7 @@ Esta secção introduz uma aplicação de amostra para ligar um cliente do dispo
 
 Esta secção introduz uma aplicação de amostra para ligar um cliente do dispositivo Azure IoT Python a um gateway IoT Edge.
 
-1. Obtenha a amostra para **send_message** do [dispositivo Azure IoT SDK para amostras de Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios).
+1. Obtenha a amostra para **send_message** do [dispositivo Azure IoT SDK para amostras de Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
 2. Certifique-se de que está a correr num recipiente IoT Edge, ou num cenário de depuração, tem as `EdgeHubConnectionString` variáveis e `EdgeModuleCACertificateFile` ambiente definidas.
 3. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 

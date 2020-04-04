@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 6aff60cbc4a4cab557e6e202ea1181d5b20bbd20
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528650"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655877"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Boas práticas para continuidade de negócios e recuperação de desastres no Serviço Azure Kubernetes (AKS)
 
-À medida que gere clusters no Serviço Azure Kubernetes (AKS), o tempo de uptime da aplicação torna-se importante. A AKS proporciona uma elevada disponibilidade utilizando vários nódosos num conjunto de disponibilidade. Mas estes múltiplos nódosos não protegem o seu sistema de uma falha na região. Para maximizar o seu tempo de uptime, planeie com antecedência para manter a continuidade do negócio e prepare-se para a recuperação de desastres.
+À medida que gere clusters no Serviço Azure Kubernetes (AKS), o tempo de uptime da aplicação torna-se importante. Por padrão, o AKS proporciona uma elevada disponibilidade utilizando vários nós num conjunto de escala de [máquina virtual (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Mas estes múltiplos nódosos não protegem o seu sistema de uma falha na região. Para maximizar o seu tempo de uptime, planeie com antecedência para manter a continuidade do negócio e prepare-se para a recuperação de desastres.
 
 Este artigo centra-se em como planear a continuidade dos negócios e a recuperação de desastres na AKS. Saiba como:
 

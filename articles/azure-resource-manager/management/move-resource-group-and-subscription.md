@@ -3,12 +3,12 @@ title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Gestor de Recursos Azure para transferir recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248856"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631507"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Move resources to a new resource group or subscription (Mover recursos para um grupo de recursos ou uma subscrição nova)
 
@@ -107,7 +107,7 @@ Para fins de ilustração, temos apenas um recurso dependente.
 
 * Passo 1: Se os recursos dependentes forem distribuídos por diferentes grupos de recursos, primeiro movê-los para um grupo de recursos.
 * Passo 2: Mover o recurso e os recursos dependentes da subscrição de origem para a subscrição-alvo.
-* Passo 3: Opcionalmente, redistribua os recursos dependentes para diferentes grupos de recursos dentro da subscrição-alvo. 
+* Passo 3: Opcionalmente, redistribua os recursos dependentes para diferentes grupos de recursos dentro da subscrição-alvo.
 
 ## <a name="validate-move"></a>Validar movimento
 
@@ -260,8 +260,9 @@ Ao mover um recurso, os seus recursos dependentes devem existir no grupo de recu
 Por exemplo, mover uma máquina virtual pode exigir a deslocação de sete tipos de recursos com três fornecedores de recursos diferentes. Os fornecedores e tipos de recursos são:
 
 * Microsoft.Compute
-   * máquinas virtuais
-   * discos
+
+  * máquinas virtuais
+  * discos
 * Microsoft.Network
   * networkInterfaces
   * endereços públicosIPAddresss

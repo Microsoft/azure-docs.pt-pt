@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99220fdf5dfb47f235637f83ba9be4ec015758bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294430"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631482"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Problemas de resolução de problemas com a Configuração do Estado Desejada pela Automação Azure (DSC)
 
@@ -48,7 +48,7 @@ Para obter informações sobre a utilização de xDscDiagnostics, consulte [Util
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Certifique-se de que os nódosos e o espaço de trabalho da Automação têm módulos necessários
 
-O DSC depende dos módulos instalados no nó. Ao utilizar a Configuração do Estado da Automação Azure, importe os módulos necessários para a sua conta Deautomação utilizando os passos listados nos [Módulos de Importação](../shared-resources/modules.md#import-modules). As configurações também podem ter uma dependência de versões específicas de módulos. Para mais informações, consulte [Os Módulos de Resolução de Problemas](shared-resources.md#modules).
+O DSC depende dos módulos instalados no nó. Ao utilizar a Configuração do Estado da Automação Azure, importe os módulos necessários para a sua conta Deautomação utilizando os passos listados nos [Módulos de Importação](../shared-resources/modules.md#importing-modules). As configurações também podem ter uma dependência de versões específicas de módulos. Para mais informações, consulte [Os Módulos de Resolução de Problemas](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-dsc"></a>Erros comuns ao trabalhar com a DSC
 

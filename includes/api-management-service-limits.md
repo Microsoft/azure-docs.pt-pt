@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/10/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 2d4c8c2c831bd6ef16f60c34a6353f4a742798f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5608683578a796ae0fffff7544a749043e8698fd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76159068"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656189"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -38,7 +38,7 @@ ms.locfileid: "76159068"
 <sup>2</sup> O tamanho do cache por unidade depende do nível de preços. Para ver os níveis de preços e os seus limites de escala, consulte os preços da [Gestão Da API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup> As ligações são reunidas e reutilizadas a menos que explicitamente fechadas na parte de trás.<br/>
 <sup>4</sup> Este limite é por unidade dos níveis Básico, Standard e Premium. O nível de Desenvolvimento está limitado a 1.024. Este limite não se aplica ao nível de consumo.<br/>
-<sup>5</sup> Este limite aplica-se aos níveis Básico, Standard e Premium. No nível de Consumo, o tamanho do documento político é limitado a 4 KiB.<br/>
+<sup>5</sup> Este limite aplica-se aos níveis Básico, Standard e Premium. No nível de Consumo, o tamanho do documento político é limitado a 16 KiB.<br/>
 <sup>6</sup> Este recurso está disponível apenas no nível Premium.<br/>
 <sup>7</sup> Este recurso aplica-se apenas ao nível de Consumo.<br/>
 <sup>8</sup> Aplica-se apenas ao nível de Consumo. Inclui uma corda de consulta longa até 2048 bytes.<br/>

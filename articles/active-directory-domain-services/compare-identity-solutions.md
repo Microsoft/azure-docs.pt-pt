@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 62826b209b37e5abe5d33455809ba1b894ddb85f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476462"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655520"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Compare serviços de domínio ativo autogeridos, Diretório Ativo Azure e gerido serviços de domínio de diretório ativo azure
 
@@ -25,12 +25,16 @@ Embora as três soluções de identidade baseadas no Ative Directory partilhem u
 
 * **Ative Directory Domain Services (AD DS)** - Servidor de protocolo de acesso leve de diretório (LDAP) pronto para a empresa que fornece funcionalidades-chave como identidade e autenticação, gestão de objetos informáticos, política de grupo e fidedignidades.
     * O AD DS é um componente central em muitas organizações com um ambiente informático no local, e fornece funcionalidades de autenticação de conta de utilizador e gestão de computadores.
+    * Para mais informações, consulte a visão geral dos Serviços de Domínio do [Diretório Ativo na documentação do Windows Server][overview-adds].
 * **Azure Ative Directory (Azure AD)** - Gestão de identidade e dispositivos móveis baseadona na nuvem que fornece serviços de conta de utilizador e autenticação para recursos como o Office 365, o portal Azure ou aplicações SaaS.
     * A Azure AD pode ser sincronizada com um ambiente AD DS no local para fornecer uma única identidade aos utilizadores que funcionam de forma nativa na nuvem.
+    * Para mais informações sobre o Azure AD, consulte [o what is Azure Ative Directory?][whatis-azuread]
 * **Azure Ative Directory Domain Services (Azure AD DS)** - Fornece serviços de domínio geridos com um subconjunto de funcionalidades tradicionais de DS ad si compatíveis, tais como a adesão ao domínio, política de grupo, LDAP e autenticação Kerberos/NTLM.
     * A Azure AD DS integra-se com a Azure AD, que por si só pode sincronizar com um ambiente AD DS no local. Esta capacidade alarga os casos centrais de utilização da identidade às aplicações web tradicionais que funcionam em Azure como parte de uma estratégia de elevação e mudança.
 
 Este artigo de visão geral compara e contrasta como estas soluções de identidade podem funcionar em conjunto, ou seriam usadas de forma independente, dependendo das necessidades da sua organização.
+
+Para começar, [crie um domínio gerido azure AD DS utilizando o portal Azure][tutorial-create].
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS e AD DS autogerido
 
@@ -118,3 +122,5 @@ Para começar com a utilização de Azure AD DS, [crie um domínio gerido azure 
 [manage-gpos]: manage-group-policy.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-create]: tutorial-create-instance.md
+[whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
+[overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview

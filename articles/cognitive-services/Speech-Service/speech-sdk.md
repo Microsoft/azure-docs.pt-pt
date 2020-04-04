@@ -1,126 +1,139 @@
 ---
 title: Sobre o Discurso SDK - Serviço de Discurso
 titleSuffix: Azure Cognitive Services
-description: O Kit de Desenvolvimento de Software de Fala (SDK) dá às suas aplicações acesso nativo às funções do serviço Speech, facilitando o desenvolvimento de software. Este artigo fornece detalhes adicionais sobre o SDK para Windows, Linux e Android.
+description: O kit de desenvolvimento de software Speech (SDK) expõe muitas das capacidades do serviço speech, facilitando o desenvolvimento de aplicações ativadas pela fala.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2ff4a94c1b2941f645cd7032ef476d33dffdb00
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331098"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656569"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca do SDK de Voz
 
-O Kit de Desenvolvimento de Software de Fala (SDK) dá às suas aplicações acesso às funções do serviço Speech, facilitando o desenvolvimento de software ativado pela fala. Atualmente, os SDKs dão acesso ao **discurso-a-texto,** **texto-a-fala,** **tradução da fala,** **reconhecimento de intenções**e canal de **discurso de linha direta do Bot Framework.**
-
-Pode capturar facilmente áudio a partir de um microfone, ler a partir de um fluxo ou aceder a ficheiros áudio a partir do armazenamento com o Speech SDK. O Speech SDK suporta WAV/PCM 16-bit, 16 kHz/8 kHz, áudio de canal único para reconhecimento de voz. São suportados formatos áudio adicionais utilizando o [ponto final do REST da fala-a-texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o serviço de [transcrição](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)do lote .
-
-Uma visão geral sobre as capacidades e plataformas suportadas pode ser encontrada na página de [entrada](https://aka.ms/csspeech)da documentação .
+O kit de desenvolvimento de software Speech (SDK) expõe muitas das capacidades do serviço speech, para capacitá-lo para desenvolver aplicações ativadas pela fala. O Speech SDK está disponível em muitas linguagens de programação e em todas as plataformas.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+## <a name="scenario-capabilities"></a>Capacidades de cenário
 
-## <a name="get-the-sdk"></a>Obter o SDK
+O SDK do Discurso expõe muitas características do serviço de Discurso, mas não todas. As capacidades do SDK do Discurso estão frequentemente associadas a cenários. O Speech SDK é ideal tanto para cenários em tempo real como para não em tempo real, utilizando dispositivos locais, ficheiros, armazenamento de blob Azure e até mesmo fluxos de entrada e saída. Quando um cenário não for alcançável com o SDK do Discurso, procure uma alternativa rest API.
+
+### <a name="speech-to-text"></a>Conversão de voz em texto
+
+[O discurso ao texto](speech-to-text.md) (também conhecido como reconhecimento da *fala)* transcreve streams de áudio para texto que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. Use o discurso a texto com a compreensão da [linguagem (LUIS)](../luis/index.yml) para derivar as intenções dos utilizadores de falar transcrito e agir sobre comandos de voz. Use [a Tradução da Fala](speech-translation.md) para traduzir a entrada da fala para uma linguagem diferente com uma única chamada. Para mais informações, consulte os [fundamentos do Discurso ao Texto](speech-to-text-basics.md).
+
+### <a name="text-to-speech"></a>Conversão de texto em voz
+
+[Texto-a-fala](text-to-speech.md) (também conhecido como síntese da *fala)* converte texto em discurso sintetizado como o humano. O texto de entrada é literal de cordas ou utiliza a linguagem de marcação da síntese da [fala (SSML)](speech-synthesis-markup.md). Para obter mais informações sobre vozes padrão ou neurais, consulte a [linguagem texto-a-voz e](language-support.md#text-to-speech)o suporte de voz .
+
+### <a name="voice-assistants"></a>Assistentes de voz
+
+Os assistentes de voz que usam o SDK do Discurso permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para as suas aplicações e experiências. O serviço de assistente de voz proporciona uma interação rápida e fiável entre um dispositivo e um assistente. A implementação utiliza o canal de discurso de linha direta do Bot Framework ou o serviço integrado de Comandos Personalizados (Pré-visualização) para a conclusão da tarefa. Além disso, os assistentes de voz podem ser criados usando o [Custom Voice Portal](https://aka.ms/customvoice) para criar uma experiência de voz única.
+
+#### <a name="keyword-spotting"></a>Spotting de palavra-chave
+
+O conceito de spotting de [palavras-chave](speech-devices-sdk-create-kws.md) é apoiado no SDK do discurso. A identificação das palavras-chave é o ato de identificar uma palavra-chave no discurso, seguida de uma ação ao ouvir a palavra-chave. Por exemplo, "Hey Cortana" ativaria o assistente cortana.
+
+### <a name="meeting-scenarios"></a>Cenários de reunião
+
+O Speech SDK é perfeito para transcrever cenários de reunião, seja a partir de um único dispositivo ou de uma conversa multi-dispositivo.
+
+#### <a name="conversation-transcription"></a>Transcrição de Conversas
+
+[A Transcrição da Conversa](conversation-transcription.md) permite o reconhecimento da fala em tempo real (e assíncrono), a identificação do altifalante e a atribuição de frases a cada orador (também conhecido como *diarização).* É perfeito para transcrever reuniões presenciais com a capacidade de distinguir os falantes.
+
+#### <a name="multi-device-conversation"></a>Conversa ção multi-dispositivo
+
+Com a [Conversa ção multi-dispositivo,](multi-device-conversation.md)ligue vários dispositivos ou clientes numa conversa para enviar mensagens baseadas em discursos ou com texto, com suporte fácil para transcrição e tradução.
+
+### <a name="custom--agent-scenarios"></a>Cenários personalizados/agentes
+
+O SDK do Discurso pode ser usado para transcrever cenários de call center, onde os dados da telefonia são gerados.
+
+#### <a name="call-center-transcription"></a>Transcrição de Centros de Atendimento Telefónico
+
+[A transcrição](call-center-transcription.md) do Call Center é um cenário comum para o discurso-texto para transcrever grandes volumes de dados de telefonia que podem vir de vários sistemas, como a Interactive Voice Response (IVR). Os mais recentes modelos de reconhecimento da fala do serviço da Fala primam pela transcrição destes dados de telefonia, mesmo nos casos em que os dados são difíceis de entender por um ser humano.
+
+### <a name="codec-compressed-audio-input"></a>Entrada de áudio comprimido codec
+
+Várias das linguagens de programação do Speech SDK suportam fluxos de entrada de áudio comprimidos codec. Para mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">a utilização de formatos <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>de entrada de áudio comprimidos .
+
+## <a name="rest-api"></a>API REST
+
+Enquanto o SDK de Discurso cobre muitas capacidades de recurso do Serviço de Fala, para alguns cenários você pode querer usar a API REST. Como exemplo, a gestão de pontos finais só é exposta através da API REST.
+
+> [!TIP]
+> Ao confiar na API REST, use o Editor Swagger para gerar automaticamente bibliotecas de clientes. Por exemplo, para gerar uma biblioteca de clientes de transcrição de Lote.
+> 1. Copie o URL do exemplo abaixo:
+>     ```http
+>     https://westus.cris.ai/docs/v2.0/swagger
+>     ```
+> 1. Navegue para o <a href="https://editor.swagger.io/" target="_blank">Editor <span class="docon docon-navigate-external x-hidden-focus"></span> Swagger</a>
+> 1. Selecione URL de**importação** de **ficheiros** > e colá o URL
+> 1. Selecione **Generate Client** e escolha a sua linguagem de programação desejada
+
+### <a name="batch-transcription"></a>Transcrição em lote
+
+[A transcrição](batch-transcription.md) do lote permite a transcrição assíncrona da fala-a-texto de grandes volumes de dados. A transcrição do lote só é possível a partir da API REST.
+
+## <a name="customization"></a>Personalização
+
+O Speech Service oferece uma grande funcionalidade com os seus modelos padrão em todo o discurso a texto, texto-a-fala e tradução da fala. Às vezes, pode querer aumentar o desempenho de base para trabalhar ainda melhor com o seu caso de uso único. O Speech Service tem uma variedade de ferramentas de personalização sem código que facilitam a sua vida e permitem criar uma vantagem competitiva com modelos personalizados com base nos seus próprios dados. Estes modelos só estarão disponíveis para si e para a sua organização.
+
+### <a name="custom-speech-to-text"></a>Discurso personalizado a texto
+
+Ao utilizar o discurso ao texto para reconhecimento e transcrição num ambiente único, pode criar e formar modelos acústicos, linguísticos e de pronúncia personalizados para abordar o ruído ambiente ou o vocabulário específico da indústria. A criação e gestão de modelos de Discurso Personalizado sem código está disponível através do Portal da [Fala Personalizada.](https://aka.ms/customspeech) Uma vez publicado o modelo de Discurso Personalizado, pode ser consumido pelo SDK da Fala.
+
+### <a name="custom-text-to-speech"></a>Texto-a-fala personalizado
+
+Texto-a-voz personalizado, também conhecido como Custom Voice é um conjunto de ferramentas online que lhe permitem criar uma voz única e reconhecível para a sua marca. A criação e gestão de modelos custom Voice sem código está disponível através do Portal de [Voz Personalizada.](https://aka.ms/customvoice) Uma vez publicado o modelo Custom Voice, pode ser consumido pelo SDK da Fala.
+
+## <a name="get-the-speech-sdk"></a>Obtenha o SDK do Discurso
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-> [!WARNING]
-> O SDK de Speech suporta versões posteriores do Windows 10 ou posteriores. As versões anteriores do Windows não são **suportadas**.
-
-Para windows, suportamos os seguintes idiomas:
-
-* C# (UWP e .NET), C++: Pode fazer referência e utilizar a versão mais recente do nosso pacote NuGet Speech SDK. O pacote inclui bibliotecas de clientes de 32 bits e 64 bits e bibliotecas geridas (.NET). O SDK pode ser instalado no Estúdio Visual utilizando NuGet, [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
-
-* Java: Pode fazer referência e utilizar a versão mais recente do nosso pacote Speech SDK Maven, que suporta apenas o Windows x64. No seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` repositório adicional e referência como dependência.
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-windows.md)]
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-> [!NOTE]
-> Atualmente, apenas apoiamos Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8, e CentOS 8 nas seguintes arquiteturas-alvo:
-> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) para o desenvolvimento de C++
-> - x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) para Java
-> - x64 para .NET Core e Python
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-linux.md)]
 
-Certifique-se de que tem as bibliotecas necessárias instaladas executando os seguintes comandos de concha:
+# <a name="ios"></a>[iOS](#tab/ios)
 
-Em Ubuntu:
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-ios.md)]
 
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2
-```
+# <a name="macos"></a>[macOS](#tab/macos)
 
-Em Debian 9:
-
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.2 libasound2
-```
-
-No RHEL/CentOS 8:
-
-```sh
-sudo yum update
-sudo yum install alsa-lib openssl
-```
-
-> [!NOTE]
-> No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-* C#: Você pode fazer referência e usar a versão mais recente do nosso pacote NuGet Speech SDK. Para fazer referência ao SDK, adicione a seguinte referência ao pacote ao seu projeto:
-
-  ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
-  ```
-
-* Java: Você pode fazer referência e usar a versão mais recente do nosso pacote Speech SDK Maven. No seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` repositório adicional e referência como dependência.
-
-* C++: Descarregue o SDK como um [pacote .tar](https://aka.ms/csspeech/linuxbinary) e desempack os ficheiros num diretório à sua escolha. A tabela que se segue mostra a estrutura da pasta SDK:
-
-  |Caminho|Descrição|
-  |-|-|
-  |`license.md`|Licença|
-  |`ThirdPartyNotices.md`|Notificações de terceiros|
-  |`include`|Ficheiros de cabeçalho para C e C++|
-  |`lib/x64`|Biblioteca nativa x64 para ligar com a sua aplicação|
-  |`lib/x86`|Biblioteca nativa x86 para ligação com a sua aplicação|
-
-  Para criar uma aplicação, copiar ou mover os binários necessários (e bibliotecas) para o seu ambiente de desenvolvimento. Inclua-os conforme necessário no seu processo de construção.
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-macos.md)]
 
 # <a name="android"></a>[Android](#tab/android)
 
-O Java SDK para Android está embalado como [Um Ar (Biblioteca Android),](https://developer.android.com/studio/projects/android-library)que inclui as bibliotecas necessárias e as permissões necessárias para android. Está hospedado num repositório Maven `https://csspeechstorage.blob.core.windows.net/maven/` como `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`pacote.
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-android.md)]
 
-Para consumir o pacote do seu projeto Android Studio, efaça as seguintes alterações:
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* No ficheiro build.gradle ao nível do `repository` projeto, adicione o seguinte à secção:
+[!INCLUDE [Get the Node.js Speech SDK](includes/get-speech-sdk-nodejs.md)]
 
-  ```gradle
-  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
-  ```
+# <a name="browser"></a>[Browser](#tab/browser)
 
-* No ficheiro build.gradle de nível de `dependencies` módulo, adicione o seguinte à secção:
-
-  ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.7.0'
-  ```
-
-O Java SDK também faz parte do [SDK dispositivos](speech-devices-sdk.md)de fala.
+[!INCLUDE [Get the Browser Speech SDK](includes/get-speech-sdk-browser.md)]
 
 ---
 
-[!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+
+[!INCLUDE [Sample source code](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer o discurso em C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Veja como reconhecer o discurso em C #](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

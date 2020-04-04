@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd922d0e65da627f11e6aab3827cb848c3dd635
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c6db9ed92161e968b36c75b8bee5a847137c072
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75560530"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631876"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com jira SAML SSO pela Microsoft
 
@@ -42,7 +42,7 @@ Utilize a sua conta Microsoft Azure Ative Directory com o servidor ATLASSIAN JIR
 Para configurar a integração do Anúncio Azure com o JIRA SAML SSO pela Microsoft, precisa dos seguintes itens:
 
 - Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-- JIRA Core and Software 6.4 a 8.5.1 ou MESA de Serviço JIRA 3.0 a 4.6.0 deve ser instalada e configurada na versão do Windows 64 bits
+- JIRA Core and Software 6.4 a 8.8.0 ou JIRA Service Desk 3.0 a 4.8.0 devem ser instalados e configurados na versão do Windows 64 bits
 - O servidor JIRA está ativado por HTTPS
 - Note que as versões suportadas para JIRA Plugin são mencionadas na secção abaixo.
 - O servidor JIRA é acessível na internet particularmente para a página de Login Azure AD para autenticação e deve receber o token da Azure AD
@@ -60,8 +60,8 @@ Para começar, precisa dos seguintes itens:
 
 ## <a name="supported-versions-of-jira"></a>Versões suportadas da JIRA
 
-* JIRA Core e Software: 6.4 a 8.5.1
-* Mesa de Serviço JIRA 3.0.0 a 4.6.0
+* JIRA Core e Software: 6.4 a 8.8.0
+* Mesa de Serviço JIRA 3.0.0 a 4.8.0
 * Jira também suporta 5.2. Para mais detalhes, clique no [Microsoft Azure Ative Directory single sign-on para JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]

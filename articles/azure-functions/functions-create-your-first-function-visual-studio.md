@@ -1,22 +1,22 @@
 ---
 title: 'Quickstart: Crie a sua primeira função em Azure usando o Visual Studio'
-description: Neste arranque rápido, aprende-se a criar e publicar uma Função Azure desencadeada pela HTTP utilizando o Visual Studio.
+description: Neste arranque rápido, aprende-se a criar e publicar uma Função Azure de gatilho HTTP utilizando o Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 13a03ca6820229fc90467236e0c23f236664d73f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dadb705e8b756418be40d738aa81b3e77961aead
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80056588"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657530"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
 
 As Funções Azure permitem executar o seu código num ambiente sem servidores sem ter de criar primeiro um VM ou publicar uma aplicação web.
 
-Neste quickstart, aprende-se a usar o Visual Studio 2019 para criar e testar localmente uma aplicação de função C# "hello world" desencadeada por HTTP, que depois publica para o Azure. 
+Neste quickstart, aprende-se a usar o Visual Studio 2019 para criar e testar localmente uma aplicação de função "hello world" HTTP trigger C#, que depois publica para o Azure. 
 
 ![Resposta da função localhost no browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -38,7 +38,7 @@ O Visual Studio cria um projeto e classe que contém código de placa de caldeir
 
 Expanda as capacidades da sua função com ligações de entrada e saída aplicando os atributos apropriados ao método. Para obter mais informações, veja a secção [Acionadores e enlaces](functions-dotnet-class-library.md#triggers-and-bindings) da [Referência para Programadores do Funções do Azure C#](functions-dotnet-class-library.md).
 
-Agora que criou o projeto de função e uma função acionada por HTTP, pode testá-la no seu computador local.
+Agora que criou o seu projeto de função e uma função de gatilho HTTP, pode testá-lo no seu computador local.
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
@@ -58,7 +58,7 @@ Antes de poder publicar o seu projeto, deve ter uma aplicação de função na s
 
 1. Copie o URL base da aplicação de função a partir da página de perfil **Publicar.** Substitua `localhost:port` a parte do URL utilizado para testar a função localmente com o novo URL base. Anexar a corda `?name=<YOUR_NAME>` de consulta a este URL e executar o pedido.
 
-    O URL que chama a função ativada http está no seguinte formato:
+    O URL que chama a função de gatilho HTTP está no seguinte formato:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -72,7 +72,7 @@ Antes de poder publicar o seu projeto, deve ter uma aplicação de função na s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, usaste o Visual Studio para criar e publicar uma aplicação de função C# em Azure com uma simples função ativada pela HTTP. 
+Neste quickstart, usaste o Visual Studio para criar e publicar uma aplicação de função C# em Azure com uma simples função de gatilho HTTP. 
 
 Avance para o próximo artigo para aprender a adicionar uma fila de fila de armazenamento Azure à sua função:
 > [!div class="nextstepaction"]

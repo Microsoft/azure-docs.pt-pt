@@ -1,24 +1,32 @@
 ---
-author: wolfma61
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/08/2019
-ms.author: wolfma
-ms.openlocfilehash: 62a1c682b770f06b4a01fa937f945d68541f5bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: dapine
+ms.openlocfilehash: 85dfedc75807e273240066460a58b79380050e58
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67133617"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656624"
 ---
-| Linguagem de programação | Plataforma | Referência da API |
-| -------------------- | -------- | ------------- |
-| C/C++ | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/cppref) |
-| C# | Windows, UWP, .NET Framework (Windows), .NET Core, Unidade | [Procurar](https://aka.ms/csspeech/csharpref) |
-| Java | Android, Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javaref) |
-| Java\* | [SDK de Dispositivos de Voz](../articles/cognitive-services/speech-service/speech-devices-sdk.md) | [Procurar](https://aka.ms/csspeech/javaref) |
-| JavaScript/Node.js | Navegador, Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javascriptref) |
-| Objective-C | iOS, macOS | [Procurar](https://aka.ms/csspeech/objectivecref) |
-| Python | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/pythonref)  |
+| Linguagem de programação | Plataforma                                                                           | Referência do SDK              |
+|----------------------|------------------------------------------------------------------------------------|----------------------------|
+| C# <sup>1</sup>      | Windows, Linux, macOS, Mono, Xamarin.iOS, Xamarin.Mac, Xamarin.Android, UWP, Unidade | [SDK .NET][net-sdk]        |
+| C++                  | Windows, Linux, macOS                                                              | [C++ SDK][cpp-sdk]         |
+| Java <sup>2</sup>    | Android, Windows, Linux, macOS                                                     | [SDK Java][javasdk]        |
+| JavaScript           | Browser, Node.js                                                                   | [SDK JavaScript][ecmasdk]  |
+| Objetivo-C / Swift  | iOS, macOS                                                                         | [Objectiva-C SDK][obj-sdk] |
+| Python               | Windows, Linux, macOS                                                              | [SDK Python][pyt-sdk]      |
 
-\**O Java SDK também está disponível como parte do [SDK dispositivos](../articles/cognitive-services/speech-service/speech-devices-sdk.md)de fala .*
+<sup>1 O .NET Speech SDK baseia-se em .NET Standard 2.0, suportando assim muitas plataformas. Para mais informações, consulte <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">o suporte de <span class="docon docon-navigate-external x-hidden-focus"> </span>implementação .NET </a>.</sup>
+
+<sup>2 O Java Speech SDK também está disponível como parte do [SDK dispositivos](../articles/cognitive-services/speech-service/speech-devices-sdk.md)de fala .</sup>
+
+[net-sdk]: https://aka.ms/csspeech/csharpref
+[cpp-sdk]: https://aka.ms/csspeech/cppref
+[javasdk]: https://aka.ms/csspeech/javaref
+[ecmasdk]: https://aka.ms/csspeech/javascriptref
+[obj-sdk]: https://aka.ms/csspeech/objectivecref
+[pyt-sdk]: https://aka.ms/csspeech/pythonref

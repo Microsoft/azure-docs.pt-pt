@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191397"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656240"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas a APIs personalizadas de Apps Lógicas Azure
 
@@ -179,7 +179,7 @@ Depois de obter o ID do cliente e o ID do inquilino, inclua estas Identidades co
 
 Para implementar automaticamente uma aplicação web em branco e uma aplicação lógica juntamente com a autenticação do Diretório Ativo Azure, [veja o modelo completo aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), ou clique em Deploy para **Azure** aqui:
 
-[![Desdobre para Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Implementar no Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Povoar a secção de Autorização na sua aplicação lógica
 
@@ -250,7 +250,7 @@ Na secção **de Autorização,** incluem estes imóveis:
 
 | Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
-| `type` | Sim | O tipo de autenticação. Para os certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| `type` | Sim | O tipo de autenticação. Para os certificados de cliente TLS/SSL, o valor deve ser `ClientCertificate`. |
 | `password` | Não | A palavra-passe para aceder ao certificado de cliente (ficheiro PFX) |
 | `pfx` | Sim | O conteúdo codificado base64 do certificado de cliente (ficheiro PFX) |
 ||||

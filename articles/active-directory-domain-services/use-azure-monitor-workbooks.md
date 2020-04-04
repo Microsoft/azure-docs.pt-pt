@@ -6,15 +6,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf6926651a0e2e9289b3c729abea16b1c66bce6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80108643"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654458"
 ---
 # <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Reveja os eventos de auditoria de segurança nos Serviços de Domínio da AD azure utilizando livros de trabalho do Monitor Azure
 

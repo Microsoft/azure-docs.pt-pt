@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586315"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632238"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Armazém de Dados (DWUs)
 
@@ -24,14 +24,18 @@ Recomendações sobre a escolha do número ideal de unidades de armazém de dado
 
 ## <a name="what-are-data-warehouse-units"></a>O que são Unidades de Armazém de Dados
 
-Uma [piscina Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão a ser aprovisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Estes três recursos são agregados em unidades de escala de cálculo chamadas Unidades de Armazém de Dados (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. Uma alteração ao nível do seu serviço altera o número de DWUs que estão disponíveis para o sistema, o que por sua vez ajusta o desempenho, e o custo, do seu sistema.
+Uma [piscina Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão a ser aprovisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. 
+
+Estes três recursos são agregados em unidades de escala de cálculo chamadas Unidades de Armazém de Dados (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. 
+
+Uma alteração ao nível do seu serviço altera o número de DWUs que estão disponíveis para o sistema, o que por sua vez ajusta o desempenho, e o custo, do seu sistema.
 
 Para um desempenho mais elevado, pode aumentar o número de unidades de armazém de dados. Para menos desempenho, reduza as unidades de armazém de dados. Os custos de armazenamento e de computação são faturados em separado, pelo que a alteração das unidades do armazém de dados não afeta os custos de armazenamento.
 
 O desempenho das unidades de armazém de dados baseia-se nestas métricas de carga de trabalho:
 
-- A rapidez com que uma consulta padrão de armazenamento de dados pode digitalizar um grande número de linhas e, em seguida, executar uma agregação complexa. Esta operação é intensiva em I/O e CPU.
-- A rapidez com que o armazém de dados pode ingerir dados de Blobs de Armazenamento Azure ou do Lago de Dados Azure. Esta operação é de rede e de CPU intensiva.
+- A rapidez com que uma consulta padrão de piscina SQL pode digitalizar um grande número de linhas e, em seguida, executar uma agregação complexa. Esta operação é intensiva em I/O e CPU.
+- A rapidez com que o pool SQL pode ingerir dados a partir de Blobs de Armazenamento Azure ou do Lago de Dados Azure. Esta operação é de rede e de CPU intensiva.
 - A rapidez com que o [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) comando T-SQL pode copiar uma tabela. Esta operação envolve a leitura de dados do armazenamento, a sua distribuição pelos nós do aparelho e a escrita para armazenamento novamente. Esta operação é CPU, IO, e rede intensiva.
 
 Crescente DWUs:
@@ -42,7 +46,7 @@ Crescente DWUs:
 
 ## <a name="service-level-objective"></a>Objetivo de Nível de Serviço
 
-O Objetivo de Nível de Serviço (SLO) é a definição de escalabilidade que determina o custo e o nível de desempenho do seu armazém de dados. Os níveis de serviço para o conjunto Gen2 SQL são medidos em unidades de armazém de dados (DWU), por exemplo DW2000c.
+O Objetivo de Nível de Serviço (SLO) é a definição de escalabilidade que determina o custo e o nível de desempenho da sua piscina SQL. Os níveis de serviço para o conjunto Gen2 SQL são medidos em unidades de armazém de dados (DWU), por exemplo DW2000c.
 
 No T-SQL, a definição de SERVICE_OBJETIVE determina o nível de serviço para a sua piscina SQL.
 
@@ -56,7 +60,7 @@ CREATE DATABASE mySQLDW
 
 ## <a name="capacity-limits"></a>Limites de capacidade
 
-Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota da Unidade de Transações de Base de [Dados (DTU)](../../sql-database/sql-database-service-tiers-dtu.md) que permite um número específico de unidades de armazém de dados. Para obter mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](sql-data-warehouse-service-capacity-limits.md#workload-management)
+Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota da Unidade de Transações de Base de [Dados (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) que permite um número específico de unidades de armazém de dados. Para obter mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](sql-data-warehouse-service-capacity-limits.md#workload-management)
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Quantas unidades de armazém de dados preciso
 
@@ -68,7 +72,9 @@ Passos para encontrar o melhor DWU para a sua carga de trabalho:
 2. Monitorize o desempenho da sua aplicação à medida que testa as cargas de dados no sistema, observando o número de DWUs selecionados em comparação com o desempenho observado.
 3. Identifique quaisquer requisitos adicionais para períodos periódicos de atividade máxima. As cargas de trabalho que mostram picos e calhas significativos em atividade podem ter de ser dimensionadas com frequência.
 
-O SQL Analytics é um sistema de escala que pode fornecer grandes quantidades de dados computação e consulta. Para ver as suas verdadeiras capacidades de escala, especialmente em DWUs maiores, recomendamos a escala do conjunto de dados à medida que escala para garantir que tem dados suficientes para alimentar os CPUs. Para testes em escala, recomendamos a utilização de pelo menos 1 TB.
+O pool SQL é um sistema de escala que pode fornecer grandes quantidades de dados computação e consulta. 
+
+Para ver as suas verdadeiras capacidades de escala, especialmente em DWUs maiores, recomendamos a escala do conjunto de dados à medida que escala para garantir que tem dados suficientes para alimentar os CPUs. Para testes em escala, recomendamos a utilização de pelo menos 1 TB.
 
 > [!NOTE]
 >
@@ -172,7 +178,7 @@ Para verificar o estado das alterações da DWU:
     FROM      sys.databases
     ;
     ```
-    
+
 1. Submeter a seguinte consulta para verificar o estado de funcionamento
 
     ```sql
@@ -182,7 +188,7 @@ Para verificar o estado das alterações da DWU:
     AND       major_resource_id = 'MySQLDW'
     ;
     ```
-    
+
 Este DMV devolve informações sobre várias operações de gestão no seu pool SQL, como a operação e o estado da operação, que é IN_PROGRESS ou concluída.
 
 ## <a name="the-scaling-workflow"></a>O fluxo de trabalho de escala

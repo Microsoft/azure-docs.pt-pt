@@ -4,19 +4,19 @@ description: A revisão frequentemente feita perguntas para a Proteção de Pass
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abef6e52e37cfa2faeb426bc59bb0de5a52a6658
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671671"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652646"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Proteção de senhas azure AD no local frequentemente perguntas
 

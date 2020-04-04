@@ -9,33 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 04/02/2020
 ms.author: diberry
-ms.openlocfilehash: 2b5046bb61dcafbba0b0540935e08777fbd747a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7560fdcbfc77ea2655e8af641794478ead4c11c7
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74123149"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631452"
 ---
 # <a name="use-descriptors-to-boost-signal-of-word-list"></a>Use descritores para aumentar o sinal da lista de palavras
 
-Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a sua precisão. As funcionalidades ajudam o LUIS, fornecendo dicas de que certas palavras e frases fazem parte de um vocabulário de domínio de aplicação. 
+Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a sua precisão. As funcionalidades ajudam o LUIS, fornecendo dicas de que certas palavras e frases fazem parte de um vocabulário de domínio de aplicação.
 
 Um [descritor](luis-concept-feature.md) (lista de frases) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e devem ser tratados da mesma forma (por exemplo, nomes de cidades ou produtos). O que o LUIS aprende sobre um deles é automaticamente aplicado aos outros também. Esta lista não é a mesma coisa que uma [entidade de lista](reference-entity-list.md) (correspondência sms exata) de palavras combinadas.
 
 Um descritor adiciona ao vocabulário do domínio da aplicação como um segundo sinal para LUIS sobre essas palavras.
 
-Reveja [os conceitos](luis-concept-feature.md) de recurso para entender quando e porquê usar um descritor. 
+Reveja [os conceitos](luis-concept-feature.md) de recurso para entender quando e porquê usar um descritor.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="add-descriptor"></a>Adicionar descritor
 
-1. Abra a sua aplicação clicando no seu nome na página **das Minhas Apps** e, em seguida, clique em **Construir,** em seguida, clique em **Descriptors** no painel esquerdo da sua aplicação. 
+1. Abra a sua aplicação clicando no seu nome na página **das Minhas Apps** e, em seguida, clique em **Construir,** em seguida, clique em **Descriptors** no painel esquerdo da sua aplicação.
 
-1. Na página **Desscriptors,** clique em **+ Adicionar Descritor**. 
- 
+1. Na página **Desscriptors,** clique em **+ Adicionar Descritor**.
+
 1. Na nova lista de **frases descritores,** introduza `Cities` um nome como para o descritor. Na caixa **Valor,** digite os valores dos `Seattle`descritores, tais como . Pode escrever um valor de cada vez, ou um conjunto de valores separados por vírgulas e, em seguida, pressionar **Enter**.
 
     > [!div class="mx-imgBorder"]
@@ -44,6 +44,8 @@ Reveja [os conceitos](luis-concept-feature.md) de recurso para entender quando e
     Depois de ter introduzido valores suficientes para o LUIS, surgem sugestões. Pode **+ Adicionar todos os** valores propostos ou selecionar termos individuais.
 
 1. Mantenha estes valores são verificados **intercambiáveis** se os valores do descritor adicionado são alternativas que podem ser utilizadas intercambiavelmente.
+
+1. A lista de frases pode aplicar-se a toda a aplicação com a definição **Global,** ou a um modelo específico (intenção ou entidade). Se criar a lista de frases, como _descritor_ de uma intenção ou entidade, o alternância está definido para não ser global. Neste caso, o significado do alternância é que o descritor é uma característica apenas para esse modelo, portanto, _não global_ para a aplicação.
 
 1. Selecione **Done** (Concluído). O novo descritor é adicionado à página **de Descritores.**
 

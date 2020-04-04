@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127349"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637086"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -39,7 +39,7 @@ A multi-sessão do Windows 10 Enterprise não pode funcionar em ambientes de pro
 
 Pode iniciar uma máquina virtual (VM) em Azure com a multi-sessão do Windows 10 Windows 10 Enterprise e personalizá-la instalando aplicações LOB, sysprep/generalizar e, em seguida, criar uma imagem usando o portal Azure.  
  
-Para começar, crie um VM em Azure com a multi-sessão do Windows 10 Windows 10 Enterprise. Em vez de iniciar o VM em Azure, pode baixar o VHD diretamente. Depois disso, poderá utilizar o VHD que descarregou para criar um novo VM de Geração 1 num PC Windows 10 com hiper-V ativado.
+Para começar, crie um VM em Azure com a multi-sessão Do Windows 10 Enterprise. Em vez de iniciar o VM em Azure, pode baixar o VHD diretamente. Depois disso, poderá utilizar o VHD que descarregou para criar um novo VM de Geração 1 num PC Windows 10 com hiper-V ativado.
 
 Personalize a imagem às suas necessidades instalando aplicações LOB e sysprep a imagem. Quando terminar de personalizar, faça o upload da imagem para Azure com o VHD no interior. Depois disso, obtenha o Windows Virtual Desktop do Azure Marketplace e use-o para implementar uma nova piscina de anfitriões com a imagem personalizada.
  

@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525826"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631371"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -239,9 +239,9 @@ Pode aceder ao [portal Azure](https://portal.azure.com) a partir do navegador Fi
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-O Azure Machine Learning é um serviço de cloud totalmente gerido que lhe permite construir, implementar e partilhar soluções de análise preditivas. Pode construir as suas experiências e modelos do Azure Machine Learning Studio (clássico). Você pode acessá-lo a partir de um navegador web na Máquina Virtual data Science visitando [o Microsoft Azure Machine Learning](https://studio.azureml.net).
+O Azure Machine Learning é um serviço de cloud totalmente gerido que lhe permite construir, implementar e partilhar soluções de análise preditivas. Pode construir as suas experiências e modelos no estúdio Azure Machine Learning (pré-visualização). Você pode acessá-lo a partir de um navegador web na Máquina Virtual data Science visitando [o Microsoft Azure Machine Learning](https://ml.azure.com).
 
-Depois de iniciar sessão no Azure Machine Learning Studio (clássico), pode usar uma tela de experimentação para construir um fluxo lógico para os algoritmos de aprendizagem automática. Você também tem acesso a um caderno Jupyter que está hospedado no Azure Machine Learning e pode trabalhar perfeitamente com as experiências no Azure Machine Learning Studio (clássico). 
+Depois de iniciar sessão no estúdio Azure Machine Learning, pode usar uma tela de experimentação para construir um fluxo lógico para os algoritmos de aprendizagem automática. Você também tem acesso a um caderno Jupyter que está hospedado no Azure Machine Learning e pode trabalhar perfeitamente com as experiências no estúdio Azure Machine Learning. 
 
 Operacionalize os modelos de aprendizagem automática que construiu envolvendo-os numa interface de serviço web. A operacionalização de modelos de aprendizagem automática permite que os clientes escritos em qualquer idioma invoquem previsões desses modelos. Para mais informações, consulte a documentação do [Machine Learning.](https://azure.microsoft.com/documentation/services/machine-learning/)
 

@@ -4,18 +4,18 @@ description: Como definir alvos de armazenamento para que o seu Cache Azure HPC 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271892"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657409"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
-*Os alvos* de armazenamento são armazenamento de back-end para ficheiros que são acedidos através de uma instância de Cache Azure HPC. Pode adicionar armazenamento NFS (como um sistema de hardware no local) ou armazenar dados em Azure Blob.
+*Os alvos* de armazenamento são armazenamento de back-end para ficheiros que são acedidos através de uma Cache Azure HPC. Pode adicionar armazenamento NFS (como um sistema de hardware no local) ou armazenar dados em Azure Blob.
 
 Pode definir até dez alvos de armazenamento diferentes para uma cache. A cache apresenta todos os alvos de armazenamento num espaço de nome agregado.
 
@@ -35,9 +35,9 @@ Um novo alvo de armazenamento Blob precisa de um recipiente Blob vazio ou um rec
 
 Pode criar um novo recipiente a partir desta página pouco antes de adicioná-lo.
 
-Para definir um recipiente Azure Blob, introduza esta informação.
-
 ![screenshot da página alvo de armazenamento adicionar, povoada com informações para um novo alvo de armazenamento Azure Blob](media/hpc-cache-add-blob.png)
+
+Para definir um recipiente Azure Blob, introduza esta informação.
 
 * **Nome alvo** de armazenamento - Defina um nome que identifique este alvo de armazenamento na Cache Azure HPC.
 * **Tipo de alvo** - Escolha **Blob**.
@@ -79,7 +79,7 @@ Passos para adicionar as funções RBAC:
 1. No campo **Select,** procure por "hpc".  Esta cadeia deve coincidir com um diretor de serviço, denominado "HPC Cache Resource Provider". Clique no diretor para selecioná-lo.
 
    > [!NOTE]
-   > Se uma pesquisa por "hpc" não funcionar, tente utilizar a corda "storagecache" em vez disso. Os utilizadores que aderiram às pré-visualizações (antes da GA) poderão ter de utilizar o nome mais antigo para o diretor de serviço.
+   > Se uma pesquisa por "hpc" não funcionar, tente utilizar a corda "storagecache" em vez disso. Os utilizadores que participaram em pré-visualizações (antes da GA) podem ter de usar o nome mais antigo para o diretor de serviço.
 
 1. Clique no botão **Guardar** na parte inferior.
 
@@ -91,7 +91,10 @@ Passos para adicionar as funções RBAC:
 
 Um alvo de armazenamento NFS tem mais campos do que o alvo de armazenamento blob. Estes campos especificam como chegar à exportação de armazenamento e como cache eficientemente os seus dados. Além disso, um alvo de armazenamento NFS permite criar múltiplos caminhos de espaço de nome se o hospedeiro NFS tiver mais do que uma exportação disponível.
 
-![Screenshot de adicionar página-alvo de armazenamento com alvo NFS definido](media/hpc-cache-add-nfs-target.png)
+![Screenshot de adicionar página-alvo de armazenamento com alvo NFS definido](media/add-nfs-target.png)
+
+> [!NOTE]
+> Antes de criar um alvo de armazenamento NFS, certifique-se de que o seu sistema de armazenamento está acessível a partir do Cache Azure HPC e satisfaz os requisitos de permissão. A criação do alvo de armazenamento falhará se a cache não conseguir aceder ao sistema de armazenamento. Leia os requisitos de [armazenamento nFS](hpc-cache-prereqs.md#nfs-storage-requirements) e a [configuração da NAS de Troubleshoot e os problemas de alvo de armazenamento NFS](troubleshoot-nas.md) para mais detalhes.
 
 Forneça estas informações para um alvo de armazenamento apoiado pela NFS:
 
@@ -126,7 +129,7 @@ Quando terminar, clique em **OK** para adicionar o alvo de armazenamento.
 ### <a name="choose-a-usage-model"></a>Escolha um modelo de utilização
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-Quando cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, tem de escolher o modelo de *utilização* para esse alvo. Este modelo determina como os seus dados estão em cache.
+Quando cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, tem de escolher o modelo de utilização para esse alvo. Este modelo determina como os seus dados estão em cache.
 
 Existem três opções:
 
@@ -138,7 +141,7 @@ Existem três opções:
 
 * **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a escrita. Ao utilizar esta opção, todos os clientes devem aceder a ficheiros através do Cache Azure HPC em vez de montarem o armazenamento de back-end diretamente. Os ficheiros em cache terão alterações recentes que não são armazenadas na parte de trás.
 
-  Neste modelo de utilização, os ficheiros na cache não são verificados com os ficheiros no armazenamento traseiro. A versão em cache do ficheiro é assumida como mais atual. Um ficheiro modificado na cache só é escrito no sistema de armazenamento traseiro depois de ter estado na cache durante uma hora sem alterações adicionais.
+  Neste modelo de utilização, os ficheiros na cache não são verificados com os ficheiros no armazenamento traseiro. A versão em cache do ficheiro é assumida como mais atual. Um ficheiro modificado na cache é escrito no sistema de armazenamento traseiro depois de ter estado na cache durante uma hora sem alterações adicionais.
 
 * **Os clientes escrevem para o alvo nFS, contornando a cache** - Escolha esta opção se algum cliente no seu fluxo de trabalho escrever dados diretamente para o sistema de armazenamento sem primeiro escrever para a cache. Os ficheiros que os clientes solicitam estão em cache, mas quaisquer alterações nos ficheiros do cliente são imediatamente transmitidas para o sistema de armazenamento de back-end.
 

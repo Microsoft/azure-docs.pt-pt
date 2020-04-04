@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 10/03/2019
-  ms.openlocfilehash: 0622aa7566d88a58ae33741cd844ba66b2459ec1
-  ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+  ms.openlocfilehash: 498c507c6a72020e30f1e96a23a58017ca14280a
+  ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80346569"
+  ms.lasthandoff: 04/03/2020
+  ms.locfileid: "80632493"
 landingContent:
 - title: Acerca do Azure Synapse Analytics
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     - text: Sugestões e melhores práticas
       url: cheat-sheet.md
     - text: Arquitetura de Referência
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse
+      url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 - title: Introdução
   linkLists:
   - linkListType: deploy
@@ -90,7 +90,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Configurar a autenticação do Azure Active Directory
-      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 - title: Recursos
   linkLists:
   - linkListType: video

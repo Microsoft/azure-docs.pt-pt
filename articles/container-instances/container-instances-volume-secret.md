@@ -2,26 +2,27 @@
 title: Monte volume secreto para grupo de contentores
 description: Saiba como montar um volume secreto para armazenar informações confidenciais para acesso pelos seus casos de contentores
 ms.topic: article
-ms.date: 07/19/2018
-ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/03/2020
+ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249939"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657156"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monte um volume secreto em instâncias de contentores azure
 
 Utilize um volume *secreto* para fornecer informações sensíveis aos contentores num grupo de contentores. O volume *secreto* armazena os seus segredos em ficheiros dentro do volume, acessíveis pelos contentores do grupo de contentores. Ao armazenar segredos num volume *secreto,* pode evitar adicionar dados sensíveis, como chaves SSH ou credenciais de base de dados ao seu código de aplicação.
 
-Todos os volumes *secretos* são apoiados por [tmpfs][tmpfs], um sistema de ficheiros apoiado por RAM; os seus conteúdos nunca são escritos para armazenamento não volátil.
+* Uma vez implantado com segredos num grupo de contentores, um volume secreto é *apenas lido*.
+* Todos os volumes secretos são apoiados por [tmpfs][tmpfs], um sistema de ficheiros apoiado por RAM; os seus conteúdos nunca são escritos para armazenamento não volátil.
 
 > [!NOTE]
 > Os volumes *secretos* estão atualmente restritos aos contentores Linux. Aprenda a passar variáveis ambientais seguras para os recipientes Windows e Linux em [variáveis ambiente definidos](container-instances-environment-variables.md). Enquanto estamos a trabalhar para trazer todas as funcionalidades para os recipientes windows, pode encontrar as diferenças de plataforma atuais na [visão geral](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Monte volume secreto - Azure CLI
 
-Para implantar um recipiente com um ou mais segredos `--secrets` utilizando `--secrets-mount-path` o CLI Azure, inclua os e parâmetros no [recipiente az criar][az-container-create] comando. Este exemplo monta um volume *secreto* composto por dois segredos, "mysecret1" e "mysecret2", em: `/mnt/secrets`
+Para implantar um recipiente com um ou mais segredos `--secrets` utilizando `--secrets-mount-path` o CLI Azure, inclua os e parâmetros no [recipiente az criar][az-container-create] comando. Este exemplo monta um volume *secreto* composto por dois ficheiros contendo segredos, `/mnt/secrets`"mysecret1" e "mysecret2", em:
 
 ```azurecli-interactive
 az container create \
@@ -35,11 +36,13 @@ az container create \
 A saída [de exec do contentor az][az-container-exec] az mostra a abertura de uma concha no recipiente de funcionamento, listando os ficheiros dentro do volume secreto e, em seguida, exibindo o seu conteúdo:
 
 ```azurecli
-az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+az container exec \
+  --resource-group myResourceGroup \
+  --name secret-volume-demo --exec-command "/bin/sh"
 ```
 
 ```output
-/usr/src/app # ls -1 /mnt/secrets
+/usr/src/app # ls /mnt/secrets
 mysecret1
 mysecret2
 /usr/src/app # cat /mnt/secrets/mysecret1
@@ -56,7 +59,7 @@ Também pode implantar grupos de contentores com o Azure CLI e um [modelo YAML](
 
 Quando se implanta com um modelo YAML, os valores secretos devem estar **codificados** no modelo. No entanto, os valores secretos aparecem em texto simples dentro dos ficheiros do recipiente.
 
-O seguinte modelo YAML define um grupo de *secret* contentores `/mnt/secrets`com um recipiente que monta um volume secreto em . O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
+O seguinte modelo YAML define um grupo de *secret* contentores `/mnt/secrets`com um recipiente que monta um volume secreto em . O volume secreto tem dois ficheiros contendo segredos, "mysecret1" e "mysecret2".
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -91,7 +94,9 @@ Para implantar com o modelo YAML, guarde o `deploy-aci.yaml`YAML anterior para u
 
 ```azurecli-interactive
 # Deploy with YAML template
-az container create --resource-group myResourceGroup --file deploy-aci.yaml
+az container create \
+  --resource-group myResourceGroup \
+  --file deploy-aci.yaml
 ```
 
 ## <a name="mount-secret-volume---resource-manager"></a>Monte volume secreto - Gestor de Recursos
@@ -107,11 +112,13 @@ O seguinte modelo de Gestor de Recursos define um *secret* grupo `/mnt/secrets`d
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Para implantar com o modelo de Gestor de Recursos, `deploy-aci.json`guarde o JSON anterior para `--template-file` um ficheiro nomeado, em seguida, execute a implementação do [grupo Az criar][az-group-deployment-create] comando com o parâmetro:
+Para implantar com o modelo de Gestor de Recursos, `deploy-aci.json`guarde o JSON anterior para `--template-file` um ficheiro nomeado, em seguida, execute o grupo de [implantação az criar][az-deployment-group-create] comando com o parâmetro:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create \
+  --resource-group myResourceGroup \
+  --template-file deploy-aci.json
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -134,4 +141,4 @@ Outro método para fornecer informações sensíveis aos contentores (incluindo 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-exec]: /cli/azure/container#az-container-exec
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

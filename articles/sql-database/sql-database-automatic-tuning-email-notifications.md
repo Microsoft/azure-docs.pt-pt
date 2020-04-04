@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b48c37a6e607d121416ebae4d74e58f39670b79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821932"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632089"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por e-mail para afinação automática
 
@@ -69,7 +69,7 @@ O próximo passo é criar um Livro de Corridas em Automação Azure no interior 
 Siga estes passos para criar um novo livro de execução da Automação Azure:
 
 - Aceda à conta Azure Automation que criou no passo anterior
-- Uma vez no painel de conta de automação, clique no item do menu "**Runbooks**" no lado esquerdo para criar um novo livro de execução da Automação Azure com o script PowerShell. Para saber mais sobre a criação de livros de automação, consulte Criar um novo livro de [corridas.](../automation/manage-runbooks.md#create-a-runbook)
+- Uma vez no painel de conta de automação, clique no item do menu "**Runbooks**" no lado esquerdo para criar um novo livro de execução da Automação Azure com o script PowerShell. Para saber mais sobre a criação de livros de automação, consulte Criar um novo livro de [corridas.](../automation/manage-runbooks.md#creating-a-runbook)
 - Para adicionar um novo livro de corridas, clique na opção de menu "**+Adicionar um livro**de execução " e, em seguida, clique na "**Criação rápida – Criar um novo livro**de execução ".
 - No painel Runbook, escreva em nome do seu livro de execução (para efeitos deste exemplo, "**AutomaticTuningEmailAutomation**" é usado), selecione o tipo de livro como **PowerShell** e escreva uma descrição deste livro de execução para descrever o seu propósito.
 - Clique no botão **Criar** para terminar de criar um novo livro de corridas
@@ -88,7 +88,7 @@ Em caso de várias subscrições, pode adicioná-las como comma-delimitada à pr
 ```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
-# Provided “as-is” with no implied warranties or support.
+# Provided "as-is" with no implied warranties or support.
 # The script is released to the public domain.
 #
 # Replace <SUBSCRIPTION_ID_WITH_DATABASES> in the header with your Azure subscription ID.
@@ -225,7 +225,7 @@ O próximo passo é adicionar três postos de trabalho (criar, obter produção 
    - Complete criando esta ação clicando em "**Salvar fluxo**"
 
 > [!TIP]
-> Para enviar e-mails automatizados para diferentes destinatários, crie fluxos separados. Nestes fluxos adicionais, altere o endereço de e-mail do destinatário no campo "To" e a linha de assunto de e-mail no campo "Assunto". A criação de novos livros de execução na Azure Automation com scripts PowerShell personalizados (como por exemplo com a mudança de ID de subscrição do Azure) permite uma maior personalização de cenários automatizados, como é por exemplo enviar e-mails de destinatários separados em afinação automatizada recomendações para assinaturas separadas.
+> Para enviar e-mails automatizados para diferentes destinatários, crie fluxos separados. Nestes fluxos adicionais, altere o endereço de e-mail do destinatário no campo "To" e a linha de assunto de e-mail no campo "Assunto". A criação de novos livros de execução na Azure Automation com scripts PowerShell personalizados (como por exemplo com a mudança de ID de subscrição do Azure) permite uma maior personalização de cenários automatizados, como por exemplo, enviar destinatários separados em recomendações de afinação automatizada para subscrições separadas.
 >
 
 Isto conclui as etapas necessárias para configurar o fluxo de trabalho de entrega de e-mail. Todo o fluxo constituído por três ações construídas é mostrado na imagem seguinte.

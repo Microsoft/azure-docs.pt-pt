@@ -4,19 +4,19 @@ description: Integre a sua infraestrutura VPN com o Azure MFA utilizando a exten
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425420"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654117"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integre a sua infraestrutura VPN com o Azure MFA utilizando a extensão do Servidor de Política de Rede para o Azure
 
@@ -108,8 +108,8 @@ A extensão NPS requer o Windows Server 2008 R2 SP1 ou mais tarde, com a funçã
 
 As seguintes bibliotecas são instaladas automaticamente com a extensão NPS:
 
--   [Pacotes Redistribuíveis Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Módulo de Diretório Ativo microsoft Azure para windows PowerShell versão 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Pacotes Redistribuíveis Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Módulo de Diretório Ativo microsoft Azure para windows PowerShell versão 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 Se o Módulo PowerShell do Microsoft Azure Ative Directory ainda não estiver presente, está instalado com um script de configuração que executa como parte do processo de configuração. Não há necessidade de instalar o módulo com antecedência se ainda não estiver instalado.
 

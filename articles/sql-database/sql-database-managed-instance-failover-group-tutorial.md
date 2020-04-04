@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462654"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631706"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: Adicione uma base de dados SQL gerida a um grupo de failover
 
@@ -425,7 +425,7 @@ Para criar uma rede virtual, siga estes passos:
     | --- | --- |
     | **Nome** |  O nome da rede virtual a utilizar pelo caso gerido `vnet-sql-mi-secondary`secundário, como . |
     | **Espaço de endereço** | O espaço de endereço para `10.128.0.0/16`a sua rede virtual, como . | 
-    | **Assinatura** | A subscrição onde reside a sua principal instância gerida e o seu grupo de recursos. |
+    | **Subscrição** | A subscrição onde reside a sua principal instância gerida e o seu grupo de recursos. |
     | **Região** | O local onde irá implementar a sua instância secundária gerida. |
     | **Sub-rede** | O nome da sua sub-rede. `default`é fornecido por defeito. |
     | **Intervalo de endereços**| O intervalo de endereços para a sua sub-rede. Isto deve ser diferente da gama de endereços de sub-rede utilizada `10.128.0.0/24`pela rede virtual da sua instância gerida principalmente, como .  |
@@ -462,7 +462,7 @@ Crie a instância gerida secundária utilizando o portal Azure.
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Assinatura** |  A subscrição onde é a sua principal instância gerida. |
+    | **Subscrição** |  A subscrição onde é a sua principal instância gerida. |
     | **Grupo de recursos**| O grupo de recursos onde é a sua principal instância gerida. |
     | **Nome da instância gerida** | O nome do seu novo caso secundário gerido, como`sql-mi-secondary`  | 
     | **Região**| A localização para a sua instância secundária gerida.  |
@@ -754,9 +754,9 @@ Crie a porta de entrada para a rede virtual da sua instância gerida principal u
  
     | **Campo** | Valor |
     | --- | --- |
-    | **Assinatura** |  A subscrição onde é a sua principal instância gerida. |
+    | **Subscrição** |  A subscrição onde é a sua principal instância gerida. |
     | **Nome** | O nome para o seu `primary-mi-gateway`portal de rede virtual, como . | 
-    | **Região** | A região onde o seu caso secundário gerido é. |
+    | **Região** | A região onde é a sua principal instância gerida. |
     | **Tipo de gateway** | Selecione **VPN**. |
     | **Tipo VPN** | Selecione **baseado em rota** |
     | **SKU**| Deixe o `VpnGw1`padrão de . |
@@ -836,7 +836,7 @@ Utilizando o portal Azure, repita os passos na secção anterior para criar a su
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Assinatura** |  A subscrição onde é a sua instância secundária gerida. |
+   | **Subscrição** |  A subscrição onde é a sua instância secundária gerida. |
    | **Nome** | O nome para o seu `secondary-mi-gateway`portal de rede virtual, como . | 
    | **Região** | A região onde o seu caso secundário gerido é. |
    | **Tipo de gateway** | Selecione **VPN**. |

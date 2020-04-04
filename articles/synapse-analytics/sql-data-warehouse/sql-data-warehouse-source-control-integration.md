@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9898addfa840752e27de8716d2185e767aac809b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350094"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633023"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integração de Controlo de Fonte para piscina SQL
 
-Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL Server Data (SSDT) com controlo de fonte.  A integração do controlo de fontes é o primeiro passo na construção do seu oleoduto de integração e implantação contínua com o recurso de piscina SQL em Azure Synapse Analytics. 
+Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL Server Data (SSDT) com controlo de fonte.  A integração do controlo de fontes é o primeiro passo na construção do seu oleoduto de integração e implantação contínua com o recurso de piscina SQL em Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 - Inscreva-se numa [organização Azure DevOps](https://azure.microsoft.com/services/devops/)
-- Passe pelo tutorial [Criar e Ligar](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)
--  [Instalar o Estúdio Visual 2019](https://visualstudio.microsoft.com/vs/older-downloads/) 
+- Passe pelo tutorial [Criar e Ligar](create-data-warehouse-portal.md)
+- [Instalar o Estúdio Visual 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Configurar e ligar a Azure DevOps
 
@@ -53,7 +53,7 @@ Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL
 
    ![Projeto de Importação](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Projeto de Importação")  
 
-3. No explorador de equipas no Estúdio Visual, comprometa todas as suas alterações ao seu repositório git local 
+3. No explorador de equipas no Estúdio Visual, comprometa todas as suas alterações ao seu repositório git local
 
    ![Consolidação](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Consolidação")  
 

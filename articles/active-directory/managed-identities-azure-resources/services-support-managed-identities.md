@@ -4,18 +4,18 @@ description: Lista de serviços que suportam identidades geridas para recursos A
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 03/13/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e01f1f5abfc0f76926ce503fae058c196c6e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c7a65df100cd58561ce12ac2ae01281eebd419a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282108"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656052"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos Azure
 
@@ -37,9 +37,9 @@ Os seguintes serviços Azure suportam identidades geridas para os recursos do Az
 
 Consulte a seguinte lista para configurar a identidade gerida para máquinas virtuais Azure (em regiões onde estiver disponível):
 
-- [Portal Azure](qs-configure-portal-windows-vm.md)
+- [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [CLI do Azure](qs-configure-cli-windows-vm.md)
 - [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
@@ -52,13 +52,13 @@ Consulte a seguinte lista para configurar a identidade gerida para máquinas vir
 
 Consulte a seguinte lista para configurar a identidade gerida para conjuntos de escala de máquinas virtuais Azure (em regiões onde estiver disponível):
 
-- [Portal Azure](qs-configure-portal-windows-vm.md)
+- [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [CLI do Azure](qs-configure-cli-windows-vm.md)
 - [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
-### <a name="azure-app-service"></a>App Service do Azure
+### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 
 | Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -67,8 +67,8 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 
 Consulte a seguinte lista para configurar a identidade gerida para o Azure App Service (em regiões onde disponível):
 
-- [Portal Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
@@ -93,8 +93,8 @@ Tipo de identidade gerido |Todos geralmente disponíveis<br>Regiões Azure Globa
 
 Consulte a seguinte lista para configurar a identidade gerida para funções azure (em regiões onde disponível):
 
-- [Portal Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Portal do Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [CLI do Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
@@ -108,7 +108,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 
 Consulte a seguinte lista para configurar a identidade gerida para as Aplicações Lógicas Azure (em regiões onde disponível):
 
-- [Portal Azure](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
+- [Portal do Azure](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
 - [Modelo Azure Resource Manager](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
@@ -120,17 +120,17 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 
 Consulte a seguinte lista para configurar a identidade gerida para a Azure Data Factory V2 (em regiões onde disponível):
 
-- [Portal Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Portal do Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [Rio SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>API Management do Azure
 
 Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
-| Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Utilizador atribuído | Pré-visualização | Pré-visualização | Não disponível | Pré-visualização |
 
 Consulte a seguinte lista para configurar a identidade gerida para a Gestão da API Azure (em regiões onde disponível):
 
@@ -145,7 +145,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 
 Consulte a seguinte lista para configurar a identidade gerida para as instâncias de contentores azure (em regiões onde estiver disponível):
 
-- [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
+- [CLI do Azure](~/articles/container-instances/container-instances-managed-identity.md)
 - [Modelo Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
@@ -158,7 +158,7 @@ Tipo de identidade gerido | Todos geralmente disponíveis<br>Regiões Azure Glob
 
 Consulte a seguinte lista para configurar a identidade gerida para as tarefas de registo de contentores azure (em regiões onde estiver disponível):
 
-- [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+- [CLI do Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 [Identidade Gerida para Aplicações](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) de Tecido de Serviço está em Pré-visualização e disponível em todas as regiões.

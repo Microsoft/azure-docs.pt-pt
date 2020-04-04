@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36898e75680771a9cb084fa142bb635ddbf51c70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43ae866959dd2112bacbb6b56e5683e7b3b851a0
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77192132"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631933"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
 
@@ -44,7 +44,7 @@ As seguintes opções estão disponíveis para incluir na criação de uma polí
 
 ## <a name="exclude-users"></a>Excluir utilizadores
 
-As exclusões são geralmente utilizadas para acesso de emergência ou contas de vidro partido. Podem ser encontradas mais informações sobre as contas de acesso de emergência e por que razão são importantes nos seguintes artigos: 
+Quando as organizações incluem e excluem um utilizador ou grupo, o utilizador ou grupo é excluído da política, uma vez que uma ação exclui uma investida na política. As exclusões são geralmente utilizadas para acesso de emergência ou contas de vidro partido. Podem ser encontradas mais informações sobre as contas de acesso de emergência e por que razão são importantes nos seguintes artigos: 
 
 * [Gerir contas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md)
 * [Criar uma estratégia resiliente de gestão de controlo de acesso com o Diretório Ativo azure](../authentication/concept-resilient-controls.md)
@@ -57,6 +57,16 @@ As seguintes opções estão disponíveis para excluir na criação de uma polí
    - Permite que os administradores selecionem funções específicas de diretório Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva para os utilizadores que atribuíram o papel de administrador global.
 - Utilizadores e grupos
    - Permite a segmentação de conjuntos específicos de utilizadores. Por exemplo, as organizações podem selecionar um grupo que contenha todos os membros do departamento de RH quando uma aplicação de RH é selecionada como a aplicação cloud. Um grupo pode ser qualquer tipo de grupo em Azure AD, incluindo grupos dinâmicos ou atribuídos de segurança e distribuição.
+
+### <a name="preventing-administrator-lockout"></a>Prevenção do bloqueio do administrador
+
+Para evitar que um administrador se bloqueie do seu diretório ao criar uma política aplicada a **Todos os utilizadores** e todas as **aplicações,** verá o seguinte aviso.
+
+> Não se tranque! Recomendamos que aplique uma política a um pequeno conjunto de utilizadores primeiro para verificar se se comporta como esperado. Recomendamos também a exclusão de pelo menos um administrador desta política. Isto garante que ainda tem acesso e pode atualizar uma apólice se for necessária uma mudança. Por favor, reveja os utilizadores e aplicações afetados.
+
+Por predefinição, a política fornecerá uma opção para excluir o utilizador atual da apólice, mas este padrão pode ser ultrapassado pelo administrador, como mostra a seguinte imagem. 
+
+![Aviso, não se tranque!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

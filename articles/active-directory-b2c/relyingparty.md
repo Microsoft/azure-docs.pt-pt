@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 04/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90ac6f35cafbe63e8c6cdb77450089d00c0e3099
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 221ed3169fff78a2721e91023036593570fbd723
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264352"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637799"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -125,7 +125,7 @@ O elemento **SingleSignOn** contém no seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Âmbito | Sim | O âmbito do comportamento de inscrição única. Valores `Suppressed`possíveis: , `Tenant`, `Application`ou `Policy`. O `Suppressed` valor indica que o comportamento é suprimido. Por exemplo, no caso de uma única sessão de sessão de sessão de sinalização, não se mantém nenhuma sessão para o utilizador e o utilizador é sempre solicitado para uma seleção do fornecedor de identidade. O `TrustFramework` valor indica que o comportamento é aplicado a todas as políticas no quadro de confiança. Por exemplo, um utilizador que navega através de duas viagens políticas para um quadro de confiança não é solicitado para uma seleção do fornecedor de identidade. O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navega através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navega através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção de fornecedorde identidade ao alternar entre políticas. |
+| Âmbito | Sim | O âmbito do comportamento de inscrição única. Valores `Suppressed`possíveis: , `Tenant`, `Application`ou `Policy`. O `Suppressed` valor indica que o comportamento é suprimido, e o utilizador é sempre solicitado para uma seleção de fornecedor de identidade.  O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navega através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navega através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção de fornecedorde identidade ao alternar entre políticas. |
 | KeepAliveInDays | Sim | Controla o tempo em que o utilizador permanece inscrito. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Mantenha-me inscrito em](custom-policy-keep-me-signed-in.md). |
 |EnforceIdTokenHintOnLogout| Não|  Forçar a passar um token de identificação previamente emitido para o ponto final de início de sessão como uma dica sobre a atual sessão autenticada do utilizador final com o cliente. Valores `false` possíveis: `true`(padrão), ou . Para mais informações, consulte o acesso à Web com o [OpenID Connect](openid-connect.md).  |
 
@@ -190,7 +190,7 @@ O elemento **Protocolo** contém o seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores `OpenIdConnect` possíveis: ou `SAML2`. O `OpenIdConnect` valor representa a norma de protocolo OpenID Connect 1.0 de acordo com a especificação da fundação OpenID. O `SAML2` valor representa a norma do protocolo SAML 2.0 de acordo com a especificação OASIS. Não utilize um símbolo SAML na produção. |
+| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores `OpenIdConnect` possíveis: ou `SAML2`. O `OpenIdConnect` valor representa a norma de protocolo OpenID Connect 1.0 de acordo com a especificação da fundação OpenID. O `SAML2` valor representa a norma do protocolo SAML 2.0 de acordo com a especificação OASIS. |
 
 ## <a name="outputclaims"></a>OutputClaims
 

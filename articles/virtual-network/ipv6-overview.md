@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 03b279ead6b1f5d26ae92b63a8780a61dfd711bb
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 887f9e100a60561271a4c15777e7131ea1f1f722
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420559"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631438"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>O que é iPv6 para rede virtual Azure?
 
@@ -57,7 +57,8 @@ O IPv6 para O Azure VNet inclui as seguintes capacidades:
     - Regras de saída opcionais que fornecem controlo declarativo completo sobre a conectividade de saída para escalar e afinar esta capacidade às suas necessidades específicas.
     - Configurações frontais opcionais múltiplas que permitem a um único equilibrador de carga utilizar vários endereços IP públicos IPv6, o mesmo protocolo frontend e porta podem ser reutilizados em endereços frontais.
     - As portas IPv6 opcionais podem ser reutilizadas em instâncias de backend utilizando a funcionalidade *IP flutuante* das regras de equilíbrio de carga 
-- Suporte interno de balancedor de [carga IPv6 padrão](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para criar aplicações resilientes de vários níveis dentro de VNETs Azure.  
+    - Nota: O equilíbrio de carga não realiza qualquer tradução protocolar (sem NAT64). 
+- Suporte interno de balancedor de [carga IPv6 padrão](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para criar aplicações resilientes de vários níveis dentro de VNETs Azure.   
 - Suporte básico do Equilíbrio de Carga pública IPv6 para compatibilidade com implementações legados
 - [Endereços e endereços iPv6 reservados do IPv6](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam a lista geminada das suas aplicações hospedadas em azul para a sua empresa e para os seus clientes.
 - O IP público de nível de instância fornece conectividade IPv6 internet diretamente a VMs individuais.
@@ -72,8 +73,9 @@ O IPv6 para o Azure VNET é um conjunto de funcionalidades fundamentais que perm
 
 ## <a name="limitations"></a>Limitações
 O atual IPv6 para o lançamento da rede virtual Azure tem as seguintes limitações:
-- O IPv6 para a rede virtual Azure está disponível em todas as regiões globais do Azure, mas apenas no Global Azure, ainda não em nuvens governamentais.
-- Os gateways ExpressRoute e VPN não podem ser utilizados num VNET com iPv6 ativado, diretamente ou com "UseRemoteGateway". 
+- O IPv6 para a rede virtual Azure está disponível em todas as regiões globais da Azure Commercial utilizando todos os métodos de implantação.  A implantação na nuvem do Governo dos EUA está temporariamente limitada ao modelo ARM (JSON), Interface de Linha de Comando (CLI) e Powershell.  O apoio do IPv6 no portal de nuvem do Governo dos EUA será útil em breve.  
+- Os gateways ExpressRoute PODEM ser utilizados para tráfego apenas iPv4 num VNET com IPv6 ativado.  O apoio ao tráfego IPv6 está no nosso roteiro.   
+- Os gateways VPN NÃO PODEM SER utilizados num VNET com iPv6 ativado, diretamente ou empares com "UseRemoteGateway".
 - A plataforma Azure (AKS, etc.) não suporta a comunicação IPv6 para contentores.  
 
 ## <a name="pricing"></a>Preços

@@ -12,14 +12,15 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: aa2f903611f52f8f7a8ede0040b592a7dddd0e89
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b8e37a15f473e5777fe5412b785a0916bd78f095
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584452"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655903"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Começar com o Visual Studio 2019
+
 Visual Studio **2019** SQL Server Data Tools (SSDT) é uma única ferramenta que lhe permite fazer o seguinte:
 
 - Conectar, consultar e desenvolver aplicações
@@ -30,29 +31,26 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) é uma única ferramenta que
 - Configurar gasodutos de integração e implementação contínuas com servidores de automação como o Azure DevOps
 
 ## <a name="install-visual-studio-2019"></a>Instalar o Estúdio Visual 2019
+
 Consulte [o Download Visual Studio 2019][] para descarregar e instalar o Visual Studio **16.3 ou superior**. Durante a instalação, selecione a carga de trabalho de armazenamento e processamento de dados. A instalação Autónoma SSDT já não é necessária no Visual Studio 2019.
 
 ## <a name="unsupported-features-in-ssdt"></a>Características não suportadas em SSDT
 
 Há momentos em que os lançamentos de funcionalidades para Synapse SQL podem não incluir suporte para SSDT. As seguintes funcionalidades não são atualmente suportadas:
 
-- [Pontos de vista materializados](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (em curso)
-- [Índices de colunas agrupadas ordenados](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (em curso)
-- [Declaração DE CÓPIA](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (em curso)
-- [Gestão da carga de trabalho](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) - grupos de carga de trabalho e classificadores (em curso)
-- [Segurança ao Nível da Linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+- [Vistas materializadas](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Índices de colunas agrupadas ordenadas](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
+- [Declaração de cópia](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Gestão da carga de trabalho](sql-data-warehouse-workload-management.md) - grupos de carga de trabalho e classificadores
+- [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
   - Envie aqui um bilhete de apoio ou [vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) aqui para obter o recurso apoiado.
-- [Máscara de dados dinâmica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
-  - Envie aqui um bilhete de apoio ou [vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) aqui para obter o recurso apoiado. 
-- [FUNÇÃO PREVISÃO](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) 
-- [Mesas com restrições](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-table-constraints#table-constraints) não são suportadas. Para estes objetos de mesa, defina a ação de construção para "Nenhum".
+- [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
+  - Envie aqui um bilhete de apoio ou [vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) aqui para obter o recurso apoiado.
+- [Mesas com restrições](sql-data-warehouse-table-constraints.md#table-constraints) não são suportadas. Para estes objetos de mesa, defina a ação de construção para "Nenhum".
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem a versão mais recente do SSDT, está pronto para [se ligar](sql-data-warehouse-query-visual-studio.md) à sua piscina SQL.
-
-
-
 
 <!--Other-->
 

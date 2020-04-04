@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 04/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 36b2d50722a1840e461d6907f440d859c7c82117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac660b20d519e49e832e979603f763fa672757a5
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408832"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637403"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -36,7 +36,7 @@ O quadro seguinte descreve os limites de recursos para ficheiros Azure NetApp:
 |  Número de volumes por piscina de capacidade     |    500   |    Sim     |
 |  Número de instantâneos por volume       |    255     |    Não        |
 |  Número de subnets delegadas nos Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    Não    |
-|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com Ficheiros Azure NetApp   |    1000   |    Sim   |
+|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com Ficheiros Azure NetApp   |    1000   |    Não   |
 |  Tamanho mínimo de uma única piscina de capacidade   |  4 TiB     |    Não  |
 |  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   Não   |
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |

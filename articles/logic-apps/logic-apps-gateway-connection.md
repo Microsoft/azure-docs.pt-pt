@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456570"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657141"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
@@ -60,6 +60,9 @@ As Aplicações Lógicas Azure suportam operações de leitura e escrita atravé
 
   Quando cria um recurso de gateway no portal Azure, seleciona uma instalação de gateway, que se liga ao seu recurso gateway e apenas a esse recurso de gateway. Nas Aplicações Lógicas Azure, os gatilhos e ações no local usam o recurso gateway para se conectarem a fontes de dados no local. Nestes gatilhos e ações, selecione a sua subscrição Azure e o recurso de gateway associado que pretende utilizar. Cada recurso de gateway liga-se a apenas uma instalação de gateway, que se liga a apenas a uma conta Azure.
 
+  > [!NOTE]
+  > Só o administrador de gateway pode criar o recurso gateway no portal Azure. Atualmente, os diretores de serviço não são apoiados. 
+
 <a name="create-gateway-resource"></a>
 
 ## <a name="create-azure-gateway-resource"></a>Criar recurso de gateway Azure
@@ -81,7 +84,7 @@ Depois de instalar o portal num computador local, crie o recurso Azure para o se
    | Propriedade | Descrição |
    |----------|-------------|
    | **Nome do recurso** | Forneça um nome para o seu recurso gateway que`-`contenha apenas letras, números, hífenes (),`_`parênteses`(`(, `)`) ou períodos ().`.` |
-   | **Assinatura** | Selecione a subscrição Azure para a conta Azure que foi utilizada para a instalação do gateway. A subscrição predefinida baseia-se na conta Azure que usou para iniciar sessão. |
+   | **Subscrição** | Selecione a subscrição Azure para a conta Azure que foi utilizada para a instalação do gateway. A subscrição predefinida baseia-se na conta Azure que usou para iniciar sessão. |
    | **Grupo de recursos** | O [grupo de recursos Azure](../azure-resource-manager/management/overview.md) que pretende utilizar |
    | **Localização** | A mesma região ou local que foi selecionado para o serviço de nuvem gateway durante a [instalação](../logic-apps/logic-apps-gateway-install.md)do gateway . Caso contrário, a instalação do gateway não aparecerá na lista de Nomes de **Instalação.** A localização da sua aplicação lógica pode diferir da localização do recurso gateway. |
    | **Nome de instalação** | Selecione uma instalação de gateway, que só aparece na lista quando estas condições forem satisfeitas: <p><p>- A instalação gateway utiliza a mesma região que o recurso gateway que pretende criar. <br>- A instalação de gateway não está ligada a outro recurso azure gateway. <br>- A instalação de gateway está ligada à mesma conta Azure que está a usar para criar o recurso gateway. <br>- A sua conta Azure pertence a um único [inquilino ou diretório Azure Ative Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) e é a mesma conta que foi utilizada para a instalação do gateway. <p><p>Para mais informações, consulte a secção de [perguntas frequentes.](#faq) |

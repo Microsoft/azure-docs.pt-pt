@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a37e1b9bc4a0b953dc727dbab2813dd938ed576
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720355"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652223"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Perguntas frequentes
 
@@ -135,7 +135,7 @@ Sim, você pode migrar uma metaloja da Colmeia de um ESP para um cluster não ES
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Como posso estimar o tamanho de uma base de dados de metaloja da Hive?
 
-Uma metaloja da Hive é usada para armazenar os metadados para fontes de dados que são usadas pelo servidor Hive. Os requisitos de tamanho dependem em parte do número e complexidade das suas fontes de dados da Hive, e não podem ser estimados antecipadamente. Tal como delineado nas [melhores práticas da Hive metastore,](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices)pode começar com um nível S2, que fornece 50 DTU e 250 GB de armazenamento, e se vir um estrangulamento, pode aumentar a base de dados.
+Uma metaloja da Hive é usada para armazenar os metadados para fontes de dados que são usadas pelo servidor Hive. Os requisitos de tamanho dependem em parte do número e complexidade das suas fontes de dados da Hive, e não podem ser estimados antecipadamente. Tal como delineado nas diretrizes da [Metastore da Hive,](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines)pode começar com um nível S2, que fornece 50 DTU e 250 GB de armazenamento, e se vir um estrangulamento, pode aumentar a base de dados.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>Suporta outra base de dados que não a Base de Dados Azure SQL como uma metaloja externa?
 
@@ -237,7 +237,7 @@ Nos clusters ESP Spark, o LLAP é ativado por razões de segurança (isto é, Ap
 Há duas formas de o conseguir: 1- Pode recriar o cluster e adicionar o grupo adicional no momento da criação do cluster. Se estiver a utilizar sincronização com âmbito em AAD-DS, certifique-se de que o grupo B está incluído na sincronização com âmbito.
 2- Adicione o grupo como um subgrupo aninhado do grupo anterior que foi usado para criar o cluster ESP. Por exemplo, se tiver criado um `A`cluster ESP com `B` grupo, pode mais `A` tarde adicionar grupo como um subgrupo aninhado de e após aproximadamente uma hora será sincronizado e disponível automaticamente no cluster. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Posso adicionar um Azure Data Lake Storage Gen2 a um cluster HDInsight existente como uma conta de armazenamento adicional?
 

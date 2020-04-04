@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476030"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654872"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de passwords e contas em domínios geridos
 
@@ -45,6 +45,11 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 ## <a name="default-password-policy-settings"></a>Definições de política de palavra-passe padrão
 
 As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para as políticas de password e bloqueio de conta a diferentes utilizadores num domínio. Por exemplo, para garantir contas privilegiadas, pode aplicar configurações mais rigorosas de bloqueio de conta do que contas regulares não privilegiadas. Pode criar vários FGPPs dentro de um domínio gerido pelo Azure AD DS e especificar a ordem de prioridade para os aplicar aos utilizadores.
+
+Para obter mais informações sobre as políticas de passworde utilizando o Ative Directory Administration Center, consulte os seguintes artigos:
+
+* [Conheça as políticas de senha de grãos finos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configure políticas de senha de grãos finos usando o Centro de Administração aD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 As políticas são distribuídas através da associação de grupos num domínio gerido pelo Azure AD DS, e quaisquer alterações que faça são aplicadas no próximo início de sessão do utilizador. Mudar a apólice não desbloqueia uma conta de utilizador que já está bloqueada.
 

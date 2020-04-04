@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75385818"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652083"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalize o ciclo de vida de uma função Web ou Trabalhador em .NET
 Ao criar uma função de trabalhador, alarga a classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que fornece métodos para que possa anular que lhe permitam responder a eventos de ciclo de vida. Para papéis web esta aula é opcional, por isso deve usá-la para responder a eventos de ciclo de vida.
@@ -23,7 +23,7 @@ A classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.10
 
 Ao alargar o **RoleEntryPoint,** deve estar atento aos seguintes comportamentos dos métodos:
 
-* Os métodos [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) e [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) devolvem um valor booleano, pelo que é possível devolver **falsos** a estes métodos.
+* O método [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) devolve um valor booleano, pelo que é possível devolver **falso** deste método.
   
    Se o seu código devolver **falsos,** o processo de função é encerrado abruptamente, sem executar qualquer sequência de encerramento que possa ter no lugar. Em geral, deve evitar a devolução **de falsos** do método **OnStart.**
 * Qualquer exceção não apanhada dentro de uma sobrecarga de um método **RoleEntryPoint** é tratada como uma exceção não tratada.

@@ -3,12 +3,12 @@ title: Recursos do Serviço de Aplicações Azure Move Azure
 description: Utilize o Gestor de Recursos Azure para transferir os recursos do Serviço app para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.openlocfilehash: 338b0559a5de9468ff60024b88d0f676a9fc3e8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75479803"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655777"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Mover orientação para recursos do Serviço de Aplicações
 
@@ -21,10 +21,10 @@ Ao mover uma Aplicação Web através de subscrições, aplica-se a seguinte ori
 - O grupo de recursos de destino não deve ter quaisquer recursos de Serviço de Aplicações existentes. Os recursos do Serviço de Aplicações incluem:
     - Aplicações Web
     - Planos do Serviço de Aplicações
-    - Certificados SSL carregados ou importados
+    - Certificados TLS/SSL carregados ou importados
     - Ambientes do App Service
 - Todos os recursos do Serviço de Aplicações do grupo de recursos devem ser movidos em conjunto. Note que os ambientes de serviço de aplicação não podem ser transferidos para um novo Grupo de Recursos nem para uma nova Subscrição.
-- Pode mover um certificado ligado a uma web sem apagar as encadernações SSL, desde que o certificado seja movido com todos os outros recursos do grupo de recursos.
+- Pode mover um certificado ligado a uma web sem apagar as encadernações TLS, desde que o certificado seja movido com todos os outros recursos do grupo de recursos.
 - Os recursos do Serviço de Aplicações só podem ser transferidos do grupo de recursos em que foram originalmente criados. Se um recurso do Serviço app já não estiver no seu grupo de recursos originais, mude-o de volta para o seu grupo de recursos originais. Em seguida, mova o recurso através de subscrições.
 
 Se não se lembrar do grupo de recursos originais, pode encontrá-lo através de diagnósticos. Para a sua aplicação web, selecione **Diagnosticar e resolver problemas**. Em seguida, selecione **Configuração e Gestão**.

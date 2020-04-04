@@ -1,6 +1,6 @@
 ---
 title: Utilização de squemas definidos pelo utilizador
-description: Dicas para utilizar schemas definidos pelo utilizador T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+description: Dicas para utilizar schemas definidos pelo utilizador T-SQL para desenvolver soluções em piscina SYnapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,49 +11,51 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9ed4f01aae6ace1af6c1652fe3c5ecfe14dc6bf
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7144fa75d156ca7aed9d8215592f89c167cfb221
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351532"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633458"
 ---
-# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Utilização de squemas definidos pelo utilizador no Armazém de Dados SQL
-Dicas para utilizar schemas definidos pelo utilizador T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schemas definidos pelo utilizador na piscina SQL synapse
+Este artigo centra-se em fornecer várias dicas para a utilização de schemas definidos pelo utilizador T-SQL para desenvolver soluções em piscina SYnapse SQL.
 
 ## <a name="schemas-for-application-boundaries"></a>Esquemios para limites de aplicação
 
-Os armazéns de dados tradicionais usam frequentemente bases de dados separadas para criar limites de aplicação baseados na carga de trabalho, domínio ou segurança. Por exemplo, um armazém de dados sQL Server tradicional pode incluir uma base de dados de encenação, uma base de dados de armazém de dados de dados e algumas bases de dados de data mart. Nesta topologia cada base de dados funciona como uma carga de trabalho e limite de segurança na arquitetura.
+Os armazéns de dados tradicionais usam frequentemente bases de dados separadas para criar limites de aplicação baseados na carga de trabalho, domínio ou segurança. 
 
-Em contraste, o SQL Data Warehouse executa toda a carga de trabalho do armazém de dados dentro de uma base de dados. Não são permitidas juntas de dados cruzadas. Por isso, o SQL Data Warehouse espera que todas as tabelas utilizadas pelo armazém sejam armazenadas dentro de uma base de dados.
+Como exemplo, um armazém de dados sQL Server tradicional pode incluir uma base de dados de encenação, uma base de dados de armazém de dados de dados e algumas bases de dados de data mart. Nesta topologia, cada base de dados funciona como uma carga de trabalho e limite de segurança na arquitetura.
+
+Em contraste, a piscina SQL executa toda a carga de trabalho do armazém de dados dentro de uma base de dados. Não são permitidas juntas de dados cruzadas. A piscina SQL espera que todas as mesas utilizadas pelo armazém sejam armazenadas dentro de uma base de dados.
 
 > [!NOTE]
-> O SQL Data Warehouse não suporta consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações de armazéns de dados que alavancam este padrão terão de ser revistas.
+> O pool SQL não suporta consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações de armazéns de dados que alavancam este padrão terão de ser revistas.
 > 
 > 
 
 ## <a name="recommendations"></a>Recomendações
-Estas são recomendações para consolidar cargas de trabalho, segurança, domínio e limites funcionais utilizando esquemas definidos pelo utilizador
+Seguem-se recomendações para consolidar cargas de trabalho, segurança, domínio e limites funcionais utilizando esquemas definidos pelo utilizador:
 
-1. Utilize uma base de dados do SQL Data Warehouse para executar toda a sua carga de trabalho de armazém de dados
-2. Consolidar o seu ambiente de armazém de dados existente para utilizar uma base de dados sQL Data Warehouse
-3. Alavancar **os esquemas definidos pelo utilizador** para fornecer o limite anteriormente implementado utilizando bases de dados.
+- Utilize uma base de dados de piscina SQL para executar toda a sua carga de trabalho de armazém de dados.
+- Consolide o ambiente de armazém de dados existente para utilizar uma base de dados de piscinaS SQL.
+- Alavancar **os esquemas definidos pelo utilizador** para fornecer o limite anteriormente implementado utilizando bases de dados.
 
-Se os schemas definidos pelo utilizador não tiverem sido utilizados anteriormente, então tem uma ficha limpa. Basta utilizar o nome da base de dados antiga como base para os seus esquemas definidos pelo utilizador na base de dados do SQL Data Warehouse.
+Se os schemas definidos pelo utilizador não tiverem sido utilizados anteriormente, então tem uma ficha limpa. Utilize o nome da base de dados antiga como base para os seus schemas definidos pelo utilizador na base de dados de piscinas SQL.
 
 Se os schemas já foram usados, então você tem algumas opções:
 
-1. Remova os nomes do esquema legado e comece de novo
-2. Mantenha os nomes do esquema legado por pré-pendente do nome do esquema legado para o nome da mesa
-3. Mantenha os nomes do esquema legado implementando pontos de vista sobre a mesa num esquema extra para recriar a antiga estrutura do esquema.
+- Remova os nomes do esquema legado e comece de novo.
+- Mantenha os nomes do esquema legado, aguardando o nome do esquema legado para o nome da mesa.
+- Mantenha os nomes do esquema legado implementando pontos de vista sobre a mesa num esquema extra para recriar a antiga estrutura do esquema.
 
 > [!NOTE]
-> Na primeira opção de inspeção 3 pode parecer a opção mais apelativa. No entanto, o diabo está nos detalhes. As vistas são lidas apenas no Armazém de Dados SQL. Quaisquer dados ou modificações de tabelas teriam de ser efetuadas contra a tabela base. A opção 3 também introduz uma camada de vistas no seu sistema. Você pode querer dar a este algum pensamento adicional se você já está usando vistas na sua arquitetura.
+> Na primeira opção de inspeção 3 pode parecer a opção mais apelativa. No entanto, o diabo está nos detalhes. As vistas são lidas apenas na piscina SQL. Quaisquer dados ou modificações de tabelas teriam de ser efetuadas contra a tabela base. A opção 3 também introduz uma camada de vistas no seu sistema. Você pode querer dar a este algum pensamento adicional se você já está usando vistas na sua arquitetura.
 > 
 > 
 
 ### <a name="examples"></a>Exemplos:
-Implementar schemas definidos pelo utilizador com base em nomes de bases de dados
+Implementar schemas definidos pelo utilizador com base em nomes de bases de dados:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -71,7 +73,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Mantenha nomes de esquemas legados, aguardando-os ao nome da mesa. Use esquemia para o limite da carga de trabalho.
+Mantenha nomes de esquemas legados, aguardando-os ao nome da mesa. Utilize esquemmas para o limite da carga de trabalho:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -89,7 +91,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Reter nomes de esquemas legados usando vistas
+Mantenha nomes de esquemas legados usando vistas:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92ac0417e9d8adca168dd68e1721a1c9c890de1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276611"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656945"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure
 
@@ -109,7 +109,7 @@ Mesmo com o Always On ativado, o tempo de `functionTimeout` execução para fun�
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinar o plano de hospedagem de uma aplicação existente
 
-Para determinar o plano de hospedagem utilizado pela sua aplicação de funções, consulte o **plano/nível** de preços do Plano de Aplicação no separador **Overview** para a aplicação de função no [portal Azure](https://portal.azure.com). Para os planos do Serviço de Aplicações, o nível de preços também está indicado.
+Para determinar o plano de hospedagem utilizado pela sua aplicação de funções, consulte o **plano do Serviço de Aplicações** no separador **Overview** para a aplicação de funções no [portal Azure](https://portal.azure.com). Para ver o nível de preços, selecione o nome do Plano de Serviço de **Aplicações**e, em seguida, selecione **Propriedades** do painel esquerdo.
 
 ![Ver plano de escala no portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -124,7 +124,7 @@ Quando a saída deste `dynamic`comando for, a sua aplicação de funções está
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Em qualquer plano, uma aplicação de função requer uma conta de Armazenamento Azure geral, que suporta O Blob, Fila, Ficheiros e Armazenamento de Mesa. Isto porque as Funções dependem do Armazenamento Azure para operações como a gestão de gatilhos e execuções de funções de exploração madeireira, mas algumas contas de armazenamento não suportam filas e tabelas. Estas contas, que incluem contas de armazenamento apenas blob (incluindo armazenamento premium) e contas de armazenamento de uso geral com replicação de armazenamento redundante, são filtradas das seleções da Conta de **Armazenamento** existentes quando cria uma aplicação de função.
+Em qualquer plano, uma aplicação de função requer uma conta de Armazenamento Azure geral, que suporta O Blob, Fila, Ficheiros e Armazenamento de Mesa. Isto porque a Azure Functions conta com o Armazenamento Azure para operações como a gestão de gatilhos e execuções de funções de exploração madeireira, mas algumas contas de armazenamento não suportam filas e tabelas. Estas contas, que incluem contas de armazenamento apenas blob (incluindo armazenamento premium) e contas de armazenamento de uso geral com replicação de armazenamento redundante, são filtradas das seleções da Conta de **Armazenamento** existentes quando cria uma aplicação de função.
 
 A mesma conta de armazenamento utilizada pela sua aplicação de funções também pode ser utilizada pelos seus gatilhos e encadernações para armazenar os dados da sua aplicação. No entanto, para operações intensivas de armazenamento, deve utilizar uma conta de armazenamento separada.  
 
@@ -134,7 +134,7 @@ A mesma conta de armazenamento utilizada pela sua aplicação de funções tamb�
 
 Para saber mais sobre os tipos de conta de armazenamento, consulte a introdução dos serviços de [armazenamento Azure.](../storage/common/storage-introduction.md#azure-storage-services)
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Como funcionam os planos de consumo e premium
+## <a name="how-the-consumption-and-premium-plans-work"></a>Como funcionam os planos de Consumo e Premium
 
 Nos planos de Consumo e Premium, a infraestrutura de Funções Azure escala cpU e recursos de memória adicionais das funções hospedadas, com base no número de eventos em que as suas funções são desencadeadas. Cada instância das funções hospedadas no plano de consumo está limitada a 1,5 GB de memória e um CPU.  Uma instância do anfitrião é toda a aplicação de função, o que significa que todas as funções dentro de uma aplicação de função partilham recursos dentro de uma instância e escala ao mesmo tempo. As aplicações de função que partilham o mesmo plano de consumo são dimensionadas de forma independente.  No plano Premium, o tamanho do seu plano determinará a memória disponível e cpU para todas as aplicações nesse plano nesse caso.  
 
@@ -162,7 +162,7 @@ O escalonamento pode variar em vários fatores, e escalar de forma diferente com
 
 Existem muitos aspetos de uma aplicação de função que impactará o quão bem irá escalar, incluindo a configuração do hospedeiro, a pegada do tempo de execução e a eficiência dos recursos.  Para mais informações, consulte a [secção de escalabilidade do artigo considerações de desempenho](functions-best-practices.md#scalability-best-practices). Também deve estar ciente de como as ligações se comportam à medida que a sua função funciona. Para mais informações, consulte [Como gerir as ligações em Funções Azure](manage-connections.md).
 
-Para obter informações adicionais sobre escala em Python e Node.js, consulte o guia de desenvolvimento do [Azure Functions Python - Escala e conmoeda](functions-reference-python.md#scaling-and-concurrency) e guia de desenvolvimento de [funções azure Node.js - Escala e conmoeda.](functions-reference-node.md#scaling-and-concurrency)
+Para obter mais informações sobre escalaem em Python e Node.js, consulte o guia de desenvolvimento do [Azure Functions Python - Escala e conmoeda](functions-reference-python.md#scaling-and-concurrency) e guia de desenvolvimento de [funções azure Node.js - Escala e conmoeda](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de faturação
 

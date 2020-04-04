@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: e9460108499ca76d1b149b61cebe3d3081bf6544
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086282"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657489"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -65,7 +65,7 @@ A subrede deve permitir que a comunicação de entrada do serviço Batch seja ca
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Grupos de segurança da rede: Especificar regras de nível de subnet
 
-Não é necessário especificar NSGs ao nível da subnet de rede virtual porque o Batch configura os seus próprios NSGs (ver acima). Se tiver um NSG associado à subnet onde os nós de computação batch são implantados ou gostaria de aplicar regras de NSG personalizadas para anular os incumprimentos aplicados, então deve configurar este NSG com pelo menos as regras de segurança de entrada e saída, como mostrado no seguinte mesas.
+Não é necessário especificar NSGs ao nível da subnet de rede virtual porque o Batch configura os seus próprios NSGs (ver acima). Se tiver um NSG associado à subnet onde os nós de computação do Lote são implantados ou quiser aplicar regras de NSG personalizadas para anular os incumprimentos aplicados, então deve configurar este NSG com, pelo menos, as regras de segurança de entrada e saída, conforme mostrado nas tabelas seguintes.
 
 Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se precisar de permitir o acesso remoto aos nós de computação de fontes externas. Pode ser necessário ativar as regras da porta 22 no Linux se necessitar de apoio para tarefas de várias instâncias com determinados tempos de execução de MPI. Permitir que o tráfego nestas portas não seja estritamente necessário para que os nós de computação da piscina sejam utilizáveis.
 
@@ -75,6 +75,9 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement`[Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) (se utilizar variante regional, na mesma região que a sua conta Batch) | * | Qualquer | 29876-29877 | TCP | Permitir |
 | IPs de fonte de utilizador para aceder remotamente a nós de cálculo e/ou subnet de nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Permitir |
+
+> [!WARNING]
+> Os endereços IP do serviço de lote podem ser alterados ao longo do tempo. Por isso, é altamente `BatchNodeManagement` recomendado utilizar a etiqueta de serviço (ou variante regional) para as regras do NSG. Não é aconselhável preencher as regras do NSG com endereços IP do serviço de lote diretamente.
 
 **Regras de segurança de saída**
 

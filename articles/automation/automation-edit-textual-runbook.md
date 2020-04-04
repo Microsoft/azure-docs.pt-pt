@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3bbfe26f336a25ee85f2223226d6eb513ae21736
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367283"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632147"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edição de livros textual na Automação Azure
 
@@ -22,7 +22,7 @@ O editor textual da Azure Automation pode ser usado para editar os livros de [ex
 
 O editor textual inclui uma funcionalidade para inserir código para cmdlets, ativos e livros infantis num livro de corridas. Em vez de escrever o código por si mesmo, pode selecionar a partir de uma lista de recursos disponíveis e o editor insere o código apropriado no livro de execução.
 
-Cada livro de execução em Azure Automation tem duas versões, Draft e Published. Edita a versão Draft do livro de execução e depois publica-a para que possa ser executada. A versão Publicada não pode ser editada. Para mais informações, consulte [a Publicação de um livro de execução](manage-runbooks.md#publish-a-runbook).
+Cada livro de execução em Azure Automation tem duas versões, Draft e Published. Edita a versão Draft do livro de execução e depois publica-a para que possa ser executada. A versão Publicada não pode ser editada. Para mais informações, consulte [a Publicação de um livro de execução](manage-runbooks.md#publishing-a-runbook).
 
 Este artigo fornece passos detalhados para o desempenho de diferentes funções com este editor. Estes não são aplicáveis a [livros gráficos.](automation-runbook-types.md#graphical-runbooks) Para trabalhar com estes livros de execução, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
 
@@ -84,7 +84,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Altere o conteúdo de um livro de execução utilizando o Windows PowerShell
 
-Os comandos de amostra seguem mostrar como substituir o conteúdo existente de um livro de execução com o conteúdo de um ficheiro de script. Este é o mesmo procedimento de amostra que em [Importar um livro de execução de um ficheiro de script com windows PowerShell](manage-runbooks.md#import-a-runbook).
+Os comandos de amostra seguem mostrar como substituir o conteúdo existente de um livro de execução com o conteúdo de um ficheiro de script. Este é o mesmo procedimento de amostra que em [Importar um livro de execução de um ficheiro de script com windows PowerShell](manage-runbooks.md#importing-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"

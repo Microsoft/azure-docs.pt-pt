@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f193580ca03d4b1805f3c044658a34f468f3f44f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346552"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631584"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utilize horários de manutenção para gerir atualizações de serviços e manutenção
 
-O cronograma de manutenção integra as Notificações de Manutenção Planeadas de Saúde de Serviço, o Monitor de Verificação de Saúde de Recursos e o serviço de agendamento de manutenção para a piscina Synapse SQL (armazém de dados) no Azure Synapse Analytics. 
+O cronograma de manutenção integra as Notificações de Manutenção Planeadas de Saúde de Serviço, o Monitor de Verificação de Saúde de Recursos e o serviço de agendamento de manutenção para a piscina Synapse SQL (armazém de dados) no Azure Synapse Analytics.
 
 Deve utilizar o agendamento de manutenção para escolher uma janela de tempo quando é conveniente receber novas funcionalidades, upgrades e patches. Você precisará escolher uma janela de manutenção primária e secundária dentro de um período de sete dias, cada janela deve estar dentro de intervalos de dia separados.
 
@@ -48,52 +48,55 @@ Todos os eventos de manutenção ativa aparecem na secção **de Manutenção de
 
 Mesmo que o agendamento de manutenção não esteja disponível na sua região selecionada, pode ver e editar o seu horário de manutenção a qualquer momento. Quando o agendamento de manutenção estiver disponível na sua região, o horário identificado tornar-se-á imediatamente ativo na sua piscina SYnapse SQL.
 
-## <a name="view-a-maintenance-schedule"></a>Ver um horário de manutenção 
+## <a name="view-a-maintenance-schedule"></a>Ver um horário de manutenção
 
 Por padrão, todos os casos de armazém de dados recém-criados têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implantação. Como indicado acima, pode alterar as janelas assim que a implementação estiver completa. Não é realizada qualquer manutenção fora das janelas de manutenção especificadas sem notificação prévia.
 
 Para ver o calendário de manutenção que foi aplicado à sua piscina SYnapse SQL, complete os seguintes passos:
 
-1.    Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2.    Selecione a piscina SQL Synapse que pretende ver. 
-3.    A piscina SQL selecionada abre na lâmina de visão geral. O horário de manutenção que é aplicado ao armazém de dados aparece abaixo do horário de **manutenção.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Selecione a piscina SQL Synapse que pretende ver.
+3. A piscina SQL selecionada abre na lâmina de visão geral. O horário de manutenção que é aplicado ao armazém de dados aparece abaixo do horário de **manutenção.**
 
 ![Lâmina de visão geral](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Alterar um horário de manutenção 
+## <a name="change-a-maintenance-schedule"></a>Alterar um horário de manutenção
 
-Um horário de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver a passar por um ciclo de manutenção ativa, as definições serão guardadas. Tornar-se-ão ativos durante o próximo período de manutenção identificado. [Saiba mais](../../service-health/resource-health-overview.md) sobre a monitorização do seu armazém de dados durante um evento de manutenção ativa. 
+Um horário de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver a passar por um ciclo de manutenção ativa, as definições serão guardadas. Tornar-se-ão ativos durante o próximo período de manutenção identificado. [Saiba mais](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a monitorização do seu armazém de dados durante um evento de manutenção ativa.
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificação das janelas primárias e secundárias
 
 As janelas primárias e secundárias devem ter intervalos diurnos separados. Um exemplo é uma janela primária de terça a quinta-feira e uma janela secundária de sábado a domingo.
 
 Para alterar o horário de manutenção da sua piscina SYnapse SQL, complete os seguintes passos:
-1.    Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2.    Selecione o pool SQL Synapse que pretende atualizar. A página abre na lâmina de visão geral. 
-3.    Abra a página para configurações de horáriode manutenção selecionando o link resumo do Horário de **Manutenção** na lâmina de visão geral. Ou, selecione a opção Agenda de **Manutenção** no menu de recursos do lado esquerdo.  
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Selecione o pool SQL Synapse que pretende atualizar. A página abre na lâmina de visão geral.
+Abra a página para configurações de horáriode manutenção selecionando o link resumo do Horário de **Manutenção** na lâmina de visão geral. Ou, selecione a opção Agenda de **Manutenção** no menu de recursos do lado esquerdo.
 
     ![Opções de lâmina de visão geral](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. Identifique a gama de dias preferida para a sua janela de manutenção primária utilizando as opções na parte superior da página. Esta seleção determina se a sua janela primária ocorrerá num dia de semana ou durante o fim de semana. A sua seleção atualizará os valores de queda. Durante a pré-visualização, algumas regiões podem ainda não apoiar todo o conjunto de opções disponíveis **do Dia.**
+3. Identifique a gama de dias preferida para a sua janela de manutenção primária utilizando as opções na parte superior da página. Esta seleção determina se a sua janela primária ocorrerá num dia de semana ou durante o fim de semana. A sua seleção atualizará os valores de queda.
+Durante a pré-visualização, algumas regiões podem ainda não apoiar todo o conjunto de opções disponíveis **do Dia.**
 
    ![Lâmina de regulação de manutenção](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. Escolha as suas janelas de manutenção primária e secundária preferidas utilizando as caixas de listas de lançamento:
+4. Escolha as suas janelas de manutenção primária e secundária preferidas utilizando as caixas de listas de lançamento:
    - **Dia**: Dia preferido para realizar a manutenção durante a janela selecionada.
    - **Início**: Hora de início preferencial para a janela de manutenção.
    - **Janela de tempo**: Duração preferida da janela de tempo.
 
-   A área **de resumo** de Agenda na parte inferior da lâmina é atualizada com base nos valores que selecionou. 
+   A área **de resumo** de Agenda na parte inferior da lâmina é atualizada com base nos valores que selecionou.
   
-6. Selecione **Guardar**. Uma mensagem aparece, confirmando que o seu novo horário está agora ativo. 
+5. Selecione **Guardar**. Uma mensagem aparece, confirmando que o seu novo horário está agora ativo.
 
-   Se estiver a guardar um horário numa região que não suporta o agendamento de manutenção, aparece a seguinte mensagem. As suas definições são guardadas e tornam-se ativas quando a funcionalidade estiver disponível na sua região selecionada.    
+   Se estiver a guardar um horário numa região que não suporta o agendamento de manutenção, aparece a seguinte mensagem. As suas definições são guardadas e tornam-se ativas quando a funcionalidade estiver disponível na sua região selecionada.
 
    ![Mensagem sobre a disponibilidade da região](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Saiba mais](../../azure-monitor/platform/alerts-metric.md) sobre a criação, visualização e gestão de alertas utilizando o Monitor Azure.
-- [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md) sobre as ações do webhook para regras de alerta de log.
-- [Saiba mais](../..//azure-monitor/platform/action-groups.md) Criação e gestão de Grupos de Ação.
-- [Saiba mais](../../service-health/service-health-overview.md) sobre a Azure Service Health.
+
+- [Saiba mais](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a criação, visualização e gestão de alertas utilizando o Monitor Azure.
+- [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre as ações do webhook para regras de alerta de log.
+- [Saiba mais](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Criação e gestão de Grupos de Ação.
+- [Saiba mais](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a Azure Service Health.

@@ -4,17 +4,18 @@ description: O objetivo deste documento é ajudar um utilizador a validar a entr
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75860491"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631776"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>How to validate VPN throughput to a virtual network (Como validar o débito da VPN para uma rede virtual)
 
@@ -242,7 +243,7 @@ Mencionei as subredes das gamas no local que gostaria que o Azure chegasse via V
 
 * **Gateway baseado em políticas**: VPNs baseados em políticas encriptam e pacotes diretos através de túneis IPsec com base nas combinações de prefixos de endereço entre a sua rede no local e o Azure VNet. Normalmente, a política (ou o Seletor de Tráfego), é definido como uma lista de acesso na configuração de VPN.
 
-* **UtilizaçãoAsLigações DoSelector** de Tráfego Baseados de Utilização: ("UsePolicyBasedTrafficSelectors" para $True numa ligação configurará o gateway VPN Azure para ligar à firewall VPN baseada em políticas nas instalações. Se ativar os selecionadores PolicyBasedTrafficS, tem de garantir que o seu dispositivo VPN tem os seletores de tráfego correspondentes definidos com todas as combinações da sua rede no local (gateway de rede local) prefixos de e para os prefixos da rede virtual Azure, em vez de qualquer a qualquer.
+* **UtilizaçãoAsLigações DoSelector** de Tráfego Baseados de Utilização: ("UsePolicyBasedTrafficSelectors" para $True numa ligação configurará o gateway VPN Azure para ligar à firewall VPN baseada em políticas nas instalações. Se ativar os selecionadores PolicyBasedTrafficS, tem de garantir que o seu dispositivo VPN tem os seletores de tráfego correspondentes definidos com todas as combinações da sua rede no local (gateway de rede local) de e para os prefixos da rede virtual Azure, em vez de qualquer um.
 
 Uma configuração inadequada pode levar a desconexões frequentes dentro do túnel, gotas de pacote, má entrada e latência.
 

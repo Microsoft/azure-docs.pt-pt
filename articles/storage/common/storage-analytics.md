@@ -8,12 +8,12 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 86b399879807e480176ee9a3ca3feaba1ec5dd85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250889"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637151"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -26,8 +26,6 @@ Os dados agregados são armazenados numa bolha bem conhecida (para exploração 
 O Storage Analytics tem um limite de 20 TB na quantidade de dados armazenados que é independente do limite total para a sua conta de armazenamento. Para obter mais informações sobre os limites da conta de armazenamento, consulte [a escalabilidade e os objetivos](scalability-targets-standard-account.md)de desempenho para as contas de armazenamento padrão .
 
 Para um guia aprofundado sobre a utilização de Storage Analytics e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o armazenamento do Azure, consulte [monitor, diagnóstico e resolução](storage-monitoring-diagnosing-troubleshooting.md)de problemas do Armazenamento Microsoft Azure .
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="billing-for-storage-analytics"></a>Faturação para Análise de Armazenamento
 

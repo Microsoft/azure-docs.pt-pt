@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283137"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656919"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe lucene consulta em Pesquisa Cognitiva Azure
 
@@ -161,16 +161,17 @@ O exemplo que se segue ajuda a ilustrar as diferenças. Suponha que há um perfi
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a>Pesquisa regular de expressão  
  Uma pesquisa de expressão regular encontra uma correspondência baseada no conteúdo entre as barras dianteiras "/", conforme documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- Por exemplo, encontrar documentos que contenham `/[mh]otel/`"motel" ou "hotel", especifique.  As pesquisas regulares de expressão são compatíveis com palavras simples.   
+ Por exemplo, encontrar documentos que contenham `/[mh]otel/`"motel" ou "hotel", especifique. As pesquisas regulares de expressão são compatíveis com palavras simples.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Pesquisa de Wildcard  
- Você pode usar sintaxe geralmente reconhecida para múltiplas (*) ou única (?) pesquisas de caracteres wildcard. Note que o parser lucene da consulta suporta o uso destes símbolos com um único termo, e não uma frase.  
+ Você pode usar sintaxe geralmente reconhecida para múltiplas (*) ou única (?) pesquisas de caracteres wildcard. Note que o parser lucene da consulta suporta o uso destes símbolos com um único termo, e não uma frase.
 
- Por exemplo, encontrar documentos que contenham as palavras com o prefixo "nota", como "caderno" ou "bloco de notas", especifique "nota*".  
+A pesquisa prefixo também utiliza`*`o caracteres asterisco . Por exemplo, uma expressão `search=note*` de consulta de devoluções "caderno" ou "bloco de notas". A sintaxe lucene completa não é necessária para a pesquisa prefixo. A simples sintaxe apoia este cenário.
+
+A pesquisa do `*` sufixo, onde ou `?` precede a corda, requer sintaxe lucene completa e uma expressão regular (você não pode usar um * ou ? símbolo como o primeiro personagem de uma pesquisa). Dado o termo "alfanumérico",`search=/.*numeric.*/`uma expressão de consulta de ( ) vai encontrar a correspondência.
 
 > [!NOTE]  
->  Não pode usar um ou? símbolo como o primeiro personagem de uma pesquisa.  
->  Não é feita nenhuma análise de texto em consultas de pesquisa de wildcard. No momento da consulta, os termos de consulta wildcard são comparados com os termos analisados no índice de pesquisa e expandidos.
+> Durante a consulta, as consultas formuladas como prefixo, sufixo, wildcard ou expressões regulares são passadas como está na árvore de consulta, contornando a [análise lexical.](search-lucene-query-architecture.md#stage-2-lexical-analysis) Os fósforos só serão encontrados se o índice contiver as cordas no formato que a sua consulta especifica. Na maioria dos casos, você precisará de um analisador alternativo durante a indexação que preserve a integridade da cadeia para que o termo parcial e a correspondência de padrões sejam bem sucedidos. Para mais informações, consulte a pesquisa parcial a prazo em consultas de [Pesquisa Cognitiva Azure](search-query-partial-matching.md).
 
 ## <a name="see-also"></a>Consulte também  
 

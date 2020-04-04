@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77647583"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656990"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envie e-mail da sua conta SMTP com Aplicações Lógicas Azure
 
@@ -56,7 +56,7 @@ Com aplicativos azure logic e o conector Simple Mail Transfer Protocol (SMTP), p
    | **Nome do utilizador** | Sim | O seu nome de utilizador para a sua conta SMTP | 
    | **Palavra-passe** | Sim | A sua palavra-passe para a sua conta SMTP | 
    | **Porta do servidor SMTP** | Não | Uma porta específica no seu servidor SMTP que pretende utilizar | 
-   | **Ativar o SSL?** | Não | Ligue ou desligue a encriptação SSL. | 
+   | **Ativar o SSL?** | Não | Ligue ou desligue a encriptação TLS/SSL. | 
    |||| 
 
 1. Forneça os detalhes necessários para a sua ação selecionada. 

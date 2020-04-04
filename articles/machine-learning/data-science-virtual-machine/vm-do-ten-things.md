@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294480"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632159"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -803,16 +803,6 @@ pd.read_sql(queryString, connection)
 ```
 
 ![Primeiras filas de dados da tabela](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
-
-#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Leia os dados do HDI utilizando o Azure Machine Learning Studio (clássico): módulo de leitor
-
-Também pode utilizar o módulo de leitor no Azure Machine Learning Studio (clássico) para aceder à base de dados num cluster Hadoop. Ligue as credenciais dos seus clusters HDI e a conta de armazenamento Azure para permitir a construção de modelos de aprendizagem automática utilizando uma base de dados em clusters HDI.
-
-![Propriedades do módulo de leitor](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-Em seguida, pode visualizar o conjunto de dados pontuado:
-
-![Ver conjunto de dados pontuado](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Armazém de dados Azure SQL e bases de dados
 O Azure SQL Data Warehouse é um armazém de dados elástico como um serviço com uma experiência de Servidor SQL de classe empresarial.

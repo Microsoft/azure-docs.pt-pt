@@ -11,23 +11,22 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 39501cef3bb2f7e4a0e061968520f687cf97ecc5
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 20afa3f37bb85fd268962aea03107f0eaeb9bea2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584209"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633605"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para armazenamento de dados
 
-Este simples tutorial descreve como integrar o seu projeto de base de dados SQL Server Data (SSDT) com o Azure DevOps e alavancar os Pipelines Azure para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu pipeline de integração contínua e implementação para armazenamento de dados. 
+Este simples tutorial descreve como integrar o seu projeto de base de dados SQL Server Data (SSDT) com o Azure DevOps e alavancar os Pipelines Azure para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu pipeline de integração contínua e implementação para armazenamento de dados.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Passe pelo tutorial de integração de controlo de [fontes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
+- Passe pelo tutorial de integração de controlo de [fontes](sql-data-warehouse-source-control-integration.md)
 
 - Configurar e ligar a Azure DevOps
-
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Integração contínua com a construção de Estúdio Visual
 
@@ -37,7 +36,7 @@ Este simples tutorial descreve como integrar o seu projeto de base de dados SQL 
 
 2. Selecione o seu repositório de código fonte (Azure Repos Git) e selecione o modelo de aplicação .NET Desktop.
 
-      ![Configuração do gasoduto](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Configuração do gasoduto") 
+      ![Configuração do gasoduto](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Configuração do gasoduto")
 
 3. Edite o seu ficheiro YAML para utilizar a piscina adequada do seu agente. O seu ficheiro YAML deve ser parecido com isto:
 
@@ -45,10 +44,9 @@ Este simples tutorial descreve como integrar o seu projeto de base de dados SQL 
 
 Neste ponto, você tem um ambiente simples onde qualquer check-in no seu ramo principal de controlo de fonte deve desencadear automaticamente uma construção bem sucedida do Visual Studio do seu projeto de base de dados. Validar que a automatização está a trabalhar de ponta a ponta, fazendo uma alteração no seu projeto de base de dados local e verificando essa alteração no seu ramo principal.
 
-
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Armazém de Dados Azure SQL (ou Base de Dados)
 
-1. Adicione uma nova tarefa utilizando a tarefa de implementação da Base de [Dados Azure SQL](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos necessários para se ligar ao seu armazém de dados-alvo. Quando esta tarefa funciona, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados alvo. Também pode utilizar a tarefa de implementação do Armazém de [Dados Azure SQL](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment). 
+1. Adicione uma nova tarefa utilizando a tarefa de implementação da Base de [Dados Azure SQL](/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e preencha os campos necessários para se ligar ao seu armazém de dados-alvo. Quando esta tarefa funciona, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados alvo. Também pode utilizar a tarefa de implementação do Armazém de [Dados Azure SQL](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Tarefa de implantação](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 

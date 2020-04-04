@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: fd389c1e909e6875ead8410b5ca692b82c79e0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6782d745bfced576fe06019b0d41af86c8c63ed4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063079"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656259"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -56,7 +56,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Base de Dados SQL do Azure** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (sqlServer)        | 
 |**Storage do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
-|**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
+|**Armazenamento do Azure Data Lake Ger2**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores   | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
@@ -68,11 +68,13 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Configuração da Aplicação Azure** | Microsoft.Appconfiguration/configuraçãoStores   | configuraçãoLoja |
 |**Azure Backup** | Microsoft.RecoveryServices/cofres   | cofre |
 |**Hub de Eventos do Azure** | Microsoft.EventHub/espaços de nome    | espaço de nomes |
-|**Azure Service Bus** | Microsoft.ServiceBus/espaços de nome | espaço de nomes |
+|**Service Bus do Azure** | Microsoft.ServiceBus/espaços de nome | espaço de nomes |
 |**Reencaminhamento do Azure** | Microsoft.Relay/namespaces | espaço de nomes |
 |**Azure Event Grid** | Microsoft.EventGrid/tópicos  | tópico |
 |**Azure Event Grid** | Microsoft.EventGrid/domínios | domínio |
-|**Azure WebApps** | Microsoft.Web/sites    | sites |
+|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/espaços de trabalho  | área de trabalho |
+  
  
 ## <a name="network-security-of-private-endpoints"></a>Segurança da rede de pontos finais privados 
 Ao utilizar pontos finais privados para serviços Azure, o tráfego é garantido a um recurso de ligação privada específico. A plataforma executa um controlo de acesso para validar as ligações de rede atingindo apenas o recurso de ligação privada especificado. Para aceder a recursos adicionais dentro do mesmo serviço Azure, são necessários pontos finais privados adicionais. 
@@ -143,6 +145,7 @@ Para os serviços Azure, utilize os nomes de zona recomendados descritos no quad
 |Grelha de Eventos Azure (Microsoft.EventGrid/tópicos)   | tópico | tópico. {region}.privatelink.eventgrid.azure.net|
 |Grelha de Eventos Azure (Microsoft.EventGrid/domínios) | domínio | domínio. {region}.privatelink.eventgrid.azure.net |
 |WebApps azure (Microsoft.Web/sites) | site | privatelink.azurewebsites.net |
+|Aprendizagem automática azure (Microsoft.MachineLearningServices/espaços de trabalho)   | área de trabalho | privatelink.api.azureml.ms |
  
 O Azure criará um registo de DNS de nome canónico (CNAME) no DNS público para redirecionar a resolução para os nomes de domínio sugeridos. Poderá anular a resolução com o endereço IP privado dos seus pontos finais privados. 
  

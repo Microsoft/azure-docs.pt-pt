@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/03/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d5a4ddf863115747c27efbca1808d51444aac8c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152674"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656158"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples em Pesquisa Cognitiva Azure
 
@@ -68,9 +68,15 @@ O operador NOT é um sinal negativo. Por `wifi –luxury` exemplo, procurará do
 > [!NOTE]  
 >  A `searchMode` opção controla se um termo com o operador NOT é ANDed ou ORed com os outros termos na consulta na ausência de um `+` ou `|` operador. Lembre-se que `searchMode` pode `any` ser definido `all`para qualquer (padrão) ou . Se utilizar, `any`aumentará a recolha de consultas, incluindo mais `-` resultados, e por padrão será interpretado como "OU NÃO". Por exemplo, `wifi -luxury` combinará documentos `wifi` que contenham o termo `luxury`ou os que não contenham o termo . Se utilizar `all`, aumentará a precisão das consultas, incluindo menos resultados, e por padrão – será interpretado como "AND NOT". Por exemplo, `wifi -luxury` combinará documentos `wifi` que contenham o termo e não contenham o termo "luxo". Este é, sem dúvida, `-` um comportamento mais intuitivo para o operador. Por isso, deve `searchMode=all` considerar `searchMode=any` a utilização em vez de se pretender otimizar as pesquisas `-` de precisão em vez de se recordar, *e* os utilizadores usam frequentemente o operador nas pesquisas.
 
-## <a name="suffix-operator"></a>Operador de sufixo
+<a name="prefix-search"></a>
 
-O sufixo é um `*`asterisco. Por exemplo, `lux*` procurará documentos que tenham `lux`um termo que comece com , ignorando o caso.  
+## <a name="suffix--operator-for-prefix-search"></a>Operador de `*` sufixo para pesquisa prefixo
+
+O sufixo é um `*`asterisco. Por exemplo, `cap*` procurará documentos que tenham `cap`um termo que comece com , ignorando o caso. 
+
+Semelhante aos filtros, uma consulta de prefixo procura uma correspondência exata. Como tal, não há pontuação de relevância (todos os resultados recebem uma pontuação de pesquisa de 1.0). As consultas de prefixo podem ser lentas, especialmente se o índice for grande e o prefixo consistir num pequeno número de caracteres. 
+
+Se quiser executar uma consulta de sufixo, combinando na última parte da corda, use uma [pesquisa de wildcard](query-lucene-syntax.md#bkmk_wildcard) e a sintaxe lucene completa.
 
 ## <a name="phrase-search-operator"></a>Operador de pesquisa de frases
 

@@ -4,19 +4,19 @@ description: Como permitir o reset da palavra-passe de self-service utilizando a
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370070"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652247"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar a reposição da palavra-passe a partir do ecrã de login do Windows
 
@@ -141,8 +141,8 @@ Se for necessário um registo adicional, pode ser alterada uma chave de registo 
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para permitir a exploração `REG_DWORD: “EnableLogging”`verbosa, crie um , e coloque-o em 1.
-- Para desativar a `REG_DWORD: “EnableLogging”` exploração madeireira verbosa, altere o para 0.
+- Para permitir a exploração `REG_DWORD: "EnableLogging"`verbosa, crie um , e coloque-o em 1.
+- Para desativar a `REG_DWORD: "EnableLogging"` exploração madeireira verbosa, altere o para 0.
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 

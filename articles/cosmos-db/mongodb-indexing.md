@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/03/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 7c75f0d6f74fe8cf1417e0dc40a5ad01615d7057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f369928270c77557337bfdb1037cc5174c39f2
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371064"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637969"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexação utilizando a API do Azure Cosmos DB para o MongoDB
 
@@ -35,7 +35,7 @@ Pode criar índices em qualquer campo. A ordem de tipo do índice de campo únic
 
 `db.coll.createIndex({name:1})`
 
-Uma consulta utilizará vários índices de campo únicos, sempre que disponível.
+Uma consulta utilizará vários índices de campo únicos, sempre que disponível. Pode criar até 500 índices de campo únicos por recipiente.
 
 ### <a name="compound-indexes-36"></a>Índices compostos (3.6)
 

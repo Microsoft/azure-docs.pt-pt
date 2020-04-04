@@ -3,12 +3,12 @@ title: Endereços IP em Funções Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicações de funções e o que as faz mudar.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276494"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656772"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP em Funções Azure
 
@@ -86,7 +86,7 @@ O endereço IP de entrada **pode** mudar quando:
 
 - Elimine uma aplicação de função e recrie-a num grupo de recursos diferente.
 - Elimine a última aplicação de função numa combinação de grupo de recursos e região e recrie-a.
-- Eliminar uma ligação SSL, como durante a [renovação](../app-service/configure-ssl-certificate.md#renew-certificate)do certificado .
+- Eliminar uma ligação TLS, como durante a [renovação](../app-service/configure-ssl-certificate.md#renew-certificate)do certificado .
 
 Quando a sua aplicação de funções funciona num plano de [consumo,](functions-scale.md#consumption-plan)o endereço IP de entrada também pode mudar mesmo quando não tomou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
