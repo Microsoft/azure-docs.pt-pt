@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252567"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637250"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Quickstart: Criar um endpoint privado usando o portal Azure
 
@@ -39,9 +39,9 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 | **\<>de nome de grupo de recursos**  | myResourceGroup |
 | **\<>de nome de rede virtual** | myVirtualNetwork          |
 | **\<>de nome da região**          | E.U.A. Centro-Oeste    |
-| **\<>espaço de endereçoI4**   | 10.1.0.0\16          |
+| **\<>espaço de endereçoI4**   | 10.1.0.0/16          |
 | **\<>de nome de subnet**          | mySubnet        |
-| **\<>de endereços-endereço de subnet** | 10.1.0.0\24          |
+| **\<>de endereços-endereço de subnet** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: spelluru
-ms.openlocfilehash: 4cabd63dc39590a9bf728528f3e7b3aa5d3f6b04
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521764"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632791"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Event Hubs usando análise de stream 
 Este artigo mostra como transmitir dados para Os Hubs de Eventos e processá-lo com o Azure Stream Analytics. Ele acompanha-te pelos seguintes passos: 
@@ -181,15 +181,4 @@ Depois de ter uma tarefa do Stream Analytics configurada para ler um fluxo de da
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a transmitir para O Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Para saber mais sobre os Hubs de Eventos e os Hubs de Eventos para Kafka, veja os tópicos seguintes:  
-
-- [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) (Hubs de Eventos para Apache Kafka)
-- [Criar um hub de eventos](event-hubs-create.md)
-- [Transmitir em fluxo para os Hubs de Eventos a partir das suas aplicações Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
-- [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
-- [Integrar kafka Connect com um hub de eventos](event-hubs-kafka-connect-tutorial.md)
-- [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub) 
+Neste artigo, aprendeu a transmitir para O Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Para saber mais sobre os Hubs de Eventos para Apache Kafka, consulte o guia de [desenvolvimento da Apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md) 

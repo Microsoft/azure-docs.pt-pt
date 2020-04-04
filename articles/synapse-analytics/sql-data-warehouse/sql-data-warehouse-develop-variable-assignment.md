@@ -1,6 +1,6 @@
 ---
 title: Atribuir variáveis
-description: Dicas para atribuir variáveis T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+description: Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL em piscina SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0adcd9bdf92b7ec649b7d91ca0e655fc006b3549
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351653"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633411"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuindo variáveis no Armazém de Dados Azure SQL
+# <a name="assign-variables-in-synapse-sql-pool"></a>Atribuir variáveis em piscina Synapse SQL
 
-Dicas para atribuir variáveis T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL em piscina SQL.
 
-## <a name="setting-variables-with-declare"></a>Definição de variáveis com DECLAR
+## <a name="set-variables-with-declare"></a>Definir variáveis com DECLAR
 
-As variáveis no Armazém de Dados `DECLARE` SQL são definidas utilizando a declaração ou a `SET` declaração. Inicializar variáveis com DECLAR é uma das formas mais flexíveis de definir um valor variável no SQL Data Warehouse.
+As variáveis na piscina SQL são definidas utilizando a `DECLARE` declaração ou a `SET` declaração. Inicializar variáveis com DECLAR é uma das formas mais flexíveis de definir um valor variável no pool SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Não é possível inicializar e utilizar uma variável na mesma declaração de DECLARAÇÃO. Para ilustrar o ponto, **o** seguinte @p1 exemplo não é permitido, uma vez que é inicializado e utilizado na mesma declaração do DECLARE. O exemplo que se segue dá um erro.
+Não pode inicializar e usar uma variável na mesma declaração de DECLARAÇÃO. Para ilustrar o ponto, **o** seguinte @p1 exemplo não é permitido, uma vez que é inicializado e utilizado na mesma declaração do DECLARE. Como tal, o exemplo seguinte dá um erro:
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Definição de valores com SET
+## <a name="set-values-with-set"></a>Definir valores com SET
 
 O SET é um método comum para definir uma única variável.
 
@@ -64,7 +64,7 @@ Só é possível definir uma variável de cada vez com SET. No entanto, os opera
 
 ## <a name="limitations"></a>Limitações
 
-Não é possível utilizar o UPDATE para a atribuição variável.
+Não pode utilizar o UPDATE para a atribuição variável.
 
 ## <a name="next-steps"></a>Passos seguintes
 

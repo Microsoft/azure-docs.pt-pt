@@ -4,19 +4,19 @@ description: Ativar a autenticação combinada de Multi-Factore AD AD e o regist
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425153"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652510"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Ativar o registo combinado de informações de segurança (pré-visualização)
 
@@ -48,7 +48,7 @@ Complete estas etapas para permitir o registo combinado:
 > A partir de março de 2019, as opções de chamada telefónica não estarão disponíveis para utilizadores de Multi-Factor autenticação e SSPR em inquilinos ad's free/trial Azure. As mensagens SMS não são afetadas por esta alteração. As opções de chamada telefónica ainda estarão disponíveis para os utilizadores em inquilinos da Azure AD pagos.
 
 > [!NOTE]
-> Depois de ativar o registo combinado, os utilizadores que se registem ou confirmem o seu número de telefone ou aplicação móvel através da nova experiência podem utilizá-los para autenticação multi-factor e SSPR, se esses métodos estiverem ativados na Autenticação multi-Factor e SSPR políticas. Se, em seguida, desativar esta experiência, os `https://aka.ms/ssprsetup` utilizadores que acederem à página de registo sSPR anterior serão obrigados a efetuar a autenticação de vários fatores antes de poderem aceder à página.
+> Depois de ativar o registo combinado, os utilizadores que se registem ou confirmem o seu número de telefone ou aplicação móvel através da nova experiência podem utilizá-los para autenticação multi-factor e SSPR, se esses métodos estiverem ativados nas políticas de Autenticação multi-Factor e SSPR. Se, em seguida, desativar esta experiência, os `https://aka.ms/ssprsetup` utilizadores que acederem à página de registo sSPR anterior serão obrigados a efetuar a autenticação de vários fatores antes de poderem aceder à página.
 
 Se configurar a Lista de Atribuição de Zonas no Internet Explorer, os seguintes sites têm de estar na mesma zona:
 

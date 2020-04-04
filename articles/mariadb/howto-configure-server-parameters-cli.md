@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 56975c52b22b90840fb1534187e99f6efa19469e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527678"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632307"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalize os parâmetros de configuração do servidor utilizando o Azure CLI
 Pode listar, mostrar e atualizar parâmetros de configuração para uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI, o utilitário da linha de comando Azure. Um subconjunto de configurações do motor é exposto ao nível do servidor e pode ser modificado.
@@ -59,10 +59,10 @@ Este código reinicia a configuração de registo de **\_\_consulta lenta** para
 
 ### <a name="populating-the-time-zone-tables"></a>Povoar as tabelas do fuso horário
 
-As tabelas de fuso horário no `az_load_timezone` seu servidor podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de comando MariaDB ou a Bancada de Trabalho MariaDB.
+As tabelas de fuso horário no `mysql.az_load_timezone` seu servidor podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de comando MariaDB ou a Bancada de Trabalho MariaDB.
 
 > [!NOTE]
-> Se estiver a `az_load_timezone` executar o comando a partir da Bancada de Trabalho `SET SQL_SAFE_UPDATES=0;`MariaDB, poderá ter de desligar o modo de atualização seguro primeiro utilizando .
+> Se estiver a `mysql.az_load_timezone` executar o comando a partir da Bancada de Trabalho `SET SQL_SAFE_UPDATES=0;`MariaDB, poderá ter de desligar o modo de atualização seguro primeiro utilizando .
 
 ```sql
 CALL mysql.az_load_timezone();

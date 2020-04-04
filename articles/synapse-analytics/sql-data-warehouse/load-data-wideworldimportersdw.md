@@ -11,18 +11,19 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 5bc9490733f5e29b6668a9655ac5b8b5dbe9bda8
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: b6d2d5c9ac7eabf703887d559a2d2b86b89dd5c8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346689"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632005"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregue dados para piscina Azure Synapse Analytics SQL
 
-Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImportersDW do armazenamento azure Blob para o seu armazém de dados na piscina Azure Synapse Analytics SQL. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para:
+Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImportersDW do armazenamento azure Blob para o seu armazém de dados na piscina Azure Synapse Analytics SQL. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para:
 
 > [!div class="checklist"]
+>
 > * Criar um armazém de dados utilizando piscina SQL no portal Azure
 > * Configurar uma regra de firewall ao nível do servidor no portal do Azure
 > * Ligue-se à piscina SQL com SSMS
@@ -37,7 +38,7 @@ Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.mi
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -45,9 +46,9 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um armazém de dados em branco na piscina SQL
 
-Um pool SQL é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md) e em um [servidor lógico Azure SQL](../../sql-database/sql-database-features.md). 
+Um pool SQL é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e em um [servidor lógico Azure SQL](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Siga estes passos para criar uma piscina SQL em branco. 
+Siga estes passos para criar uma piscina SQL em branco.
 
 1. Selecione **Criar um recurso** no portal Azure.
 
@@ -55,58 +56,57 @@ Siga estes passos para criar uma piscina SQL em branco.
 
     ![criar piscina SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-1. Preencha a secção detalhes do **projeto** com as seguintes informações:   
+1. Preencha a secção detalhes do **projeto** com as seguintes informações:
 
-   | Definição | Exemplo | Descrição | 
+   | Definição | Exemplo | Descrição |
    | ------- | --------------- | ----------- |
-   | **Assinatura** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-   | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+   | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
+   | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
 
-1. De acordo com os detalhes da **piscina SQL,** forneça um nome para a sua piscina SQL. Em seguida, selecione um servidor existente a partir da queda para baixo, ou selecione **Criar novo** sob as definições **do Servidor** para criar um novo servidor. Preencha o formulário com as informações seguintes: 
+1. De acordo com os detalhes da **piscina SQL,** forneça um nome para a sua piscina SQL. Em seguida, selecione um servidor existente a partir da queda para baixo, ou selecione **Criar novo** sob as definições **do Servidor** para criar um novo servidor. Preencha o formulário com as informações seguintes:
 
-    | Definição | Valor sugerido | Descrição | 
+    | Definição | Valor sugerido | Descrição |
     | ------- | --------------- | ----------- |
-    |**Nome da piscina SQL**|SampleDW| Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). | 
-    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). | 
+    |**Nome da piscina SQL**|SampleDW| Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados). |
+    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
     | **Login de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados).|
     | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
     ![criar um servidor de base de dados](./media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. **Selecione o nível de desempenho**. O slider por padrão está definido para **DW1000c**. Mova o slider para cima e para baixo para escolher a escala de desempenho desejada. 
+1. **Selecione o nível de desempenho**. O slider por padrão está definido para **DW1000c**. Mova o slider para cima e para baixo para escolher a escala de desempenho desejada.
 
     ![criar um servidor de base de dados](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-1. Na página **Definições Adicionais,** delineie os **dados existentes** para Nenhum e deixe a **Colagem** por defeito de *SQL_Latin1_General_CP1_CI_AS*. 
+1. Na página **Definições Adicionais,** delineie os **dados existentes** para Nenhum e deixe a **Colagem** por defeito de *SQL_Latin1_General_CP1_CI_AS*.
 
-1. Selecione **Review + crie** para rever as suas definições e, em seguida, selecione **Criar** para criar o seu armazém de dados. Pode monitorizar o seu progresso abrindo a página de **implementação em curso** a partir do menu **Notificações.** 
+1. Selecione **Review + crie** para rever as suas definições e, em seguida, selecione **Criar** para criar o seu armazém de dados. Pode monitorizar o seu progresso abrindo a página de **implementação em curso** a partir do menu **Notificações.**
 
      ![notificação](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
 
-O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../sql-database/sql-database-firewall-configure.md) para o endereço IP do cliente. 
+O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do cliente.
 
 > [!NOTE]
 > A piscina Azure Synapse Analytics SQL comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
+1. Depois de concluída a implementação, procure o nome da piscina na caixa de pesquisa no menu de navegação e selecione o recurso de piscina SQL. Selecione o nome do servidor.
 
-1. Depois de concluída a implementação, procure o nome da piscina na caixa de pesquisa no menu de navegação e selecione o recurso de piscina SQL. Selecione o nome do servidor. 
+    ![ir para o seu recurso](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
 
-    ![ir para o seu recurso](./media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
+1. Selecione o nome do servidor.
+    ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Selecione o nome do servidor. 
-    ![server name](././media/load-data-wideworldimportersdw/find-server-name.png) 
+1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor de piscina SQL abre.
 
-1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor de piscina SQL abre. 
-
-    ![definições do servidor](./media/load-data-wideworldimportersdw/server-settings.png) 
+    ![definições do servidor](./media/load-data-wideworldimportersdw/server-settings.png)
 
 1. Na página **Firewalls e redes virtuais,** selecione **Adicionar IP do cliente** para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
 
-    ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png) 
+    ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
 1. Selecione **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
 
@@ -119,18 +119,18 @@ Agora pode ligar-se ao servidor SQL utilizando o endereço IP do seu cliente. A 
 
 O nome do servidor totalmente qualificado é o que é usado para ligar ao servidor. Vá ao seu recurso de piscina SQL no portal Azure e veja o nome totalmente qualificado sob o **nome do Servidor**.
 
-![nome do servidor](././media/load-data-wideworldimportersdw/find-server-name.png) 
+![nome do servidor](././media/load-data-wideworldimportersdw/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
+Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao servidor SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 
 2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
 
-    | Definição      | Valor sugerido | Descrição | 
-    | ------------ | --------------- | ----------- | 
+    | Definição      | Valor sugerido | Descrição |
+    | ------------ | --------------- | ----------- |
     | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
     | Nome do servidor | O nome de servidor completamente qualificado | Por exemplo, **sqlpoolservername.database.windows.net** é um nome de servidor totalmente qualificado. |
     | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
@@ -139,25 +139,25 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
 
     ![ligar ao servidor](./media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Clique em **Ligar**. A janela do Object Explorer é aberta no SSMS. 
+3. Clique em **Ligar**. A janela do Object Explorer é aberta no SSMS.
 
-5. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda o **SampleDW** para ver os objetos na sua nova base de dados.
+4. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda o **SampleDW** para ver os objetos na sua nova base de dados.
 
-    ![objetos da base de dados](./media/load-data-wideworldimportersdw/connected.png) 
+    ![objetos da base de dados](./media/load-data-wideworldimportersdw/connected.png)
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 
-A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Os máximos de memória são definidos de acordo com a geração de piscina SQL que você está usando, unidades de armazém de [dados,](what-is-a-data-warehouse-unit-dwu-cdwu.md)e [classe de recursos](resource-classes-for-workload-management.md). 
+A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Os máximos de memória são definidos de acordo com a geração de piscina SQL que você está usando, unidades de armazém de [dados,](what-is-a-data-warehouse-unit-dwu-cdwu.md)e [classe de recursos](resource-classes-for-workload-management.md).
 
 É melhor criar um início de sessão e utilizador dedicado para carregar dados. Em seguida, adicione o utilizador de carregamento a uma [classe de recursos](resource-classes-for-workload-management.md) que permita uma alocação de memória máxima adequada.
 
-Uma vez que está atualmente ligado como o administrador do servidor, pode criar inícios de sessão e utilizadores. Utilize estes passos para criar um início de sessão e o utilizador com o nome **LoaderRC60**. Em seguida, atribua o utilizador à classe de recursos **staticrc60**. 
+Uma vez que está atualmente ligado como o administrador do servidor, pode criar inícios de sessão e utilizadores. Utilize estes passos para criar um início de sessão e o utilizador com o nome **LoaderRC60**. Em seguida, atribua o utilizador à classe de recursos **staticrc60**.
 
-1.  No SSMS, faça duplo clique em **mestre** para mostrar um menu pendente e escolha **Nova Consulta**. É aberta uma nova janela de consulta.
+1. No SSMS, faça duplo clique em **mestre** para mostrar um menu pendente e escolha **Nova Consulta**. É aberta uma nova janela de consulta.
 
     ![Nova consulta na base de dados mestra](./media/load-data-wideworldimportersdw/create-loader-login.png)
 
-2. Na janela de consulta, introduza estes comandos T-SQL para criar um início de sessão e o utilizador com o nome LoaderRC60 ao substituir a sua palavra-passe por "a123STRONGpassword!". 
+2. Na janela de consulta, introduza estes comandos T-SQL para criar um início de sessão e o utilizador com o nome LoaderRC60 ao substituir a sua palavra-passe por "a123STRONGpassword!".
 
     ```sql
     CREATE LOGIN LoaderRC60 WITH PASSWORD = 'a123STRONGpassword!';
@@ -169,8 +169,8 @@ Uma vez que está atualmente ligado como o administrador do servidor, pode criar
 4. Clique com o botão direito do rato em **SampleDW** e selecione **Nova Consulta**. É aberta uma nova janela de consulta.  
 
     ![Nova consulta no armazém de dados de exemplo](./media/load-data-wideworldimportersdw/create-loading-user.png)
- 
-5. Introduza os seguintes comandos T-SQL para criar um utilizador de base de dados com o nome LoaderRC60 para o início de sessão de LoaderRC60. A segunda linha concede ao novo utilizador permissões CONTROL no novo armazém de dados.  Estas permissões são semelhantes a tornar o utilizador o proprietário da base de dados. A terceira linha adiciona o novo utilizador como um membro da [classe de recursos](resource-classes-for-workload-management.md) staticrc60.
+
+5. Introduza os seguintes comandos T-SQL para criar um utilizador de base de dados com o nome LoaderRC60 para o início de sessão de LoaderRC60. A segunda linha concede ao novo utilizador permissões CONTROL no novo armazém de dados.  Estas permissões são semelhantes a tornar o utilizador o proprietário da base de dados. A terceira linha adiciona o novo `staticrc60` utilizador como membro da [classe de recursos](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -202,19 +202,19 @@ Está pronto para iniciar o processo de carregamento de dados para o novo armaz�
 
 Execute os seguintes scripts SQL para especificar informações sobre os dados que quer carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. Os dados estão localizados num Azure Blob global.
 
-1. Na secção anterior, iniciou sessão no armazém de dados como LoaderRC60. No SSMS, clique com o botão direito do rato em **SampleDW** na ligação LoaderRC60 e selecione **Nova Consulta**.  É apresentada uma nova janela de consulta. 
+1. Na secção anterior, iniciou sessão no armazém de dados como LoaderRC60. No SSMS, clique com o botão direito do rato em **SampleDW** na ligação LoaderRC60 e selecione **Nova Consulta**.  É apresentada uma nova janela de consulta.
 
     ![Nova janela de consulta de carregamento](./media/load-data-wideworldimportersdw/new-loading-query.png)
 
 2. Compare a janela de consulta com a imagem anterior.  Certifique-se de que a nova janela de consulta está em execução como LoaderRC60 e a efetuar consultas na base de dados SampleDW. Utilize esta janela de consulta para executar todos os passos de carregamento.
 
-3. Crie uma chave mestra para a base de dados SampleDW. Só tem de criar uma chave mestra uma vez por base de dados. 
+3. Crie uma chave mestra para a base de dados SampleDW. Só tem de criar uma chave mestra uma vez por base de dados.
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir a localização do blob do Azure. Esta é a localização dos dados dos importadores mundiais externos.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir a localização do blob do Azure. Esta é a localização dos dados dos importadores mundiais externos.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -225,22 +225,22 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) para especificar as características de formatação e as opções para o ficheiro de dados externos. Esta instrução especifica que os dados externos são armazenados como texto e que os valores são separados pelo caráter de pipe ("|").  
+5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para especificar as características de formatação e as opções para o ficheiro de dados externos. Esta instrução especifica que os dados externos são armazenados como texto e que os valores são separados pelo caráter de pipe ("|").  
 
     ```sql
-    CREATE EXTERNAL FILE FORMAT TextFileFormat 
-    WITH 
-    (   
+    CREATE EXTERNAL FILE FORMAT TextFileFormat
+    WITH
+    (
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS
-        (   
+        (
             FIELD_TERMINATOR = '|',
-            USE_TYPE_DEFAULT = FALSE 
+            USE_TYPE_DEFAULT = FALSE
         )
     );
     ```
 
-6.  Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) para criar um esquema para o formato de ficheiro externo. O esquema é uma forma de organizar as tabelas externas que está prestes a criar. O esquema wwi organiza as tabelas padrão que irão conter os dados. 
+6. Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar um esquema para o formato de ficheiro externo. O esquema é uma forma de organizar as tabelas externas que está prestes a criar. O esquema wwi organiza as tabelas padrão que irão conter os dados.
 
     ```sql
     CREATE SCHEMA ext;
@@ -267,7 +267,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH (LOCATION='/v1/dimension_City/',   
+    WITH (LOCATION='/v1/dimension_City/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -286,7 +286,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH (LOCATION='/v1/dimension_Customer/',   
+    WITH (LOCATION='/v1/dimension_Customer/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -303,7 +303,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION='/v1/dimension_Employee/',   
+    WITH ( LOCATION='/v1/dimension_Employee/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -317,7 +317,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_PaymentMethod/',   
+    WITH ( LOCATION ='/v1/dimension_PaymentMethod/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -345,7 +345,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_StockItem/',   
+    WITH ( LOCATION ='/v1/dimension_StockItem/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -364,7 +364,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_Supplier/',   
+    WITH ( LOCATION ='/v1/dimension_Supplier/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -377,8 +377,8 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Valid From] [datetime2](7) NOT NULL,
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
-    )    
-    WITH ( LOCATION ='/v1/dimension_TransactionType/',   
+    )
+    WITH ( LOCATION ='/v1/dimension_TransactionType/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -397,7 +397,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Quantity] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Movement/',   
+    WITH ( LOCATION ='/v1/fact_Movement/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -424,8 +424,8 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Total Including Tax] [decimal](18, 2) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Order/',   
-        DATA_SOURCE = WWIStorage,  
+    WITH ( LOCATION ='/v1/fact_Order/',
+        DATA_SOURCE = WWIStorage,
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
         REJECT_VALUE = 0
@@ -443,7 +443,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Is Order Finalized] [bit] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Purchase/',   
+    WITH ( LOCATION ='/v1/fact_Purchase/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -472,7 +472,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Total Chiller Items] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Sale/',   
+    WITH ( LOCATION ='/v1/fact_Sale/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -489,7 +489,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Target Stock Level] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_StockHolding/',   
+    WITH ( LOCATION ='/v1/fact_StockHolding/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -515,7 +515,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
         [Is Finalized] [bit] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Transaction/',   
+    WITH ( LOCATION ='/v1/fact_Transaction/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -533,9 +533,8 @@ Esta secção utiliza as tabelas externas que definiu para carregar os dados da 
 
 > [!NOTE]
 > Este tutorial carrega os dados diretamente para a tabela final. Num ambiente de produção, normalmente, utilizará CREATE TABLE AS SELECT para carregar para uma tabela de testes. Enquanto os dados estiverem na tabela de teste, pode efetuar quaisquer transformações necessárias. Para acrescentar os dados na tabela de teste a uma tabela de produção, pode utilizar a instrução INSERT...SELECT. Para obter mais informações, veja [Inserir dados na tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
-> 
 
-O script utiliza a instrução T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para carregar os dados do Azure Storage Blob para novas tabelas no armazém de dados. CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados dos resultados da instrução select. Quando a declaração selecionada seleciona a partir de uma tabela externa, os dados são importados para uma tabela relacional no armazém de dados. 
+O script utiliza a instrução T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para carregar os dados do Azure Storage Blob para novas tabelas no armazém de dados. CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados dos resultados da instrução select. Quando a declaração selecionada seleciona a partir de uma tabela externa, os dados são importados para uma tabela relacional no armazém de dados.
 
 Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. Estas tabelas foram geradas num passo posterior para as tabelas terem um número significativo de linhas.
 
@@ -544,7 +543,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
     ```sql
     CREATE TABLE [wwi].[dimension_City]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -555,7 +554,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[dimension_Customer]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -566,7 +565,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[dimension_Employee]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -577,7 +576,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[dimension_PaymentMethod]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -588,7 +587,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[dimension_StockItem]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -599,7 +598,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[dimension_Supplier]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -610,7 +609,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[dimension_TransactionType]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -621,7 +620,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[fact_Movement]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Movement Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -632,7 +631,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[fact_Order]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Order Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -643,7 +642,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[fact_Purchase]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Purchase Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -654,7 +653,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[seed_Sale]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([WWI Invoice ID]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -665,7 +664,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[fact_StockHolding]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Stock Holding Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -676,7 +675,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
     CREATE TABLE [wwi].[fact_Transaction]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Transaction Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -695,7 +694,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
         r.status,
         count(distinct input_name) as nbr_files,
         sum(s.bytes_processed)/1024/1024/1024 as gb_processed
-    FROM 
+    FROM
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
         ON r.request_id = s.request_id
@@ -717,7 +716,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
         s.request_id,
         r.status
     ORDER BY
-        nbr_files desc, 
+        nbr_files desc,
         gb_processed desc;
     ```
 
@@ -755,7 +754,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
         [Fiscal Year Label] [nvarchar](10) NOT NULL,
         [ISO Week Number] [int] NOT NULL
     )
-    WITH 
+    WITH
     (
         DISTRIBUTION = REPLICATE,
         CLUSTERED INDEX ([Date])
@@ -791,7 +790,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
     )
     ```
 
-2. Crie [wwi].[InitialSalesDataPopulation] para aumentar o número de linhas em [wwi].[seed_Sale] por um fator de oito. 
+2. Crie [wwi].[InitialSalesDataPopulation] para aumentar o número de linhas em [wwi].[seed_Sale] por um fator de oito.
 
     ```sql
     CREATE PROCEDURE [wwi].[InitialSalesDataPopulation] AS
@@ -824,7 +823,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
     ```sql
     CREATE PROCEDURE [wwi].[PopulateDateDimensionForYear] @Year [int] AS
     BEGIN
-        IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL 
+        IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL
             DROP TABLE #month
         CREATE TABLE #month (
             monthnum int,
@@ -834,7 +833,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
         INSERT INTO #month
             SELECT 1, 31 UNION SELECT 2, CASE WHEN (@YEAR % 4 = 0 AND @YEAR % 100 <> 0) OR @YEAR % 400 = 0 THEN 29 ELSE 28 END UNION SELECT 3,31 UNION SELECT 4,30 UNION SELECT 5,31 UNION SELECT 6,30 UNION SELECT 7,31 UNION SELECT 8,31 UNION SELECT 9,30 UNION SELECT 10,31 UNION SELECT 11,30 UNION SELECT 12,31
 
-        IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL 
+        IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL
             DROP TABLE #days
         CREATE TABLE #days (days int)
         WITH (DISTRIBUTION = ROUND_ROBIN, HEAP)
@@ -843,7 +842,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
             SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION SELECT 20    UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION SELECT 30 UNION SELECT 31
 
         INSERT [wwi].[dimension_Date] (
-            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number] 
+            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number]
         )
         SELECT
             CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year AS CHAR(4)) AS DATE) AS [Date]
@@ -876,6 +875,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
     DROP table #days;
     END;
     ```
+
 4. Crie este procedimento que povoa as mesas wwi.dimension_Date e wwi.fact_Sale. Chama [wwi].[PopulateDateDimensionForYear] para povoar wwi.dimension_Date.
 
     ```sql
@@ -888,7 +888,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
 
         DECLARE @OrderCounter bigint = 0;
         DECLARE @NumberOfSalesPerDay bigint = @EstimatedRowsPerDay;
-        DECLARE @DateCounter date; 
+        DECLARE @DateCounter date;
         DECLARE @StartingSaleKey bigint;
         DECLARE @MaximumSaleKey bigint = (SELECT MAX([Sale Key]) FROM wwi.seed_Sale);
         DECLARE @MaxDate date;
@@ -920,7 +920,7 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
             SELECT TOP(@VariantNumberOfSalesPerDay)
                 [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], @DateCounter, DATEADD(day, 1, @DateCounter), [Salesperson Key], [WWI Invoice ID], [Description], Package, Quantity, [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], Profit, [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
             FROM [wwi].[seed_Sale]
-            WHERE 
+            WHERE
                  --[Sale Key] > @StartingSaleKey and /* IDENTITY DOES NOT WORK THE SAME IN SQLDW AND CAN'T USE THIS METHOD FOR VARIANT */
                 [Invoice Date Key] >=cast(@YEAR AS CHAR(4)) + '-01-01'
             ORDER BY [Sale Key];
@@ -932,12 +932,12 @@ Esta secção cria as mesas wwi.dimension_Date e wwi.fact_Sale. Também cria pro
     ```
 
 ## <a name="generate-millions-of-rows"></a>Gerar milhões de linhas
-Utilize os procedimentos armazenados que criou para gerar milhões de linhas na tabela wwi.fact_Sale e os dados correspondentes na tabela wwi.dimension_Date. 
 
+Utilize os procedimentos armazenados que criou para gerar milhões de linhas na tabela wwi.fact_Sale e os dados correspondentes na tabela wwi.dimension_Date.
 
 1. Execute este procedimento para preencher o [wwi].[seed_Sale] com mais linhas.
 
-    ```sql    
+    ```sql
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
@@ -946,6 +946,7 @@ Utilize os procedimentos armazenados que criou para gerar milhões de linhas na 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
+
 3. A geração de dados no passo anterior pode demorar algum tempo, à medida que avança ao longo do ano.  Para ver o dia do processo atual, abra uma nova consulta e execute este comando SQL:
 
     ```sql
@@ -962,22 +963,22 @@ Utilize os procedimentos armazenados que criou para gerar milhões de linhas na 
 
 A piscina SQL replica uma tabela, apertando os dados a cada nó Compute. A cache é povoada quando é executada uma consulta na tabela. Por conseguinte, a primeira consulta numa tabela replicada pode precisar de tempo adicional para povoar a cache. Depois de a cache ser povoada, as consultas em tabelas replicadas são executadas mais rapidamente.
 
-Execute estas consultas SQL para povoar a cache da tabela replicada nos nós de Computação. 
+Execute estas consultas SQL para povoar a cache da tabela replicada nos nós de Computação.
 
-    ```sql
-    SELECT TOP 1 * FROM [wwi].[dimension_City];
-    SELECT TOP 1 * FROM [wwi].[dimension_Customer];
-    SELECT TOP 1 * FROM [wwi].[dimension_Date];
-    SELECT TOP 1 * FROM [wwi].[dimension_Employee];
-    SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
-    SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
-    SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
-    SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
-    ```
+```sql
+SELECT TOP 1 * FROM [wwi].[dimension_City];
+SELECT TOP 1 * FROM [wwi].[dimension_Customer];
+SELECT TOP 1 * FROM [wwi].[dimension_Date];
+SELECT TOP 1 * FROM [wwi].[dimension_Employee];
+SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
+SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
+SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
+SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
+```
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Criar estatísticas sobre os dados recentemente carregados
 
-Para obter um desempenho de consulta elevado, é importante criar estatísticas em cada coluna de cada tabela após o primeiro carregamento. Também é importante atualizar as estatísticas após alterações substanciais nos dados. 
+Para obter um desempenho de consulta elevado, é importante criar estatísticas em cada coluna de cada tabela após o primeiro carregamento. Também é importante atualizar as estatísticas após alterações substanciais nos dados.
 
 1. Crie este procedimento armazenado que atualiza as estatísticas em todas as colunas de todas as tabelas.
 
@@ -1007,7 +1008,7 @@ Para obter um desempenho de consulta elevado, é importante criar estatísticas 
     BEGIN;
         DROP TABLE #stats_ddl;
     END;
-    
+
     CREATE TABLE #stats_ddl
     WITH    (   DISTRIBUTION    = HASH([seq_nmbr])
             ,   LOCATION        = USER_DB
@@ -1090,11 +1091,13 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, clique em **SampleRG** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes 
-Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados. 
+## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados.
 
 Fez tudo isto:
 > [!div class="checklist"]
+>
 > * Criou um armazém de dados usando piscina SQL no portal Azure
 > * Configurar uma regra de firewall ao nível do servidor no portal do Azure
 > * Ligado à piscina SQL com SSMS

@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7cb1ab7d045a0595f6949052ecedba6cd1bf694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239993"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638084"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -361,7 +361,7 @@ Este exemplo de regra de política usa **valor** para verificar se o resultado d
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -578,6 +578,9 @@ Todas as [funções](../../../azure-resource-manager/templates/template-function
 - recursosId()
 - variáveis()
 
+> [!NOTE]
+> Estas funções ainda estão disponíveis dentro da `details.deployment.properties.template` parte da implementação do modelo numa definição de política **deployIfNotExists.**
+
 A seguinte função está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure:
 
 - `utcNow()`- Ao contrário de um modelo de Gestor de Recursos, este pode ser usado fora do padrãoValue.
@@ -593,10 +596,9 @@ As seguintes funções só estão disponíveis nas regras políticas:
   - Devolve o valor desse campo a partir do recurso que está a ser avaliado pela condição Se
   - `field`é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência no recurso que estão a ser avaliados. Um exemplo desta utilização pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Devolve a versão API do pedido que desencadeou a avaliação política (exemplo: `2019-09-01`). Esta será a versão API que foi utilizada no pedido de avaliação PUT/PATCH sobre criação/atualização de recursos. A versão Mais recente da API é sempre utilizada durante a avaliação de conformidade dos recursos existentes.
+  - Devolve a versão API do pedido que desencadeou a avaliação política (exemplo: `2019-09-01`).
+    Esta será a versão API que foi utilizada no pedido de avaliação PUT/PATCH sobre criação/atualização de recursos. A versão Mais recente da API é sempre utilizada durante a avaliação de conformidade dos recursos existentes.
   
-
-
 #### <a name="policy-function-example"></a>Exemplo de função de política
 
 Este exemplo de `resourceGroup` regra de política usa a função de recurso para `like` obter a propriedade do **nome,** combinada com a `concat` função de matriz e objeto para construir uma condição que impõe o nome do recurso para começar com o nome do grupo de recursos.
@@ -707,8 +709,6 @@ Esta regra da amostra verifica quaisquer correspondências do **\[\*\]ipRules .v
     }
 }
 ```
-
-
 
 Para mais informações, consulte [a avaliação do []\*pseudónimo](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 

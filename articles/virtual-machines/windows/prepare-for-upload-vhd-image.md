@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 719a1985aeb0db7b0cf7f55a10762bf3ebb3e045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250195"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631562"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Prepare a Windows VHD or VHDX to upload to Azure  (Preparar um VHD ou um VHDX do Windows para carregamento para o Azure)
 
-Antes de fazer o upload de uma máquina virtual do Windows (VM) de instalações para O Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta tanto os VMs de geração 1 como de geração 2 que estão em formato de ficheiro VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o VHD é de 1.023 GB. 
+Antes de fazer o upload de uma máquina virtual do Windows (VM) de instalações para O Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta tanto os VMs de geração 1 como de geração 2 que estão em formato de ficheiro VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o VHD é de 2 TB.
 
 Numa geração 1 VM, pode converter um sistema de ficheiros VHDX em VHD. Também pode converter um disco em expansão dinâmica para um disco de tamanho fixo. Mas não se pode mudar a geração de um VM. Para mais informações, consulte [Devo criar uma geração 1 ou 2 VM em Suporte Hyper-V e](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) [Azure para geração 2 VMs (pré-visualização)](generation-2.md).
 
@@ -385,7 +385,7 @@ Idealmente, deve manter a máquina atualizada ao *nível*do patch . Se tal não 
 
 | Componente               | Binário         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Storage                 | discos.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Armazenamento                 | discos.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |

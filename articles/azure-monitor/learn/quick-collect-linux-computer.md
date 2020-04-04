@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b83592aa069b5262961f5e41a909821786a178b6
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528557"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637898"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em um ambiente híbrido com o Monitor Azure
 
 O [Azure Monitor](../overview.md) pode recolher dados diretamente dos seus computadores Linux físicos ou virtuais no seu ambiente para um espaço de trabalho de Log Analytics para análise detalhada e correlação. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Monitor Azure recolher dados de um datacenter ou de outro ambiente na nuvem. Este quickstart mostra-lhe como configurar e recolher dados do seu servidor Linux com alguns passos fáceis. Para obter informações sobre Os VMs Azure Linux, consulte [Recolher dados sobre máquinas virtuais Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-Para compreender a configuração suportada, consulte [sistemas operativos Suportados Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e [configuração](../../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)de firewall da rede .
+Para compreender a configuração suportada, consulte [sistemas operativos Suportados Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e [configuração](../../azure-monitor/platform/log-analytics-agent.md#network-requirements)de firewall da rede .
  
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

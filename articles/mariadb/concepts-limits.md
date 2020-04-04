@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bb907ee59891e5a9a1ffc9c8c6eee34d3e71ad2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531945"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632329"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na Base de Dados Azure para MariaDB
 As seguintes secções descrevem capacidade, suporte do motor de armazenamento, suporte privilegiado, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados.
@@ -147,6 +147,10 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 |Otimizada para Memória|8|16777216|1024|536870912|
 |Otimizada para Memória|16|16777216|1024|1073741824|
 |Otimizada para Memória|32|16777216|1024|1073741824|
+
+### <a name="time_zone"></a>time_zone
+
+As tabelas de fuso horário `mysql.az_load_timezone` podem ser povoadas ligando para o procedimento armazenado a partir de uma ferramenta como a linha de comando MySQL ou a bancada de trabalho MySQL. Consulte os artigos do [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [do Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) para saber como ligar para o procedimento armazenado e definir os fusos horários globais ou de nível de sessão.
 
 ## <a name="storage-engine-support"></a>Suporte do motor de armazenamento
 

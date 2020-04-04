@@ -1,17 +1,17 @@
 ---
 title: Ações GitHub & Serviço Azure Kubernetes (pré-visualização)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: Alterações de revisão e teste de um pedido de pull diretamente no Serviço Azure Kubernetes utilizando gitHub Actions e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, GitHub Actions, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252382"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637951"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações GitHub & Serviço Azure Kubernetes (pré-visualização)
 
@@ -101,6 +101,11 @@ Navegue para o seu repositório bifurcado e clique em *Definições*. Clique em 
 > Todos estes segredos são usados pela ação GitHub e estão configurados em [.github/workflows/bikes.yml][github-action-yaml].
 
 Opcionalmente, se quiser atualizar o espaço principal após a fusão do seu PR, adicione o *GATEWAY_HOST* segredo, que assume o formulário *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundir as suas alterações no ramo principal do garfo, outra ação correrá para reconstruir e executar toda a sua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev*. Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+Além disso, se quiser que as mudanças no seu PR corram num espaço de neto, atualize os segredos *MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver a funcionar em *dev* com um espaço infantil *dev/azureuser1,* para que o PR seja executado num espaço infantil de *v/azureuser1:*
+
+* Atualização *MASTER_SPACE* ao espaço infantil que deseja como espaço para pais, neste exemplo *azureuser1*.
+* Update *HOST* to *<> GRANDPARENT_SPACE.<> APP_NAME.<HOST_SUFFIX>*, neste exemplo *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Criar um novo ramo para alterações de código
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: aa2356901403c7a63aa4aa96dcb38f9c0c971e58
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528357"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637513"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Ligue os computadores Linux ao Monitor Azure
 
@@ -22,7 +22,7 @@ O agente Log Analytics para o Linux pode ser instalado utilizando um dos seguint
 * [Faça o download manual e instale](#install-the-agent-manually) o agente. Isto é necessário quando o computador Linux não tem acesso à Internet e estará a comunicar com o Azure Monitor ou a Azure Automation através do [portal Log Analytics](gateway.md). 
 * [Instale o agente para o Linux utilizando um script de invólucro](#install-the-agent-using-wrapper-script) apresentado no GitHub. Este é o método recomendado para instalar e atualizar o agente quando o computador tem conectividade com a Internet, diretamente ou através de um servidor proxy.
 
-Para compreender a configuração suportada, consulte [sistemas operativos Linux suportados](log-analytics-agent.md#supported-linux-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#firewall-requirements).
+Para compreender a configuração suportada, consulte [sistemas operativos Linux suportados](log-analytics-agent.md#supported-linux-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-requirements).
 
 >[!NOTE]
 >O agente do Log Analytics para Linux não pode ser configurado para reportar a mais do que uma área de trabalho do Log Analytics. Só pode ser configurado para reportar tanto a um grupo de gestão de gestão de Gestão de Operações do System Center como ao espaço de trabalho log Analytics simultaneamente, ou a qualquer um deles individualmente.

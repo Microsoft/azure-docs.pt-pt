@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: ad8b4b39e582d10c2a3b6003bfa07138f4697b71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499183"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632936"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT do dispositivo e módulos duplos, tarefas e encaminhamento de mensagens
 
@@ -481,7 +481,7 @@ Nas condições das rotas, são suportadas as seguintes funções de verificaç�
 | AS_NUMBER | Converte a cadeia de entrada para um número. `noop`se a entrada for um número; `Undefined` se a corda não representar um número.|
 | IS_ARRAY | Devolve um valor booleano indicando se o tipo da expressão especificada é uma matriz. |
 | IS_BOOL | Devolve um valor booleano indicando se o tipo da expressão especificada é um Boolean. |
-| IS_DEFINED | Devolve uma Boolean indicando se a propriedade foi atribuída um valor. |
+| IS_DEFINED | Devolve uma Boolean indicando se a propriedade foi atribuída um valor. Isto só é suportado quando o valor é um tipo primitivo. Os tipos primitivos incluem cordas, `null`booleanas, numéricas, ou . DataTime, tipos de objetos e matrizes não são suportados. |
 | IS_NULL | Devolve um valor booleano indicando se o tipo da expressão especificada é nulo. |
 | IS_NUMBER | Devolve um valor booleano indicando se o tipo da expressão especificada é um número. |
 | IS_OBJECT | Devolve um valor booleano indicando se o tipo da expressão especificada é um objeto JSON. |

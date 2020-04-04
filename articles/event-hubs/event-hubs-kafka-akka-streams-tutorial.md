@@ -4,21 +4,19 @@ description: Este artigo fornece informações sobre como ligar a Akka Streams a
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: c53fcc7b4b99e77237ba7ea9219aef4182f2af61
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521828"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632848"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
 Este tutorial mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. O Azure Event Hubs para o Kafka suporta a [versão 1.0 da Apache Kafka.](https://kafka.apache.org/10/documentation.html)
@@ -140,22 +138,11 @@ Se o centro de eventos tiver eventos (por exemplo, se o `test`seu produtor tamb�
 Consulte o [Guia Akka Streams Kafka](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter informações mais detalhadas sobre os Streams acádios.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, aprendeu a ligar a Akka Streams ao centro de eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Azure Event Hubs para o Kafka suporta [a versão 1.0 da Apache Kafka.](https://kafka.apache.org/10/documentation.html) Fez as seguintes ações como parte deste tutorial: 
+Para saber mais sobre os Hubs de Eventos para Kafka, consulte os seguintes artigos:  
 
-> [!div class="checklist"]
-> * Criar um espaço de nomes dos Hubs de Eventos
-> * Clonar o projeto de exemplo
-> * Executar produtor de Akka Streams 
-> * Executar consumidor akka Streams
-
-Para saber mais sobre os Hubs de Eventos e os Hubs de Eventos para Kafka, veja os tópicos seguintes:  
-
-- [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) (Hubs de Eventos para Apache Kafka)
-- [Como criar um centro de eventos](event-hubs-create.md)
-- [Transmitir em fluxo para os Hubs de Eventos a partir das suas aplicações Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Integrar kafka Connect com um hub de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
+- [Guia de desenvolvimento apache Kafka para Hubs de Eventos Azure](apache-kafka-developer-guide.md)

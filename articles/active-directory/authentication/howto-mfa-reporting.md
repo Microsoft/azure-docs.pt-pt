@@ -4,19 +4,19 @@ description: Isto descreve como usar a funcionalidade de autenticação multi-fa
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47e6bac031a5f2cffc8734fee976fbf8dadc666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129092"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653611"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na autenticação multi-factor azure
 
@@ -90,7 +90,7 @@ Os relatórios de atividades de início de sessão para a MFA dão-lhe acesso à
       - a chamada telefónica foi para o correio de voz
       - o formato do número de telefone é inválido
       - erro de serviço
-      - não é possível comunicar com o telefone do utilizador
+      - incapaz de alcançar o telefone do utilizador
       - não é possível enviar a notificação de aplicação móvel para o dispositivo
       - não é possível enviar a notificação de aplicação móvel
       - o utilizador recusou a autenticação
