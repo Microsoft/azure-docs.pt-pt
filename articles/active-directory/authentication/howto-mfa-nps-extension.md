@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c251569cfe6a2f27f86421ffe6a446ace52b435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f884f4c0ea3a610f28a8fdbb34b081f0b0a64d08
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051157"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666957"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Multi-Factor Authentication do Azure
 
@@ -78,6 +78,7 @@ O servidor NPS precisa de ser capaz de comunicar com os seguintes URLs sobre as 
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Além disso, a conectividade com os seguintes URLs é necessária para completar a [configuração do adaptador utilizando o script PowerShell fornecido](#run-the-powershell-script)
 
@@ -125,7 +126,7 @@ Existem dois fatores que afetam os métodos de autenticação disponíveis com u
       > [!NOTE]
       > Quando implementar a extensão NPS, utilize estes fatores para avaliar quais os métodos disponíveis para os seus utilizadores. Se o seu cliente RADIUS suporta PAP, mas o cliente UX não tem campos de entrada para um código de verificação, então a notificação de chamadas telefónicas e aplicações móveis são as duas opções suportadas.
       >
-      > Além disso, se o seu cliente VPN UX suportar o campo de entrada e tiver configurado a Política de Acesso à Rede - a autenticação poderá ter sucesso, no entanto nenhum dos atributos RADIUS configurados na Política de Rede não será aplicado a nenhum dispositivo de acesso à rede, Como o servidor RRAS, nem o cliente VPN. Como resultado, o cliente VPN pode ter mais acesso do que desejado ou menos sem acesso.
+      > Além disso, se o seu cliente VPN UX suportar o campo de entrada e tiver configurado a Política de Acesso à Rede - a autenticação poderá ter sucesso, no entanto nenhum dos atributos RADIUS configurados na Política de Rede não será aplicado nem ao Dispositivo de Acesso à Rede, como o servidor RRAS, nem ao cliente VPN. Como resultado, o cliente VPN pode ter mais acesso do que desejado ou menos sem acesso.
       >
 
 2. Os métodos de entrada que a aplicação do cliente (VPN, servidor Netscaler ou outro) pode manusear. Por exemplo, o cliente VPN tem alguns meios para permitir ao utilizador escrever um código de verificação a partir de um texto ou aplicação móvel?

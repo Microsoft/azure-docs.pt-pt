@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656930"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668588"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão para serviços de nuvem azure: perguntas frequentes (PERGUNTAS)
 
@@ -30,14 +30,14 @@ Este artigo inclui perguntas frequentes sobre questões de configuração e gest
 
 **Certificados**
 
-- [Porque é que a cadeia de certificados do meu certificado SSL do Serviço Cloud está incompleta?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Porque é que a cadeia de certificados do meu certificado TLS/SSL de serviço de nuvem está incompleta?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [Qual é o propósito do "Certificado de Encriptação de Ferramentas Windows Azure para Extensões"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [Como posso gerar um Pedido de Assinatura de Certificado (RSE) sem "RDP-ing" na instância?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [O meu Certificado de Gestão de Serviços em Nuvem está a expirar. Como renová-lo?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [Como automatizar a instalação do certificado SSL principal (.pfx) e do certificado intermédio (.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Como automatizar a instalação do certificado TLS/SSL principal (.pfx) e do certificado intermédio (.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [Qual é o objetivo do certificado "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
-**Monitorização e exploração madeireira**
+**Monitorização e registos**
 
 - [Quais são as próximas capacidades do Cloud Service no portal Azure que podem ajudar a gerir e monitorizar aplicações?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Porque é que o IIS deixa de escrever para o diário de bordo?](#why-does-iis-stop-writing-to-the-log-directory)
@@ -75,7 +75,7 @@ Este artigo inclui perguntas frequentes sobre questões de configuração e gest
 
 ## <a name="certificates"></a>Certificados
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Porque é que a cadeia de certificados do meu certificado SSL do Serviço Cloud está incompleta?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Porque é que a cadeia de certificados do meu certificado TLS/SSL de serviço de nuvem está incompleta?
     
 Recomendamos que os clientes instalem a cadeia de certificados completo (folhacert, certs intermédios e cert de raiz) em vez de apenas o certificado de folha. Quando instala apenas o certificado de folha, confia no Windows para construir a cadeia de certificados andando no CTL. Se ocorrerem problemas intermitentes de rede ou DNS no Azure ou No Windows Update quando o Windows está a tentar validar o certificado, o certificado pode ser considerado inválido. Ao instalar a cadeia completa de certificados, este problema pode ser evitado. O blog da [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) mostra como fazê-lo.
 
@@ -103,7 +103,7 @@ Pode utilizar os seguintes comandos PowerShell para renovar os seus Certificados
 
 O **Get-AzurePublishSettingsFile** criará um novo certificado de gestão em Certificados de**Gestão** de **Assinaturas** > no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
 
-### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado SSL principal (.pfx) e do certificado intermédio (.p7b)?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado TLS/SSL principal (.pfx) e do certificado intermédio (.p7b)?
 
 Pode automatizar esta tarefa utilizando um script de arranque (batch/cmd/PowerShell) e registar esse script de arranque no ficheiro de definição de serviço. Adicione tanto o script de arranque como o certificado (ficheiro.p7b) na pasta do projeto do mesmo diretório do script de arranque.
 
@@ -183,7 +183,7 @@ Para configurar um endereço IP estático, precisa de criar um IP reservado. Est
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quais são as funcionalidades e capacidades que o Azure basic IPS/IDS e DDOS fornece?
 O Azure tem IPS/IDS em servidores físicos do datacenter para se defender contra ameaças. Além disso, os clientes podem implementar soluções de segurança de terceiros, tais como firewalls de aplicações web, firewalls de rede, antimalware, deteção de intrusões, sistemas de prevenção (IDS/IPS) e muito mais. Para mais informações, consulte Proteja os seus dados e bens e cumpra as [normas globais](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)de segurança .
 
-A Microsoft monitoriza continuamente servidores, redes e aplicações para detetar ameaças. A abordagem multifacetada de gestão de ameaças do Azure usa deteção de intrusões, prevenção de ataques de negação de serviço distribuído (DDoS), testes de penetração, análise comportamental, deteção de anomalias e aprendizagem automática para fortalecer constantemente a sua defesa e reduzir os riscos. O Microsoft Antimalware para o Azure protege os Serviços Azure Cloud e as máquinas virtuais. Tem a opção de implementar soluções de segurança de terceiros, tais como paredes de incêndio de aplicações web, firewalls de rede, antimalware, sistemas de deteção e prevenção de intrusões (IDS/IPS), e muito mais.
+A Microsoft monitoriza continuamente servidores, redes e aplicações para detetar ameaças. A abordagem multifacetada de gestão de ameaças do Azure usa a deteção de intrusões, a prevenção de ataques distribuídos de negação de serviço (DDoS), testes de penetração, análise comportamental, deteção de anomalias e aprendizagem automática para fortalecer constantemente a sua defesa e reduzir riscos. O Microsoft Antimalware para o Azure protege os Serviços Azure Cloud e as máquinas virtuais. Tem a opção de implementar soluções de segurança de terceiros, tais como paredes de incêndio de aplicações web, firewalls de rede, antimalware, sistemas de deteção e prevenção de intrusões (IDS/IPS), e muito mais.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Como ativar http/2 em Cloud Services VM?
 

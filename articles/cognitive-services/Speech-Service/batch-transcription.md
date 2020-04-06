@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131606"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668843"
 ---
 # <a name="what-is-batch-transcription"></a>O que é a transcrição do lote?
 
@@ -146,7 +146,7 @@ Utilize estas propriedades opcionais para configurar a transcrição:
       URL opcional com [serviço SAS](../../storage/common/storage-sas-overview.md) para um recipiente reemputável em Azure. O resultado está guardado neste recipiente.
 :::row-end:::
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 A transcrição do lote suporta [o armazenamento de Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para ler transcrições áudio e escrita para armazenamento.
 
@@ -304,9 +304,6 @@ O serviço de transcrição pode lidar com um grande número de transcrições s
 ## <a name="sample-code"></a>Código de exemplo
 
 As amostras completas estão disponíveis no [repositório da amostra GitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
-
-> [!NOTE]
-> A funcionalidade de transcrição do lote é exposta através da API REST descrita acima. Assim, a transcrição do lote pode ser usada a partir de quase qualquer linguagem de programação ou ambiente que suporte o REST. Os exemplos abaixo e as amostras no GitHub são meramente representativos e **não** conotam limites para onde a API pode ser utilizada.
 
 Tem de personalizar o código da amostra com as suas informações de subscrição, a região de serviço, o SAS URI apontando para o ficheiro áudio para transcrever, e identificações de modelo si, caso pretenda utilizar um modelo acústico ou linguístico personalizado.
 

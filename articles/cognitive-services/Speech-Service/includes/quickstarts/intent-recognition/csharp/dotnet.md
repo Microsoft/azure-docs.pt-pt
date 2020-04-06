@@ -2,22 +2,22 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/27/2020
+ms.date: 04/04/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 4f8fe92a0a36bae2d5e7595bee7bf71fcd926da9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5e6e2c7686c61fa03639566b2b37dc0fb8dbc924
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925088"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671457"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Instale o SDK de Discurso para o<span class="docon docon-navigate-external x-hidden-focus"></span>seu ambiente de desenvolvimento um projeto de amostra sinuoso e de criação.</a>
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp" target="_blank">Instale o SDK de Discurso para o<span class="docon docon-navigate-external x-hidden-focus"></span>seu ambiente de desenvolvimento um projeto de amostra sinuoso e de criação.</a>
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar uma app LUIS para reconhecimento de intenções
 

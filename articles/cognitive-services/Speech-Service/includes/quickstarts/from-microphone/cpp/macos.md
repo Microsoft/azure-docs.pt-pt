@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 4a8b91fbcecbc4f763c9a24ef8c2bcedc377e3b0
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: fd101bdcc99c2aaf5b958c7ae5c4dd0e351e7aa0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80659509"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671543"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -17,7 +17,7 @@ Antes de começar:
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso azure speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=macos)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=macos&pivots=programming-language-cpp)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
 ## <a name="source-code"></a>Código de origem

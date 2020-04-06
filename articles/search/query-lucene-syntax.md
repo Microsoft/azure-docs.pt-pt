@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ed7686bbef7dc1342528475226d11b8b8b8fb640
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656919"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668593"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe lucene consulta em Pesquisa Cognitiva Azure
 
@@ -104,7 +104,7 @@ O agrupamento de campo é semelhante, mas traça o agrupamento para um único ca
 
 ### <a name="or-operator-or-or-"></a>Ou `OR` operador ou`||`
 
-O operador OR é uma barra vertical ou um caracteres de tubo. Por exemplo: `wifi || luxury` procurará documentos que contenham "wifi" ou "luxo" ou ambos. Como o OR é o operador de conjunção `wifi luxury` predefinido, `wifi || luxuery`também pode deixá-lo de fora, de tal forma que é o equivalente a .
+O operador OR é uma barra vertical ou um caracteres de tubo. Por exemplo: `wifi || luxury` procurará documentos que contenham "wifi" ou "luxo" ou ambos. Como o OR é o operador de conjunção `wifi luxury` predefinido, `wifi || luxury`também pode deixá-lo de fora, de tal forma que é o equivalente a .
 
 ### <a name="and-operator-and--or-"></a>E `AND`operador, `&&` ou`+`
 
@@ -162,6 +162,8 @@ O exemplo que se segue ajuda a ilustrar as diferenças. Suponha que há um perfi
  Uma pesquisa de expressão regular encontra uma correspondência baseada no conteúdo entre as barras dianteiras "/", conforme documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Por exemplo, encontrar documentos que contenham `/[mh]otel/`"motel" ou "hotel", especifique. As pesquisas regulares de expressão são compatíveis com palavras simples.
+
+Algumas ferramentas e línguas impõem requisitos adicionais de caráter de fuga. Para a JSON, as cordas que incluem um corte para `search=/.*microsoft.com\/azure\/.*/` a `search=/.* <string-placeholder>.*/` frente são escapadas `microsoft.com\/azure\/` com um corte para trás: "microsoft.com/azure/" torna-se onde configura a expressão regular, e é a corda com um corte para a frente escapou.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Pesquisa de Wildcard  
  Você pode usar sintaxe geralmente reconhecida para múltiplas (*) ou única (?) pesquisas de caracteres wildcard. Note que o parser lucene da consulta suporta o uso destes símbolos com um único termo, e não uma frase.

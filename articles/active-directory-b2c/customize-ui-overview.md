@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 839e13dffc7d15b8cd258dd4b7dda6776223d052
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051728"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666873"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
 
@@ -41,7 +41,7 @@ Se estiver a utilizar [políticas personalizadas](custom-policy-overview.md) par
 
 Se precisar de fornecer conteúdo dinâmico com base na decisão do cliente, utilize políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro que passa da sua aplicação web ou móvel.
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 Pode ativar o código JavaScript do lado do cliente tanto nos [fluxos](user-flow-javascript-overview.md) do utilizador como nas [políticas personalizadas.](page-layout.md)
 
@@ -91,7 +91,10 @@ Reveja as seguintes orientações antes de utilizar os seus próprios ficheiros 
 
 Ao utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI, pode hospedar o seu conteúdo uI em qualquer ponto final HTTPS disponível publicamente que suporte o CORS. Por exemplo, [armazenamento De Blob Azure,](../storage/blobs/storage-blobs-introduction.md)servidores web, CDNs, AWS S3 ou sistemas de partilha de ficheiros.
 
-O importante é que você hospeda o conteúdo num ponto final HTTPS disponível publicamente com CORS habilitado. Deve utilizar um URL absoluto quando o especificar no seu conteúdo.
+O importante é que você hospeda o conteúdo num ponto final HTTPS disponível publicamente com [CORS habilitado](https://enable-cors.org/server.html). Deve utilizar um URL absoluto quando o especificar no seu conteúdo.
+
+> [!NOTE]
+> Para mais detalhes sobre a criação de conteúdo HTML, o upload de conteúdo para o armazenamento do Azure Blob e a configuração do CORS, consulte a secção de [visualização](custom-policy-ui-customization.md#custom-page-content-walkthrough) de conteúdos da página Personalizada no artigo de personalização da UI.
 
 ## <a name="get-started-with-custom-html-and-css"></a>Começar com HTML e CSS personalizados
 

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 969193b2c0843c4eb217d2bdb9f9ad9a40ccf9af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154972"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666928"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -49,9 +49,9 @@ Você pode obter uma conta de teste gratuita com todas as funcionalidades premiu
 
 ## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
 
-Depois de ter testado que a integração da sua aplicação funciona com a Azure AD, submeta o seu pedido de acesso no portal da Rede de [Aplicações.](https://microsoft.sharepoint.com/teams/apponboarding/Apps) Se tiver uma conta do Office 365, use-a para iniciar sessão neste portal. Caso contrário, utilize a sua conta Microsoft, como o Outlook ou o Hotmail, para iniciar sessão.
+Depois de ter testado que a integração da sua aplicação funciona com a AD Azure, submeta o seu pedido de aplicação no portal da [Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Se a página seguinte aparecer após a sua inscrição, contacte a Equipa de [Integração SSO Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Forneça a conta de e-mail que pretende utilizar para submeter o pedido. A equipa da Azure AD irá adicionar a conta no portal da Microsoft Application Network.
+Se a página seguinte aparecer após a sua inscrição, contacte a Equipa de [Integração SSO Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Forneça a conta de e-mail que pretende utilizar para submeter o pedido. Um endereço de [name@yourbusiness.com](mailto:name@yourbusiness.com) e-mail de negócios, como é o caso de preferir. A equipa da Azure AD irá adicionar a conta no portal da Microsoft Application Network.
 
 ![Mensagem de pedido de acesso no portal SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 

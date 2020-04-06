@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b43bfe5979b8232f1fee2f5c1c6873c9c62695a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00713df2cdda626a76cc648826f7e56df214232
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061533"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668715"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -298,7 +298,9 @@ def download_file_from_directory():
 
         file_client = directory_client.get_file_client("uploaded-file.txt")
 
-        downloaded_bytes = file_client.read_file()
+        download = file_client.download_file()
+
+        downloaded_bytes = download.readall()
 
         local_file.write(downloaded_bytes)
 

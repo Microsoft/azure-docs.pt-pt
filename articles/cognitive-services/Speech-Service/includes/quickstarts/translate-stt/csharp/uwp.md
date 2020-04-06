@@ -7,15 +7,15 @@ author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 12/09/2019
+ms.date: 04/04/2020
 ms.author: erhopf
 ms.topic: include
-ms.openlocfilehash: e84c7423e0f061004a827ac45c211d7db9c556df
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 62993b2e553630edd228228b4faa82de44997063
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924774"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671160"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

@@ -1,15 +1,16 @@
 ---
-title: Práticas do operador - Funcionalidades avançadas de programadores nos Serviços Azure Kubernetes (AKS)
+title: Boas práticas para funcionalidades de programadores
+titleSuffix: Azure Kubernetes Service
 description: Aprenda as melhores práticas do operador de cluster para utilizar funcionalidades avançadas de programadores, tais como manchas e tolerâncias, selecionadores de nós e afinidade, ou afinidade inter-pod e anti-afinidade no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252899"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668363"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Boas práticas para funcionalidades avançadas de programadores no Serviço Azure Kubernetes (AKS)
 

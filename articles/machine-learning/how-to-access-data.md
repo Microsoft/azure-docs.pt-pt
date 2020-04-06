@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5972b602d92b2e08fd70850dd1af5c1236e2b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234464"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668652"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligue-se aos serviços de armazenamento azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Precisa de:
 
 ## <a name="supported-data-storage-service-types"></a>Tipos de serviços de armazenamento de dados suportados
 
-Atualmente, as lojas de dados suportam armazenar informações de ligação aos serviços de armazenamento listados na seguinte matriz. Neste momento, o armazém Azure Data não é suportado. 
+Atualmente, as lojas de dados suportam armazenar informações de ligação aos serviços de armazenamento listados na seguinte matriz.
 
 | Tipo&nbsp;de armazenamento | Tipo&nbsp;de autenticação | [Estúdio&nbsp;azure machine&nbsp;learning](https://ml.azure.com/) | [Pitão&nbsp;&nbsp;de&nbsp; aprendizagem de máquina sdk azure](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [ClI&nbsp;&nbsp;de aprendizagem automática azure](reference-azure-machine-learning-cli.md) | [API&nbsp;&nbsp;de&nbsp; aprendizagem automática azure](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---

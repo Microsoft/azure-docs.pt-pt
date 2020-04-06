@@ -1,15 +1,16 @@
 ---
-title: Atualizar e reiniciar os nós linux com kured no Serviço Azure Kubernetes (AKS)
+title: Manuseie o nó Linux reinicia com kured
+titleSuffix: Azure Kubernetes Service
 description: Saiba como atualizar os nós linux e reinicie-os automaticamente com kured no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191287"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668374"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)
 

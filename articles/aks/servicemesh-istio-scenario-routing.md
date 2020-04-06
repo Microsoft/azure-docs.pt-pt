@@ -1,17 +1,18 @@
 ---
-title: Encaminhamento inteligente e lançamentos canários com Istio no Serviço Azure Kubernetes (AKS)
+title: Use Istio para encaminhamento inteligente
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar istio para fornecer encaminhamento inteligente e implementar lançamentos canários num cluster azure Kubernetes Service (AKS)
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 4a695957c287e69ff6b40e5a01254a729eaae441
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a7764eb0a353e6842441093f70ad29c9316bbd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273008"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668278"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utilize encaminhamento inteligente e lançamentos canários com Istio no Serviço Azure Kubernetes (AKS)
 

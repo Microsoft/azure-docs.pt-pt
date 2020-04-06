@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71121957"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668566"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>O certificado de servidor back-end não está listado para um gateway de aplicação usando um Balancer de Carga Interna com um Ambiente de Serviço de Aplicações
 
-Este artigo aborda o seguinte problema: Um certificado não é listado em branco quando cria um gateway de aplicação utilizando um Balancer de Carga Interna (ILB) juntamente com um App Service Environment (ASE) na parte de trás quando se utiliza sSL de ponta a ponta em Azure.
+Este artigo aborda o seguinte problema: Um certificado não é listado em branco quando cria um gateway de aplicação utilizando um Balancer de Carga Interna (ILB) juntamente com um App Service Environment (ASE) na parte de trás quando se utiliza TLS de ponta a ponta em Azure.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -68,7 +68,7 @@ Quando utilizar um nome de domínio totalmente qualificado (FQDN) para aceder ao
 
 - Limpe a opção **de serviço de utilização para aplicações** para o gateway da aplicação, caso esteja a utilizar o endereço IP do ILB.
 
-Para reduzir as despesas gerais, pode fazer o upload do certificado ILB nas definições http para que o caminho da sonda funcione. (Este passo é apenas para whitelisting. Não será usado para comunicação SSL.) Pode recuperar o certificado ILB acedendo ao ILB com o seu endereço IP do seu navegador em HTTPS, exportando depois o certificado SSL num formato CER codificado base-64 e fazendo o upload do certificado nas respetivas definições http.
+Para reduzir as despesas gerais, pode fazer o upload do certificado ILB nas definições http para que o caminho da sonda funcione. (Este passo é apenas para whitelisting. Não será usado para comunicação TLS.) Pode recuperar o certificado ILB acedendo ao ILB com o seu endereço IP do seu navegador em HTTPS, exportando depois o certificado TLS/SSL num formato CER codificado base-64 e carregando o certificado nas respetivas definições http.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

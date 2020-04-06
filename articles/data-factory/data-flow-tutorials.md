@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/24/2020
-ms.openlocfilehash: cc0feff48e7da35535e30c6741994f48750d931a
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: a4f9d48934bcb08147de4c6487629d552c252282
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80293508"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668708"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
@@ -92,6 +92,8 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 [Partição dos seus ficheiros no lago de dados](https://youtu.be/VNWv-MvLQ_0)
 
 [Padrão de carregamento de armazém de dados](https://www.youtube.com/watch?v=7mLqwtmeQFg)
+
+[Opções de saída de ficheiros de data lake](https://www.youtube.com/watch?v=NAPSbjvSQA8)
 
 ## <a name="optimizing-mapping-data-flows"></a>Otimização dos fluxos de dados de mapeamento
 

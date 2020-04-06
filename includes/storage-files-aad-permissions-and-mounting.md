@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208236"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666822"
 ---
-## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
+## <a name="2-assign-access-permissions-to-an-identity"></a>2. Atribuir permissões de acesso a uma identidade
 
-Para aceder aos recursos do Azure Files com autenticação baseada na identidade, uma identidade (utilizador, grupo ou diretor de serviço) deve ter as permissões necessárias ao nível das ações. Este processo é semelhante ao de especificar as permissões de partilha do Windows, onde especifica o tipo de acesso que um determinado utilizador tem para uma partilha de ficheiros. A orientação nesta secção demonstra como atribuir a leitura, escrita ou exclusão de permissões para uma partilha de ficheiros a uma identidade.
+Para aceder aos recursos do Azure Files com autenticação baseada na identidade, uma identidade (utilizador, grupo ou diretor de serviço) deve ter as permissões necessárias ao nível das ações. Este processo é semelhante ao de especificar as permissões de partilha do Windows, onde especifica o tipo de acesso que um determinado utilizador tem para uma partilha de ficheiros. A recomendação geral é usar a permissão de nível de partilha para uma gestão de acesso de alto nível a uma equipa ou grupo, em seguida, alavancar as permissões NTFS para o controlo de acesso granular no nível de diretório/arquivo. A orientação nesta secção demonstra como atribuir a leitura, escrita ou exclusão de permissões para uma partilha de ficheiros a uma identidade. 
 
 Introduzimos três funções azure incorporadas para a concessão de permissões de nível de partilha aos utilizadores:
 
@@ -68,7 +68,7 @@ Antes de executar o seguinte script de amostra, lembre-se de substituir os valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>Configure permissões NTFS sobre SMB 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3. Configure permissões NTFS sobre SMB 
 Depois de atribuir permissões de nível de partilha com RBAC, deve atribuir permissões NTFS adequadas no nível raiz, diretório ou ficheiro. Pense em permissões de nível de partilha como o gatekeeper de alto nível que determina se um utilizador pode aceder à partilha. Enquanto as permissões ntfs atuam a um nível mais granular para determinar que operações o utilizador pode fazer ao nível do diretório ou do ficheiro.
 
 O Azure Files suporta todo o conjunto de permissões básicas e avançadas da NTFS. Pode visualizar e configurar permissões NTFS em diretórios e ficheiros numa partilha de ficheiros Azure, montando a parte e, em seguida, utilizando o Windows File Explorer ou executando os [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) do Windows ou [comando Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 
@@ -113,9 +113,9 @@ Utilize o Windows File Explorer para conceder permissão completa a todos os dir
 8.  No separador Segurança, selecione todas as permissões que pretende conceder ao recém-adicionado utilizador
 9.  Clique em **Aplicar**
 
-## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Monte uma partilha de ficheiros de um VM filiado em domínio
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Monte uma parte de ficheiro de um VM filiado em domínio
 
-O processo seguinte verifica que as suas permissões de partilha de ficheiros e de acesso foram configuradas corretamente e que pode aceder a uma parte do Ficheiro Azure a partir de um VM filiado em domínio:
+O processo seguinte verifica que as suas permissões de partilha de ficheiros e de acesso foram configuradas corretamente e que pode aceder a uma parte do Ficheiro Azure a partir de um VM filiado em domínio. Esteja ciente de que a atribuição de funções rBAC de nível de partilha pode levar algum tempo a estar em vigor. 
 
 Inscreva-se no VM utilizando a identidade Azure AD à qual concedeu permissões, como mostra a seguinte imagem. Se tiver ativado a autenticação ad para ficheiros Azure, utilize a credencial ad. Para autenticação Azure AD DS, inicie sessão com a credencial Azure AD.
 

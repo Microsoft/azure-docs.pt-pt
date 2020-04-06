@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647888"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668892"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configure um ou mais sempre em pessoas do grupo de disponibilidade - Gestor de Recursos
 Este tópico mostra como:
@@ -58,9 +58,13 @@ Se estiver a restringir o acesso a um Grupo de Segurança da Rede Azure, certifi
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determine o equilíbrior de carga SKU necessário
 
-[O equilíbrio de carga Azure](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Basic & Standard. Recomenda-se o equilíbrio de carga padrão. Se as máquinas virtuais estiverem num conjunto de disponibilidade, é permitido um equilíbrio de carga básico. O equilíbrio de carga padrão requer que todos os endereços IP VM utilizem endereços IP padrão.
+[O equilíbrio de carga Azure](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Basic & Standard. Recomenda-se o equilíbrio de carga padrão. Se as máquinas virtuais estiverem num conjunto de disponibilidade, é permitido um equilíbrio de carga básico. Se as máquinas virtuais estiverem numa zona de disponibilidade, é necessário um equilíbrio de carga padrão. O equilíbrio de carga padrão requer que todos os endereços IP VM utilizem endereços IP padrão.
 
 O [modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) atual da Microsoft para um grupo de disponibilidade utiliza um equilíbrio de carga básico com endereços IP básicos.
+
+   > [!NOTE]
+   > Terá de configurar um [ponto final](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) de serviço se utilizar um balanceor de carga padrão e armazenamento azure para a testemunha em nuvem. 
+
 
 Os exemplos deste artigo especificam um equilibrador de carga padrão. Nos exemplos, o `-sku Standard`guião inclui .
 
@@ -226,6 +230,8 @@ Note as seguintes orientações sobre o ouvinte do grupo de disponibilidade em A
 * Com um equilibrador de carga interna, você só acede ao ouvinte dentro da mesma rede virtual.
 
 * Se estiver a restringir o acesso a um Grupo de Segurança da Rede Azure, certifique-se de que as regras de licenciamento incluem os endereços IP VM do Servidor SQL e os endereços IP flutuantes do balanceor de carga para o ouvinte AG e o endereço IP do núcleo de cluster, se aplicável.
+
+* Crie um ponto final de serviço ao utilizar um equilíbrio de carga padrão com o Armazenamento Azure para a testemunha em nuvem. Para mais informações, consulte [o acesso do Grant a partir de uma rede virtual.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)
 
 ## <a name="for-more-information"></a>Para obter mais informações:
 Para mais informações, consulte [configure Always On availability group em Azure VM manualmente](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

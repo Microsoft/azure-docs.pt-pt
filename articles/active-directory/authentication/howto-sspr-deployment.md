@@ -1,6 +1,6 @@
 ---
-title: Implementação de passwordde autosserviço - Diretório Ativo Azure
-description: Estratégia para implementação bem sucedida de reset de senha de autosserviço da AD Azure
+title: Considerações de implementação para o reset de palavra-passe self-service do Diretório Ativo Azure
+description: Conheça considerações de implementação e estratégia para implementação bem sucedida de reset de senha de autosserviço da AD Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,27 +11,34 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652394"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667321"
 ---
-# <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planeie um reset de senha de autosserviço do Azure Ative Diretório
+# <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de senha de autosserviço do Azure Ative Diretório
 
-> [!NOTE]
-> Este plano de implementação oferece orientação de planeamento e boas práticas para implementar o reset de senha de autosserviço azure AD (SSPR). <br>**Se procura a ferramenta SSPR para voltar à sua [https://aka.ms/sspr](https://aka.ms/sspr)conta, vá para **.
+> [!IMPORTANT]
+> Este plano de implementação oferece orientação e boas práticas para implementar o reset de senha de autosserviço azure AD (SSPR).
+>
+> **Se for e terminar utilizador e precisar de voltar [https://aka.ms/sspr](https://aka.ms/sspr)à sua conta, vá para **.
 
-[O Reset de Passwords self-Service (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é uma funcionalidade azure Ative Directory (AD) que permite aos utilizadores redefinir as suas palavras-passe sem contactar o pessoal de TI para obter ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou da hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de apoio para as questões mais comuns relacionadas com a palavra-passe. 
+[O Reset de Passwords self-Service (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é uma funcionalidade azure Ative Directory (AD) que permite aos utilizadores redefinir as suas palavras-passe sem contactar o pessoal de TI para obter ajuda. Os utilizadores podem desbloquear-se rapidamente e continuar a trabalhar independentemente de onde estejam ou da hora do dia. Ao permitir que os colaboradores se desbloqueiem, a sua organização pode reduzir o tempo não produtivo e os elevados custos de apoio para as questões mais comuns relacionadas com a palavra-passe.
 
 A SSPR tem as seguintes capacidades-chave:
 
 * O self-service permite que os utilizadores finais reporem as suas palavras-passe expiradas ou não expiradas sem contactar um administrador ou um helpdesk para obter suporte.
-
 * [A Password Writeback](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) permite a gestão de senhas no local e a resolução do bloqueio da conta embora a nuvem.
-
 * Os relatórios de atividade de gestão de passwords dão aos administradores informações sobre o reset de passwords e a atividade de registo que ocorre na sua organização.
+
+Este guia de implantação mostra-lhe como planear e, em seguida, testar um lançamento sspr.
+
+Para ver rapidamente a SSPR em ação e, em seguida, voltar a compreender considerações adicionais de implantação:
+
+> [!div class="nextstepaction"]
+> [Ativar o reset de palavra-passe self-service (SSPR)](tutorial-enable-sspr.md)
 
 ## <a name="learn-about-sspr"></a>Saiba mais sobre sSPR
 
@@ -134,7 +141,7 @@ A comunicação é fundamental para o sucesso de qualquer novo serviço. Deve co
 
 ### <a name="plan-a-pilot"></a>Planeie um piloto
 
-Recomendamos que a configuração inicial do SSPR seja num ambiente de teste. Comece com um grupo piloto, permitindo a SSPR para um subconjunto de utilizadores na sua organização. Consulte [as melhores práticas para um piloto.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)
+Recomendamos que a configuração inicial do SSPR esteja num ambiente de teste. Comece com um grupo piloto, permitindo a SSPR para um subconjunto de utilizadores na sua organização. Consulte [as melhores práticas para um piloto.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans)
 
 Para criar um grupo, veja como [criar um grupo e adicionar membros no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal). 
 
@@ -213,7 +220,7 @@ Recomendamos que não sincronize as suas contas de administração de diretório
 
 ### <a name="environments-with-multiple-identity-management-systems"></a>Ambientes com múltiplos sistemas de gestão de identidade
 
-Alguns ambientes têm múltiplos sistemas de gestão de identidade. Os gestores de identidade on-premesis como o Oracle AM e o SiteMinder, requerem sincronização com AD para senhas. Pode fazê-lo utilizando uma ferramenta como o Serviço de Notificação de Alteração de Passwords (PCNS) com o Microsoft Identity Manager (MIM). Para encontrar informações sobre este cenário mais complexo, consulte o artigo Implementar o Serviço de Notificação de Alteração de [Palavras-Passe MIM num controlador](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)de domínio .
+Alguns ambientes têm múltiplos sistemas de gestão de identidade. No local, gestores de identidade como oracle AM e SiteMinder, requerem sincronização com AD para senhas. Pode fazê-lo utilizando uma ferramenta como o Serviço de Notificação de Alteração de Passwords (PCNS) com o Microsoft Identity Manager (MIM). Para encontrar informações sobre este cenário mais complexo, consulte o artigo Implementar o Serviço de Notificação de Alteração de [Palavras-Passe MIM num controlador](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)de domínio .
 
 ## <a name="plan-testing-and-support"></a>Teste e Suporte de Planos
 
@@ -255,7 +262,7 @@ Para permitir o sucesso da sua equipa de suporte, pode criar uma FAQ com base na
 | O utilizador não pode definir uma nova senha| Um utilizador completa a verificação durante o fluxo de redefinição da palavra-passe, mas não pode definir uma nova palavra-passe. |
 | O utilizador não vê uma ligação de palavra-passe redefinida num dispositivo Windows 10| Um utilizador está a tentar redefinir a palavra-passe do ecrã de bloqueio do Windows 10, mas o dispositivo não está associado ao Azure AD, ou a política do dispositivo Intune não está ativada |
 
-### <a name="plan-roll-back"></a>Plano reverter
+### <a name="plan-rollback"></a>Plano de reversão
 
 Para reverter a implantação:
 
@@ -295,7 +302,7 @@ Consulte o reset da [palavra-passe de autosserviço Enable](https://docs.microso
 1. [Integração no local](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
 
 ### <a name="enable-sspr-in-windows"></a>Ativar sSPR no Windows
-Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode [permitir que os utilizadores reiniciem a sua palavra-passe no ecrã](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows) de login do Windows
+Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode [permitir que os utilizadores reporem a sua palavra-passe no windows sign no ecrã](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows)
 
 ## <a name="manage-sspr"></a>Gerir o SSPR
 
@@ -336,7 +343,7 @@ Os registos de auditoria para registo e reset de palavra-passe estão disponíve
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar a implementar sSPR, consulte [Complete uma senha de autosserviço Azure AD reset fora](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot)
+* Para começar a implementar sSPR, consulte [Enable Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
 
 * [Considere implementar a proteção de senhas azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

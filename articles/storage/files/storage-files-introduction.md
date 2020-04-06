@@ -7,20 +7,24 @@ ms.topic: overview
 ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3a7bb7939921bfcc3a870193cb9025a8f3dff72c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aff6f99c119ba2854fd7923d2a15efb2e1a6b601
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78969137"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666799"
 ---
 # <a name="what-is-azure-files"></a>O que são os Ficheiros do Azure?
 Os Ficheiros do Azure oferecem partilhas de ficheiros completamente geridas na cloud que são acessíveis através do [protocolo SMB (Server Message Block) norma da indústria](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). As partilhas de ficheiros do Azure podem ser montadas em simultâneo por implementações na cloud ou no local do Windows, Linux e macOS. Além disso, as partilhas de ficheiros do Azure podem ser colocadas em cache em Servidores Windows com o Azure File Sync para acesso rápido perto do local onde os dados estão a ser utilizados.
 
 ## <a name="videos"></a>Vídeos
-| Apresentação da Sincronização de Ficheiros do Azure (2 m) | Ficheiros do Azure com Sincronização (Ignite 2017) (85 m)  |
+| Apresentando o Sincronizado de Ficheiros Azure | Ficheiros Azure com Sync (Ignite 2019)  |
 |-|-|
-| [![Screencast do vídeo Introduceing Azure File Sync - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast dos Ficheiros Azure com apresentação sync - clique para reproduzir!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
+| [![Screencast do vídeo Introduceing Azure File Sync - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast dos Ficheiros Azure com apresentação sync - clique para reproduzir!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+
+Aqui estão alguns vídeos sobre os casos de uso comum de Ficheiros Azure:
+* [Substitua o seu servidor de ficheiros por uma partilha de ficheiros Azure sem servidor](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
+* [Começar com recipientes de perfil FSLogix em Ficheiros Azure no Windows Virtual Desktop aproveitando a autenticação de AD](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## <a name="why-azure-files-is-useful"></a>Por que é que os Ficheiros do Azure são úteis
 As partilhas de ficheiros do Azure podem ser utilizadas para:
@@ -46,7 +50,7 @@ As partilhas de ficheiros do Azure podem ser utilizadas para:
 * **Acesso partilhado**. As partilhas de ficheiros do Azure suportam o protocolo SMB norma da indústria, o que significa que pode substituir facilmente as suas partilhas de ficheiros no local por partilhas de ficheiros do Azure sem se preocupar com a compatibilidade das aplicações. A capacidade de poder partilhar um sistema de ficheiros entre vários computadores e aplicações/instâncias é uma enorme vantagem com os Ficheiros do Azure para aplicações que requerem capacidade de partilha. 
 * **Totalmente gerido.** As partilhas de ficheiros do Azure podem ser criadas sem que seja necessário gerir hardware ou SO. Isto significa que não tem de lidar com a aplicação de patches ao SO do servidor com atualizações de segurança críticas ou substituir os discos rígidos com falhas.
 * **Scripting e ferramentas.** Os cmdlets do PowerShell e a CLI do Azure podem ser utilizados para criar, montar e gerir partilhas de ficheiros do Azure como parte da administração das aplicações do Azure. Pode utilizar o portal do Azure e o Explorador de Armazenamento do Azure para criar e gerir partilhas de ficheiros do Azure. 
-* **Resiliência**. Os Ficheiros do Azure foram criados de raiz para estarem sempre disponíveis. Substituir as partilhas de ficheiros no local pelos Ficheiros do Azure significa que já não tem de se preocupar com falhas de energia ou problemas de rede. 
+* **Resiliência.** Os Ficheiros do Azure foram criados de raiz para estarem sempre disponíveis. Substituir as partilhas de ficheiros no local pelos Ficheiros do Azure significa que já não tem de se preocupar com falhas de energia ou problemas de rede. 
 * **Programabilidade familiar.** As aplicações que são executadas no Azure podem aceder a dados na partilha através das [APIs de E/S de sistema de ficheiros](https://msdn.microsoft.com/library/system.io.file.aspx). Os programadores, por conseguinte, podem tirar partido do respetivo código existente e competências para migrar as aplicações existentes. Para além das APIs de E/S de Sistema, pode utilizar as [Bibliotecas de Cliente do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) ou da [API REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Passos Seguintes

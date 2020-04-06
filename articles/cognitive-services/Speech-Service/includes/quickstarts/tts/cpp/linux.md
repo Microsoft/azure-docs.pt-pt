@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 07/05/2019
+ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: 40befc98c2280418a443ff80e4d246b6e2957e56
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: fdc8fc929cef9d5b7db6e24364e94fbefbdbb44e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925828"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671603"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=linux)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

@@ -1,16 +1,17 @@
 ---
-title: Quickstart - Criar um cluster azure Kubernetes Service (AKS) no portal
+title: Criar um cluster AKS no portal
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação e monitorize o desempenho no Serviço Azure Kubernetes (AKS) utilizando o portal Azure.
 services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: f4885bea686267ce0397e9ca6f3e2c0ac8640971
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e91e5e2701b02ab4c705cd80117dfc7689c7d054
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240619"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668441"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster azure Kubernetes Service (AKS) utilizando o portal Azure
 

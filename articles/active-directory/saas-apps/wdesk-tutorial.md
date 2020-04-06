@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985569"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666963"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a Wdesk
 
@@ -181,6 +181,10 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 
     ![Configurar um único sinal](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. Em definições de ID do **utilizador SAML,** verifique o **ID do utilizador SAML é o nome de utilizador wdesk**.
+
+    ![Configurar um único sinal](./media/wdesk-tutorial/wdesk-username.png)
+
 4. Em **definições gerais,** verifique o **sinal único Ativado SAML ligado:**
 
     ![Configurar um único sinal](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -223,7 +227,7 @@ Para permitir que os utilizadores da AD Azure assinem a Wdesk, devem ser aprovis
    
     ![Criação de um utilizador de teste azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-5. Na caixa de texto **do Utilizador,** introduza o nome de utilizador do utilizador como brittasimon@contoso.com e clique no botão **Continuar.**
+5. Na caixa de texto **do Utilizador,** introduza o nome de utilizador do utilizador como b.simon@contoso.com e clique no botão **Continuar.**
 
     ![Criação de um utilizador de teste azure AD](./media/wdesk-tutorial/createuser3.png)
 
@@ -231,9 +235,9 @@ Para permitir que os utilizadores da AD Azure assinem a Wdesk, devem ser aprovis
   
     ![Criação de um utilizador de teste azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. Na caixa de texto **por e-mail,** introduza o e-mail do utilizador como brittasimon@contoso.com.
+    a. Na caixa de texto **por e-mail,** introduza o e-mail do utilizador como b.simon@contoso.com.
 
-    b. Na caixa de texto **First Name,** introduza o primeiro nome de utilizador como **Britta**.
+    b. Na caixa de texto **First Name,** introduza o primeiro nome do utilizador como **B**.
 
     c. Na caixa de texto **De Apelido,** introduza o último nome de utilizador como **Simon**.
 

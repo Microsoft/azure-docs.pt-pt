@@ -1,17 +1,18 @@
 ---
-title: Tutorial - Desdobre do GitHub para o Serviço Azure Kubernetes (AKS) com Jenkins
+title: Desdobre-se do GitHub para a AKS com Jenkins
+titleSuffix: Azure Kubernetes Service
 description: Configurar jenkins para integração contínua (CI) do GitHub e implantação contínua (CD) para o Serviço Azure Kubernetes (AKS)
 services: container-service
 author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: eb48a8558aab6c7a832efe45650686d9df0d7426
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a93cfc77178ff7638217663c2ceda500aae4cfd7
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624751"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668627"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Desdobre do GitHub para o Serviço Azure Kubernetes (AKS) com integração e implantação contínua seletos jenkins
 

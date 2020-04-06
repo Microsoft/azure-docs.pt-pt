@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 10/04/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535923"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668663"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e fornecer um dispositivo IoT Edge utilizando atestado de chave simétrica
 
@@ -71,6 +71,9 @@ Ao criar uma inscrição em DPS, tem a oportunidade de declarar um **Dispositivo
    1. Forneça um ID do **IoT Hub Device** para o seu dispositivo, se quiser. Pode utilizar iDs do dispositivo para direcionar um dispositivo individual para a implementação do módulo. Se não fornecer uma identificação do dispositivo, o ID de registo é utilizado.
 
    1. Selecione **True** para declarar que a inscrição é para um dispositivo IoT Edge. Para uma inscrição em grupo, todos os dispositivos devem ser dispositivos IoT Edge ou nenhum deles pode ser.
+
+   > [!TIP]
+   > No Azure CLI, pode criar uma [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou um grupo de [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e utilizar a bandeira **ativada pela borda** para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
 
    1. Aceite o valor predefinido da política de atribuição do Serviço de Fornecimento de Dispositivos para **a forma como pretende atribuir dispositivos a hubs** ou escolher um valor diferente específico para esta inscrição.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d94ad56508d5e5f1e28a24e82460a68ffce5592f
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445678"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666887"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os seus dados para a conta Da API de Cassandra em Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.mi
 
 * **Aumentar o débito:** a duração da migração de dados depende da quantidade de débito que aprovisionou para as tabelas no Azure Cosmos DB. Aumente o débito durante o período de migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Após concluir a migração, reduza o débito para reduzir os custos. Também é recomendado ter a conta Azure Cosmos na mesma região que a sua base de dados de origem. 
 
-* **Ativar o SSL:** A Azure Cosmos DB tem rigorosos requisitos e padrões de segurança. Lembre-se de ativar o SSL quando interagir com a sua conta. Quando utilizar o CQL com SSH, tem a opção de fornecer informações SSL.
+* **Ativar tls:** A Azure Cosmos DB tem rigorosos requisitos e padrões de segurança. Certifique-se de que ativa o TLS quando interage com a sua conta. Quando utiliza O CQL com SSH, tem a opção de fornecer informações de TLS.
 
 ## <a name="options-to-migrate-data"></a>Opções de migração de dados
 

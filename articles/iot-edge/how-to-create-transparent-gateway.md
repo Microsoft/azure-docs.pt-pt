@@ -4,16 +4,16 @@ description: Utilize um dispositivo Azure IoT Edge como um portal transparente q
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/30/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6069e0782f69d0dfb73d9be2998cbb11d59d7d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529174"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666669"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
@@ -42,7 +42,7 @@ Pode criar qualquer infraestrutura de certificado que permita a confiança neces
 >[!NOTE]
 >O termo "root CA" utilizado ao longo deste artigo refere-se ao certificado público de autoridade mais alta da cadeia de certificados PKI, e não necessariamente à raiz de certificado de uma autoridade sindical. Em muitos casos, trata-se, na verdade, de um certificado público intermédio da AC.
 
-O portal apresenta o seu certificado CA dispositivo IoT Edge ao dispositivo a jusante durante o início da ligação. O dispositivo a jusante verifica para se certificar de que o certificado CA do dispositivo IoT Edge é assinado pelo certificado CA raiz. Este processo permite que o dispositivo a jusante confirme que o portal provém de uma fonte fidedigna.
+O daemon de segurança IoT Edge utiliza o certificado CA do dispositivo IoT Edge para assinar um certificado CA de carga de trabalho, que por sua vez assina um certificado de servidor para o hub IoT Edge. O portal apresenta o seu certificado de servidor ao dispositivo a jusante durante o início da ligação. O dispositivo a jusante verifica para se certificar de que o certificado de servidor faz parte de uma cadeia de certificados que se encontra no certificado CA raiz. Este processo permite que o dispositivo a jusante confirme que o portal provém de uma fonte fidedigna. Para mais informações, consulte [entenda como o Azure IoT Edge utiliza certificados](iot-edge-certs.md).
 
 Os seguintes passos passam pelo processo de criação dos certificados e instalação nos locais certos na porta de entrada. Pode utilizar qualquer máquina para gerar os certificados e, em seguida, copiá-los para o seu dispositivo IoT Edge.
 

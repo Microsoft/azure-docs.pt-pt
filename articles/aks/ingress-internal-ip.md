@@ -1,15 +1,16 @@
 ---
-title: Criar um controlador de ingresso para uma rede interna no Serviço Azure Kubernetes (AKS)
+title: Controlador de ingresso na rede interna
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador de ingresso NGINX para uma rede interna e privada num cluster do Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 8c3eeaf2f9a92f1be9c691091d8e33d09a60b22d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a123a02ed26a5257d3b8e3ee69fb14d96cde550
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595659"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668488"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso para uma rede virtual interna no Serviço Azure Kubernetes (AKS)
 

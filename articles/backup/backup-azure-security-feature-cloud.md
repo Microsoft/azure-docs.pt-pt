@@ -3,12 +3,12 @@ title: Funcionalidades de segurança para ajudar a proteger as cargas de trabalh
 description: Aprenda a utilizar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 57c9fd76ae32aea49f480f2a88d8296538d8052d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156077"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668729"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger cargas de trabalho em nuvem que usam Backup Azure
 
@@ -34,7 +34,7 @@ A eliminação suave para VMs protege as cópias de segurança dos seus VMs de e
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-A soft delete é atualmente apoiada no Centro-Oeste dos EUA, Ásia Oriental, Canadá Central, Canadá Leste, França Central, França Sul, Coreia Central, Coreia do Sul, Reino Unido, Oeste, Austrália Leste, Austrália Sudeste, Norte da Europa, Oeste DOS EUA, OESTE DOS EUA, Centro dos EUA, Sul Leste asiático, Norte-Central dos EUA, Centro-Sul dos EUA, Japão Leste, Japão Oeste, Índia Sul, Índia Central, Índia Ocidental, Leste DOS EUA 2, Suíça Norte, Suíça Oeste, e todas as regiões nacionais.
+A soft delete é atualmente apoiada no Centro-Oeste dos EUA, Ásia Oriental, Canadá Central, Canadá Leste, França Central, França Sul, Coreia Central, Coreia do Sul, Reino Unido Sul, Reino Unido Oeste, Austrália Leste, Austrália Sudeste, Norte da Europa, Oeste dos EUA, Oeste DOS EUA, Sudeste Asiático, Norte-Central DOS EUA, Centro-Sul dos EUA, Japão Leste, Japão Oeste, Índia Sul, Índia Central, Índia Ocidental, Oeste, LESTE DOS EUA 2 - Suíça Norte, Suíça Oeste, Noruega Oeste, Noruega Leste e todas as regiões nacionais.
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>Eliminação suave para VMs utilizando portal Azure
 
@@ -264,7 +264,7 @@ Ao fazer backup das suas Máquinas Virtuais Azure, pode agora encriptar os seus 
 
 ### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Backup de VMs de disco gerido encriptado usando chaves geridas pelo cliente
 
-O Azure Backup também lhe permite fazer backup dos seus VMs Azure que utilizam a sua chave para encriptação do lado do servidor. A chave utilizada para encriptar os discos é armazenada no Cofre de Chaves Azure e gerida por si. A encriptação do lado do servidor utilizando chaves geridas pelo cliente difere da encriptação do disco Azure, uma vez que a ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para o Linux) para executar encriptação no hóspede, a SSE encripta dados no serviço de armazenamento, permitindo-lhe utilizar qualquer SISTEMA ou imagens para os seus VMs. Consulte a [Encriptação de discos geridos com chaves geridas](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) pelo cliente para mais detalhes.
+O Azure Backup também lhe permite fazer backup dos seus VMs Azure que utilizam a sua chave para encriptação do lado do servidor. A chave utilizada para encriptar os discos é armazenada no Cofre de Chaves Azure e gerida por si. A encriptação do lado do servidor utilizando chaves geridas pelo cliente difere da encriptação do Disco Azure, uma vez que a ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para o Linux) para executar encriptação no hóspede, a SSE encripta dados no serviço de armazenamento, permitindo-lhe utilizar qualquer SISTEMA ou imagens para os seus VMs. Consulte a [Encriptação de discos geridos com chaves geridas](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) pelo cliente para mais detalhes.
 
 ### <a name="backup-of-vms-encrypted-using-ade"></a>Backup de VMs encriptados usando ADE
 

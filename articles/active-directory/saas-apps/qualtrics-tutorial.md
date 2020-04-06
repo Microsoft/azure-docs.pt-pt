@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a Qualtrics Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Qualtrics.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a SAP Qualtrics [ SAP Qualtrics] Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SAP Qualtrics.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,198 +11,157 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 1c409c58e023c1919cf7b59794ebd21d90e82541
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d7a35f9f366f45a111aa7111501c9261ecbfa87e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093486"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667507"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Tutorial: Integração do Diretório Ativo Azure com a Qualtrics
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-qualtrics"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com A Qualtrics SAP
 
-Neste tutorial, aprende-se a integrar a Qualtrics com o Azure Ative Directory (Azure AD).
-Integrar a Qualtrics com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar a SAP Qualtrics com o Azure Ative Directory (Azure AD). Quando integrar a SAP Qualtrics com a Azure AD, pode:
 
-* Pode controlar em Azure AD quem tem acesso à Qualtrics.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Qualtrics (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Controlo em Azure AD que tem acesso à SAP Qualtrics.
+* Ative que os seus utilizadores sejam automaticamente inscritos na SAP Qualtrics com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a Qualtrics, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Qualtrics única subscrição ativada por sign-on
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* SAP Qualtrics única subscrição ativada por SAP Qualtrics (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* Qualtrics suporta **SP** iniciado SSO
+* SAP Qualtrics suporta **SP** e **IDP** iniciadoS SSO
+* Suporte da Qualtrics SAP **Just In Time**
+* Assim que configurar a SAP Qualtrics, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
-* Qualtrics suporta o fornecimento de utilizadores **justo no tempo**
+## <a name="adding-sap-qualtrics-from-the-gallery"></a>Adicionando A EPDa da galeria
 
-## <a name="adding-qualtrics-from-the-gallery"></a>Adicionando Qualtrics da galeria
+Para configurar a integração da SAP Qualtrics em Azure AD, precisa adicionar AAp Qualtrics da galeria à sua lista de aplicações geridas saaS.
 
-Para configurar a integração da Qualtrics em Azure AD, precisa adicionar a Qualtrics da galeria à sua lista de aplicações geridas do SaaS.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No **Add da** secção galeria, digite **A Qualtrics SAP** na caixa de pesquisa.
+1. Selecione **SAP Qualtrics** do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-**Para adicionar a Qualtrics da galeria, execute os seguintes passos:**
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-qualtrics"></a>Configure e teste Azure AD único signo para SAP Qualtrics
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+Configure e teste Azure AD SSO com SAP Qualtrics utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na SAP Qualtrics.
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Para configurar e testar o Azure AD SSO com a SAP Qualtrics, complete os seguintes blocos de construção:
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure sSO de qualtrics SAP](#configure-sap-qualtrics-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    1. **[Crie um utilizador de teste SAP Qualtrics](#create-sap-qualtrics-test-user)** - para ter uma contrapartida de B.Simon na SAP Qualtrics que esteja ligada à representação da AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de **aplicações Da ApS Qualtrics,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-4. Na caixa de pesquisa, escreva **Qualtrics,** **selecione Qualtrics** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-     ![Qualtrics na lista de resultados](common/search-new-app.png)
+1. No set único sessão com a página **SAML,** Se desejar configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
+    
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+    `https://< DATACENTER >.qualtrics.com`
+   
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
 
-Nesta secção, configura e testa o único sign-on azure ad com a Qualtrics com base num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Qualtrics.
+    `https://< DATACENTER >.qualtrics.com/login/v1/sso/saml2/default-sp`
 
-Para configurar e testar o único sinal de Azure AD com a Qualtrics, é necessário completar os seguintes blocos de construção:
+    c. Na caixa de texto **do Estado relé,** digite um URL utilizando o seguinte padrão:
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Qualtrics Single Sign-On](#configure-qualtrics-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Crie um utilizador de teste da Qualtrics](#create-qualtrics-test-user)** - para ter uma contrapartida da Britta Simon na Qualtrics que esteja ligada à representação da AD Azure do utilizador.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+    No **Sign on URL** textbox, digite um URL utilizando o seguinte padrão:
 
-Para configurar o único signo da AD Azure com a Qualtrics, execute os seguintes passos:
-
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da Qualtrics,** selecione **Single sign-on**.
-
-    ![Configurar um único link de sinalização](common/select-sso.png)
-
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
-
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
-
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
-
-4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
-
-    ![Qualtrics Domain e URLs informações únicas de inscrição](common/sp-identifier.png)
-
-    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<companyname>.qualtrics.com`
-
-    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:
-
-    | |
-    |--|
-    | `https://<companyname>.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
-    | `https://<companyname>.co1.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
-    | |
+    `https://< brandID >.< DATACENTER >.qualtrics.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte a equipa de suporte do Cliente da [Qualtrics](https://www.qualtrics.com/support/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL, Identificador, URL de resposta e estado de retransmissão. Contacte a equipa de suporte do Cliente da [Qualtrics](https://www.qualtrics.com/support/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-6. Na secção **'Configurar a Qualtrics',** copie os URL(s) adequados de acordo com o seu requisito.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure AD
-
-    c. Logout URL
-
-### <a name="configure-qualtrics-single-sign-on"></a>Configurar o signo único da Qualtrics
-
-Para configurar um único sinal no lado da **Qualtrics,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte da Qualtrics](https://www.qualtrics.com/support/). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
-
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entrar **BrittaSimon.**
-  
-    b. No **User name** tipo brittasimon@yourcompanydomain.extensionde campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
-
-    d. Clique em **Criar**.
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Qualtrics.
+Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso à SAP Qualtrics.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Qualtrics**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **SAP Qualtrics**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **Qualtrics**.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Qualtrics na lista de Aplicações](common/all-applications.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+## <a name="configure-sap-qualtrics-sso"></a>Configure SAP Qualtrics SSO
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+Para configurar um único sinal no lado **da SAP Qualtrics,** é necessário enviar o url copiado da Federação de Metadados da Federação de **Aplicações** do portal Azure para a equipa de [suporte da SAP Qualtrics](https://www.qualtrics.com/support/). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+### <a name="create-sap-qualtrics-test-user"></a>Criar o utilizador de teste SAP Qualtrics
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+Nesta secção, um utilizador chamado Britta Simon é criado na SAP Qualtrics. A SAP Qualtrics suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na SAP Qualtrics, um novo é criado após a autenticação.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
-
-### <a name="create-qualtrics-test-user"></a>Criar o utilizador de teste qualtrics
-
-Nesta secção, um utilizador chamado Britta Simon é criado na Qualtrics. A Qualtrics suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Qualtrics, um novo é criado após a autenticação.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Qualtrics no Painel de Acesso, deve ser automaticamente inscrito na Qualtrics para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo SAP Qualtrics no Painel de Acesso, deve ser automaticamente inscrito na Qualtrics SAP para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente a SAP Qualtrics com AD Azure](https://aad.portal.azure.com/)
+
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger a SAP Qualtrics com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

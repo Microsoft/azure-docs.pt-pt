@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330587"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667772"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerir horários para laboratórios de salas de aula em Serviços de Laboratório Azure 
 Os horários permitem configurar um laboratório de sala de aula de modo a que os VMs no laboratório comecem e desliguem automaticamente num determinado momento. Pode definir um horário único ou um horário recorrente. Os seguintes procedimentos dão-lhe passos para criar e gerir horários para um laboratório de sala de aula: 
@@ -28,6 +28,12 @@ Os horários permitem configurar um laboratório de sala de aula de modo a que o
 
 ## <a name="set-a-schedule-for-the-lab"></a>Estabeleça um horário para o laboratório
 Crie um evento programado para o laboratório para que os VMs no laboratório sejam automaticamente iniciados/parados em momentos específicos. A quota de utilizador especificada anteriormente é o tempo adicional atribuído a cada utilizador fora desta hora programada. 
+
+> [!NOTE]
+> Antes de começarmos, eis como os horários afetam as máquinas virtuais de laboratório: 
+>- A máquina virtual do modelo não está incluída nos horários. 
+>- Apenas as máquinas virtuais atribuídas são iniciadas. Isto significa que, se uma máquina não for reclamada por um utilizador final (aluno), a máquina não iniciará as horas programadas. 
+>- Todas as máquinas virtuais (reclamadas por um utilizador ou não) são interrompidas com base no horário do laboratório. 
 
 1. Mude para a página **'Agendas'** e selecione **Adicionar evento agendado** na barra de ferramentas. 
 

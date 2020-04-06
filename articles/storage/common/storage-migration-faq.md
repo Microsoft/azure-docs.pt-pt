@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1445d74e3050ffd6da7c45037df552f4bee9acf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116664"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668554"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração do Armazenamento do Azure
 
@@ -269,7 +269,7 @@ Para dar a outras pessoas acesso aos recursos de armazenamento:
 
 **Como uso um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como faço com\/que "https: /mystorageaccountname.blob.core.windows.net/images/image.gif" apareça como "https:\//www.contoso.com/images/image.gif"?**
 
-O SSL não é atualmente suportado em contas de armazenamento com domínios personalizados.
+TLS/SSL não é atualmente suportado em contas de armazenamento com domínios personalizados.
 Mas pode utilizar domínios personalizados não HTTPS. Para mais informações, consulte [Configure um nome](../blobs/storage-custom-domain-name.md)de domínio personalizado para o seu ponto final de armazenamento Blob .
 
 ## <a name="access-to-storage"></a>Acesso ao armazenamento

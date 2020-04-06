@@ -1,14 +1,14 @@
 ---
 title: Inquilinos, funções e utilizadores em cenários do Farol Azure
 description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser utilizados em cenários do Farol Azure.
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7540e17fd80f9a1d8e996295000c126614b838d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4734f12c8b4b25bf75ecabc39d9e99d8ebe0951c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246896"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668879"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, funções e utilizadores em cenários do Farol Azure
 
@@ -41,6 +41,7 @@ Ao criar as suas autorizações, recomendamos as seguintes melhores práticas:
 - Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho, ajudando a reduzir a possibilidade de erros inadvertidos. Para mais informações, consulte [práticas de segurança recomendadas.](../concepts/recommended-security-practices.md)
 - Inclua um utilizador com a Função de Eliminação de [Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que possa [remover o acesso à delegação](../how-to/onboard-customer.md#remove-access-to-a-delegation) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no inquilino do cliente.
 - Certifique-se de que qualquer utilizador que precise [de ver a página dos meus clientes no portal Azure](../how-to/view-manage-customers.md) tem a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Leitor).
+- Os utilizadores do inquilino gerente não terão acesso a visualização de informações de faturação para uma subscrição de cliente delegada, mesmo que tenham uma função incorporada que normalmente permita o acesso. Isto porque o acesso à informação de faturação requer passos adicionais que atualmente são apenas suportados para os utilizadores dentro do mesmo inquilino.
 
 > [!IMPORTANT]
 > Para adicionar permissões a um grupo Azure AD, o **tipo de grupo** deve ser **segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para mais informações, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
