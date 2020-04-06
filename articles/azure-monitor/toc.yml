@@ -15,7 +15,7 @@
     - name: Monitorizar máquinas virtuais
       items:
         - name: VMs do Azure
-          href: learn/quick-collect-azurevm.md
+          href: learn/quick-monitor-azure-vm.md
         - name: Computador com Linux
           href: learn/quick-collect-linux-computer.md
         - name: Computador Windows
@@ -303,10 +303,6 @@
             - name: Correlação de telemetria
               href: app/correlation.md
               displayname: 'correlation headers, w3c, distributed tracing, tracing'
-            - name: Reencaminhador local
-              href: app/opencensus-local-forwarder.md
-            - name: Ir
-              href: app/opencensus-go.md
         - name: Live Metrics Stream
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
@@ -488,9 +484,17 @@
             - name: Descrição geral
               displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/platform-logs-overview.md
-            - name: Ver Registo de atividades
-              displayName: Platform logs
-              href: platform/activity-log-view.md
+            - name: Registo de atividades
+              items:
+                - name: Ver no portal do Azure
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-view.md
+                - name: Recolher e analisar
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-collect.md
+                - name: Exportação (legada)
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
             - name: Enviar para destinos
               items:
                 - name: Área de trabalho do Log Analytics
@@ -502,20 +506,6 @@
                 - name: Hubs de Eventos
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-stream-event-hubs.md
-            - name: Recolha de registos de Atividades Legadas
-              items:
-                - name: Descrição geral
-                  displayName: Resource logs
-                  href: platform/diagnostic-settings-legacy.md
-                - name: Recolher e analisar
-                  displayname: Activity log
-                  href: platform/activity-log-collect.md
-                - name: Recolher entre inquilinos
-                  displayname: Activity log
-                  href: platform/activity-log-collect-tenants.md
-                - name: Exportar
-                  displayname: Activity log
-                  href: platform/activity-log-export.md
         - name: Definições de diagnóstico
           items:
             - name: Criar definição de diagnóstico
@@ -531,6 +521,8 @@
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Monitorizar VMs e SO convidado
       items:
+        - name: Monitorizar máquinas virtuais do Azure
+          href: insights/monitor-vm-azure.md
         - name: Agentes
           items:
             - name: Descrição geral dos agentes
@@ -636,12 +628,10 @@
           items:
             - name: Descrição geral
               href: insights/vminsights-overview.md
-            - name: Problemas conhecidos
-              href: insights/vminsights-known-issues.md
             - name: FAQ sobre Disponibilidade Geral
               href: insights/vminsights-ga-release-faq.md
             - name: FAQ
-              href: 'faq.md#azure-monitor-for-vms-preview'
+              href: 'faq.md#azure-monitor-for-vms'
             - name: Ativar monitorização
               items:
                 - name: Ativar descrição geral da monitorização
@@ -654,18 +644,16 @@
                   href: insights/vminsights-enable-at-scale-powershell.md
                 - name: Ativar para o ambiente Híbrido
                   href: insights/vminsights-enable-hybrid-cloud.md
-                - name: Integração com o Operations Manager
-                  href: insights/service-map-scom.md
-            - name: Monitorizar o estado de funcionamento
-              href: insights/vminsights-health.md
             - name: Mapear dependências
               href: insights/vminsights-maps.md
             - name: Monitorizar desempenho
               href: insights/vminsights-performance.md
-            - name: Utilizar livros
-              href: insights/vminsights-workbooks.md
             - name: Analisar dados com consultas de registo
               href: insights/vminsights-log-search.md
+            - name: Visualizar dados com livros
+              href: insights/vminsights-workbooks.md
+            - name: Criar regras de alertas
+              href: insights/vminsights-alerts.md
             - name: Atualizar o agente de dependência
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: Desativar a monitorização
@@ -680,6 +668,8 @@
               href: insights/wire-data.md
             - name: Solução Mapa de Serviços
               href: insights/service-map.md
+            - name: Mapa de Serviços e Operations Manager
+              href: insights/service-map-scom.md
         - name: Grupos de computadores
           href: platform/computer-groups.md
     - name: Contentores de monitor
@@ -708,6 +698,8 @@
               href: insights/container-insights-analyze.md
             - name: Monitorizar o estado de funcionamento
               href: insights/container-insights-health.md
+            - name: Monitorizar o desempenho da GPU
+              href: insights/container-insights-gpu-monitoring.md
             - name: Ver dados em direto
               items:
                 - name: Descrição geral dos dados em direto (pré-visualização)
@@ -896,13 +888,11 @@
                   href: log-query/query-optimization.md
                 - name: Analisar dados de texto
                   href: log-query/parse-text.md
-        - name: Flow / Logic Apps
+        - name: Aplicações Lógicas
           items:
-            - name: Conector do Flow com Registos
-              href: platform/flow-tutorial.md
-            - name: Conector do Flow com aplicações
-              href: app/automate-with-flow.md
-            - name: Logic Apps com aplicações
+            - name: Conector de Registos do Azure Monitor
+              href: platform/logicapp-flow-connector.md
+            - name: Conector do Application Insights
               href: app/automate-with-logic-apps.md
         - name: API REST
           displayname: 'metrics, analyze'
@@ -975,6 +965,8 @@
           href: platform/grafana-plugin.md
     - name: Alertas
       items:
+        - name: Alertas de resolução de problemas
+          href: platform/alerts-troubleshoot.md
         - name: Regras de alerta de aplicação
           items:
             - name: Disponibilidade
@@ -999,7 +991,7 @@
               href: platform/alerts-log-query.md
             - name: Ações do webhook
               href: platform/alerts-log-webhook.md
-            - name: Resolução de problemas
+            - name: Resolver problemas de alertas de registos
               href: platform/alert-log-troubleshoot.md
         - name: Regras de alerta de registo de atividade
           items:
@@ -1263,8 +1255,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: Notas de versão do SDK
           href: app/release-notes.md
-    - name: Análise do Windows
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Vídeos

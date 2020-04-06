@@ -149,6 +149,8 @@
           items:
             - name: Réplicas de leitura
               href: concepts-read-replicas.md
+            - name: Descodificação lógica
+              href: concepts-logical.md
     - name: Hyperscale (Citus)
       items:
         - name: Nós
@@ -269,6 +271,8 @@
           items:
             - name: Portal do Azure
               href: howto-data-encryption-portal.md
+            - name: CLI do Azure
+              href: howto-data-encryption-cli.md
         - name: Reiniciar servidor
           items:
             - name: Portal do Azure

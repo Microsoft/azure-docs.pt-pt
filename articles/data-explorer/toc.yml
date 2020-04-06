@@ -67,7 +67,13 @@
     - name: Ingerir dados
       items:
         - name: Ingestão com um clique
-          href: ingest-data-one-click.md
+          items:
+            - name: Descrição geral da ingestão com um clique
+              href: ingest-data-one-click.md
+            - name: Ingestão com um clique numa nova tabela
+              href: one-click-ingestion-new-table.md
+            - name: Ingestão com um clique numa tabela existente
+              href: one-click-ingestion-existing-table.md
         - name: Ingestão em transmissão em fluxo
           href: ingest-data-streaming.md
         - name: Utilizar o LightIngest
@@ -188,6 +194,8 @@
               href: customer-managed-keys-csharp.md
             - name: Modelo Azure Resource Manager
               href: customer-managed-keys-resource-manager.md
+        - name: Criar aplicação do Azure AD
+          href: provision-azure-ad-app.md
     - name: Gerir
       items:
         - name: Cluster
@@ -208,6 +216,8 @@
                   href: cluster-principal-python.md
                 - name: Modelo Azure Resource Manager
                   href: cluster-principal-resource-manager.md
+            - name: Gerir extensões de linguagem de clusters
+              href: language-extensions.md
         - name: Base de Dados
           items:
             - name: Bases de dados de seguidor
@@ -240,6 +250,8 @@
           href: using-diagnostic-logs.md
         - name: Utilizar métricas para monitorizar o estado de funcionamento do cluster
           href: using-metrics.md
+        - name: Utilizar o estado de funcionamento dos recursos para monitorizar o estado de funcionamento dos clusters
+          href: monitor-with-resource-health.md
     - name: Integrar com outras ferramentas
       items:
         - name: Azure Data Factory
@@ -264,6 +276,8 @@
           href: connect-from-databricks.md
         - name: Analisar dados no Jupyter Notebook e Kqlmagic
           href: kqlmagic.md
+        - name: Analisar dados no Azure Notebooks
+          href: azure-notebooks.md
         - name: Pipelines do Azure
           href: devops.md
     - name: Resolução de problemas

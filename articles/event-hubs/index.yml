@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 01/29/2020
-  ms.openlocfilehash: 957a942efd618003dd3ff3f9f76be72799770859
-  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+  ms.date: 03/13/2020
+  ms.openlocfilehash: 24f3c35b41effaaad7aa3058c4a3d3af13739a01
+  ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80288296"
+  ms.lasthandoff: 04/01/2020
+  ms.locfileid: "80520320"
 landingContent:
 - title: Acerca dos Hubs de Eventos
   linkLists:
@@ -69,8 +69,6 @@ landingContent:
       url: event-hubs-kafka-stream-analytics.md
   - linkListType: how-to-guide
     links:
-    - text: Criar um hub de eventos ativado do Apache Kafka
-      url: event-hubs-create.md
     - text: Espelhar um mediador de Kafka num hub de eventos
       url: event-hubs-kafka-mirror-maker-tutorial.md
     - text: Ligar o Apache Spark a um hub de eventos
@@ -99,12 +97,34 @@ landingContent:
       url: event-hubs-storm-getstarted-receive.md
     - text: Ir
       url: event-hubs-go-get-started-send.md
+- title: Hubs de Eventos na pré-visualização do Azure Stack Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral
+      url: /azure-stack/user/event-hubs-overview
+    - text: Conjunto de funcionalidades comuns
+      url: /azure-stack/user/event-hubs-overview#features
+  - linkListType: how-to-guide
+    links:
+    - text: Planeamento de capacidade
+      url: /azure-stack/operator/event-hubs-rp-capacity-planning
+    - text: Pré-requisitos de instalação (operador)
+      url: /azure-stack/operator/event-hubs-rp-prerequisites
+    - text: Instalação (operador)
+      url: /azure-stack/operator/event-hubs-rp-install
+    - text: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação
+      url: use-blob-storage-checkpoint-store-azure-stack-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Criar cluster de Hubs de Eventos
+      url: /azure-stack/user/event-hubs-quickstart-cluster-portal
 - title: Capturar eventos
   linkLists:
   - linkListType: overview
     links:
     - text: Recolher eventos no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage
-      url: event-hubs-dedicated-overview.md
+      url: event-hubs-capture-overview.md
   - linkListType: quickstart
     links:
     - text: Utilizar o portal do Azure para ativar a recolha de eventos

@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Documentação do Azure Scheduler
+summary: O Azure Logic Apps está a substituir o Azure Scheduler, que está a ser descontinuado. Para continuar a trabalhar com as tarefas configuradas no Scheduler, migre para o Azure Logic Apps assim que possível.
+metadata:
+  title: Documentação do Azure Scheduler
+  description: Crie, agende e execute tarefas automatizadas na cloud, tais como ações de aplicação e manutenção de rotina periódicas. O Azure Logic Apps está a substituir o Azure Scheduler, que está a ser descontinuado. Para continuar a trabalhar com as tarefas configuradas no Scheduler, migre para o Azure Logic Apps assim que possível.
+  services: scheduler
+  ms.service: scheduler
+  ms.topic: landing-page
+  author: derek1ee
+  ms.author: estfan
+  ms.date: 03/30/2020
+  ms.openlocfilehash: 04be683d3bd3d874efb44685b0d40b8c2d5a9698
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "80422983"
+landingContent:
+- title: Migrar
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Agendador do Azure?
+      url: scheduler-intro.md
+    - text: O que é o Azure Logic Apps?
+      url: ../logic-apps/logic-apps-overview.md
+  - linkListType: get-started
+    links:
+    - text: Migrar tarefas do Azure Scheduler para o Azure Logic Apps
+      url: migrate-from-scheduler-to-logic-apps.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/scheduler/
+    - text: PowerShell
+      url: scheduler-powershell-reference.md

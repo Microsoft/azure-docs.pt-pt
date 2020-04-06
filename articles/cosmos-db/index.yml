@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: ebe88aea9b84e640ccc4cecb495d2beedae2893e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 0d54189212a3597902c58f2889959891f6c8c07c
+  ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75934116"
+  ms.lasthandoff: 04/02/2020
+  ms.locfileid: "80584299"
 landingContent:
 - title: Acerca da BD do Cosmos para o Azure
   linkLists:
@@ -164,6 +164,8 @@ landingContent:
       url: sql-api-dotnet-application.md
     - text: Aplicação Java com o SDK Assíncrono
       url: sql-api-async-java-get-started.md
+    - text: Exemplo de aplicação de Java com Feed de Alterações
+      url: create-sql-api-java-changefeed.md
     - text: Consultar dados com consultas SQL
       url: tutorial-query-sql-api.md
   - linkListType: how-to-guide
@@ -180,7 +182,7 @@ landingContent:
       url: sql-api-sdk-dotnet.md
     - text: Java
       url: sql-api-sdk-java.md
-    - text: Javascript
+    - text: JavaScript
       url: sql-api-sdk-node.md
     - text: REST
       url: /rest/api/cosmos-db/

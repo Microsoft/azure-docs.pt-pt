@@ -150,6 +150,8 @@
               href: plan-migrate-adfs-password-hash-sync.md
             - name: Migrar da federação para PTA
               href: plan-migrate-adfs-pass-through-authentication.md
+            - name: Mover grupos de uma floresta para outra
+              href: how-to-connect-migrate-groups.md
         - name: Considerações de Design da Identidade Híbrida
           items:
             - name: Descrição Geral das Considerações de Design da Identidade Híbrida

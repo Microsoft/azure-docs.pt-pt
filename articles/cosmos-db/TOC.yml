@@ -39,6 +39,8 @@
               href: sql-api-java-get-started.md
             - name: Java assíncrono
               href: sql-api-async-java-get-started.md
+            - name: Aplicação de exemplo ponto a ponto de Java assíncrono
+              href: create-sql-api-java-changefeed.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
         - name: Criar uma aplicação Web
@@ -636,10 +638,6 @@
           items:
             - name: O que é a API do MongoDB no Cosmos DB?
               href: mongodb-introduction.md
-            - name: Suporte a protocolo de transmissão (3.2)
-              href: mongodb-feature-support.md
-            - name: Suporte a protocolo de transmissão (3.6)
-              href: mongodb-feature-support-36.md
         - name: Guias de Início Rápido
           items:
             - name: .NET
@@ -683,6 +681,12 @@
               href: tutorial-query-mongodb.md
             - name: 4 - Distribuir dados globalmente
               href: tutorial-global-distribution-mongodb.md
+        - name: Conceitos
+          items:
+            - name: Suporte a protocolo de transmissão (3.6)
+              href: mongodb-feature-support-36.md
+            - name: Suporte a protocolo de transmissão (3.2)
+              href: mongodb-feature-support.md
         - name: Guias de procedimentos
           items:
             - name: Guia de pré-migração
@@ -1008,10 +1012,13 @@
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configurar a Partilha de Recursos Transversais à Origem (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Proteger as chaves do Azure Cosmos com o Key Vault
-          href: access-secrets-from-keyvault.md
+        - name: Proteger chaves com uma identidade gerida
+          href: managed-identity-based-authentication.md
+          displayName: 'msi, managed service identity, aad, azure active directory, identity'
         - name: Autenticação baseada em certificado com o Azure AD
           href: certificate-based-authentication.md
+        - name: Proteger chaves com o Key Vault
+          href: access-secrets-from-keyvault.md
         - name: Restringir o acesso do utilizador apenas às operações de dados
           href: how-to-restrict-user-data.md
         - name: Configurar chaves geridas pelo cliente
@@ -1026,6 +1033,8 @@
           href: monitor-cosmos-db.md
         - name: Monitorizar com registos de diagnósticos
           href: cosmosdb-monitor-resource-logs.md
+        - name: Auditar registos de planos de controlo
+          href: audit-control-plane-logs.md
         - name: Azure Monitor para Cosmos (pré-visualização)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Ver métricas da conta do Cosmos DB
@@ -1102,6 +1111,8 @@
           href: bulk-executor-overview.md
         - name: Executor em massa – biblioteca de .NET
           href: bulk-executor-dot-net.md
+        - name: Migrar do executor em massa para o SDK .NET
+          href: how-to-migrate-from-bulk-executor-library.md
         - name: Executor em massa – biblioteca de Java
           href: bulk-executor-java.md
 - name: Referência

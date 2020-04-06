@@ -13,11 +13,13 @@
       href: quick-create-cli.md
     - name: Criar com o Azure PowerShell
       href: quick-create-powershell.md
-    - name: Criar com um modelo
+    - name: Criar com o modelo do ARM
       items:
         - name: Conjunto de dimensionamento do Linux
+          displayName: 'ARM, resource manager'
           href: quick-create-template-linux.md
         - name: Conjunto de dimensionamento do Windows
+          displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
 - name: Tutoriais
   items:
@@ -174,7 +176,7 @@
           maintainContext: true
     - name: FAQ do Conjunto de Dimensionamento
       href: virtual-machine-scale-sets-faq.md
-- name: Como
+- name: Procedimento
   items:
     - name: Planear e conceber
       items:

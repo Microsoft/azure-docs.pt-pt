@@ -1,6 +1,6 @@
 ---
-title: Rutura de disco gerido
-description: Saiba sobre a explosão de disco e como funciona para Os SSDs premium Azure.
+title: Segurança do disco gerido
+description: Saiba mais sobre a segurança do disco e como funciona para os SSDs do Azure Premium.
 author: roygara
 ms.author: rogarana
 ms.date: 03/28/2019
@@ -14,10 +14,10 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2020
 ms.locfileid: "80385202"
 ---
-# <a name="premium-ssd-bursting"></a>Explosão premium SSD
+# <a name="premium-ssd-bursting"></a>Segurança do SSD Premium
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Utilize o portal para anexar um disco de dados a um VM Linux](attach-disk-portal.md)
+[Utilizar o portal para anexar um disco de dados a uma VM do Linux](attach-disk-portal.md)

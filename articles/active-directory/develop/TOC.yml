@@ -26,7 +26,9 @@
     - name: Aplicações de página única
       displayName: SPA
       items:
-        - name: Javascript
+        - name: Angular
+          href: quickstart-v2-angular.md
+        - name: JavaScript
           href: quickstart-v2-javascript.md
     - name: Web Apps
       items:
@@ -69,7 +71,9 @@
     - name: Aplicações de página única
       displayName: SPA
       items:
-        - name: Javascript
+        - name: Angular
+          href: tutorial-v2-angular.md
+        - name: JavaScript
           href: tutorial-v2-javascript-spa.md
     - name: Web Apps
       items:
@@ -219,8 +223,12 @@
               href: scenario-mobile-app-configuration.md
             - name: Configuração específica das plataformas móveis
               items:
+                - name: Plug-in de SSO do Microsoft Enterprise para dispositivos Apple
+                  href: apple-sso-plugin.md
                 - name: Modo de dispositivo partilhado para dispositivos Android
-                  href: shared-device-mode.md
+                  href: msal-android-shared-devices.md
+                - name: Modo de dispositivo partilhado para dispositivos iOS
+                  href: msal-ios-shared-devices.md
                 - name: Xamarin Android
                   href: msal-net-xamarin-android-considerations.md
                 - name: Browser de sistema no Android
@@ -308,6 +316,17 @@
           href: msal-handling-exceptions.md
         - name: Registo
           href: msal-logging.md
+        - name: Dispositivos partilhados
+          items:
+            - name: Descrição geral - dispositivos partilhados
+              href: msal-shared-devices.md
+              displayName: 'shared device mode, firstline worker, frontline worker'
+            - name: Modo de dispositivo partilhado para dispositivos iOS
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
+            - name: Modo de dispositivo partilhado para dispositivos Android
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
         - name: Início de sessão único
           displayName: SSO
           items:
@@ -332,7 +351,7 @@
           items:
             - name: Android
               href: msal-android-b2c.md
-            - name: Javascript
+            - name: JavaScript
               href: msal-b2c-overview.md
             - name: .NET
               href: msal-net-aad-b2c-considerations.md

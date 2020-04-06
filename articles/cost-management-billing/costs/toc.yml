@@ -32,6 +32,8 @@
           href: migrate-cost-management-api.md
     - name: Guias de procedimentos
       items:
+        - name: Prevenir e analisar cargas inesperadas
+          href: ../manage/getting-started.md
         - name: Atribuir acesso aos dados
           href: assign-access-acm-data.md
         - name: Utilizar a análise de custos para tarefas comuns

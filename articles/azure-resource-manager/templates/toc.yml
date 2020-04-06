@@ -14,6 +14,8 @@
       items:
         - name: AKS
           href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Gateway de Aplicação
+          href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cópia de segurança
           href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: BD do Cosmos
@@ -22,6 +24,18 @@
           href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Hub de Eventos
           href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Spark
+          href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Hadoop
+          href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Kafka
+          href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - HBase
+          href: ../../hdinsight/hbase/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - Interactive Query
+          href: ../../hdinsight/interactive-query/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: HDInsight - ML Services
+          href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cofre de Chaves
           href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Load balancer
@@ -32,6 +46,10 @@
           href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: SQL Database
           href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Conjuntos de dimensionamento de máquinas virtuais - Linux
+          href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Conjuntos de dimensionamento de máquinas virtuais - Windows
+          href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutoriais
   items:
     - name: Modelos para principiantes
@@ -68,7 +86,7 @@
     - name: Avançado
       items:
         - name: Utilizar referência de modelo
-          href: template-tutorial-create-encrypted-storage-accounts.md
+          href: template-tutorial-use-template-reference.md
         - name: Criar múltiplas instâncias
           displayName: 'iteration,copy'
           href: template-tutorial-create-multiple-instances.md

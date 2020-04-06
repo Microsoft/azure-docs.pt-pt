@@ -15,22 +15,26 @@
     - name: Gerir conta Run As de Automatização
       href: manage-runas-account.md
       displayName: certificate renewal
-    - name: Configurar a autenticação com o AWS
-      href: automation-config-aws-account.md
-    - name: Encriptação de recursos seguros na Automatização do Azure
-      href: automation-secure-asset-encryption.md
     - name: Gerir controlo de acesso baseado em funções
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Utilizar o Azure AD na Automatização do Azure para autenticar para o Azure
+      href: automation-use-azure-ad.md
+    - name: Gerir os serviços do Office 365 com a Automatização do Azure
+      href: manage-office-365.md
+    - name: Configurar a autenticação com o AWS
+      href: automation-config-aws-account.md
+    - name: Encriptar recursos seguros na Automatização do Azure
+      href: automation-secure-asset-encryption.md
     - name: Mover a sua Conta de Automatização para outra Subscrição
       href: how-to/move-account.md
     - name: Automatizar a integração dos Serviços de Automatização
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Regiões suportadas para mapeamentos de área de trabalho do Log Analytics
-      href: how-to/region-mappings.md
     - name: Gerir os dados da Automatização do Azure
       href: automation-managing-data.md
       displayName: backup
+    - name: Regiões suportadas para mapeamentos de área de trabalho do Log Analytics
+      href: how-to/region-mappings.md
     - name: Resolução de problemas
       items:
         - name: Resolução de problemas da conta de automatização
@@ -56,7 +60,15 @@
     - name: Guias de Procedimentos
       items:
         - name: Iniciar/parar VMs fora do horário de expediente
-          href: automation-solution-vm-management.md
+          items:
+            - name: Descrição geral
+              href: automation-solution-vm-management.md
+            - name: Ativar a solução
+              href: automation-solution-vm-management-enable.md
+            - name: Configurar a solução
+              href: automation-solution-vm-management-config.md
+            - name: Analisar dados com consultas de registo
+              href: automation-solution-vm-management-logs.md
         - name: Gerir runbooks
           href: manage-runbooks.md
         - name: Criar runbooks
@@ -317,9 +329,9 @@
       href: shared-resources/credentials.md
     - name: Módulos do PowerShell
       items:
-        - name: Módulos
+        - name: Utilizar módulos na Automatização do Azure
           href: shared-resources/modules.md
-        - name: Utilizar módulos Az na Automatização do Azure
+        - name: Suporte do módulo Az na Automatização do Azure
           href: az-modules.md
         - name: Atualizar módulos do Azure PowerShell
           href: automation-update-azure-modules.md
