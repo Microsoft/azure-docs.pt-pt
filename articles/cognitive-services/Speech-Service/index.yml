@@ -13,26 +13,26 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: f047af5d14ed6b18c559f814b35d730ba7ce0f6a
-  ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+  ms.openlocfilehash: 0f0b9aa0109b7e63bffcbd330dbef3276821698e
+  ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80244329"
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80743921"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
     itemType: overview
     url: overview.md
+  - title: Acerca do SDK de Voz
+    itemType: overview
+    url: speech-sdk.md
   - title: Notas de versão do SDK de Voz
     itemType: whats-new
     url: releasenotes.md
-  - title: Suporte de idiomas nos serviços de Voz
+  - title: Suporte de idioma no serviço de Voz
     itemType: reference
     url: language-support.md
-  - title: Criar um recurso dos serviços de Voz
-    itemType: how-to-guide
-    url: get-started.md
 conceptualContent:
   items:
   - title: Conversão de voz em texto
