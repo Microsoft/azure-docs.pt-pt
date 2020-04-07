@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e27f34572eef7d50c7b140c65cb78c6d0678fa8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203020"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477605"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -94,9 +94,9 @@ As seguintes tabelas mostram os dados que são incluídos ou não no Cost Manage
 
 _<sup>**5**</sup> A utilização dos serviços do Azure baseia-se na reserva e nos preços negociados._
 
-_<sup>**6**</sup> De momento, as compras do Marketplace não estão disponíveis para ofertas de Pay As You Go, MSDN e Visual Studio._
+_<sup>**6**</sup> De momento, as compras do Marketplace não estão disponíveis para as ofertas MSDN e Visual Studio._
 
-_<sup>**7**</sup> De momento, as compras de reservas apenas estão disponíveis para contas de Contrato Enterprise (EA)._
+_<sup>**7**</sup> De momento, as compras de reservas apenas estão disponíveis para contas de Contrato Enterprise (EA) e Contrato de Cliente Microsoft_
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Como as etiquetas são utilizadas em dados de custos e utilização
 

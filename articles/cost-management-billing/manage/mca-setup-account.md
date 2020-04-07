@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200647"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258061"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a conta de faturação para um Contrato de Cliente da Microsoft
 
@@ -97,7 +97,7 @@ Dependendo do acesso que possuem, os administradores de faturação na inscriç�
 
 Um inquilino do Azure Active Directory (AD) é selecionado para a nova conta de faturação durante a aceitação do Contrato de Cliente da Microsoft. Se não existir nenhum inquilino na sua organização, será criado um. O inquilino representa a sua organização no Azure Active Directory. Os administradores de inquilinos globais na sua organização utilizam o inquilino para gerir o acesso às aplicações e aos dados na sua organização.
 
-A nova conta apenas suporta utilizadores do inquilino que foi selecionado durante a assinatura do Contrato de Cliente da Microsoft. Se os utilizadores com permissão administrativa no Contrato Enterprise fizerem parte do inquilino, terão acesso à nova conta de faturação durante a configuração. Se estes não fizerem parte do inquilino, não poderão aceder à nova conta de faturação, a menos que os convide.
+A nova conta apenas suporta utilizadores do inquilino que foi selecionado durante a assinatura do Contrato de Cliente da Microsoft. Se os utilizadores com permissão administrativa no Contrato Enterprise fizerem parte do inquilino, terão acesso à nova conta de faturação durante a configuração. Se não fizerem parte do inquilino, não poderão aceder à nova conta de faturação, a menos que os convide.
 
 Quando convida os utilizadores, estes são adicionados ao inquilino como utilizadores convidados e obtêm acesso à conta de faturação. Para convidar os utilizadores, o acesso de convidados deve ser ativado para o inquilino. Para obter mais informações, veja [Control guest access in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory) (Controlar o acesso de convidados no Azure Active Directory). Se o acesso de convidados estiver desativado, contacte os administradores globais do seu inquilino para o ativar. <!-- Todo - How can they find their global administrator -->
 
@@ -115,7 +115,7 @@ Os contactos de notificação recebem comunicações por e-mail sobre o Contrato
 
 ### <a name="spending-quotas"></a>Quotas de despesas
 
-As quotas de despesas que foram definidas para os departamentos na sua inscrição do Contrato Enterprise são substituídas por orçamentos na nova conta de faturação. É criado um orçamento para cada conjunto de quotas de despesas nos departamentos na sua inscrição. Para obter mais informações sobre orçamentos, veja [Criar e gerir orçamentos do Azure](../cloudyn/manage-budgets.md).
+As quotas de despesas que foram definidas para os departamentos na sua inscrição do Contrato Enterprise são substituídas por orçamentos na nova conta de faturação. É criado um orçamento para cada conjunto de quotas de despesas nos departamentos na sua inscrição. Para obter mais informações sobre os orçamentos, veja [Tutorial: Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md) (Tutorial: criar e gerir orçamentos do Azure).
 
 ### <a name="cost-centers"></a>Centros de custos
 

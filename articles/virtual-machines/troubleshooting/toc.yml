@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Serviço crítico falhou
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: A VM não responde ao aplicar a política de utilizadores e grupos locais
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Não é um disco de arranque
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Reiniciar ciclo
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: A VM não pode arrancar devido ao Gestor de Arranque do Windows
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: A VM não responde devido a uma atualização
+          href: unresponsive-vm-apply-windows-update.md
 - name: Não consigo ligar à minha VM
   items:
     - name: RDP

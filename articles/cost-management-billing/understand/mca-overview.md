@@ -1,24 +1,24 @@
 ---
-title: Introdução à faturação do Contrato de Cliente Microsoft – Azure
+title: Introdução à conta de faturação do Contrato de Cliente Microsoft - Azure
 description: Compreender a conta de faturação do Contrato de Cliente da Microsoft
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: a580dd1fb9d2965a9da1e4918733bd5cf137e443
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79139951"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371011"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introdução à conta de faturação do Contrato de Cliente da Microsoft
 
 Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utiliza a conta de faturação para gerir faturas, pagamentos e controlar custos. Pode ter acesso a múltiplas contas de faturação. Por exemplo, talvez se tenha inscrito no Azure com o objetivo de desenvolver projetos pessoais. Também poderá ter acesso ao Azure através do Contrato Enterprise ou do Contrato de Cliente da Microsoft da sua organização. Para cada um desses cenários, teria uma conta de faturação separada.
 
-Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso ao Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="your-billing-account"></a>A sua conta de faturação
 

@@ -15,39 +15,39 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2020
 ms.locfileid: "80385185"
 ---
-A rutura do disco é suportada para SSDs premium. A explosão é suportada em quaisquer tamanhos de disco SSD premium <= 512 GiB (P20 ou abaixo). Estes tamanhos de disco suportam rebentar com o melhor esforço e utilizam um sistema de crédito para gerir a explosão. Os créditos acumulam-se num balde de rutura sempre que o tráfego de discos está abaixo do objetivo de desempenho previsto para o seu tamanho de disco, e consomem créditos quando o tráfego explode para além do alvo. O tráfego do disco é rastreado contra iOPS e largura de banda no alvo provisionado. A rutura do disco não contornará as limitações de tamanho da máquina virtual (VM) no IOPS ou na entrada.
+O modo de rajada do disco é suportado para SSDs Premium. O modo de rajada é suportado para todos os tamanhos de disco SSD Premium <= 512 GiB (P20 ou inferior). Estes tamanhos de disco suportam o modo de rajada numa base do melhor esforço e utilizam um sistema de créditos para gerir as rajadas. Os créditos acumulam-se num registo de rajadas sempre que o tráfego do disco está abaixo do objetivo de desempenho aprovisionado para o tamanho do disco e consome créditos quando o tráfego excede o objetivo. O tráfego do disco é rastreado em relação a IOPS e largura de banda no objetivo aprovisionado. O modo de rajada do disco não ignorará as limitações de tamanho da máquina virtual (VM) no IOPS ou no débito.
 
-A rutura do disco é ativada por padrão em novas implementações dos tamanhos do disco que o suportam. Os tamanhos do disco existentes, se suportarem a rutura do disco, podem permitir a rutura de qualquer um dos seguintes métodos:
+O modo de rajada do disco é ativado por predefinição nas novas implementações dos tamanhos de disco que o suportem. Os tamanhos de disco existentes, caso suportem o modo de rajada do disco, podem permitir a rajadas através de um dos seguintes métodos:
 
-- Desaque e recoloque o disco.
-- Pare e inicie o VM.
+- Desanexar e anexar o disco.
+- Parar e iniciar a VM.
 
-## <a name="burst-states"></a>Estados rebentados
+## <a name="burst-states"></a>Estados das rajadas
 
-Todos os tamanhos de disco aplicáveis começarão com um balde de crédito completo quando o disco estiver ligado a uma Máquina Virtual. A duração máxima da rajada é determinada pelo tamanho do balde de crédito rebentado. Só se pode acumular créditos não utilizados até ao tamanho do balde de crédito. Em qualquer momento, o balde de crédito rebentado do disco pode estar num dos três estados seguintes: 
+Todos os tamanhos de disco onde é possível aplicar as rajadas começarão com um registo de créditos de rajadas completo quando o disco é anexado a uma Máquina Virtual. A duração máxima da rajada é determinada pelo tamanho do registo de crédito de rajadas. Só pode acumular créditos não utilizados até ao tamanho do registo de crédito. A qualquer momento, o registo de créditos de rajadas do disco pode estar num dos seguintes três estados: 
 
-- Acumulação, quando o tráfego do disco está a utilizar menos do que o objetivo de desempenho previsto. Pode acumular crédito se o tráfego do disco estiver para além dos objetivos iOPS ou da largura de banda ou ambos. Ainda pode acumular créditos io quando estiver a consumir largura de banda completa do disco, vice-versa.  
+- A acumular, quando o tráfego do disco está a utilizar menos do que o objetivo de desempenho aprovisionado. Poderá acumular crédito se o tráfego do disco ultrapassar o objetivo da largura de banda, do IOPS ou de ambos. Ainda pode acumular créditos de E/S quando está a consumir a totalidade da largura de banda do disco e vice-versa.  
 
-- Declinação, quando o tráfego do disco está a utilizar mais do que o objetivo de desempenho previsto. O tráfego de rutura consumirá créditos de iOPS ou largura de banda. 
+- A recusar, quando o tráfego do disco está a utilizar mais do que o objetivo de desempenho aprovisionado. O tráfego de rajada consumirá créditos, de forma independente, da largura de banda ou do IOPS. 
 
-- Permanecendo constante, quando o tráfego do disco está exatamente no alvo de desempenho previsto. 
+- Permanecer constante, quando o tráfego do disco é igual ao objetivo de desempenho aprovisionado. 
 
-Os tamanhos do disco que proporcionam suporte de rutura juntamente com as especificações de rutura são resumidos na tabela abaixo.
+Os tamanhos do disco que proporcionam suporte de rajada, juntamente com as especificações de rajada, são resumidos na tabela abaixo.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A explosão do disco está disponível em todas as regiões da Nuvem Pública.
+O modo de rajada do disco está disponível em todas as regiões na Cloud Pública.
 
-## <a name="disk-sizes"></a>Tamanhos do disco
+## <a name="disk-sizes"></a>Tamanhos de disco
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 ## <a name="example-scenarios"></a>Cenários de exemplo
 
-Para lhe dar uma ideia melhor de como isto funciona, aqui estão alguns cenários de exemplo:
+Para lhe dar uma ideia melhor de como isto funciona, apresentamos alguns cenários de exemplo:
 
-- Um cenário comum que pode beneficiar da explosão do disco é o arranque vm mais rápido e o lançamento da aplicação nos discos OS. Tome um VM Linux com uma imagem de 8 GiB OS como exemplo. Se utilizarmos um disco P2 como disco OS, o alvo previsto é 120 IOPS e 25 MBps. Quando a VM começar, haverá um pico de leitura para o disco OS a carregar os ficheiros de boot. Com a introdução do rebentamento, pode ler-se à velocidade máxima de explosão de 3500 IOPS e 170 MBps, acelerando o tempo de carga em pelo menos 6x. Após o arranque do VM, o nível de tráfego no disco OS é geralmente baixo, uma vez que a maioria das operações de dados por aplicação serão contra os discos de dados anexados. Se o tráfego estiver abaixo do objetivo previsto, irá acumular créditos.
+- Um cenário comum que pode beneficiar do modo de rajada do disco é um arranque mais rápido da VM e o lançamento da aplicação nos discos do SO. Utilize uma VM do Linux com uma imagem de SO de 8 Gib como exemplo. Se utilizarmos um disco P2 como o disco do SO, o objetivo de aprovisionamento será de 120 IOPS e 25 MBps. Quando a VM for iniciada, ocorrerá um pico de leitura para o disco do SO que está a carregar os ficheiros de arranque. Com a introdução do modo de rajada, pode ler à velocidade máxima de rajada de 3500 IOPS e 170 MBps e acelerar o tempo de leitura em pelo menos 6x. Após o arranque da VM, o nível de tráfego no disco do SO é normalmente baixo, dado que a maioria das operações de dados executadas pela aplicação serão nos discos de dados anexados. Se o tráfego estiver abaixo do objetivo aprovisionado, acumulará créditos.
 
-- Se estiver a hospedar um ambiente de ambiente de trabalho virtual remoto, sempre que um utilizador ativo lança uma aplicação como o AutoCAD, leia o tráfego no disco OS aumenta significativamente. Neste caso, o tráfego rebentado consumirá créditos acumulados, permitindo-lhe ir além do alvo previsto, e lançar a aplicação muito mais rapidamente.
+- Se estiver a alojar um ambiente do Virtual Desktop Remoto, sempre que um utilizador ativo iniciar uma aplicação, como o AutoCAD, o tráfego de leitura no disco do SO aumentará significativamente. Neste caso, o tráfego de rajada consumirá os créditos acumulados, o que lhe permite ultrapassar o objetivo aprovisionado e iniciar a aplicação muito mais rapidamente.
 
-- Um disco P1 tem um alvo provisionado de 120 IOPS e 25 MBps. Se o tráfego real no disco foi de 100 IOPS e 20 MBps no intervalo de 1 segundo, então os 20 IOs não utilizados e 5 MB são creditados no balde de rutura do disco. Os créditos no balde de rutura podem ser usados mais tarde quando o tráfego excede o alvo previsto, até ao limite máximo de rutura. O limite máximo de rutura define o teto do tráfego do disco mesmo que tenha créditos de rutura para consumir. Neste caso, mesmo que tenha 10.000 IOs no balde de crédito, um disco P1 não pode emitir mais do que a rajada máxima de 3.500 IO por segundo.  
+- Um disco P1 tem um objetivo aprovisionado de 120 IOPS e 25 MBps. Se o tráfego real no disco era de 100 IOPS e 20 MBps no último intervalo de 1 segundo, as 20 E/S e os 5 MB não utilizados serão creditados no registo de rajada do disco. Os créditos no registo de rajada podem ser utilizados posteriormente quando o tráfego ultrapassar o objetivo aprovisionado, até ao limite máximo de rajada. O limite máximo de rajada define o teto do tráfego do disco mesmo que tenha créditos de rajada por consumir. Neste caso, mesmo que tenha 10 000 E/S no registo de crédito, um disco P1 não poderá emitir mais do que a rajada máxima de 3500 E/S por segundo.  

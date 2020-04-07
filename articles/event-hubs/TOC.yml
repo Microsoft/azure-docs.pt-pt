@@ -21,8 +21,8 @@
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
-        - name: Modelo Azure Resource Manager
-          displayName: ARM
+        - name: Modelo ARM
+          displayName: Resource Manager
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Enviar e receber eventos
       items:
@@ -115,13 +115,19 @@
                   href: authenticate-application.md
             - name: Autenticar com uma assinatura de acesso partilhado
               href: authenticate-shared-access-signature.md
+        - name: Segurança da rede
+          href: network-security.md
         - name: Controlos de segurança incorporados
           href: event-hubs-security-controls.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Guia do protocolo AMQP 1.0
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
 - name: Guias de procedimentos
   items:
+    - name: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação no Azure Stack Hub
+      href: use-blob-storage-checkpoint-store-azure-stack-hub.md
     - name: Migrar das APIs do Azure Service Manager (clássico) para as APIs do Resource Manager
       href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Programar
@@ -156,17 +162,17 @@
           maintainContext: true
     - name: Integrar no Apache Kafka
       items:
-        - name: Criar hubs de eventos ativados pelo Apache Kafka
-          href: event-hubs-create-kafka-enabled.md
-        - name: Espelhar um mediador de Kafka num hub de eventos ativado para o Apache Kafka
+        - name: Guia para programadores do Kafka para os Hubs de Eventos
+          href: apache-kafka-developer-guide.md
+        - name: Espelhar um mediador de Kafka num hub de eventos
           href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Ligar o Apache Spark a hubs de eventos ativados para o Apache Kafka
+        - name: Ligar o Apache Spark a um hub de eventos
           href: event-hubs-kafka-spark-tutorial.md
-        - name: Ligar o Apache Flink a hubs de eventos ativados para o Apache Kafka
+        - name: Ligar o Apache Flink a um hub de eventos
           href: event-hubs-kafka-flink-tutorial.md
-        - name: Integrar o Apache Kafka Connect com um hub de eventos ativados para o Kafka (Pré-visualização)
+        - name: Integrar o Apache Kafka Connect num hub (Pré-visualização)
           href: event-hubs-kafka-connect-tutorial.md
-        - name: Ligar o Akka Streams a hubs de eventos ativados para o Apache Kafka
+        - name: Ligar o Akka Streams a um hub de eventos
           href: event-hubs-kafka-akka-streams-tutorial.md
     - name: Gerir e monitorizar
       items:
@@ -182,13 +188,13 @@
           href: event-hubs-management-libraries.md
     - name: Proteger
       items:
-        - name: Utilizar firewalls
+        - name: Configurar firewall do IP
           href: event-hubs-ip-filtering.md
-        - name: Utilizar os pontos finais de serviço de rede virtual
+        - name: Configurar pontos finais de serviço de rede virtual
           href: event-hubs-service-endpoints.md
-        - name: Ativar a Integração e as Firewalls das Redes Virtuais no Espaço de Nomes dos Hubs de Eventos
-          href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurar chaves geridas pelo cliente para a encriptação de dados inativos
+        - name: Configurar pontos finais privados (pré-visualização)
+          href: private-link-service.md
+        - name: Configurar chaves geridas pelo cliente
           href: configure-customer-managed-key.md
     - name: Resolução de problemas
       items:

@@ -3,16 +3,16 @@ title: Utilizações comuns da análise de custos no Azure Cost Management
 description: Este artigo explica como pode obter resultados para tarefas comuns da análise de custos no Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 901f271ac401cb985e59c434b9e6d7f8db03889f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203105"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520870"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizações comuns da análise de custos
 
@@ -26,7 +26,7 @@ A visualização dos custos por serviço do Azure pode ajudá-lo a compreender m
 1. Selecione **Custo por serviço** e, em seguida, agrupe por **Escalão de serviço**.
 1. Altere a vista para **Tabela**.
 
-![Discriminação dos custos por serviço do Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)
+[![Discriminação de custos por serviço do Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Ver a discriminação dos custos por recurso do Azure
 
@@ -36,7 +36,7 @@ Os serviços são criados com recursos do Azure. A análise dos custos com base 
 1. Selecione **Custo por recurso**.
 1. Altere a vista para **Tabela**.
 
-![Ver a discriminação dos custos por recurso do Azure](./media/cost-analysis-common-uses/cost-by-resource.png)
+[![Ver a discriminação dos custos por recurso do Azure](./media/cost-analysis-common-uses/cost-by-resource.png)](./media/cost-analysis-common-uses/cost-by-resource.png#lightbox)
 
 ## <a name="view-cost-breakdown-by-selected-dimensions"></a>Ver a discriminação dos custos por dimensões selecionadas
 
@@ -44,10 +44,10 @@ As dimensões permitem-lhe organizar os custos com base em vários valores de me
 
 1. No portal do Azure, aceda à análise de custos do seu âmbito. Por exemplo: **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
 1. Selecione o filtro **Agrupar por**.  
-    ![Selecionar um item Agrupar por](./media/cost-analysis-common-uses/group-by.png)
+    [![Selecionar um item Agrupar por](./media/cost-analysis-common-uses/group-by.png)](./media/cost-analysis-common-uses/group-by.png#lightbox)
 1. Opcionalmente, guarde a vista para utilização posterior.
 1. Clique num gráfico circular abaixo do gráfico para ver dados mais detalhados.  
-    ![Ver a discriminação dos custos por dimensões selecionadas](./media/cost-analysis-common-uses/drill-down.png)
+    [![Ver a discriminação de custos por dimensões selecionadas](./media/cost-analysis-common-uses/drill-down.png)](./media/cost-analysis-common-uses/drill-down.png#lightbox)
 
 ## <a name="view-costs-per-day-or-by-month"></a>Ver os custos por dia ou por mês
 
@@ -56,9 +56,60 @@ A consulta dos custos diários e mensais poderá ajudá-lo a compreender melhor 
 1. No portal do Azure, aceda à análise de custos do seu âmbito. Por exemplo: **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
 1. Defina a**Granularidade** como **Mensal** ou **Diária**.
 
-![Ver os custos por dia](./media/cost-analysis-common-uses/daily-granularity.png)
+[![Ver os custos por dia](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
 
-## <a name="view-costs-for-a-specific-tag"></a>Ver os custos para uma etiqueta específica
+
+## <a name="view-your-spot-vm-charges"></a>Ver os custos da VM Spot
+
+As VMs Spot podem proporcionar enormes poupanças de custos nas cargas de trabalho que conseguem lidar com interrupções. As cargas de trabalho são executadas em capacidade do Azure não utilizada. Uma vez que podem ser removidas a qualquer altura, as VMs Spot beneficiam de um desconto significativo. Utilize os passos seguintes para ver os custos da VM Spot.
+
+1. No portal do Azure, aceda à análise de custos do seu âmbito. Por exemplo, **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
+2. Adicione um filtro para **Modelo de Preços: Spot**.
+
+![Exemplo que mostra o filtro VM Spot](./media/cost-analysis-common-uses/spot-vm-filter.png)
+
+A dimensão Modelo de Preços também é utilizada para ver custos a pedido e de reservas.
+
+## <a name="view-your-reservation-charges"></a>Ver os custos de reserva
+
+As instâncias reservadas são uma forma de poupar dinheiro com o Azure. Com as reservas, paga mais à cabeça por um determinado número de recursos ao longo do tempo. A Análise de custos mostra os custos conforme aparecem na sua fatura. Os custos são apresentados com custos efeitos ou amortizados ao longo do período da reserva.
+
+1. No portal do Azure, aceda à análise de custos do seu âmbito. Por exemplo, **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
+1. Adicione um filtro para **Modelo de Preços: Reserva**.
+1. Em **Âmbito**, junto ao custo apresentado, clique no símbolo de seta para baixo e selecione a métrica **Custo real** ou **Custo amortizado**.
+
+![Selecionar uma métrica de custos](./media/cost-analysis-common-uses/metric-cost.png)
+
+Cada métrica afeta a forma como os dados são apresentados para os custos de reservas.
+
+**Custo real** - mostra a compra conforme aparece na fatura. Por exemplo, se comprar uma reserva de um ano por 1200 $ em janeiro, a Análise de custo mostra um custo de 1200 $ no mês de janeiro da reserva. Não mostra um custo de reserva para os outros meses do ano. Se agrupar os custos reais por VM, o custo de uma VM que tenha recebido o benefício de reserva num determinado mês seria de zero para esse mês.
+
+**Custo amortizado** - mostra uma compra de reserva dividida como custo amortizado ao longo da duração do termo da reserva. Seguindo o exemplo acima, a Análise de custo mostra um custo de 100 $ para cada mês durante o ano, caso tenha comprado uma reserva de um ano por 1200 $ em janeiro. Se agrupar os custos por VM neste exemplo, verá os custos atribuídos a cada VM que recebeu o benefício de reserva.
+
+## <a name="view-your-reservation-utilization"></a>Ver a utilização da reserva
+
+Depois de comprar uma reserva, é importante monitorizar a utilização, para que receba aquilo por que pagou. Por exemplo, se comprar dez VMs por um ano e utilizar apenas cinco, significa basicamente que metade da compra foi desperdiçada. Pode avaliar a utilização de duas formas:
+
+### <a name="view-unused-ri-costs-in-cost-analysis"></a>Ver os custos de RI não utilizadas na Análise de custo
+
+Para determinar o desperdício de custos atual para cada mês da compra de reserva, siga os passos abaixo.
+
+1. No portal do Azure, navegue para a Análise de custo do âmbito no qual a reserva está aplicada. Por exemplo, **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
+1. Adicione um filtro para **Modelo de Preços: Reserva**.
+1. Selecione a vista **Custo amortizado**.
+1. Defina a granularidade como **Mensal**.
+1. Defina o período de tempo como o ano corrente ou o termo da reserva.
+1. Defina o tipo de gráfico como **Coluna (empilhada)** .
+1. Agrupe os custos por **Tipo de Custo**.
+1. Reveja os resultados para os valores de `unusedreservation`
+
+[![Exemplo que mostra a utilização da reserva](./media/cost-analysis-common-uses/view-reservation-cost.png)](./media/cost-analysis-common-uses/view-reservation-cost.png#lightbox)
+
+### <a name="view-utilization-in-reservations"></a>Ver a utilização nas Reservas
+
+Para obter instruções detalhadas, veja [Otimizar a utilização de reservas](../reservations/manage-reserved-vm-instance.md#optimize-reservation-use).
+
+## <a name="view-costs-for-a-specific-tag"></a>Ver os custos de uma etiqueta específica
 
 Muitos utilizadores do Azure aplicam etiquetas aos recursos, como um centro de custos ou um ambiente de desenvolvimento (produção e teste), para melhor categorizar os custos. As etiquetas são apresentadas como uma dimensão na análise de custos. Pode utilizar a dimensão para obter informações sobre as categorizações de identificação personalizadas.
 
@@ -67,7 +118,7 @@ O suporte de etiquetas aplica-se à utilização comunicadas *depois* de a etiqu
 1. No portal do Azure, aceda à análise de custos do seu âmbito. Por exemplo: **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
 1. Selecione **Agrupar por** para a etiqueta.
 
-![Ver os custos de uma etiqueta específica](./media/cost-analysis-common-uses/tag.png)
+[![Ver os custos de uma etiqueta específica](./media/cost-analysis-common-uses/tag.png)](./media/cost-analysis-common-uses/tag.png#lightbox)
 
 ## <a name="download-your-usage-details"></a>Transferir os detalhes de utilização
 
@@ -75,7 +126,7 @@ O ficheiro de relatório dos detalhes de utilização, no formato CSV, proporcio
 
 1. No portal do Azure, aceda ao separador **Utilização e Custos** de uma conta de faturação ou subscrição. Por exemplo: **Cost Management + Faturação** > **Faturação** > **Utilização + custos**.
 1. Selecione o item de linha que deseja transferir e, em seguida, clique no símbolo de transferência.  
-    ![Transferir a utilização e os custos](./media/cost-analysis-common-uses/download1.png)
+    [![Transferir a utilização e os custos](./media/cost-analysis-common-uses/download1.png)](./media/cost-analysis-common-uses/download1.png#lightbox)
 1.  Selecione o ficheiro de utilização a transferir.  
     ![Escolher o ficheiro de utilização a transferir](./media/cost-analysis-common-uses/download2.png)
 
@@ -88,9 +139,9 @@ Só são mostrados os custos da inscrição ativa. Se tiver transferido uma insc
 
 1. No portal do Azure, aceda a **Cost Management + Faturação** > **Descrição geral**.
 1. Clique em **Discriminação** para o mês atual e veja a discriminação da sua alocação monetária.  
-    ![Descrição geral dos custos do EA – resumo da discriminação](./media/cost-analysis-common-uses/breakdown1.png)
+    [![Descrição geral dos custos do EA – resumo da discriminação](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Clique no separador **Utilização e Custos** e veja a discriminação do mês anterior no intervalo de tempo escolhido.  
-    ![Separador Utilização e custos](./media/cost-analysis-common-uses/breakdown2.png)
+    [![Separador Utilização e custos](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)
 
 ## <a name="view-enrollment-monthly-cost-by-term"></a>Ver o custo mensal da inscrição por período
 
@@ -102,7 +153,7 @@ Utilize uma vista de gráfico dos custos mensais da sua inscrição para compree
 
 Pode agrupar e filtrar os dados para obter uma análise mais detalhada.
 
-![Custo mensal da inscrição por período](./media/cost-analysis-common-uses/enrollment-term1.png)
+[![Custo mensal da inscrição por período](./media/cost-analysis-common-uses/enrollment-term1.png)](./media/cost-analysis-common-uses/enrollment-term1.png#lightbox)
 
 ## <a name="view-ea-enrollment-accumulated-costs"></a>Ver os sustos acumulados da inscrição EA
 
@@ -111,7 +162,7 @@ Veja os custos acumulados líquidos ao longo do tempo para compreender as despes
 1. No portal do Azure, aceda à análise de custos do seu âmbito. Por exemplo: **Cost Management + Faturação** > **Cost Management** > **Análise de custos**.
 1. Selecione a sua inscrição e, em seguida, veja os seus custos acumulados atuais.
 
-![Custos acumulados da inscrição](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+[![Custos acumulados da inscrição](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)](./media/cost-analysis-common-uses/cost-analysis-enrollment.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 - Se ainda não tiver concluído o primeiro início rápido do Cost Management, leia-o em [Começar a analisar os custos](quick-acm-cost-analysis.md).

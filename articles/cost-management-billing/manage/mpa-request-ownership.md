@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c4366b272aab160828afca927f6432c98a8fecd7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da16e0898f08e1cca602ca5927bce82ed32353fe
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79370734"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437866"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -139,7 +139,7 @@ Os produtos do Azure Marketplace que estão disponíveis para as subscrições q
 
 ### <a name="azure-reservations-transfer"></a>Transferência das Reservas do Azure
 
-As Reservas do Azure não são movidas automaticamente com as subscrições. Pode manter a Reserva no EA para outras subscrições ou [cancelar a Reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) e o parceiro pode voltar a comprar no CSP. 
+As Reservas do Azure não são movidas automaticamente com as subscrições. Pode manter a Reserva no EA para outras subscrições ou [cancelar a Reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) e o parceiro pode voltar a comprá-la no CSP. 
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 

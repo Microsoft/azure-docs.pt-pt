@@ -75,6 +75,8 @@
           href: overview-security.md
         - name: Linha de base de segurança
           href: security-baseline.md
+        - name: Segurança Incorporada
+          href: key-vault-security-controls.md
         - name: Mundos de segurança
           href: key-vault-ovw-security-worlds.md
         - name: Proteger o seu cofre de chaves
