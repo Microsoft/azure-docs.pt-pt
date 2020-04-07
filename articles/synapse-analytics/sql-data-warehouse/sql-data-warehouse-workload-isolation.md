@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c3fcbf69e7dae14ccd2114a14c685b0443f70fef
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 5d81dc1f4da6e952061496fa348d0f8e87b00b81
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632444"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742967"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Azure Synapse Analytics isolamento do grupo de trabalho (Pré-visualização)
 
@@ -24,20 +24,20 @@ Este artigo explica como os grupos de carga de trabalho podem ser usados para co
 
 ## <a name="workload-groups"></a>Grupos de carga de trabalho
 
-Os grupos de carga de trabalho são recipientes para um conjunto de pedidos e são a base para a forma como a gestão da carga de trabalho, incluindo o isolamento da carga de trabalho, é configurada num sistema.  Os grupos de carga de trabalho são criados utilizando a sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Uma configuração simples de gestão da carga de trabalho pode gerir cargas de dados e consultas de utilizador.  Por exemplo, um `wgDataLoads` grupo de carga de trabalho nomeado definirá aspetos de carga de trabalho para os dados que estão a ser carregados no sistema. Além disso, `wgUserQueries` um grupo de carga de trabalho nomeado definirá aspetos de carga de trabalho para os utilizadores que executam consultas para ler dados do sistema.
+Os grupos de carga de trabalho são recipientes para um conjunto de pedidos e são a base para a forma como a gestão da carga de trabalho, incluindo o isolamento da carga de trabalho, é configurada num sistema.  Os grupos de carga de trabalho são criados utilizando a sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Uma configuração simples de gestão da carga de trabalho pode gerir cargas de dados e consultas de utilizador.  Por exemplo, um `wgDataLoads` grupo de carga de trabalho nomeado definirá aspetos de carga de trabalho para os dados que estão a ser carregados no sistema. Além disso, `wgUserQueries` um grupo de carga de trabalho nomeado definirá aspetos de carga de trabalho para os utilizadores que executam consultas para ler dados do sistema.
 
 As seguintes secções irão destacar como os grupos de carga de trabalho fornecem a capacidade de definir isolamento, contenção, solicitar definição de recursos e aderir às regras de execução.
 
 ## <a name="workload-isolation"></a>Isolamento de cargas de trabalho
 
-O isolamento da carga de trabalho significa que os recursos são reservados, exclusivamente, para um grupo de carga de trabalho.  O isolamento da carga de trabalho é alcançado configurando o parâmetro MIN_PERCENTAGE_RESOURCE para maior do que zero na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Para cargas de trabalho contínuas de execução que precisam aderir a SLAs apertados, o isolamento garante que os recursos estão sempre disponíveis para o grupo de carga de trabalho.
+O isolamento da carga de trabalho significa que os recursos são reservados, exclusivamente, para um grupo de carga de trabalho.  O isolamento da carga de trabalho é alcançado configurando o parâmetro MIN_PERCENTAGE_RESOURCE para maior do que zero na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Para cargas de trabalho contínuas de execução que precisam aderir a SLAs apertados, o isolamento garante que os recursos estão sempre disponíveis para o grupo de carga de trabalho.
 
 Configurar o isolamento da carga de trabalho define implicitamente um nível garantido de conmoeda. Por exemplo, um grupo `MIN_PERCENTAGE_RESOURCE` de carga de `REQUEST_MIN_RESOURCE_GRANT_PERCENT` trabalho com um conjunto de 30% e definido para 2% é garantido 15 conmoeda.  O nível de moeda é garantido porque 15-2% de slots de recursos são `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` reservados no grupo de carga de trabalho em todos os momentos (independentemente de como está configurado).  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` for `REQUEST_MIN_RESOURCE_GRANT_PERCENT` maior `CAP_PERCENTAGE_RESOURCE` do `MIN_PERCENTAGE_RESOURCE` que e for maior do que os recursos adicionais são adicionados por pedido.  Se `REQUEST_MAX_RESOURCE_GRANT_PERCENT` `REQUEST_MIN_RESOURCE_GRANT_PERCENT` e forem iguais e `CAP_PERCENTAGE_RESOURCE` forem maiores do que, `MIN_PERCENTAGE_RESOURCE`é possível uma moeda adicional.  Considere o método abaixo para determinar a moeda garantida:
 
 [Concurrency Garantida]`MIN_PERCENTAGE_RESOURCE`= [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`[ ]
 
 > [!NOTE]
-> Existem valores mínimos de nível de serviço viáveis para min_percentage_resource.  Para mais informações, consulte [Valores Efetivos](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) para mais informações.
+> Existem valores mínimos de nível de serviço viáveis para min_percentage_resource.  Para mais informações, consulte [Valores Efetivos](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) para mais informações.
 
 Na ausência de isolamento de carga de trabalho, os pedidos operam no [conjunto partilhado](#shared-pool-resources) de recursos.  O acesso aos recursos na piscina partilhada não está garantido e é atribuído numa base [de importância.](sql-data-warehouse-workload-importance.md)
 
@@ -50,18 +50,18 @@ Os utilizadores devem evitar uma solução de gestão da carga de trabalho que c
 
 ## <a name="workload-containment"></a>Contenção de carga de trabalho
 
-A contenção da carga de trabalho refere-se à limitação da quantidade de recursos que um grupo de carga de trabalho pode consumir.  A contenção da carga de trabalho é conseguida configurando o parâmetro CAP_PERCENTAGE_RESOURCE para menos de 100 na sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Considere o cenário em que os utilizadores precisam de ler o acesso ao sistema para que possam executar uma análise do que se através de consultas ad-hoc.  Este tipo de pedidos pode ter um impacto negativo em outras cargas de trabalho que estão a ser recorridas no sistema.  Configurar a contenção garante que a quantidade de recursos é limitada.
+A contenção da carga de trabalho refere-se à limitação da quantidade de recursos que um grupo de carga de trabalho pode consumir.  A contenção da carga de trabalho é conseguida configurando o parâmetro CAP_PERCENTAGE_RESOURCE para menos de 100 na sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Considere o cenário em que os utilizadores precisam de ler o acesso ao sistema para que possam executar uma análise do que se através de consultas ad-hoc.  Este tipo de pedidos pode ter um impacto negativo em outras cargas de trabalho que estão a ser recorridas no sistema.  Configurar a contenção garante que a quantidade de recursos é limitada.
 
 Configurar a contenção da carga de trabalho define implicitamente um nível máximo de conmoeda.  Com um CAP_PERCENTAGE_RESOURCE fixado para 60% e um REQUEST_MIN_RESOURCE_GRANT_PERCENT definido para 1%, até um nível de 60-concurrency é permitido para o grupo de carga de trabalho.  Considere o método abaixo indicado para determinar a moeda máxima:
 
 [Max Concurrency]`CAP_PERCENTAGE_RESOURCE`= [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`] / [ ]
 
 > [!NOTE]
-> Os CAP_PERCENTAGE_RESOURCE efetivos de um grupo de carga de trabalho não chegarão a 100% quando forem criados grupos de carga de trabalho com MIN_PERCENTAGE_RESOURCE a um nível superior a zero.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para valores eficazes do tempo de funcionano.
+> Os CAP_PERCENTAGE_RESOURCE efetivos de um grupo de carga de trabalho não chegarão a 100% quando forem criados grupos de carga de trabalho com MIN_PERCENTAGE_RESOURCE a um nível superior a zero.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para valores eficazes do tempo de funcionano.
 
 ## <a name="resources-per-request-definition"></a>Recursos por definição de pedido
 
-Os grupos de carga de trabalho fornecem um mecanismo para definir o min e a quantidade máxima de recursos que são atribuídos por pedido com os parâmetros REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT na sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Os recursos neste caso são cpu e memória.  A configuração destes valores dita quantos recursos e que nível de moeda pode ser alcançado no sistema.
+Os grupos de carga de trabalho fornecem um mecanismo para definir o min e a quantidade máxima de recursos que são atribuídos por pedido com os parâmetros REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT na sintaxe [create workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Os recursos neste caso são cpu e memória.  A configuração destes valores dita quantos recursos e que nível de moeda pode ser alcançado no sistema.
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT é um parâmetro opcional que não se aplica ao mesmo valor especificado para REQUEST_MIN_RESOURCE_GRANT_PERCENT.
@@ -71,11 +71,11 @@ Como escolher uma classe de recursos, configurar REQUEST_MIN_RESOURCE_GRANT_PERC
 Configurar REQUEST_MAX_RESOURCE_GRANT_PERCENT a um valor superior ao REQUEST_MIN_RESOURCE_GRANT_PERCENT permite ao sistema alocar mais recursos por pedido.  Ao agendar um pedido, o sistema determina a atribuição real de recursos ao pedido, que é entre REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT, com base na disponibilidade de recursos em pool partilhado e carga atual no sistema.  Os recursos devem existir no [conjunto partilhado](#shared-pool-resources) de recursos quando a consulta está agendada.  
 
 > [!NOTE]
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT têm valores efetivos que dependem dos valores MIN_PERCENTAGE_RESOURCE e CAP_PERCENTAGE_RESOURCE eficazes.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para valores eficazes do tempo de funcionano.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT e REQUEST_MAX_RESOURCE_GRANT_PERCENT têm valores efetivos que dependem dos valores MIN_PERCENTAGE_RESOURCE e CAP_PERCENTAGE_RESOURCE eficazes.  Consulte [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para valores eficazes do tempo de funcionano.
 
 ## <a name="execution-rules"></a>Regras de Execução
 
-Em sistemas de reporte ad-hoc, os clientes podem executar acidentalmente consultas em fuga que impactam severamente a produtividade de outros.  Os administradores do sistema são forçados a passar o tempo a matar consultas em fuga para libertar recursos do sistema.  Os grupos de carga de trabalho oferecem a capacidade de configurar uma regra de tempo limite de execução de consulta para cancelar consultas que excederam o valor especificado.  A regra é configurada `QUERY_EXECUTION_TIMEOUT_SEC` através da definição do parâmetro na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+Em sistemas de reporte ad-hoc, os clientes podem executar acidentalmente consultas em fuga que impactam severamente a produtividade de outros.  Os administradores do sistema são forçados a passar o tempo a matar consultas em fuga para libertar recursos do sistema.  Os grupos de carga de trabalho oferecem a capacidade de configurar uma regra de tempo limite de execução de consulta para cancelar consultas que excederam o valor especificado.  A regra é configurada `QUERY_EXECUTION_TIMEOUT_SEC` através da definição do parâmetro na sintaxe create [workload GROUP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="shared-pool-resources"></a>Recursos de piscina compartilhados
 
@@ -88,6 +88,6 @@ O acesso aos recursos na piscina partilhada é atribuído numa base [de importâ
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: configurar o isolamento da carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
-- [CRIAR GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CRIAR GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [Converter classes de recursos em grupos de carga de trabalho](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
 - [Monitorização do Portal de Gestão da Carga de Trabalho.](sql-data-warehouse-workload-management-portal-monitor.md)  

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220855"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744141"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio à língua e à região para o LUIS
 
@@ -35,18 +35,25 @@ LUIS entende as expressões nas seguintes línguas:
 | Inglês Americano |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Neerlandês |`nl-NL` |✔|  -   |-|✔|
+| Neerlandês |`nl-NL` |✔|-|-|✔|
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
-| Francês (Canadá) |`fr-CA` |-|   -   |-|✔|
+| Francês (Canadá) |`fr-CA` |-|-|-|✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| Guzerate | `gu-IN`|-|-|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Só frase-chave|
-| Coreano |`ko-KR` |✔|   -   |-|Só frase-chave|
+| Coreano |`ko-KR` |✔|-|-|Só frase-chave|
+| Marata | `mr-IN`|-|-|-|-|
 | Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as subculturas|
 | Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
-| Espanhol (México)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |✔|-|-|Apenas sentimento|
+| Espanhol (México)|`es-MX` |-|-|✔|✔|
+| Tâmil | `ta-IN`|-|-|-|-|
+| Telugu | `te-IN`|-|-|-|-|
+| Turco | `tr-TR` |✔|✔|-|Apenas sentimento|
+
+
+
 
 O apoio linguístico varia para [entidades pré-construídas](luis-reference-prebuilt-entities.md) e [domínios pré-construídos.](luis-reference-prebuilt-domains.md)
 
@@ -77,22 +84,28 @@ As línguas híbridas combinam palavras de duas culturas como o inglês e o chin
 ## <a name="tokenization"></a>Tokenização
 Para realizar machine learning, LUIS quebra uma expressão em [tokens baseados](luis-glossary.md#token) na cultura.
 
-|Idioma|  cada espaço ou caráter especial | nível de caráter|palavras compostas|[entidade tokenizada devolvida](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Árabe|||||
-|Chinês||✔||✔|
-|Neerlandês|||✔|✔|
-|Inglês (en-us)|✔ ||||
-|Francês (fr-FR)|✔||||
-|Francês (fr-CA)|✔||||
-|Alemão|||✔|✔|
-| Hindi |✔|-|-|-|-|
-|Italiano|✔||||
-|Japonês||||✔|
-|Coreano||✔||✔|
-|Português (Brasil)|✔||||
-|Espanhol (es-ES)|✔||||
-|Espanhol (es-MX)|✔||||
+|Idioma|  cada espaço ou caráter especial | nível de caráter|palavras compostas
+|--|:--:|:--:|:--:|
+|Árabe|✔|||
+|Chinês||✔||
+|Neerlandês|✔||✔|
+|Inglês (en-us)|✔ |||
+|Francês (fr-FR)|✔|||
+|Francês (fr-CA)|✔|||
+|Alemão|✔||✔|
+|Guzerate|✔|||
+|Hindi|✔|||
+|Italiano|✔|||
+|Japonês|||✔
+|Coreano||✔||
+|Marata|✔|||
+|Português (Brasil)|✔|||
+|Espanhol (es-ES)|✔|||
+|Espanhol (es-MX)|✔|||
+|Tâmil|✔|||
+|Telugu|✔|||
+|Turco|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>Versões personalizadas de tokenizer
 
@@ -101,7 +114,10 @@ As seguintes culturas têm versões personalizadas de tokenizer:
 |Cultura|Versão|Objetivo|
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador `Ich fahre einen krankenwagen` entrar como uma expressão, `Ich fahre einen kranken wagen`é virado para . Permitindo a `kranken` marcação e `wagen` de forma independente como diferentes entidades.|
-|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> se um utilizador `Ich fahre einen krankenwagen` entrar como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcado como uma entidade única. |
+|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador `Ich fahre einen krankenwagen` entrar como uma expressão, continua a ser um único símbolo. Assim, `krankenwagen` é marcado como uma entidade única. |
+|Neerlandês<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizer baseado em machine learning que tenta quebrar palavras compostas nos seus componentes únicos.<br>Se um utilizador `Ik ga naar de kleuterschool` entrar como uma expressão, `Ik ga naar de kleuter school`é virado para . Permitindo a `kleuter` marcação e `school` de forma independente como diferentes entidades.|
+|Neerlandês<br>`de-de`|1.0.1|Tokeniza palavras dividindo-as em espaços.<br> Se um utilizador `Ik ga naar de kleuterschool` entrar como uma expressão, continua a ser um único símbolo. Assim, `kleuterschool` é marcado como uma entidade única. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões de tokenizer
 <!--

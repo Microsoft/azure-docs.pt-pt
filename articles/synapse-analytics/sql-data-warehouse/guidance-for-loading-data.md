@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e5ad5f6f2f5be239af23ee4802cf09c388c93ae9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632917"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745504"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Boas práticas para carregar dados usando piscina SYnapse SQL
 
@@ -104,7 +104,7 @@ Quando existe pressão de memória, o índice columnstore poderá não conseguir
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentar o tamanho do lote ao utilizar a SqLBulkCopy API ou o BCP
 
-O carregamento com polyBase fornecerá a maior entrada com piscina SQL. Se não puder utilizar o PolyBase para carregar e tiver de utilizar o [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) ou [o BCP,](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15)deverá considerar aumentar o tamanho do lote para uma melhor produção.
+O carregamento com polyBase fornecerá a maior entrada com piscina SQL. Se não puder utilizar o PolyBase para carregar e tiver de utilizar o [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [o BCP,](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)deverá considerar aumentar o tamanho do lote para uma melhor produção.
 
 > [!TIP]
 > Um tamanho de lote entre 100 linhas K a 1M é a linha de base recomendada para determinar a capacidade ideal do tamanho do lote.
@@ -120,7 +120,7 @@ Considera-se que um registo de dados é sujo se cumprir uma das seguintes condi�
 
 Para corrigir os registos desatualizados, confirme que as definições de tabela externa e de formato de ficheiro externo estão corretas e que os dados externos estão em conformidade com estas definições.
 
-Se um subconjunto de registos de dados externos estiver sujo, pode optar por rejeitar estes registos para as suas consultas utilizando as opções de rejeição em [TABELA EXTERNA CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+Se um subconjunto de registos de dados externos estiver sujo, pode optar por rejeitar estes registos para as suas consultas utilizando as opções de rejeição em [TABELA EXTERNA CREATE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserir dados na tabela de produção
 

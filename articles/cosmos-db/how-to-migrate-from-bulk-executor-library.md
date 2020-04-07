@@ -4,14 +4,14 @@ description: Aprenda a migrar a sua aplicação desde a utilização da bibliote
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: maquaran
-ms.openlocfilehash: e1a2a5d849d3c94d62b8645c41f288ba130aa6a4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479334"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755971"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca executor a granel para o suporte a granel em Azure Cosmos DB .NET V3 SDK
 
@@ -73,6 +73,15 @@ Contém: `BulkOperationResponse`
 1. O número de operações bem sucedidas.
 1. O total de unidades de pedido consumidas.
 1. Se houver falhas, apresenta uma lista de tuples que contêm a exceção e o item associado para fins de registo e identificação.
+
+## <a name="retry-configuration"></a>Configuração de retry
+
+A biblioteca de executores a `MaxRetryWaitTimeInSeconds` `MaxRetryAttemptsOnThrottledRequests` granel tinha [orientação](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) que mencionava para definir o e de [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) para `0` delegar o controlo na biblioteca.
+
+Para suporte a granel no .NET SDK, não há nenhum comportamento oculto. Pode configurar as opções de retry diretamente através das [Opções CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+
+> [!NOTE]
+> Nos casos em que as unidades de pedido previstas são muito inferiores às esperadas com base na quantidade de dados, é possível que considere defini-las para valores elevados. A operação a granel demorará mais tempo, mas tem uma maior probabilidade de ser totalmente bem sucedida devido às tentativas mais elevadas.
 
 ## <a name="performance-improvements"></a>Melhorias no desempenho
 

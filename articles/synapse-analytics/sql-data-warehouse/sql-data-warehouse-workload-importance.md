@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c8617cffaa81da6423011a494b8dbc82c42d218
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632462"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744034"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importância da carga de trabalho da Azure Synapse Analytics
 
@@ -38,7 +38,7 @@ Para além do cenário de importância básica acima descrito com os dados de ve
 
 ### <a name="locking"></a>Bloquear
 
-O acesso a fechaduras para atividade de leitura e escrita é uma área de contenção natural. Atividades como [a troca de divisórias](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [o OBJETO DE MUDANÇA RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) requerem fechaduras elevadas.  Sem importância de carga de trabalho, a piscina SQL Synapse em Azure Synapse otimiza para a entrada. Otimizar para a entrada significa que quando os pedidos de execução e fila têm as mesmas necessidades de bloqueio e os recursos estão disponíveis, os pedidos em fila podem contornar pedidos com necessidades de bloqueio mais elevadas que chegaram na fila de pedidos mais cedo. Uma vez aplicada a importância da carga de trabalho a pedidos com necessidades de bloqueio mais elevadas. O pedido com maior importância será feito antes do pedido com menor importância.
+O acesso a fechaduras para atividade de leitura e escrita é uma área de contenção natural. Atividades como [a troca de divisórias](sql-data-warehouse-tables-partition.md) ou [o OBJETO DE MUDANÇA RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requerem fechaduras elevadas.  Sem importância de carga de trabalho, a piscina SQL Synapse em Azure Synapse otimiza para a entrada. Otimizar para a entrada significa que quando os pedidos de execução e fila têm as mesmas necessidades de bloqueio e os recursos estão disponíveis, os pedidos em fila podem contornar pedidos com necessidades de bloqueio mais elevadas que chegaram na fila de pedidos mais cedo. Uma vez aplicada a importância da carga de trabalho a pedidos com necessidades de bloqueio mais elevadas. O pedido com maior importância será feito antes do pedido com menor importância.
 
 Considere o exemplo seguinte:
 
@@ -62,8 +62,8 @@ Como o Q5 é médio, requer duas ranhuras de condivisões. O Q5 precisa de esper
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre a criação de um classificador, consulte a [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Para obter mais informações sobre a criação de um classificador, consulte a [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 - Para obter mais informações sobre a classificação da carga de trabalho, consulte [a Classificação da Carga de Trabalho](sql-data-warehouse-workload-classification.md).  
 - Consulte o [Quickstart Create workload classifier](quickstart-create-a-workload-classifier-tsql.md) para como criar um classificador de carga de trabalho.
 - Consulte os artigos de como [configurar](sql-data-warehouse-how-to-configure-workload-importance.md) a importância da carga de trabalho e como gerir e monitorizar a Gestão da [Carga de Trabalho.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
-- Veja [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) dm_pdw_exec_requests para ver as consultas e a importância atribuída.
+- Veja [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dm_pdw_exec_requests para ver as consultas e a importância atribuída.

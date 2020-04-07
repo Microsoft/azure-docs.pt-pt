@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162536"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677026"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -167,7 +167,7 @@ Um Canal fornece um ponto final de entrada (URL ingerir) que especifica no codif
 
 Pode obter os URLs ingerir assim que criar um Canal. Para obter estes URLs, o Canal não tem que estar no estado **de Execução.** Quando estiver pronto para começar a empurrar dados para o Canal, deve estar no estado **de Execução.** Assim que o Canal começar a ingerir dados, pode pré-visualizar o seu fluxo através do URL de pré-visualização.
 
-Tem a opção de ingerir o fluxo ao vivo de MP4 fragmentado (Smooth Streaming) sobre uma ligação SSL. Para ingerir sobre o SSL, certifique-se de atualizar o URL ingerir para HTTPS. Atualmente, a AMS não suporta a SSL com domínios personalizados.  
+Tem a opção de ingerir o fluxo ao vivo de MP4 fragmentado (Smooth Streaming) sobre uma ligação TLS. Para ingerir sobre tLS, certifique-se de atualizar o URL ingerir para HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.  
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
 Pode definir os endereços IP que podem publicar vídeo para este canal. Os endereços IP autorizados podem ser especificados como um único endereço IP (por exemplo, «10.0.0.1»), uma gama IP que utiliza um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22'), ou uma gama IP utilizando um endereço IP e uma máscara de sub-rede decimal pontilhada (por exemplo, '10.0.0.1 (255.255.252.0)»).
@@ -205,7 +205,7 @@ Pode especificar a fonte dos sinais de marcadores de anúncios. O valor predefin
 Uma bandeira opcional que diz ao codificador ao vivo para ignorar quaisquer dados de legendas CEA 708 incorporados no vídeo que está a chegar. Quando a bandeira estiver definida como falsa (predefinido), o codificador detetará e reintroduzirá os dados CEA 708 nos streams de vídeo de saída.
 
 #### <a name="index"></a>Índice
-Recomenda-se o envio de um único fluxo de transporte de programas (SPTS). Se o fluxo de entrada contiver vários programas, o codificador ao vivo dentro do Canal analisa a tabela de mapas do programa (PMT) na entrada, identifica as inputs que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou MPEG-1 Áudio ou MPEG-2 Áudio, e organiza-os na ordem especificada no PMT. O índice de base zero é então usado para captar a entrada n-th nesse acordo.
+Recomenda-se o envio de um único fluxo de transporte de programas (SPTS). Se o fluxo de entrada contiver vários programas, o codificador ao vivo dentro do Canal analisa a Tabela de Mapas do Programa (PMT) na entrada, identifica as inputs que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou MPEG-1 Audio ou MPEG-2 Audio, e organiza-as na ordem especificada no PMT. O índice de base zero é então usado para captar a entrada n-th nesse acordo.
 
 #### <a name="language"></a>Idioma
 O identificador linguístico do fluxo de áudio, em conformidade com a ISO 639-2, como o ENG. Se não estiver presente, o padrão é UND (indefinido).

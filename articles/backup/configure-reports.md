@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para backup azure usando Log Analytics e Livros de Trabalho Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161206"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672669"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -21,7 +21,7 @@ Hoje, a Azure Backup fornece uma solução de reporte que aproveita os [Registos
 * Os Relatórios de Backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA/ASE em VMs Azure, Agente de Backup Azure (MARS), Servidor de Backup Azure (MABS) e System Center DPM.
 * Para cargas de trabalho DPM, os Relatórios de Backup são suportados para dPM versão 5.1.363.0 ou superior, e Verdete agente 2.0.9127.0 ou superior.
 * Para cargas de trabalho MABS, os Relatórios de Backup são suportados para a versão 13.0.415.0 e superior do Agente, e para a Versão Agente 2.0.9170.0 ou superior.
-* Os Relatórios de Backup podem ser vistos em todos os itens de backup, cofres, subscrições e regiões desde que os seus dados sejam enviados para um Espaço de Trabalho de Log Analytics (LA) a que o utilizador tenha acesso. 
+* Os Relatórios de Backup podem ser vistos em todos os itens de backup, cofres, subscrições e regiões desde que os seus dados sejam enviados para um Espaço de Trabalho de Log Analytics (LA) a que o utilizador tenha acesso. Note que para ver relatórios para um conjunto de cofres, basta ter acesso dos **leitores ao espaço** de trabalho de LA para o qual os cofres estão a enviar os seus dados. **Não precisas de** ter acesso aos cofres individuais.
 * Se é um utilizador do [Farol Azure](https://docs.microsoft.com/azure/lighthouse/) com acesso delegado às subscrições dos seus clientes, pode utilizar estes relatórios com o Farol Azure para ver relatórios em todos os seus inquilinos.
 * Os dados relativos a trabalhos de backup de registo não são atualmente apresentados nos relatórios.
 

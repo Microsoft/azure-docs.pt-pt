@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 74e5a427d62d5249ffe6b0426b62a3577e43462f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444488"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757155"
 ---
 # <a name="ip-groups-preview-in-azure-firewall"></a>Grupos IP (pré-visualização) em Firewall Azure
 
@@ -54,7 +54,7 @@ Pode ver todos os endereços IP do Grupo IP e as regras ou recursos que lhe est�
 
 1. Para visualizar ou editar os endereços IP, selecione **endereços IP** em **Definições** no painel esquerdo.
 2. Para adicionar um endereço IP único ou múltiplo, **selecione Adicionar Endereços IP**. Isto abre a página **Drag ou Browse** para um upload, ou pode introduzir o endereço manualmente.
-3.  Selecionando as elipses **(...**) ao direito de editar ou excluir endereços IP. Para editar ou eliminar vários endereços IP, selecione as caixas e selecione **Editar** ou **Excluir** na parte superior.
+3.    Selecionando as elipses **(...**) ao direito de editar ou excluir endereços IP. Para editar ou eliminar vários endereços IP, selecione as caixas e selecione **Editar** ou **Excluir** na parte superior.
 4. Finalmente, pode exportar o ficheiro no formato de ficheiro CSV.
 
 > [!NOTE]
@@ -72,24 +72,47 @@ Agora pode selecionar o **GRUPO IP** como **tipo fonte** ou tipo de **destino** 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Os grupos IP estão atualmente disponíveis nas seguintes regiões:
+Os grupos IP estão disponíveis em todas as regiões públicas de nuvem.
 
-- E.U.A. Oeste
-- E.U.A.Oeste 2
-- E.U.A. Leste
-- E.U.A. Leste 2
-- E.U.A. Central
-- E.U.A. Centro-Norte
-- E.U.A. Centro-Oeste
-- E.U.A. Centro-Sul
-- Canadá Central
-- Europa do Norte
-- Europa ocidental
-- França Central
-- Sul do Reino Unido
-- Leste da Austrália
-- Austrália Central
-- Austrália Sudeste
+## <a name="ip-address-limits"></a>Limites de endereçoIP
+
+Para 50 grupos IP ou menos, pode ter um máximo de 5000 endereços IP individuais cada por instância de firewall. Para 51 a 100 Grupos IP, pode ter 500 endereços IP individuais cada um por instância de firewall.
+
+### <a name="examples"></a>Exemplos
+
+#### <a name="example-1-supported"></a>Exemplo 1: suportado
+
+|Grupos IP  |# Endereços IP  |Anotações  |Regra  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Regra 1|
+|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Regra 1|
+|IPGroup3     |1|1.2.3.4|Regra 1|
+|     |**Total 4100**|         |         |
+|     |         |         |         |
+
+#### <a name="example-2-supported"></a>Exemplo 2: suportado
+
+|Grupos IP  |# Endereços IP  |Anotações  |Regra  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Regra 1|
+|IPGroup2     |4096|11.0.0.0/20|Regra 1|
+|     |**Total 8192**|         |         |
+
+#### <a name="example-3-not-supported"></a>Exemplo 3: não suportado
+
+|Grupos IP  |# Endereços IP  |Anotações  |Regra  |
+|---------|---------|---------|---------|
+|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Regra 1|
+|     |**Total 8192**|||
+
+#### <a name="example-4-supported"></a>Exemplo 4: apoiado
+
+|Grupos IP  |# Endereços IP  |Anotações  |Regra  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Regra 1|
+|IPGroup2     |4096|11.0.0.0/20|Regra 2|
+|     |**Total 8192**|         |         |
+
 
 ## <a name="related-azure-powershell-cmdlets"></a>Cmdlets de PowerShell Azure relacionados
 

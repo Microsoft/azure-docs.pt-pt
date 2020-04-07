@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs Azure para uma
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 0b4a654093e0842e66e1f8b0924edfa6c9c215e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276653"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673794"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -18,11 +18,11 @@ Este artigo resume o apoio e os pré-requisitos para a recuperação de desastre
 
 ## <a name="deployment-method-support"></a>Suporte ao método de implantação
 
-**Implantação** |  **Suporte**
+**Implementação** |  **Suporte**
 --- | ---
-**Portal Azure** | Suportado.
+**Portal do Azure** | Suportado.
 **PowerShell** | Suportado. [Mais informações](azure-to-azure-powershell.md)
-**REST API** | Suportado.
+**API REST** | Suportado.
 **CLI** | Atualmente, não é suportado
 
 
@@ -36,21 +36,21 @@ Este artigo resume o apoio e os pré-requisitos para a recuperação de desastre
 **Migram VMs através de regiões dentro de aglomerados geográficos apoiados (dentro e em todas as assinaturas)** | Apoiado dentro do mesmo inquilino azure Ative Directory.
 **VMs migrados dentro da mesma região** | Não suportado.
 
-## <a name="region-support"></a>Apoio da região
+## <a name="region-support"></a>Suporte de região
 
 Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geográfico. Os clusters geográficos são definidos mantendo em mente a latência e a soberania dos dados.
 
 
-**Aglomerado geográfico** | **Regiões do Azure**
+**Aglomerado geográfico** | **Regiões de Azure**
 -- | --
 América | Canadá Leste, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste DOS 2, Centro dos EUA
-Europa | Reino Unido Oeste, Reino Unido Sul, Norte da Europa, Europa Ocidental, França Central, França Sul, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste
-Ásia | Sul da Índia, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Emirados Unidos, Emirados Unidos Norte
+Europa | Reino Unido Oeste, Reino Unido Sul, Norte da Europa, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste
+Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul
 Austrália    | Austrália Leste, Austrália Sudeste, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Alemanha    | Alemanha Central, Alemanha Nordeste
 China | China Leste, China Norte, China Norte2, China East2
-Regiões restritas reservadas para recuperação de desastres no país |Alemanha Norte reservada para alemanha West Central, Suíça West reservada para suíça Norte, França Sul reservada para clientes France Central
+Regiões restritas reservadas para recuperação de desastres no país |Alemanha Norte reservada para alemanha West Central, Suíça West reservada para suíça Norte, França Sul reservada para France Central, Eau Central restrita para clientes uAE Norte
 
 >[!NOTE]
 >

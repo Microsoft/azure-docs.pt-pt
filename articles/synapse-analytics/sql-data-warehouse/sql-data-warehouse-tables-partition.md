@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4e19c20036d74752b75a668d6a37c46ef1b008e6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583192"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742683"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Mesas de partição na piscina Synapse SQL
 
@@ -46,9 +46,9 @@ Ao criar divisórias em mesas de lojas de **colunas agrupadas,** é importante c
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferenças de sintaxe do SQL Server
 
-O pool SQL synapse introduz uma forma de definir divisórias que são mais simples que o SQL Server. Funções e esquemas de partição não são utilizados na piscina SQL synapse como estão no Servidor SQL. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. Embora a sintaxe da partilha possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. SQL Server e Synapse SQL suporteuma coluna de partição por tabela, que pode ser dividida com variação. Para saber mais sobre a partilha, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes)
+O pool SQL synapse introduz uma forma de definir divisórias que são mais simples que o SQL Server. Funções e esquemas de partição não são utilizados na piscina SQL synapse como estão no Servidor SQL. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. Embora a sintaxe da partilha possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. SQL Server e Synapse SQL suporteuma coluna de partição por tabela, que pode ser dividida com variação. Para saber mais sobre a partilha, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-O exemplo seguinte utiliza a declaração [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) para dividir a tabela FactInternetSales na coluna OrderDateKey:
+O exemplo seguinte utiliza a declaração [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para dividir a tabela FactInternetSales na coluna OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -78,8 +78,8 @@ WITH
 
 Para migrar as definições de partição do SQL Server para a piscina Synapse SQL simplesmente:
 
-- Elimine o esquema de [partição](/sql/t-sql/statements/create-partition-scheme-transact-sql)do Servidor SQL .
-- Adicione a definição de [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql) à sua TABELA CREATE.
+- Elimine o esquema de [partição](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)do Servidor SQL .
+- Adicione a definição de [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) à sua TABELA CREATE.
 
 Se estiver a migrar uma tabela dividida a partir de uma instância do SQL Server, o Seguinte SQL pode ajudá-lo a descobrir o número de linhas que em cada partição. Tenha em mente que se a mesma granularidade de partição for utilizada na piscina SYnapse SQL, o número de linhas por divisória diminui em um fator de 60.  
 
@@ -119,7 +119,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Troca de divisórias
 
-A piscina Synapse SQL suporta a divisão, a fusão e a troca. Cada uma destas funções é executada utilizando a declaração [ALTER TABLE.](/sql/t-sql/statements/alter-table-transact-sql)
+A piscina Synapse SQL suporta a divisão, a fusão e a troca. Cada uma destas funções é executada utilizando a declaração [ALTER TABLE.](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Para trocar divisórias entre duas tabelas, deve certificar-se de que as divisórias se alinham nos respetivos limites e que as definições de tabela correspondem. Dado que não existem restrições de verificação para impor o leque de valores numa tabela, a tabela de origem deve conter os mesmos limites de divisória que a tabela-alvo. Se os limites da divisória não forem iguais, então o interruptor de partição falhará, uma vez que os metadados da divisória não serão sincronizados.
 
@@ -344,4 +344,3 @@ Com esta abordagem, o código de controlo de origem permanece estático e os val
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o desenvolvimento de tabelas, consulte os artigos sobre [a visão geral](sql-data-warehouse-tables-overview.md)da tabela .
-

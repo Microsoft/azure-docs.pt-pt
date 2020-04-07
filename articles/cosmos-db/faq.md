@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0c994caf094918b39204437b5194d81a64affc66
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 114c632d43dbb254222def2437fbffc22ec84688
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545665"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672466"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -236,7 +236,7 @@ Juntamente com os códigos de erro comuns do MongoDB, a API do Azure Cosmos DB p
 
 Sim, você pode usar o motorista Mongo ODBC de Simba com API da Azure Cosmos DB para MongoDB
 
-## <a name="table-api"></a><a id="table"></a>Tabela API
+## <a name="table-api"></a><a id="table"></a>API de Tabela
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>Como posso usar a oferta da API da tabela?
 
@@ -640,7 +640,7 @@ A saída do perfil acima mostra quanto tempo é gasto a obter os objetos vértic
 
 ## <a name="cassandra-api"></a><a id="cassandra"></a>Cassandra API
 
-### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Qual é a versão protocolar suportada pela Azure Cosmso DB Cassandra API? Existe um plano para apoiar outros protocolos?
+### <a name="what-is-the-protocol-version-supported-by-azure-cosmos-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Qual é a versão protocolar suportada pela Azure Cosmos DB Cassandra API? Existe um plano para apoiar outros protocolos?
 
 Apache Cassandra API para Azure Cosmos DB suporta hoje a versão CQL 4. Se tiver feedback sobre o apoio a outros protocolos, avise-nos através do feedback de [voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db) ou envie um e-mail para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 

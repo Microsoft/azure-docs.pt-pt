@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
-ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283995"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673823"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para Azure Logic Apps
 
@@ -22,7 +22,7 @@ Antes de se [ligar a fontes de dados no local a partir de Aplicações Lógicas 
 * [Microsoft Power Apps no local gateway de dados](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway de dados dos Serviços de Análise Azure no local](../analysis-services/analysis-services-gateway.md)
 
-Este artigo mostra como descarregar, instalar e configurar a sua porta de dados no local para que possa aceder ao local de fontes de dados a partir de Aplicações Lógicas Azure. Também pode saber mais sobre [como o portal de dados funciona](#gateway-cloud-service) mais tarde neste tópico. Para mais informações sobre o portal, veja [o que é um portal no local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)
+Este artigo mostra como descarregar, instalar e configurar a sua porta de dados no local para que possa aceder ao local de fontes de dados a partir de Aplicações Lógicas Azure. Também pode saber mais sobre [como o portal de dados funciona](#gateway-cloud-service) mais tarde neste tópico. Para mais informações sobre o portal, veja [o que é um portal no local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem) Para automatizar tarefas de instalação e gestão de gateways, visite a galeria PowerShell para os [cmdlets DataGateway PowerShell](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 <a name="requirements"></a>
 

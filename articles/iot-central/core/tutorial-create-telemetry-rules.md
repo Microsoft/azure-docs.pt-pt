@@ -3,23 +3,23 @@ title: Tutorial - Crie e gerencie regras na sua aplicação Azure IoT Central
 description: Este tutorial mostra-lhe como as regras da Central Azure IoT permitem monitorizar os seus dispositivos em tempo real e invocar automaticamente ações, como o envio de um e-mail, quando a regra dispara.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d55bafc513ef7553952ee2096ea32db65d6205d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77167455"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673773"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Crie uma regra e crie notificações na sua aplicação Azure IoT Central
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-Pode utilizar a Central Azure IoT para monitorizar remotamente os seus dispositivos conectados. As regras da Central Azure IoT permitem-lhe monitorizar os seus dispositivos em tempo real e invocar automaticamente ações, como enviar um e-mail. Em apenas alguns cliques, pode definir uma condição para monitorizar a telemetria a partir dos seus dispositivos e configurar uma ação correspondente. Este artigo explica como criar regras para monitorizar a telemetria enviada pelo dispositivo.
+Pode utilizar a Central Azure IoT para monitorizar remotamente os seus dispositivos conectados. As regras da Central Azure IoT permitem monitorizar os seus dispositivos em tempo real e invocar automaticamente ações, como o envio de um e-mail. Este artigo explica como criar regras para monitorizar a telemetria que os seus dispositivos enviam.
 
 Os dispositivos utilizam a telemetria para enviar dados numéricos do dispositivo. Uma regra dispara quando a telemetria do dispositivo selecionado atravessa um limiar especificado.
 
@@ -34,11 +34,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, deve completar a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) e [adicionar um dispositivo simulado à sua aplicação IoT Central](./quick-create-pnp-device.md) rapidamente para criar o modelo de dispositivo **MXChip IoT DevKit** para trabalhar.
+Antes de começar, complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) e [adicione um dispositivo simulado à sua aplicação IoT Central](./quick-create-pnp-device.md) rapidamente para criar o modelo de dispositivo **MXChip IoT DevKit** para trabalhar.
 
 ## <a name="create-a-rule"></a>Criar uma regra
 
-Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos uma medição de telemetria definida. Este tutorial utiliza um dispositivo de sensor ambiental que envia telemetria de temperatura e humidade. Adicionou este modelo de dispositivo e criou um dispositivo simulado no [Add um dispositivo simulado à sua aplicação IoT Central.](./quick-create-pnp-device.md) A regra monitoriza a temperatura reportada pelo dispositivo e envia um e-mail quando ultrapassa os 70 graus.
+Para criar uma regra de telemetria, o modelo do dispositivo deve incluir pelo menos um valor de telemetria. Este tutorial utiliza um dispositivo **MXChip IoT DevKit** simulado que envia telemetria de temperatura e humidade. Adicionou este modelo de dispositivo e criou um dispositivo simulado no [Add um dispositivo simulado à sua aplicação IoT Central.](./quick-create-pnp-device.md) A regra monitoriza a temperatura reportada pelo dispositivo e envia um e-mail quando ultrapassa os 70 graus.
 
 1. No painel esquerdo, selecione **Regras**.
 
@@ -66,8 +66,8 @@ As condições definem os critérios que a regra monitoriza. Neste tutorial, con
 
 1. Opcionalmente, pode definir uma **agregação**do tempo. Quando selecionar uma agregação de tempo, também deve selecionar um tipo de agregação, como a média ou a soma da agregação.
 
-    * Sem agregação, a regra dispara para cada ponto de dados de telemetria que cumpre a condição. Por exemplo, se a regra estiver configurada para disparar quando a temperatura for superior a 70, a regra dispara quase instantaneamente quando o dispositivo reporta temperatura > 70.
-    * Com a agregação, a regra dispara se o valor agregado dos pontos de dados de telemetria na janela do tempo cumprir a condição. Por exemplo, se a regra for configurada para disparar quando a temperatura for superior a 70, a agregação do tempo é definida para 10 minutos, e o tipo de agregação é médio, então a regra dispara quando o dispositivo reporta uma temperatura média > 70, calculada num intervalo de 10 minutos.
+    * Sem agregação, a regra dispara para cada ponto de dados de telemetria que cumpre a condição. Por exemplo, se configurar a regra para acionar quando a temperatura é superior a 70, então a regra dispara quase instantaneamente quando a temperatura do dispositivo excede este valor.
+    * Com a agregação, a regra dispara se o valor agregado dos pontos de dados de telemetria na janela do tempo cumprir a condição. Por exemplo, se configurar a regra para acionar quando a temperatura é superior a 70 e com uma agregação média de tempo de 10 minutos, então a regra dispara quando o dispositivo reporta uma temperatura média superior a 70, calculada num intervalo de 10 minutos.
 
      ![Condição agregada](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -100,11 +100,11 @@ Se já não precisar de uma regra, apague-a abrindo a regra e escolhendo **Apaga
 
 ## <a name="enable-or-disable-a-rule"></a>Ativar ou desativar uma regra
 
-Escolha a regra que pretende ativar ou desativar. Alternar o botão **Ativar** ou **Desativar** na regra para ativar ou desativar a regra para todos os dispositivos que estejam abrangidos pela regra.
+Escolha a regra que pretende ativar ou desativar. Alternar o botão **Ativado/Desativado** na regra para ativar ou desativar a regra de todos os dispositivos que estejam abrangidos pela regra.
 
-## <a name="enable-or-disable-a-rule-for-a-device"></a>Ativar ou desativar uma regra para um dispositivo
+## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Ativar ou desativar uma regra para dispositivos específicos
 
-Escolha a regra que pretende ativar ou desativar. Adicione um filtro na secção **Scopes** para incluir ou excluir um determinado dispositivo no modelo do dispositivo.
+Escolha a regra que pretende personalizar. Utilize um ou mais filtros na secção de **dispositivos Target** para limitar o âmbito da regra aos dispositivos que pretende monitorizar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

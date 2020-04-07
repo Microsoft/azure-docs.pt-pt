@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio em Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 9c4e2f4c6fd8f5fb574002217ca71d1e7d130ff7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437741"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676759"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
 
@@ -20,20 +20,20 @@ A criação de ambientes consistentes à escala só é verdadeiramente valiosa s
 ## <a name="locking-modes-and-states"></a>Modos e estados de bloqueio
 
 O modo de bloqueio aplica-se à atribuição da planta e tem três opções: **Não bloquear,** **ler apenas**ou **não eliminar**. O modo de bloqueio é configurado durante a implantação do artefacto durante uma atribuição de plantas. Um modo de bloqueio diferente pode ser definido atualizando a atribuição da planta.
-Os modos de bloqueio, no entanto, não podem ser alterados fora das Plantas.
+Os modos de bloqueio, no entanto, não podem ser alterados fora das Plantas Azure.
 
 Os recursos criados por artefactos numa atribuição de plantas têm quatro estados: **Não bloqueado,** **Leia Apenas,** **Não Pode Editar / Excluir,** ou **Não Pode Excluir**. Cada tipo de artefacto pode estar no estado **não bloqueado.** A tabela a seguir pode ser utilizada para determinar o estado de um recurso:
 
 |Modo|Tipo de recurso de artefacto|Estado|Descrição|
 |-|-|-|-|
-|Não tranque|*|Não trancado|Os recursos não estão protegidos por plantas. Este estado também é usado para recursos adicionados a um artefacto de grupo **de recursos Read Only** ou Not **Delete** from outside a blueprint assignment.|
+|Não tranque|*|Não trancado|Os recursos não estão protegidos por Plantas Azure. Este estado também é usado para recursos adicionados a um artefacto de grupo **de recursos Read Only** ou Not **Delete** from outside a blueprint assignment.|
 |Só de Leitura|Grupo de recursos|Não pode Editar / Excluir|O grupo de recursos é lido apenas e as etiquetas no grupo de recursos não podem ser modificadas. Os recursos **bloqueados não** podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 |Só de Leitura|Grupo sem recursos|Só de Leitura|O recurso não pode ser alterado de forma alguma.|
 |Não apague|*|Não pode Excluir|Os recursos podem ser alterados, mas não podem ser apagados. Os recursos **bloqueados não** podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Estados de bloqueio dominantes
 
-É tipicamente possível que alguém com um controlo de acesso baseado [em funções](../../../role-based-access-control/overview.md) apropriado (RBAC) na subscrição, como a função 'Proprietário', seja autorizado a alterar ou apagar qualquer recurso. Este acesso não é o caso quando as plantas se aplicam ao bloqueio como parte de uma missão implementada. Se a atribuição foi definida com a opção **Ler Apenas** ou **Não Eliminar,** nem mesmo o proprietário da subscrição pode executar a ação bloqueada no recurso protegido.
+É tipicamente possível que alguém com um controlo de acesso baseado [em funções](../../../role-based-access-control/overview.md) apropriado (RBAC) na subscrição, como a função 'Proprietário', seja autorizado a alterar ou apagar qualquer recurso. Este acesso não é o caso quando o Azure Blueprints aplica o bloqueio como parte de uma missão implementada. Se a atribuição foi definida com a opção **Ler Apenas** ou **Não Eliminar,** nem mesmo o proprietário da subscrição pode executar a ação bloqueada no recurso protegido.
 
 Esta medida de segurança protege a consistência do projeto definido e do ambiente que foi concebido para criar a partir de supressão ou alteração acidental ou programática.
 
@@ -97,11 +97,11 @@ Se for necessário modificar ou eliminar um recurso protegido por uma atribuiç�
 - Atualizar a atribuição da planta para um modo de bloqueio de **Don't Lock**
 - Eliminar a atribuição da planta
 
-Quando a atribuição é removida, as fechaduras criadas por Plantas são removidas. No entanto, o recurso é deixado para trás e teria de ser apagado através de meios normais.
+Quando a atribuição é removida, as fechaduras criadas por Plantas Azure são removidas. No entanto, o recurso é deixado para trás e teria de ser apagado através de meios normais.
 
 ## <a name="how-blueprint-locks-work"></a>Como funcionam as fechaduras de plantas
 
-Um RBAC [nega que as atribuições](../../../role-based-access-control/deny-assignments.md) negem que a ação é aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionou a opção **Ler Apenas** ou **Não Excluir.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança aplica o mecanismo de bloqueio e impede a remoção do bloqueio de plantas fora das plantas.
+Um RBAC [nega que as atribuições](../../../role-based-access-control/deny-assignments.md) negem que a ação é aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionou a opção **Ler Apenas** ou **Não Excluir.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança aplica o mecanismo de bloqueio e impede a remoção do bloqueio de plantas fora das plantas azure.
 
 ![Projeto negar atribuição no grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
 

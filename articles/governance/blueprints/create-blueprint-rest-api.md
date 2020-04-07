@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta com REST API'
 description: Neste arranque rápido, utiliza-se plantas Azure para criar, definir e implementar artefactos utilizando a API REST.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241543"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676572"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Defina e atribua um projeto azure com API REST
 
@@ -25,7 +25,7 @@ Aprender a criar e atribuir esquemas permite a definição de padrões comuns pa
 
 Se não estiver familiarizado com a API REST, comece por rever a [Referência da API REST do Azure](/rest/api/azure/) para obter uma compreensão geral da API REST, especificamente o URI do pedido e o corpo do pedido. Este artigo utiliza estes conceitos para fornecer instruções para trabalhar com o Azure Blueprints e pressupõe um conhecimento prático dos mesmos. Ferramentas como o [ARMClient](https://github.com/projectkudu/ARMClient) e outras podem processar a autorização automaticamente e são recomendadas para iniciantes.
 
-Para as especificações de Esquema, veja [API REST de Esquemas do Azure](/rest/api/blueprints/).
+Para as especificações das plantas azure, consulte [API](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
@@ -406,7 +406,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      A **identidade gerida atribuída pelo utilizador** pode estar em qualquer grupo de subscrição e recursos a que o utilizador que atribui a planta tem permissões.
 
      > [!IMPORTANT]
-     > As plantas não gerem a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis pela atribuição de funções e permissões suficientes ou a atribuição do projeto falhará.
+     > A Azure Blueprints não gere a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis pela atribuição de funções e permissões suficientes ou a atribuição do projeto falhará.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

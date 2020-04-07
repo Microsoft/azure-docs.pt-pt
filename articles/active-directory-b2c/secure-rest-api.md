@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 5a80c6e3bd8cf647590ed757c042ef3301e27b4a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396859"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743507"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -272,7 +272,7 @@ Para apoiar a autenticação simbólica do portador na sua política personaliza
 1. Certifique-se de adicionar a reclamação acima utilizada como uma reivindicação de entrada:
 
     ```xml
-    <InputClaim ClaimTyeReferenceId="bearerToken"/>
+    <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
 Depois de adicionar os snippets acima, o seu perfil técnico deve parecer o seguinte código XML:
@@ -292,7 +292,7 @@ Depois de adicionar os snippets acima, o seu perfil técnico deve parecer o segu
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTyeReferenceId="bearerToken"/>
+        <InputClaim ClaimTypeReferenceId="bearerToken"/>
       </InputClaims>
       ...
     </TechnicalProfile>

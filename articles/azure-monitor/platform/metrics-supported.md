@@ -4,15 +4,15 @@ description: Lista de métricas disponíveis para cada tipo de recurso com o Mon
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 03/17/2020
+ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 79bae9712cea04425cc36414ec56fdddd4345eab
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586031"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754663"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
@@ -1999,11 +1999,11 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |cache_hit_percent|Percentagem de impacto cache|Percentagem|Máximo|Cache atingiu a percentagem. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |cache_used_percent|Cache usado percentagem|Percentagem|Máximo|Cache usado percentagem. Aplica-se apenas aos armazéns de dados.|Nenhuma|
-|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
-|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
-|tempdb_data_size|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb. Não aplicável aos armazéns de dados.|Nenhuma|
-|tempdb_log_size|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb. Não aplicável aos armazéns de dados.|Nenhuma|
-|tempdb_log_used_percent|Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado. Não aplicável aos armazéns de dados.|Nenhuma|
+|sqlserver_process_core_percent<sup>1</sup> |SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
+|<sup>sqlserver_process_memory_percent 1</sup> |SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo.|Nenhuma|
+|tempdb_data_size<sup>2</sup> |Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb.|Nenhuma|
+|tempdb_log_size<sup>2</sup> |Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb.|Nenhuma|
+|<sup>tempdb_log_used_percent 2</sup> |Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado.|Nenhuma|
 |local_tempdb_usage_percent|Percentagem de temperatura local|Percentagem|Média|Percentagem de temperatura local. Aplica-se apenas aos armazéns de dados.|Nenhuma|
 |app_cpu_billed|App CPU faturada|Contagem|Total|App CPU faturado. Aplica-se a bases de dados sem servidores.|Nenhuma|
 |app_cpu_percent|Percentagem de CPU da aplicação|Percentagem|Média|Percentagem de CPU da aplicação. Aplica-se a bases de dados sem servidores.|Nenhuma|
@@ -2028,6 +2028,9 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |snapshot_backup_size_bytes|Tamanho de armazenamento de backup instantâneo|Bytes|Máximo|Tamanho cumulativo de armazenamento de backup instantâneo. Aplica-se às bases de dados de Hiperescala.|Nenhuma|
 |base_blob_size_bytes|Tamanho de armazenamento de bolha de base|Bytes|Máximo|Tamanho de armazenamento de bolhas base. Aplica-se às bases de dados de Hiperescala.|Nenhuma|
 
+<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. 
+
+<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala ou armazéns de dados.
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servidores/elasticPools
 
@@ -2057,14 +2060,19 @@ O Azure Monitor fornece várias formas de interagir com métricas, incluindo map
 |database_cpu_limit|Limite de CPU|Contagem|Média|Limite de CPU|Base de Dados Resourceid|
 |cpu_used|CPU utilizado|Contagem|Média|CPU usado. Aplica-se a piscinas elásticas baseadas em vCore.|Nenhuma|
 |database_cpu_used|CPU utilizado|Contagem|Média|CPU utilizado|Base de Dados Resourceid|
-|sqlserver_process_core_percent|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas.|Nenhuma|
-|sqlserver_process_memory_percent|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas.|Nenhuma|
-|tempdb_data_size|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb|Nenhuma|
-|tempdb_log_size|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de log tempdb|Nenhuma|
-|tempdb_log_used_percent|Log por cento temporário usado|Percentagem|Máximo|Log por cento temporário usado|Nenhuma|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server núcleo de processo por cento|Percentagem|Máximo|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas. |Nenhuma|
+|<sup>sqlserver_process_memory_percent 1</sup>|SQL Server processa por cento da memória|Percentagem|Máximo|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo. Aplica-se a piscinas elásticas. |Nenhuma|
+|tempdb_data_size<sup>2</sup>|Kilobytes de tamanho de ficheiro de dados tempdb|Contagem|Máximo|Kilobytes de tamanho de ficheiro de dados tempdb.|Nenhuma|
+|tempdb_log_size<sup>2</sup>|Kilobytes de tamanho de ficheiro de log tempdb|Contagem|Máximo|Kilobytes de ficheiro de log tempdb. |Nenhuma|
+|<sup>tempdb_log_used_percent 2</sup>|Log por cento temporário usado|Percentagem|Máximo|Registo de percentagens temporárias usado.|Nenhuma|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Nenhuma|
 |database_allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Base de Dados Resourceid|
 |allocated_data_storage_percent|Espaço de dados atribuído por cento|Percentagem|Máximo|Espaço de dados atribuído por cento|Nenhuma|
+
+<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. 
+
+<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.
+
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servidores
 

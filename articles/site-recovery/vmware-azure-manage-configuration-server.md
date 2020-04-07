@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478465"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672747"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para vMware VM/recuperação de desastres de servidor físico
 
@@ -93,6 +93,32 @@ O modelo de formato de virtualização aberta (OVF) implementa o VM do servidor 
 - Pode [adicionar um adaptador adicional ao VM,](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)mas tem de o adicionar antes de registar o servidor de configuração no cofre.
 - Para adicionar um adaptador depois de registar o servidor de configuração no cofre, adicione o adaptador nas propriedades VM. Então precisa voltar a [registar](#reregister-a-configuration-server-in-the-same-vault) o servidor no cofre.
 
+## <a name="how-to-renew-ssl-certificates"></a>Como renovar os certificados SSL
+
+O servidor de configuração tem um servidor web incorporado, que orquestra atividades dos agentes de Mobilidade em todas as máquinas protegidas, servidores de processos incorporados/dimensionados e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado SSL para autenticar clientes. O certificado expira após três anos e pode ser renovado a qualquer momento.
+
+### <a name="check-expiry"></a>Verificar expiração
+
+A data de validade aparece sob **a saúde**do Servidor de Configuração . Para implementações de servidores de configuração antes de maio de 2016, a expiração do certificado foi definida para um ano. Se tiver um certificado que vai expirar, ocorre o seguinte:
+
+- Quando a data de validade é de dois meses ou menos, o serviço começa a enviar notificações no portal, e por e-mail (se tiver subscrito as notificações de Recuperação do Site).
+- Um banner de notificação aparece na página de recursos do cofre. Para mais informações, selecione o banner.
+- Se vir um botão **Upgrade Now,** indica que alguns componentes do seu ambiente não foram atualizados para versões 9.4.xxxx.x ou superiores. Atualize os componentes antes de renovar o certificado. Não pode renovar em versões mais antigas.
+
+### <a name="if-certificates-are-yet-to-expire"></a>Se os certificados ainda estiverem para expirar
+
+1. Para renovar, no cofre, abrir o servidor de configuração de > **infraestrutura**de recuperação do **local.** Selecione o servidor de configuração necessário.
+2. Certifique-se de que todos os servidores de processos de escala, servidores-alvo principais e agentes de mobilidade em todas as máquinas protegidas estão em versões mais recentes e estão em estado de ligação.
+3. Agora, selecione **Renovar Certificados**.
+4. Siga cuidadosamente as instruções nesta página e clique bem para renovar os certificados no servidor de configuração selecionado e nos componentes associados.
+
+### <a name="if-certificates-have-already-expired"></a>Se os certificados já expiraram
+
+1. Expiração postal, os certificados **não podem ser renovados do portal Azure**. Antes de prosseguir, certifique-se de que todos os servidores de processos de escala, servidores-alvo principais e agentes de mobilidade em todas as máquinas protegidas estão em versões mais recentes e estão em estado conectado.
+2. **Siga este procedimento apenas se os certificados já tiverem expirado.** Inicie sessão no servidor de configuração, navegue para o > programa de > Programa De > recuperação do site > > casa > bin e execute a ferramenta executora "RenewCerts" como administrador.
+3. Uma janela de execução PowerShell aparece e despoleta a renovação de certificados. Esta ação pode demorar até 15 minutos. Não feche a janela até terminar a renovação.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="Certificados de Renovação":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Reregistre um servidor de configuração no mesmo cofre
 
@@ -112,7 +138,7 @@ Pode voltar a registar o servidor de configuração no mesmo cofre, se necessár
    ```
 
     >[!NOTE]
-    >Para **retirar os mais recentes certificados** do servidor de configuração para o servidor de processo satisfaça o comando " *\<Unidade de Instalação\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >Para **retirar os mais recentes certificados** do servidor de configuração para o servidor de processo satisfaça o comando " *\<Unidade de Instalação\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*
 
 8. Finalmente, reinicie o motor de obengine executando o seguinte comando.
    ```
@@ -269,24 +295,6 @@ Pode eliminar opcionalmente o servidor de configuração utilizando o PowerShell
 2. Para alterar o diretório para a pasta do lixo, execute o cd de comando **%ProgramData%\ASR\home\svsystems\bin**
 3. Para gerar o ficheiro de palavra-passe, execute **genpassphrase.exe -v > MobSvc.passphrase**.
 4. A sua palavra-passe será armazenada no ficheiro localizado em **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
-
-## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
-
-O servidor de configuração tem um servidor web incorporado, que orquestra atividades do Serviço de Mobilidade, servidores de processos e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado TLS/SSL para autenticar clientes. O certificado expira após três anos e pode ser renovado a qualquer momento.
-
-### <a name="check-expiry"></a>Verificar expiração
-
-Para implementações de servidores de configuração antes de maio de 2016, a expiração do certificado foi definida para um ano. Se tiver um certificado que vai expirar, ocorre o seguinte:
-
-- Quando a data de validade é de dois meses ou menos, o serviço começa a enviar notificações no portal, e por e-mail (se tiver subscrito as notificações de Recuperação do Site).
-- Um banner de notificação aparece na página de recursos do cofre. Para mais informações, selecione o banner.
-- Se vir um botão **Upgrade Now,** indica que alguns componentes do seu ambiente não foram atualizados para versões 9.4.xxxx.x ou superiores. Atualize os componentes antes de renovar o certificado. Não pode renovar em versões mais antigas.
-
-### <a name="renew-the-certificate"></a>Renovar o certificado
-
-1. No cofre, aberto servidor de**configuração**de **infraestrutura** > de recuperação do local. Selecione o servidor de configuração necessário.
-2. A data de validade aparece sob **a saúde**do Servidor de Configuração .
-3. **Selecione Renovar Certificados**.
 
 ## <a name="refresh-configuration-server"></a>Servidor de configuração de atualização
 

@@ -3,16 +3,16 @@ title: Plantas de importação e exportação com powerShell
 description: Aprenda a trabalhar com as definições de plantas como código. Partilhar, controlar a fonte e geri-los utilizando os comandos de exportação e importação.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873204"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677143"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Definições de plantas de importação e exportação com powerShell
 
-As Plantas Azure podem ser totalmente geridas através do portal Azure. À medida que as organizações avançam na sua utilização de Blueprints, devem começar a pensar nas definições de plantas como código gerido. Este conceito é muitas vezes referido como Infraestrutura como Código (IaC). Tratar as definições do seu projeto como código oferece vantagens adicionais para além do que o portal Azure oferece. Estes benefícios incluem:
+As Plantas Azure podem ser totalmente geridas através do portal Azure. À medida que as organizações avançam na sua utilização de Plantas Azure, devem começar a pensar nas definições de plantas como código gerido. Este conceito é muitas vezes referido como Infraestrutura como Código (IaC). Tratar as definições do seu projeto como código oferece vantagens adicionais para além do que o portal Azure oferece. Estes benefícios incluem:
 
 - Partilha de definições de plantas
 - Apoiando as definições de projeto

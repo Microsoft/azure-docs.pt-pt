@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: d53c41752d57a27ebea9bd60f7e723dab1e7308a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190880"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673118"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
@@ -25,6 +25,13 @@ func start
 ```
 npm install
 npm start
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```
+mvn clean package 
+mvn azure-functions:run
 ```
 ::: zone-end
 
@@ -44,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Se o HttpExample não aparecer como mostrado abaixo, provavelmente iniciou o hospedeiro a partir da pasta *HttpExample.* Nesse caso, utilize **o Ctrl**+**C** para parar o hospedeiro, navegue para a pasta *LocalFunctionProj* e volte a executar o comando anterior.
+> Se o HttpExample não aparecer como mostrado abaixo, provavelmente começou o hospedeiro de fora da pasta raiz do projeto. Nesse caso, utilize **o CTRL**+**C** para parar o hospedeiro, navegue até à pasta raiz do projeto e volte a executar o comando anterior.
 
 Copie o `HttpExample` URL da sua função desta saída para `?name=<your-name>`um browser e `http://localhost:7071/api/HttpExample?name=Functions`ateste a corda de consulta, fazendo com que o URL completo como . O navegador deve apresentar `Hello Functions`uma mensagem como:
 
 ![Resultado da função executada localmente no navegador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-O terminal em `func start` que executou também mostra saída de log à medida que faz pedidos.
+O terminal em que iniciou o seu projeto também mostra a saída de log à medida que faz pedidos.
 
 Quando estiver pronto, utilize **ctrl**+ `y` **C** e opte por parar o hospedeiro das funções.

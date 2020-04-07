@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667321"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676733"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de senha de autosserviço do Azure Ative Diretório
 
@@ -343,7 +343,7 @@ Os registos de auditoria para registo e reset de palavra-passe estão disponíve
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar a implementar sSPR, consulte [Enable Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
+* Para começar a implementar sSPR, consulte [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)
 
 * [Considere implementar a proteção de senhas azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

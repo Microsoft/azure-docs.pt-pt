@@ -3,17 +3,17 @@ title: Create a Service Fabric cluster in the Azure portal (Criar um cluster do 
 description: Aprenda a configurar um cluster de tecido de serviço seguro em Azure utilizando o portal Azure e o Cofre chave Azure.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258801"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754103"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster de tecido de serviço em Azure utilizando o portal Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -36,13 +36,13 @@ Se esta for a primeira vez que está a criar um cluster de tecido de serviço ou
 Este certificado é necessário para proteger um cluster e impedir o acesso não autorizado ao mesmo. Fornece segurança de cluster de várias maneiras:
 
 * **Autenticação do cluster:** Autentica comunicação nó-a-nó para a federação de agrupamentos. Só nós que possam provar a sua identidade com este certificado podem aderir ao cluster.
-* **Autenticação do servidor:** Autentica os pontos finais da gestão do cluster para um cliente de gestão, para que o cliente de gestão saiba que está a falar com o cluster real. Este certificado também fornece SSL para a API de gestão HTTPS e para Service Fabric Explorer em HTTPS.
+* **Autenticação do servidor:** Autentica os pontos finais da gestão do cluster para um cliente de gestão, para que o cliente de gestão saiba que está a falar com o cluster real. Este certificado também fornece TLS para a API de gestão HTTPS e para Service Fabric Explorer em HTTPS.
 
 Para cumprir estes fins, o certificado deve satisfazer os seguintes requisitos:
 
 * O certificado deve conter uma chave privada.
 * O certificado deve ser criado para troca de chaves, exportável para um ficheiro de Intercâmbio de Informações Pessoais (.pfx).
-* O nome do **certificado deve coincidir com o domínio** utilizado para aceder ao cluster Service Fabric. Isto é necessário para fornecer SSL para os pontos finais de gestão HTTPS do cluster e Service Fabric Explorer. Não é possível obter um certificado SSL de `.cloudapp.azure.com` uma autoridade de certificados (CA) para o domínio. Adquira um nome de domínio personalizado para o seu cluster. Quando solicitar um certificado a partir de um CA, o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para o seu cluster.
+* O nome do **certificado deve coincidir com o domínio** utilizado para aceder ao cluster Service Fabric. Isto é necessário para fornecer TLS para os pontos finais de gestão HTTPS do cluster e Service Fabric Explorer. Não é possível obter um certificado TLS/SSL de `.cloudapp.azure.com` uma autoridade de certificados (CA) para o domínio. Adquira um nome de domínio personalizado para o seu cluster. Quando solicitar um certificado a partir de um CA, o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para o seu cluster.
 
 #### <a name="client-authentication-certificates"></a>Certificados de autenticação do cliente
 Certificados adicionais de cliente autenticam administradores para tarefas de gestão de clusters. O Serviço Fabric tem dois níveis de acesso: **administração** e **utilizador apenas de leitura.** No mínimo, deve ser utilizado um único certificado de acesso administrativo. Para um acesso adicional ao nível do utilizador, deve ser fornecido um certificado separado. Para obter mais informações sobre as funções de acesso, consulte [o controlo de acesso baseado em papéis para os clientes do Service Fabric][service-fabric-cluster-security-roles].

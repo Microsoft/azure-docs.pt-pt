@@ -4,12 +4,12 @@ description: Aprenda a ligar as Funções Azure a uma fila de Armazenamento Azur
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 9181caf516d5c2003cfe99b125d2921732cbbb9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f9d9573523083b6355f423b7b3db94b795d8657f
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79473392"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673340"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ligue as funções azure ao armazenamento azure usando ferramentas de linha de comando
 
@@ -19,84 +19,24 @@ Neste artigo, integra uma fila de Armazenamento Azure com a função e conta de 
 
 Antes de começar, deve completar o artigo, [Quickstart: Crie um projeto de Funções Azure a partir da linha de comando](functions-create-first-azure-function-azure-cli.md). Se já limpou os recursos no final desse artigo, volte a passar pelos passos para recriar a app de funções e recursos relacionados no Azure.
 
-## <a name="retrieve-the-azure-storage-connection-string"></a>Recupere a cadeia de ligação de armazenamento azure
-
-Quando criou uma aplicação de função em Azure no quickstart anterior, também criou uma conta de Armazenamento. A cadeia de ligação para esta conta é armazenada de forma segura nas definições da aplicação em Azure. Ao descarregar a definição no ficheiro *local.settings.json,* pode utilizar essa ligação escrever para uma fila de armazenamento na mesma conta ao executar a função localmente. 
-
-1. A partir da raiz do projeto, execute o seguinte comando, substituindo `<APP_NAME>` pelo nome da sua aplicação de função a partir do quickstart anterior. Este comando irá substituir quaisquer valores existentes no ficheiro.
-
-    ```
-    func azure functionapp fetch-app-settings <APP_NAME>
-    ```
-    
-1. Abra *local.settings.json* e localize o valor nomeado, `AzureWebJobsStorage`que é a cadeia de ligação da conta de armazenamento. Usa o `AzureWebJobsStorage` nome e a corda de ligação noutras secções deste artigo.
-
-> [!IMPORTANT]
-> Como *local.settings.json contém segredos descarregados* do Azure, exclua sempre este ficheiro do controlo de origem. O ficheiro *.gitignore* criado com um projeto de funções locais exclui o ficheiro por defeito.
+[!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
-## <a name="add-an-output-binding-definition-to-the-function"></a>Adicione uma definição de ligação de saída à função
-
-Embora uma função possa ter apenas um gatilho, pode ter várias ligações de entrada e saída, que permitem ligar-se a outros serviços e recursos Azure sem escrever código de integração personalizado. 
-
-::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Declara estas encadernações no ficheiro *função.json* na pasta de funções. Desde o quickstart anterior, o ficheiro *function.json* na pasta `bindings` *HttpExample* contém duas ligações na coleção:  
-::: zone-end
-
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/function.json" range="2-18":::  
-::: zone-end
-
-::: zone pivot="programming-language-python"  
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json" range="2-18":::  
-::: zone-end
-
-::: zone pivot="programming-language-powershell"  
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json" range="2-18":::
-::: zone-end  
-
-::: zone pivot="programming-language-python,programming-language-javascript, programming-language-powershell, programming-language-typescript"  
-Cada encadernação tem pelo menos um tipo, uma direção e um nome. No exemplo acima, a primeira `httpTrigger` ligação `in`é de tipo com a direção . Para `in` a `name` direção, especifica o nome de um parâmetro de entrada enviado para a função quando invocado pelo gatilho.  
-::: zone-end
-
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-A segunda ligação da `res`coleção chama-se . Esta `http` ligação é`out`uma ligação de saída ( ) que é usada para escrever a resposta HTTP. 
-
-Para escrever a uma fila de armazenamento `out` azure `queue` a partir `msg`desta função, adicione uma ligação de tipo com o nome, como indicado no código abaixo:
-
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
-::: zone-end  
-
-::: zone pivot="programming-language-python"  
-A segunda ligação na `http` coleção `out`é de tipo `name` com `$return` a direção, caso em que o especial indica que esta ligação utiliza o valor de retorno da função em vez de fornecer um parâmetro de entrada.
-
-Para escrever a uma fila de armazenamento `out` azure `queue` a partir `msg`desta função, adicione uma ligação de tipo com o nome, como indicado no código abaixo:
-
-:::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
-::: zone-end  
-
-::: zone pivot="programming-language-powershell"  
-A segunda ligação da `res`coleção chama-se . Esta `http` ligação é`out`uma ligação de saída ( ) que é usada para escrever a resposta HTTP. 
-
-Para escrever a uma fila de armazenamento `out` azure `queue` a partir `msg`desta função, adicione uma ligação de tipo com o nome, como indicado no código abaixo:
-
-:::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
-::: zone-end  
-
-::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Neste caso, `msg` é dada à função como um argumento de saída. Para `queue` um tipo, deve também especificar o `queueName` nome da fila e fornecer o *nome* da ligação De `connection`armazenamento Azure (a partir de *local.settings.json*) em . 
-::: zone-end  
+[!INCLUDE [functions-add-output-binding-cli](../../includes/functions-add-output-binding-cli.md)]
 
 ::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]  
 ::: zone-end  
+::: zone pivot="programming-language-java" 
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
+::: zone-end   
 
 Para obter mais informações sobre os detalhes das ligações, consulte as [Funções Azure acionam e encaderna conceitos](functions-triggers-bindings.md) e [configuração](functions-bindings-storage-queue-output.md#configuration)de saída de fila .
 
 ## <a name="add-code-to-use-the-output-binding"></a>Adicione código para usar a ligação de saída
 
-Com a ligação da fila especificada na *função.json,* pode agora atualizar a sua função para receber o `msg` parâmetro de saída e escrever mensagens para a fila.
+Com a ligação da fila definida, pode `msg` agora atualizar a sua função para receber o parâmetro de saída e escrever mensagens para a fila.
 
 ::: zone pivot="programming-language-python"     
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
@@ -118,6 +58,12 @@ Com a ligação da fila especificada na *função.json,* pode agora atualizar a 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 ::: zone-end 
 
+::: zone pivot="programming-language-java"
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
+
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
+::: zone-end
+
 Observe que *não* precisa de escrever nenhum código para autenticação, obter uma referência na fila ou escrever dados. Todas estas tarefas de integração são convenientemente tratadas no tempo de funcionamento das Funções Azure e na ligação de saída da fila.
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
@@ -126,72 +72,30 @@ Observe que *não* precisa de escrever nenhum código para autenticação, obter
 
 ## <a name="view-the-message-in-the-azure-storage-queue"></a>Veja a mensagem na fila do Armazenamento Azure
 
-Pode ver a fila no [portal Azure](../storage/queues/storage-quickstart-queues-portal.md) ou no [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Pode também ver a fila no Azure CLI, conforme descrito nos seguintes passos:
-
-1. Abra o ficheiro *local.definição.json* do projeto de função e copie o valor da cadeia de ligação. Numa janela de terminais ou comando, execute `AZURE_STORAGE_CONNECTION_STRING`o seguinte comando para criar `<MY_CONNECTION_STRING>`uma variável ambiental chamada, colando a sua cadeia de ligação específica no lugar de . (Esta variável ambiental significa que não precisa de fornecer a `--connection-string` cadeia de ligação a cada comando subsequente usando o argumento.)
-
-    # <a name="bash"></a>[bash](#tab/bash)
-    
-    ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
-    ```
-    
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
-    
-    ```powershell
-    $env:AZURE_STORAGE_CONNECTION_STRING = "<MY_CONNECTION_STRING>"
-    ```
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/cmd)
-    
-    ```azurecli
-    set AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
-    ```
-    
-    ---
-    
-1. (Opcional) Utilize [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) o comando para visualizar as filas de armazenamento na sua conta. A saída deste comando deve `outqueue`incluir uma fila chamada , que foi criada quando a função escreveu a sua primeira mensagem para aquela fila.
-    
-    ```azurecli
-    az storage queue list --output tsv
-    ```
-
-1. Utilize [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) o comando para ler a mensagem desta fila, que deve ser o primeiro nome utilizado ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
-
-    # <a name="bash"></a>[bash](#tab/bash)
-    
-    ```bash
-    echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-    ```
-    
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
-    
-    ```powershell
-    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
-    ```
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/cmd)
-    
-    ```azurecli
-    az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
-    ```
-
-    Este script utiliza o certutil para descodificar a coleção de mensagens codificada base64 a partir de um ficheiro temporário local. Se não houver saída, `> NUL` tente remover do guião para parar de suprimir a saída certutil, caso haja um erro. 
-    
-    ---
-    
-    Como o corpo da mensagem está armazenado na [base64 codificada,](functions-bindings-storage-queue-trigger.md#encoding)a mensagem deve ser descodificada antes de ser apresentada. Depois de `az storage message get`executar, a mensagem é removida da fila. Se houvesse apenas `outqueue`uma mensagem, não recuperará uma mensagem quando executar este comando uma segunda vez e, em vez disso, obter um erro.
+[!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
 ## <a name="redeploy-the-project-to-azure"></a>Reutilizar o projeto para o Azure
 
 Agora que verificou localmente que a função escreveu uma mensagem para a fila de Armazenamento Azure, pode reimplantar o seu projeto para atualizar o ponto final em execução no Azure.
 
-1. Na pasta *LocalFunctionsProj,* [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) utilize o comando para reimplantar o projeto, substituindo`<APP_NAME>` o nome da sua aplicação.
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
+Na pasta *LocalFunctionsProj,* [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) utilize o comando para reimplantar o projeto, substituindo`<APP_NAME>` o nome da sua aplicação.
 
-    ```
-    func azure functionapp publish <APP_NAME>
-    ```
-    
+```
+func azure functionapp publish <APP_NAME>
+```
+::: zone-end  
+
+::: zone pivot="programming-language-java" 
+
+Na pasta do projeto local, utilize o seguinte comando Maven para reeditar o seu projeto:
+```
+mvn azure-functions:deploy
+```
+::: zone-end
+
+## <a name="verify-in-azure"></a>Verifique em Azure
+
 1. Tal como no quickstart anterior, utilize um navegador ou CURL para testar a função reimplantada.
 
     # <a name="browser"></a>[Browser](#tab/browser)

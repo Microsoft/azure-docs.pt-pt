@@ -1,15 +1,15 @@
 ---
 title: Limites do Serviço Blockchain Azure
 description: Visão geral do serviço e limites funcionais no Serviço Azure Blockchain
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529580"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676522"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites no Serviço Blockchain Azure
 
@@ -35,7 +35,6 @@ A alteração do nível de preços entre a criação de base e a norma após a c
 A quantidade máxima de armazenamento que pode ser usada por nó para dados e registos de livros é de 1,8 terabytes.
 
 Não é suportado o tamanho do livro de contabilidade e do armazenamento de registos.
-
 ## <a name="consortium-limits"></a>Limites do consórcio
 
 * **Os nomes do consórcio e dos membros devem ser exclusivos** de outros nomes de consórcio e membros no Serviço Azure Blockchain.
@@ -59,6 +58,12 @@ Não é suportado o tamanho do livro de contabilidade e do armazenamento de regi
 * **Todos os membros de um consórcio devem estar usando a mesma versão de livro-razão**
 
     Para obter mais informações sobre as versões de patching, atualizações e livros disponíveis no Serviço Blockchain Azure, consulte [Patching, atualizações e versões](ledger-versions.md).
+
+## <a name="performance"></a>Desempenho
+
+Não utilize a função de gás *eth.estimate* para cada submissão de transação. A função *de estimativa eth.é* intensiva de memória. Chamar a função várias vezes reduz drasticamente as transações por segundo.
+
+Se possível, utilize um valor de gás conservador para a apresentação de transações e minimize a utilização do *eth.estimate*.
 
 ## <a name="next-steps"></a>Passos seguintes
 

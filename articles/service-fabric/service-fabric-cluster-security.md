@@ -4,12 +4,12 @@ description: Conheça os cenários de segurança para um cluster Azure Service F
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258684"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753789"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
 
@@ -74,7 +74,7 @@ Para clusters em funcionamento no Azure, também pode garantir o acesso aos pont
 Para os clusters service Fabric implantados numa rede pública alojada no Azure, a recomendação para a autenticação mútua cliente-a-nó é:
 
 * Utilizar o Diretório Ativo Azure para a identidade do cliente
-* Um certificado para identidade do servidor e encriptação SSL de comunicação http
+* Um certificado para identidade do servidor e encriptação TLS de comunicação http
 
 Para os clusters service Fabric implantados numa rede pública alojada no Azure, a recomendação para a segurança nó-ao-nó é utilizar um certificado cluster para autenticar nós.
 
@@ -103,13 +103,13 @@ Algumas coisas importantes a considerar:
 
 Estes certificados (um primário e opcionalmente secundário) são necessários para assegurar um cluster e impedir o acesso não autorizado ao mesmo. Estes certificados fornecem a autenticação do cluster e do servidor.
 
-A autenticação do cluster autentica a comunicação nó-ao-nó para a federação de clusters. Só nós que possam provar a sua identidade com este certificado podem aderir ao cluster. A autenticação do servidor autentica os pontos finais da gestão do cluster a um cliente de gestão, para que o cliente de gestão saiba que está a falar com o cluster real e não com um "homem no meio". Este certificado também fornece um SSL para a API de gestão HTTPS e para service Fabric Explorer em HTTPS. Quando um cliente ou nó autentica um nó, uma das verificações iniciais é o valor do nome comum no campo **Assunto.** Ou este nome comum ou um dos nomes alternativos sujeitos dos certificados (SANs) devem estar presentes na lista de nomes comuns permitidos.
+A autenticação do cluster autentica a comunicação nó-ao-nó para a federação de clusters. Só nós que possam provar a sua identidade com este certificado podem aderir ao cluster. A autenticação do servidor autentica os pontos finais da gestão do cluster a um cliente de gestão, para que o cliente de gestão saiba que está a falar com o cluster real e não com um "homem no meio". Este certificado também fornece um TLS para a API de gestão HTTPS e para service Fabric Explorer em HTTPS. Quando um cliente ou nó autentica um nó, uma das verificações iniciais é o valor do nome comum no campo **Assunto.** Ou este nome comum ou um dos nomes alternativos sujeitos dos certificados (SANs) devem estar presentes na lista de nomes comuns permitidos.
 
 O certificado deve satisfazer os seguintes requisitos:
 
 * O certificado deve conter uma chave privada. Estes certificados normalmente têm extensões .pfx ou .pem  
 * O certificado deve ser criado para troca de chaves, que é exportável para um ficheiro de Intercâmbio de Informações Pessoais (.pfx).
-* O **nome do certificado deve corresponder ao domínio que utiliza para aceder ao cluster Service Fabric**. Esta correspondência é necessária para fornecer um SSL para o ponto final de gestão HTTPS do cluster e explorador de tecido de serviço. Não é possível obter um certificado SSL de uma autoridade de certificados (CA) para o domínio *.cloudapp.azure.com. Tem de obter um nome de domínio personalizado para o cluster. Quando pedir um certificado de uma AC, o nome de requerente do certificado tem de corresponder ao nome do domínio personalizado que utilizar para o cluster.
+* O **nome do certificado deve corresponder ao domínio que utiliza para aceder ao cluster Service Fabric**. Esta correspondência é necessária para fornecer um TLS para o ponto final de gestão HTTPS do cluster e explorador de tecido de serviço. Não é possível obter um certificado TLS/SSL de uma autoridade de certificados (CA) para o domínio de *.cloudapp.azure.com. Tem de obter um nome de domínio personalizado para o cluster. Quando pedir um certificado de uma AC, o nome de requerente do certificado tem de corresponder ao nome do domínio personalizado que utilizar para o cluster.
 
 Algumas outras coisas a considerar:
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109005"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756711"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Quickstart: Teste a base de conhecimento com perguntas de lote e respostas esperadas
 
@@ -149,7 +149,7 @@ Utilize o gráfico seguinte para entender como encontrar os valores de campo par
     |Carregue o seu Surface Pro 4|
     |Verifique o nível da bateria|
 
-    Dois conjuntos qnA têm o conjunto de metadados.
+    Dois pares QnA têm o conjunto de metadados.
 
     > [!TIP]
     > Para ver os metadados e os IDs QnA de cada conjunto, exporte a base de conhecimentos. Selecione a página **Definições** e, em seguida, selecione **Exportar** como ficheiro. `.xls` Encontre este ficheiro descarregado e abra com o Excel a rever para metadados e ID.
@@ -169,7 +169,7 @@ Existem dois cenários principais para o teste do lote:
 
 O procedimento seguinte pressupõe que o cenário é processar registos de chat com
 
-1. Crie um novo ficheiro de `batch-test-data-2.tsv`teste de lote para incluir dados opcionais, . Adicione as 6 linhas do ficheiro de entrada de teste original do lote e, em seguida, adicione os metadados, a parte superior e o ID do conjunto QnA para cada linha.
+1. Crie um novo ficheiro de `batch-test-data-2.tsv`teste de lote para incluir dados opcionais, . Adicione as 6 linhas do ficheiro de entrada de teste original do lote e, em seguida, adicione os metadados, a parte superior e o id do par QnA para cada linha.
 
     Para simular o processo automatizado de verificação de novos textos a partir de registos `topic:power`de chat contra a base de conhecimentos, detete temetaos para cada coluna com o mesmo valor: .
 

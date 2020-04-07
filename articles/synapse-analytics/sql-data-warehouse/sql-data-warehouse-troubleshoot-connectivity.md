@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 08fb0a6675d18370482abe9b1d7b9a0d9ee5c364
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 8aaca40961b1294336b236305ecdffcc92c5a4d9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632994"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742586"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Troubleshooting connectivity issues (Resolver problemas de conectividade)
 
@@ -79,14 +79,14 @@ Verifique se está a utilizar as mais recentes ferramentas para se ligar à sua 
 
 Verifique se está a utilizar as versões mais recentes do condutor.A utilização de uma versão mais antiga dos condutores pode resultar em comportamentos inesperados, uma vez que os condutores mais velhos podem não suportar novas funcionalidades.
 
-- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server)
-- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
-- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server)
-- [PHP](/sql/connect/php/download-drivers-php-sql-server)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="check-your-connection-string"></a>Verificar a cadeia de ligação
 
-Verifique se as cadeias de ligação estão definidas corretamente.  Abaixo estão algumas amostras.  Pode encontrar informações adicionais sobre [cadeias de ligação aqui](/sql-data-warehouse/sql-data-warehouse-connection-strings.md).
+Verifique se as cadeias de ligação estão definidas corretamente.  Abaixo estão algumas amostras.  Pode encontrar informações adicionais sobre [cadeias de ligação aqui](sql-data-warehouse-connection-strings.md).
 
 Cadeia de ligação de ADO.NET
 
@@ -122,4 +122,4 @@ Erros 40914 e 40615, consulte a [descrição e resolução](../../sql-database/s
 
 ## <a name="still-having-connectivity-issues"></a>Ainda com problemas de conectividade?
 
-Crie um bilhete de [apoio](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) para que a equipa de engenharia possa apoiá-lo.
+Crie um bilhete de [apoio](sql-data-warehouse-get-started-create-support-ticket.md) para que a equipa de engenharia possa apoiá-lo.

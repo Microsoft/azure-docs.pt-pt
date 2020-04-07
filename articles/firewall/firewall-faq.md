@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437732"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677440"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -212,4 +212,8 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Porque é que um ping TCP e ferramentas semelhantes podem ligar-se com sucesso a um FQDN alvo mesmo quando nenhuma regra sobre o Firewall Azure permite esse tráfego?
 
-Um ping TCP não está realmente ligado ao fQDN alvo. Isto acontece porque o proxy transparente da Azure Firewall escuta na porta 80/443 para tráfego de saída. O ping TCP estabelece uma ligação com a firewall, que depois deixa cair o pacote e regista a ligação. Este comportamento não tem qualquer impacto na segurança. No entanto, para evitar confusões, estamos a investigar potenciais alterações a este comportamento. 
+Um ping TCP não está realmente ligado ao fQDN alvo. Isto acontece porque o proxy transparente da Azure Firewall escuta na porta 80/443 para tráfego de saída. O ping TCP estabelece uma ligação com a firewall, que depois deixa cair o pacote e regista a ligação. Este comportamento não tem qualquer impacto na segurança. No entanto, para evitar confusões, estamos a investigar potenciais alterações a este comportamento.
+
+## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
+
+Sim. Para mais informações, consulte [limites de subscrição e serviço do Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
-ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938564"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757272"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
 
@@ -25,7 +25,7 @@ O Azure Traffic Manager inclui monitorização de ponto final incorporado e falh
 
 Para configurar a monitorização do ponto final, deve especificar as seguintes definições no perfil do Gestor de Tráfego:
 
-* **Protocolo**. Escolha HTTP, HTTPS ou TCP como o protocolo que o Gestor de Tráfego utiliza ao sondar o seu ponto final para verificar a sua saúde. A monitorização HTTPS não verifica se o seu certificado SSL é válido - apenas verifica se o certificado está presente.
+* **Protocolo**. Escolha HTTP, HTTPS ou TCP como o protocolo que o Gestor de Tráfego utiliza ao sondar o seu ponto final para verificar a sua saúde. A monitorização HTTPS não verifica se o seu certificado TLS/SSL é válido - apenas verifica se o certificado está presente.
 * **Porto.** Escolha a porta utilizada para o pedido.
 * **Caminho.** Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para os quais é necessária a definição do caminho. A disponibilização desta definição para o protocolo de monitorização do TCP resulta num erro. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página web ou o ficheiro a que acede o monitor. Um corte para a frente (/) é uma entrada válida para o caminho relativo. Este valor implica que o ficheiro está no diretório raiz (padrão).
 * **Definições personalizadas do cabeçalho** Esta definição de configuração ajuda-o a adicionar cabeçalhos HTTP específicos aos controlos de saúde que o Gestor de Tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil a ser aplicável para todos os pontos finais desse perfil e/ou a um nível final aplicável apenas a esse ponto final. Você pode usar cabeçalhos personalizados para ter verificações de saúde em pontos finais em um ambiente multi-inquilino ser encaminhado corretamente para o seu destino, especificando um cabeçalho anfitrião. Também pode utilizar esta definição adicionando cabeçalhos únicos que podem ser usados para identificar pedidos http(S) originados do Gestor de Tráfego e processa-os de forma diferente. Pode especificar até oito cabeçalhos: pares de valor costurados por uma vírposta. Por exemplo, "header1:value1,header2:value2". 
@@ -108,7 +108,7 @@ Um ponto final não é saudável quando ocorre qualquer um dos seguintes eventos
 
 Para obter mais informações sobre verificações falhadas de resolução de problemas, consulte [o estado dedegradação](traffic-manager-troubleshooting-degraded.md)de Resolução de Problemas no Gestor de Tráfego azure . 
 
-A cronologia na figura seguinte é uma descrição detalhada do processo de monitorização do ponto final do Gestor de Tráfego que tem as seguintes definições: o protocolo de monitorização é HTTP, o intervalo de sondagem é de 30 segundos, o número de falhas toleradas é 3, o valor do tempo é 10 segundos, e DNS TTL é de 30 segundos.
+A cronologia na figura seguinte é uma descrição detalhada do processo de monitorização do ponto final do Gestor de Tráfego que tem as seguintes definições: o protocolo de monitorização é HTTP, o intervalo de sondagem é de 30 segundos, o número de falhas toleradas é de 3, o valor do tempo é de 10 segundos e o DNS TTL é de 30 segundos.
 
 ![Falha no ponto final do Gestor de Tráfego e sequência de recuo](./media/traffic-manager-monitoring/timeline.png)
 

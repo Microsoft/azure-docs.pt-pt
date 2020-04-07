@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7e5f70d0323aa5c502491ab99db303fde31ade83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528630"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755039"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migração para O Ficheiro Sincronizado Azure
 
@@ -146,7 +146,10 @@ O tamanho global dos dados é menos de um estrangulamento - é o número de iten
 > Certifique-se de que o VM está implantado na mesma região de Azure que o aparelho virtual StorSimple 8020. Se como parte desta migração, também precisa de alterar a região dos seus dados em nuvem da região onde está armazenada hoje, pode fazê-lo mais tarde, quando fornecer ações de ficheiros Azure.
 
 > [!IMPORTANT]
-> Para otimizar o desempenho, implemente um **disco OS muito rápido** para o seu VM em nuvem. Irá armazenar a base de dados de sincronização no disco OS para todos os seus volumes de dados. Além disso, certifique-se de que cria um **grande disco de Os**. Dependendo do número de itens (ficheiros e pastas) nos seus volumes StorSimple, o disco OS pode necessitar de **várias centenas** de GiB de espaço para acomodar a base de dados de sincronização.
+> Muitas vezes, um Windows Server no local é utilizado para fazer frente ao seu aparelho StorSimple no local. Nesta configuração, é possível ativar a funcionalidade "[Deduplicação de Dados](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)" nesse Servidor do Windows. **Se utilizou a Deduplicação de Dados com os seus dados StorSimple, certifique-se de que também ativa a Deduplicação de Dados neste VM Azure.** Não confunda esta duplicação de nível de ficheiro com a duplicação do nível de bloco StorSimples, para a qual não é necessária qualquer ação.
+
+> [!IMPORTANT]
+> Para otimizar o desempenho, implemente um **disco OS rápido** para o seu VM em nuvem. Irá armazenar a base de dados de sincronização no disco OS para todos os seus volumes de dados. Além disso, certifique-se de que cria um **grande disco de Os**. Dependendo do número de itens (ficheiros e pastas) nos seus volumes StorSimple, o disco OS pode necessitar de **várias centenas** de GiB de espaço para acomodar a base de dados de sincronização.
 
 ### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Expor os volumes StorSimple 8020 ao Azure VM
 
@@ -424,7 +427,7 @@ Consulte os ficheiros de registo de robocopia para ver se os ficheiros foram dei
 
 É provável que seja necessário criar as ações SMB no Windows Server que tinha nos dados StorSimple anteriormente. Pode carregar este passo frontalmente e fazê-lo mais cedo para não perder tempo aqui, mas tem de garantir que, antes deste ponto, não ocorram alterações nos ficheiros no servidor do Windows.
 
-Se tiver uma implementação DFS-N, pode indicar os espaços DE Nomes DFN para os novos locais da pasta do servidor. Se não tiver uma implementação DFS-N e tiver apresentado o seu aparelho 8100 8600 localmente com um Servidor Windows, pode retirar esse servidor do domínio e juntar-se ao seu novo Servidor Windows com AFS no domínio, dar-lhe o mesmo nome de servidor que o servidor antigo , e os mesmos nomes de partilha, em seguida, o cut-over para o novo servidor permanece transparente para os seus utilizadores, política de grupo ou scripts.
+Se tiver uma implementação DFS-N, pode indicar os espaços DE Nomes DFN para os novos locais da pasta do servidor. Se não tiver uma implementação DFS-N, e tiver apresentado o seu aparelho 8100 8600 localmente com um Servidor Windows, pode retirar esse servidor do domínio e o domínio juntar-se ao seu novo Servidor Windows com AFS para o domínio, dar-lhe o mesmo nome de servidor que o servidor antigo, e os mesmos nomes de partilha, então o cut-over para o novo servidor permanece transparente para os seus utilizadores, dar-lhe o mesmo nome de servidor que o servidor antigo, e os mesmos nomes de partilha, então o cut-over para o novo servidor permanece transparente para os seus utilizadores, dar-lhe o mesmo nome de servidor que o servidor antigo, e os mesmos nomes de partilha, então o cut-over para o novo servidor permanece transparente para os seus utilizadores, dar-lhe o mesmo nome de servidor que o servidor antigo, e os mesmos nomes de partilha, em seguida, o cut-over para o novo servidor permanece transparente para os seus utilizadores, dar-lhe o mesmo nome de servidor que o servidor antigo, e os mesmos nomes de partilha, em seguida, o cut-over para o novo servidor permanece transparente para os seus utilizadores, dar-lhe o mesmo nome de servidor que , política de grupo, ou scripts.
 
 ## <a name="phase-7-deprovision"></a>Fase 7: Desprovisionamento
 

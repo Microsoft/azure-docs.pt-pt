@@ -3,17 +3,16 @@ title: Compreender o ciclo de vida de uma planta
 description: Saiba mais sobre o ciclo de vida que uma definição de planta passa e detalhes sobre cada etapa, incluindo atualizar e remover atribuições de plantas.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74404580"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677377"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreenda o ciclo de vida de um Projeto Azure
 
-Como muitos recursos dentro do Azure, uma planta em Azure Blueprints tem um ciclo de vida típico e natural. São criados, implantados e finalmente apagados quando já não são necessários ou relevantes.
-As plantas suportam operações padrão de ciclo de vida. Em seguida, baseia-se neles para fornecer níveis adicionais de estado que suportam a integração contínua comum e os gasodutos de implantação contínua para organizações que gerem a sua Infraestrutura como Código – um elemento-chave na DevOps.
+Como muitos recursos dentro do Azure, uma planta em Azure Blueprints tem um ciclo de vida típico e natural. São criados, implantados e finalmente apagados quando já não são necessários ou relevantes. A Azure Blueprints suporta operações padrão de ciclo de vida. Em seguida, baseia-se neles para fornecer níveis adicionais de estado que suportam a integração contínua comum e os gasodutos de implantação contínua para organizações que gerem a sua Infraestrutura como Código – um elemento-chave na DevOps.
 
 Para entender completamente uma planta e as etapas, cobriremos um ciclo de vida padrão:
 

@@ -3,12 +3,12 @@ title: Use parâmetros para criar plantas dinâmicas
 description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los para criar plantas seguras e dinâmicas.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264716"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677590"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de plantas dinâmicas através de parâmetros
 
@@ -20,7 +20,7 @@ Um exemplo simples é o artefacto do grupo de recursos. Quando um grupo de recur
 > Não é um problema para duas plantas diferentes incluir um grupo de recursos com o mesmo nome.
 > Se um grupo de recursos incluído numa planta já existe, a planta continua a criar os artefactos relacionados nesse grupo de recursos. Isto poderia causar um conflito, uma vez que dois recursos com o mesmo nome e tipo de recurso não podem existir dentro de uma subscrição.
 
-A solução para este problema são os parâmetros. As plantas permitem definir o valor de cada propriedade do artefacto durante a atribuição a uma subscrição. O parâmetro permite reutilizar uma planta que cria um grupo de recursos e outros recursos dentro de uma única subscrição sem ter conflitos.
+A solução para este problema são os parâmetros. O Azure Blueprints permite-lhe definir o valor de cada propriedade do artefacto durante a atribuição a uma subscrição. O parâmetro permite reutilizar uma planta que cria um grupo de recursos e outros recursos dentro de uma única subscrição sem ter conflitos.
 
 ## <a name="blueprint-parameters"></a>Parâmetros de esquema
 

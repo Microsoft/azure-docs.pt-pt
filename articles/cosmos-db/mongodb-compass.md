@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 author: LuisBosquez
 ms.author: lbosq
-ms.openlocfilehash: 5a3ec79b27231f781b5e4104922993de38c7fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c683ec0c4b3a536b0627a7c1c8abf28ee4f83663
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063646"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757024"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Use a Bússola MongoDB para ligar à API da Azure Cosmos DB para o MongoDB
 
@@ -22,10 +22,13 @@ Cosmos DB é o serviço de base de dados multimodelo distribuído globalmente pe
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-Para se ligar à sua conta Cosmos DB usando robo 3T, deve:
+Para se ligar à sua conta Cosmos DB usando a Bússola MongoDB, deve:
 
 * Descarregue e instale [a Bússola](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Tenha a sua informação de cadeia de [conexão](connect-mongodb-account.md) Cosmos DB
+
+> [!NOTE]
+> Atualmente, a API do Azure Cosmos DB para a versão 3.2 do MongoDB Server é suportada com a Bússola MongoDB.
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Ligue-se à API da Cosmos DB para o MongoDB
 

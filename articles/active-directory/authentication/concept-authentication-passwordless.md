@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ba38a5d7e8e8a89ba122efb1734c1f13a94d48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332175"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743533"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Diretório Ativo Azure
 
@@ -97,7 +97,7 @@ O seguinte processo é utilizado quando um utilizador faz o sinal de segurança 
 8. A Azure AD verifica o nonce assinado utilizando a chave pública FIDO2.
 9. A Azure AD devolve prt para permitir o acesso aos recursos no local.
 
-Embora existam muitas chaves que são certificadas pelo FIDO2 certificadas pela FIDO Alliance, a Microsoft exige que algumas extensões opcionais da especificação fido2 Cliente-a-Autenticador (CTAP) sejam implementadas pelo fornecedor para garantir a máxima segurança e o melhor experiência.
+Apesar de existirem muitas chaves certificadas pelo FIDO2 pela Fido Alliance, a Microsoft exige que algumas extensões opcionais da especificação fido2 Cliente-a-Autenticador (CTAP) sejam implementadas pelo fornecedor para garantir a máxima segurança e a melhor experiência.
 
 Uma chave de segurança **DEVE** implementar as seguintes funcionalidades e extensões do protocolo FIDO2 CTAP para ser compatível com a Microsoft:
 
@@ -162,7 +162,7 @@ Utilize a tabela seguinte para escolher qual o método que irá suportar os seus
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Ativar opções de passwords de segurança FIDO2 na sua organização](howto-authentication-passwordless-security-key.md)
+[Ativar opções sem palavras-passe de chave de segurança FIDO2 na sua organização](howto-authentication-passwordless-security-key.md)
 
 [Ativar opções sem palavras-passe baseadas em telefone na sua organização](howto-authentication-passwordless-phone.md)
 

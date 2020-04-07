@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral de como utilizar a Azure Autom
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 03/04/2020
+ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: b5b03efafbed3439e5f8fdf98e2cd5b2d63a3d45
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411047"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677041"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 
@@ -123,7 +123,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
    Para descrições dos tipos de classificação, consulte classificações de [atualização](automation-view-update-assessments.md#update-classifications).
 
-* **Atualizações para incluir/excluir** - Abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em separadores diferentes.
+* **Atualizações para incluir/excluir** - Abre a página Incluir/Excluir. As atualizações a incluir ou excluídas estão em separados, especificando os números de IDENTIFICAção do artigo KB. Ao especificar um ou mais números de IDENTIFICAÇÃO, é necessário remover ou desverificar todas as classificações com a implementação da atualização. Isto garante que nenhuma outra atualização está incluída no seu pacote de atualizações ao especificar iDs de atualização.
 
 > [!NOTE]
 > É importante saber que as exclusões sobrepõem-se às inclusãos. Por exemplo, se definir uma `*`regra de exclusão de , A Gestão de Atualizações não instala patches ou pacotes, uma vez que todos estão excluídos. Os patches excluídos continuam a mostrar como desaparecidos da máquina. Para as máquinas Linux, se incluir um pacote que tenha um pacote dependente que tenha sido excluído, a Update Management não instala o pacote principal.

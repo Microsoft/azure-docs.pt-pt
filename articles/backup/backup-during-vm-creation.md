@@ -3,12 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como ativar a cópia de segurança quando cria um VM Azure com Backup Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247855"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672814"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -64,6 +64,8 @@ Pontos a notar:
 5. Pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, novos RPs serão criados no novo RG. No entanto, os antigos RPs continuarão a residir no antigo RG e não serão movidos, uma vez que a RP Collection não suporta o movimento de recursos. Eventualmente, os RPs receberão lixo recolhido à medida que os pontos expirarem.
 ![Alterar nome ao modificar a política](./media/backup-during-vm-creation/modify-policy.png)
 6. É aconselhável não bloquear o grupo de recursos criado para utilização pelo serviço de backup.
+
+Para configurar o grupo de recursos de backup Azure para máquinas virtuais utilizando o PowerShell, consulte o [grupo de recursos de backup Azure durante](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention)a retenção de instantâneos .
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Inicie uma cópia de segurança depois de criar o VM
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618328"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673906"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
 
@@ -42,7 +42,7 @@ A Pré-visualização da Série de Tempo Azure suporta as seguintes fontes de ev
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-A Pré-visualização da Série de Tempo Azure suporta um máximo de duas fontes de eventopor exemplo.
+A Pré-visualização da Série de Tempo Azure suporta um máximo de duas fontes de eventopor exemplo. Quando ligar uma fonte de eventos, o seu ambiente TSI irá ler todos os eventos atualmente armazenados no seu Hub de Iot ou Evento, a começar pelo evento mais antigo. 
 
 > [!IMPORTANT] 
 > * Pode sentir alta latência inicial ao ligar uma fonte de evento ao seu ambiente de pré-visualização. 
@@ -60,7 +60,7 @@ Os tipos de dados suportados são:
 | **bool** | Um tipo de dados com `true` `false`um de dois estados: ou . |
 | **dataTempo** | Representa um instante no tempo, tipicamente expresso como uma data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | **double** | Um ponto flutuante De precisão dupla 64 [bits IEEE 754.](https://ieeexplore.ieee.org/document/8766229) |
-| **string** | Valores de texto, compostos por caracteres Unicode.          |
+| **cadeia** | Valores de texto, compostos por caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos e matrizes
 

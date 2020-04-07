@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561291"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673669"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementar plataforma de contentores OpenShift 3.11 em Azure
 
@@ -303,7 +303,7 @@ As versões diferentes podem ter parâmetros diferentes, por isso verifique os p
 | `masterClusterType` | Especifique se o cluster usa nós de mestre privadoou público. Se for em privado, os nós mestres não serão expostos à Internet através de um IP público. Em vez disso, usará o IP privado especificado no`masterPrivateClusterIp` | público <br> privado | público |
 | `masterPrivateClusterIp` | Se forem selecionados os nós de mestrado privados, deve especificar-se um endereço IP privado para utilização pelo equilibrista interno de carga para os nós principais. Este IP estático deve estar dentro do bloco CIDR para a sub-rede principal e ainda não está a ser utilizado. Se forem selecionados nós de mestrado público, este valor não será utilizado, mas ainda deve ser especificado |  | 10.1.0.200 |
 | `routerClusterType` | Especifique se o cluster utiliza nós de infravermelhos privados ou públicos. Se for em privado, os nós de infravermelhos não serão expostos à Internet através de um IP público. Em vez disso, usará o IP privado especificado no`routerPrivateClusterIp` | público <br> privado | público |
-| `routerPrivateClusterIp` | Se forem selecionados os nódos os infravermelhos privados, deve especificar-se um endereço IP privado para utilização pelo equilibrador interno de carga para os nós de infravermelhos. Este IP estático deve estar dentro do bloco CIDR para a sub-rede principal e ainda não está a ser utilizado. Se os nós de infravermelhos públicos forem selecionados, este valor não será utilizado, mas ainda deve ser especificado |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | Se forem selecionados os nódos os infravermelhos privados, deve especificar-se um endereço IP privado para utilização pelo equilibrador interno de carga para os nós de infravermelhos. Este IP estático deve estar dentro do bloco CIDR para a sub-rede e ainda não está a ser utilizado. Se os nós de infravermelhos públicos forem selecionados, este valor não será utilizado, mas ainda deve ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Utilize um certificado personalizado para o domínio de encaminhamento ou o certificado por defeito auto-assinado - siga as instruções na secção **Certificados Personalizados** | auto-assinado <br> costume | auto-assinado |
 | `masterCertType` | Utilize um certificado personalizado para domínio principal ou o certificado por defeito auto-assinado - siga as instruções na secção **Certificados Personalizados** | auto-assinado <br> costume | auto-assinado |
 

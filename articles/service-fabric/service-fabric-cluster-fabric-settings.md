@@ -3,12 +3,12 @@ title: Alterar definições de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de atualização de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 3eb558c7d0745ada43696fd4189a7ac663867849
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477906"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753977"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster De Tecido de Serviço que pode personalizar. Para clusters hospedados em Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para mais informações, consulte [Atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o ficheiro *ClusterConfig.json* e realizando uma atualização de configuração no seu cluster. Para mais informações, consulte [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -29,7 +29,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |Tamanho do corpo |Uint, padrão é 16384 |Dinâmica| Dá o tamanho do pedaço em bytes usados para ler o corpo. |
 |CrlCheckingFlag|uint, padrão é 0x40000000000 |Dinâmica| Bandeiras para validação da cadeia de certificados de pedido/serviço; por exemplo, a VERIFICAção de 0x10000000000CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x2000000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x400000000CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x800000000CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Definição para 0 desativar a verificação de CRL A lista completa dos valores suportados é documentada pelo dwFlags of CertGetCertificateChain:https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |Predefinição de Pedido de Predefinição |Tempo em segundos. padrão é 120 |Dinâmica|Especifique a hora de tempo em segundos.  Dá o tempo de pedido padrão para os pedidos de http que estão sendo processados no gateway da aplicação http. |
-|Certificado de Cliente Avançado|bool, padrão é FALSO|Dinâmica|Quando definido como falso, o proxy inverso não solicitará o certificado de cliente. Quando definido como verdadeiro, o proxy inverso solicitará o certificado de cliente durante o aperto de mão SSL e encaminhará a cadeia de formato PEM codificada base64 para o serviço num cabeçalho chamado X-Cliente-Certificado.O serviço pode falhar o pedido com o código de estado apropriado após inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy inverso encaminhará um cabeçalho vazio e deixará o serviço tratar do caso. O procuramento inverso funcionará como uma camada transparente. Para saber mais, consulte [Configurar a autenticação](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)do certificado de cliente. |
+|Certificado de Cliente Avançado|bool, padrão é FALSO|Dinâmica|Quando definido como falso, o proxy inverso não solicitará o certificado de cliente. Quando definido como verdadeiro, o proxy inverso solicitará o certificado de cliente durante o aperto de mão TLS e encaminhará a cadeia de formato PEM codificada base64 para o serviço num cabeçalho chamado X-Cliente-Certificado.O serviço pode falhar o pedido com o código de estado apropriado após inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy inverso encaminhará um cabeçalho vazio e deixará o serviço tratar do caso. O procuramento inverso funcionará como uma camada transparente. Para saber mais, consulte [Configurar a autenticação](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)do certificado de cliente. |
 |GatewayAuthCredentialType |cadeia, padrão é "Nenhum" |Estático| Indica o tipo de credenciais de segurança a utilizar no ponto final da aplicação http valores válidos são None/X509. |
 |GatewayX509CertificadoFindType |cadeia, padrão é "FindByThumbprint" |Dinâmica| Indica como procurar um certificado na loja especificada pelo valor suportado gatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia, padrão é "" |Dinâmica| Pesquisar valor de filtro usado para localizar o certificado de gateway da aplicação http. Este certificado está configurado no ponto final https e também pode ser usado para verificar a identidade da app se necessário pelos serviços. FindValue é procurado primeiro; e se isso não existir; FindValueSecondary é procurado. |
@@ -122,8 +122,8 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |ApplicationLogsFormatVersion |Int, padrão é 0 | Dinâmica |Versão para formato de registos de aplicações. Os valores suportados são 0 e 1. A versão 1 inclui mais campos do recorde de eventos Da ETW do que a versão 0. |
 |AuditoriaHttpRequests |Bool, o padrão é falso. | Dinâmica | Ligue ou desligue a auditoria http. O objetivo da auditoria é ver as atividades que foram realizadas contra o cluster; incluindo quem iniciou o pedido. Note que esta é a melhor tentativa de exploração madeireira; e a perda de vestígios pode ocorrer. Os pedidos HTTP com autenticação "Utilizador" não são registados. |
 |CaptureHttpTelemettry|Bool, o padrão é verdade | Dinâmica | Ligue ou desligue a telemetria HTTP. O objetivo da telemetria é que o Tecido de Serviço seja capaz de capturar dados de telemetria para ajudar a planear trabalhos futuros e identificar áreas problemáticas. A telemetria não regista quaisquer dados pessoais ou o organismo de pedido. A telemetria captura todos os pedidos http, salvo configuração em contrário. |
-|Clusterid |Cadeia | Dinâmica |A identificação única do aglomerado. Isto é gerado quando o cluster é criado. |
-|Casos de Consumo |Cadeia | Dinâmica |A lista de casos de consumidores da DCA. |
+|Clusterid |String | Dinâmica |A identificação única do aglomerado. Isto é gerado quando o cluster é criado. |
+|Casos de Consumo |String | Dinâmica |A lista de casos de consumidores da DCA. |
 |DiskFullSafetySpaceInMB |Int, padrão é 1024 | Dinâmica |Espaço restante do disco em MB para proteger da utilização por DCA. |
 |Sessão enableCircularTraces |Bool, o padrão é falso. | Estático |A bandeira indica se devem ser utilizadas sessões de rastreio circulares. |
 |EnablePlatformEventsFilesink |Bool, o padrão é falso. | Estático |Ativar/Desativar eventos da plataforma que estão a ser escritos em disco |
@@ -131,7 +131,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |FalhasOnlyHttpTelemettry | Bool, o padrão é falso. | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas pedidos falhados. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |HttpTelemettryCapturePercentage | int, padrão é 50 | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas uma percentagem aleatória de pedidos. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |MaxdiskQuotaInMB |Int, padrão é 65536 | Dinâmica |Quota de disco em MB para ficheiros de registo windows Fabric. |
-|Exemplos de Produtores |Cadeia | Dinâmica |A lista de casos de produtores da DCA. |
+|Exemplos de Produtores |String | Dinâmica |A lista de casos de produtores da DCA. |
 
 ## <a name="dnsservice"></a>Serviço Dns
 | **Parâmetro** | **Valores Permitidos** |**Política de Upgrade**| **Orientação ou Breve Descrição** |
@@ -505,7 +505,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Contador |Cadeia | Dinâmica |Lista separada da vírposta de contadores de desempenho para recolher. |
+|Contador |String | Dinâmica |Lista separada da vírposta de contadores de desempenho para recolher. |
 |IsEnabled |Bool, o padrão é verdade | Dinâmica |A bandeira indica se a recolha do contador de desempenho no nó local está ativada. |
 |MaxCounterBinaryFileSizeInMB |Int, padrão é 1 | Dinâmica |Tamanho máximo (em MB) para cada ficheiro binário do contador de desempenho. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, padrão é 10 | Dinâmica |Intervalo máximo (em segundos) após o qual é criado um novo ficheiro binário de contra-desempenho. |
@@ -838,10 +838,10 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 | --- | --- | --- | --- |
 |Nome de Rede de Contentores|cadeia, padrão é ""| Estático |O nome da rede a utilizar ao criar uma rede de contentores.|
 |ContainerNetworkSetup|bool, padrão é FALSO (Linux) e padrão é TRUE (Windows)| Estático |Se criar uma rede de contentores.|
-|Raiz de Dados de Tecido |Cadeia | Não é permitido |Diretório de raiz de dados de tecido de serviço. Padrão para Azure é d:\svcfab |
-|Raiz de Tecido |Cadeia | Não é permitido |Diretório de raiz de tronco de tecido de serviço. É aqui que são colocados troncos e vestígios sf. |
+|Raiz de Dados de Tecido |String | Não é permitido |Diretório de raiz de dados de tecido de serviço. Padrão para Azure é d:\svcfab |
+|Raiz de Tecido |String | Não é permitido |Diretório de raiz de tronco de tecido de serviço. É aqui que são colocados troncos e vestígios sf. |
 |NótoBeremoved|cadeia, padrão é ""| Dinâmica |Os nódosos que devem ser removidos como parte da atualização da configuração. (Apenas para implantações autónomas)|
-|ServiceRunAsAccountName |Cadeia | Não é permitido |O nome da conta em que executar o serviço de hospedar tecido. |
+|ServiceRunAsAccountName |String | Não é permitido |O nome da conta em que executar o serviço de hospedar tecido. |
 |SkipContainerNetworkResetOnReboot|bool, padrão é FALSO|Não Permitido|Se não reiniciar a rede de contentores no reboot.|
 |Configuração SkipFirewall |Bool, o padrão é falso. | Não é permitido |Especifica se as definições de firewall precisam ou não de ser definidas pelo sistema. Isto só se aplica se estiver a utilizar firewall windows. Se estiver a utilizar firewalls de terceiros, então deve abrir as portas para o sistema e aplicações para usar |
 

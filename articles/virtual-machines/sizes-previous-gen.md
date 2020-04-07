@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: e5fe58891aa901509dc44d3b2465c794bd92b22d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f13ab3cd6ff765bc3b1bee8e8fad7e7273f6c7d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476574"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673920"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -66,6 +66,7 @@ Caching de armazenamento premium: Suportado
 MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 <sup>1</sup> A entrada máxima de disco (IOPS ou MBps) possível com um VM série Fs pode ser limitada pelo número, tamanho e tiragem do disco anexo.  Para mais detalhes, consulte o design para um alto desempenho para [Windows](windows/premium-storage-performance.md) ou [Linux](linux/premium-storage-performance.md).  
+
 
 ## <a name="nvv2-series"></a>Série NVv2
 
@@ -339,6 +340,30 @@ Caching de armazenamento premium: Não suportado
 | &nbsp;<sup>Standard_G5 1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
 <sup>1</sup> A instância está isolada em hardware dedicado a um único cliente.
+<br>
+
+# <a name="nv-series"></a>Série NV
+**Recomendação de tamanho mais recente**: Série [NVv3](nvv3-series.md) e [série NVv4](nvv4-series.md)
+
+As máquinas virtuais da série NV são alimentadas pela tecnologia [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e NVIDIA GRID para aplicações aceleradas de desktop e desktops virtuais onde os clientes são capazes de visualizar os seus dados ou simulações. Os utilizadores são capazes de visualizar os seus fluxos de trabalho intensivos gráficos nas instâncias de NV para obter uma capacidade gráfica superior e, adicionalmente, executar cargas de trabalho de precisão única, como codificação e renderização. Os VMs da série NV também são alimentados por Intel Xeon E5-2690 v3 (Haswell) CPUs.
+
+Cada GPU em instâncias de NV vem com uma licença GRID. Esta licença dá-lhe a flexibilidade para usar uma instância de NV como uma estação de trabalho virtual para um único utilizador, ou 25 utilizadores simultâneos podem ligar-se ao VM para um cenário de aplicação virtual.
+
+Armazenamento Premium: Não Suportado
+
+Caching de armazenamento premium: Não suportado
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória DE GPU: GiB | Discos de dados máximos | NICs máximos | Estações de Trabalho Virtuais | Aplicações Virtuais |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
+| Standard_NV12 | 12 | 112 | 680  | 2 | 16 | 48 | 2 | 2 | 50  |
+| Standard_NV24 | 24 | 224 | 1440 | 4 | 32 | 64 | 4 | 4 | 100 |
+
+1 GPU = metade de uma placa M60.
 <br>
 
 ## <a name="other-sizes"></a>Outros tamanhos

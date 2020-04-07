@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 074b547917b65a411d2b1d1b2f094156828eef78
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 03bfee258fe96d90c32b6a305b99856a11d9a087
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631385"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754978"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual de Ciência de Dados Azure para Linux e Windows?
 
@@ -26,7 +26,7 @@ O DSVM está disponível em:
 + **Windows Server 2019**
 + **Ubuntu 18.04 LTS**
 + Windows Server 2016
-+ Ubuntu 16.04 LTS e CentOS 7.4
++ Ubuntu 16.04 LTS
 
 > [!NOTE]
 > Todas as ferramentas VM para aprendizagem profunda foram dobradas na Máquina Virtual da Ciência dos Dados. 
@@ -68,9 +68,9 @@ Pode utilizar o DSVM para avaliar ou aprender novas [ferramentas](./tools-includ
 
 No DSVM, os seus modelos de formação podem usar algoritmos de aprendizagem profunda em hardware baseados em unidades de processamento gráfico (GPUs). Aproveitando as capacidades de escala VM da plataforma Azure, o DSVM ajuda-o a utilizar hardware baseado em GPU na nuvem de acordo com as suas necessidades. Pode mudar para um VM baseado em GPU quando estiver a treinar grandes modelos, ou quando precisa de computações de alta velocidade, mantendo o mesmo disco osso. Pode escolher qualquer uma das máquinas virtuais ativadas pela série N SKUs com DSVM. Por favor, note que as contas gratuitas do Azure não suportam a gpu ativada pela máquina virtual SKUs.
 
-A edição do Windows Server 2016 do DSVM vem pré-instalada com controladores, quadros e versões GPU de quadros de aprendizagem profunda. Na edição do Linux, a aprendizagem profunda nas GPUs está ativada tanto nos DSVMs CentOS como Ubuntu. 
+As edições windows do DSVM vêm pré-instaladas com controladores gpu, quadros e versões GPU de quadros de aprendizagem profunda. Na edição do Linux, a aprendizagem profunda nas GPUs está ativada nos DSVMs ubuntu. 
 
-Também pode implementar a edição Ubuntu, CentOS ou Windows 2016 do DSVM para uma máquina virtual Azure que não é baseada em GPUs. Neste caso, todos os quadros de aprendizagem profunda voltarão ao modo CPU.
+Também pode implementar as edições Ubuntu ou Windows do DSVM para uma máquina virtual Azure que não é baseada em GPUs. Neste caso, todos os quadros de aprendizagem profunda voltarão ao modo CPU.
 
 Saiba mais sobre a [aprendizagem profunda disponível e os quadros de IA.](dsvm-tools-deep-learning-frameworks.md)
 
@@ -89,5 +89,4 @@ Saiba mais com estes artigos:
 
 + Linux:
   + [Criar um Linux DSVM (Ubuntu)](dsvm-ubuntu-intro.md)
-  + [Criar um Linux DSVM (CentOS)](linux-dsvm-intro.md)
   + [Ciência de dados num DSVM Linux](linux-dsvm-walkthrough.md)

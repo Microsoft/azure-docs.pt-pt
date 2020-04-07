@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4290bad405ddab6d89cac5ef7bfd185247d41da1
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281736"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745114"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Separador marketplace do módulo IoT Edge
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
 
 O separador **Marketplace** da página **New Offer** permite-lhe fornecer aos seus potenciais clientes informações e acordos de marketing, vendas e informações legais e gerir pistas geradas a partir do mercado. Esta longa forma é dividida em quatro secções: **Visão Geral,** **Artefactos de Marketing,** **Gestão de Chumbo,** e **Legal.**
 
@@ -86,7 +89,7 @@ Esta secção tem as seguintes subsecções: **Logos,** **Screenshot**e **Vídeo
 |  ---------                |     ---------------                                                          |
 | *Logotipos*  | Veja as capturas de ecrã anteriores para ver como e onde serão utilizados os seus logótipos.  |
 | **Pequeno\***                 | Formato PNG de 40x40 pixel                                                     |
-| **Médio\***                | Formato PNG de 90x90 pixel                                                     |
+| **Medium\***                | Formato PNG de 90x90 pixel                                                     |
 | **Grande\***                 | Formato PNG de 115x115 pixel                                                  |
 | **Largo\***                  | Formato PNG de 255x115 pixel                                                   |
 | **Herói**                  | Formato PNG de 815x290 pixel.  Opcional, no entanto, uma vez carregado o ícone herói não pode ser eliminado. |

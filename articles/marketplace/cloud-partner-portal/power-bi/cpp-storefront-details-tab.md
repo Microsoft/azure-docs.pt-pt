@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b69ef8aa57393c5be8d23aaf4af1821697295235
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bcf06056dd7fdaf22716409f53d86da7321b94d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281685"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745586"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Aplicativo Power BI Storefront Details tab
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
 
 Na página **New Offer,** utilize o separador **Storefront Details** para fornecer informações de marketing, vendas e informações legais para os seus potenciais clientes. Neste separador também pode configurar a gestão para os leads que o Azure Marketplace gera. Este formulário longo é dividido em seis secções: **Detalhes da Oferta,** **Detalhes de Listagem,** Artefactos de **Marketing,** **Legal,** **Apoio ao Cliente**e **Gestão de Chumbo.**  Um asterisco (*) no final de uma etiqueta de campo significa que o campo é necessário.
 

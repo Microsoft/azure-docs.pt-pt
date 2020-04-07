@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 04/06/2020
 ms.author: dapine
-ms.openlocfilehash: 30fd19634f6054b8b636dabcb4ef83b118554468
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1a0a08351a03e46d6c3a1e82b68ecea6e36c015
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75689458"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757241"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Implementar o recipiente de compreensão linguística (LUIS) para instâncias de contentores de Azure
 
@@ -24,6 +24,8 @@ Saiba como implantar o recipiente DE Serviços Cognitivos [LUIS](luis-container-
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
+
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 

@@ -6,12 +6,12 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78272795"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673263"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Ligue a sua função Java ao Armazenamento Azure
 
@@ -37,77 +37,13 @@ Agora pode adicionar a ligação de saída de Armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-Num projeto java, as encadernações são definidas como anotações vinculativas no método da função. O ficheiro *função.json* é então autogerado com base nestas anotações.
-
-Navegue na localização do seu código de funções sob _o sRC/main/java,_ abra o `run` ficheiro do projeto *Function.java* e adicione o seguinte parâmetro à definição de método:
-
-```java
-@QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
-```
-
-O `msg` parâmetro é [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) um tipo, que representa uma coleção de cordas que são escritas como mensagens para uma ligação de saída quando a função completa. Neste caso, a saída é `outqueue`uma fila de armazenamento chamada . A cadeia de ligação para `connection` a conta de armazenamento é definida pelo método. Em vez da cadeia de ligação em si, passa a definição de aplicação que contém a cadeia de ligação da conta de armazenamento.
-
-A `run` definição do método deve agora parecer o seguinte exemplo:  
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION)  
-        HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    ...
-}
-```
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Agora, pode usar `msg` o novo parâmetro para escrever para a ligação de saída a partir do seu código de função. Adicione a seguinte linha de código antes da `name` resposta `msg` de sucesso para adicionar o valor da ligação de saída.
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
 
-```java
-msg.setValue(name);
-```
-
-Quando utiliza uma ligação de saída, não é necessário utilizar o código SDK de Armazenamento Azure para autenticação, obtendo uma referência de fila ou escrevendo dados. O tempo de funcionamento das Funções e a ligação de saída da fila fazem essas tarefas para si.
-
-O `run` seu método deve agora parecer o seguinte exemplo:
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    context.getLogger().info("Java HTTP trigger processed a request.");
-
-    // Parse query parameter
-    String query = request.getQueryParameters().get("name");
-    String name = request.getBody().orElse(query);
-
-    if (name == null) {
-        return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-    } else {
-        // Write the name to the message queue. 
-        msg.setValue(name);
-
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-}
-```
-
-## <a name="update-the-tests"></a>Atualizar os testes
-
-Como o arquétipo também cria um conjunto de testes, `msg` é necessário `run` atualizar estes testes para lidar com o novo parâmetro na assinatura do método.  
-
-Navegue na localização do seu código de teste sob _o sRC/teste/java,_ abra o `//Invoke` ficheiro do projeto *Function.java* e substitua a linha de código sob o seguinte código.
-
-```java
-@SuppressWarnings("unchecked")
-final OutputBinding<String> msg = (OutputBinding<String>)mock(OutputBinding.class);
-
-// Invoke
-final HttpResponseMessage ret = new Function().run(req, msg, context);
-``` 
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 
 Está pronto para experimentar a nova ligação de saída local.
 
@@ -115,19 +51,17 @@ Está pronto para experimentar a nova ligação de saída local.
 
 Como antes, utilize o seguinte comando para construir o projeto e iniciar o funcionamento das Funções localmente:
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Rio Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle) 
 ```bash
 gradle jar --info
 gradle azureFunctionsRun
 ```
-::: zone-end
+---
 
 > [!NOTE]  
 > Uma vez que permitiu pacotes de extensão no host.json, a extensão de [encadernação de Armazenamento](functions-bindings-storage-blob.md#add-to-your-functions-app) foi descarregada e instalada para si durante o arranque, juntamente com as outras extensões de ligação da Microsoft.
@@ -150,17 +84,15 @@ Em seguida, usa o Azure CLI para ver a nova fila e verificar se foi adicionada u
 
 Para atualizar a sua aplicação publicada, volte a executar o seguinte comando:  
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Rio Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle)  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
+---
 
 Mais uma vez, pode utilizar cURL para testar a função implantada. Como antes, passe `AzureFunctions` o valor no corpo do pedido post para o URL, como neste exemplo:
 

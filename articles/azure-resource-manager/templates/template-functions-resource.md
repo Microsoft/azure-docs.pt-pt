@@ -3,12 +3,12 @@ title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478269"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744989"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -444,12 +444,12 @@ Devolve um objeto que representa o estado de execução de um recurso.
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | recursoNome ou recursoIdentificador |Sim |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
-| apiVersion |Não |string |Versão API do recurso especificado. Inclua este parâmetro quando o recurso não estiver aprovisionado dentro do mesmo modelo. Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte a [referência do modelo](/azure/templates/). |
+| apiVersion |Não |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte a [referência do modelo](/azure/templates/). |
 | 'Cheio' |Não |string |Valor que especifica se deve devolver o objeto de recursos completo. Se não especificar, `'Full'`apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Cada tipo de recurso devolve propriedades diferentes para a função de referência. A função não devolve um único formato predefinido. Além disso, o valor devolvido difere com base no facto de ter especificado o objeto completo. Para ver as propriedades para um tipo de recurso, devolva o objeto na secção de saídas, como mostra o exemplo.
+Cada tipo de recurso devolve propriedades diferentes para a função de referência. A função não devolve um único formato predefinido. Além disso, o valor devolvido difere `'Full'` com base no valor do argumento. Para ver as propriedades para um tipo de recurso, devolva o objeto na secção de saídas, como mostra o exemplo.
 
 ### <a name="remarks"></a>Observações
 
@@ -514,7 +514,7 @@ Ao fazer referência a um recurso que é implantado no mesmo modelo, forneça o 
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-Ao fazer referência a um recurso que não seja implantado no mesmo modelo, forneça o ID de recurso.
+Ao fazer referência a um recurso que não seja implantado `apiVersion`no mesmo modelo, forneça o ID de recurso e .
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -898,10 +898,10 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| mesmoRGOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.StorageAccounts/examplestorage |
-| diferenteRGOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.StorageAccounts/examplestorage |
-| subprodução diferente | Cadeia | /subscrições/11111111-1111-1111-11111111111/recursosGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| aninhadaResourceOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| mesmoRGOutput | String | /subscrições/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.StorageAccounts/examplestorage |
+| diferenteRGOutput | String | /subscrições/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.StorageAccounts/examplestorage |
+| subprodução diferente | String | /subscrições/11111111-1111-1111-11111111111/recursosGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| aninhadaResourceOutput | String | /subscrições/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subscrição
 

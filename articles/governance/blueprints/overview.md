@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implementar artefactos no seu ambiente Azure.
 ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74321769"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677405"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -22,17 +22,17 @@ Os esquemas são uma forma declarativa de orquestrar a implementação de vário
 - Grupos de Recursos
 
 O serviço do Azure Blueprints é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) globalmente distribuído.
-Os objetos do Blueprint são replicados para várias regiões do Azure. Esta replicação oferece baixa latência, elevada disponibilidade e acesso consistente aos seus objetos de esquema, independentemente da região em que o Blueprints implementa os seus recursos.
+Os objetos do Blueprint são replicados para várias regiões do Azure. Esta replicação proporciona baixa latência, alta disponibilidade e acesso consistente aos seus objetos de plantas, independentemente da região para onde o Azure Blueprints implanta os seus recursos.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Em que medida difere dos modelos do Resource Manager
 
 O serviço foi concebido para ajudar na _configuração do ambiente_. Esta configuração consiste frequentemente num conjunto de grupos de recursos, políticas, atribuições de funções e implementações de modelos do Resource Manager. Um esquema é um pacote que reúne cada um destes tipos de _artefacto_ e permite compor e criar uma versão desse pacote, nomeadamente através de um pipeline CI/CD. Por fim, cada um deles é atribuído a uma subscrição numa única operação que pode ser auditada e controlada.
 
-Quase tudo o que pretende incluir para implementação no Blueprints pode ser feito com um modelo do Resource Manager. No entanto, um modelo do Resource Manager é um documento que não existe nativamente no Azure – cada modelo é armazenado localmente ou no controlo de origem. O modelo é utilizado para implementações de um ou mais recursos do Azure, mas assim que esses recursos são implementados, não existe nenhuma ligação ou relação ativa com o modelo.
+Quase tudo o que pretende incluir para implantação em Plantas Azure pode ser realizado com um modelo de Gestor de Recursos. No entanto, um modelo do Resource Manager é um documento que não existe nativamente no Azure – cada modelo é armazenado localmente ou no controlo de origem. O modelo é utilizado para implementações de um ou mais recursos do Azure, mas assim que esses recursos são implementados, não existe nenhuma ligação ou relação ativa com o modelo.
 
-Com o Blueprints, a relação entre a definição do esquema (o que _deve ser_ implementado) e a atribuição do esquema (o que _foi_ implementado) é preservada. Esta ligação suporta melhor controlo e auditoria de implementações. O Blueprints também pode atualizar várias subscrições ao mesmo tempo regidas pelo mesmo esquema.
+Com as Plantas Azure, a relação entre a definição de planta (o que _deve ser_ implementado) e a atribuição do projeto (que _foi_ implementado) é preservada. Esta ligação suporta melhor controlo e auditoria de implementações. O Azure Blueprints também pode atualizar várias subscrições ao mesmo tempo que são regidas pelo mesmo projeto.
 
-Não é necessário escolher entre um modelo do Resource Manager e um esquema. Cada esquema pode ser constituído por zero ou mais _artefactos_ de modelo do Resource Manager. Este suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos do Resource Manager são reutilizados no Blueprints.
+Não é necessário escolher entre um modelo do Resource Manager e um esquema. Cada esquema pode ser constituído por zero ou mais _artefactos_ de modelo do Resource Manager. Este suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos de Gestor de Recursos são reutilizáveis em Plantas Azure.
 
 ## <a name="how-its-different-from-azure-policy"></a>Em que medida difere do Azure Policy
 
@@ -46,7 +46,7 @@ Uma política pode ser incluída como um dos muitos _artefactos_ numa definiçã
 
 ## <a name="blueprint-definition"></a>Definição de esquema
 
-Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seguintes recursos como artefactos:
+Um esquema é composto por _artefactos_. A Azure Blueprints suporta atualmente os seguintes recursos como artefactos:
 
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|

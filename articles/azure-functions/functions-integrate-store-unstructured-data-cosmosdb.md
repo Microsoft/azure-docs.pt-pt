@@ -1,15 +1,15 @@
 ---
 title: Armazenar dados não estruturados utilizando o Azure Cosmos DB e as Funções
 description: Armazenar dados não estruturados usando as funções do Azure e o Cosmos DB
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc
-ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d11b7e7d55d0327bdec0a8bd6c73571cf846fd3c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74230551"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756648"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
 
@@ -20,7 +20,7 @@ ms.locfileid: "74230551"
 
 Nas Funções do Azure, os enlaces de entrada e saída proporcionam uma forma declarativa para ligar aos dados do serviço externo a partir da sua função. Neste artigo, saiba como atualizar uma função existente para adicionar um enlace de saída que armazena dados não estruturados num documento do Azure Cosmos DB.
 
-![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
+![BD do Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ Tem de ter uma conta do Azure Cosmos DB que utilize a API SQL antes de criar o e
 
 Substitua o código da função existente pelo seguinte código no idioma à sua escolha:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Substitua a função C# existente pelo seguinte código:
 

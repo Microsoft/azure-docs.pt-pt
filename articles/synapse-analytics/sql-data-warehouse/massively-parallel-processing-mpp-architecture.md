@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: e321df3f27defdceab31fe3b425a4169928ba3f6
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 0d768581b8f1a177190da08986af8b60b4861432
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631938"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744211"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW)
 
@@ -66,7 +66,7 @@ O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com 
 
 Os nós de computação conferem poder de computação. Mapa de distribuição para os nódosos computacionais para processamento. À medida que paga por mais recursos de computação, as distribuições são remapeadas para nós computacionais disponíveis. O número de nós computacionais varia de 1 a 60, e é determinado pelo nível de serviço para Synapse SQL.
 
-Cada nó computacional tem um ID de nó que é visível nas vistas do sistema. Você pode ver o ID do nó computado procurando a coluna node_id em vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema MPP](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Cada nó computacional tem um ID de nó que é visível nas vistas do sistema. Você pode ver o ID do nó computado procurando a coluna node_id em vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Serviço de Movimento de Dados
 

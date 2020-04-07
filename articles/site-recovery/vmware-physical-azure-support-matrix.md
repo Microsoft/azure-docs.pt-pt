@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de vmware/desastre físico na recupe
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para O Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: b4cf19f4f74ba24951efb806a9f2e3d88fcad7bc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: fbd5d87b219cbb482569dc5e45adc9c81181670c
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478424"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672443"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para O Azure
 
@@ -51,7 +51,7 @@ Região do sistema operativo | Inglês (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Não é necessário para a versão [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) do servidor de configuração.
 Funções do Windows Server | Não ative serviços de domínio de diretório ativo; Serviços de Informação de Internet (IIS) ou Hyper-V.
 Políticas de grupo| - Impedir o acesso ao pedido de comando. <br/> - Impedir o acesso às ferramentas de edição de registo. <br/> - Lógica de confiança para anexos de ficheiros. <br/> - Ligue a execução do guião. <br/> - [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Certifique-se de que:<br/><br/> - Não tenha um website preexistente <br/> - Ativar [a autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Ativar a definição [de FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Não tenha website/app pré-existente a ouvir na porta 443<br/>
+IIS | Certifique-se de que:<br/><br/> - Não tem um website preexistente <br/> - Ativar [a autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Ativar a definição [de FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Não tenha website/app pré-existente a ouvir na porta 443<br/>
 Tipo NIC | VMXNET3 (quando implantado como VMware VM)
 Tipo de endereço IP | Estático
 Portas | 443 utilizados para a orquestração de canais de controlo<br/>9443 para transporte de dados
@@ -66,7 +66,8 @@ A Recuperação do Site suporta a replicação de qualquer carga de trabalho em 
 **Componente** | **Detalhes**
 --- | ---
 Definições da máquina | As máquinas que se replicam ao Azure devem satisfazer os [requisitos do Azure.](#azure-vm-requirements)
-Carga de trabalho da máquina | A Recuperação do Site suporta a replicação de qualquer carga de trabalho em funcionamento numa máquina suportada. [Saiba mais](site-recovery-workload.md).
+Carga de trabalho da máquina | A Recuperação do Site suporta a replicação de qualquer carga de trabalho em funcionamento numa máquina suportada. [Saiba mais](https://aka.ms/asr_workload).
+Nome da máquina | Certifique-se de que o nome de visualização da máquina não se enquadra em [nomes de recursos reservados do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Os nomes de volume lógico não são sensíveis aos casos. Certifique-se de que não há dois volumes num dispositivo com o mesmo nome. Ex: Volumes com nomes "voLUME1", "volume1" não podem ser protegidos através da Recuperação do Site Azure.
 Windows Server 2019 | Suportado a partir do [rollup update 34](https://support.microsoft.com/help/4490016) (versão 9.22 do serviço mobility) em diante.
 Windows Server 2016 64-bit | Suportado para Server Core, Server com Experiência de Ambiente de Trabalho.
 Windows Server 2012 R2 / Windows Server 2012 | Suportado.
@@ -118,16 +119,16 @@ Debiano 8 | [9.29][9.29 UR] | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-am
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.32][9.32 UR] | Todos os [núcleos SUSE 12 SP1,SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.31][9.31 UR] | Todos os [núcleos SUSE 12 SP1,SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.30][9.30 UR] | Todos os [núcleos SUSE 12 SP1,SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.26-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.29][9.29 UR] | Todos os [núcleos SUSE 12 SP1,SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.23-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.118-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default para 4.4.121-92.117-default</br></br>SP3 4.4.73-5-default para 4.4.180-94.100-default</br></br>SP3 4.4.138-4.7-azure a 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.29-default</br>SP4 4.12.14-6.3-azure a 4.12.14-6.23-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default para 4.4.121-92.114-default</br></br>SP3 4.4.73-5-default para 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-azure a 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.19-default</br>SP4 4.12.14-6.3-azure a 4.12.14-6.15-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.26][9.26 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default para 4.4.121-92.109-default</br></br>SP3 4.4.73-5-default para 4.4.178-94.91-default</br></br>SP3 4.4.138-4.7-azure a 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.16-default</br>SP4 4.12.14-6.3-azure a 4.12.14-6.9-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default para 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default para 4.4.176-94.88-default</br></br>SP3 4.4.138-4.7-azure a 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.13-default</br>SP4 4.12.14-6.3-azure a 4.12.14-6.9-azure |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 versões de kernel suportadas
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os [núcleos SUSE 15 e 15 são](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) suportados.</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Todos os [núcleos SUSE 15 e 15 são](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) suportados. </br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de ficheiros Linux/armazenamento de hóspedes
 
@@ -139,7 +140,7 @@ Dispositivos de armazenamento paravirtualizados | Os dispositivos exportados por
 Dispositivos IO de bloco multi-fila | Não suportado.
 Servidores físicos com o controlador de armazenamento HP CCISS | Não suportado.
 Convenção de nomeação de ponto de montagem/ponto de montagem | O nome do dispositivo ou o nome do ponto de montagem devem ser únicos.<br/> Certifique-se de que não existem dois dispositivos/pontos de montagem com nomes sensíveis à caixa. Por exemplo, os dispositivos de nomeação para o mesmo VM que *o dispositivo1* e *o Dispositivo1* não são suportados.
-Diretórios | Se estiver a executar uma versão do serviço mobility mais cedo do que a versão 9.20 (lançada no [Update Rollup 31](https://support.microsoft.com/help/4478871/)), então estas restrições aplicam-se:<br/><br/> - Estes diretórios (se configurados como divisórias/sistemas de ficheiros separados) devem estar no mesmo disco OS no servidor de origem: /(raiz), /boot, /usr, /usr/local, /var, /etc.</br> - O diretório /boot deve estar numa divisória de disco e não ser um volume DEVM.<br/><br/> A partir da versão 9.20, estas restrições não se aplicam.
+Diretórios | Se estiver a executar uma versão do serviço mobility mais cedo do que a versão 9.20 (lançada no [Update Rollup 31](https://support.microsoft.com/help/4478871/)), então estas restrições aplicam-se:<br/><br/> - Estes diretórios (se configurados como divisórias/sistemas de ficheiros separados) devem estar no mesmo disco OS no servidor de origem: /(raiz), /boot, /usr, /usr/local, /var, /etc.</br> - O diretório /boot deve estar numa divisória de disco e não ser um volume DEVM.<br/><br/> A partir da versão 9.20, estas restrições não se aplicam. 
 Diretório de botas | - Os discos de arranque não devem estar em formato de partição GPT. Esta é uma limitação da arquitetura Azure. Os discos GPT são suportados como discos de dados.<br/><br/> Vários discos de arranque num VM não são suportados<br/><br/> - /arranque num volume de LVM em mais de um disco não é suportado.<br/> - Uma máquina sem um disco de arranque não pode ser replicada.
 Requisitos de espaço gratuito| 2 GB na partição /raiz <br/><br/> 250 MB na pasta de instalação
 XFSv5 | As funcionalidades xFSv5 nos sistemas de ficheiros XFS, tais como verificação de metadados, são suportadas (versão de serviço de mobilidade 9.10 em diante).<br/> Utilize o utilitário xfs_info para verificar o superbloco XFS para a partição. Se `ftype` estiver definido para 1, então as funcionalidades XFSv5 estão a ser utilizadas.
@@ -231,7 +232,7 @@ Armazenamento fresco | Não
 Armazenamento quente| Não
 Blobs de blocos | Não
 Encriptação em repouso (SSE)| Sim
-Encriptação em repouso (CMK)| Sim (via Powershell Az 3.3.0 módulo em diante)
+Encriptação em repouso (CMK)| Sim (via PowerShell Az 3.3.0 módulo em diante)
 Armazenamento Premium | Sim
 Serviço de importação/exportação | Não
 Firewalls de armazenamento azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache alvo (utilizada para armazenar dados de replicação).

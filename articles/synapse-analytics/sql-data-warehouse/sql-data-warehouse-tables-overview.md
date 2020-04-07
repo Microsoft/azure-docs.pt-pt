@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4c5964bc944cd50e05d548eb731450a4944e854d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2802c62acef0d78f8cfa7dd7f06bc34d8eecca4c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631271"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742620"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
 
@@ -111,7 +111,7 @@ A categoria de tabela determina frequentemente qual a opção a escolher para a 
 
 ## <a name="table-partitions"></a>Divisórias de mesa
 
-Uma mesa dividida armazena e realiza operações nas linhas de mesa de acordo com as gamas de dados. Por exemplo, uma mesa pode ser dividida de dia, mês ou ano. Pode melhorar o desempenho da consulta através da eliminação da partição, o que limita uma consulta aos dados dentro de uma divisória. Também pode manter os dados através da troca de divisórias. Uma vez que os dados no SQL Data Warehouse já estão distribuídos, muitas divisórias podem retardar o desempenho da consulta. Para mais informações, consulte [a orientação da partilha](sql-data-warehouse-tables-partition.md).  Ao trocar em divisórias de mesa que não estejam vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para que os dados existentes sejam truncados. O código abaixo muda nos dados diários transformados no SalesFact sobrepor quaisquer dados existentes.
+Uma mesa dividida armazena e realiza operações nas linhas de mesa de acordo com as gamas de dados. Por exemplo, uma mesa pode ser dividida de dia, mês ou ano. Pode melhorar o desempenho da consulta através da eliminação da partição, o que limita uma consulta aos dados dentro de uma divisória. Também pode manter os dados através da troca de divisórias. Uma vez que os dados no SQL Data Warehouse já estão distribuídos, muitas divisórias podem retardar o desempenho da consulta. Para mais informações, consulte [a orientação da partilha](sql-data-warehouse-tables-partition.md).  Ao trocar em divisórias de mesa que não estejam vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para que os dados existentes sejam truncados. O código abaixo muda nos dados diários transformados no SalesFact sobrepor quaisquer dados existentes.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -126,7 +126,7 @@ O índice de loja de colunas agrupado é geralmente a melhor escolha, mas em alg
 > [!TIP]
 > Uma tabela de heap pode ser especialmente útil para carregar dados transitórios, como uma mesa de preparação que é transformada em uma mesa final.
 
-Para obter uma lista de funcionalidades da columnstore, consulte [o que há de novo para os índices](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)da columnstore . Para melhorar o desempenho do índice da columnstore, consulte maximizar a qualidade do [grupo de remo para os índices](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)da colunastore .
+Para obter uma lista de funcionalidades da columnstore, consulte [o que há de novo para os índices](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)da columnstore . Para melhorar o desempenho do índice da columnstore, consulte maximizar a qualidade do [grupo de remo para os índices](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)da colunastore .
 
 ## <a name="statistics"></a>Estatísticas
 
@@ -146,10 +146,10 @@ Pode criar uma mesa como uma nova mesa vazia. Também pode criar e povoar uma ta
 
 | Declaração T-SQL | Descrição |
 |:----------------|:------------|
-| [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Cria uma mesa vazia definindo todas as colunas e opções da tabela. |
-| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql) | Cria uma mesa externa. A definição da mesa é armazenada na piscina SQL. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
-| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
-| [CRIAR TABELA EXTERNA COMO SELECIONADO](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento Azure Blob ou a Azure Data Lake Store. |
+| [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções da tabela. |
+| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa externa. A definição da mesa é armazenada na piscina SQL. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
+| [CRIAR TABELA EXTERNA COMO SELECIONADO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento Azure Blob ou a Azure Data Lake Store. |
 
 ## <a name="aligning-source-data-with-the-sql-pool"></a>Alinhar dados de origem com o pool SQL
 
@@ -174,7 +174,7 @@ A piscina SQL suporta muitas, mas não todas, as funcionalidades da tabela ofere
 
 ## <a name="table-size-queries"></a>Consultas de tamanho de mesa
 
-Uma forma simples de identificar o espaço e as filas consumidas por uma tabela em cada uma das 60 distribuições, é usar [o DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
+Uma forma simples de identificar o espaço e as filas consumidas por uma tabela em cada uma das 60 distribuições, é usar [o DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');

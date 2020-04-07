@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a123a85d653415f7b067e0c144c90ed79f2d081
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331001"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673708"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um único ambiente florestal ad para a nuvem
 
@@ -145,7 +145,7 @@ $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
-$Password = "Pass1w0rd"
+$Password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -226,12 +226,12 @@ Agora que temos um inquilino e um administrador global, precisamos adicionar o n
 1. De volta ao [portal Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) certifique-se de fechar a lâmina **de Todos os Utilizadores.**
 2. No lado esquerdo, selecione **Nomes de domínio personalizado**.
 3. **Selecione Adicionar domínio personalizado**.</br>
-![Federação](media/tutorial-federation/custom1.png)</br>
+![de Federação](media/tutorial-federation/custom1.png)</br>
 4. Em nomes de **domínio personalizados,** introduza o nome do seu domínio personalizado na caixa e clique em **Adicionar Domínio**.
 5. No ecrã de nome de domínio personalizado, será fornecido com informações TXT ou MX.  Estas informações devem ser adicionadas às informações do DNS do registo de domínio sob o seu domínio.  Por isso, tem de ir ao seu registo de domínio, introduzir as informações TXT ou MX nas definições de DNS para o seu domínio.  Isto permitirá ao Azure verificar o seu domínio.  Isto pode levar até 24 horas para o Azure verificar.  Para mais informações, consulte a adição de uma documentação de [domínio personalizado.](../../active-directory/fundamentals/add-custom-domain.md)</br>
-![Federação](media/tutorial-federation/custom2.png)</br>
+![de Federação](media/tutorial-federation/custom2.png)</br>
 6. Para garantir a verificação, clique no botão Verificar.</br>
-![Federação](media/tutorial-federation/custom3.png)</br>
+![de Federação](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Descarregue e instale o Azure AD Connect
 Agora é hora de descarregar e instalar o Azure AD Connect.  Uma vez instalado, vamos passar pela instalação expressa.  Faça o seguinte:
@@ -242,7 +242,7 @@ Agora é hora de descarregar e instalar o Azure AD Connect.  Uma vez instalado, 
 4. No ecrã de definições express, clique em **Personalizar**.  
 5. No ecrã de componentes de instalação necessário. Clique em **Instalar**.  
 6. No ecrã de iniciar sessão do utilizador, selecione **Federação com AD FS** e clique **em Seguinte**.
-![Federação](media/tutorial-federation/fed1.png)
+![de Federação](media/tutorial-federation/fed1.png)
 
 1. No ecrã Connect to Azure AD, introduza o nome de utilizador e a palavra-passe do administrador global que criámos acima e clique em **Next**.
 2. No ecrã Connect your directdirecties, clique em **Adicionar Diretório**.  Em seguida, selecione **Criar nova conta AD** e introduza o nome de utilizador e senha do administrador de contos e clique em **OK**.
@@ -257,10 +257,10 @@ Agora é hora de descarregar e instalar o Azure AD Connect.  Uma vez instalado, 
 11. Selecione **Utilize um certificado instalado nos servidores da federação** e clique em **Navegar**.
 12. Introduza DC1 na caixa de pesquisa e selecione-o quando for encontrado.  Clique em **OK**.
 13. A partir da entrega do **Ficheiro de Certificado,** selecione **adfs.contoso.com** o certificado que criámos acima.  Clique em **Seguinte**.
-![Federação](media/tutorial-federation/fed2.png)
+![de Federação](media/tutorial-federation/fed2.png)
 
 1. No ecrã do servidor AD FS, clique em **Navegar** e introduza DC1 na caixa de pesquisa e selecione-o quando for encontrado.  Clique em **OK**.  Clique em **Seguinte**.
-![Federação](media/tutorial-federation/fed3.png)
+![de Federação](media/tutorial-federation/fed3.png)
 
 1. No ecrã dos servidores proxy da aplicação Web, clique em **Seguinte**.
 2. No ecrã da conta de serviço AD FS, introduza o nome de utilizador e senha do administrador de contose clique em **Seguinte.**

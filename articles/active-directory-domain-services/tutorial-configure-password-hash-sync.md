@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 93e5ee9b46fb3387b70dd5092f72efcaa8a2bc19
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239169"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676598"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Ativar a sincronização de senhas em Serviços de Domínio de Diretório Ativo Azure para ambientes híbridos
 
@@ -68,7 +68,7 @@ Com o Azure AD Connect instalado e configurado para sincronizar com o Azure AD, 
 
     Neste exemplo, são utilizados os seguintes conectores:
 
-    * O conector Azure AD é nomeado *aaddscontoso.onmicrosoft.com - AAD*
+    * O conector Azure AD é nomeado *contoso.onmicrosoft.com - AAD*
     * O conector AD DS no local é chamado *onprem.contoso.com*
 
 1. Copie e cole o seguinte script PowerShell no computador com Azure AD Connect instalado. O script desencadeia uma sincronização completa de palavra-passe que inclui hashes de senha legacy. Atualize `$azureadConnector` `$adConnector` as e variáveis com os nomes do conector do passo anterior.
