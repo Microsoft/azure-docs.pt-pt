@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64469641173cfe31c3e4fbac5e2f21c75a94c716
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: df7461443fc9e89209545e8a2dfb9ad0addf3f3e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521867"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757148"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -110,6 +110,7 @@ Para obter informações sobre a integração dos serviços Azure nos componente
 
 
 ## <a name="change-log"></a>Alterar Log
+- 04/06/2020: Alterações na [escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) e em [Escala SAP HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) para remover referências ao NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (substituído por [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))
 - 03/31/2020: Alteração da [alta disponibilidade de SAP HANA em VMs Azure em SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) e [Alta disponibilidade de SAP HANA em VMs Azure no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) para adicionar instruções sobre como especificar o tamanho das riscas ao criar volumes listrados
 - 03/27/2020: Alteração da [elevada disponibilidade para SAP NW em VMs Azure em SLES com ANF para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) para alinhar as opções de montagem do sistema de ficheiros para NetApp TR-4746 (remover a opção de montagem de sincronização)
 - 03/26/2020: Alteração da [alta disponibilidade para SAP NetWeaver em VMs Azure no guia Multi-SID SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) para adicionar referência ao NetApp TR-4746

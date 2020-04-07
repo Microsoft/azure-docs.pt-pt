@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 44d7b4196e53bfcc89105236e446c74d50e7812a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 0c30294f2ca139a602074a980810e7c6737c4e2d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633125"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742983"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteja uma base de dados em Azure Synapse
 
@@ -81,9 +81,9 @@ A conta de administrador do servidor que está a ligar é membro de db_owner, qu
 
 Existem formas de limitar ainda mais o que um utilizador pode fazer dentro da base de dados:
 
-* As [Permissões](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) Granular permitem controlar quais as operações que pode fazer em colunas individuais, tabelas, vistas, esquemas, procedimentos e outros objetos na base de dados. Utilize permissões granulares para ter o maior controlo e conceder as permissões mínimas necessárias.
-* [Funções](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) de base de dados que não db_datareader e db_datawriter podem ser usadas para criar contas de utilizadores de aplicações mais poderosas ou contas de gestão menos poderosas. As funções de base de dados fixas incorporadas fornecem uma forma fácil de conceder permissões, mas podem resultar na concessão de mais permissões do que as necessárias.
-* Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine?redirectedfrom=MSDN&view=sql-server-ver15) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
+* As [Permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Granular permitem controlar quais as operações que pode fazer em colunas individuais, tabelas, vistas, esquemas, procedimentos e outros objetos na base de dados. Utilize permissões granulares para ter o maior controlo e conceder as permissões mínimas necessárias.
+* [Funções](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de base de dados que não db_datareader e db_datawriter podem ser usadas para criar contas de utilizadores de aplicações mais poderosas ou contas de gestão menos poderosas. As funções de base de dados fixas incorporadas fornecem uma forma fácil de conceder permissões, mas podem resultar na concessão de mais permissões do que as necessárias.
+* Os [Procedimentos armazenados](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
 O exemplo seguinte dá acesso a um esquema definido pelo utilizador.
 
@@ -92,13 +92,13 @@ O exemplo seguinte dá acesso a um esquema definido pelo utilizador.
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-A gestão de bases de dados e servidores lógicos do portal Azure ou utilizando a API do Gestor de Recursos Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para mais informações, consulte o [controlo de acesso baseado em role no portal Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure).
+A gestão de bases de dados e servidores lógicos do portal Azure ou utilizando a API do Gestor de Recursos Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para mais informações, consulte o [controlo de acesso baseado em role no portal Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Encriptação
 
 A Encriptação transparente de dados (TDE) ajuda a proteger contra a ameaça de atividades maliciosas encriptando e desencriptando os seus dados em repouso. Quando encripta a sua base de dados, as cópias de segurança associadas e os ficheiros de registo de transações são encriptados sem que seja necessário alterar as suas aplicações. A Encriptação de Dados Transparente encripta o armazenamento de uma base de dados completa ao utilizar uma chave simétrica chamada chave de encriptação de base de dados.
 
-Na Base de Dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado. O certificado de servidor incorporado é único para cada servidor de base de dados SQL. A Microsoft roda automaticamente estes certificados pelo menos a cada 90 dias. O algoritmo de encriptação utilizado é AES-256. Para obter uma descrição geral do TDE, consulte a [Encriptação transparente de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15).
+Na Base de Dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado. O certificado de servidor incorporado é único para cada servidor de base de dados SQL. A Microsoft roda automaticamente estes certificados pelo menos a cada 90 dias. O algoritmo de encriptação utilizado é AES-256. Para obter uma descrição geral do TDE, consulte a [Encriptação transparente de dados](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Pode encriptar a sua base de dados através do [portal Azure](sql-data-warehouse-encryption-tde.md) ou [DoT T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 

@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ab84cc2f4910d1186e842758df7814ca5dd6464d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92bc172fd9a47d3b140e60a4083d65a2f532769a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281651"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745568"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Separador de informação técnica de aplicações power bi
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
 
 Na página **New Offer,** utilize o separador **Informação Técnica** para fornecer o URL do pacote de instalação Power BI e outras informações que necessita para validar a nova oferta.  Para o lançamento inicial, todas as aplicações Power BI estão gratuitas e estão disponíveis para download a partir do AppSource. Por isso, não é possível definir unidades de armazenamento de stock (SKUs) para este tipo de oferta.
 

@@ -3,12 +3,12 @@ title: Compreenda a ordem da sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefactos da planta são implantados durante uma atribuição de plantas e como personalizar a ordem de implementação.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74128817"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677568"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreenda a sequência de implantação em Plantas Azure
 
@@ -42,7 +42,7 @@ Dentro de cada artefacto do **grupo de recursos,** é utilizada a seguinte ordem
 
 ## <a name="customizing-the-sequencing-order"></a>Personalização da ordem de sequenciação
 
-Ao compor grandes definições de plantas, pode ser necessário que os recursos sejam criados numa ordem específica. O padrão de utilização mais comum deste cenário é quando uma definição de planta inclui vários modelos do Gestor de Recursos Azure. As plantas lidam com este padrão permitindo definir a ordem de sequenciação.
+Ao compor grandes definições de plantas, pode ser necessário que os recursos sejam criados numa ordem específica. O padrão de utilização mais comum deste cenário é quando uma definição de planta inclui vários modelos do Gestor de Recursos Azure. As Plantas Azure lidam com este padrão permitindo definir a ordem de sequenciação.
 
 A encomenda é realizada definindo uma `dependsOn` propriedade no JSON. A definição de planta, para grupos de recursos, e objetos de artefacto supor esta propriedade. `dependsOn`é uma série de nomes de artefactos que o artefacto em particular precisa de ser criado antes de ser criado.
 

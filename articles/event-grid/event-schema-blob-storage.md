@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265041"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756001"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de evento sinuoso do evento Azure Event Grid para armazenamento blob
 
@@ -21,7 +21,7 @@ Este artigo fornece as propriedades e esquemas para eventos de armazenamento de 
 Para obter uma lista de scripts e tutoriais de amostra, consulte a fonte do [evento de armazenamento.](event-sources.md#storage)
 
 >[!NOTE]
-> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2)** e integração de eventos de suporte **blobStorage.** **O armazenamento (propósito genral v1)** *não* suporta a integração com a Grelha de Eventos.
+> Apenas contas de armazenamento de tipo **StorageV2 (finalidade geral v2)**, **BlockBlobStorage**e integração de eventos de suporte **blobStorage.** **O armazenamento (propósito genral v1)** *não* suporta a integração com a Grelha de Eventos.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Lista de eventos para APIs de REPOUSO Blob
 
@@ -37,7 +37,7 @@ Estes eventos são desencadeados quando um cliente cria, substitui ou elimina um
 
 ## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista dos eventos para Azure Data Lake Storage Gen 2 REST APIs
 
-Estes eventos são desencadeados se permitir um espaço de nome hierárquico na conta de armazenamento, e os clientes chamam Azure Data Lake Storage Gen2 REST APIs.
+Estes eventos são desencadeados se permitir um espaço de nome hierárquico na conta de armazenamento, e os clientes chamam Azure Data Lake Storage Gen2 REST APIs. Para mais informações sobre o Azure Data Lake Storage Gen2, consulte introdução ao Armazenamento de [Lagos De dados Azure Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Nome do evento|Descrição|
 |----------|-----------|

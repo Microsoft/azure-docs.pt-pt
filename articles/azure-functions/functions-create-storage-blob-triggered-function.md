@@ -2,15 +2,15 @@
 title: Criar uma função em Azure desencadeada pelo armazenamento blob
 description: Utilize as Funções do Azure para criar uma função sem servidores que é invocada por itens que são adicionados ao Armazenamento de blobs do Azure.
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d3e90decad217afc1c8d9a43ef585fdfbeca5eb0
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75769307"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756557"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função acionada pelo Armazenamento de blobs do Azure
 

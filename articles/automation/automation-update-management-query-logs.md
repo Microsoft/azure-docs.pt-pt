@@ -3,14 +3,14 @@ title: Registos de Gestão de Atualização De Consulta Azure
 description: Este artigo descreve como consultar os registos para Gestão de Atualizações no seu espaço de trabalho Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437848"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743879"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Registos de atualizações de consulta para Gestão de Atualizações em Registos de Monitores Azure
 
@@ -112,7 +112,7 @@ Registos que são recolhidos pela Update Management para VMs Windows e Linux e o
 | CorrelationId | Identificador único do trabalho do livro de recortes corre para a atualização. |
 | EndTime | O tempo em que o processo de sincronização terminou. | 
 | ErrorResult | Código de erro do Windows Update gerado se uma atualização não for instalada. | 
-| Estado de Instalação | A possível instalação indica uma atualização no computador cliente, *em curso,* *Bem sucedida,* *parcialmente falhada.* |
+| Estado de Instalação | Os possíveis estados de instalação de uma atualização no computador cliente,<br> *Não Comecei* - trabalho ainda não desencadeado.<br> *FailedToStart* - incapaz de iniciar o trabalho na máquina.<br> *Falhou* - o trabalho começou, mas falhou com uma exceção.<br> *InProgress* - trabalho em curso.<br> *ManutençãoJanelaExceeded* - se a execução restava, mas o intervalo da janela de manutenção atingiu.<br> *Conseguiu-* o trabalho foi bem sucedido.<br> *InstalaçãoFailed* - a atualização não foi instalada com sucesso.<br> *Não Incluído*<br> *Excluído* |
 | KBID | Id do artigo base de conhecimento para a atualização do Windows. | 
 | ManagementGroupName | Nome do grupo de gestão do Gestor de Operações ou do espaço de trabalho log Analytics. |
 | OSType | Especifica o tipo de sistema operativo, *Windows* ou *Linux*. | 

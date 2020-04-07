@@ -4,12 +4,12 @@ description: Neste tutorial, aprende-se a implantar um cluster de Tecido de Serv
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551731"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756049"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster de tecido de serviço que executa o Windows numa rede virtual Azure
 
@@ -156,7 +156,7 @@ O ficheiro de parâmetro [azuredeploy.parameters.json][parameters] declara vári
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configurar a autenticação do cliente do Diretório Ativo azure
 Para os clusters service Fabric implantados numa rede pública alojada no Azure, a recomendação para a autenticação mútua cliente-a-nó é:
 * Utilize o Diretório Ativo Azure para a identidade do cliente.
-* Utilize um certificado para identidade do servidor e encriptação SSL da comunicação HTTP.
+* Utilize um certificado para identidade do servidor e encriptação TLS da comunicação HTTP.
 
 A criação do Azure Ative Directory (Azure AD) para autenticar os clientes para um cluster de tecido de serviço deve ser feita antes de [criar o cluster](#createvaultandcert). A Azure AD permite que as organizações (conhecidas como inquilinos) gerem o acesso dos utilizadores às aplicações. 
 

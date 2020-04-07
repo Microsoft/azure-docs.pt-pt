@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 20aa55f9fc4ea65da1973628aeec313a5367816a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632071"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754310"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -90,10 +90,13 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
     Ao criar a instância Key Vault, deve ativar a proteção de eliminação suave e purga. A eliminação suave garante que o Cofre-Chave detém uma chave eliminada durante um determinado período de retenção (padrão de 90 dias). A proteção da purga garante que uma chave eliminada não pode ser eliminada permanentemente até que o período de retenção caduque. Estas definições protegem-no de perder dados devido à eliminação acidental. Estas definições são obrigatórias quando se utiliza um Cofre chave para encriptar discos geridos.
 
+    > [!IMPORTANT]
+    > Não case camelo na região, se o fizer poderá ter problemas ao atribuir discos adicionais ao recurso no portal Azure.
+
     ```azurecli
     subscriptionId=yourSubscriptionID
     rgName=yourResourceGroupName
-    location=WestCentralUS
+    location=westcentralus
     keyVaultName=yourKeyVaultName
     keyName=yourKeyName
     diskEncryptionSetName=yourDiskEncryptionSetName
@@ -134,7 +137,7 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 ```azurecli
 rgName=yourResourceGroupName
 vmName=yourVMName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -162,7 +165,7 @@ az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCus
 ```azurecli
 rgName=yourResourceGroupName
 vmssName=yourVMSSName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -179,7 +182,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskSkuName=Premium_LRS
 diskSizeinGiB=30
-location=WestCentralUS
+location=westcentralus
 diskLUN=2
 diskEncryptionSetName=yourDiskEncryptionSetName
 

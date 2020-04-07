@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 150801fe66da1ea8c6f10d437c6d7616a77b544e
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411009"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743543"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicione saídas ao seu modelo ARM
 
@@ -77,7 +77,7 @@ az deployment group create \
 
 ---
 
-Na saída para o comando de implantação, verá um objeto semelhante a:
+Na saída para o comando de implantação, verá um objeto semelhante ao seguinte exemplo apenas se a saída estiver no formato JSON:
 
 ```json
 {

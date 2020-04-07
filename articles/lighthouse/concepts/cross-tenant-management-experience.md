@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados da Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 03/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218394"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754143"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -21,7 +21,7 @@ Como prestador de serviços, pode utilizar a [gestão de recursos delegados do A
 
 Um inquilino azure Ative Directory (Azure AD) é uma representação de uma organização. É um exemplo dedicado do Azure AD que uma organização recebe quando cria uma relação com a Microsoft ao inscrever-se no Azure, Microsoft 365 ou outros serviços. Cada inquilino da Azure AD é distinto e separado de outros inquilinos da AD Azure, e tem o seu próprio ID de inquilino (um GUID). Para mais informações, consulte o que é o [Azure Ative Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
-Normalmente, para gerir os recursos do Azure para um cliente, os prestadores de serviços teriam de se inscrever no portal Azure utilizando uma conta associada ao inquilino desse cliente, exigindo que um administrador no inquilino do cliente criasse e gerisse as contas dos utilizadores. para o prestador de serviços.
+Normalmente, para gerir os recursos do Azure para um cliente, os prestadores de serviços teriam de se inscrever no portal Azure utilizando uma conta associada ao inquilino desse cliente, exigindo que um administrador no inquilino do cliente criasse e gerisse as contas de utilizador para o prestador de serviços.
 
 Com a gestão de recursos delegados da Azure, o processo de embarque especifica os utilizadores dentro do inquilino do prestador de serviços que poderão aceder e gerir subscrições, grupos de recursos e recursos no inquilino do cliente. Estes utilizadores podem então iniciar sessão no portal Azure utilizando as suas próprias credenciais. Dentro do portal Azure, podem gerir recursos pertencentes a todos os clientes a que têm acesso. Isto pode ser feito visitando a página [dos meus clientes](../how-to/view-manage-customers.md) no portal Azure, ou trabalhando diretamente no contexto da subscrição desse cliente, seja no portal Azure ou através de APIs.
 
@@ -141,6 +141,7 @@ Com todos os cenários, esteja ciente das seguintes limitações atuais:
 - As atribuições de funções devem utilizar [funções](../../role-based-access-control/built-in-roles.md)de controlo de acesso baseado seleções em funções (RBAC). Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para owner ou quaisquer funções incorporadas com permissão [DataActions.](../../role-based-access-control/role-definitions.md#dataactions) A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na atribuição de [funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções clássicas](../../role-based-access-control/classic-administrators.md) de administrador de subscrição não são suportadas.
 - Enquanto pode embarcar subscrições que utilizam o Azure Databricks, os utilizadores do inquilino gerente não podem lançar espaços de trabalho Azure Databricks numa subscrição delegada neste momento.
 - Embora possa participar em subscrições e grupos de recursos para a gestão de recursos delegados do Azure que tenham fechaduras de recursos, esses bloqueios não impedirão que as ações sejam realizadas pelos utilizadores no inquilino gestor. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam recursos geridos pelo sistema, como os criados pela Azure geriu aplicações ou plantas Azure (atribuições de negação atribuídas pelo sistema), impedir que os utilizadores do inquilino gerente agissem com esses recursos; no entanto, neste momento os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
+- Os utilizadores do inquilino gerente não terão acesso a visualização de informações de faturação para uma subscrição de cliente delegada, mesmo que tenham uma função incorporada que normalmente permita o acesso. Isto porque o acesso à informação de faturação requer passos adicionais que atualmente são apenas suportados para os utilizadores dentro do mesmo inquilino.
 
 ## <a name="next-steps"></a>Passos seguintes
 

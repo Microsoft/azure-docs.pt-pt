@@ -3,12 +3,12 @@ title: Restaurar as ações de ficheiro sinuoso com o Azure CLI
 description: Saiba como usar o Azure CLI para restaurar as ações de ficheiros Azure apoiadas no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 63b2be2fe24c1274ed1581b7b849de578c978842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76931039"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757103"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restaurar as ações de ficheiro sinuoso com o Azure CLI
 
@@ -19,6 +19,9 @@ No final deste artigo, aprenderá a realizar as seguintes operações com o Azur
 * Ver pontos de restauro para uma partilha de ficheiros Azure apoiada.
 * Restaurar uma parte completa do ficheiro Azure.
 * Restaurar ficheiros ou pastas individuais.
+
+>[!NOTE]
+> O Azure Backup suporta agora a restauração de vários ficheiros ou pastas para o local original ou alternativo utilizando o Azure CLI. Consulte os [vários ficheiros ou pastas de Restaurar para](#restore-multiple-files-or-folders-to-original-or-alternate-location) saber mais sobre a secção de localização original ou alternativa deste documento.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +45,7 @@ Utilize a lista de pontos de recuperação de [backup az](https://docs.microsoft
 O exemplo seguinte indica a lista de pontos de recuperação da parte do ficheiro *azurefiles* na conta de armazenamento da *afsaccount.*
 
 ```azurecli-interactive
-az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --backup-management-type azurestorage --item-name “AzureFileShare;azurefiles” --workload-type azurefileshare --out table
+az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --backup-management-type azurestorage --item-name "AzureFileShare;azurefiles" --workload-type azurefileshare --out table
 ```
 
 Também pode executar o cmdlet anterior utilizando o nome amigável para o recipiente e o item, fornecendo os seguintes dois parâmetros adicionais:
@@ -82,7 +85,7 @@ Quando restaura para um local original, não precisa especificar parâmetros rel
 O exemplo seguinte utiliza a cópia de segurança [az restaurar o restauro-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) cmdlet com o modo de restauro definido para a *localização original* para restaurar a parte de ficheiro de *ficheiros azurefiles* na localização original. Utiliza o ponto de recuperação 932883129628959823, que obteve nos pontos de [recuperação da Fetch para a partilha de ficheiros Azure:](#fetch-recovery-points-for-the-azure-file-share)
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -105,7 +108,7 @@ Pode utilizar esta opção para restaurar uma parte de ficheiro para um local al
 O exemplo seguinte utiliza a cópia de [segurança az restaurar o restauro-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) com o modo de restauro como *alternativa de localização* para restaurar a parte de ficheiro sinuosa na conta de armazenamento da *afsaccount* para a parte de ficheiro *azurefiles1"* na conta de armazenamento *afaccount1.* *azurefiles*
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -138,7 +141,7 @@ Utilize a [restauração de restauro de restauro az](https://docs.microsoft.com/
 O exemplo seguinte restaura o ficheiro *RestoreTest.txt* na sua localização original: a partilha de *ficheiros azurefiles.*
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
 ```
 
 ```output
@@ -160,7 +163,7 @@ Para restaurar ficheiros ou pastas específicos para um local alternativo, utili
 O exemplo seguinte restaura o ficheiro *RestoreTest.txt* originalmente presente na partilha de ficheiros *azurefiles* para um local alternativo: a pasta de *dados de restauro* na partilha de ficheiros *azurefiles1* alojada na conta de armazenamento *afaccount1.*
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
 ```
 
 ```output
@@ -170,6 +173,28 @@ df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
 O atributo **nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de restauro. Para acompanhar o estado do trabalho, use o show de [trabalho de reserva az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Restaurar vários ficheiros ou pastas para localização original ou alternativa
+
+Para realizar a restauração de vários itens, passe o valor para o parâmetro **de caminho-de-arquivo de origem** como **caminhos separados** do espaço de todos os ficheiros ou pastas que pretende restaurar.
+
+O exemplo seguinte restaura os ficheiros De teste *Restore.txt* e *AFS Report.docx* na sua localização original.
+
+```azurecli-interactive
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table
+```
+
+O resultado será semelhante ao seguinte:
+
+```output
+Name                                          ResourceGroup
+------------------------------------          ---------------
+649b0c14-4a94-4945-995a-19e2aace0305          azurefiles
+```
+
+O atributo **nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação de restauro. Para acompanhar o estado do trabalho, use o show de [trabalho de reserva az](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+Se pretender restaurar vários itens para um local alternativo, utilize o comando acima especificando os parâmetros relacionados com o alvo, conforme explicado nos [ficheiros ou pastas individuais restaurar](#restore-individual-files-or-folders-to-an-alternate-location) para uma secção de localização alternativa.
 
 ## <a name="next-steps"></a>Passos seguintes
 

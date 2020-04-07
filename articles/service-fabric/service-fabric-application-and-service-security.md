@@ -3,12 +3,12 @@ title: Conheça a segurança da aplicação azure service Fabric
 description: Uma visão geral de como executar com segurança aplicações de microserviços no Service Fabric. Saiba como executar serviços e iniciar scripts em diferentes contas de segurança, autenticar e autorizar utilizadores, gerir segredos de aplicação, proteger as comunicações de serviço, usar um gateway API e proteger os dados da aplicação em repouso.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452259"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756229"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Aplicação de serviço Fabric e segurança de serviço
 Uma arquitetura de microserviços pode trazer [muitos benefícios.](service-fabric-overview-microservices.md) Gerir a segurança dos microserviços, no entanto, é um desafio e diferente de gerir a segurança de aplicações monolíticas tradicionais. 
@@ -33,7 +33,7 @@ Após a autenticação, os serviços precisam de autorizar o acesso do utilizado
 [ASP.NET a autorização core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) pode ser feita com base nas funções dos utilizadores ou com base na política personalizada, que pode incluir a inspeção de reclamações ou outras heurísticas.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restringir e garantir o acesso usando um gateway DaPI
-Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. Um [portal da API](/azure/architecture/microservices/gateway) situa-se entre clientes e serviços e é o ponto de entrada de todos os serviços que a sua aplicação está a prestar. Atua como um representante inverso, encaminhando pedidos de clientes para serviços. Pode também executar várias tarefas transversais, tais como autenticação e autorização, rescisão de SSL e limitação de taxas. Se não implementar uma porta de entrada, os clientes devem enviar pedidos diretamente para serviços front-end.
+Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. Um [portal da API](/azure/architecture/microservices/gateway) situa-se entre clientes e serviços e é o ponto de entrada de todos os serviços que a sua aplicação está a prestar. Atua como um representante inverso, encaminhando pedidos de clientes para serviços. Pode também executar várias tarefas transversais, tais como autenticação e autorização, rescisão de TLS e limitação de taxas. Se não implementar uma porta de entrada, os clientes devem enviar pedidos diretamente para serviços front-end.
 
 No Tecido de Serviço, um gateway pode ser qualquer serviço apátrida, como uma [aplicação ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para ingresso de tráfego, como [Traefik,](https://docs.traefik.io/)Hubs de [Eventos,](https://docs.microsoft.com/azure/event-hubs/) [Hub IoT,](https://docs.microsoft.com/azure/iot-hub/)ou [Azure API Management.](https://docs.microsoft.com/azure/api-management)
 

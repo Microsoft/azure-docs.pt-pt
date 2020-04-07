@@ -2,16 +2,16 @@
 title: Criar uma função Azure com Java e IntelliJ
 description: Aprenda a criar e publicar uma simples aplicação em Http-triggered, sem servidores no Azure com Java e IntelliJ.
 author: jeffhollan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05074696ca2cc9d425269561523beb11eb18c4f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136855"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756457"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Crie a sua primeira função Azure com Java e IntelliJ
 
@@ -31,7 +31,7 @@ Para desenvolver uma função com a Java e a IntelliJ, instale o seguinte softwa
 - [Kit de Desenvolvimento Java](https://www.azul.com/downloads/zulu/) (JDK), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Versões Comunitárias ou Ultimate com Maven
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > A variável ambiente JAVA_HOME deve ser definida para a localização de instalação do JDK para completar as etapas deste artigo.

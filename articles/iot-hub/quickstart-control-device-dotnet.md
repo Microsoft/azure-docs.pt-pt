@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/21/2019
-ms.openlocfilehash: 740cb3a046514ffee9b2151315133220465878cf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/04/2020
+ms.openlocfilehash: 3302c2cb4f70f801c28ad26b2d6c8d2cc78d82f5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78673461"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757043"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guia de Início Rápido: Controlar um dispositivo ligado a um hub IoT (.NET)
 

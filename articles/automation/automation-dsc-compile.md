@@ -3,14 +3,14 @@ title: Compilação de configurações na Configuração do Estado da Automaçã
 description: Este artigo descreve como compilar configurações de Configuração de Estado Desejado (DSC) para a Automação Azure.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057637"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757187"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação de configurações dSC na configuração do Estado da Automação Azure
 
@@ -27,7 +27,7 @@ Pode compilar as configurações de Configuração do Estado Desejado (DSC) na C
   - Trabalhe com dados de nó e não-nó em escala
   - Melhoria significativa do desempenho
 
-Para obter detalhes de compilação, consulte a extensão de [Configuração do Estado Desejado com modelos](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)de Gestor de Recursos Azure .
+Também pode utilizar modelos do Gestor de Recursos Azure com extensão de configuração do Estado Pretendido (DSC) para empurrar configurações para os seus VMs Azure. A extensão Azure DSC utiliza a estrutura do Agente Azure VM para entregar, promulgar e reportar as configurações de DSC em execução em VMs Azure. Para obter detalhes de compilação utilizando modelos de Gestor de Recursos Azure, consulte a [extensão de configuração do Estado desejado com os modelos do Gestor](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details)de Recursos Azure . 
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compilação de uma configuração DSC na configuração do Estado de Azure
 

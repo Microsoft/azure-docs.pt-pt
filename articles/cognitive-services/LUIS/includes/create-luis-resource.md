@@ -6,30 +6,38 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 04/06/2020
 ms.author: dapine
-ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88289686e5b091ef3ec309ee9b54ee0f895c8c22
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73465920"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754360"
 ---
-## <a name="create-a-luis-resource"></a>Criar um recurso LUIS
+<a name="create-luis-resources"></a>
 
-1. Assine no [portal Azure](https://portal.azure.com)
-1. Clique em [criar **compreensão linguística** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+## <a name="create-luis-resources-in-azure-portal"></a>Criar recursos LUIS no portal Azure
+
+1. Utilize [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) para começar a criar recursos LUIS no portal Azure.
+
 1. Introduza todas as definições necessárias:
 
-    |Definição|Valor|
+    |Nome|Objetivo|
     |--|--|
-    |Nome|Nome desejado (2-64 caracteres)|
-    |Subscrição|Selecione subscrição apropriada|
-    |Localização|Selecione qualquer local próximo e disponível|
-    |Escalão de Preço|`F0`- o nível de preços mínimos|
-    |Grupo de Recursos|Selecione um grupo de recursos disponíveis|
+    |Nome da subscrição| a subscrição que será faturada para o recurso.|
+    |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem-lhe agrupar os recursos do Azure para acesso e gestão.|
+    |Nome| Um nome personalizado que escolher, usado como subdomínio personalizado para as suas consultas de autor e ponto final de previsão.|
+    |Localização de autoria|A região associada ao seu modelo.|
+    |Nível de preços de autoria|O nível de preços determina a transação máxima por segundo e mês.|
+    |Localização do tempo de execução|A região associada ao seu tempo de execução de previsão publicada.|
+    |Nível de preços de tempo de execução|O nível de preços determina a transação máxima por segundo e mês.|
 
-1. Clique em **Criar** e aguarde a criação do recurso. Depois de criado, navegue para a página de recursos.
-1. Colete configurado `endpoint` e uma chave API, consulte a [recolha de parâmetros necessários](#gathering-required-parameters).
+    > [!div class="mx-imgBorder"]
+    > [![Criar o recurso de compreensão da linguagem](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+1. Clique em **Rever + criar** e esperar pela criação do recurso.
+1. Depois de ambos os recursos serem criados, ainda no portal Azure, selecione o novo recurso de autoria, depois **quickstarts** para obter o **URL final de** autor e **chave** para a autoria programática.
+
+> [!TIP]
+> Para utilizar os recursos, no portal LUIS, [atribuir os recursos.](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps)

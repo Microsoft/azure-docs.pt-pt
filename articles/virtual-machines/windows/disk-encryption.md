@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: d8e6f4b58cf17a7502e2c0d67e4fa67af7cdb3f5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 25b8df0d8565686737b33aac16d4bf698ce43280
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632955"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757221"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
@@ -91,6 +91,9 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
     Ao criar a instância Key Vault, deve ativar a proteção de eliminação suave e purga. A eliminação suave garante que o Cofre-Chave detém uma chave eliminada durante um determinado período de retenção (padrão de 90 dias). A proteção da purga garante que uma chave eliminada não pode ser eliminada permanentemente até que o período de retenção caduque. Estas definições protegem-no de perder dados devido à eliminação acidental. Estas definições são obrigatórias quando se utiliza um Cofre chave para encriptar discos geridos.
 
+    > [!IMPORTANT]
+    > Não case camelo na região, se o fizer poderá ter problemas ao atribuir discos adicionais ao recurso no portal Azure.
+    
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
     $LocationName="westcentralus"

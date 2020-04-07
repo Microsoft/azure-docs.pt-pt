@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 1c519533625835677ddae0a274c9ce9f10edc6dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: db7c7ae9889d26479f51a7714e7e9fb04b444628
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73097990"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757118"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processe e analise documentos jSON usando Apache Hive em Azure HDInsight
 
@@ -58,6 +58,9 @@ Saiba como processar e analisar ficheiros de Notação de Objetos JavaScript (JS
 O ficheiro pode `wasb://processjson@hditutorialdata.blob.core.windows.net/`ser encontrado em . Para obter mais informações sobre como utilizar o armazenamento Azure Blob com o HDInsight, consulte Use o [armazenamento Azure Blob compatível com HDFS com Apache Hadoop no HDInsight](../hdinsight-hadoop-use-blob-storage.md). Pode copiar o ficheiro para o recipiente predefinido do seu cluster.
 
 Neste artigo, usas a consola Apache Hive. Para obter instruções sobre como abrir a consola [Hive, consulte Use Apache Ambari Hive View com Apache Hadoop em HDInsight](apache-hadoop-use-hive-ambari-view.md).
+
+> [!NOTE]  
+> A Hive View já não está disponível no HDInsight 4.0.
 
 ## <a name="flatten-json-documents"></a>Achate documentos JSON
 
@@ -105,7 +108,7 @@ A Hive fornece três mecanismos diferentes para executar consultas em documentos
 
 ### <a name="use-the-get_json_object-udf"></a>Use o get_json_object UDF
 
-A Hive fornece uma UDF incorporada chamada [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que pode realizar consulta sons JSON durante o tempo de execução. Este método requer dois argumentos- o nome da tabela e o nome do método, que tem o documento JSON achatado e o campo JSON que precisa de ser analisado. Vejamos um exemplo para ver como funciona esta UDF.
+A Hive fornece uma UDF incorporada chamada [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que consulta a JSON durante o tempo de execução. Este método tem dois argumentos: o nome da mesa e o nome do método. O nome do método tem o documento JSON achatado e o campo JSON que precisa de ser analisado. Vejamos um exemplo para ver como funciona esta UDF.
 
 A seguinte consulta devolve o primeiro nome e apelido para cada aluno:
 
@@ -118,18 +121,18 @@ FROM StudentsOneLine;
 
 Aqui está a saída quando executa esta consulta na janela da consola:
 
-![Apache Hive obter json objeto UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive recebe objeto json UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 Existem limitações da Get_json_object UDF:
 
 * Como cada campo na consulta requer reparso da consulta, afeta o desempenho.
 * **GET\_JSON_OBJECT()** devolve a representação de cordas de uma matriz. Para converter esta matriz numa matriz da Colmeia, tem de usar expressões regulares para substituir os suportes quadrados "[" e "]", e depois também tem de chamar a divisão para obter a matriz.
 
-É por isso que o wiki da Colmeia recomenda que use **json_tuple**.  
+Esta conversão é a razão pela qual o Wiki da Colmeia recomenda que utilize **json_tuple**.  
 
 ### <a name="use-the-json_tuple-udf"></a>Use o json_tuple UDF
 
-Outra UDF fornecida pela Hive chama-se [json_tuple,](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)que tem um desempenho melhor do que [get_ _object json.](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) Este método pega num conjunto de teclas e uma corda JSON, e devolve uma túnica de valores utilizando uma função. A seguinte consulta devolve a identificação do aluno e a nota do documento JSON:
+Outra UDF fornecida pela Hive [chama-se json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), o que faz melhor do que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Este método requer um conjunto de teclas e uma corda JSON. Em seguida, devolve uma tuuma de valores. A seguinte consulta devolve a identificação do aluno e a nota do documento JSON:
 
 ```sql
 SELECT q1.StudentId, q1.Grade
@@ -142,7 +145,7 @@ A saída deste script na consola da Colmeia:
 
 ![Resultados da consulta de Apache Hive json](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-A json_tuple UDF usa a sintaxe de [visão](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) lateral\_na Colmeia, o que permite que json tuple crie uma tabela virtual aplicando a função UDT em cada linha da tabela original. Os JSONs complexos tornam-se demasiado desajeitados devido à utilização repetida de **VISÃO LATERAL**. Além disso, **JSON_TUPLE** não consegue lidar com JSONs aninhados.
+A `json_tuple` UDF usa a sintaxe de [visão lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) \_na Colmeia, que permite que json tuple crie uma tabela virtual aplicando a função UDT em cada linha da tabela original. Os JSONs complexos tornam-se demasiado desajeitados devido à utilização repetida de **VISÃO LATERAL**. Além disso, **JSON_TUPLE** não consegue lidar com JSONs aninhados.
 
 ### <a name="use-a-custom-serde"></a>Use um SerDe personalizado
 
@@ -150,7 +153,7 @@ SerDe é a melhor escolha para analisar documentos da JSON aninhados. Permite-lh
 
 ## <a name="summary"></a>Resumo
 
-Em conclusão, o tipo de operador JSON na Colmeia que escolher depende do seu cenário. Se tiver um simples documento JSON e tiver apenas um campo para olhar para cima, pode optar por utilizar a **Get_json_object**Da UDF da Colmeia . Se tiver mais do que uma chave para olhar para cima, então pode usar **json_tuple.** Se tem um documento aninhado, então deve utilizar o **JSON SerDe**.
+O tipo de operador JSON na Colmeia que escolher depende do seu cenário. Com um simples documento JSON e um campo para olhar para cima, escolha a Hive UDF **get_json_object**. Se tiver mais do que uma chave para olhar para cima, então pode usar **json_tuple.** Para obter documentos aninhados, utilize o **JSON SerDe**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

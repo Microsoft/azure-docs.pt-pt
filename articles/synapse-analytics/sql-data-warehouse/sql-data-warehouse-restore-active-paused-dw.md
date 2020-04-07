@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e1d0c5cd850fa0dbacf104d3fcd72d83007df878
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632259"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745221"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Restaurar uma piscina SQL existente
 
@@ -28,12 +28,12 @@ Neste artigo, você aprende como restaurar uma piscina SQL existente em Azure Sy
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Certifique-se de instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Certifique-se de instalar o [Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Tenha um ponto de restauro existente que quer restaurar. Se quiser criar um novo restauro, consulte [o tutorial para criar um novo ponto de restauro definido pelo utilizador](sql-data-warehouse-restore-points.md).
 
 ## <a name="restore-an-existing-sql-pool-through-powershell"></a>Restaurar uma piscina SQL existente através da PowerShell
 
-Para restaurar uma piscina SQL existente a partir de um ponto de restauro, utilize o cmdlet De Base de Dados PowerShell [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
+Para restaurar uma piscina SQL existente a partir de um ponto de restauro, utilize o cmdlet De Base de Dados PowerShell [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 1. Abra o PowerShell.
 
@@ -45,7 +45,7 @@ Para restaurar uma piscina SQL existente a partir de um ponto de restauro, utili
 
 5. Escolha o ponto de restauro desejado utilizando o RestorePointCreationDate.
 
-6. Restaurar a piscina SQL até ao ponto de restauro desejado utilizando o cmdlet De Base de Dados PowerShell [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
+6. Restaurar a piscina SQL até ao ponto de restauro desejado utilizando o cmdlet De Base de Dados PowerShell [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
         1. Para restaurar o pool SQL para um servidor lógico diferente, certifique-se de especificar o outro nome lógico do servidor.  Este servidor lógico também pode estar num grupo e região diferentes.
         2. Para restaurar uma subscrição diferente, utilize o botão 'Move' para mover o servidor lógico para outra subscrição.
 

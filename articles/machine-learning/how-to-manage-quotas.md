@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 03/05/2020
-ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399161"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756598"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar quotas para recursos Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Aqui está uma repartição dos limites de quota por vários tipos de recursos d
 > [!IMPORTANT]
 > Os limites estão sujeitos a alterações. O mais recente pode ser sempre encontrado no [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) de quota de nível de serviço para todo o Azure.
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Máquinas virtuais
 Para cada subscrição do Azure, existe um limite no número de máquinas virtuais que pode ter em todos os seus serviços ou autónomas. Este limite está ao nível da região tanto no nível total dos núcleos como também numa base familiar.
 
 Os núcleos de máquinas virtuais têm um limite total regional e uma série regional por tamanho (Dv2, F, etc.), ambas executadas separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região E.U.A. Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Esta subscrição poderá implementar 30 VMs A1, 30 VMs D1 ou uma combinação de ambas que não excedam um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
@@ -60,7 +60,7 @@ Recursos disponíveis:
 
 + Os aglomerados por região têm um limite de incumprimento de 200. Estes são partilhados entre um cluster de formação e um exemplo de cálculo (que é considerado como um único cluster de nó para fins de quota). Contacte o suporte azure se quiser solicitar um aumento para além deste limite.
 
-+ Existem outros limites estritos que não podem ser ultrapassados uma vez atingidos.
++ Há outros limites rigorosos que não podem ser ultrapassados uma vez atingidos.
 
 | **Recurso** | **Limite máximo** |
 | --- | --- |
@@ -91,7 +91,7 @@ Existe também um limite para o número de casos de contentores que pode girar n
 
 Para obter uma lista mais pormenorizada e atualizada dos limites das quotas, consulte [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)o artigo de quotas em todo o Azure.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 Existe um limite para o número de contas de armazenamento por região, bem como numa determinada subscrição. O limite de predefinição é de 250 e inclui contas standard e premium de armazenamento. Se necessitar de mais de 250 contas de armazenamento numa determinada região, faça um pedido através do [Suporte Azure.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) A equipa de Armazenamento Azure irá rever o seu caso de negócio e poderá aprovar até 250 contas de armazenamento para uma determinada região.
 
 

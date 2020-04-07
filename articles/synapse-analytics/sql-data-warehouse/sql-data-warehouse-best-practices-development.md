@@ -11,30 +11,34 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5857a10d0aaf0d0c37ab55a2d0d29e5315340c9f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 9c4f08b143ab4a0d3e780f68f8d5ab823d4eae12
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633641"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745361"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>As melhores práticas de desenvolvimento para piscina Synapse SQL
-Este artigo descreve orientações e boas práticas à medida que desenvolve a sua solução de piscina SQL. 
 
-## <a name="tune-query-performance-with-new-product-enhancements"></a>Desempenho de consulta de sintonização com novas melhorias do produto  
+Este artigo descreve orientações e boas práticas à medida que desenvolve a sua solução de piscina SQL.
+
+## <a name="tune-query-performance-with-new-product-enhancements"></a>Desempenho de consulta de sintonização com novas melhorias do produto
+
 - [Otimização do desempenho com vistas materializadas](performance-tuning-materialized-views.md)
 - [Otimização do desempenho com índice columnstore em cluster ordenado](performance-tuning-ordered-cci.md)
 - [Otimização do desempenho com a colocação em cache dos resultados](performance-tuning-result-set-caching.md)
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzir os custos com a colocação em pausa e o dimensionamento
-Para obter mais informações sobre a redução dos custos através da pausa e escalagem, consulte o artigo [Manage compute.](sql-data-warehouse-manage-compute-overview.md) 
+
+Para obter mais informações sobre a redução dos custos através da pausa e escalagem, consulte o artigo [Manage compute.](sql-data-warehouse-manage-compute-overview.md)
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
+
 O pool SQL pode ser configurado para detetar e criar automaticamente estatísticas sobre colunas.  Os planos de consulta criados pelo otimizador são tão bons quanto as estatísticas disponíveis.  
 
-Recomendamos que AUTO_CREATE_STATISTICS para as suas bases de dados e mantenha as estatísticas atualizadas diariamente ou após cada carga para garantir que as estatísticas sobre as colunas utilizadas nas suas consultas estão sempre atualizadas. 
+Recomendamos que AUTO_CREATE_STATISTICS para as suas bases de dados e mantenha as estatísticas atualizadas diariamente ou após cada carga para garantir que as estatísticas sobre as colunas utilizadas nas suas consultas estão sempre atualizadas.
 
-Se descobrir que está a demorar muito tempo a atualizar todas as suas estatísticas, talvez queira tentar ser mais seletiva sobre quais as colunas que precisam de atualizações estatísticas frequentes. Por exemplo, deve atualizar as colunas de data, onde podem ser adicionados diariamente novos valores. 
+Se descobrir que está a demorar muito tempo a atualizar todas as suas estatísticas, talvez queira tentar ser mais seletiva sobre quais as colunas que precisam de atualizações estatísticas frequentes. Por exemplo, deve atualizar as colunas de data, onde podem ser adicionados diariamente novos valores.
 
 > [!TIP]
 > Você ganhará o maior benefício com estatísticas atualizadas sobre colunas envolvidas em juntas, colunas utilizadas na cláusula WHERE, e colunas encontradas no GRUPO BY.
@@ -42,6 +46,7 @@ Se descobrir que está a demorar muito tempo a atualizar todas as suas estatíst
 Ver também Gerir estatísticas de [tabelas,](sql-data-warehouse-tables-statistics.md) [CRIAR ESTATÍSTICAS,](sql-data-warehouse-tables-statistics.md)e [ATUALIZAR ESTATÍSTICAS.](sql-data-warehouse-tables-statistics.md#update-statistics)
 
 ## <a name="hash-distribute-large-tables"></a>Distribuir tabelas grandes por hash
+
 Por predefinição, as tabelas são distribuídas por Round Robin.  Este design facilita que os utilizadores possam começar a criar tabelas sem terem de decidir como as suas tabelas devem ser distribuídas.  
 
 As tabelas Round Robin podem ter um desempenho suficiente para algumas cargas de trabalho, mas, na maioria dos casos, selecionar uma coluna de distribuição irá proporcionar um desempenho muito melhor.  O exemplo mais comum de quando uma tabela distribuída por uma coluna supera de longe uma tabela Round Robin é quando duas tabelas de factos grandes são associadas.  
@@ -53,6 +58,7 @@ Ao carregar uma tabela distribuída, certifique-se de que os dados recebidos nã
 Ver também [visão geral da tabela,](sql-data-warehouse-tables-overview.md)distribuição de [tabelas,](sql-data-warehouse-tables-distribute.md) [seleção de tabelas,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)MESA DE [CRIAÇÃO,](sql-data-warehouse-tables-overview.md)e CRIAR TABELA COMO [SELECT](sql-data-warehouse-develop-ctas.md)
 
 ## <a name="do-not-over-partition"></a>Não crie partições em demasia
+
 Embora a partilha de dados possa ser eficaz para manter os seus dados através da troca de divisórias ou otimização de digitalizações com a eliminação da divisória, ter demasiadas divisórias pode abrandar as suas consultas.  
 
 Frequentemente, uma estratégia de partição de alta granularidade que pode funcionar bem no SQL Server pode não funcionar bem na piscina SQL.  Ter demasiadas partições pode também reduzir a eficácia de índices columnstore em cluster se cada partição tiver menos de 1 milhão de linhas.  
@@ -65,6 +71,7 @@ Tenha em mente que nos bastidores, a SQL partilha os seus dados em 60 bases de d
 Ver também [partição de mesa](sql-data-warehouse-tables-partition.md).
 
 ## <a name="minimize-transaction-sizes"></a>Minimizar tamanhos de transação
+
 As instruções INSERT, UPDATE e DELETE são executadas numa transação e quando falham têm de ser revertidas.  Para reduzir a probabilidade uma reversão longa, minimize os tamanhos de transação sempre que possível.  Isto pode ser realizado ao dividir as instruções INSERT, UPDATE e DELETE em partes.  
 
 Por exemplo, se tiver um INSERT, que espera demorar 1 hora, se possível, separe o INSirem em quatro partes, que funcionarão cada uma em 15 minutos.  Aproveite as caixas especiais de registo mínimo, como CTAS, TRUNCATE, DROP TABLE ou INSERT a mesas vazias, para reduzir o risco de retrocesso.  
@@ -73,9 +80,10 @@ Outra forma de eliminar reversões consiste em utilizar Operações Apenas de Me
 
 Para tabelas não partitivas, considere utilizar um CTAS para escrever os dados que pretende manter numa tabela em vez de utilizar o DELETE.  Se um CTAS demorar o mesmo tempo, é uma operação muito mais segura para ser executada, uma vez que tem o mínimo de registo de transações e pode ser cancelado rapidamente, se necessário.
 
-Ver também [Compreender as transações,](sql-data-warehouse-develop-transactions.md) [otimizar transações,](sql-data-warehouse-develop-best-practices-transactions.md) [partição em tabela,](sql-data-warehouse-tables-partition.md) [Tabela TRUNCATE,](https://msdn.microsoft.com/library/ms177570.aspx) [ALTER TABLE,](https://msdn.microsoft.com/library/ms190273.aspx)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
+Ver também [Compreender as transações,](sql-data-warehouse-develop-transactions.md) [otimizar transações,](sql-data-warehouse-develop-best-practices-transactions.md) [partição em tabela,](sql-data-warehouse-tables-partition.md) [Tabela TRUNCATE,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [ALTER TABLE,](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="use-the-smallest-possible-column-size"></a>Utilizar o tamanho mais pequeno possível da coluna
+
 Ao definir o seu DDL, utilizando o menor tipo de dados que irá suportar os seus dados irá melhorar o desempenho da consulta.  Esta abordagem é especialmente importante para as colunas CHAR e VARCHAR.  
 
 Se o maior valor numa coluna for de 25 carateres, defina a coluna como VARCHAR(25).  Evite definir todas as colunas de carateres com um comprimento predefinido grande.  Além disso, defina colunas como VARCHAR quando é tudo o que é necessário, em vez de utilizar NVARCHAR.
@@ -83,6 +91,7 @@ Se o maior valor numa coluna for de 25 carateres, defina a coluna como VARCHAR(2
 Consulte também [a visão geral da tabela,](sql-data-warehouse-tables-overview.md)os tipos de dados da [tabela](sql-data-warehouse-tables-data-types.md)e a [TABELA CREATE](sql-data-warehouse-tables-overview.md).
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Otimizar tabelas columnstore em cluster
+
 Os índices de lojas de colunas agrupados são uma das formas mais eficientes de armazenar os seus dados em piscina SQL.  Por padrão, as tabelas na piscina SQL são criadas como ColumnStore Clustered.  
 
 > [!NOTE]
@@ -98,16 +107,17 @@ Uma vez que as tabelas de lojas de colunas geralmente não empurram os dados par
 
 Para uma tabela com menos de 60 milhões de linhas, pode não fazer sentido ter um índice de colunas.  Também poderá não prejudicar.  
 
-Além disso, se dividir os dados, deverá ter em consideração que cada partição tem de ter 1 milhão de linhas para beneficiar de um índice columnstore em cluster.  Se uma tabela tiver 100 partições, terá de ter, pelo menos, 6 milhões de linhas para beneficiar de um arquivo de colunas em cluster (60 distribuições * 100 partições * 1 milhão de linhas).  
+Além disso, se dividir os dados, deverá ter em consideração que cada partição tem de ter 1 milhão de linhas para beneficiar de um índice columnstore em cluster.  Se uma tabela tiver 100 divisórias, então terá de ter pelo menos 6 mil milhões de filas para beneficiar de uma loja de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas).  
 
 Se a sua tabela não tiver 6 mil milhões de linhas neste exemplo, reduza o número de partições ou considere a utilização de uma tabela de área dinâmica para dados.  Também poderá ser útil experimentar, para ver se consegue obter um melhor desempenho com uma tabela de área dinâmica para dados com índices secundários, em vez de uma tabela columnstore.
 
 > [!TIP]
 > Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se selecionar apenas as colunas de que precisa.  
 
-Consulte também índices de [tabela,](sql-data-warehouse-tables-index.md) [guia de índices de colunas](https://msdn.microsoft.com/library/gg492088.aspx)e índices de[reconstrução de colunas.](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)
+Consulte também índices de [tabela,](sql-data-warehouse-tables-index.md) [guia de índices de colunas](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e índices de [reconstrução de colunas.](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Se não encontrar o que procura neste artigo, tente usar a "Search for docs" no lado esquerdo desta página para pesquisar todos os documentos azure synapse.  
 
 O [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) é um local para você publicar perguntas a outros utilizadores e ao Grupo de Produtos Azure Synapse.  Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  
@@ -115,5 +125,3 @@ O [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?
 Se preferir colocar as suas questões no Stack Overflow, também temos um [Fórum do Stack Overflow do Azure SQL Data Warehouse](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
 Utilize a página [de Feedback Do Synapse Azure](https://feedback.azure.com/forums/307516-sql-data-warehouse) para fazer pedidos de funcionalidades.  Adicionar os seus pedidos ou votar noutros pedidos que realmente nos ajudam a priorizar funcionalidades.
-
-

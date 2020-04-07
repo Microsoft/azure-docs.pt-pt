@@ -2,15 +2,15 @@
 title: Criar uma função em Azure desencadeada por mensagens de fila
 description: Utilize as Funções do Azure para criar uma função sem servidores que é invocada por mensagens que são submetidas para filas do Armazenamento do Azure.
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 98f0290aad9971bdb0c0b265d96e96d8ac34b99d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75769256"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756515"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função acionada pelo Armazenamento de filas do Azure
 

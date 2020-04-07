@@ -4,12 +4,12 @@ description: Neste tutorial, vai aprender a adicionar um ponto final de HTTPS a 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238931"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756092"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 
@@ -20,7 +20,7 @@ Na terceira parte da série, ficará a saber como:
 > [!div class="checklist"]
 > * Definir um ponto final de HTTPS no serviço
 > * Configurar o Kestrel para utilizar HTTPS
-> * Instalar o certificado SSL nos nós de cluster remoto
+> * Instale o certificado TLS/SSL nos nós do cluster remoto
 > * Dar ao SERVIÇO DE REDE acesso à chave privada do certificado
 > * Abrir a porta 443 no Balanceador de Carga do Azure
 > * Implementar a aplicação num cluster remoto
@@ -396,7 +396,7 @@ Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Definir um ponto final de HTTPS no serviço
 > * Configurar o Kestrel para utilizar HTTPS
-> * Instalar o certificado SSL nos nós de cluster remoto
+> * Instale o certificado TLS/SSL nos nós do cluster remoto
 > * Dar ao SERVIÇO DE REDE acesso à chave privada do certificado
 > * Abrir a porta 443 no Balanceador de Carga do Azure
 > * Implementar a aplicação num cluster remoto

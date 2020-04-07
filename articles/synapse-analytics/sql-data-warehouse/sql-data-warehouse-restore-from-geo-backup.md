@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 68d53d2a33b7ab705dfa88f03618a5d5a3d1bced
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633032"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745071"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-restauro para piscina SQL
 
@@ -30,13 +30,13 @@ Neste artigo, você aprende a restaurar a sua piscina SQL a partir de um geo-bac
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica azure através da PowerShell
 
-Para restaurar a partir de uma geo-cópia, utilize o [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) e [o Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet.
+Para restaurar a partir de uma geo-cópia, utilize o [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e [o Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet.
 
 > [!NOTE]
 > Pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Objectivodo Serviço Gen2 (por exemplo, DW1000**c**) como parâmetro opcional.
 >
 
-1. Antes de começar, certifique-se de instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Antes de começar, certifique-se de instalar o [Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra o PowerShell.
 3. Ligue-se à sua conta Azure e enumere todas as subscrições associadas à sua conta.
 4. Selecione a subscrição que contém o armazém de dados a restaurar.

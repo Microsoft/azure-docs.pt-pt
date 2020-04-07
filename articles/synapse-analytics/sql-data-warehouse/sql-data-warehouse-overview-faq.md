@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586513"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743013"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (ex-SQL DW) Frequentemente fez perguntas
 
@@ -35,7 +35,7 @@ R. O pool SQL da Synapse refere-se às funcionalidades de armazenamento de dados
 
 P. Como posso começar com Azure Synapse?
 
-R. Pode começar com uma [conta azure gratuita](https://azure.microsoft.com/free/sql-data-warehouse/) ou [vendas de contato para mais informações.](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html) 
+R. Pode começar com uma [conta azure gratuita](https://azure.microsoft.com/free/sql-data-warehouse/) ou [vendas de contato para mais informações.](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html)
 
 P. O que o Azure Synapse oferece para a segurança de dados?
 
@@ -43,7 +43,8 @@ R. A Azure Synapse oferece várias soluções para proteger dados como o TDE e a
 
 P. Onde posso descobrir quais os padrões legais ou empresariais com que a Azure Synapse está em conformidade?
 
-R. Visite a página [de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings) da Microsoft para várias ofertas de conformidade por produto como SOC e ISO. Primeiro, escolha pelo título de Compliance. Em seguida, expanda o Azure na secção de serviços de nuvem de âmbito da Microsoft no lado direito da página para ver quais os serviços que o Azure Synapse cumpre.
+R. Visite a página [de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings) da Microsoft para várias ofertas de conformidade por produto como SOC e ISO.
+Primeiro, escolha pelo título de Compliance. Em seguida, expanda o Azure na secção de serviços de nuvem de âmbito da Microsoft no lado direito da página para ver quais os serviços que o Azure Synapse cumpre.
 
 P. Posso ligar o Power BI?
 
@@ -51,7 +52,7 @@ R. Sim! Embora o Power BI suporte a consulta direta com o Azure Synapse, não se
 
 P. O que são os limites de capacidade de piscina Synapse SQL?
 
-R. Consulte a nossa página de [limites](sql-data-warehouse-service-capacity-limits.md) de capacidade atual. 
+R. Consulte a nossa página de [limites](sql-data-warehouse-service-capacity-limits.md) de capacidade atual.
 
 P. Porque é que a minha Escala/Pausa/Currículo está a demorar tanto tempo?
 
@@ -65,13 +66,13 @@ R. Se tiver um pedido de funcionalidade, envie-o na nossa página [UserVoice](ht
 
 P. Como posso fazer x?
 
-R. Para ajudar no desenvolvimento com o Azure Synapse, pode fazer perguntas na nossa página [stack Overflow.](https://stackoverflow.com/questions/tagged/azure-sqldw) 
+R. Para ajudar no desenvolvimento com o Azure Synapse, pode fazer perguntas na nossa página [stack Overflow.](https://stackoverflow.com/questions/tagged/azure-sqldw)
 
 P. Como posso enviar um bilhete de apoio?
 
 R. [Os bilhetes](sql-data-warehouse-get-started-create-support-ticket.md) de apoio podem ser arquivados através do portal Azure.
 
-## <a name="sql-languagefeature-support"></a>Suporte de idioma/recurso SQL 
+## <a name="sql-languagefeature-support"></a>Suporte de idioma/recurso SQL
 
 P. Que tipos de dados são suportados?
 
@@ -85,7 +86,7 @@ R. Muitas funcionalidades são suportadas. As funcionalidades que não são supo
 
 P. A piscina Synapse SQL suporta APIs REST?
 
-R. Sim. A maior parte da funcionalidade REST que pode ser usada com base de dados SQL também está disponível com piscina SYnapse SQL. Pode encontrar informações da API dentro das páginas de documentação REST ou [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+R. Sim. A maior parte da funcionalidade REST que pode ser usada com base de dados SQL também está disponível com piscina SYnapse SQL. Pode encontrar informações da API dentro de páginas de documentação REST ou [Bases de Dados](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="loading"></a>Carregamento
 
@@ -97,17 +98,17 @@ P: Que formatos de ficheiro são suportados pela PolyBase?
 
 R: Orc, RC, Parquet e texto delimitado plano
 
-P: Que fontes de dados posso ligar à utilização da PolyBase? 
+P: Que fontes de dados posso ligar à utilização da PolyBase?
 
 A: [Armazenamento de lagos de dados azure](sql-data-warehouse-load-from-azure-data-lake-store.md) e [blobs de armazenamento azure](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
-P: A pressão da computação é possível quando se conecta a Blobs de Armazenamento Azure ou ADLS? 
+P: A pressão da computação é possível quando se conecta a Blobs de Armazenamento Azure ou ADLS?
 
-R: Não, a PolyBase só interage com os componentes de armazenamento. 
+R: Não, a PolyBase só interage com os componentes de armazenamento.
 
 P: Posso ligar-me ao HDI?
 
-R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver uma camada HDFS, pode carregar esses dados numa piscina SYnapse SQL. No entanto, não é possível gerar cálculo de push down para a instância DeI. 
+R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver uma camada HDFS, pode carregar esses dados numa piscina SYnapse SQL. No entanto, não é possível gerar cálculo de push down para a instância DeI.
 
 ## <a name="next-steps"></a>Passos seguintes
 

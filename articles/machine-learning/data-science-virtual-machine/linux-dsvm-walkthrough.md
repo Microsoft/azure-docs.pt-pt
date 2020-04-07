@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7292064a1df8aa9bfffcd9a19a03f7b332c0615e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 1298d5fe1d7407e836f454c2130a913dde6f8eec
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632723"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755140"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual linux data science em Azure
 
@@ -39,7 +39,7 @@ Antes de poder utilizar um Linux DSVM, deve ter os seguintes pré-requisitos:
 O conjunto de dados da base de [spam](https://archive.ics.uci.edu/ml/datasets/spambase) é um conjunto relativamente pequeno de dados que contém 4.601 exemplos. O conjunto de dados é um tamanho conveniente para demonstrar algumas das principais características do DSVM porque mantém os requisitos de recursos modestos.
 
 > [!NOTE]
-> Esta passagem foi criada utilizando um DSVM Linux DSVM (CentOS Edition). Você pode usar um DSVM deste tamanho para completar os procedimentos que são demonstrados nesta passagem.
+> Esta passagem foi criada usando um D2 v2 Linux DSVM (Ubuntu 18.04 Edition). Você pode usar um DSVM deste tamanho para completar os procedimentos que são demonstrados nesta passagem.
 
 Se precisar de mais espaço de armazenamento, pode criar discos adicionais e anexá-los ao seu DSVM. Os discos utilizam o armazenamento azure persistente, pelo que os seus dados são preservados mesmo que o servidor seja reprovisionado devido à redimensionamento ou seja desligado. Para adicionar um disco e fixá-lo ao seu DSVM, complete os passos em [Adicionar um disco a um VM Linux](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os passos para adicionar um disco utilizam o Azure CLI, que já está instalado no DSVM. Pode completar os passos inteiramente a partir do próprio DSVM. Outra opção para aumentar o armazenamento é utilizar [ficheiros Azure](../../storage/files/storage-how-to-use-files-linux.md).
 

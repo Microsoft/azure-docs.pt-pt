@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78398194"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756586"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementar um modelo para os casos de computação de machine learning azure
 
@@ -96,7 +96,7 @@ print("prediction:", resp.text)
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Serviços web Secure Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Use tLS para garantir um serviço web através de Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de Aprendizagem automática Azure com Insights de Aplicação](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

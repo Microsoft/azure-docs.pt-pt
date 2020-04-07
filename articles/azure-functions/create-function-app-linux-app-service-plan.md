@@ -1,14 +1,14 @@
 ---
 title: Criar uma aplicação de função no Linux a partir do portal Azure
 description: Saiba como criar a sua primeira Função do Azure para execução sem servidor através do portal do Azure.
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 02/28/2019
-ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2de36faf07ad661ff8817adc48b726f54990ceb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76963840"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754126"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Crie uma aplicação de função no Linux num plano de Serviço de Aplicações Azure
 
@@ -37,7 +37,7 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome da aplicação** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
-    | **Assinatura** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. | 
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. | 
     | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
     | **OS** | Linux | A aplicação de funções funciona no Linux. |
     | **Publicar** | Código | É utilizado o recipiente Linux padrão para o seu **Runtime Stack.** Tudo o que precisa fornecer é o código do projeto da sua app de funções. Outra opção é publicar uma imagem personalizada [do Docker.](functions-create-function-linux-custom-image.md) |

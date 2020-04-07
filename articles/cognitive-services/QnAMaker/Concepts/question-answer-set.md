@@ -3,12 +3,12 @@ title: Base de conhecimento de design - QnA Maker
 description: Uma base de conhecimento do QnA Maker consiste num conjunto de conjuntos de perguntas e respostas (QnA) e metadados opcionais associados a cada par qnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76844326"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756781"
 ---
 # <a name="question-and-answer-set-concepts"></a>Conceitos de conjunto de perguntas e respostas
 
@@ -33,7 +33,7 @@ As definições **opcionais** para um conjunto incluem:
 
 ## <a name="editorially-add-to-knowledge-base"></a>Adicione editorialmente à base de conhecimento
 
-Se não tiver conteúdo pré-existente para povoar a base de conhecimentos, pode adicionar conjuntos de QnA editorialmente no portal QnA Maker. Saiba como atualizar a sua base de conhecimentos [aqui](../How-To/edit-knowledge-base.md).
+Se não tiver conteúdo pré-existente para povoar a base de conhecimentos, pode adicionar pares QnA editorialmente no portal QnA Maker. Saiba como atualizar a sua base de conhecimentos [aqui](../How-To/edit-knowledge-base.md).
 
 ## <a name="editing-your-knowledge-base-locally"></a>Editar a sua base de conhecimentos localmente
 

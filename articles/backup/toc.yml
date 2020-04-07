@@ -32,8 +32,6 @@
       href: tutorial-sql-backup.md
     - name: Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
       href: tutorial-backup-sap-hana-db.md
-    - name: Fazer Cópias de Segurança das Partilhas de Ficheiros dos Ficheiros do Azure
-      href: tutorial-backup-azure-files.md
     - name: Fazer uma cópia de segurança do Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurar ficheiros para o Windows Server

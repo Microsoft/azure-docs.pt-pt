@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246324"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743447"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de bloqueio de conta com um domínio gerido pelos Serviços de Domínio Da Azure AD
 
@@ -33,11 +33,11 @@ Os limiares de bloqueio da conta predefinida são configurados utilizando a pol�
 
 ### <a name="fine-grained-password-policy"></a>Política de senha de grãos finos
 
-As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para as políticas de password e bloqueio de conta a diferentes utilizadores num domínio. A FGPP apenas afeta os utilizadores criados em DS AD Azure. Os utilizadores de cloud e utilizadores de domínio sincronizados no domínio gerido pelo Azure AD DS a partir do Azure AD não são afetados pelas políticas de senha.
+As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para as políticas de password e bloqueio de conta a diferentes utilizadores num domínio. A FGPP apenas afeta os utilizadores dentro de um domínio gerido pelo Azure AD DS. Os utilizadores de cloud e utilizadores de domínio sincronizados no domínio gerido pelo Azure AD DS a partir do Azure AD só são afetados pelas políticas de password dentro do Azure AD DS. As suas contas em Azure AD ou um diretório no local não são impactadas.
 
 As políticas são distribuídas através da associação de grupos no domínio gerido pelo Azure AD DS, e quaisquer alterações que faça são aplicadas no próximo início de sessão do utilizador. Mudar a apólice não desbloqueia uma conta de utilizador que já está bloqueada.
 
-Para obter mais informações sobre as políticas de senha de grão fino, consulte as políticas de bloqueio de [palavras-passe e][configure-fgpp]de conta Configurar.
+Para obter mais informações sobre as políticas de senha de grão fino, e as diferenças entre os utilizadores criados diretamente em Azure AD DS versus sincronizado a partir de Azure AD, consulte as políticas de password e bloqueio de [conta configuradas.][configure-fgpp]
 
 ## <a name="common-account-lockout-reasons"></a>Razões comuns de bloqueio da conta
 

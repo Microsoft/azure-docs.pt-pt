@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf65f69d9dcaf6de2236c98b56b58ec7e021099
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74025401"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755114"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar as ligações de conta linkedIn no Diretório Ativo do Azure
 
@@ -26,8 +26,9 @@ Pode permitir que os utilizadores da sua organização acedam às suas ligaçõe
 
 > [!IMPORTANT]
 > A definição de ligações à conta LinkedIn está atualmente a ser distribuída para as organizações da AD Azure. Quando é lançado para a sua organização, é ativado por padrão.
-> 
+>
 > Exceções:
+>
 > * A definição não está disponível para clientes que utilizem o Microsoft Cloud para o Governo dos EUA, Microsoft Cloud Germany ou Azure e Office 365 operados pela 21Vianet na China.
 > * A fixação é destícida por defeito para os inquilinos aprovisionados na Alemanha. Note que a definição não está disponível para clientes que usam o Microsoft Cloud Germany.
 > * A fixação é por defeito para os inquilinos aprovisionados em França.
@@ -40,7 +41,7 @@ Pode ativar as ligações de conta do LinkedIn apenas para os utilizadores que p
 
 1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com/) com uma conta que é uma administração global para a organização Azure AD.
 1. Selecione **Utilizadores**.
-1. Na lâmina **utilizadores,** selecione **as definições do Utilizador**.
+1. Na página **Utilizadores,** selecione **as definições do Utilizador**.
 1. No âmbito das ligações da **conta LinkedIn,** permite que os utilizadores conectem as suas contas para acederem às suas ligações LinkedIn dentro de algumas aplicações da Microsoft. Não são partilhados dados até que os utilizadores consintam em ligar as suas contas.
 
     * Selecione **Sim** para ativar o serviço para todos os utilizadores da sua organização
@@ -55,6 +56,7 @@ Pode ativar as ligações de conta do LinkedIn apenas para os utilizadores que p
 > A integração do LinkedIn não está totalmente ativada para os seus utilizadores até que consintam em ligar as suas contas. Não são partilhados dados quando permite as ligações de conta para os seus utilizadores.
 
 ### <a name="assign-selected-users-with-a-group"></a>Atribuir utilizadores selecionados com um grupo
+
 Substituímos a opção 'Selected' que especifica uma lista de utilizadores com a opção de selecionar um grupo de utilizadores para que possa permitir a capacidade de ligar as contas do LinkedIn e da Microsoft a um único grupo em vez de muitos utilizadores individuais. Se não tiver ligações de conta LinkedIn ativadas para utilizadores individuais selecionados, não precisa de fazer nada. Se já tiver ativado previamente as ligações de conta linkedIn para utilizadores individuais selecionados, deverá:
 
 1. Obtenha a lista atual de utilizadores individuais
@@ -64,16 +66,12 @@ Substituímos a opção 'Selected' que especifica uma lista de utilizadores com 
 > [!NOTE]
 > Mesmo que não mude os utilizadores individuais atualmente selecionados para um grupo, ainda podem ver informações do LinkedIn nas aplicações da Microsoft.
 
-### <a name="get-the-current-list-of-selected-users"></a>Obtenha a lista atual de utilizadores selecionados
+### <a name="move-currently-selected-users-to-a-group"></a>Mova os utilizadores atualmente selecionados para um grupo
 
+1. Crie um ficheiro CSV dos utilizadores selecionados para ligações à conta LinkedIn.
 1. Assine o Microsoft 365 com a sua conta de administrador.
-1. Aceda a https://linkedinselectedusermigration.azurewebsites.net/. Verá a lista de utilizadores selecionados para ligações à conta LinkedIn.
-1. Exporte a lista para um ficheiro CSV.
-
-### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Mova os utilizadores individuais atualmente selecionados para um grupo
-
-1. Iniciar o PowerShell
-1. Instale módulo AD Azure executando`Install-Module AzureAD`
+1. Inicie o PowerShell.
+1. Instale o módulo Azure AD em execução`Install-Module AzureAD`
 1. Execute o seguintes script:
 
   ``` PowerShell

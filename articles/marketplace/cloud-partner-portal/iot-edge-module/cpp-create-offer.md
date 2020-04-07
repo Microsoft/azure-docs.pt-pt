@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 164b26560020054f4da8bd1aa0ba2a3ecff1875a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 112c2ba831ab27faaca755079e9d20e2aebfcf9f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286630"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744394"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Crie uma nova oferta de móduloS IoT Edge com o Portal do Parceiro cloud
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
 
 Este artigo descreve como criar e publicar um módulo IoT Edge oferece entrada para o Mercado Azure. Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada a uma ou mais SKUs.  Uma oferta de módulo IoT Edge é composta pelos seguintes agrupamentos de ativos e serviços de apoio:
 

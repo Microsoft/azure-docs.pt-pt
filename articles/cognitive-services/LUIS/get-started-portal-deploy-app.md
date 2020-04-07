@@ -1,21 +1,14 @@
 ---
 title: 'Quickstart: Implemente uma app com o portal LUIS'
-titleSuffix: Azure Cognitive Services
 description: Este quickstart mostra como implementar uma aplicação criando um recurso final de previsão, atribuindo o recurso, formação e publicação da app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79241781"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756298"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
@@ -29,35 +22,13 @@ Neste arranque rápido, aprende-se a implementar uma aplicação. Cria um recurs
 * Complete o [portal anterior, arranque](get-started-portal-build-app.md) rápido ou [descarregamento e importe a aplicação.](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json)
 * Se tiver aplicações que antecedam a autenticação de recursos Azure, [emigra para um recurso Azure.](luis-migration-authoring.md) Algumas páginas do portal parecem diferentes quando a autenticação por e-mail está em vigor.
 
-## <a name="create-the-endpoint-resource"></a>Criar o recurso endpoint
+<a name="create-the-endpoint-resource"></a>
 
-Cria-se o recurso final de previsão no portal Azure. Este recurso só deve ser utilizado para consultas de previsão de pontofinal. Não utilize este recurso para a autoria de alterações à aplicação.
-
-1. Inscreva-se e crie um recurso no [portal Azure.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-
-1. Configure a subscrição com as seguintes definições:
-
-   |Definição|Valor|Objetivo|
-   |--|--|--|
-   |Nome|`my-luis-resource`|O nome do recurso Azure. Precisa deste nome quando atribui o recurso à app no portal LUIS.|
-   |Subscrição|A sua subscrição|Selecione uma das subscrições associadas à sua conta.|
-   |Grupo de recursos|`my-resource-group`|Crie um novo grupo de recursos para todos os seus recursos de serviço cognitivo. Quando terminar os recursos, pode eliminar o grupo de recursos para limpar a sua subscrição. |
-   |Localização de autoria|**E.U.A. Oeste**|A região de Azure para autoria.|
-   |Nível de preços de autoria|**F0**|O nível de preços padrão para a autoria.|
-   |Localização do tempo de execução|**E.U.A. Oeste**|A região de Azure para consultas de ponto final de previsão.|
-   |Nível de preços de tempo de execução|**S0**|Este nível de preços fornece sites de alto tráfego.|
-   | | | |
-
-
-   ![Escolha da API Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Selecione **Criar** para criar o recurso Azure.
-
-   Na secção seguinte, aprende-se a ligar este novo recurso a uma aplicação LUIS no portal LUIS.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Atribuir a chave de recursos à app LUIS no portal LUIS
 
-Sempre que cria um novo recurso para o LUIS, tem de atribuir o recurso à aplicação LUIS. Depois de atribuído, não precisará de fazer este passo de novo, a menos que crie um novo recurso. Poderá criar um novo recurso para expandir as regiões da sua app ou para suportar um maior número de consultas de previsão.
+Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, tem de atribuir o recurso à app LUIS. Depois de atribuído, não precisará de fazer este passo de novo, a menos que crie um novo recurso. Poderá criar um novo recurso para expandir as regiões da sua app ou para suportar um maior número de consultas de previsão.
 
 1. Inscreva-se no [portal DE pré-visualização](https://preview.luis.ai) luis e escolha a aplicação **myEnglishApp** na lista de aplicações.
 

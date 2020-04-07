@@ -6,12 +6,12 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239799"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754685"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Configure as definições de rede do cluster
 
@@ -76,7 +76,7 @@ O cluster FXT Edge Filer utiliza certificados X.509 para estas funções:
 
 Se precisar de fazer o upload de certificados para o cluster, utilize a página de definições de**Certificados** de **Cluster.** >  Os detalhes estão na página de [Certificados de >](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) cluster do Guia de Configuração do Cluster.
 
-Para encriptar a comunicação de gestão de clusters, utilize a página de configurações de**Configuração Geral** do **Cluster** > para selecionar qual o certificado a utilizar para o SSL administrativo.
+Para encriptar a comunicação de gestão de clusters, utilize a página de configurações de**Configuração Geral** do **Cluster** > para selecionar qual o certificado a utilizar para TLS administrativo.
 
 > [!Note] 
 > As teclas de acesso ao serviço de nuvem são armazenadas utilizando a página de configuração **cloud Credentials.** A [secção de ficheiros de núcleo adicionar](fxt-add-storage.md#add-a-core-filer) acima mostra um exemplo; ler a secção de [credenciais](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) de nuvem do Guia de Configuração do Cluster para mais detalhes. 

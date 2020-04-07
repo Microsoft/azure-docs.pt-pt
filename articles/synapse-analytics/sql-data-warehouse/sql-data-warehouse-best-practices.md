@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0a2a49546a31f6d767b5e89348dc6b703278d877
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 4462bf0fc2057922340eb01cb8c786dbc63ce290
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633635"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745351"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Boas práticas para piscina Synapse SQL em Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -36,7 +36,7 @@ Se descobrir que está a demorar muito tempo a atualizar todas as suas estatíst
 > [!TIP]
 > Obterá o maior benefício com estatísticas atualizadas sobre colunas envolvidas em juntas, colunas utilizadas na cláusula WHERE e colunas encontradas no GRUPO BY.
 
-Ver também Gerir estatísticas de [tabelas,](sql-data-warehouse-tables-statistics.md) [CRIAR ESTATÍSTICAS,](https://msdn.microsoft.com/library/ms188038.aspx)e [ATUALIZAR ESTATÍSTICAS.](https://msdn.microsoft.com/library/ms187348.aspx)
+Ver também Gerir estatísticas de [tabelas,](sql-data-warehouse-tables-statistics.md) [CRIAR ESTATÍSTICAS,](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [ATUALIZAR ESTATÍSTICAS.](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Utilize DMVs para monitorizar e otimizar as suas consultas
 
@@ -44,7 +44,7 @@ A piscina SQL tem vários DMVs que podem ser usados para monitorizar a execuçã
 
 Para encontrar rapidamente as consultas nestas DMVs, pode ajudar se utilizar a opção LABEL com as suas consultas.
 
-Consulte também [monitorize a sua carga de trabalho utilizando DMVs,](sql-data-warehouse-manage-monitor.md) [LABEL,](sql-data-warehouse-develop-label.md) [OPTION,](https://msdn.microsoft.com/library/ms190322.aspx) [sys.dm_exec_sessions,]( https://msdn.microsoft.com/library/ms176013.aspx) [sys.dm_pdw_exec_requests,](https://msdn.microsoft.com/library/mt203887.aspx) [sys.dm_pdw_request_steps,](https://msdn.microsoft.com/library/mt203913.aspx) [sys.dm_pdw_sql_requests,](https://msdn.microsoft.com/library/mt203889.aspx) [sys.dm_pdw_dms_workers,](https://msdn.microsoft.com/library/mt203878.aspx) [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)e [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx).
+Consulte também [monitorize a sua carga de trabalho utilizando DMVs,](sql-data-warehouse-manage-monitor.md) [LABEL,](sql-data-warehouse-develop-label.md) [OPTION,](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_exec_sessions,](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_exec_requests,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_request_steps,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_sql_requests,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [sys.dm_pdw_dms_workers,](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="tune-query-performance-with-new-product-enhancements"></a>Desempenho de consulta de sintonização com novas melhorias do produto
 
@@ -58,7 +58,7 @@ Uma carga única para uma tabela pequena com uma declaração INSERT ou mesmo um
 
 No entanto, se precisar de carregar milhares ou milhões de linhas ao longo do dia, poderá achar que o singleton INSERTS não é suficiente para acompanhar o ritmo.  Ao invés, desenvolva os seus processos de modo a que escrevam num ficheiro e outro processo carregue periodicamente este ficheiro.
 
-Consulte também [insert](https://msdn.microsoft.com/library/ms174335.aspx).
+Consulte também [insert](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Utilize o PolyBase para carregar e exportar dados rapidamente
 
@@ -74,7 +74,7 @@ A Azure Data Factory também suporta cargas PolyBase e pode obter um desempenho 
 > [!NOTE]
 > Para maximizar a entrada ao utilizar ficheiros de texto gzip, separe ficheiros em 60 ou mais ficheiros para maximizar o paralelismo da sua carga.  Para um débito total mais rápido, considere carregar dados em simultâneo.
 
-Consulte também [os dados de carga,](design-elt-data-loading.md) [Guia para utilização](guidance-for-loading-data.md)de padrões e estratégias de carregamento de [piscinaS SQL,](https://blogs.msdn.microsoft.com/sqlcat/20../../)Dados de Carga com Fábrica de [Dados Azure,]( ../../data-factory/load-azure-sql-data-warehouse.md) [Mova dados com a Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md),https://msdn.microsoft.com/library/dn935026.aspx)e Crie a tabela como selecionado [(CTAS)](sql-data-warehouse-develop-ctas.md).
+Consulte também [os dados de carga,](design-elt-data-loading.md) [Guia para utilização](guidance-for-loading-data.md)de padrões e estratégias de carregamento de [piscinaS SQL,](https://blogs.msdn.microsoft.com/sqlcat/20../../)Dados de Carga com Fábrica de [Dados Azure,]( ../../data-factory/load-azure-sql-data-warehouse.md)Mova dados com fábrica de [dados Azure,](../../data-factory/transform-data-using-machine-learning.md) [CRIE FORMATO DE ARQUIVO EXTERNO](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Crie tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Carregar e consultar tabelas externas
 
@@ -97,7 +97,7 @@ Por exemplo, se tiver uma tabela de pedidos, que é distribuída por order_id, e
 
 Consulte os seguintes links para obter mais detalhes sobre como selecionar uma coluna de distribuição pode melhorar o desempenho, bem como como definir uma tabela distribuída na cláusula COM da sua declaração CREATE TABLE.
 
-Ver também [visão geral da tabela,](sql-data-warehouse-tables-overview.md)distribuição [de tabelas, seleção da distribuição](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)de tabelas, [MESA DE CRIAÇÃO,](https://msdn.microsoft.com/library/mt203953.aspx) [TABELA CRIAR COMO SELECT](https://msdn.microsoft.com/library/mt204041.aspx). [Table distribution](sql-data-warehouse-tables-distribute.md)
+Ver também [visão geral da tabela,](sql-data-warehouse-tables-overview.md)distribuição [de tabelas, seleção da distribuição](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)de tabelas, [MESA DE CRIAÇÃO,](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [TABELA CRIAR COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). [Table distribution](sql-data-warehouse-tables-distribute.md)
 
 ## <a name="do-not-over-partition"></a>Não crie partições em demasia
 
@@ -115,11 +115,11 @@ As instruções INSERT, UPDATE e DELETE são executadas numa transação e quand
 
 Por exemplo, se tiver um INSERTo que espere demorar 1 hora, se possível, separe o INSirem em quatro partes, que funcionarão cada uma em 15 minutos.  Aproveite as caixas especiais de registo mínimo, como CTAS, TRUNCATE, DROP TABLE ou INSERT a mesas vazias, para reduzir o risco de retrocesso.  
 
-Outra forma de eliminar reversões consiste em utilizar Operações Apenas de Metadados, como a mudança de partições para a gestão de dados.  Por exemplo, em vez de executar uma declaração DELETE para apagar todas as linhas numa tabela onde o order_date estava em outubro de 2001, poderia dividir os seus dados mensalmente e, em seguida, trocar a partição com dados para uma partição vazia de outra tabela (ver [exemplos ALTER TABLE).](https://msdn.microsoft.com/library/ms190273.aspx)  
+Outra forma de eliminar reversões consiste em utilizar Operações Apenas de Metadados, como a mudança de partições para a gestão de dados.  Por exemplo, em vez de executar uma declaração DELETE para apagar todas as linhas numa tabela onde o order_date estava em outubro de 2001, poderia dividir os seus dados mensalmente e, em seguida, trocar a partição com dados para uma partição vazia de outra tabela (ver [exemplos ALTER TABLE).](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
 
 Para tabelas não partitivas, considere utilizar um CTAS para escrever os dados que pretende manter numa tabela em vez de utilizar o DELETE.  Se um CTAS demorar o mesmo tempo, é uma operação muito mais segura para ser executada, uma vez que tem o mínimo de registo de transações e pode ser cancelado rapidamente, se necessário.
 
-Ver também [Compreender as transações,](sql-data-warehouse-develop-transactions.md) [otimizar transações,](sql-data-warehouse-develop-best-practices-transactions.md) [partição em tabela,](sql-data-warehouse-tables-partition.md) [Tabela TRUNCATE,](https://msdn.microsoft.com/library/ms177570.aspx) [ALTER TABLE,](https://msdn.microsoft.com/library/ms190273.aspx)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
+Ver também [Compreender as transações,](sql-data-warehouse-develop-transactions.md) [otimizar transações,](sql-data-warehouse-develop-best-practices-transactions.md) [partição em tabela,](sql-data-warehouse-tables-partition.md) [Tabela TRUNCATE,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [ALTER TABLE,](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="reduce-query-result-sizes"></a>Reduzir o tamanho dos resultados da consulta
 
@@ -131,7 +131,7 @@ Ao definir o seu DDL, utilizando o menor tipo de dados que irá suportar os seus
 
 Se o maior valor numa coluna for de 25 carateres, defina a coluna como VARCHAR(25).  Evite definir todas as colunas de carateres com um comprimento predefinido grande.  Além disso, defina colunas como VARCHAR quando é tudo o que é necessário, em vez de utilizar NVARCHAR.
 
-Ver também [visão geral da tabela](sql-data-warehouse-tables-overview.md), Tipos de dados de [tabela,](sql-data-warehouse-tables-data-types.md) [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx).
+Ver também [visão geral da tabela](sql-data-warehouse-tables-overview.md), Tipos de dados de [tabela,](sql-data-warehouse-tables-data-types.md) [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="use-temporary-heap-tables-for-transient-data"></a>Utilize tabelas temporárias de área dinâmica para dados em dados transitórios
 
@@ -141,7 +141,7 @@ Além disso, carregar dados para uma tabela temporária também carregará muito
 
 As tabelas de área dinâmica para dados são definidas na cláusula WITH de uma CREATE TABLE.  Se utilizar uma tabela temporária, não se esqueça de também criar estatísticas nessa tabela temporária.
 
-Ver também [tabelas temporárias,](sql-data-warehouse-tables-temporary.md) [CRIAR MESA,](https://msdn.microsoft.com/library/mt203953.aspx) [CRIAR TABELA COMO SELECT](https://msdn.microsoft.com/library/mt204041.aspx).
+Ver também [tabelas temporárias,](sql-data-warehouse-tables-temporary.md) [CRIAR MESA,](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [CRIAR TABELA COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Otimizar tabelas columnstore em cluster
 
@@ -160,7 +160,7 @@ Se a sua tabela não tiver 6 mil milhões de linhas neste exemplo, reduza o núm
 > [!TIP]
 > Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se selecionar apenas as colunas de que precisa.  
 
-Consulte também [Índices de tabela](sql-data-warehouse-tables-index.md), [Guia de índices columnstore](https://msdn.microsoft.com/library/gg492088.aspx), [Reconstruir índices columnstore](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)
+Consulte também [Índices de tabela](sql-data-warehouse-tables-index.md), [Guia de índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [Reconstruir índices columnstore](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Utilize a classe de recursos maior para melhorar o desempenho da consulta
 
@@ -174,7 +174,7 @@ Consulte também [aulas de Recursos para gestão de carga de trabalho.](resource
 
 Se notar que as consultas de utilizador parecem ter um atraso longo, pode ser que os seus utilizadores estejam a funcionar em classes de recursos maiores e estejam a consumir muitas ranhuras de condivisões que fazem com que outras consultas façam fila.  Para ver se as consultas dos utilizadores estão colocadas em fila, execute `SELECT * FROM sys.dm_pdw_waits` para ver se são devolvidas linhas.
 
-Consulte também [aulas de recursos para gestão](resource-classes-for-workload-management.md)de carga de trabalho , [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx).
+Consulte também [aulas de recursos para gestão](resource-classes-for-workload-management.md)de carga de trabalho , [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="other-resources"></a>Outros recursos
 

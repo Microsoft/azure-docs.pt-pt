@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 89d437fe74d209e0dc04ffc590a1e32426b28732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52270e623a713d7188ac5ff907ebb82ada13283
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275871"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745601"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Publicar uma oferta de Aplicação Power BI
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
 
 O último passo, depois de definir uma oferta no Portal do Parceiro cloud e criar os ativos técnicos associados, é submeter a oferta para publicação. Para iniciar este processo, no painel esquerdo da janela **New Offer,** selecione **Publicar**. Para mais informações, consulte [as ofertas do Publish Azure Marketplace e da AppSource.](../manage-offers/cpp-publish-offer.md)
 

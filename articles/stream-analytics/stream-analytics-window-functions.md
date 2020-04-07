@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: a0547243ddf114d5c9f7034f182a5e76d8c3e016
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75369427"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745557"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela stream Analytics
 
@@ -35,7 +35,7 @@ As funções de janela de salto avançam um período fixo no tempo. Pode ser mai
 ![Janela de hopping Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Janela deslizante
-Funções de janela deslizantes, ao contrário das janelas Tumbling ou Hopping, produzem uma saída **apenas** quando ocorre um evento. Cada janela terá pelo menos um evento e a janela avança continuamente por um € (épsilon). Tal como as janelas de salto, os eventos podem pertencer a mais do que uma janela deslizante.
+Funções de janela deslizantes, ao contrário das janelas Tumbling ou Hopping, produzem uma saída **apenas** quando ocorre um evento. Cada janela terá pelo menos um evento e a janela avança continuamente por um ε (epsilon). Tal como as janelas de salto, os eventos podem pertencer a mais do que uma janela deslizante.
 
 ![Janela de deslizamento de Análise stream](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

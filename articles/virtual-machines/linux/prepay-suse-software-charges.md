@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973137"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757227"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
 
@@ -38,6 +38,7 @@ O método de pagamento de subscrição é cobrado os custos iniciais da reserva.
 4. Selecione um âmbito. O âmbito pode abranger uma subscrição ou várias subscrições (âmbito partilhado).
     - Assinatura única - O desconto do plano é aplicado à utilização correspondente na subscrição.
     - Partilhado - O desconto do plano é aplicado a instâncias correspondentes em qualquer subscrição no seu contexto de faturação. Para os clientes empresariais, o contexto de faturação é a inscrição e inclui todas as subscrições na inscrição. Para um plano individual com clientes de preços pay-as-you-go, o contexto de faturação é todos os planos individuais com subscrições de preços pay-as-you-go criadas pelo administrador da conta.
+    - Grupo de recursos únicos - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionados.
 5. Selecione um produto para escolher o tamanho VM e o tipo de imagem. O desconto aplica-se apenas ao tamanho de VM selecionado.
 6. Selecione um mandato de um ano ou três anos.
 7. Escolha uma quantidade, que é o número de casos de VM pré-pagos que podem obter o desconto de faturação.

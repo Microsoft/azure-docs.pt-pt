@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf6a0ccfc04890052f1a4bab19f97ee4e55f87a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76772337"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756626"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Ingerir dados de amostras formatadoj no Azure Data Explorer
 
@@ -82,7 +82,7 @@ Use a linguagem de consulta Kusto para ingerir dados num formato JSON cru.
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 Utilize C# para ingerir dados em formato JSON cru.
 
@@ -159,7 +159,7 @@ Utilize C# para ingerir dados em formato JSON cru.
 > [!NOTE]
 > Os dados são agregados de acordo com a política de [lotação,](/azure/kusto/concepts/batchingpolicy)resultando numa latência de alguns minutos.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Use python para ingerir dados em formato JSON cru.
 
@@ -232,7 +232,7 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
 
     O ficheiro 'simple.json' tem alguns registos JSON separados de linha. O formato é `json`, e o mapeamento `FlatEventMapping` utilizado no comando ingerir é o que você criou.
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Crie uma nova tabela, com um esquema semelhante aos dados de entrada da JSON. Usaremos esta mesa para todos os seguintes exemplos e comandos ingerir. 
 
@@ -291,7 +291,7 @@ Neste exemplo, ingere dados de registos da JSON. Cada propriedade JSON é mapead
 
     O ficheiro 'simple.json' tem alguns registos JSON separados de linha. O formato é `json`, e o mapeamento `FlatEventMapping` utilizado no comando ingerir é o que você criou.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Crie uma nova tabela, com um esquema semelhante aos dados de entrada da JSON. Usaremos esta mesa para todos os seguintes exemplos e comandos ingerir. 
 
@@ -337,7 +337,7 @@ Ingerir dados `Events` na tabela.
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 Ingerir dados `Events` na tabela.
 
@@ -354,7 +354,7 @@ var properties =
 ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Ingerir dados `Events` na tabela.
 
@@ -427,7 +427,7 @@ Os tipos de dados matrizes são uma recolha ordenada de valores. A ingestão de 
 1. Ingerir dados `RawEvents` na tabela.
 
     ```Kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
+    .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
 1. Reveja os `Events` dados na tabela.
@@ -436,7 +436,7 @@ Os tipos de dados matrizes são uma recolha ordenada de valores. A ingestão de 
     Events
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Criar uma função de atualização que expanda a recolha de `records` modo a `mv-expand` que cada valor da coleção receba uma linha separada, utilizando o operador. Usaremos a `RawEvents` mesa como uma `Events` mesa de origem e como uma mesa-alvo.   
 
@@ -490,7 +490,7 @@ Os tipos de dados matrizes são uma recolha ordenada de valores. A ingestão de 
     
 1. Reveja os `Events` dados na tabela.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Criar uma função de atualização que expanda a recolha de `records` modo a `mv-expand` que cada valor da coleção receba uma linha separada, utilizando o operador. Usaremos a `RawEvents` mesa como uma `Events` mesa de origem e como uma mesa-alvo.   
 
@@ -584,7 +584,7 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Crie um mapeamento JSON.
 
@@ -621,7 +621,7 @@ JSON estruturado no dicionário contém pares de valor-chave. Os registos json s
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Crie um mapeamento JSON.
 

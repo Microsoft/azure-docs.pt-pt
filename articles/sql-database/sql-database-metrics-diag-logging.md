@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387908"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756410"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configure a exportação de streaming da telemetria de diagnóstico da Base de Dados Azure SQL
 
@@ -25,8 +25,8 @@ Neste artigo, você aprenderá sobre as métricas de desempenho e registos de re
 Você também vai aprender sobre os destinos para os quais você pode transmitir esta telemetria de diagnóstico e como escolher entre estas escolhas. As suas opções de destino incluem:
 
 - [Log Analytics e SQL Analytics](#stream-into-sql-analytics)
-- [Hubs de eventos](#stream-into-event-hubs)
-- [Storage do Azure](#stream-into-azure-storage)
+- [Hubs de Eventos](#stream-into-event-hubs)
+- [Armazenamento Azure](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export-for-azure-sql-database"></a>Telemetria de diagnóstico para exportação para base de dados Azure SQL
 
@@ -95,7 +95,7 @@ Pode utilizar o menu de **definições** de Diagnóstico no portal Azure para at
 
 Selecione um dos seguintes separadores para orientação passo a passo para configurar a exportação em streaming de telemetria de diagnóstico no portal Azure e para scripts para realizar o mesmo com powerShell e o Azure CLI.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>Conjuntos elásticos
 
@@ -283,7 +283,7 @@ Forneça o ID \<de\> recursos do espaço de `Enable-AzureRMDiagnostics.ps1` trab
 
   Substitua \<\> o subID \<pelo\> ID de subscrição, RG_NAME pelo nome do grupo de recursos e \<WS_NAME\> pelo nome do espaço de trabalho.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Pode ativar a exploração de métricas e diagnósticos utilizando o CLI Azure.
 
@@ -452,11 +452,17 @@ Consulte as tabelas seguintes para obter detalhes sobre métricas básicas por r
 
 Consulte a tabela seguinte para obter detalhes sobre métricas avançadas.
 
-|**Métricas**|**Nome de exibição métrica**|**Descrição**|
+|**Métrica**|**Nome de exibição métrica**|**Descrição**|
 |---|---|---|
-|tempdb_data_size| Kilobytes de tamanho de ficheiro de dados tempdb |Kilobytes de tamanho de ficheiro de dados tempdb. Não aplicável aos armazéns de dados. Esta métrica estará disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.|
-|tempdb_log_size| Kilobytes de tamanho de ficheiro de log tempdb |Kilobytes de ficheiro de log tempdb. Não aplicável aos armazéns de dados. Esta métrica estará disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.|
-|tempdb_log_used_percent| Log por cento temporário usado |Registo de percentagens temporárias usado. Não aplicável aos armazéns de dados. Esta métrica estará disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server núcleo de processo por cento|Percentagem de utilização do CPU para o processo Do Servidor SQL, medida pelo sistema operativo.|
+|<sup>sqlserver_process_memory_percent 1</sup> |SQL Server processa por cento da memória|Percentagem de utilização da memória para o processo Do Servidor SQL, medida pelo sistema operativo.|
+|tempdb_data_size<sup>2</sup>| Kilobytes de tamanho de ficheiro de dados tempdb |Kilobytes de tamanho de ficheiro de dados tempdb.|
+|tempdb_log_size<sup>2</sup>| Kilobytes de tamanho de ficheiro de log tempdb |Kilobytes de ficheiro de log tempdb.|
+|<sup>tempdb_log_used_percent 2</sup>| Log por cento temporário usado |Registo de percentagens temporárias usado.|
+
+<sup>1</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. 
+
+<sup>2</sup> Esta métrica está disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala ou armazéns de dados.
 
 ### <a name="basic-logs"></a>Troncos básicos
 

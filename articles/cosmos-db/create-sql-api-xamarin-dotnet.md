@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 74d34705a6541b396fa2c2bf5028254f5f2e8d21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77586772"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756430"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação em todo o lado com xamarin usando a conta API Azure Cosmos DB SQL
 
@@ -21,16 +21,16 @@ ms.locfileid: "77586772"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
-> * [Nó.js](create-sql-api-nodejs.md)
-> * [Pitão](create-sql-api-python.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
 
 > [!NOTE]
 > O código de exemplo de uma aplicação Xamarin de exemplo canónico completo que mostra várias ofertas do Azure, incluindo CosmosDB, pode ser encontrado no GitHub [aqui](https://github.com/xamarinhq/app-geocontacts). Esta aplicação mostra a visualização de contactos dispersos geograficamente e permite que estes atualizem a respetiva localização.
 
-Este início rápido demonstra como criar uma conta API SQL do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Depois, vai compilar e implementar uma aplicação Web de lista de tarefas criada na [API .NET SQL](sql-api-sdk-dotnet.md) e em [Xamarin](https://docs.microsoft.com/xamarin/) através de [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e do [padrão de arquitetura MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Este início rápido demonstra como criar uma conta API SQL do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Em seguida, você vai construir e implementar uma aplicação móvel de lista completa construída no [SQL .NET API](sql-api-sdk-dotnet.md) e [Xamarin](https://docs.microsoft.com/xamarin/) usando [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e o [padrão arquitetónico MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Aplicação de lista de tarefas em execução no iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -91,15 +91,15 @@ Regresse ao portal do Azure para obter as informações de chaves da API e copie
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. No Visual Studio 2019 ou no Visual Studio for Mac, abra o ficheiro APIKeys.cs na pasta azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
+2. No Visual Studio 2019 ou no Visual Studio for Mac, abra o ficheiro APIKeys.cs na pasta azure-cosmos-db-sql-xamarin-getting-start/src/ToDoItems.Core/Helpers.
 
 3. Copie o valor do URI a partir do portal (com o botão Copiar) e faça deste o valor da variável `CosmosEndpointUrl` em APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
+    `public static readonly string CosmosEndpointUrl = "";`
 
 4. Depois, copie o valor da CHAVE PRIMÁRIA a partir do portal e faça do mesmo o valor de `Cosmos Auth Key` em APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+    `public static readonly string CosmosAuthKey = "";`
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 

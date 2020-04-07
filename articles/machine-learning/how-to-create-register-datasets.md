@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: f02046d1e2ee558ca4ea4472a03fddb5d0a6a16f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: feaa0c22ec98d170a65e5c9bee119ba3904a95cf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549331"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673732"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -245,7 +245,7 @@ file_dataset = MNIST.get_file_dataset()
 
 from azureml.opendatasets import Diabetes
 
-# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+# Diabetes class can return ONLY TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 

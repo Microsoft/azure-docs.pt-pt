@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437881"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743306"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -33,6 +33,8 @@ Os benefícios do script de implantação:
 - Deixe especificar as identidades que são usadas para executar os scripts. Atualmente, apenas a identidade gerida atribuída ao [utilizador Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) é suportada.
 - Permita passar argumentos de linha de comando para o script.
 - Pode especificar as saídas do script e passá-las de volta para a implementação.
+
+O recurso de script de implantação só está disponível nas regiões onde o Azure Container Instance está disponível.  Consulte a disponibilidade de recursos para instâncias de [contentores Azure nas regiões de Azure.](../../container-instances/container-instances-region-availability.md)
 
 > [!IMPORTANT]
 > Dois recursos de script de implementação, uma conta de armazenamento e uma instância de contentores, são criados no mesmo grupo de recursos para execução de scripts e resolução de problemas. Estes recursos são geralmente eliminados pelo serviço de script quando a execução do script de implementação fica em estado terminal. Você é cobrado pelos recursos até que os recursos sejam eliminados. Para saber mais, consulte [os recursos do script de implementação](#clean-up-deployment-script-resources)de limpeza.
@@ -189,6 +191,8 @@ Além de scripts inline, também pode utilizar ficheiros de script externos. Ape
 Para ver um exemplo, selecione [aqui](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
 Os ficheiros de script externos devem estar acessíveis.  Para proteger os seus ficheiros de script que são armazenados em contas de armazenamento Azure, consulte [Tutorial: Proteja os artefactos nas implementações](./template-tutorial-secure-artifacts.md)do modelo do Gestor de Recursos Azure .
+
+É responsável por garantir a integridade dos scripts referenciados pelo script de implementação, seja **primaryScriptUri** ou **SupportScriptUris**.  Referência apenas scripts em que confia.
 
 ## <a name="use-supporting-scripts"></a>Use scripts de suporte
 

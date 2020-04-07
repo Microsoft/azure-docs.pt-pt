@@ -3,18 +3,18 @@ title: 'Tutorial: Amostra de plantas para novo ambiente'
 description: Neste tutorial, você usa uma amostra de planta para criar uma definição de planta que configura dois grupos de recursos e configura uma atribuição de funções para cada um.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282023"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677081"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de uma amostra de plantas
 
 As plantas da amostra fornecem exemplos do que pode ser feito usando plantas azure. Cada um é uma amostra com uma intenção ou propósito específico, mas não cria um ambiente completo por si só. Cada um deles é destinado como um ponto de partida para explorar usando plantas azure com várias combinações de artefactos incluídos, desenhos e parâmetros.
 
-O seguinte tutorial utiliza os **Grupos de Recursos com** amostra de plantas RBAC para mostrar diferentes aspetos do serviço Blueprints. Estão abrangidos os seguintes passos:
+O seguinte tutorial utiliza os **Grupos de Recursos com** amostra de plantas RBAC para mostrar diferentes aspetos do serviço Azure Blueprints. Estão abrangidos os seguintes passos:
 
 > [!div class="checklist"]
 > - Criar uma nova definição de planta a partir da amostra
