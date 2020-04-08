@@ -26,7 +26,7 @@
         - name: Guia de publicação por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Máquinas Virtuais
+            - name: Virtual Machines
               href: ./marketplace-virtual-machines.md
             - name: 'Aplicações do Azure: modelos de solução'
               href: ./marketplace-solution-templates.md
@@ -453,6 +453,12 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API para integração
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Serviços de consultadoria
+          items:
+            - name: Pré-requisitos
+              href: ./partner-center-portal/consulting-service-prerequisites.md
+            - name: Criar uma oferta de serviço de consultoria
+              href: ./partner-center-portal/create-consulting-service-offer.md
         - name: Ofertas do Dynamics 365
           items:
             - name: Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
@@ -461,6 +467,22 @@
               href: ./partner-center-portal/create-new-operations-offer.md
             - name: Criar uma oferta do Dynamics 365 Business Central
               href: ./partner-center-portal/create-new-business-central-offer.md
+        - name: Ofertas do módulo do IoT Edge
+          items:
+            - name: Preparar recursos técnicos do módulo do IoT Edge
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
+            - name: Criar uma oferta de módulo do IoT Edge
+              href: ./partner-center-portal/azure-iot-edge-module-creation.md
+        - name: Ofertas do Serviço Gerido
+          items:
+            - name: Criar uma oferta de Serviço Gerido
+              href: ./partner-center-portal/create-new-managed-service-offer.md
+        - name: Ofertas da aplicação Power BI
+          items:
+            - name: Descrição geral da publicação
+              href: ./partner-center-portal/create-power-bi-app-overview.md
+            - name: Criar oferta da aplicação Power BI
+              href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: Ofertas de SaaS
           items:
             - name: Lista de verificação de criação de ofertas de SaaS

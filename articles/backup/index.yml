@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 8b0f01a48ff2b1be42650d346808195f434a1f2f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 06c7f26fcbe0e57d2d535f4050280b993a51ed70
+  ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78672991"
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80755899"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:
@@ -50,8 +50,8 @@ landingContent:
       url: tutorial-sql-backup.md
     - text: Fazer a cópia de segurança de ficheiros e pastas no Windows Server
       url: tutorial-backup-windows-server-to-azure.md
-    - text: Fazer a cópia de segurança das partilhas dos Ficheiros do Azure
-      url: tutorial-backup-azure-files.md
+    - text: Fazer cópias de segurança de bases de dados SAP HANA numa VM do Azure
+      url: tutorial-backup-sap-hana-db.md
 - title: Saiba mais sobre as mais recentes funcionalidades do Azure Backup
   linkLists:
   - linkListType: whats-new
