@@ -3,12 +3,12 @@ title: Recursos Azure - QnA Maker
 description: O QnA Maker utiliza várias fontes Azure, cada uma com um propósito diferente. Compreender como são usados individualmente permite-lhe planear e selecionar o nível de preços correto ou saber quando alterar o seu nível de preços. Compreender como são usados em combinação permite-lhe encontrar e corrigir problemas quando ocorrem.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284250"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804304"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos azure para O Fabricante qnA
 
@@ -54,7 +54,7 @@ A tabela que se segue dá-lhe algumas diretrizes de alto nível.
 
 |Atualizar|Razão|
 |--|--|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker gestão SKU|Você quer ter mais conjuntos qnA ou fontes de documento na sua base de conhecimento.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker gestão SKU|Você quer ter mais pares QnA ou fontes de documento sintetizados na sua base de conhecimento.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) Serviço de Aplicações SKU e verifique o nível de pesquisa cognitiva e [crie réplicas](../../../search/search-capacity-planning.md) de Pesquisa Cognitiva|A sua base de conhecimento precisa de servir mais pedidos da sua aplicação de cliente, como um chat bot.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Serviço de Pesquisa Cognitiva Azure|Planeias ter muitas bases de conhecimento.|
 
@@ -95,8 +95,8 @@ Cada recurso Azure criado com o QnA Maker tem um propósito específico:
 
 O recurso [de Pesquisa Cognitiva](../../../search/index.yml) é utilizado para:
 
-* Armazenar os conjuntos QnA
-* Fornecer o ranking inicial (ranking #1) dos conjuntos qnA em tempo de execução
+* Armazenar os pares QnA
+* Fornecer o ranking inicial (ranking #1) dos pares QnA em tempo de execução
 
 #### <a name="index-usage"></a>Utilização do índice
 
@@ -110,7 +110,7 @@ A primeira base de conhecimento criada no recurso QnA Maker é usada para determ
 
 ### <a name="qna-maker-resource"></a>Recurso QnA Maker
 
-O recurso QnA Maker fornece acesso às APIs de autoria e publicação, bem como ao processamento de linguagem natural (NLP) com base na segunda camada de ranking (ranking #2) dos conjuntos QnA em tempo de execução.
+O recurso QnA Maker fornece acesso às APIs de autoria e publicação, bem como ao processamento de linguagem natural (NLP) com base na segunda camada de ranking (ranking #2) dos pares QnA em tempo de execução.
 
 O segundo ranking aplica filtros inteligentes que podem incluir metadados e solicitações de seguimento.
 
@@ -164,7 +164,7 @@ Utilize estas chaves ao fazer pedidos ao serviço através de APIs.
 
 |Nome|Localização|Objetivo|
 |--|--|--|
-|Chave de autoria|[Portal Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do serviço de [gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimentos e publicar a sua base de conhecimento. Estas chaves são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso dos **Serviços Cognitivos** na página **Keys.**|
+|Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do serviço de [gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimentos e publicar a sua base de conhecimento. Estas chaves são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso dos **Serviços Cognitivos** na página **Keys.**|
 |Chave final de consulta|[Portal do Criador de FAQ](https://www.qnamaker.ai)|Estas teclas são usadas para consultar o ponto final da base de conhecimento publicado para obter uma resposta para uma pergunta do utilizador. Normalmente utiliza este ponto final de consulta no seu chat bot ou no código de aplicação do cliente que se conecta ao serviço QnA Maker. Estas chaves são criadas quando publica a sua base de conhecimento qnA Maker.<br><br>Encontre estas teclas na página de definições do **Serviço.** Encontre esta página no menu do utilizador no canto superior direito da página no menu suspenso.|
 
 ### <a name="subscription-keys"></a>Chaves de subscrição

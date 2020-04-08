@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: d8582dfc796fe3e87b8bdc5be763dddfb5d0176b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3579d12981e2b0add916a280bac7b4f9392d8ba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245417"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803148"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação ASP.NET Core
 
@@ -126,13 +126,13 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
     Pode aceder a este segredo com a API de Configuração de Aplicações. Um cólon (:) trabalha no nome de configuração com a API de Configuração de Aplicações em todas as plataformas suportadas. Ver [Configuração por ambiente.](https://docs.microsoft.com/aspnet/core/fundamentals/configuration)
 
-1. Atualize `CreateWebHostBuilder` o método para utilizar `config.AddAzureAppConfiguration()` a Configuração da Aplicação, ligando para o método.
-    
+1. Em *Program.cs,* `CreateWebHostBuilder` atualize o método para `config.AddAzureAppConfiguration()` utilizar a Configuração da Aplicação, ligando para o método.
+
     > [!IMPORTANT]
     > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-    
+
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -148,7 +148,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     ```
 
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -188,12 +188,12 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
         services.AddControllersWithViews();
         services.AddFeatureManagement();
     }
-    ```
+
     ---
 
-1. Atualize `Configure` o método para adicionar um middleware para permitir que os valores da bandeira da funcionalidade sejam atualizados num intervalo recorrente, enquanto a aplicação web ASP.NET Core continua a receber pedidos.
-    
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+    #### [.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -351,7 +351,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     O seu navegador deve apresentar uma página semelhante à imagem abaixo.
     ![Lançamento de app Quickstart local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Gestor de **Funcionalidades**e altere o estado da chave **Beta** para **On**.
 

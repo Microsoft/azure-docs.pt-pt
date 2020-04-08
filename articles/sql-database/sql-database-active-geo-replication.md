@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/06/2020
+ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548513"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810448"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criação e utilização de geo-replicação ativa
 
@@ -113,14 +113,19 @@ Para garantir que a sua aplicação pode aceder imediatamente ao novo primário 
 
 ## <a name="configuring-secondary-database"></a>Configuração da base de dados secundária
 
-Tanto as bases de dados primárias como secundárias são obrigadas a ter o mesmo nível de serviço. Recomenda-se também fortemente que a base de dados secundária seja criada com o mesmo tamanho de computação (DTUs ou vCores) que o primário. Se a base de dados primária estiver a passar por uma carga de trabalho de escrita pesada, um secundário com menor tamanho de computação pode não ser capaz de acompanhá-la. Causará o atraso no atraso secundário e potencial indisponibilidade. Uma base de dados secundária que está atrasada atrás das primárias também arrisca uma grande perda de dados caso seja necessária uma falha forçada. Para mitigar estes riscos, uma geo-replicação ativa eficaz irá acelerar a taxa de registo primária para permitir que os seus secundários o apanhem. A outra consequência de uma configuração secundária desequilibrada é que após a falha do desempenho da aplicação sofrerá devido à capacidade calculista insuficiente das novas primárias. Será necessário atualizar para um cálculo mais elevado para o nível necessário, o que não será possível até que a paralisação seja atenuada. 
+Tanto as bases de dados primárias como secundárias são obrigadas a ter o mesmo nível de serviço. Recomenda-se também fortemente que a base de dados secundária seja criada com o mesmo tamanho de computação (DTUs ou vCores) que o primário. Se a base de dados primária estiver a passar por uma carga de trabalho de escrita pesada, um secundário com menor tamanho de computação pode não ser capaz de acompanhá-la. Isso causará o atraso no secundário e a potencial indisponibilidade do secundário. Uma base de dados secundária que está atrasada atrás das primárias também arrisca uma grande perda de dados, caso seja necessária uma falha forçada. Para mitigar estes riscos, a geo-replicação ativa irá acelerar a taxa de registo primária, se necessário, para permitir que os seus secundários o apanhem. 
 
+A outra consequência de uma configuração secundária desequilibrada é que, após a falha, o desempenho da aplicação pode sofrer devido à capacidade calculista insuficiente do novo primário. Nesse caso, será necessário aumentar o objetivo do serviço de base de dados para o nível necessário, que pode levar tempo significativo e calcular recursos, e exigir uma falha de [elevada disponibilidade](sql-database-high-availability.md) no final do processo de escala.
 
 > [!IMPORTANT]
-> O RPO publicado = 5 seg não pode ser garantido a menos que a base de dados secundária esteja configurada com o mesmo tamanho de computação que o primário. 
+> O RPO SLA de 5 seg publicado não pode ser garantido a menos que a base de dados secundária esteja configurada com o mesmo tamanho de computação ou superior que o principal. 
 
+Se decidir criar o secundário com menor tamanho de computação, o gráfico percentual de log IO no portal Azure fornece uma boa maneira de estimar o tamanho mínimo da computação do secundário que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária for P6 (1000 DTU) e o seu log write percent for 50%, o secundário precisa de ser pelo menos P4 (500 DTU). Para recuperar dados históricos de IO de log, use a visão [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Para recuperar dados recentes de escrita de log com maior granularidade que melhor reflita picos de curto prazo na taxa de log, use [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vista. 
 
-Se decidir criar o secundário com menor tamanho de computação, o gráfico percentual de log IO no portal Azure fornece uma boa maneira de estimar o tamanho mínimo da computação do secundário que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária for P6 (1000 DTU) e o seu log IO por cento for de 50% o secundário precisa de ser pelo menos P4 (500 DTU). Também pode recuperar os dados do log IO utilizando vistas de base de dados [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)  A aceleração é relatada como um estado de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO nas vistas de base de dados [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+A taxa de registo de transações acelerada na primária devido ao menor tamanho da computação num secundário é reportada usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas vistas de base de dados [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+
+> [!NOTE]
+> A taxa de registo de transações no primário pode ser acelerada por razões não relacionadas com o tamanho inferior da computação num secundário. Este tipo de estrangulamento pode ocorrer mesmo que o secundário tenha o mesmo tamanho de computação ou superior ao primário. Para mais detalhes, incluindo tipos de espera para diferentes tipos de estrangulamento da taxa de log, consulte a [governação da taxa](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)de registo de transações .
 
 Para obter mais informações sobre os tamanhos de computação da Base de Dados SQL, consulte o que são os níveis de serviço da Base de [Dados SQL](sql-database-purchase-models.md).
 

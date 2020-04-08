@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7671d07a468a9f67a4851ec828fe18896d7a6c66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8862c33b7660b8130f692dc4beea89a7b6b5f5ad
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334267"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804491"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicione uma camada de dados simples
 
@@ -56,7 +56,7 @@ O código seguinte torna a característica de ponto acima utilizando a simples c
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Use a camada de dados simples" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte a caneta Utilize a simples camada<a href='https://codepen.io/azuremaps'>@azuremaps</a>de <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>dados</a> do Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Use a camada de dados simples" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte a caneta Utilize a simples camada<a href='https://codepen.io/azuremaps'>@azuremaps</a>de <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>dados</a> do Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O verdadeiro poder da simples camada de dados vem quando:

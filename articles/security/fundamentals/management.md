@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50eb561bcbb924ea093722d6c61bbe51747b328
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73643787"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811269"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
 Os subscritores do Azure poderão gerir os respetivos ambientes de nuvem a partir de vários dispositivos, incluindo estações de trabalho de gestão, PCs de programadores e, até mesmo, dispositivos de utilizador final com privilégios que tenham permissões específicas de tarefas. Em alguns casos, as funções administrativas são efetuadas através das consolas baseadas na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Noutros casos, poderão existir ligações diretas para o Azure a partir de sistemas no local através de Redes Privadas Virtuais (VPNs), Serviços de Terminal, protocolos de aplicações cliente ou (através de programação) a API de Gestão de Serviço do Azure (SMAPI). Além disso, os pontos finais de cliente podem ser um domínio associado ou isolado e não gerido, como tablets ou smartphones.
@@ -119,7 +119,7 @@ Um Gateway de ambiente de trabalho remoto é um serviço proxy baseado na polít
 Em geral, ajudar a proteger estações de trabalho do administrador para utilização com a cloud é semelhante às práticas utilizadas em qualquer estação de trabalho no local, como, por exemplo, compilação minimizada e permissões restritivas. Alguns aspetos exclusivos da gestão de nuvem são mais comparáveis à gestão empresarial remota ou sem rede IP. Estes incluem a utilização e auditoria de credenciais, acesso remoto com segurança avançada e deteção de ameaças e resposta.
 
 ### <a name="authentication"></a>Autenticação
-Pode utilizar as restrições de início de sessão do Azure para restringir os endereços IP de origem de acederem às ferramentas administrativas e aos pedidos de acesso de auditoria. Para ajudar o Azure a identificar os clientes de gestão (estações de trabalho e/ou aplicações), pode configurar o SMAPI (através de ferramentas desenvolvidas por clientes, tais como os cmdlets do Windows PowerShell) e o portal do Azure para exigir a instalação de certificados de gestão do lado do cliente, para além dos certificados SSL. Recomendamos também que o acesso de administrador exija uma autenticação multifator.
+Pode utilizar as restrições de início de sessão do Azure para restringir os endereços IP de origem de acederem às ferramentas administrativas e aos pedidos de acesso de auditoria. Para ajudar o Azure a identificar clientes de gestão (estações de trabalho e/ou aplicações), pode configurar tanto o SMAPI (através de ferramentas desenvolvidas pelo cliente, como os cmdlets Windows PowerShell) e o portal Azure para exigir a instalação de certificados de gestão do lado do cliente, além dos certificados TLS/SSL. Recomendamos também que o acesso de administrador exija uma autenticação multifator.
 
 Algumas aplicações ou serviços que implementa no Azure podem ter os seus próprios mecanismos de autenticação para acesso de administrador e de utilizador final, enquanto que outros tiram o máximo partido do Azure AD. Dependendo se está a utilizar credenciais de federação através doa Serviços de Federação do Active Directory (AD FS), a utilizar a sincronização de diretórios ou a gerir contas de utilizador apenas na nuvem, utilizar o [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte do Azure AD Premium) ajuda-o a gerir os ciclos de tempo de identidade entre os recursos.
 
@@ -188,7 +188,7 @@ Não parta do princípio que, pelo facto de uma estação de trabalho estar bloq
 
 | O que não deve fazer | O que deve fazer |
 | --- | --- |
-| Não envie por e-mail as credenciais de acesso de administrador ou outros segredos (por exemplo, certificados SSL ou certificados de gestão) |Mantenha a confidencialidade entregando os nomes de conta e as palavras-passe pessoalmente ou por telefone (mas não os armazenando num voice mail); efetue uma instalação remota dos certificados de cliente/servidor (através de uma sessão encriptada); transfira a partir de uma partilha de rede protegida ou distribua manualmente através do suporte de dados amovível. |
+| Não envie por e-mail credenciais para acesso a administrador ou outros segredos (por exemplo, TLS/SSL ou certificados de gestão) |Mantenha a confidencialidade entregando os nomes de conta e as palavras-passe pessoalmente ou por telefone (mas não os armazenando num voice mail); efetue uma instalação remota dos certificados de cliente/servidor (através de uma sessão encriptada); transfira a partir de uma partilha de rede protegida ou distribua manualmente através do suporte de dados amovível. |
 | - | A gestão dos ciclos de vida dos certificados de gestão deve ser feita de forma pró-ativa. |
 | Não armazene palavras-passe da conta não encriptadas ou sem hash no armazenamento de aplicações (como folhas de cálculo, sites do SharePoint ou partilhas de ficheiros). |Estabeleça princípios de gestão de segurança e políticas de proteção do sistema e aplique-os ao ambiente de desenvolvimento. |
 | - | Utilize o certificado [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) com afixação de regras para garantir um acesso adequado aos sites do SSL/TLS do Azure. |

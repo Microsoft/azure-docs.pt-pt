@@ -1,15 +1,16 @@
 ---
-title: Criar dinamicamente um volume de Ficheiros para várias cápsulas no Serviço Azure Kubernetes (AKS)
+title: Criar dinamicamente a partilha de Ficheiros Azure
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a criar dinamicamente um volume persistente com Ficheiros Azure para utilização com várias cápsulas simultâneas no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: 3628a9243d849cdb2f3143209dc239be5ac846b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59b773cd4608187fedb24358eac57715e1c271ea
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297785"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803539"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar de forma dinâmica um volume persistente com ficheiros Azure no Serviço Azure Kubernetes (AKS)
 

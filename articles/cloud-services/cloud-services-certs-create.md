@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248141"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811454"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Descrição geral dos certificados para os Serviços Cloud do Azure)
 Os certificados são utilizados em Azure para serviços na nuvem[(certificados](#what-are-service-certificates)de serviço) e para autenticação com a gestão API[(certificados de gestão).](#what-are-management-certificates) Este tópico dá uma visão geral de ambos os tipos de certificados, como [criá-los](#create) e implantá-los para O Azure.
@@ -55,7 +55,7 @@ Pode utilizar qualquer ferramenta disponível para criar um certificado auto-ass
 * Criado para troca de chaves (ficheiro.pfx).
 * O nome do assunto deve coincidir com o domínio utilizado para aceder ao serviço de nuvem.
 
-    > Não é possível adquirir um certificado SSL para o domínio cloudapp.net (ou para qualquer domínio relacionado com o Azure); o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, **contoso.net**, não **contoso.cloudapp.net.**
+    > Não é possível adquirir um certificado TLS/SSL para o domínio cloudapp.net (ou para qualquer domínio relacionado com o Azure); o nome do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, **contoso.net**, não **contoso.cloudapp.net.**
 
 * No mínimo de encriptação de 2048 bits.
 * **Certificado de Serviço Apenas:** O certificado do lado do cliente deve residir no certificado *pessoal.*

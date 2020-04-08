@@ -2,13 +2,13 @@
 title: Eliminação completa de modo
 description: Mostra como os tipos de recursos lidam com a eliminação completa do modo nos modelos do Gestor de Recursos Do Azure.
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: e0250b289ce7a228d844023c3e1d1110438b3afc
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664411"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802574"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminação dos recursos do Azure para implementações completas de modos
 
@@ -43,6 +43,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
@@ -60,7 +61,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
@@ -88,6 +88,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
 > - [Microsoft.Gallery](#microsoftgallery)
 > - [Microsoft.Genómica](#microsoftgenomics)
@@ -104,11 +105,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Manutenção](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
@@ -121,8 +124,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
@@ -134,6 +137,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
@@ -225,9 +229,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | alertasMetaData | Não |
 > | alertasResumo | Não |
 > | alertasSummaryList | Não |
-> | feedback | Não |
 > | smartDetectorAlertRules | Sim |
-> | smartDetectorRuntimeEnvironments | Não |
 > | smartGroups | Não |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
@@ -336,7 +338,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | híbridoDataManagers | Sim |
 > | postgresInstances | Sim |
-> | sqlBigDataClusters | Sim |
 > | sqlInstances | Sim |
 > | sqlServerRegistrations | Sim |
 > | sqlServerRegistrations / sqlServerS | Não |
@@ -346,10 +347,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
+> | cloudManifestFiles | Não |
 > | registos | Sim |
 > | registos / assinaturas de clientes | Não |
 > | registos / produtos | Não |
-> | verificaçãoKeys | Não |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -464,6 +465,17 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | cordaMembros | Sim |
 > | observadores | Sim |
 
+## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminação completa de modo |
+> | ------------- | ----------- |
+> | TokenServices | Sim |
+> | TokenServices / BlockchainNetworks | Não |
+> | TokenServices / Grupos | Não |
+> | TokenServices / Grupos / Contas | Não |
+> | TokenServices / TokenTemplates | Não |
+
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
@@ -533,6 +545,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | perfis | Sim |
 > | perfis / pontos finais | Sim |
 > | perfis / pontos finais / domínios personalizados | Não |
+> | perfis / pontos finais / grupos de origens | Não |
 > | perfis / pontos finais / origens | Não |
 > | validateProbe | Não |
 
@@ -653,9 +666,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | proximidadeGrupoS | Sim |
 > | restaurarPointCollections | Sim |
 > | restaurarPointCollections / restaurarPontos | Não |
+> | extensões vm partilhadas | Sim |
+> | vextensões /versões partilháveis VM | Não |
 > | partilhou VMImages | Sim |
 > | vMImages /versões partilhadas | Não |
 > | instantâneos | Sim |
+> | sshPublicKeys | Sim |
 > | máquinas virtuais | Sim |
 > | virtualMáquinas / extensões | Sim |
 > | virtualMáquinas / definições métricas | Não |
@@ -706,6 +722,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | registos | Sim |
+> | registos / agentPools | Sim |
 > | registos / construções | Não |
 > | registos / construções / cancelamento | Não |
 > | registos / construções / getLogLink | Não |
@@ -744,13 +761,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | serviços de contentores | Sim |
 > | clusters geridos | Sim |
 > | openShiftManagedClusters | Sim |
-
-## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminação completa de modo |
-> | ------------- | ----------- |
-> | accounts | Sim |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
@@ -944,6 +954,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | servidores / virtualNetworkRules | Não |
 > | servidores / estatísticas de espera | Não |
 > | servidorsv2 | Sim |
+> | singleServers | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -1080,13 +1091,22 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | espaços de nome / eventhubs / grupos de consumidores | Não |
 > | espaços de nome / conjuntos de regras de rede | Não |
 
+## <a name="microsoftfalcon"></a>Microsoft.Falcon
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminação completa de modo |
+> | ------------- | ----------- |
+> | espaços de nome | Sim |
+
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
+> | recursosFornecedores | Não |
 > | funcionalidades | Não |
 > | fornecedores | Não |
+> | subscriçõesFeatureRegistrations | Não |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -1221,6 +1241,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | cofres / eventoSGridFilters | Não |
 > | cofres / segredos | Não |
 
+## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminação completa de modo |
+> | ------------- | ----------- |
+> | clusters conectados | Sim |
+
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
@@ -1232,6 +1259,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | clusters / bases de dados / ligações de dados | Não |
 > | clusters / bases de dados / eventhubconnections | Não |
 > | clusters / bases de dados / principais atribuições | Não |
+> | clusters / ligações de dados | Não |
 > | clusters / principados | Não |
 > | clusters / identidades partilhadas | Não |
 
@@ -1273,6 +1301,16 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | espaços de trabalho / computação | Não |
 > | espaços de trabalho / eventoSGridFilters | Não |
 
+## <a name="microsoftmaintenance"></a>Microsoft.Manutenção
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminação completa de modo |
+> | ------------- | ----------- |
+> | aplicarAtualizações | Não |
+> | configuraçãoAtribuis | Não |
+> | manutençãoConfigurações | Sim |
+> | atualizações | Não |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
@@ -1309,6 +1347,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | accounts | Sim |
 > | contas / eventoSGridFilters | Não |
+> | contas / Atlases privados | Sim |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
@@ -1325,10 +1364,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ofertaTipos / editores / ofertas / planos / configs / importImage | Não |
 > | privategalleryitems | Não |
 > | privateStoreClient | Não |
+> | lojas privadas | Não |
+> | privateStores / ofertas | Não |
 > | produtos | Não |
 > | editores | Não |
 > | editoras / ofertas | Não |
 > | editores / ofertas / alterações | Não |
+> | registar | Não |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -1395,7 +1437,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | objetoUnderstandingAccounts | Sim |
 > | remotoSRenderingAccounts | Sim |
 > | spatialAnchorsAccounts | Sim |
-> | surfaceReconstructionAccounts | Sim |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1403,17 +1444,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | netAppAccounts | Sim |
+> | netAppAccounts / contasBackups | Não |
 > | netAppAccounts / capacityPools | Sim |
 > | netAppAccounts / capacityPools / volumes | Sim |
-> | netAppAccounts / capacityPools / volumes / mountTargets | Sim |
 > | netAppAccounts / capacityPools / volumes / instantâneos | Sim |
-
-## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminação completa de modo |
-> | ------------- | ----------- |
-> | NotebookProxies | Não |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1498,6 +1532,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | vpnSites | Sim |
 > | webApplicationFirewallPolicies | Sim |
 
+## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminação completa de modo |
+> | ------------- | ----------- |
+> | NotebookProxies | Não |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1535,9 +1576,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | espaços de trabalho / dadosExportações | Não |
 > | espaços de trabalho / dataFontes | Não |
 > | espaços de trabalho / serviços ligados | Não |
-> | espaços de trabalho / privateEndpointConnectionProxies | Não |
-> | espaços de trabalho / privateEndpointConnections | Não |
-> | espaços de trabalho / privateLinkResources | Não |
+> | espaços de trabalho / linkedStorageAccounts | Não |
 > | espaços de trabalho / consulta | Não |
 > | espaços de trabalho / PrivateLinkProxies com âmbito | Não |
 
@@ -1603,6 +1642,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | accounts | Sim |
+
+## <a name="microsoftquantum"></a>Microsoft.Quantum
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminação completa de modo |
+> | ------------- | ----------- |
+> | Áreas de Trabalho | Sim |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -1725,6 +1771,10 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | regulamentareComplianceStandards | Não |
 > | regulamentareComplianceStandards / regulatoryComplianceControls | Não |
 > | regulamentareComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | Não |
+> | secureScoreControlDefinis | Não |
+> | secureScoreControls | Não |
+> | secureScores | Não |
+> | secureScores / secureScoreControls | Não |
 > | segurançaContactos | Não |
 > | segurançaSoluções | Não |
 > | securitySolutionsReferenceData | Não |
@@ -1988,6 +2038,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | mudar o nome | Não |
 > | Definições de Assinaturas | Não |
 > | Operações de Subscrição | Não |
+> | assinaturas | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2018,6 +2069,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | fornecedores | Não |
 > | fornecedores / skus | Não |
 > | fornecedores / vnfs | Não |
+> | virtualNetworkFunctionSkus | Não |
 > | vnfs | Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2045,6 +2097,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | hospedagemAmbientes / eventoSGridFilters | Não |
 > | hospedagemAmbientes / multiRolePools | Não |
 > | hospedagemAmbientes / trabalhadorEsPools | Não |
+> | kubeAmbientes | Sim |
 > | publicarUtilizadores | Não |
 > | recomendações | Não |
 > | recursosHealthMetadata | Não |

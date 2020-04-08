@@ -1,15 +1,16 @@
 ---
-title: Endereço IP estático para tráfego de egress no Serviço Azure Kubernetes (AKS)
+title: Utilize IP estático para tráfego de saída
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a criar e usar um endereço IP público estático para o tráfego de saída num cluster do Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 5850f8dfc08ed80dfe5e5e13f49808c3fd9338c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595761"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803387"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para o tráfego de egress no Serviço Azure Kubernetes (AKS)
 

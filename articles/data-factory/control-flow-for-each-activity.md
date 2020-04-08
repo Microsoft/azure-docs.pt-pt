@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679881"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804848"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade para Cada Pessoa na Fábrica de Dados Azure
 A Atividade ForEach define um fluxo de controlo repetitivo no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
@@ -70,10 +70,10 @@ As propriedades são descritas mais tarde neste artigo. A propriedade dos artigo
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade para cada um. | Cadeia | Sim
-tipo | Deve ser definido para **ForEach** | Cadeia | Sim
+nome | Nome da atividade para cada um. | String | Sim
+tipo | Deve ser definido para **ForEach** | String | Sim
 isSequential | Especifica se o laço deve ser executado sequencialmente ou em paralelo.  No máximo 20 iterações em loop podem ser executadas de uma só vez em paralelo). Por exemplo, se tiver uma atividade ForEach iterando sobre uma atividade de cópia com 10 conjuntos de dados de origem e pia diferentes com conjunto **isSequential** definido para Falso, todas as cópias são executadas de uma só vez. O padrão é falso. <br/><br/> Se "isSequential" estiver definido para Falso, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser usada com cuidado para evitar incorrer em conflitos de escrita. Para mais informações, consulte a secção [de execução paralela.](#parallel-execution) | Booleano | Não. O padrão é falso.
-loteCount | Contagem de lotes a utilizar para controlar o número de execução paralela (quando o isSequential for definido como falso). | Inteiro (máximo 50) | Não. O padrão é de 20.
+loteCount | Contagem de lotes a utilizar para controlar o número de execução paralela (quando o isSequential for definido como falso). Este é o limite de conmoeda superior, mas a atividade para cada um nem sempre executará neste número | Inteiro (máximo 50) | Não. O padrão é de 20.
 Itens | Uma expressão que devolve um Matriz JSON para ser iterado. | Expressão (que devolve um Matriz JSON) | Sim
 Atividades | As atividades a serem executadas. | Lista de Actividades | Sim
 

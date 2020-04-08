@@ -3,12 +3,12 @@ title: Sugestões de aprendizagem ativa - QnA Maker
 description: Sugestões de aprendizagem ativa permitem-lhe melhorar a qualidade da sua base de conhecimentos sugerindo perguntas alternativas, baseadas em submissões de utilizador, ao seu par de perguntas e respostas.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: af4f6b399bfd537b38ea741d03e59371ee81e588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053145"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804225"
 ---
 # <a name="active-learning-suggestions"></a>Sugestões de aprendizagem ativa
 
@@ -27,7 +27,7 @@ Ambos os métodos fornecem ao ranker consultas semelhantes que são agrupadas.
 
 ## <a name="how-active-learning-works"></a>Como funciona a aprendizagem ativa
 
-A aprendizagem ativa é desencadeada com base nas pontuações das poucas respostas mais altas devolvidas pela QnA Maker. Se as diferenças de pontuação entre os conjuntos qnA que correspondem à consulta se situam dentro de um pequeno intervalo, então a consulta é considerada uma possível sugestão (como uma pergunta alternativa) para cada um dos possíveis pares QnA. Uma vez que você aceita a pergunta sugerida para um par qnA específico, é rejeitado para os outros pares. Tens de te lembrar de poupar e treinar, depois de aceitarsugestões.
+A aprendizagem ativa é desencadeada com base nas pontuações das poucas respostas mais altas devolvidas pela QnA Maker. Se as diferenças de pontuação entre pares QnA que correspondem à consulta estão dentro de um pequeno intervalo, então a consulta é considerada uma possível sugestão (como uma pergunta alternativa) para cada um dos possíveis pares QnA. Uma vez que você aceita a pergunta sugerida para um par qnA específico, é rejeitado para os outros pares. Tens de te lembrar de poupar e treinar, depois de aceitarsugestões.
 
 A aprendizagem ativa dá as melhores sugestões possíveis nos casos em que os pontos finais estão recebendo uma quantidade razoável e uma variedade de consultas de uso. Quando 5 ou mais consultas semelhantes são agrupadas, a cada 30 minutos, a QnA Maker sugere que as perguntas baseadas no utilizador ao designer de base de conhecimento aceitem ou rejeitem. Todas as sugestões são agrupadas por semelhanças e as sugestões de topo para perguntas alternativas são apresentadas com base na frequência das consultas específicas pelos utilizadores finais.
 

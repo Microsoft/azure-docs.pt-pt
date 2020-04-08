@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421025"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810201"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de fusão de divisão para mover dados entre bases de dados fiadas
 
@@ -150,7 +150,7 @@ Por favor, note que para implementações de produção certificados separados d
 
 ## <a name="troubleshoot-the-deployment"></a>Problemas de resolução da implantação
 
-Se o seu papel na web não ficar online, é provável que seja um problema com a configuração de segurança. Verifique se o SSL está configurado como descrito acima.
+Se o seu papel na web não ficar online, é provável que seja um problema com a configuração de segurança. Verifique se o TLS/SSL está configurado como descrito acima.
 
 Se o seu papel de trabalhador não estiver online, mas o seu papel na web for bem sucedido, é provavelmente um problema de ligação à base de dados de estado que criou anteriormente.
 
@@ -254,7 +254,7 @@ Os ficheiros do script incluídos são:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute o script *ExecuteSampleSplitMerge.ps1* para executar uma operação dividida (movendo metade dos dados do primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de fusão (movendo os dados de volta para o primeiro fragmento). Se configurar o SSL e deixar o ponto final desativado, certifique-se de que utiliza o ponto final https://.
+5. Execute o script *ExecuteSampleSplitMerge.ps1* para executar uma operação dividida (movendo metade dos dados do primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de fusão (movendo os dados de volta para o primeiro fragmento). Se configurar o TLS e deixar o ponto final desativado, certifique-se de que utiliza o ponto final https://.
 
    Linha de comando da amostra:
 
@@ -333,7 +333,7 @@ Pode ver a mensagem abaixo ao executar os scripts de powershell da amostra:
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Este erro significa que o seu certificado SSL não está configurado corretamente. Siga as instruções na secção 'Conectar-se com um navegador web'.
+Este erro significa que o seu certificado TLS/SSL não está configurado corretamente. Siga as instruções na secção 'Conectar-se com um navegador web'.
 
 Se não puder submeter pedidos, poderá ver isto:
 

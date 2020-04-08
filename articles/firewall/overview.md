@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/07/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: a8930af1366fef3d8c4491fca5e9403905648de1
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 951396afc95a215a6ff9f4885f83fcdf6efdeb72
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638006"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810345"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -120,6 +120,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |FtP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques ftp bounce usando o comando FTP PORT.|Em vez disso, pode utilizar ftp passivo. Ainda deve abrir explicitamente as portas TCP 20 e 21 na firewall.
 |Métrica de utilização da porta SNAT mostra 0%|A métrica de utilização da porta Azure Firewall SNAT pode mostrar uma utilização de 0%, mesmo quando as portas SNAT são utilizadas. Neste caso, a utilização da métrica como parte da métrica de saúde da firewall proporciona um resultado incorreto.|Esta questão foi corrigida e a produção está direcionada para maio de 2020. Em alguns casos, a redistribuição da firewall resolve o problema, mas não é consistente. Como uma suposição intermédia, utilize apenas o estado de saúde da firewall para procurar *o estado=degradado,* não para *o status=insalubre*. A exaustão portuária mostrar-se-á *degradada.* *Não é saudável* é reservado para uso futuro quando são mais métricas para impactar a saúde da firewall.
 |O DNAT não é suportado com túnel forçado habilitado|As firewalls implantadas com túneis forçados ativados não suportam o acesso à entrada da Internet devido ao encaminhamento assimétrico.|Isto é por design por causa do encaminhamento assimétrico. O caminho de retorno para ligações de entrada passa pela firewall no local, que não viu a ligação estabelecida.
+|O FTP passivo de saída não funciona para firewalls com vários endereços IP públicos.|O FTP passivo estabelece diferentes ligações para os canais de controlo e dados. Quando um Firewall com vários endereços IP públicos envia dados de saída, ele seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP fonte. O FTP falha quando os canais de dados e de controlo utilizam diferentes endereços IP de origem.|Está prevista uma configuração sNAT explícita. Entretanto, considere utilizar um único endereço IP nesta situação.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475392"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811763"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -135,7 +135,7 @@ Se se `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`definir, então o cl
 
 Para obter mais informações sobre a criação de um cluster AKS utilizando o Azure CLI ou portal, consulte os seguintes artigos:
 
-* [Criar um cluster AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Criar um cluster do AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Criar um cluster AKS (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 Os seguintes exemplos demonstram como anexar um cluster AKS existente ao seu espaço de trabalho:
@@ -233,10 +233,28 @@ Para obter informações sobre a utilização do Código VS, consulte [a sua imp
 > A implementação através do Código VS requer que o cluster AKS seja criado ou ligado ao seu espaço de trabalho com antecedência.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implementar modelos para AKS utilizando o rollout controlado (pré-visualização)
-Analise e promova versões de modelo sem termo utilizando pontos finais. Implementar até 6 versões atrás de um único ponto final e configurar a % de pontuação do tráfego para cada versão implantada. Pode permitir que as informações das aplicações vejam métricas operacionais de pontos finais e versões implementadas.
+
+Analise e promova versões de modelo sem termo utilizando pontos finais. Pode implantar até seis versões atrás de um único ponto final. Os pontos finais fornecem as seguintes capacidades:
+
+* Configure a percentagem de tráfego de __pontuação enviado para cada ponto final__. Por exemplo, a rota de 20% do tráfego para o ponto final 'teste' e 80% para a "produção".
+
+    > [!NOTE]
+    > Se não representar 100% do tráfego, qualquer percentagem restante é encaminhada para a versão __final padrão.__ Por exemplo, se configurar o 'teste' da versão endpoint para obter 10% do tráfego, e 'prod' por 30%, os restantes 60% são enviados para a versão de ponto final padrão.
+    >
+    > A primeira versão de ponto final criada é configurada automaticamente como predefinição. Pode alterar isto `is_default=True` definindo-se ao criar ou atualizar uma versão de ponto final.
+     
+* Marque uma versão de ponto final como __controlo__ ou __tratamento.__ Por exemplo, a versão final de produção atual pode ser o controlo, enquanto potenciais novos modelos são implementados como versões de tratamento. Após avaliar o desempenho das versões de tratamento, se se superar o controlo atual, poderá ser promovido à nova produção/controlo.
+
+    > [!NOTE]
+    > Só podeter __um__ controlo. Pode fazer vários tratamentos.
+
+Pode permitir que as informações das aplicações vejam métricas operacionais de pontos finais e versões implementadas.
 
 ### <a name="create-an-endpoint"></a>Criar um ponto final
-Assim que estiver pronto para implementar os seus modelos, crie um ponto final de pontuação e implemente a sua primeira versão. O passo abaixo mostra-lhe como implementar e criar o ponto final usando o SDK. A primeira implementação será definida como a versão padrão, o que significa que o percentil de tráfego não especificado em todas as versões irá para a versão padrão.  
+Assim que estiver pronto para implementar os seus modelos, crie um ponto final de pontuação e implemente a sua primeira versão. O exemplo seguinte mostra como implantar e criar o ponto final usando o SDK. A primeira implementação será definida como a versão padrão, o que significa que o percentil de tráfego não especificado em todas as versões irá para a versão padrão.  
+
+> [!TIP]
+> No exemplo seguinte, a configuração define a versão final inicial para lidar com 20% do tráfego. Uma vez que este é o primeiro ponto final, é também a versão padrão. E como não temos outras versões para os outros 80% do tráfego, também é encaminhado para o padrão. Até que outras versões que levam uma percentagem de tráfego sejam implantadas, esta recebe efetivamente 100% do tráfego.
 
 ```python
 import azureml.core,
@@ -247,8 +265,8 @@ from azureml.core.compute import ComputeTarget
 compute = ComputeTarget(ws, 'myaks')
 namespace_name= endpointnamespace
 # define the endpoint and version name
-endpoint_name = "mynewendpoint",
-version_name= "versiona",
+endpoint_name = "mynewendpoint"
+version_name= "versiona"
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
                                                               enable_app_insights = True,
@@ -258,11 +276,16 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
                                                               traffic_percentile = 20)
  # deploy the model and endpoint
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ # Wait for he process to complete
+ endpoint.wait_for_deployment(True)
  ```
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Atualizar e adicionar versões a um ponto final
 
-Adicione outra versão ao seu ponto final e configure o percentil de tráfego de pontuação indo para a versão. Existem dois tipos de versões, um controlo e uma versão de tratamento. Pode haver uma versão de tratamento múltiplo para ajudar a comparar com uma única versão de controlo.
+Adicione outra versão ao seu ponto final e configure o percentil de tráfego de pontuação indo para a versão. Existem dois tipos de versões, um controlo e uma versão de tratamento. Pode haver múltiplas versões de tratamento para ajudar a comparar com uma única versão de controlo.
+
+> [!TIP]
+> A segunda versão, criada pelo seguinte código, aceita 10% do tráfego. A primeira versão está configurada para 20%, pelo que apenas 30% do tráfego está configurado para versões específicas. Os restantes 70% são enviados para a versão final, porque é também a versão padrão.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -275,9 +298,13 @@ endpoint.create_version(version_name = version_name_add,
                         tags = {'modelVersion':'b'},
                         description = "my second version",
                         traffic_percentile = 10)
+endpoint.wait_for_deployment(True)
 ```
 
-Atualize as versões existentes ou elimine-as num ponto final. Pode alterar o tipo padrão da versão, o tipo de controlo e o percentil de tráfego.
+Atualize as versões existentes ou elimine-as num ponto final. Pode alterar o tipo padrão da versão, o tipo de controlo e o percentil de tráfego. No exemplo seguinte, a segunda versão aumenta o seu tráfego para 40% e é agora o padrão.
+
+> [!TIP]
+> Após o seguinte corte de código, a segunda versão está agora predefinida. Está agora configurado por 40%, enquanto a versão original ainda está configurada para 20%. Isto significa que 40% do tráfego não é contabilizado pelas configurações da versão. O tráfego que sobra será encaminhado para a segunda versão, porque agora está em incumprimento. Efetivamente recebe 80% do tráfego.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -288,7 +315,8 @@ endpoint.update_version(version_name=endpoint.versions["versionb"].name,
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
-
+# Wait for the process to complete before deleting
+endpoint.wait_for_deployment(true)
 # delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 

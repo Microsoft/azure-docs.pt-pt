@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b9b33076a2c2cea27fea181b760a721488682c9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 702df1bfaf0701a40e514f8a47151f96917adf38
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657009"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811593"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize as equipas da Microsoft no ambiente de trabalho do Windows Virtual
 
@@ -51,7 +51,7 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
 2. Execute este comando para instalar o MSI no VM hospedeiro.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
       ```
 
       Isto irá instalar equipas para ficheiros de programas ou ficheiros de programa (x86). Da próxima vez que iniciar o insessão e iniciar as Equipas, a aplicação irá pedir as suas credenciais.

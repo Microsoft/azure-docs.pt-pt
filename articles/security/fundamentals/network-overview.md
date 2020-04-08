@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749948"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811099"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança da rede Azure
 
@@ -160,7 +160,7 @@ A rede Azure suporta os seguintes cenários seguros de acesso remoto:
 
 A ligação VPN ponto-a-site permite-lhe configurar uma ligação privada e segura entre o utilizador e a rede virtual. Quando a ligação VPN é estabelecida, o utilizador pode RDP ou SSH através da ligação VPN em qualquer máquina virtual da rede virtual. (Isto pressupõe que o utilizador pode autenticar e está autorizado.) Suportes VPN ponto-a-local:
 
-* Protocolo de Túnel de Tomada Segura (SSTP), um protocolo VPN baseado em SSL. Uma solução SSL VPN pode penetrar firewalls, uma vez que a maioria das firewalls abrem a porta TCP 443, que o SSL utiliza. O SSTP só é suportado em dispositivos Windows. O Azure suporta todas as versões do Windows que tenham SSTP (Windows 7 e mais tarde).
+* Protocolo de Túnel de Tomada Segura (SSTP), um protocolo VPN baseado em SSL. Uma solução SSL VPN pode penetrar firewalls, uma vez que a maioria das firewalls abrem a porta TCP 443, que o TLS/SSL utiliza. O SSTP só é suportado em dispositivos Windows. O Azure suporta todas as versões do Windows que tenham SSTP (Windows 7 e mais tarde).
 
 * VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores).
 
@@ -232,7 +232,7 @@ As organizações que executam serviços baseados na Web muitas vezes desejam te
 O Portal de Aplicações Azure fornece um equilíbrio de carga baseado em HTTP para os seus serviços baseados na Web. Suportes de Gateway de aplicação:
 
 * Afinidade de sessão baseada em cookies. Esta capacidade garante que as ligações estabelecidas a um dos servidores por trás desse equilíbrio de carga permanecem intactas entre o cliente e o servidor. Isto garante a estabilidade das transações.
-* SSL descarregar. Quando um cliente se conecta com o equilibrista de carga, essa sessão é encriptada utilizando o protocolo HTTPS (SSL). No entanto, para aumentar o desempenho, pode utilizar o protocolo HTTP (não encriptado) para ligar entre o equilibrador de carga e o servidor web por trás do equilibrador de carga. Isto é referido como "ssl offload", porque os servidores web por trás do equilibrista de carga não experimentam a sobrecarga do processador envolvida na encriptação. Os servidores web podem, portanto, solicitar mais rapidamente.
+* Descarregamento de TLS. Quando um cliente se conecta com o equilibrista de carga, essa sessão é encriptada utilizando o protocolo HTTPS (TLS). No entanto, para aumentar o desempenho, pode utilizar o protocolo HTTP (não encriptado) para ligar entre o equilibrador de carga e o servidor web por trás do equilibrador de carga. Isto é referido como "descarregamento de TLS", porque os servidores web por trás do equilibrista de carga não experimentam a sobrecarga do processador envolvida na encriptação. Os servidores web podem, portanto, solicitar mais rapidamente.
 * Encaminhamento de conteúdo baseado em URL. Esta funcionalidade permite que o equilibrador de carga tome decisões sobre onde encaminhar ligações com base no URL alvo. Isto proporciona muito mais flexibilidade do que soluções que tomam decisões de equilíbrio de carga com base em endereços IP.
 
 Saiba mais:
@@ -336,7 +336,7 @@ Saiba mais:
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
-O Azure Front Door Service permite-lhe definir, gerir e monitorizar o encaminhamento global do seu tráfego web. Otimiza o encaminhamento do seu tráfego para melhor desempenho e alta disponibilidade. O Azure Front Door permite criar regras de firewall de aplicações Web (WAF) personalizadas para o controlo de acesso de forma a proteger a carga de trabalho HTTP/HTTPS da exploração com base em endereços IP de cliente, no indicativo e em parâmetros http. Além disso, a Porta Frontal também lhe permite criar regras de limitação de tarifas para combater o tráfego de bots maliciosos, inclui ndo descarregamento sl e pedido por HTTP/HTTPS, processamento de camada de aplicação.
+O Azure Front Door Service permite-lhe definir, gerir e monitorizar o encaminhamento global do seu tráfego web. Otimiza o encaminhamento do seu tráfego para melhor desempenho e alta disponibilidade. O Azure Front Door permite criar regras de firewall de aplicações Web (WAF) personalizadas para o controlo de acesso de forma a proteger a carga de trabalho HTTP/HTTPS da exploração com base em endereços IP de cliente, no indicativo e em parâmetros http. Além disso, a Porta Frontal também lhe permite criar regras de limitação de tarifas para combater o tráfego de bots maliciosos, inclui ndo descarregamento de TLS e pedido por HTTP/HTTPS, processamento de camada de aplicação.
 
 A plataforma do Front Door encontra-se protegida pela proteção básica do Azure DDoS Protection. Para aumentar a proteção, é possível ativar a proteção padrão do Azure DDoS Protection nas suas VNETs e recursos de salvaguarda contra ataques de camada de rede (TCP/UDP) através de ajuste automático e mitigação. A Porta frontal é uma camada 7 de procuração inversa, só permite que o tráfego da web passe para servidores finais e bloqueie outros tipos de tráfego por padrão.
 

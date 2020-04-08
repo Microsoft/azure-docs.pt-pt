@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687396"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804406"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral
 Um Ambiente de Serviço de Aplicações pode ser criado **numa** rede virtual do Azure Resource Manager, **ou** numa [rede virtual][virtualnetwork]modelo de implementação clássica.  Uma nova rede virtual e uma nova subnet podem ser definidas no momento em que um App Service Environment é criado.  Alternativamente, um Ambiente de Serviço de Aplicações pode ser criado numa rede virtual pré-existente e numa subnet pré-existente.  Com uma alteração feita em junho de 2016, as ASE também podem ser implantadas em redes virtuais que utilizam faixas de endereços públicos, ou espaços de endereçoS RFC1918 (isto é, endereços privados).  Para mais detalhes sobre a criação de um app service environment, veja como criar um ambiente de serviço de [aplicações.][HowToCreateAnAppServiceEnvironment]
 
-Um Ambiente de Serviço de Aplicações deve ser sempre criado dentro de uma subnet porque uma subnet fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada atrás de dispositivos e serviços a montante, de modo a que o tráfego HTTP e HTTPS só seja aceite a partir de um montante específico Endereços IP.
+Um Ambiente de Serviço de Aplicações deve ser sempre criado dentro de uma subnet porque uma subnet fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada atrás de dispositivos e serviços a montante, de modo a que o tráfego HTTP e HTTPS só seja aceite a partir de endereços IP específicos a montante.
 
 O tráfego de rede de entrada e saída numa subnet é controlado através de um grupo de segurança da [rede][NetworkSecurityGroups]. O controlo do tráfego de entrada requer a criação de regras de segurança da rede num grupo de segurança de rede e, em seguida, atribuir ao grupo de segurança da rede a subrede que contém o App Service Environment.
 
@@ -31,10 +31,10 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 Segue-se uma lista de portas utilizadas por um Ambiente de Serviço de Aplicações. Todas as portas são **TCP,** salvo indicação em contrário:
 
-* 454: **Porta requerida** utilizada pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via SSL.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao VIP público de uma ASE.
-* 455: **Porta requerida** utilizada pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via SSL.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao VIP público de uma ASE.
+* 454: **Porta requerida** utilizada pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via TLS.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao VIP público de uma ASE.
+* 455: **Porta requerida** utilizada pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via TLS.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao VIP público de uma ASE.
 * 80: Porta padrão para tráfego HTTP de entrada para aplicações em execução em Planos de Serviço de Aplicações em um Ambiente de Serviço de Aplicações.  Numa ASE ativada pelo ILB, esta porta está ligada ao endereço ILB da ASE.
-* 443: Porta padrão para tráfego SSL de entrada para aplicações em execução em Planos de Serviço de Aplicações em um Ambiente de Serviço de Aplicações.  Numa ASE ativada pelo ILB, esta porta está ligada ao endereço ILB da ASE.
+* 443: Porta padrão para tráfego TLS de entrada para aplicações em execução em Planos de Serviço de Aplicações em um Ambiente de Serviço de Aplicações.  Numa ASE ativada pelo ILB, esta porta está ligada ao endereço ILB da ASE.
 * 21: Canal de controlo para FTP.  Esta porta pode ser bloqueada com segurança se o FTP não estiver a ser utilizado.  Numa ASE ativada pelo ILB, esta porta pode ser ligada ao endereço ILB para uma ASE.
 * 990: Canal de controlo para FTPS.  Esta porta pode ser bloqueada com segurança se o FTPS não estiver a ser utilizado.  Numa ASE ativada pelo ILB, esta porta pode ser ligada ao endereço ILB para uma ASE.
 * 10001-10020: Canais de dados para FTP.  Tal como acontece com o canal de controlo, estas portas podem ser bloqueadas com segurança se o FTP não estiver a ser utilizado.  Numa ASE ativada pelo ILB, esta porta pode ser ligada ao endereço ILB da ASE.
@@ -62,7 +62,7 @@ O seguinte demonstra a criação de um grupo de segurança de rede:
 
 Uma vez criado um grupo de segurança de rede, uma ou mais regras de segurança da rede são adicionadas a ele.  Uma vez que o conjunto de regras pode mudar ao longo do tempo, recomenda-se que se espaça o regime de numeração utilizado para as prioridades de regras, a fim de facilitar a inserção de regras adicionais ao longo do tempo.
 
-O exemplo abaixo mostra uma regra que concede explicitamente o acesso aos portos de gestão necessários pela infraestrutura Azure para gerir e manter um Ambiente de Serviço de Aplicações.  Note que todos os fluxos de tráfego de gestão sobre sSL e são protegidos por certificados de cliente, pelo que, apesar de os portos serem abertos, são inacessíveis por qualquer outra entidade que não a infraestrutura de gestão Azure.
+O exemplo abaixo mostra uma regra que concede explicitamente o acesso aos portos de gestão necessários pela infraestrutura Azure para gerir e manter um Ambiente de Serviço de Aplicações.  Note que todo o tráfego de gestão flui sobre TLS e é garantido por certificados de cliente, pelo que, embora os portos sejam abertos, são inacessíveis por qualquer outra entidade que não a infraestrutura de gestão Azure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2133524f57576c4646de9d4bf7f37b573a77e6d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77618469"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80813708"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Criar um cofre chave utilizando o [cofre az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) o comando Azure CLI, o comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell, o [portal Azure,](https://portal.azure.com)ou um modelo de Gestor de [Recursos.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
 >[!WARNING]
-> Para garantir que os segredos de encriptação não cruzam os limites regionais, a Encriptação do Disco Azure requer que o Cofre chave e os VMs sejam co-localizados na mesma região. Crie e use um Cofre chave que esteja na mesma região que os VMs para serem encriptados. 
+> Para garantir que os segredos de encriptação não cruzam os limites regionais, a Encriptação do Disco Azure requer que o Cofre chave e os VMs sejam co-localizados na mesma região e na mesma subscrição. Crie e use um Cofre chave que esteja na mesma região que os VMs para serem encriptados. 
 
 Cada cofre de chaves deve ter um nome único. Substitua <seu> de nome único com o seu cofre único com o nome do seu cofre-chave nos seguintes exemplos.
 

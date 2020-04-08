@@ -2,13 +2,13 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos.
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 8644bec1a68acebff18cf83d17acb014784dc964
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937941"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804780"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -26,7 +26,6 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * registos
 * registos/assinaturas de clientes
 * registos/produtos
-* verificaçãoKeys
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -35,6 +34,9 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 * discos
+* galerias
+* galerias/imagens
+* galerias/imagens/versões
 * imagens
 * instantâneos
 * máquinas virtuais
@@ -67,6 +69,11 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * servidorGrupos
 * servidores
 * servidorsv2
+* singleServers
+
+## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+
+* horários - Por defeito, limitado a 800 instâncias. Esse limite pode ser aumentado contactando o apoio.
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -90,7 +97,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para remover o
 * softwareUpdateProfile
 * softwareUpdates
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>microsoft.insights
 
 * alertas métricos
 

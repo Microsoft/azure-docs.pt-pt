@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138024"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811483"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
 
@@ -101,7 +101,7 @@ A tabela seguinte enumera as ameaças do STRIDE e dá alguns exemplos de atenua�
 | Ameaça | Propriedade de segurança | Potenciais mitigações da plataforma Azure |
 | --- | --- | --- |
 | Spoofing | Autenticação | Requerer ligações HTTPS. |
-| Adulteração | Integridade | Valide os certificados SSL. |
+| Adulteração | Integridade | Valide os certificados TLS/SSL. |
 | Repúdio | Não-repústação | Ativar [a monitorização e diagnóstico](/azure/architecture/best-practices/monitoring)do Azure. |
 | Divulgação de informação | Confidencialidade | Criptografe dados sensíveis em repouso utilizando [certificados](/rest/api/appservice/certificates)de serviço . |
 | Denial of service | Disponibilidade | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. |
@@ -155,7 +155,7 @@ Neste artigo, focamo-nos nas vantagens de segurança de uma implantação do Azu
 
 - [Serviço de Aplicações do Azure](paas-applications-using-app-services.md)
 - [Base de Dados Azure SQL e Armazém de Dados Azure SQL](paas-applications-using-sql.md)
-- [Storage do Azure](paas-applications-using-storage.md)
+- [Armazenamento Azure](paas-applications-using-storage.md)
 - Cache do Azure para Redis
 - Service Bus do Azure
 - Firewalls de aplicação web

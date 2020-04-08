@@ -7,16 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270254"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803195"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
 Embora possa criar, editar, gerir e implementar aplicações lógicas no [portal Azure,](https://portal.azure.com)também pode utilizar o Visual Studio quando pretende adicionar as suas aplicações lógicas ao controlo de fontes, publicar diferentes versões e criar modelos de [Gestor de Recursos Azure](../azure-resource-manager/management/overview.md) para vários ambientes de implementação. Com o Visual Studio Cloud Explorer, pode encontrar e gerir as suas aplicações lógicas juntamente com outros recursos Do Azure. Por exemplo, pode abrir, descarregar, editar, executar, ver o histórico de executar, desativar e ativar aplicações lógicas que já estão implantadas no portal Azure. Se é novo a trabalhar com apps Azure Logic no Estúdio Visual, aprenda [a criar aplicações lógicas com o Visual Studio.](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+
+Também pode [gerir as suas aplicações lógicas no portal Azure.](manage-logic-apps-with-azure-portal.md)
 
 > [!IMPORTANT]
 > A implementação ou publicação de uma aplicação lógica do Visual Studio substitui a versão dessa aplicação no portal Azure. Por isso, se fizer alterações no portal Azure que pretende manter, certifique-se de que [atualiza a aplicação lógica no Visual Studio](#refresh) a partir do portal Azure antes da próxima vez que implementar ou publicar no Visual Studio.

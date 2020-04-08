@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421553"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811299"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 
@@ -62,7 +62,7 @@ A ferramenta de fusão é executado como um serviço web Azure. Um administrador
 
 - **Serviços hospedados pelo cliente**
 
-  A fusão é entregue como um serviço hospedado pelo cliente. Tem de implementar e acolher o serviço na subscrição do Microsoft Azure. O pacote que descarrega do NuGet contém um modelo de configuração para completar com as informações para a sua implementação específica. Consulte o [tutorial de fusão](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para mais detalhes. Uma vez que o serviço é executado na sua subscrição Azure, pode controlar e configurar a maioria dos aspetos de segurança do serviço. O modelo padrão inclui as opções para configurar ssl, autenticação de cliente baseada em certificados, encriptação para credenciais armazenadas, guarda do DoS e restrições IP. Pode encontrar mais informações sobre os aspetos de segurança na [configuração de segurança](sql-database-elastic-scale-split-merge-security-configuration.md)de fusão de documentos a seguir .
+  A fusão é entregue como um serviço hospedado pelo cliente. Tem de implementar e acolher o serviço na subscrição do Microsoft Azure. O pacote que descarrega do NuGet contém um modelo de configuração para completar com as informações para a sua implementação específica. Consulte o [tutorial de fusão](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para mais detalhes. Uma vez que o serviço é executado na sua subscrição Azure, pode controlar e configurar a maioria dos aspetos de segurança do serviço. O modelo padrão inclui as opções de configurar TLS, autenticação de cliente baseada em certificados, encriptação para credenciais armazenadas, guarda do DoS e restrições IP. Pode encontrar mais informações sobre os aspetos de segurança na [configuração de segurança](sql-database-elastic-scale-split-merge-security-configuration.md)de fusão de documentos a seguir .
 
   O serviço implantado por padrão funciona com um trabalhador e uma função web. Cada um usa o tamanho A1 VM em Serviços Azure Cloud. Embora não possa modificar estas definições ao implementar o pacote, poderá alterá-las após uma implementação bem sucedida no serviço de nuvem em execução (através do portal Azure). Note que a função do trabalhador não deve ser configurada por razões técnicas.
 
@@ -72,7 +72,7 @@ A ferramenta de fusão é executado como um serviço web Azure. Um administrador
 
 - **Conexões de fragmentos consistentes**
 
-  Quando o movimento de dados começa para um novo lote de fragmentos, qualquer mapa de fragmentos forneceu ligações de encaminhamento dependentede dados ao fragmento que armazena o fragmento são mortos e as ligações subsequentes das APIs do mapa de fragmentos às estratos são bloqueadas enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o movimento de dados é bloqueado enquanto o em curso, a fim de evitar inconsistências. As ligações com outros fragmentos no mesmo fragmento também serão mortas, mas voltarão a ser bem sucedidas imediatamente em nova tentativa. Uma vez que o lote é movido, os fragmentos são marcados online novamente para o fragmento do alvo e os dados de origem são removidos do fragmento de origem. O serviço passa por estes passos para cada lote até que todos os fragmentos sejam movidos. Isto conduzirá a várias operações de ligação durante a operação de divisão/fusão/movimento completa.  
+  Quando o movimento de dados começa para um novo lote de fragmentos, qualquer mapa de fragmentos forneceu ligações de encaminhamento dependentes de dados ao fragmento que armazena o fragmento são mortos e as ligações subsequentes das APIs do mapa de fragmentos às estratos são bloqueadas enquanto o movimento de dados está em andamento para evitar inconsistências. As ligações com outros fragmentos no mesmo fragmento também serão mortas, mas voltarão a ser bem sucedidas imediatamente em nova tentativa. Uma vez que o lote é movido, os fragmentos são marcados online novamente para o fragmento do alvo e os dados de origem são removidos do fragmento de origem. O serviço passa por estes passos para cada lote até que todos os fragmentos sejam movidos. Isto conduzirá a várias operações de ligação durante a operação de divisão/fusão/movimento completa.  
 
 - **Gerir a disponibilidade de shardlet**
 

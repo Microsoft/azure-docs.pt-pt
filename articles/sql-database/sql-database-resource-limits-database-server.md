@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 550c315023c0ae907c369778c81b16e137004bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067250"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804831"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos da Base de Dados SQL e governação de recursos
 
@@ -60,7 +60,7 @@ Ao encontrar uma alta utilização de cálculo, as opções de mitigação inclu
 - Aumentar o tamanho da computação da base de dados ou do pool elástico para fornecer à base de dados mais recursos computacionais. Consulte os recursos de base de [dados individuais scale](sql-database-single-database-scale.md) e [scale elásticos recursos de piscina.](sql-database-elastic-pool-scale.md)
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta. Para mais informações, consulte [Afinação/Insinuação](sql-database-performance-guidance.md#query-tuning-and-hinting)de Consulta.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 Quando o espaço de base de dados utilizado atinge o limite máximo de tamanho, a base de dados insere e atualiza ções que aumentam a falha do tamanho dos dados e os clientes recebem uma [mensagem de erro](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). As declarações SELECT e DELETE continuam a ter sucesso.
 
@@ -103,7 +103,7 @@ Para impor limites de recursos, a Base de Dados Azure SQL utiliza uma implementa
 
 Além de usar o Governor de Recursos para governar recursos dentro do processo do Servidor SQL, a Base de Dados Azure SQL também utiliza [objetos](https://docs.microsoft.com/windows/win32/procthread/job-objects) de trabalho do Windows para a governação de recursos de nível de processo, e o Gestor de Recursos do Servidor de Ficheiros do Windows [(FSRM)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) para a gestão de quotas de armazenamento.
 
-A governação de recursos da Base de Dados Azure SQL é de natureza hierárquica. De cima para baixo, os limites são aplicados ao nível do OS e ao nível do volume de armazenamento utilizando mecanismos de governação de recursos do sistema operativo e governador de recursos, em seguida, ao nível do conjunto de recursos usando o Governor de Recursos, e, em seguida, ao nível do grupo de carga de trabalho usando Governador de Recursos. Os limites de governação dos recursos em vigor para a base de dados atual ou o pool elástico são surgidos na visão [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
+A governação de recursos da Base de Dados Azure SQL é de natureza hierárquica. De cima para baixo, os limites são aplicados ao nível do OS e ao nível do volume de armazenamento utilizando mecanismos de governação de recursos do sistema operativo e governador de recursos, em seguida, ao nível do conjunto de recursos usando o Governor de Recursos, e, em seguida, ao nível do grupo de carga de trabalho usando o Governor de Recursos. Os limites de governação dos recursos em vigor para a base de dados atual ou o pool elástico são surgidos na visão [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
 
 ### <a name="data-io-governance"></a>Governação da IO de dados
 
@@ -134,7 +134,7 @@ As taxas de registo são definidas de modo a que possam ser alcançadas e susten
 
 As taxas reais de produção de registo impostas no tempo de funcionamento também podem ser influenciadas por mecanismos de feedback, reduzindo temporariamente as taxas de registo admissíveis para que o sistema possa estabilizar. A gestão do espaço de ficheiros de log, evitando o esgotamento das condições de espaço de registo e os mecanismos de replicação do Grupo de Disponibilidade podem reduzir temporariamente os limites globais do sistema.
 
-A modelação de tráfego do governador da taxa de registo é emergida através dos seguintes tipos de espera (expostos no [DMV sys.dm_db_wait_stats):](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)
+A formação de tráfego do governador da taxa de registo é emergida através dos seguintes tipos de espera (expostos nas vistas [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats):](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
 | Tipo de espera | Notas |
 | :--- | :--- |
@@ -143,6 +143,7 @@ A modelação de tráfego do governador da taxa de registo é emergida através 
 | INSTANCE_LOG_RATE_GOVERNOR | Limitação do nível de instância |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controlo de feedback, replicação física do grupo de disponibilidade em Premium/Business Critical não se mantendo |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controlo de feedback, limitando as taxas para evitar uma condição de espaço de registo |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Controlo de feedback de geo-replicação, limitando a taxa de registo para evitar alta latência de dados e indisponibilidade de geo-secundários|
 |||
 
 Ao encontrar um limite de taxa de registo que esteja a dificultar a escalabilidade desejada, considere as seguintes opções:

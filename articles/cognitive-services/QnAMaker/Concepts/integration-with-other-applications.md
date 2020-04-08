@@ -3,12 +3,12 @@ title: Integrar com outras aplicações - QnA Maker
 description: A QnA Maker integra-se em aplicações de clientes, como bots de chat, bem como com outros serviços de processamento de linguagem natural, como o Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1edbfb6badfb73ce08a99709da0f8bfb61b7dc3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300524"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804193"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Base de conhecimento de design para aplicações de clientes
 
@@ -24,7 +24,7 @@ Depois de publicar a sua base de conhecimentos, crie um bot a partir da página 
 
 ## <a name="providing-multi-turn-conversations"></a>Proporcionando conversas multi-turn
 
-Um cliente bot fornece a melhor resposta selecionada a partir da sua base de conhecimento, e pode fornecer instruções de seguimento se a resposta fizer parte de um conjunto qnA multi-turn. Aprenda [a](../how-to/multiturn-conversation.md) adicionar conjuntos de perguntas e respostas de conversação multi-turn à sua base de conhecimento.
+Um cliente bot fornece a melhor resposta selecionada a partir da sua base de conhecimento, e pode fornecer instruções de seguimento se a resposta fizer parte de um par QnA multi-turn. Aprenda [a](../how-to/multiturn-conversation.md) adicionar conjuntos de perguntas e respostas de conversação multi-turn à sua base de conhecimento.
 
 ## <a name="natural-language-processing"></a>Processamento de linguagem natural
 

@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386175"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811332"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implementar um serviço de nuvem
 O portal Azure fornece duas formas de criar e implementar um serviço na nuvem: *Quick Create* and *Custom Create*.
@@ -42,7 +42,7 @@ Antes de poder implementar um serviço na nuvem, deve criar o pacote de serviço
 
 Três funcionalidades de serviço na nuvem requerem configurações especiais antes de exportar um pacote de serviço:
 
-* Se pretender implementar um serviço na nuvem que utilize a Camada de Tomadas Seguras (SSL) para encriptação de dados, [configure a sua aplicação](cloud-services-configure-ssl-certificate-portal.md#modify) para SSL.
+* Se pretender implementar um serviço na nuvem que utilize segurança em camadas de transporte (TLS), anteriormente conhecido como Secure Sockets Layer (SSL), para encriptação de dados, [configure a sua aplicação](cloud-services-configure-ssl-certificate-portal.md#modify) para TLS.
 * Se pretender configurar as ligações de ambiente de trabalho remoto para as instâncias de funções, [configure as funções](cloud-services-role-enable-remote-desktop-new-portal.md) para Desktop Remoto.
 * Se pretender configurar a monitorização verbosa para o seu serviço na nuvem, ative o Azure Diagnostics para o serviço na nuvem. *A monitorização mínima* (o nível de monitorização predefinido) utiliza contadores de desempenho recolhidos dos sistemas operativos hospedeiros para as instâncias de funções (máquinas virtuais). *A monitorização verbose* reúne métricas adicionais com base em dados de desempenho dentro das instâncias de função para permitir uma análise mais aprofundada dos problemas que ocorrem durante o processamento da aplicação. Para saber como ativar o Azure Diagnostics, consulte [o Enableing diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
 
@@ -70,7 +70,7 @@ Para criar um serviço na nuvem com implementações de funções web ou funçõ
 ## <a name="upload-a-certificate"></a>Faça upload de um certificado
 Se o seu pacote de implementação foi [configurado para utilizar certificados,](cloud-services-configure-ssl-certificate-portal.md#modify)pode fazer o upload do certificado agora.
 
-1. Selecione **Certificados,** e no painel **de certificados Adicionar,** selecione o certificado SSL .pfx file e, em seguida, forneça a **Palavra-passe** para o certificado,
+1. Selecione **Certificados,** e no painel **de certificados Adicionar,** selecione o certificado TLS/SSL .pfx e, em seguida, forneça a **Palavra-passe** para o certificado,
 2. Clique no **certificado Anexar**e, em seguida, clique **OK** no painel **de certificados Adicionar.**
 3. Clique em **Criar** no painel **do Serviço cloud.** Quando a implantação atingir o estado **de Ready,** pode passar aos próximos passos.
 
@@ -90,7 +90,7 @@ Se o seu pacote de implementação foi [configurado para utilizar certificados,]
 * [Configuração geral do seu serviço](cloud-services-how-to-configure-portal.md)de nuvem.
 * Configure um nome de [domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerencie o seu serviço de cloud](cloud-services-how-to-manage-portal.md).
-* Configure [os certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [os certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385219"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811234"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver uma aplicação Web segura
 
@@ -108,7 +108,7 @@ Esta aplicação utilizou:
 
 ### <a name="network"></a>Rede
 
-A aplicação da amostra utiliza encriptação SSL de ponta a ponta para dados em trânsito que fluem para dentro e para fora da rede. O portal está configurado com um certificado auto-assinado.
+A aplicação da amostra utiliza encriptação TLS/SSL de ponta a ponta para dados em trânsito que fluem para dentro e para fora da rede. O portal está configurado com um certificado auto-assinado.
 > [!IMPORTANT]
 > Um certificado auto-assinado é usado nesta demonstração. Em ambiente de produção, deverá obter certificados de uma Autoridade de Certificados Verificados (CA).
 
@@ -123,7 +123,7 @@ A aplicação de amostra sustá-a usa identidades geridas para obter permissões
 Identidades geridas para os recursos Azure e MFA dificultam que os adversários ganhem privilégios e aumentem os seus privilégios no sistema. Esta ameaça foi apontada no modelo de ameaça.
 A aplicação utiliza a OAuth, que permite aos utilizadores registados na aplicação OAuth iniciars sessão na aplicação.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 Os dados na base de dados PostgreSQL são encriptados automaticamente pela Base de Dados Azure para PostgreSQL. A base de dados autoriza os endereços IP do Serviço de Aplicações para que apenas a aplicação web do Serviço de Aplicações implementada possa aceder aos recursos da base de dados com as credenciais de autenticação adequadas.
 
@@ -363,7 +363,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-Para obter mais informações sobre como configurar a verificação da SSL e da Autoridade de Certificados (CA) para postgreSQL, consulte a [conectividade Configure SSL na Base de Dados Azure para PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
+Para obter mais informações sobre como configurar a verificação de TLS e Certificate Authority (CA) para postgreSQL, consulte a [conectividade Configure TLS na Base de Dados Azure para PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 Um certificado de raiz está incluído no recipiente. As medidas tomadas para obter o certificado são:
 
@@ -375,7 +375,7 @@ Um certificado de raiz está incluído no recipiente. As medidas tomadas para ob
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Leia mais sobre como configurar a segurança SSL para PostgreSQL aqui Configurar a [Segurança da Ligação SSL](/azure/postgresql/concepts-ssl-connection-security).
+Leia mais sobre como configurar a segurança TLS para PostgreSQL aqui [Configurar a Segurança da Ligação TLS](/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Implementar aplicações web azure no Linux
 
@@ -991,5 +991,5 @@ A segurança é uma aplicação semelhante que verifica as dependências. Pode e
 Os seguintes artigos podem ajudá-lo a projetar, desenvolver e implementar aplicações seguras.
 
 - [Design](secure-design.md)
-- [Desenvolver](secure-develop.md)
+- [Programar](secure-develop.md)
 - [Implementar](secure-deploy.md)

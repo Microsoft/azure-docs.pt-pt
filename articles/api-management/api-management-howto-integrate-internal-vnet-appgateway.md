@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298064"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811167"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a Gestão da API num VNET interno com Gateway de Aplicação
 
@@ -64,7 +64,7 @@ No primeiro exemplo de configuração, todas as suas APIs são geridas apenas a 
 * **Piscina de servidorde back-end:** Este é o endereço IP virtual interno do serviço de Gestão API.
 * **Definições de piscina de servidor de back-end:** Cada piscina tem configurações como porto, protocolo e afinidade baseada em cookies. Estas definições são aplicadas a todos os servidores dentro da piscina.
 * **Porta frontal:** Este é o porto público que é aberto na porta de entrada de candidaturas. O tráfego que o atinge é redirecionado para um dos servidores de back-end.
-* **Ouvinte:** O ouvinte tem uma porta frontal, um protocolo (Http ou Https, estes valores são sensíveis a casos) e o nome do certificado SSL (se configurar a descarga SSL).
+* **Ouvinte:** O ouvinte tem uma porta frontal, um protocolo (Http ou Https, estes valores são sensíveis a casos) e o nome do certificado TLS/SSL (se configurar a descarga de TLS).
 * **Regra:** A regra liga um ouvinte a um conjunto de servidores de back-end.
 * **Sonda de saúde personalizada:** O Gateway da aplicação, por padrão, utiliza sondas baseadas em endereçoIP para descobrir quais os servidores do BackendAddressPool ativos. O serviço de Gestão API apenas responde a pedidos com o cabeçalho do anfitrião correto, daí que as sondas padrão falhem. Uma sonda de saúde personalizada precisa de ser definida para ajudar a aplicação gateway determinar que o serviço está vivo e deve encaminhar pedidos.
 * **Certificados de domínio personalizados:** Para aceder à Gestão API a partir da internet, é necessário criar um mapeamento CNAME do seu nome de anfitrião para o nome DNS frontal do Gateway de aplicação. Isto garante que o cabeçalho e certificado de nome de anfitrião enviado saqueado para o Application Gateway que é encaminhado para a API Management é um a que a APIM pode reconhecer como válido. Neste exemplo, utilizaremos dois certificados - para o backend e para o portal de desenvolvimento.  
@@ -271,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>Passo 5
 
-Crie os ouvintes HTTP para o Gateway de Aplicação. Atribua-lhes os certificados IP front-end, porta e ssl.
+Crie os ouvintes HTTP para o Gateway de Aplicação. Atribuir-lhes os certificados IP front-end, porta e TLS/SSL.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -280,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Passo 6
 
-Crie sondas personalizadas para `ContosoApi` o ponto final do domínio proxy do serviço api Management. O `/status-0123456789abcdef` caminho é um ponto final de saúde predefinido hospedado em todos os serviços de Gestão API. Despôs-se `api.contoso.net` como um nome de anfitrião de sonda personalizada para o proteger com certificado SSL.
+Crie sondas personalizadas para `ContosoApi` o ponto final do domínio proxy do serviço api Management. O `/status-0123456789abcdef` caminho é um ponto final de saúde predefinido hospedado em todos os serviços de Gestão API. Despôs-se `api.contoso.net` como um nome de anfitrião de sonda personalizada para o fixar com o certificado TLS/SSL.
 
 > [!NOTE]
 > O nome `contosoapi.azure-api.net` de anfitrião é o nome `contosoapi` de anfitrião proxy predefinido configurado quando um serviço nomeado é criado em azure público.
@@ -293,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>Passo 7
 
-Faça o upload do certificado a utilizar nos recursos de reserva ativados pelo SSL. Este é o mesmo certificado que forneceu no Passo 4 acima.
+Faça o upload do certificado a utilizar nos recursos de reserva ativados pelo TLS. Este é o mesmo certificado que forneceu no Passo 4 acima.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath

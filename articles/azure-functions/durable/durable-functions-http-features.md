@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132504"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802388"
 ---
 # <a name="http-features"></a>Características http
 
@@ -41,7 +41,7 @@ Consulte o [artigo HTTP APIs](durable-functions-http-api.md) para obter uma desc
 
 A [ligação do cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar cargas de resposta http convenientes. Por exemplo, pode criar uma resposta contendo ligações às APIs de gestão para uma instância de orquestração específica. Os seguintes exemplos mostram uma função http-trigger que demonstra como usar esta API para uma nova instância de orquestração:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
@@ -114,7 +114,7 @@ Começando com as Funções Duráveis 2.0, as orquestrações podem consumir de 
 
 O seguinte código de exemplo mostra uma função orquestradora fazendo um pedido http de saída:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -172,7 +172,7 @@ As Funções Duráveis suportam nativamente chamadas a APIs que aceitam fichas d
 
 O seguinte código é um exemplo de uma função de orquestrador .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual utilizando as [máquinas virtuais REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines)do Gestor de Recursos Azure .
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -232,7 +232,7 @@ No tempo de funcionação, a fonte de ficha configurada devolve automaticamente 
 * Tokens nunca são armazenados no estado de orquestração durável.
 * Não precisas de escrever nenhum código para gerir a aquisição simbólica.
 
-Pode encontrar um exemplo mais completo na [amostra de C# RestartVMs pré-compilada](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+Pode encontrar um exemplo mais completo na [amostra de C# RestartVMs pré-compilada](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 As identidades geridas não se limitam à gestão de recursos do Azure. Pode utilizar identidades geridas para aceder a qualquer API que aceite fichas do portador do Azure AD, incluindo serviços Azure da Microsoft e aplicações web de parceiros. A aplicação web de um parceiro pode até ser outra aplicação de função. Para obter uma lista de serviços Azure da Microsoft que suportam a autenticação com a Azure AD, consulte [os serviços Azure que suportam a autenticação Azure AD](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 

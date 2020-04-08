@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 34a70a4698b69881a06cfb7a7017fa0c30647197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047689"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803250"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -540,17 +540,12 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### <a name="examples"></a>Exemplos
-
 #### <a name="example"></a>Exemplo
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
@@ -596,7 +591,7 @@ OriginalUrl.
 
 - Solicitar URL -`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
-  Esta política pode ser usada quando um URL humano e/ou amigo do navegador deve ser transformado no formato URL esperado pelo serviço web. Esta política só precisa de ser aplicada quando se expõe um formato DEURL alternativo, como URLs limpos, URLs RESTful, URLs fáceis de utilizar ou URLs que são URLs puramente estruturais que não contêm uma corda de consulta e que contêm apenas o caminho do recurso ( após o regime e a autoridade). Isto é feito frequentemente para fins estéticos, usabilidade supor ou otimização de motores de busca (SEO).
+  Esta política pode ser usada quando um URL humano e/ou amigo do navegador deve ser transformado no formato URL esperado pelo serviço web. Esta política só precisa de ser aplicada quando se expõe um formato DEURL alternativo, como URLs limpos, URLs RESTful, URLs fáceis de utilizar ou URLs que são URLs puramente estruturais que não contêm uma corda de consulta e que contêm apenas o caminho do recurso (após o esquema e a autoridade). Isto é feito frequentemente para fins estéticos, usabilidade supor ou otimização de motores de busca (SEO).
 
 > [!NOTE]
 >  Só é possível adicionar parâmetros de cordas de consulta utilizando a política. Não é possível adicionar parâmetros extra de trajetória de modelo no URL de reescrita.

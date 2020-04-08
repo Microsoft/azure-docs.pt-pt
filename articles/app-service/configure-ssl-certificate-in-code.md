@@ -1,24 +1,24 @@
 ---
-title: Utilize o certificado SSL em código
+title: Utilize um certificado TLS/SSL em código
 description: Aprenda a usar os certificados de cliente no seu código. Autenticar com recursos remotos com um certificado de cliente, ou executar tarefas criptográficas com eles.
 ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671882"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811691"
 ---
-# <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Utilize um certificado SSL no seu código no Serviço de Aplicações Azure
+# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Utilize um certificado TLS/SSL no seu código no Serviço de Aplicações Azure
 
 No seu código de aplicação, pode aceder aos [certificados públicos ou privados que adiciona ao Serviço de Aplicações](configure-ssl-certificate.md). O seu código de aplicação pode funcionar como cliente e aceder a um serviço externo que requer a autenticação do certificado, ou pode ter de executar tarefas criptográficas. Este guia de como fazer mostra como utilizar certificados públicos ou privados no seu código de candidatura.
 
-Esta abordagem à utilização de certificados no seu código utiliza a funcionalidade SSL no Serviço de Aplicações, que requer que a sua aplicação esteja no nível **Básico** ou superior. Se a sua aplicação estiver em nível **Livre** ou **Partilhado,** pode [incluir o ficheiro de certificado no seu repositório](#load-certificate-from-file)de aplicações .
+Esta abordagem à utilização de certificados no seu código utiliza a funcionalidade TLS no Serviço de Aplicações, que requer que a sua aplicação esteja no nível **Básico** ou superior. Se a sua aplicação estiver em nível **Livre** ou **Partilhado,** pode [incluir o ficheiro de certificado no seu repositório](#load-certificate-from-file)de aplicações .
 
-Quando deixa o Serviço de Aplicações gerir os seus certificados SSL, pode manter os certificados e o código de aplicação separadamente e salvaguardar os seus dados sensíveis.
+Quando permite que o Serviço de Aplicações gere os seus certificados TLS/SSL, pode manter os certificados e o código de aplicação separadamente e salvaguardar os seus dados sensíveis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,25 +58,32 @@ No código C#, acede ao certificado pela impressão digital do certificado. O c�
 
 ```csharp
 using System;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
-...
-X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-certStore.Open(OpenFlags.ReadOnly);
-X509Certificate2Collection certCollection = certStore.Certificates.Find(
-                            X509FindType.FindByThumbprint,
-                            // Replace below with your certificate's thumbprint
-                            "E661583E8FABEF4C0BEF694CBC41C28FB81CD870",
-                            false);
-// Get the first cert with the thumbprint
-if (certCollection.Count > 0)
+string certThumbprint = "E661583E8FABEF4C0BEF694CBC41C28FB81CD870";
+bool validOnly = false;
+
+using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser))
 {
-    X509Certificate2 cert = certCollection[0];
-    // Use certificate
-    Console.WriteLine(cert.FriendlyName);
+  certStore.Open(OpenFlags.ReadOnly);
+
+  X509Certificate2Collection certCollection = certStore.Certificates.Find(
+                              X509FindType.FindByThumbprint,
+                              // Replace below with your certificate's thumbprint
+                              certThumbprint,
+                              validOnly);
+  // Get the first cert with the thumbprint
+  X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
+
+  if (cert is null)
+      throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
+
+  // Use certificate
+  Console.WriteLine(cert.FriendlyName);
+  
+  // Consider to call Dispose() on the certificate after it's being used, avaliable in .NET 4.6 and later
 }
-certStore.Close();
-...
 ```
 
 No código Java, acede ao certificado da loja "Windows-MY" utilizando o campo Nome Comum sujeito (ver certificado de [chave pública).](https://en.wikipedia.org/wiki/Public_key_certificate) O seguinte código mostra como carregar um certificado de chave privada:
@@ -111,16 +118,17 @@ Os nomes dos ficheiros do certificado são as impressões digitais do certificad
 
 ```csharp
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado SSL a partir de um ficheiro no Nó.js, PHP, Python, Java ou Ruby, consulte a documentação para a respetiva linguagem ou plataforma web.
+Para ver como carregar um certificado TLS/SSL a partir de um ficheiro no Node.js, PHP, Python, Java ou Ruby, consulte a documentação para o respetivo idioma ou plataforma web.
 
 ## <a name="load-certificate-from-file"></a>Certificado de carga a partir de arquivo
 
@@ -133,26 +141,27 @@ Se precisar de carregar um ficheiro de certificado que faça o upload manual, é
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> Esta abordagem à utilização de certificados no seu código utiliza a funcionalidade SSL no Serviço de Aplicações, que requer que a sua aplicação esteja no nível **Básico** ou superior.
+> Esta abordagem à utilização de certificados no seu código utiliza a funcionalidade TLS no Serviço de Aplicações, que requer que a sua aplicação esteja no nível **Básico** ou superior.
 
 O exemplo C# seguinte carrega um certificado público de um caminho relativo na sua aplicação:
 
 ```csharp
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado SSL a partir de um ficheiro no Nó.js, PHP, Python, Java ou Ruby, consulte a documentação para a respetiva linguagem ou plataforma web.
+Para ver como carregar um certificado TLS/SSL a partir de um ficheiro no Node.js, PHP, Python, Java ou Ruby, consulte a documentação para o respetivo idioma ou plataforma web.
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Proteja um nome DNS personalizado com uma ligação SSL](configure-ssl-bindings.md)
+* [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [FAQ : Certificados de serviço de aplicações](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

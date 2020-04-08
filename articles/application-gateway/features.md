@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279991"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810243"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades de Gateway de Aplicação Azure
 
@@ -34,7 +34,7 @@ O Gateway de Aplicação inclui as seguintes funcionalidades:
 - [Afinidade da sessão](#session-affinity)
 - [Tráfego de Websocket e HTTP/2](#websocket-and-http2-traffic)
 - [Drenagem de ligação](#connection-draining)
-- [Páginas de erros personalizadas](#custom-error-pages)
+- [Páginas de erro personalizadas](#custom-error-pages)
 - [Rescrever cabeçalhos HTTP](#rewrite-http-headers)
 - [Dimensionamento](#sizing)
 
@@ -125,7 +125,7 @@ A drenagem de ligação ajuda a conseguir uma remoção correta de membros do co
 
 Para mais informações, consulte a visão geral da [configuração do Gateway](configuration-overview.md#connection-draining)de aplicação .
 
-## <a name="custom-error-pages"></a>Páginas de erros personalizadas
+## <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
 O Gateway de Aplicação permite-lhe criar páginas de erro personalizadas, em vez de apresentar as páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada.
 
@@ -160,6 +160,10 @@ A tabela seguinte mostra um rendimento médio para cada instância de gateway v1
 
 > [!NOTE]
 > Estes valores são valores aproximados para um débito de gateway de aplicação. O débito real depende de vários detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para servir uma página. Para números de desempenho exatos, deve executar o seus próprios testes. Estes valores são fornecidos apenas para a capacidade orientação de planeamento.
+
+## <a name="version-feature-comparison"></a>Comparação de funcionalidades de versão
+
+Para uma comparação de funcionalidades De Gateway v1-v2, consulte [Autoscaling e Zone-redundantE Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
 ## <a name="next-steps"></a>Passos seguintes
 

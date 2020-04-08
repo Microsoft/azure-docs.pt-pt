@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726687"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811425"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados dos clientes azure   
 O acesso aos dados dos clientes pelas operações da Microsoft e pessoal de suporte é negado por padrão. Quando o acesso aos dados do cliente é concedido, é necessária a aprovação da liderança e, em seguida, o acesso é cuidadosamente gerido e registado. Os requisitos de controlo de acesso são estabelecidos pela seguinte Política de Segurança Do Azure:
@@ -45,7 +45,7 @@ A Azure fornece aos clientes uma forte segurança de dados, tanto por defeito co
 - O cliente e a nuvem.
 - Internamente entre sistemas Azure e centros de dados.
 
-**Encriptação**: A encriptação de dados armazenados e em trânsito pode ser implementada pelos clientes como uma melhor prática para garantir a confidencialidade e integridade dos dados. É simples para os clientes configurar os seus serviços de nuvem Azure para usar sSL para proteger as comunicações da internet e até entre os seus VMs hospedados no Azure.
+**Encriptação**: A encriptação de dados armazenados e em trânsito pode ser implementada pelos clientes como uma melhor prática para garantir a confidencialidade e integridade dos dados. É simples para os clientes configurar os seus serviços de nuvem Azure para usar TLS para proteger as comunicações da internet e até entre os seus VMs hospedados no Azure.
 
 **Redundância**de dados : A Microsoft ajuda a garantir que os dados são protegidos se houver um ciberataque ou danos físicos num datacenter. Os clientes podem optar por:
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: a0b9d424c1995fba075c05ffe5058e297d764775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531265"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804899"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação de afundar no fluxo de dados de mapeamento
 
@@ -39,7 +39,9 @@ A Azure Data Factory tem acesso a mais de [90 conectores nativos.](connector-ove
 
 ## <a name="sink-settings"></a>Definições de sumidouro
 
-Depois de adicionar uma pia, configure através do **separador Sink.** Aqui pode escolher ou criar o conjunto de dados que a pia escreve 
+Depois de adicionar uma pia, configure através do **separador Sink.** Aqui pode escolher ou criar o conjunto de dados para o qual a pia escreve. Abaixo está um vídeo que explica várias opções de Sink para tipos de ficheiros delimitados por texto:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Definições de sumidouro](media/data-flow/sink-settings.png "Definições de afundar")
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: a349be9ada756742f5fd5ba4819caa1d2a2d3268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5be8c9441be5ca441a5c0f7c4444c2edbdc7a95
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373155"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811228"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Use powerShell com modelo de Gestor de Recursos Azure para criar uma instância gerida na Base de Dados Azure SQL
 
@@ -77,7 +77,7 @@ O seguinte conteúdo deve ser colocado num ficheiro que represente um modelo que
                 "Description":"GP Instance with custom instance collation - Serbian_Cyrillic_100_CS_AS"
             },
             "sku": {
-                "name": "GP_Gen4",
+                "name": "GP_Gen5",
                 "tier": "GeneralPurpose"
             },
             "properties": {
@@ -87,7 +87,7 @@ O seguinte conteúdo deve ser colocado num ficheiro que represente um modelo que
                 "storageSizeInGB": 256,
                 "vCores": 8,
                 "licenseType": "LicenseIncluded",
-                "hardwareFamily": "Gen4",
+                "hardwareFamily": "Gen5",
                 "collation": "Serbian_Cyrillic_100_CS_AS"
             },
             "type": "Microsoft.Sql/managedInstances",

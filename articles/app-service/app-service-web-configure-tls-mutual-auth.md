@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301013"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811727"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configure autenticação mútua TLS para serviço de aplicações azure
 
@@ -41,7 +41,7 @@ Os caminhos de exclusão podem ser configurados selecionando**configurações ge
 
 ## <a name="access-client-certificate"></a>Certificado de cliente de acesso
 
-No Serviço de Aplicações, a rescisão do Pedido sSL ocorre no equilíbrio de carga frontend. Ao reencaminhar o pedido para o seu código de aplicações `X-ARR-ClientCert` com certificados de [cliente ativados,](#enable-client-certificates)o Serviço de Aplicações injeta um cabeçalho de pedido com o certificado de cliente. O Serviço de Aplicações não faz nada com este certificado de cliente a não ser reencaminhar para a sua aplicação. O seu código de aplicação é responsável pela validação do certificado de cliente.
+No Serviço de Aplicações, a rescisão do pedido por TLS ocorre no equilíbrio de carga frontend. Ao reencaminhar o pedido para o seu código de aplicações `X-ARR-ClientCert` com certificados de [cliente ativados,](#enable-client-certificates)o Serviço de Aplicações injeta um cabeçalho de pedido com o certificado de cliente. O Serviço de Aplicações não faz nada com este certificado de cliente a não ser reencaminhar para a sua aplicação. O seu código de aplicação é responsável pela validação do certificado de cliente.
 
 Para ASP.NET, o certificado de cliente está disponível através da propriedade **HttpRequest.ClientCertificate.**
 

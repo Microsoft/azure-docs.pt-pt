@@ -1,19 +1,19 @@
 ---
-title: Adicionar e gerir certificados SSL
+title: Adicionar e gerir certificados TLS/SSL
 description: Crie um certificado gratuito, importe um certificado de Serviço app, importe um certificado Key Vault ou compre um certificado de Serviço de Aplicações no Serviço de Aplicações Azure.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239764"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810586"
 ---
-# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicações do Azure
+# <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicione um certificado TLS/SSL no Serviço de Aplicações Azure
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este artigo mostra-lhe como criar, carregar ou importar um certificado privado ou um certificado público para o Serviço de Aplicações. 
 
@@ -47,7 +47,7 @@ O Certificado Gerido pelo Serviço de [Aplicações gratuito](#create-a-free-cer
 * Conter uma chave privada com, pelo menos, 2048 bits de comprimento
 * Conter todos os certificados intermédios na cadeia de certificados
 
-Para garantir um domínio personalizado numa ligação SSL, o certificado tem requisitos adicionais:
+Para garantir um domínio personalizado numa ligação TLS, o certificado tem requisitos adicionais:
 
 * Contém uma [utilização de chave estendida](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) para autenticação do servidor (OID = 1.3.6.1.5.5.7.3.1)
 * Ser assinado por uma autoridade de certificação fidedigna
@@ -59,7 +59,7 @@ Para garantir um domínio personalizado numa ligação SSL, o certificado tem re
 
 ## <a name="create-a-free-certificate-preview"></a>Criar um certificado gratuito (Pré-visualização)
 
-O Certificado Gerido pelo Serviço de Aplicações gratuito é uma solução chave-na-mão para garantir o seu nome DNS personalizado no Serviço de Aplicações. É um certificado SSL totalmente funcional que é gerido pelo App Service e renovado automaticamente. O certificado gratuito vem com as seguintes limitações:
+O Certificado Gerido pelo Serviço de Aplicações gratuito é uma solução chave-na-mão para garantir o seu nome DNS personalizado no Serviço de Aplicações. É um certificado TLS/SSL totalmente funcional que é gerido pelo App Service e renovado automaticamente. O certificado gratuito vem com as seguintes limitações:
 
 - Não suporta certificados wildcard.
 - Não suporta domínios nus.
@@ -237,7 +237,7 @@ Crie um ficheiro para o certificado intercalado, denominado _mergedcertificate.c
 
 ### <a name="export-certificate-to-pfx"></a>Exportar o certificado para PFX
 
-Exporte o certificado SSL intercalado com a chave privada com que o pedido de certificado foi gerado.
+Exporte o seu certificado TLS/SSL fundido com a chave privada com a que o seu pedido de certificado foi gerado.
 
 Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os _ &lt;porta-chaves-reservados>_ e _ &lt;>_ de ficheiros de certificados fundidos com os caminhos da sua chave privada e o seu ficheiro de certificado fundido.
 
@@ -245,7 +245,7 @@ Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um fich
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-Quando lhe for pedido, defina uma palavra-passe de exportação. Vai utilizar esta palavra-passe ao carregar o certificado SSL para o Serviço de Aplicações mais tarde.
+Quando lhe for pedido, defina uma palavra-passe de exportação. Utilizará esta palavra-passe ao enviar o seu certificado TLS/SSL para o Serviço de Aplicações mais tarde.
 
 Se tiver utilizado o IIS ou _Certreq.exe_ para gerar o pedido de certificado, instale o certificado no seu computador local e [exporte-o para PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -363,16 +363,16 @@ Agora pode eliminar o certificado de Serviço de Aplicações. A partir da naveg
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Proteja um nome DNS personalizado com uma ligação SSL](configure-ssl-bindings.md)
+* [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Utilize um certificado SSL no seu código de aplicação](configure-ssl-certificate-in-code.md)
+* [Utilize um certificado TLS/SSL no seu código no Serviço de Aplicações Azure](configure-ssl-certificate-in-code.md)
 * [FAQ : Certificados de serviço de aplicações](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

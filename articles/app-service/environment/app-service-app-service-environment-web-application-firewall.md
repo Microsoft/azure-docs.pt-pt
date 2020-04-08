@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 987228c5cf0f5231006726718684528a777e92fd
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80057450"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804474"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
@@ -71,7 +71,7 @@ Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para o
 ![Gestão Adicionar Serviços][ManagementAddServices]
 
 > [!NOTE]
-> Dependendo da configuração das suas aplicações e das funcionalidades utilizadas no seu Ambiente de Serviço de Aplicação, é necessário reencaminhar o tráfego para portas TCP que não sejam 80 e 443, por exemplo, se tiver configuração IP SSL para uma aplicação de Serviço de Aplicações. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
+> Dependendo da configuração das suas aplicações e das funcionalidades utilizadas no seu Ambiente de Serviço de Aplicação, é necessário reencaminhar o tráfego para portas TCP que não sejam 80 e 443, por exemplo, se tiver configuração IP TLS para uma aplicação de Serviço de Aplicações. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198314"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804678"
 ---
 # <a name="drawing-tool-events"></a>Eventos de ferramentas de desenho
 
@@ -31,7 +31,7 @@ O código que se segue mostra como funcionam os eventos no módulo Desagregaçã
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Desenhar ferramentas eventos" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Desenhar ferramentas eventos" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Veja os eventos de ferramentas<a href='https://codepen.io/azuremaps'>@azuremaps</a>de desenho de <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>canetas</a> do Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -59,7 +59,7 @@ Este código procura pontos de interesse dentro da área de uma forma após o ut
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Desenhe e procure na área do polígono" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Desenhe e procure na área do polígono" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte o Pen Draw e procure na área<a href='https://codepen.io/azuremaps'>@azuremaps</a>do <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>polígono</a> por Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -71,7 +71,7 @@ O código abaixo mostra como os eventos de desenho podem ser usados para criar u
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Ferramenta de medição" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Ferramenta de medição" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte a ferramenta de <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>medição</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>da caneta por Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

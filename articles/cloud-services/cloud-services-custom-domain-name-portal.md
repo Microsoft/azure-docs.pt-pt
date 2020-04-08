@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386804"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811645"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
 Ao criar um Serviço cloud, o Azure **atribui-o**a um subdomínio de cloudapp.net . Por exemplo, se o seu Serviço cloud for chamado "contoso", os `http://contoso.cloudapp.net`seus utilizadores poderão aceder à sua aplicação num URL como . O Azure também atribui um endereço IP virtual.
@@ -30,7 +30,7 @@ Já percebes o que são os discos CNAME e A? [Ultrapasse a explicação.](#add-a
 <p/>
 
 > [!TIP]
-> Vá mais rápido -- use o [novo passeio guiado](https://support.microsoft.com/kb/2990804)new Azure !  Faz da associação um nome de domínio personalizado e de garantir a comunicação (SSL) com os Serviços Azure Cloud ou websites Azure um instantâneo.
+> Vá mais rápido -- use o [novo passeio guiado](https://support.microsoft.com/kb/2990804)new Azure !  Faz da associação um nome de domínio personalizado e de garantir a comunicação (TLS) com os Azure Cloud Services ou os Websites Azure um instantâneo.
 > 
 > 
 
@@ -128,14 +128,14 @@ Este exemplo demonstra a criação de um registo A para o domínio radicular. Se
 * [Como Mapear Conteúdo da CDN para um Domínio Personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do seu serviço](cloud-services-how-to-configure-portal.md)de nuvem.
 * Aprenda a implementar um serviço de [nuvem.](cloud-services-how-to-create-deploy-portal.md)
-* Configure [os certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [os certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

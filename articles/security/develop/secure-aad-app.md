@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 11bf7c0ae05c2e52d59efb32be47ce6bd96fac4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599c4a31840b47294b43c4c4d1f0200b17f04540
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937971"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810541"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver aplicativo seguro para uma aplicação Azure AD
 ## <a name="overview"></a>Descrição geral
@@ -228,7 +228,7 @@ $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:
 
 $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 
-#Upload the certificate to be used on the SSL-enabled back-end pool resources
+#Upload the certificate to be used on the TLS/SSL-enabled back-end pool resources
 
 #$authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
 
@@ -246,7 +246,7 @@ $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basi
 
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-#Configure the SSL policy to be used on the application gateway
+#Configure the TLS/SSL policy to be used on the application gateway
 
 $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
 
@@ -361,7 +361,7 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados do t
 - O Azure Ative Directory é o serviço de diretório e gestão de identidade multi-inquilinos da Microsoft. Todos os utilizadores desta solução são criados no Diretório Ativo do Azure, incluindo utilizadores que acedam ao Azure WebApp.
 - O controlo de acesso baseado em funções azure permite aos administradores definir permissões de acesso de grãos finos para conceder apenas a quantidade de acesso que os utilizadores precisam para desempenhar em seus trabalhos. Em vez de dar a cada utilizador permissão sem restrições para os recursos do Azure, os administradores só podem permitir certas ações de acesso aos dados dos titulares do cartão. O acesso por subscrição está limitado ao administrador de subscrição.
 - A Azure Ative Directory Privileged Identity Management permite aos clientes minimizar o número de utilizadores que têm acesso a determinadas informações, como dados do titular do cartão. Os administradores podem usar a Azure Ative Directory Privileged Identity Management para descobrir, restringir e monitorizar identidades privilegiadas e o seu acesso aos recursos. Esta funcionalidade também pode ser utilizada para impor o acesso administrativo a pedido e just-in-time quando necessário.
-- A Azure Ative Directory Identity Protection deteta potenciais vulnerabilidades que afetam as identidades de uma organização, configura respostas automatizadas a ações suspeitas detetadas relacionadas com as identidades de uma organização, e investiga suspeitas incidentes para tomar as medidas apropriadas para resolvê-los.
+- A Azure Ative Directory Identity Protection deteta potenciais vulnerabilidades que afetam as identidades de uma organização, configura respostas automatizadas a ações suspeitas detetadas relacionadas com as identidades de uma organização, e investiga incidentes suspeitos para tomar as medidas adequadas para resolvê-las.
 ### <a name="secrets-management"></a>Gestão de segredos
 A solução utiliza o Cofre chave Azure para a gestão de chaves e segredos. O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. As seguintes capacidades do Cofre chave Azure ajudam os clientes a proteger e aceder a esses dados
    - As políticas avançadas de acesso são configuradas numa base de necessidade.
@@ -380,7 +380,7 @@ Com o Azure Security Center, os clientes podem aplicar centralmente e gerir pol�
    - O Azure Security Center fornece alertas e incidentes de segurança prioritários, tornando mais simples para os clientes descobrir e resolver potenciais problemas de segurança. Um relatório de inteligência de ameaça é gerado por cada ameaça detetada para ajudar as equipas de resposta a incidentes na investigação e remediação de ameaças.
 ### <a name="azure-application-gateway"></a>Gateway de Aplicação do Azure 
    A arquitetura reduz o risco de vulnerabilidades de segurança usando um Portal de Aplicação Azure com uma firewall de aplicação web configurada, e o conjunto de regras OWASP ativado. Capacidades adicionais incluem
-   - SSL de ponta a ponta.
+   - TLS de ponta a ponta.
    - Desative tLS v1.0 e v1.1.
    - Ativar TLSv1.2.
    - Firewall de aplicação web (modo de prevenção).
@@ -560,5 +560,5 @@ Para criar este espaço de trabalho
    Os seguintes artigos podem ajudá-lo a projetar, desenvolver e implementar aplicações seguras.
 
 - [Design](secure-design.md)
-- [Desenvolver](secure-develop.md)
+- [Programar](secure-develop.md)
 - [Implementar](secure-deploy.md)

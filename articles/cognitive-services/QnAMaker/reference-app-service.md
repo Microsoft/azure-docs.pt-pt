@@ -3,12 +3,12 @@ title: Configuração do serviço - QnA Maker
 description: Entenda como e onde configurar recursos.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651863"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804265"
 ---
 # <a name="service-configuration"></a>Configuração do serviço
 
@@ -27,8 +27,8 @@ Pode definir uma definição individual através da lista de Definições de Apl
 
 |Recurso|Definição|
 |--|--|
-|AzureSearchAdminKey|Cognitive Search - usado para armazenamento de conjunto qnA e Ranker #1|
-|Nome AzureSearch|Cognitive Search - usado para armazenamento de conjunto qnA e Ranker #1|
+|AzureSearchAdminKey|Cognitive Search - usado para armazenamento de pares QnA e Ranker #1|
+|Nome AzureSearch|Cognitive Search - usado para armazenamento de pares QnA e Ranker #1|
 |Resposta por defeito|Texto de resposta quando não é encontrado nenhum jogo|
 |UserAppInsightsAppId|Registo de chat e telemetria|
 |UserAppInsightsKey|Registo de chat e telemetria|

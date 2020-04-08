@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2e62062fabfbb7c320bbeaf473979ccef96b0ba3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80047218"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811781"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome dNS personalizado existente para o Serviço de Aplicações Azure
 
@@ -151,7 +151,7 @@ Pode levar algum tempo para que o novo domínio personalizado seja refletido na 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligado a um certificado SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá e erro ou aviso, dependendo do navegador. Para adicionar uma ligação SSL, consulte [Proteja um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
+> Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligada a um certificado TLS/SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá e erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -235,7 +235,7 @@ Pode levar algum tempo para que o novo domínio personalizado seja refletido na 
 ![Registo A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligado a um certificado SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá e erro ou aviso, dependendo do navegador. Para adicionar uma ligação SSL, consulte [Proteja um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
+> Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está ligada a um certificado TLS/SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá e erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -290,7 +290,7 @@ Selecione novamente o **+** ícone para adicionar outro domínio personalizado q
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Uma etiqueta **Note Secure** para o seu domínio personalizado significa que ainda não está ligado a um certificado SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá e error ou aviso, dependendo do navegador. Para adicionar uma ligação SSL, consulte [Proteja um nome DNS personalizado com uma ligação SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
+> Uma etiqueta **Note Secure** para o seu domínio personalizado significa que ainda não está ligada a um certificado TLS/SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá e erro ou aviso, dependendo do navegador. Para adicionar uma ligação TLS, consulte [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Testar no browser
 
@@ -366,7 +366,7 @@ Neste tutorial, ficou a saber como:
 > * Redirecionar o URL predefinido para um diretório personalizado
 > * Automatizar o mapeamento de domínios com scripts
 
-Avance para o tutorial seguinte para aprender a vincular um certificado SSL personalizado a uma aplicação Web.
+Avance para o próximo tutorial para aprender a ligar um certificado Personalizado TLS/SSL a uma aplicação web.
 
 > [!div class="nextstepaction"]
-> [Proteger um nome DNS personalizado com um enlace SSL no Serviço de Aplicações do Azure](configure-ssl-bindings.md)
+> [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Serviço de Aplicações Azure](configure-ssl-bindings.md)

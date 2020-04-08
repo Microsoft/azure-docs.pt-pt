@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77208544"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804559"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada de mapa térmico
 
@@ -98,11 +98,11 @@ Por padrão, o rádio dos pontos de dados renderizados na camada do mapa de calo
 
 Utilize `zoom` uma expressão para escalar o raio para cada nível de zoom, de modo a que cada ponto de dados cubra a mesma área física do mapa. Esta expressão faz com que a camada do mapa de calor pareça mais estática e consistente. Cada nível de zoom do mapa tem o dobro de pixels vertical e horizontalmente do que o nível de zoom anterior. 
 
-Dimensionar o raio de modo a duplicar a cada nível de zoom cria um mapa de calor que parece consistente em todos os níveis de zoom. Para aplicar esta escala, `zoom` utilize com `exponential interpolation` uma expressão base 2, como mostra a amostra seguinte. Zoom o mapa para ver como o mapa de calor escala com o nível de zoom.
+Dimensionar o raio de modo a duplicar a cada nível de zoom cria um mapa de calor que parece consistente em todos os níveis de zoom. Para aplicar esta escala, `zoom` utilize com `exponential interpolation` uma expressão base 2, com o raio de pixel definido para `2 * Math.pow(2, minZoom - maxZoom)` o nível mínimo de zoom e um raio escalado para o nível máximo de zoom calculado como mostrado na amostra seguinte. Zoom o mapa para ver como o mapa de calor escala com o nível de zoom.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor zoomável consistente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor zoomável consistente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Veja o mapa de <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>calor zoomável</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>pen consistente por Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243877"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804440"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para App Service Environment for PowerApps com Azure ExpressRoute
 
@@ -39,7 +39,7 @@ O Ambiente do Serviço de Aplicações requer que as seguintes definições de c
 
 * Conectividade de rede de saída para os pontos finais de plano de gestão Azure (tanto o modelo de implantação clássico do Azure como os pontos finais do Gestor de Recursos Azure). A conectividade com estes pontos finais inclui os domínios management.core.windows.net e management.azure.com. 
 
-* Conectividade de rede de saída para os domínios ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. A conectividade com estes domínios é necessária para suportar a funcionalidade SSL.
+* Conectividade de rede de saída para os domínios ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. A conectividade com estes domínios é necessária para suportar a funcionalidade TLS.
 
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos finais e domínios mencionados neste artigo. Se os pontos finais não puderem ser resolvidos, a criação do App Service Environment falha. Qualquer ambiente de serviço de aplicações existente é marcado como insalubre.
 

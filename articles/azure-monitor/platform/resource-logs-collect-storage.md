@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 787640ef08ee91220f42065af155c372247f0136
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274219"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804610"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Registos de recursos do Archive Azure para conta de armazenamento
 [Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem.  Este artigo descreve a recolha de registos de plataformas numa conta de armazenamento Azure para reter dados para arquivamento.
@@ -20,6 +20,8 @@ ms.locfileid: "79274219"
 ## <a name="prerequisites"></a>Pré-requisitos
 Precisa criar uma conta de [armazenamento Azure](../../storage/common/storage-account-create.md) se ainda não tiver uma. A conta de armazenamento não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso rBAC adequado a ambas as subscrições.
 
+> [!IMPORTANT]
+> Para enviar os dados para armazenamento imutável, delineie a política imutável para a conta de armazenamento como descrito no set e gere as políticas de [imutabilidade para](../../storage/blobs/storage-blob-immutability-policies-manage.md)o armazenamento de Blob . Deve seguir todos os passos deste artigo, incluindo permitir que as bolhas de apêndice protegidos escrevam.
 
 > [!IMPORTANT]
 > As contas do Azure Data Lake Storage Gen2 não são atualmente suportadas como destino para configurações de diagnóstico, mesmo que possam ser listadas como uma opção válida no portal Azure.

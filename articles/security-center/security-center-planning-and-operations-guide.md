@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8244a0f164c8578bf9f79e4b66beb529b6a15f67
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586003"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810463"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -25,7 +25,7 @@ Este guia cobre tarefas que pode seguir para otimizar a sua utilização do Secu
 * Funções de Segurança e Controlos de Acesso
 * Recomendações e Políticas de Segurança
 * Armazenamento e Recolha de Dados
-* Recursos não Azure contínuos
+* Incluir recursos não Azure
 * Monitorização de Segurança em Curso
 * Resposta a Incidentes
 

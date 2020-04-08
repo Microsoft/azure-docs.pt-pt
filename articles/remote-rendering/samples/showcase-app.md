@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 04/01/2020
 ms.topic: sample
-ms.openlocfilehash: 0410e7ea79f087c8dadd603ba8e394ca949de792
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e1e91a892a1c8b69b3dc7f6c79109377e13bd7ae
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679493"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804457"
 ---
 # <a name="unity-showcase-application"></a>Aplicação de montra de unidade
 
@@ -20,7 +20,7 @@ A aplicação de apresentação da Unidade é uma aplicação de amostra baseada
 
 ## <a name="source-repository"></a>Repositório de origem
 
-O código-fonte desta aplicação juntamente com instruções de construção/implantação pode ser encontrado no [repositório](https://github.com/Azure/azure-remote-rendering)de amostras ARR .
+O código-fonte desta aplicação juntamente com instruções de construção/implantação pode ser encontrado no [repositório](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase)de amostras ARR .
 
 ## <a name="next-steps"></a>Passos seguintes
 

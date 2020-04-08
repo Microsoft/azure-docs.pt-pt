@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190368"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804372"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
 
@@ -137,7 +137,7 @@ Neste exemplo, a Consola de Desenvolvimento é a aplicação cliente-app. Os seg
 
 1. Se utilizar pontos finais **v1,** adicione um parâmetro corporal chamado **recurso**. Para o valor deste parâmetro, utilize o ID da **aplicação** de aplicação de back-end. 
 
-1. Se utilizar pontos finais **v2,** utilize o âmbito que criou para a aplicação de backend no campo **de âmbito Predefinido.**
+1. Se utilizar pontos finais **v2,** utilize o âmbito que criou para a aplicação de backend no campo **de âmbito Predefinido.** Além disso, certifique-se [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) de `2` definir o valor para o imóvel no seu manifesto de [candidatura](/azure/active-directory/develop/reference-app-manifest).
 
 1. Em seguida, especifique as credenciais do cliente. Estas são as credenciais para a aplicação cliente-app.
 
