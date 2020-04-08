@@ -87,9 +87,9 @@
           displayName: 'metadata, pair'
         - name: Teste
           href: How-To/test-knowledge-base.md
-    - name: Gerir conjuntos de Perguntas e Respostas
+    - name: Gerir pares de Perguntas e Respostas
       items:
-        - name: Editar conjuntos de Perguntas e Respostas
+        - name: Editar pares de Perguntas e Respostas
           href: How-To/edit-knowledge-base.md
         - name: Adicionar pedidos de seguimento
           href: How-To/multiturn-conversation.md

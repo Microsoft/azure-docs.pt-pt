@@ -220,6 +220,8 @@
               href: app/api-custom-events-metrics.md
             - name: Resolver problemas de ASP.NET
               href: app/asp-net-troubleshoot-no-data.md
+            - name: Remover o Application Insights
+              href: app/remove-application-insights.md
         - name: Monitorização sem código
           items:
             - name: VM do Azure e conjunto de dimensionamento

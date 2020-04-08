@@ -2,19 +2,19 @@
 title: Serviço de Kubernetes do Azure (AKS)
 summary: O AKS permite-lhe implementar rapidamente um cluster do Kubernetes pronto para produção no Azure. Saiba como utilizar o AKS com estes inícios rápidos, tutoriais e amostras.
 metadata:
-  title: Serviço de Kubernetes do Azure (AKS)
+  title: Documentação do Azure Kubernetes Service (AKS)
   description: O AKS permite-lhe implementar rapidamente um cluster do Kubernetes pronto para produção no Azure. Saiba como utilizar o AKS com estes inícios rápidos, tutoriais e amostras.
   ms.service: container-service
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
   ms.date: 03/25/2020
-  ms.openlocfilehash: 7482eb14fb6bcb80bc8f8b9d06057287cb862a27
-  ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+  ms.openlocfilehash: 4829b95fb62a33406248f503e646238e116cb413
+  ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80335991"
+  ms.lasthandoff: 04/07/2020
+  ms.locfileid: "80803284"
 landingContent:
 - title: Acerca do Azure Kubernetes Service (AKS)
   linkLists:
