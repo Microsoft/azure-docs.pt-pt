@@ -7,22 +7,22 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246862"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878005"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Crie uma Porta Da Frente com http para HTTPS redirecionamento usando o portal Azure
 
-Pode utilizar o portal Azure para criar uma [Porta Frontal](front-door-overview.md) com um certificado para a rescisão de SSL. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para HTTPS.
+Pode utilizar o portal Azure para criar uma [Porta Frontal](front-door-overview.md) com um certificado para a rescisão de TLS. Uma regra de encaminhamento é usada para redirecionar o tráfego HTTP para HTTPS.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma porta da frente com um recurso web app existente
-> * Adicione um domínio personalizado com certificado SSL 
+> * Adicione um domínio personalizado com certificado TLS/SSL 
 > * Configurar https redirecionamento no domínio personalizado
 
 Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -87,7 +87,7 @@ Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhant
 ### <a name="enable-https-on-your-custom-domain"></a>Ativar HTTPS no seu domínio personalizado
 
 1. Clique no domínio personalizado que foi adicionado e sob a secção **Domínio personalizado HTTPS,** altere o estado para **Ativado**.
-2. Pode deixar o tipo de **gestão** de Certificado definido para _a Porta Da Frente gerida_ para o certificado gratuito mantido, gerido e rodado automaticamente pela Porta Da Frente. Também pode optar por utilizar o seu próprio certificado SSL personalizado armazenado com cofre de chaves Azure. Este tutorial assume que o uso do certificado gerido pela Porta Da Frente.
+2. Pode deixar o tipo de **gestão** de Certificado definido para _a Porta Da Frente gerida_ para o certificado gratuito mantido, gerido e rodado automaticamente pela Porta Da Frente. Também pode optar por utilizar o seu próprio certificado Personalizado TLS/SSL armazenado com cofre de chaves Azure. Este tutorial assume que o uso do certificado gerido pela Porta Da Frente.
 ![Habilitar https para domínio personalizado](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Clique em **Atualizar** para salvar a seleção e, em seguida, clique em **Guardar**.

@@ -3,12 +3,12 @@ title: Implementar uma política que pode ser corrigida
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270644"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985172"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementar uma política que pode ser remediada dentro de uma subscrição delegada
 
@@ -40,7 +40,7 @@ O exemplo abaixo mostra um **principalid** que terá a função de Administrador
 
 Uma vez criado o utilizador com as permissões necessárias, conforme descrito acima, esse utilizador pode implementar políticas no inquilino do cliente que utilizam tarefas de reparação.
 
-Por exemplo, digamos que queria permitir diagnósticos nos recursos do Cofre chave Azure no inquilino do cliente, como ilustrado nesta [amostra.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring) Um utilizador no inquilino gestor com as permissões apropriadas (como descrito acima) implantaria um modelo de Gestor de [Recursos Azure](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para permitir este cenário.
+Por exemplo, digamos que queria permitir diagnósticos nos recursos do Cofre chave Azure no inquilino do cliente, como ilustrado nesta [amostra.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring) Um utilizador no inquilino gestor com as permissões apropriadas (como descrito acima) implantaria um modelo de Gestor de [Recursos Azure](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para permitir este cenário.
 
 Note que a criação da atribuição de políticas a utilizar com uma subscrição delegada deve ser feita atualmente através de APIs, e não no portal Azure. Ao fazê-lo, a **apiVersão** deve ser definida para **a pré-visualização 2019-04-01**, que inclui a nova propriedade **delegada ManagedIdentityResourceId.** Este imóvel permite-lhe incluir uma identidade gerida que reside no inquilino do cliente (num grupo de subscrição ou recursos que foi a bordo da gestão de recursos delegados do Azure).
 
@@ -62,7 +62,7 @@ O exemplo seguinte mostra uma atribuição de funções com um **delegadoManaged
 ```
 
 > [!TIP]
-> Uma [amostra semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) está disponível para demonstrar como implementar uma política que adiciona ou remove uma etiqueta (utilizando o efeito modificado) a uma subscrição delegada.
+> Uma [amostra semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) está disponível para demonstrar como implementar uma política que adiciona ou remove uma etiqueta (utilizando o efeito modificado) a uma subscrição delegada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

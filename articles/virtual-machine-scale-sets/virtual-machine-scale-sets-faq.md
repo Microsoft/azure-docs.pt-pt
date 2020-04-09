@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
-ms.openlocfilehash: 74195e83e17140b67ac060e1791c580e90e720f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b34708d6e91da627ff44018778318337ddb6b06
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534444"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879501"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -224,8 +224,8 @@ Você pode fornecer chaves públicas SSH em texto simples quando criar um VM Lin
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | ---
 ssh | Não | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
-path | Sim | Cadeia | Especifica o caminho do ficheiro Linux onde devem ser localizadas as chaves ou certificadoS SSH
-keyData | Sim | Cadeia | Especifica uma chave pública SSH codificada com base64
+path | Sim | String | Especifica o caminho do ficheiro Linux onde devem ser localizadas as chaves ou certificadoS SSH
+keyData | Sim | String | Especifica uma chave pública SSH codificada com base64
 
 Por exemplo, consulte o modelo de [arranque rápido GitHub de 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -565,7 +565,7 @@ Para criar um conjunto de escala de máquina virtual que atribui um endereço IP
 
 Sim. Pode adicionar os IDs de recurso para vários conjuntos de endereços de backend do Gateway de aplicação à lista de _aplicaçõesGatewayBackendAddressPools_ na secção _ipConfiguras_ do seu perfil de rede definido por escala.
 
-## <a name="scale"></a>Dimensionamento
+## <a name="scale"></a>Escala
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>Em que caso, criaria uma escala virtual de máquinas com menos de dois VMs?
 
@@ -721,7 +721,7 @@ New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $
 Crie um disco gerido a partir do instantâneo.
 
 ```azurepowershell-interactive
-$snapshotName = "myShapshot"
+$snapshotName = "mySnapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
 $osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')

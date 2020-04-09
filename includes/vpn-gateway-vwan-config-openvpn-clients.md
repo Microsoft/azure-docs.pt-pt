@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 921e22e637782ffd744af1a28e6bd43e7dd53c67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066169"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986795"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Clientes windows
 
@@ -130,7 +130,7 @@ ms.locfileid: "80066169"
 5. Extraia a chave privada e a impressão digital base64 do .pfx. Existem múltiplas formas de efetuar este procedimento. Usar o OpenSSL no computador é uma maneira.
 
     ```
-    openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
    O ficheiro *profileinfo.txt* conterá a chave privada e a impressão digital para a AC e o certificado cliente. Certifique-se de usar a impressão digital do certificado de cliente.
 
@@ -161,7 +161,7 @@ ms.locfileid: "80066169"
 11. Para ligar utilizando a linha de comando, escreva o seguinte comando:
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>&
+    sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. Para ligar o GUI, vá às definições do sistema.
 13. Clique **+** para adicionar uma nova ligação VPN.

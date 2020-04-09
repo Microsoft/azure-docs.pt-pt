@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823366"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878855"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para a Instância Gerida pela Base de Dados Azure SQL
 
@@ -29,13 +29,13 @@ A instância gerida pela base de dados Azure SQL deve ser implantada dentro de u
 - Ligar uma Instância Gerida a servidor ligado ou outra loja de dados no local
 - Ligação de uma instância gerida aos recursos do Azure  
 
-> [!Note]
+> [!NOTE]
 > Deve [determinar o tamanho da sub-rede para a Instância Gerida](sql-database-managed-instance-determine-size-vnet-subnet.md) antes de implementar a primeira instância. Não podes redimensionar a sub-rede depois de colocares os recursos lá dentro.
 >
 > Se planeia utilizar uma rede virtual existente, precisa de modificar essa configuração de rede para acomodar a sua Instância Gerida. Para mais informações, consulte [Modificar uma rede virtual existente para O Exemplo Gerido](sql-database-managed-instance-configure-vnet-subnet.md).
 >
-> Após a criação de uma instância gerida, a mudança da instância gerida ou vNet para outro grupo de recursos ou subscrição não é suportada.
-
+> Após a criação de uma instância gerida, a mudança da instância gerida ou vNet para outro grupo de recursos ou subscrição não é suportada.  A mudança da instância gerida para outra sub-rede também não é suportada.
+>
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

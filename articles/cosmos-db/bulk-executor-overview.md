@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442159"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985597"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Descrição geral da biblioteca de executor em massa do Azure Cosmos DB
  
@@ -51,4 +51,4 @@ A biblioteca de executor a granel garante utilizar maximamente a entrada atribu�
 * Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executora a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md).  
 * Confira as informações do executor a granel SDK e liberte as notas em [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md).
 * A biblioteca de executora a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo de [conector Azure Cosmos DB Spark.](spark-connector.md)  
-* A biblioteca de executora a granel também está integrada numa nova versão do [conector Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) para a Azure Data Factory para copiar dados.
+* A biblioteca de executora a granel também está integrada numa nova versão do [conector Azure Cosmos DB](../data-factory/connector-azure-cosmos-db.md) para a Azure Data Factory para copiar dados.

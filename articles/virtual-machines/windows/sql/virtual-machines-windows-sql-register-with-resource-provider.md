@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9c1cff53d5d0f0385d3d61938c7fb6309efb7b1
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243188"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985393"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registe uma máquina virtual SQL Server em Azure com o fornecedor de recursos SQL VM
 
@@ -35,7 +35,7 @@ A implementação de uma imagem Do SQL Server VM Azure Marketplace através do p
 
 - **Gestão simplificada da licença**: Registar-se com o fornecedor de recursos SQL VM simplifica a gestão da licença SQL Server e permite identificar rapidamente VMs do Servidor SQL com o Benefício Híbrido Azure habilitado através do [portal Azure,](virtual-machines-windows-sql-manage-portal.md)o Az CLI ou PowerShell: 
 
-   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+   # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
@@ -178,9 +178,9 @@ Para registar o vM do seu Servidor SQL diretamente em modo completo (e possivelm
 
 O SQL Server 2008 e 2008 R2 instalados no Windows Server 2008 _(não R2_) podem ser registados com o fornecedor de recursos SQL VM no [modo NoAgent](#management-modes). Esta opção garante a conformidade e permite que o VM do Servidor SQL seja monitorizado no portal Azure com funcionalidade limitada.
 
-Especifique `AHUB`ou, `PAYG` `DR` ou como o **sqlLicenseType,** e `SQL2008-WS2008` quer quer `SQL2008R2-WS2008` como o **sqlImageOffer**. 
+Especifique `AHUB`ou, `PAYG`ou `DR` como o `SQL2008-WS2008` **sqlLicenseType,** e `SQL2008R2-WS2008`como o **sqlImageOffer**. 
 
-Para registar a sua instância SQL Server 2008 ou 2008 R2 na instância Windows Server 2008, utilize o seguinte snippet de código Az CLI ou PowerShell: 
+Para registar o seu SQL Server 2008 ou 2008 R2 na instância Do Windows Server 2008, utilize o seguinte snippet de código Az CLI ou PowerShell: 
 
 
 # <a name="az-cli"></a>[AZ CLI](#tab/bash)
@@ -190,7 +190,7 @@ Registe o seu VM SQL Server 2008 no modo NoAgent com o Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008-WS2008
  ```
  
  
@@ -199,7 +199,7 @@ Registe o seu SQL Server 2008 R2 VM no modo NoAgent com o Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -245,7 +245,7 @@ Para atualizar o modo de agente para o seu pleno:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá ao seu recurso de [máquinas virtuais SQL.](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 
 1. Selecione a sua máquina virtual SQL Server e selecione **visão geral**. 
 1. Para VMs de servidor SQL com o modo NoAgent ou leve IaaS, selecione as atualizações do tipo de licença only e edição estão disponíveis com a mensagem de **extensão SQL IaaS.**
@@ -286,7 +286,7 @@ Pode verificar se o seu VM de Servidor SQL já foi registado no fornecedor de re
 
 ### <a name="azure-portal"></a>Portal do Azure 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Vá às suas [máquinas virtuais SQL Server](virtual-machines-windows-sql-manage-portal.md).
 1. Selecione o seu VM do Servidor SQL da lista. Se o seu VM de Servidor SQL não estiver listado aqui, provavelmente não foi registado no fornecedor de recursos SQL VM. 
 1. Ver o valor em **status**. Se o **Status** for **bem sucedido,** então o VM do Servidor SQL foi registado com sucesso no fornecedor de recursos SQL VM. 
@@ -345,7 +345,7 @@ Para não registar o seu VM do Servidor SQL com o fornecedor de recursos que uti
 
 ### <a name="command-line"></a>Linha de comandos
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Para desregistar a sua máquina virtual SQL Server do fornecedor de recursos com o Azure CLI, utilize o comando [az sql vm eliminar.](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) Isto removerá o *recurso* virtual da máquina Do SQL Server, mas não eliminará a máquina virtual. 
 
 

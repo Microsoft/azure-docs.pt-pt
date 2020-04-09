@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 1cfee9749bf2eb30799efb05ac875843bcde6651
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fe5d245d629c731a47ca5441afd2a3388a22de4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372621"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878022"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para a Porta da Frente Azure
 
@@ -34,7 +34,7 @@ A Porta Frontal Azure é uma Rede de Entrega de Aplicações (ADN) como um servi
 
 ### <a name="what-features-does-azure-front-door-support"></a>Quais as funcionalidades que o Azure Front Door suporta?
 
-A Porta Frontal Azure suporta a aceleração dinâmica do site (DSA), a descarga sl e o fim do SSL, firewall de aplicação web, afinidade de sessão baseada em cookies, encaminhamento baseado em url, certificados gratuitos e gestão de vários domínios, entre outros. Para obter uma lista completa de funcionalidades suportadas, consulte [a visão geral da Porta frontal do Azure.](front-door-overview.md)
+A Porta Frontal Azure suporta a aceleração dinâmica do site (DSA), o descarregamento tLS/SSL e o fim do TLS final, firewall de aplicação web, afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de url, certificados gratuitos e gestão de domínios múltiplos, entre outros. Para obter uma lista completa de funcionalidades suportadas, consulte [a visão geral da Porta frontal do Azure.](front-door-overview.md)
 
 ### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Qual é a diferença entre a Porta frontal azure e o Portal de Aplicação Azure?
 
@@ -46,7 +46,7 @@ Os cenários-chave para utilizar o Gateway de aplicação atrás da porta da fre
 
 - A Porta Frontal só pode realizar o equilíbrio de carga baseado na trajetória a nível global, mas se alguém quiser carregar o tráfego de equilíbrio ainda mais dentro da sua rede virtual (VNET), então deve utilizar o Application Gateway.
 - Uma vez que a Porta da Frente não funciona a nível vM/contentor, por isso não pode fazer a Drenagem de Ligação. No entanto, o Gateway de Aplicação permite-lhe fazer a Drenagem de Ligação. 
-- Com um Gateway de Aplicação atrás da AFD, pode-se obter 100% de descarregamento ssl e rota apenas pedidos HTTP dentro da sua rede virtual (VNET).
+- Com um Gateway de Aplicação atrás da AFD, pode-se obter 100% de descarga TLS/SSL e encaminhar apenas pedidos HTTP dentro da sua rede virtual (VNET).
 - Porta da Frente e Gateway de aplicação ambos afinidade de sessão de apoio. Enquanto a Porta Frontal pode direcionar o tráfego subsequente de uma sessão de utilizador para o mesmo cluster ou backend numa determinada região, o Application Gateway pode direcionar o tráfego para o mesmo servidor dentro do cluster.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Podemos colocar o Azure Load Balancer atrás da Porta da Frente?
@@ -118,7 +118,7 @@ Saiba mais sobre os [cabeçalhos HTTP suportados](front-door-http-headers-protoc
 
 Uma nova criação da Porta Da Frente ou quaisquer atualizações para uma porta da frente existente leva cerca de 3 a 5 minutos para a implantação global. Isto significa que em cerca de 3 a 5 minutos, a configuração da Porta Da Frente será implantada em todos os nossos POPs a nível global.
 
-Nota - As atualizações de certificados SSL personalizados demoram cerca de 30 minutos a serem implementadas globalmente.
+Nota - As atualizações de certificados Custom TLS/SSL demoram cerca de 30 minutos a serem implementadas globalmente.
 
 Quaisquer atualizações de rotas ou piscinas de backend, etc. são perfeitas e causarão zero tempo de inatividade (se a nova configuração estiver correta). As atualizações de certificados também são atómicas e não causarão qualquer interrupção, a menos que a mudança de 'AFD Managed' para 'Use o seu próprio cert' ou vice-versa.
 
@@ -139,7 +139,7 @@ Conheça todos os [intervalos e limites documentados para a Porta da Frente Azur
 
 A Azure Front Door é uma plataforma multiarrendatária distribuída globalmente com enormes volumes de capacidade para atender às necessidades de escalabilidade da sua aplicação. Entregue a partir da borda da rede global da Microsoft, a Front Door fornece uma capacidade global de equilíbrio de carga que lhe permite falhar em toda a sua aplicação ou mesmo microserviços individuais em regiões ou nuvens diferentes.
 
-## <a name="ssl-configuration"></a>Configuração SSL
+## <a name="tls-configuration"></a>Configuração TLS
 
 ### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Que versões TLS são suportadas pela Porta Frontal Azure?
 
@@ -150,12 +150,12 @@ Porta frontal suporta versões TLS 1.0, 1.1 e 1.2. TLS 1.3 ainda não é suporta
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Que certificados são suportados na Porta da Frente Azure?
 
 Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado porta frontal, pode optar por utilizar um certificado que seja gerido pela Porta Frontal Azure ou utilizar o seu próprio certificado.
-A opção gerida pela Porta Frontal prevê um certificado SSL padrão via Digicert e armazenado no Cofre chave da Porta Da Frente. Se optar por usar o seu próprio certificado, pode embarcar num certificado de uma CA suportada e pode ser um SSL padrão, certificado de validação alargado ou até mesmo um certificado wildcard. Os certificados auto-assinados não são suportados. Saiba [como ativar HTTPS para um domínio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
+A opção gerida pela Porta Frontal prevê um certificado TLS/SSL padrão via Digicert e armazenado no Cofre chave da Porta Frontal. Se optar por usar o seu próprio certificado, pode embarcar num certificado de uma CA suportada e pode ser um TLS padrão, certificado de validação alargado ou até mesmo um certificado wildcard. Os certificados auto-assinados não são suportados. Saiba [como ativar HTTPS para um domínio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>A Porta da Frente suporta a rotação automática de certificados?
 
 Para a opção de certificado gerido pela Porta Da Frente, os certificados são rodados automaticamente pela Porta Da Frente. Se estiver a utilizar um certificado gerido pela Porta Da Frente e ver se a data de validade do certificado está a menos de 60 dias de distância, preencha um bilhete de apoio.
-</br>Para o seu próprio certificado SSL personalizado, a rotação automática não é suportada. À semelhança de como foi configurado pela primeira vez para um determinado domínio personalizado, terá de apontar a Porta da Frente para a versão de certificado certo no seu Cofre de Chaves e garantir que o diretor de serviço da Porta Frontal ainda tem acesso ao Cofre chave. Esta operação atualizada de lançamento de certificados pela Porta Frontal é atómica e não causa qualquer impacto de produção desde que o nome do assunto ou SAN para o certificado não se alterem.
+</br>Para o seu próprio certificado personalizado TLS/SSL, a rotação automática não é suportada. À semelhança de como foi configurado pela primeira vez para um determinado domínio personalizado, terá de apontar a Porta da Frente para a versão de certificado certo no seu Cofre de Chaves e garantir que o diretor de serviço da Porta Frontal ainda tem acesso ao Cofre chave. Esta operação atualizada de lançamento de certificados pela Porta Frontal é atómica e não causa qualquer impacto de produção desde que o nome do assunto ou SAN para o certificado não se alterem.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quais são as atuais suítes cifra suportadas pela Porta da Frente Azure?
 
@@ -182,13 +182,13 @@ Seguem-se as atuais suítes cifra suportadas pela Porta da Frente Azure:
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Posso configurar a política SSL para controlar as versões do Protocolo SSL?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Posso configurar a política do TLS para controlar as versões do Protocolo TLS?
 
 Pode configurar uma versão TLS mínima em Porta Frontal Azure nas definições de domínio personalizado HTTPS através do portal Azure ou da [API Azure REST](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Atualmente, pode escolher entre 1.0 e 1.2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Posso configurar a Porta da Frente para apenas apoiar suites específicas de cifra?
 
-Não, configurar a Porta da Frente para suites específicas de cifra não é suportado. No entanto, pode obter o seu próprio certificado SSL personalizado da sua Autoridade de Certificados (por exemplo Verisign, Entrust ou Digicert) e ter suites de cifra específicas marcadas no certificado quando o tiver gerado. 
+Não, configurar a Porta da Frente para suites específicas de cifra não é suportado. No entanto, pode obter o seu próprio certificado TLS/SSL personalizado da sua Autoridade de Certificado (por exemplo Verisign, Entrust ou Digicert) e ter suites de cifra específicas marcadas no certificado quando o tiver gerado. 
 
 ### <a name="does-front-door-support-ocsp-stapling"></a>A Porta da Frente suporta a agrafamento de OCSP?
 
@@ -196,20 +196,20 @@ Sim, a estação OCSP é suportada por padrão pela Porta Da Frente e não é ne
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>A Porta frontal do Azure também suporta a reencriptação do tráfego até ao backend?
 
-Sim, a Porta Frontal Azure suporta a descarga do SSL e termina a sl, que encripta o tráfego até ao fim. De facto, uma vez que as ligações ao backend acontecem ao longo do seu IP público, recomenda-se que configure a porta da frente para utilizar https como protocolo de reencaminhamento.
+Sim, a Porta Frontal Azure suporta a descarga TLS/SSL e termina com o TLS, que encripta o tráfego até ao backend. De facto, uma vez que as ligações ao backend acontecem ao longo do seu IP público, recomenda-se que configure a porta da frente para utilizar https como protocolo de reencaminhamento.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>A Porta da Frente suporta certificados auto-assinados no backend para ligação HTTPS?
 
 Não, os certificados auto-assinados não são suportados na Porta da Frente e a restrição aplica-se a ambos:
 
 1. **Backends**: Não pode utilizar certificados auto-assinados quando estiver a encaminhar o tráfego como sondas de saúde HTTPS ou HTTPS ou a preencher a cache de origem para regras de encaminhamento com enrdação ativada.
-2. **Frontend**: Não pode utilizar certificados auto-assinados quando utilizar o seu próprio certificado SSL personalizado para ativar HTTPS no seu domínio personalizado.
+2. **Frontend**: Não pode utilizar certificados auto-assinados quando utilizar o seu próprio certificado TLS/SSL personalizado para ativar HTTPS no seu domínio personalizado.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>Porque é que o tráfego https para o meu backend está a falhar?
 
 Por ter ligações HTTPS bem sucedidas ao seu backend, quer para sondas de saúde quer para pedidos de reencaminhamento, pode haver duas razões pelas quais o tráfego HTTPS pode falhar:
 
-1. **Desajuste do nome**do certificado : Para ligações HTTPS, a Porta Frontal espera que o seu backend apresente certificado de um CA válido com nome ou nome ou nome de assunto correspondente ao nome de anfitrião do backend. Como exemplo, se o seu nome `myapp-centralus.contosonews.net` de anfitrião de backend for definido e o `myapp-centralus.contosonews.net` `*myapp-centralus*.contosonews.net` certificado que o seu backend apresenta durante o aperto de mão SSL, nem no nome do assunto, a Porta da Frente recusará a ligação e resultará num erro. 
+1. **Desajuste do nome**do certificado : Para ligações HTTPS, a Porta Frontal espera que o seu backend apresente certificado de um CA válido com nome ou nome ou nome de assunto correspondente ao nome de anfitrião do backend. Como exemplo, se o seu nome `myapp-centralus.contosonews.net` de anfitrião de backend for definido e o `myapp-centralus.contosonews.net` `*myapp-centralus*.contosonews.net` certificado que o seu backend apresenta durante o aperto de mão TLS não tem nem no nome do assunto, a Porta da Frente recusará a ligação e resultará num erro. 
     1. **Solução**: Embora não seja recomendado do ponto de vista da conformidade, pode contornar este erro desativando a verificação do nome do certificado para a sua Porta Frontal. Isto está presente em Definições no portal Azure e em BackendPoolsSettings na API.
 2. **Certificado de hospedagem backend de CA inválido**: Apenas os certificados de [Ca válidos](/azure/frontdoor/front-door-troubleshoot-allowed-ca) podem ser usados no backend com porta da frente. Não são permitidos certificados provenientes de AC internos ou certificados auto-assinados.
 

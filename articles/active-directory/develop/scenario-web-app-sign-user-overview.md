@@ -2,24 +2,21 @@
 title: Inscreva-se nos utilizadores a partir de uma aplicação Web - plataforma de identidade microsoft / Azure
 description: Saiba como construir uma aplicação web que assina nos utilizadores (visão geral)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 403f589702fd7142f0515a3b6f19ee1b9bbb6420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65d254cec5735c54e19f5adfde57fb6aed776a2c
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701557"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881490"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Web app que assina nos utilizadores
 
@@ -52,7 +49,7 @@ Se é um desenvolvedor de Java, tente o seguinte arranque rápido:
 > [!div class="nextstepaction"]
 > [Quickstart: Adicione o sessão com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Se desenvolver com python, tente o seguinte arranque rápido:
 
@@ -97,7 +94,7 @@ Como segunda fase, pode ativar a sua aplicação para ligar para a Web APIs em n
 > [!div class="nextstepaction"]
 > [Registo da aplicação](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [Registo da aplicação](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)

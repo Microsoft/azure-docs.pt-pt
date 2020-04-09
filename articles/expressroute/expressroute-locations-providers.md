@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce9f5730575b4ab68e293c78ea40d8deb1d2c89c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b8c8a0baba5a80c6a383e6f8f14e29b482dbc82
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278755"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878617"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -39,7 +39,7 @@ Terá acesso aos serviços do Azure em todas as regiões numa região geopolíti
 ## <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a><a name="locations"></a>Regiões de Azure para localizações ExpressRoute dentro de uma região geopolítica
 A tabela seguinte fornece um mapa de regiões do Azure para localizações do ExpressRoute numa região geopolítica.
 
-| **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
+| **Região geopolítica** | **Regiões de Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
 | **Governo da Austrália** | Austrália Central, Austrália Central 2 |Camberra, Camberra2 |
 | **Europa** | France Central, França Sul, Alemanha Norte, Alemanha West Central, Norte Europa, Noruega Leste, Noruega Oeste, Suíça Norte, Suíça Oeste, Reino Unido Oeste, Reino Unido Sul, Europa Ocidental |Amesterdão, Amesterdão2, Copenhague, Dublin, Frankfurt, Genebra, Londres, Londres2, Marselha, Milão, Munique, Newport (País de Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique, Munique |
@@ -56,7 +56,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 ## <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões azuis e fronteiras geopolíticas para nuvens nacionais
 A tabela abaixo fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
 
-| **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
+| **Região geopolítica** | **Regiões de Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
 | **Nuvem do US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Atlanta, Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Leste da China** |Leste da China, Leste da China 2 |Xangai |
@@ -95,7 +95,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Rio Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | Emirados Unidos norte | n/d | Emirados Emirados Emirados Unidos |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Emirados Unidos norte | n/d | du datamena, Megaport, Orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa do Norte | 10G, 100G | Colt, eir, Equinix, euNetworks, Interxion, Megaport |
-| **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Alemanha West Central | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
+| **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Alemanha West Central | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, GEANT, Interxion, Megaport, Orange, Telia Carrier |
 | **Genebra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Suíça Oeste | 10G, 100G | Equinix, Megaport |
 | **RAE de Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Ásia Leste | n/d | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Hong Kong2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | n/d | 10G | |

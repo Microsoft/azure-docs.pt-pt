@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c265665be26dcc6868ea9a303b0c12c52dfe05b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969625"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878311"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -47,9 +47,9 @@ Pode testar as suas consultas contra dados ao vivo na sua máquina local antes d
 Os trabalhos da Azure Stream Analytics podem ser da autoria do Código do Estúdio Visual. Veja o nosso [Código VS a começar tutorial.](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)
 
 
-### <a name="integration-with-azure-machine-learning"></a>Integração com aprendizagem automática Azure
+### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Pontuação de alto desempenho em tempo real com modelos ML personalizados geridos por Azure Machine Learning
 
-Pode escalar os trabalhos de Stream Analytics com funções de Machine Learning (ML). Para saber mais sobre como pode utilizar as funções ML no seu trabalho de Stream Analytics, visite [Scale your Stream Analytics job with Azure Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário real com a análise de [sentimentos performativos utilizando o Azure Stream Analytics e o Azure Machine Learning.](stream-analytics-machine-learning-integration-tutorial.md)
+O Azure Stream Analytics suporta pontuações de alto desempenho, em tempo real, utilizando modelos de Machine Learning pré-treinados personalizados geridos pela Azure Machine Learning, e hospedados no Serviço Azure Kubernetes (AKS) ou Em caixas de contentores Azure (ACI), utilizando um fluxo de trabalho que não exige que escreva código. [Inscreva-se](https://aka.ms/asapreview1) para pré-visualização
 
 
 ### <a name="live-data-testing-in-visual-studio"></a>Teste de dados ao vivo no Estúdio Visual
@@ -64,10 +64,6 @@ Com funções padrão de utilização .NET, pode executar o código .NET Standar
 ## <a name="other-previews"></a>Outras pré-visualizações
 
 As seguintes funcionalidades também estão disponíveis em pré-visualização a pedido.
-
-### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Pontuação de alto desempenho em tempo real com modelos ML personalizados geridos por Azure Machine Learning
-
-O Azure Stream Analytics suporta pontuações de alto desempenho, em tempo real, aproveitando modelos personalizados de Machine Learning pré-treinados geridos pela Azure Machine Learning, e hospedados no Serviço Azure Kubernetes (AKS) ou Em Caixas de Contentores Azure (ACI), utilizando um fluxo de trabalho que não requer que escreva código. [Inscreva-se](https://aka.ms/asapreview1) para pré-visualização
 
 ### <a name="support-for-azure-stack"></a>Suporte para Stack Azure
 Esta funcionalidade ativada no tempo de funcionamento do Azure IoT Edge, aproveita as funcionalidades personalizadas do Azure Stack, tais como suporte nativo para inputs locais e saídas em funcionamento em Azure Stack (por exemplo, Hubs de Eventos, Hub IoT, Armazenamento Blob). Esta nova integração permite-lhe construir arquiteturas híbridas que possam analisar os seus dados perto de onde são gerados, reduzindo a latência e maximizando insights.

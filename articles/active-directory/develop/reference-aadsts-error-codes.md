@@ -2,26 +2,22 @@
 title: Autenticação aditiva Azure códigos de erro de autorização &
 description: Conheça os códigos de erro AADSTS que são devolvidos do serviço de token de segurança Azure AD (STS).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473169"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875933"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de autenticação e erro de autorização da Azure AD
 
@@ -133,6 +129,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS50180 | WindowsIntegratedAuthMissing - É necessária a autenticação integrada do Windows. Ativar o inquilino para SSO Totalmente Integrado. |
 | AADSTS50187 | Informações de dispositivoNãoFornecidos - O serviço falhou na autenticação do dispositivo. |
 | AADSTS50196 | LoopDetected - Foi detetado um ciclo de cliente. Verifique a lógica da aplicação para garantir que o cache token é implementado e que as condições de erro são manuseadas corretamente.  A aplicação fez demasiados pedidos em muito curto prazo, indicando que se encontra em estado defeituoso ou que está a solicitar abusivamente fichas. |
+| AADSTS50197 | Identidades conflituosas - O utilizador não foi encontrado. Tente assinar de novo. |
 | AADSTS50199 | CmsiInterrupt - Por razões de segurança, a confirmação do utilizador é necessária para este pedido.  Como este é um erro "interaction_required", o cliente deve fazer auth interativo.  Isto ocorre porque um webview do sistema foi usado para solicitar um símbolo para uma aplicação nativa - o utilizador deve ser solicitado a perguntar se esta era realmente a app que pretendia assinar.|
 | AADSTS51000 | RequeridoFeatureNotEnabled - A funcionalidade está desativada. |
 | AADSTS51001 | DomainHintMustbePresent - A sugestão de domínio deve estar presente com o identificador de segurança no local ou no local UPN. |

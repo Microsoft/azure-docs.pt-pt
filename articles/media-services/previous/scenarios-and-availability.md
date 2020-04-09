@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250988"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985937"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -169,7 +169,7 @@ Esta secção mostra detalhes sobre a disponibilidade das funcionalidades dos Se
 
 #### <a name="availability"></a>Disponibilidade
 
-Para determinar se os Serviços de Multimédia estão disponíveis num datacenter, navegue até https://azure.microsoft.com/status/ e desloque-se até à tabela MULTIMÉDIA.
+Utilize [produtos Azure por Região](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) para determinar se os Serviços de Media estão disponíveis num datacenter específico.
 
 ### <a name="streaming-endpoints"></a>Pontos finais de transmissões em fluxo 
 
@@ -225,7 +225,7 @@ Os Serviços de Multimédia do Microsoft Azure permite-lhe proteger os seus elem
 
 |Encriptação|Estado|Datacenters|
 |---|---|---| 
-|Storage|GA|Todos|
+|Armazenamento|GA|Todos|
 |Chaves AES-128|GA|Todos|
 |Fairplay|GA|Todos|
 |PlayReady|GA|Todos|

@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5fae2bba0acc4ab462c91f7272694d032fc6ceaa
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742658"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985869"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Estatísticas de tabelas em piscina SYnapse SQL
 
@@ -146,11 +146,11 @@ Para mais informações, consulte a orientação geral para [as estatísticas.](
 
 ## <a name="implementing-statistics-management"></a>Implementação da gestão estatística
 
-Muitas vezes é uma boa ideia alargar o seu processo de carregamento de dados para garantir que as estatísticas são atualizadas no final da carga.
+Muitas vezes é uma boa ideia alargar o seu processo de carregamento de dados para garantir que as estatísticas são atualizadas no final da carga para evitar/minimizar o bloqueio ou a contenção de recursos entre consultas simultâneas.  
 
 A carga de dados é quando as tabelas mudam mais frequentemente o seu tamanho e/ou a sua distribuição de valores. O carregamento de dados é um local lógico para implementar alguns processos de gestão.
 
-São fornecidos os seguintes princípios orientadores para atualizar as suas estatísticas durante o processo de carga:
+Estão previstos os seguintes princípios orientadores para atualizar as suas estatísticas:
 
 - Certifique-se de que cada tabela carregada tem pelo menos um objeto estatístico atualizado. Isto atualiza a informação sobre o tamanho da tabela (contagem de linhas e contagem de páginas) como parte da atualização estatística.
 - Foco nas colunas que participam nas cláusulas JOIN, GROUP BY, ORDER BY e DISTINCT.

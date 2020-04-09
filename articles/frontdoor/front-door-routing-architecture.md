@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471562"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879297"
 ---
 # <a name="routing-architecture-overview"></a>Visão geral da arquitetura de encaminhamento
 
@@ -35,7 +35,7 @@ O encaminhamento para os ambientes da Porta Frontal Azure aproveita o [Anycast](
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) é uma técnica para reduzir as latenciências e problemas de TCP, quebrando uma ligação que incorreria num elevado tempo de ida e volta em pedaços menores.  Ao colocar os ambientes porta da frente mais perto dos utilizadores finais e terminar as ligações TCP dentro do ambiente porta da frente, uma ligação TCP com um grande tempo de ida e volta (RTT) para aplicação backend é dividida em duas ligações TCP. A ligação curta entre o utilizador final e o ambiente porta da frente significa que a ligação é estabelecida em três viagens de ida e volta curtas em vez de três longas viagens de ida e volta, poupando latência.  A longa ligação entre o ambiente porta da frente e o backend pode ser pré-estabelecida e reutilizada em várias chamadas de utilizador final, poupando novamente o tempo de ligação do TCP.  O efeito é multiplicado ao estabelecer uma ligação SSL/TLS (Transport Layer Security), uma vez que há mais viagens de ida e volta para assegurar a ligação.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Pedido de processamento para corresponder a uma regra de encaminhamento
-Depois de estabelecer uma ligação e fazer um aperto de mão SSL, quando um pedido aterra em um ambiente porta da frente, corresponder a uma regra de encaminhamento é o primeiro passo. Este jogo é basicamente determinante a partir de todas as configurações na Porta da Frente, que regra de encaminhamento particular para corresponder ao pedido. Leia sobre como a Porta da Frente combina com a [rota](front-door-route-matching.md) para saber mais.
+Depois de estabelecer uma ligação e fazer um aperto de mão TLS, quando um pedido aterra em um ambiente porta da frente, corresponder a uma regra de encaminhamento é o primeiro passo. Este jogo é basicamente determinante a partir de todas as configurações na Porta da Frente, que regra de encaminhamento particular para corresponder ao pedido. Leia sobre como a Porta da Frente combina com a [rota](front-door-route-matching.md) para saber mais.
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identificação de backends disponíveis na piscina de backend para a regra de encaminhamento
 Uma vez que a Porta da Frente tem uma correspondência para uma regra de encaminhamento com base no pedido de entrada e se não houver cache, então o próximo passo é retirar o estado da sonda de saúde para a piscina de backend associada à rota igual. Leia sobre como a Porta frontal monitoriza a saúde usando sondas de [saúde](front-door-health-probes.md) para saber mais.

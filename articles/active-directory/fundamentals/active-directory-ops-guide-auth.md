@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546238"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876297"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de autenticação de diretório ativo Azure
 
@@ -64,7 +64,7 @@ Utilize o quadro abaixo para encontrar a solução recomendada para atenuar a qu
 | Nenhum mecanismo para proteger contra senhas fracas | Ativar o reset de [palavra-passe autosserviço](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) Azure AD (SSPR) e [a proteção de passwords](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | Nenhum mecanismo para detetar senhas vazadas | Ativar a sincronização de [hash](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS) de senha para obter insights |
 | Utilização de AD FS e incapaz de mover-se para a autenticação gerida | Ativar [o Bloqueio Inteligente Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) e /ou [Azure AD Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| A política de passwords usa regras baseadas na complexidade, tais como comprimento, conjuntos de caracteres múltiplos ou expiração | Reconsidere a favor das [Práticas Recomendadas](https://aka.ms/passwordguidance) da Microsoft e mude a sua abordagem para a gestão de passwords e implemente a proteção de [passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
+| A política de passwords usa regras baseadas na complexidade, tais como comprimento, conjuntos de caracteres múltiplos ou expiração | Reconsidere a favor das [Práticas Recomendadas](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) da Microsoft e mude a sua abordagem para a gestão de passwords e implemente a proteção de [passwords Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
 | Os utilizadores não estão registados para usar a autenticação de vários fatores (MFA) | [Registe todas as informações de segurança do utilizador](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) para que possa ser utilizada como um mecanismo para verificar a identidade do utilizador juntamente com a sua palavra-passe |
 | Não existe revogação de senhas com base no risco do utilizador | Implementar políticas de risco de utilizador de [proteção de identidade](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) Azure AD para forçar alterações de senha em credenciais vazadas usando SSPR |
 | Não existe um mecanismo inteligente de bloqueio para proteger a autenticação maliciosa de maus atores provenientes de endereços IP identificados | Implementar autenticação gerida pela nuvem com sincronização de hash de palavra-passe ou [autenticação pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
@@ -101,11 +101,11 @@ Se a sua organização no local não tiver uma estratégia de resiliência de pa
 
 ![fluxo de sincronização de hash palavra-passe](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Para melhor compreender as suas opções de autenticação, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn).
+Para melhor compreender as suas opções de autenticação, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](../hybrid/choose-ad-authn.md).
 
 ### <a name="programmatic-usage-of-credentials"></a>Utilização programática de credenciais
 
-Os scripts Azure AD utilizando o PowerShell ou aplicações que utilizam a Microsoft Graph API requerem autenticação segura. A má gestão credencial que executa os scripts e ferramentas aumenta o risco de roubo de credenciais. Se estiver a utilizar scripts ou aplicações que dependam de senhas ou instruções de senha sinuosas codificadas, deve primeiro rever as palavras-passe em ficheiros config ou código fonte, em seguida, substituir essas dependências e utilizar identidades geridas pelo Azure, autenticação integrada do Windows ou [certificados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) sempre que possível. Para aplicações onde as soluções anteriores não são possíveis, considere utilizar o [Cofre de Chaves Azure](https://azure.microsoft.com/services/key-vault/).
+Os scripts Azure AD utilizando o PowerShell ou aplicações que utilizam a Microsoft Graph API requerem autenticação segura. A má gestão credencial que executa os scripts e ferramentas aumenta o risco de roubo de credenciais. Se estiver a utilizar scripts ou aplicações que dependam de senhas ou instruções de senha sinuosas codificadas, deve primeiro rever as palavras-passe em ficheiros config ou código fonte, em seguida, substituir essas dependências e utilizar identidades geridas pelo Azure, autenticação integrada do Windows ou [certificados](../reports-monitoring/tutorial-access-api-with-certificates.md) sempre que possível. Para aplicações onde as soluções anteriores não são possíveis, considere utilizar o [Cofre de Chaves Azure](https://azure.microsoft.com/services/key-vault/).
 
 Se determinar que existem diretores de serviço com credenciais de senha e não tem a certeza de como essas credenciais de senha são protegidas por scripts ou aplicações, contacte o proprietário da aplicação para entender melhor os padrões de utilização.
 
@@ -115,7 +115,7 @@ A Microsoft também recomenda que contacte os proprietários de aplicações par
 
 ### <a name="on-premises-authentication"></a>Autenticação no local
 
-Autenticação Federada com Autenticação Integrada do Windows (IWA) ou Single Sign-On (SSO) gerida por autenticação gerida com sincronização de hash de palavra-passe ou autenticação pass-through é a melhor experiência do utilizador quando dentro da rede corporativa com controladores de domínio de linha de visão no local. Minimiza a fadiga de alerta credencial e reduz o risco de os utilizadores serem vítimas de ataques de phishing. Se já estiver a utilizar a autenticação gerida pela nuvem com PHS ou PTA, mas os utilizadores ainda precisam de escrever a sua palavra-passe ao autenticar no local, então deve implementar imediatamente [o SSO SSO sem emenda](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Por outro lado, se você está atualmente federado com planos para eventualmente migrar para a autenticação gerida pela nuvem, então você deve implementar Seamless SSO como parte do projeto de migração.
+Autenticação Federada com Autenticação Integrada do Windows (IWA) ou Single Sign-On (SSO) gerida por autenticação gerida com sincronização de hash de palavra-passe ou autenticação pass-through é a melhor experiência do utilizador quando dentro da rede corporativa com controladores de domínio de linha de visão no local. Minimiza a fadiga de alerta credencial e reduz o risco de os utilizadores serem vítimas de ataques de phishing. Se já estiver a utilizar a autenticação gerida pela nuvem com PHS ou PTA, mas os utilizadores ainda precisam de escrever a sua palavra-passe ao autenticar no local, então deve implementar imediatamente [o SSO SSO sem emenda](../hybrid/how-to-connect-sso.md). Por outro lado, se você está atualmente federado com planos para eventualmente migrar para a autenticação gerida pela nuvem, então você deve implementar Seamless SSO como parte do projeto de migração.
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso à confiança do dispositivo
 
@@ -123,66 +123,66 @@ Tal como um utilizador na sua organização, um dispositivo é uma identidade ce
 
 - Evitando atrito, por exemplo, com MFA, quando o dispositivo é confiável
 - Bloquear o acesso a dispositivos não confiáveis
-- Para dispositivos Windows 10, forneça [um único sinal aos recursos no local sem problemas.](https://docs.microsoft.com/azure/active-directory/devices/azuread-join-sso)
+- Para dispositivos Windows 10, forneça [um único sinal aos recursos no local sem problemas.](../devices/azuread-join-sso.md)
 
 Pode realizar este objetivo trazendo identidades do dispositivo e gerindo-as em Azure AD utilizando um dos seguintes métodos:
 
 - As organizações podem usar o [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para gerir o dispositivo e impor as políticas de conformidade, atestar a saúde do dispositivo e definir políticas de acesso condicional com base no cumprimento do dispositivo. O Microsoft Intune pode gerir dispositivos iOS, desktops Mac (através da integração JAMF), desktops windows (utilizando de forma nativa a Gestão de Dispositivos Móveis para windows 10, e cogestão com o Microsoft Endpoint Configuration Manager) e dispositivos móveis Android.
-- [A adesão da Hybrid Azure AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) fornece gestão com políticas de grupo ou Microsoft Endpoint Configuration Manager num ambiente com dispositivos de computadores ligados ao domínio Ative Directory. As organizações podem implementar um ambiente gerido através de PHS ou PTA com SSO SSO Sso sem emenda. Trazer os seus dispositivos para o Azure AD maximiza a produtividade dos utilizadores através do SSO através da sua nuvem e recursos no local, permitindo-lhe garantir o acesso à sua nuvem e recursos no local com [Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) Condicional ao mesmo tempo.
+- [A adesão da Hybrid Azure AD](../devices/hybrid-azuread-join-managed-domains.md) fornece gestão com políticas de grupo ou Microsoft Endpoint Configuration Manager num ambiente com dispositivos de computadores ligados ao domínio Ative Directory. As organizações podem implementar um ambiente gerido através de PHS ou PTA com SSO SSO Sso sem emenda. Trazer os seus dispositivos para o Azure AD maximiza a produtividade dos utilizadores através do SSO através da sua nuvem e recursos no local, permitindo-lhe garantir o acesso à sua nuvem e recursos no local com [Acesso](../conditional-access/overview.md) Condicional ao mesmo tempo.
 
-Se tiver dispositivos Windows unidos por domínio sem registo na nuvem, ou dispositivos Windows unidos por domínio que estejam registados na nuvem mas sem políticas de acesso condicional, então deve registar os dispositivos não registados e, em qualquer dos casos, utilizar o [Hybrid Azure AD como controlo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) nas suas políticas de acesso condicional.
+Se tiver dispositivos Windows unidos por domínio sem registo na nuvem, ou dispositivos Windows unidos por domínio que estejam registados na nuvem mas sem políticas de acesso condicional, então deve registar os dispositivos não registados e, em qualquer dos casos, utilizar o [Hybrid Azure AD como controlo](../conditional-access/require-managed-devices.md) nas suas políticas de acesso condicional.
 
 ![Uma imagem de concessão na política de acesso condicional que requer dispositivo híbrido](./media/active-directory-ops-guide/active-directory-ops-img6.png)
 
-Se estiver a gerir dispositivos com MDM ou Microsoft Intune, mas não utilizar controlos de dispositivos nas suas políticas de acesso condicional, recomendamos que a utilização do [dispositivo Requires seja marcada como conforme](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) como um controlo nessas políticas.
+Se estiver a gerir dispositivos com MDM ou Microsoft Intune, mas não utilizar controlos de dispositivos nas suas políticas de acesso condicional, recomendamos que a utilização do [dispositivo Requires seja marcada como conforme](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) como um controlo nessas políticas.
 
 ![Uma imagem de concessão na política de acesso condicional que requer o cumprimento do dispositivo](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Políticas de acesso à confiança do dispositivo recomendadas para a leitura
 
-- [Como: Planeie a sua direção ativa híbrida Azure aderir à implementação](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+- [Como: Planeie a sua direção ativa híbrida Azure aderir à implementação](../devices/hybrid-azuread-join-plan.md)
 - [Configurações de acesso aos dispositivos e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello para empresas
 
 No Windows 10, [o Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) substitui senhas por autenticação forte de dois fatores em PCs. O Windows Hello for Business permite uma experiência de MFA mais simplificada para os utilizadores e reduz a sua dependência de senhas. Se ainda não começou a lançar dispositivos Windows 10 ou apenas os implementou parcialmente, recomendamos que atualize para o Windows 10 e ative o [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) em todos os dispositivos.
 
-Se quiser saber mais sobre autenticação sem palavras-passe, consulte [Um mundo sem senhas com Diretório Ativo Azure](https://aka.ms/passwordlessdoc).
+Se quiser saber mais sobre autenticação sem palavras-passe, consulte [Um mundo sem senhas com Diretório Ativo Azure](../authentication/concept-authentication-passwordless.md).
 
 ## <a name="application-authentication-and-assignment"></a>Autenticação e atribuição de candidaturas
 
 ### <a name="single-sign-on-for-apps"></a>Inscrição única para apps
 
-Fornecer um mecanismo de inscrição única padronizado a toda a empresa é crucial para a melhor experiência do utilizador, redução de risco, capacidade de reporte e governação. Se estiver a utilizar aplicações que suportam OSO com AD Azure, mas que está atualmente configurada para utilizar contas locais, deverá reconfigurar essas aplicações para utilizar o SSO com a AD Azure. Da mesma forma, se estiver a utilizar quaisquer aplicações que suportem o SSO com a AD Azure, mas que esteja a utilizar outro Fornecedor de Identidade, deve reconfigurar essas aplicações para utilizar o SSO com a AD Azure também. Para aplicações que não suportam protocolos da federação mas que suportem a autenticação baseada em formulários, recomendamos que configure a aplicação para usar [abóbada](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting) de senha com procuração de aplicação ad..
+Fornecer um mecanismo de inscrição única padronizado a toda a empresa é crucial para a melhor experiência do utilizador, redução de risco, capacidade de reporte e governação. Se estiver a utilizar aplicações que suportam OSO com AD Azure, mas que está atualmente configurada para utilizar contas locais, deverá reconfigurar essas aplicações para utilizar o SSO com a AD Azure. Da mesma forma, se estiver a utilizar quaisquer aplicações que suportem o SSO com a AD Azure, mas que esteja a utilizar outro Fornecedor de Identidade, deve reconfigurar essas aplicações para utilizar o SSO com a AD Azure também. Para aplicações que não suportam protocolos da federação mas que suportem a autenticação baseada em formulários, recomendamos que configure a aplicação para usar [abóbada](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) de senha com procuração de aplicação ad..
 
 ![AppProxy Password-based Sign-on](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
 > [!NOTE]
 > Se não tiver um mecanismo para descobrir aplicações não geridas na sua organização, recomendamos implementar um processo de descoberta utilizando uma solução de corretor de segurança de acesso à nuvem (CASB) como o [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finalmente, se tiver uma galeria de aplicações Azure AD e utilizar aplicações que suportem sSO com AD Azure, recomendamos a [listagem da aplicação na galeria de aplicações.](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)
+Finalmente, se tiver uma galeria de aplicações Azure AD e utilizar aplicações que suportem sSO com AD Azure, recomendamos a [listagem da aplicação na galeria de aplicações.](../azuread-dev/howto-app-gallery-listing.md)
 
 #### <a name="single-sign-on-recommended-reading"></a>Leitura recomendada por inscrição única
 
-- [O que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md)
 
 ### <a name="migration-of-ad-fs-applications-to-azure-ad"></a>Migração de aplicações da AD FS para a AD Azure
 
-[As aplicações migratórias de AD FS para Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) permitem capacidades adicionais em segurança, gestão mais consistente e uma melhor experiência de colaboração. Se tiver aplicações configuradas em AD FS que suportam SSO com AD Azure, então deve reconfigurar essas aplicações para utilizar OSO com AD Azure. Se tiver aplicações configuradas em AD FS com configurações incomuns não suportadas pelo Azure AD, deverá contactar os proprietários da aplicação para perceber se a configuração especial é um requisito absoluto da aplicação. Se não for necessário, deverá reconfigurar a aplicação para utilizar o SSO com a AD Azure.
+[As aplicações migratórias de AD FS para Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md) permitem capacidades adicionais em segurança, gestão mais consistente e uma melhor experiência de colaboração. Se tiver aplicações configuradas em AD FS que suportam SSO com AD Azure, então deve reconfigurar essas aplicações para utilizar OSO com AD Azure. Se tiver aplicações configuradas em AD FS com configurações incomuns não suportadas pelo Azure AD, deverá contactar os proprietários da aplicação para perceber se a configuração especial é um requisito absoluto da aplicação. Se não for necessário, deverá reconfigurar a aplicação para utilizar o SSO com a AD Azure.
 
 ![Azure AD como o principal fornecedor de identidade](./media/active-directory-ops-guide/active-directory-ops-img9.png)
 
 > [!NOTE]
-> A [Azure AD Connect Health for ADFS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs) pode ser usada para recolher detalhes de configuração sobre cada aplicação que pode potencialmente ser migrada para AD Azure.
+> A [Azure AD Connect Health for ADFS](../hybrid/how-to-connect-health-adfs.md) pode ser usada para recolher detalhes de configuração sobre cada aplicação que pode potencialmente ser migrada para AD Azure.
 
 ### <a name="assign-users-to-applications"></a>Atribuir utilizadores a aplicações
 
-[Atribuir utilizadores a aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) é melhor mapeado utilizando grupos porque permitem uma maior flexibilidade e capacidade de gestão em escala. Os benefícios da utilização de grupos incluem [a adesão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) de grupodinâmico baseado em atributos e delegação aos proprietários de [aplicações.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners) Portanto, se já está a utilizar e gerir grupos, recomendamos que tome as seguintes ações para melhorar a gestão à escala:
+[Atribuir utilizadores a aplicações](../manage-apps/assign-user-or-group-access-portal.md) é melhor mapeado utilizando grupos porque permitem uma maior flexibilidade e capacidade de gestão em escala. Os benefícios da utilização de grupos incluem [a adesão](../users-groups-roles/groups-dynamic-membership.md) de grupodinâmico baseado em atributos e delegação aos proprietários de [aplicações.](../fundamentals/active-directory-accessmanagement-managing-group-owners.md) Portanto, se já está a utilizar e gerir grupos, recomendamos que tome as seguintes ações para melhorar a gestão à escala:
 
 - Delegar gestão e governação de grupo seleções aos proprietários de candidaturas.
 - Permitir o acesso ao autosserviço à aplicação.
 - Defina grupos dinâmicos se os atributos do utilizador puderem determinar consistentemente o acesso às aplicações.
-- Implementar o atestado a grupos utilizados para o acesso à aplicação utilizando avaliações de [acesso a AD Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview).
+- Implementar o atestado a grupos utilizados para o acesso à aplicação utilizando avaliações de [acesso a AD Azure](../governance/access-reviews-overview.md).
 
 Por outro lado, se encontrar aplicações que tenham atribuição a utilizadores individuais, certifique-se de implementar a [governação](https://docs.microsoft.com/azure/active-directory/governance/index) em torno dessas aplicações.
 
@@ -223,12 +223,12 @@ Se já possui licenças Azure AD Premium P2 que suportam o uso de riscos nas pol
 
 #### <a name="risk-based-access-policies-recommended-reading"></a>Políticas de acesso baseadas no risco recomendadas para a leitura
 
-- [Como: Configurar a política de risco de entrada](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
-- [Como: Configurar a política de risco do utilizador](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+- [Como: Configurar a política de risco de entrada](../identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Como: Configurar a política de risco do utilizador](../identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 ### <a name="client-application-access-policies"></a>Políticas de acesso à aplicação de clientes
 
-A Microsoft Intune Application Management (MAM) fornece a capacidade de pressionar controlos de proteção de dados, tais como encriptação de armazenamento, PIN, limpeza remota de armazenamento, etc. para aplicações móveis compatíveis com clientes como o Outlook Mobile. Além disso, podem ser criadas políticas de acesso condicional para restringir o [acesso](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) a serviços na nuvem, como o Exchange Online, a partir de aplicações aprovadas ou compatíveis.
+A Microsoft Intune Application Management (MAM) fornece a capacidade de pressionar controlos de proteção de dados, tais como encriptação de armazenamento, PIN, limpeza remota de armazenamento, etc. para aplicações móveis compatíveis com clientes como o Outlook Mobile. Além disso, podem ser criadas políticas de acesso condicional para restringir o [acesso](../conditional-access/app-based-conditional-access.md) a serviços na nuvem, como o Exchange Online, a partir de aplicações aprovadas ou compatíveis.
 
 Se os seus colaboradores instalarem aplicações mam-able, como aplicações móveis do Office, para aceder a recursos corporativos como o Exchange Online ou o SharePoint Online, e também apoiar o BYOD (traga o seu próprio dispositivo), recomendamos que implemente políticas de Aplicação MAM para gerir a configuração da aplicação em dispositivos pessoais sem matrícula de MDM e, em seguida, atualizar as suas políticas de acesso condicional para permitir apenas o acesso de clientes capazes de MAM.
 
@@ -245,10 +245,10 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 - Evite utilizar os **utilizadores como** filtro e adicionar inadvertidamente **os Hóspedes**
 - **Migrar todas as políticas de "legado" para o portal Azure**
 - Apanhe todos os critérios para utilizadores, dispositivos e aplicações
-- Utilizar políticas de acesso condicional para [implementar MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access), em vez de utilizar um **MFA por utilizador**
+- Utilizar políticas de acesso condicional para [implementar MFA](../conditional-access/plan-conditional-access.md), em vez de utilizar um **MFA por utilizador**
 - Ter um pequeno conjunto de políticas fundamentais que podem aplicar-se a múltiplas aplicações
 - Defina grupos de exceção vazios e adicione-os às políticas para ter uma estratégia de exceção
-- Plano para quebrar contas [de vidro](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency) sem controlos de MFA
+- Plano para quebrar contas [de vidro](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sem controlos de MFA
 - Garantir uma experiência consistente em todas as aplicações de clientes do Office 365, por exemplo, Equipas, OneDrive para Negócios, Outlook, etc.) implementando o mesmo conjunto de controlos para serviços como O Exchange Online e O Sharepoint Online
 - A atribuição de políticas deve ser implementada através de grupos, não de indivíduos
 - Faça revisões regulares dos grupos de exceção utilizados nas políticas para limitar o tempo que os utilizadores estão fora da postura de segurança. Se possuir O Azure AD P2, então pode usar avaliações de acesso para automatizar o processo
