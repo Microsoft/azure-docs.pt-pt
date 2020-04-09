@@ -113,6 +113,8 @@
       items:
         - name: O que é a conversão de texto em voz?
           href: text-to-speech.md
+        - name: Noções básicas da conversão de texto em voz
+          href: text-to-speech-basics.md
     - name: Início Rápido
       items:
         - name: Sintetizar a voz num altifalante

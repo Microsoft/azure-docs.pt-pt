@@ -480,6 +480,8 @@
       items:
         - name: Descrição geral do feed de alterações
           href: change-feed.md
+        - name: Padrões de conceção do feed de alterações
+          href: change-feed-design-patterns.md
         - name: Ler o feed de alterações
           href: read-change-feed.md
         - name: Processador do feed de alterações
@@ -597,6 +599,8 @@
           items:
             - name: Dimensionamento elástico
               href: manage-scale-cassandra.md
+            - name: Índices Secundários
+              href: cassandra-secondary-index.md
         - name: Guias de procedimentos
           items:
             - name: Feed de alterações
@@ -1012,12 +1016,12 @@
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configurar a Partilha de Recursos Transversais à Origem (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Proteger chaves com uma identidade gerida
+        - name: Utilizar identidades geridas para aceder aos dados
           href: managed-identity-based-authentication.md
           displayName: 'msi, managed service identity, aad, azure active directory, identity'
-        - name: Autenticação baseada em certificado com o Azure AD
+        - name: Utilizar certificados para aceder aos dados
           href: certificate-based-authentication.md
-        - name: Proteger chaves com o Key Vault
+        - name: Utilizar o Azure Key Vault para aceder aos dados
           href: access-secrets-from-keyvault.md
         - name: Restringir o acesso do utilizador apenas às operações de dados
           href: how-to-restrict-user-data.md
@@ -1031,6 +1035,8 @@
       items:
         - name: Monitorizar o Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Monitorizar a latência do lado do servidor
+          href: monitor-server-side-latency.md
         - name: Monitorizar com registos de diagnósticos
           href: cosmosdb-monitor-resource-logs.md
         - name: Auditar registos de planos de controlo
@@ -1153,7 +1159,7 @@
     - name: Truques e dicas de consulta
       href: query-cheat-sheet.md
     - name: Recreio do SQL
-      href: 'https://aka.ms/cosmos-db-playground'
+      href: 'https://www.documentdb.com/sql/demo'
     - name: FAQ
       href: faq.md
     - name: Documentos técnicos

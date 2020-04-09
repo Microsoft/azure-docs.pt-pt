@@ -15,24 +15,27 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Studio e Estruturador
+    - name: Studio
       items:
         - name: Estruturador (arrastar e largar)
           items:
-            - name: 'Estruturador: 1. Preparar um modelo de regressão'
+            - name: 1. Preparar um modelo de regressão
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 'Estruturador: 2. Implementar esse modelo'
+            - name: 2. Implementar esse modelo
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
         - name: ML Automatizado (IU)
           items:
-            - name: Criar uma experimentação de ML automatizado
+            - name: Criar experimentações de ML automatizado
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-first-experiment-automated-ml.md
-            - name: Previsão de procura com ML automatizado (dados de partilha de bicicletas)
+            - name: Prever a procura (Dados de partilha de bicicletas)
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-automated-ml-forecast.md
+        - name: Etiquetar os dados de imagem
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: SDK Python
       items:
         - name: Criar a primeira experimentação de Machine Learning
@@ -78,14 +81,14 @@
     - name: Jupyter Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Azure Open Datasets
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Conjuntos de dados de designer
       href: sample-designer-datasets.md
+    - name: Pipelines de exemplo de estruturador
+      href: samples-designer.md
     - name: Exemplos de MLOps ponto a ponto
       href: 'https://github.com/microsoft/MLOps'
-    - name: Pipelines de estruturador
-      href: samples-designer.md
+    - name: Open Datasets (público)
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceitos
   items:
     - name: Área de trabalho
@@ -115,10 +118,10 @@
       href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Como selecionar algoritmos
       href: /azure/machine-learning/how-to-select-algorithms
-    - name: Aprendizagem automática automatizada
+    - name: ML Automatizado
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Gerir dificuldades de ML
+    - name: Sobreajuste e dados desequilibrados
       displayName: 'automl, auto ml, risks'
       href: concept-manage-ml-pitfalls.md
     - name: Instância de computação
@@ -351,6 +354,8 @@
       items:
         - name: Criar pipelines de ML (Python)
           href: how-to-create-your-first-pipeline.md
+        - name: Mover dados para e entre os passos de pipeline de ML (Python)
+          href: how-to-move-data-in-out-of-pipelines.md
         - name: Agendar um pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Acionar um pipeline

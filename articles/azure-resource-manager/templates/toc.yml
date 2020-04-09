@@ -83,9 +83,9 @@
         - name: 3 - Criar um pipeline
           displayName: Devop
           href: deployment-tutorial-pipeline.md
-    - name: Avançado
+    - name: Modelos avançados
       items:
-        - name: Utilizar referência de modelo
+        - name: Utilizar a referência do modelo
           href: template-tutorial-use-template-reference.md
         - name: Criar múltiplas instâncias
           displayName: 'iteration,copy'
@@ -101,23 +101,21 @@
         - name: Integrar Key Vault
           displayName: secrets
           href: template-tutorial-use-key-vault.md
-        - name: Criar modelos ligados
-          href: template-tutorial-create-linked-templates.md
         - name: Implementar extensões de VM
           displayName: virtual machine extensions
           href: template-tutorial-deploy-vm-extensions.md
         - name: Implementar extensões de SQL
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Proteger artefactos
-          href: template-tutorial-secure-artifacts.md
+        - name: Resolver problemas da implementação de modelos
+          href: template-tutorial-troubleshoot.md
+    - name: Gestor de implementação
+      items:
         - name: Utilize as práticas recomendadas de implementação segura
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Resolver problemas da implementação de modelos
-          href: template-tutorial-troubleshoot.md
 - name: Amostras
   items:
     - name: Modelos de Início Rápido do Azure
@@ -293,6 +291,8 @@
           href: template-functions-array.md
         - name: Funções de comparação
           href: template-functions-comparison.md
+        - name: Funções de data
+          href: template-functions-date.md
         - name: Funções de implementação
           href: template-functions-deployment.md
         - name: Funções lógicas

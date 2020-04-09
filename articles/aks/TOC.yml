@@ -140,10 +140,14 @@
           href: cluster-autoscaler.md
         - name: Utilizar Zonas de Disponibilidade
           href: availability-zones.md
-        - name: Utilizar múltiplos conjuntos de nós
-          href: use-multiple-node-pools.md
-        - name: Utilizar conjuntos de nós spot (pré-visualização)
-          href: spot-node-pool.md
+        - name: Utilizar conjuntos de nós
+          items:
+            - name: Utilizar múltiplos conjuntos de nós
+              href: use-multiple-node-pools.md
+            - name: Utilizar conjuntos de nós spot (pré-visualização)
+              href: spot-node-pool.md
+            - name: Utilizar conjuntos de nós de sistema
+              href: use-system-pools.md
         - name: Implementar AKS com Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

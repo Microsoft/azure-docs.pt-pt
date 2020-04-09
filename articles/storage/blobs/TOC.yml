@@ -4,6 +4,8 @@
   items:
     - name: O que é o armazenamento de Blobs do Azure?
       href: storage-blobs-overview.md
+    - name: Comparar os principais serviços de armazenamento
+      href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   expanded: true
 - name: Armazenamento de blobs
   items:
