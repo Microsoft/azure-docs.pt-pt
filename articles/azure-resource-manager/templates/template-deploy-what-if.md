@@ -3,29 +3,68 @@ title: Implementação do modelo o que-se (Pré-visualização)
 description: Determine quais as mudanças que acontecerão aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156451"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886845"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM que-se operação (Pré-visualização)
 
 Antes de implementar um modelo de Gestor de Recursos Azure (ARM), é melhor visualizar as alterações que irão acontecer. O Azure Resource Manager fornece a operação "what-if" para que veja como os recursos vão mudar se implementar o modelo. A operação "e se" não faz alterações nos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
-> A operação "e se" está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews). Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso mudará quando, na verdade, nenhuma mudança acontecerá. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> A operação "e se" está atualmente em pré-visualização. Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso mudará quando, na verdade, nenhuma mudança acontecerá. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Pode utilizar a operação "what-if" com os comandos PowerShell ou as operações REST API.
+
+## <a name="install-powershell-module"></a>Instalar módulo PowerShell
+
+Para utilizar o what-if no PowerShell, instale uma versão de pré-visualização do módulo Az.Resources a partir da galeria PowerShell.
+
+### <a name="uninstall-alpha-version"></a>Desinstalar a versão alfa
+
+Se instalou previamente uma versão alfa do módulo "e se", desinstale esse módulo. A versão alfa só estava disponível para os utilizadores que se inscreveram para uma pré-visualização antecipada. Se não tiver instalado a pré-visualização, pode saltar esta secção.
+
+1. Execute o PowerShell como administrador
+1. Verifique as versões instaladas do módulo Az.Resources.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. Se tiver uma versão instalada com um número de versão no formato **2.x.x-alpha,** desinstale essa versão.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. Desregilhe o repositório que usou para instalar a pré-visualização.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+### <a name="install-preview-version"></a>Instalar versão de pré-visualização
+
+Para instalar o módulo de pré-visualização, utilize:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+Está pronto para usar o que-se.
+
+## <a name="see-results"></a>Ver resultados
 
 No PowerShell, a saída inclui resultados codificados por cores que o ajudam a ver os diferentes tipos de alterações.
 
 ![Implementação do modelo do Gestor de Recursos o que-se operação fullresourcepayload e tipos de mudança](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-O texto é:
+A saída de texto é:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -72,11 +111,8 @@ Ou, pode utilizar `-Confirm` o parâmetro do interruptor para pré-visualizar as
 
 Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto que possa inspecionar programáticamente para obter alterações, utilize:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf`para implantações de grupos de recursos
-* `$results = Get-AzSubscriptionDeploymentWhatIf`ou `$results = Get-AzDeploymentWhatIf` para implementações de nível de subscrição
-
-> [!NOTE]
-> Antes do lançamento da versão 2.0.1-alpha5, usaste o `New-AzDeploymentWhatIf` comando. Este comando foi substituído `Get-AzDeploymentWhatIf` `Get-AzResourceGroupDeploymentWhatIf`pelos `Get-AzSubscriptionDeploymentWhatIf` comandos e comandos. Se usou uma versão anterior, precisa atualizar essa sintaxe. O `-ScopeType` parâmetro foi removido.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult`para implantações de grupos de recursos
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult`ou `$results = Get-AzDeploymentWhatIfResult` para implementações de nível de subscrição
 
 ### <a name="azure-rest-api"></a>API REST do Azure
 
@@ -170,7 +206,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="test-modification"></a>Modificação do teste
 
-Depois da implementação terminar, está pronto para testar a operação "e se". Desta vez implemente um [modelo que altera a rede virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Falta-lhe uma das etiquetas originais, uma sub-rede foi removida e o prefixo de endereço mudou.
+Depois da implementação terminar, está pronto para testar a operação "e se". Desta vez implemente um [modelo que altera a rede virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Falta uma das etiquetas originais, uma sub-rede foi removida, e o prefixo de endereço mudou.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -223,7 +259,7 @@ Algumas das propriedades que estão listadas como eliminadas não vão realmente
 Agora, vamos avaliar programáticamente os resultados do que se, definindo o comando para uma variável.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```

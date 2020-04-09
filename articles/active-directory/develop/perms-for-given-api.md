@@ -1,10 +1,9 @@
 ---
-title: Selecione permissões para uma dada API / Microsoft Docs
+title: Selecione permissões para um dado API
 description: Saiba como os pedidos de permissões funcionam para aplicações de clientes e recursos para aplicações que está a desenvolver
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -12,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: cf28677e143b66a16b69c4363602537073f0be5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2735403ff02914213d68db27e2635e7329261f5e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76704243"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883895"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para um dado API 
 

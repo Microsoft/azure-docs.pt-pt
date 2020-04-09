@@ -2,13 +2,13 @@
 title: Funções do modelo - cadeia
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com cordas.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156281"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982419"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
@@ -36,7 +36,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [saltar](#skip)
 * [dividir](#split)
 * [começaCom](#startswith)
-* [string](#string)
+* [cadeia](#string)
 * [substring](#substring)
 * [tomar](#take)
 * [toLower](#tolower)
@@ -46,7 +46,6 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
-* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
 
@@ -109,8 +108,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
-| paraStringOutput | Cadeia | Um dois três |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| paraStringOutput | String | Um dois três |
 | toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -174,8 +173,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
-| paraStringOutput | Cadeia | Um dois três |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| paraStringOutput | String | Um dois três |
 | toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
 
 ## <a name="base64tostring"></a>base64Tostring
@@ -239,8 +238,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
-| paraStringOutput | Cadeia | Um dois três |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| paraStringOutput | String | Um dois três |
 | toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
 
 ## <a name="concat"></a>concat
@@ -290,7 +289,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | Cadeia | prefixo-5yj4yjf5mbg72 |
+| concatOutput | String | prefixo-5yj4yjf5mbg72 |
 
 O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) de exemplo mostra como combinar duas matrizes.
 
@@ -466,8 +465,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | Cadeia | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| paraStringOutput | Cadeia | Olá, mundo! |
+| dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
+| paraStringOutput | String | Olá, mundo! |
 
 ## <a name="datauritostring"></a>datauritostring
 
@@ -521,8 +520,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | Cadeia | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| paraStringOutput | Cadeia | Olá, mundo! |
+| dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
+| paraStringOutput | String | Olá, mundo! |
 
 ## <a name="empty"></a>vazio
 
@@ -704,8 +703,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | um |
-| cadeiaOutput | Cadeia | O |
+| arrayOutput | String | um |
+| cadeiaOutput | String | O |
 
 ## <a name="format"></a>formato
 
@@ -762,7 +761,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| formatoTeste | Cadeia | Olá, Utilizador. Número formato: 8.175.133 |
+| formatoTeste | String | Olá, Utilizador. Número formato: 8.175.133 |
 
 ## <a name="guid"></a>guia
 
@@ -945,8 +944,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | três |
-| cadeiaOutput | Cadeia | e |
+| arrayOutput | String | três |
+| cadeiaOutput | String | e |
 
 ## <a name="lastindexof"></a>últimoIndexOf
 
@@ -1097,6 +1096,8 @@ Só pode utilizar esta função dentro de uma expressão para o valor padrão de
 
 A nova função Guid difere da função [guida](#guid) porque não leva nenhum parâmetro. Quando se chama guia com o mesmo parâmetro, devolve o mesmo identificador de cada vez. Use guia quando precisa de gerar o mesmo GUID de forma fiável para um ambiente específico. Use newGuid quando precisar de um identificador diferente de cada vez, como a implantação de recursos para um ambiente de teste.
 
+A nova função Guid utiliza a [estrutura Guid](/dotnet/api/system.guid) no .NET Framework para gerar o identificador globalmente único.
+
 Se utilizar a [opção de reimplantar uma implementação mais recente](rollback-on-error.md)e bem sucedida, e a implementação anterior inclui um parâmetro que utiliza o newGuid, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
 
 Num ambiente de teste, poderá ser necessário mobilizar repetidamente recursos que apenas vivem por um curto período de tempo. Em vez de construir nomes únicos, pode usar o newGuid com string [único](#uniquestring) para criar nomes únicos.
@@ -1230,7 +1231,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| cadeiaOutput | Cadeia | 0000000123 |
+| cadeiaOutput | String | 0000000123 |
 
 ## <a name="replace"></a>substituir
 
@@ -1282,8 +1283,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiraSaída | Cadeia | 1231231234 |
-| segundaSaída | Cadeia | 123-123-xxxx |
+| primeiraSaída | String | 1231231234 |
+| segundaSaída | String | 123-123-xxxx |
 
 ## <a name="skip"></a>saltar
 
@@ -1351,7 +1352,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["três"] |
-| cadeiaOutput | Cadeia | dois três |
+| cadeiaOutput | String | dois três |
 
 ## <a name="split"></a>dividir
 
@@ -1545,9 +1546,9 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objetoSaída | Cadeia | {"valueA":10,"valueB":"Exemplo Texto"} |
-| arrayOutput | Cadeia | ["a", "b", "c"] |
-| intOutput | Cadeia | 5 |
+| objetoSaída | String | {"valueA":10,"valueB":"Exemplo Texto"} |
+| arrayOutput | String | ["a", "b", "c"] |
+| intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1608,7 +1609,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| substringOutput | Cadeia | dois |
+| substringOutput | String | dois |
 
 ## <a name="take"></a>tomar
 
@@ -1676,7 +1677,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["um", "dois"] |
-| cadeiaOutput | Cadeia | em |
+| cadeiaOutput | String | em |
 
 ## <a name="tolower"></a>toLower
 
@@ -1726,8 +1727,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | Cadeia | Um dois três |
-| toUpperOutput | Cadeia | Um dois três |
+| toLowerOutput | String | Um dois três |
+| toUpperOutput | String | Um dois três |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1777,8 +1778,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | Cadeia | Um dois três |
-| toUpperOutput | Cadeia | Um dois três |
+| toLowerOutput | String | Um dois três |
+| toUpperOutput | String | Um dois três |
 
 ## <a name="trim"></a>aparar
 
@@ -1824,7 +1825,7 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| regressar | Cadeia | Um dois três |
+| regressar | String | Um dois três |
 
 ## <a name="uniquestring"></a>único String
 
@@ -1876,7 +1877,7 @@ O exemplo que se segue mostra como criar um nome único para uma conta de armaze
     ...
 ```
 
-Se precisar de criar um novo nome único cada vez que implementar um modelo, e não pretender atualizar o recurso, pode utilizar a função [utcNow](#utcnow) com string único. Poderia usar esta abordagem num ambiente de teste. Por exemplo, consulte [utcNow](#utcnow).
+Se precisar de criar um novo nome único cada vez que implementar um modelo, e não pretender atualizar o recurso, pode utilizar a função [utcNow](template-functions-date.md#utcnow) com string único. Poderia usar esta abordagem num ambiente de teste. Por exemplo, consulte [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1980,9 +1981,9 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentesSaída de produção | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| paraStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentesSaída de produção | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| paraStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2035,9 +2036,9 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentesSaída de produção | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| paraStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentesSaída de produção | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| paraStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2090,118 +2091,9 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentesSaída de produção | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| paraStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-
-## <a name="utcnow"></a>utcNow
-
-`utcNow(format)`
-
-Devolve o valor atual da data (UTC) no formato especificado. Se não for fornecido qualquer formato, é utilizado o formato ISO 8601 (yyyMMddTHHmmssZ). **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
-
-### <a name="parameters"></a>Parâmetros
-
-| Parâmetro | Necessário | Tipo | Descrição |
-|:--- |:--- |:--- |:--- |
-| formato |Não |string |O URI codificado valor para converter-se em uma corda. Utilize cordas de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-
-### <a name="remarks"></a>Observações
-
-Só pode utilizar esta função dentro de uma expressão para o valor padrão de um parâmetro. A utilização desta função em qualquer outro lugar de um modelo devolve um erro. A função não é permitida noutras partes do modelo porque devolve um valor diferente cada vez que é chamada. A implantação do mesmo modelo com os mesmos parâmetros não produziria os mesmos resultados.
-
-Se utilizar a [opção de reimplantar uma implementação mais precoce](rollback-on-error.md)e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado na implementação de reversão.
-
-Tenha cuidado ao recolocar um modelo que dependa da função utcNow para um valor predefinido. Quando reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
-
-### <a name="return-value"></a>Valor devolvido
-
-O valor atual da data utc.
-
-### <a name="examples"></a>Exemplos
-
-O modelo de exemplo seguinte mostra diferentes formatos para o valor da data.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
-    }
-}
-```
-
-A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
-
-| Nome | Tipo | Valor |
-| ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 03/05/2019 |
-| utcCustomOutput | string | 3 5 |
-
-O exemplo seguinte mostra como usar um valor a partir da função ao definir um valor de etiqueta.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
-    }
-}
-```
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentesSaída de produção | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| paraStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="next-steps"></a>Passos seguintes
 * Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).

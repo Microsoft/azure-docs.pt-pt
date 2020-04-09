@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 55fa14f367dbf24e951fde8e9075a34499a510b1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547082"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886981"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -193,11 +193,11 @@ As dotações de portas SNAT são específicas do protocolo de transporte IP (TC
 Esta secção destina-se a ajudar a mitigar a exaustão do SNAT e que pode ocorrer com ligações de saída em Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestão da exaustão da porta SNAT (PAT)
-[As portas efémeras utilizadas](#preallocatedports) para [pat](#pat) são um recurso gaseivel, tal como descrito em [VM autónomo sem endereço IP público](#defaultsnat) e [VM equilibrado em carga sem endereço IP público](#lb).
+[As portas efémeras utilizadas](#preallocatedports) para [pat](#pat) são um recurso gaseivel, tal como descrito em [VM autónomo sem endereço IP público](#defaultsnat) e [VM equilibrado em carga sem endereço IP público](#lb). Pode monitorizar o seu uso de portas efémeras e comparar com a sua alocação atual para determinar o risco de ou confirmar a exhuasção sNAT usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
 
 Se sabe que está a dar início a muitas ligações TCP ou UDP de saída para o mesmo endereço IP e porta de destino, e observa falhas nas ligações de saída ou é aconselhado pelo suporte de que está a esgotar as portas SNAT [(portas efémeras preallocalizadas utilizadas](#preallocatedports) pela [PAT),](#pat)tem várias opções gerais de mitigação. Reveja estas opções e decida o que está disponível e o melhor para o seu cenário. É possível que um ou mais possam ajudar a gerir este cenário.
 
-Se estiver com dificuldades em compreender o comportamento de ligação de saída, pode utilizar estatísticas de pilhas IP (netstat). Ou pode ser útil observar comportamentos de conexão usando capturas de pacotes. Pode executar estas capturas de pacotes no os so do seu exemplo ou utilizar o Network Watcher para a captura de [pacotes](../network-watcher/network-watcher-packet-capture-manage-portal.md).
+Se estiver com dificuldades em compreender o comportamento de ligação de saída, pode utilizar estatísticas de pilhas IP (netstat). Ou pode ser útil observar comportamentos de conexão usando capturas de pacotes. Pode executar estas capturas de pacotes no os so do seu exemplo ou utilizar o Network Watcher para a captura de [pacotes](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modificar a aplicação para reutilizar ligações 
 Pode reduzir a procura de portas efémeras que são usadas para SNAT reutilizando ligações na sua aplicação. Isto é especialmente verdade para protocolos como HTTP/1.1, onde a reutilização da ligação é o padrão. E outros protocolos que utilizam http como seu transporte (por exemplo, REST) podem beneficiar por sua vez. 

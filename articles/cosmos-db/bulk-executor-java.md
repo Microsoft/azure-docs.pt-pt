@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445714"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985648"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Atualmente, a biblioteca de executora a granel é suportada apenas pelas contas 
 
 * Você pode [experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. Ou, pode usar o [Emulador DB Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).  
 
-* [Kit de Desenvolvimento Java (JDK) 1.7+](https://aka.ms/azure-jdks)  
+* [Kit de Desenvolvimento Java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
 
   - Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
@@ -130,7 +130,7 @@ O repositório clonado contém duas amostras "bulkimport" e "bulkupdate" relativ
 6. Após a geração das dependências-alvo, pode invocar a aplicação do importador a granel utilizando o seguinte comando:  
 
    ```java
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    O importador a granel cria uma nova base de dados e uma coleção com o nome da base de dados, nome de recolha e valores de entrada especificados no ficheiro App.config. 
@@ -150,7 +150,7 @@ Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste 
    updateOperations.add(descriptionUpdate);
 
    List<UpdateItem> updateItems = new ArrayList<>(cfg.getNumberOfDocumentsForEachCheckpoint());
-   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                      
+   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                        
     return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
@@ -182,7 +182,7 @@ Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste 
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com sucesso dos documentos fornecidos à chamada a granel da API.      |
    |duplo getTotalRequestUnitsConsumido() |  As unidades de pedido totais (RU) consumidas pela chamada API de atualização a granel.       |
    |Duração getTotalTimeTaken()  |   O tempo total deatualização a granel chamada API para completar a execução.      |
-   |Lista\<Exceção> obter Erros()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada API de atualização a granel não forem inseridos.      |
+   |Lista\<Exceção> obter Erros()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada API de atualização a granel não forem inseridos.      |
 
 3. Depois de ter a aplicação de atualização a granel pronta, construa a ferramenta da linha de comando a partir da fonte utilizando o comando 'mvn clean package'. Este comando gera um ficheiro de frasco na pasta-alvo:  
 
@@ -193,7 +193,7 @@ Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste 
 4. Após a geração das dependências-alvo, pode invocar a aplicação de atualização a granel utilizando o seguinte comando:
 
    ```
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Sugestões de desempenho 

@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 01/22/2020
-ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/07/2020
+ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435225"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878828"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um site estático com o Azure CDN
 
@@ -26,19 +26,17 @@ Pode ativar o Azure CDN para o seu website estático diretamente da sua conta de
 
 1. Localize a sua conta de armazenamento no portal Azure e exiba a visão geral da conta.
 
-2. Selecione **Azure CDN** no menu **do Serviço Blob** para configurar o Azure CDN.
+1. No menu **do Serviço Blob,** selecione **Azure CDN** para abrir a página **Azure CDN:**
 
-    A página **CDN do Azure** é apresentada.
+    ![Criar ponto final da CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-    ![Criar ponto final da CDN](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
+1. Na secção de **perfil da CDN,** especifique se deve criar um novo perfil DeCDN ou utilizar um existente. Um perfil CDN é uma coleção de pontos finais cdN que partilham um nível de preços e fornecedor. Em seguida, introduza um nome para o CDN que seja único dentro da sua subscrição.
 
-3. Na secção de **perfil da CDN,** especifique um novo perfil CDN ou existente. 
+1. Especifique um nível de preços para o ponto final da CDN. Para saber mais sobre os preços, consulte os preços da Rede de [Entrega de Conteúdos.](https://azure.microsoft.com/pricing/details/cdn/) Para obter mais informações sobre as funcionalidades disponíveis em cada nível, consulte as [funcionalidades do produto Compare Azure CDN](../../cdn/cdn-features.md).
 
-4. Especifique um nível de preços para o ponto final da CDN. Para saber mais sobre os preços, consulte os preços da Rede de [Entrega de Conteúdos.](https://azure.microsoft.com/pricing/details/cdn/) Para obter mais informações sobre as funcionalidades disponíveis em cada nível, consulte as [funcionalidades do produto Compare Azure CDN](../../cdn/cdn-features.md).
+1. No campo de nome final da **CDN,** especifique um nome para o seu ponto final cdn. O ponto final do CDN deve ser único em azure e fornece a primeira parte do URL final. O formulário valida que o nome final é único.
 
-5. No campo de nome final da **CDN,** especifique um nome para o seu ponto final cdn. O ponto final do CDN deve ser único em Azure.
-
-6. Especifique que é o ponto final do site estático no campo **origin hostname.** 
+1. Especifique o seu ponto final do site estático no campo **Origin hostname.** 
 
    Para encontrar o ponto final do seu site estático, navegue para as definições do **site Estática** para a sua conta de armazenamento.  Copie o ponto final primário e cole-o na configuração CDN.
 
@@ -49,15 +47,15 @@ Pode ativar o Azure CDN para o seu website estático diretamente da sua conta de
 
    ![Screenshot mostrando a configuração do ponto final do CDN da amostra](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-7. Selecione **Criar**e, em seguida, aguarde que se propague. Depois da criação do ponto final, este é apresentado na lista de pontos finais.
+1. Selecione **Criar**e, em seguida, aguarde a prestação do CDN. Depois da criação do ponto final, este é apresentado na lista de pontos finais. (Se tiver algum erro na forma, aparece um ponto de exclamação ao lado desse campo.)
 
-8. Para verificar se o ponto final do CDN está configurado corretamente, clique no ponto final para navegar para as suas definições. A partir da visão geral da CDN para a sua conta de armazenamento, localize o nome de anfitrião do ponto final e navegue até ao ponto final, como mostra a seguinte imagem. O formato do seu ponto final `https://staticwebsitesamples.azureedge.net`cdN será semelhante a .
+1. Para verificar se o ponto final do CDN está configurado corretamente, clique no ponto final para navegar para as suas definições. A partir da visão geral da CDN para a sua conta de armazenamento, localize o nome de anfitrião do ponto final e navegue até ao ponto final, como mostra a seguinte imagem. O formato do seu ponto final `https://staticwebsitesamples.azureedge.net`cdN será semelhante a .
 
     ![Screenshot mostrando visão geral do ponto final da CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-9. Uma vez concluída a propagação do ponto final do CDN, navegar para o ponto final do CDN mostra o conteúdo do ficheiro index.html que já fez o upload para o seu website estático.
+1. Uma vez aprovisionado o ponto final do CDN, navegar para o ponto final da CDN mostra o conteúdo do ficheiro index.html que já fez o upload para o seu website estático.
 
-10. Para rever as definições de origem do seu ponto final CDN, navegue para **a Origem** sob a secção **Definições** para o seu ponto final cdN. Verá que o campo **do tipo Origem** está definido para a Origem *Personalizada* e que o campo de nome de **anfitrião Origin** exibe o seu ponto final do site estático.
+1. Para rever as definições de origem do seu ponto final CDN, navegue para **a Origem** sob a secção **Definições** para o seu ponto final cdN. Verá que o campo **do tipo Origem** está definido para a Origem *Personalizada* e que o campo de nome de **anfitrião Origin** exibe o seu ponto final do site estático.
 
     ![Screenshot mostrando as definições de Origem para o ponto final do CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 

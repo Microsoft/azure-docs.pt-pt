@@ -1,15 +1,16 @@
 ---
-title: Cápsulas seguras com políticas de rede no Serviço Azure Kubernetes (AKS)
+title: Tráfego de casulos seguros com política de rede
+titleSuffix: Azure Kubernetes Service
 description: Saiba como proteger o tráfego que flui dentro e fora das cápsulas utilizando as políticas de rede Kubernetes no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473613"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886709"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)
 
@@ -24,7 +25,7 @@ Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. C
 > [!TIP]
 > Se utilizou a funcionalidade de política de rede durante a pré-visualização, recomendamos que [crie um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
-> Se desejar continuar a utilizar os clusters de teste existentes que utilizaram a política de rede durante a pré-visualização, atualize o seu cluster para uma nova versão Kubernetes para a mais recente versão gaG e, em seguida, implemente o seguinte manifesto YAML para corrigir o servidor de métricas de colisão e Kubernetes painel de instrumentos. Esta correção só é necessária para clusters que utilizaram o motor de política da rede Calico.
+> Se desejar continuar a utilizar os clusters de teste existentes que utilizaram a política de rede durante a pré-visualização, atualize o seu cluster para uma nova versão Kubernetes para a mais recente versão gaG e, em seguida, implemente o seguinte manifesto YAML para corrigir o servidor de métricas de colisão e o dashboard Kubernetes. Esta correção só é necessária para clusters que utilizaram o motor de política da rede Calico.
 >
 > Como uma boa prática de segurança, [reveja o conteúdo deste manifesto YAML][calico-aks-cleanup] para entender o que é implantado no cluster AKS.
 >

@@ -2,24 +2,21 @@
 title: Registe uma aplicação web que ligue para a web APIs - plataforma de identidade da Microsoft Azure
 description: Saiba como registar uma aplicação web que chama APIs web
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5a57fcef3569734964bf6e8a41faa49800798f9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8cb7d86bd419563363779c499962c81f0c59e3b6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76759062"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881881"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Uma aplicação web que chama APIs web: Registo de aplicações
 

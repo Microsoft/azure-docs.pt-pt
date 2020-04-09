@@ -3,25 +3,21 @@ title: Tutorial de aplicativo de uma página única angular - Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como as aplicações angulares do SPA podem chamar uma API que requer acesso a fichas do ponto final da plataforma de identidade da Microsoft
 services: active-directory
-documentationcenter: dev-center-name
 author: hahamil
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 81ade6f02b38a0a4d5ed04c8190b99216638c45d
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 63eda0c5d7b5ef4741e8244fbde290d13b54c5fb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637834"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880844"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única angular (SPA)
 

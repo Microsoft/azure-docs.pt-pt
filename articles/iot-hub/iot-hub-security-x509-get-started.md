@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271177"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985665"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança X.509 no Hub IoT do Azure
 
@@ -38,6 +38,9 @@ Pode escolher qualquer uma das seguintes formas de obter os seus certificados:
 * Crie os seus próprios certificados X.509 utilizando uma ferramenta de terceiros, como o [OpenSSL](https://www.openssl.org/). Esta técnica é boa para efeitos de teste e desenvolvimento. Consulte a [gestão dos certificados ca de teste para amostras e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para obter informações sobre a geração de certificados ca de teste utilizando powerShell ou Bash. O resto deste tutorial utiliza certificados CA de teste gerados seguindo as instruções de gestão dos certificados ca de [ensaio para amostras e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 * Gere um [certificado de CA intermédio X.509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) assinado por um certificado ca raiz existente e carregue-o para o centro. Uma vez que o certificado intermédio é carregado e verificado, conforme instruído abaixo, pode ser utilizado no lugar de um certificado ca raiz mencionado abaixo. Ferramentas como openssL[(openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) e [openssl ca)](https://www.openssl.org/docs/man1.1.0/man1/ca.html)podem ser usadas para gerar e assinar um certificado ca intermédio.
+
+> [!NOTE]
+> Não faça upload da raiz da terceira parte se não for exclusiva de si, pois isso permitiria a outros clientes da 3ª parte ligar os seus dispositivos ao seu IoT Hub.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registe os certificados X.509 CA no seu hub IoT
 

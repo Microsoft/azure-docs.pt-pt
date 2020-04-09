@@ -2,24 +2,21 @@
 title: Escreva uma aplicação web que insigne os utilizadores - plataforma de identidade da Microsoft / Azure
 description: Saiba como construir uma aplicação web que ine/out utilizadores
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cbec6c5644690f6d7e522294a37c8ea5e2d49e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701523"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881320"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar sessão e iniciar sessão
 
@@ -91,7 +88,7 @@ No nosso java quickstart, o botão de início de sessão está localizado no fic
 </html>
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 No início rápido dos Python, não há botão de inscrição. O código por trás automaticamente solicita ao utilizador o sessão quando está a chegar à raiz da aplicação web. Ver [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
 
@@ -156,7 +153,7 @@ public class AuthPageController {
     // More code omitted for simplicity
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Ao contrário de outras plataformas, a MSAL Python cuida de deixar o utilizador iniciar sessão a partir da página de login. Ver [app.py#L20-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28).
 
@@ -228,7 +225,7 @@ Durante o registo de candidatura, registe um URI pós-logout. No nosso tutorial,
 
 Durante o registo de candidatura, registe um URI pós-logout. No nosso tutorial, `http://localhost:8080/msal4jsample/sign_out` registou-se no campo URL de **Logout** da secção **Definições Avançadas** na página **de Autenticação.**
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Durante o registo da candidatura, não precisa de registar um URL de logout extra. A aplicação será chamada de volta no seu URL principal.
 
@@ -298,7 +295,7 @@ No nosso início rápido de Java, o botão de sinalização está localizado no 
 ...
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 No quickstart Python, o botão de saída está localizado no ficheiro [templates/index.html#L10.](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10)
 
@@ -372,7 +369,7 @@ Em Java, o sign-out é tratado `logout` ligando diretamente para o `post_logout_
     }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O código que assina o utilizador está em [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
 
@@ -424,7 +421,7 @@ public class AccountController : Controller
 
 No quickstart de Java, o redirecionamento pós-logout URI apenas exibe a página index.html.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 No quickstart python, o redirecionamento pós-logout URI apenas exibe a página index.html.
 

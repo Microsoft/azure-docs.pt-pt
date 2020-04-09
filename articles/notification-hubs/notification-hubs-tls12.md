@@ -5,27 +5,25 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 87309e20efd9d6f8bd1a659451e5a603e6b95bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908530"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885757"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-Para garantir um nível mais elevado de segurança, os Centros de Notificação desativarão o suporte para as versões TLS 1.0 e 1.1 no dia 30 de abril de 2020. Estes protocolos antigos fornecem criptografia fraca, e são vulneráveis aos ataques beast e POODLE. As aplicações implementadas para dispositivos que executam a versão 5 ou superior do Android, ou a versão 5 ou superior do iOS, não são afetadas por esta alteração, uma vez que esses sistemas operativos suportam o TLS 1.2 e o cliente e o servidor negociarão a versão mais elevada suportada mutuamente protocolo após ligação.
+Para garantir um nível mais elevado de segurança, os Centros de Notificação desativarão o suporte para as versões TLS 1.0 e 1.1 em 31 de maio de 2020 (estendido a partir de 30 de abril de 2020). Estes protocolos antigos fornecem criptografia fraca, e são vulneráveis aos ataques beast e POODLE. As aplicações implementadas para dispositivos que executam a versão 5 ou superior do Android, ou a versão 5 ou superior do iOS, não são afetadas por esta alteração, uma vez que esses sistemas operativos suportam o TLS 1.2 e o cliente e servidor negociarão a versão mais elevada do protocolo com suporte mútuo após a ligação.
 
 Recomendamos que reveja todas as suas aplicações que utilizam hubs de notificação Do Azure, para garantir que utilizam as bibliotecas mais aplicáveis e pilhas TLS que suportam TLS 1.2.
 

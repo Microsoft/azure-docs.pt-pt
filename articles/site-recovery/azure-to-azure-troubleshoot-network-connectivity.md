@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 49d2d3d3e8829198a57aaf2feb40e89f105667bd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804865"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884873"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução de problemas de conectividade da rede VM Azure-to-Azure
 
@@ -18,8 +18,8 @@ Este artigo descreve as questões comuns relacionadas com a conectividade da red
 
 Para que a replicação da recuperação do site funcione, a conectividade de saída a URLs específicos ou intervalos IP é necessária a partir do VM. Se o seu VM estiver por detrás de uma firewall ou utilizar regras do grupo de segurança de rede (NSG) para controlar a conectividade de saída, poderá enfrentar um destes problemas.
 
-| **URL** | **Detalhes** |
-| --- | --- |
+| do IdP | Detalhes |
+|---|---|
 | `*.blob.core.windows.net` | Necessários para que os dados possam ser escritos na conta de armazenamento de cache na região fonte a partir do VM. Se você sabe todas as contas de armazenamento de cache para os seus VMs, você pode usar uma lista de espera para os URLs da conta de armazenamento específico. Por `cache1.blob.core.windows.net` exemplo, `cache2.blob.core.windows.net` e `*.blob.core.windows.net`em vez de. |
 | `login.microsoftonline.com` | Necessário para autorização e autenticação para os URLs do serviço de Recuperação do Local. |
 | `*.hypervrecoverymanager.windowsazure.com` | Necessária para que a comunicação do serviço de recuperação do site possa ocorrer a partir do VM. Pode utilizar o IP de _Recuperação_ do Site correspondente se o seu proxy de firewall suportar IPs. |
@@ -82,7 +82,7 @@ Este exemplo mostra como configurar as regras de NSG para que um VM se reproduza
 
 1. Crie regras de saída da porta HTTPS 443 para os IPs de Recuperação do Site que correspondam à localização-alvo:
 
-   | **Localização** | **Endereço IP de recuperação do site** |  **Endereço IP de monitorização da recuperação do site** |
+   | Localização | Endereço IP de recuperação do site | Endereço IP de monitorização da recuperação do site |
    | --- | --- | --- |
    | E.U.A. Central | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ Para este exemplo, estas regras de NSG são necessárias para que a replicação
 
 1. Criar regras de saída da porta HTTPS 443 para os IPs de Recuperação do Site que correspondam à localização de origem:
 
-   |**Localização** | **Endereço IP de recuperação do site** |  **Endereço IP de monitorização da recuperação do site** |
+   | Localização | Endereço IP de recuperação do site | Endereço IP de monitorização da recuperação do site |
    | --- | --- | --- |
    | E.U.A. Leste | 13.82.88.226 | 104.45.147.24 |
 
@@ -138,7 +138,8 @@ As definições de procuração personalizadas são inválidas e o agente de ser
    Port=567
    ```
 
-1. O agente de serviço de recuperação de locais Azure suporta apenas **proxies não autenticados.**
+> [!NOTE]
+> O agente de serviço de recuperação de locais Azure suporta apenas **proxies não autenticados.**
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
@@ -146,4 +147,4 @@ Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Replicar máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)
+[Replicar VMs Azure para outra região de Azure](azure-to-azure-how-to-enable-replication.md)

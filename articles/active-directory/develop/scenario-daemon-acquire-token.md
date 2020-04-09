@@ -2,25 +2,21 @@
 title: Adquirir fichas para chamar uma Web API (app daemon) - Plataforma de identidade da Microsoft Azure
 description: Saiba como construir uma app daemon que chama APIs web (adquirindo tokens)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262649"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882986"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon que chama APIs web - adquira um token
 
@@ -37,7 +33,7 @@ ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Em MSAL Python, o ficheiro de configuração parece este código:
 
@@ -96,7 +92,7 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 # The pattern to acquire a token looks like this.
@@ -240,7 +236,7 @@ Content: {
 > [!div class="nextstepaction"]
 > [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [App Daemon - chamando uma API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)

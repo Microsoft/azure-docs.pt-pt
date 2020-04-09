@@ -5,7 +5,6 @@ description: Descreve como utilizar o Azure PowerShell para criar uma aplicaçã
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bd8c3b25c23ba8586e38ec8eb7d1baefaa21633
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262961"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884193"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Utilizar o Azure PowerShell para criar um diretor de serviço com um certificado
 

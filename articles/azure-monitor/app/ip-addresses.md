@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535209"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984151"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados por Insights de Aplicação e Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utiliza vários endereços IP. Poderá precisar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
@@ -55,6 +55,8 @@ Configuração do Monitor de Estado - necessária apenas para fazer alterações
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir dos quais são executados os testes web de [disponibilidade.](../../azure-monitor/app/monitor-web-app-availability.md) Se quiser realizar testes web na sua aplicação, mas o seu servidor web está restrito a servir clientes específicos, então terá de permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
 
+### <a name="service-tag"></a>Etiqueta de serviço
+
 Se estiver a utilizar os Grupos de Segurança da Rede Azure, basta adicionar uma **regra de porta de entrada** para permitir o tráfego a partir de testes de disponibilidade de Insights de Aplicação, selecionando a Etiqueta de **Serviço** como **Fonte** e **AplicaçãoInsightsDisponibilidade como** etiqueta de **serviço Fonte**.
 
 >[!div class="mx-imgBorder"]
@@ -64,6 +66,11 @@ Se estiver a utilizar os Grupos de Segurança da Rede Azure, basta adicionar uma
 >![Adicione o separador de regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Abrir portas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por localização):
+
+### <a name="addresses-grouped-by-location"></a>Endereços agrupados por localização
+
+> [!NOTE]
+> Estes endereços estão listados utilizando a notação de encaminhamento inter-domínio sem classe (CIDR). Isto significa que `51.144.56.112/28` uma entrada similar é equivalente `51.144.56.112` a 16 IPs a partir e terminando em `51.144.56.127`.
 
 ```
 Australia East
@@ -232,7 +239,7 @@ Nota: *.loganalytics.io domínio é propriedade da equipa Log Analytics.
 | --- | --- | --- | --- |
 | Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | *.core.windows.net | dynamic | 443
+| Armazenamento | *.core.windows.net | dynamic | 443
 
 ## <a name="snapshot-debugger"></a>Depurador de Instantâneos
 
@@ -243,4 +250,4 @@ Nota: *.loganalytics.io domínio é propriedade da equipa Log Analytics.
 | --- | --- | --- | --- |
 | Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | *.core.windows.net | dynamic | 443
+| Armazenamento | *.core.windows.net | dynamic | 443

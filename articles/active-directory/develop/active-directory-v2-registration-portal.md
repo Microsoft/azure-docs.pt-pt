@@ -5,7 +5,6 @@ description: Uma descrição das funcionalidades no portal de registo de aplica�
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -14,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 26ebee446523c138569b9d5379c9a5e1b9e93e7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76698446"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885638"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 

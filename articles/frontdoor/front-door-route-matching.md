@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471596"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878600"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como a Porta da Frente corresponde aos pedidos de uma regra de encaminhamento
 
-Depois de estabelecer uma ligação e fazer um aperto de mão SSL, quando um pedido aterra em um ambiente porta da frente uma das primeiras coisas que a Porta da Frente faz é determinar a partir de todas as configurações, que regra de encaminhamento particular para corresponder ao pedido e, em seguida, tomar a ação definida. O seguinte documento explica como a Porta Frontal determina qual a configuração da Rota a utilizar ao processar um pedido http.
+Depois de estabelecer uma ligação e fazer um aperto de mão TLS, quando um pedido aterra num ambiente da Porta da Frente uma das primeiras coisas que a Porta da Frente faz é determinar a partir de todas as configurações, que regra de encaminhamento particular para corresponder ao pedido e, em seguida, tomar a ação definida. O seguinte documento explica como a Porta Frontal determina qual a configuração da Rota a utilizar ao processar um pedido http.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota da porta da frente
 Uma configuração de regra de encaminhamento da Porta Frontal é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Combinamos com o pedido de entrada para o lado esquerdo da rota, enquanto o lado direito define como processamos o pedido.

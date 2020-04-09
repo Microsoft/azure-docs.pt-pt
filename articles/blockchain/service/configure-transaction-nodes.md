@@ -4,12 +4,12 @@ description: Como configurar os nódosos de transação do Serviço Blockchain A
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
-ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252262"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876934"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configure Azure Blockchain Service nódosos de transação
 
@@ -17,7 +17,7 @@ Os nódosos de transação são usados para enviar transações blockchain para 
 
 Para ver os detalhes do nó de transação por defeito:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o seu membro do Serviço Azure Blockchain. Selecione **os nódosos de transação**.
 
     ![Selecione o nó de transações por defeito](./media/configure-transaction-nodes/nodes.png)
@@ -54,7 +54,7 @@ Para ver os detalhes finais de um nó de transações:
 
     ![Pontos Finais](./media/configure-transaction-nodes/endpoints.png)
 
-Os pontos finais do nó de transação são seguros e requerem autenticação. Pode ligar-se a um ponto final de transação utilizando a autenticação Azure AD, autenticação básica HTTPS e utilizando uma chave de acesso através de HTTPS ou Websocket através do SSL.
+Os pontos finais do nó de transação são seguros e requerem autenticação. Pode ligar-se a um ponto final de transação utilizando a autenticação Azure AD, autenticação básica HTTPS e utilizando uma chave de acesso através de HTTPS ou Websocket através de TLS.
 
 ### <a name="azure-active-directory-access-control"></a>Controlo de acesso ao Diretório Ativo Azure
 

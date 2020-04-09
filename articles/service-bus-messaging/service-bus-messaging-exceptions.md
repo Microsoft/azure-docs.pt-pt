@@ -1,5 +1,5 @@
 ---
-title: Guia de resolução de problemas para o autocarro do serviço azure [ Microsoft Docs
+title: Azure Service Bus - exceções de mensagens Microsoft Docs
 description: Este artigo fornece uma lista de exceções de mensagens Azure Service Bus e sugeriu ações a tomar quando a exceção ocorre.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,20 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: fb27befadcf8e6d201d020e758cfd1ef9b695f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240812"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880793"
 ---
-# <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para ônibus de serviço Azure
-Este artigo fornece algumas das exceções .NET geradas pela Service Bus .NET Framework APIs e também outras dicas para problemas de resolução de problemas. 
+# <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens de ônibus de serviço
+Este artigo enumera as exceções .NET geradas por .NET Framework APIs. 
 
-## <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens de ônibus de serviço
-Esta secção enumera as exceções .NET geradas por .NET Framework APIs. 
-
-### <a name="exception-categories"></a>Categorias de exceções
+## <a name="exception-categories"></a>Categorias de exceções
 As APIs de mensagens geram exceções que podem cair nas seguintes categorias, juntamente com a ação associada que pode tomar para tentar corrigi-las. O significado e as causas de uma exceção podem variar dependendo do tipo de entidade de mensagens:
 
 1. Erro de codificação do utilizador[(System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Ação geral: tente fixar o código antes de prosseguir.
@@ -35,7 +32,7 @@ As APIs de mensagens geram exceções que podem cair nas seguintes categorias, j
 3. Exceções transitórias ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Ação geral: voltar a tentar a operação ou notificar os utilizadores. A `RetryPolicy` classe no SDK cliente pode ser configurada para lidar com repetições automaticamente. Para mais informações, consulte [a orientação de Retry](/azure/architecture/best-practices/retry-service-specific#service-bus).
 4. Outras exceções ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Ação geral: específica do tipo de exceção; consulte a tabela na seguinte secção: 
 
-### <a name="exception-types"></a>Tipos de exceção
+## <a name="exception-types"></a>Tipos de exceção
 A tabela seguinte lista tipos de exceções de mensagens e suas causas, e notas sugeridas ação que você pode tomar.
 
 | **Tipo de exceção** | **Descrição/Causa/Exemplos** | **Ação Sugerida** | **Nota sobre retry automático/imediato** |
@@ -64,10 +61,10 @@ A tabela seguinte lista tipos de exceções de mensagens e suas causas, e notas 
 | [TransacçõesExcepção](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) |A transação ambiente *(Transação.Corrente)* é inválida. Pode ter sido concluída ou abortada. A exceção interna pode fornecer informações adicionais. | |Retry não ajuda. |
 | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) |Tenta-se uma operação numa transação que está em dúvida, ou é feita uma tentativa de cometer a transação e a transação fica em dúvida. |A sua aplicação deve lidar com esta exceção (como um caso especial), uma vez que a transação pode já ter sido cometida. |- |
 
-### <a name="quotaexceededexception"></a>QuotaExceedException
+## <a name="quotaexceededexception"></a>QuotaExceedException
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indica que foi excedida uma quota de uma entidade específica.
 
-#### <a name="queues-and-topics"></a>Filas e tópicos
+### <a name="queues-and-topics"></a>Filas e tópicos
 Para filas e tópicos, é muitas vezes do tamanho da fila. A propriedade da mensagem de erro contém mais detalhes, como no seguinte exemplo:
 
 ```Output
@@ -79,7 +76,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 A mensagem afirma que o tópico excedeu o seu limite de tamanho, neste caso 1 GB (o limite de tamanho padrão). 
 
-#### <a name="namespaces"></a>Espaços de nomes
+### <a name="namespaces"></a>Espaços de nomes
 
 Para espaços de nome, [quotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) pode indicar que uma aplicação excedeu o número máximo de ligações a um espaço de nome. Por exemplo:
 
@@ -90,7 +87,7 @@ System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]:
 ConnectionsQuotaExceeded for namespace xxx.
 ```
 
-#### <a name="common-causes"></a>Causas comuns
+### <a name="common-causes"></a>Causas comuns
 Existem duas causas comuns para este erro: a fila das letras mortas e os recetores de mensagens não funcionais.
 
 1. **[Fila de letras mortas](service-bus-dead-letter-queues.md)** Um leitor não está a completar mensagens e as mensagens são devolvidas à fila/tópico quando o bloqueio expira. Pode acontecer se o leitor encontrar uma exceção que o impeça de ligar para [BrokeredMessage.Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete). Depois de uma mensagem ter sido lida 10 vezes, passa para a fila da letra morta por defeito. Este comportamento é controlado pela propriedade [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) e tem um valor padrão de 10. À medida que as mensagens se acumulam na fila das cartas mortas, tomam espaço.
@@ -98,70 +95,14 @@ Existem duas causas comuns para este erro: a fila das letras mortas e os recetor
     Para resolver o problema, leia e complete as mensagens da fila da carta morta, como faria de qualquer outra fila. Pode utilizar o método [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) para ajudar a formatar o caminho da fila de letras mortas.
 2. **Recetor parado**. Um recetor deixou de receber mensagens de uma fila ou subscrição. A forma de identificar isto é olhar para a propriedade [QueueDescription.MessageCountDetails,](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) que mostra a desagregação completa das mensagens. Se a propriedade [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) é alta ou em crescimento, então as mensagens não estão a ser lidas tão rapidamente como estão a ser escritas.
 
-### <a name="timeoutexception"></a>TimeoutException
+## <a name="timeoutexception"></a>TimeoutException
 Um [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica que uma operação iniciada pelo utilizador está a demorar mais tempo do que o tempo de funcionamento. 
 
 Deve verificar o valor da propriedade [ServicePointManager.DefaultConnectionLimit,](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) uma vez que atingir este limite também pode causar uma [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
-#### <a name="queues-and-topics"></a>Filas e tópicos
+### <a name="queues-and-topics"></a>Filas e tópicos
 Para filas e tópicos, o tempo limite é especificado quer na propriedade [MessagingFactorySettings.OperationTimeout,](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) como parte da cadeia de ligação, quer através do [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). A mensagem de erro em si pode variar, mas contém sempre o valor limite especificado para o funcionamento atual. 
 
-## <a name="connectivity-certificate-or-timeout-issues"></a>Problemas de conectividade, certificado ou timeout
-Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/timeout para todos os serviços em *.servicebus.windows.net. 
-
-- Navegue para ou [paraque.](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` Ajuda a verificar se tem problemas de filtragem IP ou de rede virtual ou cadeia de certificados (mais comuns quando se utiliza java SDK).
-
-    Um exemplo de mensagem bem sucedida:
-    
-    ```xml
-    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
-    ```
-    
-    Um exemplo de mensagem de erro de falha:
-
-    ```json
-    <Error>
-        <Code>400</Code>
-        <Detail>
-            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
-        </Detail>
-    </Error>
-    ```
-- Execute o seguinte comando para verificar se alguma porta está bloqueada na firewall. As portas utilizadas são 443 (HTTPS), 5671 (AMQP) e 9354 (Net Messaging/SBMP). Dependendo da biblioteca que utiliza, outras portas também são utilizadas. Aqui está o comando da amostra que verifica se a porta 5671 está bloqueada. 
-
-    ```powershell
-    tnc <yournamespacename>.servicebus.windows.net -port 5671
-    ```
-
-    Em Linux:
-
-    ```shell
-    telnet <yournamespacename>.servicebus.windows.net 5671
-    ```
-- Quando houver problemas de conectividade intermitentes, faça o seguinte comando para verificar se existem pacotes caídos. Este comando tentará estabelecer 25 ligações TCP diferentes a cada 1 segundo com o serviço. Em seguida, pode verificar quantos deles conseguiram/falharam e também ver a latência da ligação tCP. Pode descarregar `psping` a ferramenta a partir [daqui](/sysinternals/downloads/psping).
-
-    ```shell
-    .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
-    ```
-    Pode utilizar comandos equivalentes se estiver a `tnc` `ping`utilizar outras ferramentas, tais como , e assim por diante. 
-- Obtenha um rastreio de rede se os passos anteriores não ajudarem e analisá-lo usando ferramentas como [wireshark](https://www.wireshark.org/). Contacte o Suporte da [Microsoft](https://support.microsoft.com/) se necessário. 
-
-## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações/reinícios de serviço
-As atualizações e reinícios do serviço backend podem causar o seguinte impacto nas suas aplicações:
-
-- Os pedidos podem ser momentaneamente estrangulados.
-- Pode haver uma queda nas mensagens/pedidos de entrada.
-- O ficheiro de registo pode conter mensagens de erro.
-- As aplicações podem ser desligadas do serviço por alguns segundos.
-
-Se o código de aplicação utilizar o SDK, a política de retry já está incorporada e ativa. A aplicação reconectar-se-á sem impacto significativo na aplicação/fluxo de trabalho.
-
 ## <a name="next-steps"></a>Passos seguintes
-
 Para obter a referência completa do Bus service .NET API, consulte a [referência Azure .NET API](/dotnet/api/overview/azure/service-bus).
-
-Para saber mais sobre [o Service Bus,](https://azure.microsoft.com/services/service-bus/)consulte os seguintes artigos:
-
-* [Descrição geral de mensagens do Service Bus](service-bus-messaging-overview.md)
-* [Arquitetura do Service Bus](service-bus-architecture.md)
-
+Para obter dicas de resolução de problemas, consulte o guia de [resolução de problemas](service-bus-troubleshooting-guide.md)

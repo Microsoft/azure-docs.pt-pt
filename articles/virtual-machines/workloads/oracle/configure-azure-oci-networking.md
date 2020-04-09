@@ -11,21 +11,26 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd0b8a50d25cd8d1a66a8eb98e54ec231aa2c62f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302054"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878719"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Azure e a Oracle Cloud Infrastructure  
 
-Para criar uma [experiência multi-cloud integrada (pré-visualização),](oracle-oci-overview.md) a Microsoft e a Oracle oferecem interligação direta entre a Azure e a Oracle Cloud Infrastructure (OCI) através do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [do FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Através da interligação ExpressRoute e FastConnect, os clientes podem experimentar baixa latência, alta entrada, conectividade direta privada entre as duas nuvens.
+Para criar uma [experiência multi-cloud integrada,](oracle-oci-overview.md)a Microsoft e a Oracle oferecem interligação direta entre a Azure e a Oracle Cloud Infrastructure (OCI) através do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [do FastConnect.](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) Através da interligação ExpressRoute e FastConnect, os clientes podem experimentar baixa latência, alta entrada, conectividade direta privada entre as duas nuvens.
 
 > [!IMPORTANT]
-> A ligação entre o Microsoft Azure e o OCI está na fase de pré-visualização. Para estabelecer uma baixa conectividade de latência entre o Azure e o OCI, a subscrição do Azure deve ser ativada primeiro para esta capacidade. Deve inscrever-se na pré-visualização preenchendo este formulário de [sondagem](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)curta . Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não poderá utilizar a capacidade até receber um e-mail de confirmação. Pode também contactar o seu representante da Microsoft para estar ativado para esta pré-visualização. O acesso à capacidade de pré-visualização está sujeito a disponibilidade e restringido pela Microsoft a seu exclusivo critério. A conclusão do inquérito não garante o acesso. Esta pré-visualização é fornecida sem um acordo de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [Termos De Utilização Suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para visualizações do Microsoft Azure para mais detalhes. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> A Oracle certificará estas aplicações para funcionar em Azure quando utilizar a solução de interligação Azure/Oracle Cloud até maio de 2020.
+> * Suíte E-Business
+> * JD Edwards EnterpriseOne
+> * PeopleSoft
+> * Aplicações oracle Retail
+> * Gestão Financeira Oracle Hyperion
 
 A imagem seguinte mostra uma visão geral de alto nível da interconexão:
 
@@ -36,8 +41,6 @@ A imagem seguinte mostra uma visão geral de alto nível da interconexão:
 * Para estabelecer conectividade entre o Azure e o OCI, deve ter uma subscrição azure ativa e um arrendamento OCI ativo.
 
 * A conectividade só é possível quando um local de observação do Azure ExpressRoute estiver próximo ou no mesmo local de observação que o OCI FastConnect. Ver [Disponibilidade da Região](oracle-oci-overview.md#region-availability).
-
-* A subscrição do Azure deve estar ativada para esta capacidade de pré-visualização.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configure a conectividade direta entre expressRoute e FastConnect
 

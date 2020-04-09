@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: f47a543143c949715fe2a49adccf074759a346fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f64892193eb6cfcce8f948b54e5557b5fa3d90ab
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79382099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878255"
 ---
 ```json
 {
@@ -30,4 +30,4 @@ As seguintes propriedades `extensionBundle`estão disponíveis em:
 
 As versões do bundle incrementam à medida que os pacotes na mudança de pacote. As principais alterações de versão ocorrem quando os pacotes no incremento do pacote por uma versão importante. As principais alterações de versão no pacote geralmente coincidem com uma mudança na versão principal do tempo de execução das Funções.  
 
-O conjunto atual de extensões instalados pelo pacote predefinido é enumerado neste [ficheiro extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+O conjunto atual de extensões instalados pelo pacote predefinido é enumerado neste [ficheiro extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).

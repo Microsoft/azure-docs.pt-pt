@@ -4,12 +4,12 @@ description: Aqui está como permitir o suporte de identidades geridas em um clu
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396978546b301884087c4ea51e242258d64a6b0b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934954"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983811"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configure suporte de identidade gerido num cluster de tecido de serviço existente (pré-visualização)
 
@@ -40,7 +40,7 @@ Para ativar o Serviço de Fichas de Identidade Gerida num cluster existente, ter
 ]
 ```
 
-Para que as alterações entrem em vigor, também terá de alterar a política de atualização para especificar um reinício vigoroso do tempo de execução do Tecido de Serviço em cada nó à medida que a atualização progride através do cluster. Este reinício garante que o serviço de sistema recém-activado é iniciado e funcionando em cada nó. No corte abaixo, `forceRestart` encontra-se a definição essencial; utilize os valores existentes para o resto das definições.  
+Para que as alterações entrem em vigor, também terá de alterar a política de atualização para especificar um reinício vigoroso do tempo de execução do Tecido de Serviço em cada nó à medida que a atualização progride através do cluster. Este reinício garante que o serviço de sistema recém-activado é iniciado e funcionando em cada nó. No corte abaixo, `forceRestart` é a configuração essencial para permitir o reinício. Para os restantes parâmetros, utilize valores descritos abaixo ou utilize os valores personalizados existentes já especificados para o recurso cluster. As definições personalizadas para a Política de Atualização de Tecidos ('upgradeDescription') podem ser vistas a partir do Portal Azure selecionando a opção 'Upgrades de Tecidos' no recurso de tecido de serviço ou resources.azure.com. As opções predefinidas para a política de atualização ('upgradeDescription') não são visualizadas a partir de powershell ou resources.azure.com. Consulte [clusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) para obter informações adicionais.  
 
 ```json
 "upgradeDescription": {

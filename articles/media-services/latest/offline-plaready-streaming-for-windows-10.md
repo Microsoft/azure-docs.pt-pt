@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: ceb6de6556968385d88ac799c11bdb6393072864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 151aadadb5674f7f144d42b1f9d5115501ed381d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513121"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887236"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Offline PlayReady Streaming para Windows 10 com Media Services v3
 
@@ -121,10 +121,6 @@ Em resumo, alcançámos o modo offline nos Serviços De Mídia Azure:
 * Os conteúdos podem ser hospedados em Azure Media Services ou Azure Storage para download progressivo;
 * A entrega da licença PlayReady pode ser da Azure Media Services ou de qualquer outro lugar;
 * O conteúdo de streaming liso preparado ainda pode ser utilizado para streaming on-line via DASH ou suave com o PlayReady como DRM.
-
-## <a name="additional-notes"></a>Notas adicionais
-
-* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 

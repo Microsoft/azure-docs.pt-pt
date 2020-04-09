@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6062ec008a7a12c720cf28c2d79531e805ebba0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268187"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984440"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -45,7 +45,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     O Azure Files é especificamente um sistema de ficheiros. O Azure Files tem todos os resumos de ficheiros que conhece e adora desde anos a trabalhar com sistemas operativos no local. Tal como o armazenamento azure blob, o Azure Files oferece uma interface REST e bibliotecas de clientes baseadas em REST. Ao contrário do armazenamento da Azure Blob, a Azure Files oferece acesso sMB a ações de ficheiros Azure. Ao utilizar o SMB, pode montar uma partilha de ficheiros Azure diretamente no Windows, Linux ou macOS, quer no local quer em VMs em nuvem, sem escrever qualquer código ou anexar quaisquer controladores especiais ao sistema de ficheiros. Também pode cache as partilhas de ficheiros Azure em servidores de ficheiros no local, utilizando o Azure File Sync para acesso rápido, perto do local onde os dados são utilizados. 
    
-    Para obter uma descrição mais aprofundada sobre as diferenças entre o Azure Files e o armazenamento da Blob Azure, consulte a decisão de quando utilizar o [armazenamento Azure Blob, os Ficheiros Azure ou os Discos Azure.](../common/storage-decide-blobs-files-disks.md) Para saber mais sobre o armazenamento azure blob, consulte [Introdução ao armazenamento Blob](../blobs/storage-blobs-introduction.md).
+    Para obter uma descrição mais aprofundada sobre as diferenças entre os Ficheiros Azure e o armazenamento de Blob Azure, consulte [introdução aos principais serviços](../common/storage-introduction.md)de armazenamento do Azure . Para saber mais sobre o armazenamento azure blob, consulte [Introdução ao armazenamento Blob](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Por que usaria uma parte de ficheiro Azure em vez de Discos Azure?**  
     Um disco em Discos Azure é simplesmente um disco. Para obter valor da Azure Disks, tem de fixar um disco a uma máquina virtual que está a funcionar em Azure. Os Discos Azure podem ser usados para tudo o que utilizaria num servidor no local. Pode usá-lo como um disco de sistema sO, como espaço de troca para um SISTEMA, ou como armazenamento dedicado para uma aplicação. Um uso interessante para discos Azure é criar um servidor de ficheiros na nuvem para usar nos mesmos locais onde você pode usar uma partilha de ficheiros Azure. A implementação de um servidor de ficheiros em Máquinas Virtuais Azure é uma forma de obter armazenamento de ficheiros em Azure quando necessita de opções de implementação que atualmente não são suportadas por Ficheiros Azure (como suporte ao protocolo NFS ou armazenamento premium). 
@@ -54,7 +54,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Uma abordagem para obter o melhor de ambos os Ficheiros Azure e um servidor de ficheiros que está hospedado em Máquinas Virtuais Azure (além de usar discos Azure como armazenamento de back-end) é instalar o Azure File Sync num servidor de ficheiros que está hospedado num VM em nuvem. Se a partilha de ficheiros Azure estiver na mesma região que o seu servidor de ficheiros, pode ativar o tiering em nuvem e definir o volume de percentagem de espaço livre para máximo (99%). Isto garante uma duplicação mínima de dados. Também pode utilizar quaisquer aplicações que pretenda com os seus servidores de ficheiros, como aplicações que requerem suporte ao protocolo NFS.
 
-    Para obter informações sobre uma opção para configurar um servidor de ficheiros de alto desempenho e altamente disponível no Azure, consulte a implementação de clusters de [hóspedes IaaS VM no Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Para obter uma descrição mais aprofundada das diferenças entre ficheiros Azure e Discos Azure, consulte decidir quando utilizar o [armazenamento Azure Blob, Ficheiros Azure ou Discos Azure](../common/storage-decide-blobs-files-disks.md). Para saber mais sobre os Discos Azure, consulte a [visão geral dos Discos Geridos de Azure](../../virtual-machines/windows/managed-disks-overview.md).
+    Para obter informações sobre uma opção para configurar um servidor de ficheiros de alto desempenho e altamente disponível no Azure, consulte a implementação de clusters de [hóspedes IaaS VM no Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Para obter uma descrição mais aprofundada das diferenças entre ficheiros Azure e Discos Azure, consulte [Introdução aos principais serviços](../common/storage-introduction.md)de armazenamento do Azure . Para saber mais sobre os Discos Azure, consulte a [visão geral dos Discos Geridos de Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
   **Como posso começar a usar ficheiros Azure?**  
@@ -396,4 +396,4 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 ## <a name="see-also"></a>Consulte também
 * [Troubleshoot Azure Files no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files em Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)

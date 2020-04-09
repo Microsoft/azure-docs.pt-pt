@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções azure
 description: Conheça os requisitos de armazenamento das Funções Azure e sobre encriptar dados armazenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276585"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984168"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções azure
 
@@ -29,7 +29,7 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 Ao criar uma aplicação de função, deve criar ou ligar-se a uma conta de Armazenamento Azure de fins gerais que suporte o armazenamento de Blob, Queue e Mesa. Isto porque as Funções dependem do Armazenamento Azure para operações como a gestão de gatilhos e execuções de funções de exploração madeireira. Algumas contas de armazenamento não suportam filas e mesas. Estas contas incluem contas de armazenamento apenas blob, armazenamento Azure Premium e contas de armazenamento de uso geral com replicação ZRS. Estas contas não suportadas são filtradas da lâmina da Conta de Armazenamento ao criar uma aplicação de função.
 
-Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#azure-storage-services). 
+Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
 Embora possa utilizar uma conta de armazenamento existente com a sua aplicação de funções, deve certificar-se de que satisfaz estes requisitos. As contas de armazenamento criadas como parte da aplicação de função criar fluxo são garantidas para satisfazer estes requisitos da conta de armazenamento.  
 

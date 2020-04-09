@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 59bf06d2b279bad792bdc42a7c3b6acc2bc304b8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74068140"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985716"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implementar máquinas virtuais de elevada disponibilidade com o Azure PowerShell
 
@@ -113,7 +113,7 @@ Se olhar para a disponibilidade definida no portal indo para **Grupos** > de Rec
 
 ## <a name="check-for-available-vm-sizes"></a>Verificar os tamanhos de VM disponíveis 
 
-Pode adicionar mais VMs ao conjunto de disponibilidade posteriormente, mas tem de conhecer os tamanhos de VM que estão disponíveis no hardware. Utilize o [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
+Quando cria um VM dentro de um conjunto de disponibilidade, precisa de saber quais os tamanhos vm disponíveis no hardware. Utilize o comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) para obter todos os tamanhos disponíveis para máquinas virtuais que pode implementar no conjunto de disponibilidade.
 
 ```azurepowershell-interactive
 Get-AzVMSize `

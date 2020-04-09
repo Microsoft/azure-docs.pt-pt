@@ -3,26 +3,22 @@ title: Configure SSO no macOS e iOS
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar um único sinal no macOS e iOS.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262454"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881253"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configure SSO no macOS e iOS
 

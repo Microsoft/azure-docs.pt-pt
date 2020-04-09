@@ -2,24 +2,21 @@
 title: Configure uma aplicação web que assina nos utilizadores - plataforma de identidade da Microsoft Azure
 description: Saiba como construir uma aplicação web que assina nos utilizadores (configuração de código)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51cd7ff97af4588139721930bd4d08ffd0f95e73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3de1edc8560cfc85f52293c095fa824b364d2058
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297554"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881643"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicação web que assina nos utilizadores: Configuração de código
 
@@ -56,7 +53,7 @@ Os fragmentos de código neste artigo e no seguinte são extraídos da [aplicaç
 
 Talvez queira consultar esta amostra para obter detalhes completos de implementação.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Os fragmentos de código neste artigo e no seguinte são extraídos da [aplicação web Python, chamando](https://github.com/Azure-Samples/ms-identity-python-webapp) a amostra de gráfico da Microsoft em MSAL Python.
 
@@ -179,7 +176,7 @@ aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 
 No portal Azure, a resposta URIs que precisa de registar na página `redirectUri` **de Autenticação** para a sua aplicação precisa de corresponder às instâncias que a aplicação define. Ou seja, deviam `http://localhost:8080/msal4jsample/secure/aad` `http://localhost:8080/msal4jsample/graph/me`ser e.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Aqui está o ficheiro de configuração Python em [app_config.py:](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py)
 
@@ -357,7 +354,7 @@ Para mais detalhes, consulte o `doFilter()` método em [AuthFilter.java](https:/
 
 Para mais detalhes sobre o fluxo de código de autorização que este método desencadeia, consulte a plataforma de identidade da Microsoft e o fluxo de código de [autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 A amostra python usa o Frasco. A inicialização do Flask e do MSAL Python é feita em [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
 
@@ -396,7 +393,7 @@ No próximo artigo, aprenderá a desencadear o sessão e a inscrição.
 > [!div class="nextstepaction"]
 > [Iniciar e terminar sessão](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [Iniciar e terminar sessão](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)

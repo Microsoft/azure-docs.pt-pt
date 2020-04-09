@@ -2,18 +2,18 @@
 title: Criar recurso LUIS
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2020
-ms.author: dapine
-ms.openlocfilehash: 88289686e5b091ef3ec309ee9b54ee0f895c8c22
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 04/07/2020
+ms.author: aahi
+ms.openlocfilehash: ebfe7e80577b163218a7bc501fa4e3e9b206fd62
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754360"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879219"
 ---
 <a name="create-luis-resources"></a>
 

@@ -1,28 +1,24 @@
 ---
-title: Azure AD token & tipos de reclamações [ Microsoft Docs
+title: Tipos de reclamações de & de token da AD Azure
 description: Um guia para a compreensão e avaliação das alegações nas fichas SAML 2.0 e JSON Web Tokens (JWT) emitidas pela Azure Ative Directory (AAD)
 documentationcenter: na
 author: rwike77
 services: active-directory
 manager: CelesteDG
-editor: ''
-ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/22/2018
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e4fcb7835c6315e8a67103883e1635f0ddab1098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7ba4abd45fff8548c361f5e5ed44ef45fe32bbe
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299759"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883445"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência simbólica Azure AD SAML
 

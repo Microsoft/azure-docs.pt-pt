@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882393"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984900"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar os seus dados no local ou na nuvem para O Azure Cosmos DB
 
@@ -34,18 +34,18 @@ Os seguintes fatores determinam a escolha da ferramenta de migração:
 |**Tipo de migração**|**Solução**|**Considerações**|
 |---------|---------|---------|
 |Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Não é adequado para grandes conjuntos de dados|
-|Offline|[Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;Falta de controlo - Significa que se um problema ocorrer durante a migração, você precisa reiniciar todo o processo de migração<br/>&bull;Falta de uma fila de cartas mortas - Significa que alguns ficheiros erróneos podem parar todo o processo de migração.|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;Falta de controlo - Significa que se um problema ocorrer durante a migração, você precisa reiniciar todo o processo de migração<br/>&bull;Falta de uma fila de cartas mortas - Significa que alguns ficheiros erróneos podem parar todo o processo de migração.|
 |Offline|[Conector Azure Cosmos DB Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;Precisa de uma configuração personalizada de Faísca <br/>&bull;A faísca é sensível às inconsistências do esquema e isso pode ser um problema durante a migração |
 |Offline|[Ferramenta personalizada com biblioteca de executor a granel Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull;Fornece capacidades de checkpointing, letras mortas que aumentam a resiliência da migração <br/>&bull;Adequado para conjuntos de dados muito grandes (10 TB+)  <br/>&bull;Requer configuração personalizada desta ferramenta funcionando como um Serviço de Aplicações |
 |Online|[Funções Cosmos DB + ChangeFeed API](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull;Fácil de configurar <br/>&bull;Só funciona se a fonte for um recipiente Azure Cosmos DB <br/>&bull;Não é adequado para grandes conjuntos de dados <br/>&bull;Não captura apaga do recipiente de origem |
-|Online|[Serviço de migração personalizado usando changefeed](https://aka.ms/CosmosDBMigrationSample)|&bull;Fornece rastreio de progresso <br/>&bull;Só funciona se a fonte for um recipiente Azure Cosmos DB <br/>&bull;Também funciona para conjuntos de dados maiores <br/>&bull;Requer que o utilizador cria um Serviço de Aplicações para hospedar o processador de feed Change <br/>&bull;Não captura apaga do recipiente de origem|
+|Online|[Serviço de migração personalizado usando changefeed](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull;Fornece rastreio de progresso <br/>&bull;Só funciona se a fonte for um recipiente Azure Cosmos DB <br/>&bull;Também funciona para conjuntos de dados maiores <br/>&bull;Requer que o utilizador cria um Serviço de Aplicações para hospedar o processador de feed Change <br/>&bull;Não captura apaga do recipiente de origem|
 |Online|[Rio Striim](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull;Funciona com uma grande variedade de fontes como Oracle, DB2, SQL Server <br/>&bull;Fácil de construir oleodutos ETL e fornece um dashboard para monitorização <br/>&bull;Suporta conjuntos de dados maiores <br/>&bull;Uma vez que esta é uma ferramenta de terceiros, precisa de ser comprada no mercado e instalada no ambiente do utilizador|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo API
 |**Tipo de migração**|**Solução**|**Considerações**|
 |---------|---------|---------|
 |Offline|[Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Não é adequado para grandes conjuntos de dados|
-|Offline|[Fábrica de Dados Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;A falta de controlo significa que qualquer problema durante o curso da migração exigiria um reinício de todo o processo de migração<br/>&bull;A falta de uma fila de cartas mortas significaria que alguns ficheiros erróneos poderiam parar todo o processo de migração. <br/>&bull;Precisa de código personalizado para aumentar a produção de leitura para determinadas fontes de dados|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Fácil de configurar e suporta várias fontes <br/>&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados <br/>&bull;A falta de controlo significa que qualquer problema durante o curso da migração exigiria um reinício de todo o processo de migração<br/>&bull;A falta de uma fila de cartas mortas significaria que alguns ficheiros erróneos poderiam parar todo o processo de migração. <br/>&bull;Precisa de código personalizado para aumentar a produção de leitura para determinadas fontes de dados|
 |Offline|[Ferramentas Mongo existentes (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Fácil de configurar e integrar <br/>&bull;Precisa de manuseamento personalizado para aceleradores|
 |Online|[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Faz uso da biblioteca de executora a granel Azure Cosmos DB <br/>&bull;Adequado para grandes conjuntos de dados e cuida da replicação de alterações ao vivo <br/>&bull;Trabalha apenas com outras fontes do MongoDB|
 
@@ -60,7 +60,7 @@ Os seguintes fatores determinam a escolha da ferramenta de migração:
 ## <a name="other-apis"></a>Outras APIs
 Para além da API SQL, da API do Mongo e da API Cassandra, existem várias ferramentas apoiadas por cada um dos ecossistemas existentes da API. 
 
-**Tabela API** 
+**API de Tabela** 
 * [Ferramenta de migração de dados](https://docs.microsoft.com/azure/cosmos-db/table-import#data-migration-tool)
 * [AzCopy](https://docs.microsoft.com/azure/cosmos-db/table-import#migrate-data-by-using-azcopy)
 

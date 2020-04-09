@@ -2,24 +2,21 @@
 title: Registe aplicações de página única - plataforma de identidade da Microsoft Azure
 description: Saiba como construir uma aplicação de uma única página (registo de aplicações)
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5b18b10748e0587920c6965f1d235376da928469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f690a8b3436a45d434ccad2bbaa7d2a1b0b76aa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701897"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882153"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de página única: Registo de aplicativos
 
