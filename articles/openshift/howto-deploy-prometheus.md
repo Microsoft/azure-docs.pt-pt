@@ -1,5 +1,5 @@
 ---
-title: Implementar um caso prometheus autónomo num aglomerado de OpenShift do Chapéu Vermelho Azul [ Microsoft Docs
+title: Implementar a instância de Prometheus no cluster OpenShift do Chapéu Vermelho Azure
 description: Crie uma instância Prometheus num cluster Azure Red Hat OpenShift para monitorizar as métricas da sua aplicação.
 author: makdaam
 ms.author: b-lejaku
@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métricas, chapéu vermelho
-ms.openlocfilehash: f81a993caa31578e689fb3a90108f3cf0ca81fc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69875126"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886893"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implante um exemplo de Prometheus autónomo num cluster OpenShift do Chapéu Vermelho Azure
 
@@ -212,6 +212,6 @@ Pode adicionar instrumentação Prometheus personalizada às suas aplicações. 
 Para mais informações, consulte as seguintes bibliotecas GitHub:
 
  - [Java](https://github.com/prometheus/client_java)
- - [Pitão](https://github.com/prometheus/client_python)
+ - [Python](https://github.com/prometheus/client_python)
  - [Ir](https://github.com/prometheus/client_golang)
  - [Ruby](https://github.com/prometheus/client_ruby)

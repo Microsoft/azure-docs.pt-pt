@@ -3,12 +3,12 @@ title: Diagnosticar falhas e exceções com insights de aplicação azure
 description: Capture exceções de apps ASP.NET juntamente com telemetria de pedidos.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294693"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892347"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações Web com o Application Insights
 As exceções na sua aplicação ao vivo são relatadas pela [Application Insights](../../azure-monitor/app/app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos tanto no cliente como no servidor, para que possa diagnosticar rapidamente as causas.
@@ -19,7 +19,7 @@ As exceções na sua aplicação ao vivo são relatadas pela [Application Insigh
   * Aplicativos de escala virtual Azure VM e Azure IIS: Adicione a extensão de monitorização de [aplicações](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Instale [insights de aplicação SDK](../../azure-monitor/app/asp-net.md) no seu código de aplicações, ou
   * Servidores web IIS: Executar [Agente de Insights de Aplicação;](../../azure-monitor/app/monitor-performance-live-website-now.md) ou
-  * Aplicações web Java: Instale o [agente Java](../../azure-monitor/app/java-agent.md)
+  * Aplicações web Java: Ativar o [agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Instale o [corte JavaScript](../../azure-monitor/app/javascript.md) nas suas páginas web para capturar exceções ao navegador.
 * Em alguns quadros de aplicação ou com algumas configurações, é necessário tomar algumas medidas adicionais para apanhar mais exceções:
   * [Formulários web](#web-forms)

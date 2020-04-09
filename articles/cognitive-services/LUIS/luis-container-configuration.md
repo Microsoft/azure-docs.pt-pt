@@ -3,20 +3,20 @@ title: Configurações do contentor do Estivador - LUIS
 titleSuffix: Azure Cognitive Services
 description: O ambiente de tempo de execução do recipiente LUIS é configurado utilizando os argumentos de `docker run` comando. O LUIS tem várias definições necessárias, juntamente com algumas definições opcionais.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: a30fcd0ec7e53c78876596baf787639e81c638db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795015"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874216"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configure recipientes de compreensão de linguagem 
 
@@ -34,7 +34,7 @@ Este recipiente tem as seguintes definições de configuração:
 |Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
 |Não|[Fluente](#fluentd-settings)|Escreva registo e, opcionalmente, dados métricos para um servidor Fluente.|
 |Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
-|Não|[Exploração madeireira](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
+|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
 |Sim|[Montes](#mount-settings)|Leia e escreva dados do computador de acolhimento para o contentor e do contentor de volta para o computador anfitrião.|
 
 > [!IMPORTANT]
@@ -96,8 +96,8 @@ A tabela seguinte descreve as definições suportadas.
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Sim| `Input` | Cadeia | O alvo do suporte de entrada. O valor predefinido é `/input`. Esta é a localização dos ficheiros pacote LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Não| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de consulta LUIS e registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Sim| `Input` | String | O alvo do suporte de entrada. O valor predefinido é `/input`. Esta é a localização dos ficheiros pacote LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Não| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de consulta LUIS e registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo
 

@@ -5,7 +5,6 @@ description: Saiba mais sobre as experiências de consentimento da AD Azure para
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -14,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77484507"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885587"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
 

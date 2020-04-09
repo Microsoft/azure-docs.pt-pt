@@ -1,10 +1,9 @@
 ---
-title: Opções de suporte e ajuda para programadores de aplicações DaD Azure [ Microsoft Docs
+title: Opções de suporte e ajuda para desenvolvedores de aplicações da AD Azure
 description: Saiba como obter ajuda e suporte para questões e problemas relacionados com o desenvolvimento ao criar uma aplicação que se integre com identidades da Microsoft (Azure Ative Directory e conta Microsoft)
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,16 +12,16 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1afd2ecac8974c0e865e235288da545a9f1244
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160972"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885536"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para programadores
 
-Se está apenas a começar a integrar-se com o Azure Ative Directory (Azure AD), identidades da Microsoft ou Microsoft Graph API, ou quando está a implementar uma nova funcionalidade na sua aplicação, há momentos em que precisa de obter ajuda da comunidade ou entender o opções de suporte que tem como desenvolvedor. Este artigo ajuda-o a compreender estas opções, incluindo:
+Se está apenas a começar a integrar-se com o Azure Ative Directory (Azure AD), as identidades da Microsoft ou a Microsoft Graph API, ou quando está a implementar uma nova funcionalidade na sua aplicação, há momentos em que precisa de obter ajuda da comunidade ou entender as opções de suporte que tem como desenvolvedor. Este artigo ajuda-o a compreender estas opções, incluindo:
 
 > [!div class="checklist"]
 > * Como pesquisar se a sua pergunta não foi respondida pela comunidade, ou se uma documentação existente para a funcionalidade que está a tentar implementar já existe

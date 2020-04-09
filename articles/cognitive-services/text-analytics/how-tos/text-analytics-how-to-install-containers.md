@@ -3,20 +3,20 @@ title: Instalar e executar contentores - Análise de Texto
 titleSuffix: Azure Cognitive Services
 description: Como descarregar, instalar e executar recipientes para Text Analytics neste tutorial de walkthrough.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037509"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877084"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
@@ -55,7 +55,7 @@ A tabela seguinte descreve os núcleos cpu mínimos e recomendados, pelo menos 2
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-# <a name="language-detection"></a>[Deteção de Idiomas](#tab/language)
+# <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
@@ -78,7 +78,7 @@ As imagens do contentor para O Análise de Texto estão disponíveis no Registo 
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-# <a name="language-detection"></a>[Deteção de Idiomas](#tab/language)
+# <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
@@ -96,7 +96,7 @@ As imagens do contentor para O Análise de Texto estão disponíveis no Registo 
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[Deteção de Idiomas](#tab/language)
+# <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
@@ -123,7 +123,7 @@ Use o comando de execução de [estivador](https://docs.docker.com/engine/refere
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[Deteção de Idiomas](#tab/language)
+# <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
@@ -176,7 +176,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 
 * O Text Analytics fornece três recipientes Linux para o Docker, encapsulando várias capacidades:
    * *Extração de Expressões-Chave*
-   * *Deteção de Idiomas*
+   * *Deteção de Idioma*
    * *Análise de Sentimentos*
 * As imagens de contentores são descarregadas a partir do Registo de Contentores da Microsoft (MCR) em Azure.
 * Imagens de contentores correm em Docker.

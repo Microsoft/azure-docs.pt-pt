@@ -11,17 +11,14 @@ ms.date: 03/16/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d82840681450ec855cb35c8700da2a53b9dd6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481454"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886352"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
 

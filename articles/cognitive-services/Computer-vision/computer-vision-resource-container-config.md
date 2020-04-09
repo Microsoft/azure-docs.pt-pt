@@ -3,20 +3,20 @@ title: Configure recipientes - Visão Computacional
 titleSuffix: Azure Cognitive Services
 description: Este artigo mostra-lhe como configurar as definições necessárias e opcionais para reconhecer recipientes de texto em Visão Computacional.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be302019c712c13bd29d7ed3781151a1648e847
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73718986"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879314"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configure recipientes de Computer Vision Docker
 
@@ -53,7 +53,7 @@ Lembre-se `vision/v1.0` de adicionar o encaminhamento ao ponto final URI, como m
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia | Ponto final de faturação URI<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Sim| `Billing` | String | Ponto final de faturação URI<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Cenário eula
 
@@ -81,8 +81,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 |Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Os recipientes Computer Vision não usam isto.|
-|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Os recipientes Computer Vision não usam isto.|
+|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo
 

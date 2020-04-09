@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 94b65b4e7947bc02b1fdaae90c8f774ec216e7bb
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72754990"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981890"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.2): sintaxe e funcionalidades com suporte
 
@@ -77,7 +77,7 @@ A API da Azure Cosmos DB para mongoDB suporta os seguintes comandos de base de d
 
 ## <a name="aggregation-pipelinea"></a>Pipeline de agregação</a>
 
-Cosmos DB suporta o gasoduto de agregação para MongoDB 3.2 em pré-visualização pública. Consulte o [blogue do Azure](https://aka.ms/mongodb-aggregation) para receber instruções sobre como integrar a pré-visualização pública.
+Cosmos DB suporta o gasoduto de agregação para MongoDB 3.2 em pré-visualização pública. Consulte o [blogue do Azure](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) para receber instruções sobre como integrar a pré-visualização pública.
 
 ### <a name="aggregation-commands"></a>Comandos de agregação
 

@@ -5,18 +5,25 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c1e5c0a714a8b66d83c19acc53f6a680a9196a90
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673429"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886624"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Quickstart: Criar um projeto de funções Azure usando o Código de Estúdio Visual
 
 Neste artigo, utiliza o Código do Estúdio Visual para criar uma função que responda aos pedidos do HTTP. Depois de testar o código localmente, implementa-o para o ambiente sem servidor estoirar das Funções Azure. Completar este quickstart incorre num pequeno custo de alguns cêntimos de USD ou menos na sua conta Azure. 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Há também uma [versão baseada em CLI](functions-create-first-azure-function-azure-cli.md) deste artigo.
+::: zone-end  
+
+::: zone pivot="programming-language-java"  
+> [!NOTE]
+> Se o Código VS não for a sua ferramenta de desenvolvimento preferencial, consulte os nossos tutoriais semelhantes para devlopers Java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+::: zone-end  
 
 ## <a name="configure-your-environment"></a>Configurar o ambiente
 
@@ -25,11 +32,11 @@ Antes de começar, certifique-se de que tem os seguintes requisitos no lugar:
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node.js](https://nodejs.org/), exigido pelo Windows para as npm. Apenas [versões LTS ativas e de Manutenção LTS. ](https://nodejs.org/about/releases/) Use `npm --version` o comando para verificar a sua versão.
++ [Node.js](https://nodejs.org/), exigido pelo Windows para as npm. Apenas [versões LTS ativas e de Manutenção LTS.](https://nodejs.org/about/releases/) Use `node --version` o comando para verificar a sua versão.
     Não é necessário para o desenvolvimento local em macOS e Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js,](https://nodejs.org/)versões Ative LTS e Manutenção LTS (10.14.1 recomendado). Use `npm --version` o comando para verificar a sua versão.
++ [Node.js,](https://nodejs.org/)versões Ative LTS e Manutenção LTS (10.14.1 recomendado). Use `node --version` o comando para verificar a sua versão.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Funções Azure (x64).

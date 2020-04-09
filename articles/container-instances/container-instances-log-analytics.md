@@ -2,20 +2,22 @@
 title: Recolher & analisar registos de recursos
 description: Saiba como enviar registos de recursos e dados de eventos de grupos de contentores em instâncias de contentores Azure para registos do Monitor Azure
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770548"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892398"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contentores e registos de situações com registos do Monitor Azure
 
 Os espaços de trabalho do Log Analytics fornecem uma localização centralizada para armazenar e consultar dados de registo não só a partir de recursos Azure, mas também recursos e recursos no local noutras nuvens. As instâncias de contentores Azure incluem suporte incorporado para o envio de registos e dados de eventos para registos do Monitor Azure.
 
-Para enviar dados de registo de grupos de contentores e dados de eventos para registos do Monitor Do Azure, especifique um ID do espaço de trabalho do Log Analytics existente e uma chave espaço de trabalho ao criar um grupo de contentores. As seguintes secções descrevem como criar um grupo de contentores ativado por exploração madeireira e como consultar os registos.
+Para enviar dados de registo de grupos de contentores e dados de eventos para registos do Monitor Do Azure, especifique um ID do espaço de trabalho do Log Analytics existente e uma chave espaço de trabalho ao configurar um grupo de contentores. 
+
+As seguintes secções descrevem como criar um grupo de contentores ativado por exploração madeireira e como consultar os registos. Também pode atualizar um grupo de [contentores](container-instances-update.md) com uma chave de ID do espaço de trabalho e espaço de trabalho para permitir a exploração madeireira.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

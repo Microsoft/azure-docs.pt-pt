@@ -3,18 +3,18 @@ title: Recipientes de Serviços Cognitivos frequentemente questionados (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Perguntas e respostas frequentes.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
-ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73961882"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876511"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Os contentores dos Serviços Cognitivos Azure fazem frequentemente perguntas (FAQ)
 
@@ -26,7 +26,7 @@ ms.locfileid: "73961882"
 
 > [!div class="checklist"]
 > * [Detetor de Anomalias][ad-containers]
-> * [Visão Computorizada][cv-containers]
+> * [Imagem Digitalizada][cv-containers]
 > * [Rostos][fa-containers]
 > * [Reconhecedor de Formato][fr-containers]
 > * [Compreensão de Idiomas (LUIS)][lu-containers]
@@ -108,7 +108,7 @@ Explore as seguintes etiquetas para potenciais perguntas e respostas que se alin
 **A:** Os clientes são cobrados com base no consumo, semelhante à nuvem de Serviços Cognitivos. Os recipientes precisam de ser configurados para enviar dados de medição para o Azure, e as transações serão faturadas em conformidade. Os recursos utilizados em todos os serviços alojados e no local irão aumentar a quota única com preços diferenciados, contando com ambas as utilizações. Para mais detalhes, consulte a página de preços da oferta correspondente.
 
 * [Detetor de Anomalias][ad-containers-billing]
-* [Visão Computorizada][cv-containers-billing]
+* [Imagem Digitalizada][cv-containers-billing]
 * [Rostos][fa-containers-billing]
 * [Reconhecedor de Formato][fr-containers-billing]
 * [Compreensão de Idiomas (LUIS)][lu-containers-billing]
@@ -135,7 +135,7 @@ Explore as seguintes etiquetas para potenciais perguntas e respostas que se alin
 **A:** Os recipientes dos Serviços Cognitivos são recipientes à base de x64 que podem executar qualquer nó linux compatível, VM e dispositivo de borda que suporta x64 recipientes de Docker Linux. Todos eles requerem processadores CPU. As configurações mínimas e recomendadas para cada oferta de contentores estão disponíveis abaixo:
 
 * [Detetor de Anomalias][ad-containers-recommendations]
-* [Visão Computorizada][cv-containers-recommendations]
+* [Imagem Digitalizada][cv-containers-recommendations]
 * [Rostos][fa-containers-recommendations]
 * [Reconhecedor de Formato][fr-containers-recommendations]
 * [Compreensão de Idiomas (LUIS)][lu-containers-recommendations]

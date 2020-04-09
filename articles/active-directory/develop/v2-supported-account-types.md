@@ -2,26 +2,22 @@
 title: Tipos de contas suportadas - Plataforma de identidade da Microsoft Azure
 description: Documentação conceptual sobre audiências e tipos de conta suportados em aplicações
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: de90c81f56b6017b2d53ecbfb2c400a4c9f05d81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262285"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886148"
 ---
 # <a name="supported-account-types"></a>Tipos de conta suportados
 

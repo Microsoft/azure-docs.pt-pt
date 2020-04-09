@@ -4,12 +4,12 @@ description: Acesso de dados e conceitos de segurança do Serviço Blockchain Az
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 989d9f2afad30517a85185878d694c0b6640e987
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982232"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879603"
 ---
 # <a name="azure-blockchain-service-security"></a>Segurança do Serviço Azure Blockchain
 
@@ -27,7 +27,7 @@ Os dados dos utilizadores são armazenados no armazenamento do Azure. Os dados d
 
 ## <a name="authentication"></a>Autenticação
 
-As transações podem ser enviadas para os nódosos blockchain através de um ponto final rPC. Os clientes comunicam com um nó de transação utilizando um servidor proxy invertido que lida com a autenticação do utilizador e encripta dados através do SSL.
+As transações podem ser enviadas para os nódosos blockchain através de um ponto final rPC. Os clientes comunicam com um nó de transação utilizando um servidor proxy invertido que lida com a autenticação do utilizador e encripta dados através de TLS.
 
 ![Diagrama de autenticação](./media/data-security/authentication.png)
 

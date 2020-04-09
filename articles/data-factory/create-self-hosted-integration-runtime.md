@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
-ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065598"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887313"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -62,11 +62,14 @@ Utilize os seguintes passos para criar um IR auto-hospedado utilizando a Azure D
 
    ![Criar um integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. Na janela de configuração do tempo de **integração,** selecione **Executar o movimento de dados e enviar atividades para computas externas**, e selecione **Continuar**.
+1. Na página de configuração do tempo de execução da **Integração,** selecione **Azure, Self-Hosted,** e, em seguida, selecione **Continue**. 
+
+1. Na página seguinte, selecione **Self-Hosted** para criar um IR auto-hospedado e, em seguida, selecione **Continuar**.
+   ![Criar um IR auto-organizado](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Introduza um nome para o seu IR e selecione **Criar**.
 
-1. Selecione o link em parte da **Opção 1** para abrir a configuração expressa no seu computador. Ou siga os passos da **Opção 2** para configurar manualmente. As seguintes instruções baseiam-se na configuração manual:
+1. Na página de configuração do tempo de execução da **Integração,** selecione o link em parte da **Opção 1** para abrir a configuração expressa no seu computador. Ou siga os passos da **Opção 2** para configurar manualmente. As seguintes instruções baseiam-se na configuração manual:
 
    ![Configuração do runtime de integração](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 

@@ -3,20 +3,20 @@ title: Configure recipientes - Análise de Texto
 titleSuffix: Azure Cognitive Services
 description: O Text Analytics fornece a cada recipiente uma estrutura de configuração comum, para que possa configurar e gerir facilmente o armazenamento, a extração e a telemetria e as definições de segurança dos seus contentores.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795296"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878690"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configure Recipientes de estivador de análise de texto
 
@@ -51,7 +51,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Cenário eula
 
@@ -79,8 +79,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 |Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Os recipientes de Análise de Texto não usam isto.|
-|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Os recipientes de Análise de Texto não usam isto.|
+|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo 
 
@@ -104,7 +104,7 @@ Substitua {_argument_name_} com os seus próprios valores:
 
 [!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-#### <a name="language-detection"></a>[Deteção de Idiomas](#tab/language)
+#### <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 

@@ -5,16 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585299"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886488"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
 Este artigo fornece soluções para questões comuns da Azure FarmBeats. Para obter ajuda adicional, contacte o farmbeatssupport@microsoft.comnosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie-nos um e-mail para .
+
+> [!NOTE]
+  > Se instalou FarmBeats durante o mês de abril e os seus trabalhos estão a falhar com uma mensagem de erro vazia, a sua instalação pode não ter sido atribuída qualquer quota de lote devido a todos os recursos direcionados para emergência, cuidados de saúde e outras necessidades críticas. Terá de solicitar que os VMs sejam atribuídos à conta do Lote.
 
 ## <a name="install-issues"></a>Instalar problemas
 
@@ -280,7 +283,7 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Recolher registos de trabalho na Azure Data Factory ou registos do Serviço de Aplicações no Datahub
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa **de pesquisa,** procure o grupo de recursos FarmBeats Datahub.
 3. No painel do **Grupo de Recursos,** procure a conta de armazenamento de *datahublogs.\* * Por exemplo, *datahublogsmvxmq*.  
 4. Na coluna **Nome,** selecione a conta de armazenamento para visualizar o painel de **instrumentos da Conta de Armazenamento.**
@@ -292,7 +295,7 @@ Este problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Recolher registos de trabalho na Azure Data Factory ou registos do Serviço de Aplicações para Acelerador
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na caixa **de pesquisa,** procure o grupo de recursos do Acelerador FarmBeats.
 3. No painel do **Grupo de Recursos,** procure a conta de *armazenamento.\* * Por exemplo, *storagedop4k\**.
 4. Selecione a conta de armazenamento na coluna **Nome** para visualizar o painel de **instrumentos da Conta de Armazenamento.**

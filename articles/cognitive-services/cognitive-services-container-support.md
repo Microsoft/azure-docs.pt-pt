@@ -3,19 +3,19 @@ title: Suporte de contentor
 titleSuffix: Azure Cognitive Services
 description: Saiba como os recipientes do Docker podem aproximar os Serviços Cognitivos dos seus dados.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: dapine
-ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219414"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876840"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contentores em Serviços Cognitivos Azure
 
@@ -23,7 +23,7 @@ O suporte de contentores nos Serviços Cognitivos Azure permite que os desenvolv
 
 > [!div class="checklist"]
 > * [Detetor de Anomalias][ad-containers]
-> * [Visão Computorizada][cv-containers]
+> * [Imagem Digitalizada][cv-containers]
 > * [Rostos][fa-containers]
 > * [Reconhecedor de Formato][fr-containers]
 > * [Compreensão de Idiomas (LUIS)][lu-containers]
@@ -52,7 +52,7 @@ Os recipientes dos Serviços Cognitivos Azure fornecem o seguinte conjunto de re
 | Serviço | Nível de Preços Suportados | Contentor | Descrição |
 |---------|----------|----------|-------------|
 |[Detetor de anomalias][ad-containers] |F0, S0|**Detetor de anomalias** |A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série temporal com machine learning.<br>[Pedir acesso](https://aka.ms/adcontainer)|
-|[Visão Computorizada][cv-containers] |F0, S1|**Leitura** |Extratos de texto impresso a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. O recipiente De leitura também deteta *texto manuscrito* em imagens e fornece suporte PDF/TIFF/multi-página.<br/><br/>**Importante:** O recipiente De Leitura funciona atualmente apenas com inglês.|
+|[Imagem Digitalizada][cv-containers] |F0, S1|**Leitura** |Extratos de texto impresso a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. O recipiente De leitura também deteta *texto manuscrito* em imagens e fornece suporte PDF/TIFF/multi-página.<br/><br/>**Importante:** O recipiente De Leitura funciona atualmente apenas com inglês.|
 |[Rostos][fa-containers] |F0, S0|**Rostos** |Deteta rostos humanos em imagens e identifica atributos, incluindo marcos faciais (como narizes e olhos), sexo, idade e outras características faciais previstas por máquinas. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança, ou comparar rostos com uma base de dados para ver se já existe um rosto semelhante ou idêntico. Também pode organizar rostos semelhantes em grupos, usando traços visuais partilhados.<br>[Pedir acesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Reconhecimento de formulários][fr-containers] |F0, S0|**Reconhecedor de Formato** |A Forma Compreensão aplica tecnologia de machine learning para identificar e extrair pares e tabelas de valor-chave a partir de formulários.<br>[Pedir acesso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)|Carrega um modelo de Compreensão linguística treinado ou publicado, também conhecido como app LUIS, num recipiente de estivador e dá acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consulta do recipiente e carregá-los de volta para o [portal LUIS](https://www.luis.ai) para melhorar a precisão de previsão da aplicação.|

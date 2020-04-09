@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: e769bde39bc796b5b598109328b468b15385f38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d247c55112bc1c3cd921c0eda8e4ddadd6b5aed9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650406"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878073"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 
@@ -113,7 +113,7 @@ traces | extend id = operation_ParentId
 | extend question = tostring(customDimensions['Question'])
 | extend answer = tostring(customDimensions['Answer'])
 | extend score = tostring(customDimensions['Score'])
-| where  score  == "0"
+| where  score  == "0" and message == "QnAMaker GenerateAnswer"
 | project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```

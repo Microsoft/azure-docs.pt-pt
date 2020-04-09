@@ -1,5 +1,5 @@
 ---
-title: Compreender o manifesto da aplicação Azure Ative Directory Microsoft Docs
+title: Compreender o manifesto da aplicação Azure Ative Directory
 description: Cobertura detalhada do manifesto da aplicação Azure Ative Directory, que representa a configuração de identidade de uma aplicação num inquilino da AD Azure, e é usada para facilitar a autorização da OAuth, experiência de consentimento e muito mais.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 03/23/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6d9a4af5ee814282589959fcf840c1061358ca18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383944"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883479"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto de aplicativo sony Azure Ative Diretório
 
@@ -115,7 +115,7 @@ Definido para verdade se o pedido for partilhado com outros inquilinos; caso con
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| appId | Cadeia |
+| appId | String |
 
 Especifica o identificador único para a aplicação que é atribuída a uma aplicação pela Azure AD.
 
@@ -154,7 +154,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| displayName | Cadeia |
+| displayName | String |
 
 O nome de exibição da aplicação.
 
@@ -165,7 +165,7 @@ O nome de exibição da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| erroUrl | Cadeia |
+| erroUrl | String |
 
 Sem apoio.
 
@@ -173,7 +173,7 @@ Sem apoio.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|grupoMembershipClaims | Cadeia |
+|grupoMembershipClaims | String |
 
 Configura `groups` a reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a aplicação espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
@@ -191,7 +191,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| página inicial |Cadeia |
+| página inicial |String |
 
 O URL para a página inicial da aplicação.
 
@@ -202,7 +202,7 @@ O URL para a página inicial da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|objectId | Cadeia |
+|objectId | String |
 
 O identificador único para a app no diretório.
 
@@ -218,7 +218,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| opcionaisReclamações | Cadeia |
+| opcionaisReclamações | String |
 
 As reclamações opcionais devolvidas no símbolo pelo serviço de fichas de segurança para esta aplicação específica.
 
@@ -234,7 +234,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| ID | Cadeia |
+| ID | String |
 
 O identificador único para a app no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. É usado para referenciar o objeto em consultas de diretório.
 
@@ -262,7 +262,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| informationalUrls | Cadeia |
+| informationalUrls | String |
 
 Especifica os links para os termos de serviço e declaração de privacidade da aplicação. Os termos de serviço e declaração de privacidade são divulgados aos utilizadores através da experiência de consentimento do utilizador. Para mais informações, consulte [Como: Adicionar Termos de serviço e declaração de privacidade para aplicações AD Azure registadas](howto-add-terms-of-service-privacy-statement.md).
 
@@ -319,7 +319,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logotipoUrl | Cadeia |
+| logotipoUrl | String |
 
 Leia apenas o valor que aponta para o URL da CDN para o logotipo que foi carregado no portal.
 
@@ -333,7 +333,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoutUrl | Cadeia |
+| logoutUrl | String |
 
 O URL para sair da aplicação.
 
@@ -347,7 +347,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| nome | Cadeia |
+| nome | String |
 
 O nome de exibição da aplicação.
 
@@ -428,7 +428,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| parentalControlDefinições | Cadeia |
+| parentalControlDefinições | String |
 
 - `countriesBlockedForMinors`especifica os países em que a aplicação é bloqueada para menores.
 - `legalAgeGroupRule`especifica a regra do grupo etário legal que se aplica aos utilizadores da app. Pode ser `Allow`definido `RequireConsentForPrivacyServices` `RequireConsentForMinors`para, , , `RequireConsentForKids`ou `BlockMinors`.  
@@ -499,7 +499,7 @@ Este imóvel está disponível apenas na experiência de registos da **App (Lega
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| publisherDomínio | Cadeia |
+| publisherDomínio | String |
 
 O domínio da editora verificada para a aplicação. Só de leitura.
 
@@ -574,7 +574,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| samlMetadataUrl | Cadeia |
+| samlMetadataUrl | String |
 
 O URL dos metadados SAML para a aplicação.
 
@@ -588,7 +588,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| sinalInUrl | Cadeia |
+| sinalInUrl | String |
 
 Especifica o URL na página inicial da aplicação.
 
@@ -602,7 +602,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| sinalInAudience | Cadeia |
+| sinalInAudience | String |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
 - `AzureADMyOrg`- Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino Azure AD da minha organização (por exemplo, inquilino único)

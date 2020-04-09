@@ -3,7 +3,6 @@ title: Como lidar com as alterações de cookies do SameSite no navegador Chrome
 titleSuffix: Microsoft identity platform
 description: Saiba como lidar com as alterações de cookies do SameSite no navegador Chrome.
 services: active-directory
-documentationcenter: ''
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 056b787bbbcde6ba7f9510043deabdcf85ac7467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e414e5cb7ad9097eb815240f83d9f529f839b6b4
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050532"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884006"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Processar as alterações de cookies do SameSite no browser do Chrome
 
@@ -63,7 +62,7 @@ para mais detalhes sobre como lidar com cookies do SameSite em ASP.NET e ASP.NET
 - [Trabalhe com cookies SameSite em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
 - [blog ASP.NET no mesmo site](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 | Sample |
 | ------ |

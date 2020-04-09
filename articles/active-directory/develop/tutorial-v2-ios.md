@@ -2,7 +2,6 @@
 title: MSAL para iOS & tutorial macOS - plataforma de identidade da Microsoft Azure
 description: Saiba como as aplicações iOS e MacOS (Swift) podem chamar uma API que requer acesso a fichas usando a plataforma de identidade da Microsoft
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +12,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3c88ad2d147fb7e681c266bc5f0e7eb2cbf470ce
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 3569d0404f6c0c7f78344ba53733ba2c0c43d979
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546179"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880810"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação iOS ou macOS
 

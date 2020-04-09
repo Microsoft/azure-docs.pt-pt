@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 70256046089a59df1de79b78124c5d60fde77080
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41893c2460ecb2d17e3893f867bc460105d57bbd
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705943"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887219"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Offline FairPlay Streaming para iOS com Media Services v3
 
@@ -203,45 +203,7 @@ Com a amostra da versão 3 ou da versão 4 do FPS Server SDK, se uma lista de re
 
 ## <a name="faq"></a>FAQ
 
-As seguintes perguntas frequentemente colocadas fornecem assistência com resolução de problemas:
-
-- **Porque é que só o áudio reprodução mas não o vídeo durante o modo offline?** Este comportamento parece ser por design da aplicação de amostra. Quando existe uma faixa de áudio alternativa (o que é o caso do HLS) durante o modo offline, tanto o iOS 10 como o iOS 11 predefinidos para a faixa de áudio alternativa. Para compensar este comportamento do modo offline FPS, retire a faixa de áudio alternativa do fluxo. Para isso nos Serviços de Media, adicione o filtro manifesto dinâmico "audio-only=falso". Por outras palavras, um URL HLS termina com .ism/manifest (formato=m3u8-apl,audio-only=falso). 
-- **Porque é que ainda reprodução áudio sem vídeo durante o modo offline depois de eu adicionar áudio-only=falso?** Dependendo do design da chave cache da rede de entrega de conteúdos (CDN), o conteúdo pode ser cached. Purgue a cache.
-- **O modo offline FPS também é suportado no iOS 11 para além do iOS 10?** Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
-- **Por que não encontro o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?** Desde a versão 4 do FPS Server SDK, este documento foi fundido no "FairPlay Streaming Programming Guide".
-- **Qual é a estrutura de ficheiros descarregado/offline nos dispositivos iOS?** A estrutura de ficheiros descarregada num dispositivo iOS parece ser a seguinte imagem. As `_keys` lojas de pastas descarregaram licenças fps, com um ficheiro de loja para cada anfitrião do serviço de licença. A `.movpkg` pasta armazena conteúdo sonoro e vídeo. A primeira pasta com um nome que termina com um traço seguido de um numérico contém conteúdo de vídeo. O valor numérico é a largura de PeakBand das representações em vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo áudio. A terceira pasta denominada "Data" contém a lista de reprodução principal do conteúdo do FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da `.movpkg` pasta. 
-
-![Estrutura de ficheiros de amostra seleções iOS da FairPlay offline](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
-
-Um ficheiro boot.xml de amostra:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
-  <Version>1.0</Version>
-  <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
-  <Streams>
-    <Stream ID="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" Path="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(127000)/Manifest(aac_eng_2_127,format=m3u8-aapl)">
-      <Complete>YES</Complete>
-    </Stream>
-    <Stream ID="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" Path="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(161000)/Manifest(video,format=m3u8-aapl)">
-      <Complete>YES</Complete>
-    </Stream>
-  </Streams>
-  <MasterPlaylist>
-    <NetworkURL>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl,audio-only=false)</NetworkURL>
-  </MasterPlaylist>
-  <DataItems Directory="Data">
-    <DataItem>
-      <ID>CB50F631-8227-477A-BCEC-365BBF12BCC0</ID>
-      <Category>Playlist</Category>
-      <Name>master.m3u8</Name>
-      <DataPath>Playlist-master.m3u8-CB50F631-8227-477A-BCEC-365BBF12BCC0.data</DataPath>
-      <Role>Master</Role>
-    </DataItem>
-  </DataItems>
-</HLSMoviePackage>
-```
+Consulte [perguntas frequentes que fornecem assistência com resolução](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode)de problemas .
 
 ## <a name="next-steps"></a>Passos seguintes
 

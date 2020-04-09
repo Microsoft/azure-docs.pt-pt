@@ -2,15 +2,15 @@
 title: Descrição geral de modelos
 description: Descreve os benefícios usando modelos do Gestor de Recursos Azure para a implantação de recursos.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 4570f5471ef6baf6f3f4a920be4d93c3f5a90438
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258129"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885740"
 ---
-# <a name="what-are-arm-templates"></a>O que são modelos ARM?
+# <a name="what-are-arm-templates"></a>O que são modelos do ARM?
 
 Com a mudança para a nuvem, muitas equipas adotaram métodos de desenvolvimento ágeis. Estas equipas iteram rapidamente. Precisam de implantar repetidamente as suas soluções na nuvem, e sabem que as suas infraestruturas estão num estado fiável. À medida que as infraestruturas se tornaram parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipas precisam de gerir a infraestrutura e o código de aplicação através de um processo unificado.
 
@@ -30,11 +30,17 @@ Se estiver a tentar decidir entre usar modelos ARM e uma das outras infraestrutu
 
    ![Comparação de implementação de modelos](./media/overview/template-processing.png)
 
-* **Validação incorporada**: O seu modelo só é implantado após a passagem da validação. O Gestor de Recursos verifica o modelo antes de iniciar a implementação para se certificar de que a implementação terá sucesso. O seu destacamento é menos provável que pare num estado semi-acabado.
-
 * **Ficheiros modulares:** Pode quebrar os seus modelos em componentes mais pequenos e reutilizáveis e ligá-los no momento da implantação. Você também pode nidificar um modelo dentro de outro modelo.
 
 * **Crie qualquer recurso Azure:** Pode utilizar imediatamente novos serviços e funcionalidades azure em modelos. Assim que um fornecedor de recursos introduzir novos recursos, pode implementar esses recursos através de modelos. Não é preciso esperar que as ferramentas ou módulos sejam atualizados antes de utilizar os novos serviços.
+
+* **Extensibility**: Com scripts de [implementação,](deployment-script-template.md)pode adicionar scripts PowerShell ou Bash aos seus modelos. Os scripts de implantação alargam a sua capacidade de criar recursos durante a implantação. Um script pode ser incluído no modelo, ou armazenado numa fonte externa e referenciado no modelo. Os scripts de implementação dão-lhe a capacidade de completar a configuração do ambiente de ponta a ponta num único modelo ARM.
+
+* **Teste**: Pode certificar-se de que o seu modelo segue as diretrizes recomendadas testando-a com o kit de ferramentas do modelo ARM (arm-ttk). Este kit de teste é um script PowerShell que pode supor a partir do [GitHub.](https://github.com/Azure/arm-ttk) O kit de ferramentas facilita o desenvolvimento de conhecimentos especializados utilizando a linguagem do modelo.
+
+* **Alterações de pré-visualização**: Pode utilizar a [operação "what-if"](template-deploy-what-if.md) para obter uma pré-visualização das alterações antes de implementar o modelo. Com o e-se, você vê quais os recursos que serão criados, atualizados ou eliminados, e quaisquer propriedades de recursos que irão mudar. A operação e se a operação verifica o estado atual do seu ambiente e elimina a necessidade de gerir o estado.
+
+* **Validação incorporada**: O seu modelo só é implantado após a passagem da validação. O Gestor de Recursos verifica o modelo antes de iniciar a implementação para se certificar de que a implementação terá sucesso. O seu destacamento é menos provável que pare num estado semi-acabado.
 
 * **Implementações rastreadas**: No portal Azure, pode rever o histórico de implementação e obter informações sobre a implementação do modelo. Pode ver o modelo que foi implantado, os valores do parâmetro passados e quaisquer valores de saída. Outras infraestruturas como serviços de código não são rastreadas através do portal.
 

@@ -1,26 +1,22 @@
 ---
-title: Começar com a plataforma de identidade microsoft Windows desktop [ desktop] Microsoft Docs
+title: Começar com a plataforma de identidade microsoft Windows desktop
 description: Como uma aplicação Windows Desktop .NET (XAML) pode obter um sinal de acesso e chamar um API protegido pela plataforma de identidade da Microsoft.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3cca48c44add92b935e3a21f35e38bb4990ff9de
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129919"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886420"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Ligue para a Microsoft Graph API a partir de uma aplicação do Windows Desktop
 

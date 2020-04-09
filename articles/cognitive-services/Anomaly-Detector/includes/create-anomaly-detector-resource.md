@@ -2,18 +2,18 @@
 title: Suporte de contentor
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8dbe36693e551bd03022f4a00044b75b912c834a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73523599"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875137"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detetor de Anomalias
 

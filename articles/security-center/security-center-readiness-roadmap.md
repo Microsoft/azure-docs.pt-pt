@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76281296"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879467"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -37,16 +37,14 @@ Vídeos
 * [Descrição Geral da Prevenção, Deteção e Capacidades de Resposta do Centro de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planeamento e operações
+
 Para tirar o máximo partido do Centro de Segurança, é importante compreender de que forma diferentes pessoas ou equipas na sua organização utilizam o serviço para dar resposta às necessidades de operações seguras, monitorização, governação e resposta a incidentes.
 
 Utilize os seguintes recursos para ajudá-lo durante os processos de planeamento e operações.
 
-
 Artigo
 * [Guia de operações e planeamento do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
-Vídeo
-* [Proteção de carga de trabalho de cloud híbrida com o Centro de Segurança](https://mva.microsoft.com/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=X4WqTA3jE_1106218965)
 
 ### <a name="onboarding-computers-to-security-center"></a>Inclusão de computadores no Centro de Segurança
 O Centro de Segurança deteta automaticamente quaisquer subscrições ou áreas de trabalho do Azure não ativadas para o Centro de Segurança Standard. Isto inclui as subscrições do Azure que utilizam o Centro de Segurança Gratuito e as áreas de trabalho que não têm a solução de Segurança ativada.
@@ -71,15 +69,15 @@ Artigos
 * [Proteger o serviço SQL do Azure e os dados no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-Vídeo   
+Vídeo    
 * [Mitigar os Problemas de Segurança com o Centro de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Centro de Segurança para resposta a incidentes
-Para reduzir os custos e os danos, é importante ter um plano de resposta a incidentes implementado antes que ocorra um ataque. Pode utilizar o Centro de segurança do Azure em várias fases de uma resposta a incidentes.
+Para reduzir custos e danos, é importante ter um plano de resposta a incidentes antes de um ataque ocorrer. Pode utilizar o Centro de segurança do Azure em várias fases de uma resposta a incidentes.
 
 Utilize os seguintes recursos para compreender como o Centro de Segurança pode ser incorporado no seu processo de resposta a incidentes.
 
-Vídeos  
+Vídeos    
 * [Centro de Segurança do Azure na Resposta a Incidentes](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Responder rapidamente a ameaças com a operação e investigação de segurança de próxima geração](https://youtu.be/e8iFCz5RM4g)
 
@@ -93,7 +91,7 @@ As VMs do Azure podem tirar partido das capacidades avançadas de defesa da clou
 
 Utilize os seguintes recursos para aprender a utilizar estas capacidades no Centro de Segurança.
 
-Vídeos  
+Vídeos    
 * [Centro de Segurança Azure – Acesso VM just-in-time](https://youtu.be/UOQb2FcdQnU)
 * [Centro de Segurança do Azure - Controlos de Aplicação Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 

@@ -5,7 +5,6 @@ description: O que significa que uma aplicação seja adicionada à AD Azure e c
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -14,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263143"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884278"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que as aplicações são adicionadas ao Azure AD
 

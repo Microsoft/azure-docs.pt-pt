@@ -2,25 +2,21 @@
 title: Ligue para uma API web a partir de uma app daemon - plataforma de identidade Microsoft / Azure
 description: Saiba como construir uma app daemon que chama APIs web
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e440628526dada7655cc71f63fc9fff006cc5ef5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76775199"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885451"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App Daemon que chama APIs web - ligue para uma API web da app
 
@@ -34,7 +30,7 @@ Aqui está como usar o símbolo para chamar uma API:
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 endpoint = "url to the API"
@@ -76,7 +72,7 @@ Para aplicações daemon, as APIs web a que chama precisam de ser pré-aprovadas
 > [!div class="nextstepaction"]
 > [App Daemon - mude para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [App Daemon - mude para a produção](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)

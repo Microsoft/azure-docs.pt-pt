@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73825700"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874709"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Quickstart: Restaurar uma base de dados para uma instância gerida
 
@@ -46,7 +46,7 @@ Este guia de início rápido:
 
 No SSMS, siga estes passos para restaurar a base de dados dos Importadores do Mundo Largo para a sua Instância Gerida. O ficheiro de backup da base de dados é armazenado numa conta de armazenamento Azure Blob pré-configurada.
 
-1. Abra o SMSS e ligue-se à sua Instância Gerida.
+1. Abra o SSMS e ligue-se à sua Instância Gerida.
 2. A partir do menu à esquerda, clique na direita na sua Instância Gerida e selecione **New Consulta** para abrir uma nova janela de consulta.
 3. Executar o seguinte script SQL, que usa uma conta de armazenamento pré-configurada e chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) na sua Instância Gerida.
 

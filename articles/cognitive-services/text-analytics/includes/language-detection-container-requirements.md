@@ -3,18 +3,18 @@ title: Requisitos e recomendações de contentores
 titleSuffix: Azure Cognitive Services
 description: Requisitos do recipiente de deteção de linguagem
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/20/2019
-ms.author: dapine
-ms.openlocfilehash: 3ae28ae01f6cffdc802bb79dcf8e91d1a9a1a725
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8536fb12d4f0434da964934767363d4c88e58563
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70051308"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877135"
 ---
 | Contentor | Mínimo | Recomendado | TPS<br>(Mínimo, Máximo)|
 |-----------|---------|-------------|--|

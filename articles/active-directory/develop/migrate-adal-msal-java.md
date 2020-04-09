@@ -7,7 +7,6 @@ author: sangonzal
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Java
 ms.workload: identity
@@ -15,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2d85a3a5d876d731655bb30f7d37a6f42fa5c220
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696729"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886505"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração DaAL para Java
 

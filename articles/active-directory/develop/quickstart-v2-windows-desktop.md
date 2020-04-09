@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade Microsoft Windows desktop quickstart [ Microsoft Docs
+title: Plataforma de identidade microsoft Windows desktop quickstart
 description: Saiba como uma aplicação de desktop Windows .NET (XAML) pode obter um token de acesso e chamar um API protegido por um ponto final da plataforma de identidade da Microsoft
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f7b6a682498bfce55107ba139600b6c9ab688542
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f202a6c06c2137501c2c6a1b47fbd086f80043a0
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473326"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883615"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 

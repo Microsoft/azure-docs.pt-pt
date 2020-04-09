@@ -3,19 +3,19 @@ title: Contentores de serviço de fala frequentemente fazem perguntas (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Instale e corra recipientes de fala. o discurso-a-texto transcreve os fluxos de áudio para texto em tempo real que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. Texto-a-fala converte texto de entrada em discurso sintetizado como o humano.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 2afb7c84c4d737703917d12a43aa7c3bb799836b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 9b0fd89693517bdb63ba6f4265fddf2b0aa57ba5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80537023"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874488"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Contentores de serviço de fala frequentemente fazem perguntas (FAQ)
 

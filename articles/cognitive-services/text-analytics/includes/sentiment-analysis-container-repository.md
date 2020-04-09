@@ -3,18 +3,18 @@ title: Repositório de contentores
 titleSuffix: Azure Cognitive Services
 description: Repositório de recipientes de análise de sentimento
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
-ms.openlocfilehash: be3927d996d181af13c4e2c6efd6ea48d6d486fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 48e6c7d9afc202a439c539492f93a7c3ebfc31b0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70966657"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877144"
 ---
 | Contentor | Repositório |
 |-----------|------------|

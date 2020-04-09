@@ -6,23 +6,23 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240395"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983029"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
 As aplicações de hoje são necessárias para serem altamente responsivas e sempre online. Para alcançar baixa latência e elevada disponibilidade, as ocorrências destas aplicações precisam de ser implementadas em datacenters próximos dos seus utilizadores. As aplicações precisam responder em tempo real a grandes mudanças de utilização nas horas de ponta, armazenar cada vez mais volumes de dados e disponibilizar estes dados aos utilizadores em milissegundos.
 
-O Azure Cosmos DB é o serviço de base de dados multimodelo distribuído globalmente pela Microsoft. Com um clique de um botão, cosmos DB permite-lhe escalar elástico e independentemente a produção e armazenamento em várias regiões azure em todo o mundo. Você pode escalar elástico sucintamente a entrada e armazenamento, e aproveitar o acesso rápido de dados de um dígito de milissegundousando o seu API favorito, incluindo: SQL, MongoDB, Cassandra, Tabelas ou Gremlin. Cosmos DB fornece [acordos abrangentes de nível](https://aka.ms/acdbsla) de serviço (SLAs) para garantias de entrada, latência, disponibilidade e consistência, algo que nenhum outro serviço de base de dados oferece.
+O Azure Cosmos DB é o serviço de base de dados multimodelo distribuído globalmente pela Microsoft. Com um clique de um botão, cosmos DB permite-lhe escalar elástico e independentemente a produção e armazenamento em várias regiões azure em todo o mundo. Você pode escalar elástico sucintamente a entrada e armazenamento, e aproveitar o acesso rápido de dados de um dígito de milissegundousando o seu API favorito, incluindo: SQL, MongoDB, Cassandra, Tabelas ou Gremlin. Cosmos DB fornece [acordos abrangentes de nível](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) de serviço (SLAs) para garantias de entrada, latência, disponibilidade e consistência, algo que nenhum outro serviço de base de dados oferece.
 
 Você pode [Experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos ou usar o [nível gratuito Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) para obter uma conta com os primeiros 400 RU/s e 5 GB de armazenamento gratuitos.
 
 > [!div class="nextstepaction"]
-> [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
 
 ![O Azure Cosmos DB é um serviço de base de dados de distribuição global da Microsoft com aumento horizontal elástico, baixa latência garantida, cinco modelos de consistência e SLAs abrangentes garantidos](./media/introduction/azure-cosmos-db.png)
 
@@ -56,7 +56,7 @@ Manter o esquema de base de dados e os índices em sincronização com o esquema
 
 ### <a name="battle-tested-database-service"></a>Serviço de base de dados testado em batalha
 
-Cosmos DB é um serviço fundamental em Azure. Durante quase uma década, a Cosmos DB tem sido usada por muitos dos produtos da Microsoft para aplicações críticas de missão à escala global, incluindo Skype, Xbox, Office 365, Azure, entre muitos outros. Hoje em dia, a Cosmos DB é um dos serviços de crescimento mais rápido do Azure, utilizado por muitos clientes externos e aplicações críticas de missão que requerem escala elástica, distribuição global chave na mão, replicação multi-master para baixa latência e alta disponibilidade de ambos lê e escreve.
+Cosmos DB é um serviço fundamental em Azure. Durante quase uma década, a Cosmos DB tem sido usada por muitos dos produtos da Microsoft para aplicações críticas de missão à escala global, incluindo Skype, Xbox, Office 365, Azure, entre muitos outros. Hoje em dia, a Cosmos DB é um dos serviços de crescimento mais rápido do Azure, utilizado por muitos clientes externos e aplicações críticas de missão que requerem escala elástica, distribuição global chave na mão, replicação multi-master para baixa latência e elevada disponibilidade de leituras e escritos.
 
 ### <a name="ubiquitous-regional-presence"></a>Presença regional ubíqua
 
@@ -104,4 +104,4 @@ Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)

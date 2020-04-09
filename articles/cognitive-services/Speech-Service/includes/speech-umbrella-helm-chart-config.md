@@ -3,19 +3,19 @@ title: Instalar recipientes de fala
 titleSuffix: Azure Cognitive Services
 description: Detalha as opções de configuração do gráfico do leme do guarda-chuva da fala.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
-ms.author: dapine
-ms.openlocfilehash: ed64412ccf9d192506fafe546b1ccee7941aa43a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 0257f3af44cc85d0a3656472db224ae5a7e19161
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73523638"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874360"
 ---
 ### <a name="speech-umbrella-chart"></a>Discurso (gráfico de guarda-chuva)
 

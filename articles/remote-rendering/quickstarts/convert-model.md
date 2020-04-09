@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 084f32ec9c1574dfdaf29edc24a406444de9a91d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b1bf2c365229a418870250a78a733f9870fb5bb0
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679927"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892381"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Quickstart: Converter um modelo para renderização
 
@@ -72,10 +72,10 @@ Preencha o formulário da seguinte forma:
 * Crie um novo Grupo de Recursos a partir do link abaixo da caixa de lançamento e nomeie este **ARR_Tutorial**
 * Para o nome da **conta De armazenamento,** insira um nome único aqui. **Este nome deve ser globalmente único,** caso contrário haverá uma solicitação que o informe de que o nome está pronto. No âmbito deste arranque rápido, damos-lhe o nome de **arrtutorialstorage.** Assim, tem de substituí-lo pelo seu nome por qualquer ocorrência neste arranque rápido.
 * Selecione um **local** próximo. Idealmente, utilize o mesmo local usado para configurar a renderização no outro arranque rápido.
-* **Desempenho** definido para 'Standard'
-* **Tipo de conta** definido para 'StorageV2 (finalidade geral v2)'
-* **Replicação** definida para "Armazenamento geo-redundante de acesso de leitura (RA-GRS)"
-* **Nível de acesso** definido para 'Hot'
+* **Conjunto de desempenho** para Standard
+* **Tipo de conta** definido para StorageV2 (finalidade geral v2)
+* Conjunto de **replicação** para armazenamento geo-redundante de acesso de leitura (RA-GRS)
+* **Nível de acesso** definido para Hot
 
 Nenhuma das propriedades de outros separadores tem de ser alterada, para que possa prosseguir com **"Review + create"** e, em seguida, seguir os passos para completar a configuração.
 
@@ -159,11 +159,14 @@ Uma vez convertido o modelo, será reescrito para o recipiente de armazenamento 
 
 A saída de definição de **configAssetFileName** determina o nome do ativo convertido - o parâmetro é opcional e o nome de ficheiro de saída será deduzido do nome do ficheiro de entrada de outra forma. 
 
-Abra um PowerShell, certifique-se de que instalou o *Azure PowerShell* conforme mencionado nos [pré-requisitos](#prerequisites). Em seguida, inicie sessão na sua subscrição:
+Abra um PowerShell, certifique-se de que instalou o *Azure PowerShell* conforme mencionado nos [pré-requisitos](#prerequisites). Em seguida, inicie sessão na sua subscrição com o seguinte comando e siga as instruções no ecrã:
 
 ```PowerShell
-Connect-AzAccount -Subscription "<your Azure subscription id>"
+Connect-AzAccount
 ```
+
+> [!NOTE]
+> Caso a sua organização tenha mais do que uma subscrição, poderá ser necessário especificar os argumentos Do Id e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 Mude para `azure-remote-rendering\Scripts` o diretório e execute o script de conversão:
 

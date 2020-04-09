@@ -1,17 +1,17 @@
 ---
-title: Análise de retenção de utilizadores para aplicações web com Insights de Aplicação Azure [ Microsoft docs
+title: Analisar a retenção de utilizadores de aplicações web com insights de aplicação Azure
 description: Quantos utilizadores regressam à sua aplicação?
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d9be6bc6d7f90153e2fb58aa404e281568dbdd
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670972"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892415"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de utilizadores para aplicações web com Insights de Aplicação
 
@@ -25,7 +25,7 @@ Se ainda não vir dados na ferramenta de retenção no portal Application Insigh
 
 ![Ferramenta de retenção](./media/usage-retention/retention.png)
 
-1. A barra de ferramentas permite que os utilizadores criem novos relatórios de retenção, abram relatórios de retenção existentes, guardem o relatório de retenção atual ou economizem, pois revertem as alterações feitas aos relatórios guardados, atualização de dados sobre o relatório, partilhem relatórios via e-mail ou link direto, e acedam à documentação página. 
+1. A barra de ferramentas permite que os utilizadores criem novos relatórios de retenção, abram relatórios de retenção existentes, guardem o relatório de retenção atual ou economizem alterações feitas em relatórios guardados, atualizardados sobre o relatório, partilhar relatórios via e-mail ou link direto, e aceder à página de documentação. 
 2. Por padrão, a retenção mostra todos os utilizadores que fizeram alguma coisa e depois voltaram e fizeram qualquer outra coisa durante um período. Pode selecionar diferentes combinações de eventos para limitar o foco em atividades específicas do utilizador.
 3. Adicione um ou mais filtros nas propriedades. Por exemplo, pode focar-se nos utilizadores de um determinado país ou região. Clique em **Atualizar** depois de definir os filtros. 
 4. O gráfico de retenção global mostra um resumo da retenção do utilizador durante o período de tempo selecionado. 

@@ -4,7 +4,6 @@ description: Conheça os fundamentos da autenticação na plataforma de identida
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6191e67f097b5ab471c5b31eff11a0e570d1c990
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617031"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885570"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 

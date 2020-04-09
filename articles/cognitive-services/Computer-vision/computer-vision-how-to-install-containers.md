@@ -3,20 +3,20 @@ title: Como instalar e executar contentores - Visão Computacional
 titleSuffix: Azure Cognitive Services
 description: Como descarregar, instalar e executar recipientes para visão de computador neste tutorial de walkthrough.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: pafarley
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: f8d19ded32f7f4a90b23106b6cec53418eef407e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458040"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879348"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar Ler recipientes (Pré-visualização)
 

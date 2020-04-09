@@ -1,18 +1,18 @@
 ---
 title: Recipientes Próximos Passos
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: a28dfc93fd007a5a0d83274af741a6a56fc747f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 3820d1d42449fe962c151655768c4aa063eb9529
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73523597"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876098"
 ---
 ## <a name="next-steps"></a>Passos seguintes 
 

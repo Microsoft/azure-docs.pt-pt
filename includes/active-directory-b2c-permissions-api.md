@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: 71a6654acd436c27bd2370646dede81778113860
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee63c1c0913baf3700d77e6fba1582fe7027ead7
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186151"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875697"
 ---
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 
@@ -28,8 +28,8 @@ ms.locfileid: "78186151"
 1. Selecione o separador **My APIs.**
 1. Selecione a API a que a aplicação web deve ter acesso. Por exemplo, *webapi1*.
 1. Sob **Permissão,** expanda a **demonstração**e, em seguida, selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
-1. **Selecione Adicionar permissões**. Como foi dirigido, aguarde alguns minutos antes de passar para o próximo passo.
+1. **Selecione Adicionar permissões**.
 1. Selecione **Grant administrador consentimento para (o nome do seu inquilino)**.
-1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que tenha sido atribuída pelo menos a função de administrador de *aplicação Cloud.*
-1. Selecione **Aceitar**.
-1. Selecione **Refresh**, e, em seguida, verifique se "Granted for ..." aparece em **Status** para ambos os âmbitos. Pode levar alguns minutos para as permissões se propagarem.
+1. Se for solicitado a selecionar uma conta, selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que tenha sido atribuída pelo menos a função de administrador de *aplicação Cloud.*
+1. Selecione **Sim**.
+1. Selecione **Refresh**, e, em seguida, verifique se "Granted for ..." aparece em **Status** para ambos os âmbitos.

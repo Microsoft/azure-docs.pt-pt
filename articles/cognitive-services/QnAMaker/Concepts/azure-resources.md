@@ -3,12 +3,12 @@ title: Recursos Azure - QnA Maker
 description: O QnA Maker utiliza várias fontes Azure, cada uma com um propósito diferente. Compreender como são usados individualmente permite-lhe planear e selecionar o nível de preços correto ou saber quando alterar o seu nível de preços. Compreender como são usados em combinação permite-lhe encontrar e corrigir problemas quando ocorrem.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804304"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873910"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos azure para O Fabricante qnA
 
@@ -49,6 +49,16 @@ A tabela que se segue dá-lhe algumas diretrizes de alto nível.
 | Experimentação        | SKU grátis             | Tier Livre   | Tier Livre    | Publicar Até 2 KBs, tamanho de 50 MB  |
 | Ambiente de v/teste   | SKU Standard         | Partilhado      | Básico        | Publicar até 14 KBs, 2 GB tamanho    |
 | Ambiente de Produção | SKU Standard         | Básico       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
+
+## <a name="recommended-settings"></a>Definições recomendadas
+
+|QPS alvo | Serviço de Aplicações | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 Instância   | S1, 1 Instância    |
+| 50         | S3, 10 Instâncias       | S1, 12 Instâncias         |
+| 80         | S3, 10 Instâncias      |  S3, 12 Instâncias  |
+| 100         | P3V2, 10 Instâncias  | S3, 12 Instâncias, 3 Divisórias   |
+| 200 a 250         | P3V2, 20 Instâncias | S3, 12 Instâncias, 3 Divisórias    |
 
 ## <a name="when-to-change-a-pricing-tier"></a>Quando mudar um nível de preços
 
@@ -164,7 +174,7 @@ Utilize estas chaves ao fazer pedidos ao serviço através de APIs.
 
 |Nome|Localização|Objetivo|
 |--|--|--|
-|Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do serviço de [gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimentos e publicar a sua base de conhecimento. Estas chaves são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso dos **Serviços Cognitivos** na página **Keys.**|
+|Chave de autoria|[Portal Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do serviço de [gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimentos e publicar a sua base de conhecimento. Estas chaves são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso dos **Serviços Cognitivos** na página **Keys.**|
 |Chave final de consulta|[Portal do Criador de FAQ](https://www.qnamaker.ai)|Estas teclas são usadas para consultar o ponto final da base de conhecimento publicado para obter uma resposta para uma pergunta do utilizador. Normalmente utiliza este ponto final de consulta no seu chat bot ou no código de aplicação do cliente que se conecta ao serviço QnA Maker. Estas chaves são criadas quando publica a sua base de conhecimento qnA Maker.<br><br>Encontre estas teclas na página de definições do **Serviço.** Encontre esta página no menu do utilizador no canto superior direito da página no menu suspenso.|
 
 ### <a name="subscription-keys"></a>Chaves de subscrição

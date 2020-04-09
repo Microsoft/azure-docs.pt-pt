@@ -3,18 +3,18 @@ title: Exemplos de estivadores de deteção de linguagem
 titleSuffix: Azure Cognitive Services
 description: Exemplos de estivadores de deteção de linguagem
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
-ms.author: dapine
-ms.openlocfilehash: 6e09a19ceb7b892a8ec405b348700b65c9d55ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 01863bfd1bf1c2c6f5688145ac5cbf74d1d2dfc1
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71148471"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878687"
 ---
 ### <a name="language-detection-container-docker-examples"></a>Exemplos de estivadores de deteção de linguagem
 

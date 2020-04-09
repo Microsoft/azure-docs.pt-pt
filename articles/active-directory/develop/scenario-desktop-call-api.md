@@ -2,24 +2,21 @@
 title: Ligue para a web APIs a partir de uma aplicação de desktop - plataforma de identidade microsoft / Azure
 description: Saiba como construir uma aplicação de desktop que chama APIs web
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2b3d9fdc163d0661670f3d0cf6e6a276c8b691bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76702169"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882969"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicação de desktop que chama APIs web: Ligue para uma Web API
 
@@ -34,7 +31,7 @@ Agora que tem um símbolo, pode chamar uma API protegida.
 <!--
 More includes will come later for Python and Java
 -->
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 endpoint = "url to the API"

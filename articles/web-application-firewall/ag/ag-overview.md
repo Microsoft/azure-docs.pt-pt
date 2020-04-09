@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8d43851a6a546bd23881c4d0a72185ca03e63092
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74384120"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983624"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall de aplicação web azure no gateway de aplicação azure
 
@@ -40,7 +40,7 @@ Esta secção descreve os benefícios fundamentais que a WAF no Gateway de Aplic
 
 * Proteja as suas aplicações web de vulnerabilidades web e ataques sem modificação para o código final.
 
-* Proteja várias aplicações web ao mesmo tempo. Um exemplo de Application Gateway pode alojar até 40 websites que estão protegidos por uma firewall de aplicação web.
+* Proteja várias aplicações web ao mesmo tempo. Um exemplo de Application Gateway pode hospedar até 40 websites que estão protegidos por uma firewall de aplicação web.
 
 * Crie políticas de WAF personalizadas para diferentes sites por trás da mesma WAF 
 

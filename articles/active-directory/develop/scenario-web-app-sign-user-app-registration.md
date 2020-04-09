@@ -2,24 +2,21 @@
 title: Registe uma aplicação web que assina nos utilizadores - plataforma de identidade da Microsoft Azure
 description: Saiba como registar uma aplicação web que assina nos utilizadores
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f2513b1fee022199f040ba0dcf83110c0b3b1365
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701574"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881584"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicativos
 
@@ -95,7 +92,7 @@ Pode utilizar estes links para a criação da sua aplicação web:
    1. Selecione **Adicionar**.
    1. Quando o valor-chave aparecer, copie-o para mais tarde. Este valor não será mostrado novamente ou será recuperado por qualquer outro meio.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Quando aparecer uma página de **inscrição,** insira as informações de registo da sua candidatura:
    1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação. Por exemplo, **introduza python-webapp**.

@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294962"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892262"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é Rastreio Distribuído?
 
@@ -27,18 +27,18 @@ O Azure Monitor também oferece uma visão do mapa de [aplicações](https://doc
 
 ## <a name="how-to-enable-distributed-tracing"></a>Como ativar o rastreio distribuído
 
-Permitir o rastreio distribuído pelos serviços numa aplicação é tão simples como adicionar o SDK ou biblioteca adequado a cada serviço, com base na linguagem em que o serviço foi implementado.
+Permitir o rastreio distribuído pelos serviços numa aplicação é tão simples como adicionar o agente adequado, SDK ou biblioteca a cada serviço, com base na linguagem em que o serviço foi implementado.
 
-## <a name="enabling-via-application-insights-sdks"></a>Habilitação através de SDKs de Insights de Aplicação
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Habilitar através de Insights de Aplicação através de instrumentação automática ou SDKs
 
-Os SDKs de Insights de Aplicação para .NET, .NET Core, Java, Node.js e JavaScript todos os suportes distribuídos de forma nativa. As instruções para a instalação e configuração de cada aplicação Insights SDK estão disponíveis abaixo:
+Os agentes de Insights de Aplicação e/ou SDKs para .NET Core, Java, Node.js e JavaScript todos os suportes distribuídos de forma nativa. As instruções para a instalação e configuração de cada aplicação Insights SDK estão disponíveis abaixo:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Nó.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
-* [Pitão](opencensus-python.md)
+* [Python](opencensus-python.md)
 
 Com a aplicação adequada Insights SDK instalada e configurada, a informação de rastreio é recolhida automaticamente para quadros populares, bibliotecas e tecnologias por auto-coleccionadores de dependência sdK. A lista completa de tecnologias suportadas está disponível na documentação de [recolha automática dependency.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)
 
@@ -48,12 +48,12 @@ Com a aplicação adequada Insights SDK instalada e configurada, a informação 
 
 Além dos SDKs de Insights de Aplicação, a Application Insights também suporta o rastreio distribuído através do [OpenCensus](https://opencensus.io/). OpenCensus é uma distribuição única de bibliotecas de código aberto, fornecedor-agnóstico, para fornecer recolha de métricas e rastreio distribuído para serviços. Também permite à comunidade de código aberto permitir rastreios distribuídos com tecnologias populares como Redis, Memcached ou MongoDB. A [Microsoft colabora no OpenCensus com vários outros parceiros de monitorização e nuvem.](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)
 
-[Pitão](opencensus-python.md) 
+[Python](opencensus-python.md) 
 
 O site OpenCensus mantém documentação de referência da API para [Python](https://opencensus.io/api/python/trace/usage.html) e [Go,](https://godoc.org/go.opencensus.io)bem como vários guias diferentes para a utilização do OpenCensus. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Guia de utilização OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
-* [Application map](./../../azure-monitor/app/app-map.md) (Mapeamento de aplicações)
+* [Mapa de aplicações](./../../azure-monitor/app/app-map.md)
 * [Monitorização do desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

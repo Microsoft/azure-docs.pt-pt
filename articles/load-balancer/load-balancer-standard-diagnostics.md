@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 861961bb66adc7ed9509eab973516a964cb67492
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521056"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887117"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -69,8 +69,6 @@ Para visualizar as métricas dos seus recursos Standard Load Balancer:
 
 Para obter orientação da API para recuperar definições e valores métricos multidimensionais, consulte a passagem da API de [Monitorização do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento apenas através da opção 'All Metrics'. 
 
-### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários de diagnóstico comuns e vistas recomendadas
-
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurar alertas para métricas multidimensionais ###
 
 O Azure Standard Load Balancer suporta alertas facilmente configuráveis para métricas multidimensionais. Configure limiares personalizados para métricas específicas para desencadear alertas com diferentes níveis de gravidade para capacitar uma experiência de monitorização de recursos sem toque.
@@ -82,10 +80,11 @@ Para configurar alertas:
     1.  (Opcional) Adicionar grupo de ação para reparação automatizada
     1.  Atribuir gravidade, nome e descrição de alerta que permita uma reação intuitiva
 
-
   >[!NOTE]
   >A janela de configuração da condição de alerta mostrará séries de tempo para o histórico de sinais. Existe uma opção para filtrar esta série de tempo por dimensões como o Backend IP. Isto filtrará o gráfico da série de tempo, mas **não** o próprio alerta. Não é possível configurar alertas para endereços IP específicos do Backend.
-  
+
+### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários de diagnóstico comuns e vistas recomendadas
+
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>O caminho dos dados está disponível para o meu equilibrador de carga VIP?
 
 A métrica de disponibilidade VIP descreve a saúde do caminho dos dados dentro da região para o hospedeiro da computação onde estão localizados os seus VMs. A métrica é um reflexo da saúde da infraestrutura Azure. Pode usar a métrica para:

@@ -1,28 +1,23 @@
 ---
-title: Quebra do Diretório Ativo Azure altera referência Microsoft Docs
+title: Quebra do Diretório Ativo Azure muda referência
 description: Conheça as alterações feitas aos protocolos DaD Azure que podem afetar a sua aplicação.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1248063c1b4c1b1e124ff671797450dd5c1b8727
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52ede7d66bd657b5002272e34673b4b01c9ab1aa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050173"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883462"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para autenticação? 
 
@@ -42,7 +37,7 @@ O sistema de autenticação altera e adiciona funcionalidades de forma contínua
 
 Nenhum agendado neste momento.  Veja abaixo as alterações que estão dentro ou estão a chegar à produção. 
 
-## <a name="march-2020"></a>março de 2020 
+## <a name="march-2020"></a>Março de 2020 
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>As palavras-passe dos utilizadores serão restritas a 256 caracteres.
 

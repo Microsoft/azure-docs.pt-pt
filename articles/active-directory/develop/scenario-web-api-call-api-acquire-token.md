@@ -3,24 +3,21 @@ title: Obtenha um símbolo para uma API web que chama APIs web / Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a construir uma API web que chama APIs web que requerem a aquisição de um símbolo para a aplicação.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2721837459af24f39bb15ee17d394345cbb37eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76834115"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885145"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Um API web que chama APIs web: Adquira um símbolo para a app
 
@@ -92,7 +89,7 @@ public class ApiController {
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Uma API web Python terá de usar algum middleware para validar o token do portador recebido do cliente. A Web API pode então obter o token de acesso para [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) API a jusante usando a biblioteca MSAL Python, chamando o método. Uma amostra que demonstre este fluxo com a MSAL Python ainda não está disponível.
 

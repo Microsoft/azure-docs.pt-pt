@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409563"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879433"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marque imagens em um projeto de rotulagem
 
-Depois de o administrador do projeto criar um projeto de [rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, pode utilizar a ferramenta de rotulagem para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
+Depois de o administrador do projeto criar um projeto de [rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como aceder aos seus projetos de rotulagem
@@ -45,7 +45,9 @@ Vá ver **instruções detalhadas**. Estas instruções são específicas do seu
 
 Em todas as tarefas de rotulagem de imagem, você escolhe uma etiqueta ou etiquetas apropriadas de um conjunto especificado pelo administrador do projeto. Pode selecionar as primeiras nove etiquetas utilizando as teclas de número no teclado.  
 
-Em tarefas de classificação de imagem, pode optar por ver várias imagens simultaneamente. Utilize os ícones acima da área de imagem para selecionar o layout. Para selecionar todas as imagens exibidas simultaneamente, utilize **Selecione todas**. Para selecionar imagens individuais, utilize o botão de seleção circular no canto superior direito da imagem. Deve selecionar pelo menos uma imagem para aplicar uma etiqueta. Se selecionar várias imagens, qualquer etiqueta que selecionar será aplicada a todas as imagens selecionadas.
+Em tarefas de classificação de imagem, pode optar por ver várias imagens simultaneamente. Utilize os ícones acima da área de imagem para selecionar o layout. 
+
+Para selecionar todas as imagens exibidas simultaneamente, utilize **Selecione todas**. Para selecionar imagens individuais, utilize o botão de seleção circular no canto superior direito da imagem. Deve selecionar pelo menos uma imagem para aplicar uma etiqueta. Se selecionar várias imagens, qualquer etiqueta que selecionar será aplicada a todas as imagens selecionadas.
 
 Aqui escolhemos um layout de dois por dois e estamos prestes a aplicar a etiqueta "Mamífero" às imagens do urso e da orca. A imagem do tubarão já estava marcada como "Peixe Cartilaginoso", e a iguana ainda não foi marcada.
 

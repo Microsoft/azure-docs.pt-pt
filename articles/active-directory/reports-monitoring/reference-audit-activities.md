@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74007757"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891514"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -370,8 +370,8 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Aplicações|Editar Termos de Utilização|
 |Gestão de Aplicações|Publicar Termos de Utilização|
 |Gestão de Aplicações|Anular publicação dos Termos de Utilização|
-|Gestão de Aplicações|Adicionar certificado SSL da aplicação|
-|Gestão de Aplicações|Eliminar enlace SSL|
+|Gestão de Aplicações|Adicionar certificado tLS/SSL de aplicação|
+|Gestão de Aplicações|Eliminar a ligação TLS|
 |Gestão de Aplicações|Registar conector|
 |Gestão de Aplicações|AdminPolicyDatas-RemoveResources|
 |Gestão de Aplicações|AdminPolicyDatas-SetResources|

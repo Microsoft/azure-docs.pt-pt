@@ -3,24 +3,21 @@ title: Adquirir um símbolo para chamar uma API web (app de desktop) / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação de desktop que chama APIs web para adquirir um símbolo para a app
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 636c7c654b98ced5f93c3ace0e4a99bfc9bf7def
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5942a9d614bbb06fadb1d4b16d4c68c007434c7
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262610"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885323"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicação de desktop que chama APIs web: Adquira um símbolo
 
@@ -94,7 +91,7 @@ return result;
 
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 result = None
@@ -358,7 +355,7 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 A MSAL Python não fornece diretamente um método de aquisição interativo. Em vez disso, requer que o pedido envie um pedido de autorização na sua implementação do fluxo de interação do utilizador para obter um código de autorização. Este código pode então `acquire_token_by_authorization_code` ser passado ao método para obter o símbolo.
 
@@ -589,7 +586,7 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Este fluxo ainda não é suportado na MSAL Python.
 
@@ -886,7 +883,7 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Este extrato provém das amostras de v da [MSAL Python.](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)
 
@@ -1096,7 +1093,7 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Este extrato provém das amostras de v da [MSAL Python.](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/)
 

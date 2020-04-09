@@ -3,26 +3,22 @@ title: Inscreva-se com a concessão de credenciais de senha do proprietário de 
 titleSuffix: Microsoft identity platform
 description: Suporte fluxos de autenticação sem navegador utilizando a bolsa de credencial de senha do proprietário de recursos (ROPC).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 173f632a6baed0179b7b4facd2962f9c9764af47
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700690"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886335"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e Credenciais de senha do proprietário de recursos OAuth 2.0
 
@@ -96,7 +92,7 @@ O exemplo que se segue mostra uma resposta simbólica bem sucedida:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | Cadeia | Sempre definido `Bearer`para . |
+| `token_type` | String | Sempre definido `Bearer`para . |
 | `scope` | Cordas separadas do espaço | Se um token de acesso tiver sido devolvido, este parâmetro lista os âmbitos para os que o token de acesso é válido. |
 | `expires_in`| int | Número de segundos para o que o token de acesso incluído é válido para. |
 | `access_token`| Corda opaca | Emitido para os [âmbitos solicitados.](v2-permissions-and-consent.md) |

@@ -3,19 +3,19 @@ title: Configure recipientes de fala
 titleSuffix: Azure Cognitive Services
 description: O serviço de fala fornece a cada recipiente um quadro de configuração comum, para que possa configurar e gerir facilmente o armazenamento, a extração e a telemetria e as definições de segurança dos seus contentores.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037315"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877580"
 ---
 # <a name="configure-speech-service-containers"></a>Configure recipientes de serviço de fala
 
@@ -52,7 +52,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 | Necessário | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Sim | `Billing` | Cadeia | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+| Sim | `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Cenário eula
 
@@ -80,8 +80,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 | Opcional | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Não permitido | `Input` | Cadeia | Os recipientes standard de fala não usam isto. Os recipientes de fala personalizados utilizam [suportes](#volume-mount-settings)de volume .                                                                                    |
-| Opcional | `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Não permitido | `Input` | String | Os recipientes standard de fala não usam isto. Os recipientes de fala personalizados utilizam [suportes](#volume-mount-settings)de volume .                                                                                    |
+| Opcional | `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configurações de montagem de volume
 

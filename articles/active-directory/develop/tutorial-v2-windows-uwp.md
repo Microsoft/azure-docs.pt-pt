@@ -2,25 +2,21 @@
 title: Plataforma de identidade da Microsoft UWP a começar Azure
 description: Como as aplicações da Plataforma Universal Windows (UWP) podem chamar uma API que requer fichas de acesso pelo ponto final da plataforma de identidade da Microsoft.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6e7ee1b03dda30bea15a837b6daf6469e00e46d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129895"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886403"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Ligue para a Microsoft Graph API a partir de uma aplicação universal da Plataforma Windows (XAML)
 
@@ -346,7 +342,7 @@ Adicione o seguinte novo método para *MainPage.xaml.cs:*
 
 Agora precisa de registar o seu pedido:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione registos de > **aplicações**de **diretório ativo Azure**.
 1. Selecione **Novo registo**. Introduza um nome de aplicação significativo que será apresentado aos utilizadores da app, por exemplo *UWP-App-call-MSGraph*.
 1. Sob os tipos de **conta suportados**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox)** e, em seguida, selecione **Register** para continuar.

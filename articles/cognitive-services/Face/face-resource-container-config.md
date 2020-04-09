@@ -3,20 +3,20 @@ title: Configure recipientes - Rosto
 titleSuffix: Azure Cognitive Services
 description: O ambiente de tempo de execução do recipiente Face é configurado utilizando os argumentos de `docker run` comando. Existem configurações necessárias e opcionais.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 3c78c9eb85c3a8be236be5c3a24bd877db204b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76167968"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878430"
 ---
 # <a name="configure-face-docker-containers"></a>Configure recipientes De Estivador de Rosto
 
@@ -53,7 +53,7 @@ Lembre-se de adicionar o encaminhamento _face_ ao ponto final URI, como mostra o
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
@@ -82,9 +82,9 @@ Os cenários de armazenamento e as configurações de configuração associadas 
 
 | Nome | Tipo de dados | Descrição |
 |------|-----------|-------------|
-| `StorageScenario` | Cadeia | O cenário de armazenamento suportado pelo recipiente. Os seguintes valores estão disponíveis<br/>`Memory`- Valor por defeito. O recipiente utiliza armazenamento não persistente, não distribuído e em memória, para uso temporário de nó único. Se o recipiente for parado ou removido, o armazenamento desse recipiente é destruído.<br/>`Azure`- O contentor utiliza recursos Azure para armazenamento. Se o recipiente for parado ou removido, o armazenamento desse recipiente é permanecido.|
-| `ConnectionStringOfAzureStorage` | Cadeia | A corda de ligação para o recurso de armazenamento Azure utilizado pelo recipiente.<br/>Esta definição só `Azure` se aplica `StorageScenario` se for especificada para a definição de configuração. |
-| `ConnectionStringOfCosmosMongo` | Cadeia | A cadeia de ligação MongoDB para o recurso Azure Cosmos DB utilizado pelo recipiente.<br/>Esta definição só `Azure` se aplica `StorageScenario` se for especificada para a definição de configuração. |
+| `StorageScenario` | String | O cenário de armazenamento suportado pelo recipiente. Os seguintes valores estão disponíveis<br/>`Memory`- Valor por defeito. O recipiente utiliza armazenamento não persistente, não distribuído e em memória, para uso temporário de nó único. Se o recipiente for parado ou removido, o armazenamento desse recipiente é destruído.<br/>`Azure`- O contentor utiliza recursos Azure para armazenamento. Se o recipiente for parado ou removido, o armazenamento desse recipiente é permanecido.|
+| `ConnectionStringOfAzureStorage` | String | A corda de ligação para o recurso de armazenamento Azure utilizado pelo recipiente.<br/>Esta definição só `Azure` se aplica `StorageScenario` se for especificada para a definição de configuração. |
+| `ConnectionStringOfCosmosMongo` | String | A cadeia de ligação MongoDB para o recurso Azure Cosmos DB utilizado pelo recipiente.<br/>Esta definição só `Azure` se aplica `StorageScenario` se for especificada para a definição de configuração. |
 
 Por exemplo, o seguinte comando especifica o cenário de armazenamento Azure e fornece cordas de ligação de amostra para os recursos de Armazenamento Azure e Cosmos DB utilizados para armazenar dados para o recipiente Face.
 
@@ -124,8 +124,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 |Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Os recipientes faciais não usam isto.|
-|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Os recipientes faciais não usam isto.|
+|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo 
 

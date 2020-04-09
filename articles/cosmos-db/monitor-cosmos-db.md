@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: b9b66c379714c2f4fa2421876fda3bdb500ce6c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9e86706ecd4e5b2526e1d801dda45ed6b345c6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250428"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887253"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
 Quando se tem aplicações críticas e processos de negócio baseados nos recursos do Azure, pretende monitorizar esses recursos para a sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitorização gerados pelas bases de dados da Azure Cosmos e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -38,7 +38,7 @@ As seguintes secções baseiam-se neste artigo descrevendo os dados específicos
 
 ## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Ver métricas de nível de operação para Azure Cosmos DB
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Monitor** a partir da barra de navegação à esquerda e selecione **Métricas**.
 
@@ -63,10 +63,6 @@ Também pode filtrar métricas e o gráfico apresentado por um **nome**de recolh
 Pode agrupar métricas utilizando a opção **de divisão Apply.** Por exemplo, pode agrupar as unidades de pedido por tipo de operação e visualizar o gráfico para todas as operações de uma só vez, como mostra a seguinte imagem:
 
 ![Adicionar aplicar filtro de divisão](./media/monitor-cosmos-db/apply-metrics-splitting.png)
-
-Aqui está outro exemplo para visualizar as métricas de latência do lado do servidor para uma base de dados específica, recipiente ou uma operação:
-
-![Métricas de latência do lado do servidor](./media/monitor-cosmos-db/serverside-latency-metric.png)
 
 ## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Dados de monitorização recolhidos da Azure Cosmos DB
 

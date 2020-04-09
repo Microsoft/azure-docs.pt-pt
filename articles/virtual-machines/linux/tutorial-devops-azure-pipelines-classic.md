@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 1/16/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: 5707a99b329915b35131fe793b0dfabd02348677
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4159bf27c39087926d982552c49c606f3484de77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77912533"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885910"
 ---
 # <a name="tutorial-integrated-devops-for-iaas-and-paas-on-azure"></a>Tutorial: DevOps integrados para IaaS e PaaS em Azure
 
@@ -37,52 +37,79 @@ Quer a sua aplicação utilize máquinas virtuais, aplicações web, Kubernetes 
  
  
 ## <a name="iaas---configure-cicd"></a>IaaS - Configure CI/CD 
-A Azure Pipelines fornece um conjunto completo e completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínuo para um Azure VM diretamente do portal Azure. Este documento contém os passos associados à criação de um gasoduto CI/CD para implantações multi-máquinas a partir do portal Azure. Configure CI/CD em máquinas virtuais.
+A Azure Pipelines fornece um conjunto completo e completo de ferramentas de automatização CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínuo para um Azure VM diretamente do portal Azure. Este documento contém os passos associados à criação de um gasoduto CI/CD para implantações multi-máquinas a partir do portal Azure. 
 
-As máquinas virtuais podem ser adicionadas como alvos de um grupo de [implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e podem ser direcionadas para atualizações de rolos multi-máquinas. As opiniões do histórico de implantação dentro dos grupos de implantação fornecem rastreabilidade da VM para o oleoduto e, em seguida, para o compromisso. 
+
+**Configure CI/CD em máquinas virtuais**
+
+As máquinas virtuais podem ser adicionadas como alvos de um grupo de [implementação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e podem ser direcionadas para a atualização multi-máquina. Com base nos seus requisitos, pode escolher qualquer uma das estratégias de implementação fora da caixa, _Rolling,_ _Canary,_ _Blue-Green_ ou pode personalizá-las ainda mais. Uma vez implementado, as vistas do Histórico de Implantação dentro dos Grupos de Implantação fornecem rastreabilidade da VM para o oleoduto e, em seguida, para o compromisso. 
  
-**Atualizações em rolo**: Uma implementação rolante substitui as instâncias da versão anterior de uma aplicação por instâncias da nova versão da aplicação num conjunto fixo de máquinas (rolling set) em cada iteração. Vamos ver como pode configurar uma atualização rolante para máquinas virtuais.  
+**Rolling Deployments**: Uma implantação rolante substitui as instâncias da versão anterior de uma aplicação por instâncias da nova versão da aplicação num conjunto fixo de máquinas (rolling set) em cada iteração. Vamos ver como pode configurar uma atualização rolante para máquinas virtuais.  
 Pode configurar atualizações de rolamento para as suas "**máquinas virtuais**" dentro do portal Azure utilizando a opção de entrega contínua. 
 
 Aqui está a passagem passo a passo. 
 1. Inscreva-se no seu portal Azure e navegue para uma máquina virtual. 
 2. No painel esquerdo VM, navegue para o menu de **entrega** contínua. Em seguida, clique em **Configurar**. 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azdevops-configure.png) 
-3. No painel de configuração, clique em "Azure DevOps Organization" para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azdevops-project.png) 
-4. Um grupo de implantação é um conjunto lógico de máquinas-alvo de implantação que representam os ambientes físicos; por exemplo, "Dev", "Test", "UAT" e "Production". Pode criar um novo grupo de implementação ou selecionar um grupo de implementação existente. Pode marcar opcionalmente a máquina com o papel. Por exemplo, 'web', 'db' etc.  
-5. Clique **ok** no diálogo para configurar o gasoduto de entrega contínua. 
-6. Uma vez feito, terá um gasoduto de entrega contínuo configurado para ser implantado na máquina virtual.  
-   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-pipeline.png)
-7. Verá que a implantação para a máquina virtual está em andamento. Pode clicar no link para navegar até ao oleoduto. Clique no **Lançamento-1** para visualizar a implementação. Ou pode clicar na **Edição** para modificar a definição do pipeline de lançamento. 
-8. Se tiver vários VMs para configurar, repita os passos 2-5, para que outros VMs sejam adicionados ao grupo de implementação. 
-9. Uma vez feito, clique na definição do pipeline, navegue para a organização Azure DevOps e clique no pipeline de lançamento **edit.** 
-   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-edit-pipeline.png)
-10. Clique no **link 1 trabalho, 1 tarefa** na fase **de dev.** Clique na fase **de implantação.**  
-   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azdevops-deployment-group.png)
-11. A partir do painel de configuração à direita, pode ver que, por padrão, o gasoduto está configurado para fazer uma atualização rolante para todos os alvos em paralelo. Pode configurar as implementações para acontecer em termos de percentagem, utilizando o slider.  
-  
-  
-**Canário** reduz o risco ao lançar lentamente a mudança para um pequeno subconjunto de utilizadores. À medida que ganha mais confiança na nova versão, pode começar a lançá-la para mais servidores na sua infraestrutura e encaminhar mais utilizadores para ela. Pode configurar as implementações canárias para as suas "**máquinas virtuais**" com o portal Azure utilizando a opção de entrega contínua. Aqui está a passagem passo a passo. 
-1. Inscreva-se no seu portal Azure e navegue para uma máquina virtual 
-2. Siga os passos 2-5 na secção anterior para adicionar vários VMs ao grupo de implantação. 
-3. Adicione uma etiqueta personalizada aos VMs que devem fazer parte das implementações canárias. Por exemplo, "canário".
-4. Assim que o gasoduto estiver configurado para os VMs, clique no oleoduto, lance a organização Azure DevOps, **edite** o pipeline e navegue até ao estágio **de dev.** Adicione a etiqueta ao filtro "canário". 
-5. Adicione outra fase de grupo de implementação, configure a fase com as etiquetas para direcionar os VMs restantes no grupo de implementação.  
-6. Opcionalmente, configure um passo de validação manual que possa promover/rejeitar as implementações canárias. 
-   ![AzDevOps_Canary](media/tutorial-devops-azure-pipelines-classic/azdevops-canary-deploy.png)
 
-**Blue-Green** reduz o tempo de paragem de implantação por ter um ambiente de espera idêntico. A qualquer momento, um dos ambientes está ao vivo. Enquanto se prepara para um novo lançamento, faz a fase final de testes no ambiente verde. Uma vez que o software esteja a funcionar em ambiente verde, mude o tráfego para que todos os pedidos de entrada vão para o ambiente verde - o ambiente azul está agora inativo.
+   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
+3. No painel de configuração, clique em "Azure DevOps Organization" para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
+
+
+   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
+4. Um grupo de implantação é um conjunto lógico de máquinas-alvo de implantação que representam os ambientes físicos; por exemplo, "Dev", "Test", "UAT" e "Production". Pode criar um novo grupo de implementação ou selecionar um grupo de implementação existente. 
+5. Selecione o pipeline de construção que publica o pacote a ser implantado na máquina virtual. Note que o pacote publicado deve ter um script _de implementação deploy.ps1_ ou _deploy.sh_ na pasta _de implantscripts_ na raiz do pacote. Este script de implantação será executado pelo oleoduto Azure DevOps no tempo de execução.
+6. Selecione a estratégia de implementação à sua escolha. Neste caso, permite selecionar 'Rolling'.
+7. Opcionalmente, pode marcar a máquina com o papel. Por exemplo, 'web', 'db' etc. Isto ajuda-o a direcionar Os VMs que têm um papel específico apenas.
+8. Clique **ok** no diálogo para configurar o gasoduto de entrega contínua. 
+9. Uma vez feito, terá um gasoduto de entrega contínuo configurado para ser implantado na máquina virtual.  
+
+
+   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
+10. Verá que a implantação para a máquina virtual está em andamento. Pode clicar no link para navegar até ao oleoduto. Clique no **Lançamento-1** para visualizar a implementação. Ou pode clicar na **Edição** para modificar a definição do pipeline de lançamento. 
+11. Se tiver vários VMs para configurar, repita os passos 2-4 para que outros VMs sejam adicionados ao grupo de implementação. Note que se selecionar um Grupo de Implantação para o qual já existe um pipeline, o VM será adicionado ao grupo de implantação sem criar novos oleodutos. 
+12. Uma vez feito, clique na definição do pipeline, navegue para a organização Azure DevOps e clique no pipeline de lançamento **edit.** 
+   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
+13. Clique no **link 1 trabalho, 1 tarefa** na fase **de dev.** Clique na fase **de implantação.**
+   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
+14. A partir do painel de configuração à direita, pode especificar o número de máquinas que pretende implantar paralelamente em cada iteração. Caso pretenda ser implantado em várias máquinas de cada vez, pode especificá-lo em termos de percentagem utilizando o slider.  
+
+15. A tarefa execute script de execução executará por padrão o script de _implementação de implementação.ps1_ ou _deploy.sh_ na pasta _de implementscripts_ no diretório raiz do pacote publicado.
+  
+**Implementações canárias**: Uma implementação canária reduz o risco ao lançar lentamente a mudança para um pequeno subconjunto de utilizadores. À medida que ganha mais confiança na nova versão, pode começar a lançá-la para mais servidores na sua infraestrutura e encaminhar mais utilizadores para ela. Pode configurar as implementações canárias para as suas "**máquinas virtuais**" com o portal Azure utilizando a opção de entrega contínua. Aqui está a passagem passo a passo. 
+1. Inscreva-se no seu portal Azure e navegue para uma máquina virtual 
+2. Siga os passos 2-7 sob a secção **de Implantações Rolantes** para adicionar vários VMs ao grupo de implantação. Para a demissão da estratégia de implantação, selecione 'Canary'.
+![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
+
+3. Adicione uma etiqueta 'canária' aos VMs que devem fazer parte das implementações canárias e uma etiqueta 'prod' aos VMs que fazem parte das implantações após a implantação do canário em sucesso.
+4. Uma vez feito, terá um gasoduto de entrega contínuo configurado para ser implantado na máquina virtual.
+![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+
+
+5. Tal como na secção **Rolling Deployments,** pode clicar no pipeline de lançamento **editar** em Azure DevOps para ver a configuração do pipeline. O gasoduto é composto por 3 fases - a primeira fase é uma fase DG e implanta-se para VMs que são marcados como _canários_. A segunda fase, interrompe o gasoduto e aguarda a intervenção manual para retomar a execução. Assim que um utilizador estiver convencido de que a implantação do canário é estável, pode retomar a execução do gasoduto que irá então executar a terceira fase que se implanta para VMs marcados como _prod_. ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
+
+
+
+**Destacamentos Blue-Green**: Uma implantação Blue-Green reduz o tempo de inatividade por ter um ambiente de espera idêntico. A qualquer momento, um dos ambientes está ao vivo. Enquanto se prepara para um novo lançamento, faz a fase final de testes no ambiente verde. Uma vez que o software esteja a funcionar em ambiente verde, mude o tráfego para que todos os pedidos de entrada vão para o ambiente verde - o ambiente azul está agora inativo.
 Pode configurar as implementações Blue-Green para as suas "**máquinas virtuais**" a partir do portal Azure utilizando a opção de entrega contínua. 
 
-Aqui está a passagem passo a passo. 
+Aqui está a passagem passo a passo.
 
 1. Inscreva-se no seu portal Azure e navegue para uma Máquina Virtual 
-2. Siga os passos 2-5 na secção **de atualizações Rolling** para adicionar vários VMs ao grupo de implementação. Adicione uma etiqueta personalizada aos VMs que devem fazer parte de implementações verde-azuladas. Por exemplo, "azul" ou "verde" para os VMs que são para o papel de stand-by. 
-3. Uma vez configurado o gasoduto para os VMs, clique no oleoduto, lance a organização Azure DevOps, **Edite** o pipeline, navegue para a fase **de dev.** Adicione a etiqueta ao filtro "verde". 
-4. Adicione uma fase sem agente, configure a fase com passo de validação manual e um passo de api invocado-REST para trocar as etiquetas. 
-   ![AzDevOps_BlueGreen](media/tutorial-devops-azure-pipelines-classic/azdevops-blue-green-deploy.png)
- 
+2. Siga os passos 2-7 sob a secção **de Implantações Rolantes** para adicionar vários VMs ao grupo de implantação. Adicione uma etiqueta "azul" ou "verde" aos VMs que devem fazer parte das implementações Blue-Green. Se o VM é para um papel de espera, então deve marcá-lo como "verde".
+![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+
+4. Uma vez feito, terá um gasoduto de entrega contínuo configurado para ser implantado na máquina virtual.
+![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+
+5. Tal como acontece com **as Rolling Deployments,** pode clicar no pipeline de lançamento **da Edit** em Azure DevOps para ver a configuração do pipeline. O gasoduto é composto por 3 fases - a primeira fase é uma fase DG e implanta-se para VMs que são marcados como _verdes_ (VMs de espera) . A segunda fase interrompe o gasoduto e aguarda a intervenção manual para retomar a execução. Uma vez que um utilizador esteja convencido de que a implantação é estável, ele pode agora redirecionar o tráfego para VMs _verdes_ e retomar a execução do gasoduto que depois trocará etiquetas _azuis_ e _verdes_ nos VMs. Isto garante que os VMs que têm versão de aplicação mais antiga são marcados como _verdes_ e são implantados na próxima execução do gasoduto.
+![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+
+6. Note-se que esta estratégia de implantação requer que deve haver pelo menos um VM marcado como azul e verde cada. Certifique-se de que antes de retomar o gasoduto em passo de intervenção manual, tem pelo menos um VM marcado como _azul_.
+
+
+
+
+
  
 ## <a name="azure-devops-project"></a>Projeto Azure DevOps 
 Começa com o Azure mais facilmente do que nunca.

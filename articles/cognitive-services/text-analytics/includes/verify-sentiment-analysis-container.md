@@ -3,18 +3,18 @@ title: Verifique a instância do recipiente de análise de sentimentos
 titleSuffix: Azure Cognitive Services
 description: Saiba como verificar a instância do recipiente de análise de sentimentos.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
-ms.openlocfilehash: 2e201b4ec0d1364ea99b376171efabad65af0a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: c9b5411c044bb45d284cac0d30705c2b3d40ccd0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "70968605"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876453"
 ---
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>Verifique a instância do recipiente de análise de sentimentos
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6ecf3bb5999296b2f5f8f5c25616fac8e0278cda
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80132511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877547"
 ---
 # <a name="entity-functions"></a>Funções da entidade
 
@@ -55,7 +55,7 @@ Atualmente, as duas APIs distintas para a definição de entidades são:
 
 **Sintaxe baseada em classe (apenas EM NET),** onde entidades e operações são representadas por classes e métodos. Esta sintaxe produz código mais facilmente legível e permite que as operações sejam invocadas de forma segura. A sintaxe baseada na classe é uma camada fina em cima da sintaxe baseada na função, por isso ambas as variantes podem ser usadas alternadamente na mesma aplicação.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Exemplo: Sintaxe baseada em funções - C #
 
@@ -171,7 +171,7 @@ Os exemplos que se seguem ilustram estas várias formas de aceder a entidades.
 
 Para aceder a entidades de uma Função Azure ordinária, que também é conhecida como função cliente, utilize a [entidade de vinculação](durable-functions-bindings.md#entity-client)do cliente. O exemplo seguinte mostra uma função acionada pela fila que sinaliza uma entidade que utiliza esta ligação.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > Para a simplicidade, os seguintes exemplos mostram a sintaxe dactilografada vagamente para aceder a entidades. Em geral, recomendamos que [aceda a entidades através](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) de interfaces porque fornece mais verificação de tipo.
@@ -209,7 +209,7 @@ O *sinal* de termo significa que a invocação da API da entidade é de sentido 
 
 As funções do cliente também podem consultar o estado de uma entidade, como mostra o seguinte exemplo:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -231,7 +231,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    const stateResponse = await context.df.readEntityState(entityId);
+    const stateResponse = await client.readEntityState(entityId);
     return stateResponse.entityState;
 };
 ```
@@ -244,7 +244,7 @@ As consultas estatais da entidade são enviadas para a loja de rastreio Durável
 
 As funções de orquestrador podem aceder a entidades utilizando APIs na ligação do gatilho da [orquestração](durable-functions-bindings.md#orchestration-trigger). O seguinte código de exemplo mostra uma `Counter` função orquestradora chamando e sinalizando uma entidade.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -291,7 +291,7 @@ Apenas as orquestrações são capazes de chamar entidades e obter uma resposta,
 Uma função de entidade pode enviar sinais a outras entidades, ou mesmo a si mesma, enquanto executa uma operação.
 Por exemplo, podemos `Counter` modificar o exemplo da entidade anterior para que envie um sinal "marco-alcance" a alguma entidade de monitorização quando o contador atinge o valor 100.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":

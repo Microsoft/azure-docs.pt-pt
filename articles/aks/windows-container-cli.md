@@ -1,15 +1,15 @@
 ---
-title: Pré-visualização - Crie um recipiente do Windows Server num cluster do Serviço Azure Kubernetes (AKS)
+title: Executar o recipiente do Servidor Windows no cluster do Serviço Azure Kubernetes
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação num recipiente do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o Azure CLI.
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 259728da5ea7f71110ce183ae25bb47a0f873614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d2a91f63815e7ba4bcbe4084b80a06fa7779099
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475515"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886726"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Pré-visualização - Crie um recipiente de Servidor Windows num cluster do Serviço Azure Kubernetes (AKS) utilizando o Azure CLI
 

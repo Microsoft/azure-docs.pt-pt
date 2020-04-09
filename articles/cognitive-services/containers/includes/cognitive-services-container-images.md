@@ -1,19 +1,19 @@
 ---
 title: Repositórios e imagens de contentores
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: Duas tabelas que representam os registos de contentores, repositórios e nomes de imagem para todas as ofertas do Serviço Cognitivo.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: a854a090af908da691e9b26f5b0714c6560fc0ba
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082198"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876841"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contentores
 
@@ -28,7 +28,7 @@ O Registo de Contentores da Microsoft (MCR) sindicaliza todos os recipientes "un
 
 | Serviço | Contentor | Registo de Contentores / Repositório / Nome de imagem |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extração de Expressões-Chave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Análise de Sentimentos | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
@@ -40,7 +40,7 @@ O registo de pré-visualização de contentores acolhe todos os recipientes "fec
 | Serviço | Contentor | Registo de Contentores / Repositório / Nome de imagem |
 |--|--|--|
 | [Detetor de anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) | Detetor de Anomalias | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
-| [Visão Computorizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
+| [Imagem Digitalizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Rostos](../../face/face-how-to-install-containers.md) | Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Reconhecimento de formulários](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Reconhecedor de Formato | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=stt) | Conversão de voz em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |

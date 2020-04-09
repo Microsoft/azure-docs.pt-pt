@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086976"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886930"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall de aplicação web para gateway de aplicação
 
@@ -24,6 +24,8 @@ Se o seu Gateway de Aplicação tiver uma política aplicada, e depois aplicar u
 
    > [!NOTE]
    > Por site e por URI AS políticas waf estão em pré-visualização pública. Isto significa que esta funcionalidade está sujeita aos Termos de Utilização Suplementares da Microsoft. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+   > [!NOTE]
+   > Uma vez que uma Política de Firewall esteja associada a um WAF, deve haver sempre uma política associada a essa WAF. Podes substituir essa política, mas desassociar uma política da WAF não é totalmente apoiada. 
 
 Todas as novas definições waf da Firewall de aplicação web (regras personalizadas, configurações de rulset geridas, exclusões, etc.) vivem dentro de uma Política WAF. Se tiver um WAF existente, estas configurações podem ainda existir no seu config WAF. Para obter passos sobre como avançar para a nova Política waf, consulte [Migrate o seu WAF Config para uma Política WAF](#migrate) mais tarde neste artigo. 
 

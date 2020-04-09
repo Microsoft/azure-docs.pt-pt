@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/08/2020
 ms.author: aschhab
-ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756386"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891769"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
 
@@ -43,6 +43,11 @@ Saber a contagem de mensagens activaé útil para determinar se uma fila acumula
 -   [TransferênciaMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): Mensagens pendentes de transferência para outra fila ou tópico.
 
 Se uma aplicação quiser escalar os recursos com base no comprimento da fila, deve fazê-lo com um ritmo medido. A aquisição dos contadores de mensagens é uma operação dispendiosa dentro do corretor de mensagens, e executá-la frequentemente direta e negativamente impacta o desempenho da entidade.
+
+> [!NOTE]
+> As mensagens que são enviadas para um tópico de Ônibus de serviço são reencaminhadas para subscrições para esse tópico. Assim, a mensagem ativa conta com o tema em si é 0, uma vez que essas mensagens foram reencaminhadas com sucesso para a subscrição. Obtenha a contagem de mensagens na subscrição e verifique se é maior que 0. Apesar de ver mensagens na subscrição, elas são armazenadas num armazém propriedade do tema. 
+
+Se olharmos para as subscrições, então elas teriam uma contagem de mensagens não nula (que somam até 323MB de espaço para toda esta entidade).
 
 ## <a name="next-steps"></a>Passos seguintes
 

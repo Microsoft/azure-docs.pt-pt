@@ -3,24 +3,21 @@ title: Configure uma API web que chama APIs web / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web que chama APIs web (configuração de código da aplicação)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 82b5e1d9753fbb65fd81f24b06016d302457144e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4129f1a89575c9a0e7cd6a0090168df659356c1b
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76834098"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885111"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Um API web que chama APIs web: Configuração de código
 
@@ -213,7 +210,7 @@ class MsalAuthHelper {
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 O fluxo em nome da OBO é utilizado para obter um símbolo para chamar a API web a jusante. Neste fluxo, a sua Web API recebe um token ao portador com permissões delegadas pelo utilizador a partir da aplicação do cliente e, em seguida, troca este token por outro token de acesso para chamar a API web a jusante.
 

@@ -3,19 +3,19 @@ title: Receita de instância de recipiente azure
 titleSuffix: Azure Cognitive Services
 description: Saiba como implantar recipientes de serviços cognitivos em instância de contentores azure
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: 78f35042678aa7c30cebf73796df3e5d564b4502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76716995"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876662"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Implementar e executar um contentor na Instância de Contentor do Azure
 

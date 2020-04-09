@@ -4,19 +4,20 @@ description: Crie e publique uma função desencadeada pelo HTTP para Azure com 
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.date: 08/10/2018
-ms.openlocfilehash: 1a24569a89755a33a80b7f884b803bd36f38ca3f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 04/08/2020
+ms.openlocfilehash: 5e18e035bd237fd489b715986e58d7ede726348d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757124"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886607"
 ---
-# <a name="quickstart-use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Quickstart: Use Java e Gradle para criar e publicar uma função para o Azure
+# <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Use Java e Gradle para criar e publicar uma função para azure
 
 Este artigo mostra-lhe como construir e publicar um projeto de função Java para funções Azure com a ferramenta de linha de comando Gradle. Quando terminar, o seu código de função funciona em Azure num plano de [hospedagem sem servidores](functions-scale.md#consumption-plan) e é desencadeado por um pedido http. 
 
-Também pode construir e publicar um projeto de função Java a partir da linha de comando utilizando [arquétipos Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+> [!NOTE]
+> Se Gradle não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para devlopers Java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -172,4 +173,4 @@ Criou um projeto de funções Java com uma função ativada http, executa-o na s
 
 
 [CLI do Azure]: /cli/azure
-[Portal do Azure]: https://portal.azure.com
+[Portal Azure]: https://portal.azure.com

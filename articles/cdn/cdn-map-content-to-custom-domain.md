@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04c6ddf03f1c0433ad4e2d0808f118f42670ee08
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238707"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891276"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto final da Rede de Entrega de Conteúdos (CDN) do Azure. Se utilizar um ponto final da CDN para entregar conteúdos e se quiser que o seu próprio nome de domínio seja visível no URL da CDN, é necessário um domínio personalizado. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa. 
@@ -50,7 +50,7 @@ Antes de poder utilizar um domínio personalizado com um ponto final da CDN do A
 Os domínios personalizados e respetivos subdomínios só podem ser associados a um único ponto final de cada vez. No entanto, pode utilizar diferentes subdomínios do mesmo domínio personalizado para diferentes pontos finais de serviço do Azure diferente mediante a utilização de vários registos CNAME. Também pode mapear um domínio personalizado com subdomínios diferentes para o mesmo ponto final da CDN.
 
 > [!NOTE]
-> Qualquer tipo de registo de pseudónimos pode ser usado para domínios personalizados se estiver a utilizar o Azure DNS como fornecedor de domínio. Este walkthrough utiliza o tipo de disco CNAME. Se estiver a utilizar tipos de discos A ou AAAA, siga os mesmos passos abaixo e substitua o CNAME pelo tipo de registo da sua escolha. Se estiver a utilizar um registo de pseudónimos para adicionar um domínio de raiz como domínio personalizado e pretender ativar o SSL, deve utilizar a validação manual conforme descrito [neste artigo](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Para mais informações, consulte [o ápice da zona de ponto para os pontos finais do Azure CDN](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
+> Qualquer tipo de registo de pseudónimos pode ser usado para domínios personalizados se estiver a utilizar o Azure DNS como fornecedor de domínio. Este walkthrough utiliza o tipo de disco CNAME. Se estiver a utilizar tipos de discos A ou AAAA, siga os mesmos passos abaixo e substitua o CNAME pelo tipo de registo da sua escolha. Se estiver a utilizar um registo de pseudónimos para adicionar um domínio de raiz como domínio personalizado e pretender ativar o TLS, deve utilizar a validação manual conforme descrito [neste artigo](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Para mais informações, consulte [o ápice da zona de ponto para os pontos finais do Azure CDN](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Mapear o subdomínio cdnverify temporário
 

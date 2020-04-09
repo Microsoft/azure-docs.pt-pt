@@ -2,19 +2,19 @@
 title: Como configurar um recipiente para reconhecimento de formulários
 titleSuffix: Azure Cognitive Services
 description: Aprenda a configurar o recipiente 'Reconhecimento de Formulários' para analisar os dados de forma e de tabela.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379628"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879161"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configure Recipientes de reconhecimento de formulário
 
@@ -50,7 +50,7 @@ Pode encontrar esta definição no portal Azure, na visão geral do Reconhecimen
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Cenário eula
 
@@ -79,8 +79,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 |Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Necessário| `Input` | Cadeia | O alvo do suporte de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Necessário| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Necessário| `Input` | String | O alvo do suporte de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Necessário| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo
 

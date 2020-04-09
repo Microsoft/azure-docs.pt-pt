@@ -2,25 +2,21 @@
 title: Configure aplicativos daemon que chamam APIs web - plataforma de identidade Microsoft / Azure
 description: Saiba como configurar o código para a sua aplicação daemon que chama APIs web (configuração de aplicações)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fc441ef64f98ace04b7b847c03d575215656f9db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb2cc90e586f71bb7c90efd62ba3705cd9223bc5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77611830"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885502"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
 
@@ -75,7 +71,7 @@ O ficheiro de configuração define:
 
 Fornece-se `ClientSecret` um `CertificateName`ou um. Estas configurações são exclusivas.
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Quando se constrói um cliente confidencial com segredos de cliente, o ficheiro config de [parâmetros.json](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) na amostra [de daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
 
@@ -134,7 +130,7 @@ using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import msal
@@ -167,7 +163,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -210,7 +206,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .Build();
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -295,7 +291,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Mais uma vez, para mais detalhes, consulte [as afirmações do Cliente.](msal-net-client-assertions.md)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Na MSAL Python, pode fornecer reclamações de clientes utilizando `ConfidentialClientApplication`as reclamações que serão assinadas por esta chave privada.
 
@@ -336,7 +332,7 @@ ConfidentialClientApplication cca =
 > [!div class="nextstepaction"]
 > [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [App Daemon - aquisição de tokens para a app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)

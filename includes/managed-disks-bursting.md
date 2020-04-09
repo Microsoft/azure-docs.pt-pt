@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 871a3edf70690a09d3747703e8bc999dfcce967c
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385185"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887453"
 ---
 O modo de rajada do disco é suportado para SSDs Premium. O modo de rajada é suportado para todos os tamanhos de disco SSD Premium <= 512 GiB (P20 ou inferior). Estes tamanhos de disco suportam o modo de rajada numa base do melhor esforço e utilizam um sistema de créditos para gerir as rajadas. Os créditos acumulam-se num registo de rajadas sempre que o tráfego do disco está abaixo do objetivo de desempenho aprovisionado para o tamanho do disco e consome créditos quando o tráfego excede o objetivo. O tráfego do disco é rastreado em relação a IOPS e largura de banda no objetivo aprovisionado. O modo de rajada do disco não ignorará as limitações de tamanho da máquina virtual (VM) no IOPS ou no débito.
 
@@ -46,8 +46,8 @@ O modo de rajada do disco está disponível em todas as regiões na Cloud Públi
 
 Para lhe dar uma ideia melhor de como isto funciona, apresentamos alguns cenários de exemplo:
 
-- Um cenário comum que pode beneficiar do modo de rajada do disco é um arranque mais rápido da VM e o lançamento da aplicação nos discos do SO. Utilize uma VM do Linux com uma imagem de SO de 8 Gib como exemplo. Se utilizarmos um disco P2 como o disco do SO, o objetivo de aprovisionamento será de 120 IOPS e 25 MBps. Quando a VM for iniciada, ocorrerá um pico de leitura para o disco do SO que está a carregar os ficheiros de arranque. Com a introdução do modo de rajada, pode ler à velocidade máxima de rajada de 3500 IOPS e 170 MBps e acelerar o tempo de leitura em pelo menos 6x. Após o arranque da VM, o nível de tráfego no disco do SO é normalmente baixo, dado que a maioria das operações de dados executadas pela aplicação serão nos discos de dados anexados. Se o tráfego estiver abaixo do objetivo aprovisionado, acumulará créditos.
+- Um cenário comum que pode beneficiar do modo de rajada do disco é um arranque mais rápido da VM e o lançamento da aplicação nos discos do SO. Utilize uma VM do Linux com uma imagem de SO de 8 Gib como exemplo. Se utilizarmos um disco P2 como disco OS, o alvo previsto é 120 IOPS e 25 MiB. Quando a VM for iniciada, ocorrerá um pico de leitura para o disco do SO que está a carregar os ficheiros de arranque. Com a introdução do rebentamento, pode ler-se à velocidade máxima de explosão de 3500 IOPS e 170 MiB, acelerando o tempo de carga em pelo menos 6x. Após o arranque da VM, o nível de tráfego no disco do SO é normalmente baixo, dado que a maioria das operações de dados executadas pela aplicação serão nos discos de dados anexados. Se o tráfego estiver abaixo do objetivo aprovisionado, acumulará créditos.
 
 - Se estiver a alojar um ambiente do Virtual Desktop Remoto, sempre que um utilizador ativo iniciar uma aplicação, como o AutoCAD, o tráfego de leitura no disco do SO aumentará significativamente. Neste caso, o tráfego de rajada consumirá os créditos acumulados, o que lhe permite ultrapassar o objetivo aprovisionado e iniciar a aplicação muito mais rapidamente.
 
-- Um disco P1 tem um objetivo aprovisionado de 120 IOPS e 25 MBps. Se o tráfego real no disco era de 100 IOPS e 20 MBps no último intervalo de 1 segundo, as 20 E/S e os 5 MB não utilizados serão creditados no registo de rajada do disco. Os créditos no registo de rajada podem ser utilizados posteriormente quando o tráfego ultrapassar o objetivo aprovisionado, até ao limite máximo de rajada. O limite máximo de rajada define o teto do tráfego do disco mesmo que tenha créditos de rajada por consumir. Neste caso, mesmo que tenha 10 000 E/S no registo de crédito, um disco P1 não poderá emitir mais do que a rajada máxima de 3500 E/S por segundo.  
+- Um disco P1 tem um alvo provisionável de 120 IOPS e 25 MiB. Se o tráfego real no disco foi de 100 IOPS e 20 MiB no intervalo de 1 segundo, então os 20 IOs não utilizados e 5 MB são creditados no balde de rutura do disco. Os créditos no registo de rajada podem ser utilizados posteriormente quando o tráfego ultrapassar o objetivo aprovisionado, até ao limite máximo de rajada. O limite máximo de rajada define o teto do tráfego do disco mesmo que tenha créditos de rajada por consumir. Neste caso, mesmo que tenha 10 000 E/S no registo de crédito, um disco P1 não poderá emitir mais do que a rajada máxima de 3500 E/S por segundo.  

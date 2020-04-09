@@ -1,15 +1,15 @@
 ---
-title: Criar uma aplicação de função a partir do Portal Azure
+title: Criar uma aplicação de funções a partir do portal do Azure
 description: Crie uma nova aplicação de funções em Azure a partir do portal.
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 6c17dc28d7eea4897759c1c832fdb1aba7f1e445
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756539"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985019"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar uma aplicação de funções a partir do portal do Azure
 
@@ -36,7 +36,7 @@ Ao criar uma aplicação de função, deve criar ou ligar-se a uma conta de Arma
 >[!NOTE]
 >Ao utilizar o plano de Consumo de alojamento, os ficheiros de configuração de enlace e código de função são armazenados no armazenamento de Ficheiro do Azure na conta de armazenamento principal. Ao eliminar a conta de armazenamento principal, este conteúdo é eliminado e não pode ser recuperado.
 
-Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#azure-storage-services). 
+Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

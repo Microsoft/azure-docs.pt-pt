@@ -3,19 +3,19 @@ title: Executar Instâncias de Contentores Azure - Serviço de Fala
 titleSuffix: Azure Cognitive Services
 description: Desloque o recipiente de serviço da Fala para uma instância de contentores Azure e teste-o num navegador web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: e5d9143b0c84b579945b283ccae1cce36a7a4291
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 610d5ce095097a31ee92c67f0112d1657424858e
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717404"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878753"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Desloque o contentor de serviço da Fala para as instâncias de contentores de Azure
 

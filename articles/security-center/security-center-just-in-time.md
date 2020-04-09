@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397764"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887338"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
 
@@ -211,7 +211,7 @@ Execute o seguinte na PowerShell para conseguir isto:
 
 1.    Atribuir uma variável que detém a política de acesso VM just-in-time para um VM:
 
-        $JitPolicy = (@{ id="/subscrições/SUBSCRIÇÕES/SUBSCRIÇÃO/ResourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" portas=(@{ number=22;        protocolo="*";        allowedSourceAddressPrefix=@("*");        maxRequestAccessDura="PT3H"}, @{ number=3389;        protocolo="*";        allowedSourceAddressPrefix=@("*");        maxRequestAccessDura="PT3H"}})
+        $JitPolicy = (@{ id="/subscrições/SUBSCRIÇÕES/SUBSCRIÇÃO/ResourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" portas=(@{ number=22;        protocolo="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDura="PT3H"}, @{ number=3389;        protocolo="\*";        allowedSourceAddressPrefix=@("\*");        maxRequestAccessDura="PT3H"}})
 
 2.    Insira a política de acesso VM just-in-time a uma matriz:
     

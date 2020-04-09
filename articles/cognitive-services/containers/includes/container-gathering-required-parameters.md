@@ -1,19 +1,19 @@
 ---
 title: Recolha de parâmetros necessários
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: Os parâmetros para todos os recipientes dos Serviços Cognitivos
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/15/2019
-ms.author: dapine
-ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 85c67384c38376dc6f5701cf26e879d6e1b76c7f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73465940"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875056"
 ---
 ## <a name="gathering-required-parameters"></a>Recolha de parâmetros necessários
 

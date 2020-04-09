@@ -3,12 +3,12 @@ title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os prestadores de serviços ofereçam serviços geridos aos seus clientes com maior automatização e eficiência em escala.
 ms.date: 11/11/2019
 ms.topic: overview
-ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d4d33238f30c2a579c6a0da6a39238207db4f4a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75646199"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982791"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -32,7 +32,7 @@ O Farol Azure inclui múltiplas formas de ajudar a agilizar o envolvimento e ges
 
 - **Gestão de recursos delegados da Azure**: Gerencie os recursos Azure dos seus clientes de forma segura dentro do seu próprio inquilino, sem ter de mudar de contexto e controlar aviões. Para mais informações, consulte a [gestão de recursos delegados do Azure.](concepts/azure-delegated-resource-management.md)
 - **Novas experiências do portal Azure**: Veja informações sobre inquilinos cruzados na nova página dos **meus clientes** no [portal Azure.](https://portal.azure.com) Uma lâmina de **prestador de serviços** correspondente permite que os seus clientes vejam e gerem o acesso ao prestador de serviços. Para mais informações, consulte [ver e gerir os clientes](./how-to/view-manage-customers.md) e ver e gerir os [prestadores de serviços.](how-to/view-manage-service-providers.md)
-- **Modelos**de Gestor de Recursos Azure : Execute tarefas de gestão mais facilmente, incluindo clientes de bordo para gestão de recursos delegados do Azure. Para mais informações, consulte as [nossas amostras repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) e Onboard um cliente para a [gestão de recursos delegados do Azure.](how-to/onboard-customer.md)
+- **Modelos**de Gestor de Recursos Azure : Execute tarefas de gestão mais facilmente, incluindo clientes de bordo para gestão de recursos delegados do Azure. Para mais informações, consulte as [nossas amostras repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) e Onboard um cliente para a [gestão de recursos delegados do Azure.](how-to/onboard-customer.md)
 - **Ofertas de Serviços Geridos no Azure Marketplace**: Ofereça os seus serviços aos clientes através de ofertas privadas ou públicas, e coloque-os automaticamente a bordo para a gestão de recursos delegados do Azure, como um suplente para o embarque utilizando modelos do Gestor de Recursos Azure. Para mais informações, consulte [ofertas de serviços geridos no Azure Marketplace.](concepts/managed-services-offers.md)
 - **Aplicações geridas pela Azure**: Pacote e aplicações de envio que são fáceis de implantar e utilizar nas suas próprias subscrições. A aplicação é implantada num grupo de recursos a que acede ao seu inquilino, permitindo-lhe gerir o serviço como parte da experiência global do Farol Azure. Para mais informações, consulte a [visão geral das aplicações geridas pelo Azure.](../azure-resource-manager/managed-applications/overview.md)
 

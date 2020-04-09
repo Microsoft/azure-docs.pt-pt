@@ -1,24 +1,24 @@
 ---
 title: Azure HDInsight para Código de Estúdio Visual
-description: Aprenda a usar as Ferramentas Spark & Hive (Azure HDInsight) para o Visual Studio Code para criar e submeter consultas e scripts.
+description: Saiba como utilizar as Ferramentas Spark & Hive (Azure HDInsight) para O Código do Estúdio Visual. Utilize as ferramentas para criar e submeter consultas e scripts.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: de433d85c2f04a7140fbcb918730218ac3a05e54
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75435674"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878634"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia de faíscas & para código de estúdio visual
 
-Aprenda a usar ferramentas de Hiv e Hive & Spark spark para o código do estúdio visual para criar e submeter trabalhos de lote de Apache Hive, consultas interativas de Hive e scripts PySpark para Apache Spark. Primeiro vamos descrever como instalar a Spark & Hive Tools no Visual Studio Code, e depois vamos descobrir como submeter empregos à Spark & Hive Tools.  
+Aprenda a usar Apache Spark & Ferramentas de Colmeia para Código de Estúdio Visual. Use as ferramentas para criar e submeter trabalhos de lote apache hive, consultas interativas da Hive e scripts PySpark para Apache Spark. Primeiro vamos descrever como instalar a Spark & Hive Tools no Visual Studio Code. Depois vamos passar por como submeter empregos à Spark & Hive Tools.  
 
-A Spark & Hive Tools pode ser instalada em plataformas que são suportadas pelo Visual Studio Code, que incluem Windows, Linux e macOS. Note os seguintes pré-requisitos para diferentes plataformas.
+A Spark & As Ferramentas Hive podem ser instaladas em plataformas que são suportadas pelo Visual Studio Code. Note os seguintes pré-requisitos para diferentes plataformas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Depois de cumprir os pré-requisitos, pode instalar ferramentas spark & hive par
 
 Para abrir uma pasta de trabalho e criar um ficheiro no Código do Estúdio Visual, siga estes passos:
 
-1. Da barra de menus, navegue até ao **Arquivo** > **Da Pasta Aberta...**  >  **C:\HD\HDexemplo**, e, em seguida, selecione o botão **Select Folder.** A pasta aparece na vista **Explorer** à esquerda.
+1. Da barra de menus, navegue **até** > **file Open Folder...**  >  **C:\HD\HDexemplo**, e, em seguida, selecione o botão **Select Folder.** A pasta aparece na vista **Explorer** à esquerda.
 
 2. Na vista **Explorer,** selecione a pasta **HDexample** e, em seguida, selecione o ícone **New File** ao lado da pasta de trabalho:
 
@@ -70,13 +70,13 @@ Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o 
 
 ## <a name="connect-to-an-azure-account"></a>Ligue-se a uma conta Azure
 
-Antes de poder submeter scripts aos seus clusters a partir do Visual Studio Code, deve ligar-se à sua conta Azure ou ligar um cluster (utilizando o nome de utilizador apache Ambari e credenciais de palavra-passe ou uma conta unida para domínio). Siga estes passos para ligar ao Azure:
+Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdio Visual, deve ligar-se à sua conta Azure ou ligar um cluster. Utilize o nome de utilizador Apache Ambari e credenciais de senha ou uma conta unida pelo domínio. Siga estes passos para ligar ao Azure:
 
 1. A partir da barra de menus, navegue para **ver** > a Paleta de**Comando...** e **introduza Azure: Inscreva-se:**
 
     ![Spark & Ferramentas de colmeia para login de código de estúdio visual](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Siga as instruções de inscrição para iniciar sessão no Azure. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.  
+2. Siga as instruções de inscrição para iniciar sessão no Azure. Depois de conectado, o seu nome de conta Azure aparece na barra de estado na parte inferior da janela Visual Studio Code.  
 
 ## <a name="link-a-cluster"></a>Ligar um cluster
 
@@ -260,7 +260,7 @@ Depois de submeter um trabalho python, os registos de submissão aparecem na jan
 
 ## <a name="apache-livy-configuration"></a>Configuração Apache Livy
 
-A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada. Pode configurá-lo no **. VSCode\definições.json** ficheiro na pasta espaço de trabalho. Atualmente, a configuração livy apenas suporta o script Python. Para mais detalhes, consulte [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada. Pode configurá-lo no **. VSCode\definições.json** ficheiro na pasta espaço de trabalho. Atualmente, a configuração livy apenas suporta o script Python. Para mais informações, consulte [Livy README.](https://github.com/cloudera/livy/blob/master/README.rst )
 
 <a id="triggerlivyconf"></a>**Como desencadear a configuração da Livy**
 
@@ -269,7 +269,7 @@ Método 1
 2. Na caixa de **definições de Pesquisa,** introduza a Submissão de **Trabalho HDInsight: Livy Conf**.  
 3. **Selecione Editar em definições.json** para obter o resultado de pesquisa relevante.
 
-Método 2 Envie um ficheiro e note que a pasta .vscode é adicionada automaticamente à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.json**.
+Método 2 Envie um ficheiro `.vscode` e note que a pasta é adicionada automaticamente à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.json**.
 
 + As definições do projeto:
 
@@ -283,33 +283,33 @@ Método 2 Envie um ficheiro e note que a pasta .vscode é adicionada automaticam
     **POST /Lotes** Solicitar corpo
 
     | nome | descrição | tipo |
-    | :- | :- | :- |
+    | --- | --- | --- |
     | file | Ficheiro contendo o pedido de execução | Caminho (obrigatório) |
-    | proxyUser | Utilizador a personificar ao executar o trabalho | Cadeia |
-    | className | Candidatura Java/Faísca classe principal | Cadeia |
+    | proxyUser | Utilizador a personificar ao executar o trabalho | String |
+    | className | Candidatura Java/Faísca classe principal | String |
     | args | Argumentos de linha de comando para a aplicação | Lista de cordas |
     | jarros | Jarros para serem usados nesta sessão | Lista de cordas | 
     | pyFiles | Ficheiros Python a serem usados nesta sessão | Lista de cordas |
     | ficheiros | Ficheiros a serem usados nesta sessão | Lista de cordas |
-    | driverMemory | Quantidade de memória para usar para o processo do condutor | Cadeia |
+    | driverMemory | Quantidade de memória para usar para o processo do condutor | String |
     | driverCores | Número de núcleos a utilizar para o processo do condutor | int |
-    | executorMemória | Quantidade de memória para usar por processo de executor | Cadeia |
+    | executorMemória | Quantidade de memória para usar por processo de executor | String |
     | executorCores | Número de núcleos a utilizar para cada executor | int |
     | numExecutors | Número de executores a lançar para esta sessão | int |
     | arquivos | Arquivos a serem usados nesta sessão | Lista de cordas |
-    | fila | Nome da fila yARN a submeter| Cadeia |
-    | nome | Nome desta sessão | Cadeia |
+    | fila | Nome da fila yARN a submeter| String |
+    | nome | Nome desta sessão | String |
     | conf | Propriedades de configuração de faíscas | Mapa da chave=val |
 
     Corpo de resposta O objeto de lote criado.
 
     | nome | descrição | tipo |
-    | :- | :- | :- |
-    | ID | Id da sessão | int |
-    | appId | Id de aplicação desta sessão | Cadeia |
+    | --- | ---| --- |
+    | ID | ID de sessão | int |
+    | appId | Id de inscrição desta sessão | String |
     | appInfo | Informações detalhadas sobre aplicações | Mapa da chave=val |
     | log | Linhas de log | Lista de cordas |
-    | state |Estado de lote | Cadeia |
+    | state |Estado de lote | String |
 
     > [!NOTE]
     > O config Livy atribuído é exibido no painel de saída quando submete o script.
@@ -340,8 +340,8 @@ Pode visualizar a Tabela de Colmeias nos seus clusters diretamente através do e
 
 - Painel de MENSAGES
    1. Quando o número de filas na mesa é superior a 100, vê-se a seguinte mensagem: "As primeiras 100 filas são exibidas para a mesa da Colmeia."
-   2. Quando o número de filas na mesa é inferior ou igual a 100, vê-se uma mensagem como a seguinte: "60 linhas são exibidas para a mesa da Colmeia."
-   3. Quando não há conteúdo na mesa, vê-se a seguinte mensagem: "0 filas são exibidas para a mesa da Colmeia."
+   2. Quando o número de filas na tabela é inferior ou igual a 100, vê-se a seguinte mensagem: "60 linhas são exibidas para a mesa da Colmeia."
+   3. Quando não há conteúdo na mesa, vê-se`0 rows are displayed for Hive table.`a seguinte mensagem: "
 
         >[!NOTE]
         >
@@ -364,7 +364,7 @@ Spark & Hive for Visual Studio Code também suporta as seguintes funcionalidades
 
 ## <a name="reader-only-role"></a>Papel só para leitores
 
-Os utilizadores a quem seja atribuída a função apenas para o cluster não podem mais submeter postos de trabalho ao cluster HDInsight, nem podem ver a base de dados da Hive. Contacte o administrador do cluster para atualizar a sua função para [**o Operador de Cluster HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) no portal [Azure](https://ms.portal.azure.com/). Se tiver credenciais Ambari válidas, pode ligar manualmente o cluster utilizando as seguintes orientações.
+Os utilizadores a quem seja atribuída a função apenas para o cluster não podem submeter postos de trabalho ao cluster HDInsight, nem ver a base de dados da Hive. Contacte o administrador do cluster para atualizar a sua função para [**o Operador de Cluster HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) no portal [Azure](https://ms.portal.azure.com/). Se tiver credenciais Ambari válidas, pode ligar manualmente o cluster utilizando as seguintes orientações.
 
 ### <a name="browse-the-hdinsight-cluster"></a>Navegue no cluster HDInsight  
 
@@ -393,11 +393,11 @@ Ao submeter o trabalho a um cluster HDInsight, é solicitado a ligar o cluster s
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Navegue numa conta Gen2 de Armazenamento de Data Lake
 
-Ao selecionar o explorador Azure HDInsight para expandir uma conta Data Lake Storage Gen2, é-lhe pedido que introduza a chave de acesso ao armazenamento se a sua conta Azure não tiver acesso ao armazenamento gen2. Após a validação da chave de acesso, a conta Data Lake Storage Gen2 é expandida automaticamente.
+Selecione o explorador Azure HDInsight para expandir uma conta Data Lake Storage Gen2. É-lhe pedido que introduza a chave de acesso ao armazenamento se a sua conta Azure não tiver acesso ao armazenamento gen2. Após a validação da chave de acesso, a conta Data Lake Storage Gen2 é expandida automaticamente.
 
 ### <a name="submit-jobs-to-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Submeta empregos a um cluster HDInsight com Data Lake Storage Gen2
 
-Ao submeter um trabalho a um cluster HDInsight utilizando data Lake Storage Gen2, é-lhe pedido que introduza a chave de acesso ao armazenamento se a sua conta Azure não tiver acesso ao armazenamento da Gen2. Após a validação da chave de acesso, o trabalho será submetido com sucesso.
+Envie um trabalho para um cluster HDInsight usando Data Lake Storage Gen2. É-lhe pedido que introduza a chave de acesso ao armazenamento se a sua conta Azure não tiver acesso por escrito ao armazenamento gen2. Após a validação da chave de acesso, o trabalho será submetido com sucesso.
 
 ![Ferramentas de colmeia de & de faíscas para acesso ao código do estúdio visual](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 

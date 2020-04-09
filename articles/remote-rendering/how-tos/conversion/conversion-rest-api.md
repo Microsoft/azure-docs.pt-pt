@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 064a7b8adaec6f47a153743b58f4e1caf50db723
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681509"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887049"
 ---
-# <a name="use-the-model-conversion-rest-api"></a>Utilize o modelo de conversão REST API
+# <a name="use-the-model-conversion-rest-api"></a>Utilizar a API REST do modelo de conversão
 
 O serviço de conversão do [modelo](model-conversion.md) é controlado através de uma [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Este artigo descreve os detalhes da API do serviço de conversão.
 
@@ -47,7 +47,7 @@ A sua Conta de Renderização Remota Azure precisa de ter acesso à conta de arm
 
 | Ponto Final | Método |
 |-----------|:-----------|
-| /v1/contas/**id de conta**/conversão/criação | POST |
+| /v1/contas/**contaID**/conversões/criar | POST |
 
 Devolve a identificação da conversão em curso, embrulhada num documento DaJSON. O nome de campo é "conversãoId".
 
@@ -77,7 +77,7 @@ Se a sua conta ARR não estiver ligada à sua conta de armazenamento, esta inter
 
 | Ponto Final | Método |
 |-----------|:-----------|
-| /v1/contas/**contaID**/conversão/createWithSharedAccessSignature | POST |
+| /v1/contas/**contaID**/conversões/criarAssinatura de Acesso Partilhado | POST |
 
 Devolve a identificação da conversão em curso, embrulhada num documento DaJSON. O nome de campo é "conversãoId".
 
@@ -128,5 +128,5 @@ Se o estado for "Falha", haverá um campo adicional de "erro" com um subcampo de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Utilize o Armazenamento Azure Blob para conversão de modelos](blob-storage.md)
+- [Utilizar o Armazenamento de Blobs do Azure para conversão de modelos](blob-storage.md)
 - [Conversão de modelo](model-conversion.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 11201d6560319dd34ec829f1fb34bd13d45011d7
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435825"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879552"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -29,7 +29,7 @@ Manter os seus recursos seguros é um esforço conjunto entre o seu fornecedor d
 
 O Centro de Segurança do Azure aborda os três desafios de segurança mais urgentes:
 
--   **Cargas de trabalho em mudança constante** – é uma vantagem e um desafio da cloud. Por um lado, os utilizadores finais podem realizar mais ações. Por outro lado, como garante que os serviços em constante mudança que as pessoas utilizam e criam estão de acordo com os seus padrões de segurança e seguem as melhores práticas de segurança?
+-   **Trabalhos** de trabalho em rápida mudança – É simultaneamente uma força e um desafio da nuvem. Por um lado, os utilizadores finais podem realizar mais ações. Por outro lado, como garante que os serviços em constante mudança que as pessoas utilizam e criam estão de acordo com os seus padrões de segurança e seguem as melhores práticas de segurança?
 
 -   **Ataques cada vez mais sofisticados** – onde quer que execute as suas cargas de trabalho, os ataques ficam cada vez mais sofisticados. Tem de proteger as suas cargas de trabalho de cloud pública, que são na verdade uma carga de trabalho com acesso à Internet que pode deixá-lo ainda mais vulnerável se não seguir as melhores práticas de segurança.
 
@@ -146,5 +146,7 @@ Extensa recolha de registos - os registos do Windows e do Linux são todos alava
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
-- O nível de preços gratuitos do Security Center está ativado com a sua subscrição Azure. Para tirar partido das capacidades avançadas de gestão de segurança e de proteção contra ameaças, tem de fazer o upgrade para o nível de preços padrão. O nível padrão pode ser experimentado gratuitamente por 30 dias. Para mais informações, consulte a página de preços do Centro de [Segurança](https://azure.microsoft.com/pricing/details/security-center/).
+
+- O nível de preços gratuitos do Security Center está ativado em todas as suas subscrições atuais do Azure uma vez que você visita o painel de instrumentos do Azure Security Center no Portal Azure pela primeira vez, ou se ativado programáticamente via API. Para tirar partido das capacidades avançadas de gestão de segurança e deteção de ameaças, tem de fazer upgrade para o nível de preços padrão. O nível padrão pode ser experimentado gratuitamente por 30 dias. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.
+
 - Se está pronto para ativar o padrão do Security Center agora, o [Quickstart: A bordo da subscrição do Azure para o Security Center Standard](security-center-get-started.md) acompanha-o através dos degraus.

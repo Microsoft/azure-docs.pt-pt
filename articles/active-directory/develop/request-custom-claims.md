@@ -3,26 +3,21 @@ title: Solicitar reclamações personalizadas (MSAL iOS/macOS) / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como solicitar reclamações personalizadas.
 services: active-directory
-documentationcenter: ''
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: marsma
-ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085600"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883101"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas utilizando MSAL para iOS e macOS
 

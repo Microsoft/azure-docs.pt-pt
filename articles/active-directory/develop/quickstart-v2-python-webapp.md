@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: a8ef0f172a8e9118eef2d2f8a11f3efbce665171
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473535"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873961"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o sessão com a Microsoft a uma aplicação web Python
 
@@ -41,8 +41,7 @@ Para executar esta amostra, você precisará:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Vá ao [portal Azure - Registos de aplicações.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)
-> 1. Selecione **Novo registo**.
+> 1. Vá ao [portal Azure - Registos de aplicações.](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs)
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para descarregar e configure automaticamente a sua nova aplicação.
 >
@@ -59,8 +58,11 @@ Para executar esta amostra, você precisará:
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que `python-webapp`será apresentado aos utilizadores da aplicação, por exemplo.
 >      - Nos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais**da Microsoft .
->      - Sob a secção **Redirecionamento URI,** na **Web** lista de drop-down, `http://localhost:5000/getAToken`selecione a plataforma Web e, em seguida, detete o valor para .
->      - Selecione **Registar**. Na página de **visão geral** da aplicação, note o valor de ID da **Aplicação (cliente)** para posterior utilização.
+>      - Selecione **Registar**.
+>      - Na página de **visão geral** da aplicação, note o valor de ID da **Aplicação (cliente)** para posterior utilização.
+> 1. Selecione a **Autenticação** no menu e, em seguida, adicione as seguintes informações:
+>    - Adicione a configuração da plataforma **Web.** Adicione `http://localhost:5000/getAToken` como **Redirecionamento de URIs**.
+>    - Selecione **Guardar**.
 > 1. No menu da mão esquerda, escolha **Certificados & segredos** e clique em **novo segredo** de cliente na secção Segredos do **Cliente:**
 >
 >      - Digite uma descrição chave (de caso de segredo de aplicação).
@@ -105,11 +107,11 @@ Para executar esta amostra, você precisará:
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>Passo 3: Configurar a Aplicação
-> 
+>
 > 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 > 1. Se utilizar um ambiente de desenvolvimento integrado, abra a amostra no seu IDE favorito (opcional).
 > 1. Abra o ficheiro **app_config.py,** que pode ser encontrado na pasta raiz e substitua-o pelo seguinte código:
-> 
+>
 > ```python
 > CLIENT_ID = "Enter_the_Application_Id_here"
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"

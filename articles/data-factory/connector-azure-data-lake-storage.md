@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 3c7ff0061a57d1a1a7525ec03b4f77c117415ca5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 929b9548661fe48fe90a55f0cacef234c3078cda
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155855"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887270"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 utilizando a Azure Data Factory
 
@@ -44,8 +44,6 @@ Para a atividade de Cópia, com este conector pode:
 >[!IMPORTANT]
 >Se permitir que os **serviços da Microsoft fidedignos acedam a esta** opção de conta de armazenamento nas definições de firewall do Azure Storage e pretenda utilizar o tempo de execução de integração do Azure para se ligar ao seu Data Lake Storage Gen2, deve utilizar a [autenticação](#managed-identity) de identidade gerida para a ADLS Gen2.
 
->[!TIP]
->Se ativar o espaço de nomehialógico, não existe atualmente interoperabilidade de operações entre Blob e Data Lake Storage Gen2 APIs. Se tiver atingido o erro "ErrorCode=FilesystemNotFound" com a mensagem "O sistema de ficheiros especificado não existe", é causado pelo sistema de ficheiros sink especificado que foi criado através da API Blob em vez de Data Lake Storage Gen2 API em outros lugares. Para corrigir o problema, especifique um novo sistema de ficheiros com um nome que não existe como o nome de um recipiente Blob. Em seguida, data Factory cria automaticamente esse sistema de ficheiros durante a cópia de dados.
 
 ## <a name="get-started"></a>Introdução
 

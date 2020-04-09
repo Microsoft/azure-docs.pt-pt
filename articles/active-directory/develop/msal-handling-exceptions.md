@@ -7,20 +7,18 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f78c64fc0ba25dc3310b24e873dbae266ea2f281
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93d07ab1740da68298478ae2dcc2ab46d8d8362e
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050328"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884023"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
 
@@ -231,7 +229,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-## <a name="python"></a>[Pitão](#tab/python)
+## <a name="python"></a>[Python](#tab/python)
 
 Na MSAL para Python, a maioria dos erros são transmitidos como um valor de retorno da chamada da API. O erro é representado como um dicionário contendo a resposta JSON da plataforma de identidade da Microsoft.
 
@@ -518,7 +516,7 @@ Ao chamar uma API que exija acesso condicional a partir de MSAL.NET, a sua aplic
 
 Para lidar com o desafio da reivindicação, terá de usar o `.WithClaim()` método da `PublicClientApplicationBuilder` classe.
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 Ao obter fichas silenciosamente `acquireTokenSilent`(utilizando ) utilizando MSAL.js, a sua aplicação pode receber erros quando um desafio de [acesso condicional](../azuread-dev/conditional-access-dev-guide.md) alega, como a política de MFA, é exigido por uma API a que está a tentar aceder.
 

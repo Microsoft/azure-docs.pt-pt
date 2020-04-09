@@ -1,25 +1,21 @@
 ---
 title: Opções de plataforma de integração e automação no Azure
-description: 'Compare os serviços de nuvem da Microsoft que estão otimizados para tarefas de integração: Microsoft Flow, Logic Apps, Functions e WebJobs.'
+description: 'Compare os serviços de nuvem da Microsoft otimizados para tarefas de integração: Power Automate, Logic Apps, Functions e WebJobs.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241319"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878141"
 ---
-> [!NOTE]
-> O Microsoft Flow é agora o Power Automate. Para obter mais informações, veja este [blogue](https://aka.ms/flow-now-pa).
-> 
-> Este conteúdo será atualizado para refletir a alteração de imagem corporativa nos próximos dias.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação certos em Azure
 
 Este artigo compara os seguintes serviços cloud do Microsoft:
 
-* [Microsoft Flow](https://flow.microsoft.com/)
+* [Microsoft Power Automate](https://flow.microsoft.com/) (foi Microsoft Flow)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
 * [WebJobs do Serviço de Aplicações do Azure ](../app-service/webjobs-create.md)
@@ -28,23 +24,23 @@ Todos estes serviços podem resolver problemas de integração e automatizar pro
 
 Se procura uma comparação mais geral entre as Funções Azure e outras opções de computação Azure, consulte Critérios para escolher um serviço de [computação Azure](/azure/architecture/guide/technology-choices/compute-comparison) e escolher uma opção de [computação Azure para microserviços.](/azure/architecture/microservices/design/compute-options)
 
-## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Comparar o Microsoft Flow e o Azure Logic Apps
+## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Compare aplicações microsoft Power Automate e Azure Logic
 
-Microsoft Flow e Logic Apps são ambos serviços de integração *de design-primeiro* que podem criar fluxos de trabalho. Ambos os serviços integram-se com diversas aplicações empresariais e SaaS. 
+Power Automate e Logic Apps são ambos serviços de integração *de design-primeiro* que podem criar fluxos de trabalho. Ambos os serviços integram-se com diversas aplicações empresariais e SaaS. 
 
-O Microsoft Flow é construído em cima de Aplicações Lógicas. Partilham o mesmo designer de fluxode trabalho e os [mesmos conectores.](../connectors/apis-list.md) 
+Power Automate é construído em cima de Aplicações Lógicas. Partilham o mesmo designer de fluxode trabalho e os [mesmos conectores.](../connectors/apis-list.md) 
 
-O Microsoft Flow capacita qualquer trabalhador de escritório para realizar integrações simples (por exemplo, um processo de aprovação numa Biblioteca de Documentos SharePoint) sem passar por desenvolvedores ou TI. As Aplicações Lógicas também podem permitir integrações avançadas (por exemplo, processos B2B) onde são necessários Azure DevOps e práticas de segurança ao nível da empresa. É normal um fluxo de trabalho do negócio se tornar cada vez mais complexo ao longo do tempo. Assim, pode começar com um fluxo no início e depois convertê-lo para uma aplicação lógica, conforme necessário.
+A Power Automate capacita qualquer trabalhador de escritório para realizar integrações simples (por exemplo, um processo de aprovação numa Biblioteca de Documentos SharePoint) sem passar por desenvolvedores ou TI. As Aplicações Lógicas também podem permitir integrações avançadas (por exemplo, processos B2B) onde são necessários Azure DevOps e práticas de segurança ao nível da empresa. É normal um fluxo de trabalho do negócio se tornar cada vez mais complexo ao longo do tempo. Assim, pode começar com um fluxo no início e depois convertê-lo para uma aplicação lógica, conforme necessário.
 
-A tabela seguinte ajuda-o a determinar se o Microsoft Flow ou as Aplicações Lógicas são os melhores para uma determinada integração:
+A tabela seguinte ajuda-o a determinar se power automate ou Logic Apps é o melhor para uma determinada integração:
 
-|  | Microsoft Flow | Aplicações Lógicas |
+|  | Power Automate | Aplicações Lógicas |
 | --- | --- | --- |
 | **Utilizadores** |Trabalhadores do escritório, utilizadores empresariais, administradores do SharePoint |Integradores e programadores profissionais, profissionais de TI |
 | **Cenários** |Gestão personalizada |Integrações avançadas |
 | **Ferramenta de design** |Aplicação no browser e móvel, apenas IU |No browser e [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Vista de código](../logic-apps/logic-apps-author-definitions.md) disponível |
 | **Gestão do ciclo de vida da aplicação (ALM)** |Conceção e teste em ambientes não produtivos, promover à produção quando estiver pronto |Azure DevOps: controlo de fontes, testes, suporte, automação e gestão no Gestor de [Recursos do Azure](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| **Experiência de administrador** |Gerir os ambientes do Microsoft Flow e as políticas de prevenção de perdas de dados (DLP), licenciamento de rastreio: [Microsoft Flow Admin Center](https://admin.flow.microsoft.com) |Gerir grupos de recursos, conexões, gestão de acesso e exploração madeireira: [Portal Azure](https://portal.azure.com) |
+| **Experiência de administrador** |Gerir ambientes power automate e políticas de prevenção de perdas de dados (DLP), licenciamento de pista: [Centro de Administração](https://admin.flow.microsoft.com) |Gerir grupos de recursos, conexões, gestão de acesso e exploração madeireira: [Portal Azure](https://portal.azure.com) |
 | **Segurança** |Registos de auditoria de segurança e conformidade do Office 365, DLP, [encriptação em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados sensíveis |Garantia de segurança do Azure: [Segurança Azure,](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity) [Centro de Segurança Azure,](https://azure.microsoft.com/services/security-center/) [registos de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparar o Azure Functions e o Azure Logic Apps
@@ -86,8 +82,8 @@ As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos 
 |[Programação e testes no browser](functions-create-first-azure-function.md) |✔||
 |[Preços com pagamento por utilização](functions-scale.md#consumption-plan)|✔||
 |[Integração com Logic Apps](functions-twitter-email.md)|✔||
-| Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de Eventos do Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de Eventos do Azure](functions-bindings-event-hubs.md)<br>[Sistema de ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Linguagens suportadas  |C#<br>F#<br>Javascript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
+| Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| Linguagens suportadas  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Gestores de pacotes|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (sem o WebJobs SDK) suporta C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, e muito mais. Esta não é uma lista completa. Um WebJob pode executar qualquer programa ou script que possa ser executado na sandbox do Serviço de Aplicações.
@@ -107,25 +103,25 @@ Para outros cenários nos quais pretenda executar fragmentos de código para int
 
 <a name="together"></a>
 
-## <a name="microsoft-flow-logic-apps-functions-and-webjobs-together"></a>Microsoft Flow, Apps Lógicas, Funções e WebJobs juntos
+## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Power Automate, Logic Apps, Funções e WebJobs juntos
 
 Não tens de escolher apenas um destes serviços. Integram-se entre si, assim como com os serviços externos.
 
 Um fluxo pode chamar uma aplicação lógica. Uma aplicação lógica pode chamar uma função e uma função pode chamar uma aplicação lógica. Consulte, por exemplo, [Criar uma função que se integra no Azure Logic Apps](functions-twitter-email.md).
 
-A integração entre o Microsoft Flow, Logic Apps e Functions continua a melhorar ao longo do tempo. Pode criar algo num serviço e utilizar noutros serviços.
+A integração entre power automate, Logic Apps e Functions continua a melhorar ao longo do tempo. Pode criar algo num serviço e utilizar noutros serviços.
 
 Pode obter mais informações sobre serviços de integração utilizando os seguintes links:
 
 * [Tirar partido das Funções do Azure e do Serviço de Aplicações do Azure para cenários de integração por Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrações Simplificadas por Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Aplicativos lógicos Webcast ao vivo](https://aka.ms/logicappslive)
-* [Microsoft Flow frequentemente fez perguntas](/power-automate/frequently-asked-questions)
+* [Power Automate frequentemente fez perguntas](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Comece por criar o seu primeiro fluxo, aplicação lógica ou aplicação de funções. Selecione qualquer um dos seguintes links:
 
-* [Introdução ao Microsoft Flow](/power-automate/getting-started)
+* [Começar com power automate](/power-automate/getting-started)
 * [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Crie a sua primeira função Azure](functions-create-first-azure-function.md)

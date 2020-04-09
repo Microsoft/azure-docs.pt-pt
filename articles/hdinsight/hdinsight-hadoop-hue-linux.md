@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
-ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934566"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887100"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instale e utilize Hue em clusters Hadoop HDInsight
 
@@ -51,7 +51,7 @@ Utilize as informações na tabela abaixo para a sua Ação de Script. Consulte 
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Use hue com clusters HDInsight
 
-O túnel SSH é a única forma de aceder a Hue no aglomerado uma vez que está em funcionamento. A escavação via SSH permite que o tráfego vá diretamente para o headnode do aglomerado onde hue está em execução. Depois de o cluster ter terminado o fornecimento, utilize os seguintes passos para utilizar o Hue num cluster HDInsight.
+Só pode ter uma conta de utilizador com hue em clusters regulares. Para acesso a vários utilizadores, ative o Pacote de [Segurança Empresarial](./domain-joined/hdinsight-security-overview.md) no cluster. O túnel sSH é a única maneira de aceder ao Hue no aglomerado quando estiver a funcionar. A escavação via SSH permite que o tráfego vá diretamente para o headnode do aglomerado onde hue está em execução. Depois de o cluster ter terminado o fornecimento, utilize os seguintes passos para utilizar o Hue num cluster HDInsight.
 
 > [!NOTE]  
 > Recomendamos a utilização do navegador Web Firefox para seguir as instruções abaixo.
@@ -115,7 +115,7 @@ O túnel SSH é a única forma de aceder a Hue no aglomerado uma vez que está e
 
 1. Hue não entende os empregos de Apache Tez, que é o padrão atual para a Colmeia. Se pretender utilizar o MapReduce como motor de execução da Colmeia, atualize o script para utilizar o seguinte comando no seu script:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 1. Com os clusters Linux, pode ter um cenário em que os seus serviços estão a funcionar no headnode principal enquanto o Gestor de Recursos pode estar a funcionar no secundário. Tal cenário pode resultar em erros (mostrados abaixo) ao utilizar hue para visualizar detalhes de empregos em EXECUÇÃo no cluster. No entanto, pode ver os detalhes do trabalho quando o trabalho estiver concluído.
 

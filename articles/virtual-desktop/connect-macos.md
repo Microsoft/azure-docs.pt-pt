@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 673c20355e9ad4abf2c8318b3eb2ebbcc36ed8fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ac3ee8d44d68f5c7929c2f93f1a1182c7f6083b
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128241"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891259"
 ---
 # <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
 
@@ -31,11 +31,11 @@ Subscreva o feed que o seu administrador lhe deu para obter a lista de recursos 
 
 Para subscrever um feed:
 
-1. Selecione **Adicionar Feed** na página principal para ligar ao serviço e recuperar os seus recursos.
+1. **Selecione Adicionar espaço** de trabalho na página principal para ligar ao serviço e recuperar os seus recursos.
 2. Introduza o URL de Alimentação. Este pode ser um URL ou endereço de e-mail:
    - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o <https://rdweb.wvd.microsoft.com>URL é .
    - Para utilizar o seu email, insira o seu endereço de e-mail. Isto diz ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
-3. **Selecione Subscrever**.
+3. Selecione **Adicionar**.
 4. Inscreva-se na sua conta de utilizador quando solicitado.
 
 Depois de se inscrever, deve ver uma lista de recursos disponíveis.

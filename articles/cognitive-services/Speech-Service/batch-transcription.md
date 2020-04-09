@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668843"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892466"
 ---
 # <a name="what-is-batch-transcription"></a>O que é a transcrição do lote?
 
@@ -129,7 +129,7 @@ Utilize estas propriedades opcionais para configurar a transcrição:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Especifica se a análise de sentimento deve ser aplicada à expressão. Os valores aceites são `true` para ativar e `false` (o valor predefinido) desativá-lo.
+      Especifica se a análise de sentimento deve ser aplicada à expressão. Os valores aceites são `true` para ativar e `false` (o valor predefinido) desativá-lo. Consulte a [Análise de Sentimentos](#sentiment-analysis) para mais detalhes.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -218,12 +218,41 @@ Para o áudio de entrada mono, está a ser criado um ficheiro de resultados de t
 
 O resultado contém estes formulários:
 
-| Formulário        | Conteúdo                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Lexical`   | As palavras verdadeiras foram reconhecidas.                                                                                                                             |
-| `ITN`       | Forma inversa-por texto normalizada do texto reconhecido. As abreviaturas ("doctor smith" a "dr smith"), os números de telefone e outras transformações são aplicadas. |
-| `MaskedITN` | A forma ITN com máscara profana aplicada.                                                                                                             |
-| `Display`   | A forma de exibição do texto reconhecido. Estão incluídas pontuações adicionais e capitalização.                                                             |
+:::row:::
+   :::column span="1":::
+      **Formulário**
+   :::column-end:::
+   :::column span="2":::
+      **Conteúdo**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      As palavras verdadeiras foram reconhecidas.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      Forma inversa-por texto normalizada do texto reconhecido. As abreviaturas ("doctor smith" a "dr smith"), os números de telefone e outras transformações são aplicadas.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      A forma ITN com máscara profana aplicada.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      A forma de exibição do texto reconhecido. Estão incluídas pontuações adicionais e capitalização.
+:::row-end:::
 
 ## <a name="speaker-separation-diarization"></a>Separação de altifalantes (Diarização)
 
@@ -260,6 +289,10 @@ A funcionalidade de sentimento estima o sentimento expresso no áudio. O sentime
 - Identifique o que os clientes gostam e o que não gostam de um produto ou de um serviço
 
 O sentimento é pontuado por segmento de áudio com base na forma lexical. Todo o texto dentro desse segmento de áudio é usado para calcular o sentimento. Nenhum sentimento agregado está a ser calculado para toda a transcrição. Atualmente, a análise de sentimentos só está disponível para a língua inglesa.
+
+> [!NOTE]
+> Recomendamos a utilização do Microsoft Text Analytics API. Oferece características mais avançadas além da análise de sentimentos como a extração de frases-chave, deteção automática de linguagem, e muito mais. Pode encontrar informações e amostras na documentação do [Text Analytics.](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
+>
 
 Uma amostra de saída JSON parece abaixo:
 

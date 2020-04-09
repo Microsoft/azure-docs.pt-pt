@@ -2,26 +2,21 @@
 title: Inscrição de aplicação de uma página única & inscrição - plataforma de identidade da Microsoft Azure
 description: Saiba como construir uma aplicação de uma única página (iniciar sessão)
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8dd4d1aa2423ddb48f61380a982ca256609734d6
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7e809def048c95b6688a13ac99783615eb045d11
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885194"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicação de página única: Iniciar sessão e iniciar sessão
 

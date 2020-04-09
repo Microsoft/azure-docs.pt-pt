@@ -3,7 +3,6 @@ title: Adicione as funções da aplicação e obtenha-as de um símbolo / Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como adicionar funções de aplicação numa aplicação registada no Azure Ative Directory, atribuir utilizadores e grupos a estas funções e recebê-las na `roles` reclamação no token.
 services: active-directory
-documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399082"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884261"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no símbolo
 
@@ -35,7 +34,7 @@ Estas funções de candidatura são definidas no [portal Azure](https://portal.a
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicação usando o portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal.
 1. Na lista de Favoritos ou **Todos os Diretórios,** escolha o inquilino do Diretório Ativo onde deseja registar a sua candidatura. **Favorites**
 1. No portal Azure, procure e selecione **Azure Ative Directory**.

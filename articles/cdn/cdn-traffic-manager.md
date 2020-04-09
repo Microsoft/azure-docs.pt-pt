@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d44e53520481e4ada5c2f16f0c56a4a6a724ec1
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083008"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892483"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar falha em vários pontos finais do Azure CDN com o Gestor de Tráfego Azure
 
@@ -82,7 +82,7 @@ Depois de configurar os perfis de CDN e Traffic Manager, siga estes passos para 
     O Azure CDN utiliza o subdomínio *cdncheck* para validar o mapeamento dNS para completar este processo de registo. Para mais informações, consulte [Criar um registo CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Este passo permite ao Azure CDN reconhecer o domínio personalizado para que possa responder aos seus pedidos.
     
     > [!NOTE]
-    > Para ativar o SSL num **CDN Azure a partir de** perfis Akamai, deve indicar diretamente o domínio personalizado ao seu ponto final. cdnverificar para permitir a SSL ainda não é suportado. 
+    > Para ativar o TLS num **CDN Azure a partir de** perfis Akamai, deve indicar diretamente o domínio personalizado ao seu ponto final. Cdnverificar para permitir o TLS ainda não é suportado. 
     >
 
 3.  Volte ao site para o fornecedor de domínio do seu domínio personalizado e atualize o primeiro mapeamento DNS que criou para que o domínio personalizado seja mapeado para o seu segundo ponto final do CDN.

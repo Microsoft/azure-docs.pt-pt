@@ -1,5 +1,5 @@
 ---
-title: Referência de símbolo da plataforma de identidade microsoft Microsoft Docs
+title: Referência token da plataforma de identidade da Microsoft
 description: Saiba como utilizar id_tokens emitidos pelos pontos finais da Azure AD V1.0 e microsoft (v2.0).
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ede70719c124caebc541df8578ab2720fc68cd5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160955"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885519"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
@@ -53,9 +53,9 @@ Veja este símbolo de amostra v2.0 em [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 |Afirmação | Formato | Descrição |
 |-----|--------|-------------|
 |`typ` | String - sempre "JWT" | Indica que o símbolo é um JWT.|
-|`alg` | Cadeia | Indica o algoritmo que foi usado para assinar o símbolo. Exemplo: "RS256" |
-|`kid` | Cadeia | Impressão digital para a chave pública usada para assinar este símbolo. Emitido tanto em v1.0 como `id_tokens`v2.0 . |
-|`x5t` | Cadeia | O mesmo (em uso `kid`e valor) que . No entanto, esta é uma reivindicação `id_tokens` de legado emitida apenas em v1.0 para fins de compatibilidade. |
+|`alg` | String | Indica o algoritmo que foi usado para assinar o símbolo. Exemplo: "RS256" |
+|`kid` | String | Impressão digital para a chave pública usada para assinar este símbolo. Emitido tanto em v1.0 como `id_tokens`v2.0 . |
+|`x5t` | String | O mesmo (em uso `kid`e valor) que . No entanto, esta é uma reivindicação `id_tokens` de legado emitida apenas em v1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
 
@@ -69,19 +69,19 @@ Esta lista mostra as alegações que estão na maioria das id_tokens por defeito
 |`idp`|String, geralmente um STS URI | Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor da reclamação do Emitente, a menos que a conta de utilizador não esteja no mesmo inquilino que o emitente - hóspedes, por exemplo. Se a reclamação não estiver presente, `iss` significa que o valor pode ser usado em vez disso.  Para contas pessoais que sejam utilizadas num contexto organizacional (por exemplo, uma conta `idp` pessoal convidada a um inquilino da AD Azure), a reclamação pode ser "live.com" ou um STS URI contendo o inquilino `9188040d-6c67-4c5b-b112-36a304b66dad`da conta microsoft. |
 |`nbf` |  int, um carimbo de tempo UNIX | A alegação "nbf" (não antes) identifica o tempo anterior ao qual o JWT NÃO deve ser aceite para processamento.|
 |`exp` |  int, um carimbo de tempo UNIX | A alegação "exp" (tempo de validade) identifica o tempo de validade em ou após o qual o JWT NÃO deve ser aceite para processamento.  É importante notar que um recurso pode rejeitar o símbolo antes deste tempo também - se, por exemplo, for necessária uma alteração na autenticação ou se tiver sido detetada uma revogação simbólica. |
-| `c_hash`| Cadeia |O hash código só está incluído em fichas de identificação quando o token de identificação é emitido com um código de autorização OAuth 2.0. Pode ser usado para validar a autenticidade de um código de autorização. Para mais detalhes sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| Cadeia |O hash de acesso é incluído em tokens de id apenas quando o token id é emitido com um token de acesso OAuth 2.0. Pode ser usado para validar a autenticidade de um símbolo de acesso. Para mais detalhes sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+| `c_hash`| String |O hash código só está incluído em fichas de identificação quando o token de identificação é emitido com um código de autorização OAuth 2.0. Pode ser usado para validar a autenticidade de um código de autorização. Para mais detalhes sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| String |O hash de acesso é incluído em tokens de id apenas quando o token id é emitido com um token de acesso OAuth 2.0. Pode ser usado para validar a autenticidade de um símbolo de acesso. Para mais detalhes sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Corda Opaca | Uma alegação interna utilizada pela Azure AD para registar dados para reutilização simbólica. Deve ser ignorado.|
-|`preferred_username` | Cadeia | O nome de utilizador primário que representa o utilizador. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérico sem um formato especificado. O seu valor é mutável e pode mudar com o tempo. Uma vez que é mutável, este valor não deve ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta reclamação.|
-|`email` | Cadeia | A `email` reclamação está presente por padrão para contas de hóspedes que têm um endereço de e-mail.  A sua aplicação pode solicitar a reclamação de e-mail para `email` utilizadores geridos (os do mesmo inquilino que o recurso) usando a [reclamação opcional](active-directory-optional-claims.md).  No ponto final v2.0, a sua `email` aplicação também pode solicitar o âmbito OpenID Connect - não precisa de solicitar tanto a reclamação opcional como o âmbito para obter a reclamação.  A reclamação de e-mail apenas suporta correio endereçado a partir da informação de perfil do utilizador. |
-|`name` | Cadeia | A `name` alegação fornece um valor legível pelo homem que identifica o objeto do símbolo. O valor não é garantido ser único, é mutável, e é projetado para ser usado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta reclamação. |
-|`nonce`| Cadeia | O nonce corresponde ao parâmetro incluído no pedido original /autorizar ao IDP. Se não corresponder, o seu pedido deve rejeitar o símbolo. |
+|`preferred_username` | String | O nome de utilizador primário que representa o utilizador. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérico sem um formato especificado. O seu valor é mutável e pode mudar com o tempo. Uma vez que é mutável, este valor não deve ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta reclamação.|
+|`email` | String | A `email` reclamação está presente por padrão para contas de hóspedes que têm um endereço de e-mail.  A sua aplicação pode solicitar a reclamação de e-mail para `email` utilizadores geridos (os do mesmo inquilino que o recurso) usando a [reclamação opcional](active-directory-optional-claims.md).  No ponto final v2.0, a sua `email` aplicação também pode solicitar o âmbito OpenID Connect - não precisa de solicitar tanto a reclamação opcional como o âmbito para obter a reclamação.  A reclamação de e-mail apenas suporta correio endereçado a partir da informação de perfil do utilizador. |
+|`name` | String | A `name` alegação fornece um valor legível pelo homem que identifica o objeto do símbolo. O valor não é garantido ser único, é mutável, e é projetado para ser usado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta reclamação. |
+|`nonce`| String | O nonce corresponde ao parâmetro incluído no pedido original /autorizar ao IDP. Se não corresponder, o seu pedido deve rejeitar o símbolo. |
 |`oid` | String, um GUID | O identificador imutável para um objeto no sistema de identidade da Microsoft, neste caso, uma conta de utilizador. Este ID identifica exclusivamente o utilizador através de aplicações - duas aplicações diferentes que assinam no mesmo utilizador receberão o mesmo valor na `oid` reclamação. O Microsoft Graph devolverá `id` este ID como propriedade para uma determinada conta de utilizador. Uma `oid` vez que permite que várias aplicações se relacionem com os utilizadores, o `profile` âmbito é necessário para receber esta reclamação. Note que se um único utilizador existir em vários inquilinos, o utilizador irá conter um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador entre em cada conta com as mesmas credenciais. A `oid` alegação é um GUID e não pode ser reutilizada. |
 |`roles`| Conjunto de cordas | O conjunto de funções que foram atribuídas ao utilizador que está a fazer login. |
 |`rh` | Corda Opaca |Uma reivindicação interna usada pelo Azure para revalidar fichas. Deve ser ignorado. |
 |`sub` | String, um GUID | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O sujeito é um identificador em pares - é exclusivo de um determinado ID de aplicação. Se um único utilizador assinar em duas aplicações diferentes usando duas iDs de cliente diferentes, essas aplicações receberão dois valores diferentes para a reclamação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. |
 |`tid` | String, um GUID | Um GUID que representa o inquilino azure ad que o utilizador é. Para contas de trabalho e escola, o GUID é a imutável identificação de inquilino da organização a que o utilizador pertence. Para contas pessoais, `9188040d-6c67-4c5b-b112-36a304b66dad`o valor é . O `profile` âmbito é necessário para receber esta reclamação. |
-|`unique_name` | Cadeia | Fornece um valor legível por humanos que identifica o requerente do token. Este valor é único em qualquer ponto do tempo, mas como os e-mails e outros identificadores podem ser reutilizados, este valor pode reaparecer noutras contas, devendo, portanto, ser utilizado apenas para efeitos de exibição. Só emitida em v1.0. `id_tokens` |
+|`unique_name` | String | Fornece um valor legível por humanos que identifica o requerente do token. Este valor é único em qualquer ponto do tempo, mas como os e-mails e outros identificadores podem ser reutilizados, este valor pode reaparecer noutras contas, devendo, portanto, ser utilizado apenas para efeitos de exibição. Só emitida em v1.0. `id_tokens` |
 |`uti` | Corda Opaca | Uma reivindicação interna usada pelo Azure para revalidar fichas. Deve ser ignorado. |
 |`ver` | Corda, ou 1.0 ou 2.0 | Indica a versão do id_token. |
 

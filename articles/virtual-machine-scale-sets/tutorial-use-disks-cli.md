@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3accb1bb8c79d1842c4effe3b99fe2a904fa832
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067046"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878872"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
@@ -51,18 +51,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
-Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU de VM, podem ser expostos dois discos de dados.
-
-### <a name="max-data-disks-per-vm"></a>Discos de dados máximos por VM
-| Tipo | Tamanhos comuns | Discos de dados máximos por VM |
-|----|----|----|
-| [Fins gerais](../virtual-machines/linux/sizes-general.md) | Séries A, B e D | 64 |
-| [Com otimização de computação](../virtual-machines/linux/sizes-compute.md) | Série F | 64 |
-| [Com otimização de memória](../virtual-machines/linux/sizes-memory.md) | Séries D, E, G e M | 64 |
-| [Com otimização de armazenamento](../virtual-machines/linux/sizes-storage.md) | Série L | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 64 |
-| [Elevado desempenho](../virtual-machines/linux/sizes-hpc.md) | Séries A e H | 64 |
-
+Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada VM vCPU, dois discos de dados podem ser ligados até um máximo absoluto de 64 discos por máquina virtual.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 O Azure oferece dois tipos de disco.

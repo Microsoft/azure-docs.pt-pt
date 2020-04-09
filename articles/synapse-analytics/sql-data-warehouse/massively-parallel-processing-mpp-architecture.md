@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d768581b8f1a177190da08986af8b60b4861432
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744211"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884837"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW)
 
@@ -82,8 +82,6 @@ Cada uma das 60 consultas menores é de uma das distribuições de dados. Cada n
 
 Uma tabela distribuída com hash pode proporcionar o mais elevado desempenho de consulta para associações e agregações em tabelas grandes.
 
-Uma tabela distribuída com hash pode proporcionar o mais elevado desempenho de consulta para associações e agregações em tabelas grandes.
-
 Para fragmentos de dados numa tabela distribuída por hash, uma função de hash é usada para atribuir deterministicamente cada linha a uma distribuição. Na definição da tabela, uma das colunas será a coluna de distribuição. A função hash utiliza os valores da coluna de distribuição para atribuir cada linha a uma distribuição.
 
 O diagrama seguinte ilustra como uma mesa completa (mesa não distribuída) é armazenada como uma tabela distribuída por hash.
@@ -121,6 +119,6 @@ Agora que sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um p
 - [Pedidos de funcionalidades](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Criar pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 - [Fórum do Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

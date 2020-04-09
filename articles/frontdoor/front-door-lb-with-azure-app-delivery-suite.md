@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 9f8d1959549eaddfb4a2c9ea271094db0073c788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471715"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875287"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
@@ -37,7 +37,7 @@ Combinar serviços globais e regionais na sua aplicação fornece uma forma fiá
 - Encaminhamento prioritário para direcionar todo o tráfego para um backend, com outros backends como backup.
 - Encaminhamento de robin redondo ponderado, que distribui tráfego com base na ponderação que é atribuída a cada backend.
 - Encaminhamento geográfico para garantir que os solicitores localizados em regiões geográficas específicas sejam direcionados para as extremidades traseiras mapeadas para essas regiões (por exemplo, todos os pedidos de Espanha devem ser dirigidos à região do Azure Central de França)
-- O encaminhamento de subnet que lhe permite mapear intervalos de endereçoip para backends para que os pedidos provenientes desses serão enviados para o backend especificado (por exemplo, todos os utilizadores que se ligam a partir da gama de endereços IP do seu QG corporativo devem obter conteúdo web diferente do geral utilizadores)
+- O encaminhamento de subnet que lhe permite mapear intervalos de endereçoip para backends para que os pedidos provenientes desses serão enviados para o backend especificado (por exemplo, todos os utilizadores que se ligam a partir da gama de endereços IP do seu QG corporativo devem obter conteúdo web diferente dos utilizadores gerais)
 
 O cliente liga-se diretamente ao backend. O Azure Traffic Manager deteta quando um backend não é saudável e depois redireciona os clientes para outra instância saudável. Consulte a documentação do Gestor de [Tráfego do Azure](../traffic-manager/traffic-manager-overview.md) para saber mais sobre o serviço.
 
@@ -45,7 +45,7 @@ O cliente liga-se diretamente ao backend. O Azure Traffic Manager deteta quando 
 A Porta Frontal encerra os pedidos http na borda da rede da Microsoft e sonda ativamente para detetar alterações de saúde ou latência de aplicações ou infraestruturas.  Porta da Frente então sempre encaminha o tráfego para o backend mais rápido e disponível (saudável). Consulte os detalhes da arquitetura de [encaminhamento](front-door-routing-architecture.md) da Porta Frontal e os métodos de [encaminhamento](front-door-routing-methods.md) de tráfego para saber mais sobre o serviço.
 
 ## <a name="regional-load-balancing"></a>Equilíbrio regional de carga
-O Application Gateway fornece o controlador de entrega de aplicações (ADC) como um serviço, oferecendo várias capacidades de equilíbrio de carga da Camada 7 para a sua aplicação. Permite que os clientes otimizem a produtividade da quinta web descarregando a rescisão intensiva de SSL por CPU para o gateway da aplicação. Outras capacidades de encaminhamento da Camada 7 incluem distribuição de rodada-robin do tráfego de entrada, afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, e a capacidade de hospedar vários websites atrás de um único gateway de aplicação. O Gateway de aplicações pode ser configurado como um gateway virado para a Internet, um gateway apenas interno, ou uma combinação de ambos. Application Gateway é totalmente gerido, escalável e altamente disponível. Proporciona um conjunto avançado de capacidades de registo e diagnóstico, para uma melhor capacidade de gestão.
+O Application Gateway fornece o controlador de entrega de aplicações (ADC) como um serviço, oferecendo várias capacidades de equilíbrio de carga da Camada 7 para a sua aplicação. Permite que os clientes otimizem a produtividade da quinta web descarregando a rescisão intensiva de TLS por CPU para o gateway da aplicação. Outras capacidades de encaminhamento da Camada 7 incluem distribuição de rodada-robin do tráfego de entrada, afinidade de sessão baseada em cookies, encaminhamento baseado em caminhos de URL, e a capacidade de hospedar vários websites atrás de um único gateway de aplicação. O Gateway de aplicações pode ser configurado como um gateway virado para a Internet, um gateway apenas interno, ou uma combinação de ambos. Application Gateway é totalmente gerido, escalável e altamente disponível. Proporciona um conjunto avançado de capacidades de registo e diagnóstico, para uma melhor capacidade de gestão.
 Load Balancer é parte integrante da pilha Azure SDN, fornecendo serviços de equilíbrio de carga de baixa latência e de baixa latência para todos os protocolos UDP e TCP. Gere as ligações de entrada e saída. Pode configurar pontos finais públicos e internos com balanceamento de carga e definir regras para mapear as ligações de entrada para destinos do conjunto de back-end, com opções de pesquisa de estado de funcionamento TCP e HTTP para gerir a disponibilidade do serviço.
 
 
@@ -58,7 +58,7 @@ Ao escolher um equilibrador de carga global entre o Traffic Manager e o Azure Fr
 
 | Gestor de Tráfego | Azure Front Door |
 | --------------- | ------------------------ |
-|**Qualquer protocolo:** Como o Gestor de Tráfego trabalha na camada DNS, pode encaminhar qualquer tipo de tráfego de rede; HTTP, TCP, UDP, etc. | **Aceleração http:** Com o tráfego front door está à beira da rede da Microsoft.  Por isso, os pedidos http(S) vêem a latência e as melhorias de resultados reduzindo a latência para a negociação do SSL e usando ligações quentes da AFD para a sua aplicação.|
+|**Qualquer protocolo:** Como o Gestor de Tráfego trabalha na camada DNS, pode encaminhar qualquer tipo de tráfego de rede; HTTP, TCP, UDP, etc. | **Aceleração http:** Com o tráfego front door está à beira da rede da Microsoft.  Por isso, os pedidos http(S) vêem a latência e as melhorias de entrada reduzindo a latência para a negociação do TLS e usando ligações quentes da AFD para a sua aplicação.|
 |**Encaminhamento no local:** Com o encaminhamento numa camada DNS, o tráfego vai sempre de ponto a ponto.  O encaminhamento da sua filial para o seu centro de dados no local pode seguir um caminho direto; mesmo na sua própria rede usando traffic manager. | **Escalabilidade independente:** Como a Porta Da Frente trabalha com o pedido http, os pedidos para diferentes caminhos de URL podem ser encaminhados para diferentes piscinas de serviços backend/regional (microserviços) com base nas regras e na saúde de cada microserviço de aplicações.|
 |**Formato de faturação:** Escalas de faturação baseadas em DNS com os seus utilizadores e para serviços com mais utilizadores, planaltos para reduzir custos a uma utilização mais elevada. |**Segurança inline:** A Porta da Frente permite que regras como a limitação da taxa e o IP ACL-ing lhe permitam proteger as suas costas antes que o tráfego chegue à sua aplicação. 
 
@@ -78,7 +78,7 @@ O diagrama seguinte mostra a arquitetura deste cenário:
 ![Suíte de entrega de aplicações Arquitetura Detalhada][2] 
 
 > [!NOTE]
-> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de equilíbrio de carga que o Azure oferece. O Gestor de Tráfego, a Porta da Frente, o Gateway da Aplicação e o Balancer de Carga podem ser misturados e compatíveis com as suas necessidades de equilíbrio de carga. Por exemplo, se não for necessário descarregar sSL ou processar a Camada 7, o Balancer de carga pode ser utilizado no lugar do Gateway da Aplicação.
+> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de equilíbrio de carga que o Azure oferece. O Gestor de Tráfego, a Porta da Frente, o Gateway da Aplicação e o Balancer de Carga podem ser misturados e compatíveis com as suas necessidades de equilíbrio de carga. Por exemplo, se não for necessário descarregar TLS/SSL ou processar a Camada 7, o Balancer de carga pode ser utilizado no lugar do Gateway de Aplicação.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

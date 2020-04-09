@@ -3,20 +3,20 @@ title: Contentores de estiva - LUIS
 titleSuffix: Azure Cognitive Services
 description: O recipiente LUIS carrega a sua app treinada ou publicada num recipiente de estivador e dá acesso às previsões de consulta dos pontos finais da API do contentor.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: dapine
-ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: fec6b16eb7f80369904eefc407a9a9c8d6629c9a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219931"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879331"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instale e corra recipientes de estival LUIS
  

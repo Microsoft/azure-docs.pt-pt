@@ -2,19 +2,19 @@
 title: Como instalar e executar recipiente para reconhecimento de formulários
 titleSuffix: Azure Cognitive Services
 description: Este artigo explicará como usar o recipiente de reconhecimento de formulários de formulário de serviços cognitivos Azure para analisar os dados de forma e tabela.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: dapine
-ms.openlocfilehash: c8ce4b913548429ff83e0b8aa3cb65455fc9b4c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8cfa9114c5a5e57882cb84b604c1cf71be9acc52
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474701"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878345"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulário (Pré-visualização)
 

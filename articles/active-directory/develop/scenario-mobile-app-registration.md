@@ -3,26 +3,23 @@ title: Registe aplicações móveis que liguem para a web APIs [ APIs] Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação móvel que chama APIs web (configuração de código da aplicação)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75cfd304869bfb63131dfd2afed9f925c86d32fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5b65bbdc790a27a06298a77aac2721e071adec8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77132447"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882714"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registe aplicações móveis que liguem para apis web
 

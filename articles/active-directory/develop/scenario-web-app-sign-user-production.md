@@ -2,24 +2,21 @@
 title: Mova a aplicação web que assina nos utilizadores para a produção - plataforma de identidade Microsoft / Azure
 description: Saiba como construir uma aplicação web que assina nos utilizadores (mude para a produção)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5fd444c55a20441325088912a07eb051219b84
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76768112"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881473"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicação web que assina nos utilizadores: Mover-se para a produção
 

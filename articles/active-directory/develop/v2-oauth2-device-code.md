@@ -3,26 +3,22 @@ title: Fluxo de código de dispositivo OAuth 2.0 / Azure
 titleSuffix: Microsoft identity platform
 description: Inscreva-se em utilizadores sem browser. Construa fluxos de autenticação incorporados e sem navegador utilizando a concessão de autorização do dispositivo.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b45ba0c0b417be9cf308fedbb7fad2f6ad5fceaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b2489a5e6a4481ffa2bd9df0ccf6b082e3f6956
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159736"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886284"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de autorização de autorização de dispositivo OAuth 2.0
 
@@ -70,12 +66,12 @@ Uma resposta bem sucedida será um objeto JSON contendo as informações necess�
 
 | Parâmetro | Formato | Descrição |
 | ---              | --- | --- |
-|`device_code`     | Cadeia | Uma longa corda usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para solicitar o sinal de acesso do servidor de autorização. |
-|`user_code`       | Cadeia | Uma curta corda mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
+|`device_code`     | String | Uma longa corda usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para solicitar o sinal de acesso do servidor de autorização. |
+|`user_code`       | String | Uma curta corda mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
 |`verification_uri`| URI | O URI a que o `user_code` utilizador deve ir com o para iniciar sessão. |
 |`expires_in`      | int | O número de `device_code` segundos antes do e `user_code` expirar. |
 |`interval`        | int | O número de segundos que o cliente deve esperar entre os pedidos de sondagens. |
-| `message`        | Cadeia | Uma corda legível pelo homem com instruções para o utilizador. Isto pode ser localizado através da inclusão de um `?mkt=xx-XX`parâmetro de **consulta** a pedido do formulário, preenchendo o código de cultura linguística apropriado. |
+| `message`        | String | Uma corda legível pelo homem com instruções para o utilizador. Isto pode ser localizado através da inclusão de um `?mkt=xx-XX`parâmetro de **consulta** a pedido do formulário, preenchendo o código de cultura linguística apropriado. |
 
 > [!NOTE]
 > O `verification_uri_complete` campo de resposta não está incluído ou apoiado neste momento.  Mencionamos isto porque se ler o `verification_uri_complete` [padrão,](https://tools.ietf.org/html/rfc8628) vê que está listado como uma parte opcional da norma de fluxo de código do dispositivo.
@@ -132,7 +128,7 @@ Uma resposta simbólica bem sucedida será como:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | Cadeia| Sempre "Portador. |
+| `token_type` | String| Sempre "Portador. |
 | `scope` | Cordas separadas do espaço | Se um token de acesso foi devolvido, isto lista os âmbitos para os que o token de acesso é válido. |
 | `expires_in`| int | Número de segundos antes do token de acesso incluído é válido para. |
 | `access_token`| Corda opaca | Emitido para os [âmbitos solicitados.](v2-permissions-and-consent.md)  |

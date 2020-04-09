@@ -4,7 +4,6 @@ description: Um guia para os protocolos OAuth 2.0 e OpenID Connect que são supo
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,12 +12,12 @@ ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7ed4dbbc3fddb2e21ed3cf5292ebd80fe1e3e23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4847bddcbcfbc27502965efa221a3707fa453457
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263117"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885672"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
 

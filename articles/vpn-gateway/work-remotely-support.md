@@ -1,18 +1,18 @@
 ---
 title: 'Trabalho remoto com P2S: Azure VPN Gateway'
-description: Esta página descreve como pode alavancar o Bastião Azure para permitir o trabalho remotamente devido à pandemia COVID-19.
+description: Esta página descreve como pode alavancar o VPN Gateway para permitir o trabalho remotamente devido à pandemia COVID-19.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: b751817467bd263e8b7c64ccc95ec82ef1579836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337110"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886590"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Trabalho remoto utilizando Azure VPN Gateway Ponto-a-local
 
@@ -20,11 +20,11 @@ ms.locfileid: "80337110"
 >Este artigo descreve como pode alavancar o Azure VPN Gateway, o Azure, a rede Microsoft e o ecossistema parceiro Azure para trabalhar remotamente e mitigar problemas de rede que está a enfrentar devido à crise covid-19.
 >
 
-Este artigo descreve as opções disponíveis para as organizações para configurar o acesso remoto aos seus utilizadores ou complementar as suas soluções existentes com capacidade adicional durante a epidemia COVID-19.
+Este artigo descreve as opções disponíveis para as organizações para estabelecer acesso remoto aos seus utilizadores ou complementar as suas soluções existentes com capacidade adicional durante a epidemia COVID-19.
 
-A solução azure ponto-a-local é baseada na nuvem e pode ser aprovisionada rapidamente para atender ao aumento da procura dos utilizadores para trabalhar em casa. Pode escalar facilmente e desligar-se com a mesma facilidade e rapidez quando a capacidade aumentada já não é necessária.
+A solução azure ponto-a-local é baseada na nuvem e pode ser aprovisionada rapidamente para atender ao aumento da procura de utilizadores para trabalhar a partir de casa. Pode escalar facilmente e desligar-se com a mesma facilidade e rapidez quando a capacidade aumentada já não é necessária.
 
-## <a name="about-point-to-site-vpn"></a>Sobre vpn ponto-a-local
+## <a name="about-point-to-site-vpn"></a><a name="p2s"></a>Sobre vpn ponto-a-local
 
 Uma ligação de gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligação segura à sua rede virtual a partir de um computador cliente individual. É estabelecida uma ligação P2S ao iniciá-la a partir do computador cliente. Esta solução é útil para os telecommuters que pretendam ligar-se a VNets Azure ou centros de dados no local a partir de um local remoto, como em casa ou numa conferência. Este artigo descreve como permitir que os utilizadores trabalhem remotamente com base em vários cenários.
 
@@ -32,25 +32,26 @@ A tabela abaixo mostra os sistemas operativos do cliente e as opções de autent
 
 ![ponto-a-local](./media/working-remotely-support/ostable.png "SO")
 
-## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a>Cenário 1 - Os utilizadores precisam de acesso a recursos apenas no Azure
+## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Cenário 1 - Os utilizadores precisam de acesso a recursos apenas no Azure
 
 Neste cenário, os utilizadores remotos apenas precisam de aceder aos recursos que se encontram no Azure.
 
-![ponto-a-local](./media/working-remotely-support/scenario1.png "Scanario 1")
+![ponto-a-local](./media/working-remotely-support/scenario1.png "Cenário 1")
 
 A um nível elevado, são necessários os seguintes passos para permitir aos utilizadores a ligação aos recursos Do Azure de forma segura:
 
-1. Criar um Gateway de Rede Virtual (se não existir)
-2. Configure VPN ponto-a-local no gateway
-    3. [Para autenticação de certificado, siga este link](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw).
-    2.  [Para o OpenVPN, siga este link](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn).
-    3.  [Para autenticação Azure AD, siga este link](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant).
-    4.  [Para obter ligações ponto-a-local de resolução de problemas, siga este link](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems).
-3. Descarregue e distribua a configuração do cliente VPN
-4. Distribuir os certificados (se for selecionada a autenticação do certificado) aos clientes
-5. Ligue-se à VPN Azure
+1. Crie um portal de rede virtual (se não existir).
+2. Configure VPN ponto-a-local no portal.
 
-## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a>Cenário 2 - Os utilizadores precisam de acesso a recursos em recursos Azure e/ou on-prem
+   * Para autenticação de certificado, siga [este link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
+   * Para o OpenVPN, siga [este link](vpn-gateway-howto-openvpn.md).
+   * Para autenticação Azure AD, siga [este link](openvpn-azure-ad-tenant.md).
+   * Para obter ligações ponto-a-local de resolução de problemas, siga [este link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+3. Descarregue e distribua a configuração do cliente VPN.
+4. Distribua os certificados (se for selecionada a autenticação do certificado) aos clientes.
+5. Ligue-se à VPN Azure.
+
+## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a><a name="scenario2"></a>Cenário 2 - Os utilizadores precisam de acesso a recursos em recursos Azure e/ou on-prem
 
 Neste cenário, os utilizadores remotos precisam de aceder aos recursos que se encontram no Azure e no centro de dados no local.
 
@@ -58,13 +59,13 @@ Neste cenário, os utilizadores remotos precisam de aceder aos recursos que se e
 
 A um nível elevado, são necessários os seguintes passos para permitir aos utilizadores a ligação aos recursos Do Azure de forma segura:
 
-1. Criar um Gateway de Rede Virtual (se não existir)
-2. Configure VPN ponto-a-local no gateway (ver Cenário 1 acima)
-3. Configure túnel local-a-local no Portal da Rede Virtual Azure com BGP habilitado
-4. Configure no dispositivo de instalações para ligar ao Portal da Rede Virtual Azure
+1. Crie um portal de rede virtual (se não existir).
+2. Configure VPN ponto-a-local no gateway (ver [Cenário 1](#scenario1)).
+3. Configure um túnel local-a-local no portal da rede virtual Azure com BGP ativado.
+4. Configure o dispositivo no local para ligar ao portal de rede virtual Azure.
 5. Descarregue o perfil ponto-a-site do portal Azure e distribua aos clientes
 
-[Siga este link para aprender a configurar um túnel VPN site-to-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+Para aprender a configurar um túnel VPN local-a-local, consulte [esta ligação](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>FAQ para autenticação de certificado nativo Azure
 

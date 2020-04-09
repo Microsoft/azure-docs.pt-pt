@@ -2,26 +2,21 @@
 title: Registe aplicações de desktop que liguem para a web APIs - plataforma de identidade da Microsoft Azure
 description: Saiba como construir uma aplicação de desktop que chama APIs web (registo de aplicações)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c55fc9eb94a88dba1ab9fc915fe84bc2dd7d4d40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76702186"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885162"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicação de desktop que chama APIs web: Registo de aplicações
 
@@ -52,7 +47,7 @@ Os URIs redirecionados para utilização numa aplicação de ambiente de trabalh
 
 - Se construir uma aplicação nativa Object-C ou Swift para macOS, registe o URI redirecionamento com base no identificador de pacote da sua aplicação no seguinte formato: msauth.<your.app.bundle.id>://auth. Substitua <your.app.bundle.id> com o identificador de pacote da sua aplicação.
 - Se a sua aplicação utilizar apenas a Autenticação Integrada do Windows ou um nome de utilizador e uma palavra-passe, não precisa de registar um URI redirecionado para a sua aplicação. Estes fluxos fazem uma viagem de ida e volta à plataforma de identidade da Microsoft v2.0 endpoint. A sua candidatura não será chamada de volta a nenhum URI específico.
-- Para distinguir o fluxo de código do dispositivo, a Autenticação Integrada do Windows, e um nome de utilizador e uma palavra-passe de um fluxo de aplicação de cliente confidencial que também não tem URIs redirecionados (o fluxo credencial do cliente utilizado nas aplicações daemon), é necessário expressar isso a sua candidatura é uma aplicação de cliente público. Para obter esta configuração, vá à secção **de Autenticação** para a sua aplicação. Na subsecção **de configurações Avançadas,** no parágrafo **do tipo de cliente Predefinido,** selecione **Sim** para **Tratar aplicação como cliente público**.
+- Para distinguir o fluxo de código do dispositivo, a Autenticação Integrada do Windows e um nome de utilizador e uma palavra-passe de um fluxo de aplicação de cliente confidencial que também não tem URIs redirecionados (o fluxo credencial do cliente utilizado nas aplicações daemon), precisa de expressar que a sua aplicação é uma aplicação de cliente público. Para obter esta configuração, vá à secção **de Autenticação** para a sua aplicação. Na subsecção **de configurações Avançadas,** no parágrafo **do tipo de cliente Predefinido,** selecione **Sim** para **Tratar aplicação como cliente público**.
 
   ![Permitir cliente público](media/scenarios/default-client-type.png)
 

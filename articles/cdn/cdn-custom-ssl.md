@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f27adb6098ac339ee188b3e84e1c225faa9f72a6
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238721"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892500"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
@@ -58,8 +58,8 @@ Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto 
 
 ---
 
-## <a name="ssl-certificates"></a>Certificados SSL
-Para ativar o protocolo HTTPS para entrega de conteúdos de forma segura num domínio personalizado da CDN do Azure, deve utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pela CDN do Azure ou utilizar o seu próprio certificado.
+## <a name="tlsssl-certificates"></a>Certificados TLS/SSL
+Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado Azure CDN, deve utilizar um certificado TLS/SSL. Pode optar por utilizar um certificado gerido pela CDN do Azure ou utilizar o seu próprio certificado.
 
 
 # <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Opção 1 (predefinição): ativar HTTPS com um certificado gerido pela CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
@@ -99,7 +99,7 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 > Esta opção está disponível apenas com **O CDN Azure da Microsoft** e **CDN Azure a partir de** perfis Verizon. 
 >
  
-Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. A CDN do Azure utiliza este mecanismo seguro para obter o certificado e requer alguns passos adicionais. Ao criar o certificado SSL, tem de criá-lo com uma autoridade de certificação permitida (AC). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de CA permitidos, consulte as autoridades de [certificados permitidas para permitir https personalizado no Azure CDN](cdn-troubleshoot-allowed-ca.md). Para **o Azure CDN da Verizon,** qualquer CA válido será aceite. 
+Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. A CDN do Azure utiliza este mecanismo seguro para obter o certificado e requer alguns passos adicionais. Quando criar o seu certificado TLS/SSL, deve criá-lo com uma autoridade de certificado permitido (CA). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de CA permitidos, consulte as autoridades de [certificados permitidas para permitir https personalizado no Azure CDN](cdn-troubleshoot-allowed-ca.md). Para **o Azure CDN da Verizon,** qualquer CA válido será aceite. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
@@ -308,7 +308,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
 4. *A utilização de um certificado SAN é mais insegura do que um certificado dedicado?*
     
-    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados SSL emitidos utilizam SHA-256 para proporcionar mais segurança ao servidor.
+    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados TLS/SSL emitidos usam SHA-256 para reforçar a segurança do servidor.
 
 5. *Preciso de um registo Autorização de Autoridade de Certificação junto do meu fornecedor de DNS?*
 
@@ -320,7 +320,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
 7. *Como funcionam as renovações da CERT com a Bring Your Own Certificate?*
 
-    Para garantir que um certificado mais recente é implantado para a infraestrutura PoP, basta fazer upload do seu novo certificado para o Azure KeyVault e, em seguida, nas definições do SSL no Azure CDN, escolha a versão mais recente do certificado e atinja o save. O Azure CDN irá então propagar o seu novo certificado atualizado. 
+    Para garantir que um certificado mais recente é implantado para a infraestrutura PoP, basta fazer upload do seu novo certificado para o Azure KeyVault e, em seguida, nas definições do TLS no Azure CDN, escolha a versão mais recente do certificado e atinja o save. O Azure CDN irá então propagar o seu novo certificado atualizado. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

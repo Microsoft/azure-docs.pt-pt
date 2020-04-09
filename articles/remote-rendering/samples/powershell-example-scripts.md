@@ -1,18 +1,18 @@
 ---
-title: Exemplo de scripts PowerShell
+title: Scripts do PowerShell de exemplo
 description: Exemplos que mostram como usar a parte frontal através de scripts PowerShell
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: d7238c899301d76edde86d52c6db74468ffe18ad
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679479"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891497"
 ---
-# <a name="example-powershell-scripts"></a>Exemplo de scripts PowerShell
+# <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo
 
 A renderização remota Azure fornece as seguintes duas APIs REST:
 
@@ -35,9 +35,12 @@ Para executar os scripts de amostra, precisa de uma configuração funcional do 
 
 1. [Prepare uma conta de Armazenamento Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Inicie sessão na subscrição que contém a sua conta de renderização remota Azure:
+1. Inicie sessão na sua subscrição contendo a sua conta de renderização remota Azure:
     1. Abra uma PowerShell
-    1. Executar:`Connect-AzAccount -Subscription "<your Azure subscription id>"`
+    1. Executar: `Connect-AzAccount` e siga as instruções no ecrã.
+
+> [!NOTE]
+> Caso a sua organização tenha mais do que uma subscrição, poderá ser necessário especificar os argumentos Do Id e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Descarregue a pasta *Scripts* do [repositório GithHub de renderização remota azure](https://github.com/Azure/azure-remote-rendering).
 

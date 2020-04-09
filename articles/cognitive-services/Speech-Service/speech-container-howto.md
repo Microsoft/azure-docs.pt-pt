@@ -3,19 +3,19 @@ title: Instalar recipientes de fala - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Instale e corra recipientes de fala. O discurso-a-texto transcreve streams de áudio para texto em tempo real que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. Texto-a-fala converte texto de entrada em discurso sintetizado como o humano.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474786"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879032"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (Pré-visualização)
 

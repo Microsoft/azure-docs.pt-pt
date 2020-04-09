@@ -13,19 +13,17 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75768015"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982604"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerir o acesso a aplicações e recursos com grupos do Azure Active Directory
 O Azure Ative Directory (Azure AD) permite-lhe utilizar grupos para gerir o acesso às suas aplicações baseadas na nuvem, aplicações no local e aos seus recursos. Os seus recursos podem fazer parte da organização Azure AD, tais como permissões para gerir objetos através de papéis em Azure AD, ou externos à organização, tais como para aplicações de Software como serviço (SaaS), serviços Azure, sites SharePoint e recursos no local.
 
 >[!NOTE]
->Para utilizar o Azure Active Directory, precisa de uma conta do Azure. Se não tiver uma conta, pode [inscrever-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
->
 > No portal Azure, pode ver alguns grupos cujaa adesão e detalhes do grupo não consegue gerir no portal:
 >
 > - Os grupos sincronizados a partir do local O Diretório Ativo só pode ser gerido no local do Diretório Ativo.

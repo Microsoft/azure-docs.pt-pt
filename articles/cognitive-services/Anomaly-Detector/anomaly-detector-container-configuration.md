@@ -3,19 +3,19 @@ title: Como configurar um recipiente para API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
 description: O ambiente de funcionação do recipiente API do detetor de anomalias é configurado utilizando os argumentos de `docker run` comando. Este recipiente tem várias configurações necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 569499002c5e047d7030575342790e9a074b9404
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795853"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875185"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contentores do Detetor de Anomalias
 
@@ -33,7 +33,7 @@ Este recipiente tem as seguintes definições de configuração:
 |Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
 |Não|[Fluente](#fluentd-settings)|Escreva registo e, opcionalmente, dados métricos para um servidor Fluente.|
 |Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
-|Não|[Exploração madeireira](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
+|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
 |Não|[Montes](#mount-settings)|Leia e escreva dados do computador de acolhimento para o contentor e do contentor de volta para o computador anfitrião.|
 
 > [!IMPORTANT]
@@ -61,7 +61,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Cenário eula
 
@@ -90,8 +90,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 |Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Os recipientes do Detetor de Anomalias não usam isto.|
-|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Os recipientes do Detetor de Anomalias não usam isto.|
+|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo 
 

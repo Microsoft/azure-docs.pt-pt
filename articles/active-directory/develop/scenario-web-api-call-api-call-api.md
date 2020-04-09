@@ -2,24 +2,21 @@
 title: Web API que chama APIs web - plataforma de identidade microsoft / Azure
 description: Aprenda a construir uma API web que chama APIs web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d66a08d4e84a3771d6c3fa46b96c975869435452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bbd24978891efd147b0c317c1746d13961ce5e9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76833384"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885094"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Ligue para um API
 
@@ -83,7 +80,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 }
 ```
 
-# <a name="python"></a>[Pitão](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 Uma amostra que demonstre este fluxo com a MSAL Python ainda não está disponível.
 
 ---

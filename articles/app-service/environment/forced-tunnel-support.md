@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e0c56ed669ecda5a130dcf9df103bc8a19faf06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057438"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983915"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar o Ambiente de Serviço de Aplicações com túnel forçado
 
@@ -60,7 +60,7 @@ Pode configurar a sub-rede do ASE para ignorar todas as rotas BGP.  Quando confi
 Para configurar a sub-rede do ASE para ignorar as rotas BGP:
 
 * crie um UDR e atribua-o à sua sub-rede do ASE, se ainda não tinha um.
-* No portal do Azure, abra a IU para a tabela de rotas atribuída à sua sub-rede do ASE.  Selecione a Configuração.  Defina a propagação de rotas BGP como Desativada.  Clique em Guardar. A documentação sobre a desativação da mesma está no documento [Criar uma tabela de rotas][routetable].
+* No portal do Azure, abra a IU para a tabela de rotas atribuída à sua sub-rede do ASE.  Selecione a Configuração.  Deteto a propagação da rota de gateway da rede virtual para deficientes.  Clique em Guardar. A documentação sobre a desativação da mesma está no documento [Criar uma tabela de rotas][routetable].
 
 Depois de configurar a sub-rede ASE para ignorar todas as rotas do BGP, as suas aplicações deixarão de poder chegar às instalações. Para permitir que as suas aplicações acedam aos recursos no local, edite o UDR atribuído à sua subnet ASE e adicione rotas para as suas gamas de endereços no local. O Próximo tipo de salto deve ser definido para o Gateway de rede virtual. 
 

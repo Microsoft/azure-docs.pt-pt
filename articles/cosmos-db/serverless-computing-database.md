@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462450"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985257"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidores utilizando funções Azure Cosmos DB e Azure
 
@@ -110,7 +110,7 @@ Em todos estes casos de utilização, uma vez que a função desagregaa a própr
 
 A integração nativa entre a Azure Cosmos DB e a Azure Functions está disponível no portal Azure e no Visual Studio 2019.
 
-* No portal Funções Azure, pode criar um gatilho. Para obter instruções de arranque rápido, consulte Criar um gatilho de [funções Azure para Cosmos DB no portal Azure](https://aka.ms/cosmosdbtriggerportalfunc).
+* No portal Funções Azure, pode criar um gatilho. Para obter instruções de arranque rápido, consulte Criar um gatilho de [funções Azure para Cosmos DB no portal Azure](../azure-functions/functions-create-cosmos-db-triggered-function.md).
 * No portal Azure Cosmos DB, você pode adicionar um gatilho de Funções Azure para Cosmos DB a uma aplicação azure function existente no mesmo grupo de recursos.
 * No Visual Studio 2019, pode criar o gatilho utilizando as [Ferramentas de Funções Azure:](../azure-functions/functions-develop-vs.md)
 
@@ -146,6 +146,6 @@ Se não tem a certeza se o Flow, as Aplicações Lógicas, as Funções Azure ou
 
 Agora vamos ligar as funções Azure Cosmos DB e Azure de verdade: 
 
-* [Criar um gatilho de Funções Azure para cosmos DB no portal Azure](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Criar um acionador HTTP das Funções do Azure com um enlace de entrada do Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
+* [Criar um gatilho de Funções Azure para cosmos DB no portal Azure](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Criar um acionador HTTP das Funções do Azure com um enlace de entrada do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp)
 * [Ligações e gatilhos da Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)
