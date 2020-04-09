@@ -11,18 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 415a89cbccd6b43d64ba1a553d44ac003df5806a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471630"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985189"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Suporte HTTP/2 na Porta da Frente Azure
 
-Atualmente, o suporte HTTP/2 está ativo para todas as configurações da Porta Frontal. Não são necessárias mais medidas por parte dos clientes.
+Atualmente, o suporte HTTP/2 está ativo para todas as configurações da Porta Frontal Azure. Não são necessárias mais medidas por parte dos clientes.
 
 HTTP/2 é uma grande revisão para HTTP/1.1. Proporciona um desempenho web mais rápido, tempo de resposta reduzido e melhor experiência do utilizador, mantendo ao mesmo tempo os métodos familiares de HTTP, códigos de estado e semântica. Embora http/2 seja projetado para trabalhar com HTTP e HTTPS, muitos navegadores web de clientes apenas suportam HTTP/2 sobre Transport Layer Security (TLS).
+
+> [!NOTE]
+> O suporte ao protocolo HTTP/2 está disponível apenas para pedidos de clientes para porta da frente. A comunicação da Porta da Frente para as extremidades traseiras na piscina traseira acontece em HTTP/1.1. 
 
 ### <a name="http2-benefits"></a>BENEFÍCIOS HTTP/2
 

@@ -7,20 +7,20 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 40f7de4b4feb2b312705238abd30402edb635ea9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8fbd2065ceae1aadf1dc57c78adb21b7c2848297
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720885"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985563"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutorial: Construir aplicações móveis com Xamarin e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Nó.js](sql-api-nodejs-application.md)
-> * [Pitão](sql-api-python-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -37,7 +37,7 @@ O Azure Cosmos DB oferece as seguintes funcionalidades principais para os progra
 * Débito rápido. Ler e gravar documentos com o Azure Cosmos DB demora apenas alguns milissegundos. Os programadores podem especificar o débito de que necessitam. Além disso, o Azure Cosmos DB permite fazê-lo com um SLA de 99,99% de disponibilidade para todas as contas de região única e para todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões.
 * Dimensionamento ilimitado. Os seus recipientes Azure Cosmos crescem à medida que a [sua aplicação cresce.](partition-data.md) Pode começar com dados de pequena dimensão e um débito de centenas de pedidos por segundo. As suas coleções ou bases de dados podem aumentar para petabytes de dados e um débito arbitrariamente grande com centenas de milhões de pedidos por segundo.
 * Distribuído globalmente. Os utilizadores de aplicações móveis utilizam-nas em qualquer lugar e, muitas vezes, em todo o mundo. O Azure Cosmos DB é uma [base de dados distribuída globalmente](distribute-data-globally.md). Clique no mapa para disponibilizar dados aos seus utilizadores.
-* Autorização avançada incorporada. Com o Azure Cosmos DB, pode implementar padrões populares com facilidade, como [dados por utilizador](https://aka.ms/documentdb-xamarin-todouser) ou dados partilhados multiutilizador sem códigos de autorização personalizados complexos.
+* Autorização avançada incorporada. Com o Azure Cosmos DB, pode implementar padrões populares com facilidade, como [dados por utilizador](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) ou dados partilhados multiutilizador sem códigos de autorização personalizados complexos.
 * Consultas geoespaciais. Muitas aplicações móveis já proporcionam experiências no contexto de uma área geográfica. Com um suporte de primeira classe para [tipos geoespaciais](geospatial.md), o Azure Cosmos DB faz com que seja fácil criar estas experiências.
 * Anexos binários. Normalmente, os dados da sua aplicação incluem blobs binários. O suporte nativo para anexos facilita a utilização do Azure Cosmos DB para centralizar os dados da sua aplicação.
 
@@ -83,7 +83,7 @@ Siga estes passos para mudar a aplicação de lista de tarefas para uma aplicaç
 
   4. Modifique a aplicação de forma a que seja autenticada pelo Mediador de Tokens de Recurso com o Facebook e peça os tokens de recurso dos utilizadores com sessão iniciada no Facebook. Em seguida, poderá aceder aos respetivos dados na coleção UserItems.  
 
-Um exemplo de código completo deste padrão encontra-se no [Mediador de Tokens de Recurso no GitHub](https://aka.ms/documentdb-xamarin-todouser). Este diagrama ilustra a solução:
+Um exemplo de código completo deste padrão encontra-se no [Mediador de Tokens de Recurso no GitHub](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Este diagrama ilustra a solução:
 
 ![Mediador de permissões e utilizadores do Azure Cosmos DB](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

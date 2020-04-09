@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f81052f68d377603c7148ac2a39da626b426e352
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75444896"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985240"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Tutorial: Construa uma aplicação Java com o SDK Async Java para gerir os dados armazenados numa conta SQL API
 
@@ -22,7 +22,7 @@ ms.locfileid: "75444896"
 > * [.NET](sql-api-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Java assíncrono](sql-api-async-java-get-started.md)
-> * [Nó.js](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
 Como desenvolvedor, pode ter aplicações que utilizam dados de documentos NoSQL. Pode utilizar a conta SQL API no Azure Cosmos DB para armazenar e aceder a estes dados documentais. Este tutorial mostra-lhe como construir uma aplicação Java com o SDK Async Java para armazenar e gerir dados de documentos. 
@@ -44,7 +44,7 @@ Certifique-se de que tem os recursos seguintes:
 
 * [Git.](https://git-scm.com/downloads)
 
-* [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 8+](/java/azure/jdk/?view=azure-java-stable).
 
 * [Maven.](https://maven.apache.org/download.cgi)
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158134"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985495"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Criar e gerir vários dashboards
 
-O **Dashboard** é a página que carrega quando navega pela primeira vez para a sua aplicação. Um **construtor** na sua aplicação define o dashboard de aplicação padrão para todos os utilizadores. Pode substituir este dashboard predefinido por um painel de aplicação personalizado. Pode ter vários dashboards que exibem diferentes dados e alternam entre eles. 
+O **Dashboard** é a página que carrega quando navega pela primeira vez para a sua aplicação. Um **construtor** na sua aplicação define o dashboard de aplicação padrão para todos os utilizadores. Pode ainda criar o seu próprio painel de aplicações personalizado. Pode ter vários dashboards que exibem diferentes dados e alternam entre eles.
 
 Se for **administrador** da aplicação, também pode criar até 10 dashboards de nível de aplicação para partilhar com outros utilizadores da aplicação. Apenas **os administradores** têm a capacidade de criar, editar e eliminar os dashboards de nível de aplicação. 
 

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: e085c465ecdd21452e8f0ca5aa721ad0059caf30
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: b7365babd9a6cdba28da59a9113edf32d2974fb0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744335"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984832"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Separador de contactos de aplicativos POWER BI
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
 
 Utilize o separador **Contactos** da página **New Offer** para fornecer recursos técnicos e de suporte ao utilizador para a sua oferta. Divide-se em duas secções: **Engenharia** e **Apoio ao Cliente.**
 

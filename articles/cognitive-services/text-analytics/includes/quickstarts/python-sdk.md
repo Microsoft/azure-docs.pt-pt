@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 617ab4114fd200c0b4306e3c27825bafe06b1764
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 988de8da839a677b47d679e7bd44059c7477a517
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80240124"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986637"
 ---
 <a name="HOLTop"></a>
 
@@ -40,7 +40,7 @@ Depois de instalar a Python, pode instalar a biblioteca do cliente com:
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics
+pip install azure-ai-textanalytics==1.0.0b3
 ```
 
 > [!TIP]
@@ -93,7 +93,7 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção de idioma](#language-detection)
+* [Deteção de linguagem](#language-detection)
 * [Reconhecimento de Entidade Nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
 * [Extração de frase-chave](#key-phrase-extraction)

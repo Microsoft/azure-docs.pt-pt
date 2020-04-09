@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: a0616a8a2cc401b6b4c42c9882c14da2f123c6df
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0cfe651a91cc16e7d4b58af67dac29fe5106a48c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79481879"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986627"
 ---
 <a name="HOLTop"></a>
 
@@ -61,7 +61,7 @@ npm init
 Instale `@azure/ai-text-analytics` os pacotes NPM:
 
 ```console
-npm install --save @azure/ai-text-analytics
+npm install --save @azure/ai-text-analytics@1.0.0-preview.3
 ```
 
 > [!TIP]
@@ -121,7 +121,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 * [Autenticação do Cliente](#client-authentication)
 * [Análise de Sentimentos](#sentiment-analysis) 
-* [Deteção de idioma](#language-detection)
+* [Deteção de linguagem](#language-detection)
 * [Reconhecimento de Entidade Nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
 * [Extração de frase-chave](#key-phrase-extraction)

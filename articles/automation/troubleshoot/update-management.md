@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 900853b1ca68c1c540223db670b1173f5bb2fa2b
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c9ff05591c98fda8be39e32f26da484f56e0831b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754440"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984628"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Problemas de resolução de problemas com gestão de atualizações
 
@@ -39,7 +39,7 @@ Error details: Failed to enable the Update solution
 
 Este erro pode ocorrer pelas seguintes razões:
 
-* Os requisitos de firewall de rede para o agente Log Analytics podem não estar corretamente configurados. Isto pode fazer com que o agente falhe na resolução dos URLs DNS.
+* Os requisitos de firewall de rede para o agente Log Analytics podem não estar corretamente configurados. Esta situação pode fazer com que o agente falhe na resolução dos URLs DNS.
 
 * O alvo da solução está mal configurado e a máquina não está a receber atualizações como esperado.
 
@@ -61,11 +61,11 @@ Este erro pode ocorrer pelas seguintes razões:
 
 ### <a name="issue"></a>Problema
 
-As atualizações antigas estão a aparecer na Gestão de Atualizações na conta Automation como desaparecidas, apesar de terem sido substituídos. Uma atualização supersed é uma que não precisa de instalar porque uma atualização posterior que corrige a mesma vulnerabilidade está disponível. A Atualização Management ignora a atualização sobresedada e torna-a não aplicável a favor da atualização de superseding. Para obter informações sobre um problema relacionado, consulte [a Atualização é substituído](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+Atualizações antigas estão a aparecer para uma conta de Automação como desaparecida, apesar de terem sido substituídos. Uma atualização supersed é uma que não precisa de instalar porque uma atualização posterior que corrige a mesma vulnerabilidade está disponível. A Atualização Management ignora a atualização sobresedada e torna-a não aplicável a favor da atualização de superseding. Para obter informações sobre um problema relacionado, consulte [a Atualização é substituído](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
 ### <a name="cause"></a>Causa
 
-As atualizações supersed não estão a ser corretamente indicadas como recusadas para que possam ser consideradas não aplicáveis.
+As atualizações supersed não são corretamente indicadas como recusadas para que possam ser consideradas não aplicáveis.
 
 ### <a name="resolution"></a>Resolução
 
@@ -73,7 +73,7 @@ Quando uma atualização supersed se torna 100% não aplicável, deve `Declined`
 
 1. Na conta Automation, selecione **Update Management** para ver o estado da máquina. Ver [Ver avaliações](../manage-update-multi.md#view-an-update-assessment)de atualização .
 
-2. Verifique a atualização sobresedida para se certificar de que não é aplicável a 100%. 
+2. Verifique a atualização supersed para se certificar de que não é aplicável a 100%. 
 
 3. Marque a atualização como recusada, a menos que tenha alguma dúvida sobre a atualização. 
 
@@ -101,11 +101,11 @@ As suas máquinas têm os seguintes sintomas:
 
 ### <a name="cause"></a>Causa
 
-Este problema pode ser causado por problemas de configuração locais ou por configuração de âmbito configurada indevidamente.
+Este problema pode ser causado por problemas de configuração locais ou por configuração de âmbito configurada indevidamente. Possíveis causas específicas são:
 
-Pode ter de voltar a registar-se e reinstalar o Trabalhador híbrido do livro.
+* Pode ter de voltar a registar-se e reinstalar o Trabalhador híbrido do livro.
 
-Pode ter definido uma quota no seu espaço de trabalho que foi atingida e que está a impedir o armazenamento de dados.
+* Pode ter definido uma quota no seu espaço de trabalho que foi atingida e que está a impedir o armazenamento de dados.
 
 ### <a name="resolution"></a>Resolução
 
@@ -113,28 +113,30 @@ Pode ter definido uma quota no seu espaço de trabalho que foi atingida e que es
 
 2. Certifique-se de que a sua máquina está a reportar ao espaço de trabalho correto. Para obter orientações sobre como verificar este aspeto, consulte verificar a conectividade do [agente para registar o Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **Linked workspace** em **Recursos Relacionados**.
 
-3. Certifique-se de que as máquinas aparecem no seu espaço de trabalho Log Analytics. Faça a seguinte consulta no espaço de trabalho log Analytics que está ligado à sua conta de Automação:
+3. Certifique-se de que as máquinas aparecem no espaço de trabalho log Analytics ligado à sua conta Deautomação. Faça a seguinte consulta no espaço de trabalho log Analytics.
 
-  ```loganalytics
-  Heartbeat
-  | summarize by Computer, Solutions
-  ```
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
 
 4. Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows) 
 
-5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração de âmbito. [A configuração do âmbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais as máquinas configuradas para a solução. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não no Portal de Gestão de Atualizações,tem de configurar a configuração de âmbito para direcionar as máquinas. Para aprender a fazer isto, consulte [as máquinas de bordo no espaço de trabalho.](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)
+5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração de âmbito. [A configuração do âmbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais as máquinas configuradas para a solução. 
 
-6. No seu espaço de trabalho, execute a seguinte consulta:
+6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazer isto, consulte [as máquinas de bordo no espaço de trabalho.](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace)
 
-  ```loganalytics
-  Operation
-  | where OperationCategory == 'Data Collection Status'
-  | sort by TimeGenerated desc
-  ```
+7. No seu espaço de trabalho, execute esta consulta.
 
-7. Se obtém `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` um resultado, há uma quota definida no seu espaço de trabalho que foi alcançada e que impediu que os dados fossem salvos. No seu espaço de trabalho, vá à **gestão** de volume de dados sob **utilização e custos estimados** e verifique a sua quota ou remova-a.
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
 
-8. Se o seu problema ainda não estiver resolvido, siga os passos de [implantação](../automation-windows-hrw-install.md) de um Trabalhador do Livro Híbrido do Windows para reinstalar o Trabalhador Híbrido para Windows. Para linux, siga os passos em [Deploy um Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
+8. Se obtém `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` um resultado, a quota definida no seu espaço de trabalho foi atingida, o que impediu que os dados fossem guardados. No seu espaço de trabalho, vá à **gestão** do volume de dados sob **utilização e custos estimados,** e altere ou remova a quota.
+
+9. Se o seu problema ainda não estiver resolvido, siga os passos de [implantação](../automation-windows-hrw-install.md) de um Trabalhador do Livro Híbrido do Windows para reinstalar o Trabalhador Híbrido para Windows. Para linux, siga os passos em [Deploy um Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Incapaz de registar fornecedor de recursos automation para subscrições
 
@@ -152,51 +154,132 @@ O fornecedor de recursos automation não está registado na subscrição.
 
 ### <a name="resolution"></a>Resolução
 
-Para registar o fornecedor de recursos automation, siga estes passos no portal Azure:
+Para registar o fornecedor de recursos Automation, siga estes passos no portal Azure.
 
 1. Na lista de serviços Azure na parte inferior do portal, selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviço Geral.
-2. Selecione a sua subscrição.
-3. Em **Definições,** selecione **Fornecedores de Recursos**.
-4. Da lista de fornecedores de `Microsoft.Automation` recursos, verifique se o fornecedor de recursos está registado.
-5. Se não estiver listado, `Microsoft.Automation` registe o fornecedor seguindo as etapas de Resolve para o registo do fornecedor de [recursos.](/azure/azure-resource-manager/resource-manager-register-provider-errors)
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="update-missed-machines"></a>Cenário: Atualização programada com um horário dinâmico falhou algumas máquinas
+2. Selecione a sua subscrição.
+
+3. Em **Definições,** selecione **Fornecedores de Recursos**.
+
+4. A partir da lista de fornecedores de recursos, verifique se o fornecedor de recursos da Microsoft.Automation está registado.
+
+5. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos no [Resolve erros para o registo](/azure/azure-resource-manager/resource-manager-register-provider-errors)do fornecedor de recursos .
+
+## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Cenário: Atualização programada com um horário dinâmico falhou algumas máquinas
 
 ### <a name="issue"></a>Problema
 
-As máquinas pré-visualizadas incluídas numa atualização nem todas aparecem na lista de máquinas remendadas durante uma execução programada.
+As máquinas incluídas numa pré-visualização de atualização nem todas aparecem na lista de máquinas remendadas durante uma execução programada.
 
 ### <a name="cause"></a>Causa
 
 Esta questão pode ter uma das seguintes causas:
 
-* As subscrições definidas no âmbito de uma consulta dinâmica não estão configuradas para o fornecedor de recursos de Automação registado. 
-* As máquinas não estavam disponíveis ou não tinham as etiquetas apropriadas quando o horário foi executado.
+* As subscrições definidas no âmbito de uma consulta dinâmica não estão configuradas para o fornecedor de recursos de Automação registado.
+
+* As máquinas não estavam disponíveis ou não tinham etiquetas apropriadas quando o horário foi executado.
 
 ### <a name="resolution"></a>Resolução
 
 #### <a name="subscriptions-not-configured-for-registered-automation-resource-provider"></a>Assinaturas não configuradas para fornecedor de recursos de Automação registado
 
-Se a sua subscrição não estiver configurada para o fornecedor de recursos Automation, não pode consultar ou recolher informações sobre máquinas nessa subscrição. Utilize os seguintes passos para garantir o registo da subscrição.
+Se a sua subscrição não estiver configurada para o fornecedor de recursos Automation, não pode consultar ou recolher informações sobre máquinas nessa subscrição. Utilize os seguintes passos para verificar o registo da subscrição.
 
-1. No [Portal Azure,](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)aceda à lista de serviços do Azure.
+1. No [portal Azure,](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)aceda à lista de serviços Do Azure.
+
 2. Selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviço geral. 
+
 3. Encontre a subscrição definida no âmbito para a sua implementação.
+
 4. Em **Definições,** escolha **Fornecedores de Recursos**.
-5. Verifique se `Microsoft.Automation` o fornecedor de recursos está registado.
-6. Se não estiver listado, `Microsoft.Automation` registe o fornecedor seguindo as etapas de Resolve para o registo do fornecedor de [recursos.](/azure/azure-resource-manager/resource-manager-register-provider-errors)
+
+5. Verifique se o fornecedor de recursos da Microsoft.Automation está registado.
+
+6. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos no [Resolve erros para o registo](/azure/azure-resource-manager/resource-manager-register-provider-errors)do fornecedor de recursos .
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Máquinas não disponíveis ou não etiquetadas corretamente quando o horário executado
 
 Utilize o seguinte procedimento se a sua subscrição estiver configurada para o fornecedor de recursos automation, mas executar o calendário de atualização com os [grupos dinâmicos](../automation-update-management-groups.md) especificados perdeu algumas máquinas.
 
 1. No portal Azure, abra a conta Automation e selecione **Update Management**.
+
 2. Verifique o histórico de Gestão de [Atualizações](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) para determinar a hora exata da execução da atualização. 
-3. Para máquinas que suspeite ter sido perdidapela Atualização, utilize o Azure Resource Graph para [localizar as alterações](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details)da máquina . 
+
+3. Para máquinas que suspeite ter sido perdidapela Atualização, utilize o Azure Resource Graph (ARG) para [localizar as alterações](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details)da máquina . 
+
 4. Procure alterações durante um período considerável, como um dia, antes da implementação da atualização.
+
 5. Verifique os resultados da pesquisa para quaisquer alterações sistémicas, tais como alterações de eliminação ou atualização, nas máquinas neste período. Estas alterações podem alterar o estado da máquina ou as etiquetas para que as máquinas não sejam selecionadas na lista de máquinas quando as atualizações forem implementadas.
+
 6. Ajuste as máquinas e as definições de recursos conforme necessário para corrigir o estado da máquina ou problemas de etiqueta.
+
 7. Reexecutar o calendário da atualização para garantir que a implantação com os grupos dinâmicos especificados inclua todas as máquinas.
+
+## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Cenário: Máquinas esperadas não aparecem na pré-visualização do grupo dinâmico
+
+### <a name="issue"></a>Problema
+
+As máquinas virtuais para âmbitos selecionados de um grupo dinâmico não estão a aparecer na lista de pré-visualização do portal Azure. Esta lista é constituída por todas as máquinas recuperadas por uma consulta arg para os âmbitos selecionados. Os âmbitos são filtrados para máquinas que tenham Trabalhadores híbridos de runbook instalados e para os quais você tem permissões de acesso. 
+
+### <a name="cause"></a>Causa
+ 
+Aqui estão possíveis causas para esta questão:
+
+* Não tem o acesso correto nos âmbitos selecionados.
+* A consulta do ARG não recupera as máquinas esperadas.
+* O Trabalhador híbrido do livro não está instalado nas máquinas.
+
+### <a name="resolution"></a>Resolução 
+
+#### <a name="incorrect-access-on-selected-scopes"></a>Acesso incorreto nos âmbitos selecionados
+
+O portal Azure apenas exibe máquinas para as quais tem acesso por escrito num dado âmbito. Se não tiver o acesso correto para um âmbito, consulte [Tutorial: Conceda ao utilizador o acesso aos recursos Azure utilizando o RBAC e o portal Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+
+#### <a name="arg-query-doesnt-return-expected-machines"></a>A consulta do ARG não devolve as máquinas esperadas
+
+Siga os passos abaixo para saber se as suas consultas estão a funcionar corretamente.
+
+1. Execute uma consulta ARG formatada como mostrado abaixo na lâmina exploradora do Graph de Recursos no portal Azure. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualizações. Ver [Utilizar grupos dinâmicos com Gestão](https://docs.microsoft.com/azure/automation/automation-update-management-groups)de Atualizações . 
+
+    ```kusto
+    where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
+    | project id, location, name, tags = todynamic(tolower(tostring(tags)))
+    | where  (tags[tolower("<tagKey1>")] =~ "<tagValue1>" and tags[tolower("<tagKey2>")] =~ "<tagValue2>") // use this if "All" option selected for tags
+    | where  (tags[tolower("<tagKey1>")] =~ "<tagValue1>" or tags[tolower("<tagKey2>")] =~ "<tagValue2>") // use this if "Any" option selected for tags
+    | project id, location, name, tags
+    ```
+
+   Segue-se um exemplo:
+
+    ```kusto
+    where (subscriptionId in~ ("20780d0a-b422-4213-979b-6c919c91ace1", "af52d412-a347-4bc6-8cb7-4780fbb00490") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "Windows" and resourceGroup in~ ("testRG","withinvnet-2020-01-06-10-global-resources-southindia") and location in~ ("australiacentral","australiacentral2","brazilsouth") )
+    | project id, location, name, tags = todynamic(tolower(tostring(tags)))
+    | where  (tags[tolower("ms-resource-usage")] =~ "azure-cloud-shell" and tags[tolower("temp")] =~ "temp")
+    | project id, location, name, tags
+    ```
+ 
+2. Verifique se as máquinas que procura estão listadas nos resultados da consulta. 
+
+3. Se as máquinas não estiverem listadas, há provavelmente um problema com o filtro selecionado no grupo dinâmico. Ajuste a configuração do grupo conforme necessário.
+
+#### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Trabalhador de livro híbrido não instalado em máquinas
+
+As máquinas aparecem nos resultados da consulta ARG, mas ainda não aparecem na pré-visualização dinâmica do grupo. Neste caso, as máquinas podem não ser designadas como trabalhadores híbridos e, portanto, não podem executar trabalhos de Automação e Gestão de Atualizações. Para garantir que as máquinas que espera ver são configuradas como Trabalhadores híbridos do livro:
+
+1. No portal Azure, vá à conta da Automação para uma máquina que não apareça corretamente.
+
+2. Selecione **grupos de trabalhadores híbridos** no âmbito **da Automatização de Processos.**
+
+3. Selecione o separador **de grupos de trabalhadores híbridos system.**
+
+4. Valide que o trabalhador híbrido está presente para a máquina.
+
+5. Se a máquina não estiver configurada como um trabalhador híbrido, faça ajustes utilizando instruções [nos recursos automate no seu datacenter ou nuvem utilizando](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)o Hybrid Runbook Worker .
+
+6. Junte-se à máquina ao grupo Híbrido Runbook Worker.
+
+7. Repita os passos acima para todas as máquinas que não tenham sido exibidas na pré-visualização.
 
 ## <a name="scenario-components-for-update-management-solution-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Cenário: Componentes para solução de Gestão de Atualização ativados, enquanto a VM continua a mostrar como estando configurada
 
@@ -220,7 +303,7 @@ Este erro pode ocorrer pelas seguintes razões:
 
 ### <a name="resolution"></a>Resolução
 
-Para ajudar a determinar o problema exato com o VM, faça a seguinte consulta no espaço de trabalho log Analytics que está ligado à sua conta de Automação:
+Para ajudar a determinar o problema exato com o VM, faça a seguinte consulta no espaço de trabalho log Analytics que está ligado à sua conta Deautomação.
 
 ```
 Update
@@ -242,7 +325,7 @@ Se estiver a usar uma imagem clonada, diferentes nomes de computador têm o mesm
 
 1. No seu espaço de trabalho Log Analytics, retire `MicrosoftDefaultScopeConfig-Updates` o VM da pesquisa guardada para a configuração de âmbito se for mostrado. Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
 
-2. Execute o seguinte cmdlet:
+2. Executar o seguinte cmdlet.
 
     ```azurepowershell-interactive
     Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
@@ -250,7 +333,7 @@ Se estiver a usar uma imagem clonada, diferentes nomes de computador têm o mesm
 
 3. Corra `Restart-Service HealthService` para reiniciar o serviço de saúde. Esta operação recria a chave e gera um novo UUID.
 
-4. Se esta abordagem não funcionar, faça a sysprep na imagem primeiro e, em seguida, instale o MMA.
+4. Se esta abordagem não funcionar, faça o Sysprep na imagem primeiro e, em seguida, instale o MMA.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Cenário: Recebe um erro de subscrição ligado quando cria uma implementação de atualização para máquinas noutro inquilino do Azure
 
@@ -317,19 +400,19 @@ Este erro pode ocorrer por um dos seguintes motivos:
 
 ### <a name="resolution"></a>Resolução
 
-Quando aplicável, utilize [grupos dinâmicos](../automation-update-management-groups.md) para as suas implementações de atualização. Além disso,
+Quando aplicável, utilize [grupos dinâmicos](../automation-update-management-groups.md) para as suas implementações de atualização. Além disso, pode tomar os seguintes passos.
 
-* Verifique se a máquina ainda existe e está acessível. 
-* Se a máquina não existir, edite a sua implantação e retire a máquina.
-* Consulte a secção de planeamento da [rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços que são necessários para gestão de atualizações e, em seguida, verifique se a sua máquina cumpre estes requisitos.
-* Verifique a conectividade com o Trabalhador do Livro híbrido utilizando o agente de trabalho de runbook híbrido. Para saber mais sobre o problema, consulte problemas de agente de [atualização da Troubleshoot](update-agent-issues.md).
-* Faça a seguinte consulta no Log Analytics para encontrar máquinas no seu ambiente para as quais o ID do computador de origem mudou. Procure computadores com `Computer` o mesmo `SourceComputerId` valor, mas com um valor diferente.
+1. Verifique se a máquina ainda existe e está acessível. 
+2. Se a máquina não existir, edite a sua implantação e retire a máquina.
+3. Consulte a secção de planeamento da [rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços que são necessários para gestão de atualizações e, em seguida, verifique se a sua máquina cumpre estes requisitos.
+4. Verifique a conectividade com o Trabalhador do Livro híbrido utilizando o agente de trabalho de runbook híbrido. Para saber mais sobre o problema, consulte problemas de agente de [atualização da Troubleshoot](update-agent-issues.md).
+5. Faça a seguinte consulta no Log Analytics para encontrar máquinas no seu ambiente para as quais o ID do computador de origem mudou. Procure computadores com `Computer` o mesmo `SourceComputerId` valor, mas com um valor diferente.
 
-   ```loganalytics
+   ```kusto
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
 
-* Depois de encontrar as máquinas afetadas, edite as implementações de atualização `SourceComputerId` que visam essas máquinas e, em seguida, remova e leia-as de modo a refletir o valor correto.
+6. Depois de encontrar as máquinas afetadas, edite as implementações de atualização `SourceComputerId` que visam essas máquinas e, em seguida, remova e leia-as de modo a refletir o valor correto.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Cenário: As atualizações são instaladas sem uma implementação
 
@@ -449,10 +532,10 @@ Este problema é frequentemente causado por problemas de configuração de rede 
 
 * Para windows, verifique a configuração do seu agente tal como listado nas [Atualizações não está a ser descarregada a partir do ponto final da intranet (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
 
-  * Se as máquinas estiverem configuradas para a Atualização do Windows, certifique-se de que pode chegar aos pontos [finais descritos em Problemas relacionados com HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
+  * Se as máquinas estiverem configuradas para a Atualização do Windows, certifique-se de que pode chegar aos pontos finais descritos em [Problemas relacionados com HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * Se as máquinas estiverem configuradas para os Serviços de Atualização do Servidor do Windows (WSUS), certifique-se de que pode chegar ao servidor WSUS configurado pela chave de [registo WUServer](/windows/deployment/update/waas-wu-settings).
 
-Se vir um HRESULT, clique duas vezes na exceção exibida a vermelho para ver toda a mensagem de exceção. Reveja o seguinte quadro para soluções potenciais ou ações recomendadas:
+Se vir um HRESULT, clique duas vezes na exceção exibida a vermelho para ver toda a mensagem de exceção. Reveja o quadro seguinte para potenciais soluções ou ações recomendadas.
 
 |Exceção  |Resolução ou ação  |
 |---------|---------|
@@ -466,14 +549,14 @@ Se vir um HRESULT, clique duas vezes na exceção exibida a vermelho para ver to
 |`0x80070005`| Um erro negado de acesso pode ser causado por qualquer um dos seguintes erros:<br> Computador infetado<br> Definições de Atualização do Windows não configuradas corretamente<br> Erro de permissão de ficheiro com a pasta %WinDir%\SoftwareDistribution<br> Espaço de disco insuficiente na unidade do sistema (C:).
 |Qualquer outra exceção genérica     | Procure na internet possíveis soluções e trabalhe com o suporte de TI local.         |
 
-Rever o ficheiro %Windir%\Windowsupdate.log também pode ajudá-lo a determinar possíveis causas. Para mais informações sobre como ler o registo, consulte [Como ler o ficheiro Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Rever o ficheiro **%Windir%\Windowsupdate.log** também pode ajudá-lo a determinar possíveis causas. Para mais informações sobre como ler o registo, consulte [Como ler o ficheiro Windowsupdate.log](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Também pode descarregar e executar o resoluto de [problemas do Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) para verificar quaisquer problemas com o Windows Update na máquina.
 
 > [!NOTE]
 > A documentação de resolução de [problemas do Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) indica que é para utilização em clientes windows, mas também funciona no Windows Server.
 
-## <a name="scenario-update-run-returns-failed-status-linux"></a>Cenário: Atualização de retorna ao estado "Falhado" (Linux)
+## <a name="scenario-update-run-returns-failed-status-linux"></a>Cenário: Atualização retorna estado falhado (Linux)
 
 ### <a name="issue"></a>Problema
 
@@ -495,11 +578,7 @@ Se ocorrerem falhas durante uma atualização após o início com sucesso, [veri
 
 Se patches, pacotes ou atualizações específicos forem vistos imediatamente antes de o trabalho falhar, pode tentar [excluir](../automation-tutorial-update-management.md#schedule-an-update-deployment) estes itens da próxima implementação da atualização. Para recolher informações de registo a partir do Windows Update, consulte [os ficheiros](/windows/deployment/update/windows-update-logs)de registo do Windows Update .
 
-Se não conseguir resolver um problema de correção, faça uma cópia do seguinte ficheiro de registo e preserve-o para fins de resolução de problemas antes do início da próxima implementação da atualização.
-
-```bash
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+Se não conseguir resolver um problema de correção, faça uma cópia do ficheiro **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** e preserve-o para fins de resolução de problemas antes do início da próxima implementação da atualização.
 
 ## <a name="patches-arent-installed"></a>Patches não são instalados
 
@@ -517,7 +596,7 @@ Pode verificar se as máquinas estão configuradas para WSUS e `UseWUServer` SCC
 
 Se as atualizações não forem aprovadas no WSUS, não estão instaladas. Pode verificar se há atualizações não aprovadas no Log Analytics executando a seguinte consulta.
 
-  ```loganalytics
+  ```kusto
   Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
   ```
 
@@ -535,8 +614,8 @@ KB2267602 é a [atualização de definições do Windows Defender](https://www.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não consegue resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
+Se não viu o seu problema ou não consegue resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
 
 * Obtenha respostas de especialistas do Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport)a conta oficial do Microsoft Azure para melhorar a experiência do cliente.
 * Arquiva um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

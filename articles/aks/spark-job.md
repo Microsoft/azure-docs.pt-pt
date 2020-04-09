@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 8ebd8990a2fdd43b243f5dd6feb632d782fdeb0b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632697"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877632"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar empregos apache spark na AKS
 
@@ -293,7 +293,7 @@ Pi is roughly 3.152155760778804
 
 No exemplo acima, o ficheiro spark jar foi enviado para o armazenamento Azure. Outra opção é embalar o ficheiro do frasco em imagens do Docker personalizadas.
 
-Para isso, encontre `dockerfile` a imagem de `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` Spark localizada no diretório. Adicione `ADD` a declaração do `jar` trabalho `WORKDIR` `ENTRYPOINT` de Spark algures entre as declarações.
+Para isso, encontre `dockerfile` a imagem de `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` Spark localizada no diretório. Adicione `ADD` uma declaração para `jar` o `WORKDIR` `ENTRYPOINT` trabalho de Spark algures entre as declarações.
 
 Atualize o caminho do `SparkPi-assembly-0.1.0-SNAPSHOT.jar` frasco para a localização do ficheiro no seu sistema de desenvolvimento. Também pode usar o seu próprio ficheiro de frascopersonalizado.
 

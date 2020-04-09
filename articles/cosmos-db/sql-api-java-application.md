@@ -8,20 +8,20 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: ramkris
-ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2e38aeba198f875961024f8c25c7fb0123479f87
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720845"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985274"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Construa uma aplicação web Java utilizando o Azure Cosmos DB e a SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Nó.js](sql-api-nodejs-application.md)
-> * [Pitão](sql-api-python-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -46,7 +46,7 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Kit de desenvolvimento do Java (JDK) 7 +](https://aka.ms/azure-jdks).
+* [Kit de desenvolvimento do Java (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable).
 * [IDE Eclipse para Programadores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Um site do Azure com um tempo de execução em ambiente Java (por exemplo, Tomcat ou Jetty) ativado.](../app-service/app-service-web-get-started-java.md)
 
@@ -62,7 +62,7 @@ Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se e
 ## <a name="step-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Passo 2: criar a aplicação de Java JSP
 Para criar a aplicação JSP:
 
-1. Em primeiro lugar, iremos começar por criar um projeto de Java. Abra o Eclipse e clique em **Ficheiro**, **Novo**, e, em seguida, clique em **Dynamic Web Project**. Se não vir **Dynamic Web Project** listado como um projeto disponível, faça o seguinte: clique em **Ficheiro**, **Novo**, clique em **Projeto**..., expanda **Web**, clique em **Dynamic Web Project**, e clique em **Seguinte**.
+1. Primeiro, vamos começar por criar um projeto Java. Abra o Eclipse e clique em **Ficheiro**, **Novo**, e, em seguida, clique em **Dynamic Web Project**. Se não vir o **Dynamic Web Project** listado como um projeto disponível, faça o seguinte: clique em **File,** clique em **Novo,** clique em **Projeto**Web..., clique no **Web,** clique no **Dynamic Web Project**e clique em **Next**.
    
     ![Desenvolvimento de aplicações de Java JSP](./media/sql-api-java-application/image10.png)
 2. Introduza um nome de projeto na caixa **Nome do projeto** e no menu pendente **Tempo de execução de destino**, em opção, selecione um valor (por ex. Apache Tomcat v7.0) e, em seguida, clique em **Concluir**. Selecionar um tempo de execução de destino permite-lhe executar o seu projeto localmente através do Eclipse.

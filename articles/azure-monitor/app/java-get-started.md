@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2355cb7ab995cab3060c7a94c9e7ea344bd9e92b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298298"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984645"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Comece com Application Insights num projeto web da Java
 
@@ -25,7 +25,7 @@ O Application Insights é um serviço de análise extensível para programadores
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Obter uma chave de instrumentação do Application Insights
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No portal do Azure, crie um recurso do Application Insights. Defina o tipo de aplicação para aplicação Web em Java.
 
 3. Localize a chave de instrumentação do novo recurso. Terá de colar esta chave no seu projeto de código em breve.
@@ -36,7 +36,7 @@ O Application Insights é um serviço de análise extensível para programadores
 
 *Escolha o seu tipo de projeto.*
 
-# <a name="maven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Rio Maven](#tab/maven)
 
 Se o seu projeto já estiver configurado para utilizar a Maven para construir, misture o seguinte código com o ficheiro *pom.xml.*
 
@@ -223,7 +223,7 @@ E para o nome amento da operação automática.
 
 A Aplicação Insights Java SDK suporta agora o rastreio distribuído pela [W3C](https://w3c.github.io/trace-context/).
 
-A configuração de SDK que está a chegar é explicada ainda mais no nosso artigo sobre [correlação](correlation.md#telemetry-correlation-in-the-java-sdk).
+A configuração de SDK que está a chegar é explicada ainda mais no nosso artigo sobre [correlação](correlation.md).
 
 A configuração SDK de saída é definida no ficheiro [AI-Agent.xml.](java-agent.md)
 
@@ -258,7 +258,7 @@ Pode especificar contadores de desempenho adicionais para recolha.
 * `displayName` – O nome apresentado no portal do Application Insights.
 * `objectName` – O nome do objeto JMX.
 * `attribute` – O atributo do nome do objeto JMX a obter
-* `type` (opcional) - O tipo de atributo do objeto JMX:
+* `type`(opcional) - O tipo de atributo do objeto JMX:
   * Predefinição: um tipo simples, como int ou long.
   * `composite`: os dados de contador de desempenho estão no formato “Attribute.Data”
   * `tabular`: os dados de contador de desempenho estão no formato de uma linha de tabela

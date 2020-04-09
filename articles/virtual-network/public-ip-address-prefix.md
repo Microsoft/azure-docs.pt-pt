@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
-ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640725"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985308"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
@@ -48,7 +48,7 @@ Pode associar os seguintes recursos a um endereço IP público estático a parti
 
 |Recurso|Cenário|Passos|
 |---|---|---|
-|Máquinas Virtuais| Associar iPs públicos de um prefixo às suas máquinas virtuais em Azure reduz a gestão quando se trata de iPs de listagem branca numa firewall. Pode simplesmente whitelist um prefixo inteiro com uma única regra de firewall. À medida que escala com máquinas virtuais em Azure, pode associar IPs a partir do mesmo custo de poupança prefixo, tempo e despesas gerais de gestão.| Para associar iPs de um prefixo à sua máquina virtual: 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. [Associe o IP à interface de rede da sua máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses) Também pode [associar os IPs a um conjunto](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)de escala de máquina virtual .
+|Virtual Machines| Associar iPs públicos de um prefixo às suas máquinas virtuais em Azure reduz a gestão quando se trata de iPs de listagem branca numa firewall. Pode simplesmente whitelist um prefixo inteiro com uma única regra de firewall. À medida que escala com máquinas virtuais em Azure, pode associar IPs a partir do mesmo custo de poupança prefixo, tempo e despesas gerais de gestão.| Para associar iPs de um prefixo à sua máquina virtual: 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. [Associe o IP à interface de rede da sua máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses) Também pode [associar os IPs a um conjunto](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)de escala de máquina virtual .
 | Equilibradores de Carga Padrão | Associar iPs públicos a partir de um prefixo à configuração IP frontal ou regra de saída de um Balancer de Carga garante a simplificação do seu espaço de endereço IP público Azure. Pode simplificar o seu cenário preparando ligações de saída para serem originados a partir de uma gama de endereços IP contíguos definidos pelo prefixo IP público. | Para associar iPs de um prefixo ao seu equilíbrio de carga: 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Ao criar o Balancer de Carga, selecione ou atualize o IP criado no passo 2 acima como o IP frontal do seu Balancer de Carga. |
 | Azure Firewall | Você pode usar um IP público a partir de um prefixo para sNAT de saída. Isto significa que todo o tráfego de rede virtual de saída é traduzido para o IP público [azure Firewall.](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Uma vez que este IP vem de um prefixo pré-determinado, é muito fácil saber com antecedência como será a sua pegada IP pública em Azure. | 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Quando [implementar a firewall Azure,](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)certifique-se de selecionar o IP anteriormente atribuído a partir do prefixo.|
 | Gateway de aplicação v2 | Pode utilizar um IP público a partir de um prefixo para a sua entrada de aplicação autoscalcificada e redundante em zona v2. Uma vez que este IP vem de um prefixo pré-determinado, é muito fácil saber com antecedência como será a sua pegada IP pública em Azure. | 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Quando [implementar o Gateway da Aplicação,](../application-gateway/quick-create-portal.md#create-an-application-gateway)certifique-se de selecionar o IP anteriormente atribuído a partir do prefixo.|
@@ -56,7 +56,7 @@ Pode associar os seguintes recursos a um endereço IP público estático a parti
 ## <a name="constraints"></a>Restrições
 
 - Não é possível especificar os endereços IP para o prefixo. O Azure atribui os endereços IP para o prefixo, com base no tamanho que especifica.
-- Pode criar um prefixo de até 16 endereços IP ou um /28. Para mais informações, consulte [os limites do Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)
+- Pode criar um prefixo de até 16 endereços IP ou um /28 por padrão. Limites de rede de revisão [aumentam os pedidos](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) e [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para mais informações.
 - Não se pode mudar o alcance, uma vez que se cria o prefixo.
 - Apenas endereços IP públicos estáticos criados com o SKU Padrão podem ser atribuídos a partir da gama do prefixo. Para saber mais sobre o endereço IP público SKUs, consulte [o endereço IP público](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Os endereços da gama só podem ser atribuídos aos recursos do Gestor de Recursos Do Azure. Os endereços não podem ser atribuídos aos recursos no modelo clássico de implantação.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1848610250e696807acef118384f43d2a51442ca
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158674"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984491"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutorial: Integrar bynder com diretório ativo Azure
 
@@ -84,13 +84,25 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<company name>.getbynder.com`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
+    
+    Para um domínio predefinido:`https://<company name>.getbynder.com`
+    
+    Para um domínio personalizado:`https;//<subdomain>.<domain>.com`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
+    
+     Para um domínio predefinido:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    
+    Para um domínio personalizado:`https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<company name>.getbynder.com/login/`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:
+    
+     Para um domínio predefinido:`https://<company name>.getbynder.com/login/`
+    
+     Para um domínio personalizado:` https://<subdomain>.<domain>.com/login/`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do [Cliente Bynder](https://www.bynder.com/en/support/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.

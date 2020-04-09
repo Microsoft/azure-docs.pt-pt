@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065950"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985903"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo em serviços de mídia
 
@@ -112,8 +112,11 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 * URL de vaidade
 
     O modo vanity é preferido por grandes emissores de meios de comunicação que usam codificadores de transmissão de hardware e não querem reconfigurar os seus codificadores quando iniciarem o Live Event. Querem uma URL preditiva, que não muda com o tempo.
+    
+    > [!NOTE]
+    > No portal Azure, o URL de vaidade é nomeado " URL de*entrada persistente*".
 
-    Para especificar este modo, define-se `vanityUrl` `true` no `false`momento da criação (o padrão é). Você também precisa passar seu próprio`LiveEventInput.accessToken`sinal de acesso ( ) no momento da criação. Especifica o valor do símbolo para evitar um token aleatório no URL. O símbolo de acesso tem de ser uma corda GUID válida (com ou sem os hífenes). Uma vez definido o modo, não pode ser atualizado.
+    Para especificar este modo na `vanityUrl` API, definido `true` para `false`o momento de criação (o padrão é ). Você também precisa passar seu próprio`LiveEventInput.accessToken`sinal de acesso ( ) no momento da criação. Especifica o valor do símbolo para evitar um token aleatório no URL. O símbolo de acesso tem de ser uma corda GUID válida (com ou sem os hífenes). Uma vez definido o modo, não pode ser atualizado.
 
     O sinal de acesso tem de ser único no seu centro de dados. Se a sua aplicação precisar de usar um URL de vaidade, é aconselhável criar sempre uma nova instância GUID para o seu token de acesso (em vez de reutilizar qualquer GUID existente).
 

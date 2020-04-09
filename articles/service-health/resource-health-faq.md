@@ -3,12 +3,12 @@ title: FaQ de saúde de recursos azure
 description: Visão geral da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912771"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985036"
 ---
 # <a name="azure-resource-health-faq"></a>FaQ de saúde de recursos azure
 Aprenda as respostas a perguntas comuns sobre a Azure Resource Health.
@@ -37,7 +37,7 @@ O estado de saúde é definido para desconhecido quando a Saúde dos Recursos de
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Como posso obter ajuda para um recurso que não está disponível?
 Pode submeter um pedido de apoio da lâmina de saúde de recursos. Não precisa de um acordo de suporte com a Microsoft para abrir um pedido quando o recurso não está disponível porque os eventos da plataforma.
 
-## <a name="does-resource-health-differentiate-between-unavailability-cased-by-platform-problems-versus-something-i-did"></a>A Saúde dos Recursos diferencia entre indisponibilidade caso de problemas de plataforma versus algo que fiz?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>A Saúde dos Recursos diferencia entre indisponibilidade causada por problemas de plataforma versus algo que fiz?
 Sim, quando um recurso está indisponível, a Resource Health identifica a causa principal dentro de uma destas categorias: 
 -   Ação iniciada pelo utilizador
 -   Evento planeado 

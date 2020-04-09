@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b2de4114e8a1b48de2ad64b783d15f56fef4fc30
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 3a06bae941c75e43a0e4ea2b66cc420e7a2467c3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743759"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985087"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a movimentar a gestão das suas ofertas de serviço de Consultoria para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [serviços de Consultoria](https://aka.ms/AzureCreateConsultingService) para gerir as suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de serviço de Consultoria para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [serviços de Consultoria](https://aka.ms/AzureCreateConsultingService) para gerir as suas ofertas migradas.
 
 Depois de terminar **as Definições de Oferta,** **Guarde os Detalhes**da Loja , e os **Contactos,** selecione **Publicar** e fornecer um endereço de e-mail. Quando a Microsoft estiver pronta para publicar a sua oferta, recebe um e-mail para pré-visualizar antes de ser transmitida em direto. Pode voltar ao portal para verificar o estado da sua oferta a qualquer momento.
 

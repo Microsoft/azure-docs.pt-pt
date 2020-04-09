@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771622"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984985"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Descarregue e lance notas
 
@@ -21,13 +21,13 @@ ms.locfileid: "76771622"
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
-> * [Nó.js](table-sdk-nodejs.md)
-> * [Pitão](table-sdk-python.md)
+> * [Node.js](table-sdk-nodejs.md)
+> * [Python](table-sdk-python.md)
 
 |   |   |
 |---|---|
-|**Download sDK**|[Nuget](https://aka.ms/acdbtablenuget)|
-|**Início rápido**|[Azure Cosmos DB: Construa uma app com .NET e a Table API](create-table-dotnet.md)|
+|**Download sDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
+|**Início Rápido**|[Azure Cosmos DB: Construa uma app com .NET e a Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET](tutorial-develop-table-dotnet.md)|
 |**Quadro apoiado atual**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
