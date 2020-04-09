@@ -3,16 +3,16 @@ title: APIs REST do Azure Enterprise
 description: Este artigo descreve as APIs REST para usar com a sua inscrição do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a29af1c9239cc44b3d4a41d17df88e88ee926fbe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0506ba331d1d87445bf3a998cf44d922457b579f
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272373"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586220"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
 

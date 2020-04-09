@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
-ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 1f44b0a0e2278bfcfbbf7cde1a3605fe334eaa3f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436977"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886522"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -43,8 +43,6 @@ Enquanto aplica descontos de reserva sobre a sua utilização, o Azure processa 
 1. Reservas cujo âmbito está definido para um grupo de recursos
 2. Reservas de âmbito único
 3. Reservas de âmbito partilhado
-
-Um grupo de recursos único pode obter descontos de reserva provenientes de múltiplas reservas, dependendo de como define o âmbito das suas reservas.
 
 Pode sempre atualizar o âmbito após comprar uma reserva. Para tal, aceda à reserva, clique em **Configuração** e redefina o âmbito da reserva. A redefinição do âmbito de uma reserva não constitui uma transação comercial. O seu termo de reserva não será alterado. Para obter mais informações sobre a atualização do âmbito, veja [Atualizar o âmbito depois de comprar uma reserva](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
