@@ -5,32 +5,28 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.openlocfilehash: 9498f2cf56f0bfe20d0806e5dc9872403dabb180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/07/2020
+ms.openlocfilehash: 67d5481b82b7469c5ae55704768ce494dbc9dca5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979094"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879144"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Crie clusters Apache Hadoop em HDInsight usando modelos de Gestor de Recursos
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste artigo, aprende-se várias formas de criar clusters Azure HDInsight utilizando modelos de Gestor de Recursos Azure. Para mais informações, consulte [Implementar uma aplicação com o modelo de Gestor](../azure-resource-manager/templates/deploy-powershell.md)de Recursos Azure . Para saber mais sobre outras ferramentas e funcionalidades de criação de clusters, clique no seletor de separadores na parte superior desta página ou consulte [os métodos](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)de criação do Cluster .
+Neste artigo, aprende-se várias formas de criar clusters Azure HDInsight utilizando modelos de [Gestor de Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md). Para saber mais sobre outras ferramentas e funcionalidades de criação de clusters, clique no seletor de separadores na parte superior desta página. Ver também, Métodos de [criação de Cluster.](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma [subscrição Azure.](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
-* Azure PowerShell e/ou Azure CLI.
-
-### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+## <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
 Um modelo de Gestor de Recursos facilita a criação dos seguintes recursos para a sua aplicação numa única operação coordenada:
+
 * Os clusters HDInsight e os seus recursos dependentes (como a conta de armazenamento por defeito).
 * Outros recursos (como a Base de Dados Azure SQL para utilizar [o Apache Sqoop).](https://sqoop.apache.org/)
 

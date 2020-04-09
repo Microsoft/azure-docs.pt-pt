@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296882"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985920"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -264,16 +264,41 @@ Para criar muitas crianças [`create_children()`](https://docs.microsoft.com/pyt
 
 ### <a name="submit-child-runs"></a>Submeter corridas de crianças
 
-As corridas de crianças também podem ser submetidas a partir de uma execução dos pais. Isto permite criar hierarquias de corridas de pais e filhos, cada uma correndo em diferentes alvos de computação, conectados por id de execução comum dos pais.
+As corridas de crianças também podem ser submetidas a partir de uma execução dos pais. Isto permite criar hierarquias de pais e filhos. 
 
-Utilize o método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) para submeter uma criança a partir de uma execução dos pais. Para isso no roteiro de execução dos pais, obtenha ``submit_child`` o contexto de execução e submeta a criança executar usando o método da instância de contexto.
+Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração baseada em CPU menos potente para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar por cada criança diferentes argumentos e dados. Para personalizar uma criança `RunConfiguration` correr, passe um `ScriptRunConfig` objeto ao construtor da criança. Este exemplo de código, que `ScriptRunConfig` faria parte do guião do objeto-mãe:
+
+- Cria `RunConfiguration` uma recuperação de um recurso computacional nomeado`"gpu-compute"`
+- Iterates sobre diferentes valores de `ScriptRunConfig` argumento a serem passados para os objetos das crianças
+- Cria e submete uma nova corrida para crianças, usando o recurso e argumento personalizados
+- Bloqueia até que toda a criança corra completa
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+Para criar muitas corridas infantis com configurações, argumentos e [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) inputs idênticos de forma eficiente, use o método. Porque cada criação resulta numa chamada de rede, criar um lote de execuções é mais eficiente do que criá-los um a um.
 
 Dentro de uma corrida de crianças, você pode ver o ID executar dos pais:
 

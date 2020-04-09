@@ -3,12 +3,12 @@ title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a5f4ce03f762b5903e8b3d6f10810819e02e422
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9eef2e73de7812fc65104131dfd319bf8dfb014e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246879"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984594"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -126,17 +126,17 @@ O modelo que escolher dependerá se está a embarcar numa subscrição inteira, 
 
 |Para embarcar esta  |Use este modelo de Gestor de Recursos Azure  |E modificar este ficheiro de parâmetro |
 |---------|---------|---------|
-|Subscrição   |[delegadoResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegadoResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Grupo de recursos   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Múltiplos grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Subscrição (quando utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Subscrição   |[delegadoResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegadoResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Grupo de recursos   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Múltiplos grupos de recursos dentro de uma subscrição   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Subscrição (quando utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
 > O processo aqui descrito requer uma implementação separada do nível de subscrição para cada subscrição a bordo, mesmo que esteja a embarcar subscrições no mesmo inquilino do cliente. Também são necessárias implementações separadas se estiver a embarcar em vários grupos de recursos dentro de diferentes subscrições no mesmo inquilino do cliente. No entanto, o embarque de vários grupos de recursos dentro de uma única subscrição pode ser feito numa única implementação de nível de subscrição.
 >
 > São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome diferente**de oferta .
 
-O exemplo seguinte mostra um ficheiro **dedelegado modificadoResourceManagement.parameters.json** que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta de [gestão de recursos delegados)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar os grupos de recursos específicos a bordo.
+O exemplo seguinte mostra um ficheiro **dedelegado modificadoResourceManagement.parameters.json** que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta de [gestão de recursos delegados)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar os grupos de recursos específicos a bordo.
 
 ```json
 {
@@ -242,7 +242,7 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Confirme o sucesso do embarque
 
-Quando uma subscrição de um cliente tiver sido a bordo com sucesso para a gestão de recursos delegados do Azure, os utilizadores do inquilino do prestador de serviços poderão ver a subscrição e os seus recursos (se lhes foi concedido acesso através do processo acima, individualmente ou como membro de um grupo AD Azure com as permissões adequadas). Para confirmar isto, verifique se a subscrição aparece de uma das seguintes formas.  
+Quando uma subscrição de um cliente tiver sido a bordo com sucesso para a gestão de recursos delegados do Azure, os utilizadores do inquilino do prestador de serviços poderão ver a subscrição e os seus recursos (se lhes foi concedido acesso através do processo acima, individualmente ou como membro de um grupo de AD Azure com as permissões adequadas). Para confirmar isto, verifique se a subscrição aparece de uma das seguintes formas.  
 
 ### <a name="azure-portal"></a>Portal do Azure
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898578"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878396"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 O Azure Scheduler suporta vários tipos de tarefas: 
 
-* Tarefas HTTP, incluindo as tarefas HTTPS que suportam SSL, no caso de ter o ponto final de um serviço ou carga de trabalho existente
+* EMPREGOS HTTP, incluindo empregos HTTPS que suportam TLS, para quando você tem o ponto final para um serviço ou carga de trabalho existente
 * Tarefas da fila do Armazenamento para cargas de trabalho que utilizam as filas do Armazenamento, como publicar mensagens nas filas do Armazenamento
 * Tarefas de fila do Service Bus para cargas de trabalho que utilizam as filas do Service Bus
 * Tarefas do tópico do Service Bus para cargas de trabalho que utilizam os tópicos do Service Bus
@@ -87,10 +87,10 @@ A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo 
 | [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**ação**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes da ação secundária que será executada se a ação principal falhar |
-| [**recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
+| [**recorrência**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
 | [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes se repete uma ação | 
 | [**estado**](#state) | Sim | Os detalhes do estado atual da tarefa |
-| [**status**](#status) | Sim | Os detalhes do estado atual da tarefa, que é controlado pelo serviço |
+| [**estado**](#status) | Sim | Os detalhes do estado atual da tarefa, que é controlado pelo serviço |
 ||||
 
 Veja a seguir um exemplo que mostra uma definição abrangente da tarefa para uma ação HTTP com detalhes de elemento mais completos descritos nas secções posteriores: 

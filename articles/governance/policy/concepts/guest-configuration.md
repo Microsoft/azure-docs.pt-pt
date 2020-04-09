@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Política Azure utiliza o agente de configuração do hóspede para auditar definições dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc2ba11f75da5f993b99c90e5d0cc1030003203e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257261"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985325"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de hóspedes da Política Azure
 
@@ -18,7 +18,7 @@ Além de auditar e [remediar](../how-to/remediate-resources.md) os recursos do A
 - Presença ou configuração da aplicação
 - Definições do ambiente
 
-Neste momento, a Configuração de Convidado do Azure Policy audita apenas as definições no computador. Não se aplica às configurações.
+Neste momento, a maioria das políticas de configuração de hóspedes da Política Azure apenas auditam definições dentro da máquina. Não aplicam configurações. A exceção é uma política incorporada [abaixo referida](#applying-configurations-using-guest-configuration).
 
 ## <a name="extension-and-client"></a>Extensão e cliente
 
@@ -62,11 +62,12 @@ A tabela que se segue apresenta uma lista das ferramentas locais utilizadas em c
 |Sistema operativo|Ferramenta de validação|Notas|
 |-|-|-|
 |Windows|[Windows PowerShell Desejado Configuração do Estado](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python são instalados pela extensão de configuração do hóspede. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Se a Ruby e a Python não estiverem na máquina, são instaladas pela extensão de Configuração de Hóspedes. |
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minutos. Uma vez recebida uma atribuição de hóspedes, as definições são verificadas num intervalo de 15 minutos. Os resultados são enviados para o fornecedor de recursos de Configuração de Hóspedes assim que a auditoria estiver concluída. Quando ocorre um gatilho de [avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado da máquina é escrito ao fornecedor de recursos de Configuração de Hóspedes. Esta atualização faz com que a Política Azure avalie as propriedades do Gestor de Recursos Do Azure. Uma avaliação de Política Azure a pedido recupera o valor mais recente do fornecedor de recursos de Configuração de Hóspedes. No entanto, não desencadeia uma nova auditoria da configuração dentro da máquina.
+O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minutos. Uma vez recebida uma atribuição de hóspedes, as definições para essa configuração são novamente verificadas num intervalo de 15 minutos.
+Os resultados são enviados ao fornecedor de recursos de Configuração de Hóspedes quando a auditoria estiver concluída. Quando ocorre um gatilho de [avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado da máquina é escrito ao fornecedor de recursos de Configuração de Hóspedes. Esta atualização faz com que a Política Azure avalie as propriedades do Gestor de Recursos Do Azure. Uma avaliação de Política Azure a pedido recupera o valor mais recente do fornecedor de recursos de Configuração de Hóspedes. No entanto, não desencadeia uma nova auditoria da configuração dentro da máquina.
 
 ## <a name="supported-client-types"></a>Tipos de clientes suportados
 
@@ -78,12 +79,9 @@ A tabela seguinte mostra uma lista de sistemaoperativo suportado nas imagens do 
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|Datacenter 2012, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Cliente Windows|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |Suse|SLES|12 SP3|
-
-> [!IMPORTANT]
-> A Configuração do Hóspede pode auditar os nódosos que executam um SISTEMA suportado. Se quiser auditar máquinas virtuais que utilizem uma imagem personalizada, precisa duplicar a definição **DeployIfNotExists** e modificar a secção **Se** para incluir as suas propriedades de imagem.
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes não suportados
 
@@ -139,10 +137,6 @@ As políticas de Auditoria disponíveis para configuração de hóspedes incluem
 ### <a name="multiple-assignments"></a>Múltiplas atribuições
 
 As políticas de configuração do hóspede atualmente apenas suportam a atribuição da mesma Atribuição de Hóspedes uma vez por máquina, mesmo que a atribuição de Política utilize diferentes parâmetros.
-
-## <a name="built-in-resource-modules"></a>Módulos de recursos incorporados
-
-Ao instalar a extensão de Configuração de Hóspedes, o módulo PowerShell 'GuestConfiguration' está incluído com a versão mais recente dos módulos de recursos DSC. Este módulo pode ser descarregado da PowerShell Gallery utilizando o link 'Manual Download' da página do módulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). O formato de ficheiro '.nupkg' pode ser renomeado para '.zip' para descomprimir e rever.
 
 ## <a name="client-log-files"></a>Ficheiros de registo do cliente
 

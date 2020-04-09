@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235666"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878566"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligue IoT DevKit AZ3166 ao Hub Azure IoT
 
@@ -82,7 +82,13 @@ O quickstart usa firmware DevKit pré-compilado para enviar a telemetria para o 
     ```
 
    > [!NOTE]
-   > Se tiver um `device-identity`erro em [execução, instale a extensão Azure IOT para O CLI Azure](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) para mais detalhes.
+   > Se tiver um `device-identity`erro em [execução, instale a extensão Azure IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos ao IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 

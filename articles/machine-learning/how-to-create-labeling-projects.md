@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79296953"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873893"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -20,14 +20,14 @@ ms.locfileid: "79296953"
 
 Rotular dados volumosos em projetos de aprendizagem automática é muitas vezes uma dor de cabeça. Os projetos que possuem um componente de visão computacional, como a classificação de imagem ou a deteção de objetos, geralmente requerem etiquetas para milhares de imagens.
  
-[O Azure Machine Learning](https://ml.azure.com/) dá-lhe um lugar central para criar, gerir e monitorizar projetos de rotulagem. Use-o para coordenar dados, etiquetas e membros da equipa para gerir eficientemente as tarefas de rotulagem. O Machine Learning suporta a classificação de imagem, multi-etiqueta ou multi-classe, e identificação de objetos com caixas limitadas.
+[O Azure Machine Learning](https://ml.azure.com/) dá-lhe um lugar central para criar, gerir e monitorizar projetos de rotulagem (pré-visualização pública). Use-o para coordenar dados, etiquetas e membros da equipa para gerir eficientemente as tarefas de rotulagem. O Machine Learning suporta a classificação de imagem, multi-etiqueta ou multi-classe, e identificação de objetos com caixas limitadas.
 
 O Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas. Os rotuladores não precisam de uma conta Azure para participar. Depois de autenticados com a sua conta Microsoft ou Com o [Diretório Ativo Azure,](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)podem fazer o máximo de rotulagem que o seu tempo permitir.
 
 Você começa e para o projeto, adiciona e remove os rótulos e as equipas, e monitoriza o progresso da rotulagem. Pode exportar dados rotulados em formato COCO ou como um conjunto de dados de Aprendizagem automática Azure.
 
 > [!Important]
-> Apenas os projetos de classificação de imagem e identificação de objetos são atualmente suportados. Além disso, as imagens de dados devem estar disponíveis numa loja de dados azure blob. (Se não tiver uma datastore existente, poderá fazer upload de imagens durante a criação do projeto.) 
+> Apenas os projetos de classificação de imagem e identificação de objetos são atualmente suportados. Além disso, as imagens de dados devem estar disponíveis numa loja de dados azure blob. (Se não tiver uma datastore existente, poderá fazer upload de imagens durante a criação do projeto.)
 
 Neste artigo, aprenderá a:
 
@@ -41,6 +41,7 @@ Neste artigo, aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+
 * Os dados que pretende rotular, quer em ficheiros locais, quer no armazenamento de blob Azure.
 * O conjunto de etiquetas que pretende aplicar.
 * As instruções para a rotulagem.
@@ -51,11 +52,12 @@ Neste artigo, aprenderá a:
 
 Os projetos de rotulagem são geridos a partir de Azure Machine Learning. Usa a página de projetos de **rotulagem** para gerir os seus projetos e pessoas. Um projeto tem uma ou mais equipas atribuídas a ele, e uma equipa tem uma ou mais pessoas atribuídas a ele.
 
-Se os seus dados já se encontra no armazenamento da Azure Blob, deverá disponibilizá-lo como uma datastore antes de criar o projeto de rotulagem. Para mais detalhes, consulte Criar e registar lojas de [dados.](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
+Se os seus dados já se encontra no armazenamento da Azure Blob, deverá disponibilizá-lo como uma datastore antes de criar o projeto de rotulagem. Para um exemplo de utilização de uma datastore, consulte [Tutorial: Crie o seu primeiro projeto](tutorial-labeling.md)de rotulagem de classificação de imagem .
 
 Para criar um projeto, selecione **Adicionar projeto**. Dê ao projeto um nome adequado e selecione o tipo de **tarefa de rotulagem**.
 
 ![Assistente de criação de projeto de rotulagem](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+
 
 * Escolha **classificação de imagem Multi-classe** para projetos quando quiser aplicar apenas uma *única classe* de um conjunto de classes a uma imagem.
 * Escolha a **classificação de imagem Multi-etiqueta** para projetos quando pretender aplicar *uma ou mais* etiquetas de um conjunto de classes a uma imagem. Por exemplo, uma foto de um cão pode ser rotulada com *cão* e *durante o dia.*
@@ -168,9 +170,9 @@ Após a rubrica do projeto de rotulagem, alguns aspetos do projeto são imutáve
 
 ## <a name="manage-teams-and-people"></a>Gerir equipas e pessoas
 
-Por padrão, cada projeto de rotulagem que crias recebe uma nova equipa consigo como membro. Mas as equipas também podem ser partilhadas entre projetos. E os projetos podem ter mais do que uma equipa. Para criar uma equipa, selecione **Adicionar equipa** na página das **Equipas.**
+Por padrão, cada projeto de rotulagem que crias recebe uma nova equipa consigo como membro. Mas as equipas também podem ser partilhadas entre projetos. E os projetos podem ter mais do que uma equipa. Para criar uma equipa, selecione **Adicionar equipa** na página das **Equipas.** 
 
-Geres as pessoas na página do **People.** Adicione e remova as pessoas por endereço de e-mail. Cada rotulador tem de autenticar através da sua conta Microsoft ou do Diretório Ativo Azure, se a utilizar.  
+Geres as pessoas na página dos **Labelers.** Adicione e remova as pessoas por endereço de e-mail. Cada rotulador tem de autenticar através da sua conta Microsoft ou do Diretório Ativo Azure, se a utilizar.  
 
 Depois de adicionar uma pessoa, pode atribuir essa pessoa a uma ou mais equipas: Vá à página das **Equipas,** selecione a equipa e, em seguida, selecione **Atribuir pessoas** ou **remover pessoas**.
 
@@ -216,5 +218,6 @@ O ficheiro COCO é criado na loja de blob padrão do espaço de trabalho Azure M
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Tutorial: Crie o seu primeiro projeto](tutorial-labeling.md)de rotulagem de classificação de imagem .
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)
 * Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](compare-azure-ml-to-studio-classic.md)

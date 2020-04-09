@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78256035"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878056"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Questões conhecidas/limitações de migração com migrações de MongoDB para API da Azure Cosmos DB para MongoDB
 
@@ -45,7 +45,7 @@ Questões e limitações conhecidas associadas às migrações de MongoDB para A
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Tentamigrar para o Azure Cosmos DB a partir de uma versão não suportada do MongoDB. | À medida que são lançadas novas versões do MongoDB, são testadas para garantir a compatibilidade com o Serviço de Migração da Base de Dados Azure, e o serviço está a ser atualizado periodicamente para aceitar as versões mais recentes. Se houver necessidade imediata de migrar, como uma salieste pode exportar as bases de dados/coleções para o Armazenamento Azure e o ponto de vista da fonte para o despejo resultante. Crie o SAS no recipiente de bolhas no Storage Explorer e, em seguida, utilize o URL com informações SAS do recipiente como cadeia de ligação de detalhes de origem.<br><br> |
+| Tentamigrar para o Azure Cosmos DB a partir de uma versão não suportada do MongoDB. | À medida que são lançadas novas versões do MongoDB, são testadas para garantir a compatibilidade com o Serviço de Migração da Base de Dados Azure, e o serviço está a ser atualizado periodicamente para aceitar as versões mais recentes. Se houver necessidade imediata de migrar, como uma salieste pode exportar as bases de dados/coleções para o Armazenamento Azure e, em seguida, apontar a fonte para o despejo resultante. Crie o SAS no recipiente de bolhas no Storage Explorer e, em seguida, utilize o URL com informações SAS do recipiente como cadeia de ligação de detalhes de origem.<br><br> |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -2,15 +2,15 @@
 title: Criar várias instâncias de recurso
 description: Saiba como criar um modelo do Azure Resource Manager para criar várias instâncias de recursos do Azure.
 author: mumian
-ms.date: 03/04/2019
+ms.date: 04/08/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9ed14ce1af6421accccface1b66119057d1c5a30
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 70c86c82cb28bf767da50cca20f7c1d052d4bf01
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239301"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982548"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Criar múltiplas instâncias de recursos com modelos ARM
 
@@ -64,7 +64,7 @@ O modelo completo assemelha-se a:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {
@@ -91,18 +91,18 @@ O modelo completo assemelha-se a:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
       "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "apiVersion": "2018-02-01",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('storageAccountType')]"
       },
-      "kind": "Storage",
-      "properties": {},
+      "kind": "StorageV2",
       "copy": {
         "name": "storagecopy",
         "count": 3
-      }
+      },
+      "properties": {}
     }
   ]
 }
@@ -118,17 +118,20 @@ Veja a secção [Implementar o modelo](quickstart-create-templates-use-visual-st
 
 Para listar as três contas de armazenamento, omita o parâmetro --name:
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
 ```azurecli
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
+echo "Enter a project name that is used to generate resource group name:" &&
+read projectName &&
+resourceGroupName="${projectName}rg" &&
 az storage account list --resource-group $resourceGroupName
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+$resourceGroupName = "${projectName}rg"
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 ```
 

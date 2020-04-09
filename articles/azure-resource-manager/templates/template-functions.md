@@ -2,13 +2,13 @@
 title: Funções de modelos
 description: Descreve as funções a utilizar num modelo do Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implementação.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156264"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982383"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -78,11 +78,18 @@ O Gestor de Recursos fornece várias funções para fazer comparações nos seus
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
 
+## <a name="date-functions"></a>Funções de data
+
+O Gestor de Recursos fornece as seguintes funções para trabalhar com datas.
+
+* [dataTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
+
 ## <a name="deployment-value-functions"></a>Funções de valor de implantação
 
 O Gestor de Recursos fornece as seguintes funções para obter valores a partir de secções do modelo e valores relacionados com a implementação:
 
-* [implementação](template-functions-deployment.md#deployment)
+* [implantação](template-functions-deployment.md#deployment)
 * [ambiente](template-functions-deployment.md#environment)
 * [parâmetros](template-functions-deployment.md#parameters)
 * [variáveis](template-functions-deployment.md#variables)
@@ -214,7 +221,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [saltar](template-functions-string.md#skip)
 * [dividir](template-functions-string.md#split)
 * [começaCom](template-functions-string.md#startswith)
-* [string](template-functions-string.md#string)
+* [cadeia](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
 * [tomar](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
@@ -224,7 +231,6 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Passos seguintes
 

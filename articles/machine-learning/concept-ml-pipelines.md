@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/06/2019
-ms.openlocfilehash: da45c0db027dffc89bd058b70331a4bd6d093b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336963"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878583"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -44,7 +44,7 @@ A nuvem Azure fornece vários outros oleodutos, cada um com um propósito difere
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | Orquestração de modelos (Machine learning) | Cientista de dados | Gasodutos de Aprendizagem automática Azure | Gasodutos Kubeflow | Modelo de dados -> | Distribuição, cache, código primeiro, reutilização | 
 | Orquestração de dados (Preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Fluxo de ar Apache | Dados -> dados -dados | Movimento fortemente dactilografado. Atividades centradas em dados. |
-| Orquestração de aplicações & código (CI/CD) | Desenvolvedor de aplicativos / Operações | [Gasodutos Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -app/serviço > | Mais suporte de atividade aberta e flexibile, filas de aprovação, fases com marcha | 
+| Orquestração de aplicações & código (CI/CD) | Desenvolvedor de aplicativos / Operações | [Gasodutos Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -app/serviço > | Mais apoio de atividade aberta e flexível, filas de aprovação, fases com marcha | 
 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>O que podem os oleodutos Azure ML fazer?
@@ -64,7 +64,7 @@ Com o Azure Machine Learning, pode utilizar vários kits e estruturas de ferrame
 
 Pode [rastrear as métricas das suas experiências](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) de pipeline diretamente no portal Azure ou na sua página de aterragem no [espaço de trabalho (pré-visualização)](https://ml.azure.com). Depois de publicado um pipeline, pode configurar um ponto final REST, que lhe permite reproduzir o pipeline a partir de qualquer plataforma ou stack.
 
-Em suma, todas as tarefas complexas do ciclo de vida de aprendizagem automática podem ser ajudadas com gasodutos. Outras tecnologias de gasoduto Azure têm os seus próprios pontos fortes, como [os oleodutos Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) para trabalhar com dados e [oleodutos Azure](https://azure.microsoft.com/services/devops/pipelines/) para integração e implantação contínua. Mas se o seu foco é a aprendizagem automática, os oleodutos Azure Machine Learning são provavelmente a melhor escolha para as suas necessidades de fluxo de trabalho. 
+Em suma, todas as tarefas complexas do ciclo de vida de aprendizagem automática podem ser ajudadas com gasodutos. Outras tecnologias de gasoduto Azure têm os seus próprios pontos fortes. Os [oleodutos Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) primam pelo trabalho com dados e [os gasodutos Azure](https://azure.microsoft.com/services/devops/pipelines/) são a ferramenta certa para a integração e implantação contínuas. Mas se o seu foco é a aprendizagem automática, os oleodutos Azure Machine Learning são provavelmente a melhor escolha para as suas necessidades de fluxo de trabalho. 
 
 ## <a name="what-are-azure-ml-pipelines"></a>O que são os oleodutos Azure ML?
 
@@ -126,7 +126,7 @@ Quando se projeta maquetes visualmente, as inputs e saídas de um degrau são ex
 
 Os passos dentro de um oleoduto podem ter dependências em outros passos. O serviço de gasoduto SAl Azure faz o trabalho de analisar e orquestrar estas dependências. Os nódosos do "gráfico de execução" resultante são passos de processamento. Cada passo pode envolver a criação ou reutilização de uma combinação particular de hardware e software, reutilização de resultados em cache, e assim por diante. A orquestração e otimização deste gráfico de execução do serviço pode acelerar significativamente uma fase ML e reduzir custos. 
 
-Como os passos são executados de forma independente, os objetos para conter os dados de entrada e de saída que fluem entre passos devem ser definidos externamente. Este é o papel de [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)e classes associadas. Estes objetos de dados estão associados a um objeto [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) que encapsula a sua configuração de armazenamento. A `PipelineStep` classe base é `name` sempre criada com `inputs`uma corda, `outputs`uma lista de, e uma lista de . Normalmente, também tem `arguments` uma lista de e `resource_inputs`muitas vezes terá uma lista de . As subclasses terão geralmente argumentos adicionais `PythonScriptStep` também (por exemplo, requer o nome de ficheiro e o caminho do script para executar). 
+Como os passos são executados de forma independente, os objetos para conter os dados de entrada e de saída que fluem entre passos devem ser definidos externamente. Este é o papel de [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)e [PipelineData,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)objetos. Estes objetos de dados estão associados a um objeto [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) que encapsula a sua configuração de armazenamento. A `PipelineStep` classe base é `name` sempre criada com `inputs`uma corda, `outputs`uma lista de, e uma lista de . Normalmente, também tem `arguments` uma lista de e `resource_inputs`muitas vezes terá uma lista de . As subclasses terão geralmente argumentos adicionais `PythonScriptStep` também (por exemplo, requer o nome de ficheiro e o caminho do script para executar). 
 
 O gráfico de execução é acíclico, mas os oleodutos podem ser executados em um horário recorrente e podem executar scripts Python que podem escrever informações do estado para o sistema de ficheiros, tornando possível a criação de perfis complexos. Se conceber o seu pipeline de modo a que determinados passos possam ser executados em paralelo ou assincronicamente, o Azure Machine Learning lida de forma transparente com a análise de dependência e coordenação de fan-out e fan-in. Geralmente não tem que se preocupar com os detalhes do gráfico de execução, mas está disponível através do atributo [Pipeline.graph.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) 
 
@@ -141,19 +141,16 @@ blob_store = Datastore(ws, "workspaceblobstore")
 compute_target = ws.compute_targets["STANDARD_NC6"]
 experiment = Experiment(ws, 'MyExperiment') 
 
-input_data = DataReference(
-    datastore=Datastore(ws, blob_store),
-    data_reference_name="test_data",
-    path_on_datastore="20newsgroups/20news.pkl")
+input_data = Dataset.File.from_files(
+    DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData(
-    "output_data",
-    datastore=blob_store,
-    output_name="output_data1")
+output_data = PipelineData("output_data", datastore=blob_store)
+
+input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
-    arguments=["--input", input_data, "--output", output_data],
+    arguments=["--input", input_named.as_download(), "--output", output_data],
     inputs=[input_data],
     outputs=[output_data],
     compute_target=compute_target,
@@ -168,7 +165,7 @@ pipeline_run.wait_for_completion()
 
 O snippet começa com objetos comuns de Aprendizagem automática `Workspace`Azure, a , `Datastore`a , a [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py), e um `Experiment`. Em seguida, o código `input_data` cria `output_data`os objetos para segurar e . A `steps` matriz contém um `PythonScriptStep` único elemento, um que `compute_target`utilizará os objetos de dados e será executado na . Em seguida, o código `Pipeline` instantaneamente o objeto em si, passando no espaço de trabalho e na matriz de passos. A chamada `experiment.submit(pipeline)` para iniciar o gasoduto Azure ML. A chamada `wait_for_completion()` para os blocos até que o oleoduto esteja terminado. 
 
-Para saber mais sobre a ligação do seu pipeline aos seus dados, consulte os artigos [Como Aceder aos Dados](how-to-access-data.md) e Como Registar [Datasets](how-to-create-register-datasets.md). 
+Para saber mais sobre a ligação do seu pipeline aos seus dados, consulte os artigos [Acesso de dados em Dados de Aprendizagem](concept-data.md) automática e dados de [deslocação em e entre os passos do gasoduto ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
 ## <a name="best-practices-when-using-pipelines"></a>Boas práticas ao utilizar oleodutos
 
@@ -207,9 +204,9 @@ As principais vantagens da utilização de gasodutos para os seus fluxos de trab
 
 ### <a name="choosing-the-proper-pipelinestep-subclass"></a>Escolher a subclasse PipelineStep adequada
 
-A `PythonScriptStep` é a subclasse mais `PipelineStep`flexível do abstrato. Outras subclasses, `EstimatorStep` como `DataTransferStep` subclasses e podem realizar tarefas específicas com menos código. Por exemplo, `EstimatorStep` um pode ser criado simplesmente passando `Estimator`em nome para o passo, um , e um alvo de computação. Ou, pode substituir inputs e saídas, parâmetros de gasoduto e argumentos. Para mais informações, consulte os modelos de comboio com o [Azure Machine Learning utilizando o estimador.](how-to-train-ml-models.md) 
+A `PythonScriptStep` é a subclasse mais `PipelineStep`flexível do abstrato. Outras subclasses, `EstimatorStep` como `DataTransferStep` subclasses e podem realizar tarefas específicas com menos código. Por exemplo, `EstimatorStep` um pode ser criado apenas passando `Estimator`em nome para o passo, um , e um alvo de computação. Ou, pode substituir inputs e saídas, parâmetros de gasoduto e argumentos. Para mais informações, consulte os modelos de comboio com o [Azure Machine Learning utilizando o estimador.](how-to-train-ml-models.md) 
 
-O `DataTransferStep` facilita a movimentação de dados entre fontes de dados e pias. O código para fazer isto manualmente é simples, mas repetitivo. Em vez disso, `DataTransferStep` pode apenas criar um com um nome, referências a uma fonte de dados e um afundado de dados, e um alvo de cálculo. O [notebook Azure Machine Learning Pipeline com DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) demonstra esta flexibilidade.
+O `DataTransferStep` facilita a movimentação de dados entre fontes de dados e pias. O código para fazer esta transferência manualmente é simples, mas repetitivo. Em vez disso, `DataTransferStep` pode apenas criar um com um nome, referências a uma fonte de dados e um afundado de dados, e um alvo de cálculo. O [notebook Azure Machine Learning Pipeline com DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) demonstra esta flexibilidade.
 
 ## <a name="modules"></a>Módulos
 

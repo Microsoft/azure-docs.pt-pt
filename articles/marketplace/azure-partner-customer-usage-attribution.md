@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 9/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874964"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -232,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Pode encontrar o relatório para atribuição de uso do cliente no painel de instrumentos Partner Center Analyze. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver o relatório, tem de usar as credenciais do Centro parceiro para iniciar sessão. Se encontrar algum problema com relatório ou iniciar sessão, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
+Pode encontrar o relatório para atribuição de utilização[https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)do cliente no seu painel de instrumentos do Partner Center (). Para ver o relatório, tem de usar as credenciais do Centro parceiro para iniciar sessão. Se encontrar algum problema com relatório ou iniciar sessão, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
 
 Escolha o modelo rastreado na lista de dropdown do Partner Association Type para ver o relatório.
 
@@ -267,7 +267,7 @@ Se necessitar de assistência para o Marketplace Onboarding e/ou atribuição de
 1. Escolha a **categoria** para o seu problema:
 
    - Para problemas de associação de uso, selecione **Outros**.
-   - Para problemas de acesso com o CPP do Mercado Azure, selecione Problema de **Acesso**.
+   - Para problemas de acesso com o Mercado Azure, selecione Problema de **Acesso**.
 
      ![Escolha a categoria de emissão](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -315,7 +315,7 @@ Sim, um cliente ou parceiro de implementação pode personalizar o modelo e pode
 
 **Posso rastrear modelos implantados a partir de um repositório não-Microsoft como o GitHub?**
 
-Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso é rastreado. Os parceiros são obrigados a ter um perfil no CPP para registar GUIDs utilizados para a implantação fora do Mercado Azure.
+Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso é rastreado. Os parceiros são obrigados a ter um perfil na inscrição no mercado comercial no Partner Center para registar GUIDs utilizados para a implantação fora do Mercado Azure.
 
 **O cliente também recebe reportagens?**
 

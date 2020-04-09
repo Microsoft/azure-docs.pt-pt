@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b81a3921ec11d589dadbdebd698ab9ad67d7649c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547705"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982910"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para SQL API: Notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "80547705"
 * Documentação atualizada para referência Azure Cosmos DB em vez de Azure DocumentDB.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Esta versão SDK requer a versão mais recente do Emulador De DB Do Azure Cosmos disponível para download a partir de https://aka.ms/cosmosdb-emulator.
+* Esta versão SDK requer a versão mais recente do [Emulador Db do Azure Cosmos.](https://aka.ms/cosmosdb-emulator)
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
 * Correção de insetos para dicionário agregado.

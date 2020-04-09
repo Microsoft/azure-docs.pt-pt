@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f1877ae630919ba7da5a851b5f8291ade2d165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76897579"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876189"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicione as informações de privacidade da sua organização usando o Diretório Ativo Azure
 Este artigo explica como um administrador inquilino pode adicionar informações relacionadas com a privacidade ao inquilino Azure Ative Directory (Azure AD) de uma organização, através do portal Azure.
@@ -32,15 +32,15 @@ Você adiciona as informações de privacidade da sua organização na área de 
 
 ### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Para aceder à área de Propriedades e adicionar as suas informações de privacidade
 
-1.  Inscreva-se no portal Azure como administrador de inquilinos.
+1.    Inscreva-se no portal Azure como administrador de inquilinos.
 
-2.  Na barra de navegação à esquerda, selecione **Azure Ative Directory**, e depois selecione **Propriedades**.
+2.    Na barra de navegação à esquerda, selecione **Azure Ative Directory**, e depois selecione **Propriedades**.
 
     A área **de Propriedades** aparece.
 
     ![Área da Azure AD Properties destacando a área de informação de privacidade](media/active-directory-properties-area/properties-area.png)
 
-3.  Adicione as suas informações de privacidade aos seus colaboradores:
+3.    Adicione as suas informações de privacidade aos seus colaboradores:
 
     - **Contacto técnico.** Digite o endereço de e-mail para que a pessoa contacte para obter apoio técnico dentro da sua organização.
     
@@ -53,8 +53,8 @@ Você adiciona as informações de privacidade da sua organização na área de 
 
         ![Caixa de permissões de revisão de colaboração B2B com mensagem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.  Selecione **Guardar**.
+4.    Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Redenção do convite de colaboração Azure Ative Directory B2B](https://aka.ms/b2bredemption)
+- [Redenção do convite de colaboração Azure Ative Directory B2B](../b2b/redemption-experience.md)
 - [Adicionar ou alterar informações de perfil para um utilizador no Diretório Ativo do Azure](active-directory-users-profile-azure-portal.md)

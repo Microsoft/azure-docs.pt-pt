@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 43bb34a80d8d62cfa2bde445b94fb97da25ccda3
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745470"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984849"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de Aplicação Power BI
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão das suas ofertas de aplicações Power BI para partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções na criação de [aplicações Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerir as suas ofertas migratórias.
 
 Este artigo lista os passos a seguir para criar uma nova oferta de Aplicação Power BI para [AppSource](https://appsource.microsoft.com). Cada oferta aparece como sua própria entidade no AppSource. Quando criar uma nova oferta no Portal do [Parceiro cloud,](https://cloudpartner.azure.com/)é obrigado a fornecer quatro grupos de ativos para a sua oferta.
 
@@ -44,7 +44,7 @@ Depois de iniciar sessão no Portal do Parceiro cloud, selecione **New Offer** n
 
 Os seguintes artigos explicam os separadores na página **New Offer** para um tipo de oferta de aplicação Power BI. Cada artigo descreve os grupos de ativos e os serviços de apoio para a sua nova oferta de Aplicação Power BI.
 
--  [Separador Definições da oferta](./cpp-offer-settings-tab.md)
+-  [Separador Definições de Oferta](./cpp-offer-settings-tab.md)
 -  [Separador Informações Técnicas](./cpp-technical-info-tab.md)
--  [Separador Detalhes da Loja](./cpp-storefront-details-tab.md)
+-  [Separador de detalhes da vitrine](./cpp-storefront-details-tab.md)
 -  [Separador Contactos](./cpp-contacts-tab.md)

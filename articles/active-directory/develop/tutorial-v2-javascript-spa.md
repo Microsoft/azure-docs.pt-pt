@@ -2,25 +2,21 @@
 title: Tutorial de aplicação de uma página única JavaScript - plataforma de identidade da Microsoft Azure
 description: Como as aplicações javaScript SPA podem chamar uma API que requer acesso a fichas por Azure Ative Directory v2.0 endpoint
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6eb144e648e8f5fa1682c353f14686d6f82c7328
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 307490837b2963b3a1272eaafde63431de6645aa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79530449"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984355"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de uma página única JavaScript (SPA)
 
@@ -269,7 +265,7 @@ Agora tem um servidor simples para servir o seu SPA. A estrutura de pasta preten
 
 Antes de prosseguir com a autenticação, registe a sua candidatura no **Diretório Ativo do Azure**.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a conta no canto superior direito e, em seguida, marque a sua sessão do portal para o inquilino da AD Azure que pretende utilizar.
 1. Vá à plataforma de identidade da Microsoft para programar página de registos de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
@@ -353,6 +349,18 @@ Crie um novo ficheiro `authPopup.js`.js chamado , que conterá a sua autenticaç
 
    function signOut() {
      myMSALObj.logout();
+   }
+   
+   function callMSGraph(theUrl, accessToken, callback) {
+       var xmlHttp = new XMLHttpRequest();
+       xmlHttp.onreadystatechange = function () {
+           if (this.readyState == 4 && this.status == 200) {
+              callback(JSON.parse(this.responseText));
+           }
+       }
+       xmlHttp.open("GET", theUrl, true); // true for asynchronous
+       xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+       xmlHttp.send();
    }
 
    function getTokenPopup(request) {

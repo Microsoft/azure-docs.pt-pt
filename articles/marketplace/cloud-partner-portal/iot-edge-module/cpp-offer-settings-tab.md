@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: e7b7d04cd3d1ed9792f8ad3c7bc302e4a2c2180f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 7a35277a61217dab2982d6436903cd09abfe8c7d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745021"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984968"
 ---
 # <a name="iot-edge-module-offer-settings-tab"></a>Separador de oferta de módulo SioT Edge
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
 
 Os **Módulos IoT Edge > nova página de Oferta** abre com o foco no separador Definições de **Oferta.** 
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a77041c0e53c2f0f8b6d0891a0f755e8ca474923
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75946349"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986613"
 ---
 
 Utilize a biblioteca de clientes QnA Maker para:
@@ -68,7 +68,7 @@ Crie variáveis para o ponto final e chave azure do seu recurso. Se criou a vari
 
 |Variável de ambiente|variável|Exemplo|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|A chave é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.|
+|`QNAMAKER_KEY`|`subscription_key`|A chave é uma cadeia de caracteres de 32 caracteres e está disponível no portal Azure, no recurso QnA Maker, na página Quickstart. Isto não é o mesmo que a chave final da previsão.|
 |`QNAMAKER_HOST`|`host`| O seu ponto final de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`autoria, no formato de, inclui o seu nome de **recurso.** Este não é o mesmo URL usado para consultar o ponto final da previsão.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]
@@ -145,4 +145,4 @@ python knowledgebase_quickstart.py
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

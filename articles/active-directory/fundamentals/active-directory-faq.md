@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063633"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875797"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre o Diretório Ativo azure
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -27,16 +27,17 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Aceder ao Azure e Azure Active Directory
-**P: Por que motivo recebo “Não foram encontradas subscrições” ao tentar aceder ao Azure AD no portal do Azure?**
+**P: Por que recebo "Nenhuma subscrição encontrada" quando tento aceder ao Azure AD no portal Azure?**
 
-**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 [https://aka.ms/accessAAD](https://aka.ms/accessAAD) ou Azure AD, vá para um passo de ativação único. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
+**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se não tiver uma subscrição paga do Office 365 ou Azure AD, terá de ativar uma [conta Azure](https://azure.microsoft.com/free/
+) gratuita ou uma subscrição paga.
 
 Para obter mais informações, consulte:
 
 * [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**P: Qual é a relação entre o Azure AD, o Office 365 e o Azure?**
+**P: Qual é a relação entre Azure AD, Office 365, e Azure?**
 
 **R:** O Azure AD fornece-lhe capacidades de identidade e de acesso comuns a todos os serviços da Web. Se estiver a utilizar o Office 365, o Microsoft Azure, o Intune ou outros, já está a utilizar o Azure AD para ajudar a ativar o início de sessão e gestão de acesso a todos estes serviços.
 
@@ -138,9 +139,9 @@ Para contas do Azure AD, os administradores podem repor as palavras-passe atrav�
 
 Utilizamos uma estratégia mais sofisticada para bloquear as contas.  Baseia-se no IP do pedido e nas palavras-passe introduzidas. A duração do bloqueio também aumenta com base na probabilidade de se tratar de um ataque.  
 
-**P: Algumas palavras-passe (comuns) são rejeitadas com a mensagem “esta palavra-passe foi utilizada demasiadas vezes”. Isto refere-se a palavras-passe utilizadas no diretório ativo atual?**
+**P: Algumas palavras-passe (comuns) são rejeitadas com as mensagens "esta palavra-passe foi usada muitas vezes", isto refere-se às palavras-passe utilizadas no diretório ativo atual?**
 
-Refere-se a palavras-passe que são globalmente comuns, como as variantes de “Palavra-passe” e “123456”.
+Isto refere-se a palavras-passe que são globalmente comuns, como quaisquer variantes de "Password" e "123456".
 
 **P: Os pedidos de início de sessão de origens duvidosas (botnets, pontos finais de tor) vão ser bloqueados em inquilinos B2C ou é necessário para tal um inquilino da edição Básica ou Premium?**
 
@@ -157,7 +158,7 @@ Para obter a lista completa das aplicações previamente integradas, consulte [A
 ---
 **P: E se a aplicação de que preciso não fizer parte do Azure AD Marketplace?**
 
-**R:** Com o Azure AD Premium, pode adicionar e configurar qualquer aplicação que desejar. Consoante as funcionalidades da aplicação e das suas preferências, pode configurar o SSO e o aprovisionamento automatizado.  
+**R:** Com o Azure AD Premium, pode adicionar e configurar qualquer aplicação que desejar. Dependendo das capacidades da sua aplicação e das suas preferências, pode configurar o SSO e o fornecimento automatizado.  
 
 Para obter mais informações, consulte:
 
@@ -188,7 +189,7 @@ Para obter mais informações, consulte:
 * [Inscrição única para candidaturas em Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
-**P: Posso adicionar as aplicações que estiver a executar no local?**
+**P: Posso adicionar aplicações que estou a executar no local?**
 
 **R:** O Proxy da Aplicação do Azure AD fornece um acesso fácil e seguro às Web Apps no local que escolher. Pode aceder a estas aplicações da mesma forma a que acede às aplicações de software como um serviço (SaaS) no Azure AD. Não é necessário nenhuma VPN ou alterar a infraestrutura de rede.  
 
@@ -199,7 +200,7 @@ Para mais informações, consulte [How to provide secure remote access to on-pre
 
 **A:** Com acesso condicional Azure AD, pode atribuir uma política de acesso única para cada aplicação. Na sua política, pode exigir a autenticação multifator sempre ou quando os utilizadores não estiverem ligados à rede local.  
 
-Para mais informações, consulte [Securing access to Office 365 and other apps connected to Azure Active Directory (Proteger o acesso ao Office 365 e a outras aplicações ligadas ao Azure Active Directory)](../active-directory-conditional-access-azure-portal.md).
+Para mais informações, consulte [Securing access to Office 365 and other apps connected to Azure Active Directory (Proteger o acesso ao Office 365 e a outras aplicações ligadas ao Azure Active Directory)](../conditional-access/overview.md).
 
 ---
 **P: O que é o fornecimento automatizado de utilizadores para aplicações SaaS?**
@@ -211,4 +212,4 @@ Para mais informações, consulte o fornecimento e o fornecimento de utilizadore
 ---
 **P: Posso configurar uma ligação LDAP segura ao Azure AD? **
 
-**A:**  Não. A Azure AD não suporta diretamente o protocolo de acesso ao diretório leve (LDAP) ou o Secure LDAP. No entanto, é possível permitir que os Serviços de Domínio Azure AD (Azure AD DS) se apurem no seu inquilino Azure AD com grupos de segurança de rede devidamente configurados através da Rede Azure para alcançar a conectividade LDAP. Para obter mais informações, consulte https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**A:**  Não. A Azure AD não suporta diretamente o protocolo de acesso ao diretório leve (LDAP) ou o Secure LDAP. No entanto, é possível permitir que os Serviços de Domínio Azure AD (Azure AD DS) se apurem no seu inquilino Azure AD com grupos de segurança de rede devidamente configurados através da Rede Azure para alcançar a conectividade LDAP. Para mais informações, consulte [Configure secure LDAP para um domínio gerido pelo Azure Ative Directory Domain Services](../../active-directory-domain-services/tutorial-configure-ldaps.md)

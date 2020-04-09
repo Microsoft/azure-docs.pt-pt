@@ -1,5 +1,5 @@
 ---
-title: Plug-in Microsoft Enterprise SSO para dispositivos Apple
+title: Plug-in de SSO do Microsoft Enterprise para dispositivos Apple
 titleSuffix: Microsoft identity platform | Azure
 description: Conheça o plug-in SSO do Diretório Ativo Azure da Microsoft para dispositivos iOS e macOS.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7233a0bba5cf30eab018bfa744a7322303300604
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550321"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982587"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO plug-in para dispositivos Apple (Pré-visualização)
 
@@ -27,7 +27,7 @@ ms.locfileid: "80550321"
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
-O *plug-in Microsoft Enterprise SSO para dispositivos Apple* fornece um único sinal de inscrição (SSO) para contas De Diretório Ativo em todas as aplicações que suportam a funcionalidade [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) da Apple. A Microsoft trabalhou de perto com a Apple para desenvolver este plug-in para aumentar a usabilidade da sua aplicação, fornecendo a melhor proteção que a Apple e a Microsoft podem fornecer.
+O *plug-in Microsoft Enterprise SSO para dispositivos Apple* fornece um único sinal de entrada (SSO) para contas de Diretório Ativo Azure (Azure AD) em todas as aplicações que suportam a funcionalidade [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) da Apple. A Microsoft trabalhou de perto com a Apple para desenvolver este plug-in para aumentar a usabilidade da sua aplicação, fornecendo a melhor proteção que a Apple e a Microsoft podem fornecer.
 
 Neste lançamento de Pré-visualização Pública, o plug-in Enterprise SSO está disponível apenas para dispositivos iOS e está distribuído em certas aplicações da Microsoft.
 
@@ -37,7 +37,7 @@ A nossa primeira utilização do plug-in Enterprise SSO é com a nossa nova func
 
 O plug-in Microsoft Enterprise SSO para dispositivos Apple oferece os seguintes benefícios:
 
-- Fornece SSO para contas de Diretório Ativo em todas as aplicações que suportam a funcionalidade Enterprise Single Sign-On da Apple.
+- Fornece contas SSO para AD Azure em todas as aplicações que suportam a funcionalidade Enterprise Single Sign-On da Apple.
 - Entregue automaticamente no Autenticador microsoft e pode ser ativado por qualquer solução de gestão de dispositivos móveis (MDM).
 
 ## <a name="requirements"></a>Requisitos

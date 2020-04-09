@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2020
-ms.openlocfilehash: 26ed33e967aff1714d2a6fb174eab623e71534c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/08/2020
+ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382737"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982315"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para a visão geral dos VMs
 
@@ -59,7 +59,7 @@ O Monitor Azure para VMs suporta um espaço de trabalho de Log Analytics nas seg
 >
 
 Se não tiver um espaço de trabalho no Log Analytics, pode criar um utilizando um dos recursos:
-* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
 * [Portal Azure](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
@@ -175,8 +175,8 @@ Pode descarregar o agente dependency a partir destes locais:
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.2.9060 | B7725B6B205CF8C336DAd8795636C816412740E9D6499BCACB6F862AE3896  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.2.9060 | C6995A67A77782AEC312647D74A99C3C823F68F5FFA490FD4BB6006A2FF2941B0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9e7BCC17D917F5CE95f5F5A463D8B73f3BE143921  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD293968F02A9EF821F9639406A1BDF1F67925DB9E00D54Aa7f0b |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 

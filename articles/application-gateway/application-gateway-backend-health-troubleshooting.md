@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72001664"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983845"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de resolução de problemas de saúde rebatem problemas de saúde no Application Gateway
 ==================================================
@@ -170,7 +170,7 @@ Verifique também se algum NSG/UDR/Firewall está a bloquear o acesso ao Ip e à
 
 **Mensagem:** O código de\'estado da resposta HTTP do backend não corresponde à definição da sonda. Esperado:{HTTPStatusCode0} Recebido:{HTTPStatusCode1}.
 
-**Causa:** Depois de a ligação TCP ter sido estabelecida e de ser feito um aperto de mão SSL (se o SSL estiver ativado), o Application Gateway enviará a sonda como um pedido HTTP GET para o servidor backend. Como descrito anteriormente, a sonda \<\>padrão será para o protocolo ://127.0.0.1:\<porta\>/, e considera os códigos de estado de resposta na raiva 200 a 399 como Saudável. Se o servidor devolver qualquer outro código de estado, será marcado como Insalubre com esta mensagem.
+**Causa:** Depois de a ligação TCP ter sido estabelecida e de ser feito um aperto de mão TLS (se o TLS estiver ativado), o Application Gateway enviará a sonda como um pedido HTTP GET para o servidor backend. Como descrito anteriormente, a sonda \<\>padrão será para o protocolo ://127.0.0.1:\<porta\>/, e considera os códigos de estado de resposta na raiva 200 a 399 como Saudável. Se o servidor devolver qualquer outro código de estado, será marcado como Insalubre com esta mensagem.
 
 **Solução:** Dependendo do código de resposta do servidor de backend, pode tomar os seguintes passos. Alguns dos códigos de estatuto comuns estão listados aqui:
 
@@ -208,7 +208,7 @@ Saiba mais sobre a [correspondência da sonda Application Gateway](https://docs.
 **Mensagem:** O certificado de servidor utilizado pelo backend não é assinado por uma conhecida Autoridade de Certificados (CA). Whitelist o backend no Gateway de aplicação, carregando o certificado de raiz do certificado de servidor utilizado pelo backend.
 
 **Causa:** O SSL de ponta a ponta com o Gateway de aplicação v2 requer que o certificado do servidor de backend seja verificado de modo a parecer o servidor Saudável.
-Para que seja de confiança um certificado SSL, esse certificado do servidor backend deve ser emitido por um CA incluído na loja fidedigna do Application Gateway. Se o certificado não foi emitido por um CA de confiança (por exemplo, se um certificado auto-assinado foi usado), os utilizadores devem enviar o certificado do emitente para o Gateway de Aplicação.
+Para que seja de confiança um certificado TLS/SSL, esse certificado do servidor backend deve ser emitido por um CA incluído na loja fidedigna do Application Gateway. Se o certificado não foi emitido por um CA de confiança (por exemplo, se um certificado auto-assinado foi usado), os utilizadores devem enviar o certificado do emitente para o Gateway de Aplicação.
 
 **Solução:** Siga estes passos para exportar e faça upload do certificado de raiz fidedigno para O Gateway de Aplicação. (Estes passos são para clientes Windows.)
 
@@ -241,7 +241,7 @@ Para obter mais informações sobre como extrair e carregar Certificados de Raiz
 **Mensagem:** O certificado de raiz do certificado de servidor utilizado pelo backend não corresponde ao certificado de raiz fidedigno adicionado ao gateway da aplicação. Certifique-se de que adiciona o certificado de raiz correto ao whitelist do backend
 
 **Causa:** O SSL de ponta a ponta com o Gateway de aplicação v2 requer que o certificado do servidor de backend seja verificado de modo a parecer o servidor Saudável.
-Para que seja de confiança um certificado SSL, o certificado de servidor backend deve ser emitido por um CA incluído na loja fidedigna do Application Gateway. Se o certificado não foi emitido por um CA de confiança (por exemplo, foi utilizado um certificado auto-assinado), os utilizadores devem enviar o certificado do emitente para o Application Gateway.
+Para que seja de confiança um certificado TLS/SSL, o certificado de servidor backend deve ser emitido por um CA incluído na loja fidedigna do Application Gateway. Se o certificado não foi emitido por um CA de confiança (por exemplo, foi utilizado um certificado auto-assinado), os utilizadores devem enviar o certificado do emitente para o Application Gateway.
 
 O certificado que foi enviado para as definições do Gateway HTTP de aplicação deve corresponder ao certificado raiz do certificado de servidor backend.
 
@@ -280,7 +280,7 @@ Se a saída não mostrar que a cadeia completa do certificado seja devolvida, ex
 
 **Mensagem:** O Nome Comum (CN) do certificado de backend não corresponde ao cabeçalho hospedeiro da sonda.
 
-**Causa:** O Gateway de aplicação verifica se o nome do anfitrião especificado nas definições de HTTP de backend corresponde ao do NC apresentado pelo certificado SSL do servidor backend. Isto é Standard_v2 e WAF_v2 comportamento SKU. A indicação de nome de servidor (SNI) do Standard e WAF SKU é definida como fQDN no endereço de piscina de backend.
+**Causa:** O Gateway de aplicação verifica se o nome do anfitrião especificado nas definições de HTTP de backend corresponde ao do NC apresentado pelo certificado TLS/SSL do servidor de backend. Isto é Standard_v2 e WAF_v2 comportamento SKU. A indicação de nome de servidor (SNI) do Standard e WAF SKU é definida como fQDN no endereço de piscina de backend.
 
 No V2 SKU, se houver uma sonda padrão (nenhuma sonda personalizada foi configurada e associada), o SNI será definido a partir do nome do anfitrião mencionado nas definições HTTP. Ou, se "Escolher o nome do anfitrião do endereço backend" é mencionado nas definições http, onde a piscina de endereços de backend contém um FQDN válido, esta definição será aplicada.
 
@@ -321,9 +321,9 @@ Para linux usando OpenSSL:
 
 **Mensagem:** O certificado de backend é inválido. A data atual \"não\" está \"dentro\" do intervalo Válido e Válido até à data no certificado.
 
-**Causa:** Cada certificado vem com um intervalo de validade, e a ligação HTTPS não será segura a menos que o certificado SSL do servidor seja válido. Os dados atuais devem estar dentro **do válido** e **válido ao** alcance. Caso contrário, o certificado é considerado inválido, e isso criará um problema de segurança no qual o Application Gateway marca o servidor backend como Insalubre.
+**Causa:** Cada certificado vem com um intervalo de validade, e a ligação HTTPS não será segura a menos que o certificado TLS/SSL do servidor seja válido. Os dados atuais devem estar dentro **do válido** e **válido ao** alcance. Caso contrário, o certificado é considerado inválido, e isso criará um problema de segurança no qual o Application Gateway marca o servidor backend como Insalubre.
 
-**Solução:** Se o seu certificado SSL tiver expirado, renove o certificado com o seu fornecedor e atualize as definições do servidor com o novo certificado. Se for um certificado auto-assinado, deve gerar um certificado válido e fazer o upload do certificado de raiz para as definições do Gateway HTTP da aplicação. Para tal, siga estes passos:
+**Solução:** Se o seu certificado TLS/SSL tiver expirado, renove o certificado com o seu fornecedor e atualize as definições do servidor com o novo certificado. Se for um certificado auto-assinado, deve gerar um certificado válido e fazer o upload do certificado de raiz para as definições do Gateway HTTP da aplicação. Para tal, siga estes passos:
 
 1.  Abra as definições do Gateway HTTP da aplicação no portal.
 
@@ -333,7 +333,7 @@ Para linux usando OpenSSL:
 
 #### <a name="certificate-verification-failed"></a>Verificação de certificado falhou
 
-**Mensagem:** A validade do certificado de backend não pôde ser verificada. Para descobrir a razão, verifique os diagnósticos Open SSL para a mensagem associada ao código de erro {errorCode}
+**Mensagem:** A validade do certificado de backend não pôde ser verificada. Para descobrir a razão, verifique os diagnósticos openSSL para a mensagem associada ao código de erro {errorCode}
 
 **Causa:** Este erro ocorre quando o Gateway de Aplicação não pode verificar a validade do certificado.
 

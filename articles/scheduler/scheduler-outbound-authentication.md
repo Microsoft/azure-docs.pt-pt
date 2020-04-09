@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898502"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878974"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para O Scheduler Azure
 
@@ -47,8 +47,8 @@ Ao adicionar a `ClientCertificate` autenticação utilizando o modelo, especifiq
 
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
-| **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL |
-| **tipo** | Sim | O tipo de autenticação. Para os certificados de cliente `ClientCertificate`SSL, o valor é . |
+| **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL/TLS |
+| **tipo** | Sim | O tipo de autenticação. Para os certificados de cliente SSL/TLS, o valor é `ClientCertificate`. |
 | **pfx** | Sim | O conteúdo codificado base64 do ficheiro PFX |
 | **palavra-passe** | Sim | A palavra-passe para aceder ao ficheiro PFX |
 ||| 
@@ -59,8 +59,8 @@ Quando um pedido é enviado com informações de autenticação, a resposta cont
 
 | Elemento | Descrição | 
 |---------|-------------| 
-| **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL |
-| **tipo** | O tipo de autenticação. Para os certificados de cliente `ClientCertificate`SSL, o valor é . |
+| **autenticação** (elemento-mãe) | O objeto de autenticação para a utilização de um certificado de cliente SSL/TLS |
+| **tipo** | O tipo de autenticação. Para os certificados de cliente SSL/TLS, o valor é `ClientCertificate`. |
 | **certificateThumbprint** |A impressão digital do certificado |
 | **certificadoNome subjectname** |O nome distinto do sujeito do certificado |
 | **certificadoExpiração** | Data de validade do certificado |

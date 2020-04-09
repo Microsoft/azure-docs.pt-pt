@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618919"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982859"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhar remotamente utilizando serviços de networking Azure
 
@@ -80,16 +80,16 @@ Para as suas implementações noutras nuvens públicas, a Microsoft pode fornece
 
 Os seguintes artigos discutem como diferentes funcionalidades de networking Azure podem ser usadas para escalar os utilizadores para trabalhar remotamente:
 
-| **Artigo** | **Última atualização** |
+| **Artigo** | **Descrição** |
 | --- | --- |
-| [Como permitir que os utilizadores trabalhem remotamente](../vpn-gateway/work-remotely-support.md) | 23 de março de 2020 |
-| [Lutando para atender ao trabalho das necessidades de casa? Aqui é onde O WAN Virtual Azure pode ajudar](../virtual-wan/work-remotely-support.md) | 23 de março de 2020 |
-| [Suporte de tráfego elevado para o Gateway de Aplicação](../application-gateway/high-traffic-support.md) | 23 de março de 2020 |
-| [Considerações de aparelhos virtuais de rede (NVA) para trabalhos remotos](../vpn-gateway/nva-work-remotely-support.md)| 23 de março de 2020 |
-| [Transição para o protocolo OpenVPN ou IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | 23 de março de 2020 |
-| [Trabalhar remotamente usando o Bastião Azure](../bastion/work-remotely-support.md) | 23 de março de 2020 |
-| [Utilização do Azure ExpressRoute para criar conectividade híbrida para suportar utilizadores remotos](../expressroute/work-remotely-support.md) | 23 de março de 2020 |
-| [Suporte de trabalho remoto Azure Firewall](../firewall/remote-work-support.md)|25 de março de 2020|
+| [Como permitir que os utilizadores trabalhem remotamente](../vpn-gateway/work-remotely-support.md) | Reveja as opções disponíveis para configurar o acesso remoto aos utilizadores ou para complementar as suas soluções existentes com capacidade adicional para a sua organização.|
+| [Lutando para atender ao trabalho das necessidades de casa? Aqui é onde O WAN Virtual Azure pode ajudar](../virtual-wan/work-remotely-support.md) | Utilize o Azure Virtual WAN para responder às necessidades de conectividade remota da sua organização.|
+| [Suporte de tráfego elevado para o Gateway de Aplicação](../application-gateway/high-traffic-support.md) | Utilize o Gateway de Aplicação com firewall de aplicação web (WAF) para uma forma escalável e segura de gerir o tráfego para as suas aplicações web. |
+| [Considerações de aparelhos virtuais de rede (NVA) para trabalhos remotos](../vpn-gateway/nva-work-remotely-support.md)|Reveja as orientações sobre a alavancagem de NVAs em Azure para fornecer soluções de acesso remoto. |
+| [Transição para o protocolo OpenVPN ou IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Ultrapasse o limite de ligação 128 simultânea do SSTP através da transição para o protocolo OpenVPN ou IKEv2.|
+| [Trabalhar remotamente usando o Bastião Azure](../bastion/work-remotely-support.md) | Fornecer conectividade RDP/SSH segura e sem emenda às máquinas virtuais dentro da rede virtual Azure, diretamente no portal Azure, sem a utilização de um endereço IP público. |
+| [Utilização do Azure ExpressRoute para criar conectividade híbrida para suportar utilizadores remotos](../expressroute/work-remotely-support.md) | Utilize o ExpressRoute para conectividade híbrida para permitir que os utilizadores da sua organização trabalhem remotamente.|
+| [Suporte de trabalho remoto Azure Firewall](../firewall/remote-work-support.md)|Proteja os recursos da rede virtual Azure utilizando o Azure Firewall. |
 
 <!--Link References-->
 [VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

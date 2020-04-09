@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: cd9cd9f3986ef1944d9f9119296af5512b352d1d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: b36d03695c107054549fba716f4cc27ecb7bba26
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744315"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983488"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare os seus ativos técnicos do módulo IoT Edge
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureIoTTechAsset) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureIoTTechAsset) para gerir as suas ofertas migratórias.
 
 Este artigo descreve os requisitos que os seus ativos técnicos do módulo IoT Edge precisam de cumprir antes de serem publicados no Azure Marketplace.
 

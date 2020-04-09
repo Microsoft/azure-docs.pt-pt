@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256279"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981431"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os conjuntos elásticos ajudam a gerir e dimensionar múltiplas Bases de Dados SQL do Azure
 
@@ -37,7 +37,7 @@ Os agrupamentos elásticos resolvem este problema garantindo que as bases de dad
 > [!IMPORTANT]
 > Não há nenhuma taxa por base de dados para piscinas elásticas. Você é cobrado por cada hora que uma piscina existe no mais alto eDTU ou vCores, independentemente do uso ou se a piscina estava ativa por menos de uma hora.
 
-Piscinas elásticas permitem ao desenvolvedor adquirir recursos para um pool partilhado por várias bases de dados para acomodar períodos imprevisíveis de utilização por bases de dados individuais. Pode configurar recursos para a piscina com base no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou no modelo de compra baseado em [vCore](sql-database-service-tiers-vcore.md). O requisito de recurso para um pool é determinado pela utilização agregada das suas bases de dados. A quantidade de recursos disponíveis para a piscina é controlada pelo orçamento do promotor. O desenvolvedor simplesmente adiciona bases de dados ao pool, define os recursos mínimos e máximos para as bases de dados (mínimo e máximo dTUs ou vCores mínimos ou máximos dependendo da sua escolha de modelo de reabastecimento), e, em seguida, define os recursos da piscina com base na sua orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
+Piscinas elásticas permitem ao desenvolvedor adquirir recursos para um pool partilhado por várias bases de dados para acomodar períodos imprevisíveis de utilização por bases de dados individuais. Pode configurar recursos para a piscina com base no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou no modelo de compra baseado em [vCore](sql-database-service-tiers-vcore.md). O requisito de recurso para um pool é determinado pela utilização agregada das suas bases de dados. A quantidade de recursos disponíveis para a piscina é controlada pelo orçamento do promotor. O desenvolvedor simplesmente adiciona bases de dados ao pool, define os recursos mínimos e máximos para as bases de dados (mínimo e máximo dTUs ou vCores mínimos ou máximos dependendo da sua escolha de modelo de resourcing), e, em seguida, define os recursos do pool com base no seu orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 
 Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Sob carga pesada, uma base de dados pode consumir mais recursos para satisfazer a procura. As bases de dados sob cargas leves consomem menos, e as bases de dados sem carga não consomem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tens um orçamento previsível para a piscina. Recursos adicionais podem ser adicionados a um pool existente sem tempo de inatividade de base de dados, exceto que as bases de dados podem precisar de ser transferidas para fornecer os recursos de computação adicionais para a nova reserva eDTU. Do mesmo modo, se já não forem necessários recursos adicionais, podem ser removidos de uma piscina existente a qualquer momento. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
 
@@ -224,7 +224,6 @@ Para mais informações, consulte a criação de [alertas de Base de Dados SQL n
 
 - Para obter informações sobre preços, consulte [preços de piscina elástica](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Para escalar piscinas elásticas, consulte [piscinas elásticas e dimensionar](sql-database-elastic-pool-scale.md) [uma piscina elástica - código de amostra](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-- Para um vídeo, consulte o curso de vídeo da Microsoft Virtual Academy sobre as capacidades elásticas da Base de [Dados Azure SQL](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para um tutorial SaaS utilizando piscinas elásticas, consulte [Introdução à aplicação Wingtip SaaS](sql-database-wtp-overview.md).
 - Para aprender sobre a gestão de recursos em piscinas elásticas com muitas bases de dados, consulte a [gestão de recursos em piscinas elásticas densas.](sql-database-elastic-pool-resource-management.md)

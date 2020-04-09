@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298854"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981550"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -183,8 +183,8 @@ Selecione as seguintes opções, como mostrado na imagem:
 
 1. Selecione *on* for **Status**
 2. Selecione *versão 2* para **versão Flow Logs**. A versão 2 contém estatísticas de sessões de fluxo (Bytes e Pacotes)
-3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo. Se quiser armazenar os dados para sempre, detete o valor para *0*. Incorre nas taxas de armazenamento azure para a conta de armazenamento. Certifique-se de que o seu armazenamento não tem "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como verdadeiro.
-4. Detete **a Retenção** no número de dias para os dias que pretende armazenar.
+3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo. Certifique-se de que o seu armazenamento não tem "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como verdadeiro.
+4. Detete **a Retenção** no número de dias para os dias que pretende armazenar. Se quiser armazenar os dados para sempre, detete o valor para *0*. Incorre nas taxas de armazenamento azure para a conta de armazenamento. 
 5. Selecione *para* o **estado de análise**de tráfego .
 6. Selecione intervalo de processamento. Com base na sua escolha, os registos de fluxo serão recolhidos a partir da conta de armazenamento e processados pela Traffic Analytics. Pode escolher o intervalo de processamento de cada 1 hora ou a cada 10 minutos. 
 7. Selecione um espaço de trabalho existente no Log Analytics (OMS) ou selecione **Create New Workspace** para criar um novo. Um espaço de trabalho log Analytics é usado pela Traffic Analytics para armazenar os dados agregados e indexados que são então usados para gerar a análise. Se selecionar um espaço de trabalho existente, deve existir numa das [regiões apoiadas](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se não quiser atualizar um espaço de trabalho existente, ou não tiver um espaço de trabalho numa região apoiada, crie um novo espaço de trabalho. Para mais informações sobre idiomas de consulta, consulte [o upgrade do Azure Log Analytics para uma nova pesquisa](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)de registo .

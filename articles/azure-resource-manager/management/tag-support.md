@@ -3,12 +3,12 @@ title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de suporte dos tipos de recursos Azure. Fornece detalhes para todos os serviços azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e012126995136bec15dc360be5e91007b6f69f09
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802497"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982332"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiquetas para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](tag-resources.md). As etiquetas de suporte com a etiqueta da coluna com **etiquetas** indica se o tipo de recurso tem uma propriedade para a etiqueta. O relatório de **custos** da coluna rotulada tag indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode visualizar os custos através de tags na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de faturação Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -1493,6 +1493,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | networkSecurityGroups | Sim | Sim |
 > | networkWatchers | Sim | Não |
 > | networkWatchers / connectionMonitors | Sim | Não |
+> | networkWatchers / flowLogs | Não | Não |
 > | networkWatchers / lentes | Sim | Não |
 > | networkWatchers / pingMeshes | Sim | Não |
 > | p2sVpnGateways | Sim | Sim |

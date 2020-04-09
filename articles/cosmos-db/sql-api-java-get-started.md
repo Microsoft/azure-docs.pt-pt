@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: a046f97dccdcc4a9cb9fe180447c1ff9a316f0df
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9f4757bca79476a1e59f5f18a94753c1ea06cf9c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720812"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985223"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutorial NoSQL: Compilar uma aplicação de consola Java de API do SQL
 
@@ -21,7 +21,7 @@ ms.locfileid: "73720812"
 > * [.NET](sql-api-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Java assíncrono](sql-api-async-java-get-started.md)
-> * [Nó.js](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
 Bem-vindo ao tutorial NoSQL para a API SQL do SDK Java do Azure Cosmos DB! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
@@ -50,7 +50,7 @@ Certifique-se de que tem o seguinte:
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git.](https://git-scm.com/downloads)
-* [Kit de desenvolvimento do Java (JDK) 7 +](https://aka.ms/azure-jdks).
+* [Kit de desenvolvimento do Java (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable).
 * [Maven.](https://maven.apache.org/download.cgi)
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passo 1: Criar uma conta do Azure Cosmos DB

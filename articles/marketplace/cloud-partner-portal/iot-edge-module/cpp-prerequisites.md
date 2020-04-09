@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 93e0418004ea65f93ad436eec1ce523424a194ba
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 9a54b31725d14a3ff54bd2d945cd69f4b8769b87
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744977"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983182"
 ---
 # <a name="iot-edge-module-publishing-prerequisites"></a>Módulo IoT Edge a publicar pré-requisitos
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
+>A partir de 13 de abril de 2020, começaremos a movimentar a gestão do seu módulo IoT Edge oferece ao Partner Center. Após a migração, você vai criar e gerir suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerir as suas ofertas migratórias.
 
 Este artigo descreve os pré-requisitos para a publicação de uma oferta de móduloS IoT Edge.  Se ainda não o fez, reveja o guia de publicação dos [módulos IoT Edge](../..//iot-edge-module.md).
 

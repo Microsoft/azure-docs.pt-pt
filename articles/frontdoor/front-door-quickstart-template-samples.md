@@ -8,14 +8,14 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: de3b13162e7828542331e7e7a34d0101f7feaf71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ce63b15d2126a25b444e97acc8a3ea3964296b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471662"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985818"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelos de implementação do Azure Resource Manager para o Front Door
 
@@ -25,7 +25,7 @@ A tabela seguinte inclui links para modelos de modelo de implementação do Gest
 | ---| ---|
 | [Create a basic Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic) (Criar um Front Door básico)| Cria uma configuração básica do Front Door com um único back-end. |
 | [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends) (Criar um Front Door com vários back-ends e conjuntos de back-end e encaminhamento baseado em URL)| Cria um Front Door com balanceamento de carga configurado para vários back-ends no conjunto de back-end TA e também em conjuntos de back-end no caminho do URL. |
-| [Onboard a custom domain with HTTPS (Front Door managed cert) with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain) (Carregar um domínio personalizado com HTTPS (certificados geridos pelo Front Door) com o Front Door)| Adicione um domínio personalizado ao Front Door e ative o tráfego HTTPS com um certificado gerido pelo Front Door gerado através do DigiCert. |
+| [A bordo de um domínio personalizado com porta da frente](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Adicione um domínio personalizado à sua Porta da Frente. |
 | [Criar porta da frente com filtragem geo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Crie uma Porta Da Frente que permita/bloqueie o tráfego de certos países/regiões. |
 | [Control Health Probes for your backends on Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes) (Controlar as Sondas de Estado de Funcionamento dos back-ends no Front Door)| Atualize o Front Door para alterar as definições da sonda de estado de funcionamento ao atualizar o caminho da sonda e também os intervalos nos quais as sondas serão enviadas. |
 | [Create Front Door with Active/Standby backend configuration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb) (Criar o Front Door com a configuração de back-end Ativa/Inativa)| Cria um Front Door que demonstra um encaminhamento com base na prioridade para a topologia de aplicação Ativa/Inativa, ou seja, por predefinição, envia todo o tráfego para o back-end principal (com a prioridade mais alta) até se tornar indisponível. |

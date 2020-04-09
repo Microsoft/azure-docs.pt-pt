@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410723"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877308"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Ative Directory (Azure AD) Application Proxy frequentemente feito perguntas
 
@@ -48,10 +48,6 @@ Não, este cenário não é apoiado. As definições predefinidas são:
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>A minha aplicação back-end está hospedada em vários servidores web e requer persistência de sessão do utilizador (stickiness). Como posso alcançar a persistência da sessão? 
 
 Para recomendações, consulte [Alta disponibilidade e equilíbrio de carga dos seus conectores e aplicações do Application Proxy](application-proxy-high-availability-load-balancing.md).
-
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Posso colocar um dispositivo de procuração para a frente entre o servidor ou o servidor de aplicação de back-end?
-
-Não, este cenário não é apoiado. Apenas os serviços de conector e atualização podem ser configurados para utilizar um proxy avançado para tráfego de saída para O Azure. Ver [Trabalhar com servidores proxy existentes no local](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>A terminação tLS (inspeção ou aceleração TLS/HTTPS) está no tráfego dos servidores do conector para o Azure suportado?
 

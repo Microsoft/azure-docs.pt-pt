@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fc45ead65a29f2e7567133b5af4667bdb7c79ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154989"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981074"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Manipulação de erros para clientes da Biblioteca de Autenticação de Diretórios Ativos azure (ADAL)
 
@@ -543,7 +543,7 @@ Para explorar erros específicos da ADAL, o código fonte no [repositório azure
 
 #### <a name="operating-system-errors"></a>Erros do sistema operativo
 
-Os erros do iOS podem surgir durante o sessão quando os utilizadores utilizam visualizações web e a natureza da autenticação. Isto pode ser causado por condições como erros SSL, intervalos de tempo ou erros de rede:
+Os erros do iOS podem surgir durante o sessão quando os utilizadores utilizam visualizações web e a natureza da autenticação. Isto pode ser causado por condições como erros tLS, intervalos de tempo ou erros de rede:
 
 - Para partilha de direitos, os logins não são persistentes e a cache parece vazia. Pode resolver adicionando a seguinte linha de código ao porta-chaves:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Para o conjunto de erros nsUrlDomain, a ação muda dependendo da lógica da aplicação. Consulte a documentação de [referência NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) para casos específicos que podem ser tratados.

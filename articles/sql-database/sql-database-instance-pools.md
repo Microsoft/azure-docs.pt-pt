@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256214"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878158"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são piscinas de instâncias de base de dados SQL (pré-visualização)?
 
@@ -59,7 +59,7 @@ A seguinte lista fornece os principais casos de utilização em que as piscinas 
 
 ## <a name="architecture-of-instance-pools"></a>Arquitetura de piscinas de instância
 
-As piscinas de exemplo têm arquitetura semelhante a instâncias regulares*geridas (instâncias individuais).* Para apoiar as implementações dentro das [Redes Virtuais Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e para fornecer isolamento e segurança aos clientes, por exemplo, os pools também dependem de [clusters virtuais.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da subnet virtual da rede do cliente.
+As piscinas de exemplo têm arquitetura semelhante a instâncias regulares*geridas (instâncias individuais).* Para apoiar as implementações dentro das [Redes Virtuais Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md) e para fornecer isolamento e segurança aos clientes, por exemplo, os pools também dependem de [clusters virtuais.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da subnet virtual da rede do cliente.
 
 A principal diferença entre os dois modelos de implementação é que as piscinas de instâncias permitem várias implementações de processos do SQL Server no mesmo nó de máquina virtual, que são repartidos por recursos utilizando [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias individuais estão sempre sozinhas num nó de máquina virtual.
 

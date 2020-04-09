@@ -1,25 +1,27 @@
 ---
-title: Criar uma oferta de serviço de consultoria no Partner Center - Azure Marketplace
-description: Saiba como publicar uma oferta de serviço de consultoria para o Azure Marketplace ou appSource usando o Partner Center.
+title: Criar uma oferta de serviço de Consultoria no Partner Center - Azure Marketplace
+description: Saiba como publicar uma oferta de serviço de Consultoria para o Azure Marketplace ou appSource usando o Partner Center.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: ce8df36d3417417a5f70a5385aa94d9c8c7ff0cc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 04/06/2020
+ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674283"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873825"
 ---
-# <a name="consulting-service-creation-overview"></a>Visão geral da criação de serviços de consultoria
+# <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de Consultoria
 
 > [!IMPORTANT]
 > Estamos a mover a gestão das suas ofertas de serviço de Consultoria do Cloud Partner Portal para partner Center. Até que as suas ofertas sejam migradas, siga as instruções na oferta de serviço de [consultoria Azure e Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) para o Cloud Partner Portal para gerir as suas ofertas.
 
-Este artigo descreve como publicar uma oferta de serviço de consultoria para [o Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [appSource](https://appsource.microsoft.com/). Ofertas de serviço de consultoria de listas baseadas no Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e na Power Platform no AppSource. Ofertas de serviço de consultoria de listas baseadas no Microsoft Azure no Azure Marketplace.
+Este artigo descreve como publicar uma oferta de serviço de Consultoria para [o Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [appSource](https://appsource.microsoft.com/). O serviço List Consulting oferece com base no Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e na Power Platform no AppSource. O serviço List Consulting oferece com base no Microsoft Azure no Azure Marketplace.
+
+Para criar uma oferta de serviço de Consultoria nos serviços Azure Marketplace ou AppSource Consulting, tem primeiro de [ter uma conta de editor no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), e a sua conta deve estar inscrita no programa de marketplace comercial. Antes de criar a sua oferta, reveja os pré-requisitos no [serviço de Consultoria.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites)
 
 ## <a name="publishing-benefits"></a>Benefícios de publicação
 
@@ -30,60 +32,9 @@ Benefícios da publicação no mercado comercial:
 - Receba pistas de alta qualidade destes mercados.
 - Tenha os seus serviços promovidos pelas equipas de campo e televendas da Microsoft
 
-## <a name="requirements"></a>Requisitos
+## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
-### <a name="business-requirements"></a>Requisitos empresariais
-
-Para ofertas onde o Azure é selecionado como o produto principal, a sua oferta deve listar pelo menos uma das seguintes competências plenamente conquistadas:
-
-- Desenvolvimento de Aplicações
-- Integração de Aplicações
-- Gestão do Ciclo de Vida da Aplicação
-- Plataforma Cloud
-- Análise de Dados
-- Data Center
-- Plataforma de Dados
-- DevOps
-
-Para ofertas com uma das seguintes opções selecionadas como produto principal, deve cumprir os respetivos requisitos de elegibilidade listados ou ter uma oferta de co-venda para o produto primário a que a oferta de serviço está relacionada.
-
-**Aplicações de envolvimento com o cliente**
-
-- **Aplica-se a:** Dynamics 365 Sales, Dynamics 365 Marketing, Dynamics 365 Customer Service, Dynamics 365 Field Service, Dynamics 365 Recursos Humanos
-
-- **Critérios**: Deve ser certificado em Ouro ou Prata na competência de [Aplicações de Negócio seletiva](https://partner.microsoft.com/membership/cloud-business-applications-competency) da Cloud Business applications para a opção de envolvimento com o cliente.
-
-**Aplicações de Finanças e Operações**
-
-- **Aplica-se a**: Dynamics 365 Finance, Dynamics 365 Operations, Dynamics 365 Commerce, Dynamics 365 Human Resources, Dynamics 365 Project Service Automation
-
-- **Critérios**: Deve ser certificado em Ouro ou Prata na competência de [Aplicações de Negócios cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção Operações Unificadas.
-
-**Dynamics 365 for Customer Insights**
-
-- **Critérios**: Deve ter pelo menos uma implementação bem sucedida na produção da [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) com pelo menos cinco medidas e cinco segmentos.
-
-**Dynamics 365 Business Central**
-
-- **Critérios**: Deve ser certificado gold ou silver na competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e servir pelo menos três clientes ou ter publicado uma aplicação Business Central no Microsoft AppSource.
-
-**Power BI**
-
-- **Critérios**: Deve ser listado na [vitrine](https://powerbi.microsoft.com/partner-showcase/)do parceiro Power BI .
-
-**Power Apps**
-
-- **Critérios**: Deve ser elegível para Benefícios Avançados no programa [Power Apps Partnership.](https://aka.ms/PowerAppsPartner)
-
-Para obter informações sobre o cumprimento destes pré-requisitos, consulte os [pré-requisitos](consulting-service-prerequisites.md)do serviço de Consultoria .
-
-### <a name="logistical-requirements"></a>Requisitos logísticos
-
-Para criar uma oferta de serviço de consultoria nos serviços de consultoria Azure Marketplace ou AppSource, tem primeiro de [ter uma conta de editor no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), e a sua conta deve estar inscrita no programa de marketplace comercial.
-
-## <a name="create-a-new-consulting-service-offer-in-partner-center"></a>Criar uma nova oferta de serviço de consultoria no Partner Center
-
-Depois de cumprir os requisitos acima descritos, siga estes passos para criar uma oferta de serviço de consultoria.
+Depois de cumprir os requisitos acima descritos, siga estes passos para criar uma oferta de serviço consultoria.
 
 1. Inicie sessão no [Partner Center](https://partner.microsoft.com)e, em seguida, selecione **dashboard** a partir do menu superior.
 2. Na barra de navegação à esquerda, selecione **Mercado Comercial,** em seguida, selecione **Visão Geral**.
@@ -139,13 +90,13 @@ Selecione **Guardar rascunho** antes de continuar na secção seguinte, Propried
 
 ### <a name="properties"></a>Propriedades
 
-Esta página permite definir o produto primário que o seu serviço de consultoria oferece as melhores capas, definir um tipo de serviço de consultoria e escolher produtos aplicáveis.
+Esta página permite-lhe definir o produto primário que o seu serviço De consultoria oferece as melhores capas, definir um tipo de serviço Consultoria e escolher produtos aplicáveis.
 
 1. Selecione um **produto Primário** a partir da lista de lançamentos.
 2. Selecione um tipo de **serviço de Consultoria** na lista de entrega:
 
     - **Avaliação** : Uma avaliação do ambiente de&#39;do cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo.
-    - **Briefing** : Uma introdução a uma solução ou um serviço de consultoria para atrair o interesse dos clientes utilizando quadros, demonstrações e exemplos de clientes.
+    - **Briefing** : Uma introdução a uma solução ou um serviço de Consultoria para atrair o interesse dos clientes utilizando quadros, demonstrações e exemplos de clientes.
     - **Implementação** : Uma instalação completa que resulte numa solução de pleno funcionamento. Limite para soluções que podem ser implementadas em duas semanas ou menos.
     - **Prova de conceito** : Uma implementação de âmbito limitado para determinar se uma solução satisfaz os requisitos do cliente.
     - **Workshop** : Um compromisso interativo realizado nas instalações de um cliente&#39;. Pode envolver formação, briefings, avaliações ou demonstrações construídas sobre os dados ou ambiente do cliente&#39;.
@@ -153,7 +104,7 @@ Esta página permite definir o produto primário que o seu serviço de consultor
 1. Se selecionar um produto primário do **Azure,** selecione até três Áreas de **Solução**. Estes facilitam aos clientes do Azure Marketplace encontrar a sua oferta. Se não escolheu&#39;Azure, ignore este passo.
 2. Se selecionou um produto primário _que não_ o Azure, selecione até três **produtos aplicáveis.** Estes facilitam aos clientes do AppSource encontrar a sua oferta. Para mais detalhes, consulte as Diretrizes de Listagem de Serviços de [Consultoria microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 3. Selecione até seis **Indústrias** a que a sua oferta se aplica. Isto facilitará aos clientes encontrar a sua oferta.
-4. Adicione até três **Competências** que a sua empresa ganhou para exibir na sua listagem de oferta de serviço de consultoria. É necessária pelo menos uma competência, com exceção da MSP&#39;s e da Azure Networking MSP&#39;s.
+4. Adicione até três **Competências** que a sua empresa ganhou para exibir na sua lista de ofertas de serviço consultoria. É necessária pelo menos uma competência, com exceção da MSP&#39;s e da Azure Networking MSP&#39;s.
 
 Selecione **Guardar rascunho** antes de continuar na secção seguinte, Oferta de listagem.
 
@@ -205,7 +156,7 @@ Para tornar a sua descrição mais envolvente, use o rico editor de texto para f
 
 ### <a name="keywords"></a>Palavras-chave
 
-Insira até três palavras-chave de pesquisa relevantes para o seu produto primário e serviço de consultoria. Isto vai facilitar a sua oferta.
+Insira até três palavras-chave de pesquisa relevantes para o seu produto primário e serviço de Consultoria. Isto vai facilitar a sua oferta.
 
 ### <a name="duration"></a>Duração
 
@@ -252,7 +203,7 @@ Aqui irá definir elementos como preços, mercado e uma chave privada.
 3. **Preço**: Especifique se a sua oferta é uma oferta **gratuita** ou **paga.**
 
     > [!NOTE]
-    > As ofertas do Serviço de Consultoria são apenas para a listagem. Quaisquer transações ocorrerão diretamente, fora do mercado comercial.
+    > As ofertas de serviço de consultoria são apenas para a listagem. Quaisquer transações ocorrerão diretamente, fora do mercado comercial.
 
 4. Para uma oferta paga, especifique o **Preço e a Moeda** e se o preço é **Fixo** ou **Estimado**. Se estimado, deve especificar na descrição quais os fatores que afetarão o preço.
 5. Selecione **Guardar o projeto**.
@@ -261,7 +212,7 @@ Aqui irá definir elementos como preços, mercado e uma chave privada.
 
 Depois de ter concluído todas as secções necessárias da oferta, pode submeter a sua oferta para rever e publicar.
 
-1. Quando estiver pronto para publicar a sua oferta de serviço de consultoria, clique em **Rever e publique**.
+1. Quando estiver pronto para publicar a sua oferta de serviço de Consultoria, clique em **Rever e publique**.
 2. Reveja os detalhes na página final de submissão.
 3. Se necessário, escreva uma nota à equipa de certificação se acreditar que algum dos detalhes da sua oferta requer explicação.
 4. Quando estiver pronto, selecione **Submeter**.
@@ -269,6 +220,6 @@ Depois de ter concluído todas as secções necessárias da oferta, pode submete
 
 Para mais informações sobre quanto tempo pode esperar que a sua oferta esteja em cada fase editorial, consulte o estado editorial da sua oferta de [Mercado Comercial.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status)
 
-## <a name="update-your-existing-consulting-service-offers"></a>Atualize as suas ofertas de serviço de consultoria existentes
+## <a name="update-your-existing-consulting-service-offers"></a>Atualize as ofertas de serviço seleções de Consultoria existentes
 
 - [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

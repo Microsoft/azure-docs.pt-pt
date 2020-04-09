@@ -11,18 +11,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 101cfc9edce8f4df1ad2388c08a5bd9702dffe68
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806614"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878226"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
 
-Este artigo introduz capacidades para executar soluções Oracle utilizando a infraestrutura Azure. Consulte também apresentações detalhadas às [imagens VM vm](oracle-vm-solutions.md) disponíveis no Mercado Azure, e a capacidade de pré-visualização para [interligar Azure com a Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+Este artigo introduz capacidades para executar soluções Oracle utilizando a infraestrutura Azure. Consulte também as apresentações detalhadas às [imagens VM vm](oracle-vm-solutions.md) disponíveis no Mercado Azure e a capacidade de [interligar o Azure com a Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Bases de dados da Oracle sobre infraestruturas Azure
 
@@ -58,7 +58,7 @@ Executar aplicações empresariais em Azure em sistemas operativos Oracle suport
 
 * Faça backup a sua Base de Dados Oracle utilizando o Oracle RMAN e utilize opcionalmente o [Fusão Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) para montar uma conta de armazenamento de [Blob Azure altamente reduda](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e escreva-lhe as suas cópias de segurança RMAN para maior resiliência.
 
-## <a name="integration-of-azure-with-oci-preview"></a>Integração do Azure com OCI (pré-visualização)
+## <a name="integration-of-azure-with-oci"></a>Integração do Azure com OCI
 
 Executar aplicações Oracle em infraestrutura seleção azure, ligadas a bases de dados de backend em Oracle Cloud Infrastructure (OCI). Esta solução utiliza as seguintes capacidades: 
 
@@ -67,7 +67,10 @@ Executar aplicações Oracle em infraestrutura seleção azure, ligadas a bases 
 
 ### <a name="deploy-oracle-applications-on-azure"></a>Implementar aplicações oracle em Azure
 
-Utilize modelos Terraform para configurar a infraestrutura Azure e instalar aplicações Oracle validadas e suportadas para funcionar na configuração de nuvem cruzada:
+Utilize modelos Terraform para configurar a infraestrutura Azure e instalar aplicações Oracle. 
+
+> [!IMPORTANT]
+> A Oracle certificará estas aplicações para funcionar em Azure quando utilizar a solução de interligação Azure/Oracle Cloud até maio de 2020.
 
 * Suíte E-Business
 * JD Edwards EnterpriseOne

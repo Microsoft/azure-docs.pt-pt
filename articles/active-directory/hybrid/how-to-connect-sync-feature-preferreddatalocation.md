@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a71c5328c6fa85f85db4bd7e6103f6470b86d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258333"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983267"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização de ligação de diretório ativo Azure: Configure localização de dados preferenciais para os recursos do Office 365
 O objetivo deste tópico é acompanhá-lo sobre como configurar o atributo para localização de dados preferido no Azure Ative Directory (Azure AD) Connect sync. Quando alguém utiliza capacidades Multi-Geo no Office 365, utiliza-se este atributo para designar a geolocalização dos dados do Office 365 do utilizador. (Os termos *região* e *geo* são utilizados intercambiavelmente.)
@@ -51,6 +51,7 @@ Os geos do Office 365 disponíveis para multi-Geo são:
 | Japão | JPN |
 | Coreia | KOR |
 | África do Sul | ZAF |
+| Suíça | CHE |
 | Emirados Árabes Unidos | SÃO |
 | Reino Unido | GBR |
 | Estados Unidos | NAM |

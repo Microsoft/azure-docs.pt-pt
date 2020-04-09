@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264310"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982128"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Distribuição de dados globais com o Azure Cosmos DB – descrição geral
 
@@ -41,7 +41,7 @@ Ao utilizar as APIs multi-homing do Azure Cosmos DB, a sua aplicação está cie
 
 **Mantenha a continuidade do negócio durante as interrupções regionais.** A Azure Cosmos DB suporta [a falha automática](how-to-manage-database-account.md#automatic-failover) durante uma paragem regional. Durante uma paragem regional, a Azure Cosmos DB continua a manter a sua latência, disponibilidade, consistência e slas de entrada. Para ajudar a garantir que toda a sua aplicação está altamente disponível, a Cosmos DB oferece uma falha manual da API para simular uma paragem regional. Ao utilizar esta API, pode realizar exercícios regulares de continuidade de negócios.
 
-**Escalar ler e escrever produção globalmente.** Você pode permitir que cada região seja escrita e elástico em todo o mundo. O resultado que a sua aplicação configura numa base de dados Azure Cosmos ou num contentor é garantido que será entregue em todas as regiões associadas à sua conta Azure Cosmos. A produção prevista é garantida por [SLAs apoiados financeiramente.](https://aka.ms/acdbsla)
+**Escalar ler e escrever produção globalmente.** Você pode permitir que cada região seja escrita e elástico em todo o mundo. O resultado que a sua aplicação configura numa base de dados Azure Cosmos ou num contentor é garantido que será entregue em todas as regiões associadas à sua conta Azure Cosmos. A produção prevista é garantida por [SLAs apoiados financeiramente.](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
 
 **Escolha entre vários modelos de consistência bem definidos.** O protocolo de replicação do Azure Cosmos DB oferece cinco modelos de consistência bem definidos, práticos e intuitivos. Cada modelo tem uma compensação entre consistência e desempenho. Use estes modelos de consistência para construir aplicações distribuídas globalmente com facilidade.
 

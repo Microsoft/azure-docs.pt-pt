@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63e561ff1b976b3de993414607b694e621b1d536
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e097173712693754baab99912301c98ee336f64f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346953"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877920"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
 Utilizando o Azure Ative Directory (Azure AD), pode designar administradores limitados para gerir tarefas de identidade em funções menos privilegiadas. Os administradores podem ser atribuídos para fins como adicionar ou alterar utilizadores, atribuir funções administrativas, redefinir palavras-passe de utilizador, gerir as licenças dos utilizadores e gerir nomes de domínio. As permissões de utilizador predefinidas só podem ser alteradas nas definições do utilizador em AD Azure.
 
-## <a name="limit-the-use-of-global-administrator"></a>Limitar a utilização de administrador global
+## <a name="limit-use-of-global-administrator"></a>Limitar a utilização de administrador global
 
 Os utilizadores que são atribuídos ao papel de administrador global podem ler e modificar todas as configurações administrativas da sua organização Azure AD. Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída ao papel de administrador global para a organização Azure AD. Apenas administradores globais e administradores de papel privilegiado podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
 
@@ -70,7 +70,8 @@ Os utilizadores desta função podem criar registos de aplicações quando a def
 
 ### <a name="authentication-administrator"></a>[Administrador de Autenticação](#authentication-administrator-permissions)
 
-Os utilizadores desta função podem definir ou redefinir credenciais não-password, atualizar palavras-passe, reregistar-se contra a credencial não-senha existente (por exemplo, MFA ou FIDO) e revogar **a desconhecer** o MFA no dispositivo (que solicita mFA no próximo início de sessão) de utilizadores que não sejam administradores ou que sejam atribuídos apenas:
+O papel de administrador de Autenticação está atualmente em pré-visualização pública. Os utilizadores com esta função podem definir ou redefinir credenciais de não-palavra-passe e atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação podem exigir que os utilizadores voltem a registar-se contra a credencial não-senha existente (por exemplo, MFA ou FIDO) e revogar **a desconhecer o MFA no dispositivo,** que indica o MFA no próximo registo de utilizadores que não sejam administradores ou que sejam atribuídos apenas:
+
 * Administrador de Autenticação
 * Leitores de Diretório
 * Convidado convidado
@@ -113,7 +114,7 @@ O utilizador pode criar e gerir chaves e segredos de política para encriptaçã
 
 ### <a name="b2c-ief-policy-administrator"></a>[Administrador de Política B2C IEF](#b2c-ief-policy-administrator-permissions)
 
-Os utilizadores desta função têm a capacidade de criar, ler, atualizar e eliminar todas as políticas personalizadas em Azure AD B2C e, portanto, ter total controlo sobre o Quadro de Experiência de Identidade no inquilino Azure AD B2C relevante. Ao editar políticas, este utilizador pode estabelecer a federação direta com fornecedores de identidade externos, alterar o esquema de diretório, alterar todos os conteúdos virados para o utilizador (HTML, CSS, JavaScript), alterar os requisitos para completar uma autenticação, criar novos utilizadores, enviar dados do utilizador para sistemas externos, incluindo migrações completas, e editar todas as informações do utilizador, incluindo campos sensíveis, como palavras-passe e números de telefone. Inversamente, este papel não pode alterar as chaves de encriptação ou editar os segredos usados para a federação no inquilino.
+Os utilizadores desta função têm a capacidade de criar, ler, atualizar e eliminar todas as políticas personalizadas em Azure AD B2C e, portanto, ter total controlo sobre o Quadro de Experiência de Identidade no inquilino Azure AD B2C relevante. Ao editar políticas, este utilizador pode estabelecer uma federação direta com fornecedores de identidade externos, alterar o esquema de diretório, alterar todos os conteúdos virados para o utilizador (HTML, CSS, JavaScript), alterar os requisitos para completar uma autenticação, criar novos utilizadores, enviar dados de utilizadores para sistemas externos, incluindo migrações completas, e editar todas as informações do utilizador, incluindo campos sensíveis como palavras-passe e números de telefone. Inversamente, este papel não pode alterar as chaves de encriptação ou editar os segredos usados para a federação no inquilino.
 
 > [!IMPORTANT]
 > O Administrador de Política B2 IEF é um papel altamente sensível que deve ser atribuído numa base muito limitada aos inquilinos em produção.As atividades destes utilizadores devem ser auditadas de perto, especialmente para os inquilinos em produção.
@@ -139,7 +140,7 @@ Os utilizadores desta função podem ativar, desativar e eliminar dispositivos e
 
 ### <a name="compliance-administrator"></a>[Administrador de Conformidade](#compliance-administrator-permissions)
 
-Os utilizadores com esta função têm permissões para gerir funcionalidades relacionadas com a conformidade no centro de conformidade microsoft 365, microsoft 365 centro de administração, Azure e Office 365 Security & Compliance Center. Os signos também podem criar bilhetes de suporte para o Azure e o Microsoft 365. Mais informações estão disponíveis nas funções de [administrador do Gabinete 365.](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+Os utilizadores com esta função têm permissões para gerir funcionalidades relacionadas com a conformidade no centro de conformidade microsoft 365, microsoft 365 centro de administração, Azure e Office 365 Security & Compliance Center. Os signees também podem gerir todas as funcionalidades dentro do centro de administração exchange e as equipas & Skype para centros de administração de negócios e criar bilhetes de suporte para Azure e Microsoft 365. Mais informações estão disponíveis nas funções de [administrador do Gabinete 365.](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 
 Entrada | Pode fazer
 ----- | ----------
@@ -214,11 +215,11 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft E
 Este administrador gere a federação entre inquilinos do Azure Ative Directory e fornecedores de identidade externa.Com esta função, os utilizadores podem adicionar novos fornecedores de identidade e configurar todas as definições disponíveis (por exemplo, via de autenticação, ID de serviço, recipientes-chave atribuídos).Este utilizador pode permitir ao arrendatário confiar em autenticações de fornecedores de identidade externos.O impacto resultante nas experiências do utilizador final depende do tipo de inquilino:
 
 * Inquilinos do Diretório Ativo Azure para colaboradores e parceiros: A adição de uma federação (por exemplo, com o Gmail) terá imediatamente impacto em todos os convites de hóspedes ainda não resgatados. Consulte a adição do Google como fornecedor de [identidade para utilizadores convidados B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Ative Directory B2C inquilinos: A adição de uma federação (por exemplo, com o Facebook, ou com outra organização Azure AD) não impacta imediatamente os fluxos de utilizadores finais até que o fornecedor de identidade seja adicionado como uma opção num fluxo de utilizador (também chamado de incorporado política). Consulte [configurar uma conta microsoft como um fornecedor de identidade,](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) por exemplo.Para alterar os fluxos de utilizador, é necessária a função limitada de "Administrador de Fluxo de Utilizador B2C".
+* Inquilinos do Azure Ative Directory B2C: A adição de uma federação (por exemplo, com o Facebook, ou com outra organização Azure AD) não impacta imediatamente os fluxos de utilizadores finais até que o fornecedor de identidade seja adicionado como uma opção num fluxo de utilizador (também chamado de política incorporada). Consulte [configurar uma conta microsoft como um fornecedor de identidade,](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) por exemplo.Para alterar os fluxos de utilizador, é necessária a função limitada de "Administrador de Fluxo de Utilizador B2C".
 
 ### <a name="global-administrator--company-administrator"></a>[Administrador Global / Administrador da Empresa](#company-administrator-permissions)
 
-Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas do Diretório Ativo do Azure, bem como a serviços que utilizam identidades do Diretório Ativo do Azure como o Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, e Skype para Negócios Online. A pessoa que se inscreve no inquilino do Azure Ative Directory torna-se administradora global. Pode haver mais do que um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
+Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas do Diretório Ativo do Azure, bem como a serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, microsoft 365 compliance center, Exchange Online, SharePoint Online e Skype para Business Online. A pessoa que se inscreve no inquilino do Azure Ative Directory torna-se administradora global. Pode haver mais do que um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
 
 > [!NOTE]
 > No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal Azure.](https://portal.azure.com)
@@ -764,7 +765,10 @@ Pode ler e gerir a configuração de conformidade e relatórios em Azure AD e Of
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspetos do Office 365 Compliance Manager |
+| microsoft.office365.exchange/allEntities/allTasks | Gerencie todos os aspetos do Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
+| microsoft.office365.sharepoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize as propriedades padrão em microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspetos do Skype para o Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
 
 ### <a name="compliance-data-administrator-permissions"></a>Permissões do Administrador de Dados de Conformidade
@@ -784,7 +788,10 @@ Cria e gere o conteúdo de conformidade.
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gereos bilhetes de apoio Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspetos do Office 365 Compliance Manager |
+| microsoft.office365.exchange/allEntities/allTasks | Gerencie todos os aspetos do Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Gabinete 365 Service Health. |
+| microsoft.office365.sharepoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize as propriedades padrão em microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspetos do Skype para o Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie os bilhetes de apoio do Office 365. |
 
 ### <a name="conditional-access-administrator-permissions"></a>Permissões do Administrador de Acesso Condicional
@@ -1755,8 +1762,31 @@ As seguintes funções não devem ser utilizadas. Foram depreciados e serão rem
 * Administrador de caixa de correio
 * Dispositivo de local de trabalho Aderir
 
+## <a name="roles-not-shown-in-the-portal"></a>Papéis não mostrados no portal
+
+Nem todas as funções devolvidas pela PowerShell ou mS Graph API são visíveis no portal Azure. A tabela seguinte organiza essas diferenças.
+
+Nome API | Nome do portal Azure | Notas
+-------- | ------------------- | -------------
+Administrador da Empresa | Administrador Global | [Nome alterado para uma melhor clareza](directory-assign-admin-roles.md#role-template-ids)
+Administrador de serviço crm | Administrador da Dinâmica 365 | [Reflete a marca atual do produto](directory-assign-admin-roles.md#role-template-ids)
+Aderamento do dispositivo | Preterido | [Documentação de papéis depreciados](directory-assign-admin-roles.md#deprecated-roles)
+Gestores de Dispositivos | Preterido | [Documentação de papéis depreciados](directory-assign-admin-roles.md#deprecated-roles)
+Utilizadores de dispositivos | Preterido | [Documentação de papéis depreciados](directory-assign-admin-roles.md#deprecated-roles)
+Contas de Sincronização de Diretório | Não mostrado porque não deve ser usado | [Documentação das Contas de Sincronização do Diretório](directory-assign-admin-roles.md#directory-synchronization-accounts)
+Escritores de Diretório | Não mostrado porque não deve ser usado | [Documentação de Escritores de Diretório](directory-assign-admin-roles.md#directory-writers)
+Utilizador Convidado | Não mostrado porque não pode ser usado  | ND
+Administrador de Serviço Lync | Administrador do Skype para Empresas | [Reflete a marca atual do produto](directory-assign-admin-roles.md#role-template-ids)
+Suporte de nível 1 do parceiro | Não mostrado porque não deve ser usado | [Documentação de suporte de nível 1 do parceiro](directory-assign-admin-roles.md#partner-tier1-support)
+Suporte de nível parceiro 2 | Não mostrado porque não deve ser usado | [Documentação de suporte de nível parceiro2](directory-assign-admin-roles.md#partner-tier2-support)
+Administrador de impressora | Trabalho em curso | Trabalho em curso
+Técnico de impressora | Trabalho em curso | Trabalho em curso
+Utilizador de hóspedes restrito | Não mostrado porque não pode ser usado | ND
+Utilizador | Não mostrado porque não pode ser usado | ND
+Dispositivo de local de trabalho Aderir | Preterido | [Documentação de papéis depreciados](directory-assign-admin-roles.md#deprecated-roles)
+
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição Do Azure, consulte [Gerir o acesso utilizando o RBAC e o portal Azure](../../role-based-access-control/role-assignments-portal.md)
-* Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory está relacionado com a sua subscrição do Azure, veja [Como as subscrições do Azure estão associadas ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

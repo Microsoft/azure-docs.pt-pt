@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471834"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878039"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Ativar o protocolo HTTPS no domínio personalizado.
 > - Utilizar um certificado gerido por AFD 
-> - Utilizar o seu próprio certificado, ou seja, um certificado SSL personalizado
+> - Use o seu próprio certificado, isto é, um certificado personalizado TLS/SSL
 > - Validar o domínio
 > - Desativar o protocolo HTTPS no seu domínio personalizado
 
@@ -48,9 +48,9 @@ Neste tutorial, ficará a saber como:
 
 Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Door com, pelo menos, um domínio personalizado carregado. Para obter mais informações, veja [Tutorial: Adicionar um domínio personalizado ao Front Door](front-door-custom-domain.md).
 
-## <a name="ssl-certificates"></a>Certificados SSL
+## <a name="tlsssl-certificates"></a>Certificados TLS/SSL
 
-Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado do Front Door, tem de utilizar um certificado SSL. Pode optar por utilizar um certificado que seja gerido pela Porta Frontal Azure ou utilizar o seu próprio certificado.
+Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado porta frontal, deve utilizar um certificado TLS/SSL. Pode optar por utilizar um certificado que seja gerido pela Porta Frontal Azure ou utilizar o seu próprio certificado.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (predefinição): utilizar um certificado gerido pelo Front Door
@@ -72,7 +72,7 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
 ### <a name="option-2-use-your-own-certificate"></a>Opção 2: utilizar o seu próprio certificado
 
-Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. A Porta Frontal Azure utiliza este mecanismo seguro para obter o seu certificado e requer alguns passos adicionais. Ao criar o certificado SSL, tem de criá-lo com uma autoridade de certificação permitida (AC). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de CA permitidos, consulte as autoridades de [certificados permitidas para ativar https personalizado na Porta da Frente Azure](front-door-troubleshoot-allowed-ca.md).
+Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. A Porta Frontal Azure utiliza este mecanismo seguro para obter o seu certificado e requer alguns passos adicionais. Quando criar o seu certificado TLS/SSL, deve criá-lo com uma autoridade de certificado permitido (CA). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de CA permitidos, consulte as autoridades de [certificados permitidas para ativar https personalizado na Porta da Frente Azure](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
@@ -84,7 +84,7 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na conta do Azure Key Vault ou pode criar um novo diretamente através do Azure Key Vault a partir de uma das CAs do parceiro com o qual o Azure Key Vault está integrado. Faça upload do seu certificado como objeto de **certificado,** em vez de um **segredo.**
 
 > [!NOTE]
-> Para o seu próprio certificado SSL, a Porta Frontal não suporta certificados com algoritmos de criptografia CE.
+> Para o seu próprio certificado TLS/SSL, a Porta Frontal não suporta certificados com algoritmos de criptografia EC.
 
 #### <a name="register-azure-front-door"></a>Registre porta da frente azure
 
@@ -260,7 +260,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
 4. *A utilização de um certificado SAN é mais insegura do que um certificado dedicado?*
     
-    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados SSL emitidos utilizam SHA-256 para proporcionar mais segurança ao servidor.
+    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados TLS/SSL emitidos usam SHA-256 para reforçar a segurança do servidor.
 
 5. *Preciso de um registo Autorização de Autoridade de Certificação junto do meu fornecedor de DNS?*
 

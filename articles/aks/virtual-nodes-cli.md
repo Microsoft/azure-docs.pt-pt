@@ -1,15 +1,16 @@
 ---
-title: Crie nós virtuais utilizando o Azure CLI em Serviços Azure Kubernetes (AKS)
+title: Crie nódosos virtuais usando o Azure CLI
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar o Azure CLI para criar um cluster Azure Kubernetes Services (AKS) que usa nós virtuais para executar cápsulas.
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b6d44ceb9b447d670c4e51c951b547e90dfce38f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616470"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984679"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Crie e configure um cluster Azure Kubernetes Services (AKS) para utilizar nós virtuais usando o Azure CLI
 
@@ -66,7 +67,7 @@ A funcionalidade Nós virtuais está fortemente dependente do conjunto de funcio
 * [Pseudónimos hospedeiros](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivo no ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vai implantar cápsulas para o nó virtual
-* Os [nós do Windows Server (atualmente em pré-visualização no AKS)](windows-container-cli.md) não são suportados ao lado de nós virtuais. Pode utilizar nós virtuais para agendar os recipientes do Windows Server sem a necessidade de nós do Windows Server num cluster AKS.
+* Os nódos os nódosos virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de código aberto para agendar os recipientes do Windows Server para a ACI. 
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 

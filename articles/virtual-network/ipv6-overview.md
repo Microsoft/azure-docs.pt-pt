@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 887f9e100a60561271a4c15777e7131ea1f1f722
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631438"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984015"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>O que é iPv6 para rede virtual Azure?
 
@@ -73,7 +73,7 @@ O IPv6 para o Azure VNET é um conjunto de funcionalidades fundamentais que perm
 
 ## <a name="limitations"></a>Limitações
 O atual IPv6 para o lançamento da rede virtual Azure tem as seguintes limitações:
-- O IPv6 para a rede virtual Azure está disponível em todas as regiões globais da Azure Commercial utilizando todos os métodos de implantação.  A implantação na nuvem do Governo dos EUA está temporariamente limitada ao modelo ARM (JSON), Interface de Linha de Comando (CLI) e Powershell.  O apoio do IPv6 no portal de nuvem do Governo dos EUA será útil em breve.  
+- O IPv6 para a rede virtual Azure está disponível em todas as regiões globais da Azure Commercial utilizando todos os métodos de implantação.  A implantação na nuvem do Governo dos EUA está temporariamente limitada ao modelo ARM (JSON), Interface de Linha de Comando (CLI) e Powershell.  O apoio do IPv6 no portal de nuvem do Governo dos EUA estará disponível em breve.  
 - Os gateways ExpressRoute PODEM ser utilizados para tráfego apenas iPv4 num VNET com IPv6 ativado.  O apoio ao tráfego IPv6 está no nosso roteiro.   
 - Os gateways VPN NÃO PODEM SER utilizados num VNET com iPv6 ativado, diretamente ou empares com "UseRemoteGateway".
 - A plataforma Azure (AKS, etc.) não suporta a comunicação IPv6 para contentores.  
