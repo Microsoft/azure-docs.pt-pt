@@ -233,6 +233,24 @@
         - name: Limitações de contentor
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Serviços relacionados
+      items:
+        - name: Azure Bot Service
+          href: 'https://dev.botframework.com/'
+        - name: 'Bot Builder 4.x SDK C#'
+          href: 'https://github.com/Microsoft/botbuilder-dotnet'
+        - name: QnA maker
+          href: 'https://qnamaker.ai/'
+        - name: API de Voz do Bing
+          href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+        - name: API de Verificação Ortográfica do Bing
+          href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+        - name: Análise de Texto
+          href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+        - name: Reconhecedores de Texto
+          href: 'https://github.com/Microsoft/Recognizers-Text'
+        - name: Quiosque Inteligente
+          href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Referência
   items:
     - name: Referência para programadores
@@ -370,24 +388,6 @@
       href: reference-pattern-syntax.md
     - name: Sentimento
       href: luis-reference-prebuilt-sentiment.md
-- name: Relacionado
-  items:
-    - name: Azure Bot Service
-      href: 'https://dev.botframework.com/'
-    - name: 'Bot Builder 4.x SDK C#'
-      href: 'https://github.com/Microsoft/botbuilder-dotnet'
-    - name: QnA maker
-      href: 'https://qnamaker.ai/'
-    - name: API de Voz do Bing
-      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
-    - name: API de Verificação Ortográfica do Bing
-      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-    - name: Análise de Texto
-      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
-    - name: Reconhecedores de Texto
-      href: 'https://github.com/Microsoft/Recognizers-Text'
-    - name: Quiosque Inteligente
-      href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Recursos
   items:
     - name: Exemplos de código

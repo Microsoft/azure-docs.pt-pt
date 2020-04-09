@@ -22,8 +22,6 @@
           href: functions-create-your-first-function-visual-studio.md
         - name: Linha de comandos
           href: functions-create-first-azure-function-azure-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-create-first-java-maven.md
     - name: Ligar ao armazenamento
       items:
         - name: Visual Studio Code
@@ -32,8 +30,6 @@
           href: functions-add-output-binding-storage-queue-vs.md
         - name: Linha de comandos
           href: functions-add-output-binding-storage-queue-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-add-output-binding-storage-queue-java.md
 - name: Tutoriais
   items:
     - name: Funções com Aplicações Lógicas
@@ -175,10 +171,16 @@
                   href: create-visual-studio.md
                 - name: Visual Studio Code
                   href: create-visual-studio-code.md
+                - name: Java com o Gradle
+                  href: functions-create-first-java-gradle.md
                 - name: Java com o Eclipse
                   href: functions-create-maven-eclipse.md
                 - name: Java com o IntelliJ IDEA
                   href: functions-create-maven-intellij.md
+                - name: Kotlin com o Maven
+                  href: functions-create-first-kotlin-maven.md
+                - name: Kotlin com o IntelliJ
+                  href: functions-create-maven-kotlin-intellij.md
                 - name: Plano do Serviço de Aplicações do Linux
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plano de Consumo em Linux
@@ -205,6 +207,8 @@
               href: add-output-binding-storage-queue-vs-code.md
             - name: Armazenamento - Visual Studio
               href: add-output-binding-storage-queue-vs.md
+            - name: Armazenamento - Java
+              href: functions-add-output-binding-storage-queue-java.md
         - name: Depurar e testar
           items:
             - name: Testar funções

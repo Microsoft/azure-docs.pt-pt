@@ -12,12 +12,12 @@ metadata:
   author: julieMSFT
   ms.author: jrasnick
   ms.date: 10/03/2019
-  ms.openlocfilehash: 498c507c6a72020e30f1e96a23a58017ca14280a
-  ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+  ms.openlocfilehash: e8fc0a0b66b72ecf23ef89952f4151eb25153470
+  ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/03/2020
-  ms.locfileid: "80632493"
+  ms.lasthandoff: 04/08/2020
+  ms.locfileid: "80877428"
 landingContent:
 - title: Acerca do Azure Synapse Analytics
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     - text: Sugestões e melhores práticas
       url: cheat-sheet.md
     - text: Arquitetura de Referência
-      url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+      url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 - title: Introdução
   linkLists:
   - linkListType: deploy

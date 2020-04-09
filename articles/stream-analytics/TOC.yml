@@ -39,6 +39,8 @@
       href: streaming-technologies.md
     - name: Escolher uma ferramenta de desenvolvimento de tarefa
       href: feature-comparison.md
+    - name: Programar localmente
+      href: develop-locally.md
     - name: Tipos de entrada para uma tarefa
       items:
         - name: Descrição geral de entradas
