@@ -1,19 +1,19 @@
 ---
 title: Quickstart - Crie um conjunto de máquinas virtuais windows com um modelo Azure
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais Windows com um modelo do Azure Resource Manager que implementa uma aplicação de exemplo e configura regras de dimensionamento automático
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 03/27/2020
-ms.author: cynthn
-ms.openlocfilehash: 89d82a140a55c9409ff0cc2dbf30e884a7431ca6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: jushiman
+ms.openlocfilehash: 030479a02b33a92c3917ba112d99c9bcef4f7f32
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411397"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010448"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: criar um conjunto de dimensionamento de máquinas virtuais Windows com um modelo do Azure
 

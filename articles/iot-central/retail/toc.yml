@@ -3,45 +3,45 @@
 - name: Descrição geral
   items:
     - name: Criar soluções para o comércio com o Azure IoT Central
-      href: overview-iot-central-retail-pnp.md
+      href: overview-iot-central-retail.md
 - name: Tutoriais
   items:
     - name: Finalização da compra de análises na loja
       items:
         - name: 1 – Criar uma aplicação para comércio
-          href: tutorial-in-store-analytics-create-app-pnp.md
+          href: tutorial-in-store-analytics-create-app.md
         - name: 2 – Personalizar o dashboard do operador
-          href: tutorial-in-store-analytics-customize-dashboard-pnp.md
+          href: tutorial-in-store-analytics-customize-dashboard.md
         - name: 3 – Exportar dados e visualizar informações
-          href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+          href: tutorial-in-store-analytics-export-data-visualize-insights.md
     - name: Gestão de inventário inteligente
       items:
         - name: Criar uma aplicação de gestão de inventário inteligente
-          href: tutorial-iot-central-smart-inventory-management-pnp.md
+          href: tutorial-iot-central-smart-inventory-management.md
     - name: Logística associada
       items:
         - name: Criar uma aplicação de logística associada
-          href: tutorial-iot-central-connected-logistics-pnp.md
+          href: tutorial-iot-central-connected-logistics.md
     - name: Centro de distribuição digital
       items:
         - name: Criar uma aplicação de centro de distribuição digital
-          href: tutorial-iot-central-digital-distribution-center-pnp.md
+          href: tutorial-iot-central-digital-distribution-center.md
     - name: Centro do micro-cumprimento
       items:
         - name: Criar uma aplicação do centro do micro-cumprimento
-          href: tutorial-micro-fulfillment-center-pnp.md
+          href: tutorial-micro-fulfillment-center.md
 - name: Conceitos
   items:
     - name: Arquitetura do modelo de aplicação de logística associada
-      href: architecture-connected-logistics-pnp.md
+      href: architecture-connected-logistics.md
     - name: Arquitetura do modelo de aplicação de centro de distribuição digital
-      href: architecture-digital-distribution-center-pnp.md
+      href: architecture-digital-distribution-center.md
     - name: Arquitetura do modelo de aplicação de gestão de inventário inteligente
-      href: architecture-smart-inventory-management-pnp.md
+      href: architecture-smart-inventory-management.md
     - name: Arquitetura de análises da loja
       href: store-analytics-architecture.md
     - name: Arquitetura do modelo de aplicação de centro de microconclusão
-      href: architecture-micro-fulfillment-center-pnp.md
+      href: architecture-micro-fulfillment-center.md
     - name: Conectividade
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: O que são modelos de aplicação?
@@ -104,7 +104,7 @@
           href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Personalização
       items:
-        - name: "Criar dashboards pessoais do Azure\_IoT Central"
+        - name: Criar dashboards pessoais do Azure IoT Central
           href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Gerir preferências pessoais
           href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
@@ -127,7 +127,7 @@
         - name: Aceleradores de soluções IoT
           href: /azure/iot-accelerators
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: /azure/iot
         - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights

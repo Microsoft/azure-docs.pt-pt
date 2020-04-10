@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022125"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999024"
 ---
 # <a name="in-store-analytics-architecture"></a>Arquitetura de análise na loja
 
@@ -48,10 +48,10 @@ A aplicação Azure IoT Central ingere dados de diferentes tipos de sensores IoT
 A Azure IoT Central também oferece uma experiência personalizada ao operador da loja, permitindo-lhes monitorizar e gerir remotamente os dispositivos de infraestrutura.
 
 ## <a name="data-transform"></a>Transformação de dados
-A aplicação Azure IoT Central dentro de uma solução pode ser configurada para exportar insights brutos ou agregados para um conjunto de serviços Azure PaaS (Plataforma-as-a-a Service) que podem realizar manipulação de dados e enriquecer esses insights antes de os aterrar numa empresa aplicação. 
+A aplicação Azure IoT Central dentro de uma solução pode ser configurada para exportar insights brutos ou agregados para um conjunto de serviços Azure PaaS (Plataforma-as-a-a Service) que podem realizar manipulação de dados e enriquecer esses insights antes de os aterrar numa aplicação de negócio. 
 
 ## <a name="business-application"></a>Aplicação de negócios
-Os dados do IoT podem ser utilizados para alimentar diferentes tipos de aplicações empresariais implantadas num ambiente de retalho. Um gerente de loja de retalho ou membro do staff pode usar estas aplicações para visualizar insights de negócio e tomar ações significativas em tempo real. Para aprender a construir um dashboard Power BI em tempo real para a sua equipa de retalho, siga o [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+Os dados do IoT podem ser utilizados para alimentar diferentes tipos de aplicações empresariais implantadas num ambiente de retalho. Um gerente de loja de retalho ou membro do staff pode usar estas aplicações para visualizar insights de negócio e tomar ações significativas em tempo real. Para aprender a construir um dashboard Power BI em tempo real para a sua equipa de retalho, siga o [tutorial](./tutorial-in-store-analytics-create-app.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 * Inicie-se com os modelos de aplicação de [monitorização](https://aka.ms/checkouttemplate) de condições de análise na loja e na [loja.](https://aka.ms/conditiontemplate) 

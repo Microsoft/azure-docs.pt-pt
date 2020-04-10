@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: d69a761df8066b4a84312c0c3ae8be5a79490960
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0ed32a4c1272c23c9500b35e05c383eac6dea185
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77169459"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998954"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -62,4 +62,4 @@ Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplica
 Neste início rápido, criou uma aplicação do IoT Central. O passo seguinte sugerido é:
 
 > [!div class="nextstepaction"]
-> [Adicione um dispositivo simulado à sua aplicação IoT Central](./quick-create-pnp-device.md)
+> [Adicione um dispositivo simulado à sua aplicação IoT Central](./quick-create-simulated-device.md)

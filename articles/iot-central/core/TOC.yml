@@ -12,7 +12,7 @@
     - name: 1. Criar uma nova aplicação
       href: quick-deploy-iot-central.md
     - name: 2. Adicionar um dispositivo simulado
-      href: quick-create-pnp-device.md
+      href: quick-create-simulated-device.md
     - name: 3. Configurar regras e ações
       href: quick-configure-rules.md
     - name: 4. Monitorizar os dispositivos

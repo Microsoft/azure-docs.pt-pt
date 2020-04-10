@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação discurso-texto
+title: Documentação da conversão de voz em texto
 summary: O discurso a texto do serviço speech, também conhecido como reconhecimento da fala, permite a transcrição em tempo real e lote de streams de áudio em texto.
 metadata:
   title: Documentação fala-a-texto - Tutoriais, Referência API - Serviços Cognitivos Azure [ Microsoft Docs
@@ -11,22 +11,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: dd42fd57d8daa00d5507405a0d5e3145b335de84
-  ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+  ms.openlocfilehash: 28bd088965364411f7943f5bf50b5d245c49668e
+  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/30/2020
-  ms.locfileid: "80397778"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80991369"
 landingContent:
 - title: Sobre o discurso-a-texto
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é discurso em tempo real?
+    - text: O que é a conversão de voz em texto em tempo real?
       url: speech-to-text.md
-    - text: O que é o lote de discurso a texto?
+    - text: O que é a conversão de voz em texto em lote?
       url: batch-transcription.md
-    - text: Básicos de reconhecimento da fala?
+    - text: Noções básicas do reconhecimento de voz
       url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
@@ -44,7 +44,7 @@ landingContent:
       url: how-to-choose-recognition-mode.md
     - text: Alterar o idioma de origem do reconhecimento de voz
       url: how-to-specify-source-language.md
-    - text: Melhorar a precisão com Voz Personalizada
+    - text: Melhorar a precisão com Discurso Personalizado
       url: how-to-custom-speech.md
     - text: Utilizar formatos de entrada de áudio comprimido
       url: how-to-use-codec-compressed-audio-input-streams.md
@@ -54,9 +54,9 @@ landingContent:
       url: tutorial-tenant-model.md
   - linkListType: concept
     links:
-    - text: Preparar dados para discurso personalizado
+    - text: Preparar dados para Voz Personalizada
       url: how-to-custom-speech-test-and-train.md
-    - text: Treine um modelo para discurso personalizado
+    - text: Preparar um modelo para Voz Personalizada
       url: how-to-custom-speech-train-model.md
     - text: criar transcrições humanas
       url: how-to-custom-speech-human-labeled-transcriptions.md

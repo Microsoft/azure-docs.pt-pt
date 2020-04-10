@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: e226dbf20550fc48de38882c364fe57e39a437ca
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 9469adb901c2da5f814088aa8eb59121889a0b78
+  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75429055"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80998294"
 landingContent:
 - title: Sobre o IoT Plug and Play
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
     - text: Ligar um dispositivo de exemplo ao Hub IoT
       url: quickstart-connect-pnp-device-c-windows.md
     - text: Ligar um dispositivo de exemplo ao IoT Central
-      url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../iot-central/core/tutorial-connect-pnp-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - text: Utilizar um modelo de função de dispositivo para criar um dispositivo
       url: quickstart-create-pnp-device-windows.md
   - linkListType: tutorial

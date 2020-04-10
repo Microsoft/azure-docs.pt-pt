@@ -10,33 +10,33 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 70d7924f1a7767db393faccf98d3a9250de049ec
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 14dbe360942f4645b08d161130216412c9c427f9
+  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77621418"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80998785"
 landingContent:
 - title: Criar soluções de comércio
   linkLists:
   - linkListType: get-started
     links:
     - text: Soluções de comércio para o Azure IoT Central
-      url: overview-iot-central-retail-pnp.md
+      url: overview-iot-central-retail.md
   - linkListType: tutorial
     links:
     - text: 1 – Criar uma aplicação para comércio
-      url: tutorial-in-store-analytics-create-app-pnp.md
+      url: tutorial-in-store-analytics-create-app.md
     - text: 2 – Personalizar o dashboard do operador
-      url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+      url: tutorial-in-store-analytics-customize-dashboard.md
     - text: 3 – Exportar dados e visualizar informações
-      url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+      url: tutorial-in-store-analytics-export-data-visualize-insights.md
     - text: Criar uma aplicação de gestão de inventário inteligente
-      url: tutorial-iot-central-smart-inventory-management-pnp.md
+      url: tutorial-iot-central-smart-inventory-management.md
     - text: Criar uma aplicação de logística associada
-      url: tutorial-iot-central-connected-logistics-pnp.md
+      url: tutorial-iot-central-connected-logistics.md
     - text: Criar uma aplicação de centro de distribuição digital
-      url: tutorial-iot-central-digital-distribution-center-pnp.md
+      url: tutorial-iot-central-digital-distribution-center.md
   - linkListType: how-to-guide
     links:
     - text: Ligar um Rigado Cascade 500
@@ -71,7 +71,7 @@ landingContent:
       url: ../core/howto-run-a-job.md
     - text: Analisar os dados do seu dispositivo
       url: ../core/howto-create-analytics.md
-- title: Transformar
+- title: Transformação
   linkLists:
   - linkListType: tutorial
     links:

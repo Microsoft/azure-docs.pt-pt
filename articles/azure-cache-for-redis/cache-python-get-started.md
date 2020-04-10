@@ -10,12 +10,12 @@ ms.custom:
 - mvc
 - seo-python-october2019
 ms.date: 11/05/2019
-ms.openlocfilehash: 7b05f12ad3fd3a0f56605d708bbbf06df7e341ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75433473"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010856"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Quickstart: Criar uma app Python que usa Azure Cache para Redis
 
@@ -54,7 +54,7 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> Para o Azure Cache para a versão 3.0 do Redis, a verificação de certificadoS SSL é executada. ssl_ca_certs deve ser explicitamente definido quando ligar a Azure Cache para Redis. Para o RedHat Linux, ssl_ca_certs estão no módulo de certificado */etc/pki/tls/certs/ca-bundle.crt.*
+> Para o Azure Cache para a versão 3.0 ou superior do Redis, a verificação de certificados TLS/SSL é executada. ssl_ca_certs deve ser explicitamente definido quando ligar a Azure Cache para Redis. Para o RedHat Linux, ssl_ca_certs estão no módulo de certificado */etc/pki/tls/certs/ca-bundle.crt.*
 
 ## <a name="create-a-python-sample-app"></a>Criar uma aplicação de amostra Python
 
